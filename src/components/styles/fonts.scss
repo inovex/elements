@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,500,600,700|Source+Code+Pro:400,500|Source+Sans+Pro:400,600');
+
+@mixin font-SourceSansPro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+@mixin font-Dosis {
+  font-family: 'Dosis', sans-serif;
+}
+
+@mixin font-SourceCodePro {
+  font-family: 'Source Code Pro', monospace;
+}
+
+/**
+ * Use these font mixins only
+ */
+@mixin font-SourceSansPro-Regular {
+  @include font-SourceSansPro();
+  font-weight: 400;
+}
+
+@mixin font-SourceSansPro-SemiBold {
+  @include font-SourceSansPro();
+  font-weight: 600;
+}
+
+@mixin font-Dosis-Light {
+  @include font-Dosis();
+  font-weight: 300;
+}
+
+@mixin font-Dosis-Medium {
+  @include font-Dosis();
+  font-weight: 500;
+}
+
+@mixin font-Dosis-SemiBold {
+  @include font-Dosis();
+  font-weight: 600;
+}
+
+@mixin font-Dosis-Bold {
+  @include font-Dosis();
+  font-weight: 700;
+}
+
+@mixin font-SourceCodePro-Regular {
+  @include font-SourceCodePro();
+  font-weight: 400;
+}
+
+@mixin font-SourceCodePro-Medium {
+  @include font-SourceCodePro();
+  font-weight: 500;
+}

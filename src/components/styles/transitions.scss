@@ -1,0 +1,7 @@
+@mixin transition() {
+  transition: all 150ms ease-out;
+}
+
+@mixin transition-fast() {
+  transition: all 50ms ease-out;
+}

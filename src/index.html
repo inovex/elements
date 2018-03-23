@@ -6,10 +6,29 @@
   <title>Stencil Component Starter</title>
   <script src="/build/mycomponent.js"></script>
 
+  <style>
+    body {
+      height: 100%;
+      background-color: #3F51B5;
+    }
+
+    .form {
+      padding: 30px;
+      box-shadow: 0 8px 16px 0 rgba(61,64,245,0.30), 0 16px 32px 0 rgba(61,214,245,0.14);
+      background-color: white;
+
+      max-width: 400px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <div class="form">
+    <st-input st-icon="user" st-name="email" st-placeholder="Email"></st-input>
+    <st-input st-icon="password" st-name="password" st-placeholder="Password"></st-input>
+  </div>
 
 </body>
 </html>

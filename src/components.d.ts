@@ -20,31 +20,48 @@ declare global {
 
 
 import {
-  MyComponent as MyComponent
-} from './components/my-component/my-component';
+  stInput as StInput
+} from './components/st-input/st-input';
 
 declare global {
-  interface HTMLMyComponentElement extends MyComponent, HTMLStencilElement {
+  interface HTMLStInputElement extends StInput, HTMLStencilElement {
   }
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  var HTMLStInputElement: {
+    prototype: HTMLStInputElement;
+    new (): HTMLStInputElement;
   };
   interface HTMLElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "st-input": HTMLStInputElement;
   }
   interface ElementTagNameMap {
-    "my-component": HTMLMyComponentElement;
+    "st-input": HTMLStInputElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "my-component": JSXElements.MyComponentAttributes;
+      "st-input": JSXElements.StInputAttributes;
     }
   }
   namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      first?: string;
-      last?: string;
+    export interface StInputAttributes extends HTMLAttributes {
+      stAccesskey?: string;
+      stAutocomplete?: string;
+      stAutofocus?: boolean;
+      stDisabled?: boolean;
+      stForm?: string;
+      stHasError?: boolean;
+      stHelperText?: string;
+      stIcon?: string;
+      stMaxLength?: number;
+      stMaxRows?: number;
+      stMultiline?: boolean;
+      stName?: string;
+      stPlaceholder?: string;
+      stRows?: number;
+      stShowCounter?: boolean;
+      stSpellcheck?: boolean;
+      stTabindex?: number;
+      stType?: string;
+      stValue?: string;
     }
   }
 }
