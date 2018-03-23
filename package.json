@@ -1,14 +1,17 @@
 {
-  "name": "my-component",
+  "name": "st-components",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
-  "main": "dist/mycomponent.js",
+  "description": "This is the home of the stencil UI components.",
+  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/stencil-components.git",
+  "author": "Patrick Hillert <phillert@inovex.de>",
+  "license": "UNLICENSED",
+  "main": "dist/components.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
-  "browser": "dist/mycomponent.js",
+  "browser": "dist/components.js",
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
@@ -18,7 +21,7 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/core": "^0.6.18"
+    "@stencil/core": "0.7.2"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",
@@ -27,16 +30,6 @@
     "@types/jest": "^21.1.1",
     "jest": "^21.2.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-component-starter.git"
-  },
-  "author": "Ionic Team",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
-  },
-  "homepage": "https://github.com/ionic-team/stencil",
   "jest": {
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"

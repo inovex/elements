@@ -1,9 +1,11 @@
 const sass = require('@stencil/sass');
 
 exports.config = {
-  namespace: 'mycomponent',
-  generateDistribution: true,
-  serviceWorker: false,
+  namespace: 'components',
+  outputTargets: [
+    { type: 'www' },
+    { type: 'dist' }
+  ],
   plugins: [
     sass()
   ]
