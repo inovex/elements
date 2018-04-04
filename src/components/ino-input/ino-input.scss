@@ -1,18 +1,20 @@
-:host {
-  input {
-    // width: 100%;
-    padding: 0.5em 1em;
-    background: white;
-    border: 1px solid #c1c1c1;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+@import '../styles/fonts.scss';
 
-    &:focus {
-      border: 1px solid #999
-      // caret-color: #3D40F5;
-    } 
+input {
+  @include font-SourceSansPro-Regular();
+  font-size: 14px;
 
-    &:disabled {
-      background: #eee
-    }
+  padding: 0.5em 1em;
+  background: white;
+  border: 1px solid #c1c1c1;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+  &:focus {
+    outline: 0;
+    border: 1px solid #999;
+  } 
+
+  &:disabled {
+    background: #eee
   }
 }
