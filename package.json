@@ -1,17 +1,17 @@
 {
-  "name": "st-components",
+  "name": "stencil-components",
   "version": "0.0.1",
   "description": "This is the home of the stencil UI components.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/stencil-components.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "license": "UNLICENSED",
-  "main": "dist/components.js",
+  "main": "dist/stencil-components.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
-  "browser": "dist/components.js",
+  "browser": "dist/stencil-components.js",
   "scripts": {
     "build": "stencil build",
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
