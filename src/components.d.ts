@@ -3,6 +3,9 @@
  * It contains typing information for all components that exist in this project
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
+
+import '@stencil/core';
+
 declare global {
   namespace JSX {
     interface Element {}
@@ -21,49 +24,119 @@ declare global {
 }
 
 
-import {
-  stInput as StInput
-} from './components/st-input/st-input';
+declare global {
+  interface HTMLInoInputElement extends HTMLStencilElement {
+    'accesskey': string;
+    'autocomplete': string;
+    'autofocus': boolean;
+    'disabled': boolean;
+    'max': string;
+    'min': string;
+    'name': string;
+    'pattern': string;
+    'placeholder': string;
+    'required': boolean;
+    'size': number;
+    'tabindex': string;
+    'type': string;
+    'value': string;
+  }
+  var HTMLInoInputElement: {
+    prototype: HTMLInoInputElement;
+    new (): HTMLInoInputElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-input': HTMLInoInputElement;
+  }
+  interface ElementTagNameMap {
+    'ino-input': HTMLInoInputElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-input': JSXElements.InoInputAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoInputAttributes extends HTMLAttributes {
+      'accesskey'?: string;
+      'autocomplete'?: string;
+      'autofocus'?: boolean;
+      'disabled'?: boolean;
+      'max'?: string;
+      'min'?: string;
+      'name'?: string;
+      'onChange'?: (event: CustomEvent) => void;
+      'pattern'?: string;
+      'placeholder'?: string;
+      'required'?: boolean;
+      'size'?: number;
+      'tabindex'?: string;
+      'type'?: string;
+      'value'?: string;
+    }
+  }
+}
+
 
 declare global {
-  interface HTMLStInputElement extends StInput, HTMLStencilElement {
+  interface HTMLStInputElement extends HTMLStencilElement {
+    'stAccesskey': string;
+    'stAutocomplete': string;
+    'stAutofocus': boolean;
+    'stDisabled': boolean;
+    'stForm': string;
+    'stHasError': boolean;
+    'stHelperText': string;
+    'stIcon': string;
+    'stMaxLength': number;
+    'stMaxRows': number;
+    'stMultiline': boolean;
+    'stName': string;
+    'stPlaceholder': string;
+    'stRows': number;
+    'stShowCounter': boolean;
+    'stSpellcheck': boolean;
+    'stTabindex': number;
+    'stType': string;
+    'stValue': string;
   }
   var HTMLStInputElement: {
     prototype: HTMLStInputElement;
     new (): HTMLStInputElement;
   };
   interface HTMLElementTagNameMap {
-    "st-input": HTMLStInputElement;
+    'st-input': HTMLStInputElement;
   }
   interface ElementTagNameMap {
-    "st-input": HTMLStInputElement;
+    'st-input': HTMLStInputElement;
   }
   namespace JSX {
     interface IntrinsicElements {
-      "st-input": JSXElements.StInputAttributes;
+      'st-input': JSXElements.StInputAttributes;
     }
   }
   namespace JSXElements {
     export interface StInputAttributes extends HTMLAttributes {
-      stAccesskey?: string;
-      stAutocomplete?: string;
-      stAutofocus?: boolean;
-      stDisabled?: boolean;
-      stForm?: string;
-      stHasError?: boolean;
-      stHelperText?: string;
-      stIcon?: string;
-      stMaxLength?: number;
-      stMaxRows?: number;
-      stMultiline?: boolean;
-      stName?: string;
-      stPlaceholder?: string;
-      stRows?: number;
-      stShowCounter?: boolean;
-      stSpellcheck?: boolean;
-      stTabindex?: number;
-      stType?: string;
-      stValue?: string;
+      'onChange'?: (event: CustomEvent) => void;
+      'stAccesskey'?: string;
+      'stAutocomplete'?: string;
+      'stAutofocus'?: boolean;
+      'stDisabled'?: boolean;
+      'stForm'?: string;
+      'stHasError'?: boolean;
+      'stHelperText'?: string;
+      'stIcon'?: string;
+      'stMaxLength'?: number;
+      'stMaxRows'?: number;
+      'stMultiline'?: boolean;
+      'stName'?: string;
+      'stPlaceholder'?: string;
+      'stRows'?: number;
+      'stShowCounter'?: boolean;
+      'stSpellcheck'?: boolean;
+      'stTabindex'?: number;
+      'stType'?: string;
+      'stValue'?: string;
     }
   }
 }

@@ -1,0 +1,18 @@
+:host {
+  input {
+    // width: 100%;
+    padding: 0.5em 1em;
+    background: white;
+    border: 1px solid #c1c1c1;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+    &:focus {
+      border: 1px solid #999
+      // caret-color: #3D40F5;
+    } 
+
+    &:disabled {
+      background: #eee
+    }
+  }
+}
