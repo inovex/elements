@@ -25,6 +25,34 @@ declare global {
 
 
 declare global {
+  interface HTMLInoIconElement extends HTMLStencilElement {
+    'icon': string;
+  }
+  var HTMLInoIconElement: {
+    prototype: HTMLInoIconElement;
+    new (): HTMLInoIconElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-icon': HTMLInoIconElement;
+  }
+  interface ElementTagNameMap {
+    'ino-icon': HTMLInoIconElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-icon': JSXElements.InoIconAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoIconAttributes extends HTMLAttributes {
+      'icon'?: string;
+      'onChange'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLInoInputElement extends HTMLStencilElement {
     'accesskey': string;
     'autocomplete': string;

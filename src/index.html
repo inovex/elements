@@ -10,6 +10,7 @@
     body {
       height: 100%;
       background-color: #3F51B5;
+      font-family: 'Arial', sans-serif;
     }
 
     .form {
@@ -25,8 +26,30 @@
 
     .ino-elements {
       background: white;
-      margin-top: 25px;
+      margin-top: 12px;
       padding: 20px;
+    }
+
+    .element {
+      margin-top: 24px;
+      padding: 12px;
+      border: 1px solid #CCC;
+    }
+    
+    .element:first-child {
+      margin-top: 0;
+    }
+
+    .element h1 {
+      font-size: 30px;
+      margin: 0 0 12px 0;
+      padding: 6px 0;
+      border-bottom: 1px solid #CCC;
+    }
+
+    .customized-icon {
+      font-size: 50px;
+      color: red;
     }
 
     label {
@@ -35,17 +58,25 @@
   </style>
 </head>
 <body>
+  <div class="ino-elements">
+    <div class="element">
+      <h1>Input Field</h1>
+      <ino-input type="text" placeholder="Placeholder"></ino-input>
+      <ino-input type="text" disabled placeholder="Disabled"></ino-input>
+    </div>
+    <div class="element">
+      <h1>Icon Element</h1>
+      <h2>H2 Überschrift <ino-icon icon="user"></ino-icon></h2>
+      <p>Colored Paragraph <ino-icon icon="info"></ino-icon></p>
+      <p style="color:blue;">Paragraph <ino-icon icon="equalizer"></ino-icon></p>
+      <p>Customized size and color <ino-icon class="customized-icon" icon="search"></ino-icon></p>
+    </div>
+  </div>
+
 
   <div class="form">
-    <st-input st-icon="user" st-name="email" st-placeholder="Email"></st-input>
-    <st-input st-icon="password" st-name="password" st-placeholder="Password"></st-input>
-  </div>
-
-
-  <div class="ino-elements">
-    <h3>Inovex Elements</h3>
-    <label>Input Field:</label>
-    <ino-input type="text" placeholder="Testeingabe..."></ino-input>
-  </div>
+      <st-input st-icon="user" st-name="email" st-placeholder="Email"></st-input>
+      <st-input st-icon="password" st-name="password" st-placeholder="Password"></st-input>
+    </div>
 </body>
 </html>
