@@ -21,7 +21,7 @@ export class Input {
   @Prop() size: number;
   @Prop() tabindex: string;
   @Prop() type: string = 'text';
-  @Prop() value: string;
+  @Prop({ mutable: true }) value: string;
 
   //
   // Public events
@@ -29,6 +29,8 @@ export class Input {
   @Event() change: EventEmitter;
   private handleKeyUp(e :any) {
     e.preventDefault();
+
+    this.value = e.target.value;
     this.change.emit(this.value);
   }
   

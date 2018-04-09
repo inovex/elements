@@ -1,8 +1,16 @@
 @import '../styles/fonts.scss';
 
+:host {
+  display: flex;
+  font-size: 12px;
+}
+
 input {
   @include font-SourceSansPro-Regular();
-  font-size: 14px;
+  position: relative;
+  
+  width: 100%;
+  font-size: inherit;
 
   padding: 0.5em 1em;
   background: white;
