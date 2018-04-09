@@ -1,0 +1,41 @@
+:host {
+  font-size: 11px;
+}
+
+button {
+  padding: 0.75em;
+  margin: 0;
+
+  color: #ffffff;
+  font-size: inherit;
+  background: #003c7d;
+
+  &:hover, &:active, &:focus {
+    background: #0079ff;
+  }
+
+  &:disabled {
+    background: #d2d2d2;
+  }
+}
+
+button.secondary {
+  color: #003c7d;
+  background: #fff;
+  
+  &:hover, &:active, &:focus {
+    background: #0079ff;
+  }
+
+  &:disabled {
+    background: #d2d2d2;
+  }
+}
+
+.icon-left {
+  margin-right: 0.75em;
+}
+
+.icon-right {
+  margin-left: 0.75em;
+}

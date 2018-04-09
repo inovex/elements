@@ -25,6 +25,48 @@ declare global {
 
 
 declare global {
+  interface HTMLInoButtonElement extends HTMLStencilElement {
+    'autofocus': boolean;
+    'disabled': boolean;
+    'form': string;
+    'iconLeft': string;
+    'iconRight': string;
+    'name': string;
+    'secondary': boolean;
+    'type': string;
+  }
+  var HTMLInoButtonElement: {
+    prototype: HTMLInoButtonElement;
+    new (): HTMLInoButtonElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-button': HTMLInoButtonElement;
+  }
+  interface ElementTagNameMap {
+    'ino-button': HTMLInoButtonElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-button': JSXElements.InoButtonAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoButtonAttributes extends HTMLAttributes {
+      'autofocus'?: boolean;
+      'disabled'?: boolean;
+      'form'?: string;
+      'iconLeft'?: string;
+      'iconRight'?: string;
+      'name'?: string;
+      'onInoClick'?: (event: CustomEvent) => void;
+      'secondary'?: boolean;
+      'type'?: string;
+    }
+  }
+}
+
+
+declare global {
   interface HTMLInoIconElement extends HTMLStencilElement {
     'icon': string;
   }

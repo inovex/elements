@@ -71,6 +71,56 @@
       <p style="color:blue;">Paragraph <ino-icon icon="equalizer"></ino-icon></p>
       <p>Customized size and color <ino-icon class="customized-icon" icon="search"></ino-icon></p>
     </div>
+
+    <div class="element">
+      <h1>Button Element</h1>
+      <p>
+        <ino-button>Simple primary button</ino-button>
+        <ino-button disabled>Disabled button</ino-button>
+        <ino-button icon-left="equalizer">Button Icon left</ino-button>
+        <ino-button icon-right="search">Secondary button icon right</ino-button>
+      </p>
+      <p>
+        <ino-button secondary>Secondary button</ino-button>
+        <ino-button secondary disabled>Secondary disabled button</ino-button>
+        <ino-button secondary icon-left="equalizer">Secondary button Icon left</ino-button>
+        <ino-button secondary icon-right="search">Secondary button icon right</ino-button>
+      </p>
+      <p>
+        <ino-button>Complex Button text (TODO)</ino-button>
+      </p>
+      <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
+      
+      <p>
+        <ino-button autofocus>Autofocused button</ino-button>
+      </p>
+
+      <p>
+        <ino-button id="click-button">Button with on-click handler</ino-button>
+        <script>
+          document.querySelector('#click-button')
+            .addEventListener('inoClick',_ => alert('inoClick triggered'));
+        </script>
+      </p>
+
+      <p>
+        <form>
+          <ino-button type="submit">Type submit in form should submit the parent form</ino-button>
+          <ino-button disabled>Disabled button in form should do nothing</ino-button>
+        </form>
+      </p>
+      <p>
+        <form>
+          <input placeholder="Test-Input (not no-input)">
+          <ino-button type="reset">Button should reset form values</ino-button>
+        </form>
+      </p>
+      <p>
+        <form id="form1">
+        </form>
+        <ino-button type="submit" form="form1">Button with form attribute</ino-button>
+      </p>
+    </div>
   </div>
 
 
