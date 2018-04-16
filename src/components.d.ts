@@ -25,16 +25,22 @@ declare global {
 
 
 declare global {
-  interface HTMLInoButtonElement extends HTMLStencilElement {
-    'autofocus': boolean;
-    'disabled': boolean;
-    'form': string;
-    'inoIconLeft': string;
-    'inoIconRight': string;
-    'inoSecondary': boolean;
-    'name': string;
-    'type': string;
+
+  namespace StencilComponents {
+    interface InoButton {
+      'autofocus': boolean;
+      'disabled': boolean;
+      'form': string;
+      'inoIconLeft': string;
+      'inoIconRight': string;
+      'inoSecondary': boolean;
+      'name': string;
+      'type': string;
+    }
   }
+
+  interface HTMLInoButtonElement extends StencilComponents.InoButton, HTMLStencilElement {}
+
   var HTMLInoButtonElement: {
     prototype: HTMLInoButtonElement;
     new (): HTMLInoButtonElement;
@@ -66,9 +72,15 @@ declare global {
 
 
 declare global {
-  interface HTMLInoIconElement extends HTMLStencilElement {
-    'inoIcon': string;
+
+  namespace StencilComponents {
+    interface InoIcon {
+      'inoIcon': string;
+    }
   }
+
+  interface HTMLInoIconElement extends StencilComponents.InoIcon, HTMLStencilElement {}
+
   var HTMLInoIconElement: {
     prototype: HTMLInoIconElement;
     new (): HTMLInoIconElement;
@@ -93,22 +105,28 @@ declare global {
 
 
 declare global {
-  interface HTMLInoInputElement extends HTMLStencilElement {
-    'accesskey': string;
-    'autocomplete': string;
-    'autofocus': boolean;
-    'disabled': boolean;
-    'max': string;
-    'min': string;
-    'name': string;
-    'pattern': string;
-    'placeholder': string;
-    'required': boolean;
-    'size': number;
-    'tabindex': string;
-    'type': string;
-    'value': string;
+
+  namespace StencilComponents {
+    interface InoInput {
+      'accesskey': string;
+      'autocomplete': string;
+      'autofocus': boolean;
+      'disabled': boolean;
+      'max': string;
+      'min': string;
+      'name': string;
+      'pattern': string;
+      'placeholder': string;
+      'required': boolean;
+      'size': number;
+      'tabindex': string;
+      'type': string;
+      'value': string;
+    }
   }
+
+  interface HTMLInoInputElement extends StencilComponents.InoInput, HTMLStencilElement {}
+
   var HTMLInoInputElement: {
     prototype: HTMLInoInputElement;
     new (): HTMLInoInputElement;
@@ -146,27 +164,33 @@ declare global {
 
 
 declare global {
-  interface HTMLStInputElement extends HTMLStencilElement {
-    'stAccesskey': string;
-    'stAutocomplete': string;
-    'stAutofocus': boolean;
-    'stDisabled': boolean;
-    'stForm': string;
-    'stHasError': boolean;
-    'stHelperText': string;
-    'stIcon': string;
-    'stMaxLength': number;
-    'stMaxRows': number;
-    'stMultiline': boolean;
-    'stName': string;
-    'stPlaceholder': string;
-    'stRows': number;
-    'stShowCounter': boolean;
-    'stSpellcheck': boolean;
-    'stTabindex': number;
-    'stType': string;
-    'stValue': string;
+
+  namespace StencilComponents {
+    interface StInput {
+      'stAccesskey': string;
+      'stAutocomplete': string;
+      'stAutofocus': boolean;
+      'stDisabled': boolean;
+      'stForm': string;
+      'stHasError': boolean;
+      'stHelperText': string;
+      'stIcon': string;
+      'stMaxLength': number;
+      'stMaxRows': number;
+      'stMultiline': boolean;
+      'stName': string;
+      'stPlaceholder': string;
+      'stRows': number;
+      'stShowCounter': boolean;
+      'stSpellcheck': boolean;
+      'stTabindex': number;
+      'stType': string;
+      'stValue': string;
+    }
   }
+
+  interface HTMLStInputElement extends StencilComponents.StInput, HTMLStencilElement {}
+
   var HTMLStInputElement: {
     prototype: HTMLStInputElement;
     new (): HTMLStInputElement;
