@@ -1,41 +1,42 @@
-:host {
+ino-button {
   font-size: 12px;
-}
 
-button {
-  padding: 0.75em;
-  margin: 0;
+  button {
+    padding: 0.75em;
+    margin: 0;
 
-  color: #ffffff;
-  font-size: inherit;
-  background: #003c7d;
+    color: #ffffff;
+    font-size: inherit;
+    background: #003c7d;
+    outline: 0;
 
-  &:hover, &:active, &:focus {
-    background: #0079ff;
+    &:hover, &:active, &:focus {
+      background: #0079ff;
+    }
+
+    &:disabled {
+      background: #d2d2d2;
+    }
   }
 
-  &:disabled {
-    background: #d2d2d2;
+  button.secondary {
+    color: #003c7d;
+    background: #fff;
+    
+    &:hover, &:active, &:focus {
+      background: #0079ff;
+    }
+
+    &:disabled {
+      background: #d2d2d2;
+    }
   }
-}
 
-button.secondary {
-  color: #003c7d;
-  background: #fff;
-  
-  &:hover, &:active, &:focus {
-    background: #0079ff;
+  .icon-left {
+    margin-right: 0.75em;
   }
 
-  &:disabled {
-    background: #d2d2d2;
+  .icon-right {
+    margin-left: 0.75em;
   }
-}
-
-.icon-left {
-  margin-right: 0.75em;
-}
-
-.icon-right {
-  margin-left: 0.75em;
 }

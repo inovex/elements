@@ -29,10 +29,10 @@ declare global {
     'autofocus': boolean;
     'disabled': boolean;
     'form': string;
-    'iconLeft': string;
-    'iconRight': string;
+    'inoIconLeft': string;
+    'inoIconRight': string;
+    'inoSecondary': boolean;
     'name': string;
-    'secondary': boolean;
     'type': string;
   }
   var HTMLInoButtonElement: {
@@ -55,11 +55,10 @@ declare global {
       'autofocus'?: boolean;
       'disabled'?: boolean;
       'form'?: string;
-      'iconLeft'?: string;
-      'iconRight'?: string;
+      'inoIconLeft'?: string;
+      'inoIconRight'?: string;
+      'inoSecondary'?: boolean;
       'name'?: string;
-      'onInoClick'?: (event: CustomEvent) => void;
-      'secondary'?: boolean;
       'type'?: string;
     }
   }
