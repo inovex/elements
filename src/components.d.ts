@@ -133,7 +133,6 @@ declare global {
       'max'?: string;
       'min'?: string;
       'name'?: string;
-      'onChange'?: (event: CustomEvent) => void;
       'pattern'?: string;
       'placeholder'?: string;
       'required'?: boolean;

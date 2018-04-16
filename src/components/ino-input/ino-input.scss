@@ -1,28 +1,29 @@
 @import '../styles/fonts.scss';
 
-:host {
+ino-input {
   display: flex;
   font-size: 12px;
-}
 
-input {
-  @include font-SourceSansPro-Regular();
-  position: relative;
-  
-  width: 100%;
-  font-size: inherit;
 
-  padding: 0.5em 1em;
-  background: white;
-  border: 1px solid #c1c1c1;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  input {
+    @include font-SourceSansPro-Regular();
+    position: relative;
+    
+    width: 100%;
+    font-size: inherit;
 
-  &:focus {
-    outline: 0;
-    border: 1px solid #999;
-  } 
+    padding: 0.5em 1em;
+    background: white;
+    border: 1px solid #c1c1c1;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 
-  &:disabled {
-    background: #eee
+    &:focus {
+      outline: 0;
+      border: 1px solid #999;
+    } 
+
+    &:disabled {
+      background: #eee
+    }
   }
 }

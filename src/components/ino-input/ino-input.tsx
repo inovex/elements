@@ -1,12 +1,14 @@
-import { Component, Prop, Event, EventEmitter, Element } from '@stencil/core';
+import { Component, Prop, Element } from '@stencil/core';
 
 @Component({
   tag: 'ino-input',
   styleUrl: 'ino-input.scss',
-  shadow: true
+  shadow: false
 })
 export class Input {
   @Element() el: HTMLElement;
+
+  // Native pass-through properties
 
   @Prop() accesskey: string;
   @Prop() autocomplete: string;
@@ -23,16 +25,9 @@ export class Input {
   @Prop() type: string = 'text';
   @Prop({ mutable: true }) value: string;
 
-  //
-  // Public events
-  //
-  @Event() change: EventEmitter;
-  private handleKeyUp(e :any) {
-    e.preventDefault();
-
-    this.value = e.target.value;
-    this.change.emit(this.value);
-  }
+  
+  // Events
+  // Notice: bubbles all native input-element events (change, keyup, ...)
   
   render() {
     return ([
@@ -51,7 +46,6 @@ export class Input {
         tabindex={this.tabindex}
         type={this.type}
         value={this.value}
-        onKeyUp={ (event: KeyboardEvent) => this.handleKeyUp(event) }
       />
     ])
   }
