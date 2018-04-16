@@ -37,9 +37,9 @@ export class Button {
         type={this.type}
         form={this.form}>
         
-        {this.inoIconLeft && <ino-icon class="icon-left" icon={this.inoIconLeft}></ino-icon>}
+        {this.inoIconLeft && <ino-icon class="icon-left" ino-icon={this.inoIconLeft}></ino-icon>}
         <slot />
-        {this.inoIconRight && <ino-icon class="icon-right" icon={this.inoIconRight}></ino-icon>}
+        {this.inoIconRight && <ino-icon class="icon-right" ino-icon={this.inoIconRight}></ino-icon>}
       </button>
     ])
   }

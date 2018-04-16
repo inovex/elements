@@ -67,7 +67,7 @@ declare global {
 
 declare global {
   interface HTMLInoIconElement extends HTMLStencilElement {
-    'icon': string;
+    'inoIcon': string;
   }
   var HTMLInoIconElement: {
     prototype: HTMLInoIconElement;
@@ -86,8 +86,7 @@ declare global {
   }
   namespace JSXElements {
     export interface InoIconAttributes extends HTMLAttributes {
-      'icon'?: string;
-      'onChange'?: (event: CustomEvent) => void;
+      'inoIcon'?: string;
     }
   }
 }
