@@ -65,6 +65,25 @@
       <ino-input type="text" disabled placeholder="Disabled"></ino-input>
     </div>
     <div class="element">
+      <h1>Select Element</h1>
+      <ino-select name="cars">
+        <option value="1" selected>Audi</option>
+        <option value="2">Porsche</option>
+        <option value="3">Mercedes</option>
+      </ino-select>
+      <ino-select name="disabled-select" disabled>
+        <option value="1" selected>Disabled select</option>
+        <option value="2">Value 2</option>
+      </ino-select>
+      <ino-select name="multiple-select" multiple>
+        <option value="1" selected>Karlsruhe</option>
+        <option value="2">Köln</option>
+        <option value="3">Hamburg</option>
+        <option value="4">München</option>
+        <option value="5">Stuttgart</option>
+      </ino-select>
+    </div>
+    <div class="element">
       <h1>Icon Element</h1>
       <h2>H2 Überschrift <ino-icon ino-icon="user"></ino-icon></h2>
       <p>Colored Paragraph <ino-icon ino-icon="info"></ino-icon></p>
