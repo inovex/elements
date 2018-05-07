@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ino-checkbox',
@@ -6,7 +6,6 @@ import { Component, Prop, Element } from '@stencil/core';
   shadow: false
 })
 export class Checkbox {
-  @Element() el: HTMLElement;
 
   // Native pass-through properties
   
@@ -23,8 +22,8 @@ export class Checkbox {
   }
 
   render() {
-    return ([
-      <label class={this.disabled ? 'disabled' : ''} htmlFor={this.uniqueCheckboxId()}>
+    return (
+      <label class={this.disabled ? 'disabled' : ''}>
         <input type="checkbox" 
                id={this.uniqueCheckboxId()} 
                checked={this.checked} 
@@ -34,6 +33,6 @@ export class Checkbox {
                value={this.value} />
         <slot />
       </label>
-    ])
+    );
   }
 }

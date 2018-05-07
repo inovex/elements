@@ -6,6 +6,7 @@ ino-checkbox {
     margin: 0;
 
     cursor: pointer;
+    user-select: none;
     input {
       cursor: pointer;
       margin-right: 1em;
