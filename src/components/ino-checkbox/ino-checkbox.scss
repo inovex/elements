@@ -1,0 +1,18 @@
+ino-checkbox {
+  display: inline-block;
+
+  label {
+    display: inline-block;
+    margin: 0;
+
+    cursor: pointer;
+    input {
+      cursor: pointer;
+      margin-right: 1em;
+    }
+
+    &.disabled, &.disabled input {
+      cursor: default;
+    }
+  }
+}
