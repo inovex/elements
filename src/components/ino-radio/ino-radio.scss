@@ -1,0 +1,19 @@
+ino-radio {
+  display: inline-block;
+
+  label {
+    display: inline-block;
+    margin: 0;
+    user-select: none;
+
+    cursor: pointer;
+    input {
+      cursor: pointer;
+      margin-right: 1em;
+    }
+
+    &.disabled, &.disabled input {
+      cursor: default;
+    }
+  }
+}
