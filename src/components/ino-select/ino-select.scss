@@ -49,6 +49,7 @@ ino-select {
   ino-icon {
     position: absolute;
     right: 6px;
+    color: #6a6a6a;
     top: calc(50% - 7px); // Center vertically
     pointer-events: none; // Don't block pointer events on the select under the icon.
   }
