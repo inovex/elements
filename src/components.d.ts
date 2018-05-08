@@ -74,6 +74,49 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoCheckbox {
+      'checked': boolean;
+      'disabled': boolean;
+      'id': string;
+      'name': string;
+      'tabIndex': number;
+      'value': string;
+    }
+  }
+
+  interface HTMLInoCheckboxElement extends StencilComponents.InoCheckbox, HTMLStencilElement {}
+
+  var HTMLInoCheckboxElement: {
+    prototype: HTMLInoCheckboxElement;
+    new (): HTMLInoCheckboxElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-checkbox': HTMLInoCheckboxElement;
+  }
+  interface ElementTagNameMap {
+    'ino-checkbox': HTMLInoCheckboxElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-checkbox': JSXElements.InoCheckboxAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoCheckboxAttributes extends HTMLAttributes {
+      'checked'?: boolean;
+      'disabled'?: boolean;
+      'id'?: string;
+      'name'?: string;
+      'tabIndex'?: number;
+      'value'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoIcon {
       'inoIcon': string;
     }
