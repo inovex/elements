@@ -1,0 +1,13 @@
+ino-card {
+  display: block; 
+
+  border: 1px solid #c1c1c1;
+  border-radius: 2px;
+  padding: 5px;
+  margin-bottom: 5px;
+
+  &[ino-raised] {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  }
+}
