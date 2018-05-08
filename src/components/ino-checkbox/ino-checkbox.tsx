@@ -8,10 +8,10 @@ import { Component, Prop } from '@stencil/core';
 export class Checkbox {
 
   // Native pass-through properties
-  
+
   @Prop() checked: boolean;
   @Prop() disabled: boolean;
-  @Prop() id: string; 
+  @Prop() id: string;
   @Prop() name: string;
   @Prop() tabIndex: number;
   @Prop() value: string;
@@ -24,12 +24,12 @@ export class Checkbox {
   render() {
     return (
       <label class={this.disabled ? 'disabled' : ''}>
-        <input type="checkbox" 
-               id={this.uniqueCheckboxId()} 
-               checked={this.checked} 
-               disabled={this.disabled} 
-               name={this.name} 
-               tabindex={this.tabIndex} 
+        <input type="checkbox"
+               id={this.uniqueCheckboxId()}
+               checked={this.checked}
+               disabled={this.disabled}
+               name={this.name}
+               tabindex={this.tabIndex}
                value={this.value} />
         <slot />
       </label>
