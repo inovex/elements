@@ -8,7 +8,7 @@ import { Component, Prop } from '@stencil/core';
 export class Select {
 
   // Native pass-through properties
-  
+
   @Prop() autofocus: boolean;
   @Prop() disabled: boolean;
   @Prop() form: string;
@@ -20,7 +20,7 @@ export class Select {
   render() {
     return (
       <div class="composer">
-        <select 
+        <select
           autoFocus={this.autofocus}
           disabled={this.disabled}
           form={this.form}
@@ -28,7 +28,7 @@ export class Select {
           name={this.name}
           required={this.required}
           size={this.size}>
-          
+
           <slot />
         </select>
         <ino-icon ino-icon="select-arrows"></ino-icon>
