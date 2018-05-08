@@ -22,7 +22,7 @@ describe('ino-input', () => {
       it('type: should have text by default', () => {
         expect(nativeInputElement.type).toBe('text');
       });
-  
+
       it('type: should set it out of attribute', async () => {
         const numberElement = await render({
           components: [Input],
@@ -30,13 +30,13 @@ describe('ino-input', () => {
         });
         expect(numberElement.querySelector('input').type).toBe('number');
       });
-  
+
       it('type: should handle updates', async () => {
         element.type = 'number';
         await flush(element);
         expect(nativeInputElement.type).toBe('number');
       });
-    })
+    });
 
 
     // Test of events not possible so far ...
@@ -50,9 +50,7 @@ describe('ino-input', () => {
     //   await flush(element);
     // })
 
-    describe('methods', () => {
-
-    })
+    // describe('methods', () => {});
 
   });
 });

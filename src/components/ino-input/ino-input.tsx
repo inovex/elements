@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ino-input',
@@ -6,13 +6,12 @@ import { Component, Prop, Element } from '@stencil/core';
   shadow: false
 })
 export class Input {
-  @Element() el: HTMLElement;
 
   // Native pass-through properties
 
   @Prop() accesskey: string;
   @Prop() autocomplete: string;
-  @Prop() autofocus: boolean; 
+  @Prop() autofocus: boolean;
   @Prop() disabled: boolean;
   @Prop() min: string;
   @Prop() max: string;
@@ -22,15 +21,15 @@ export class Input {
   @Prop() required: boolean;
   @Prop() size: number;
   @Prop() tabindex: string;
-  @Prop() type: string = 'text';
+  @Prop() type = 'text';
   @Prop({ mutable: true }) value: string;
 
-  
+
   // Events
   // Notice: bubbles all native input-element events (change, keyup, ...)
-  
+
   render() {
-    return ([
+    return (
       <input
         accessKey={this.accesskey}
         autocomplete={this.autocomplete}
@@ -47,6 +46,6 @@ export class Input {
         type={this.type}
         value={this.value}
       />
-    ])
+    );
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 @Component({
   tag: 'ino-button',
@@ -6,7 +6,6 @@ import { Component, Prop, Element } from '@stencil/core';
   shadow: false
 })
 export class Button {
-  @Element() el: HTMLElement;
 
   // Native pass-through properties
 
@@ -28,19 +27,19 @@ export class Button {
 
 
   render() {
-    return ([
-      <button 
+    return (
+      <button
         autoFocus={this.autofocus}
-        disabled={this.disabled}  
-        name={this.name}  
-        class={this.inoSecondary && 'secondary'} 
+        disabled={this.disabled}
+        name={this.name}
+        class={this.inoSecondary && 'secondary'}
         type={this.type}
         form={this.form}>
-        
+
         {this.inoIconLeft && <ino-icon class="icon-left" ino-icon={this.inoIconLeft}></ino-icon>}
         <slot />
         {this.inoIconRight && <ino-icon class="icon-right" ino-icon={this.inoIconRight}></ino-icon>}
       </button>
-    ])
+    );
   }
 }
