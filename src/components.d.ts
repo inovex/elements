@@ -74,6 +74,39 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoCard {
+      'inoRaised': boolean;
+    }
+  }
+
+  interface HTMLInoCardElement extends StencilComponents.InoCard, HTMLStencilElement {}
+
+  var HTMLInoCardElement: {
+    prototype: HTMLInoCardElement;
+    new (): HTMLInoCardElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-card': HTMLInoCardElement;
+  }
+  interface ElementTagNameMap {
+    'ino-card': HTMLInoCardElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-card': JSXElements.InoCardAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoCardAttributes extends HTMLAttributes {
+      'inoRaised'?: boolean;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoCheckbox {
       'checked': boolean;
       'disabled': boolean;

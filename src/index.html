@@ -68,10 +68,22 @@
 </head>
 <body>
   <div class="ino-elements">
+
     <div class="element">
       <h1>Input Field</h1>
-      <ino-input type="text" placeholder="Placeholder"></ino-input>
-      <ino-input type="text" disabled placeholder="Disabled"></ino-input>
+      <div class="form-row">
+        <ino-card>
+          <ino-input type="text" placeholder="Placeholder"></ino-input>
+          <ino-input type="text" disabled placeholder="Disabled"></ino-input>
+        </ino-card>
+      </div>
+    </div>
+
+    <div class="element">
+      <h1>Card</h1>
+      <div class="form-row">
+        <ino-card ino-raised>Raised Card Element</ino-card>
+      </div>
     </div>
 
     <div class="element">
