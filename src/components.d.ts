@@ -171,6 +171,7 @@ declare global {
       'disabled': boolean;
       'form': string;
       'multiple': boolean;
+      'name': string;
       'required': boolean;
       'size': number;
     }
@@ -199,6 +200,7 @@ declare global {
       'disabled'?: boolean;
       'form'?: string;
       'multiple'?: boolean;
+      'name'?: string;
       'required'?: boolean;
       'size'?: number;
     }

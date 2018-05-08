@@ -6,10 +6,12 @@ ino-select {
 
   .composer {
     position: relative;
+    width: 100%;
   }
 
   select {
     @include font-SourceSansPro-Regular();
+    
     font-size: inherit;
     width: 100%;
     margin-right: 12px;
@@ -21,6 +23,7 @@ ino-select {
     cursor: pointer;
     
     border: 1px solid #c1c1c1;
+    color: #6a6a6a;
     border-radius: 0;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     background: white;
@@ -47,6 +50,6 @@ ino-select {
     position: absolute;
     right: 6px;
     top: calc(50% - 7px); // Center vertically
-    pointer-events: 'none'; // Don't block pointer events on the select under the icon.
+    pointer-events: none; // Don't block pointer events on the select under the icon.
   }
 }
