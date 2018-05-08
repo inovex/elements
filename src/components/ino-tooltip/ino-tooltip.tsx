@@ -7,7 +7,7 @@ import TooltipJS from 'tooltip.js';
   shadow: false
 })
 export class Tooltip {
-  private tooltipInstance: TooltipJS; 
+  private tooltipInstance: TooltipJS;
 
   // Custom properties (prefixed)
   @Prop() inoPlacement: 'auto';
@@ -17,7 +17,7 @@ export class Tooltip {
 
   componentDidLoad() {
     const target = document.getElementById(this.inoTargetId);
-    if(target) {
+    if (target) {
       this.tooltipInstance = new TooltipJS(target, {
         title: this.inoLabel,
         placement: this.inoPlacement,
@@ -27,7 +27,7 @@ export class Tooltip {
   }
 
   componentWillUnLoad() {
-    if(this.tooltipInstance) {
+    if (this.tooltipInstance) {
       this.tooltipInstance.destroy();
     }
   }
