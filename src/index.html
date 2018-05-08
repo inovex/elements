@@ -139,6 +139,22 @@
       <p>Customized size and color <ino-icon class="customized-icon" ino-icon="search"></ino-icon></p>
     </div>
 
+    <div class="element" style="text-align:center;">
+      <h1>Tooltip Element</h1>
+      <div>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-target-id="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip right" ino-placement="right" ino-target-id="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip top" ino-placement="top" ino-target-id="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip bottom" ino-placement="bottom" ino-target-id="tooltip-trigger"></ino-tooltip>
+        <ino-button id="tooltip-trigger" icon-left="equalizer">Tooltip</ino-button>
+      </div>
+      <div>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-trigger="click" ino-target-id="tooltip-click"></ino-tooltip>
+        <ino-button id="tooltip-click" icon-left="equalizer">onClick Tooltip</ino-button>
+      </div>
+    </div>
+
+
     <div class="element">
       <h1>Button Element</h1>
       <p>
