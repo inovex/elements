@@ -209,6 +209,49 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoRadio {
+      'checked': boolean;
+      'disabled': boolean;
+      'id': string;
+      'name': string;
+      'tabIndex': number;
+      'value': string;
+    }
+  }
+
+  interface HTMLInoRadioElement extends StencilComponents.InoRadio, HTMLStencilElement {}
+
+  var HTMLInoRadioElement: {
+    prototype: HTMLInoRadioElement;
+    new (): HTMLInoRadioElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-radio': HTMLInoRadioElement;
+  }
+  interface ElementTagNameMap {
+    'ino-radio': HTMLInoRadioElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-radio': JSXElements.InoRadioAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoRadioAttributes extends HTMLAttributes {
+      'checked'?: boolean;
+      'disabled'?: boolean;
+      'id'?: string;
+      'name'?: string;
+      'tabIndex'?: number;
+      'value'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoSelect {
       'autofocus': boolean;
       'disabled': boolean;

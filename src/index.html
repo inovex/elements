@@ -35,7 +35,7 @@
       padding: 12px;
       border: 1px solid #CCC;
     }
-    
+
     .element:first-child {
       margin-top: 0;
     }
@@ -52,6 +52,15 @@
       color: red;
     }
 
+    .form-row {
+      border-bottom: 1px solid #CCC;
+      padding: 12px;
+    }
+
+    .form-row:last-child {
+      border-bottom: none;
+    }
+
     label {
       margin-right: 12px;
     }
@@ -66,6 +75,19 @@
     </div>
 
     <div class="element">
+      <h1>Radio Field</h1>
+      <div class="form-row">
+        <ino-radio id="field1" name="radio1" value="value1">Value 1</ino-radio>
+        <ino-radio id="field2" name="radio1" value="value2">Value 2</ino-radio>
+      </div>
+
+      <div class="form-row">
+        <ino-radio id="field3" name="radio2" value="value1" disabled>Disabled radio</ino-radio>
+        <ino-radio id="field4" name="radio2" value="value2"><ino-icon ino-icon="user"></ino-icon> Value 2</ino-radio>
+      </div>
+    </div>
+
+    <div class="element">
       <h1>Checkbox</h1>
       <div class="form-row">
         <ino-checkbox id="field1" name="checkbox1" value="value1">Value 1</ino-checkbox>
@@ -77,7 +99,6 @@
         <ino-checkbox id="field4" name="checkbox2" value="value2"><ino-icon ino-icon="user"></ino-icon> Value 2</ino-checkbox>
       </div>
     </div>
-
 
     <div class="element">
       <h1>Select Element</h1>
@@ -124,7 +145,7 @@
         <ino-button>Complex Button text (TODO)</ino-button>
       </p>
       <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
-      
+
       <p>
         <ino-button autofocus>Autofocused button</ino-button>
       </p>
