@@ -17,6 +17,7 @@
     "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "stencil-dev-server",
     "start": "npm run dev",
+    "lint": "tslint --project tsconfig.json",
     "test": "jest --no-cache",
     "test.watch": "jest --watch --no-cache"
   },
@@ -28,7 +29,9 @@
     "@stencil/sass": "0.0.5",
     "@stencil/utils": "latest",
     "@types/jest": "^21.1.1",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "tslint": "^5.10.0",
+    "tslint-ionic-rules": "0.0.14"
   },
   "jest": {
     "transform": {
