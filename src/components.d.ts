@@ -166,6 +166,51 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoSelect {
+      'autofocus': boolean;
+      'disabled': boolean;
+      'form': string;
+      'multiple': boolean;
+      'name': string;
+      'required': boolean;
+      'size': number;
+    }
+  }
+
+  interface HTMLInoSelectElement extends StencilComponents.InoSelect, HTMLStencilElement {}
+
+  var HTMLInoSelectElement: {
+    prototype: HTMLInoSelectElement;
+    new (): HTMLInoSelectElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-select': HTMLInoSelectElement;
+  }
+  interface ElementTagNameMap {
+    'ino-select': HTMLInoSelectElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-select': JSXElements.InoSelectAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoSelectAttributes extends HTMLAttributes {
+      'autofocus'?: boolean;
+      'disabled'?: boolean;
+      'form'?: string;
+      'multiple'?: boolean;
+      'name'?: string;
+      'required'?: boolean;
+      'size'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface StInput {
       'stAccesskey': string;
       'stAutocomplete': string;
