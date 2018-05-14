@@ -331,9 +331,9 @@ declare global {
 
   namespace StencilComponents {
     interface InoTooltip {
+      'inoFor': string;
       'inoLabel': string;
-      'inoPlacement': 'auto';
-      'inoTargetId': string;
+      'inoPlacement': string;
       'inoTrigger': string;
     }
   }
@@ -357,9 +357,9 @@ declare global {
   }
   namespace JSXElements {
     export interface InoTooltipAttributes extends HTMLAttributes {
+      'inoFor'?: string;
       'inoLabel'?: string;
-      'inoPlacement'?: 'auto';
-      'inoTargetId'?: string;
+      'inoPlacement'?: string;
       'inoTrigger'?: string;
     }
   }

@@ -142,15 +142,23 @@
     <div class="element" style="text-align:center;">
       <h1>Tooltip Element</h1>
       <div>
-        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-target-id="tooltip-trigger"></ino-tooltip>
-        <ino-tooltip ino-label="This is a tooltip right" ino-placement="right" ino-target-id="tooltip-trigger"></ino-tooltip>
-        <ino-tooltip ino-label="This is a tooltip top" ino-placement="top" ino-target-id="tooltip-trigger"></ino-tooltip>
-        <ino-tooltip ino-label="This is a tooltip bottom" ino-placement="bottom" ino-target-id="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip right" ino-placement="right" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip top" ino-placement="top" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip bottom" ino-placement="bottom" ino-for="tooltip-trigger"></ino-tooltip>
         <ino-button id="tooltip-trigger" icon-left="equalizer">Tooltip</ino-button>
       </div>
+
       <div>
-        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-trigger="click" ino-target-id="tooltip-click"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-trigger="click" ino-for="tooltip-click"></ino-tooltip>
         <ino-button id="tooltip-click" icon-left="equalizer">onClick Tooltip</ino-button>
+      </div>
+
+      <div>
+        <div style="width: 100%; height: 400px; background: green">
+          <h2>Hover for tooltip...</h2>
+          <ino-tooltip ino-label="This is a tooltip for the parent node."></ino-tooltip>
+        </div>
       </div>
     </div>
 
