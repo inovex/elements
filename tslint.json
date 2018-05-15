@@ -1,6 +1,6 @@
 {
     "extends": "tslint-ionic-rules",
     "rules" : {
-      "no-inferrable-types": true
+      "no-inferrable-types": false
     }
 }
