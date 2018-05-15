@@ -150,6 +150,112 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoDatepicker {
+      'accesskey': string;
+      'autofocus': boolean;
+      'disabled': boolean;
+      /**
+       * The date format in which the resulting date is shown in the input field. If used with time also provide an format for the time.
+       */
+      'inoDateFormat': string;
+      /**
+       * A simple date string containing the default date
+       */
+      'inoDefaultDate': string;
+      /**
+       * A number containing the setted hour in the date-time picker
+       */
+      'inoDefaultHour': number;
+      /**
+       * A number containing the setted minutes in the date-time picker
+       */
+      'inoDefaultMinute': number;
+      /**
+       * True if the date is shown in 12-hours (AM, PM) instead of 24-hours zone.
+       */
+      'inoTwelfHourTime': boolean;
+      'inoType': 'date' | 'datetime' | 'time';
+      /**
+       * Max date (inclusive)
+       */
+      'max': string;
+      /**
+       * Min date (inclusive)
+       */
+      'min': string;
+      'name': string;
+      'placeholder': string;
+      'required': boolean;
+      'tabindex': string;
+      'value': string;
+    }
+  }
+
+  interface HTMLInoDatepickerElement extends StencilComponents.InoDatepicker, HTMLStencilElement {}
+
+  var HTMLInoDatepickerElement: {
+    prototype: HTMLInoDatepickerElement;
+    new (): HTMLInoDatepickerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-datepicker': HTMLInoDatepickerElement;
+  }
+  interface ElementTagNameMap {
+    'ino-datepicker': HTMLInoDatepickerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-datepicker': JSXElements.InoDatepickerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoDatepickerAttributes extends HTMLAttributes {
+      'accesskey'?: string;
+      'autofocus'?: boolean;
+      'disabled'?: boolean;
+      /**
+       * The date format in which the resulting date is shown in the input field. If used with time also provide an format for the time.
+       */
+      'inoDateFormat'?: string;
+      /**
+       * A simple date string containing the default date
+       */
+      'inoDefaultDate'?: string;
+      /**
+       * A number containing the setted hour in the date-time picker
+       */
+      'inoDefaultHour'?: number;
+      /**
+       * A number containing the setted minutes in the date-time picker
+       */
+      'inoDefaultMinute'?: number;
+      /**
+       * True if the date is shown in 12-hours (AM, PM) instead of 24-hours zone.
+       */
+      'inoTwelfHourTime'?: boolean;
+      'inoType'?: 'date' | 'datetime' | 'time';
+      /**
+       * Max date (inclusive)
+       */
+      'max'?: string;
+      /**
+       * Min date (inclusive)
+       */
+      'min'?: string;
+      'name'?: string;
+      'onInoChanged'?: (event: CustomEvent) => void;
+      'placeholder'?: string;
+      'required'?: boolean;
+      'tabindex'?: string;
+      'value'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoIcon {
       'inoIcon': string;
     }
