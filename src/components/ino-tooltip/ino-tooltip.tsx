@@ -10,37 +10,65 @@ export class Tooltip {
   @Element() el: HTMLElement;
   private tooltipInstance: TooltipJS;
 
-  // Custom properties (prefixed)
-
+  /**
+   * Placement of the tooltip.
+   * Accepted values: top(-start, -end), right(-start, -end),
+   * bottom(-start, -end), left(-start, -end)
+   */
   @Prop() inoPlacement = 'auto';
-  @Prop() inoFor: string;
-  @Prop() inoTrigger = 'hover focus';
-  @Prop() inoLabel: string;
+  @Watch('inoPlacement')
+  inoPlacementChanged() {
+    this.create();
+  }
 
-  // Watchers
-
+  /**
+   * The target id the tooltip is attached to.
+   * If not given, the tooltip is attached to the parent component.
+   */
+  @Prop() inoFor?: string;
   @Watch('inoFor')
   handleInoForChange() {
-    this.instantiateTooltip();
+    this.create();
+  }
+
+  /**
+   * The trigger to show the tooltip - either click, hover or focus.
+   * Multiple triggers possible by separating them with a space.
+   */
+  @Prop() inoTrigger = 'hover focus';
+  @Watch('inoTrigger')
+  handleInoTriggerChange() {
+    this.create();
+  }
+
+  /**
+   * The text shown in the tooltip.
+   */
+  @Prop() inoLabel?: string;
+  @Watch('inoLabel')
+  inoLabelChanged() {
+    if (this.tooltipInstance) {
+      this.tooltipInstance.updateTitleContent(this.inoLabel);
+    }
   }
 
   // Lifecycle
 
   componentDidLoad() {
-    this.instantiateTooltip();
+    this.create();
   }
 
   componentWillUnLoad() {
-    if (this.tooltipInstance) {
-      this.tooltipInstance.destroy();
-    }
+    this.dispose();
   }
 
   // Private methods
 
-  private instantiateTooltip() {
+  private create() {
+    this.dispose();
+
     const target = this.inoFor ?
-      document.querySelector(`#${this.inoFor}`) :
+      document.getElementById(this.inoFor) :
       this.el.parentElement;
 
     this.tooltipInstance = new TooltipJS(target, {
@@ -48,5 +76,11 @@ export class Tooltip {
       placement: this.inoPlacement,
       trigger: this.inoTrigger
     });
+  }
+
+  private dispose() {
+    if (this.tooltipInstance) {
+      this.tooltipInstance.dispose();
+    }
   }
 }
