@@ -1,11 +1,11 @@
-import { Component, Element, Event, EventEmitter, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Prop, State, Watch } from '@stencil/core';
 import flatpickr from 'flatpickr';
 
 @Component({
   tag: 'ino-datepicker',
   styleUrls: [
-    'ino-datepicker.scss',
-    '../../../node_modules/flatpickr/dist/flatpickr.css'
+    '../../../node_modules/flatpickr/dist/flatpickr.css',
+    'ino-datepicker.scss'
   ],
   shadow: false
 })
@@ -29,7 +29,7 @@ export class Datepicker {
   @Prop() min: string;
   @Watch('min')
   minChanged(value: string) {
-    this.updateFlatpickr('minDate', value);
+    this.update('minDate', value);
   }
 
   /**
@@ -38,7 +38,7 @@ export class Datepicker {
   @Prop() max: string;
   @Watch('max')
   maxChanged(value: string) {
-    this.updateFlatpickr('maxDate', value);
+    this.update('maxDate', value);
   }
 
 
@@ -46,8 +46,8 @@ export class Datepicker {
 
   @Prop() inoType: 'date' | 'datetime' | 'time' = 'date';
   @Watch('inoType')
-  inoTypeChanged(value: string) {
-    this.updateFlatpickr('inoType', value);
+  inoTypeChanged() {
+    this.create();
   }
 
   /**
@@ -57,7 +57,7 @@ export class Datepicker {
   @Prop() inoDateFormat: string;
   @Watch('inoDateFormat')
   inoDateFormatChanged(value: string) {
-    this.updateFlatpickr('inoDateFormat', value);
+    this.update('inoDateFormat', value);
   }
 
   /**
@@ -66,7 +66,7 @@ export class Datepicker {
   @Prop() inoDefaultDate: string;
   @Watch('inoDefaultDate')
   inoDefaultDateChanged(value: string) {
-    this.updateFlatpickr('inoDefaultDate', value);
+    this.update('inoDefaultDate', value);
   }
 
   /**
@@ -75,7 +75,7 @@ export class Datepicker {
   @Prop() inoDefaultHour: number = 12;
   @Watch('inoDefaultHour')
   inoDefaultHourChanged(value: string) {
-    this.updateFlatpickr('inoDefaultHour', value);
+    this.update('inoDefaultHour', value);
   }
 
   /**
@@ -84,7 +84,7 @@ export class Datepicker {
   @Prop() inoDefaultMinute: number = 0;
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
-    this.updateFlatpickr('inoDefaultMinute', value);
+    this.update('inoDefaultMinute', value);
   }
 
   /**
@@ -93,34 +93,22 @@ export class Datepicker {
   @Prop() inoTwelfHourTime: boolean;
   @Watch('inoTwelfHourTime')
   inoTwelfHourTimeChanged(value: string) {
-    this.updateFlatpickr('inoTwelfHourTime', value);
+    this.update('inoTwelfHourTime', value);
   }
 
   // States
-
   @State() flatpickr = null;
 
-  // Events
-
-  @Event() inoChanged: EventEmitter;
-
-  // Watchers
-
-  @Watch('inoType')
-  handleInoTypeChange() {
-    this.createFlatpickr();
-  }
 
   // Lifcycle
 
   componentDidLoad() {
-    this.createFlatpickr();
+    this.create();
   }
 
   // Private methods
 
-  private createFlatpickr() {
-    const target = this.el.querySelector('input');
+  private create() {
     const options = {
       appendTo: this.el.querySelector('div.composer') as HTMLElement,
       defaultDate: this.inoDefaultDate,
@@ -131,25 +119,26 @@ export class Datepicker {
       enableTime: this.inoType !== 'date',
       noCalendar: this.inoType === 'time',
       ignoredFocusElements: [],
-      onChange: (selectedDates, a) => this.onDateChanged(selectedDates, a),
       time_24hr: !this.inoTwelfHourTime
     };
-
     if (this.inoDateFormat) {
       options['dateFormat'] = this.inoDateFormat;
     }
 
+    this.dispose();
+    const target = this.el.querySelector('input');
     this.flatpickr = flatpickr(target, options);
   }
 
-  private onDateChanged(dateObj, dateStr) {
-    this.inoChanged.emit(dateObj);
-    this.value = dateStr;
-  }
-
-  private updateFlatpickr(option, value) {
+  private update(option, value) {
     if (this.flatpickr) {
       this.flatpickr.set(option, value);
+    }
+  }
+
+  private dispose() {
+    if (this.flatpickr) {
+      this.flatpickr.destroy();
     }
   }
 
@@ -157,14 +146,14 @@ export class Datepicker {
   render() {
     return (
       <div class="composer">
-        <input type="text"
+        <ino-input type="text"
           placeholder={this.placeholder}
           disabled={this.disabled}
           accessKey={this.accesskey}
           autofocus={this.autofocus}
           name={this.name}
           required={this.required}
-          tabindex={this.tabindex} />
+          tabindex={this.tabindex}></ino-input>
       </div>
     );
   }

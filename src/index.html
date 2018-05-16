@@ -117,16 +117,12 @@
         <ino-datepicker placeholder="Disabled picker" disabled></ino-datepicker>
       </div>
       <div class="form-row">
-        <ino-datepicker placeholder="Disabled picker" autofocus tabindex="0"></ino-datepicker>
+        <ino-datepicker placeholder="Autofocused picker" autofocus tabindex="0"></ino-datepicker>
       </div>
 
       <div class="form-row">
         <ino-datepicker ino-type="time" placeholder="Enter a time" id="datepicker-time"></ino-datepicker>
       </div>
-      <script>
-        document.querySelector('#datepicker-time')
-          .addEventListener('inoChanged', event => console.log(event.detail));
-      </script>
     </div>
 
     <div class="element">
@@ -212,9 +208,9 @@
       </p>
       <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
 
-      <p>
-        <ino-button> button</ino-button>
-      </p>
+      <!-- <p>
+        <ino-button autofocus>Autofocused button</ino-button>
+      </p> -->
 
       <p>
         <ino-button id="click-button">Button with on-click handler</ino-button>

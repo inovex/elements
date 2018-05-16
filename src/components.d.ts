@@ -243,7 +243,6 @@ declare global {
        */
       'min'?: string;
       'name'?: string;
-      'onInoChanged'?: (event: CustomEvent) => void;
       'placeholder'?: string;
       'required'?: boolean;
       'tabindex'?: string;
