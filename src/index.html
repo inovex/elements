@@ -139,19 +139,43 @@
       <p>Customized size and color <ino-icon class="customized-icon" ino-icon="search"></ino-icon></p>
     </div>
 
+    <div class="element" style="text-align:center;">
+      <h1>Tooltip Element</h1>
+      <div>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip right" ino-placement="right" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip top" ino-placement="top" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-tooltip ino-label="This is a tooltip bottom" ino-placement="bottom" ino-for="tooltip-trigger"></ino-tooltip>
+        <ino-button id="tooltip-trigger">Tooltip</ino-button>
+      </div>
+
+      <div>
+        <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-trigger="click" ino-for="tooltip-click"></ino-tooltip>
+        <ino-button id="tooltip-click">onClick Tooltip</ino-button>
+      </div>
+
+      <div>
+        <div style="width: 100%; height: 400px; background: green">
+          <h2>Hover for tooltip...</h2>
+          <ino-tooltip ino-label="This is a tooltip for the parent node."></ino-tooltip>
+        </div>
+      </div>
+    </div>
+
+
     <div class="element">
       <h1>Button Element</h1>
       <p>
         <ino-button>Simple primary button</ino-button>
         <ino-button disabled>Disabled button</ino-button>
-        <ino-button icon-left="equalizer">Button Icon left</ino-button>
-        <ino-button icon-right="search">Secondary button icon right</ino-button>
+        <ino-button ino-icon-left="equalizer">Button Icon left</ino-button>
+        <ino-button ino-icon-right="search">Secondary button icon right</ino-button>
       </p>
       <p>
         <ino-button secondary>Secondary button</ino-button>
         <ino-button secondary disabled>Secondary disabled button</ino-button>
-        <ino-button secondary icon-left="equalizer">Secondary button Icon left</ino-button>
-        <ino-button secondary icon-right="search">Secondary button icon right</ino-button>
+        <ino-button secondary ino-icon-left="equalizer">Secondary button Icon left</ino-button>
+        <ino-button secondary ino-icon-right="search">Secondary button icon right</ino-button>
       </p>
       <p>
         <ino-button>Complex Button text (TODO)</ino-button>

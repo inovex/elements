@@ -326,4 +326,67 @@ declare global {
   }
 }
 
+
+declare global {
+
+  namespace StencilComponents {
+    interface InoTooltip {
+      /**
+       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       */
+      'inoFor': string;
+      /**
+       * The text shown in the tooltip.
+       */
+      'inoLabel': string;
+      /**
+       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       */
+      'inoPlacement': string;
+      /**
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       */
+      'inoTrigger': string;
+    }
+  }
+
+  interface HTMLInoTooltipElement extends StencilComponents.InoTooltip, HTMLStencilElement {}
+
+  var HTMLInoTooltipElement: {
+    prototype: HTMLInoTooltipElement;
+    new (): HTMLInoTooltipElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-tooltip': HTMLInoTooltipElement;
+  }
+  interface ElementTagNameMap {
+    'ino-tooltip': HTMLInoTooltipElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-tooltip': JSXElements.InoTooltipAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoTooltipAttributes extends HTMLAttributes {
+      /**
+       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       */
+      'inoFor'?: string;
+      /**
+       * The text shown in the tooltip.
+       */
+      'inoLabel'?: string;
+      /**
+       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       */
+      'inoPlacement'?: string;
+      /**
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       */
+      'inoTrigger'?: string;
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
