@@ -157,6 +157,35 @@
         <option value="5">Stuttgart</option>
       </ino-select>
     </div>
+
+    <div class="element">
+      <h1>Image Element</h1>
+      No attributes (cutes image in ratio 1:1 until width == image width): <ino-img src="assets/stock-image.png"></ino-img>
+
+      <br><br>
+      Rounded:
+      <ino-img src="assets/stock-image.png" height="64" width="64" ino-rounded></ino-img>
+
+
+      <h3>For fixed values, either height and width have to be provided or one with a ratio</h3>
+
+      Fixed width: <ino-img src="assets/stock-image.png" width="64" height="64"></ino-img>
+      <br><br>
+      Fixed Width with 2:1 ratio: <ino-img src="assets/stock-image.png" width="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
+      <br><br>
+      Fixed Height with 2:1 ratio: <ino-img src="assets/stock-image.png" height="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
+      <br><br>
+
+      <h3>Fixed containers outside of image. Image grows in width 100% and ratio as provided</h3>
+
+      <div style="width: 80%; border: 1px solid #000;">
+        <ino-img src="assets/stock-image.png" alt="Ratio 2:1, width 80%" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
+      </div>
+      <div style="width: 80%; border: 1px solid #000;">
+        <ino-img  src="assets/stock-image.png" alt="Ratio 4:3, width 80%" ino-ratio-width="4" ino-ratio-height="3"></ino-img>
+      </div>
+    </div>
+
     <div class="element">
       <h1>Icon Element</h1>
       <h2>H2 Überschrift <ino-icon ino-icon="user"></ino-icon></h2>
@@ -208,9 +237,9 @@
       </p>
       <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
 
-      <!-- <p>
-        <ino-button autofocus>Autofocused button</ino-button>
-      </p> -->
+      <p>
+        <ino-button>Autofocused button</ino-button>
+      </p>
 
       <p>
         <ino-button id="click-button">Button with on-click handler</ino-button>

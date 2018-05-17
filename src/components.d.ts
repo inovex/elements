@@ -288,6 +288,59 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoImg {
+      'alt': string;
+      'decoding': 'async' | 'auto' | 'sync';
+      'height': number;
+      'inoRatioHeight': number;
+      'inoRatioWidth': number;
+      'inoRounded': boolean;
+      'sizes': string;
+      'src': string;
+      'srcset': string;
+      'usemap': string;
+      'width': number;
+    }
+  }
+
+  interface HTMLInoImgElement extends StencilComponents.InoImg, HTMLStencilElement {}
+
+  var HTMLInoImgElement: {
+    prototype: HTMLInoImgElement;
+    new (): HTMLInoImgElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-img': HTMLInoImgElement;
+  }
+  interface ElementTagNameMap {
+    'ino-img': HTMLInoImgElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-img': JSXElements.InoImgAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoImgAttributes extends HTMLAttributes {
+      'alt'?: string;
+      'decoding'?: 'async' | 'auto' | 'sync';
+      'height'?: number;
+      'inoRatioHeight'?: number;
+      'inoRatioWidth'?: number;
+      'inoRounded'?: boolean;
+      'sizes'?: string;
+      'src'?: string;
+      'srcset'?: string;
+      'usemap'?: string;
+      'width'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoInput {
       'accesskey': string;
       'autocomplete': string;
