@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "@stencil/core": "^0.8.0",
-    "tooltip.js": "^1.2.0"
+    "tooltip.js": "^1.2.0",
+    "flatpickr": "^4.4.6"
   },
   "devDependencies": {
     "@stencil/dev-server": "latest",

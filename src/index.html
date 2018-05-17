@@ -100,6 +100,32 @@
     </div>
 
     <div class="element">
+      <h1>Datepicker</h1>
+      <div class="form-row">
+        <ino-datepicker ino-type="date" placeholder="Enter a date"></ino-datepicker>
+      </div>
+      <div class="form-row">
+        <ino-datepicker ino-type="datetime" placeholder="Enter a date and time"></ino-datepicker>
+      </div>
+      <div class="form-row">
+        <ino-datepicker placeholder="Min max date" min="2017-02-02" max="2017-04-03" ino-type="date"></ino-datepicker>
+      </div>
+      <div class="form-row">
+        <ino-datepicker placeholder="Default date" ino-default-date="2012-02-02" ino-type="date"></ino-datepicker>
+      </div>
+      <div class="form-row">
+        <ino-datepicker placeholder="Disabled picker" disabled></ino-datepicker>
+      </div>
+      <div class="form-row">
+        <ino-datepicker placeholder="Autofocused picker" autofocus tabindex="0"></ino-datepicker>
+      </div>
+
+      <div class="form-row">
+        <ino-datepicker ino-type="time" placeholder="Enter a time" id="datepicker-time"></ino-datepicker>
+      </div>
+    </div>
+
+    <div class="element">
       <h1>Checkbox</h1>
       <div class="form-row">
         <ino-checkbox id="field1" name="checkbox1" value="value1">Value 1</ino-checkbox>
@@ -182,9 +208,9 @@
       </p>
       <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
 
-      <p>
+      <!-- <p>
         <ino-button autofocus>Autofocused button</ino-button>
-      </p>
+      </p> -->
 
       <p>
         <ino-button id="click-button">Button with on-click handler</ino-button>
