@@ -7,16 +7,16 @@ image: node:10-alpine
 test:
  stage: test
  script:
- - npm i
- - npm run lint
- - npm run test
+ - yarn install
+ - yarn run lint
+ - yarn run test
  tags:
  - shared
 
 build:
  stage: build
  script:
- - npm i
- - npm run build
+ - yarn install
+ - yarn run build
  tags:
  - shared
