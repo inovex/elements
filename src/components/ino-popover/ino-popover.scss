@@ -1,0 +1,11 @@
+@import '../styles/tooltip.scss';
+
+ino-popover {
+  // Hide popover, as long as it's not moved by the js plugin. 
+  > .popover-content {
+    display: none;
+  }
+
+  // A popover is basically a tooltip
+  @include tooltip(#FFF, #000);
+}
