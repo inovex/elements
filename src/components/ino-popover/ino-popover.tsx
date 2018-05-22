@@ -2,11 +2,11 @@ import { Component, Element, Prop, Watch } from '@stencil/core';
 import TooltipJS from 'tooltip.js';
 
 @Component({
-  tag: 'ino-tooltip',
-  styleUrl: 'ino-tooltip.scss',
+  tag: 'ino-popover',
+  styleUrl: 'ino-popover.scss',
   shadow: false
 })
-export class Tooltip {
+export class Popover {
   @Element() el: HTMLElement;
   private tooltipInstance: TooltipJS;
 
@@ -41,17 +41,6 @@ export class Tooltip {
     this.create();
   }
 
-  /**
-   * The text shown in the tooltip.
-   */
-  @Prop() inoLabel?: string;
-  @Watch('inoLabel')
-  inoLabelChanged() {
-    if (this.tooltipInstance) {
-      this.tooltipInstance.updateTitleContent(this.inoLabel);
-    }
-  }
-
   // Lifecycle
 
   componentDidLoad() {
@@ -72,8 +61,9 @@ export class Tooltip {
       this.el.parentElement;
 
     this.tooltipInstance = new TooltipJS(target, {
-      title: this.inoLabel,
+      html: true,
       container: this.el,
+      title: this.el.querySelector('.popover-content'),
       placement: this.inoPlacement,
       trigger: this.inoTrigger
     });
@@ -83,5 +73,11 @@ export class Tooltip {
     if (this.tooltipInstance) {
       this.tooltipInstance.dispose();
     }
+  }
+
+  render() {
+    return (
+      <div class="popover-content"><slot /></div>
+    );
   }
 }

@@ -400,6 +400,61 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoPopover {
+      /**
+       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       */
+      'inoFor': string;
+      /**
+       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       */
+      'inoPlacement': string;
+      /**
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       */
+      'inoTrigger': string;
+    }
+  }
+
+  interface HTMLInoPopoverElement extends StencilComponents.InoPopover, HTMLStencilElement {}
+
+  var HTMLInoPopoverElement: {
+    prototype: HTMLInoPopoverElement;
+    new (): HTMLInoPopoverElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-popover': HTMLInoPopoverElement;
+  }
+  interface ElementTagNameMap {
+    'ino-popover': HTMLInoPopoverElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-popover': JSXElements.InoPopoverAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoPopoverAttributes extends HTMLAttributes {
+      /**
+       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       */
+      'inoFor'?: string;
+      /**
+       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       */
+      'inoPlacement'?: string;
+      /**
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       */
+      'inoTrigger'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoRadio {
       'checked': boolean;
       'disabled': boolean;

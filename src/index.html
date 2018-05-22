@@ -68,6 +68,17 @@
 </head>
 <body>
   <div class="ino-elements">
+    <div class="element">
+      <h1>Popover</h1>
+      <div class="form-row">
+        <ino-button id="popover-hover">Hover for Popover</ino-button>
+        <ino-popover ino-placement="bottom" ino-for="popover-hover">
+          <ino-img src="assets/stock-image.png" height="64" width="64" ino-rounded></ino-img>
+          <div style="float:right;margin:6px;">This is a more complex popover.</div>
+        </ino-popover>
+      </div>
+    </div>
+
 
     <div class="element">
       <h1>Input Field</h1>
@@ -80,12 +91,12 @@
     </div>
 
     <div class="element">
-      <h1>Card</h1>
-      <div class="form-row">
-        <ino-card ino-raised>Raised Card Element</ino-card>
+        <h1>Card</h1>
+        <div class="form-row">
+          <ino-card ino-raised>Raised Card Element</ino-card>
+        </div>
       </div>
-    </div>
-
+  
     <div class="element">
       <h1>Radio Field</h1>
       <div class="form-row">
@@ -116,9 +127,9 @@
       <div class="form-row">
         <ino-datepicker placeholder="Disabled picker" disabled></ino-datepicker>
       </div>
-      <div class="form-row">
+      <!-- <div class="form-row">
         <ino-datepicker placeholder="Autofocused picker" autofocus tabindex="0"></ino-datepicker>
-      </div>
+      </div> -->
 
       <div class="form-row">
         <ino-datepicker ino-type="time" placeholder="Enter a time" id="datepicker-time"></ino-datepicker>
