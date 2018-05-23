@@ -5,7 +5,7 @@ import { Component, Prop } from '@stencil/core';
   styleUrl: 'ino-icon.scss',
   shadow: false
 })
-export class Input {
+export class Icon {
 
   // Custom properties (prefixed)
 

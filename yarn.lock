@@ -8,9 +8,9 @@
   dependencies:
     netmask "^1.0.6"
 
-"@stencil/core@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.9.0.tgz#adeaa542521b62b208af60f39426c942e17ce007"
+"@stencil/core@^0.9.3":
+  version "0.9.3"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.9.3.tgz#903a4906f038f226ee1466854e62716c1ff7455a"
   dependencies:
     chokidar "2.0.3"
     jsdom "11.5.1"
