@@ -1,0 +1,57 @@
+// Inovex Colors
+
+
+// Private variables.
+// Use the ino-color() function to acccess colors.
+$primary:           #003C7E;
+$primary-light:     #004A9C;
+$primary-dark:       #002E62;
+
+$secondary:         #9CCD00;
+$secondary-light:   #BFF020;
+$secondary-dark:    #2E7D32;
+
+$tertiary:          #00B0F0;
+$tertiary-light:    #10BCFE;
+$tertiary-dark:     #006A92;
+
+$sucess:          $secondary;
+$warning:         yellow; // TODO
+$error:           #E00051;
+
+
+$ino-color-scheme: (
+  primary: (
+    base:   $primary,
+    light:  $primary-light,
+    dark:   $primary-dark,
+    contrast: #FFF
+  ),
+
+  secondary: (
+    base:   $secondary,
+    light:  $secondary-light,
+    dark:   $secondary-dark,
+    contrast: #000
+  ),
+  
+  tertiary: (
+    base:   $tertiary,
+    light:  $tertiary-dark,
+    dark:   $tertiary-dark,
+    contrast: #000
+  ),
+
+  warning: (),
+
+  error: (
+    base: $error,
+    contrast: #FFF
+  )
+);
+
+// Mixin to access inovex color scheme variables
+// Usage: color: colors(primary) or colors(primary, light)
+@function ino-color($color-name, $tone: 'base') {
+  @return map-get(map-get($ino-color-scheme, $color-name), $tone);
+}

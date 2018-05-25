@@ -1,0 +1,53 @@
+@import '../styles/fonts.scss';
+@import '../styles/colors.scss';
+
+ino-chip {
+  box-sizing: border-box;
+  display: inline-block;
+  padding:1px;
+
+  .composer {
+    @include font-SourceSansPro-Regular();
+    
+    background-color: #777;
+    border: 1px solid #777;
+    border-radius: 0.25em;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    color: #FFF;
+    font-weight: 600;
+  }
+
+  // Generate ino-color-scheme classes
+  @each $color-name, $map in $ino-color-scheme {
+    &[ino-color-scheme="#{$color-name}"] .composer {
+      background-color: map-get($map, base);
+      border: 1px solid map-get($map, base);
+      color: map-get($map, contrast);
+    }
+  }
+
+  // Reset background and color if style is outline
+  &[ino-fill="outline"] .composer {
+    background: none;
+    color: inherit;
+  }
+
+  &[ino-removable] .composer {
+    padding-right: .3em;
+    cursor: pointer;
+  }
+
+  ino-icon {
+    position: relative;
+    top: 1px;
+
+    &.leading {
+      margin-left: -2px;
+      margin-right: 4px;
+    }
+    &.remove {
+      margin-left: 3px;
+    }
+  }
+}
