@@ -240,6 +240,81 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoChip {
+      /**
+       * Sets the name of the color scheme of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       */
+      'inoColorScheme': string;
+      /**
+       * Sets the fill color of this element. Possible values: `solid` (default) or `outline`.
+       */
+      'inoFill': string;
+      /**
+       * Sets the icon on before the label in this chip.
+       */
+      'inoIcon': string;
+      /**
+       * Sets the label of this chip.
+       */
+      'inoLabel': string;
+      /**
+       * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+       */
+      'inoRemovable': boolean;
+    }
+  }
+
+  interface HTMLInoChipElement extends StencilComponents.InoChip, HTMLStencilElement {}
+
+  var HTMLInoChipElement: {
+    prototype: HTMLInoChipElement;
+    new (): HTMLInoChipElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-chip': HTMLInoChipElement;
+  }
+  interface ElementTagNameMap {
+    'ino-chip': HTMLInoChipElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-chip': JSXElements.InoChipAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoChipAttributes extends HTMLAttributes {
+      /**
+       * Sets the name of the color scheme of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * Sets the fill color of this element. Possible values: `solid` (default) or `outline`.
+       */
+      'inoFill'?: string;
+      /**
+       * Sets the icon on before the label in this chip.
+       */
+      'inoIcon'?: string;
+      /**
+       * Sets the label of this chip.
+       */
+      'inoLabel'?: string;
+      /**
+       * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+       */
+      'inoRemovable'?: boolean;
+      /**
+       * Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
+       */
+      'onInoRemove'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoDatepicker {
       /**
        * Sets the accesskey of this element.

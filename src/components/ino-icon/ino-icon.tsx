@@ -72,6 +72,13 @@ export class Icon {
           <path d="M10 1l-5 7h10l-5-7zM10 19l5-7h-10l5 7z"></path>
         </svg>
       );
+    } else if (this.inoIcon === 'cancel') {
+      return (
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <title>close</title>
+          <path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path>
+        </svg>
+      );
     }
   }
 
