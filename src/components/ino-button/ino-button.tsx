@@ -6,24 +6,48 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Button {
+  /**
+   * Sets the autofocus for this element.
+   */
+  @Prop() autofocus?: boolean;
 
-  // Native pass-through properties
+  /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
 
-  @Prop() autofocus: boolean;
-  @Prop() disabled: boolean;
-  @Prop() name: string;
-  @Prop() form: string;
-  @Prop() type: string;
+  /**
+   * The name of the element.
+   */
+  @Prop() name?: string;
 
-  // Custom properties (prefixed)
+  /**
+   * The form id this element origins to.
+   */
+  @Prop() form?: string;
 
-  @Prop() inoSecondary: boolean;
-  @Prop() inoIconLeft: string;
-  @Prop() inoIconRight: string;
+  /**
+   * The type of this form.
+   *
+   * Can either be `button`, `submit` or `reset`.
+   */
+  @Prop() type?: 'button'|'submit'|'reset';
 
 
-  // Events
-  // Notice: bubbles all native button-element events (click, submit, reset, ...)
+  /**
+   * Sets a secondary button style
+   */
+  @Prop() inoSecondary?: boolean;
+
+  /**
+   * Appends an icon before the text.
+   */
+  @Prop() inoIconLeft?: string;
+
+  /**
+   * Prepends an icon after the text.
+   */
+  @Prop() inoIconRight?: string;
 
 
   render() {

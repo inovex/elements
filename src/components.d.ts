@@ -28,14 +28,38 @@ declare global {
 
   namespace StencilComponents {
     interface InoButton {
+      /**
+       * Sets the autofocus for this element.
+       */
       'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
+      /**
+       * The form id this element origins to.
+       */
       'form': string;
+      /**
+       * Appends an icon before the text.
+       */
       'inoIconLeft': string;
+      /**
+       * Prepends an icon after the text.
+       */
       'inoIconRight': string;
+      /**
+       * Sets a secondary button style
+       */
       'inoSecondary': boolean;
+      /**
+       * The name of the element.
+       */
       'name': string;
-      'type': string;
+      /**
+       * The type of this form.  Can either be `button`, `submit` or `reset`.
+       */
+      'type': 'button'|'submit'|'reset';
     }
   }
 
@@ -58,14 +82,38 @@ declare global {
   }
   namespace JSXElements {
     export interface InoButtonAttributes extends HTMLAttributes {
+      /**
+       * Sets the autofocus for this element.
+       */
       'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
+      /**
+       * The form id this element origins to.
+       */
       'form'?: string;
+      /**
+       * Appends an icon before the text.
+       */
       'inoIconLeft'?: string;
+      /**
+       * Prepends an icon after the text.
+       */
       'inoIconRight'?: string;
+      /**
+       * Sets a secondary button style
+       */
       'inoSecondary'?: boolean;
+      /**
+       * The name of the element.
+       */
       'name'?: string;
-      'type'?: string;
+      /**
+       * The type of this form.  Can either be `button`, `submit` or `reset`.
+       */
+      'type'?: 'button'|'submit'|'reset';
     }
   }
 }
@@ -75,6 +123,9 @@ declare global {
 
   namespace StencilComponents {
     interface InoCard {
+      /**
+       * Styles this card as raised from other contents.
+       */
       'inoRaised': boolean;
     }
   }
@@ -98,6 +149,9 @@ declare global {
   }
   namespace JSXElements {
     export interface InoCardAttributes extends HTMLAttributes {
+      /**
+       * Styles this card as raised from other contents.
+       */
       'inoRaised'?: boolean;
     }
   }
@@ -108,11 +162,29 @@ declare global {
 
   namespace StencilComponents {
     interface InoCheckbox {
+      /**
+       * Marks this element as checked.
+       */
       'checked': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
+      /**
+       * The id of this element.
+       */
       'id': string;
+      /**
+       * The name of this element.
+       */
       'name': string;
+      /**
+       * Sets the tabIndex of this element.
+       */
       'tabIndex': number;
+      /**
+       * The value of this element.
+       */
       'value': string;
     }
   }
@@ -136,11 +208,29 @@ declare global {
   }
   namespace JSXElements {
     export interface InoCheckboxAttributes extends HTMLAttributes {
+      /**
+       * Marks this element as checked.
+       */
       'checked'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
+      /**
+       * The id of this element.
+       */
       'id'?: string;
+      /**
+       * The name of this element.
+       */
       'name'?: string;
+      /**
+       * Sets the tabIndex of this element.
+       */
       'tabIndex'?: number;
+      /**
+       * The value of this element.
+       */
       'value'?: string;
     }
   }
@@ -151,42 +241,69 @@ declare global {
 
   namespace StencilComponents {
     interface InoDatepicker {
+      /**
+       * Sets the accesskey of this element.
+       */
       'accesskey': string;
+      /**
+       * Autofocuses this element.
+       */
       'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
       /**
-       * The date format in which the resulting date is shown in the input field. If used with time also provide an format for the time.
+       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. For more details see [here](https://flatpickr.js.org/formatting/).
        */
       'inoDateFormat': string;
       /**
-       * A simple date string containing the default date
+       * A simple date string that sets the default date.
        */
       'inoDefaultDate': string;
       /**
-       * A number containing the setted hour in the date-time picker
+       * A number containing the initial hour in the date-time picker.
        */
       'inoDefaultHour': number;
       /**
-       * A number containing the setted minutes in the date-time picker
+       * A number containing the initial minute in the date-time picker.
        */
       'inoDefaultMinute': number;
       /**
-       * True if the date is shown in 12-hours (AM, PM) instead of 24-hours zone.
+       * If true, displays time picker in 12 hour mode with AM/PM selection.
        */
       'inoTwelfHourTime': boolean;
-      'inoType': 'date' | 'datetime' | 'time';
       /**
-       * Max date (inclusive)
+       * The type (`date`, `datetime` or `time`) of this date picker element. Default is `date`.
+       */
+      'inoType': 'date'|'datetime'|'time';
+      /**
+       * The maximum date that a user can pick to (inclusive).
        */
       'max': string;
       /**
-       * Min date (inclusive)
+       * The minimum date that a user can start picking from (inclusive).
        */
       'min': string;
+      /**
+       * Sets the input name of this element.
+       */
       'name': string;
+      /**
+       * Defines the input placeholder for this element.
+       */
       'placeholder': string;
+      /**
+       * Marks this element as required.
+       */
       'required': boolean;
+      /**
+       * Sets the tabindex of this element.
+       */
       'tabindex': string;
+      /**
+       * Contains the value of this element.
+       */
       'value': string;
     }
   }
@@ -210,42 +327,69 @@ declare global {
   }
   namespace JSXElements {
     export interface InoDatepickerAttributes extends HTMLAttributes {
+      /**
+       * Sets the accesskey of this element.
+       */
       'accesskey'?: string;
+      /**
+       * Autofocuses this element.
+       */
       'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
       /**
-       * The date format in which the resulting date is shown in the input field. If used with time also provide an format for the time.
+       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. For more details see [here](https://flatpickr.js.org/formatting/).
        */
       'inoDateFormat'?: string;
       /**
-       * A simple date string containing the default date
+       * A simple date string that sets the default date.
        */
       'inoDefaultDate'?: string;
       /**
-       * A number containing the setted hour in the date-time picker
+       * A number containing the initial hour in the date-time picker.
        */
       'inoDefaultHour'?: number;
       /**
-       * A number containing the setted minutes in the date-time picker
+       * A number containing the initial minute in the date-time picker.
        */
       'inoDefaultMinute'?: number;
       /**
-       * True if the date is shown in 12-hours (AM, PM) instead of 24-hours zone.
+       * If true, displays time picker in 12 hour mode with AM/PM selection.
        */
       'inoTwelfHourTime'?: boolean;
-      'inoType'?: 'date' | 'datetime' | 'time';
       /**
-       * Max date (inclusive)
+       * The type (`date`, `datetime` or `time`) of this date picker element. Default is `date`.
+       */
+      'inoType'?: 'date'|'datetime'|'time';
+      /**
+       * The maximum date that a user can pick to (inclusive).
        */
       'max'?: string;
       /**
-       * Min date (inclusive)
+       * The minimum date that a user can start picking from (inclusive).
        */
       'min'?: string;
+      /**
+       * Sets the input name of this element.
+       */
       'name'?: string;
+      /**
+       * Defines the input placeholder for this element.
+       */
       'placeholder'?: string;
+      /**
+       * Marks this element as required.
+       */
       'required'?: boolean;
+      /**
+       * Sets the tabindex of this element.
+       */
       'tabindex'?: string;
+      /**
+       * Contains the value of this element.
+       */
       'value'?: string;
     }
   }
