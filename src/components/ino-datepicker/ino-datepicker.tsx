@@ -12,19 +12,48 @@ import flatpickr from 'flatpickr';
 export class Datepicker {
   @Element() el: HTMLElement;
 
-  // Native pass-through properties
-
-  @Prop() accesskey: string;
-  @Prop() autofocus: boolean;
-  @Prop() disabled: boolean;
-  @Prop() name: string;
-  @Prop() placeholder: string;
-  @Prop() required: boolean;
-  @Prop() tabindex: string;
-  @Prop({mutable: true}) value: string;
+  /**
+   * Sets the accesskey of this element.
+   */
+  @Prop() accesskey?: string;
 
   /**
-   * Min date (inclusive)
+   * Autofocuses this element.
+   */
+  @Prop() autofocus?: boolean;
+
+  /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
+
+  /**
+   * Sets the input name of this element.
+   */
+  @Prop() name?: string;
+
+  /**
+   * Defines the input placeholder for this element.
+   */
+  @Prop() placeholder: string;
+
+  /**
+   * Marks this element as required.
+   */
+  @Prop() required?: boolean;
+
+  /**
+   * Sets the tabindex of this element.
+   */
+  @Prop() tabindex?: string;
+
+  /**
+   * Contains the value of this element.
+   */
+  @Prop({mutable: true}) value?: string;
+
+  /**
+   * The minimum date that a user can start picking from (inclusive).
    */
   @Prop() min: string;
   @Watch('min')
@@ -33,7 +62,7 @@ export class Datepicker {
   }
 
   /**
-   * Max date (inclusive)
+   * The maximum date that a user can pick to (inclusive).
    */
   @Prop() max: string;
   @Watch('max')
@@ -42,35 +71,38 @@ export class Datepicker {
   }
 
 
-  // Individual attributes
-
-  @Prop() inoType: 'date' | 'datetime' | 'time' = 'date';
+  /**
+   * The type (`date`, `datetime` or `time`) of this date picker element.
+   * Default is `date`.
+   */
+  @Prop() inoType: 'date'|'datetime'|'time' = 'date';
   @Watch('inoType')
   inoTypeChanged() {
     this.create();
   }
 
   /**
-   * The date format in which the resulting date is shown in the input field.
-   * If used with time also provide an format for the time.
+   * A string of characters which are used to define how the date will be
+   * displayed in the input field. If used with time, also provide an format for
+   * the time. More details [here](https://flatpickr.js.org/formatting/).
    */
-  @Prop() inoDateFormat: string;
+  @Prop() inoDateFormat?: string;
   @Watch('inoDateFormat')
   inoDateFormatChanged(value: string) {
     this.update('inoDateFormat', value);
   }
 
   /**
-   * A simple date string containing the default date
+   * A simple date string that sets the default date.
    */
-  @Prop() inoDefaultDate: string;
+  @Prop() inoDefaultDate?: string;
   @Watch('inoDefaultDate')
   inoDefaultDateChanged(value: string) {
     this.update('inoDefaultDate', value);
   }
 
   /**
-   * A number containing the setted hour in the date-time picker
+   * A number containing the initial hour in the date-time picker.
    */
   @Prop() inoDefaultHour: number = 12;
   @Watch('inoDefaultHour')
@@ -79,7 +111,7 @@ export class Datepicker {
   }
 
   /**
-   * A number containing the setted minutes in the date-time picker
+   * A number containing the initial minute in the date-time picker.
    */
   @Prop() inoDefaultMinute: number = 0;
   @Watch('inoDefaultMinute')
@@ -88,25 +120,30 @@ export class Datepicker {
   }
 
   /**
-   * True if the date is shown in 12-hours (AM, PM) instead of 24-hours zone.
+   * If true, displays time picker in 12 hour mode with AM/PM selection.
    */
-  @Prop() inoTwelfHourTime: boolean;
+  @Prop() inoTwelfHourTime?: boolean;
   @Watch('inoTwelfHourTime')
   inoTwelfHourTimeChanged(value: string) {
     this.update('inoTwelfHourTime', value);
   }
 
+  //
   // States
+  //
   @State() flatpickr = null;
 
 
+  //
   // Lifcycle
-
+  //
   componentDidLoad() {
     this.create();
   }
 
+  //
   // Private methods
+  //
 
   private create() {
     const options = {

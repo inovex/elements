@@ -6,20 +6,42 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Checkbox {
+  /**
+   * Marks this element as checked.
+   */
+  @Prop() checked?: boolean;
 
-  // Native pass-through properties
+  /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
 
-  @Prop() checked: boolean;
-  @Prop() disabled: boolean;
-  @Prop() id: string;
-  @Prop() name: string;
-  @Prop() tabIndex: number;
-  @Prop() value: string;
+  /**
+   * The id of this element.
+   */
+  @Prop() id?: string;
+
+  /**
+   * The name of this element.
+   */
+  @Prop() name?: string;
+
+  /**
+   * Sets the tabIndex of this element.
+   */
+  @Prop() tabIndex?: number;
+
+  /**
+   * The value of this element.
+   */
+  @Prop() value?: string;
+
 
 
   private uniqueCheckboxId() {
     return this.id ? `ino-checkbox-id-${this.id}` : '';
   }
+
 
   render() {
     return (

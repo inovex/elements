@@ -6,10 +6,10 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Card {
-
-  // Custom properties (prefixed)
-
-  @Prop() inoRaised: boolean;
+  /**
+   * Styles this card as raised from other contents.
+   */
+  @Prop() inoRaised?: boolean;
 
   render() {
     return <slot />;
