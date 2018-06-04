@@ -11,9 +11,9 @@ export class Popover {
   private tooltipInstance: TooltipJS;
 
   /**
-   * Placement of the tooltip.
-   * Accepted values: top(-start, -end), right(-start, -end),
-   * bottom(-start, -end), left(-start, -end)
+   * The placement of this popover.
+   * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
+   * `bottom(-start, -end)`, `left(-start, -end)`
    */
   @Prop() inoPlacement = 'auto';
   @Watch('inoPlacement')
@@ -22,7 +22,7 @@ export class Popover {
   }
 
   /**
-   * The target id the tooltip is attached to.
+   * The target id the tooltip belongs to.
    * If not given, the tooltip is attached to the parent component.
    */
   @Prop() inoFor?: string;
@@ -33,7 +33,7 @@ export class Popover {
 
   /**
    * The trigger to show the tooltip - either click, hover or focus.
-   * Multiple triggers possible by separating them with a space.
+   * Multiple triggers are possible by separating them with a space.
    */
   @Prop() inoTrigger = 'hover focus';
   @Watch('inoTrigger')

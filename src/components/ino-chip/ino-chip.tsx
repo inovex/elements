@@ -9,12 +9,12 @@ export class Chip {
   @Element() el: HTMLElement;
 
   /**
-   * Sets the label of this chip.
+   * The label of this chip.
    */
   @Prop() inoLabel?: string;
 
   /**
-   * Sets the icon on before the label in this chip.
+   * The icon before the label in this chip.
    */
   @Prop() inoIcon?: string;
 
@@ -25,13 +25,14 @@ export class Chip {
   @Prop() inoRemovable?: boolean;
 
   /**
-   * Sets the fill color of this element.
+   * The fill type of this element.
    * Possible values: `solid` (default) or `outline`.
    */
   @Prop() inoFill?: string;
 
   /**
-   * Sets the name of the color scheme of this component.
+   * The name of the color scheme which is used
+   * to style the background and outline of this component.
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `danger`.
    */
@@ -43,7 +44,7 @@ export class Chip {
    * Listen to this event to hide or destroy this chip.
    * The event only emits if the property `inoRemovable` is true.
    */
-  @Event() inoRemove: EventEmitter;
+  @Event() inoRemove?: EventEmitter;
 
 
   private handleClick(e: Event) {

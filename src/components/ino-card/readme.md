@@ -1,7 +1,7 @@
 # ino-card
-A card is as flexible and extensible content component.
+A card is as flexible and extensible content component. 
 
-> Notice: The card is (so far) a simple wrapper but will be extended for more complex use-cases in future.
+So far, the card is a simple content component but will be extended for more complex use-cases in future.
 
 ### Usage
 The component can be used as follows:

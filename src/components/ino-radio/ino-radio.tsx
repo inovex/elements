@@ -6,26 +6,35 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Radio {
+  /**
+   * Marks this element as checked.
+   */
+  @Prop() checked?: boolean;
 
-  // Native pass-through properties
+  /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
 
-  @Prop() checked: boolean;
-  @Prop() disabled: boolean;
-  @Prop() id: string;
-  @Prop() name: string;
-  @Prop() tabIndex: number;
-  @Prop() value: string;
+  /**
+   * The name of this element.
+   */
+  @Prop() name?: string;
 
+  /**
+   * The tabIndex of this element.
+   */
+  @Prop() tabIndex?: number;
 
-  private uniqueRadioId() {
-    return this.id ? `ino-radio-id-${this.id}` : '';
-  }
+  /**
+   * The value of this element.
+   */
+  @Prop({mutable: true}) value?: string;
 
   render() {
     return (
       <label class={this.disabled ? 'disabled' : ''}>
         <input type="radio"
-               id={this.uniqueRadioId()}
                checked={this.checked}
                disabled={this.disabled}
                name={this.name}

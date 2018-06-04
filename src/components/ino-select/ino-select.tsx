@@ -6,15 +6,39 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Select {
-
-  // Native pass-through properties
-
+  /**
+   * Marks this element as autofocused.
+   */
   @Prop() autofocus: boolean;
+
+  /**
+   * Disables this element.
+   */
   @Prop() disabled: boolean;
+
+  /**
+   * The form this element belongs to.
+   */
   @Prop() form: string;
+
+  /**
+   * If true, enables multiple select options.
+   */
   @Prop() multiple: boolean;
+
+  /**
+   * The name of this element.
+   */
   @Prop() name: string;
+
+  /**
+   * Marks this element as required.
+   */
   @Prop() required: boolean;
+
+  /**
+   * The size of this element.
+   */
   @Prop() size: number;
 
   render() {

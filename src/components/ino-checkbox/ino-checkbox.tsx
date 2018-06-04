@@ -27,7 +27,7 @@ export class Checkbox {
   @Prop() name?: string;
 
   /**
-   * Sets the tabIndex of this element.
+   * The tab index of this element.
    */
   @Prop() tabIndex?: number;
 
