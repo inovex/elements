@@ -13,7 +13,7 @@ export class Datepicker {
   @Element() el: HTMLElement;
 
   /**
-   * Sets the accesskey of this element.
+   * The accesskey of this element.
    */
   @Prop() accesskey?: string;
 
@@ -28,7 +28,7 @@ export class Datepicker {
   @Prop() disabled?: boolean;
 
   /**
-   * Sets the input name of this element.
+   * The input name of this element.
    */
   @Prop() name?: string;
 
@@ -43,12 +43,12 @@ export class Datepicker {
   @Prop() required?: boolean;
 
   /**
-   * Sets the tabindex of this element.
+   * The tabindex of this element.
    */
   @Prop() tabindex?: string;
 
   /**
-   * Contains the value of this element.
+   * The value of this element.
    */
   @Prop({mutable: true}) value?: string;
 

@@ -26,7 +26,7 @@ This component can be used as follows:
 ```
 
 ### Examples
-The picker can be used as date-picker
+The picker can be used as date picker
 ```html
 <ino-datepicker ino-type="date" placeholder="Enter a date"></ino-datepicker>
 ```
@@ -41,9 +41,6 @@ or as datetime picker
 <ino-datepicker ino-type="datetime" placeholder="Enter a date and time"></ino-datepicker>
 ```
 
-For more complex examples, check out the storybook.
-
-
 <!-- Auto Generated Below -->
 
 
@@ -53,7 +50,7 @@ For more complex examples, check out the storybook.
 
 string
 
-Sets the accesskey of this element.
+The accesskey of this element.
 
 
 #### autofocus
@@ -133,7 +130,7 @@ The minimum date that a user can start picking from (inclusive).
 
 string
 
-Sets the input name of this element.
+The input name of this element.
 
 
 #### placeholder
@@ -154,14 +151,14 @@ Marks this element as required.
 
 string
 
-Sets the tabindex of this element.
+The tabindex of this element.
 
 
 #### value
 
 string
 
-Contains the value of this element.
+The value of this element.
 
 
 ## Attributes
@@ -170,7 +167,7 @@ Contains the value of this element.
 
 string
 
-Sets the accesskey of this element.
+The accesskey of this element.
 
 
 #### autofocus
@@ -193,7 +190,7 @@ string
 
 A string of characters which are used to define how the date will be
 displayed in the input field. If used with time, also provide an format for
-the time. For more details see [here](https://flatpickr.js.org/formatting/).
+the time. More details [here](https://flatpickr.js.org/formatting/).
 
 
 #### ino-default-date
@@ -250,7 +247,7 @@ The minimum date that a user can start picking from (inclusive).
 
 string
 
-Sets the input name of this element.
+The input name of this element.
 
 
 #### placeholder
@@ -271,14 +268,14 @@ Marks this element as required.
 
 string
 
-Sets the tabindex of this element.
+The tabindex of this element.
 
 
 #### value
 
 string
 
-Contains the value of this element.
+The value of this element.
 
 
 

@@ -1,25 +1,20 @@
-# ino-checkbox
-A checkbox that allows the user to select one or more items from a set. It functions as a wrapper around the browser's native `HTMLInputElement` with type `checkbox` and a label.
-
-
+# ino-radio
+A radio component that allows the user to select one option from a set. with label. It functions as a wrapper around the browser's native `HTMLInputElement` with type `radio` and a label.
 
 ### Usage
+
 The component can be used as follows:
 
 ```html
-<ino-checkbox 
+<ino-radio
   checked="<boolean>"
   disabled="<boolean>"
-  id="<string>" 
-  name="<string>" 
-  tabIndex="<number>"
+  name="<string>"
+  tabindex="<string>"
   value="<string>">
     Label
-</ino-checkbox>
+</ino-radio>
 ```
-
-By default, the label is always shown right after the checkbox.
-
 
 <!-- Auto Generated Below -->
 
@@ -40,13 +35,6 @@ boolean
 Disables this element.
 
 
-#### id
-
-string
-
-The id of this element.
-
-
 #### name
 
 string
@@ -58,7 +46,7 @@ The name of this element.
 
 number
 
-The tab index of this element.
+The tabIndex of this element.
 
 
 #### value
@@ -84,13 +72,6 @@ boolean
 Disables this element.
 
 
-#### id
-
-string
-
-The id of this element.
-
-
 #### name
 
 string
@@ -102,7 +83,7 @@ The name of this element.
 
 number
 
-The tab index of this element.
+The tabIndex of this element.
 
 
 #### value

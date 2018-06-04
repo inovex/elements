@@ -13,11 +13,9 @@ The component can be used as follows (custom properties have an `ino`-prefix):
   ino-secondary="<boolean>"
   ino-icon-left="<string>"
   ino-icon-right="<string>">
- Button
+ Button Content
 </ino-button>
 ```
-
-Check out the storybook for more examples.
 
 ### Event Behaviour
 The component behaves like a native button with additional features (see prefixed properties / attributes). Thus, the component bubbles events triggered by the native [HTMLButtonElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement) like `click`, `submit` and `reset`.
@@ -28,7 +26,7 @@ Events can be catched as usal with event listeners on the `ino-button` element l
 document.querySelector('ino-button').addEventListener('<event>', ...)
 ```
 
-The declarative version supported as well, for example:
+The declarative version is supported as well, for example:
 
 ```html
 <ino-button onclick="handler()"></ino-button>

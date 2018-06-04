@@ -8,59 +8,95 @@ import { Component, Element, Prop, State, Watch } from '@stencil/core';
 export class Image {
   @Element() el: HTMLElement;
 
-  // Native pass-through properties
+  /**
+   * The alternative text of this image.
+   */
+  @Prop() alt?: string;
 
-  @Prop() alt: string;
-  @Prop() decoding: 'async' | 'auto' | 'sync';
-  @Prop() height: number;
-  @Prop() sizes: string;
-  @Prop() src: string;
-  @Prop() srcset: string;
-  @Prop() width: number;
-  @Prop() usemap: string;
+  /**
+   * The decoding method of the native html input element.
+   * Can either be `async`, `auto` or `sync`.
+   */
+  @Prop() decoding?: 'async'|'auto'|'sync';
+
+  /**
+   * The fixed height of this image.
+   */
+  @Prop() height?: number;
+  @Watch('height')
+  heightChanged() {
+    this.computeFixedDimensions();
+  }
+
+  /**
+   * A set of rules to specify the usage of images sources that are
+   * defined in the `srcset` attribute.
+   */
+  @Prop() sizes?: string;
+
+  /**
+   * The source of this image element.
+   */
+  @Prop() src?: string;
+
+  /**
+   * A set of sources of this image for different viewports or devices.
+   */
+  @Prop() srcset?: string;
+
+  /**
+   * The fixed of the image.
+   */
+  @Prop() width?: number;
+  @Watch('width')
+  widthChanged() {
+    this.computeFixedDimensions();
+  }
+
+  /**
+   * An ID referencing to a defined map element for this image.
+   */
+  @Prop() usemap?: string;
+
+  /**
+   * The ratio width of this image (default = 1).
+   * Use this attribute together with `ino-ratio-height` to reserve a
+   * space for the image during rendering and to prevent jumping contents.
+   */
+  @Prop() inoRatioWidth: number = 1;
+  @Watch('inoRatioWidth')
+  inoRatioWidthChanged() {
+    this.computeRatio();
+  }
+
+  /**
+   * The ratio height for this image (default = 1).
+   * Use this attribute together with `ino-ratio-width` to reserve a
+   * space for the image during rendering and to prevent jumping contents.
+   */
+  @Prop() inoRatioHeight: number = 1;
+  @Watch('inoRatioHeight')
+  inoRatioHeightChanged() {
+    this.computeRatio();
+  }
+
+  /**
+   * If true, styles the image with rounded borders.
+   */
+  @Prop() inoRounded?: boolean;
 
 
-  // Custom properties (prefixed)
-
-  @Prop() inoRatioWidth = 1;
-  @Prop() inoRatioHeight = 1;
-  @Prop() inoRounded: boolean;
-
-
-  // States
-
+  /**
+   * State containing the composed ratio width for this image.
+   */
   @State() composedRatioHeight = '100%';
 
-
-  // Watchers
-
-  @Watch('width')
-  handleWidthChange() {
-    this.computeFixedDimensions();
-  }
-  @Watch('height')
-  handleHeightChange() {
-    this.computeFixedDimensions();
-  }
-
-  @Watch('inoRatioWidth')
-  handleInoRatioWidthChange() {
-    this.computeRatio();
-  }
-  @Watch('inoRatioHeight')
-  handleInoRatioHeightChange() {
-    this.computeRatio();
-  }
-
-
-  // Lifecyle methods
 
   componentWillLoad() {
     this.computeRatio();
     this.computeFixedDimensions();
   }
 
-  // Private methods
 
   private computeFixedDimensions() {
     this.el.style.height = this.height ? `${this.height}px` : null;

@@ -179,7 +179,7 @@ declare global {
        */
       'name': string;
       /**
-       * Sets the tabIndex of this element.
+       * The tab index of this element.
        */
       'tabIndex': number;
       /**
@@ -225,7 +225,7 @@ declare global {
        */
       'name'?: string;
       /**
-       * Sets the tabIndex of this element.
+       * The tab index of this element.
        */
       'tabIndex'?: number;
       /**
@@ -242,19 +242,19 @@ declare global {
   namespace StencilComponents {
     interface InoChip {
       /**
-       * Sets the name of the color scheme of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
        */
       'inoColorScheme': string;
       /**
-       * Sets the fill color of this element. Possible values: `solid` (default) or `outline`.
+       * The fill type of this element. Possible values: `solid` (default) or `outline`.
        */
       'inoFill': string;
       /**
-       * Sets the icon on before the label in this chip.
+       * The icon before the label in this chip.
        */
       'inoIcon': string;
       /**
-       * Sets the label of this chip.
+       * The label of this chip.
        */
       'inoLabel': string;
       /**
@@ -284,19 +284,19 @@ declare global {
   namespace JSXElements {
     export interface InoChipAttributes extends HTMLAttributes {
       /**
-       * Sets the name of the color scheme of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
        */
       'inoColorScheme'?: string;
       /**
-       * Sets the fill color of this element. Possible values: `solid` (default) or `outline`.
+       * The fill type of this element. Possible values: `solid` (default) or `outline`.
        */
       'inoFill'?: string;
       /**
-       * Sets the icon on before the label in this chip.
+       * The icon before the label in this chip.
        */
       'inoIcon'?: string;
       /**
-       * Sets the label of this chip.
+       * The label of this chip.
        */
       'inoLabel'?: string;
       /**
@@ -317,7 +317,7 @@ declare global {
   namespace StencilComponents {
     interface InoDatepicker {
       /**
-       * Sets the accesskey of this element.
+       * The accesskey of this element.
        */
       'accesskey': string;
       /**
@@ -329,7 +329,7 @@ declare global {
        */
       'disabled': boolean;
       /**
-       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. For more details see [here](https://flatpickr.js.org/formatting/).
+       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. More details [here](https://flatpickr.js.org/formatting/).
        */
       'inoDateFormat': string;
       /**
@@ -361,7 +361,7 @@ declare global {
        */
       'min': string;
       /**
-       * Sets the input name of this element.
+       * The input name of this element.
        */
       'name': string;
       /**
@@ -373,11 +373,11 @@ declare global {
        */
       'required': boolean;
       /**
-       * Sets the tabindex of this element.
+       * The tabindex of this element.
        */
       'tabindex': string;
       /**
-       * Contains the value of this element.
+       * The value of this element.
        */
       'value': string;
     }
@@ -403,7 +403,7 @@ declare global {
   namespace JSXElements {
     export interface InoDatepickerAttributes extends HTMLAttributes {
       /**
-       * Sets the accesskey of this element.
+       * The accesskey of this element.
        */
       'accesskey'?: string;
       /**
@@ -415,7 +415,7 @@ declare global {
        */
       'disabled'?: boolean;
       /**
-       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. For more details see [here](https://flatpickr.js.org/formatting/).
+       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. More details [here](https://flatpickr.js.org/formatting/).
        */
       'inoDateFormat'?: string;
       /**
@@ -447,7 +447,7 @@ declare global {
        */
       'min'?: string;
       /**
-       * Sets the input name of this element.
+       * The input name of this element.
        */
       'name'?: string;
       /**
@@ -459,11 +459,11 @@ declare global {
        */
       'required'?: boolean;
       /**
-       * Sets the tabindex of this element.
+       * The tabindex of this element.
        */
       'tabindex'?: string;
       /**
-       * Contains the value of this element.
+       * The value of this element.
        */
       'value'?: string;
     }
@@ -475,6 +475,9 @@ declare global {
 
   namespace StencilComponents {
     interface InoIcon {
+      /**
+       * The name of the icon of this element. Can either be `download3`, `equalizer`, `info`, `question`, `search`, `user`, `users`, `select-arrows` or `cancel`.
+       */
       'inoIcon': string;
     }
   }
@@ -498,6 +501,9 @@ declare global {
   }
   namespace JSXElements {
     export interface InoIconAttributes extends HTMLAttributes {
+      /**
+       * The name of the icon of this element. Can either be `download3`, `equalizer`, `info`, `question`, `search`, `user`, `users`, `select-arrows` or `cancel`.
+       */
       'inoIcon'?: string;
     }
   }
@@ -508,16 +514,49 @@ declare global {
 
   namespace StencilComponents {
     interface InoImg {
+      /**
+       * The alternative text of this image.
+       */
       'alt': string;
-      'decoding': 'async' | 'auto' | 'sync';
+      /**
+       * The decoding method of the native html input element. Can either be `async`, `auto` or `sync`.
+       */
+      'decoding': 'async'|'auto'|'sync';
+      /**
+       * The fixed height of this image.
+       */
       'height': number;
+      /**
+       * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+       */
       'inoRatioHeight': number;
+      /**
+       * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+       */
       'inoRatioWidth': number;
+      /**
+       * If true, styles the image with rounded borders.
+       */
       'inoRounded': boolean;
+      /**
+       * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
+       */
       'sizes': string;
+      /**
+       * The source of this image element.
+       */
       'src': string;
+      /**
+       * A set of sources of this image for different viewports or devices.
+       */
       'srcset': string;
+      /**
+       * An ID referencing to a defined map element for this image.
+       */
       'usemap': string;
+      /**
+       * The fixed of the image.
+       */
       'width': number;
     }
   }
@@ -541,16 +580,49 @@ declare global {
   }
   namespace JSXElements {
     export interface InoImgAttributes extends HTMLAttributes {
+      /**
+       * The alternative text of this image.
+       */
       'alt'?: string;
-      'decoding'?: 'async' | 'auto' | 'sync';
+      /**
+       * The decoding method of the native html input element. Can either be `async`, `auto` or `sync`.
+       */
+      'decoding'?: 'async'|'auto'|'sync';
+      /**
+       * The fixed height of this image.
+       */
       'height'?: number;
+      /**
+       * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+       */
       'inoRatioHeight'?: number;
+      /**
+       * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+       */
       'inoRatioWidth'?: number;
+      /**
+       * If true, styles the image with rounded borders.
+       */
       'inoRounded'?: boolean;
+      /**
+       * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
+       */
       'sizes'?: string;
+      /**
+       * The source of this image element.
+       */
       'src'?: string;
+      /**
+       * A set of sources of this image for different viewports or devices.
+       */
       'srcset'?: string;
+      /**
+       * An ID referencing to a defined map element for this image.
+       */
       'usemap'?: string;
+      /**
+       * The fixed of the image.
+       */
       'width'?: number;
     }
   }
@@ -561,19 +633,61 @@ declare global {
 
   namespace StencilComponents {
     interface InoInput {
+      /**
+       * The accesskey of this native element.
+       */
       'accesskey': string;
+      /**
+       * The autocomplete property of this element.
+       */
       'autocomplete': string;
+      /**
+       * The autofocus of this element.
+       */
       'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
+      /**
+       * The max value of this element.
+       */
       'max': string;
+      /**
+       * The min value of this element.
+       */
       'min': string;
+      /**
+       * The name of this element.
+       */
       'name': string;
+      /**
+       * The validation pattern of this element.
+       */
       'pattern': string;
+      /**
+       * The placeholder of this element.
+       */
       'placeholder': string;
+      /**
+       * Marks this element as required.
+       */
       'required': boolean;
+      /**
+       * The size of this element.
+       */
       'size': number;
+      /**
+       * The tabindex of this element.
+       */
       'tabindex': string;
+      /**
+       * The type of this element (default = text).
+       */
       'type': string;
+      /**
+       * The value of this element.
+       */
       'value': string;
     }
   }
@@ -597,19 +711,61 @@ declare global {
   }
   namespace JSXElements {
     export interface InoInputAttributes extends HTMLAttributes {
+      /**
+       * The accesskey of this native element.
+       */
       'accesskey'?: string;
+      /**
+       * The autocomplete property of this element.
+       */
       'autocomplete'?: string;
+      /**
+       * The autofocus of this element.
+       */
       'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
+      /**
+       * The max value of this element.
+       */
       'max'?: string;
+      /**
+       * The min value of this element.
+       */
       'min'?: string;
+      /**
+       * The name of this element.
+       */
       'name'?: string;
+      /**
+       * The validation pattern of this element.
+       */
       'pattern'?: string;
+      /**
+       * The placeholder of this element.
+       */
       'placeholder'?: string;
+      /**
+       * Marks this element as required.
+       */
       'required'?: boolean;
+      /**
+       * The size of this element.
+       */
       'size'?: number;
+      /**
+       * The tabindex of this element.
+       */
       'tabindex'?: string;
+      /**
+       * The type of this element (default = text).
+       */
       'type'?: string;
+      /**
+       * The value of this element.
+       */
       'value'?: string;
     }
   }
@@ -621,15 +777,15 @@ declare global {
   namespace StencilComponents {
     interface InoPopover {
       /**
-       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
        */
       'inoFor': string;
       /**
-       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
       'inoPlacement': string;
       /**
-       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
        */
       'inoTrigger': string;
     }
@@ -655,15 +811,15 @@ declare global {
   namespace JSXElements {
     export interface InoPopoverAttributes extends HTMLAttributes {
       /**
-       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
        */
       'inoFor'?: string;
       /**
-       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
       'inoPlacement'?: string;
       /**
-       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+       * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
        */
       'inoTrigger'?: string;
     }
@@ -675,11 +831,25 @@ declare global {
 
   namespace StencilComponents {
     interface InoRadio {
+      /**
+       * Marks this element as checked.
+       */
       'checked': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
-      'id': string;
+      /**
+       * The name of this element.
+       */
       'name': string;
+      /**
+       * The tabIndex of this element.
+       */
       'tabIndex': number;
+      /**
+       * The value of this element.
+       */
       'value': string;
     }
   }
@@ -703,11 +873,25 @@ declare global {
   }
   namespace JSXElements {
     export interface InoRadioAttributes extends HTMLAttributes {
+      /**
+       * Marks this element as checked.
+       */
       'checked'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
-      'id'?: string;
+      /**
+       * The name of this element.
+       */
       'name'?: string;
+      /**
+       * The tabIndex of this element.
+       */
       'tabIndex'?: number;
+      /**
+       * The value of this element.
+       */
       'value'?: string;
     }
   }
@@ -718,12 +902,33 @@ declare global {
 
   namespace StencilComponents {
     interface InoSelect {
+      /**
+       * Marks this element as autofocused.
+       */
       'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
       'disabled': boolean;
+      /**
+       * The form this element belongs to.
+       */
       'form': string;
+      /**
+       * If true, enables multiple select options.
+       */
       'multiple': boolean;
+      /**
+       * The name of this element.
+       */
       'name': string;
+      /**
+       * Marks this element as required.
+       */
       'required': boolean;
+      /**
+       * The size of this element.
+       */
       'size': number;
     }
   }
@@ -747,12 +952,33 @@ declare global {
   }
   namespace JSXElements {
     export interface InoSelectAttributes extends HTMLAttributes {
+      /**
+       * Marks this element as autofocused.
+       */
       'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
       'disabled'?: boolean;
+      /**
+       * The form this element belongs to.
+       */
       'form'?: string;
+      /**
+       * If true, enables multiple select options.
+       */
       'multiple'?: boolean;
+      /**
+       * The name of this element.
+       */
       'name'?: string;
+      /**
+       * Marks this element as required.
+       */
       'required'?: boolean;
+      /**
+       * The size of this element.
+       */
       'size'?: number;
     }
   }
@@ -764,7 +990,7 @@ declare global {
   namespace StencilComponents {
     interface InoTooltip {
       /**
-       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
        */
       'inoFor': string;
       /**
@@ -772,7 +998,7 @@ declare global {
        */
       'inoLabel': string;
       /**
-       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
       'inoPlacement': string;
       /**
@@ -802,7 +1028,7 @@ declare global {
   namespace JSXElements {
     export interface InoTooltipAttributes extends HTMLAttributes {
       /**
-       * The target id the tooltip is attached to. If not given, the tooltip is attached to the parent component.
+       * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
        */
       'inoFor'?: string;
       /**
@@ -810,7 +1036,7 @@ declare global {
        */
       'inoLabel'?: string;
       /**
-       * Placement of the tooltip. Accepted values: top(-start, -end), right(-start, -end), bottom(-start, -end), left(-start, -end)
+       * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
       'inoPlacement'?: string;
       /**

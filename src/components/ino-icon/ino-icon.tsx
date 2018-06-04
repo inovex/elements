@@ -6,13 +6,15 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Icon {
-
-  // Custom properties (prefixed)
-
+  /**
+   * The name of the icon of this element.
+   * Can either be `download3`, `equalizer`, `info`, `question`,
+   * `search`, `user`, `users`, `select-arrows` or `cancel`.
+   */
   @Prop() inoIcon: string;
 
 
-  private svgTemplate() {
+  private svgTemplate(): JSX.Element {
     if (this.inoIcon === 'download3') {
       return (
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
@@ -81,6 +83,7 @@ export class Icon {
       );
     }
   }
+
 
   render() {
     return <span class="icon-wrapper">{ this.svgTemplate() }</span>;
