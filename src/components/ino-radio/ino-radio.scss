@@ -1,4 +1,8 @@
+@import '../styles/fonts.scss';
+
 ino-radio {
+  @include ino-font(sans-serif, m, regular);
+  
   display: inline-block;
 
   label {
