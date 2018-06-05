@@ -1,4 +1,8 @@
+@import '../styles/fonts.scss';
+
 ino-card {
+  @include ino-font(sans-serif, m, regular);
+
   display: block; 
 
   border: 1px solid #c1c1c1;

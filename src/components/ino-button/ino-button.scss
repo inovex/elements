@@ -1,5 +1,7 @@
+@import '../styles/fonts.scss';
+
 ino-button {
-  font-size: 12px;
+  @include ino-font(sans-serif, m, regular);
 
   button {
     padding: 0.75em;

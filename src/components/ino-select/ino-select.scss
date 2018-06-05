@@ -1,7 +1,8 @@
 @import '../styles/fonts.scss';
 
 ino-select {
-  font-size: 12px;
+  @include ino-font(sans-serif, m, regular);
+
   display: flex;
 
   .composer {
@@ -10,8 +11,6 @@ ino-select {
   }
 
   select {
-    @include font-SourceSansPro-Regular();
-    
     font-size: inherit;
     width: 100%;
     margin-right: 12px;

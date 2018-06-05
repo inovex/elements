@@ -1,12 +1,11 @@
 @import '../styles/fonts.scss';
 
 ino-input {
-  display: flex;
-  font-size: 12px;
+  @include ino-font(sans-serif, m, regular);
 
+  display: flex;
 
   input {
-    @include font-SourceSansPro-Regular();
     position: relative;
     
     width: 100%;
