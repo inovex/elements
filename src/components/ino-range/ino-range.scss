@@ -1,0 +1,129 @@
+@import '../styles/colors.scss';
+
+
+$track-color: #DBDBDB !default;
+$thumb-height: 20px !default;
+
+$track-height: 7px !default;
+$track-border-width: 2px !default;
+$track-color: $track-color !default;
+
+$track-radius: 6px !default;
+$contrast: 5% !default;
+
+
+@mixin track {
+  cursor: pointer;
+  height: $track-height;
+  transition: all .2s ease;
+  width: 100%;
+}
+
+@mixin thumb-colors($color) {
+  background: $color;
+  border: 2px solid transparent;
+}
+
+@mixin thumb() {
+  border-radius: 10px;
+  cursor: pointer;
+  height: $thumb-height;
+  width: $thumb-height;
+
+  @include thumb-colors(ino-color(primary))
+}
+
+
+
+ino-range {
+  input[type='range'] {
+    -webkit-appearance: none;
+    margin: $thumb-height / 2 0;
+    width: 100%;
+
+    &:focus {
+      outline: 0;
+
+      &::-webkit-slider-runnable-track {
+        background: lighten($track-color, $contrast);
+      }
+
+      &::-ms-fill-lower {
+        background: $track-color;
+      }
+
+      &::-ms-fill-upper {
+        background: lighten($track-color, $contrast);
+      }
+    }
+
+    &::-webkit-slider-runnable-track {
+      @include track;
+      background: $track-color;
+      border: $track-border-width solid $track-color;
+      border-radius: $track-radius;
+    }
+
+    &::-webkit-slider-thumb {
+      @include thumb;
+      -webkit-appearance: none;
+      margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+    }
+
+    &::-moz-range-track {
+      @include track;
+      height: 3px;
+      background: $track-color;
+      border: $track-border-width solid $track-color;
+      border-radius: $track-radius;
+    }
+
+    &::-moz-range-thumb {
+      @include thumb;
+      height: $thumb-height * 0.75;
+      width:  $thumb-height * 0.8;
+    }
+
+    &::-ms-track {
+      @include track;
+      background: transparent;
+      border-color: transparent;
+      border-width: ($thumb-height / 2) 0;
+      color: transparent;
+    }
+
+    &::-ms-fill-lower {
+      background: darken($track-color, $contrast);
+      border: $track-border-width solid $track-color;
+      border-radius: $track-radius * 2;
+    }
+
+    &::-ms-fill-upper {
+      background: $track-color;
+      border: $track-border-width solid $track-color;
+      border-radius: $track-radius * 2;
+    }
+
+    &::-ms-thumb {
+      @include thumb;
+      margin-top: 0;
+    }
+  }
+
+  // Generate ino-color-scheme classes
+  @each $color-name, $map in $ino-color-scheme {
+    &[ino-color-scheme="#{$color-name}"] input[type='range'] {
+      
+      &::-webkit-slider-thumb {
+        @include thumb-colors(map-get($map, base))
+      }
+      &::-ms-thumb {
+        @include thumb-colors(map-get($map, base))
+      }
+      &::-moz-range-thumb {
+        @include thumb-colors(map-get($map, base));
+      }
+
+    }
+  }
+}

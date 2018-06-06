@@ -901,6 +901,109 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoRange {
+      /**
+       * The autofocus of this element.
+       */
+      'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
+      'disabled': boolean;
+      /**
+       * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       */
+      'inoColorScheme': string;
+      /**
+       * The max value of this element.
+       */
+      'max': number;
+      /**
+       * The min value of this element.
+       */
+      'min': number;
+      /**
+       * The name of this element.
+       */
+      'name': string;
+      /**
+       * Marks this element as required.
+       */
+      'required': boolean;
+      /**
+       * The step size for this element (default =1)
+       */
+      'step': number;
+      /**
+       * The value of this element.
+       */
+      'value': number;
+    }
+  }
+
+  interface HTMLInoRangeElement extends StencilComponents.InoRange, HTMLStencilElement {}
+
+  var HTMLInoRangeElement: {
+    prototype: HTMLInoRangeElement;
+    new (): HTMLInoRangeElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-range': HTMLInoRangeElement;
+  }
+  interface ElementTagNameMap {
+    'ino-range': HTMLInoRangeElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-range': JSXElements.InoRangeAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoRangeAttributes extends HTMLAttributes {
+      /**
+       * The autofocus of this element.
+       */
+      'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
+      'disabled'?: boolean;
+      /**
+       * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * The max value of this element.
+       */
+      'max'?: number;
+      /**
+       * The min value of this element.
+       */
+      'min'?: number;
+      /**
+       * The name of this element.
+       */
+      'name'?: string;
+      /**
+       * Marks this element as required.
+       */
+      'required'?: boolean;
+      /**
+       * The step size for this element (default =1)
+       */
+      'step'?: number;
+      /**
+       * The value of this element.
+       */
+      'value'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoSelect {
       /**
        * Marks this element as autofocused.
