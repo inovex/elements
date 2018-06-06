@@ -90,10 +90,36 @@
     </div>
 
     <div class="element">
-        <h1>Card</h1>
-        <div class="form-row">
-          <ino-card ino-raised>Raised Card Element</ino-card>
-        </div>
+      <h1>Card</h1>
+      <div class="form-row">
+        <ino-card ino-raised>Raised Card Element</ino-card>
+      </div>
+    </div>
+
+    <div class="element">
+      <h1>Range Field</h1>
+      <div class="form-row">
+        <ino-card>
+          <ino-range min="10" max="20" value="14"></ino-range>
+          <ino-range min="0" max="200" steps="10"></ino-range>
+          <ino-range ino-color-scheme="secondary" min="0" max="200" steps="10"></ino-range>
+          <ino-range ino-color-scheme="tertiary" min="0" max="200" steps="10"></ino-range>
+        </ino-card>
+        <ino-card>
+          Listens to native change event to log value:
+          <ino-range id="range" ino-color-scheme="tertiary" min="0" max="200" steps="10"></ino-range>
+          <script>
+            document.querySelector('#range')
+              .addEventListener('change', ev => console.debug('Range value received', ev.target.value));
+          </script>
+        </ino-card>
+      </div>
+    </div>
+
+    <div class="element">
+      <h1>Card</h1>
+      <div class="form-row">
+        <ino-card ino-raised>Raised Card Element</ino-card>
       </div>
   
     <div class="element">
