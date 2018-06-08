@@ -1,0 +1,20 @@
+@import "../styles/fonts.scss";
+
+ino-form-row {
+  box-sizing: border-box;
+
+  .composer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 2px;
+  }
+
+  .form-element {
+    flex: 1;
+  }
+
+  .form-label {
+    width: 120px;
+  }
+}

@@ -482,6 +482,45 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoFormRow {
+      /**
+       * The label for this form row which describes the form element.
+       */
+      'inoLabel': string;
+    }
+  }
+
+  interface HTMLInoFormRowElement extends StencilComponents.InoFormRow, HTMLStencilElement {}
+
+  var HTMLInoFormRowElement: {
+    prototype: HTMLInoFormRowElement;
+    new (): HTMLInoFormRowElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-form-row': HTMLInoFormRowElement;
+  }
+  interface ElementTagNameMap {
+    'ino-form-row': HTMLInoFormRowElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-form-row': JSXElements.InoFormRowAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoFormRowAttributes extends HTMLAttributes {
+      /**
+       * The label for this form row which describes the form element.
+       */
+      'inoLabel'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoIcon {
       /**
        * The name of the icon of this element. Can either be `download3`, `equalizer`, `info`, `question`, `search`, `user`, `users`, `select-arrows` or `cancel`.
