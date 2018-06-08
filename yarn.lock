@@ -8,18 +8,18 @@
   dependencies:
     netmask "^1.0.6"
 
-"@stencil/core@^0.9.3":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.9.3.tgz#903a4906f038f226ee1466854e62716c1ff7455a"
+"@stencil/core@^0.9.7":
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.9.7.tgz#610b1338b15dbfa40ac5d66428a3ccaa2a2d354f"
   dependencies:
     chokidar "2.0.3"
     jsdom "11.5.1"
-    rollup "^0.58.2"
-    rollup-plugin-commonjs "9.1.0"
+    rollup "^0.59.4"
+    rollup-plugin-commonjs "9.1.3"
     rollup-plugin-node-builtins "2.1.2"
-    rollup-plugin-node-globals "1.2.0"
+    rollup-plugin-node-globals "1.2.1"
     rollup-plugin-node-resolve "3.3.0"
-    rollup-pluginutils "2.0.1"
+    rollup-pluginutils "2.3.0"
     typescript "^2.8.3"
     uglify-es "3.3.9"
     workbox-build "^3.1.0"
@@ -44,9 +44,9 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@stencil/utils/-/utils-0.0.4.tgz#678268ee7520a121cf30b3433ace36015471ed91"
 
-"@types/estree@0.0.38":
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
+"@types/estree@0.0.39":
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
 
 "@types/jest@^21.1.1":
   version "21.1.10"
@@ -1141,10 +1141,6 @@ esprima@^4.0.0:
 estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
-
-estree-walker@^0.3.0:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.3.1.tgz#e6b1a51cf7292524e7237c312e5fe6660c1ce1aa"
 
 estree-walker@^0.5.1, estree-walker@^0.5.2:
   version "0.5.2"
@@ -3578,9 +3574,9 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rollup-plugin-commonjs@9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-9.1.0.tgz#468341aab32499123ee9a04b22f51d9bf26fdd94"
+rollup-plugin-commonjs@9.1.3:
+  version "9.1.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-9.1.3.tgz#37bfbf341292ea14f512438a56df8f9ca3ba4d67"
   dependencies:
     estree-walker "^0.5.1"
     magic-string "^0.22.4"
@@ -3596,9 +3592,9 @@ rollup-plugin-node-builtins@2.1.2:
     crypto-browserify "^3.11.0"
     process-es6 "^0.11.2"
 
-rollup-plugin-node-globals@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-globals/-/rollup-plugin-node-globals-1.2.0.tgz#1a7ff0eb988430cfd76a12fb35767374b49a6d31"
+rollup-plugin-node-globals@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-globals/-/rollup-plugin-node-globals-1.2.1.tgz#2bd8309c19a0390b54cfac19a3bc13eabf3e5541"
   dependencies:
     acorn "^5.5.0"
     buffer-es6 "^4.9.3"
@@ -3615,11 +3611,11 @@ rollup-plugin-node-resolve@3.3.0:
     is-module "^1.0.0"
     resolve "^1.1.6"
 
-rollup-pluginutils@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.0.1.tgz#7ec95b3573f6543a46a6461bd9a7c544525d0fc0"
+rollup-pluginutils@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.3.0.tgz#478ace04bd7f6da2e724356ca798214884738fc4"
   dependencies:
-    estree-walker "^0.3.0"
+    estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
 rollup-pluginutils@^2.0.1:
@@ -3629,11 +3625,11 @@ rollup-pluginutils@^2.0.1:
     estree-walker "^0.5.2"
     micromatch "^2.3.11"
 
-rollup@^0.58.2:
-  version "0.58.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.58.2.tgz#2feddea8c0c022f3e74b35c48e3c21b3433803ce"
+rollup@^0.59.4:
+  version "0.59.4"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.59.4.tgz#6f80f7017c22667ff1bf3e62adf8624a44cc44aa"
   dependencies:
-    "@types/estree" "0.0.38"
+    "@types/estree" "0.0.39"
     "@types/node" "*"
 
 rsvp@^3.3.3:
