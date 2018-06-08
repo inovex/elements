@@ -33,11 +33,19 @@ export class Button {
    */
   @Prop() type?: 'button'|'submit'|'reset';
 
+  /**
+   * The name of the color scheme which is used
+   * to style the background and outline of this component.
+   * Possible values: `primary` (default),  `secondary`, `tertiary`,
+   * `success`, `warning`, `error`, `light`, `dark`.
+   */
+  @Prop() inoColorScheme?: string;
 
   /**
-   * Sets a secondary button style
+   * The fill type of this element.
+   * Possible values: `solid` (default), `outline` or `transparent`.
    */
-  @Prop() inoSecondary?: boolean;
+  @Prop() inoFill?: string;
 
   /**
    * Appends an icon before the text.
@@ -56,7 +64,6 @@ export class Button {
         autoFocus={this.autofocus}
         disabled={this.disabled}
         name={this.name}
-        class={this.inoSecondary && 'secondary'}
         type={this.type}
         form={this.form}>
 

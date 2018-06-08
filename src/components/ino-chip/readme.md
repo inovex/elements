@@ -46,7 +46,7 @@ string
 The name of the color scheme which is used
 to style the background and outline of this component.
 Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `danger`.
+`success`, `warning`, `error`, `light`, dark`.
 
 
 #### inoFill
@@ -88,7 +88,7 @@ string
 The name of the color scheme which is used
 to style the background and outline of this component.
 Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `danger`.
+`success`, `warning`, `error`, `light`, dark`.
 
 
 #### ino-fill

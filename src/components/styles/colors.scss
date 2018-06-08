@@ -5,7 +5,7 @@
 // Use the ino-color() function to acccess colors.
 $primary:           #003C7E;
 $primary-light:     #004A9C;
-$primary-dark:       #002E62;
+$primary-dark:      #002E62;
 
 $secondary:         #9CCD00;
 $secondary-light:   #BFF020;
@@ -16,8 +16,11 @@ $tertiary-light:    #10BCFE;
 $tertiary-dark:     #006A92;
 
 $sucess:          $secondary;
-$warning:         yellow; // TODO
+$warning:         #FFDE03;
 $error:           #E00051;
+
+$light:           #c1c1c1;
+$dark:            #777;
 
 
 $ino-color-scheme: (
@@ -37,15 +40,43 @@ $ino-color-scheme: (
   
   tertiary: (
     base:   $tertiary,
-    light:  $tertiary-dark,
+    light:  $tertiary-light,
     dark:   $tertiary-dark,
     contrast: #000
   ),
 
-  warning: (),
+  success: (
+    base:     $sucess,
+    light:    lighten($sucess, 15%),
+    dark:     darken($sucess, 15%),
+    contrast: #000
+  ),
+
+  warning: (
+    base:     $warning,
+    light:    lighten($warning, 15%),
+    dark:     darken($warning, 15%),
+    contrast: #000
+  ),
 
   error: (
-    base: $error,
+    base:     $error,
+    light:    lighten($error, 15%),
+    dark:     darken($error, 15%),
+    contrast: #FFF
+  ),
+
+  light: (
+    base:     $light,
+    light:    lighten($light, 15%),
+    dark:     darken($light, 15%),
+    contrast: #000
+  ),
+
+  dark: (
+    base:     $dark,
+    light:    lighten($dark, 15%),
+    dark:     darken($dark, 15%),
     contrast: #FFF
   )
 );

@@ -1,44 +1,78 @@
 @import '../styles/fonts.scss';
+@import '../styles/colors.scss';
+
+// Mixin to generate the different ino-color-schemes
+@mixin ino-button-color-schemes() {
+  @each $color-name, $map in $ino-color-scheme {
+    
+    // Condition to set default styles for primary
+    $selector: '&[ino-color-scheme="#{$color-name}"]';
+    @if $color-name == primary {
+      $selector: '&';
+    }
+
+    #{$selector} button {
+      color: map-get($map, contrast);
+      background-color: map-get($map, base);
+      border: 1px solid map-get($map, base);
+      
+      &:hover, &:active, &:focus {
+        background: map-get($map, light);
+      }
+
+      &:disabled {
+        color: #000;
+        border: 1px solid ino-color(light, light);
+        background: ino-color(light, light);
+        cursor: default;
+      }
+    }
+  }
+}
+
 
 ino-button {
   @include ino-font(sans-serif, m, regular);
 
   button {
+    cursor: pointer;
     padding: 0.75em;
-    margin: 0;
-
-    color: #ffffff;
+    margin: 1px;
     font-size: inherit;
-    background: #003c7d;
     outline: 0;
-
-    &:hover, &:active, &:focus {
-      background: #0079ff;
-    }
-
-    &:disabled {
-      background: #d2d2d2;
-    }
-  }
-
-  button.secondary {
-    color: #003c7d;
-    background: #fff;
-    
-    &:hover, &:active, &:focus {
-      background: #0079ff;
-    }
-
-    &:disabled {
-      background: #d2d2d2;
-    }
   }
 
   .icon-left {
     margin-right: 0.75em;
   }
-
   .icon-right {
     margin-left: 0.75em;
+  }
+
+  
+  // Color buttons
+  @include ino-button-color-schemes;
+
+  // Outline button
+  // Inherit colors but reset background.
+  &[ino-fill="outline"] button {
+    background: transparent;
+    color: inherit;
+
+    &:hover, &:active, &:focus {
+      background: ino-color(light, light);
+    }
+  }
+
+  // Transparent button
+  // Only keep disabled style from colors
+  &[ino-fill="transparent"] button {
+    background: transparent;
+    border: 1px solid transparent;
+    color: inherit;
+
+    &:hover, &:active, &:focus {
+      background: ino-color(light, light);
+    }
   }
 }
