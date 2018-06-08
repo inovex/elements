@@ -5,3 +5,12 @@
 @mixin transition-fast() {
   transition: all 50ms ease-out;
 }
+
+
+@mixin rotate($deg) {
+  transform: rotate($deg);
+}
+
+@mixin animation-delay($time) {
+  animation-delay: $time;
+}

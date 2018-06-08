@@ -78,6 +78,42 @@
       </div>
     </div>
 
+    <div class="element">
+      <h1>Spinner</h1>
+      <ino-spinner ino-type="tile"></ino-spinner>
+      <ino-spinner ino-color-scheme="secondary" ino-type="tile"></ino-spinner>
+      <ino-spinner ino-color-scheme="tertiary" ino-type="tile"></ino-spinner>
+      <ino-spinner ino-color-scheme="error" ino-type="tile"></ino-spinner>
+      <hr>
+      <ino-spinner ino-type="circle"></ino-spinner>
+      <ino-spinner ino-color-scheme="secondary" ino-type="circle"></ino-spinner>
+      <ino-spinner ino-color-scheme="tertiary" ino-type="circle"></ino-spinner>
+      <ino-spinner ino-color-scheme="error" ino-type="circle"></ino-spinner>
+      <hr>
+      <ino-spinner ino-type="bounce"></ino-spinner>
+      <ino-spinner ino-color-scheme="secondary" ino-type="bounce"></ino-spinner>
+      <ino-spinner ino-color-scheme="tertiary" ino-type="bounce"></ino-spinner>
+      <ino-spinner ino-color-scheme="error" ino-type="bounce"></ino-spinner>
+
+      <hr>
+      <ino-spinner ino-type="tile" ino-width="100" ino-height="80"></ino-spinner>
+      <ino-spinner ino-type="circle" ino-width="80" ino-height="80"></ino-spinner>
+      <ino-spinner ino-type="bounce" ino-width="80" ino-height="80"></ino-spinner>
+
+      <hr>
+      <ino-button id="spinner-button">Show modal spinner for 3 seconds</ino-button>
+      <ino-spinner id="modal-spinner" ino-type="circle" ino-modal  style="display: none;"></ino-spinner>
+      <script>
+        const modalSpinner = document.querySelector('#modal-spinner');
+        const spinnerButton = document.querySelector('#spinner-button');
+        spinnerButton.addEventListener("click", (() => {
+          modalSpinner.style.display = 'block';
+          window.setTimeout(() => modalSpinner.style.display = 'none', 3000);
+        }));
+      </script>
+    </div>
+  
+
 
     <div class="element">
       <h1>Input Field</h1>
