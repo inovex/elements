@@ -1,0 +1,39 @@
+@import '../../styles/colors.scss';
+@import '../../styles/transitions.scss';
+
+$tile-margin: 1.5px;
+
+@mixin bounce-color($color) {
+  > div {
+    background-color: $color;
+  }
+}
+
+@mixin bounce() {
+  @include bounce-color(ino-color(primary));
+
+  .double-bounce-1,
+  .double-bounce-2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0.65;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  .double-bounce-2 {
+    @include animation-delay(-1.0s);
+  }
+  
+  @keyframes sk-bounce {
+    0%,
+    100% {
+      transform: scale(0.0);
+    }
+    50% {
+      transform: scale(1.0);
+    }
+  }
+}

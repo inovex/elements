@@ -1004,6 +1004,77 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoSpinner {
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme': string;
+      /**
+       * The height of this spinner (default = 40)
+       */
+      'inoHeight': number;
+      /**
+       * If true, the spinner is shown as modal over the current app page.
+       */
+      'inoModal': boolean;
+      /**
+       * The type of this spinner (default = tile). Possible values: `tile`, `bounce` or `circle`
+       */
+      'inoType': string;
+      /**
+       * The width of this spinner (defaul = 40)
+       */
+      'inoWidth': number;
+    }
+  }
+
+  interface HTMLInoSpinnerElement extends StencilComponents.InoSpinner, HTMLStencilElement {}
+
+  var HTMLInoSpinnerElement: {
+    prototype: HTMLInoSpinnerElement;
+    new (): HTMLInoSpinnerElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-spinner': HTMLInoSpinnerElement;
+  }
+  interface ElementTagNameMap {
+    'ino-spinner': HTMLInoSpinnerElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-spinner': JSXElements.InoSpinnerAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoSpinnerAttributes extends HTMLAttributes {
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * The height of this spinner (default = 40)
+       */
+      'inoHeight'?: number;
+      /**
+       * If true, the spinner is shown as modal over the current app page.
+       */
+      'inoModal'?: boolean;
+      /**
+       * The type of this spinner (default = tile). Possible values: `tile`, `bounce` or `circle`
+       */
+      'inoType'?: string;
+      /**
+       * The width of this spinner (defaul = 40)
+       */
+      'inoWidth'?: number;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoSelect {
       /**
        * Marks this element as autofocused.
