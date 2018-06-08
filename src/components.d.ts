@@ -41,6 +41,14 @@ declare global {
        */
       'form': string;
       /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme': string;
+      /**
+       * The fill type of this element. Possible values: `solid` (default), `outline` or `transparent`.
+       */
+      'inoFill': string;
+      /**
        * Appends an icon before the text.
        */
       'inoIconLeft': string;
@@ -48,10 +56,6 @@ declare global {
        * Prepends an icon after the text.
        */
       'inoIconRight': string;
-      /**
-       * Sets a secondary button style
-       */
-      'inoSecondary': boolean;
       /**
        * The name of the element.
        */
@@ -95,6 +99,14 @@ declare global {
        */
       'form'?: string;
       /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * The fill type of this element. Possible values: `solid` (default), `outline` or `transparent`.
+       */
+      'inoFill'?: string;
+      /**
        * Appends an icon before the text.
        */
       'inoIconLeft'?: string;
@@ -102,10 +114,6 @@ declare global {
        * Prepends an icon after the text.
        */
       'inoIconRight'?: string;
-      /**
-       * Sets a secondary button style
-       */
-      'inoSecondary'?: boolean;
       /**
        * The name of the element.
        */
@@ -242,7 +250,7 @@ declare global {
   namespace StencilComponents {
     interface InoChip {
       /**
-       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
        */
       'inoColorScheme': string;
       /**
@@ -284,7 +292,7 @@ declare global {
   namespace JSXElements {
     export interface InoChipAttributes extends HTMLAttributes {
       /**
-       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `danger`.
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
        */
       'inoColorScheme'?: string;
       /**
