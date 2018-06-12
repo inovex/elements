@@ -63,10 +63,46 @@
     label {
       margin-right: 12px;
     }
+
+    ino-message-box {
+      margin-bottom: 6px;
+    }
+
   </style>
 </head>
 <body>
   <div class="ino-elements">
+    <div class="element">
+      <h1>Message Box</h1>
+
+      <h4>Different types</h4>
+      <ino-message-box ino-color-scheme="primary" ino-heading="Primary box"></ino-message-box>
+      <ino-message-box ino-color-scheme="secondary" ino-heading="Secondary box"></ino-message-box>
+      <ino-message-box ino-color-scheme="tertiary" ino-heading="Tertiary box"></ino-message-box>
+
+      <ino-message-box ino-color-scheme="error" ino-heading="Simple error message box!"></ino-message-box>
+      <ino-message-box ino-color-scheme="error" ino-heading="This is a really really long message that requires more than one line and tests for the margin without having a close icon!"></ino-message-box>
+      
+      <ino-message-box ino-color-scheme="error" ino-icon="info" ino-heading="Message box with icon!"></ino-message-box>
+      <ino-message-box ino-color-scheme="error" ino-icon="info" ino-heading="This is a really really long message that requires more than one line and tests for the icon and the margin without having an icon!"></ino-message-box>
+      
+      <ino-message-box ino-color-scheme="error" ino-removable ino-heading="Error message box removable!"></ino-message-box>
+      <ino-message-box ino-color-scheme="error" ino-removable ino-heading="This is a really really long message that requires more than one line and tests if the close icon is still set properly!"></ino-message-box>
+      
+      <ino-message-box ino-color-scheme="error" ino-icon="info" ino-removable ino-heading="Message Box with icon and removable"></ino-message-box>
+      <ino-message-box ino-color-scheme="error" ino-icon="info" ino-removable ino-heading="This is a really long message that requires more than one line and tests if the close icon and icon are stil set properly!"></ino-message-box>
+
+      <ino-message-box ino-color-scheme="error" ino-removable ino-heading="Complex message box with content!">
+        More complex inputs here!!!
+      </ino-message-box>
+
+      <ino-message-box id="modal-message" ino-color-scheme="error" ino-icon="info" ino-modal ino-removable ino-heading="A simple modal"></ino-message-box>
+      <script>
+        const modal = document.querySelector('#modal-message')
+        modal.addEventListener('inoRemove', _ => modal.parentNode.removeChild(modal));
+      </script>
+    </div>
+
     <div class="element">
       <h1>Popover</h1>
       <div class="form-row">

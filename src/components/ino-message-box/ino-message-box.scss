@@ -1,0 +1,75 @@
+@import '../styles/variables.scss';
+@import '../styles/fonts.scss';
+@import '../styles/colors.scss';
+
+
+ino-message-box {
+  @include ino-font(sans-serif, m, regular);
+  display: block;
+  width: 100%;
+
+  .composer {
+    padding: 8px 12px 8px 16px;
+    border-radius: 4px;
+  }
+
+  .header {
+    @include ino-font-weight(semibold);
+    
+    display: flex;
+    justify-content: space-between;
+
+    .leading {
+      margin-right: 12px;
+    }
+
+    .heading {
+      flex: 1;
+    }
+
+    .remove {
+      align-self: start;
+      margin-left: 6px;
+      margin-right: -3px;
+    }
+  }
+
+  .content {
+    @include ino-font-size(s);
+    padding-top: 8px;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  // Generate ino-color-scheme classes
+  @each $color-name, $map in $ino-color-scheme {
+    &[ino-color-scheme="#{$color-name}"] .composer {
+      background-color: map-get($map, base);
+      border: 1px solid map-get($map, base);
+      color: map-get($map, contrast);
+    }
+  }
+
+  // Postion the message box as modal
+  &[ino-modal] {
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: $z-index-message-box-backdrop;
+    
+    .composer {
+      position: relative;
+      border-radius: 0;
+      top: 24px;
+      left: 10%;
+      z-index: $z-index-message-box;
+      width: 80%;
+    }
+  }
+}
