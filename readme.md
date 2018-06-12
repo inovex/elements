@@ -12,7 +12,13 @@ Stencil combines the best concepts of the most popular frontend frameworks into 
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
-## Getting Started
+# Storybook
+[Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex elements, view the different states of each component, and interactively develop and test inovex components.
+
+The storybook is part of the development process and used to test the components as well as to show the most common use cases.
+
+
+# Getting Started
 
 To start building a new web component using Stencil, clone this repo to a new directory:
 
@@ -25,16 +31,12 @@ and run:
 
 ```bash
 yarn install
-yarn start
-```
-
-To watch for file changes during develop, run:
-
-```bash
 yarn run dev
 ```
 
-To build the component for production, run:
+This will start the storybook and watch for file changes in the components as well as stories.
+
+To build the component library for production, run:
 
 ```bash
 yarn run build
@@ -46,7 +48,11 @@ To run the unit tests for the components, run:
 yarn test
 ```
 
-Need help? Check out the stencil docs [here](https://stenciljs.com/docs/my-first-component).
+Furthermore, to build the storybook, run:
+
+```bash
+yarn run build.storybook
+```
 
 ## Using this component
 
