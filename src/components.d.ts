@@ -825,6 +825,81 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoMessageBox {
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme': string;
+      /**
+       * The heading of this chip.
+       */
+      'inoHeading': string;
+      /**
+       * The icon before the heading in this chip.
+       */
+      'inoIcon': string;
+      /**
+       * If true, display the message box as modal in fix position on top of the page.
+       */
+      'inoModal': boolean;
+      /**
+       * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+       */
+      'inoRemovable': boolean;
+    }
+  }
+
+  interface HTMLInoMessageBoxElement extends StencilComponents.InoMessageBox, HTMLStencilElement {}
+
+  var HTMLInoMessageBoxElement: {
+    prototype: HTMLInoMessageBoxElement;
+    new (): HTMLInoMessageBoxElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-message-box': HTMLInoMessageBoxElement;
+  }
+  interface ElementTagNameMap {
+    'ino-message-box': HTMLInoMessageBoxElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-message-box': JSXElements.InoMessageBoxAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoMessageBoxAttributes extends HTMLAttributes {
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * The heading of this chip.
+       */
+      'inoHeading'?: string;
+      /**
+       * The icon before the heading in this chip.
+       */
+      'inoIcon'?: string;
+      /**
+       * If true, display the message box as modal in fix position on top of the page.
+       */
+      'inoModal'?: boolean;
+      /**
+       * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+       */
+      'inoRemovable'?: boolean;
+      /**
+       * Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. The event only emits if the property `inoRemovable` is true.
+       */
+      'onInoRemove'?: (event: CustomEvent) => void;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoPopover {
       /**
        * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
