@@ -17,6 +17,8 @@ log.txt
 node_modules/
 $RECYCLE.BIN/
 
+storybook-static/
+
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
