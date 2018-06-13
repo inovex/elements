@@ -1,4 +1,6 @@
 import { Component, Prop } from '@stencil/core';
+import {MDCFormField} from '@material/form-field';
+import {MDCRadio} from '@material/radio';
 
 @Component({
   tag: 'ino-radio',
@@ -17,6 +19,11 @@ export class Radio {
   @Prop() disabled?: boolean;
 
   /**
+   * The id of this element.
+   */
+  @Prop() id?: string;
+
+  /**
    * The name of this element.
    */
   @Prop() name?: string;
@@ -31,17 +38,51 @@ export class Radio {
    */
   @Prop({mutable: true}) value?: string;
 
+  /**
+   * An internal instance of the material design radio.
+   */
+  private radio: MDCRadio;
+
+  /**
+   * An internal instance of the material design form field.
+   */
+  private formField: MDCFormField;
+
+  componentDidLoad() {
+    this.radio = new MDCRadio(document.querySelector('.mdc-radio'));
+    this.formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+    this.formField.input = this.radio;
+  }
+
+  componentWillUnLoad() {
+    this.radio.destroy();
+    this.formField.destroy();
+  }
+
+  private uniqueRadioId() {
+    return this.id ? `ino-radio-id-${this.id}` : '';
+  }
+
+
   render() {
     return (
-      <label class={this.disabled ? 'disabled' : ''}>
-        <input type="radio"
-               checked={this.checked}
-               disabled={this.disabled}
-               name={this.name}
-               tabindex={this.tabIndex}
-               value={this.value} />
-        <slot />
-      </label>
+      <div class="mdc-form-field">
+        <div class={`mdc-radio ${this.disabled && 'mdc-radio--disabled'}`}>
+          <input class="mdc-radio__native-control"
+              type="radio"
+              id={this.uniqueRadioId()}
+              checked={this.checked}
+              disabled={this.disabled}
+              name={this.name}
+              tabindex={this.tabIndex}
+              value={this.value} />
+          <div class="mdc-radio__background">
+            <div class="mdc-radio__outer-circle"></div>
+            <div class="mdc-radio__inner-circle"></div>
+          </div>
+        </div>
+        <label htmlFor={this.uniqueRadioId()}><slot /></label>
+      </div>
     );
   }
 }

@@ -1,23 +1,2 @@
-@import 'styles/fonts.scss';
-
-ino-radio {
-  @include ino-font(sans-serif, m, regular);
-  
-  display: inline-block;
-
-  label {
-    display: inline-block;
-    margin: 0;
-    user-select: none;
-
-    cursor: pointer;
-    input {
-      cursor: pointer;
-      margin-right: 1em;
-    }
-
-    &.disabled, &.disabled input {
-      cursor: default;
-    }
-  }
-}
+@import "@material/form-field/mdc-form-field";
+@import "@material/radio/mdc-radio";
