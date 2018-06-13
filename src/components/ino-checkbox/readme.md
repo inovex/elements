@@ -1,5 +1,5 @@
 # ino-checkbox
-A checkbox that allows the user to select one or more items from a set. It functions as a wrapper around the browser's native `HTMLInputElement` with type `checkbox` and a label.
+A checkbox that allows the user to select one or more items from a set. It functions as a wrapper around the material [checkbox](https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox) component.
 
 
 

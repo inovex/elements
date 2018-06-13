@@ -11,7 +11,15 @@ exports.config = {
     }
   ],
   plugins: [
-    sass()
+    sass({
+      injectGlobalPaths: [
+        './src/components/styles/mdc.customize.scss'
+      ],
+      includePaths: [
+        './src/components',
+        './node_modules'
+      ]
+    })
   ]
 };
 

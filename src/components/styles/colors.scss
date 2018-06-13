@@ -6,10 +6,12 @@
 $primary:           #003C7E;
 $primary-light:     #004A9C;
 $primary-dark:      #002E62;
+$primary-contrast:  #FFF;
 
 $secondary:         #9CCD00;
 $secondary-light:   #BFF020;
 $secondary-dark:    #2E7D32;
+$secondary-contrast: #000;
 
 $tertiary:          #00B0F0;
 $tertiary-light:    #10BCFE;
@@ -28,14 +30,14 @@ $ino-color-scheme: (
     base:   $primary,
     light:  $primary-light,
     dark:   $primary-dark,
-    contrast: #FFF
+    contrast: $primary-contrast
   ),
 
   secondary: (
     base:   $secondary,
     light:  $secondary-light,
     dark:   $secondary-dark,
-    contrast: #000
+    contrast: $secondary-contrast
   ),
   
   tertiary: (

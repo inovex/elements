@@ -25,6 +25,8 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
+    "@material/checkbox": "^0.36.0",
+    "@material/form-field": "^0.36.0",
     "@stencil/core": "^0.9.7",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"

@@ -1,23 +1,2 @@
-@import '../styles/fonts.scss';
-
-ino-checkbox {
-  @include ino-font(sans-serif, m, regular);
-
-  display: inline-block;
-
-  label {
-    display: inline-block;
-    margin: 0;
-
-    cursor: pointer;
-    user-select: none;
-    input {
-      cursor: pointer;
-      margin-right: 1em;
-    }
-
-    &.disabled, &.disabled input {
-      cursor: default;
-    }
-  }
-}
+@import "@material/form-field/mdc-form-field";
+@import "@material/checkbox/mdc-checkbox";
