@@ -10,20 +10,26 @@ export default class ComponentTemplateRenderer {
     this.template = docTemplate
     this.markupExamples = markupExamples
 
-    this.setAPIDocs()
-    this.setTitle()
+    this.prepareContent();
 
     return this.template
   }
 
-  setAPIDocs () {
+  prepareContent() {
     if (this.markupExamples) {
-      this.template = this.template.replace('<!-- API_DOCS -->', marked(this.markupExamples))
-    }
-  }
+      let splittedReadme = this.markupExamples.split('<!-- Auto Generated Below -->');
+      let header = splittedReadme[0];
+      const apiDocs = splittedReadme[1];
 
-  setTitle () {
-    this.template = this.template.replace('<!-- TITLE -->', this.className)
+      if (!header) {
+        header = `# ${this.className}`
+      }
+      this.template = this.template.replace('<!-- DOC_HEADER -->', header)
+
+      if (apiDocs) {
+        this.template = this.template.replace('<!-- API_DOCS -->', apiDocs)
+      }
+    }
   }
 
   getTemplate () {
