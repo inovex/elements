@@ -22,52 +22,30 @@ const template = new ComponentTemplateRenderer({ inoCheckbox: Checkbox }, apiDoc
 export default {
   addStory: () => storiesOf('<ino-checkbox>', module)
     .addDecorator(withDocs(template))
-    .add('Simple', () => ({
+    .add('Default', () => ({
       render(h) {
         return (
-          <ino-checkbox
-            checked={boolean('checked', false)}
-            disabled={boolean('disabled', false)}
-          >
-            {text('<slot />', 'A simple checkbox')}
-          </ino-checkbox>
+          <div style="display: flex; justify-content: space-between">
+            <ino-checkbox
+              checked={boolean('checked', false)}
+              disabled={boolean('disabled', false)}
+            >
+              {text('<slot />', 'A standard checkbox')}
+            </ino-checkbox>
+            <ino-checkbox
+              checked={boolean('checked', true)}
+              disabled={boolean('disabled', false)}
+            >
+              {text('<slot />', 'A checked checkbox')}
+            </ino-checkbox>
+            <ino-checkbox
+              checked={boolean('checked', false)}
+              disabled={boolean('disabled', true)}
+            >
+              {text('<slot />', 'A disabled checkbox')}
+            </ino-checkbox>
+          </div>
         );
       },
     }))
-    .add('Checked', () => ({
-      render(h) {
-        return (
-          <ino-checkbox
-            checked={boolean('checked', true)}
-            disabled={boolean('disabled', false)}
-          >
-            {text('<slot />', 'A simple checkbox')}
-          </ino-checkbox>
-        );
-      },
-    }))
-    .add('Disabled', () => ({
-      render(h) {
-        return (
-          <ino-checkbox
-            checked={boolean('checked', false)}
-            disabled={boolean('disabled', true)}
-          >
-            {text('<slot />', 'A simple checkbox')}
-          </ino-checkbox>
-        );
-      },
-    }))
-    .add('Checked + disabled', () => ({
-      render(h) {
-        return (
-          <ino-checkbox
-            checked={boolean('checked', true)}
-            disabled={boolean('disabled', true)}
-          >
-            {text('<slot />', 'A simple checkbox')}
-          </ino-checkbox>
-        );
-      },
-    })),
 };
