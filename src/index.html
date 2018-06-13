@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
-  <script src="/build/stencil-components.js"></script>
+  <script src="./build/stencil-components.js"></script>
 
   <style>
     body {
@@ -14,7 +15,7 @@
 
     .form {
       padding: 30px;
-      box-shadow: 0 8px 16px 0 rgba(61,64,245,0.30), 0 16px 32px 0 rgba(61,214,245,0.14);
+      box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
       background-color: white;
 
       max-width: 400px;
@@ -70,6 +71,7 @@
 
   </style>
 </head>
+
 <body>
   <div class="ino-elements">
     <div class="element">
@@ -195,7 +197,8 @@
       <div class="form-row">
         <ino-card ino-raised>Raised Card Element</ino-card>
       </div>
-  
+    </div>
+
     <div class="element">
       <h1>Chip</h1>
       <div class="form-row">
@@ -222,7 +225,8 @@
 
       <div class="form-row">
         <ino-radio id="field3" name="radio2" value="value1" disabled>Disabled radio</ino-radio>
-        <ino-radio id="field4" name="radio2" value="value2"><ino-icon ino-icon="search"></ino-icon> Value 2</ino-radio>
+        <ino-radio id="field4" name="radio2" value="value2">
+          <ino-icon ino-icon="search"></ino-icon> Value 2</ino-radio>
       </div>
     </div>
 
@@ -261,7 +265,8 @@
 
       <div class="form-row">
         <ino-checkbox id="field3" name="checkbox2" value="value1" disabled>Disabled checkbox</ino-checkbox>
-        <ino-checkbox id="field4" name="checkbox2" value="value2"><ino-icon ino-icon="user"></ino-icon> Value 2</ino-checkbox>
+        <ino-checkbox id="field4" name="checkbox2" value="value2">
+          <ino-icon ino-icon="user"></ino-icon> Value 2</ino-checkbox>
       </div>
     </div>
 
@@ -287,21 +292,26 @@
 
     <div class="element">
       <h1>Image Element</h1>
-      No attributes (cutes image in ratio 1:1 until width == image width): <ino-img src="assets/stock-image.png"></ino-img>
+      No attributes (cutes image in ratio 1:1 until width == image width):
+      <ino-img src="assets/stock-image.png"></ino-img>
 
-      <br><br>
-      Rounded:
+      <br>
+      <br> Rounded:
       <ino-img src="assets/stock-image.png" height="64" width="64" ino-rounded></ino-img>
 
 
       <h3>For fixed values, either height and width have to be provided or one with a ratio</h3>
 
-      Fixed width: <ino-img src="assets/stock-image.png" width="64" height="64"></ino-img>
-      <br><br>
-      Fixed Width with 2:1 ratio: <ino-img src="assets/stock-image.png" width="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
-      <br><br>
-      Fixed Height with 2:1 ratio: <ino-img src="assets/stock-image.png" height="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
-      <br><br>
+      Fixed width:
+      <ino-img src="assets/stock-image.png" width="64" height="64"></ino-img>
+      <br>
+      <br> Fixed Width with 2:1 ratio:
+      <ino-img src="assets/stock-image.png" width="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
+      <br>
+      <br> Fixed Height with 2:1 ratio:
+      <ino-img src="assets/stock-image.png" height="64" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
+      <br>
+      <br>
 
       <h3>Fixed containers outside of image. Image grows in width 100% and ratio as provided</h3>
 
@@ -309,16 +319,24 @@
         <ino-img src="assets/stock-image.png" alt="Ratio 2:1, width 80%" ino-ratio-width="2" ino-ratio-height="1"></ino-img>
       </div>
       <div style="width: 80%; border: 1px solid #000;">
-        <ino-img  src="assets/stock-image.png" alt="Ratio 4:3, width 80%" ino-ratio-width="4" ino-ratio-height="3"></ino-img>
+        <ino-img src="assets/stock-image.png" alt="Ratio 4:3, width 80%" ino-ratio-width="4" ino-ratio-height="3"></ino-img>
       </div>
     </div>
 
     <div class="element">
       <h1>Icon Element</h1>
-      <h2>H2 Überschrift <ino-icon ino-icon="user"></ino-icon></h2>
-      <p>Colored Paragraph <ino-icon ino-icon="info"></ino-icon></p>
-      <p style="color:blue;">Paragraph <ino-icon ino-icon="equalizer"></ino-icon></p>
-      <p>Customized size and color <ino-icon class="customized-icon" ino-icon="search"></ino-icon></p>
+      <h2>H2 Überschrift
+        <ino-icon ino-icon="user"></ino-icon>
+      </h2>
+      <p>Colored Paragraph
+        <ino-icon ino-icon="info"></ino-icon>
+      </p>
+      <p style="color:blue;">Paragraph
+        <ino-icon ino-icon="equalizer"></ino-icon>
+      </p>
+      <p>Customized size and color
+        <ino-icon class="customized-icon" ino-icon="search"></ino-icon>
+      </p>
     </div>
 
     <div class="element" style="text-align:center;">
@@ -382,7 +400,9 @@
       <p>
         <ino-button>Complex Button text (TODO)</ino-button>
       </p>
-      <p><ino-button style="font-size:20px">Button in 20px</ino-button></p>
+      <p>
+        <ino-button style="font-size:20px">Button in 20px</ino-button>
+      </p>
 
       <p>
         <ino-button>Autofocused button</ino-button>
@@ -416,4 +436,5 @@
     </div>
   </div>
 </body>
+
 </html>
