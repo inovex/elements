@@ -1,5 +1,5 @@
-@import '../styles/fonts.scss';
-@import '../styles/colors.scss';
+@import 'styles/fonts.scss';
+@import 'styles/colors.scss';
 
 ino-chip {
   @include ino-font(sans-serif, xs, semibold);

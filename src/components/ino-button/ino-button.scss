@@ -1,5 +1,5 @@
-@import '../styles/fonts.scss';
-@import '../styles/colors.scss';
+@import 'styles/fonts';
+@import 'styles/colors';
 
 // Mixin to generate the different ino-color-schemes
 @mixin ino-button-color-schemes() {

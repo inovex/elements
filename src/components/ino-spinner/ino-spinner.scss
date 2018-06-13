@@ -1,10 +1,10 @@
-@import '../styles/variables.scss';
-@import '../styles/colors.scss';
+@import 'styles/variables.scss';
+@import 'styles/colors.scss';
 
 // Import the different spinner styles
-@import './styles/tile.mixins.scss';
-@import './styles/bounce.mixins.scss';
-@import './styles/circle.mixins.scss';
+@import 'ino-spinner/styles/tile.mixins.scss';
+@import 'ino-spinner/styles/bounce.mixins.scss';
+@import 'ino-spinner/styles/circle.mixins.scss';
 
 ino-spinner {
 
