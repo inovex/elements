@@ -1,6 +1,8 @@
 stages:
  - test
  - build
+ - deploy
+ - deploy-release
 
 image: node:10-alpine
 
@@ -18,5 +20,45 @@ build:
  script:
  - yarn install
  - yarn run build
+ - yarn run build.storybook
+ artifacts:
+  paths:
+  - dist/
+  - www/
+  - storybook-static/
  tags:
  - shared
+
+# variables:
+# * SSH_PRIVATE_KEY: private key to connect to jump host and deploy host
+# * DEPLOY_JUMPHOST: ip of the jumphost
+# * DEPLOY_HOST: internal ip of the host
+deploy:
+ stage: deploy
+ image: instrumentisto/rsync-ssh:latest
+ script:
+ - mkdir -p ~/.ssh
+ - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+ - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' www/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/doc
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/storybook
+ tags:
+ - shared
+
+# variables:
+# * REGISTRY_HOST: ip and port of the registry
+# * REGISTRY_PASSWORD: base64-encoded gitlab API token
+# * REGISTRY_USERNAME: corresponding username for the gitlab API token
+# * REGISTRY_EMAIL: email-adress used for publishing
+deploy-release:
+ stage: deploy-release
+ script:
+ - echo "//$REGISTRY_HOST/:_password=\"$REGISTRY_PASSWORD\"" >> ~/.npmrc
+ - echo "//$REGISTRY_HOST/:username=$REGISTRY_USERNAME" >> ~/.npmrc
+ - echo "//$REGISTRY_HOST/:email=$REGISTRY_EMAIL" >> ~/.npmrc
+ - npm publish --registry http://$REGISTRY_HOST
+ tags:
+ - shared
+ only:
+ - tags
