@@ -1,17 +1,22 @@
-@import 'styles/fonts';
+@import "@material/card/mdc-card";
+@import "@material/typography/mdc-typography";
 
 ino-card {
-  @include ino-font(sans-serif, m, regular);
+  .composer {
+    padding: 1rem;
+  }
+  .header {
+    .title {
+      @include mdc-typography(headline6);
+    }
+    .subtitle {
+      @include mdc-theme-prop(color, text-secondary-on-background);
+      @include mdc-typography(subtitle2);
+    }
+    padding-bottom: 1em;
+  }
 
-  display: block; 
-
-  border: 1px solid #c1c1c1;
-  border-radius: 2px;
-  padding: 5px;
-  margin-bottom: 5px;
-
-  &[ino-raised] {
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  .content {
+    @include mdc-typography(body2);
   }
 }

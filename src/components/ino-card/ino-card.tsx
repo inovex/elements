@@ -1,4 +1,5 @@
 import { Component, Prop } from '@stencil/core';
+import classnames from 'classnames';
 
 @Component({
   tag: 'ino-card',
@@ -7,11 +8,45 @@ import { Component, Prop } from '@stencil/core';
 })
 export class Card {
   /**
-   * Styles this card as raised from other contents.
+   * Removes the shadow and displays a hairline outline instead.
    */
-  @Prop() inoRaised?: boolean;
+  @Prop() inoOutline?: boolean;
+
+  /**
+   * An optional title of this card.
+   */
+  @Prop() inoTitle?: string;
+
+  /**
+   * An optional subtitle of this card.
+   */
+  @Prop() inoSubtitle?: string;
+
+
+  private mediaTemplate() {
+    if (this.inoTitle || this.inoSubtitle) {
+      return (
+        <div class="header">
+          {this.inoTitle && <div class="title">{this.inoTitle}</div>}
+          {this.inoSubtitle && <div class="subtitle">{this.inoSubtitle}</div>}
+        </div>
+      );
+    }
+    return '';
+  }
 
   render() {
-    return <slot />;
+    const cardClass = classnames(
+      'composer',
+      'mdc-card',
+      {'mdc-card--outlined': this.inoOutline}
+    );
+
+    return (
+      <div class={cardClass}>
+        {this.mediaTemplate()}
+        <div class="content"><slot /></div>
+      </div>
+    );
   }
 }

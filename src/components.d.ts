@@ -135,9 +135,17 @@ declare global {
   namespace StencilComponents {
     interface InoCard {
       /**
-       * Styles this card as raised from other contents.
+       * Removes the shadow and displays a hairline outline instead.
        */
-      'inoRaised': boolean;
+      'inoOutline': boolean;
+      /**
+       * An optional subtitle of this card.
+       */
+      'inoSubtitle': string;
+      /**
+       * An optional title of this card.
+       */
+      'inoTitle': string;
     }
   }
 
@@ -161,9 +169,17 @@ declare global {
   namespace JSXElements {
     export interface InoCardAttributes extends HTMLAttributes {
       /**
-       * Styles this card as raised from other contents.
+       * Removes the shadow and displays a hairline outline instead.
        */
-      'inoRaised'?: boolean;
+      'inoOutline'?: boolean;
+      /**
+       * An optional subtitle of this card.
+       */
+      'inoSubtitle'?: string;
+      /**
+       * An optional title of this card.
+       */
+      'inoTitle'?: string;
     }
   }
 }

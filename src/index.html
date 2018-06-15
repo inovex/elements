@@ -32,6 +32,7 @@
 
     .element {
       margin-top: 24px;
+      margin-bottom: 12px;
       padding: 12px;
       border: 1px solid #CCC;
     }
@@ -168,7 +169,22 @@
     <div class="element">
       <h1>Card</h1>
       <div class="form-row">
-        <ino-card ino-raised>Raised Card Element</ino-card>
+        <ino-card>
+          Simple card without media, title, subtitle. The content that belong to this card 
+          and can be really long. Enter any desired content here.
+        </ino-card>
+      </div>
+      <div class="form-row">
+        <ino-card ino-title="Card with title" ino-subtitle="As Well as a Subtitle">
+          Content that belong to this card and can be really long. Enter any desired 
+          content here.
+        </ino-card>
+      </div>
+      <div class="form-row">
+        <ino-card ino-title="Outlined card without subtitle" ino-outline>
+          Content that belong to this card and can be really long. Enter any desired 
+          content here.
+        </ino-card>
       </div>
     </div>
 
@@ -189,13 +205,6 @@
               .addEventListener('change', ev => console.debug('Range value received', ev.target.value));
           </script>
         </ino-card>
-      </div>
-    </div>
-
-    <div class="element">
-      <h1>Card</h1>
-      <div class="form-row">
-        <ino-card ino-raised>Raised Card Element</ino-card>
       </div>
     </div>
 
