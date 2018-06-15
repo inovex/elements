@@ -17,10 +17,24 @@ module.exports = (baseConfig, env, defaultConfig) => {
     // }
   ]);
 
+
+  // Sass Support
   defaultConfig.module.rules.push({
     test: /\.scss$/,
-    loaders: ["style-loader", "css-loader", "sass-loader"],
-    include: path.resolve(__dirname, "../src/stories/")
+    use: [{
+        loader: "style-loader"
+    }, {
+        loader: "css-loader"
+    }, {
+        loader: "sass-loader",
+        options: {
+          includePaths: [
+            path.resolve(__dirname, "../src/stories"),
+            path.resolve(__dirname, "../src/components"),
+            path.resolve(__dirname, "../node_modules")
+          ]
+        }
+    }],
   });
 
   if (defaultConfig.plugins) {
