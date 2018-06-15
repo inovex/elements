@@ -1,5 +1,5 @@
 # ino-radio
-A radio component that allows the user to select one option from a set. with label. It functions as a wrapper around the browser's native `HTMLInputElement` with type `radio` and a label.
+A radio component that allows the user to select one option from a set. with label. around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
 
 ### Usage
 
@@ -33,6 +33,13 @@ Marks this element as checked.
 boolean
 
 Disables this element.
+
+
+#### id
+
+string
+
+The id of this element.
 
 
 #### name
@@ -70,6 +77,13 @@ Marks this element as checked.
 boolean
 
 Disables this element.
+
+
+#### id
+
+string
+
+The id of this element.
 
 
 #### name

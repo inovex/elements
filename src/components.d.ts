@@ -981,6 +981,10 @@ declare global {
        */
       'disabled': boolean;
       /**
+       * The id of this element.
+       */
+      'id': string;
+      /**
        * The name of this element.
        */
       'name': string;
@@ -1022,6 +1026,10 @@ declare global {
        * Disables this element.
        */
       'disabled'?: boolean;
+      /**
+       * The id of this element.
+       */
+      'id'?: string;
       /**
        * The name of this element.
        */
