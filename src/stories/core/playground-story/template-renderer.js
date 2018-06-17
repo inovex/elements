@@ -1,7 +1,10 @@
 import marked from 'marked'
 import { withDocs } from 'storybook-readme';
 
-import rawStoryTemplate from './raw-story.template.md'
+import rawStoryTemplate from './template.md'
+
+// Import styles for `ino-playground` class
+import './styles.scss'
 
 export default (componentReadme) => {
   let template = rawStoryTemplate;
@@ -12,6 +15,11 @@ export default (componentReadme) => {
 
   template = template.replace('<!-- DOC_HEADER -->', header);
   template = template.replace('<!-- API_DOCS -->', apiDocs);
-
-  return withDocs(template);
+  
+  const withDocsCustom = withDocs({
+    PreviewComponent: {
+      template: `<div class="ino-playground"><slot></slot></div>`,
+    },
+  });
+  return withDocsCustom(template);
 }

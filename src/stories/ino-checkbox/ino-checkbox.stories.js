@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { text, boolean } from '@storybook/addon-knobs/vue';
 
-import renderTemplate from '../core/stencil-template-renderer';
+import renderTemplate from '../core/playground-story/template-renderer';
 
 import componentReadme from '../../components/ino-checkbox/readme.md';
 import './ino-checkbox.scss';

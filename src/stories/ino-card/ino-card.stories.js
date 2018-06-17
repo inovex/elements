@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { boolean, text } from '@storybook/addon-knobs/vue';
 
-import renderTemplate from '../core/stencil-template-renderer';
+import renderTemplate from '../core/playground-story/template-renderer';
 
 import { Card } from '../../../dist/collection/components/ino-card/ino-card';
 import componentReadme from '../../components/ino-card/readme.md';
