@@ -1,5 +1,9 @@
 # ino-input
-A simple input component with styles.
+An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
+
+
+Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+
 
 ### Usage
 The component can be used as follows:
@@ -19,15 +23,18 @@ The component can be used as follows:
   size="<number>"
   tabindex="<string>"
   type="<string>"
-  value="<string>">
+  value="<string>"
+  ino-outline="<boolean>"
+  ino-label="<string>"
 </ino-input>
 ```
 
-**Type:** Use this element for simple input types like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
+**Labels**: The component shows a floating label containing the value of `ino-label`.
 
+**Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
 
 ### Event Behaviour
-The component behaves like a native input with additional features (see prefixed properties / attributes). Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup` or `change`.
+The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup` or `change`.
 
 
 <!-- Auto Generated Below -->
@@ -61,6 +68,20 @@ The autofocus of this element.
 boolean
 
 Disables this element.
+
+
+#### inoLabel
+
+string
+
+The optional floating label of this input field.
+
+
+#### inoOutline
+
+boolean
+
+Styles the input field as outlined element.
 
 
 #### max
@@ -161,6 +182,20 @@ The autofocus of this element.
 boolean
 
 Disables this element.
+
+
+#### ino-label
+
+string
+
+The optional floating label of this input field.
+
+
+#### ino-outline
+
+boolean
+
+Styles the input field as outlined element.
 
 
 #### max
