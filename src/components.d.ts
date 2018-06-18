@@ -716,6 +716,14 @@ declare global {
        */
       'disabled': boolean;
       /**
+       * The optional floating label of this input field.
+       */
+      'inoLabel': string;
+      /**
+       * Styles the input field as outlined element.
+       */
+      'inoOutline': boolean;
+      /**
        * The max value of this element.
        */
       'max': string;
@@ -793,6 +801,14 @@ declare global {
        * Disables this element.
        */
       'disabled'?: boolean;
+      /**
+       * The optional floating label of this input field.
+       */
+      'inoLabel'?: string;
+      /**
+       * Styles the input field as outlined element.
+       */
+      'inoOutline'?: boolean;
       /**
        * The max value of this element.
        */

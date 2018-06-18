@@ -155,15 +155,39 @@
 
 
     <div class="element">
+      <h1>Input fields</h1>
+      <ino-input placeholder="Default"></ino-input>
+      <ino-input placeholder="Disabled" disabled></ino-input>
+      
+      <br>
+      <ino-input placeholder="Outline" ino-outline></ino-input>
+      <ino-input ino-label="Outline with label" ino-outline></ino-input>
+      <br>
+      <ino-input ino-label="Floating label"></ino-input>
+      <ino-input ino-label="Floating label" value="With value"></ino-input>
+
+      <br>
+      <h2>Example with flexbox (2:1)</h2>
+      <div style="display: flex; ">
+        <ino-input style="flex:2;margin-right: 12px;" type="number" ino-label="Phone number"></ino-input>
+        <ino-input style="flex:1;" type="text" ino-label="Address"></ino-input>
+      </div>
+
+      <br>
+      <h2>Example with flexbox (2:1, outline)</h2>
+      <div style="display: flex; ">
+        <ino-input style="flex:2;margin-right: 12px;" type="number" ino-label="Phone number" ino-outline></ino-input>
+        <ino-input style="flex:1;" type="text" ino-label="Address"  ino-outline></ino-input>
+      </div>
+      
+
       <h1>Input Fields in Form Row</h1>
-      <ino-card>
-        <ino-form-row ino-label="Simple Input" ino-label-width="120">
-          <ino-input type="text" placeholder="Placeholder"></ino-input>
-        </ino-form-row>
-        <ino-form-row ino-label="Disabled Input" ino-label-width="120">
-          <ino-input type="text" disabled placeholder="Disabled"></ino-input>
-        </ino-form-row>
-      </ino-card>
+      <ino-form-row ino-label="Simple Input" ino-label-width="120">
+        <ino-input type="text" placeholder="Placeholder"></ino-input>
+      </ino-form-row>
+      <ino-form-row ino-label="Disabled Input" ino-label-width="120">
+        <ino-input type="text" disabled placeholder="Disabled"></ino-input>
+      </ino-form-row>
     </div>
 
     <div class="element">

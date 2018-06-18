@@ -118,6 +118,14 @@
   dependencies:
     "@material/animation" "^0.34.0"
     "@material/theme" "^0.4.0"
+"@material/floating-label@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@material/floating-label/-/floating-label-0.36.0.tgz#309f50234f42da0151ad6c0a3d1af7dee9172cd2"
+  dependencies:
+    "@material/base" "^0.35.0"
+    "@material/rtl" "^0.36.0"
+    "@material/theme" "^0.35.0"
+    "@material/typography" "^0.35.0"
 
 "@material/form-field@^0.36.0":
   version "0.36.0"
@@ -137,6 +145,20 @@
     "@material/base" "^0.35.0"
     "@material/ripple" "^0.36.0"
     "@material/selection-control" "^0.36.0"
+"@material/line-ripple@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-0.35.0.tgz#5975b3c7150057eabb997a9453d48b2979b6a4ff"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
+    "@material/theme" "^0.35.0"
+
+"@material/notched-outline@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@material/notched-outline/-/notched-outline-0.35.0.tgz#df821f007ea84bf6d67859a2b7bcf5c44a248911"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
     "@material/theme" "^0.35.0"
 
 "@material/ripple@^0.36.0":
@@ -156,6 +178,20 @@
   resolved "https://registry.yarnpkg.com/@material/selection-control/-/selection-control-0.36.0.tgz#db2203fb82c0b8e49718c0c21fa23a9a2b101f79"
   dependencies:
     "@material/ripple" "^0.36.0"
+
+"@material/textfield@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-0.36.0.tgz#8dc70e4023944f43e08b00cb7e1f797e6a90b1d6"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
+    "@material/floating-label" "^0.36.0"
+    "@material/line-ripple" "^0.35.0"
+    "@material/notched-outline" "^0.35.0"
+    "@material/ripple" "^0.36.0"
+    "@material/rtl" "^0.36.0"
+    "@material/theme" "^0.35.0"
+    "@material/typography" "^0.35.0"
 
 "@material/theme@^0.35.0":
   version "0.35.0"
