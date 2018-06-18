@@ -3,9 +3,10 @@
 ino-form-row {
   box-sizing: border-box;
 
-  .composer {
+  & > .composer {
     display: flex;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
     padding: 2px;
   }
