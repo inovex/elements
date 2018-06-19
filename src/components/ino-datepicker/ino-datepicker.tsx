@@ -147,7 +147,6 @@ export class Datepicker {
 
   private create() {
     const options = {
-      appendTo: this.el.querySelector('div.composer') as HTMLElement,
       defaultDate: this.inoDefaultDate,
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
