@@ -11,11 +11,17 @@ export class FormRow {
    */
   @Prop() inoLabel?: string;
 
+  /**
+   * An indicator which marks the contents of the form row as mandatory.
+   * If you use this make sure you also check for the values in your application logic.
+   */
+  @Prop() inoMandatory?: boolean;
+
   render() {
     return (
       <div class="composer">
         <div class="form-label">
-          {this.inoLabel}
+          {this.inoLabel}{this.inoMandatory && <span>*</span>}
         </div>
         <div class="form-element"><slot /></div>
       </div>

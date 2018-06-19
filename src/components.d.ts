@@ -506,6 +506,10 @@ declare global {
        * The label for this form row which describes the form element.
        */
       'inoLabel': string;
+      /**
+       * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
+       */
+      'inoMandatory': boolean;
     }
   }
 
@@ -532,6 +536,10 @@ declare global {
        * The label for this form row which describes the form element.
        */
       'inoLabel'?: string;
+      /**
+       * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
+       */
+      'inoMandatory'?: boolean;
     }
   }
 }
