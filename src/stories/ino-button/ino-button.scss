@@ -1,0 +1,19 @@
+.story-button {
+  ino-button {
+    margin: 0 12px 12px 0;
+    &.customizable-button {
+      margin-bottom: 32px;
+    }
+  }
+
+
+  .reset-form {
+    display: flex;
+
+    .reset-input {
+      flex: 1;
+      margin: 0 12px 12px 0;
+    }
+  }
+
+}

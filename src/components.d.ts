@@ -48,17 +48,21 @@ declare global {
        */
       'inoColorScheme': string;
       /**
-       * The fill type of this element. Possible values: `solid` (default), `outline` or `transparent`.
+       * Makes the button text and container slightly smaller.
+       */
+      'inoDense': boolean;
+      /**
+       * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
        */
       'inoFill': string;
       /**
-       * Appends an icon before the text.
+       * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
        */
-      'inoIconLeft': string;
+      'inoIcon': string;
       /**
        * Prepends an icon after the text.
        */
-      'inoIconRight': string;
+      'inoIconPrepend': boolean;
       /**
        * The name of the element.
        */
@@ -106,17 +110,21 @@ declare global {
        */
       'inoColorScheme'?: string;
       /**
-       * The fill type of this element. Possible values: `solid` (default), `outline` or `transparent`.
+       * Makes the button text and container slightly smaller.
+       */
+      'inoDense'?: boolean;
+      /**
+       * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
        */
       'inoFill'?: string;
       /**
-       * Appends an icon before the text.
+       * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
        */
-      'inoIconLeft'?: string;
+      'inoIcon'?: string;
       /**
        * Prepends an icon after the text.
        */
-      'inoIconRight'?: string;
+      'inoIconPrepend'?: boolean;
       /**
        * The name of the element.
        */
