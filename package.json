@@ -21,7 +21,7 @@
     "start": "yarn run dev",
     "lint": "tslint --project tsconfig.json",
     "storybook": "start-storybook -p 6006",
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --coverage",
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
