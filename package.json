@@ -25,6 +25,7 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
+    "@material/button": "^0.36.0",
     "@material/card": "^0.36.0",
     "@material/checkbox": "^0.36.0",
     "@material/form-field": "^0.36.0",

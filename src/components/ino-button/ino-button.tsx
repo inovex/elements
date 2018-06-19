@@ -1,4 +1,6 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
+import {MDCRipple} from '@material/ripple';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-button',
@@ -6,6 +8,7 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Button {
+  @Element() el: HTMLElement;
   /**
    * Sets the autofocus for this element.
    */
@@ -43,33 +46,67 @@ export class Button {
 
   /**
    * The fill type of this element.
-   * Possible values: `solid` (default), `outline` or `transparent`.
+   * Possible values: `solid` (default), `outline`, `raised` or `transparent`.
    */
-  @Prop() inoFill?: string;
+  @Prop() inoFill?: string = 'solid';
 
   /**
-   * Appends an icon before the text.
+   * Adds an icon to the button.
+   * The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
    */
-  @Prop() inoIconLeft?: string;
+  @Prop() inoIcon?: string;
 
   /**
    * Prepends an icon after the text.
    */
-  @Prop() inoIconRight?: string;
+  @Prop() inoIconPrepend?: boolean;
+
+  /**
+   * Makes the button text and container slightly smaller.
+   */
+  @Prop() inoDense: boolean;
+
+
+  /**
+   * An internal instance of the material design button.
+   */
+  private button: MDCRipple;
+
+
+  componentDidLoad() {
+    this.button = new MDCRipple(this.el.querySelector('.mdc-button'));
+  }
+
+  componentWillUnload() {
+    this.button.destroy();
+  }
 
 
   render() {
+    const classButton = classNames(
+      'mdc-button',
+      {'mdc-button--unelevated' : this.inoFill === 'solid'},
+      {'mdc-button--outlined' : this.inoFill === 'outline'},
+      {'mdc-button--raised': this.inoFill === 'raised'},
+      {'mdc-button--dense': this.inoDense}
+    );
+
     return (
       <button
+        class={classButton}
         autoFocus={this.autofocus}
         disabled={this.disabled}
         name={this.name}
         type={this.type}
         form={this.form}>
 
-        {this.inoIconLeft && <ino-icon class="icon-left" ino-icon={this.inoIconLeft}></ino-icon>}
+        {this.inoIcon && !this.inoIconPrepend
+          && <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}></ino-icon>}
+
         <slot />
-        {this.inoIconRight && <ino-icon class="icon-right" ino-icon={this.inoIconRight}></ino-icon>}
+
+        {this.inoIcon && this.inoIconPrepend
+          && <ino-icon class="icon-right mdc-button__icon" ino-icon={this.inoIcon}></ino-icon>}
       </button>
     );
   }

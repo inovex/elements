@@ -92,6 +92,16 @@
   version "0.35.0"
   resolved "https://registry.yarnpkg.com/@material/base/-/base-0.35.0.tgz#8640c2da385e8cc393ff56153c5a319f5a7704cb"
 
+"@material/button@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@material/button/-/button-0.36.0.tgz#fc01a5c8f504254626cfc2ad500dc4d7495b7bc1"
+  dependencies:
+    "@material/elevation" "^0.35.0"
+    "@material/ripple" "^0.36.0"
+    "@material/rtl" "^0.36.0"
+    "@material/theme" "^0.35.0"
+    "@material/typography" "^0.35.0"
+
 "@material/card@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@material/card/-/card-0.36.0.tgz#40ac79ff34eb2d5e319977c4510e200bcef59268"

@@ -1,8 +1,10 @@
-@import 'styles/fonts';
 @import 'styles/colors';
+@import "@material/button/mdc-button";
 
-// Mixin to generate the different ino-color-schemes
-@mixin ino-button-color-schemes() {
+ino-button {  
+  display: inline-block;
+
+  // Generate the different ino-color-schemes buttons
   @each $color-name, $map in $ino-color-scheme {
     
     // Condition to set default styles for primary
@@ -12,67 +14,20 @@
     }
 
     #{$selector} button {
-      color: map-get($map, contrast);
-      background-color: map-get($map, base);
-      border: 1px solid map-get($map, base);
-      
-      &:hover, &:active, &:focus {
-        background: map-get($map, light);
+      &.mdc-button--unelevated {
+        @include mdc-button-filled-accessible(map-get($map, base));
       }
 
-      &:disabled {
-        color: #000;
-        border: 1px solid ino-color(light, light);
-        background: ino-color(light, light);
-        cursor: default;
+      &.mdc-button--outlined {
+        @include mdc-button-outline-color(map-get($map, base));
+        @include mdc-button-ink-color(map-get($map, dark));
       }
     }
   }
-}
 
 
-ino-button {
-  @include ino-font(sans-serif, m, regular);
-
-  button {
-    cursor: pointer;
-    padding: 0.75em;
-    margin: 1px;
-    font-size: inherit;
-    outline: 0;
-  }
-
-  .icon-left {
-    margin-right: 0.75em;
-  }
-  .icon-right {
-    margin-left: 0.75em;
-  }
-
-  
-  // Color buttons
-  @include ino-button-color-schemes;
-
-  // Outline button
-  // Inherit colors but reset background.
-  &[ino-fill="outline"] button {
-    background: transparent;
-    color: inherit;
-
-    &:hover, &:active, &:focus {
-      background: ino-color(light, light);
-    }
-  }
-
-  // Transparent button
-  // Only keep disabled style from colors
-  &[ino-fill="transparent"] button {
-    background: transparent;
-    border: 1px solid transparent;
-    color: inherit;
-
-    &:hover, &:active, &:focus {
-      background: ino-color(light, light);
-    }
+  .mdc-button .icon-right {
+    margin-left: 8px;
+    margin-right: -4px;
   }
 }
