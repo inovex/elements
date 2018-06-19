@@ -34,7 +34,9 @@ The component can be used as follows:
 **Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
 
 ### Event Behaviour
-The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup` or `change`.
+The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `input`, `keyup` or `change`.
+
+**Change Detection**: It's recommended to use the `input` event to detect input changes. In contrast to the `change` event, this event occurs immediately after the value of an element has changed.
 
 
 <!-- Auto Generated Below -->

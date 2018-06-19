@@ -14,8 +14,7 @@ storiesOf('<ino-input>', module)
     render :h => (
       <div class="story-input">
         <ino-input class="customizable-input" 
-          onChange={action('change emitted')}
-          onKeyup={action('keyup emitted')}
+          onInput={action('input change emitted')}
           placeholder={text('placeholder', '')}
           type={select('type', ['text', 'number', 'password'])}
           ino-outline={boolean('ino-outline', false)}
