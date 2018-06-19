@@ -1,7 +1,9 @@
 @import "@material/textfield/mdc-text-field";
 
 ino-input {
-  .composer {
+  display: block; 
+  
+  & > .composer {
     display: block;
     text-align: left;
     width: 100%;
