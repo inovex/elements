@@ -31,7 +31,7 @@
     "@material/form-field": "^0.36.0",
     "@material/radio": "^0.36.0",
     "@material/textfield": "^0.36.0",
-    "@stencil/core": "^0.9.7",
+    "@stencil/core": "^0.9.9",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"
