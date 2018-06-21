@@ -363,10 +363,6 @@ declare global {
        */
       'disabled': boolean;
       /**
-       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. More details [here](https://flatpickr.js.org/formatting/).
-       */
-      'inoDateFormat': string;
-      /**
        * A simple date string that sets the default date.
        */
       'inoDefaultDate': string;
@@ -448,10 +444,6 @@ declare global {
        * Disables this element.
        */
       'disabled'?: boolean;
-      /**
-       * A string of characters which are used to define how the date will be displayed in the input field. If used with time, also provide an format for the time. More details [here](https://flatpickr.js.org/formatting/).
-       */
-      'inoDateFormat'?: string;
       /**
        * A simple date string that sets the default date.
        */

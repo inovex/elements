@@ -82,17 +82,6 @@ export class Datepicker {
   }
 
   /**
-   * A string of characters which are used to define how the date will be
-   * displayed in the input field. If used with time, also provide an format for
-   * the time. More details [here](https://flatpickr.js.org/formatting/).
-   */
-  @Prop() inoDateFormat?: string;
-  @Watch('inoDateFormat')
-  inoDateFormatChanged(value: string) {
-    this.update('inoDateFormat', value);
-  }
-
-  /**
    * A simple date string that sets the default date.
    */
   @Prop() inoDefaultDate?: string;
@@ -128,25 +117,22 @@ export class Datepicker {
     this.update('inoTwelfHourTime', value);
   }
 
-  //
-  // States
-  //
+
   @State() flatpickr = null;
 
 
-  //
-  // Lifcycle
-  //
   componentDidLoad() {
     this.create();
   }
 
-  //
-  // Private methods
-  //
+  private readonly PATTERNS = {
+    'date': '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])',
+    'time': '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])'
+  };
 
   private create() {
     const options = {
+      allowInput: true,
       defaultDate: this.inoDefaultDate,
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
@@ -157,9 +143,6 @@ export class Datepicker {
       ignoredFocusElements: [],
       time_24hr: !this.inoTwelfHourTime
     };
-    if (this.inoDateFormat) {
-      options['dateFormat'] = this.inoDateFormat;
-    }
 
     this.dispose();
     const target = this.el.querySelector('input');
@@ -178,6 +161,15 @@ export class Datepicker {
     }
   }
 
+  private inputPattern() {
+    if (this.inoType === 'date') {
+      return this.PATTERNS.date;
+    }
+    if (this.inoType === 'time') {
+      return this.PATTERNS.time;
+    }
+    return this.PATTERNS.date + ' ' + this.PATTERNS.time;
+  }
 
   render() {
     return (
@@ -188,6 +180,7 @@ export class Datepicker {
           accessKey={this.accesskey}
           autofocus={this.autofocus}
           name={this.name}
+          pattern={this.inputPattern()}
           required={this.required}
           tabindex={this.tabindex}></ino-input>
       </div>

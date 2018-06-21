@@ -50,4 +50,17 @@ storiesOf('<ino-datepicker>', module)
         <ino-datepicker ino-type="datetime" placeholder="Required" required></ino-datepicker>
       </div>
     )
-  }));
+  }))
+  .add('Forms', () => ({
+    render: h => (
+      <div class="story-datepicker">
+        <h4>Required</h4>
+        <p>The form should not submit as long as the date field is empty.</p>
+        <form onSubmit={ e => { e.preventDefault(); action('form submitted')(e); }}>
+          <ino-datepicker ino-type="datetime" placeholder="Required" required></ino-datepicker>
+          <ino-button type="submit">Submit</ino-button>
+        </form>
+      </div>
+    )
+  }))
+;
