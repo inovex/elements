@@ -1,4 +1,5 @@
 import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-chip',
@@ -9,9 +10,18 @@ export class Chip {
   @Element() el: HTMLElement;
 
   /**
-   * The label of this chip.
+   * The name of the color scheme which is used
+   * to style the background and outline of this component.
+   * Possible values: `primary` (default),  `secondary`, `tertiary`,
+   * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoLabel?: string;
+  @Prop() inoColorScheme?: string;
+
+  /**
+   * The fill type of this element.
+   * Possible values: `solid` (default) or `outline`.
+   */
+  @Prop() inoFill?: string;
 
   /**
    * The icon before the label in this chip.
@@ -25,18 +35,9 @@ export class Chip {
   @Prop() inoRemovable?: boolean;
 
   /**
-   * The fill type of this element.
-   * Possible values: `solid` (default) or `outline`.
+   * Marks this element as selected.
    */
-  @Prop() inoFill?: string;
-
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`, `tertiary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoSelected?: boolean;
 
 
   /**
@@ -61,12 +62,19 @@ export class Chip {
   }
 
   render() {
+    const classChip = classNames(
+      'mdc-chip',
+      {'mdc-chip--selected': this.inoSelected}
+    );
+
     return (
-      <div class="composer">
-        {this.inoIcon && <ino-icon class="leading" ino-icon={this.inoIcon}></ino-icon>}
-        {this.inoLabel}
+      <div class={classChip}>
+        {this.inoIcon
+          && <ino-icon class="mdc-chip__icon mdc-chip__icon--leading" ino-icon={this.inoIcon}></ino-icon>}
+        <div class="mdc-chip__text"><slot /></div>
         {this.inoRemovable &&
-          <ino-icon class="cancel" ino-icon="cancel" tabindex="0" role="button"
+          <ino-icon class="mdc-chip__icon  mdc-chip__icon--trailing"
+            ino-icon="cancel" tabindex="0" role="button"
             onClick={e => this.handleClick(e)}
             onKeyPress={e => this.handleKeyPress(e)}>
           </ino-icon>}

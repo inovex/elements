@@ -288,13 +288,13 @@ declare global {
        */
       'inoIcon': string;
       /**
-       * The label of this chip.
-       */
-      'inoLabel': string;
-      /**
        * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
        */
       'inoRemovable': boolean;
+      /**
+       * Marks this element as selected.
+       */
+      'inoSelected': boolean;
     }
   }
 
@@ -330,13 +330,13 @@ declare global {
        */
       'inoIcon'?: string;
       /**
-       * The label of this chip.
-       */
-      'inoLabel'?: string;
-      /**
        * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
        */
       'inoRemovable'?: boolean;
+      /**
+       * Marks this element as selected.
+       */
+      'inoSelected'?: boolean;
       /**
        * Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
        */

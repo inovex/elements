@@ -122,6 +122,27 @@
     "@material/selection-control" "^0.36.0"
     "@material/theme" "^0.35.0"
 
+"@material/checkbox@^0.36.1":
+  version "0.36.1"
+  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-0.36.1.tgz#734de03a95b653e29b0c75af7f538eae282fde40"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
+    "@material/ripple" "^0.36.0"
+    "@material/rtl" "^0.36.0"
+    "@material/selection-control" "^0.36.0"
+    "@material/theme" "^0.35.0"
+
+"@material/chips@^0.36.1":
+  version "0.36.1"
+  resolved "https://registry.yarnpkg.com/@material/chips/-/chips-0.36.1.tgz#149e512e032bb062ab26e0905df33a172c15da5d"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
+    "@material/checkbox" "^0.36.1"
+    "@material/ripple" "^0.36.0"
+    "@material/typography" "^0.35.0"
+
 "@material/elevation@^0.35.0":
   version "0.35.0"
   resolved "https://registry.yarnpkg.com/@material/elevation/-/elevation-0.35.0.tgz#a0b8bbe346ebb29a4decd35b961aaf2635ff89bd"
