@@ -1,5 +1,6 @@
 # ino-chip
-A compact component that contains contents and icons styled as chip.
+A compact component that contains contents and icons styled as chip. It functions as a wrapper around the material [chip](https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips) component.
+
 
 ### Usage
 The component can be used as follows:
@@ -9,12 +10,13 @@ The component can be used as follows:
   ino-color-scheme="<string>"
   ino-fill="<string>"
   ino-icon="<string>"
-  ino-label="<string>"
-  ino-removable="<boolean>">
+  ino-removable="<boolean>"
+  ino-selected="<boolean>">
+  Label
 </ino-chip>
 ```
 
-**Content**: Provide the text of a chip in `ino-label` and, if desired, an icon on the left side of the chip in `ino-icon`.
+**Content**: Provide the text of a chip the slot and, if desired, an icon on the left side of the chip in `ino-icon`.
 
 **Styling**: The chip can be styled in different ways with the attributes `ino-fill` and `ino-color-scheme`. See their attribute documentation below for more informations.
 
@@ -26,9 +28,9 @@ However, the component doesn't hide/destroy itself but emits an `inoRemove`-Even
 
 ```html
 <ino-chip
-  ino-label="Removable chip" 
   ino-removable
   onInoRemove="_ => removeChip()">
+    Removable chip
 </ino-icon> 
 ```
 
@@ -64,19 +66,19 @@ string
 The icon before the label in this chip.
 
 
-#### inoLabel
-
-string
-
-The label of this chip.
-
-
 #### inoRemovable
 
 boolean
 
 If true, add a close icon on the right side of this chip.
 It enables an `inoRemove`-Event that can be listened to.
+
+
+#### inoSelected
+
+boolean
+
+Marks this element as selected.
 
 
 ## Attributes
@@ -106,19 +108,19 @@ string
 The icon before the label in this chip.
 
 
-#### ino-label
-
-string
-
-The label of this chip.
-
-
 #### ino-removable
 
 boolean
 
 If true, add a close icon on the right side of this chip.
 It enables an `inoRemove`-Event that can be listened to.
+
+
+#### ino-selected
+
+boolean
+
+Marks this element as selected.
 
 
 ## Events

@@ -28,6 +28,7 @@
     "@material/button": "^0.36.0",
     "@material/card": "^0.36.0",
     "@material/checkbox": "^0.36.0",
+    "@material/chips": "^0.36.1",
     "@material/form-field": "^0.36.0",
     "@material/radio": "^0.36.0",
     "@material/textfield": "^0.36.0",

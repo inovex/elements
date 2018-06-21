@@ -1,108 +1,53 @@
 import { storiesOf } from '@storybook/vue';
 
 import { action } from '@storybook/addon-actions';
-import { text, boolean } from '@storybook/addon-knobs/vue';
+import { text, boolean, select } from '@storybook/addon-knobs/vue';
 
 import renderTemplate from '../core/playground-story/template-renderer';
 
-import { Chip } from '../../../dist/collection/components/ino-chip/ino-chip';
 import componentReadme from '../../components/ino-chip/readme.md';
+import './ino-chip.scss';
 
 storiesOf('<ino-chip>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Primary solid', () => ({
-    render(h) {
-      return (
+  .add('Default usage', () => ({
+    render: h => (
+      <div class="story-chip">
         <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'primary')}
-          ino-fill={text('ino-fill', 'solid')}
+          ino-color-scheme={select(
+            'ino-color-scheme',
+            ['primary', 'secondary', 'tertiary', 'success', 'warning', 
+             'error', 'light', 'dark'
+            ],
+            'primary'
+          )}
+          ino-fill={select('ino-fill', ['solid', 'outline'], 'solid')}
           ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
           ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
+          ino-selected={boolean('ino-selected', false)}
+
+          ino-checkmark={boolean('ino-checkmark', false)}
+          onInoRemove={action('removable clicked')}>
+          {text('<slot />', 'Customizable chip')}
         </ino-chip>
 
-      );
-    },
-  }))
-  .add('Primary outline', () => ({
-    render(h) {
-      return (
-        <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'primary')}
-          ino-fill={text('ino-fill', 'outline')}
-          ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
-          ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
-        </ino-chip>
+        <h4>Colors</h4>
+        <ino-chip>Default</ino-chip>
+        <ino-chip ino-color-scheme="primary">Primary</ino-chip>
+        <ino-chip ino-color-scheme="secondary" ino-removable>Secondary</ino-chip>
+        <ino-chip ino-color-scheme="tertiary" ino-icon="users">Tertiary</ino-chip>
+        <ino-chip ino-color-scheme="success">Success</ino-chip>
+        <ino-chip ino-color-scheme="warning">Warning</ino-chip>
+        <ino-chip ino-color-scheme="error">Error</ino-chip>
+        <ino-chip ino-color-scheme="light">Light</ino-chip>
+        <ino-chip ino-color-scheme="dark">Dark</ino-chip>
 
-      );
-    },
-  }))
-  .add('Secondary solid', () => ({
-    render(h) {
-      return (
-        <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'secondary')}
-          ino-fill={text('ino-fill', 'solid')}
-          ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
-          ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
-        </ino-chip>
+        <h4>Outline</h4>
+        <ino-chip ino-fill="outline">Outline</ino-chip>
 
-      );
-    },
-  }))
-  .add('Secondary outline', () => ({
-    render(h) {
-      return (
-        <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'secondary')}
-          ino-fill={text('ino-fill', 'outline')}
-          ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
-          ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
-        </ino-chip>
-
-      );
-    },
-  }))
-  .add('Tertiary solid', () => ({
-    render(h) {
-      return (
-        <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'tertiary')}
-          ino-fill={text('ino-fill', 'solid')}
-          ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
-          ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
-        </ino-chip>
-
-      );
-    },
-  }))
-  .add('Tertiary outline', () => ({
-    render(h) {
-      return (
-        <ino-chip
-          ino-color-scheme={text('ino-color-scheme', 'tertiary')}
-          ino-fill={text('ino-fill', 'outline')}
-          ino-icon={text('ino-icon', '')}
-          ino-label={text('ino-label', 'This is the label')}
-          ino-removable={boolean('ino-removable', true)}
-          onInoRemove={action('removable clicked')}
-        >
-        </ino-chip>
-
-      );
-    },
+        <h4>Removable and states</h4>
+        <ino-chip ino-removable>Removable</ino-chip>
+        <ino-chip ino-selected>Selected</ino-chip>
+      </div>
+    )
   }));
