@@ -67,15 +67,6 @@ boolean
 Disables this element.
 
 
-#### inoDateFormat
-
-string
-
-A string of characters which are used to define how the date will be
-displayed in the input field. If used with time, also provide an format for
-the time. More details [here](https://flatpickr.js.org/formatting/).
-
-
 #### inoDefaultDate
 
 string
@@ -182,15 +173,6 @@ Autofocuses this element.
 boolean
 
 Disables this element.
-
-
-#### ino-date-format
-
-string
-
-A string of characters which are used to define how the date will be
-displayed in the input field. If used with time, also provide an format for
-the time. More details [here](https://flatpickr.js.org/formatting/).
 
 
 #### ino-default-date
