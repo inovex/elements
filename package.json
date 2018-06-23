@@ -1,6 +1,6 @@
 {
   "name": "stencil-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is the home of the stencil UI components.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/stencil-components.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
