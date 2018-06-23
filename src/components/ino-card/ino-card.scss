@@ -2,7 +2,7 @@
 @import "@material/typography/mdc-typography";
 
 ino-card {
-  .composer {
+  & > .composer {
     padding: 1rem;
   }
   .header {
