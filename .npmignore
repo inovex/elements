@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# But not the built artifacts
+!dist
+!package.json
+!readme.md
