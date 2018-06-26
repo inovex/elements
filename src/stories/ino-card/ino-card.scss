@@ -1,0 +1,22 @@
+.story-card {
+  .customizable-card {
+    margin-top: 12px;
+  }
+
+  .flex-cards {
+    display: flex;
+    justify-content: space-between;
+
+    > ino-card {
+      flex: 1;
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  h4 {
+    margin-top: 52px;
+  }
+}
