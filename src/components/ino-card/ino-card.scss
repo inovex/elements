@@ -2,9 +2,13 @@
 @import "@material/typography/mdc-typography";
 
 ino-card {
+  display: block;
+
   & > .composer {
     padding: 1rem;
+    height: 100%;
   }
+  
   .header {
     .title {
       @include mdc-typography(headline6);
