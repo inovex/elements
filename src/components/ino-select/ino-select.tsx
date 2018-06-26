@@ -1,4 +1,6 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Element, Prop } from '@stencil/core';
+import classNames from 'classnames';
+import {MDCSelect} from '@material/select';
 
 @Component({
   tag: 'ino-select',
@@ -6,56 +8,107 @@ import { Component, Prop } from '@stencil/core';
   shadow: false
 })
 export class Select {
+  @Element() el: HTMLElement;
   /**
    * Marks this element as autofocused.
    */
-  @Prop() autofocus: boolean;
+  @Prop() autofocus?: boolean;
 
   /**
    * Disables this element.
    */
-  @Prop() disabled: boolean;
+  @Prop() disabled?: boolean;
 
   /**
    * The form this element belongs to.
    */
-  @Prop() form: string;
-
-  /**
-   * If true, enables multiple select options.
-   */
-  @Prop() multiple: boolean;
+  @Prop() form?: string;
 
   /**
    * The name of this element.
    */
-  @Prop() name: string;
+  @Prop() name?: string;
 
   /**
    * Marks this element as required.
    */
-  @Prop() required: boolean;
+  @Prop() required?: boolean;
 
   /**
-   * The size of this element.
+   * Prepends a selected, empty and disabled option.
+   *
+   * The label is positioned as placeholder and floats to
+   * the top after selecting an option.
    */
-  @Prop() size: number;
+  @Prop() inoPrependDefault?: boolean;
+
+  /**
+   * The label of this element
+   */
+  @Prop() inoLabel?: string;
+
+  /**
+   * Styles this select box as outlined element.
+   */
+  @Prop() inoOutline?: boolean;
+
+
+  /**
+   * An internal instance of the material design form field.
+   */
+  private select: MDCSelect;
+
+
+  componentDidLoad() {
+    this.select = new MDCSelect(this.el.querySelector('.mdc-select'));
+  }
+
+  componentWillUnLoad() {
+    this.select.destroy();
+  }
+
+
+
+  private selectStyleTemplate() {
+    if (this.inoOutline) {
+      return ([
+        <div class="mdc-notched-outline">
+          <svg>
+            <path class="mdc-notched-outline__path"/>
+          </svg>
+        </div>,
+        <div class="mdc-notched-outline__idle"></div>
+      ]);
+    }
+    return <div class="mdc-line-ripple"></div>;
+  }
+
 
   render() {
+    const classSelect = classNames({
+      'mdc-select': true,
+      'mdc-select--disabled': this.disabled,
+      'mdc-select--outlined': this.inoOutline,
+      'mdc-select--box': !this.inoOutline
+    });
+    const classLabel = classNames({
+      'mdc-floating-label': true,
+      'mdc-floating-label--float-above': !this.inoPrependDefault
+    });
+
     return (
-      <div class="composer">
-        <select
+      <div class={classSelect}>
+        <select class="mdc-select__native-control"
           autoFocus={this.autofocus}
           disabled={this.disabled}
           form={this.form}
-          multiple={this.multiple}
           name={this.name}
-          required={this.required}
-          size={this.size}>
-
+          required={this.required}>
+          {this.inoPrependDefault && <option disabled selected value=""></option>}
           <slot />
         </select>
-        <ino-icon ino-icon="select-arrows"></ino-icon>
+        {this.inoLabel && <label class={classLabel}>{this.inoLabel}</label>}
+        {this.selectStyleTemplate()}
       </div>
     );
   }

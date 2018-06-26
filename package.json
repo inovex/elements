@@ -31,6 +31,7 @@
     "@material/chips": "^0.36.1",
     "@material/form-field": "^0.36.0",
     "@material/radio": "^0.36.0",
+    "@material/select": "^0.36.0",
     "@material/textfield": "^0.36.0",
     "@stencil/core": "^0.9.9",
     "classnames": "^2.2.6",

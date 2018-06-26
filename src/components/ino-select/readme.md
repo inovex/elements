@@ -1,5 +1,5 @@
 # ino-select
-A component providing single- or multiple-option select menus. It functions as a wrapper around the browser's native `HTMLSelectElement`.
+A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.
 
 
 ### Usage
@@ -10,10 +10,11 @@ The component can be used as follows:
   autofocus="<boolean>"
   disabled="<boolean>"
   form="<string>"
-  multiple="<boolean>"
   name="<string>"
   required="<boolean>"
-  size="<number>">
+  ino-append-default="<boolean>"
+  ino-label="<string>"
+  ino-outline="<boolean>">
   
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -22,7 +23,9 @@ The component can be used as follows:
 </ino-select>
 ```
 
-The select items are (so far) no custom inovex elements but native HTML `option`-elements.
+The select items are (so far) no custom inovex elements but native HTML `option`-elements. The `ino-label` attribute sets an optional floating label for this element.
+
+**Empty default**: `ino-append-default` adds an option in the form of `<option disabled selected value=""></option>` to the select. Furthermore, the label is positioned as placeholder and floats to the top after an option has been selected.
 
 ### Event Behaviour
 The component behaves like a native select with additional features. Thus, the component bubbles events triggered by the native [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) like `change`.
@@ -55,11 +58,28 @@ string
 The form this element belongs to.
 
 
-#### multiple
+#### inoLabel
+
+string
+
+The label of this element
+
+
+#### inoOutline
 
 boolean
 
-If true, enables multiple select options.
+Styles this select box as outlined element.
+
+
+#### inoPrependDefault
+
+boolean
+
+Prepends a selected, empty and disabled option.
+
+The label is positioned as placeholder and floats to
+the top after selecting an option.
 
 
 #### name
@@ -74,13 +94,6 @@ The name of this element.
 boolean
 
 Marks this element as required.
-
-
-#### size
-
-number
-
-The size of this element.
 
 
 ## Attributes
@@ -106,11 +119,28 @@ string
 The form this element belongs to.
 
 
-#### multiple
+#### ino-label
+
+string
+
+The label of this element
+
+
+#### ino-outline
 
 boolean
 
-If true, enables multiple select options.
+Styles this select box as outlined element.
+
+
+#### ino-prepend-default
+
+boolean
+
+Prepends a selected, empty and disabled option.
+
+The label is positioned as placeholder and floats to
+the top after selecting an option.
 
 
 #### name
@@ -125,13 +155,6 @@ The name of this element.
 boolean
 
 Marks this element as required.
-
-
-#### size
-
-number
-
-The size of this element.
 
 
 
