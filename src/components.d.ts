@@ -1190,9 +1190,17 @@ declare global {
        */
       'form': string;
       /**
-       * If true, enables multiple select options.
+       * The label of this element
        */
-      'multiple': boolean;
+      'inoLabel': string;
+      /**
+       * Styles this select box as outlined element.
+       */
+      'inoOutline': boolean;
+      /**
+       * Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option.
+       */
+      'inoPrependDefault': boolean;
       /**
        * The name of this element.
        */
@@ -1201,10 +1209,6 @@ declare global {
        * Marks this element as required.
        */
       'required': boolean;
-      /**
-       * The size of this element.
-       */
-      'size': number;
     }
   }
 
@@ -1240,9 +1244,17 @@ declare global {
        */
       'form'?: string;
       /**
-       * If true, enables multiple select options.
+       * The label of this element
        */
-      'multiple'?: boolean;
+      'inoLabel'?: string;
+      /**
+       * Styles this select box as outlined element.
+       */
+      'inoOutline'?: boolean;
+      /**
+       * Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option.
+       */
+      'inoPrependDefault'?: boolean;
       /**
        * The name of this element.
        */
@@ -1251,10 +1263,6 @@ declare global {
        * Marks this element as required.
        */
       'required'?: boolean;
-      /**
-       * The size of this element.
-       */
-      'size'?: number;
     }
   }
 }
