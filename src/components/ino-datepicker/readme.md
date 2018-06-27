@@ -5,18 +5,18 @@ A datepicker is a ui component to select dates and times. It behaves like a nati
 This component can be used as follows:
 
 ```html
-<ino-datepicker 
-  accesskey="<string"
+<ino-datepicker
+  accesskey="<string>"
   autofocus="<string>"
-  disabled="<boolean"
-  name="<string"
+  disabled="<boolean>"
+  name="<string>"
   placeholder="<string>"
   required="<boolean>"
   tabindex="<string>"
   value="<string>"
   min="<string>"
   max="<string>"
-  
+
   ino-type="<date|datetime|time>"
   ino-date-format="<string>"
   ino-default-hour="<number>"
