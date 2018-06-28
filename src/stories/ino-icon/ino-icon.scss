@@ -1,0 +1,15 @@
+.story-icon {
+  .flex-parent {
+    display: flex;
+    flex-wrap: wrap;
+
+    >.flex-child {
+      margin: 0 20px;
+    }
+  }
+
+  .flex-parent-center {
+    display: flex;
+    justify-content: center;
+  }
+}
