@@ -2,7 +2,19 @@
 Thanks for contributing to this project and pushing the web world forward to standardize and fast web components for everyone.
 
 ## Tracking issues
-> How to track issues with jira?
+If you are using Inovex Elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/master/storybook/).
+
+Planning and coordination takes place in the corresponding [JIRA project](https://jira.inovex.de/projects/ELEMENTS/summary) and weekly hangouts meetings. If you want to participate, chat up Patrick Hillert (@phillert), Arne Maier (@ameier) or Johannes Reuter (@jreuter).
+
+New features, refactorings etc. should have the `task` issue type. To track bug fixes, use the `bug` issue type.
+
+During development, the following process should be loosely followed:
+* Think of an improvement or discover a bug: Create an issue (assigned to no one) and describe what needs to be done
+* Planning: In the weekly coordination meeting, bring up the issue and discuss the priority of the task
+* Development: Assign the issue to your self and change the status to `in progress`. Create a new feature branch and follow the instructions of the _Merge Requests_ section to submit a merge request if you are ready
+* Code-Review: If you are reviewing a merge request, assign the corresponding JIRA ticket to yourself
+* Integrate: When the merge request is accepted and merged into master, the corresponding issue can be set to `done`
+
 
 ## Merge Requests
 We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier.  We also please you to give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-button-element`.
