@@ -3,7 +3,6 @@ import { setOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs/vue';
 import Vue from 'vue';
 
-
 // Add components
 import '../dist/stencil-components';
 
@@ -16,7 +15,7 @@ addDecorator(storyComposer);
 
 // Ignore all web components in Vue.js starting with "ino-"
 Vue.config.ignoredElements = [
-  /^ino-/, 
+  /^ino-/,
 ];
 
 // Options
