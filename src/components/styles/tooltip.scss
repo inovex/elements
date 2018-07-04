@@ -3,12 +3,13 @@
 @mixin tooltip($background-color, $font-color) {
   .tooltip {
     @include ino-font(sans-serif, m, regular);
-    
+
     position: absolute;
+    z-index: 9999;
     background: $background-color;
     color: $font-color;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
-  
+
     .tooltip-arrow {
       width: 0;
       height: 0;
@@ -17,10 +18,10 @@
       margin: 5px;
       border-color: $background-color;
     }
-  
+
     &[x-placement^="top"] {
       margin-bottom: 5px;
-  
+
       .tooltip-arrow {
         border-width: 5px 5px 0 5px;
         border-left-color: transparent;
@@ -32,10 +33,10 @@
         margin-bottom: 0;
       }
     }
-  
+
     &[x-placement^="bottom"] {
       margin-top: 5px;
-  
+
       .tooltip-arrow {
         border-width: 0 5px 5px 5px;
         border-left-color: transparent;
@@ -47,10 +48,10 @@
         margin-bottom: 0;
       }
     }
-  
+
     &[x-placement^="right"] {
       margin-left: 5px;
-  
+
       .tooltip-arrow {
         border-width: 5px 5px 5px 0;
         border-left-color: transparent;
@@ -62,10 +63,10 @@
         margin-right: 0;
       }
     }
-  
+
     &[x-placement^="left"] {
       margin-right: 5px;
-      
+
       .tooltip-arrow {
         border-width: 5px 0 5px 5px;
         border-top-color: transparent;
