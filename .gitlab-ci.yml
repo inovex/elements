@@ -53,16 +53,12 @@ deploy:
  - shared
 
 # variables:
-# * REGISTRY_HOST: ip and port of the registry
-# * REGISTRY_PASSWORD: base64-encoded gitlab API token
-# * REGISTRY_USERNAME: corresponding username for the gitlab API token
-# * REGISTRY_EMAIL: email-adress used for publishing
+# * REGISTRY_TOKEN: auth token for publisher user
+# * REGISTRY_HOST: host of the registry
 deploy-release:
  stage: deploy-release
  script:
- - echo "//$REGISTRY_HOST/:_password=\"$REGISTRY_PASSWORD\"" >> ~/.npmrc
- - echo "//$REGISTRY_HOST/:username=$REGISTRY_USERNAME" >> ~/.npmrc
- - echo "//$REGISTRY_HOST/:email=$REGISTRY_EMAIL" >> ~/.npmrc
+ - echo "//$REGISTRY_HOST/:_authToken=$REGISTRY_TOKEN" >> ~/.npmrc
  - npm publish --registry https://$REGISTRY_HOST
  tags:
  - shared
