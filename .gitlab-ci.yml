@@ -63,7 +63,7 @@ deploy-release:
  - echo "//$REGISTRY_HOST/:_password=\"$REGISTRY_PASSWORD\"" >> ~/.npmrc
  - echo "//$REGISTRY_HOST/:username=$REGISTRY_USERNAME" >> ~/.npmrc
  - echo "//$REGISTRY_HOST/:email=$REGISTRY_EMAIL" >> ~/.npmrc
- - npm publish --registry http://$REGISTRY_HOST
+ - npm publish --registry https://$REGISTRY_HOST
  tags:
  - shared
  only:
