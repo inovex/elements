@@ -5,8 +5,8 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // We extend the default config by
   const copyWebpackPlugin = new CopyWebpackPlugin([
     {
-      from: path.resolve(__dirname, '../dist/stencil-components'),
-      to: path.posix.join('static', 'stencil-components'),
+      from: path.resolve(__dirname, '../dist/inovex-elements'),
+      to: path.posix.join('static', 'inovex-elements'),
       ignore: ['.*']
     }
     // },
