@@ -22,8 +22,7 @@
     "lint": "tslint --project tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "test": "jest --no-cache --coverage",
-    "test.watch": "jest --watch --no-cache",
-    "postinstall": "cd node_modules/@stencil/webpack && npm install && npm run build"
+    "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
     "@material/button": "^0.37.0",
@@ -35,7 +34,6 @@
     "@material/select": "^0.37.0",
     "@material/textfield": "^0.37.0",
     "@stencil/core": "^0.9.9",
-    "@stencil/webpack": "git://github.com/wstrinz/stencil-webpack.git#output-base-option",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"
