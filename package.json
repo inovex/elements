@@ -10,7 +10,8 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
-    "dist/"
+    "dist/",
+    "webpack-plugin.js"
   ],
   "scripts": {
     "build": "stencil build --docs",
