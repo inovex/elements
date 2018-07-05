@@ -23,8 +23,8 @@ The storybook is part of the development process and used to test the components
 To start building a new web component using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone ssh://git@gitlab.inovex.de:2424/inovex-elements/stencil-components.git stencil-components
-cd stencil-components
+git clone ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git inovex-elements
+cd inovex-elements
 ```
 
 and run:

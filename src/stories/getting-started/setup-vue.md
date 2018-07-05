@@ -13,6 +13,11 @@ If you're on a greenfield, just follow this guide: https://vuejs.org/v2/guide/in
 First of all you should make sure your current setup without the components work. If that's the case
 you can start preparing.
 
+### 0) Setup your environment
+
+Follow the introduction instructions to configure your npm client and add the inovex elements package
+to your projet.
+
 ### 1) Import component loader + ignore non-vue elements
 
 Open `src/main.js` and add this somewhere on the first lines:
@@ -23,7 +28,7 @@ Open `src/main.js` and add this somewhere on the first lines:
 import Vue from 'vue'
 // ...
 
-import '../vendor/ino-components/components' // import the web components loader
+import '@inovex/elements' // import the web components loader
 
 Vue.config.ignoredElements = [
   /^ino-/ // ignore all web components starting with "ino-"
@@ -37,71 +42,27 @@ the browser do the custom element upgrading process.
 
 Next you have to configure the Webpack config files.
 
-#### webpack.dev.conf.js
-
 ```
 // src/build/webpack.dev.conf.js
 
 // ...
-devServer: {
-  clientLogLevel: 'warning',
-  historyApiFallback: {
-    rewrites: [
-      {
-        from: /^\/components\/.*$/,
-        to: function (context) {
-          return path.posix.join(config.dev.assetsPublicPath, 'static', context.parsedUrl.pathname)
-        }
-      },
-      // ...
-    ]
-  },
-  // ...
-},
 plugins: [
     // ...
-
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      // ...
-      {
-        from: path.resolve(__dirname, '../vendor/ino-components/components'),
-        to: path.posix.join(config.dev.assetsSubDirectory, 'components'),
-        ignore: ['.*']
-      }
-    ])
+    require('@inovex/elements/webpack-loader')()
   ]
 ```
 
-> The `rewrite` part configures the dev server you use in development. This maps all requests from the browser to `/components/*` to `/static`. The `/components/*` call originates from the `ino-componets` lazy-loading part mechanism.
-
-> To serve the files from `/static/components` you need to make sure the components are located under `/static`. This is what the copy part does.
-
-#### webpack.prod.conf.js
-
-Here you only need the copy part.
-
 ```
+// src/build/webpack.prod.conf.js
+
+// ...
 plugins: [
     // ...
-
-    // copy custom static assets
-    new CopyWebpackPlugin([
-      // ...
-      {
-        from: path.resolve(__dirname, '../vendor/ino-components/components'),
-        to: path.posix.join(config.build.assetsSubDirectory, 'js', 'components'),
-        ignore: ['.*']
-      }
-    ])
+    require('@inovex/elements/webpack-loader')('static/js')
   ]
 ```
 
-### 3) Intermediate step: Download components
-
-As we don't have a running artifactory (comes very soon!) you can simply download the provided zip file, extract it locally and place the content e.g. under `vendor/ino-components`.
-
-> When we have a working artifactory you can directly use `yarn add` and manage the dependencies the common way.
+> The only parameter of the webpack loader has to match the path to the location of the bundle.
 
 ### 4) Use the components
 

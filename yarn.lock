@@ -288,6 +288,12 @@
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@stencil/utils/-/utils-0.0.4.tgz#678268ee7520a121cf30b3433ace36015471ed91"
 
+"@stencil/webpack@git://github.com/wstrinz/stencil-webpack.git#output-base-option":
+  version "0.0.6"
+  resolved "git://github.com/wstrinz/stencil-webpack.git#1ad12aac9c778243cb1455e754f7f54ea4ef952e"
+  dependencies:
+    typescript "^2.6.2"
+
 "@storybook/addon-actions@^3.4.1":
   version "3.4.6"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.6.tgz#70ca84a4754ea2969640428890d9a3c9369261f6"
@@ -8599,7 +8605,7 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-typescript@~2.9.1:
+typescript@^2.6.2, typescript@~2.9.1:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 

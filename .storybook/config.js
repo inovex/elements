@@ -4,7 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs/vue';
 import Vue from 'vue';
 
 // Add components
-import '../dist/stencil-components';
+import '../dist/inovex-elements';
 
 // Global sass file
 import '../src/stories/core/global.scss';

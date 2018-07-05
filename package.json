@@ -1,12 +1,12 @@
 {
-  "name": "stencil-components",
-  "version": "0.0.2",
+  "name": "@inovex/elements",
+  "version": "0.1.0",
   "description": "This is the home of the stencil UI components.",
-  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/stencil-components.git",
+  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "license": "UNLICENSED",
-  "main": "dist/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/inovex-elements.js",
+  "module": "dist/inovex-elements.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
@@ -22,7 +22,8 @@
     "lint": "tslint --project tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "test": "jest --no-cache --coverage",
-    "test.watch": "jest --watch --no-cache"
+    "test.watch": "jest --watch --no-cache",
+    "postinstall": "cd node_modules/@stencil/webpack && npm install && npm run build"
   },
   "dependencies": {
     "@material/button": "^0.36.0",
@@ -34,6 +35,7 @@
     "@material/select": "^0.36.0",
     "@material/textfield": "^0.36.0",
     "@stencil/core": "^0.9.9",
+    "@stencil/webpack": "git://github.com/wstrinz/stencil-webpack.git#output-base-option",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"
