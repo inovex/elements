@@ -1342,6 +1342,125 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface InoTextarea {
+      /**
+       * The autofocus of this element.
+       */
+      'autofocus': boolean;
+      /**
+       * The number of cols of this textarea.
+       */
+      'cols': number;
+      /**
+       * Disables this element.
+       */
+      'disabled': boolean;
+      /**
+       * The optional floating label of this input field.
+       */
+      'inoLabel': string;
+      /**
+       * The max length of this element.
+       */
+      'maxlength': number;
+      /**
+       * The min length of this element.
+       */
+      'minlength': number;
+      /**
+       * The name of this element.
+       */
+      'name': string;
+      /**
+       * The placeholder of this element.
+       */
+      'placeholder': string;
+      /**
+       * Marks this element as required.
+       */
+      'required': boolean;
+      /**
+       * The number of rows of this textarea.
+       */
+      'rows': number;
+      /**
+       * The value of this element.
+       */
+      'value': string;
+    }
+  }
+
+  interface HTMLInoTextareaElement extends StencilComponents.InoTextarea, HTMLStencilElement {}
+
+  var HTMLInoTextareaElement: {
+    prototype: HTMLInoTextareaElement;
+    new (): HTMLInoTextareaElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-textarea': HTMLInoTextareaElement;
+  }
+  interface ElementTagNameMap {
+    'ino-textarea': HTMLInoTextareaElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'ino-textarea': JSXElements.InoTextareaAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface InoTextareaAttributes extends HTMLAttributes {
+      /**
+       * The autofocus of this element.
+       */
+      'autofocus'?: boolean;
+      /**
+       * The number of cols of this textarea.
+       */
+      'cols'?: number;
+      /**
+       * Disables this element.
+       */
+      'disabled'?: boolean;
+      /**
+       * The optional floating label of this input field.
+       */
+      'inoLabel'?: string;
+      /**
+       * The max length of this element.
+       */
+      'maxlength'?: number;
+      /**
+       * The min length of this element.
+       */
+      'minlength'?: number;
+      /**
+       * The name of this element.
+       */
+      'name'?: string;
+      /**
+       * The placeholder of this element.
+       */
+      'placeholder'?: string;
+      /**
+       * Marks this element as required.
+       */
+      'required'?: boolean;
+      /**
+       * The number of rows of this textarea.
+       */
+      'rows'?: number;
+      /**
+       * The value of this element.
+       */
+      'value'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface InoTooltip {
       /**
        * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
