@@ -3,7 +3,6 @@ const sass = require('@stencil/sass');
 exports.config = {
   namespace: 'inovex-elements',
   outputTargets: [
-    { type: 'www', baseUrl: process.env['CI_COMMIT_REF_NAME'] ? '/' + process.env['CI_COMMIT_REF_NAME'] + '/doc' : '/' },
     { 
       type: 'dist',
       serviceWorker: false
@@ -21,8 +20,3 @@ exports.config = {
     })
   ]
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-}

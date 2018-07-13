@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <img src="../../assets/logo.svg">
+      <img src="../assets/logo.svg">
 
       <h1>{{ msg }}</h1>
 

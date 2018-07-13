@@ -17,7 +17,6 @@
     "build": "stencil build --docs",
     "build.storybook": "yarn run build && build-storybook",
     "dev": "sd concurrent \"yarn build --watch\" \"yarn run storybook\" ",
-    "dev.stencil": "sd concurrent \"yarn build --dev --watch\" \"stencil-dev-server\" ",
     "serve": "yarn run dev",
     "start": "yarn run dev",
     "lint": "tslint --project tsconfig.json",
@@ -34,13 +33,12 @@
     "@material/radio": "^0.37.0",
     "@material/select": "^0.37.0",
     "@material/textfield": "^0.37.0",
-    "@stencil/core": "^0.9.9",
+    "@stencil/core": "^0.10.2",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"
   },
   "devDependencies": {
-    "@stencil/dev-server": "latest",
     "@stencil/sass": "0.0.5",
     "@stencil/utils": "latest",
     "@storybook/addon-actions": "^3.4.1",
