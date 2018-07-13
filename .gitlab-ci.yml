@@ -30,7 +30,6 @@ build:
  artifacts:
   paths:
   - dist/
-  - www/
   - storybook-static/
  tags:
  - shared
@@ -47,7 +46,6 @@ deploy:
  - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
  - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME
- - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' www/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/doc
  - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/storybook
  tags:
  - shared
