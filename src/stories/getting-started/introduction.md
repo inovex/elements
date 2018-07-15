@@ -36,7 +36,7 @@ state and may receive breaking changes. To load a stable version like `0.1.0`, u
 
 ### Integrate into your project
 
-For more details on integrating the inovex elements into your project via npm, please refer to the readme of the [gitlab repository](https://gitlab.inovex.de/inovex-elements):
+For more details on integrating the inovex elements into your project via npm, please refer to the readme of the [gitlab repository](https://gitlab.inovex.de/inovex-elements/core).
 
 ### Explore
 
