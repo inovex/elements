@@ -175,6 +175,7 @@ export class Datepicker {
     return (
       <div class="composer">
         <ino-input type="text"
+          autocomplete="off"
           placeholder={this.placeholder}
           disabled={this.disabled}
           accessKey={this.accesskey}
