@@ -232,9 +232,9 @@
   version "0.35.0"
   resolved "https://registry.yarnpkg.com/@material/typography/-/typography-0.35.0.tgz#23ad7eb7c9789e69c7c3fa54df8fc311cd7fc4b1"
 
-"@stencil/core@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.10.2.tgz#2f860031d6c391e0d0ec2ebd0d817d65d428eae7"
+"@stencil/core@^0.10.9":
+  version "0.10.9"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-0.10.9.tgz#ab6859013a31b1d067cfca708038a7f7338b1c07"
   dependencies:
     chokidar "2.0.3"
     jsdom "11.5.1"
