@@ -325,7 +325,7 @@ Use for code samples and technical values.
 //
 h1,
 h2 {
-  color: $sub-titles;
+  color: $dark;
   letter-spacing: 0.35px;
   line-height: 36px;
 }
@@ -370,7 +370,7 @@ i,
 small,
 abbr,
 code {
-  color: $sub-titles;
+  color: $dark;
 }
 
 p {
@@ -381,7 +381,7 @@ p {
 
 a {
   font-size: 16px;
-  color: $serious-blue-ness;
+  color: $tertiary;
   letter-spacing: 0;
 }
 
