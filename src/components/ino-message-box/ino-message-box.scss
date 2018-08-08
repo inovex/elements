@@ -8,44 +8,44 @@ ino-message-box {
   display: block;
   width: 100%;
 
-  .composer {
+  & > .composer {
     padding: 8px 12px 8px 16px;
     border-radius: 4px;
-  }
 
-  .header {
-    @include ino-font-weight(semibold);
-    
-    display: flex;
-    justify-content: space-between;
+    & > .header {
+      @include ino-font-weight(semibold);
+      
+      display: flex;
+      justify-content: space-between;
 
-    .leading {
-      margin-right: 12px;
+      & > .leading {
+        margin-right: 12px;
+      }
+
+      & > .heading {
+        flex: 1;
+      }
+
+      & > .remove {
+        align-self: start;
+        margin-left: 6px;
+        margin-right: -3px;
+      }
     }
 
-    .heading {
-      flex: 1;
-    }
+    & > .content {
+      @include ino-font-size(s);
+      padding-top: 8px;
 
-    .remove {
-      align-self: start;
-      margin-left: 6px;
-      margin-right: -3px;
-    }
-  }
-
-  .content {
-    @include ino-font-size(s);
-    padding-top: 8px;
-
-    &:empty {
-      display: none;
+      &:empty {
+        display: none;
+      }
     }
   }
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] .composer {
+    &[ino-color-scheme="#{$color-name}"] > .composer {
       background-color: map-get($map, base);
       border: 1px solid map-get($map, base);
       color: map-get($map, contrast);
@@ -63,7 +63,7 @@ ino-message-box {
     background: rgba(0, 0, 0, 0.6);
     z-index: $z-index-message-box-backdrop;
     
-    .composer {
+    & > .composer {
       position: relative;
       border-radius: 0;
       top: 24px;
