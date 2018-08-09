@@ -1,7 +1,9 @@
 @import "@material/select/mdc-select";
 
 ino-select {
-  &, .mdc-select {
-    display:block;
+  display: block;
+  
+  .mdc-select {
+    width: 100%;
   }
 }

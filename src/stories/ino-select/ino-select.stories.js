@@ -46,6 +46,10 @@ storiesOf('<ino-select>', module)
             {optionsTemplate}
           </ino-select>
 
+          <ino-select ino-label="Floating label outlined" ino-outline>
+            {optionsTemplate}
+          </ino-select>
+
           <h4>States</h4>
           <ino-select disabled ino-label="Disabled select">
             {optionsTemplate}
