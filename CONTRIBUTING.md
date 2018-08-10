@@ -4,7 +4,7 @@ Thanks for contributing to this project and pushing the web world forward to sta
 ## Tracking issues
 If you are using Inovex Elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/master/storybook/).
 
-Planning and coordination takes place in the corresponding [JIRA project](https://jira.inovex.de/projects/ELEMENTS/summary) and weekly hangouts meetings. If you want to participate, chat up Patrick Hillert (@phillert), Arne Maier (@ameier) or Johannes Reuter (@jreuter).
+Planning and coordination takes place in the corresponding [JIRA project](https://jira.inovex.de/projects/ELEMENTS/summary) and weekly hangouts meetings. If you want to participate, chat up Patrick Hillert (@phillert), Arne Maier (@amaier), Filipe Santos Correa (@fsantoscorrea) or Johannes Reuter (@jreuter).
 
 New features, refactorings etc. should have the `task` issue type. To track bug fixes, use the `bug` issue type.
 
@@ -20,7 +20,7 @@ During development, the following process should be loosely followed:
 We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier.  We also please you to give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-button-element`.
 
 When submitting a merge request, please
-* set the checkbox: **Remove source branch when merge request is accepted** 
+* set the checkbox: **Remove source branch when merge request is accepted**
 * set the checkbox: **Squash commits when merge request is accepted.** This feature squashes all commits into one commit before merging which helps us to keep the git history compact.
 * **provide the title of the merge request in a commit message manner (see below).** This is very important because the "squash commit" that occurs in the history has the merge request's title.
 
@@ -75,7 +75,7 @@ We have native and custom properties in components. For example, the `ino-button
 For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take time since this description is compiled by stencil and used in the storybook.
 
 ### Events
-Similar to properties, we differantiate between native and custom events. Native events are triggered by html elements and bubble out of the scope automatically (f.e the button element uses a `HTMLButtonElement` internally that emits `click`, ... events). 
+Similar to properties, we differantiate between native and custom events. Native events are triggered by html elements and bubble out of the scope automatically (f.e the button element uses a `HTMLButtonElement` internally that emits `click`, ... events).
 
 **Important:** Native events are not defined in the component. For this reason, we provide an explanation of their behaviour in the `readme.md` and add them to the **Usage** section.
 
@@ -99,12 +99,12 @@ Our documentation in the header of the readme is then used as first part of the 
 We maintain a storybook to demonstrate the usage of our inovex elements. When creating a new component, always create at least one story that
 
 * has the name **Default**.
-* has a playground which is wrapped in the component's documentation. 
+* has a playground which is wrapped in the component's documentation.
 * contains a **customizable instance** at the beginning of the playground (see below).
 
 #### Customizable instance
 We use customizable instances of elements to give users the ability to explore all possible variants of an element. Customizable, in this case, means that users can pass any possible value to an element using storybook's [knobs addon](https://github.com/storybooks/storybook/tree/master/addons/knobs). While using knobs:
-* make sure that you use the most fitting type (text, boolean, number, select, ...). 
+* make sure that you use the most fitting type (text, boolean, number, select, ...).
 * provide a knob for each available attribute.
 * name the knob after the attribute (f.e. `ino-color-scheme`)
 
