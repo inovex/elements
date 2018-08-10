@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.2 (_2018/07/05_)
+## 0.1.2 (_2018/08/10_)
 
 fix(*): Allow arbitrary attributes on inovex elements components
 fix(message-box): fix style-leaks because of similar classnames
