@@ -108,3 +108,17 @@ We use customizable instances of elements to give users the ability to explore a
 * provide a knob for each available attribute.
 * name the knob after the attribute (f.e. `ino-color-scheme`)
 
+## Versioning and Releasing
+The inovex elements project follows [semantic versioning](https://semver.org/). If you are preparing a new release, please make sure to
+increment the version number in the appropriate way.
+
+To build a new release, the following steps have to be performed:
+
+* Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
+* Extend `CHANGELOG.md` by adding the messages of all merge commits of type `feat`, `fix`, `style` and `perf` (this is subject to automization)
+* Check out the most recent master branch
+* Run `npm version major`, `npm version minor` or `npm version patch` depending on the changes included in the release
+* Push the changes to gitlab using `git push --follow-tags`
+* Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
+
+This will create a git tag and push it to the gitlab remote. The gitlab pipeline will build and release a new version in the private inovex elements registry. Additionally, the built sources and documentation will be published on `https://elements.inovex.io/` in a folder named by the new version.

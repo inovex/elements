@@ -34,7 +34,7 @@ build:
  tags:
  - shared
 
-# variables:
+# variables (see inovex-elements/inovex-cloud-environment repo for how to set up the infrastructure):
 # * SSH_PRIVATE_KEY: private key to connect to jump host and deploy host
 # * DEPLOY_JUMPHOST: ip of the jumphost
 # * DEPLOY_HOST: internal ip of the host
@@ -51,8 +51,8 @@ deploy:
  - shared
 
 # variables:
-# * REGISTRY_TOKEN: auth token for publisher user
-# * REGISTRY_HOST: host of the registry
+# * REGISTRY_TOKEN: auth token for publisher user (you can get it by running `npm login --registry https://registry.elements.inovex.io` and copying the token from your `~/.npmrc`)
+# * REGISTRY_HOST: host of the registry (currently this should be `registry.elements.inovex.io`)
 deploy-release:
  stage: deploy-release
  script:
