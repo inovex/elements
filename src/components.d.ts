@@ -549,7 +549,7 @@ declare global {
   namespace StencilComponents {
     interface InoIcon {
       /**
-       * The name of the icon of this element. Can either be `download3`, `equalizer`, `info`, `question`, `search`, `user`, `users`, `select-arrows` or `cancel`.
+       * The name of the icon of this element.
        */
       'inoIcon': string;
     }
@@ -575,7 +575,7 @@ declare global {
   namespace JSXElements {
     export interface InoIconAttributes extends HTMLAttributes {
       /**
-       * The name of the icon of this element. Can either be `download3`, `equalizer`, `info`, `question`, `search`, `user`, `users`, `select-arrows` or `cancel`.
+       * The name of the icon of this element.
        */
       'inoIcon'?: string;
     }
