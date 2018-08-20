@@ -93,6 +93,36 @@ export class Input {
 
 
   /**
+   * The optional helper text.
+   */
+  @Prop() inoHelper?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() inoHelperPersistent?: boolean;
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() inoHelperValidation?: boolean;
+
+
+  /**
+   * Simple static construct to generate unique helper text ids.
+   */
+  private static HELPER_COUNTER = 0;
+  static generateHelperTextId() {
+    return `input-helper-text__${Input.HELPER_COUNTER++}`;
+  }
+
+  /**
+   * An internal auto generated id for the helper field.
+   */
+  private uniqueHelperId = Input.generateHelperTextId();
+
+
+  /**
    * An internal instance of the material design textfield.
    */
   private textfield: MDCTextField;
@@ -132,6 +162,19 @@ export class Input {
     return <div class="mdc-line-ripple"></div>;
   }
 
+  private helperTextTemplate() {
+    if (!this.inoHelper) {
+      return '';
+    }
+    const classInputMessage = classNames({
+      'mdc-text-field-helper-text' : true,
+      'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
+      'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation
+    });
+
+    return <p class={classInputMessage} id={this.uniqueHelperId} aria-hidden="true">{this.inoHelper}</p>;
+  }
+
 
   render() {
     const classTextfield = classNames(
@@ -143,7 +186,7 @@ export class Input {
       {'mdc-text-field--upgraded': this.value && this.inoLabel}
     );
 
-    return (
+    return ([
       <div class={classTextfield}>
         <input
           class="mdc-text-field__input"
@@ -160,11 +203,14 @@ export class Input {
           size={this.size}
           tabindex={this.tabindex}
           type={this.type}
-          value={this.value} />
+          value={this.value}
+          aria-controls={this.inoHelper && this.uniqueHelperId}
+          aria-describedby={this.inoHelper && this.uniqueHelperId} />
 
         {this.labelTemplate()}
         {this.inputStyleTemplate()}
-      </div>
-    );
+      </div>,
+      this.helperTextTemplate()
+    ]);
   }
 }

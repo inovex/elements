@@ -723,6 +723,18 @@ declare global {
        */
       'disabled': boolean;
       /**
+       * The optional helper text.
+       */
+      'inoHelper': string;
+      /**
+       * Displays the helper permanently.
+       */
+      'inoHelperPersistent': boolean;
+      /**
+       * Styles the helper text as a validation message.
+       */
+      'inoHelperValidation': boolean;
+      /**
        * The optional floating label of this input field.
        */
       'inoLabel': string;
@@ -808,6 +820,18 @@ declare global {
        * Disables this element.
        */
       'disabled'?: boolean;
+      /**
+       * The optional helper text.
+       */
+      'inoHelper'?: string;
+      /**
+       * Displays the helper permanently.
+       */
+      'inoHelperPersistent'?: boolean;
+      /**
+       * Styles the helper text as a validation message.
+       */
+      'inoHelperValidation'?: boolean;
       /**
        * The optional floating label of this input field.
        */
