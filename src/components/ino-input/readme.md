@@ -26,12 +26,17 @@ The component can be used as follows:
   value="<string>"
   ino-outline="<boolean>"
   ino-label="<string>"
+  ino-helper="<string>"
+  ino-helper-persistent="<boolean>"
+  ino-helper-validation="<boolean">
 </ino-input>
 ```
 
+**Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
+
 **Labels**: The component shows a floating label containing the value of `ino-label`.
 
-**Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
+**Helper Text**: The component shows an optional helper text underneath the input field (`ino-helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `ino-helper-persistent` to show it all the time. Furthermore, use `ino-helper-validation` to style the helper text as validation message.
 
 ### Event Behaviour
 The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `input`, `keyup` or `change`.
@@ -70,6 +75,27 @@ The autofocus of this element.
 boolean
 
 Disables this element.
+
+
+#### inoHelper
+
+string
+
+The optional helper text.
+
+
+#### inoHelperPersistent
+
+boolean
+
+Displays the helper permanently.
+
+
+#### inoHelperValidation
+
+boolean
+
+Styles the helper text as a validation message.
 
 
 #### inoLabel
@@ -184,6 +210,27 @@ The autofocus of this element.
 boolean
 
 Disables this element.
+
+
+#### ino-helper
+
+string
+
+The optional helper text.
+
+
+#### ino-helper-persistent
+
+boolean
+
+Displays the helper permanently.
+
+
+#### ino-helper-validation
+
+boolean
+
+Styles the helper text as a validation message.
 
 
 #### ino-label

@@ -15,12 +15,15 @@ storiesOf('<ino-input>', module)
       <div class="story-input">
         <ino-input class="customizable-input" 
           onInput={action('input change emitted')}
-          placeholder={text('placeholder', '')}
-          type={select('type', ['text', 'number', 'password'])}
-          ino-outline={boolean('ino-outline', false)}
-          ino-label={text('ino-label', 'Customizable input')}
-          disabled={boolean('disabled', false)}
-          required={boolean('required', false)}>
+          type={select('type', ['text', 'number', 'password'], 'text', 'STANDARDS')}
+          placeholder={text('placeholder', '', 'STANDARDS')}
+          ino-outline={boolean('ino-outline', false, 'INOVEX')}
+          ino-label={text('ino-label', 'Customizable input', 'INOVEX')}
+          ino-helper={text('ino-helper', 'Helper message', 'INOVEX')}
+          ino-helper-persistent={boolean('ino-helper-persistent', false, 'INOVEX')}
+          ino-helper-validation={boolean('ino-helper-validation', false, 'INOVEX')}
+          disabled={boolean('disabled', false, 'STANDARDS')}
+          required={boolean('required', false, 'STANDARDS')}>
         </ino-input>
 
         <h4>Types</h4>
@@ -37,6 +40,11 @@ storiesOf('<ino-input>', module)
 
         <ino-input ino-label="Outlined floating label" ino-outline></ino-input>
         <ino-input ino-label="Outlined floating label" value="With value" ino-outline></ino-input>
+
+        <h4>Helper texts</h4>
+        <ino-input placeholder="Helper text on focus (default)" ino-helper="Helper text"></ino-input>
+        <ino-input placeholder="Persistent helper text" ino-helper="Persistent helper text" ino-helper-persistent></ino-input>
+        <ino-input required placeholder="Validation message for required input" ino-helper="This field is required" ino-helper-validation></ino-input>
 
         <h4>States</h4>
         <ino-input placeholder="Disabled" disabled></ino-input>
