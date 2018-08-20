@@ -10,9 +10,22 @@ The component can be used as follows:
 
 The component inherits stylings like the text size of the parent element. For custom stylings set css properties on this element.
 
-### Add further icons
-The Icons are (so far) hard-coded as svg files in the `ino-icon.tsx`. Thus, new icons have to be added inline. Don't forget to update the `ino-icon` attribute documentation afterwards.
+### Manage icons
+The `icon-assets` folder is an exported [icomoon](https://icomoon.io/) project. This handy app is used to maintain our icons.
 
+If you have to add, remove or change an icon:
+
+* Import the `selection.json` in the [icomoon app](http://icomoon.io/app/#).
+* Add, remove, rename, ... the icons
+* Export the new icon set by clicking on `Generate SVG & More`. 
+
+* Make sure the exported icons have the same structure and the settings in `selection.json` didn't change. 
+
+* Copy&Paste the **entire** `icon-assets` folder and override the old one.
+
+* Don't forget to update the storybook whenever the API changes. 
+
+> **Note:** Only the `SVG/` subfolder is distributed and contains the icon as SVGs.
 
 
 <!-- Auto Generated Below -->
@@ -25,8 +38,6 @@ The Icons are (so far) hard-coded as svg files in the `ino-icon.tsx`. Thus, new 
 string
 
 The name of the icon of this element.
-Can either be `download3`, `equalizer`, `info`, `question`,
-`search`, `user`, `users`, `select-arrows` or `cancel`.
 
 
 ## Attributes
@@ -36,8 +47,6 @@ Can either be `download3`, `equalizer`, `info`, `question`,
 string
 
 The name of the icon of this element.
-Can either be `download3`, `equalizer`, `info`, `question`,
-`search`, `user`, `users`, `select-arrows` or `cancel`.
 
 
 
