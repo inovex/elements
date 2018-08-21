@@ -11,7 +11,7 @@ import './ino-select.scss';
 
 storiesOf('<ino-select>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => {
       const optionsTemplate = ([
         <option>Option 1</option>,

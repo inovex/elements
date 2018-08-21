@@ -16,7 +16,7 @@ const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
 
 storiesOf('<ino-datepicker>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => (
       <div class="story-datepicker">
         <ino-datepicker class="customizable-picker"

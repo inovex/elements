@@ -9,7 +9,7 @@ import './ino-popover.scss';
 
 storiesOf('<ino-popover>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => (
       <div class="story-popover">
         <ino-button id="popover-target">Popover</ino-button>

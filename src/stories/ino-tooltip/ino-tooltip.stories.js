@@ -9,7 +9,7 @@ import './ino-tooltip.scss';
 
 storiesOf('<ino-tooltip>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => (
       <div class="story-tooltip">
         <ino-button id="tooltip-target">Tooltip</ino-button>
