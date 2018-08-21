@@ -8,7 +8,7 @@ import './ino-card.scss';
 
 storiesOf('<ino-card>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => (
       <div class="story-card">
         <ino-card class="customizable-card" 

@@ -9,7 +9,7 @@ import './ino-radio.scss';
 // Stories
 storiesOf('<ino-radio>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Usage and Documentation', () => ({ 
+  .add('Default usage', () => ({ 
     render: h => (
       <div class="story-radio">
         <ino-radio

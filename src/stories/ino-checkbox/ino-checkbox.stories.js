@@ -9,7 +9,7 @@ import './ino-checkbox.scss';
 
 storiesOf('<ino-checkbox>', module)
   .addDecorator(renderTemplate(componentReadme))
-  .add('Default', () => ({
+  .add('Default usage', () => ({
     render: h => (
       <div class="story-checkbox">
         <ino-checkbox

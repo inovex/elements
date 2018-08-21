@@ -98,7 +98,7 @@ Our documentation in the header of the readme is then used as first part of the 
 ## Storybook
 We maintain a storybook to demonstrate the usage of our inovex elements. When creating a new component, always create at least one story that
 
-* has the name **Default**.
+* has the name **Default usage**.
 * has a playground which is wrapped in the component's documentation.
 * contains a **customizable instance** at the beginning of the playground (see below).
 

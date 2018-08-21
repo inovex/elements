@@ -1,13 +1,13 @@
 # ino-tooltip
 A tooltip component that displays text when users hover over, focus on, or tap an element.
 
-> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](../ino-popover) component.
+> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.io/master/storybook/?selectedKind=<ino-popover>&selectedStory=Default%20usage) component.
 
 ### Usage
 The component can be used as follows:
 
 ```html
-<ino-popover
+<ino-tooltip
   ino-for="<string>"
   ino-label="<string>"
   ino-placement="<string"
@@ -15,7 +15,7 @@ The component can be used as follows:
 
   Any desired HTML 
 
-</ino-popover>
+</ino-tooltip>
 ```
 
 
