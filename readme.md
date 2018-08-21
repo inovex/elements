@@ -25,7 +25,7 @@ npm i @inovex/elements
 
 ## Integrate into build process
 
-For integration with various frameworks, take a look at the `stencil-in-vuejs`, `stencil-in-react` and `stencil-in-angular`
+For integration with various frameworks, take a look at the `example-vuejs`, `example-react` and `example-angular`
 example projects in the [`inovex-elements` gitlab project](https://gitlab.inovex.de/inovex-elements).
 
 In most cases, the `dist` folder inside the `inovex-elements` dependency has to be copied into the assets folder.
