@@ -37,125 +37,16 @@ The component behaves like a native select with additional features. Thus, the c
 
 ## Properties
 
-#### autofocus
-
-boolean
-
-Marks this element as autofocused.
-
-
-#### disabled
-
-boolean
-
-Disables this element.
-
-
-#### form
-
-string
-
-The form this element belongs to.
-
-
-#### inoLabel
-
-string
-
-The label of this element
-
-
-#### inoOutline
-
-boolean
-
-Styles this select box as outlined element.
-
-
-#### inoPrependDefault
-
-boolean
-
-Prepends a selected, empty and disabled option.
-
-The label is positioned as placeholder and floats to
-the top after selecting an option.
-
-
-#### name
-
-string
-
-The name of this element.
-
-
-#### required
-
-boolean
-
-Marks this element as required.
-
-
-## Attributes
-
-#### autofocus
-
-boolean
-
-Marks this element as autofocused.
-
-
-#### disabled
-
-boolean
-
-Disables this element.
-
-
-#### form
-
-string
-
-The form this element belongs to.
-
-
-#### ino-label
-
-string
-
-The label of this element
-
-
-#### ino-outline
-
-boolean
-
-Styles this select box as outlined element.
-
-
-#### ino-prepend-default
-
-boolean
-
-Prepends a selected, empty and disabled option.
-
-The label is positioned as placeholder and floats to
-the top after selecting an option.
-
-
-#### name
-
-string
-
-The name of this element.
-
-
-#### required
-
-boolean
-
-Marks this element as required.
-
+| Property            | Attribute             | Description                                                                                                                              | Type      |
+| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `autofocus`         | `autofocus`           | Marks this element as autofocused.                                                                                                       | `boolean` |
+| `disabled`          | `disabled`            | Disables this element.                                                                                                                   | `boolean` |
+| `form`              | `form`                | The form this element belongs to.                                                                                                        | `string`  |
+| `inoLabel`          | `ino-label`           | The label of this element                                                                                                                | `string`  |
+| `inoOutline`        | `ino-outline`         | Styles this select box as outlined element.                                                                                              | `boolean` |
+| `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option. | `boolean` |
+| `name`              | `name`                | The name of this element.                                                                                                                | `string`  |
+| `required`          | `required`            | Marks this element as required.                                                                                                          | `boolean` |
 
 
 ----------------------------------------------

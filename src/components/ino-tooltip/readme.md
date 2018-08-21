@@ -24,71 +24,12 @@ The component can be used as follows:
 
 ## Properties
 
-#### inoFor
-
-string
-
-The target id the tooltip belongs to.
-If not given, the tooltip is attached to the parent component.
-
-
-#### inoLabel
-
-string
-
-The text shown in the tooltip.
-
-
-#### inoPlacement
-
-string
-
-The placement of the tooltip.
-Accepted values: `top(-start, -end)`, `right(-start, -end)`,
-`bottom(-start, -end)`, `left(-start, -end)`
-
-
-#### inoTrigger
-
-string
-
-The trigger to show the tooltip - either click, hover or focus.
-Multiple triggers possible by separating them with a space.
-
-
-## Attributes
-
-#### ino-for
-
-string
-
-The target id the tooltip belongs to.
-If not given, the tooltip is attached to the parent component.
-
-
-#### ino-label
-
-string
-
-The text shown in the tooltip.
-
-
-#### ino-placement
-
-string
-
-The placement of the tooltip.
-Accepted values: `top(-start, -end)`, `right(-start, -end)`,
-`bottom(-start, -end)`, `left(-start, -end)`
-
-
-#### ino-trigger
-
-string
-
-The trigger to show the tooltip - either click, hover or focus.
-Multiple triggers possible by separating them with a space.
-
+| Property       | Attribute       | Description                                                                                                                             | Type     |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `inoFor`       | `ino-for`       | The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.                                    | `string` |
+| `inoLabel`     | `ino-label`     | The text shown in the tooltip.                                                                                                          | `string` |
+| `inoPlacement` | `ino-placement` | The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `string` |
+| `inoTrigger`   | `ino-trigger`   | The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.             | `string` |
 
 
 ----------------------------------------------

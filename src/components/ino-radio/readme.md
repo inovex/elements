@@ -21,91 +21,14 @@ The component can be used as follows:
 
 ## Properties
 
-#### checked
-
-boolean
-
-Marks this element as checked.
-
-
-#### disabled
-
-boolean
-
-Disables this element.
-
-
-#### id
-
-string
-
-The id of this element.
-
-
-#### name
-
-string
-
-The name of this element.
-
-
-#### tabIndex
-
-number
-
-The tabIndex of this element.
-
-
-#### value
-
-string
-
-The value of this element.
-
-
-## Attributes
-
-#### checked
-
-boolean
-
-Marks this element as checked.
-
-
-#### disabled
-
-boolean
-
-Disables this element.
-
-
-#### id
-
-string
-
-The id of this element.
-
-
-#### name
-
-string
-
-The name of this element.
-
-
-#### tab-index
-
-number
-
-The tabIndex of this element.
-
-
-#### value
-
-string
-
-The value of this element.
-
+| Property   | Attribute   | Description                    | Type      |
+| ---------- | ----------- | ------------------------------ | --------- |
+| `checked`  | `checked`   | Marks this element as checked. | `boolean` |
+| `disabled` | `disabled`  | Disables this element.         | `boolean` |
+| `id`       | `id`        | The id of this element.        | `string`  |
+| `name`     | `name`      | The name of this element.      | `string`  |
+| `tabIndex` | `tab-index` | The tabIndex of this element.  | `number`  |
+| `value`    | `value`     | The value of this element.     | `string`  |
 
 
 ----------------------------------------------

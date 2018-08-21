@@ -16,37 +16,10 @@ The component requires a fixed width for the label.
 
 ## Properties
 
-#### inoLabel
-
-string
-
-The label for this form row which describes the form element.
-
-
-#### inoMandatory
-
-boolean
-
-An indicator which marks the contents of the form row as mandatory.
-If you use this make sure you also check for the values in your application logic.
-
-
-## Attributes
-
-#### ino-label
-
-string
-
-The label for this form row which describes the form element.
-
-
-#### ino-mandatory
-
-boolean
-
-An indicator which marks the contents of the form row as mandatory.
-If you use this make sure you also check for the values in your application logic.
-
+| Property       | Attribute       | Description                                                                                                                                            | Type      |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| `inoLabel`     | `ino-label`     | The label for this form row which describes the form element.                                                                                          | `string`  |
+| `inoMandatory` | `ino-mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` |
 
 
 ----------------------------------------------

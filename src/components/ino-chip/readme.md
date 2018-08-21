@@ -41,96 +41,20 @@ However, the component doesn't hide/destroy itself but emits an `inoRemove`-Even
 
 ## Properties
 
-#### inoColorScheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### inoFill
-
-string
-
-The fill type of this element.
-Possible values: `solid` (default) or `outline`.
-
-
-#### inoIcon
-
-string
-
-The icon before the label in this chip.
-
-
-#### inoRemovable
-
-boolean
-
-If true, add a close icon on the right side of this chip.
-It enables an `inoRemove`-Event that can be listened to.
-
-
-#### inoSelected
-
-boolean
-
-Marks this element as selected.
-
-
-## Attributes
-
-#### ino-color-scheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### ino-fill
-
-string
-
-The fill type of this element.
-Possible values: `solid` (default) or `outline`.
-
-
-#### ino-icon
-
-string
-
-The icon before the label in this chip.
-
-
-#### ino-removable
-
-boolean
-
-If true, add a close icon on the right side of this chip.
-It enables an `inoRemove`-Event that can be listened to.
-
-
-#### ino-selected
-
-boolean
-
-Marks this element as selected.
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoFill`        | `ino-fill`         | The fill type of this element. Possible values: `solid` (default) or `outline`.                                                                                                                                   | `string`  |
+| `inoIcon`        | `ino-icon`         | The icon before the label in this chip.                                                                                                                                                                           | `string`  |
+| `inoRemovable`   | `ino-removable`    | If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.                                                                                                | `boolean` |
+| `inoSelected`    | `ino-selected`     | Marks this element as selected.                                                                                                                                                                                   | `boolean` |
 
 
 ## Events
 
-#### inoRemove
-
-Event that emits as soon as the user removes this chip.
-Listen to this event to hide or destroy this chip.
-The event only emits if the property `inoRemovable` is true.
-
+| Event       | Description                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inoRemove` | Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. |
 
 
 ----------------------------------------------

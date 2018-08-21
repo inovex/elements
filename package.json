@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "main": "dist/inovex-elements.js",
   "module": "dist/inovex-elements.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/",
@@ -34,13 +34,13 @@
     "@material/radio": "^0.37.0",
     "@material/select": "^0.37.1",
     "@material/textfield": "^0.38.1",
-    "@stencil/core": "^0.10.9",
+    "@stencil/core": "0.11.4",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "tooltip.js": "^1.2.0"
   },
   "devDependencies": {
-    "@stencil/sass": "0.0.5",
+    "@stencil/sass": "^0.1.0",
     "@stencil/utils": "latest",
     "@storybook/addon-actions": "^3.4.1",
     "@storybook/addon-knobs": "^3.4.1",

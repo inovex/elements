@@ -24,85 +24,13 @@ Use one of the provided types in `ino-type` to give the spinner the shape. Adjus
 
 ## Properties
 
-#### inoColorScheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### inoHeight
-
-number
-
-The height of this spinner (default = 40)
-
-
-#### inoModal
-
-boolean
-
-If true, the spinner is shown as modal over the current app page.
-
-
-#### inoType
-
-string
-
-The type of this spinner (default = tile).
-Possible values: `tile`, `bounce` or `circle`
-
-
-#### inoWidth
-
-number
-
-The width of this spinner (defaul = 40)
-
-
-## Attributes
-
-#### ino-color-scheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### ino-height
-
-number
-
-The height of this spinner (default = 40)
-
-
-#### ino-modal
-
-boolean
-
-If true, the spinner is shown as modal over the current app page.
-
-
-#### ino-type
-
-string
-
-The type of this spinner (default = tile).
-Possible values: `tile`, `bounce` or `circle`
-
-
-#### ino-width
-
-number
-
-The width of this spinner (defaul = 40)
-
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoHeight`      | `ino-height`       | The height of this spinner (default = 40)                                                                                                                                                                         | `number`  |
+| `inoModal`       | `ino-modal`        | If true, the spinner is shown as modal over the current app page.                                                                                                                                                 | `boolean` |
+| `inoType`        | `ino-type`         | The type of this spinner (default = tile). Possible values: `tile`, `bounce` or `circle`                                                                                                                          | `string`  |
+| `inoWidth`       | `ino-width`        | The width of this spinner (defaul = 40)                                                                                                                                                                           | `number`  |
 
 
 ----------------------------------------------

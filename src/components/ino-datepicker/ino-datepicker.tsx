@@ -1,6 +1,8 @@
 import { Component, Element, Prop, State, Watch } from '@stencil/core';
 import flatpickr from 'flatpickr';
 
+export type DatepickerType = 'date' | 'datetime' | 'time';
+
 @Component({
   tag: 'ino-datepicker',
   styleUrls: [
@@ -75,7 +77,7 @@ export class Datepicker {
    * The type (`date`, `datetime` or `time`) of this date picker element.
    * Default is `date`.
    */
-  @Prop() inoType: 'date'|'datetime'|'time' = 'date';
+  @Prop() inoType: DatepickerType = 'date';
   @Watch('inoType')
   inoTypeChanged() {
     this.create();
