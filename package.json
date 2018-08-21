@@ -14,7 +14,8 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "stencil build --docs && node ./scripts/postbuild.js",
+    "build": "stencil build --docs",
+    "postbuild": "node ./scripts/postbuild.js",
     "build.storybook": "yarn run build && build-storybook",
     "dev": "sd concurrent \"yarn build --watch\" \"yarn run storybook\" ",
     "serve": "yarn run dev",
