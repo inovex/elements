@@ -19,49 +19,11 @@ The component can be used as follows:
 
 ## Properties
 
-#### inoOutline
-
-boolean
-
-Removes the shadow and displays a hairline outline instead.
-
-
-#### inoSubtitle
-
-string
-
-An optional subtitle of this card.
-
-
-#### inoTitle
-
-string
-
-An optional title of this card.
-
-
-## Attributes
-
-#### ino-outline
-
-boolean
-
-Removes the shadow and displays a hairline outline instead.
-
-
-#### ino-subtitle
-
-string
-
-An optional subtitle of this card.
-
-
-#### ino-title
-
-string
-
-An optional title of this card.
-
+| Property      | Attribute      | Description                                                 | Type      |
+| ------------- | -------------- | ----------------------------------------------------------- | --------- |
+| `inoOutline`  | `ino-outline`  | Removes the shadow and displays a hairline outline instead. | `boolean` |
+| `inoSubtitle` | `ino-subtitle` | An optional subtitle of this card.                          | `string`  |
+| `inoTitle`    | `ino-title`    | An optional title of this card.                             | `string`  |
 
 
 ----------------------------------------------

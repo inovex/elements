@@ -1,13 +1,12 @@
-const sass = require('@stencil/sass');
+import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
-exports.config = {
+export const config: Config = {
   namespace: 'inovex-elements',
-  outputTargets: [
-    { 
-      type: 'dist',
-      serviceWorker: false
-    }
-  ],
+  outputTargets: [{
+    type: 'dist',
+    serviceWorker: false
+  }],
   plugins: [
     sass({
       injectGlobalPaths: [

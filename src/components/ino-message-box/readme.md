@@ -26,96 +26,20 @@ The component can be used as follows:
 
 ## Properties
 
-#### inoColorScheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### inoHeading
-
-string
-
-The heading of this chip.
-
-
-#### inoIcon
-
-string
-
-The icon before the heading in this chip.
-
-
-#### inoModal
-
-boolean
-
-If true, display the message box as modal in fix position
-on top of the page.
-
-
-#### inoRemovable
-
-boolean
-
-If true, add a close icon on the right side of this chip.
-It enables an `inoRemove`-Event that can be listened to.
-
-
-## Attributes
-
-#### ino-color-scheme
-
-string
-
-The name of the color scheme which is used
-to style the background and outline of this component.
-Possible values: `primary` (default),  `secondary`, `tertiary`,
-`success`, `warning`, `error`, `light`, `dark`.
-
-
-#### ino-heading
-
-string
-
-The heading of this chip.
-
-
-#### ino-icon
-
-string
-
-The icon before the heading in this chip.
-
-
-#### ino-modal
-
-boolean
-
-If true, display the message box as modal in fix position
-on top of the page.
-
-
-#### ino-removable
-
-boolean
-
-If true, add a close icon on the right side of this chip.
-It enables an `inoRemove`-Event that can be listened to.
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoHeading`     | `ino-heading`      | The heading of this chip.                                                                                                                                                                                         | `string`  |
+| `inoIcon`        | `ino-icon`         | The icon before the heading in this chip.                                                                                                                                                                         | `string`  |
+| `inoModal`       | `ino-modal`        | If true, display the message box as modal in fix position on top of the page.                                                                                                                                     | `boolean` |
+| `inoRemovable`   | `ino-removable`    | If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.                                                                                                | `boolean` |
 
 
 ## Events
 
-#### inoRemove
-
-Event that emits as soon as the user removes this element.
-Listen to this event to hide or destroy this element.
-The event only emits if the property `inoRemovable` is true.
-
+| Event       | Description                                                                                                                                                                   |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `inoRemove` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. The event only emits if the property `inoRemovable` is true. |
 
 
 ----------------------------------------------

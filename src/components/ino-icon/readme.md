@@ -33,21 +33,9 @@ If you have to add, remove or change an icon:
 
 ## Properties
 
-#### inoIcon
-
-string
-
-The name of the icon of this element.
-
-
-## Attributes
-
-#### ino-icon
-
-string
-
-The name of the icon of this element.
-
+| Property  | Attribute  | Description                           | Type     |
+| --------- | ---------- | ------------------------------------- | -------- |
+| `inoIcon` | `ino-icon` | The name of the icon of this element. | `string` |
 
 
 ----------------------------------------------

@@ -2,6 +2,8 @@ import { Component, Element, Prop } from '@stencil/core';
 import {MDCRipple} from '@material/ripple';
 import classNames from 'classnames';
 
+export type ButtonType = 'button' | 'submit' | 'reset';
+
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
@@ -34,7 +36,7 @@ export class Button {
    *
    * Can either be `button`, `submit` or `reset`.
    */
-  @Prop() type?: 'button'|'submit'|'reset';
+  @Prop() type?: ButtonType;
 
   /**
    * The name of the color scheme which is used

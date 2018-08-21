@@ -40,173 +40,19 @@ With this setup and while loading the source, the width of this element extends 
 
 ## Properties
 
-#### alt
-
-string
-
-The alternative text of this image.
-
-
-#### decoding
-
-string
-
-The decoding method of the native html input element.
-Can either be `async`, `auto` or `sync`.
-
-
-#### height
-
-number
-
-The fixed height of this image.
-
-
-#### inoRatioHeight
-
-number
-
-The ratio height for this image (default = 1).
-Use this attribute together with `ino-ratio-width` to reserve a
-space for the image during rendering and to prevent jumping contents.
-
-
-#### inoRatioWidth
-
-number
-
-The ratio width of this image (default = 1).
-Use this attribute together with `ino-ratio-height` to reserve a
-space for the image during rendering and to prevent jumping contents.
-
-
-#### inoRounded
-
-boolean
-
-If true, styles the image with rounded borders.
-
-
-#### sizes
-
-string
-
-A set of rules to specify the usage of images sources that are
-defined in the `srcset` attribute.
-
-
-#### src
-
-string
-
-The source of this image element.
-
-
-#### srcset
-
-string
-
-A set of sources of this image for different viewports or devices.
-
-
-#### usemap
-
-string
-
-An ID referencing to a defined map element for this image.
-
-
-#### width
-
-number
-
-The fixed of the image.
-
-
-## Attributes
-
-#### alt
-
-string
-
-The alternative text of this image.
-
-
-#### decoding
-
-string
-
-The decoding method of the native html input element.
-Can either be `async`, `auto` or `sync`.
-
-
-#### height
-
-number
-
-The fixed height of this image.
-
-
-#### ino-ratio-height
-
-number
-
-The ratio height for this image (default = 1).
-Use this attribute together with `ino-ratio-width` to reserve a
-space for the image during rendering and to prevent jumping contents.
-
-
-#### ino-ratio-width
-
-number
-
-The ratio width of this image (default = 1).
-Use this attribute together with `ino-ratio-height` to reserve a
-space for the image during rendering and to prevent jumping contents.
-
-
-#### ino-rounded
-
-boolean
-
-If true, styles the image with rounded borders.
-
-
-#### sizes
-
-string
-
-A set of rules to specify the usage of images sources that are
-defined in the `srcset` attribute.
-
-
-#### src
-
-string
-
-The source of this image element.
-
-
-#### srcset
-
-string
-
-A set of sources of this image for different viewports or devices.
-
-
-#### usemap
-
-string
-
-An ID referencing to a defined map element for this image.
-
-
-#### width
-
-number
-
-The fixed of the image.
-
+| Property         | Attribute          | Description                                                                                                                                                                          | Type                 |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------- |
+| `alt`            | `alt`              | The alternative text of this image.                                                                                                                                                  | `string`             |
+| `decoding`       | `decoding`         | The decoding method of the native html input element. Can either be `async`, `auto` or `sync`.                                                                                       | `ImageDecodingTypes` |
+| `height`         | `height`           | The fixed height of this image.                                                                                                                                                      | `number`             |
+| `inoRatioHeight` | `ino-ratio-height` | The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents. | `number`             |
+| `inoRatioWidth`  | `ino-ratio-width`  | The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.  | `number`             |
+| `inoRounded`     | `ino-rounded`      | If true, styles the image with rounded borders.                                                                                                                                      | `boolean`            |
+| `sizes`          | `sizes`            | A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.                                                                                    | `string`             |
+| `src`            | `src`              | The source of this image element.                                                                                                                                                    | `string`             |
+| `srcset`         | `srcset`           | A set of sources of this image for different viewports or devices.                                                                                                                   | `string`             |
+| `usemap`         | `usemap`           | An ID referencing to a defined map element for this image.                                                                                                                           | `string`             |
+| `width`          | `width`            | The fixed of the image.                                                                                                                                                              | `number`             |
 
 
 ----------------------------------------------

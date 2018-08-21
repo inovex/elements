@@ -1,5 +1,7 @@
 import { Component, Element, Prop, State, Watch } from '@stencil/core';
 
+export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
+
 @Component({
   tag: 'ino-img',
   styleUrl: 'ino-img.scss',
@@ -17,7 +19,7 @@ export class Image {
    * The decoding method of the native html input element.
    * Can either be `async`, `auto` or `sync`.
    */
-  @Prop() decoding?: 'async'|'auto'|'sync';
+  @Prop() decoding?: ImageDecodingTypes;
 
   /**
    * The fixed height of this image.
