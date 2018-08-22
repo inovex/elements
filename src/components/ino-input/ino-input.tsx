@@ -1,5 +1,7 @@
 import { Component, Element, Prop } from '@stencil/core';
 import { MDCTextField } from '@material/textfield';
+import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
+import { MDCTextFieldIcon } from '@material/textfield/icon';
 import classNames from 'classnames';
 
 @Component({
@@ -91,7 +93,6 @@ export class Input {
    */
   @Prop() inoLabel?: string;
 
-
   /**
    * The optional helper text.
    */
@@ -107,6 +108,20 @@ export class Input {
    */
   @Prop() inoHelperValidation?: boolean;
 
+  /**
+   * The optional icon of this input field.
+   */
+  @Prop() inoIcon?: string;
+
+  /**
+   * Positions the icon trailing after the input field.
+   */
+  @Prop() inoIconTrailing?: boolean = false;
+
+  /**
+   * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+   */
+  @Prop() inoIconClickable?: boolean;
 
   /**
    * Simple static construct to generate unique helper text ids.
@@ -127,13 +142,35 @@ export class Input {
    */
   private textfield: MDCTextField;
 
+  /**
+   * An internal instance of an textfield helper text instance (if neccessary).
+   */
+  private helperText: MDCTextFieldHelperText;
+
+  /**
+   * An internal instance of an textfield icon instance (if neccessary).
+   */
+  private icon: MDCTextFieldIcon;
+
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+    if (this.inoHelper) {
+      this.helperText = new MDCTextFieldHelperText(document.querySelector('.mdc-text-field-helper-text'));
+    }
+    if (this.inoIcon) {
+      this.icon = new MDCTextFieldIcon(document.querySelector('.mdc-text-field-icon'));
+    }
   }
 
   componentWillUnLoad() {
     this.textfield.destroy();
+    if (this.helperText) {
+      this.helperText.destroy();
+    }
+    if (this.icon) {
+      this.icon.destroy();
+    }
   }
 
 
@@ -175,19 +212,33 @@ export class Input {
     return <p class={classInputMessage} id={this.uniqueHelperId} aria-hidden="true">{this.inoHelper}</p>;
   }
 
+  private iconTemplate() {
+    return this.inoIcon && (
+      <ino-icon
+        class="mdc-text-field__icon"
+        ino-icon={this.inoIcon}
+        tabindex={this.inoIconClickable ? 0 : -1}
+        ino-clickable={this.inoIconClickable}>
+      </ino-icon>
+    );
+  }
+
 
   render() {
-    const classTextfield = classNames(
-      'composer',
-      'mdc-text-field',
-      {'mdc-text-field--focused': this.autofocus},
-      {'mdc-text-field--outlined': this.inoOutline},
-      {'mdc-text-field--box': !this.inoOutline},
-      {'mdc-text-field--upgraded': this.value && this.inoLabel}
-    );
+    const classTextfield = classNames({
+      'composer' : true,
+      'mdc-text-field': true,
+      'mdc-text-field--focused': this.autofocus,
+      'mdc-text-field--outlined': this.inoOutline,
+      'mdc-text-field--box': !this.inoOutline,
+      'mdc-text-field--upgraded': this.value && this.inoLabel,
+      'mdc-text-field--with-leading-icon': this.inoIcon && !this.inoIconTrailing,
+      'mdc-text-field--with-trailing-icon': this.inoIcon && this.inoIconTrailing,
+    });
 
     return ([
       <div class={classTextfield}>
+        {!this.inoIconTrailing && this.iconTemplate()}
         <input
           class="mdc-text-field__input"
           accessKey={this.accesskey}
@@ -208,6 +259,7 @@ export class Input {
           aria-describedby={this.inoHelper && this.uniqueHelperId} />
 
         {this.labelTemplate()}
+        {this.inoIconTrailing && this.iconTemplate()}
         {this.inputStyleTemplate()}
       </div>,
       this.helperTextTemplate()

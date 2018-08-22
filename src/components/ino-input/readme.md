@@ -26,6 +26,11 @@ The component can be used as follows:
   value="<string>"
   ino-outline="<boolean>"
   ino-label="<string>"
+
+  ino-icon="<string>"
+  ino-icon-trailing="<boolean>"
+  ino-icon-clickable="<boolean>"
+
   ino-helper="<string>"
   ino-helper-persistent="<boolean>"
   ino-helper-validation="<boolean">
@@ -38,6 +43,8 @@ The component can be used as follows:
 
 **Helper Text**: The component shows an optional helper text underneath the input field (`ino-helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `ino-helper-persistent` to show it all the time. Furthermore, use `ino-helper-validation` to style the helper text as validation message.
 
+**Icons**: Provide a string identifier in `ino-icon` to display a leading icon. Set `ino-icon-trailing` to position the icon after the input field. Make the icon interactive and clickable by adding `ino-icon-clickable` and listen to the `inoIconClicked` event emitted by the icon component.
+
 ### Event Behaviour
 The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `input`, `keyup` or `change`.
 
@@ -49,27 +56,30 @@ The component behaves like a native input with additional features. Thus, the co
 
 ## Properties
 
-| Property              | Attribute               | Description                                      | Type      |
-| --------------------- | ----------------------- | ------------------------------------------------ | --------- |
-| `accesskey`           | `accesskey`             | The accesskey of this native element.            | `string`  |
-| `autocomplete`        | `autocomplete`          | The autocomplete property of this element.       | `string`  |
-| `autofocus`           | `autofocus`             | The autofocus of this element.                   | `boolean` |
-| `disabled`            | `disabled`              | Disables this element.                           | `boolean` |
-| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                 | `boolean` |
-| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.  | `boolean` |
-| `inoHelper`           | `ino-helper`            | The optional helper text.                        | `string`  |
-| `inoLabel`            | `ino-label`             | The optional floating label of this input field. | `string`  |
-| `inoOutline`          | `ino-outline`           | Styles the input field as outlined element.      | `boolean` |
-| `max`                 | `max`                   | The max value of this element.                   | `string`  |
-| `min`                 | `min`                   | The min value of this element.                   | `string`  |
-| `name`                | `name`                  | The name of this element.                        | `string`  |
-| `pattern`             | `pattern`               | The validation pattern of this element.          | `string`  |
-| `placeholder`         | `placeholder`           | The placeholder of this element.                 | `string`  |
-| `required`            | `required`              | Marks this element as required.                  | `boolean` |
-| `size`                | `size`                  | The size of this element.                        | `number`  |
-| `tabindex`            | `tabindex`              | The tabindex of this element.                    | `string`  |
-| `type`                | `type`                  | The type of this element (default = text).       | `string`  |
-| `value`               | `value`                 | The value of this element.                       | `string`  |
+| Property              | Attribute               | Description                                                                  | Type      |
+| --------------------- | ----------------------- | ---------------------------------------------------------------------------- | --------- |
+| `accesskey`           | `accesskey`             | The accesskey of this native element.                                        | `string`  |
+| `autocomplete`        | `autocomplete`          | The autocomplete property of this element.                                   | `string`  |
+| `autofocus`           | `autofocus`             | The autofocus of this element.                                               | `boolean` |
+| `disabled`            | `disabled`              | Disables this element.                                                       | `boolean` |
+| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                             | `boolean` |
+| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                              | `boolean` |
+| `inoHelper`           | `ino-helper`            | The optional helper text.                                                    | `string`  |
+| `inoIconClickable`    | `ino-icon-clickable`    | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` |
+| `inoIconTrailing`     | `ino-icon-trailing`     | Positions the icon trailing after the input field.                           | `boolean` |
+| `inoIcon`             | `ino-icon`              | The optional icon of this input field.                                       | `string`  |
+| `inoLabel`            | `ino-label`             | The optional floating label of this input field.                             | `string`  |
+| `inoOutline`          | `ino-outline`           | Styles the input field as outlined element.                                  | `boolean` |
+| `max`                 | `max`                   | The max value of this element.                                               | `string`  |
+| `min`                 | `min`                   | The min value of this element.                                               | `string`  |
+| `name`                | `name`                  | The name of this element.                                                    | `string`  |
+| `pattern`             | `pattern`               | The validation pattern of this element.                                      | `string`  |
+| `placeholder`         | `placeholder`           | The placeholder of this element.                                             | `string`  |
+| `required`            | `required`              | Marks this element as required.                                              | `boolean` |
+| `size`                | `size`                  | The size of this element.                                                    | `number`  |
+| `tabindex`            | `tabindex`              | The tabindex of this element.                                                | `string`  |
+| `type`                | `type`                  | The type of this element (default = text).                                   | `string`  |
+| `value`               | `value`                 | The value of this element.                                                   | `string`  |
 
 
 ----------------------------------------------

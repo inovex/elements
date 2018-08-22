@@ -48,17 +48,9 @@ export class Chip {
   @Event() inoRemove?: EventEmitter;
 
 
-  private handleClick(e: Event) {
+  private iconClicked(e: Event) {
     e.preventDefault();
     this.inoRemove.emit(true);
-  }
-
-  private handleKeyPress(e: KeyboardEvent) {
-    // Key press == Enter
-    if (e.keyCode === 13) {
-      e.preventDefault();
-      this.inoRemove.emit(true);
-    }
   }
 
   render() {
@@ -75,8 +67,8 @@ export class Chip {
         {this.inoRemovable &&
           <ino-icon class="mdc-chip__icon  mdc-chip__icon--trailing"
             ino-icon="cancel" tabindex="0" role="button"
-            onClick={e => this.handleClick(e)}
-            onKeyPress={e => this.handleKeyPress(e)}>
+            ino-clickable
+            onInoIconClicked={(e) => this.iconClicked(e)}>
           </ino-icon>}
       </div>
     );

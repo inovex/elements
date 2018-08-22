@@ -3,10 +3,13 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import { text, boolean, select } from '@storybook/addon-knobs/vue';
 
+import {INO_ICONS} from '../ino-icon/ino-icon.stories';
+
 import renderTemplate from '../core/playground-story/template-renderer';
 
 import componentReadme from '../../components/ino-input/readme.md';
 import './ino-input.scss';
+
 
 storiesOf('<ino-input>', module)
   .addDecorator(renderTemplate(componentReadme))
@@ -15,15 +18,21 @@ storiesOf('<ino-input>', module)
       <div class="story-input">
         <ino-input class="customizable-input" 
           onInput={action('input change emitted')}
-          type={select('type', ['text', 'number', 'password'], 'text', 'STANDARDS')}
-          placeholder={text('placeholder', '', 'STANDARDS')}
-          ino-outline={boolean('ino-outline', false, 'INOVEX')}
-          ino-label={text('ino-label', 'Customizable input', 'INOVEX')}
-          ino-helper={text('ino-helper', 'Helper message', 'INOVEX')}
-          ino-helper-persistent={boolean('ino-helper-persistent', false, 'INOVEX')}
-          ino-helper-validation={boolean('ino-helper-validation', false, 'INOVEX')}
-          disabled={boolean('disabled', false, 'STANDARDS')}
-          required={boolean('required', false, 'STANDARDS')}>
+          type={select('type', ['text', 'number', 'password'], 'text', 'STANDARD')}
+          ino-label={text('ino-label', 'Customizable input', 'STANDARD')}
+          placeholder={text('placeholder', '', 'STANDARD')}
+          ino-outline={boolean('ino-outline', false, 'STANDARD')}
+          disabled={boolean('disabled', false, 'STANDARD')}
+          required={boolean('required', false, 'STANDARD')}
+          
+          ino-helper={text('ino-helper', 'Helper message', 'HELPER TEXT')}
+          ino-helper-persistent={boolean('ino-helper-persistent', false, 'HELPER TEXT')}
+          ino-helper-validation={boolean('ino-helper-validation', false, 'HELPER TEXT')}
+          
+          ino-icon={select('ino-icon', INO_ICONS, '', 'ICONS')}
+          ino-icon-trailing={boolean('ino-icon-trailing', false, 'ICONS')}
+          ino-icon-clickable={boolean('ino-icon-clickable', false, 'ICONS')}
+          onInoIconClicked={action('icon click emitted')}>
         </ino-input>
 
         <h4>Types</h4>
@@ -52,6 +61,11 @@ storiesOf('<ino-input>', module)
 
         <ino-input placeholder="Outline disabled" ino-outline disabled></ino-input>
         <ino-input placeholder="Outline required" ino-outline required></ino-input>
+
+        <h4>Icons</h4>
+        <ino-input ino-icon="add" ino-label="Leading icon"></ino-input>
+        <ino-input ino-icon="add" ino-icon-trailing ino-label="Trailing icon"></ino-input>
+        <ino-input ino-icon="add" ino-icon-clickable ino-label="Clickable icon"></ino-input>
       </div>
     )
   }));
