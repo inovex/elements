@@ -17,11 +17,11 @@ storiesOf('<ino-tooltip>', module)
           ino-for={text('ino-for', 'tooltip-target')}
           ino-label={text('ino-label', 'This is a customaziable tooltip text.')}
           ino-placement={select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}
-          ino-trigger={select('ino-trigger', ['hover', 'focus', 'click', 
+          ino-trigger={select('ino-trigger', ['hover', 'focus', 'click',
             'hover focus', 'hover click', 'focus click', 'hover focus click'], 'hover focus'
           )}>
         </ino-tooltip>
-        
+
         <h4>Placements</h4>
         <ino-tooltip ino-label="This is a tooltip left" ino-placement="left" ino-for="tooltip-positions-target"></ino-tooltip>
         <ino-tooltip ino-label="This is a tooltip right" ino-placement="right" ino-for="tooltip-positions-target"></ino-tooltip>
@@ -32,7 +32,7 @@ storiesOf('<ino-tooltip>', module)
         <h4>Triggers</h4>
         <ino-button id="tooltip-hover-focus">Hover & focus</ino-button>
         <ino-tooltip ino-for="tooltip-hover-focus" ino-label="This tooltip occurs on hover and focus"></ino-tooltip>
-        
+
         <ino-button id="tooltip-click">Click</ino-button>
         <ino-tooltip ino-for="tooltip-click" ino-label="This tooltip occurs on click" ino-trigger="click"></ino-tooltip>
       </div>
