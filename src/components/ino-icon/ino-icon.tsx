@@ -1,4 +1,4 @@
-import { Component, Prop, State, Watch } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ino-icon',
@@ -17,9 +17,20 @@ export class Icon {
   }
 
   /**
+   * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+   */
+  @Prop() inoClickable: boolean;
+
+  /**
    * The resource url of the svg icons (global variable by stencil).
    */
   @Prop({ context: 'resourcesUrl' }) resourcesUrl!: string;
+
+  /**
+   * Event that emits as soon as the user clicks on the icon.
+   * The event only emits if the property `inoClickable` is true.
+   */
+  @Event() inoIconClicked?: EventEmitter;
 
   /**
    * The svg content loaded dynamically.
@@ -36,15 +47,41 @@ export class Icon {
     requestSVG(url).then(res => this.svgContent = res);
   }
 
+
+  private handleClick(e: Event) {
+    e.preventDefault();
+    this.inoIconClicked.emit(true);
+  }
+
+  private handleKeyPress(e: KeyboardEvent) {
+    if (e.code === 'Enter') {
+      e.preventDefault();
+      this.inoIconClicked.emit(true);
+    }
+  }
+
+
   render() {
-    return this.svgContent && <div class="composer" innerHTML={this.svgContent}></div>;
+    if (!this.svgContent)
+      return;
+
+    let iconProps = {};
+    if (this.inoClickable) {
+      iconProps = {
+        'onClick': e => this.handleClick(e),
+        'onKeyPress': e => this.handleKeyPress(e),
+        'tabindex': 0,
+        'role': 'button'
+      };
+    }
+    return <i innerHTML={this.svgContent} {...iconProps}></i>;
   }
 }
 
 function parseIcon(svgContent: string) {
-  if (!svgContent) {
+  if (!svgContent)
     return;
-  }
+
   const div = document.createElement('div');
   div.innerHTML = svgContent;
 

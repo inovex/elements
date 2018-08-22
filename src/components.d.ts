@@ -217,6 +217,10 @@ declare global {
 
     interface InoIcon {
       /**
+       * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+       */
+      'inoClickable': boolean;
+      /**
        * The name of the icon of this element.
        */
       'inoIcon': string;
@@ -298,6 +302,18 @@ declare global {
        * Styles the helper text as a validation message.
        */
       'inoHelperValidation': boolean;
+      /**
+       * The optional icon of this input field.
+       */
+      'inoIcon': string;
+      /**
+       * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+       */
+      'inoIconClickable': boolean;
+      /**
+       * Positions the icon trailing after the input field.
+       */
+      'inoIconTrailing': boolean;
       /**
        * The optional floating label of this input field.
        */
@@ -927,9 +943,17 @@ declare global {
 
     export interface InoIconAttributes extends HTMLAttributes {
       /**
+       * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+       */
+      'inoClickable'?: boolean;
+      /**
        * The name of the icon of this element.
        */
       'inoIcon'?: string;
+      /**
+       * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
+       */
+      'onInoIconClicked'?: (event: CustomEvent) => void;
     }
 
     export interface InoImgAttributes extends HTMLAttributes {
@@ -1008,6 +1032,18 @@ declare global {
        * Styles the helper text as a validation message.
        */
       'inoHelperValidation'?: boolean;
+      /**
+       * The optional icon of this input field.
+       */
+      'inoIcon'?: string;
+      /**
+       * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+       */
+      'inoIconClickable'?: boolean;
+      /**
+       * Positions the icon trailing after the input field.
+       */
+      'inoIconTrailing'?: boolean;
       /**
        * The optional floating label of this input field.
        */
