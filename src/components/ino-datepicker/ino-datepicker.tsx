@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Listen, Prop, State, Watch } from '@stencil/core';
 import flatpickr from 'flatpickr';
 
 export type DatepickerType = 'date' | 'datetime' | 'time';
@@ -35,9 +35,9 @@ export class Datepicker {
   @Prop() name?: string;
 
   /**
-   * Defines the input placeholder for this element.
+   * The placeholder of this element.
    */
-  @Prop() placeholder: string;
+  @Prop() placeholder?: string;
 
   /**
    * Marks this element as required.
@@ -52,12 +52,16 @@ export class Datepicker {
   /**
    * The value of this element.
    */
-  @Prop({mutable: true}) value?: string;
+  @Prop() value?: string;
+  @Watch('value')
+  valueChanged(value: string) {
+    this.internalValue = value;
+  }
 
   /**
    * The minimum date that a user can start picking from (inclusive).
    */
-  @Prop() min: string;
+  @Prop() min?: string;
   @Watch('min')
   minChanged(value: string) {
     this.update('minDate', value);
@@ -66,11 +70,37 @@ export class Datepicker {
   /**
    * The maximum date that a user can pick to (inclusive).
    */
-  @Prop() max: string;
+  @Prop() max?: string;
   @Watch('max')
   maxChanged(value: string) {
     this.update('maxDate', value);
   }
+
+  /**
+   * Styles the datepicker as outlined element.
+   */
+  @Prop() inoOutline?: boolean;
+
+  /**
+   * Defines the label for this element.
+   */
+  @Prop() inoLabel?: string;
+
+  /**
+   * The helper text.
+   */
+  @Prop() inoHelper?: string;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() inoHelperPersistent?: boolean;
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() inoHelperValidation?: boolean;
+
 
 
   /**
@@ -121,7 +151,20 @@ export class Datepicker {
 
 
   @State() flatpickr = null;
+  @State() internalValue = null;
 
+  @Listen('inoIconClicked')
+  inoIconClickedHandler() {
+    this.flatpickr.open();
+  }
+
+  componentWillLoad() {
+    if (this.value) {
+      this.internalValue = this.value;
+    } else if (this.inoDefaultDate) {
+      this.internalValue = this.inoDefaultDate;
+    }
+  }
 
   componentDidLoad() {
     this.create();
@@ -135,6 +178,7 @@ export class Datepicker {
   private create() {
     const options = {
       allowInput: true,
+      clickOpens: false,
       defaultDate: this.inoDefaultDate,
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
@@ -143,7 +187,9 @@ export class Datepicker {
       enableTime: this.inoType !== 'date',
       noCalendar: this.inoType === 'time',
       ignoredFocusElements: [],
-      time_24hr: !this.inoTwelfHourTime
+      time_24hr: !this.inoTwelfHourTime,
+      // Set the value immediately to ensure an upgraded input label
+      onValueUpdate: (_, value) => this.internalValue = value
     };
 
     this.dispose();
@@ -178,14 +224,22 @@ export class Datepicker {
       <div class="composer">
         <ino-input type="text"
           autocomplete="off"
-          placeholder={this.placeholder}
           disabled={this.disabled}
           accessKey={this.accesskey}
           autofocus={this.autofocus}
           name={this.name}
           pattern={this.inputPattern()}
           required={this.required}
-          tabindex={this.tabindex}></ino-input>
+          tabindex={this.tabindex}
+          value={this.internalValue}
+          ino-label={this.inoLabel}
+          ino-icon="date_range"
+          ino-icon-clickable
+          ino-helper={this.inoHelper}
+          ino-outline={this.inoOutline}
+          ino-helper-persistent={this.inoHelperPersistent}
+          ino-helper-validation={this.inoHelperValidation}>
+        </ino-input>
       </div>
     );
   }

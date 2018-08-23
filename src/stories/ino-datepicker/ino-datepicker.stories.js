@@ -20,34 +20,40 @@ storiesOf('<ino-datepicker>', module)
     render: h => (
       <div class="story-datepicker">
         <ino-datepicker class="customizable-picker"
-          placeholder={text('placeholder', '')}
-          ino-type={select('ino-type', ['datetime', 'date', 'time'], 'datetime')}
-          ino-default-date={text('ino-default-date', defaultDate.format('YYYY-MM-DD HH:mm'))}
-          min={text('min', minDate)}
-          max={text('max', maxDate)}
-          disabled={boolean('disabled', false)}
-          required={boolean('required', false)}
-          ino-twelf-hour-time={boolean('ino-twelf-hour-time', false)}>
+          ino-label={text('ino-label', 'Label', 'STANDARD')}
+          ino-outline={boolean('ino-outline', false, 'STANDARD')}
+          min={text('min', minDate, 'STANDARD')}
+          max={text('max', maxDate, 'STANDARD')}
+          disabled={boolean('disabled', false, 'STANDARD')}
+          required={boolean('required', false, 'STANDARD')}
+
+          ino-type={select('ino-type', ['datetime', 'date', 'time'], 'datetime', 'DATE CONFIG')}
+          ino-default-date={text('ino-default-date', defaultDate.format('YYYY-MM-DD HH:mm'), 'DATE CONFIG')}
+          ino-twelf-hour-time={boolean('ino-twelf-hour-time', false, 'DATE CONFIG')}
+
+          ino-helper={text('ino-helper', 'Helper message', 'HELPER TEXT')}
+          ino-helper-persistent={boolean('ino-helper-persistent', false, 'HELPER TEXT')}
+          ino-helper-validation={boolean('ino-helper-validation', false, 'HELPER TEXT')}>
         </ino-datepicker>
       
         <h4>Types</h4>
-        <ino-datepicker ino-type="datetime" placeholder="Datetime"></ino-datepicker>
-        <ino-datepicker ino-type="date" placeholder="Date"></ino-datepicker>
-        <ino-datepicker ino-type="time" placeholder="Time"></ino-datepicker>
+        <ino-datepicker ino-type="datetime" ino-label="Datetime"></ino-datepicker>
+        <ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
+        <ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
 
         <h4>Restrictions</h4>
-        <ino-datepicker placeholder="Custom default date" ino-default-date="2017-02-02" ino-type="date"></ino-datepicker>
-        <ino-datepicker placeholder="Min date" min={minDate} ino-type="date"></ino-datepicker>
-        <ino-datepicker placeholder="Max date" max={maxDate}  ino-type="date"></ino-datepicker>
-        <ino-datepicker placeholder="Min and Max date" min={minDate} max={maxDate}  ino-type="date"></ino-datepicker>
-        <ino-datepicker placeholder="Default hour and minute" ino-type="time" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
+        <ino-datepicker ino-label="Custom default date" ino-default-date="2017-02-02" ino-type="date"></ino-datepicker>
+        <ino-datepicker ino-label="Min date" min={minDate} ino-type="date"></ino-datepicker>
+        <ino-datepicker ino-label="Max date" max={maxDate}  ino-type="date"></ino-datepicker>
+        <ino-datepicker ino-label="Min and Max date" min={minDate} max={maxDate}  ino-type="date"></ino-datepicker>
+        <ino-datepicker ino-label="Default hour and minute" ino-type="time" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 
         <h4>Variations</h4>
-        <ino-datepicker ino-type="time" placeholder="Twelf hour time" ino-twelf-hour-time></ino-datepicker>
+        <ino-datepicker ino-type="time" ino-label="Twelf hour time" ino-twelf-hour-time></ino-datepicker>
         
         <h4>States</h4>
-        <ino-datepicker ino-type="datetime" placeholder="Disabled" disabled></ino-datepicker>
-        <ino-datepicker ino-type="datetime" placeholder="Required" required></ino-datepicker>
+        <ino-datepicker ino-type="datetime" ino-label="Disabled" disabled></ino-datepicker>
+        <ino-datepicker ino-type="datetime" ino-label="Required" required></ino-datepicker>
       </div>
     )
   }))
@@ -57,7 +63,7 @@ storiesOf('<ino-datepicker>', module)
         <h4>Required</h4>
         <p>The form should not submit as long as the date field is empty.</p>
         <form onSubmit={ e => { e.preventDefault(); action('form submitted')(e); }}>
-          <ino-datepicker ino-type="datetime" placeholder="Required" required></ino-datepicker>
+          <ino-datepicker ino-type="datetime" ino-label="Required" required></ino-datepicker>
           <ino-button type="submit">Submit</ino-button>
         </form>
       </div>
