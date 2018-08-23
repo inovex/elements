@@ -167,6 +167,26 @@ declare global {
        */
       'inoDefaultMinute': number;
       /**
+       * The helper text.
+       */
+      'inoHelper': string;
+      /**
+       * Displays the helper permanently.
+       */
+      'inoHelperPersistent': boolean;
+      /**
+       * Styles the helper text as a validation message.
+       */
+      'inoHelperValidation': boolean;
+      /**
+       * Defines the label for this element.
+       */
+      'inoLabel': string;
+      /**
+       * Styles the datepicker as outlined element.
+       */
+      'inoOutline': boolean;
+      /**
        * If true, displays time picker in 12 hour mode with AM/PM selection.
        */
       'inoTwelfHourTime': boolean;
@@ -187,7 +207,7 @@ declare global {
        */
       'name': string;
       /**
-       * Defines the input placeholder for this element.
+       * The placeholder of this element.
        */
       'placeholder': string;
       /**
@@ -893,6 +913,26 @@ declare global {
        */
       'inoDefaultMinute'?: number;
       /**
+       * The helper text.
+       */
+      'inoHelper'?: string;
+      /**
+       * Displays the helper permanently.
+       */
+      'inoHelperPersistent'?: boolean;
+      /**
+       * Styles the helper text as a validation message.
+       */
+      'inoHelperValidation'?: boolean;
+      /**
+       * Defines the label for this element.
+       */
+      'inoLabel'?: string;
+      /**
+       * Styles the datepicker as outlined element.
+       */
+      'inoOutline'?: boolean;
+      /**
        * If true, displays time picker in 12 hour mode with AM/PM selection.
        */
       'inoTwelfHourTime'?: boolean;
@@ -913,7 +953,7 @@ declare global {
        */
       'name'?: string;
       /**
-       * Defines the input placeholder for this element.
+       * The placeholder of this element.
        */
       'placeholder'?: string;
       /**
