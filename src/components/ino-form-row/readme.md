@@ -5,11 +5,10 @@ A component that styles an form element as a row with label.
 The component can be used as follows:
 
 ```html
-<ino-form-row ino-label="<string>" ino-label-width="<number">
+<ino-form-row ino-label="<string>" ino-mandatory="<boolean">
   Any desired form element
 <ino-form-row>
-
-The component requires a fixed width for the label.
+```
 
 <!-- Auto Generated Below -->
 
