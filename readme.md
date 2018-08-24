@@ -52,6 +52,29 @@ import '@inovex/elements';
 If the final javascript bundle is not located in the root of the web root, you have to specify the path as the first parameter,
 e.g. if your javascript bundle is located in `static/js`, use `require('@inovex/elements/webpack-plugin')('static/js')`.
 
+## Integrate with react
+
+To ease the integration into react applications, react wrapper components for each inovex element are provided. They are located in the `@inovex/elements/dist/react` sub folder and match the name of the respective inovex element in PascalCase (e.g. `InoButton` for `ino-button`).
+
+As opposed to bare inovex elements which you can use anywhere in your app after they are loaded in the entrypoint file without importing
+them specifically, you have to import each react wrapper in the file you want to use it:
+
+```
+import { InoButton } from '@inovex/elements/dist/react/InoButton';
+
+export class MyComponent extends React.Component {
+    render() {
+        return (<div>
+            This is my fancy component using inovex elements:<br />
+            <InoButton ino-color-scheme="secondary">Da button</InoButton>
+        </div>);
+    }
+}
+```
+
+The wrapper components accept the same properties as bare inovex elements but fix some corner case bugs concerning the update mechanism of
+react.
+
 ## Used technologies
 
 ### Stencil
