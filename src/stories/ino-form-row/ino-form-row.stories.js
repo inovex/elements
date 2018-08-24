@@ -4,7 +4,7 @@ import { boolean, text } from '@storybook/addon-knobs/vue';
 
 import renderTemplate from '../core/playground-story/template-renderer';
 
-import componentReadme from '../../components/ino-message-box/readme.md';
+import componentReadme from '../../components/ino-form-row/readme.md';
 import './ino-form-row.scss';
 
 
