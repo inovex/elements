@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="120px" height="137px" viewBox="0 0 120 137" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Artboard</title>
+<svg width="127px" height="135px" viewBox="0 0 127 135" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>inovex-elements</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Path" stroke="#FFFFFF" stroke-width="5" fill="#003A80" transform="translate(54.262124, 96.099833) scale(-1, -1) rotate(12.000000) translate(-54.262124, -96.099833) " points="92.2933741 51.2736609 0.137124077 140.926005 108.387124 116.090067"></polygon>
-        <polygon id="Path" stroke="#FFFFFF" stroke-width="5" fill="#003A80" transform="translate(53.262124, 67.099833) scale(-1, -1) rotate(12.000000) translate(-53.262124, -67.099833) " points="91.2933741 22.2736609 -0.862875923 111.926005 107.387124 87.0900671"></polygon>
-        <polygon id="Path" stroke="#FFFFFF" stroke-width="5" fill="#003A80" transform="translate(52.158168, 35.610759) scale(-1, -1) rotate(12.000000) translate(-52.158168, -35.610759) " points="90.1894182 -8.71541294 -1.96683177 79.9369308 106.283168 55.3780183"></polygon>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="inovex-elements" transform="translate(-11.000000, -20.000000)" fill="#003A80" stroke="#FFFFFF" stroke-width="5">
+            <polygon id="Path" transform="translate(64.275159, 114.798049) scale(-1, -1) rotate(12.000000) translate(-64.275159, -114.798049) " points="106.132789 69.9125521 8.48744668 159.683546 120.062872 135.448441"></polygon>
+            <polygon id="Path" transform="translate(63.673475, 85.530273) scale(-1, -1) rotate(12.000000) translate(-63.673475, -85.530273) " points="104.886895 40.507948 8.3220606 130.552598 119.02489 107.021985"></polygon>
+            <polygon id="Path" transform="translate(62.788845, 54.573500) scale(-1, -1) rotate(12.000000) translate(-62.788845, -54.573500) " points="103.353866 10.7555304 8.50165355 98.3914697 117.076037 75.313272"></polygon>
+        </g>
     </g>
 </svg>
