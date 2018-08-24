@@ -16,12 +16,12 @@
   "scripts": {
     "build": "stencil build --docs",
     "postbuild": "node ./scripts/postbuild.js",
-    "build.storybook": "yarn run build && build-storybook",
+    "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "dev": "sd concurrent \"yarn build --watch\" \"yarn run storybook\" ",
     "serve": "yarn run dev",
     "start": "yarn run dev",
     "lint": "tslint --project tsconfig.json",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/static",
     "test": "jest --no-cache --coverage",
     "test.watch": "jest --watch --no-cache"
   },
