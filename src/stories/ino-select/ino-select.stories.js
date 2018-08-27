@@ -63,7 +63,7 @@ storiesOf('<ino-select>', module)
             {optionsTemplate}
           </ino-select>
 
-          <ino-select ino-prepend-default ino-label="With appended empty option">
+          <ino-select ino-prepend-default ino-label="With prepended empty option">
             {optionsTemplate}
           </ino-select>
         </div>

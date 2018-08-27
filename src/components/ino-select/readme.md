@@ -12,7 +12,7 @@ The component can be used as follows:
   form="<string>"
   name="<string>"
   required="<boolean>"
-  ino-append-default="<boolean>"
+  ino-prepend-default="<boolean>"
   ino-label="<string>"
   ino-outline="<boolean>">
   
@@ -25,7 +25,7 @@ The component can be used as follows:
 
 The select items are (so far) no custom inovex elements but native HTML `option`-elements. The `ino-label` attribute sets an optional floating label for this element.
 
-**Empty default**: `ino-append-default` adds an option in the form of `<option disabled selected value=""></option>` to the select. Furthermore, the label is positioned as placeholder and floats to the top after an option has been selected.
+**Empty default**: `ino-prepend-default` adds an option in the form of `<option disabled selected value=""></option>` to the select. Furthermore, the label is positioned as placeholder and floats to the top after an option has been selected.
 
 ### Event Behaviour
 The component behaves like a native select with additional features. Thus, the component bubbles events triggered by the native [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) like `change`.
