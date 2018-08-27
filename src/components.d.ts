@@ -191,7 +191,7 @@ declare global {
        */
       'inoTwelfHourTime': boolean;
       /**
-       * The type (`date`, `datetime` or `time`) of this date picker element. Default is `date`.
+       * The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`.
        */
       'inoType': DatepickerType;
       /**
@@ -937,7 +937,7 @@ declare global {
        */
       'inoTwelfHourTime'?: boolean;
       /**
-       * The type (`date`, `datetime` or `time`) of this date picker element. Default is `date`.
+       * The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`.
        */
       'inoType'?: DatepickerType;
       /**

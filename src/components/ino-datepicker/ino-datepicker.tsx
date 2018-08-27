@@ -1,7 +1,8 @@
 import { Component, Element, Listen, Prop, State, Watch } from '@stencil/core';
 import flatpickr from 'flatpickr';
+import { BaseOptions } from 'flatpickr/dist/types/options';
 
-export type DatepickerType = 'date' | 'datetime' | 'time';
+export type DatepickerType = 'date' | 'datetime' | 'time' | 'range';
 
 @Component({
   tag: 'ino-datepicker',
@@ -101,10 +102,8 @@ export class Datepicker {
    */
   @Prop() inoHelperValidation?: boolean;
 
-
-
   /**
-   * The type (`date`, `datetime` or `time`) of this date picker element.
+   * The type (`date`, `datetime`, `time` or `range`) of this date picker element.
    * Default is `date`.
    */
   @Prop() inoType: DatepickerType = 'date';
@@ -176,7 +175,7 @@ export class Datepicker {
   };
 
   private create() {
-    const options = {
+    const options: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
       defaultDate: this.inoDefaultDate,
@@ -184,13 +183,17 @@ export class Datepicker {
       defaultMinute: this.inoDefaultMinute,
       minDate: this.min,
       maxDate: this.max,
-      enableTime: this.inoType !== 'date',
+      enableTime: this.inoType === 'time' || this.inoType === 'datetime',
       noCalendar: this.inoType === 'time',
       ignoredFocusElements: [],
       time_24hr: !this.inoTwelfHourTime,
       // Set the value immediately to ensure an upgraded input label
       onValueUpdate: (_, value) => this.internalValue = value
     };
+
+    if (this.inoType === 'range') {
+      options.mode = this.inoType;
+    }
 
     this.dispose();
     const target = this.el.querySelector('input');
@@ -216,13 +219,17 @@ export class Datepicker {
     if (this.inoType === 'time') {
       return this.PATTERNS.time;
     }
+    if (this.inoType === 'range') {
+      return this.PATTERNS.date + ' to ' + this.PATTERNS.date;
+    }
     return this.PATTERNS.date + ' ' + this.PATTERNS.time;
   }
 
   render() {
     return (
       <div class="composer">
-        <ino-input type="text"
+        <ino-input
+          type="text"
           autocomplete="off"
           disabled={this.disabled}
           accessKey={this.accesskey}
