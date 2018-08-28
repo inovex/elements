@@ -115,9 +115,9 @@ increment the version number in the appropriate way.
 To build a new release, the following steps have to be performed:
 
 * Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
-* Extend `CHANGELOG.md` by adding the messages of all merge commits of type `feat`, `fix`, `style` and `perf` (this is subject to automization)
 * Check out the most recent master branch
-* Run `npm version major`, `npm version minor` or `npm version patch` depending on the changes included in the release
+* Run `yarn version --major`, `yarn version --minor` or `yarn version --patch` depending on the changes included in the release
+* Check the last commit for a properly generated `Changelog.md` and new version.
 * Push the changes to gitlab using `git push --follow-tags`
 * Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
 
