@@ -235,6 +235,33 @@ declare global {
       'inoMandatory': boolean;
     }
 
+    interface InoIconButton {
+      /**
+       * Sets the autofocus for this element.
+       */
+      'autofocus': boolean;
+      /**
+       * Disables this element.
+       */
+      'disabled': boolean;
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme': string;
+      /**
+       * The name of the icon of this element.
+       */
+      'inoIcon': string;
+      /**
+       * The name of the icon shown if the icon button is checked. If given, makes the button a toggle button.
+       */
+      'inoIconChecked': string;
+      /**
+       * If the button is a toggle button, sets the default state to checked and displays the icon provided in `inoIconChecked`.
+       */
+      'inoStateChecked': boolean;
+    }
+
     interface InoIcon {
       /**
        * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
@@ -662,6 +689,14 @@ declare global {
     };
     
 
+    interface HTMLInoIconButtonElement extends StencilComponents.InoIconButton, HTMLStencilElement {}
+
+    var HTMLInoIconButtonElement: {
+      prototype: HTMLInoIconButtonElement;
+      new (): HTMLInoIconButtonElement;
+    };
+    
+
     interface HTMLInoIconElement extends StencilComponents.InoIcon, HTMLStencilElement {}
 
     var HTMLInoIconElement: {
@@ -759,6 +794,7 @@ declare global {
     'ino-chip': JSXElements.InoChipAttributes;
     'ino-datepicker': JSXElements.InoDatepickerAttributes;
     'ino-form-row': JSXElements.InoFormRowAttributes;
+    'ino-icon-button': JSXElements.InoIconButtonAttributes;
     'ino-icon': JSXElements.InoIconAttributes;
     'ino-img': JSXElements.InoImgAttributes;
     'ino-input': JSXElements.InoInputAttributes;
@@ -979,6 +1015,33 @@ declare global {
        * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
        */
       'inoMandatory'?: boolean;
+    }
+
+    export interface InoIconButtonAttributes extends HTMLAttributes {
+      /**
+       * Sets the autofocus for this element.
+       */
+      'autofocus'?: boolean;
+      /**
+       * Disables this element.
+       */
+      'disabled'?: boolean;
+      /**
+       * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+       */
+      'inoColorScheme'?: string;
+      /**
+       * The name of the icon of this element.
+       */
+      'inoIcon'?: string;
+      /**
+       * The name of the icon shown if the icon button is checked. If given, makes the button a toggle button.
+       */
+      'inoIconChecked'?: string;
+      /**
+       * If the button is a toggle button, sets the default state to checked and displays the icon provided in `inoIconChecked`.
+       */
+      'inoStateChecked'?: boolean;
     }
 
     export interface InoIconAttributes extends HTMLAttributes {
@@ -1374,6 +1437,7 @@ declare global {
     'ino-chip': HTMLInoChipElement
     'ino-datepicker': HTMLInoDatepickerElement
     'ino-form-row': HTMLInoFormRowElement
+    'ino-icon-button': HTMLInoIconButtonElement
     'ino-icon': HTMLInoIconElement
     'ino-img': HTMLInoImgElement
     'ino-input': HTMLInoInputElement
@@ -1394,6 +1458,7 @@ declare global {
     'ino-chip': HTMLInoChipElement;
     'ino-datepicker': HTMLInoDatepickerElement;
     'ino-form-row': HTMLInoFormRowElement;
+    'ino-icon-button': HTMLInoIconButtonElement;
     'ino-icon': HTMLInoIconElement;
     'ino-img': HTMLInoImgElement;
     'ino-input': HTMLInoInputElement;

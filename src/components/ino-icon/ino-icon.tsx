@@ -19,7 +19,7 @@ export class Icon {
   /**
    * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
    */
-  @Prop() inoClickable: boolean;
+  @Prop() inoClickable?: boolean;
 
   /**
    * The resource url of the svg icons (global variable by stencil).

@@ -18,14 +18,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "add",
-        "id": 12,
+        "id": 0,
         "order": 1579,
         "prevSize": 24,
         "name": "add"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 12
+      "setId": 3,
+      "iconIdx": 0
     },
     {
       "icon": {
@@ -44,14 +44,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "cancel",
-        "id": 135,
+        "id": 1,
         "order": 1570,
         "prevSize": 24,
         "name": "cancel"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 135
+      "setId": 3,
+      "iconIdx": 1
     },
     {
       "icon": {
@@ -70,14 +70,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "date_range",
-        "id": 200,
+        "id": 2,
         "order": 1569,
         "prevSize": 24,
         "name": "date_range"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 200
+      "setId": 3,
+      "iconIdx": 2
     },
     {
       "icon": {
@@ -96,14 +96,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "equalizer",
-        "id": 244,
+        "id": 3,
         "order": 1578,
         "prevSize": 24,
         "name": "equalizer"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 244
+      "setId": 3,
+      "iconIdx": 3
     },
     {
       "icon": {
@@ -122,14 +122,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "group, people",
-        "id": 368,
+        "id": 4,
         "order": 1573,
         "prevSize": 24,
         "name": "users"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 368
+      "setId": 3,
+      "iconIdx": 4
     },
     {
       "icon": {
@@ -148,14 +148,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "help",
-        "id": 380,
+        "id": 5,
         "order": 1575,
         "prevSize": 24,
         "name": "help"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 380
+      "setId": 3,
+      "iconIdx": 5
     },
     {
       "icon": {
@@ -174,14 +174,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "info",
-        "id": 400,
+        "id": 6,
         "order": 1576,
         "prevSize": 24,
         "name": "info"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 400
+      "setId": 3,
+      "iconIdx": 6
     },
     {
       "icon": {
@@ -200,14 +200,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "info_outline",
-        "id": 401,
+        "id": 7,
         "order": 1577,
         "prevSize": 24,
         "name": "info_outline"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 401
+      "setId": 3,
+      "iconIdx": 7
     },
     {
       "icon": {
@@ -226,14 +226,14 @@
       "attrs": [],
       "properties": {
         "ligatures": "person",
-        "id": 557,
+        "id": 8,
         "order": 1571,
         "prevSize": 24,
         "name": "person"
       },
       "setIdx": 0,
-      "setId": 2,
-      "iconIdx": 557
+      "setId": 3,
+      "iconIdx": 8
     },
     {
       "icon": {
@@ -252,14 +252,118 @@
       "attrs": [],
       "properties": {
         "ligatures": "search",
-        "id": 655,
+        "id": 9,
         "order": 1574,
         "prevSize": 24,
         "name": "search"
       },
       "setIdx": 0,
+      "setId": 3,
+      "iconIdx": 9
+    },
+    {
+      "icon": {
+        "paths": [
+          "M512 910l-62-56c-220-200-364-330-364-492 0-132 102-234 234-234 74 0 146 36 192 90 46-54 118-90 192-90 132 0 234 102 234 234 0 162-144 294-364 494z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "favorite"
+        ],
+        "defaultCode": 59517,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "favorite",
+        "id": 269,
+        "order": 1580,
+        "prevSize": 24,
+        "name": "favorite"
+      },
+      "setIdx": 1,
       "setId": 2,
-      "iconIdx": 655
+      "iconIdx": 269
+    },
+    {
+      "icon": {
+        "paths": [
+          "M516 792c204-184 338-306 338-430 0-86-64-148-150-148-66 0-130 42-152 100h-80c-22-58-86-100-152-100-86 0-150 62-150 148 0 124 134 246 338 430l4 4zM704 128c132 0 234 102 234 234 0 162-144 292-364 492l-62 56-62-54c-220-200-364-332-364-494 0-132 102-234 234-234 74 0 146 36 192 90 46-54 118-90 192-90z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "favorite_border"
+        ],
+        "defaultCode": 59518,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "favorite_border",
+        "id": 270,
+        "order": 1581,
+        "prevSize": 24,
+        "name": "favorite_border"
+      },
+      "setIdx": 1,
+      "setId": 2,
+      "iconIdx": 270
+    },
+    {
+      "icon": {
+        "paths": [
+          "M512 736l-264 160 70-300-232-202 306-26 120-282 120 282 306 26-232 202 70 300z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "star"
+        ],
+        "defaultCode": 59448,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "grade, star",
+        "id": 362,
+        "order": 1583,
+        "prevSize": 24,
+        "name": "star"
+      },
+      "setIdx": 1,
+      "setId": 2,
+      "iconIdx": 362
+    },
+    {
+      "icon": {
+        "paths": [
+          "M512 658l160 96-42-182 142-124-188-16-72-172-72 172-188 16 142 124-42 182zM938 394l-232 202 70 300-264-160-264 160 70-300-232-202 306-26 120-282 120 282z"
+        ],
+        "attrs": [],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "star_border"
+        ],
+        "defaultCode": 59450,
+        "grid": 24
+      },
+      "attrs": [],
+      "properties": {
+        "ligatures": "star_border",
+        "id": 716,
+        "order": 1582,
+        "prevSize": 24,
+        "name": "star_border"
+      },
+      "setIdx": 1,
+      "setId": 2,
+      "iconIdx": 716
     }
   ],
   "height": 1024,
