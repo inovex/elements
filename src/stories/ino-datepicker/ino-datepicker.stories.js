@@ -40,6 +40,7 @@ storiesOf('<ino-datepicker>', module)
         <ino-datepicker ino-type="datetime" ino-label="Datetime"></ino-datepicker>
         <ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
         <ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
+        <ino-datepicker ino-type="range" ino-label="Range"></ino-datepicker>
 
         <h4>Restrictions</h4>
         <ino-datepicker ino-label="Custom default date" ino-default-date="2017-02-02" ino-type="date"></ino-datepicker>
