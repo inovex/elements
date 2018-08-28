@@ -161,6 +161,14 @@
     "@material/theme" "^0.35.0"
     "@material/typography" "^0.35.0"
 
+"@material/icon-button@0.39.0-0":
+  version "0.39.0-0"
+  resolved "https://registry.yarnpkg.com/@material/icon-button/-/icon-button-0.39.0-0.tgz#e030364423e0dc1da24d1480555d992b42dfb247"
+  dependencies:
+    "@material/base" "^0.35.0"
+    "@material/ripple" "^0.38.1"
+    "@material/theme" "^0.38.0"
+
 "@material/line-ripple@^0.35.0":
   version "0.35.0"
   resolved "https://registry.yarnpkg.com/@material/line-ripple/-/line-ripple-0.35.0.tgz#5975b3c7150057eabb997a9453d48b2979b6a4ff"
