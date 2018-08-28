@@ -1,3 +1,25 @@
+<a name="0.2.0"></a>
+# [0.2.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.2...v0.2.0) (2018-08-28)
+
+
+### Bug Fixes
+
+* **ino-form-row:** use correct readme in story ([ba65f3e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/ba65f3e))
+
+
+### Features
+
+* Add react wrapper elements and improve attribute typings ([70d5064](http://gitlab.inovex.de:2424/inovex-elements/core/commit/70d5064))
+* **ino-datepicker:** Add button and new input attributes ([643c052](http://gitlab.inovex.de:2424/inovex-elements/core/commit/643c052))
+* **ino-datepicker:** add 'range' option to DatepickerType in order to extend 'inoType' ([b2e64e0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b2e64e0))
+* **ino-icon:** renew component without inline SVGs ([6b9f049](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6b9f049))
+* **ino-icon-button:** add component ([66719b0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/66719b0))
+* **ino-input:** add helper text ([41c8ecd](http://gitlab.inovex.de:2424/inovex-elements/core/commit/41c8ecd))
+* **ino-input:** add leading and trailing icon ([bf75880](http://gitlab.inovex.de:2424/inovex-elements/core/commit/bf75880))
+* **ino-tooltip:** open on tab and close on escape ([c31826c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c31826c))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.1...v0.1.2) (2018-08-10)
 
