@@ -1,7 +1,7 @@
 @import '../styles/fonts.scss';
 
 @mixin tooltip($background-color, $font-color) {
-  .tooltip {
+  .ino-tooltip__composer {
     @include ino-font(sans-serif, m, regular);
 
     position: absolute;
@@ -10,7 +10,7 @@
     color: $font-color;
     box-shadow: 0 0 2px rgba(0,0,0,0.5);
 
-    .tooltip-arrow {
+    .ino-tooltip__arrow {
       width: 0;
       height: 0;
       border-style: solid;
@@ -22,7 +22,7 @@
     &[x-placement^="top"] {
       margin-bottom: 5px;
 
-      .tooltip-arrow {
+      .ino-tooltip__arrow {
         border-width: 5px 5px 0 5px;
         border-left-color: transparent;
         border-right-color: transparent;
@@ -37,7 +37,7 @@
     &[x-placement^="bottom"] {
       margin-top: 5px;
 
-      .tooltip-arrow {
+      .ino-tooltip__arrow {
         border-width: 0 5px 5px 5px;
         border-left-color: transparent;
         border-right-color: transparent;
@@ -52,7 +52,7 @@
     &[x-placement^="right"] {
       margin-left: 5px;
 
-      .tooltip-arrow {
+      .ino-tooltip__arrow {
         border-width: 5px 5px 5px 0;
         border-left-color: transparent;
         border-top-color: transparent;
@@ -67,7 +67,7 @@
     &[x-placement^="left"] {
       margin-right: 5px;
 
-      .tooltip-arrow {
+      .ino-tooltip__arrow {
         border-width: 5px 0 5px 5px;
         border-top-color: transparent;
         border-right-color: transparent;

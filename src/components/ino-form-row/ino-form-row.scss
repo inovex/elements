@@ -3,7 +3,7 @@
 ino-form-row {
   box-sizing: border-box;
 
-  & > .composer {
+  & > .ino-form-row__composer {
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -11,11 +11,11 @@ ino-form-row {
     padding: 2px;
   }
 
-  .form-element {
+  .ino-form-row__element {
     flex: 1;
   }
 
-  .form-label {
+  .ino-form-row__label {
     width: 120px;
   }
 }

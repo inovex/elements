@@ -3,7 +3,7 @@
 ino-tooltip {
   @include tooltip(#000, #CCC);
 
-  .tooltip {
+  .ino-tooltip__composer {
     border-radius: 3px;
     padding: .4em .75em;
     font-size: .8rem;

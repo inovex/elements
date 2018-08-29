@@ -1,5 +1,6 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
 import TooltipJS from 'tooltip.js';
+import {Placement} from 'popper.js';
 
 @Component({
   tag: 'ino-tooltip',
@@ -8,7 +9,7 @@ import TooltipJS from 'tooltip.js';
 })
 export class Tooltip {
   @Element() el: HTMLElement;
-  private tooltipInstance: TooltipJS;
+  private tooltipInstance: any;
   private target: HTMLElement;
 
   /**
@@ -16,7 +17,7 @@ export class Tooltip {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() inoPlacement = 'auto';
+  @Prop() inoPlacement: Placement = 'auto';
   @Watch('inoPlacement')
   inoPlacementChanged() {
     this.create();
@@ -72,12 +73,19 @@ export class Tooltip {
       document.getElementById(this.inoFor) :
       this.el.parentElement;
 
-    this.tooltipInstance = new TooltipJS(this.target, {
-      title: this.inoLabel,
-      container: this.el,
-      placement: this.inoPlacement,
-      trigger: this.inoTrigger
-    });
+      const options = {
+        title: this.inoLabel,
+        container: this.el,
+        placement: this.inoPlacement,
+        trigger: this.inoTrigger,
+        template: '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
+        arrowSelector: '.ino-tooltip__arrow',
+        innerSelector: '.ino-tooltip__inner'
+      };
+      // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
+      // @ts-ignore
+      this.tooltipInstance = new TooltipJS(this.target, options);
+
 
     this.target.addEventListener('keyup', this.onEnterTarget.bind(this));
     this.target.addEventListener('blur', this.onLeaveTarget.bind(this), true);

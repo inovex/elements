@@ -56,8 +56,9 @@ export class Range {
 
   render() {
     return (
-      <div class="composer">
-        <input type="range"
+      <div>
+        <input class="ino-range__native-element"
+          type="range"
           autofocus={this.autofocus}
           disabled={this.disabled}
           min={this.min}

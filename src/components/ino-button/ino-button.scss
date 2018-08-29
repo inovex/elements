@@ -1,19 +1,19 @@
 @import 'styles/colors';
 @import "@material/button/mdc-button";
 
-ino-button {  
+ino-button {
   display: inline-block;
 
   // Generate the different ino-color-schemes buttons
   @each $color-name, $map in $ino-color-scheme {
-    
+
     // Condition to set default styles for primary
     $selector: '&[ino-color-scheme="#{$color-name}"]';
     @if $color-name == primary {
       $selector: '&';
     }
 
-    #{$selector} button {
+    #{$selector} .mdc-button {
       &.mdc-button--unelevated {
         @include mdc-button-filled-accessible(map-get($map, base));
       }
@@ -25,8 +25,7 @@ ino-button {
     }
   }
 
-
-  .mdc-button .icon-right {
+  .mdc-button .mdc-button__icon--right {
     margin-left: 8px;
     margin-right: -4px;
   }

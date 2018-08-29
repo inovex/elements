@@ -9,35 +9,35 @@
 ino-spinner {
 
   // Styles for all spinners
-  .spinner {
+  .ino-spinner__composer {
     font-size: 10px;
     display: inline-block;
     position: relative;
   }
 
   // Include different styles depending on the ino-type attribute
-  &:not([ino-type]) .spinner, &[ino-type="tile"] .spinner {
+  &:not([ino-type]) .ino-spinner__composer, &[ino-type="tile"] .ino-spinner__composer {
     @include tile();
   }
-  &[ino-type="bounce"] .spinner {
+  &[ino-type="bounce"] .ino-spinner__composer {
     @include bounce;
   }
-  &[ino-type="circle"] .spinner {
+  &[ino-type="circle"] .ino-spinner__composer {
     @include circle;
   }
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
     &[ino-color-scheme="#{$color-name}"] {
-      
+
       // Generate for each color class and type the color styles
-      &:not([ino-type]) .spinner, &[ino-type="tile"] .spinner {
+      &:not([ino-type]) .ino-spinner__composer, &[ino-type="tile"] .ino-spinner__composer {
         @include tile-color(map-get($map, base));
       }
-      &[ino-type="bounce"] .spinner {
+      &[ino-type="bounce"] .ino-spinner__composer {
         @include bounce-color(map-get($map, base));
       }
-      &[ino-type="circle"] .spinner {
+      &[ino-type="circle"] .ino-spinner__composer {
         @include circle-color(map-get($map, base));
       }
     }
@@ -54,7 +54,7 @@ ino-spinner {
 
     background: rgba(255,255,255, 0.95);
 
-    .spinner {
+    .ino-spinner__composer {
       top: 50%; left: 50%;
       transform: translate(-50%,-50%);
     }

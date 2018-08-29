@@ -227,9 +227,8 @@ export class Datepicker {
 
   render() {
     return (
-      <div class="composer">
-        <ino-input
-          type="text"
+      <div>
+        <ino-input type="text"
           autocomplete="off"
           disabled={this.disabled}
           accessKey={this.accesskey}

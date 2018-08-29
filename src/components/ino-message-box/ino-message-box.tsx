@@ -59,17 +59,17 @@ export class MessageBox {
 
   render() {
     return (
-      <div class="composer">
-        <div class="header">
-          {this.inoIcon && <ino-icon class="leading" ino-icon={this.inoIcon}></ino-icon>}
-          <div class="heading">{this.inoHeading}</div>
+      <div class="ino-message__composer">
+        <div class="ino-message__header">
+          {this.inoIcon && <ino-icon class="ino-message__header-leading" ino-icon={this.inoIcon}></ino-icon>}
+          <div class="ino-message__header-heading">{this.inoHeading}</div>
           {this.inoRemovable &&
-            <ino-icon class="remove" ino-icon="cancel" tabindex="0" role="button"
+            <ino-icon class="ino-message__header-remove" ino-icon="cancel" tabindex="0" role="button"
               onClick={e => this.handleClick(e)}
               onKeyPress={e => this.handleKeyPress(e)}>
             </ino-icon>}
         </div>
-        <div class="content"><slot /></div>
+        <div class="ino-message__content"><slot /></div>
       </div>
     );
   }

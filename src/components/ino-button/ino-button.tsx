@@ -108,7 +108,7 @@ export class Button {
         <slot />
 
         {this.inoIcon && this.inoIconPrepend
-          && <ino-icon class="icon-right mdc-button__icon" ino-icon={this.inoIcon}></ino-icon>}
+          && <ino-icon class="mdc-button__icon mdc-button__icon--right" ino-icon={this.inoIcon}></ino-icon>}
       </button>
     );
   }

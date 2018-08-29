@@ -36,7 +36,7 @@ $contrast: 5% !default;
 
 
 ino-range {
-  input[type='range'] {
+  .ino-range__native-element {
     -webkit-appearance: none;
     margin: $thumb-height / 2 0;
     width: 100%;
@@ -112,8 +112,8 @@ ino-range {
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] input[type='range'] {
-      
+    &[ino-color-scheme="#{$color-name}"] .ino-range__native-element {
+
       &::-webkit-slider-thumb {
         @include thumb-colors(map-get($map, base))
       }
