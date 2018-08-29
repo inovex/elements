@@ -3,9 +3,9 @@
 @import "@material/textfield/icon/mdc-text-field-icon";
 
 ino-input {
-  display: block; 
-  
-  & > .composer {
+  display: block;
+
+  & > .ino-input__composer {
     display: block;
     text-align: left;
     width: 100%;

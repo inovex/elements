@@ -38,35 +38,35 @@ export class Spinner {
 
   private tileTemplate() {
     return [
-      <div class="rect1"></div>,
-      <div class="rect2"></div>,
-      <div class="rect3"></div>,
-      <div class="rect4"></div>,
-      <div class="rect5"></div>,
+      <div class="ino-spinner__rect1"></div>,
+      <div class="ino-spinner__rect2"></div>,
+      <div class="ino-spinner__rect3"></div>,
+      <div class="ino-spinner__rect4"></div>,
+      <div class="ino-spinner__rect5"></div>,
     ];
   }
 
   private bounceTemplate() {
     return [
-      <div class="double-bounce-1"></div>,
-      <div class="double-bounce-2"></div>
+      <div class="ino-spinner__double-bounce-1"></div>,
+      <div class="ino-spinner__double-bounce-2"></div>
     ];
   }
 
   private circleTemplate() {
     return [
-      <div class="circle-1"></div>,
-      <div class="circle-2"></div>,
-      <div class="circle-3"></div>,
-      <div class="circle-4"></div>,
-      <div class="circle-5"></div>,
-      <div class="circle-6"></div>,
-      <div class="circle-7"></div>,
-      <div class="circle-8"></div>,
-      <div class="circle-9"></div>,
-      <div class="circle-10"></div>,
-      <div class="circle-11"></div>,
-      <div class="circle-12"></div>
+      <div class="ino-spinner__circle-1"></div>,
+      <div class="ino-spinner__circle-2"></div>,
+      <div class="ino-spinner__circle-3"></div>,
+      <div class="ino-spinner__circle-4"></div>,
+      <div class="ino-spinner__circle-5"></div>,
+      <div class="ino-spinner__circle-6"></div>,
+      <div class="ino-spinner__circle-7"></div>,
+      <div class="ino-spinner__circle-8"></div>,
+      <div class="ino-spinner__circle-9"></div>,
+      <div class="ino-spinner__circle-10"></div>,
+      <div class="ino-spinner__circle-11"></div>,
+      <div class="ino-spinner__circle-12"></div>
     ];
   }
 
@@ -82,7 +82,7 @@ export class Spinner {
     }
 
     return (
-      <div class="spinner" style={{width: `${this.inoWidth}px`, height: `${this.inoHeight}px`}}>
+      <div class="ino-spinner__composer" style={{width: `${this.inoWidth}px`, height: `${this.inoHeight}px`}}>
         {spinnerTemplate}
       </div>
     );

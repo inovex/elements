@@ -19,11 +19,11 @@ export class FormRow {
 
   render() {
     return (
-      <div class="composer">
-        <div class="form-label">
+      <div class="ino-form-row__composer">
+        <div class="ino-form-row__label">
           {this.inoLabel}{this.inoMandatory && <span>*</span>}
         </div>
-        <div class="form-element"><slot /></div>
+        <div class="ino-form-row__element"><slot /></div>
       </div>
     );
   }

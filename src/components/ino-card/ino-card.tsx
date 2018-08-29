@@ -26,9 +26,9 @@ export class Card {
   private mediaTemplate() {
     if (this.inoTitle || this.inoSubtitle) {
       return (
-        <div class="header">
-          {this.inoTitle && <div class="title">{this.inoTitle}</div>}
-          {this.inoSubtitle && <div class="subtitle">{this.inoSubtitle}</div>}
+        <div class="ino-card__header">
+          {this.inoTitle && <div class="ino-card__header-title">{this.inoTitle}</div>}
+          {this.inoSubtitle && <div class="ino-card__header-subtitle">{this.inoSubtitle}</div>}
         </div>
       );
     }
@@ -37,7 +37,7 @@ export class Card {
 
   render() {
     const cardClass = classnames(
-      'composer',
+      'ino-card__composer',
       'mdc-card',
       {'mdc-card--outlined': this.inoOutline}
     );
@@ -45,7 +45,7 @@ export class Card {
     return (
       <div class={cardClass}>
         {this.mediaTemplate()}
-        <div class="content"><slot /></div>
+        <div class="ino-card__content"><slot /></div>
       </div>
     );
   }

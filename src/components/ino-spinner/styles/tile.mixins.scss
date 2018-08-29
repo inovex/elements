@@ -13,9 +13,9 @@ $tile-margin: 1px;
   @include tile-color(ino-color(primary));
 
   > div {
-    display: inline-block; 
+    display: inline-block;
     height: 100%;
-    
+
     box-sizing: border-box;
     width: 20%;
     padding: $tile-margin;
@@ -28,16 +28,16 @@ $tile-margin: 1px;
       width: 100%;
     }
   }
-  .rect2 {
+  .ino-spinner__rect2 {
     @include animation-delay(-1.1s);
   }
-  .rect3 {
+  .ino-spinner__rect3 {
     @include animation-delay(-1.0s);
   }
-  .rect4 {
+  .ino-spinner__rect4 {
     @include animation-delay(-0.9s);
   }
-  .rect5 {
+  .ino-spinner__rect5 {
     @include animation-delay(-0.8s);
   }
 

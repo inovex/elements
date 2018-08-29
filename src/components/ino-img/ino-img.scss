@@ -3,12 +3,12 @@ ino-img {
   overflow: hidden;
   width: 100%;
 
-  .composer {
+  .ino-img__composer {
     position: relative;
     box-sizing: border-box;
   }
 
-  img {
+  .ino-img__image {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,7 +17,7 @@ ino-img {
   }
 
   &[ino-rounded] {
-    img {
+    .ino-img__image {
       border-radius: 50%;
     }
   }

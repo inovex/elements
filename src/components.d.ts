@@ -16,6 +16,9 @@ import {
 import {
   ImageDecodingTypes,
 } from './components/ino-img/ino-img';
+import {
+  Placement,
+} from 'popper.js';
 
 
 declare global {
@@ -442,7 +445,7 @@ declare global {
       /**
        * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
-      'inoPlacement': string;
+      'inoPlacement': Placement;
       /**
        * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
        */
@@ -632,7 +635,7 @@ declare global {
       /**
        * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
-      'inoPlacement': string;
+      'inoPlacement': Placement;
       /**
        * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
        */
@@ -1232,7 +1235,7 @@ declare global {
       /**
        * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
-      'inoPlacement'?: string;
+      'inoPlacement'?: Placement;
       /**
        * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
        */
@@ -1422,7 +1425,7 @@ declare global {
       /**
        * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
        */
-      'inoPlacement'?: string;
+      'inoPlacement'?: Placement;
       /**
        * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
        */

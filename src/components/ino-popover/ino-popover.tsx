@@ -1,5 +1,6 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
 import TooltipJS from 'tooltip.js';
+import {Placement} from 'popper.js';
 
 @Component({
   tag: 'ino-popover',
@@ -15,7 +16,7 @@ export class Popover {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() inoPlacement = 'auto';
+  @Prop() inoPlacement: Placement = 'auto';
   @Watch('inoPlacement')
   inoPlacementChanged() {
     this.create();
@@ -60,13 +61,19 @@ export class Popover {
       document.getElementById(this.inoFor) :
       this.el.parentElement;
 
-    this.tooltipInstance = new TooltipJS(target, {
+    const options = {
       html: true,
       container: this.el,
-      title: this.el.querySelector('.popover-content'),
+      title: this.el.querySelector('.ino-popover__content') as HTMLElement,
       placement: this.inoPlacement,
-      trigger: this.inoTrigger
-    });
+      trigger: this.inoTrigger,
+      template: '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
+      arrowSelector: '.ino-tooltip__arrow',
+      innerSelector: '.ino-tooltip__inner',
+    };
+    // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
+    // @ts-ignore
+    this.tooltipInstance = new TooltipJS(target, options);
   }
 
   private dispose() {
@@ -77,7 +84,7 @@ export class Popover {
 
   render() {
     return (
-      <div class="popover-content"><slot /></div>
+      <div class="ino-popover__content"><slot /></div>
     );
   }
 }

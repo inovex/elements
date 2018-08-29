@@ -113,8 +113,9 @@ export class Image {
 
   render() {
     return (
-      <div class="composer" style={{'padding-top' : this.composedRatioHeight}}>
-        <img alt={this.alt}
+      <div class="ino-img__composer" style={{'padding-top' : this.composedRatioHeight}}>
+        <img class="ino-img__image"
+            alt={this.alt}
             decoding={this.decoding}
             height={this.height}
             sizes={this.sizes}

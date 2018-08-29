@@ -8,32 +8,32 @@ ino-message-box {
   display: block;
   width: 100%;
 
-  & > .composer {
+  & > .ino-message__composer {
     padding: 8px 12px 8px 16px;
     border-radius: 4px;
 
-    & > .header {
+    & > .ino-message__header {
       @include ino-font-weight(semibold);
-      
+
       display: flex;
       justify-content: space-between;
 
-      & > .leading {
+      & > .ino-message__header-leading {
         margin-right: 12px;
       }
 
-      & > .heading {
+      & > .ino-message__header-heading {
         flex: 1;
       }
 
-      & > .remove {
+      & > .ino-message__header-remove {
         align-self: start;
         margin-left: 6px;
         margin-right: -3px;
       }
     }
 
-    & > .content {
+    & > .ino-message__content {
       @include ino-font-size(s);
       padding-top: 8px;
 
@@ -45,7 +45,7 @@ ino-message-box {
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] > .composer {
+    &[ino-color-scheme="#{$color-name}"] > .ino-message__composer {
       background-color: map-get($map, base);
       border: 1px solid map-get($map, base);
       color: map-get($map, contrast);
@@ -55,15 +55,15 @@ ino-message-box {
   // Postion the message box as modal
   &[ino-modal] {
     position: fixed;
-    
+
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     z-index: $z-index-message-box-backdrop;
-    
-    & > .composer {
+
+    & > .ino-message__composer {
       position: relative;
       border-radius: 0;
       top: 24px;
