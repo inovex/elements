@@ -1,8 +1,8 @@
 import { Component, Element, Prop } from '@stencil/core';
+import { ButtonType } from '../types';
+
 import {MDCRipple} from '@material/ripple';
 import classNames from 'classnames';
-
-export type ButtonType = 'button' | 'submit' | 'reset';
 
 @Component({
   tag: 'ino-button',
