@@ -1,8 +1,8 @@
 import { Component, Element, Listen, Prop, State, Watch } from '@stencil/core';
+import { DatepickerType } from '../types';
+
 import flatpickr from 'flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
-
-export type DatepickerType = 'date' | 'datetime' | 'time' | 'range';
 
 @Component({
   tag: 'ino-datepicker',

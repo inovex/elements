@@ -1,6 +1,6 @@
 import { Component, Element, Prop, State, Watch } from '@stencil/core';
+import { ImageDecodingTypes } from '../types';
 
-export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
 
 @Component({
   tag: 'ino-img',
