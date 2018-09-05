@@ -36,7 +36,7 @@
     "@material/icon-button": "0.39.0-0",
     "@material/radio": "^0.37.0",
     "@material/ripple": "^0.38.1",
-    "@material/select": "^0.37.1",
+    "@material/select": "^0.39.0",
     "@material/textfield": "^0.38.1",
     "@stencil/core": "0.12.4",
     "classnames": "^2.2.6",
