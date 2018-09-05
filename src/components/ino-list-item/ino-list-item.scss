@@ -1,0 +1,9 @@
+@import "@material/list/mdc-list";
+
+ino-list-item {
+  display: block;
+
+  .ino-list-item__icon {
+    font-size: 24px;
+  }
+}
