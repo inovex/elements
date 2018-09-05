@@ -23,4 +23,17 @@ ino-card {
   .ino-card__content {
     @include mdc-typography(body2);
   }
+
+  // Generate ino-color-scheme classes
+  @each $color-name, $map in $ino-color-scheme {
+    &[ino-color-scheme="#{$color-name}"] > .ino-card__composer {
+      background-color: map-get($map, base);
+      border: 1px solid map-get($map, base);
+      color: map-get($map, contrast);
+
+      .ino-card__header-subtitle {
+        color: rgba(map-get($map, contrast), 0.5);
+      }
+    }
+  }
 }
