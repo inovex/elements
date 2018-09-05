@@ -22,6 +22,13 @@ export class Card {
    */
   @Prop() inoSubtitle?: string;
 
+  /**
+   * The name of the color scheme which is used
+   * to style the background and outline of this component.
+   * Possible values: `primary` (default),  `secondary`, `tertiary`,
+   * `success`, `warning`, `error`, `light`, `dark`.
+   */
+  @Prop() inoColorScheme?: string;
 
   private mediaTemplate() {
     if (this.inoTitle || this.inoSubtitle) {

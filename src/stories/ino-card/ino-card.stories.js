@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { boolean, text } from '@storybook/addon-knobs/vue';
+import { boolean, text, select } from '@storybook/addon-knobs/vue';
 
 import renderTemplate from '../core/playground-story/template-renderer';
 
@@ -14,7 +14,14 @@ storiesOf('<ino-card>', module)
         <ino-card class="customizable-card" 
           ino-title={text('ino-title', 'Customizable Title')}
           ino-subtitle={text('ino-subtitle', 'Use the knobs to try different cards')}
-          ino-outline={boolean('ino-outline', false)}>
+          ino-outline={boolean('ino-outline', false)}
+          ino-color-scheme={select(
+            'ino-color-scheme',
+            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+            'error', 'light', 'dark'
+            ],
+            ''
+          )}>
           {text('<slot />', 'Here comes your content.')}
         </ino-card>
 

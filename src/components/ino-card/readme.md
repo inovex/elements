@@ -19,11 +19,12 @@ The component can be used as follows:
 
 ## Properties
 
-| Property      | Attribute      | Description                                                 | Type      |
-| ------------- | -------------- | ----------------------------------------------------------- | --------- |
-| `inoOutline`  | `ino-outline`  | Removes the shadow and displays a hairline outline instead. | `boolean` |
-| `inoSubtitle` | `ino-subtitle` | An optional subtitle of this card.                          | `string`  |
-| `inoTitle`    | `ino-title`    | An optional title of this card.                             | `string`  |
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoOutline`     | `ino-outline`      | Removes the shadow and displays a hairline outline instead.                                                                                                                                                       | `boolean` |
+| `inoSubtitle`    | `ino-subtitle`     | An optional subtitle of this card.                                                                                                                                                                                | `string`  |
+| `inoTitle`       | `ino-title`        | An optional title of this card.                                                                                                                                                                                   | `string`  |
 
 
 ----------------------------------------------

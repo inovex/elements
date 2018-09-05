@@ -106,6 +106,10 @@ export namespace Components {
 
   interface InoCard {
     /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme': string;
+    /**
     * Removes the shadow and displays a hairline outline instead.
     */
     'inoOutline': boolean;
@@ -119,6 +123,10 @@ export namespace Components {
     'inoTitle': string;
   }
   interface InoCardAttributes extends StencilHTMLAttributes {
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: string;
     /**
     * Removes the shadow and displays a hairline outline instead.
     */
