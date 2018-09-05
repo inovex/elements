@@ -805,6 +805,122 @@ export namespace Components {
     'value'?: string;
   }
 
+  interface InoListDivider {
+    /**
+    * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
+    */
+    'inoBetweenLists': boolean;
+    /**
+    * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoInset': boolean;
+    /**
+    * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoPadded': boolean;
+  }
+  interface InoListDividerAttributes extends StencilHTMLAttributes {
+    /**
+    * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
+    */
+    'inoBetweenLists'?: boolean;
+    /**
+    * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoInset'?: boolean;
+    /**
+    * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoPadded'?: boolean;
+  }
+
+  interface InoListItem {
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated': boolean;
+    /**
+    * The name of the leading icon of this list item.
+    */
+    'inoLeadingIcon': string;
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText': string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely change soon.
+    */
+    'inoSelected': boolean;
+    /**
+    * The primary text of this list item (required).
+    */
+    'inoText': string;
+  }
+  interface InoListItemAttributes extends StencilHTMLAttributes {
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated'?: boolean;
+    /**
+    * The name of the leading icon of this list item.
+    */
+    'inoLeadingIcon'?: string;
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText'?: string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely change soon.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The primary text of this list item (required).
+    */
+    'inoText'?: string;
+  }
+
+  interface InoList {
+    /**
+    * Styles the list more dense, making it appear more compact.
+    */
+    'inoDense': string;
+    /**
+    * Marks this element as list with items having two lines.
+    */
+    'inoTwoLines': boolean;
+  }
+  interface InoListAttributes extends StencilHTMLAttributes {
+    /**
+    * Styles the list more dense, making it appear more compact.
+    */
+    'inoDense'?: string;
+    /**
+    * Marks this element as list with items having two lines.
+    */
+    'inoTwoLines'?: boolean;
+  }
+
+  interface InoMenu {
+    /**
+    * The anchor element for this menu. If empty, the anchor is the parent element.
+    */
+    'inoFor': string;
+    /**
+    * Set this option to show the menu manually.
+    */
+    'inoOpen': boolean;
+  }
+  interface InoMenuAttributes extends StencilHTMLAttributes {
+    /**
+    * The anchor element for this menu. If empty, the anchor is the parent element.
+    */
+    'inoFor'?: string;
+    /**
+    * Set this option to show the menu manually.
+    */
+    'inoOpen'?: boolean;
+  }
+
   interface InoMessageBox {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
@@ -1270,6 +1386,10 @@ declare global {
     'InoIcon': Components.InoIcon;
     'InoImg': Components.InoImg;
     'InoInput': Components.InoInput;
+    'InoListDivider': Components.InoListDivider;
+    'InoListItem': Components.InoListItem;
+    'InoList': Components.InoList;
+    'InoMenu': Components.InoMenu;
     'InoMessageBox': Components.InoMessageBox;
     'InoPopover': Components.InoPopover;
     'InoRadio': Components.InoRadio;
@@ -1291,6 +1411,10 @@ declare global {
     'ino-icon': Components.InoIconAttributes;
     'ino-img': Components.InoImgAttributes;
     'ino-input': Components.InoInputAttributes;
+    'ino-list-divider': Components.InoListDividerAttributes;
+    'ino-list-item': Components.InoListItemAttributes;
+    'ino-list': Components.InoListAttributes;
+    'ino-menu': Components.InoMenuAttributes;
     'ino-message-box': Components.InoMessageBoxAttributes;
     'ino-popover': Components.InoPopoverAttributes;
     'ino-radio': Components.InoRadioAttributes;
@@ -1362,6 +1486,30 @@ declare global {
     new (): HTMLInoInputElement;
   };
 
+  interface HTMLInoListDividerElement extends Components.InoListDivider, HTMLStencilElement {}
+  var HTMLInoListDividerElement: {
+    prototype: HTMLInoListDividerElement;
+    new (): HTMLInoListDividerElement;
+  };
+
+  interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {}
+  var HTMLInoListItemElement: {
+    prototype: HTMLInoListItemElement;
+    new (): HTMLInoListItemElement;
+  };
+
+  interface HTMLInoListElement extends Components.InoList, HTMLStencilElement {}
+  var HTMLInoListElement: {
+    prototype: HTMLInoListElement;
+    new (): HTMLInoListElement;
+  };
+
+  interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {}
+  var HTMLInoMenuElement: {
+    prototype: HTMLInoMenuElement;
+    new (): HTMLInoMenuElement;
+  };
+
   interface HTMLInoMessageBoxElement extends Components.InoMessageBox, HTMLStencilElement {}
   var HTMLInoMessageBoxElement: {
     prototype: HTMLInoMessageBoxElement;
@@ -1421,6 +1569,10 @@ declare global {
     'ino-icon': HTMLInoIconElement
     'ino-img': HTMLInoImgElement
     'ino-input': HTMLInoInputElement
+    'ino-list-divider': HTMLInoListDividerElement
+    'ino-list-item': HTMLInoListItemElement
+    'ino-list': HTMLInoListElement
+    'ino-menu': HTMLInoMenuElement
     'ino-message-box': HTMLInoMessageBoxElement
     'ino-popover': HTMLInoPopoverElement
     'ino-radio': HTMLInoRadioElement
@@ -1442,6 +1594,10 @@ declare global {
     'ino-icon': HTMLInoIconElement;
     'ino-img': HTMLInoImgElement;
     'ino-input': HTMLInoInputElement;
+    'ino-list-divider': HTMLInoListDividerElement;
+    'ino-list-item': HTMLInoListItemElement;
+    'ino-list': HTMLInoListElement;
+    'ino-menu': HTMLInoMenuElement;
     'ino-message-box': HTMLInoMessageBoxElement;
     'ino-popover': HTMLInoPopoverElement;
     'ino-radio': HTMLInoRadioElement;

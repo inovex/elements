@@ -1,0 +1,15 @@
+.story-list {
+  h4 {
+    margin: 36px 0 12px;
+  }
+
+  ino-list {
+    &:not(.divider-two-lists) {
+      border: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .first-densed-list {
+    margin-bottom: 12px;
+  }
+}
