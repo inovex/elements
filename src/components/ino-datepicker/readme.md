@@ -16,6 +16,8 @@ This component can be used as follows:
   value="<string>"
   min="<string>"
   max="<string>"
+  minute-step="<number>"
+  hour-step="<number>"
   
   ino-outline="<boolean>"
   ino-label="<string>"
@@ -58,6 +60,7 @@ or as datetime picker
 | `accesskey`           | `accesskey`             | The accesskey of this element.                                                                   | `string`         |
 | `autofocus`           | `autofocus`             | Autofocuses this element.                                                                        | `boolean`        |
 | `disabled`            | `disabled`              | Disables this element.                                                                           | `boolean`        |
+| `hourStep`            | `hour-step`             | Adjusts the step for the hour input (incl. scrolling)                                            | `number`         |
 | `inoDefaultDate`      | `ino-default-date`      | A simple date string that sets the default date.                                                 | `string`         |
 | `inoDefaultHour`      | `ino-default-hour`      | A number containing the initial hour in the date-time picker.                                    | `number`         |
 | `inoDefaultMinute`    | `ino-default-minute`    | A number containing the initial minute in the date-time picker.                                  | `number`         |
@@ -70,6 +73,7 @@ or as datetime picker
 | `inoType`             | `ino-type`              | The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`. | `DatepickerType` |
 | `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                            | `string`         |
 | `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                 | `string`         |
+| `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling)                                          | `number`         |
 | `name`                | `name`                  | The input name of this element.                                                                  | `string`         |
 | `placeholder`         | `placeholder`           | The placeholder of this element.                                                                 | `string`         |
 | `required`            | `required`              | Marks this element as required.                                                                  | `boolean`        |

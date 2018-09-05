@@ -67,6 +67,14 @@ storiesOf('<ino-range>', module)
             <ino-range ino-color-scheme="danger"></ino-range>
           </div>
         </div>
+
+        <h4>Stepped Range</h4>
+
+        <div class="flex-parent">
+          <div class="flex-child">
+            <ino-range min="0" max="100" value="50" step="10"></ino-range>
+          </div>
+        </div>
       </div>
     )
   }));

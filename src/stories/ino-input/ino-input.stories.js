@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 
 import { action } from '@storybook/addon-actions';
-import { text, boolean, select } from '@storybook/addon-knobs/vue';
+import { text, boolean, select, number } from '@storybook/addon-knobs/vue';
 
 import {INO_ICONS} from '../ino-icon/ino-icon.stories';
 
@@ -19,6 +19,7 @@ storiesOf('<ino-input>', module)
         <ino-input class="customizable-input" 
           onInput={action('input change emitted')}
           type={select('type', ['text', 'number', 'password'], 'text', 'STANDARD')}
+          step={number('step', 5, ['step'], 'STANDARD')}
           ino-label={text('ino-label', 'Customizable input', 'STANDARD')}
           placeholder={text('placeholder', '', 'STANDARD')}
           ino-outline={boolean('ino-outline', false, 'STANDARD')}
@@ -38,6 +39,7 @@ storiesOf('<ino-input>', module)
         <h4>Types</h4>
         <ino-input placeholder="type = text"></ino-input>
         <ino-input type="number" placeholder="type = number"></ino-input>
+        <ino-input type="number" placeholder="type = number with steps=5" step="5"></ino-input>
         <ino-input type="password" placeholder="type = password"></ino-input>
 
         <h4 class="outline">Outlined</h4>

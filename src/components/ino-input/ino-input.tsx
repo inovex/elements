@@ -43,6 +43,11 @@ export class Input {
   @Prop() max?: string;
 
   /**
+   * The step value of this element
+   */
+  @Prop() step?: number = 1;
+
+  /**
    * The name of this element.
    */
   @Prop() name?: string;
@@ -247,6 +252,7 @@ export class Input {
           disabled={this.disabled}
           min={this.min}
           max={this.max}
+          step={this.step}
           name={this.name}
           pattern={this.pattern}
           placeholder={this.placeholder}
