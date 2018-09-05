@@ -16,6 +16,7 @@ The component can be used as follows:
   disabled="<boolean>"
   min="<number>"
   max="<number>"
+  step="<number>"
   name="<string>"
   pattern="<string>"
   placeholder="<string>"
@@ -77,6 +78,7 @@ The component behaves like a native input with additional features. Thus, the co
 | `placeholder`         | `placeholder`           | The placeholder of this element.                                             | `string`  |
 | `required`            | `required`              | Marks this element as required.                                              | `boolean` |
 | `size`                | `size`                  | The size of this element.                                                    | `number`  |
+| `step`                | `step`                  | The step value of this element                                               | `number`  |
 | `tabindex`            | `tabindex`              | The tabindex of this element.                                                | `string`  |
 | `type`                | `type`                  | The type of this element (default = text).                                   | `string`  |
 | `value`               | `value`                 | The value of this element.                                                   | `string`  |

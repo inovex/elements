@@ -257,6 +257,10 @@ export namespace Components {
     */
     'disabled': boolean;
     /**
+    * Adjusts the step for the hour input (incl. scrolling)
+    */
+    'hourStep': number;
+    /**
     * A simple date string that sets the default date.
     */
     'inoDefaultDate': string;
@@ -305,6 +309,10 @@ export namespace Components {
     */
     'min': string;
     /**
+    * Adjusts the step for the minute input (incl. scrolling)
+    */
+    'minuteStep': number;
+    /**
     * The input name of this element.
     */
     'name': string;
@@ -338,6 +346,10 @@ export namespace Components {
     * Disables this element.
     */
     'disabled'?: boolean;
+    /**
+    * Adjusts the step for the hour input (incl. scrolling)
+    */
+    'hourStep'?: number;
     /**
     * A simple date string that sets the default date.
     */
@@ -386,6 +398,10 @@ export namespace Components {
     * The minimum date that a user can start picking from (inclusive).
     */
     'min'?: string;
+    /**
+    * Adjusts the step for the minute input (incl. scrolling)
+    */
+    'minuteStep'?: number;
     /**
     * The input name of this element.
     */
@@ -678,6 +694,10 @@ export namespace Components {
     */
     'size': number;
     /**
+    * The step value of this element
+    */
+    'step': number;
+    /**
     * The tabindex of this element.
     */
     'tabindex': string;
@@ -767,6 +787,10 @@ export namespace Components {
     * The size of this element.
     */
     'size'?: number;
+    /**
+    * The step value of this element
+    */
+    'step'?: number;
     /**
     * The tabindex of this element.
     */

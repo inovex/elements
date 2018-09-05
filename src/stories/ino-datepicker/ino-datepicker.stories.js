@@ -47,6 +47,7 @@ storiesOf('<ino-datepicker>', module)
         <ino-datepicker ino-label="Min date" min={minDate} ino-type="date"></ino-datepicker>
         <ino-datepicker ino-label="Max date" max={maxDate}  ino-type="date"></ino-datepicker>
         <ino-datepicker ino-label="Min and Max date" min={minDate} max={maxDate}  ino-type="date"></ino-datepicker>
+        <ino-datepicker ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-type="datetime"></ino-datepicker>
         <ino-datepicker ino-label="Default hour and minute" ino-type="time" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 
         <h4>Variations</h4>

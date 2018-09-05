@@ -148,6 +148,24 @@ export class Datepicker {
     this.update('inoTwelfHourTime', value);
   }
 
+  /**
+   * Adjusts the step for the minute input (incl. scrolling)
+   */
+  @Prop() minuteStep?: number = 5;
+  @Watch('minuteStep')
+  minuteStepChanged(value: number) {
+    this.update('minuteIncrement', value);
+  }
+
+  /**
+   * Adjusts the step for the hour input (incl. scrolling)
+   */
+  @Prop() hourStep?: number = 1;
+  @Watch('hourStep')
+  hourStepChanged(value: number) {
+    this.update('hourIncrement', value);
+  }
+
 
   @State() flatpickr = null;
   @State() internalValue = null;
@@ -183,6 +201,8 @@ export class Datepicker {
       defaultMinute: this.inoDefaultMinute,
       minDate: this.min,
       maxDate: this.max,
+      minuteIncrement: this.minuteStep,
+      hourIncrement: this.hourStep,
       enableTime: this.inoType === 'time' || this.inoType === 'datetime',
       noCalendar: this.inoType === 'time',
       ignoredFocusElements: [],

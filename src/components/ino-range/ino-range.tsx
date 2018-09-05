@@ -63,6 +63,7 @@ export class Range {
           disabled={this.disabled}
           min={this.min}
           max={this.max}
+          step={this.step}
           name={this.name}
           required={this.required}
           value={this.value} />
