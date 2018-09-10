@@ -9,23 +9,7 @@ import renderTemplate from '../core/playground-story/template-renderer';
 import componentReadme from '../../components/ino-icon/readme.md';
 import './ino-icon.scss';
 
-
-export const INO_ICONS = [
-  '',
-  'add', 
-  'date_range', 
-  'equalizer', 
-  'favorite',
-  'favorite_border',
-  'info', 
-  'help', 
-  'search', 
-  'person', 
-  'star',
-  'star_border',
-  'users', 
-  'cancel'
-];
+import ICONS from '../../components/ino-icon/icons';
 
 storiesOf('<ino-icon>', module)
   .addDecorator(renderTemplate(componentReadme))
@@ -37,7 +21,7 @@ storiesOf('<ino-icon>', module)
             <h4>Customizable Icon</h4>
             <ino-icon
               class="customizable-icon"
-              ino-icon={select('ino-icon', INO_ICONS, 'info')}
+              ino-icon={select('ino-icon', ICONS, 'info')}
               ino-clickable={boolean('ino-clickable', false)}
               onInoIconClicked={action('icon click emitted')}>
             </ino-icon>
