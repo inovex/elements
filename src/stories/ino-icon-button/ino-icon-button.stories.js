@@ -9,7 +9,9 @@ import renderTemplate from '../core/playground-story/template-renderer';
 import componentReadme from '../../components/ino-icon-button/readme.md';
 import './ino-icon-button.scss';
 
-import {INO_ICONS} from '../ino-icon/ino-icon.stories';
+import ICONS from '../../components/ino-icon/icons';
+
+ICONS.push(''); // additionally: allow no icon
 
 storiesOf('<ino-icon-button>', module)
   .addDecorator(renderTemplate(componentReadme))
@@ -18,13 +20,13 @@ storiesOf('<ino-icon-button>', module)
       <div class="story-icon-button">
         <div class="customizable-icon-button">
           <h4>Customizable icon button</h4>
-          <ino-icon-button 
-            ino-icon={select('ino-icon', INO_ICONS, 'star_border')}
-            ino-icon-checked={select('ino-icon-checked', INO_ICONS, 'star')}
+          <ino-icon-button
+            ino-icon={select('ino-icon', ICONS, 'star_border')}
+            ino-icon-checked={select('ino-icon-checked', ICONS, 'star')}
             ino-state-checked={boolean('ino-state-checked', false)}
             ino-color-scheme={select(
               'ino-color-scheme',
-              ['', 'primary', 'secondary', 'tertiary', 'success', 'warning', 
+              ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
               'error', 'light', 'dark'
               ],
               ''

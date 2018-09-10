@@ -3,12 +3,12 @@ import { storiesOf } from '@storybook/vue';
 import { action } from '@storybook/addon-actions';
 import { text, boolean, select, number } from '@storybook/addon-knobs/vue';
 
-import {INO_ICONS} from '../ino-icon/ino-icon.stories';
-
 import renderTemplate from '../core/playground-story/template-renderer';
 
 import componentReadme from '../../components/ino-input/readme.md';
 import './ino-input.scss';
+
+import ICONS from '../../components/ino-icon/icons';
 
 
 storiesOf('<ino-input>', module)
@@ -16,7 +16,7 @@ storiesOf('<ino-input>', module)
   .add('Default usage', () => ({
     render :h => (
       <div class="story-input">
-        <ino-input class="customizable-input" 
+        <ino-input class="customizable-input"
           onInput={action('input change emitted')}
           type={select('type', ['text', 'number', 'password'], 'text', 'STANDARD')}
           step={number('step', 5, ['step'], 'STANDARD')}
@@ -25,12 +25,12 @@ storiesOf('<ino-input>', module)
           ino-outline={boolean('ino-outline', false, 'STANDARD')}
           disabled={boolean('disabled', false, 'STANDARD')}
           required={boolean('required', false, 'STANDARD')}
-          
+
           ino-helper={text('ino-helper', 'Helper message', 'HELPER TEXT')}
           ino-helper-persistent={boolean('ino-helper-persistent', false, 'HELPER TEXT')}
           ino-helper-validation={boolean('ino-helper-validation', false, 'HELPER TEXT')}
-          
-          ino-icon={select('ino-icon', INO_ICONS, '', 'ICONS')}
+
+          ino-icon={select('ino-icon', ICONS, '', 'ICONS')}
           ino-icon-trailing={boolean('ino-icon-trailing', false, 'ICONS')}
           ino-icon-clickable={boolean('ino-icon-clickable', false, 'ICONS')}
           onInoIconClicked={action('icon click emitted')}>
