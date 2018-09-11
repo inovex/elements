@@ -2,6 +2,7 @@ stages:
  - test
  - build
  - deploy
+ - deploy-latest
  - deploy-release
 
 image: node:10
@@ -38,22 +39,36 @@ build:
 # * SSH_PRIVATE_KEY: private key to connect to jump host and deploy host
 # * DEPLOY_JUMPHOST: ip of the jumphost
 # * DEPLOY_HOST: internal ip of the host
+
+.prepare_ssh: &prepare_ssh |
+  mkdir -p ~/.ssh
+  echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
+  echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
 deploy:
  stage: deploy
  image: instrumentisto/rsync-ssh:latest
  script:
- - mkdir -p ~/.ssh
- - echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
- - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
- - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME
- - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/storybook
- - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -av --delete /dev/vdb/stencil-components/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/latest
- 
+ - *prepare_ssh
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
  tags:
  - shared
- 
+ only: 
+ - master
+ - tags
+
+deploy-latest:
+ stage: deploy-latest
+ image: instrumentisto/rsync-ssh:latest
+ script:
+ - *prepare_ssh
+ - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -av --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
+ tags:
+ - shared
  only: 
  - tags
+
 
 # variables:
 # * REGISTRY_TOKEN: auth token for publisher user (you can get it by running `npm login --registry https://registry.elements.inovex.io` and copying the token from your `~/.npmrc`)
