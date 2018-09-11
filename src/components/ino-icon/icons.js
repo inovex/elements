@@ -4,6 +4,7 @@ export default [
   'equalizer',
   'favorite',
   'favorite_border',
+  'file_upload',
   'info',
   'help',
   'search',
