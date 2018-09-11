@@ -616,6 +616,75 @@ export namespace Components {
     'width'?: number;
   }
 
+  interface InoInputFile {
+    /**
+    * The types of files accepted by the server.
+    */
+    'accept': string;
+    /**
+    * The autofocus of this element.
+    */
+    'autofocus': boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled': boolean;
+    /**
+    * Sets the label of the select files button.
+    */
+    'inoLabel': string;
+    /**
+    * Sets the phrase of the select button when selecting multiple files. Example: `selected` results in `x selected`.  Only applicable if `multiple` is true.
+    */
+    'inoLabelSelected': string;
+    /**
+    * Indicates whether the user can enter one or more values.
+    */
+    'multiple': boolean;
+    /**
+    * The name of this input field.
+    */
+    'name': string;
+    /**
+    * Marks this element as required.
+    */
+    'required': boolean;
+  }
+  interface InoInputFileAttributes extends StencilHTMLAttributes {
+    /**
+    * The types of files accepted by the server.
+    */
+    'accept'?: string;
+    /**
+    * The autofocus of this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Sets the label of the select files button.
+    */
+    'inoLabel'?: string;
+    /**
+    * Sets the phrase of the select button when selecting multiple files. Example: `selected` results in `x selected`.  Only applicable if `multiple` is true.
+    */
+    'inoLabelSelected'?: string;
+    /**
+    * Indicates whether the user can enter one or more values.
+    */
+    'multiple'?: boolean;
+    /**
+    * The name of this input field.
+    */
+    'name'?: string;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+  }
+
   interface InoInput {
     /**
     * The accesskey of this native element.
@@ -1385,6 +1454,7 @@ declare global {
     'InoIconButton': Components.InoIconButton;
     'InoIcon': Components.InoIcon;
     'InoImg': Components.InoImg;
+    'InoInputFile': Components.InoInputFile;
     'InoInput': Components.InoInput;
     'InoListDivider': Components.InoListDivider;
     'InoListItem': Components.InoListItem;
@@ -1410,6 +1480,7 @@ declare global {
     'ino-icon-button': Components.InoIconButtonAttributes;
     'ino-icon': Components.InoIconAttributes;
     'ino-img': Components.InoImgAttributes;
+    'ino-input-file': Components.InoInputFileAttributes;
     'ino-input': Components.InoInputAttributes;
     'ino-list-divider': Components.InoListDividerAttributes;
     'ino-list-item': Components.InoListItemAttributes;
@@ -1478,6 +1549,12 @@ declare global {
   var HTMLInoImgElement: {
     prototype: HTMLInoImgElement;
     new (): HTMLInoImgElement;
+  };
+
+  interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {}
+  var HTMLInoInputFileElement: {
+    prototype: HTMLInoInputFileElement;
+    new (): HTMLInoInputFileElement;
   };
 
   interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {}
@@ -1568,6 +1645,7 @@ declare global {
     'ino-icon-button': HTMLInoIconButtonElement
     'ino-icon': HTMLInoIconElement
     'ino-img': HTMLInoImgElement
+    'ino-input-file': HTMLInoInputFileElement
     'ino-input': HTMLInoInputElement
     'ino-list-divider': HTMLInoListDividerElement
     'ino-list-item': HTMLInoListItemElement
@@ -1593,6 +1671,7 @@ declare global {
     'ino-icon-button': HTMLInoIconButtonElement;
     'ino-icon': HTMLInoIconElement;
     'ino-img': HTMLInoImgElement;
+    'ino-input-file': HTMLInoInputFileElement;
     'ino-input': HTMLInoInputElement;
     'ino-list-divider': HTMLInoListDividerElement;
     'ino-list-item': HTMLInoListItemElement;

@@ -6,6 +6,7 @@ import { text, boolean, select, number } from '@storybook/addon-knobs/vue';
 import renderTemplate from '../core/playground-story/template-renderer';
 
 import componentReadme from '../../components/ino-input/readme.md';
+import inputFileReadme from '../../components/ino-input-file/readme.md';
 import './ino-input.scss';
 
 import ICONS from '../../components/ino-icon/icons';
@@ -68,6 +69,24 @@ storiesOf('<ino-input>', module)
         <ino-input ino-icon="add" ino-label="Leading icon"></ino-input>
         <ino-input ino-icon="add" ino-icon-trailing ino-label="Trailing icon"></ino-input>
         <ino-input ino-icon="add" ino-icon-clickable ino-label="Clickable icon"></ino-input>
+      </div>
+    )
+  }));
+
+storiesOf('<ino-input>', module)
+  .addDecorator(renderTemplate(inputFileReadme))
+  .add('File input', () => ({
+    render :h => (
+      <div class="story-input">
+        <ino-input-file
+          accept={text('accept', '')}
+          autofocus={boolean('autofocus', false)}
+          disabled={boolean('disabled', false)}
+          multiple={boolean('multiple', false)}
+          required={boolean('required', false)}
+          ino-label={text('ino-label', 'Durchsuchen')}
+          ino-label-selected={text('ino-label-selected', 'ausgewählt')}>
+        </ino-input-file>
       </div>
     )
   }));
