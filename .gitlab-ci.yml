@@ -63,7 +63,7 @@ deploy-latest:
  image: instrumentisto/rsync-ssh:latest
  script:
  - *prepare_ssh
- - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -av --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
+ - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -rtvu --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
  tags:
  - shared
  only: 
