@@ -1,3 +1,21 @@
+<a name="0.3.0"></a>
+# [0.3.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.2.0...v0.3.0) (2018-09-11)
+
+
+### Bug Fixes
+
+* use BEM conform css class names ([3d5350f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/3d5350f))
+* **ino-icon:** fix svg loading error ([0994d68](http://gitlab.inovex.de:2424/inovex-elements/core/commit/0994d68))
+
+
+### Features
+
+* **ino-card:** add alternatives in color brands ([a46102b](http://gitlab.inovex.de:2424/inovex-elements/core/commit/a46102b))
+* **ino-input, ino-range, ino-datepicker:** add step attribute ([9e13a3b](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9e13a3b))
+* **ino-menu, ino-list, ino-list-item, ino-list-divider:** add component ([4514db7](http://gitlab.inovex.de:2424/inovex-elements/core/commit/4514db7))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.2...v0.2.0) (2018-08-28)
 
@@ -10,13 +28,13 @@
 ### Features
 
 * Add react wrapper elements and improve attribute typings ([70d5064](http://gitlab.inovex.de:2424/inovex-elements/core/commit/70d5064))
-* **ino-datepicker:** Add button and new input attributes ([643c052](http://gitlab.inovex.de:2424/inovex-elements/core/commit/643c052))
+* **datepicker:** Add button and new input attributes ([643c052](http://gitlab.inovex.de:2424/inovex-elements/core/commit/643c052))
 * **ino-datepicker:** add 'range' option to DatepickerType in order to extend 'inoType' ([b2e64e0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b2e64e0))
 * **ino-icon:** renew component without inline SVGs ([6b9f049](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6b9f049))
 * **ino-icon-button:** add component ([66719b0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/66719b0))
 * **ino-input:** add helper text ([41c8ecd](http://gitlab.inovex.de:2424/inovex-elements/core/commit/41c8ecd))
 * **ino-input:** add leading and trailing icon ([bf75880](http://gitlab.inovex.de:2424/inovex-elements/core/commit/bf75880))
-* **ino-tooltip:** open on tab and close on escape ([c31826c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c31826c))
+* **tooltip:** open on tab and close on escape ([c31826c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c31826c))
 
 
 
