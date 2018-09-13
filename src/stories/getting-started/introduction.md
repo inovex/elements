@@ -1,4 +1,4 @@
-# inovex elements
+# inovex elements <span style="font-size:18px">v{npm_package_version}</span>
 
 The Storybook is a UI showcase tool for the inovex elements.
 

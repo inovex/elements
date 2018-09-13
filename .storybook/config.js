@@ -3,6 +3,8 @@ import { setOptions } from '@storybook/addon-options';
 import { withKnobs } from '@storybook/addon-knobs/vue';
 import Vue from 'vue';
 
+const version = require('../package.json').version;
+
 // Add components
 import '../dist/inovex-elements';
 
@@ -20,7 +22,7 @@ Vue.config.ignoredElements = [
 
 // Options
 setOptions({
-  name: 'inovex elements',
+  name: 'INOVEX ELEMENTS v' + version,
   url: '/'
 })
 
