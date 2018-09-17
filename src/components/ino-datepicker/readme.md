@@ -10,7 +10,6 @@ This component can be used as follows:
   autofocus="<string>"
   disabled="<boolean>"
   name="<string>"
-  placeholder="<string>"
   required="<boolean>"
   tabindex="<string>"
   value="<string>"
@@ -37,17 +36,17 @@ This component can be used as follows:
 ### Examples
 The picker can be used as date picker
 ```html
-<ino-datepicker ino-type="date" placeholder="Enter a date"></ino-datepicker>
+<ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
 ```
 
 or as time picker
 ```html
-<ino-datepicker ino-type="time" placeholder="Enter a time"></ino-datepicker>
+<ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
 ```
 
 or as datetime picker
 ```html
-<ino-datepicker ino-type="datetime" placeholder="Enter a date and time"></ino-datepicker>
+<ino-datepicker ino-type="datetime" ino-label="Datetime"></ino-datepicker>
 ```
 
 <!-- Auto Generated Below -->
@@ -75,7 +74,6 @@ or as datetime picker
 | `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                 | `string`         |
 | `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling)                                          | `number`         |
 | `name`                | `name`                  | The input name of this element.                                                                  | `string`         |
-| `placeholder`         | `placeholder`           | The placeholder of this element.                                                                 | `string`         |
 | `required`            | `required`              | Marks this element as required.                                                                  | `boolean`        |
 | `tabindex`            | `tabindex`              | The tabindex of this element.                                                                    | `string`         |
 | `value`               | `value`                 | The value of this element.                                                                       | `string`         |
