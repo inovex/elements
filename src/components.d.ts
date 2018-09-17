@@ -407,10 +407,6 @@ export namespace Components {
     */
     'name'?: string;
     /**
-    * The placeholder of this element.
-    */
-    'placeholder'?: string;
-    /**
     * Marks this element as required.
     */
     'required'?: boolean;

@@ -36,11 +36,6 @@ export class Datepicker {
   @Prop() name?: string;
 
   /**
-   * The placeholder of this element.
-   */
-  @Prop() placeholder?: string;
-
-  /**
    * Marks this element as required.
    */
   @Prop() required?: boolean;
