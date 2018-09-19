@@ -86,7 +86,8 @@ export class ChipSet {
   }
 
   private getInoChip(chipId: string) {
-    return this.el.querySelector(`#${chipId}`).parentElement as HTMLInoChipElement;
+    const mdcRoot = this.el.querySelector(`#${chipId}`);
+    return mdcRoot!.parentElement as HTMLInoChipElement;
   }
 
   render() {
