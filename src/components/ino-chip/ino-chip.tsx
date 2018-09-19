@@ -12,7 +12,7 @@ export class Chip {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`, `tertiary`,
+   * Possible values: `primary`,  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
   @Prop() inoColorScheme?: string;
@@ -29,10 +29,28 @@ export class Chip {
   @Prop() inoIcon?: string;
 
   /**
-   * If true, add a close icon on the right side of this chip.
-   * It enables an `inoRemove`-Event that can be listened to.
+   * The label of this chip (**required**).
+   */
+  @Prop() inoLabel?: string;
+
+  /**
+   * The value of this chip.
+   *
+   * **Required** for chips as part of sets of type `filter` or `choice`.
+   */
+  @Prop() inoValue?: string;
+
+  /**
+   * Adds a close icon on the right side of this chip.
+   *
+   * If applied, emits the `inoChipRemove` event.
    */
   @Prop() inoRemovable?: boolean;
+
+  /**
+   * Adds a checkmark if the icon is selected.
+   */
+  @Prop() inoSelectable?: boolean;
 
   /**
    * Marks this element as selected.
@@ -42,34 +60,56 @@ export class Chip {
 
   /**
    * Event that emits as soon as the user removes this chip.
+   *
    * Listen to this event to hide or destroy this chip.
    * The event only emits if the property `inoRemovable` is true.
    */
-  @Event() inoRemove?: EventEmitter;
+  @Event() inoChipRemove?: EventEmitter;
 
 
   private iconClicked(e: Event) {
     e.preventDefault();
-    this.inoRemove.emit(true);
+    this.inoChipRemove.emit(this);
   }
 
   render() {
-    const classChip = classNames(
+    const chipClasses = classNames(
       'mdc-chip',
       {'mdc-chip--selected': this.inoSelected}
     );
 
+    const iconClasses = classNames({
+      'mdc-chip__icon': true,
+      'mdc-chip__icon--leading': true,
+      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
+    });
+
     return (
-      <div class={classChip}>
-        {this.inoIcon
-          && <ino-icon class="mdc-chip__icon mdc-chip__icon--leading" ino-icon={this.inoIcon}></ino-icon>}
-        <div class="mdc-chip__text"><slot /></div>
-        {this.inoRemovable &&
-          <ino-icon class="mdc-chip__icon  mdc-chip__icon--trailing"
-            ino-icon="cancel" tabindex="0" role="button"
-            ino-clickable
-            onInoIconClicked={(e) => this.iconClicked(e)}>
-          </ino-icon>}
+      <div class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
+        { this.inoIcon
+          && <ino-icon class={iconClasses} ino-icon={this.inoIcon}></ino-icon>
+        }
+
+        { this.inoSelectable
+          && (
+            <div class="mdc-chip__checkmark">
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+              </svg>
+            </div>
+          )
+        }
+
+        <div class="mdc-chip__text">{this.inoLabel}</div>
+
+        { this.inoRemovable
+          && <ino-icon
+                class="mdc-chip__icon mdc-chip__icon--trailing"
+                ino-icon="cancel" tabindex="0" role="button"
+                ino-clickable
+                onInoIconClicked={(e) => this.iconClicked(e)}>
+             </ino-icon>
+        }
       </div>
     );
   }

@@ -22,4 +22,8 @@ ino-chip {
     @include mdc-chip-fill-color-accessible(white);
     @include mdc-chip-outline(1px, solid, $mdc-chip-fill-color-default);
   }
+
+  .mdc-chip__text {
+    user-select: none;
+  }
 }

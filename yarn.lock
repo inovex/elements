@@ -124,15 +124,26 @@
     "@material/selection-control" "^0.37.0"
     "@material/theme" "^0.35.0"
 
-"@material/chips@^0.37.0":
-  version "0.37.0"
-  resolved "https://registry.yarnpkg.com/@material/chips/-/chips-0.37.0.tgz#c5d0bc71478548df9357c14ef467ddd013ac051e"
+"@material/checkbox@^0.39.3":
+  version "0.39.3"
+  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-0.39.3.tgz#4be6bffbe0b6bfcd987bbe9567d17a17738af9fa"
   dependencies:
-    "@material/animation" "^0.34.0"
-    "@material/base" "^0.35.0"
-    "@material/checkbox" "^0.37.0"
-    "@material/ripple" "^0.37.0"
-    "@material/typography" "^0.35.0"
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/ripple" "^0.39.3"
+    "@material/rtl" "^0.39.1"
+    "@material/selection-control" "^0.39.3"
+    "@material/theme" "^0.39.1"
+
+"@material/chips@^0.39.3":
+  version "0.39.3"
+  resolved "https://registry.yarnpkg.com/@material/chips/-/chips-0.39.3.tgz#f2316d7f446b8318a0370c98de105f6d3be85ee7"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/checkbox" "^0.39.3"
+    "@material/ripple" "^0.39.3"
+    "@material/typography" "^0.39.0"
 
 "@material/elevation@^0.36.1":
   version "0.36.1"
@@ -280,6 +291,14 @@
     "@material/base" "^0.39.0"
     "@material/theme" "^0.39.1"
 
+"@material/ripple@^0.39.3":
+  version "0.39.3"
+  resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.39.3.tgz#4ff7a8fec5d5206f0da72a78d026529b53b7d564"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/theme" "^0.39.1"
+
 "@material/rtl@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@material/rtl/-/rtl-0.36.0.tgz#a81b587981dc6e09f51e26da8a7447f89358ccd5"
@@ -307,6 +326,12 @@
   resolved "https://registry.yarnpkg.com/@material/selection-control/-/selection-control-0.37.0.tgz#68eb0a4ede32c927265ee30113674a9814e5dec7"
   dependencies:
     "@material/ripple" "^0.37.0"
+
+"@material/selection-control@^0.39.3":
+  version "0.39.3"
+  resolved "https://registry.yarnpkg.com/@material/selection-control/-/selection-control-0.39.3.tgz#2ccdb4e07a7446e462ead824796a8ef18cc27720"
+  dependencies:
+    "@material/ripple" "^0.39.3"
 
 "@material/textfield@^0.38.1":
   version "0.38.1"
