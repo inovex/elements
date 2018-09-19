@@ -9,6 +9,7 @@ import '@stencil/core';
 
 import {
   ButtonType,
+  ChipSetType,
   DatepickerType,
   ImageDecodingTypes,
 } from './components/types';
@@ -194,9 +195,26 @@ export namespace Components {
     'value'?: string;
   }
 
+  interface InoChipSet {
+    /**
+    * The type of this chip set that indicates its behavior.
+    */
+    'inoType': ChipSetType;
+  }
+  interface InoChipSetAttributes extends StencilHTMLAttributes {
+    /**
+    * The type of this chip set that indicates its behavior.
+    */
+    'inoType'?: ChipSetType;
+    /**
+    * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
+    */
+    'onInoChipSetUpdated'?: (event: CustomEvent) => void;
+  }
+
   interface InoChip {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme': string;
     /**
@@ -208,17 +226,29 @@ export namespace Components {
     */
     'inoIcon': string;
     /**
-    * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+    * The label of this chip (**required**).
+    */
+    'inoLabel': string;
+    /**
+    * Adds a close icon on the right side of this chip.  If applied, emits the `inoChipRemove` event.
     */
     'inoRemovable': boolean;
+    /**
+    * Adds a checkmark if the icon is selected.
+    */
+    'inoSelectable': boolean;
     /**
     * Marks this element as selected.
     */
     'inoSelected': boolean;
+    /**
+    * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+    */
+    'inoValue': string;
   }
   interface InoChipAttributes extends StencilHTMLAttributes {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme'?: string;
     /**
@@ -230,17 +260,29 @@ export namespace Components {
     */
     'inoIcon'?: string;
     /**
-    * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
+    * The label of this chip (**required**).
+    */
+    'inoLabel'?: string;
+    /**
+    * Adds a close icon on the right side of this chip.  If applied, emits the `inoChipRemove` event.
     */
     'inoRemovable'?: boolean;
+    /**
+    * Adds a checkmark if the icon is selected.
+    */
+    'inoSelectable'?: boolean;
     /**
     * Marks this element as selected.
     */
     'inoSelected'?: boolean;
     /**
-    * Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
+    * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
     */
-    'onInoRemove'?: (event: CustomEvent) => void;
+    'inoValue'?: string;
+    /**
+    * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
+    */
+    'onInoChipRemove'?: (event: CustomEvent) => void;
   }
 
   interface InoDatepicker {
@@ -316,10 +358,6 @@ export namespace Components {
     * The input name of this element.
     */
     'name': string;
-    /**
-    * The placeholder of this element.
-    */
-    'placeholder': string;
     /**
     * Marks this element as required.
     */
@@ -1444,6 +1482,7 @@ declare global {
     'InoButton': Components.InoButton;
     'InoCard': Components.InoCard;
     'InoCheckbox': Components.InoCheckbox;
+    'InoChipSet': Components.InoChipSet;
     'InoChip': Components.InoChip;
     'InoDatepicker': Components.InoDatepicker;
     'InoFormRow': Components.InoFormRow;
@@ -1470,6 +1509,7 @@ declare global {
     'ino-button': Components.InoButtonAttributes;
     'ino-card': Components.InoCardAttributes;
     'ino-checkbox': Components.InoCheckboxAttributes;
+    'ino-chip-set': Components.InoChipSetAttributes;
     'ino-chip': Components.InoChipAttributes;
     'ino-datepicker': Components.InoDatepickerAttributes;
     'ino-form-row': Components.InoFormRowAttributes;
@@ -1509,6 +1549,12 @@ declare global {
   var HTMLInoCheckboxElement: {
     prototype: HTMLInoCheckboxElement;
     new (): HTMLInoCheckboxElement;
+  };
+
+  interface HTMLInoChipSetElement extends Components.InoChipSet, HTMLStencilElement {}
+  var HTMLInoChipSetElement: {
+    prototype: HTMLInoChipSetElement;
+    new (): HTMLInoChipSetElement;
   };
 
   interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {}
@@ -1635,6 +1681,7 @@ declare global {
     'ino-button': HTMLInoButtonElement
     'ino-card': HTMLInoCardElement
     'ino-checkbox': HTMLInoCheckboxElement
+    'ino-chip-set': HTMLInoChipSetElement
     'ino-chip': HTMLInoChipElement
     'ino-datepicker': HTMLInoDatepickerElement
     'ino-form-row': HTMLInoFormRowElement
@@ -1661,6 +1708,7 @@ declare global {
     'ino-button': HTMLInoButtonElement;
     'ino-card': HTMLInoCardElement;
     'ino-checkbox': HTMLInoCheckboxElement;
+    'ino-chip-set': HTMLInoChipSetElement;
     'ino-chip': HTMLInoChipElement;
     'ino-datepicker': HTMLInoDatepickerElement;
     'ino-form-row': HTMLInoFormRowElement;
