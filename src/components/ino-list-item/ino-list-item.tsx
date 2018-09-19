@@ -10,7 +10,7 @@ export class ListItem {
   /**
    * The primary text of this list item (required).
    */
-  @Prop() inoText: string;
+  @Prop() inoText?: string;
 
   /**
    * Sets the secondary text of this list item.
@@ -39,7 +39,6 @@ export class ListItem {
    * The name of the leading icon of this list item.
    */
   @Prop() inoLeadingIcon?: string;
-
 
   render() {
     const listItemClasses = classNames({

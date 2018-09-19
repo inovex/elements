@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
+import { Placement } from 'popper.js';
 import TooltipJS from 'tooltip.js';
-import {Placement} from 'popper.js';
 
 @Component({
   tag: 'ino-popover',
@@ -8,8 +8,8 @@ import {Placement} from 'popper.js';
   shadow: false
 })
 export class Popover {
-  @Element() el: HTMLElement;
-  private tooltipInstance: TooltipJS;
+  @Element() el!: HTMLElement;
+  private tooltipInstance?: TooltipJS;
 
   /**
    * The placement of this popover.

@@ -41,8 +41,7 @@ export class MessageBox {
    * Listen to this event to hide or destroy this element.
    * The event only emits if the property `inoRemovable` is true.
    */
-  @Event() inoRemove?: EventEmitter;
-
+  @Event() inoRemove!: EventEmitter;
 
   private handleClick(e: Event) {
     e.preventDefault();
@@ -50,8 +49,7 @@ export class MessageBox {
   }
 
   private handleKeyPress(e: KeyboardEvent) {
-    // Key press == Enter
-    if (e.keyCode === 13) {
+    if (e.code === 'Enter') {
       e.preventDefault();
       this.inoRemove.emit(true);
     }
@@ -61,13 +59,22 @@ export class MessageBox {
     return (
       <div class="ino-message__composer">
         <div class="ino-message__header">
-          {this.inoIcon && <ino-icon class="ino-message__header-leading" ino-icon={this.inoIcon}></ino-icon>}
+          {this.inoIcon
+            && <ino-icon class="ino-message__header-leading" ino-icon={this.inoIcon}></ino-icon>}
+
           <div class="ino-message__header-heading">{this.inoHeading}</div>
-          {this.inoRemovable &&
-            <ino-icon class="ino-message__header-remove" ino-icon="cancel" tabindex="0" role="button"
+
+          { this.inoRemovable &&
+            <ino-icon
+              class="ino-message__header-remove"
+              ino-icon="cancel"
+              tabindex="0"
+              role="button"
               onClick={e => this.handleClick(e)}
-              onKeyPress={e => this.handleKeyPress(e)}>
-            </ino-icon>}
+              onKeyPress={e => this.handleKeyPress(e)}
+            >
+            </ino-icon>
+          }
         </div>
         <div class="ino-message__content"><slot /></div>
       </div>

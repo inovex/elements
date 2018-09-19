@@ -1,7 +1,7 @@
-import { Component, Element, Prop } from '@stencil/core';
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
+import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -10,7 +10,7 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Input {
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * The accesskey of this native element.
@@ -45,7 +45,7 @@ export class Input {
   /**
    * The step value of this element
    */
-  @Prop() step?: number = 1;
+  @Prop() step = 1;
 
   /**
    * The name of this element.
@@ -80,13 +80,12 @@ export class Input {
   /**
    * The type of this element (default = text).
    */
-  @Prop() type: string = 'text';
+  @Prop() type = 'text';
 
   /**
    * The value of this element.
    */
-  @Prop({ mutable: true }) value: string;
-
+  @Prop({ mutable: true }) value?: string;
 
   /**
    * Styles the input field as outlined element.
@@ -121,7 +120,7 @@ export class Input {
   /**
    * Positions the icon trailing after the input field.
    */
-  @Prop() inoIconTrailing?: boolean = false;
+  @Prop() inoIconTrailing = false;
 
   /**
    * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
@@ -141,7 +140,6 @@ export class Input {
    */
   private uniqueHelperId = Input.generateHelperTextId();
 
-
   /**
    * An internal instance of the material design textfield.
    */
@@ -156,7 +154,6 @@ export class Input {
    * An internal instance of an textfield icon instance (if neccessary).
    */
   private icon: MDCTextFieldIcon;
-
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
@@ -178,14 +175,13 @@ export class Input {
     }
   }
 
-
   private labelTemplate() {
     if (!this.inoLabel) {
       return '';
     }
     const classLabel = classNames(
       'mdc-floating-label',
-      {'mdc-floating-label--float-above': this.inoLabel && this.value}
+      { 'mdc-floating-label--float-above': this.inoLabel && this.value }
     );
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
@@ -223,11 +219,11 @@ export class Input {
         class="mdc-text-field__icon"
         ino-icon={this.inoIcon}
         tabindex={this.inoIconClickable ? 0 : -1}
-        ino-clickable={this.inoIconClickable}>
+        ino-clickable={this.inoIconClickable}
+      >
       </ino-icon>
     );
   }
-
 
   render() {
     const classTextfield = classNames({
@@ -262,7 +258,8 @@ export class Input {
           type={this.type}
           value={this.value}
           aria-controls={this.inoHelper && this.uniqueHelperId}
-          aria-describedby={this.inoHelper && this.uniqueHelperId} />
+          aria-describedby={this.inoHelper && this.uniqueHelperId}
+        />
 
         {this.labelTemplate()}
         {this.inoIconTrailing && this.iconTemplate()}

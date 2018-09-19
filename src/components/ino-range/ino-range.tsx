@@ -44,7 +44,7 @@ export class Range {
   /**
    * The step size for this element (default =1)
    */
-  @Prop() step?: number = 1;
+  @Prop() step = 1;
 
   /**
    * The name of the color scheme of this component.
@@ -53,11 +53,11 @@ export class Range {
    */
   @Prop() inoColorScheme?: string;
 
-
   render() {
     return (
       <div>
-        <input class="ino-range__native-element"
+        <input
+          class="ino-range__native-element"
           type="range"
           autofocus={this.autofocus}
           disabled={this.disabled}
@@ -66,7 +66,8 @@ export class Range {
           step={this.step}
           name={this.name}
           required={this.required}
-          value={this.value} />
+          value={this.value}
+        />
       </div>
     );
   }

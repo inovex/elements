@@ -1,5 +1,5 @@
-import { Component, Element, Prop, Watch } from '@stencil/core';
 import { MDCMenu } from '@material/menu';
+import { Component, Element, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ino-menu',
@@ -7,7 +7,7 @@ import { MDCMenu } from '@material/menu';
   shadow: false
 })
 export class Menu {
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * The anchor element for this menu. If empty, the anchor is the parent element.
@@ -27,8 +27,6 @@ export class Menu {
     this.menu.open = open;
   }
 
-
-
   /**
    * An internal instance of the mdc menu.
    */
@@ -45,11 +43,13 @@ export class Menu {
       document.getElementById(this.inoFor) :
       this.el.parentElement;
 
-    target.addEventListener('click', _ => this.menu.open = !this.menu.open);
+    target!.addEventListener('click', _ => this.menu.open = !this.menu.open);
   }
 
   componentWillUnload() {
-    this.menu && this.menu.destroy();
+    if (this.menu) {
+      this.menu.destroy();
+    }
   }
 
   render() {

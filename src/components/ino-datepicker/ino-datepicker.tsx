@@ -1,8 +1,8 @@
 import { Component, Element, Listen, Prop, State, Watch } from '@stencil/core';
-import { DatepickerType } from '../types';
-
 import flatpickr from 'flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
+
+import { DatepickerType } from '../types';
 
 @Component({
   tag: 'ino-datepicker',
@@ -13,7 +13,7 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
   shadow: false
 })
 export class Datepicker {
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * The accesskey of this element.
@@ -119,7 +119,7 @@ export class Datepicker {
   /**
    * A number containing the initial hour in the date-time picker.
    */
-  @Prop() inoDefaultHour: number = 12;
+  @Prop() inoDefaultHour = 12;
   @Watch('inoDefaultHour')
   inoDefaultHourChanged(value: string) {
     this.update('inoDefaultHour', value);
@@ -128,7 +128,7 @@ export class Datepicker {
   /**
    * A number containing the initial minute in the date-time picker.
    */
-  @Prop() inoDefaultMinute: number = 0;
+  @Prop() inoDefaultMinute = 0;
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
     this.update('inoDefaultMinute', value);
@@ -146,7 +146,7 @@ export class Datepicker {
   /**
    * Adjusts the step for the minute input (incl. scrolling)
    */
-  @Prop() minuteStep?: number = 5;
+  @Prop() minuteStep = 5;
   @Watch('minuteStep')
   minuteStepChanged(value: number) {
     this.update('minuteIncrement', value);
@@ -155,15 +155,14 @@ export class Datepicker {
   /**
    * Adjusts the step for the hour input (incl. scrolling)
    */
-  @Prop() hourStep?: number = 1;
+  @Prop() hourStep = 1;
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.update('hourIncrement', value);
   }
 
-
-  @State() flatpickr = null;
-  @State() internalValue = null;
+  @State() flatpickr!: any;
+  @State() internalValue?: string;
 
   @Listen('inoIconClicked')
   inoIconClickedHandler() {
@@ -211,7 +210,7 @@ export class Datepicker {
     }
 
     this.dispose();
-    const target = this.el.querySelector('input');
+    const target = this.el.querySelector('input') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
   }
 
@@ -243,7 +242,8 @@ export class Datepicker {
   render() {
     return (
       <div>
-        <ino-input type="text"
+        <ino-input
+          type="text"
           autocomplete="off"
           disabled={this.disabled}
           accessKey={this.accesskey}
@@ -259,7 +259,8 @@ export class Datepicker {
           ino-helper={this.inoHelper}
           ino-outline={this.inoOutline}
           ino-helper-persistent={this.inoHelperPersistent}
-          ino-helper-validation={this.inoHelperValidation}>
+          ino-helper-validation={this.inoHelperValidation}
+        >
         </ino-input>
       </div>
     );

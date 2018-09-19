@@ -1,5 +1,5 @@
-import { Component, Element, Prop } from '@stencil/core';
 import { MDCTextField } from '@material/textfield';
+import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -8,7 +8,7 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Textarea {
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * The autofocus of this element.
@@ -65,12 +65,10 @@ export class Textarea {
    */
   @Prop() inoLabel?: string;
 
-
   /**
    * An internal instance of the material design textfield.
    */
   private textfield: MDCTextField;
-
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
@@ -79,7 +77,6 @@ export class Textarea {
   componentWillUnLoad() {
     this.textfield.destroy();
   }
-
 
   private labelTemplate() {
     if (!this.inoLabel) {
@@ -91,7 +88,6 @@ export class Textarea {
     });
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
-
 
   render() {
     return (
@@ -107,7 +103,8 @@ export class Textarea {
           placeholder={this.placeholder}
           required={this.required}
           rows={this.rows}
-          value={this.value}>
+          value={this.value}
+        >
         </textarea>
 
         {this.labelTemplate()}
