@@ -1301,6 +1301,67 @@ export namespace Components {
     'required'?: boolean;
   }
 
+  interface InoSnackbar {
+    /**
+    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
+    */
+    'inoActionOnBottom': boolean;
+    /**
+    * The text to display for the action button.
+    */
+    'inoActionText': string;
+    /**
+    * Controls if Snackbar is centered or start-aligned.
+    */
+    'inoAlignStart': boolean;
+    /**
+    * The text message to display.
+    */
+    'inoMessage': string;
+    /**
+    * Whether to show the snackbar with space for multiple lines of text.
+    */
+    'inoMultiline': boolean;
+    /**
+    * Trigger the display of a message with optional action.
+    */
+    'inoShow': boolean;
+  }
+  interface InoSnackbarAttributes extends StencilHTMLAttributes {
+    /**
+    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
+    */
+    'inoActionOnBottom'?: boolean;
+    /**
+    * The text to display for the action button.
+    */
+    'inoActionText'?: string;
+    /**
+    * Controls if Snackbar is centered or start-aligned.
+    */
+    'inoAlignStart'?: boolean;
+    /**
+    * The text message to display.
+    */
+    'inoMessage'?: string;
+    /**
+    * Whether to show the snackbar with space for multiple lines of text.
+    */
+    'inoMultiline'?: boolean;
+    /**
+    * Trigger the display of a message with optional action.
+    */
+    'inoShow'?: boolean;
+    /**
+    * Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element.
+    */
+    'onInoActionClicked'?: (event: CustomEvent) => void;
+    /**
+    * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
+    */
+    'onInoSnackbarHide'?: (event: CustomEvent) => void;
+  }
+
   interface InoSpinner {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
@@ -1500,6 +1561,7 @@ declare global {
     'InoRadio': Components.InoRadio;
     'InoRange': Components.InoRange;
     'InoSelect': Components.InoSelect;
+    'InoSnackbar': Components.InoSnackbar;
     'InoSpinner': Components.InoSpinner;
     'InoTextarea': Components.InoTextarea;
     'InoTooltip': Components.InoTooltip;
@@ -1527,6 +1589,7 @@ declare global {
     'ino-radio': Components.InoRadioAttributes;
     'ino-range': Components.InoRangeAttributes;
     'ino-select': Components.InoSelectAttributes;
+    'ino-snackbar': Components.InoSnackbarAttributes;
     'ino-spinner': Components.InoSpinnerAttributes;
     'ino-textarea': Components.InoTextareaAttributes;
     'ino-tooltip': Components.InoTooltipAttributes;
@@ -1659,6 +1722,12 @@ declare global {
     new (): HTMLInoSelectElement;
   };
 
+  interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {}
+  var HTMLInoSnackbarElement: {
+    prototype: HTMLInoSnackbarElement;
+    new (): HTMLInoSnackbarElement;
+  };
+
   interface HTMLInoSpinnerElement extends Components.InoSpinner, HTMLStencilElement {}
   var HTMLInoSpinnerElement: {
     prototype: HTMLInoSpinnerElement;
@@ -1699,6 +1768,7 @@ declare global {
     'ino-radio': HTMLInoRadioElement
     'ino-range': HTMLInoRangeElement
     'ino-select': HTMLInoSelectElement
+    'ino-snackbar': HTMLInoSnackbarElement
     'ino-spinner': HTMLInoSpinnerElement
     'ino-textarea': HTMLInoTextareaElement
     'ino-tooltip': HTMLInoTooltipElement
@@ -1726,6 +1796,7 @@ declare global {
     'ino-radio': HTMLInoRadioElement;
     'ino-range': HTMLInoRangeElement;
     'ino-select': HTMLInoSelectElement;
+    'ino-snackbar': HTMLInoSnackbarElement;
     'ino-spinner': HTMLInoSpinnerElement;
     'ino-textarea': HTMLInoTextareaElement;
     'ino-tooltip': HTMLInoTooltipElement;
