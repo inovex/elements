@@ -1,10 +1,10 @@
-# Integrate with Vue.js
+# Integrate with Vue.js ([example-vuejs](https://gitlab.inovex.de/inovex-elements/example-vuejs))
 
-> This instructions are based on Vue.js v2.5.2
+This instructions are based on Vue.js v2.5.2. 
 
 ## Prerequisites
 
-* You setup your Vue.js project via the official CLI or similar
+You setup your Vue.js project via the official CLI or similar
 
 If you're on a greenfield, just follow this guide: https://vuejs.org/v2/guide/installation.html#CLI
 
@@ -64,7 +64,7 @@ plugins: [
 
 > The only parameter of the webpack loader has to match the path to the location of the bundle.
 
-### 4) Use the components
+### 3) Use the components
 
 You can use the components now in your Vue.js project in the same way as you would use any native HTML elements.
 
