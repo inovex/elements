@@ -32,7 +32,7 @@ addDecorator(withKnobs);
 const req = require.context('../src/stories/', true, /stories.js$/);
 function loadStories() {
   // Make getting started always default
-  require('../src/stories/getting-started/index.stories');
+  require('../src/stories/docs/index.stories');
 
   req.keys().forEach((filename) => req(filename));
 }

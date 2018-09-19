@@ -43,6 +43,7 @@ storiesOf('<ino-select>', module)
             {optionsTemplate}
           </ino-select>
           <ino-select ino-label="Floating label">
+            <option value="">Diverse</option>
             {optionsTemplate}
           </ino-select>
 

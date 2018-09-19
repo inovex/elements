@@ -2,7 +2,7 @@
 Thanks for contributing to this project and pushing the web world forward to standardize and fast web components for everyone.
 
 ## Tracking issues
-If you are using Inovex Elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/master/storybook/).
+If you are using Inovex Elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/dist/latest/storybook/).
 
 Planning and coordination takes place in the corresponding [JIRA project](https://jira.inovex.de/projects/ELEMENTS/summary) and weekly hangouts meetings. If you want to participate, chat up Patrick Hillert (@phillert), Arne Maier (@amaier), Filipe Santos Correa (@fsantoscorrea) or Johannes Reuter (@jreuter).
 
