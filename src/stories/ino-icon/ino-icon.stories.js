@@ -31,7 +31,7 @@ storiesOf('<ino-icon>', module)
         <h4>Different Icons</h4>
 
         <div class="flex-parent">
-          {INO_ICONS.map(name => (
+          {ICONS.map(name => (
             <div class="flex-child">
                 <h5>{name}</h5>
                 <ino-icon ino-icon={name}></ino-icon>
