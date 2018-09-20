@@ -1,8 +1,8 @@
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import { MDCChip, MDCChipSet } from '@material/chips';
+import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
-import { ChipSetType } from '../types';
 
+import { ChipSetType } from '../types';
 
 @Component({
   tag: 'ino-chip-set',
@@ -11,7 +11,7 @@ import { ChipSetType } from '../types';
 })
 export class ChipSet {
   private mdcInstance: MDCChipSet;
-  private listenerAttached: boolean = false;
+  private listenerAttached = false;
 
   @Element() el!: HTMLElement;
 
@@ -31,7 +31,6 @@ export class ChipSet {
    */
   @Event() inoChipSetUpdated!: EventEmitter;
 
-
   componentDidLoad() {
     this.create();
   }
@@ -41,7 +40,10 @@ export class ChipSet {
   }
 
   private destroy() {
-    this.mdcInstance && this.mdcInstance.destroy();
+    if (this.mdcInstance) {
+      this.mdcInstance.destroy();
+    }
+
     if (this.listenerAttached) {
       this.el.removeEventListener('MDCChip:interaction', _ => this.notifyChange());
       this.listenerAttached = false;
@@ -84,7 +86,8 @@ export class ChipSet {
   }
 
   private getInoChip(chipId: string) {
-    return this.el.querySelector(`#${chipId}`).parentElement as HTMLInoChipElement;
+    const mdcRoot = this.el.querySelector(`#${chipId}`);
+    return mdcRoot!.parentElement as HTMLInoChipElement;
   }
 
   render() {
@@ -97,4 +100,3 @@ export class ChipSet {
     return <div class={classChipSet}><slot /></div>;
   }
 }
-

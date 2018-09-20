@@ -1,6 +1,6 @@
-import { Component, Element, Prop, Watch } from '@stencil/core';
-import { MDCRipple } from '@material/ripple';
 import { MDCIconButtonToggle } from '@material/icon-button';
+import { MDCRipple } from '@material/ripple';
+import { Component, Element, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -9,7 +9,11 @@ import classNames from 'classnames';
   shadow: false
 })
 export class IconButton {
-  @Element() el: HTMLElement;
+  // An internal instance of the icon button. Either the ripple effect
+  // or a toggle button instance.
+  private mdcInstance: MDCRipple | MDCIconButtonToggle;
+
+  @Element() el!: HTMLElement;
 
   /**
    * Sets the autofocus for this element.
@@ -24,7 +28,7 @@ export class IconButton {
   /**
    * The name of the icon of this element.
    */
-  @Prop() inoIcon: string;
+  @Prop() inoIcon?: string;
 
   /**
    * The name of the icon shown if the icon button is checked.
@@ -40,7 +44,7 @@ export class IconButton {
    * If the button is a toggle button, sets the default state to checked
    * and displays the icon provided in `inoIconChecked`.
    */
-  @Prop() inoStateChecked: boolean;
+  @Prop() inoStateChecked?: boolean;
 
   /**
    * The name of the color scheme which is used
@@ -49,13 +53,6 @@ export class IconButton {
    * `success`, `warning`, `error`, `light`, `dark`.
    */
   @Prop() inoColorScheme?: string;
-
-
-  /**
-   * An internal instance of the icon button. Either the ripple effect
-   * or a toggle button instance.
-   */
-  private mdcInstance: MDCRipple | MDCIconButtonToggle;
 
   componentDidLoad() {
     this.createIconButton();
@@ -66,7 +63,9 @@ export class IconButton {
   }
 
   private destroyIconButton() {
-    this.mdcInstance && this.mdcInstance.destroy();
+    if (this.mdcInstance) {
+      this.mdcInstance.destroy();
+    }
   }
 
   private createIconButton() {
@@ -91,11 +90,15 @@ export class IconButton {
       <button
         autoFocus={this.autofocus}
         class={iconButtonClasses}
-        disabled={this.disabled}>
+        disabled={this.disabled}
+      >
 
         { this.inoIconChecked &&
-          <ino-icon ino-icon={this.inoIconChecked}
-                    class="mdc-icon-button__icon mdc-icon-button__icon--on"></ino-icon>
+          <ino-icon
+            ino-icon={this.inoIconChecked}
+            class="mdc-icon-button__icon mdc-icon-button__icon--on"
+          >
+          </ino-icon>
         }
 
         <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon"></ino-icon>

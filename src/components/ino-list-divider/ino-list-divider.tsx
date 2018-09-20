@@ -28,7 +28,6 @@ export class ListDivider {
    */
   @Prop() inoInset?: boolean;
 
-
   render() {
     const dividerClasses = classNames({
       'mdc-list-divider': true,

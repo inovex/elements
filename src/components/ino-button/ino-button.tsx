@@ -1,8 +1,8 @@
+import { MDCRipple } from '@material/ripple';
 import { Component, Element, Prop } from '@stencil/core';
-import { ButtonType } from '../types';
-
-import {MDCRipple} from '@material/ripple';
 import classNames from 'classnames';
+
+import { ButtonType } from '../types';
 
 @Component({
   tag: 'ino-button',
@@ -10,7 +10,12 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Button {
-  @Element() el: HTMLElement;
+  /**
+   * An internal instance of the material design button.
+   */
+  private button: MDCRipple;
+
+  @Element() el!: HTMLElement;
   /**
    * Sets the autofocus for this element.
    */
@@ -50,7 +55,7 @@ export class Button {
    * The fill type of this element.
    * Possible values: `solid` (default), `outline`, `raised` or `transparent`.
    */
-  @Prop() inoFill?: string = 'solid';
+  @Prop() inoFill = 'solid';
 
   /**
    * Adds an icon to the button.
@@ -66,14 +71,7 @@ export class Button {
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() inoDense: boolean;
-
-
-  /**
-   * An internal instance of the material design button.
-   */
-  private button: MDCRipple;
-
+  @Prop() inoDense = false;
 
   componentDidLoad() {
     this.button = new MDCRipple(this.el.querySelector('.mdc-button'));
@@ -83,14 +81,13 @@ export class Button {
     this.button.destroy();
   }
 
-
   render() {
     const classButton = classNames(
       'mdc-button',
-      {'mdc-button--unelevated' : this.inoFill === 'solid'},
-      {'mdc-button--outlined' : this.inoFill === 'outline'},
-      {'mdc-button--raised': this.inoFill === 'raised'},
-      {'mdc-button--dense': this.inoDense}
+      { 'mdc-button--unelevated' : this.inoFill === 'solid' },
+      { 'mdc-button--outlined' : this.inoFill === 'outline' },
+      { 'mdc-button--raised': this.inoFill === 'raised' },
+      { 'mdc-button--dense': this.inoDense }
     );
 
     return (
@@ -100,7 +97,8 @@ export class Button {
         disabled={this.disabled}
         name={this.name}
         type={this.type}
-        form={this.form}>
+        form={this.form}
+      >
 
         {this.inoIcon && !this.inoIconPrepend
           && <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}></ino-icon>}

@@ -1,6 +1,6 @@
+import { MDCSelect } from '@material/select';
 import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
-import {MDCSelect} from '@material/select';
 
 @Component({
   tag: 'ino-select',
@@ -8,7 +8,10 @@ import {MDCSelect} from '@material/select';
   shadow: false
 })
 export class Select {
-  @Element() el: HTMLElement;
+  // An internal instance of the material design form field.
+  private select: MDCSelect;
+
+  @Element() el!: HTMLElement;
   /**
    * Marks this element as autofocused.
    */
@@ -52,13 +55,6 @@ export class Select {
    */
   @Prop() inoOutline?: boolean;
 
-
-  /**
-   * An internal instance of the material design form field.
-   */
-  private select: MDCSelect;
-
-
   componentDidLoad() {
     this.select = new MDCSelect(this.el.querySelector('.mdc-select'));
   }
@@ -66,8 +62,6 @@ export class Select {
   componentWillUnLoad() {
     this.select.destroy();
   }
-
-
 
   private selectStyleTemplate() {
     if (this.inoOutline) {
@@ -83,7 +77,6 @@ export class Select {
     return <div class="mdc-line-ripple"></div>;
   }
 
-
   render() {
     const classSelect = classNames({
       'mdc-select': true,
@@ -98,12 +91,14 @@ export class Select {
 
     return (
       <div class={classSelect}>
-        <select class="mdc-select__native-control"
+        <select
+          class="mdc-select__native-control"
           autoFocus={this.autofocus}
           disabled={this.disabled}
           form={this.form}
           name={this.name}
-          required={this.required}>
+          required={this.required}
+        >
           {this.inoPrependDefault && <option disabled selected value=""></option>}
           <slot />
         </select>

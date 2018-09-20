@@ -46,7 +46,7 @@ export class Card {
     const cardClass = classnames(
       'ino-card__composer',
       'mdc-card',
-      {'mdc-card--outlined': this.inoOutline}
+      { 'mdc-card--outlined': this.inoOutline }
     );
 
     return (

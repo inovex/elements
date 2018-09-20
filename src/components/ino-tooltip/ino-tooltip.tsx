@@ -1,6 +1,6 @@
 import { Component, Element, Prop, Watch } from '@stencil/core';
+import { Placement } from 'popper.js';
 import TooltipJS from 'tooltip.js';
-import {Placement} from 'popper.js';
 
 @Component({
   tag: 'ino-tooltip',
@@ -8,9 +8,10 @@ import {Placement} from 'popper.js';
   shadow: false
 })
 export class Tooltip {
-  @Element() el: HTMLElement;
-  private tooltipInstance: any;
-  private target: HTMLElement;
+  private tooltipInstance!: any;
+  private target!: HTMLElement | null;
+
+  @Element() el!: HTMLElement;
 
   /**
    * The placement of the tooltip.
@@ -73,7 +74,7 @@ export class Tooltip {
       document.getElementById(this.inoFor) :
       this.el.parentElement;
 
-      const options = {
+    const options = {
         title: this.inoLabel,
         container: this.el,
         placement: this.inoPlacement,
@@ -84,28 +85,29 @@ export class Tooltip {
       };
       // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
       // @ts-ignore
-      this.tooltipInstance = new TooltipJS(this.target, options);
+    this.tooltipInstance = new TooltipJS(this.target, options);
 
-
-    this.target.addEventListener('keyup', this.onEnterTarget.bind(this));
-    this.target.addEventListener('blur', this.onLeaveTarget.bind(this), true);
+    this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
+    this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
   }
 
   private dispose() {
     if (this.tooltipInstance) {
       this.tooltipInstance.dispose();
 
-      this.target.removeEventListener('keyup', this.onEnterTarget.bind(this));
-      this.target.removeEventListener('blur', this.onLeaveTarget.bind(this), true);
+      this.target!.removeEventListener('keyup', this.onEnterTarget.bind(this));
+      this.target!.removeEventListener('blur', this.onLeaveTarget.bind(this), true);
     }
   }
 
-  private onEnterTarget(e) {
-    if (e.code === 'Tab')
-      !this.inoTrigger.includes('click') && this.tooltipInstance.toggle();
+  private onEnterTarget(e: KeyboardEvent) {
+    if (e.code === 'Tab' && !this.inoTrigger.includes('click')) {
+      this.tooltipInstance.toggle();
+    }
 
-    if (e.code === 'Escape')
+    if (e.code === 'Escape') {
       this.tooltipInstance.hide();
+    }
   }
 
   private onLeaveTarget() {

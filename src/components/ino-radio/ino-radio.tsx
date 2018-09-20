@@ -1,8 +1,7 @@
+import { MDCFormField } from '@material/form-field';
+import { MDCRadio } from '@material/radio';
 import { Component, Prop } from '@stencil/core';
-import {MDCFormField} from '@material/form-field';
-import {MDCRadio} from '@material/radio';
 import classnames from 'classnames';
-
 
 @Component({
   tag: 'ino-radio',
@@ -38,7 +37,7 @@ export class Radio {
   /**
    * The value of this element.
    */
-  @Prop({mutable: true}) value?: string;
+  @Prop({ mutable: true }) value?: string;
 
   /**
    * An internal instance of the material design radio.
@@ -65,19 +64,20 @@ export class Radio {
     return this.id ? `ino-radio-id-${this.id}` : '';
   }
 
-
   render() {
     return (
       <div class="mdc-form-field">
-        <div class={classnames('mdc-radio', {'mdc-radio--disabled': this.disabled})}>
-          <input class="mdc-radio__native-control"
-              type="radio"
-              id={this.uniqueRadioId()}
-              checked={this.checked}
-              disabled={this.disabled}
-              name={this.name}
-              tabindex={this.tabIndex}
-              value={this.value} />
+        <div class={classnames('mdc-radio', { 'mdc-radio--disabled': this.disabled })}>
+          <input
+            class="mdc-radio__native-control"
+            type="radio"
+            id={this.uniqueRadioId()}
+            checked={this.checked}
+            disabled={this.disabled}
+            name={this.name}
+            tabindex={this.tabIndex}
+            value={this.value}
+          />
 
           <div class="mdc-radio__background">
             <div class="mdc-radio__outer-circle"></div>

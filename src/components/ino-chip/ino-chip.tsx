@@ -7,7 +7,7 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Chip {
-  @Element() el: HTMLElement;
+  @Element() el!: HTMLElement;
 
   /**
    * The name of the color scheme which is used
@@ -57,15 +57,13 @@ export class Chip {
    */
   @Prop() inoSelected?: boolean;
 
-
   /**
    * Event that emits as soon as the user removes this chip.
    *
    * Listen to this event to hide or destroy this chip.
    * The event only emits if the property `inoRemovable` is true.
    */
-  @Event() inoChipRemove?: EventEmitter;
-
+  @Event() inoChipRemove!: EventEmitter;
 
   private iconClicked(e: Event) {
     e.preventDefault();
@@ -75,7 +73,7 @@ export class Chip {
   render() {
     const chipClasses = classNames(
       'mdc-chip',
-      {'mdc-chip--selected': this.inoSelected}
+      { 'mdc-chip--selected': this.inoSelected }
     );
 
     const iconClasses = classNames({
@@ -102,13 +100,16 @@ export class Chip {
 
         <div class="mdc-chip__text">{this.inoLabel}</div>
 
-        { this.inoRemovable
-          && <ino-icon
-                class="mdc-chip__icon mdc-chip__icon--trailing"
-                ino-icon="cancel" tabindex="0" role="button"
-                ino-clickable
-                onInoIconClicked={(e) => this.iconClicked(e)}>
-             </ino-icon>
+        { this.inoRemovable &&
+            <ino-icon
+              class="mdc-chip__icon mdc-chip__icon--trailing"
+              ino-icon="cancel"
+              tabindex="0"
+              role="button"
+              ino-clickable
+              onInoIconClicked={e => this.iconClicked(e)}
+            >
+            </ino-icon>
         }
       </div>
     );

@@ -25,7 +25,7 @@ export class Icon {
   /**
    * The name of the icon of this element.
    */
-  @Prop() inoIcon: string;
+  @Prop() inoIcon?: string;
   @Watch('inoIcon')
   inoIconChanged() {
     this.loadIcon();
@@ -45,26 +45,25 @@ export class Icon {
    * Event that emits as soon as the user clicks on the icon.
    * The event only emits if the property `inoClickable` is true.
    */
-  @Event() inoIconClicked?: EventEmitter;
+  @Event() inoIconClicked!: EventEmitter;
 
   /**
    * The svg content loaded dynamically.
    */
   @State() svgContent?: string;
 
-
   componentWillLoad() {
     this.loadIcon();
   }
 
   private loadIcon() {
-    if (ICONS.indexOf(this.inoIcon) === -1)
+    if (ICONS.indexOf(this.inoIcon) === -1) {
       return;
+    }
 
     const url = `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`;
-    requestSVG(url).then(res => this.svgContent = res);
+    requestSVG(url).then(res => this.svgContent = res || '');
   }
-
 
   private handleClick(e: Event) {
     e.preventDefault();
@@ -72,16 +71,16 @@ export class Icon {
   }
 
   private handleKeyPress(e: KeyboardEvent) {
-    if (e.code === 'Enter') {
+    if (e.code === 'Enter') {
       e.preventDefault();
       this.inoIconClicked.emit(true);
     }
   }
 
-
   render() {
-    if (!this.svgContent)
+    if (!this.svgContent) {
       return;
+    }
 
     let iconProps = {};
     if (this.inoClickable) {
@@ -96,9 +95,10 @@ export class Icon {
   }
 }
 
-function parseIcon(svgContent: string) {
-  if (!svgContent)
-    return;
+function parseIcon(svgContent: string | null): string {
+  if (!svgContent) {
+    return '';
+  }
 
   const div = document.createElement('div');
   div.innerHTML = svgContent;
@@ -114,19 +114,16 @@ function parseIcon(svgContent: string) {
 
 // Helper to load the SVG files effectively
 
-const requests = new Map<string, Promise<string | null>>();
+const requests = new Map<string, Promise<string>>();
 function requestSVG(url: string) {
-  let req = requests.get(url);
-
-  if (!req) {
+  if (!requests.has(url)) {
     // we don't already have a request
-    req = fetch(url, { cache: 'force-cache' })
+    const req = fetch(url, { cache: 'force-cache' })
       .then(rsp => rsp.ok ? rsp.text() : Promise.resolve(null))
       .then(svgContent => parseIcon(svgContent));
 
     // cache for the same requests
     requests.set(url, req);
   }
-
-  return req;
+  return requests.get(url) || Promise.resolve('');
 }

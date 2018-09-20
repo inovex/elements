@@ -4,8 +4,7 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'inovex-elements',
   outputTargets: [{
-    type: 'dist',
-    serviceWorker: false
+    type: 'dist'
   }],
   plugins: [
     sass({

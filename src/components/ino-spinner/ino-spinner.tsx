@@ -10,7 +10,7 @@ export class Spinner {
    * The type of this spinner (default = tile).
    * Possible values: `tile`, `bounce` or `circle`
    */
-  @Prop() inoType: string = 'tile';
+  @Prop() inoType = 'tile';
 
   /**
    * The name of the color scheme which is used
@@ -23,7 +23,7 @@ export class Spinner {
   /**
    * The height of this spinner (default = 40)
    */
-  @Prop() inoHeight: number = 40;
+  @Prop() inoHeight = 40;
 
   /**
    * If true, the spinner is shown as modal over the current app page.
@@ -33,8 +33,7 @@ export class Spinner {
   /**
    * The width of this spinner (defaul = 40)
    */
-  @Prop() inoWidth: number = 40;
-
+  @Prop() inoWidth = 40;
 
   private tileTemplate() {
     return [
@@ -70,7 +69,6 @@ export class Spinner {
     ];
   }
 
-
   render() {
     let spinnerTemplate;
     if (this.inoType === 'tile') {
@@ -82,7 +80,10 @@ export class Spinner {
     }
 
     return (
-      <div class="ino-spinner__composer" style={{width: `${this.inoWidth}px`, height: `${this.inoHeight}px`}}>
+      <div
+        class="ino-spinner__composer"
+        style={{ width: `${this.inoWidth}px`, height: `${this.inoHeight}px` }}
+      >
         {spinnerTemplate}
       </div>
     );

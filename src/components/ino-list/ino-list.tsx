@@ -17,7 +17,6 @@ export class List {
    */
   @Prop() inoTwoLines?: boolean;
 
-
   render() {
     const listClasses = classNames({
       'mdc-list': true,
