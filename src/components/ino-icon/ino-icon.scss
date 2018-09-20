@@ -1,6 +1,13 @@
 ino-icon {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+
   i {
     font-size: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
   i[role="button"] {
     cursor: pointer;

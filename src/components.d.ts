@@ -1407,6 +1407,68 @@ export namespace Components {
     'inoWidth'?: number;
   }
 
+  interface InoTabBar {
+    /**
+    * Activates the tab at the given index.
+    */
+    'inoActiveTab': number;
+  }
+  interface InoTabBarAttributes extends StencilHTMLAttributes {
+    /**
+    * Activates the tab at the given index.
+    */
+    'inoActiveTab'?: number;
+    /**
+    * Emits when a tab is activated. Contains activated tab in `event.detail.inoIndex`
+    */
+    'onInoTabActivated'?: (event: CustomEvent) => void;
+  }
+
+  interface InoTab {
+    /**
+    * Indicates a leading icon in the tab.
+    */
+    'inoIcon': string;
+    /**
+    * Indicates that the tab only expands to the width of its content.
+    */
+    'inoIndicatorContentWidth': boolean;
+    /**
+    * Indicates a label text in the tab.
+    */
+    'inoLabel': string;
+    /**
+    * Indicates that the tab icon and label should flow vertically instead of horizontally.
+    */
+    'inoStacked': boolean;
+  }
+  interface InoTabAttributes extends StencilHTMLAttributes {
+    /**
+    * Indicates a leading icon in the tab.
+    */
+    'inoIcon'?: string;
+    /**
+    * Indicates that the tab only expands to the width of its content.
+    */
+    'inoIndicatorContentWidth'?: boolean;
+    /**
+    * Indicates a label text in the tab.
+    */
+    'inoLabel'?: string;
+    /**
+    * Indicates that the tab icon and label should flow vertically instead of horizontally.
+    */
+    'inoStacked'?: boolean;
+    /**
+    * Emitted when the tab did load.
+    */
+    'onInoTabDidLoad'?: (event: CustomEvent) => void;
+    /**
+    * Emitted when the tab did unload.
+    */
+    'onInoTabDidUnLoad'?: (event: CustomEvent) => void;
+  }
+
   interface InoTextarea {
     /**
     * The autofocus of this element.
@@ -1563,6 +1625,8 @@ declare global {
     'InoSelect': Components.InoSelect;
     'InoSnackbar': Components.InoSnackbar;
     'InoSpinner': Components.InoSpinner;
+    'InoTabBar': Components.InoTabBar;
+    'InoTab': Components.InoTab;
     'InoTextarea': Components.InoTextarea;
     'InoTooltip': Components.InoTooltip;
   }
@@ -1591,6 +1655,8 @@ declare global {
     'ino-select': Components.InoSelectAttributes;
     'ino-snackbar': Components.InoSnackbarAttributes;
     'ino-spinner': Components.InoSpinnerAttributes;
+    'ino-tab-bar': Components.InoTabBarAttributes;
+    'ino-tab': Components.InoTabAttributes;
     'ino-textarea': Components.InoTextareaAttributes;
     'ino-tooltip': Components.InoTooltipAttributes;
   }
@@ -1734,6 +1800,18 @@ declare global {
     new (): HTMLInoSpinnerElement;
   };
 
+  interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {}
+  var HTMLInoTabBarElement: {
+    prototype: HTMLInoTabBarElement;
+    new (): HTMLInoTabBarElement;
+  };
+
+  interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {}
+  var HTMLInoTabElement: {
+    prototype: HTMLInoTabElement;
+    new (): HTMLInoTabElement;
+  };
+
   interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {}
   var HTMLInoTextareaElement: {
     prototype: HTMLInoTextareaElement;
@@ -1770,6 +1848,8 @@ declare global {
     'ino-select': HTMLInoSelectElement
     'ino-snackbar': HTMLInoSnackbarElement
     'ino-spinner': HTMLInoSpinnerElement
+    'ino-tab-bar': HTMLInoTabBarElement
+    'ino-tab': HTMLInoTabElement
     'ino-textarea': HTMLInoTextareaElement
     'ino-tooltip': HTMLInoTooltipElement
   }
@@ -1798,6 +1878,8 @@ declare global {
     'ino-select': HTMLInoSelectElement;
     'ino-snackbar': HTMLInoSnackbarElement;
     'ino-spinner': HTMLInoSpinnerElement;
+    'ino-tab-bar': HTMLInoTabBarElement;
+    'ino-tab': HTMLInoTabElement;
     'ino-textarea': HTMLInoTextareaElement;
     'ino-tooltip': HTMLInoTooltipElement;
   }
