@@ -343,6 +343,42 @@
     "@material/theme" "^0.39.1"
     "@material/typography" "^0.39.0"
 
+"@material/tab-bar@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/tab-bar/-/tab-bar-0.39.1.tgz#1f2b7939109a990572f5bfa4046c4e572ef809e9"
+  dependencies:
+    "@material/base" "^0.39.0"
+    "@material/elevation" "^0.39.1"
+    "@material/tab" "^0.39.1"
+    "@material/tab-scroller" "^0.39.1"
+
+"@material/tab-indicator@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/tab-indicator/-/tab-indicator-0.39.1.tgz#165d56309928c517aefc772a77be200b1ab79cfe"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/theme" "^0.39.1"
+
+"@material/tab-scroller@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/tab-scroller/-/tab-scroller-0.39.1.tgz#cff8d8e6dbe3ac6f64a87e9b616059c9e66b2ee8"
+  dependencies:
+    "@material/animation" "^0.39.0"
+    "@material/base" "^0.39.0"
+    "@material/tab" "^0.39.1"
+
+"@material/tab@^0.39.1":
+  version "0.39.1"
+  resolved "https://registry.yarnpkg.com/@material/tab/-/tab-0.39.1.tgz#91d88fcdba3f73e1c3897d2c4d8eaad7990b504b"
+  dependencies:
+    "@material/base" "^0.39.0"
+    "@material/ripple" "^0.39.1"
+    "@material/rtl" "^0.39.1"
+    "@material/tab-indicator" "^0.39.1"
+    "@material/theme" "^0.39.1"
+    "@material/typography" "^0.39.0"
+
 "@material/textfield@^0.38.1":
   version "0.38.1"
   resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-0.38.1.tgz#f0dc2d7b534a51845a84f71fbd8199b6cc0b5130"

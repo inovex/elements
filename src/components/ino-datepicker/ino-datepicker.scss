@@ -4,6 +4,11 @@
 ino-datepicker {
   display: block;
   @include ino-font(sans-serif, m, regular);
+
+  .mdc-text-field--with-leading-icon .mdc-text-field__icon,
+  .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
+    bottom: 20px;
+  }
 }
 
 
