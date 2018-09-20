@@ -7,7 +7,7 @@ import listReadme from '../../components/ino-list/readme.md';
 import listItemReadme from '../../components/ino-list-item/readme.md';
 import listDividerReadme from '../../components/ino-list-divider/readme.md';
 
-import {INO_ICONS} from '../ino-icon/ino-icon.stories';
+import ICONS from '../../components/ino-icon/icons';
 
 import './ino-list.scss';
 
@@ -54,7 +54,7 @@ storiesOf('<ino-list>', module)
         <ino-list ino-two-lines={boolean('ino-two-lines (on ino-list)', true)}>
           <ino-list-item
             ino-secondary-text={text('ino-secondary-text', 'Second line text')}
-            ino-leading-icon={select('ino-leading-icon', INO_ICONS, 'star')}
+            ino-leading-icon={select('ino-leading-icon', ICONS, 'star')}
             ino-selected={boolean('ino-selected', false)}
             ino-activated={boolean('ino-activated', false)}
             ino-text={text('ino-text', 'List item')}>
