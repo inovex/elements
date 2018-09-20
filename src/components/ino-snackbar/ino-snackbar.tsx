@@ -1,5 +1,5 @@
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import { MDCSnackbar } from '@material/snackbar';
+import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -9,15 +9,14 @@ import classNames from 'classnames';
 })
 export class Snackbar {
   private snackbarInstance: MDCSnackbar;
-  private snackbarElement: HTMLElement;
+  private snackbarElement!: HTMLElement;
 
-  @Element() el: HTMLElement;
-
+  @Element() el!: HTMLElement;
 
   /**
    * Trigger the display of a message with optional action.
    */
-  @Prop({ mutable: true }) inoShow: boolean = false;
+  @Prop({ mutable: true }) inoShow = false;
   @Watch('inoShow')
   inoShowHandler() {
     this.showSnackbar();
@@ -26,41 +25,40 @@ export class Snackbar {
   /**
    * The text message to display.
    */
-  @Prop() inoMessage: string;
+  @Prop() inoMessage?: string;
 
   /**
    * The text to display for the action button.
    */
-  @Prop() inoActionText?: string = '';
+  @Prop() inoActionText = '';
 
   /**
    * Whether to show the snackbar with space for multiple lines of text.
    */
-  @Prop() inoMultiline?: boolean = false;
+  @Prop() inoMultiline = false;
 
   /**
    * Whether to show the action below the multiple lines of text
    * Optional, applies when multiline is true.
    */
-  @Prop() inoActionOnBottom?: boolean = false;
+  @Prop() inoActionOnBottom = false;
 
   /**
    * Controls if Snackbar is centered or start-aligned.
    */
-  @Prop() inoAlignStart?: boolean = false;
+  @Prop() inoAlignStart = false;
 
   /**
    * Event that emits as soon as the user removes this element.
    * Listen to this event to hide or destroy this element.
    */
-  @Event() inoActionClicked: EventEmitter;
+  @Event() inoActionClicked!: EventEmitter;
 
   /**
    * Event that emits as soon as the snackbar hides.
    * Listen to this event to hide or destroy this element.
    */
-  @Event() inoSnackbarHide: EventEmitter;
-
+  @Event() inoSnackbarHide!: EventEmitter;
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
@@ -75,7 +73,7 @@ export class Snackbar {
 
   private handleSnackbarHide(e) {
     this.inoShow = false;
-    this.inoSnackbarHide.emit(true);
+    this.inoSnackbarHide!.emit(true);
     e.stopPropagation();
   }
 
@@ -104,9 +102,12 @@ export class Snackbar {
     });
 
     return (
-      <div ref={(el: HTMLElement) => this.snackbarElement = el} class={snackbarClasses}
+      <div
+        ref={el => this.snackbarElement = el as HTMLDivElement}
+        class={snackbarClasses}
         aria-live="assertive"
-        aria-atomic="true">
+        aria-atomic="true"
+      >
         <div class="mdc-snackbar__text">{this.inoMessage}</div>
         <div class="mdc-snackbar__action-wrapper">
           <button type="button" class="mdc-snackbar__action-button">{this.inoActionText}</button>
