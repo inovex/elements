@@ -14,6 +14,10 @@ ino-button {
     }
 
     #{$selector} .mdc-button {
+      &.mdc-button--raised {
+        @include mdc-button-filled-accessible(map-get($map, base));
+      }
+
       &.mdc-button--unelevated {
         @include mdc-button-filled-accessible(map-get($map, base));
       }
