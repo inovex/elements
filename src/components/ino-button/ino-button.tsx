@@ -99,10 +99,8 @@ export class Button {
         type={this.type}
         form={this.form}
       >
-
         {this.inoIcon && !this.inoIconPrepend
           && <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}></ino-icon>}
-
         <slot />
 
         {this.inoIcon && this.inoIconPrepend

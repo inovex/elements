@@ -2,7 +2,7 @@
 
 
 // Private variables.
-// Use the ino-color() function to acccess colors.
+// Use the ino-color() function to access colors.
 $primary:           #003C7E;
 $primary-light:     #004A9C;
 $primary-dark:      #002E62;
@@ -17,7 +17,7 @@ $tertiary:          #00B0F0;
 $tertiary-light:    #10BCFE;
 $tertiary-dark:     #006A92;
 
-$sucess:          $secondary;
+$success:         $secondary;
 $warning:         #FFDE03;
 $error:           #E00051;
 
@@ -48,9 +48,9 @@ $ino-color-scheme: (
   ),
 
   success: (
-    base:     $sucess,
-    light:    lighten($sucess, 15%),
-    dark:     darken($sucess, 15%),
+    base:     $success,
+    light:    lighten($success, 15%),
+    dark:     darken($success, 15%),
     contrast: #000
   ),
 

@@ -89,7 +89,7 @@ $tertiary:          #00B0F0;
 $tertiary-light:    #10BCFE;
 $tertiary-dark:     #006A92;
 
-$sucess:            $secondary;
+$success:           $secondary;
 $warning:           #FFDE03;
 $error:             #E00051;
 
