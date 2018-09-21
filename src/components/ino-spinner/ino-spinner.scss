@@ -44,7 +44,7 @@ ino-spinner {
   }
 
   // Modal
-  &[ino-modal] {
+  &[ino-modal]:not([ino-modal="false"]) {
     position: fixed;
     z-index: $z-index-spinner;
     left: 0;
