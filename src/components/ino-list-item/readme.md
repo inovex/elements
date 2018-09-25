@@ -9,16 +9,19 @@ The component can be used as follows:
 ```html
 <ino-list-item
   ino-activated="<boolean>"
-  ino-leading-icon="<string>"
   ino-text="<string>"
   ino-secondary-text="<string>"
   ino-selected="<boolean>">
+    <ino-icon slot="ino-leading" ...></ino-icon>
+    <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
 </ino-list-item>
 ```
 
 **Two lines:** For items having two lines, provide an `ino-secondary-text` and make sure you set the `ino-two-lines` attribute in the respective parent component (only available for `ino-list`).
 
-**Leading icon:** Provide the name of an `ino-icon` in `ino-leading-icon` to prepend an icon.
+**Leading items:** Add an item with the slot-attribute `ino-leading` to add a first column in the list item in LTR languages. Typically an icon or image.
+
+**Trailing items:** Add an item with the slot-attribute `ino-trailing` to add a last column in the list item in LTR languages. Typically small text, icon or image.
 
 
 
@@ -30,7 +33,6 @@ The component can be used as follows:
 | Property           | Attribute            | Description                                                                                                                                      | Type      |
 | ------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | `inoActivated`     | `ino-activated`      | Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.        | `boolean` |
-| `inoLeadingIcon`   | `ino-leading-icon`   | The name of the leading icon of this list item.                                                                                                  | `string`  |
 | `inoSecondaryText` | `ino-secondary-text` | Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.                                           | `string`  |
 | `inoSelected`      | `ino-selected`       | Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely change soon. | `boolean` |
 | `inoText`          | `ino-text`           | The primary text of this list item (required).                                                                                                   | `string`  |

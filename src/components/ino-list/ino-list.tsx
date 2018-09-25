@@ -10,18 +10,25 @@ export class List {
   /**
    * Styles the list more dense, making it appear more compact.
    */
-  @Prop() inoDense?: string;
+  @Prop() inoDense?: boolean;
 
   /**
    * Marks this element as list with items having two lines.
    */
   @Prop() inoTwoLines?: boolean;
 
+  /**
+   * Configures the leading tiles of each row to display images instead of icons.
+   * This will make the graphics of the list items larger.
+   */
+  @Prop() inoAvatar = false;
+
   render() {
     const listClasses = classNames({
       'mdc-list': true,
       'mdc-list--dense': this.inoDense,
-      'mdc-list--two-line': this.inoTwoLines
+      'mdc-list--two-line': this.inoTwoLines,
+      'mdc-list--avatar-list': this.inoAvatar
     });
 
     return (

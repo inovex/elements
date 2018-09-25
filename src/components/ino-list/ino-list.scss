@@ -2,4 +2,8 @@
 
 ino-list {
   display: block;
+
+  .mdc-list--avatar-list .mdc-list-item__graphic {
+    overflow: hidden;
+  }
 }

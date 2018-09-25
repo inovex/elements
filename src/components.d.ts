@@ -943,10 +943,6 @@ export namespace Components {
     */
     'inoActivated': boolean;
     /**
-    * The name of the leading icon of this list item.
-    */
-    'inoLeadingIcon': string;
-    /**
     * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
     */
     'inoSecondaryText': string;
@@ -965,10 +961,6 @@ export namespace Components {
     */
     'inoActivated'?: boolean;
     /**
-    * The name of the leading icon of this list item.
-    */
-    'inoLeadingIcon'?: string;
-    /**
     * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
     */
     'inoSecondaryText'?: string;
@@ -984,9 +976,13 @@ export namespace Components {
 
   interface InoList {
     /**
+    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+    */
+    'inoAvatar': boolean;
+    /**
     * Styles the list more dense, making it appear more compact.
     */
-    'inoDense': string;
+    'inoDense': boolean;
     /**
     * Marks this element as list with items having two lines.
     */
@@ -994,9 +990,13 @@ export namespace Components {
   }
   interface InoListAttributes extends StencilHTMLAttributes {
     /**
+    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+    */
+    'inoAvatar'?: boolean;
+    /**
     * Styles the list more dense, making it appear more compact.
     */
-    'inoDense'?: string;
+    'inoDense'?: boolean;
     /**
     * Marks this element as list with items having two lines.
     */

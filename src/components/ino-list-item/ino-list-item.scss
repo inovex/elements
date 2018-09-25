@@ -6,4 +6,13 @@ ino-list-item {
   .ino-list-item__icon {
     font-size: 24px;
   }
+
+  .mdc-list-item__graphic:empty {
+    display: none;
+  }
+
+  ino-img .ino-img__image {
+    width: 100%;
+    height: auto;
+  }
 }
