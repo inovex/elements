@@ -6,3 +6,8 @@ body {
     @include mdc-typography-base;
   }
 }
+
+// Styles that apply to all stories
+.ino-story-composer {
+  margin: 16px;
+}

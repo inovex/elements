@@ -9,14 +9,13 @@ module.exports = (baseConfig, env, defaultConfig) => {
       to: path.posix.join('static', 'inovex-elements'),
       ignore: ['.*']
     }
-    // },
-    // {
-    //   from: path.resolve(__dirname, '../src/assets'),
-    //   to: path.posix.join('static', 'assets'),
-    //   ignore: ['.*']
-    // }
   ]);
 
+  defaultConfig.module.rules.push({
+    test: [/\.(js)$/],
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    enforce: 'pre',
+  });
 
   // Sass Support
   defaultConfig.module.rules.push({
