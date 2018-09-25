@@ -20,5 +20,6 @@ storiesOf('<ino-checkbox>', module)
       <ino-checkbox checked>Checked</ino-checkbox>
       <ino-checkbox disabled>Disabled</ino-checkbox>
       <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
+      <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
     </div>
   `);

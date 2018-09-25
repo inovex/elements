@@ -1,6 +1,6 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'ino-checkbox',
@@ -8,7 +8,7 @@ import { Component, Element, Prop } from '@stencil/core';
   shadow: false
 })
 export class Checkbox {
-  private checkbox: MDCCheckbox;
+  private checkboxInstance: MDCCheckbox;
   private formField: MDCFormField;
 
   @Element() el!: HTMLElement;
@@ -43,14 +43,28 @@ export class Checkbox {
    */
   @Prop() value?: string;
 
+  /**
+   * Marks this element as indeterminate
+   */
+  @Prop() indeterminate?: boolean;
+
+  @Watch('indeterminate')
+  indeterminateChanged(newValue: boolean) {
+    this.checkboxInstance.indeterminate = newValue;
+  }
+
   componentDidLoad() {
-    this.checkbox = new MDCCheckbox(this.el.querySelector('.mdc-checkbox'));
+    this.checkboxInstance = new MDCCheckbox(this.el.querySelector('.mdc-checkbox'));
     this.formField = new MDCFormField(this.el.querySelector('.mdc-form-field'));
-    this.formField.input = this.checkbox;
+    this.formField.input = this.checkboxInstance;
+
+    if (this.indeterminate) {
+      this.checkboxInstance.indeterminate = true;
+    }
   }
 
   componentWillUnLoad() {
-    this.checkbox.destroy();
+    this.checkboxInstance.destroy();
     this.formField.destroy();
   }
 

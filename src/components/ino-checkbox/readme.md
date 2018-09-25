@@ -13,12 +13,15 @@ The component can be used as follows:
   id="<string>" 
   name="<string>" 
   tabIndex="<number>"
-  value="<string>">
+  value="<string>"
+  indeterminate="<boolean>">
     Label
 </ino-checkbox>
 ```
 
 By default, the label is always shown right after the checkbox.
+
+**Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is set unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
 
 
 <!-- Auto Generated Below -->
@@ -26,14 +29,15 @@ By default, the label is always shown right after the checkbox.
 
 ## Properties
 
-| Property   | Attribute   | Description                    | Type      |
-| ---------- | ----------- | ------------------------------ | --------- |
-| `checked`  | `checked`   | Marks this element as checked. | `boolean` |
-| `disabled` | `disabled`  | Disables this element.         | `boolean` |
-| `id`       | `id`        | The id of this element.        | `string`  |
-| `name`     | `name`      | The name of this element.      | `string`  |
-| `tabIndex` | `tab-index` | The tab index of this element. | `number`  |
-| `value`    | `value`     | The value of this element.     | `string`  |
+| Property        | Attribute       | Description                         | Type      |
+| --------------- | --------------- | ----------------------------------- | --------- |
+| `checked`       | `checked`       | Marks this element as checked.      | `boolean` |
+| `disabled`      | `disabled`      | Disables this element.              | `boolean` |
+| `id`            | `id`            | The id of this element.             | `string`  |
+| `indeterminate` | `indeterminate` | Marks this element as indeterminate | `boolean` |
+| `name`          | `name`          | The name of this element.           | `string`  |
+| `tabIndex`      | `tab-index`     | The tab index of this element.      | `number`  |
+| `value`         | `value`         | The value of this element.          | `string`  |
 
 
 ----------------------------------------------

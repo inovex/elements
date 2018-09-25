@@ -156,6 +156,10 @@ export namespace Components {
     */
     'id': string;
     /**
+    * Marks this element as indeterminate
+    */
+    'indeterminate': boolean;
+    /**
     * The name of this element.
     */
     'name': string;
@@ -181,6 +185,10 @@ export namespace Components {
     * The id of this element.
     */
     'id'?: string;
+    /**
+    * Marks this element as indeterminate
+    */
+    'indeterminate'?: boolean;
     /**
     * The name of this element.
     */
