@@ -35,11 +35,6 @@ export class ListItem {
    */
   @Prop() inoActivated?: boolean;
 
-  /**
-   * The name of the leading icon of this list item.
-   */
-  @Prop() inoLeadingIcon?: string;
-
   render() {
     const listItemClasses = classNames({
       'mdc-list-item': true,
@@ -49,11 +44,9 @@ export class ListItem {
 
     return (
       <li class={listItemClasses}>
-        {this.inoLeadingIcon &&
-          <span class="mdc-list-item__graphic" role="presentation">
-            <ino-icon class="ino-list-item__icon" ino-icon={this.inoLeadingIcon}></ino-icon>
-          </span>
-        }
+        <span class="mdc-list-item__graphic" role="presentation">
+          <slot name="ino-leading"></slot>
+        </span>
         <span class="mdc-list-item__text">
           {
             this.inoSecondaryText
@@ -63,6 +56,9 @@ export class ListItem {
               ])
               : this.inoText
           }
+        </span>
+        <span class="mdc-list-item__meta">
+          <slot name="ino-trailing"></slot>
         </span>
       </li>
     );
