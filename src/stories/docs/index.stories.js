@@ -1,7 +1,6 @@
-import { storiesOf } from '@storybook/vue'
-import { doc, withDocs } from 'storybook-readme'
-import { setOptions } from '@storybook/addon-options';
-import { linkTo } from '@storybook/addon-links'
+
+import { storiesOf } from '@storybook/html'
+import markup from '../core/markup';
 
 import introduction from './getting-started.md'
 import readme from '../../../readme.md'
@@ -14,17 +13,14 @@ import contributing from './../../../CONTRIBUTING.md'
 const componentVersion = require('../../../package.json').version
 
 storiesOf('Home', module)
-  .add('Getting started', doc(readme.replace(/&#8203;/g, `v${componentVersion}`)))
-  .add('Storybook', doc(introduction))
-  .add('Changelog', doc(`
-    <h1>Changelog</h1>
-    ${changelog}`
-  ))
-  .add('Contributing', doc(contributing))
+  .add('Getting started', () => markup(readme.replace(/&#8203;/g, `v${componentVersion}`)))
+  .add('Storybook', () => markup(introduction))
+  .add('Changelog', () => markup(`# Changelog ${changelog}`))
+  .add('Contributing', () => markup(contributing))
   
 
 storiesOf('Framework Integration')
-  .add('React', doc(setupReact))
-  .add('Angular', doc(setupAngular))
-  .add('Vue.js', doc(setupVue))
+  .add('React', () => markup(setupReact))
+  .add('Angular', () => markup(setupAngular))
+  .add('Vue.js', () => markup(setupVue))
 

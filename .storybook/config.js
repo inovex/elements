@@ -1,7 +1,6 @@
-import { configure, addDecorator } from '@storybook/vue';
-import { setOptions } from '@storybook/addon-options';
-import { withKnobs } from '@storybook/addon-knobs/vue';
-import Vue from 'vue';
+import { configure, addDecorator } from '@storybook/html';
+import { withOptions } from '@storybook/addon-options';
+import { withKnobs } from '@storybook/addon-knobs';
 
 const version = require('../package.json').version;
 
@@ -12,19 +11,13 @@ import '../dist/inovex-elements';
 import '../src/stories/core/global.scss';
 
 // Add story composer to apply default styles
-import storyComposer from '../src/stories/core/story-composer';
-addDecorator(storyComposer);
-
-// Ignore all web components in Vue.js starting with "ino-"
-Vue.config.ignoredElements = [
-  /^ino-/,
-];
+addDecorator((storyFn) => `<div class="ino-story-composer">${storyFn()}</div>`);
 
 // Options
-setOptions({
+addDecorator(withOptions({
   name: 'INOVEX ELEMENTS v' + version,
   url: '/'
-})
+}));
 
 addDecorator(withKnobs);
 
@@ -33,7 +26,6 @@ const req = require.context('../src/stories/', true, /stories.js$/);
 function loadStories() {
   // Make getting started always default
   require('../src/stories/docs/index.stories');
-
   req.keys().forEach((filename) => req(filename));
 }
 
