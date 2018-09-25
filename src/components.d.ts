@@ -1024,55 +1024,6 @@ export namespace Components {
     'inoOpen'?: boolean;
   }
 
-  interface InoMessageBox {
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme': string;
-    /**
-    * The heading of this chip.
-    */
-    'inoHeading': string;
-    /**
-    * The icon before the heading in this chip.
-    */
-    'inoIcon': string;
-    /**
-    * If true, display the message box as modal in fix position on top of the page.
-    */
-    'inoModal': boolean;
-    /**
-    * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
-    */
-    'inoRemovable': boolean;
-  }
-  interface InoMessageBoxAttributes extends StencilHTMLAttributes {
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: string;
-    /**
-    * The heading of this chip.
-    */
-    'inoHeading'?: string;
-    /**
-    * The icon before the heading in this chip.
-    */
-    'inoIcon'?: string;
-    /**
-    * If true, display the message box as modal in fix position on top of the page.
-    */
-    'inoModal'?: boolean;
-    /**
-    * If true, add a close icon on the right side of this chip. It enables an `inoRemove`-Event that can be listened to.
-    */
-    'inoRemovable'?: boolean;
-    /**
-    * Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. The event only emits if the property `inoRemovable` is true.
-    */
-    'onInoRemove'?: (event: CustomEvent) => void;
-  }
-
   interface InoPopover {
     /**
     * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
@@ -1618,7 +1569,6 @@ declare global {
     'InoListItem': Components.InoListItem;
     'InoList': Components.InoList;
     'InoMenu': Components.InoMenu;
-    'InoMessageBox': Components.InoMessageBox;
     'InoPopover': Components.InoPopover;
     'InoRadio': Components.InoRadio;
     'InoRange': Components.InoRange;
@@ -1648,7 +1598,6 @@ declare global {
     'ino-list-item': Components.InoListItemAttributes;
     'ino-list': Components.InoListAttributes;
     'ino-menu': Components.InoMenuAttributes;
-    'ino-message-box': Components.InoMessageBoxAttributes;
     'ino-popover': Components.InoPopoverAttributes;
     'ino-radio': Components.InoRadioAttributes;
     'ino-range': Components.InoRangeAttributes;
@@ -1758,12 +1707,6 @@ declare global {
     new (): HTMLInoMenuElement;
   };
 
-  interface HTMLInoMessageBoxElement extends Components.InoMessageBox, HTMLStencilElement {}
-  var HTMLInoMessageBoxElement: {
-    prototype: HTMLInoMessageBoxElement;
-    new (): HTMLInoMessageBoxElement;
-  };
-
   interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {}
   var HTMLInoPopoverElement: {
     prototype: HTMLInoPopoverElement;
@@ -1841,7 +1784,6 @@ declare global {
     'ino-list-item': HTMLInoListItemElement
     'ino-list': HTMLInoListElement
     'ino-menu': HTMLInoMenuElement
-    'ino-message-box': HTMLInoMessageBoxElement
     'ino-popover': HTMLInoPopoverElement
     'ino-radio': HTMLInoRadioElement
     'ino-range': HTMLInoRangeElement
@@ -1871,7 +1813,6 @@ declare global {
     'ino-list-item': HTMLInoListItemElement;
     'ino-list': HTMLInoListElement;
     'ino-menu': HTMLInoMenuElement;
-    'ino-message-box': HTMLInoMessageBoxElement;
     'ino-popover': HTMLInoPopoverElement;
     'ino-radio': HTMLInoRadioElement;
     'ino-range': HTMLInoRangeElement;
