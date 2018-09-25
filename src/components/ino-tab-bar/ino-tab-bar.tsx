@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 
-import { MDCTabBar } from './material-tab-bar';
+import { MDCTabBar } from '@material/tab-bar';
 
 @Component({
   tag: 'ino-tab-bar',
