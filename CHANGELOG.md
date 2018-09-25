@@ -1,3 +1,37 @@
+<a name="0.4.0"></a>
+# [0.4.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.3.0...v0.4.0) (2018-09-25)
+
+
+### Bug Fixes
+
+* **ino-button:** background color was not applied for raised property ([b70930f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b70930f))
+* **ino-message-box, ino-spinner:** disable modal functionality if value of property is false ([de10b7d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/de10b7d))
+* **storybook:** fix icon import and naming issue ([0cb1231](http://gitlab.inovex.de:2424/inovex-elements/core/commit/0cb1231))
+
+
+### Features
+
+* **ino-checkbox:** add indeterminate status ([5d858e3](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5d858e3))
+* **ino-chip-set:** add component ([e356839](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e356839))
+* **ino-input-file:** add component ([03021ab](http://gitlab.inovex.de:2424/inovex-elements/core/commit/03021ab))
+* **ino-list:** add meta- and graphic-support ([a0c05b9](http://gitlab.inovex.de:2424/inovex-elements/core/commit/a0c05b9))
+* **ino-snackbar:** add component ([4b5d47f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/4b5d47f))
+* **ino-tab, ino-tab-bar:** add component ([ffeb083](http://gitlab.inovex.de:2424/inovex-elements/core/commit/ffeb083))
+* **storybook:** migrate to plain html ([1ae48b3](http://gitlab.inovex.de:2424/inovex-elements/core/commit/1ae48b3))
+* **storybook:** show version of elements ([9a85dc0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9a85dc0))
+
+
+### Reverts
+
+* feat(ino-message-box): add message box ([4911def](http://gitlab.inovex.de:2424/inovex-elements/core/commit/4911def))
+
+
+### BREAKING CHANGES
+
+* The <ino-message-box> component has been removed because the use case is provided by the newly introduced ino-card component and ino-snackbar component. Please switch to that components instead
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.2.0...v0.3.0) (2018-09-11)
 
