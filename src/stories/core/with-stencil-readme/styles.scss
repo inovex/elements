@@ -1,5 +1,7 @@
 .ino-playground {
-  margin: 32px 0 64px;
+  box-sizing: border-box;
+  max-width: 980px; 
+  margin: 32px auto 64px;
   padding: 28px 38px;
   border: 1px solid #eee;
   border-radius: 3px;
