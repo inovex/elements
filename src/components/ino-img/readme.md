@@ -30,7 +30,7 @@ Example: The image `image.png` has a ratio of `16:9`. Define the image component
 
 ```html
 <ino-img src="image.png" ino-ratio-width="16" ino-ratio-height="9"></ino-img>
-````
+```
 
 With this setup and while loading the source, the width of this element extends to 100% (or the value defined in `width` attribute) and computes the height based on the ratio attributes.
 
