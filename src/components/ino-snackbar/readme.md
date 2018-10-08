@@ -7,7 +7,7 @@ The component can be used as follows:
 ```jsx
 <ino-snackbar
   ino-show="<boolean>"
-  ino-label="<string>"
+  ino-message="<string>"
   ino-action-text="<string>"
   ino-multiline="<boolean>"
   ino-action-on-bottom="<boolean>"
