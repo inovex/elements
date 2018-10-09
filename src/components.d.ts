@@ -1450,19 +1450,19 @@ export namespace Components {
 
   interface InoTabBar {
     /**
-    * Activates the tab at the given index.
+    * Activates the tab at the given index (**unmanaged**).
     */
     'inoActiveTab': number;
   }
   interface InoTabBarAttributes extends StencilHTMLAttributes {
     /**
-    * Activates the tab at the given index.
+    * Activates the tab at the given index (**unmanaged**).
     */
     'inoActiveTab'?: number;
     /**
-    * Emits when a tab is activated. Contains activated tab in `event.detail.inoIndex`
+    * Emits when a tab changes. Contains activating tab in `event.detail`
     */
-    'onInoTabActivated'?: (event: CustomEvent) => void;
+    'onInoActiveTabChanges'?: (event: CustomEvent) => void;
   }
 
   interface InoTab {
