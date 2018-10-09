@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/html';
 
-import { action } from '@storybook/addon-actions';
+import { withActions } from '@storybook/addon-actions';
 import { text, boolean, number, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '../core/with-stencil-readme';
@@ -13,9 +13,10 @@ import './ino-tab-bar.scss';
 
 storiesOf('<ino-tab-bar>', module)
   .addDecorator(withStencilReadme(tabBarReadme))
+  .addDecorator(withActions('inoActiveTabChanges ino-tab-bar'))
   .add('Default usage', () => /*html*/`
     <div class="story-tab">
-      <ino-tab-bar ino-active-tab="${number('ino-active-tab', 0)}">
+      <ino-tab-bar id="tab-bar-1" ino-active-tab="${number('ino-active-tab', 0)}">
         <ino-tab ino-label="Label1" ino-icon="users" ino-stacked="${boolean('ino-stacked', false)}" ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"></ino-tab>
         <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean('ino-stacked', false)}" ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"></ino-tab>
         <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean('ino-stacked', false)}" ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"></ino-tab>

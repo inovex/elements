@@ -14,7 +14,15 @@ The component can be used as follows:
 </ino-tab-bar>
 ```
 
-**Change active Tab**: To change the active tab, listen to `tabActivated` Event of `ino-tab` and change `ino-active-tab` Attribute of `ino-tab-bar`.
+### Control flow
+The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `ino-active-tab`. Listen to `InoActiveTabChanges`, sync it with your local state and pass the new index to the component again to activate the tab.
+
+```jsx
+<ino-tab
+  ino-active-tab={this.state.index}
+  onInoActiveTabChanges={e => this.state.index = e.detail}>
+</ino-tab>
+```
 
 
 <!-- Auto Generated Below -->
@@ -22,16 +30,16 @@ The component can be used as follows:
 
 ## Properties
 
-| Property       | Attribute        | Description                           | Type     |
-| -------------- | ---------------- | ------------------------------------- | -------- |
-| `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index. | `number` |
+| Property       | Attribute        | Description                                           | Type     |
+| -------------- | ---------------- | ----------------------------------------------------- | -------- |
+| `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` |
 
 
 ## Events
 
-| Event             | Description                                                                      |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `inoTabActivated` | Emits when a tab is activated. Contains activated tab in `event.detail.inoIndex` |
+| Event                 | Description                                                         |
+| --------------------- | ------------------------------------------------------------------- |
+| `inoActiveTabChanges` | Emits when a tab changes. Contains activating tab in `event.detail` |
 
 
 ----------------------------------------------
