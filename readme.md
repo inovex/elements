@@ -46,8 +46,7 @@ your local environment to use this registry. To do so, execute the following npm
 Username and password are both `inovex`.
 
 ```
-npm set registry https://registry.elements.inovex.io --scope=@inovex
-npm adduser --registry https://registry.elements.inovex.io
+npm adduser --registry https://registry.elements.inovex.io --scope=@inovex
 npm config set always-auth true
 ```
 
