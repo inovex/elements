@@ -10,6 +10,31 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Input {
+  /**
+   * Native Input Element
+   */
+  private inputElement?: HTMLInputElement;
+
+  /**
+   * An internal auto generated id for the helper field.
+   */
+  private uniqueHelperId = Input.generateHelperTextId();
+
+  /**
+   * An internal instance of the material design textfield.
+   */
+  private textfield: MDCTextField;
+
+  /**
+   * An internal instance of an textfield helper text instance (if neccessary).
+   */
+  private helperText: MDCTextFieldHelperText;
+
+  /**
+   * An internal instance of an textfield icon instance (if neccessary).
+   */
+  private icon: MDCTextFieldIcon;
+
   @Element() el!: HTMLElement;
 
   /**
@@ -135,26 +160,6 @@ export class Input {
     return `input-helper-text__${Input.HELPER_COUNTER++}`;
   }
 
-  /**
-   * An internal auto generated id for the helper field.
-   */
-  private uniqueHelperId = Input.generateHelperTextId();
-
-  /**
-   * An internal instance of the material design textfield.
-   */
-  private textfield: MDCTextField;
-
-  /**
-   * An internal instance of an textfield helper text instance (if neccessary).
-   */
-  private helperText: MDCTextFieldHelperText;
-
-  /**
-   * An internal instance of an textfield icon instance (if neccessary).
-   */
-  private icon: MDCTextFieldIcon;
-
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
     if (this.inoHelper) {
@@ -181,7 +186,7 @@ export class Input {
     }
     const classLabel = classNames(
       'mdc-floating-label',
-      { 'mdc-floating-label--float-above': this.inoLabel && this.value }
+      { 'mdc-floating-label--float-above': this.inoLabel && (this.value || this.inputElement === document.activeElement) }
     );
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
@@ -232,7 +237,7 @@ export class Input {
       'mdc-text-field--focused': this.autofocus,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
-      'mdc-text-field--upgraded': this.value && this.inoLabel,
+      'mdc-text-field--upgraded': true,
       'mdc-text-field--with-leading-icon': this.inoIcon && !this.inoIconTrailing,
       'mdc-text-field--with-trailing-icon': this.inoIcon && this.inoIconTrailing,
     });
@@ -241,6 +246,7 @@ export class Input {
       <div class={classTextfield}>
         {!this.inoIconTrailing && this.iconTemplate()}
         <input
+          ref={el => this.inputElement = el}
           class="mdc-text-field__input"
           accessKey={this.accesskey}
           autocomplete={this.autocomplete}
