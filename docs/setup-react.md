@@ -6,6 +6,26 @@ This instructions are based on react v16.3.1.
 
 You setup your react project with [react-app-rewired](https://github.com/timarney/react-app-rewired) or similar. The setup needs to update the webpack configuration to copy the static files (`create-react-app` is not satisfactory).
 
+
+### Using TypeScript support with react-app-rewired
+
+> If you're using TypeScript within your React setup you must additionally modify your `package.json`!
+
+Assuming you have the boiler plate from `react-app-rewired` and you've additionally installed `react-scripts-ts` your scripts must look like this:
+
+```json
+  // ...
+
+  "scripts": {
+    "start": "react-app-rewired start --scripts-version react-scripts-ts --config-overrides config.overrides.js",
+    "build": "react-app-rewired build --scripts-version react-scripts-ts --config-overrides config.overrides.js",
+    "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts --config-overrides config.overrides.js",
+    "eject": "react-scripts eject"
+  },
+
+  // ...
+```
+
 ## Prepare your project
 
 First of all you should make sure your current setup without the components work. If that's the case you can start preparing.
@@ -30,7 +50,7 @@ import '@inovex/elements' // import the web components loader
 
 ### 2) Configure Webpack
 
-Next you have to configure the Webpack config files. Using `react-app-rewired`, create a `config-overrides` in the root directory:
+Next you have to configure the Webpack config files. Using `react-app-rewired`, create a `config-overrides.js` in the root directory:
 
 ```js
 // config.overrides.js
