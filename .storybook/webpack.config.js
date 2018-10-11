@@ -16,6 +16,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
     loaders: [require.resolve('@storybook/addon-storysource/loader')],
     enforce: 'pre',
   });
+  defaultConfig.resolve.extensions.push(".ts", ".tsx");
 
   // Sass Support
   defaultConfig.module.rules.push({

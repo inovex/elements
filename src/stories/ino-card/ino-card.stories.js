@@ -1,23 +1,23 @@
-import { storiesOf } from '@storybook/html';
 import { boolean, select, text } from '@storybook/addon-knobs';
-
-import withStencilReadme from '../core/with-stencil-readme';
+import { storiesOf } from '@storybook/html';
 
 import componentReadme from '../../components/ino-card/readme.md';
+import withStencilReadme from '../core/with-stencil-readme';
+
 import './ino-card.scss';
 
 storiesOf('<ino-card>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-card">
-      <ino-card class="customizable-card" 
+      <ino-card class="customizable-card"
         ino-title="${text('ino-title', 'Customizable Title')}"
         ino-subtitle="${text('ino-subtitle', 'Use the knobs to try different cards')}"
         ino-outline="${boolean('ino-outline', false)}"
         ino-color-scheme="${select(
           'ino-color-scheme',
           ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
-          'error', 'light', 'dark'
+           'error', 'light', 'dark'
           ],
           ''
         )}">

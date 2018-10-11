@@ -1,14 +1,11 @@
+import { withActions } from '@storybook/addon-actions';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/html';
 
-import { withActions } from '@storybook/addon-actions';
-import { text, boolean, select } from '@storybook/addon-knobs';
-
+import componentReadme from '../../components/ino-button/readme.md';
 import withStencilReadme from '../core/with-stencil-readme';
 
-import componentReadme from '../../components/ino-button/readme.md';
 import './ino-button.scss';
-
-
 
 storiesOf('<ino-button>', module)
   .addDecorator(withStencilReadme(componentReadme))
@@ -23,8 +20,8 @@ storiesOf('<ino-button>', module)
         class="customizable-button"
         ino-color-scheme="${select(
           'ino-color-scheme',
-          ['primary', 'secondary', 'tertiary', 'success', 'warning', 
-            'error', 'light', 'dark'
+          ['primary', 'secondary', 'tertiary', 'success', 'warning',
+           'error', 'light', 'dark'
           ],
           'primary'
         )}"
@@ -36,7 +33,7 @@ storiesOf('<ino-button>', module)
       >
         ${text('<slot />', 'Customizable button')}
       </ino-button>
-        
+
       <h4>Colors</h4>
       <ino-button ino-color-scheme="primary">Primary</ino-button>
       <ino-button ino-color-scheme="secondary">Secondary</ino-button>
@@ -44,7 +41,7 @@ storiesOf('<ino-button>', module)
       <ino-button ino-color-scheme="success">Success</ino-button>
       <ino-button ino-color-scheme="warning">Warning</ino-button>
       <ino-button ino-color-scheme="error">Error</ino-button>
-      
+
       <h4>Variations</h4>
       <ino-button ino-fill="solid">Solid (default)</ino-button>
       <ino-button ino-fill="outline">Outlined</ino-button>
@@ -56,8 +53,8 @@ storiesOf('<ino-button>', module)
       <ino-button ino-fill="outline" ino-dense>Outlined & dense</ino-button>
       <ino-button ino-fill="raised" ino-dense>Raised & dense</ino-button>
       <ino-button ino-fill="transparent" ino-dense>Transparent & dense</ino-button>
-      
-      
+
+
       <h4>With icons</h4>
       <ino-button ino-icon="equalizer">Button Icon left</ino-button>
       <ino-button ino-icon="equalizer" ino-icon-prepend>Button icon right</ino-button>
@@ -90,4 +87,4 @@ storiesOf('<ino-button>', module)
       <ino-button type="submit" form="form1">Button with form attribute</ino-button>
       </form>
     </div>
-  `)
+  `);
