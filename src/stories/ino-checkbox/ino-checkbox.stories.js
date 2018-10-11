@@ -1,11 +1,10 @@
+import { boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/html';
-import { text, boolean } from '@storybook/addon-knobs';
-
-import withStencilReadme from '../core/with-stencil-readme';
 
 import componentReadme from '../../components/ino-checkbox/readme.md';
-import './ino-checkbox.scss';
+import withStencilReadme from '../core/with-stencil-readme';
 
+import './ino-checkbox.scss';
 
 storiesOf('<ino-checkbox>', module)
   .addDecorator(withStencilReadme(componentReadme))
