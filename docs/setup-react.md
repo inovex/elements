@@ -18,7 +18,7 @@ Follow the introduction instructions to configure your npm registry and add the 
 
 Open `src/index.js` and add this somewhere on the first lines:
 
-```
+```ts
 // src/index.js
 
 import React from 'react'
@@ -32,7 +32,7 @@ import '@inovex/elements' // import the web components loader
 
 Next you have to configure the Webpack config files. Using `react-app-rewired`, create a `config-overrides` in the root directory:
 
-```
+```js
 // config.overrides.js
 
 module.exports = function override(config, env) {
@@ -51,7 +51,7 @@ To ease the integration into react applications, react wrapper components for ea
 As opposed to bare inovex elements which you can use anywhere in your app after they are loaded in the entrypoint file without importing
 them specifically, you have to import each react wrapper in the file you want to use it:
 
-```html
+```jsx
 import { InoButton } from '@inovex/elements/dist/react/InoButton';
 
 export class MyComponent extends React.Component {

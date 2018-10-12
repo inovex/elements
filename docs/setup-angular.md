@@ -18,7 +18,7 @@ Follow the introduction instructions to configure your npm registry and add the 
 
 Open `src/app/app.module.js`, import the library and add the tag `CUSTOM_ELEMENTS_SCHEMA` to allow custom elements in general. inovex elements are built as custom elements.
 
-```
+```typescript
 // src/app/app.module.js
 
 // ...
@@ -99,7 +99,7 @@ You can use the components now in your Angular project in the same way as you wo
 
 Here is an example of how to use an inovex element in a component:
 
-```typescript
+```ts
 // app.component.ts
 import { Component } from '@angular/core';
 
