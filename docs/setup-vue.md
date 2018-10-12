@@ -22,7 +22,7 @@ to your projet.
 
 Open `src/main.js` and add this somewhere on the first lines:
 
-```
+```js
 // src/main.js
 
 import Vue from 'vue'
@@ -42,7 +42,7 @@ the browser do the custom element upgrading process.
 
 Next you have to configure the Webpack config files.
 
-```
+```js
 // src/build/webpack.dev.conf.js
 
 // ...
@@ -52,7 +52,7 @@ plugins: [
   ]
 ```
 
-```
+```js
 // src/build/webpack.prod.conf.js
 
 // ...
