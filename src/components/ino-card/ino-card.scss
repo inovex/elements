@@ -4,10 +4,56 @@
 ino-card {
   display: block;
 
-  & > .ino-card__composer {
+  & .ino-card__composer {
     padding: 1rem;
     height: 100%;
   }
+
+  .mdc-card__media {
+    .mdc-card__media-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      .ino-card__header {
+        padding: 1rem;
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+        .ino-card__header-title {
+          @include mdc-theme-prop(color, #fff);
+          @include mdc-typography(headline6);
+        }
+        .ino-card__header-subtitle {
+          @include mdc-theme-prop(color, #fff);
+          @include mdc-typography(subtitle2);
+        }
+      }
+    }
+  }
+
+  .mdc-card__actions {
+    min-height: 0;
+    height: auto;
+    padding: 0;
+  }
+
+  .mdc-card__action-buttons,
+  .mdc-card__action-icons {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    
+    &:empty {
+      margin: 0;
+    }
+  }
+  .mdc-card__action-buttons {
+    margin-left: 8px;
+  }
+  .mdc-card__action-icons {
+    margin-right: 8px !important;
+  }
+
+  
 
   .ino-card__header {
     .ino-card__header-title {
@@ -22,6 +68,7 @@ ino-card {
 
   .ino-card__content {
     @include mdc-typography(body2);
+
   }
 
   // Generate ino-color-scheme classes
