@@ -107,9 +107,21 @@ export namespace Components {
 
   interface InoCard {
     /**
+    * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
+    */
+    'inoAspectRatio': string;
+    /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme': string;
+    /**
+    * Displays a media area with a custom `background-image` with `background-size: cover`
+    */
+    'inoImage': string;
+    /**
+    * Displays the card title inside the image
+    */
+    'inoMediaTitle': boolean;
     /**
     * Removes the shadow and displays a hairline outline instead.
     */
@@ -125,9 +137,21 @@ export namespace Components {
   }
   interface InoCardAttributes extends StencilHTMLAttributes {
     /**
+    * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
+    */
+    'inoAspectRatio'?: string;
+    /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme'?: string;
+    /**
+    * Displays a media area with a custom `background-image` with `background-size: cover`
+    */
+    'inoImage'?: string;
+    /**
+    * Displays the card title inside the image
+    */
+    'inoMediaTitle'?: boolean;
     /**
     * Removes the shadow and displays a hairline outline instead.
     */
