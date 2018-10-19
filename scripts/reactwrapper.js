@@ -37,7 +37,7 @@ function getWrapper(componentName) {
         module.exports = {
             ${reactName}: function(_a) {
                 var children = _a.children, props = __rest(_a, ["children"]);
-                return React.createElement("${componentName}", Object.assign({}, props), children && React.createElement("span", null, children));
+                return React.createElement("${componentName}", Object.assign({}, props), children && React.createElement(React.Fragment, null, children));
             }
         };
     `;
