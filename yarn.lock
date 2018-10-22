@@ -5395,6 +5395,7 @@ highlight.js@~9.12.0:
 highlightjs@^9.10.0:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/highlightjs/-/highlightjs-9.10.0.tgz#fca9b78ddaa3b1abca89d6c3ee105ad270a80190"
+  integrity sha1-/Km3jdqjsavKidbD7hBa0nCoAZA=
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
