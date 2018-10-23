@@ -1,3 +1,13 @@
+<a name="0.4.1"></a>
+## [0.4.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.4.0...v0.4.1) (2018-10-23)
+
+
+### Bug Fixes
+
+* allow React elements to render children properly ([e142a35](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e142a35))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.3.0...v0.4.0) (2018-09-25)
 
