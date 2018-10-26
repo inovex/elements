@@ -17,7 +17,7 @@ The component can be used as follows:
 ## Types
 ### Simple chip sets
 `chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (f. e. email addresses after adding them in an input field), simple miss out the `ino-type` attribute. 
-```jsx
+```html
 <ino-chip-set>
   <ino-chip ino-label="Action chip" onClick={_ => console.log('Triggers an awesome action!')}></ino-chip>
   <ino-chip ino-label="Removable" ino-removable onInoChipRemove={_ => removeChip()}></ino-chip>
@@ -34,7 +34,7 @@ There are two complex types of chip sets:
 
 For both, choice and filter chip sets emit an `inoChipSetUpdated` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
-```jsx
+```html
 <ino-chip-set ino-type="choice" onInoChipSetUpdated={(e) => console.log(`Value is `e.detail`)}>
   <ino-chip ino-label="Chip 1" ino-value="Just"></ino-chip>
   <ino-chip ino-label="Chip 2" ino-value="Awesome!"></ino-chip>

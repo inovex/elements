@@ -35,7 +35,7 @@ However, the component doesn't hide/destroy itself but emits an `inoRemove`-Even
   ino-removable
   onInoRemove="_ => removeChip()">
     Removable chip
-</ino-icon> 
+</ino-chip> 
 ```
 
 
