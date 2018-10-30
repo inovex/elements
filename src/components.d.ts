@@ -490,88 +490,6 @@ export namespace Components {
     'value'?: string;
   }
 
-  interface InoFabSet {
-    /**
-    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-    */
-    'inoDialDirection': string;
-    /**
-    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-    */
-    'inoLeftRightLocation': string;
-    /**
-    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
-    */
-    'inoTopBottomLocation': string;
-  }
-  interface InoFabSetAttributes extends StencilHTMLAttributes {
-    /**
-    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-    */
-    'inoDialDirection'?: string;
-    /**
-    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-    */
-    'inoLeftRightLocation'?: string;
-    /**
-    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
-    */
-    'inoTopBottomLocation'?: string;
-  }
-
-  interface InoFab {
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme': string;
-    /**
-    * Optional, modifies the FAB to wider size which includes a text label.
-    */
-    'inoExtended': boolean;
-    /**
-    * Adds an icon to the Fab.
-    */
-    'inoIcon': string;
-    /**
-    * Optional, for the text label. Applicable only for Extended FAB.
-    */
-    'inoLabel': string;
-    /**
-    * Optional, modifies the FAB to a smaller size
-    */
-    'inoMini': boolean;
-    /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-    */
-    'inoTooltipPlacement': string;
-  }
-  interface InoFabAttributes extends StencilHTMLAttributes {
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: string;
-    /**
-    * Optional, modifies the FAB to wider size which includes a text label.
-    */
-    'inoExtended'?: boolean;
-    /**
-    * Adds an icon to the Fab.
-    */
-    'inoIcon'?: string;
-    /**
-    * Optional, for the text label. Applicable only for Extended FAB.
-    */
-    'inoLabel'?: string;
-    /**
-    * Optional, modifies the FAB to a smaller size
-    */
-    'inoMini'?: boolean;
-    /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-    */
-    'inoTooltipPlacement'?: string;
-  }
-
   interface InoFormRow {
     /**
     * The label for this form row which describes the form element.
@@ -1222,17 +1140,21 @@ export namespace Components {
 
   interface InoRange {
     /**
-    * The autofocus of this element.
-    */
-    'autofocus': boolean;
-    /**
     * Disables this element.
     */
     'disabled': boolean;
     /**
-    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `danger`.
+    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme': string;
+    /**
+    * Restricts the slider to only allow discrete values.
+    */
+    'inoDiscrete': boolean;
+    /**
+    * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
+    */
+    'inoMarkers': boolean;
     /**
     * The max value of this element.
     */
@@ -1246,11 +1168,7 @@ export namespace Components {
     */
     'name': string;
     /**
-    * Marks this element as required.
-    */
-    'required': boolean;
-    /**
-    * The step size for this element (default =1)
+    * The step size for this element (default = 1)
     */
     'step': number;
     /**
@@ -1260,17 +1178,21 @@ export namespace Components {
   }
   interface InoRangeAttributes extends StencilHTMLAttributes {
     /**
-    * The autofocus of this element.
-    */
-    'autofocus'?: boolean;
-    /**
     * Disables this element.
     */
     'disabled'?: boolean;
     /**
-    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `danger`.
+    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
     'inoColorScheme'?: string;
+    /**
+    * Restricts the slider to only allow discrete values.
+    */
+    'inoDiscrete'?: boolean;
+    /**
+    * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
+    */
+    'inoMarkers'?: boolean;
     /**
     * The max value of this element.
     */
@@ -1284,11 +1206,15 @@ export namespace Components {
     */
     'name'?: string;
     /**
-    * Marks this element as required.
+    * Is emitted whenever the range value is changed and commited by the user.
     */
-    'required'?: boolean;
+    'onInoRangeChanged'?: (event: CustomEvent) => void;
     /**
-    * The step size for this element (default =1)
+    * Is emitted whenever the range value is changed by the user.
+    */
+    'onInoRangeInput'?: (event: CustomEvent) => void;
+    /**
+    * The step size for this element (default = 1)
     */
     'step'?: number;
     /**
@@ -1673,8 +1599,6 @@ declare global {
     'InoChipSet': Components.InoChipSet;
     'InoChip': Components.InoChip;
     'InoDatepicker': Components.InoDatepicker;
-    'InoFabSet': Components.InoFabSet;
-    'InoFab': Components.InoFab;
     'InoFormRow': Components.InoFormRow;
     'InoIconButton': Components.InoIconButton;
     'InoIcon': Components.InoIcon;
@@ -1704,8 +1628,6 @@ declare global {
     'ino-chip-set': Components.InoChipSetAttributes;
     'ino-chip': Components.InoChipAttributes;
     'ino-datepicker': Components.InoDatepickerAttributes;
-    'ino-fab-set': Components.InoFabSetAttributes;
-    'ino-fab': Components.InoFabAttributes;
     'ino-form-row': Components.InoFormRowAttributes;
     'ino-icon-button': Components.InoIconButtonAttributes;
     'ino-icon': Components.InoIconAttributes;
@@ -1763,18 +1685,6 @@ declare global {
   var HTMLInoDatepickerElement: {
     prototype: HTMLInoDatepickerElement;
     new (): HTMLInoDatepickerElement;
-  };
-
-  interface HTMLInoFabSetElement extends Components.InoFabSet, HTMLStencilElement {}
-  var HTMLInoFabSetElement: {
-    prototype: HTMLInoFabSetElement;
-    new (): HTMLInoFabSetElement;
-  };
-
-  interface HTMLInoFabElement extends Components.InoFab, HTMLStencilElement {}
-  var HTMLInoFabElement: {
-    prototype: HTMLInoFabElement;
-    new (): HTMLInoFabElement;
   };
 
   interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {}
@@ -1904,8 +1814,6 @@ declare global {
     'ino-chip-set': HTMLInoChipSetElement
     'ino-chip': HTMLInoChipElement
     'ino-datepicker': HTMLInoDatepickerElement
-    'ino-fab-set': HTMLInoFabSetElement
-    'ino-fab': HTMLInoFabElement
     'ino-form-row': HTMLInoFormRowElement
     'ino-icon-button': HTMLInoIconButtonElement
     'ino-icon': HTMLInoIconElement
@@ -1935,8 +1843,6 @@ declare global {
     'ino-chip-set': HTMLInoChipSetElement;
     'ino-chip': HTMLInoChipElement;
     'ino-datepicker': HTMLInoDatepickerElement;
-    'ino-fab-set': HTMLInoFabSetElement;
-    'ino-fab': HTMLInoFabElement;
     'ino-form-row': HTMLInoFormRowElement;
     'ino-icon-button': HTMLInoIconButtonElement;
     'ino-icon': HTMLInoIconElement;
