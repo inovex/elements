@@ -41,6 +41,7 @@
     "@material/radio": "^0.37.0",
     "@material/ripple": "^0.38.1",
     "@material/select": "^0.39.0",
+    "@material/slider": "^0.39.1",
     "@material/snackbar": "^0.39.1",
     "@material/tab": "^0.39.1",
     "@material/tab-bar": "^0.40.0",

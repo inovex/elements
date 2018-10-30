@@ -29,7 +29,7 @@ storiesOf('<ino-range>', module)
             ino-color-scheme="${select(
               'ino-color-scheme',
               ['primary', 'secondary', 'tertiary', 'success', 'warning',
-              'danger'
+              'error', 'light', 'dark'
               ],
               'primary'
             )}">
@@ -61,16 +61,24 @@ storiesOf('<ino-range>', module)
           <ino-range ino-color-scheme="warning"></ino-range>
         </div>
         <div class="flex-child">
-          <h5>danger</h5>
-          <ino-range ino-color-scheme="danger"></ino-range>
+          <h5>error</h5>
+          <ino-range ino-color-scheme="error"></ino-range>
+        </div>
+        <div class="flex-child">
+          <h5>light</h5>
+          <ino-range ino-color-scheme="light"></ino-range>
+        </div>
+        <div class="flex-child">
+          <h5>dark</h5>
+          <ino-range ino-color-scheme="dark"></ino-range>
         </div>
       </div>
 
       <h4>Stepped Range</h4>
 
-      <div class="flex-parent">
+      <div class="flex-parent stepped-range-container">
         <div class="flex-child">
-          <ino-range min="0" max="100" value="50" step="10"></ino-range>
+          <ino-range ino-color-scheme="primary" min="0" max="100" step="20" ino-discrete ino-markers></ino-range>
         </div>
       </div>
     </div>

@@ -12,4 +12,12 @@
     display: flex;
     justify-content: center;
   }
+
+  .stepped-range-container {
+    width: 200px;
+
+    >.flex-child {
+      width: 100%;
+    }
+  }
 }

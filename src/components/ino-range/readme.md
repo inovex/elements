@@ -1,5 +1,5 @@
 # ino-range
-A range component that allows the user select a number using a slider. It functions as a wrapper around the browser's native `HTMLInputElement` with type `range`.
+A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
 
 > Note: Range sliders with multiple thumbs are not yet implemented.
 
@@ -7,15 +7,15 @@ A range component that allows the user select a number using a slider. It functi
 The component can be used as follows:
 
 ```html
-<ino-range 
-  autofocus="<boolean>"
-  disabled="<boolean>"
-  min="<number>" 
-  max="<number>" 
+<ino-range
+  min="<number>"
+  max="<number>"
+  value="<number>"
   name="<string>"
-  value="<string>"
-  required="<boolean>"
   step="<number>"
+  ino-discrete="<boolean>"
+  ino-markers="<boolean>"
+  disabled="<boolean>"
   ino-color-scheme="<string>">
 </ino-range>
 ```
@@ -25,17 +25,25 @@ The component can be used as follows:
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                    | Type      |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `autofocus`      | `autofocus`        | The autofocus of this element.                                                                                                                 | `boolean` |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                         | `boolean` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `danger`. | `string`  |
-| `max`            | `max`              | The max value of this element.                                                                                                                 | `number`  |
-| `min`            | `min`              | The min value of this element.                                                                                                                 | `number`  |
-| `name`           | `name`             | The name of this element.                                                                                                                      | `string`  |
-| `required`       | `required`         | Marks this element as required.                                                                                                                | `boolean` |
-| `step`           | `step`             | The step size for this element (default =1)                                                                                                    | `number`  |
-| `value`          | `value`            | The value of this element.                                                                                                                     | `number`  |
+| Property         | Attribute          | Description                                                                                                                                                    | Type      |
+| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                         | `boolean` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoDiscrete`    | `ino-discrete`     | Restricts the slider to only allow discrete values.                                                                                                            | `boolean` |
+| `inoMarkers`     | `ino-markers`      | Mark this slider to show the steps of the range. Only applicable if ino-discrete is true                                                                       | `boolean` |
+| `max`            | `max`              | The max value of this element.                                                                                                                                 | `number`  |
+| `min`            | `min`              | The min value of this element.                                                                                                                                 | `number`  |
+| `name`           | `name`             | The name of this element.                                                                                                                                      | `string`  |
+| `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`  |
+| `value`          | `value`            | The value of this element.                                                                                                                                     | `number`  |
+
+
+## Events
+
+| Event             | Description                                                              |
+| ----------------- | ------------------------------------------------------------------------ |
+| `inoRangeChanged` | Is emitted whenever the range value is changed and commited by the user. |
+| `inoRangeInput`   | Is emitted whenever the range value is changed by the user.              |
 
 
 ----------------------------------------------
