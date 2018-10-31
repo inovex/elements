@@ -1,6 +1,6 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import { Component, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import classnames from 'classnames';
 
 @Component({
@@ -9,10 +9,18 @@ import classnames from 'classnames';
   shadow: false
 })
 export class Radio {
+  @Element() el!: HTMLElement;
+  private nativeInputEl!: HTMLInputElement;
+
   /**
-   * Marks this element as checked.
+   * Marks this element as checked (**unmanaged**).
    */
-  @Prop() checked?: boolean;
+  @Prop() checked = false;
+
+  @Watch('checked')
+  checkedChanged(newChecked: boolean) {
+    this.nativeInputEl.checked = newChecked;
+  }
 
   /**
    * Disables this element.
@@ -37,7 +45,7 @@ export class Radio {
   /**
    * The value of this element.
    */
-  @Prop({ mutable: true }) value?: string;
+  @Prop() value?: string;
 
   /**
    * An internal instance of the material design radio.
@@ -49,9 +57,33 @@ export class Radio {
    */
   private formField: MDCFormField;
 
+  /**
+   * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
+   */
+  @Event() checkedChanges!: EventEmitter;
+
+  @Listen('change')
+  handleChange(e: Event) {
+    e.stopPropagation();
+  }
+
+  @Listen('input')
+  handleInput(e: Event) {
+    const newValue = this.nativeInputEl.checked;
+    if (newValue === this.checked) {
+      return;
+    }
+
+    // Reset native value
+    this.nativeInputEl.checked = this.checked;
+    this.checkedChanges.emit(newValue);
+
+    e.stopPropagation();
+  }
+
   componentDidLoad() {
-    this.radio = new MDCRadio(document.querySelector('.mdc-radio'));
-    this.formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+    this.radio = new MDCRadio(this.el.querySelector('.mdc-radio'));
+    this.formField = new MDCFormField(this.el.querySelector('.mdc-form-field'));
     this.formField.input = this.radio;
   }
 
@@ -77,6 +109,7 @@ export class Radio {
             name={this.name}
             tabindex={this.tabIndex}
             value={this.value}
+            ref={el => this.nativeInputEl = el as HTMLInputElement}
           />
 
           <div class="mdc-radio__background">

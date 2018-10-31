@@ -1169,7 +1169,7 @@ export namespace Components {
 
   interface InoRadio {
     /**
-    * Marks this element as checked.
+    * Marks this element as checked (**unmanaged**).
     */
     'checked': boolean;
     /**
@@ -1195,7 +1195,7 @@ export namespace Components {
   }
   interface InoRadioAttributes extends StencilHTMLAttributes {
     /**
-    * Marks this element as checked.
+    * Marks this element as checked (**unmanaged**).
     */
     'checked'?: boolean;
     /**
@@ -1210,6 +1210,10 @@ export namespace Components {
     * The name of this element.
     */
     'name'?: string;
+    /**
+    * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
+    */
+    'onCheckedChanges'?: (event: CustomEvent) => void;
     /**
     * The tabIndex of this element.
     */
