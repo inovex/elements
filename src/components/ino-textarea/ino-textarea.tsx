@@ -68,7 +68,7 @@ export class Textarea {
   /**
    * Emits when the value changes.
    */
-  @Event() ValueChanges!: EventEmitter<string>;
+  @Event() valueChanges!: EventEmitter<string>;
 
   @Listen('change')
   handleInput(e) {
@@ -79,7 +79,7 @@ export class Textarea {
   @Listen('input')
   handleNativeElement(e) {
     e.preventDefault();
-    this.ValueChanges.emit(e.target.value);
+    this.valueChanges.emit(e.target.value);
   }
 
   @Watch('value')

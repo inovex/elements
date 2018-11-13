@@ -54,7 +54,7 @@ The component behaves like a native textarea with additional features. Thus, the
 
 | Event          | Description                   |
 | -------------- | ----------------------------- |
-| `ValueChanges` | Emits when the value changes. |
+| `valueChanges` | Emits when the value changes. |
 
 
 ----------------------------------------------
