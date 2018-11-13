@@ -1,5 +1,5 @@
 import { MDCTextField } from '@material/textfield';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -56,14 +56,36 @@ export class Textarea {
   @Prop() rows?: number;
 
   /**
-   * The value of this element.
+   * The value of this element. (**unmanaged**)
    */
-  @Prop() value?: string;
+  @Prop() value = '';
 
   /**
    * The optional floating label of this input field.
    */
   @Prop() inoLabel?: string;
+
+  /**
+   * Emits when the value changes.
+   */
+  @Event() ValueChanges!: EventEmitter<string>;
+
+  @Listen('change')
+  handleInput(e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+  }
+
+  @Listen('input')
+  handleNativeElement(e) {
+    e.preventDefault();
+    this.ValueChanges.emit(e.target.value);
+  }
+
+  @Watch('value')
+  handleChange(value: string) {
+    this.textfield.value = value;
+  }
 
   /**
    * An internal instance of the material design textfield.

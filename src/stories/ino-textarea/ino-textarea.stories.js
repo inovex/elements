@@ -8,9 +8,24 @@ import withStencilReadme from '../core/with-stencil-readme';
 import componentReadme from '../../components/ino-textarea/readme.md';
 import './ino-textarea.scss';
 
+import withEventListener from '../core/ino-event-listener';
+
+function valueChangesHandler(e) {
+  e.target.setAttribute('value', e.detail);
+}
+
+var events = [
+  {
+    name: 'valueChanges',
+    handler: valueChangesHandler
+  }
+];
+
+
 storiesOf('<ino-textarea>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('input .customizable-textarea'))
+  .addDecorator(withActions('input .customizable-textarea', 'valueChanges .customizable-textarea'))
+  .addDecorator(withEventListener(events))
   .add('Default usage', () => /*html*/`
     <div class="story-textarea">
       <ino-textarea class="customizable-textarea"

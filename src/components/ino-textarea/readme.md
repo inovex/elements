@@ -47,7 +47,14 @@ The component behaves like a native textarea with additional features. Thus, the
 | `placeholder` | `placeholder` | The placeholder of this element.                 | `string`  |
 | `required`    | `required`    | Marks this element as required.                  | `boolean` |
 | `rows`        | `rows`        | The number of rows of this textarea.             | `number`  |
-| `value`       | `value`       | The value of this element.                       | `string`  |
+| `value`       | `value`       | The value of this element. (**unmanaged**)       | `string`  |
+
+
+## Events
+
+| Event          | Description                   |
+| -------------- | ----------------------------- |
+| `ValueChanges` | Emits when the value changes. |
 
 
 ----------------------------------------------

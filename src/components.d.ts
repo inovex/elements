@@ -1588,7 +1588,7 @@ export namespace Components {
     */
     'rows': number;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value': string;
   }
@@ -1622,6 +1622,10 @@ export namespace Components {
     */
     'name'?: string;
     /**
+    * Emits when the value changes.
+    */
+    'onValueChanges'?: (event: CustomEvent<string>) => void;
+    /**
     * The placeholder of this element.
     */
     'placeholder'?: string;
@@ -1634,7 +1638,7 @@ export namespace Components {
     */
     'rows'?: number;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value'?: string;
   }
