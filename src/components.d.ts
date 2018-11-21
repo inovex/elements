@@ -1622,7 +1622,7 @@ export namespace Components {
     */
     'name'?: string;
     /**
-    * Emits when the value changes.
+    * Emits when the user types something in. Contains typed input in `event.detail`
     */
     'onValueChanges'?: (event: CustomEvent<string>) => void;
     /**

@@ -1,31 +1,45 @@
 import { storiesOf } from '@storybook/html';
-
+import CoreEvents from '@storybook/core-events';
 import { withActions } from '@storybook/addon-actions';
 import { number, text, boolean } from '@storybook/addon-knobs';
+import addons from '@storybook/addons';
+
 
 import withStencilReadme from '../core/with-stencil-readme';
 
 import componentReadme from '../../components/ino-textarea/readme.md';
 import './ino-textarea.scss';
 
-import withEventListener from '../core/ino-event-listener';
+// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
+function subscribeToComponentEvents() {
+  // == event block
+  const eventHandler = function(e) {
+    const el = e.target;
+    if (el.tagName.toLowerCase() !== 'ino-textarea') {
+      return;
+    }
 
-function valueChangesHandler(e) {
-  e.target.setAttribute('value', e.detail);
-}
+    el.setAttribute('value', e.detail);
+  };
 
-var events = [
-  {
-    name: 'valueChanges',
-    handler: valueChangesHandler
-  }
-];
+  document.addEventListener('valueChanges', eventHandler);
+  // == event block
+
+  // unsubscribe function will be called by Storybook
+  return () => {
+    document.removeEventListener('valueChanges', eventHandler);
+  };
+};
+
 
 
 storiesOf('<ino-textarea>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('input .customizable-textarea', 'valueChanges .customizable-textarea'))
-  .addDecorator(withEventListener(events))
+  .addDecorator(story => {
+    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
   .add('Default usage', () => /*html*/`
     <div class="story-textarea">
       <ino-textarea class="customizable-textarea"
