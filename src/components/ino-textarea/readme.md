@@ -18,16 +18,25 @@ The component can be used as follows:
   required="<boolean>"
   rows="<number>"
   value="<string>"
-  ino-label="<string>"
+  ino-label="<string>">
 </ino-textarea>
 ```
 
 **Labels**: The component shows a floating label containing the value of `ino-label`.
 
-### Event Behaviour
-The component behaves like a native textarea with additional features. Thus, the component bubbles events triggered by the native [HTMLTextAreaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement) like `input`, `keyup` or `change`.
+### Control flow
+The textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
-**Change Detection**: It's recommended to use the `input` event to detect input changes. In contrast to the `change` event, this event occurs immediately after the value of an element has changed.
+```html
+<ino-textarea
+  value={this.state.value}
+  valueChanges={e => this.state.value = e.detail}>
+</ino-textarea>
+```
+
+
+### Event Behaviour
+The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLTextareaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
 
 
 <!-- Auto Generated Below -->
@@ -52,9 +61,9 @@ The component behaves like a native textarea with additional features. Thus, the
 
 ## Events
 
-| Event          | Description                   |
-| -------------- | ----------------------------- |
-| `valueChanges` | Emits when the value changes. |
+| Event          | Description                                                                    |
+| -------------- | ------------------------------------------------------------------------------ |
+| `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` |
 
 
 ----------------------------------------------

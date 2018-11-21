@@ -8,6 +8,19 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Textarea {
+
+  private cursorPosition = 0;
+
+  /**
+   * Native Textarea Element
+   */
+  private nativeTextareaElement?: HTMLTextAreaElement;
+
+  /**
+   * An internal instance of the material design textfield.
+   */
+  private textfield: MDCTextField;
+
   @Element() el!: HTMLElement;
 
   /**
@@ -65,10 +78,26 @@ export class Textarea {
    */
   @Prop() inoLabel?: string;
 
+  @Watch('value')
+  handleChange(value: string) {
+    if (this.nativeTextareaElement) {
+    this.nativeTextareaElement.value = value;
+    this.nativeTextareaElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+    }
+  }
+
   /**
-   * Emits when the value changes.
+   * Emits when the user types something in. Contains typed input in `event.detail`
    */
   @Event() valueChanges!: EventEmitter<string>;
+
+  componentDidLoad() {
+    this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+  }
+
+  componentWillUnLoad() {
+    this.textfield.destroy();
+  }
 
   @Listen('change')
   handleInput(e) {
@@ -82,22 +111,13 @@ export class Textarea {
     this.valueChanges.emit(e.target.value);
   }
 
-  @Watch('value')
-  handleChange(value: string) {
-    this.textfield.value = value;
-  }
-
-  /**
-   * An internal instance of the material design textfield.
-   */
-  private textfield: MDCTextField;
-
-  componentDidLoad() {
-    this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
-  }
-
-  componentWillUnLoad() {
-    this.textfield.destroy();
+  private handleNativeTextareaChange(e) {
+    const value = e.target.value !== undefined ? e.target.value : '';
+    this.cursorPosition = e.target.selectionStart;
+    if (this.nativeTextareaElement) {
+      this.nativeTextareaElement.value = this.value || '';
+    }
+    this.valueChanges.emit(value);
   }
 
   private labelTemplate() {
@@ -106,7 +126,7 @@ export class Textarea {
     }
     const classLabel = classNames({
       'mdc-floating-label': true,
-      'mdc-floating-label--float-above': this.inoLabel && this.value
+      'mdc-floating-label--float-above': this.inoLabel && (this.value || this.nativeTextareaElement === document.activeElement)
     });
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
@@ -115,6 +135,7 @@ export class Textarea {
     return (
       <div class="mdc-text-field mdc-text-field--textarea">
         <textarea
+          ref={el => this.nativeTextareaElement = el}
           class="mdc-text-field__input"
           autofocus={this.autofocus}
           cols={this.cols}
@@ -126,6 +147,7 @@ export class Textarea {
           required={this.required}
           rows={this.rows}
           value={this.value}
+          onInput={this.handleNativeTextareaChange.bind(this)}
         >
         </textarea>
 
