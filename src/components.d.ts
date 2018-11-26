@@ -923,7 +923,7 @@ export namespace Components {
     */
     'type': string;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value': string;
   }
@@ -989,6 +989,10 @@ export namespace Components {
     */
     'name'?: string;
     /**
+    * Emits when the user types something in. Contains typed input in `event.detail`
+    */
+    'onValueChanges'?: (event: CustomEvent<string>) => void;
+    /**
     * The validation pattern of this element.
     */
     'pattern'?: string;
@@ -1017,7 +1021,7 @@ export namespace Components {
     */
     'type'?: string;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value'?: string;
   }
