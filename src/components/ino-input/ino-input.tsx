@@ -1,7 +1,7 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -13,7 +13,9 @@ export class Input {
   /**
    * Native Input Element
    */
-  private inputElement?: HTMLInputElement;
+  private nativeInputEl?: HTMLInputElement;
+
+  private cursorPosition = 0;
 
   /**
    * An internal auto generated id for the helper field.
@@ -108,9 +110,17 @@ export class Input {
   @Prop() type = 'text';
 
   /**
-   * The value of this element.
+   * The value of this element. (**unmanaged**)
    */
-  @Prop({ mutable: true }) value?: string;
+  @Prop() value = '';
+
+  @Watch('value')
+  valueChanged(newValue: string) {
+    if (this.nativeInputEl) {
+      this.nativeInputEl.value = newValue;
+      this.nativeInputEl.setSelectionRange(this.cursorPosition, this.cursorPosition);
+    }
+  }
 
   /**
    * Styles the input field as outlined element.
@@ -168,6 +178,10 @@ export class Input {
     if (this.inoIcon) {
       this.icon = new MDCTextFieldIcon(document.querySelector('.mdc-text-field-icon'));
     }
+
+    if (this.value && this.nativeInputEl) {
+      this.nativeInputEl.value = this.value;
+    }
   }
 
   componentWillUnLoad() {
@@ -180,13 +194,38 @@ export class Input {
     }
   }
 
+  private handleNativeInputChange(e) {
+    this.cursorPosition = e.target.selectionStart;
+    if (this.nativeInputEl) {
+      this.nativeInputEl.value = this.value;
+    }
+    this.valueChanges.emit(e.target.value);
+  }
+
+  /**
+   * Emits when the user types something in.
+   * Contains typed input in `event.detail`
+   */
+  @Event() valueChanges!: EventEmitter<string>;
+
+  @Listen('change')
+  handleChange(e: Event) {
+    e.stopPropagation();
+  }
+
+  @Listen('input')
+  handleInput(e) {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
+  }
+
   private labelTemplate() {
     if (!this.inoLabel) {
       return '';
     }
     const classLabel = classNames(
       'mdc-floating-label',
-      { 'mdc-floating-label--float-above': this.inoLabel && (this.value || this.inputElement === document.activeElement) }
+      { 'mdc-floating-label--float-above': this.inoLabel && (this.value || this.nativeInputEl === document.activeElement) }
     );
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
@@ -246,7 +285,7 @@ export class Input {
       <div class={classTextfield}>
         {!this.inoIconTrailing && this.iconTemplate()}
         <input
-          ref={el => this.inputElement = el}
+          ref={el => this.nativeInputEl = el}
           class="mdc-text-field__input"
           accessKey={this.accesskey}
           autocomplete={this.autocomplete}
@@ -265,6 +304,7 @@ export class Input {
           value={this.value}
           aria-controls={this.inoHelper && this.uniqueHelperId}
           aria-describedby={this.inoHelper && this.uniqueHelperId}
+          onInput={this.handleNativeInputChange.bind(this)}
         />
 
         {this.labelTemplate()}

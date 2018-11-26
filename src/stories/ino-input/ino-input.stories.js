@@ -2,6 +2,8 @@ import { storiesOf } from '@storybook/html';
 
 import { withActions } from '@storybook/addon-actions';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
+import addons from '@storybook/addons';
+import CoreEvents from '@storybook/core-events';
 
 import withStencilReadme from '../core/with-stencil-readme';
 
@@ -12,15 +14,42 @@ import './ino-input.scss';
 import ICONS from '../../components/ino-icon/icons';
 
 
+
+// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
+function subscribeToComponentEvents() {
+  // == event block
+  const eventHandler = function(e) {
+    const el = e.target;
+    if (el.tagName.toLowerCase() !== 'ino-input') {
+      return;
+    }
+
+    e.target.setAttribute('value', e.detail);
+  };
+
+  document.addEventListener('valueChanges', eventHandler);
+  // == event block
+
+  // unsubscribe function will be called by Storybook
+  return () => {
+    document.removeEventListener('valueChanges', eventHandler);
+  };
+};
+
+
 storiesOf('<ino-input>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions(
-    'input .customizable-input',
-    'inoIconClicked .customizable-input')
+    'inoIconClicked .customizable-input',
+    'valueChanges .customizable-input')
   )
+  .addDecorator(story => {
+    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
   .add('Default usage', () => /*html*/`
     <div class="story-input">
-      <ino-input class="customizable-input"
+      <ino-input class="customizable-input" id="customizable-input" valueChanges={action('value-changes')}
         type="${select('type', ['text', 'number', 'password'], 'text', 'STANDARD')}"
         step="${number('step', 5, ['step'], 'STANDARD')}"
         ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"

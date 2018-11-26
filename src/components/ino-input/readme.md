@@ -46,10 +46,19 @@ The component can be used as follows:
 
 **Icons**: Provide a string identifier in `ino-icon` to display a leading icon. Set `ino-icon-trailing` to position the icon after the input field. Make the icon interactive and clickable by adding `ino-icon-clickable` and listen to the `inoIconClicked` event emitted by the icon component.
 
-### Event Behaviour
-The component behaves like a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `input`, `keyup` or `change`.
+### Control flow
+The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
-**Change Detection**: It's recommended to use the `input` event to detect input changes. In contrast to the `change` event, this event occurs immediately after the value of an element has changed.
+```html
+<ino-input
+  value={this.state.value}
+  valueChanges={e => this.state.value = e.detail}>
+</ino-input>
+```
+
+### Event Behaviour
+The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
+
 
 
 <!-- Auto Generated Below -->
@@ -81,7 +90,14 @@ The component behaves like a native input with additional features. Thus, the co
 | `step`                | `step`                  | The step value of this element                                               | `number`  |
 | `tabindex`            | `tabindex`              | The tabindex of this element.                                                | `string`  |
 | `type`                | `type`                  | The type of this element (default = text).                                   | `string`  |
-| `value`               | `value`                 | The value of this element.                                                   | `string`  |
+| `value`               | `value`                 | The value of this element. (**unmanaged**)                                   | `string`  |
+
+
+## Events
+
+| Event          | Description                                                                    |
+| -------------- | ------------------------------------------------------------------------------ |
+| `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` |
 
 
 ----------------------------------------------
