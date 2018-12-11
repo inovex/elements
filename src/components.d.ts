@@ -168,7 +168,7 @@ export namespace Components {
 
   interface InoCheckbox {
     /**
-    * Marks this element as checked.
+    * Marks this element as checked. (**unmanaged**)
     */
     'checked': boolean;
     /**
@@ -180,7 +180,7 @@ export namespace Components {
     */
     'id': string;
     /**
-    * Marks this element as indeterminate
+    * Marks this element as indeterminate (**unmanaged**)
     */
     'indeterminate': boolean;
     /**
@@ -198,7 +198,7 @@ export namespace Components {
   }
   interface InoCheckboxAttributes extends StencilHTMLAttributes {
     /**
-    * Marks this element as checked.
+    * Marks this element as checked. (**unmanaged**)
     */
     'checked'?: boolean;
     /**
@@ -210,13 +210,17 @@ export namespace Components {
     */
     'id'?: string;
     /**
-    * Marks this element as indeterminate
+    * Marks this element as indeterminate (**unmanaged**)
     */
     'indeterminate'?: boolean;
     /**
     * The name of this element.
     */
     'name'?: string;
+    /**
+    * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+    */
+    'onCheckedChanges'?: (event: CustomEvent) => void;
     /**
     * The tab index of this element.
     */
