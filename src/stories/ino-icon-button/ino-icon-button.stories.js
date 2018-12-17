@@ -1,10 +1,14 @@
 
 import { storiesOf } from '@storybook/html';
+import { withActions } from '@storybook/addon-actions';
 
-import { action } from '@storybook/addon-actions';
+import addons from '@storybook/addons';
+import CoreEvents from '@storybook/core-events';
+
 import { boolean, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '../core/with-stencil-readme';
+import findElementUpwards from '../core/helpers/findElementUpwards';
 
 import componentReadme from '../../components/ino-icon-button/readme.md';
 import './ino-icon-button.scss';
@@ -13,16 +17,50 @@ import ICONS from '../../components/ino-icon/icons';
 
 ICONS.push(''); // additionally: allow no icon
 
+const eventToListen = 'click';
+
+// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
+function subscribeToComponentEvents() {
+  // == event block
+  const eventHandler = function(e) {
+    const el = findElementUpwards(e.target, 'ino-icon-button', 'custom');
+
+    if (!el) {
+      return;
+    }
+
+    const icon = 'star';
+    const checkedIcon = 'star_border';
+
+    const elementIcon = el.getAttribute('ino-icon');
+    el.setAttribute('ino-icon', elementIcon === icon ? checkedIcon : icon);
+  }
+  // == event block
+
+  document.addEventListener(eventToListen, eventHandler);
+
+  // unsubscribe function will be called by Storybook
+  return () => {
+    document.removeEventListener(eventToListen, eventHandler);
+  }
+}
+
 storiesOf('<ino-icon-button>', module)
   .addDecorator(withStencilReadme(componentReadme))
+  .addDecorator(withActions(
+    `${eventToListen} .customizable-icon-button ino-icon-button` // this is just for the "ACTION LOGGER" panel
+  ))
+  .addDecorator(story => {
+    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
   .add('Default usage', () => /*html*/`
     <div class="story-icon-button">
       <div class="customizable-icon-button">
         <h4>Customizable icon button</h4>
         <ino-icon-button
+          class="custom"
           ino-icon="${select('ino-icon', ICONS, 'star_border')}"
-          ino-icon-checked="${select('ino-icon-checked', ICONS, 'star')}"
-          ino-state-checked="${boolean('ino-state-checked', false)}"
           ino-color-scheme="${select(
             'ino-color-scheme',
             ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
