@@ -1,5 +1,5 @@
 import { MDCSelect } from '@material/select';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -9,7 +9,8 @@ import classNames from 'classnames';
 })
 export class Select {
   // An internal instance of the material design form field.
-  private select: MDCSelect;
+  private mdcInstance: MDCSelect;
+  private nativeSelectElement?: HTMLSelectElement;
 
   @Element() el!: HTMLElement;
   /**
@@ -55,12 +56,29 @@ export class Select {
    */
   @Prop() inoOutline?: boolean;
 
+  /**
+   * The value of this element. (**unmanaged**)
+   */
+  @Prop() value = '';
+
+  @Watch('value')
+  handleValueChange(value: string) {
+    if (this.nativeSelectElement) {
+      this.nativeSelectElement.value = this.mdcInstance.value = value;
+    }
+  }
+
+  /**
+   * Emits when a selection changes. Contains new value in `event.detail`.
+   */
+  @Event() valueChanges!: EventEmitter<string>;
+
   componentDidLoad() {
-    this.select = new MDCSelect(this.el.querySelector('.mdc-select'));
+    this.mdcInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
   }
 
   componentWillUnLoad() {
-    this.select.destroy();
+    this.mdcInstance.destroy();
   }
 
   private selectStyleTemplate() {
@@ -75,6 +93,22 @@ export class Select {
       ]);
     }
     return <div class="mdc-line-ripple"></div>;
+  }
+
+  @Listen('change')
+  handleChange(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  @Listen('input')
+  handleInput(e) {
+    e.preventDefault();
+    const value = e.target.value;
+    if (this.nativeSelectElement) {
+      this.nativeSelectElement.value = this.mdcInstance.value = this.value;
+    }
+    this.valueChanges.emit(value);
   }
 
   render() {
@@ -92,6 +126,7 @@ export class Select {
     return (
       <div class={classSelect}>
         <select
+          ref={el => this.nativeSelectElement = el}
           class="mdc-select__native-control"
           autoFocus={this.autofocus}
           disabled={this.disabled}

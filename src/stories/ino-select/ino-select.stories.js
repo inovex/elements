@@ -1,4 +1,6 @@
 import { storiesOf } from '@storybook/html';
+import CoreEvents from '@storybook/core-events';
+import addons from '@storybook/addons';
 
 import { withActions } from '@storybook/addon-actions';
 import { boolean, number, select, text} from '@storybook/addon-knobs';
@@ -9,12 +11,37 @@ import componentReadme from '../../components/ino-select/readme.md';
 import './ino-select.scss';
 
 
+// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
+function subscribeToComponentEvents() {
+  // == event block
+  const eventHandler = function(e) {
+    const el = e.target;
+    if (el.tagName.toLowerCase() !== 'ino-select') {
+      return;
+    }
+
+    el.setAttribute('value', e.detail);
+  };
+
+  document.addEventListener('valueChanges', eventHandler);
+  // == event block
+
+  // unsubscribe function will be called by Storybook
+  return () => {
+    document.removeEventListener('valueChanges', eventHandler);
+  };
+};
+
 storiesOf('<ino-select>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions(
-    'change .customizable-select',
+    'valueChanges .customizable-select',
     'submit .form'
   ))
+  .addDecorator(story => {
+    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
   .add('Default usage', () => {
     const optionsTemplate = /*html*/`
       <option>Option 1</option>
@@ -45,7 +72,7 @@ storiesOf('<ino-select>', module)
           ${optionsTemplate}
         </ino-select>
         <ino-select ino-label="Floating label">
-          <option value="">Diverse</option>
+          <option value="" />
           ${optionsTemplate}
         </ino-select>
 
@@ -76,8 +103,10 @@ storiesOf('<ino-select>', module)
     <div class="story-select">
       <h4>Required</h4>
       <p>The form should not submit since no option is selected and the select is required.</p>
-      <form class="form" onSubmit="return false;">
-          <ino-select ino-label="Form select" ino-prepend-default required></ino-select>
+      <form class="form" onSubmit="alert('Form submitted'); return false;">
+          <ino-select ino-label="Form select" ino-prepend-default required>
+            <option value="Test">Test</option>
+          </ino-select>
           <ino-button type="submit">Submit</ino-button>
       </form>
     </div>
