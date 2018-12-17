@@ -1334,6 +1334,10 @@ export namespace Components {
     * Marks this element as required.
     */
     'required': boolean;
+    /**
+    * The value of this element. (**unmanaged**)
+    */
+    'value': string;
   }
   interface InoSelectAttributes extends StencilHTMLAttributes {
     /**
@@ -1365,9 +1369,17 @@ export namespace Components {
     */
     'name'?: string;
     /**
+    * Emits when a selection changes. Contains new value in `event.detail`.
+    */
+    'onValueChanges'?: (event: CustomEvent<string>) => void;
+    /**
     * Marks this element as required.
     */
     'required'?: boolean;
+    /**
+    * The value of this element. (**unmanaged**)
+    */
+    'value'?: string;
   }
 
   interface InoSnackbar {

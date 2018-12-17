@@ -15,7 +15,7 @@ The component can be used as follows:
   ino-prepend-default="<boolean>"
   ino-label="<string>"
   ino-outline="<boolean>">
-  
+
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
   ...
@@ -27,8 +27,20 @@ The select items are (so far) no custom inovex elements but native HTML `option`
 
 **Empty default**: `ino-prepend-default` adds an option in the form of `<option disabled selected value=""></option>` to the select. Furthermore, the label is positioned as placeholder and floats to the top after an option has been selected.
 
+### Control flow
+The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of select.
+
+```html
+document.querySelector('ino-select').addEventListener('valueChanges', e => this.state.value = e.detail);
+
+<ino-select
+  value={this.state.value}>
+</ino-select>
+```
+
+
 ### Event Behaviour
-The component behaves like a native select with additional features. Thus, the component bubbles events triggered by the native [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) like `change`.
+The component behaves like a native select with additional features. The native `input'` and `change` event is not bubbled. Only `valueChanges` will be emitted when the user selects another option.
 
 
 
@@ -47,6 +59,14 @@ The component behaves like a native select with additional features. Thus, the c
 | `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option. | `boolean` |
 | `name`              | `name`                | The name of this element.                                                                                                                | `string`  |
 | `required`          | `required`            | Marks this element as required.                                                                                                          | `boolean` |
+| `value`             | `value`               | The value of this element. (**unmanaged**)                                                                                               | `string`  |
+
+
+## Events
+
+| Event          | Description                                                           |
+| -------------- | --------------------------------------------------------------------- |
+| `valueChanges` | Emits when a selection changes. Contains new value in `event.detail`. |
 
 
 ----------------------------------------------
