@@ -614,14 +614,6 @@ export namespace Components {
     * The name of the icon of this element.
     */
     'inoIcon': string;
-    /**
-    * The name of the icon shown if the icon button is checked. If given, makes the button a toggle button.
-    */
-    'inoIconChecked': string;
-    /**
-    * If the button is a toggle button, sets the default state to checked and displays the icon provided in `inoIconChecked`.
-    */
-    'inoStateChecked': boolean;
   }
   interface InoIconButtonAttributes extends StencilHTMLAttributes {
     /**
@@ -640,14 +632,6 @@ export namespace Components {
     * The name of the icon of this element.
     */
     'inoIcon'?: string;
-    /**
-    * The name of the icon shown if the icon button is checked. If given, makes the button a toggle button.
-    */
-    'inoIconChecked'?: string;
-    /**
-    * If the button is a toggle button, sets the default state to checked and displays the icon provided in `inoIconChecked`.
-    */
-    'inoStateChecked'?: boolean;
   }
 
   interface InoIcon {

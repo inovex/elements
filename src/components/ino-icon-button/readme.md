@@ -8,26 +8,26 @@ The component can be used as follows (custom properties have an `ino`-prefix):
   autofocus="<boolean>"
   disabled="<boolean>"
   ino-color-scheme="<string>"
-  ino-icon="<string>"
-  ino-icon-checked="<string>"
-  ino-state-checked="<boolean>">
+  ino-icon="<string>">
 </ino-icon-button>
 ```
 
-** Toggle Button **: If `ino-icon-checked` is provided, the button acts like a toggle button with an unchecked and checked state. By default, the icon provided in `ino-icon` is shown. By setting the default state to checked (`ino-state-checked="true"`), the default icon is `ino-icon-checked`.
+**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in `ino-icon`-Attribute.
+
+### Native Events
+The component bubbles the native `click`-Event to the user.
+
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                                                                                                       | Type      |
-| ----------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `autofocus`       | `autofocus`         | Sets the autofocus for this element.                                                                                                                                                                              | `boolean` |
-| `disabled`        | `disabled`          | Disables this element.                                                                                                                                                                                            | `boolean` |
-| `inoColorScheme`  | `ino-color-scheme`  | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
-| `inoIconChecked`  | `ino-icon-checked`  | The name of the icon shown if the icon button is checked. If given, makes the button a toggle button.                                                                                                             | `string`  |
-| `inoIcon`         | `ino-icon`          | The name of the icon of this element.                                                                                                                                                                             | `string`  |
-| `inoStateChecked` | `ino-state-checked` | If the button is a toggle button, sets the default state to checked and displays the icon provided in `inoIconChecked`.                                                                                           | `boolean` |
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `autofocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                              | `boolean` |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                            | `boolean` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
+| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`  |
 
 
 ----------------------------------------------
