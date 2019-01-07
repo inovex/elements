@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
 
 @Component({
     tag: 'ino-input-file',
@@ -43,37 +43,19 @@ export class InputFile {
   @Prop() inoLabel = 'Select file';
 
   /**
-   * Sets the phrase of the select button when selecting multiple files.
-   * Example: `selected` results in `x selected`.
-   *
-   * Only applicable if `multiple` is true.
+   * Emits when the value changes.
    */
-  @Prop() inoLabelSelected = 'selected';
-
-  /**
-   * State that holds the current label of the select button.
-   */
-  @State() stLabel!: string;
-
-  componentDidLoad() {
-    this.stLabel = this.inoLabel;
-  }
+  @Event() valueChanges!: EventEmitter<{ e: Event, files: object[] }>;
 
   private selectFiles() {
     const input = this.el.querySelector('.ino-input-file__native-element') as HTMLElement;
     input.click();
   }
 
-  private updateLabel(e: Event) {
-    let fileName = '';
+  private onFileChange(e: Event) {
     const target = e.target as any;
-    if (target.files && target.files.length > 1) {
-      fileName = `${target.files.length} ${this.inoLabelSelected}`;
-    } else if (target.files) {
-      fileName = target.value.split('\\').pop();
-    }
-
-    this.stLabel = fileName ? fileName : this.inoLabel;
+    const files = target.files as FileList;
+    this.valueChanges.emit({ e, files: Array.from(files) });
   }
 
   render() {
@@ -87,7 +69,7 @@ export class InputFile {
             disabled={this.disabled}
             onClick={_ => this.selectFiles()}
           >
-            {this.stLabel}
+            {this.inoLabel}
           </ino-button>
           <input
             class="ino-input-file__native-element"
@@ -98,7 +80,7 @@ export class InputFile {
             required={this.required}
             type="file"
             aria-hidden="true"
-            onChange={e => this.updateLabel(e)}
+            onChange={e => this.onFileChange(e)}
           >
           </input>
         </div>

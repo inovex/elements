@@ -770,10 +770,6 @@ export namespace Components {
     */
     'inoLabel': string;
     /**
-    * Sets the phrase of the select button when selecting multiple files. Example: `selected` results in `x selected`.  Only applicable if `multiple` is true.
-    */
-    'inoLabelSelected': string;
-    /**
     * Indicates whether the user can enter one or more values.
     */
     'multiple': boolean;
@@ -804,10 +800,6 @@ export namespace Components {
     */
     'inoLabel'?: string;
     /**
-    * Sets the phrase of the select button when selecting multiple files. Example: `selected` results in `x selected`.  Only applicable if `multiple` is true.
-    */
-    'inoLabelSelected'?: string;
-    /**
     * Indicates whether the user can enter one or more values.
     */
     'multiple'?: boolean;
@@ -815,6 +807,10 @@ export namespace Components {
     * The name of this input field.
     */
     'name'?: string;
+    /**
+    * Emits when the value changes.
+    */
+    'onValueChanges'?: (event: CustomEvent<{ e: Event, files: object[] }>) => void;
     /**
     * Marks this element as required.
     */
