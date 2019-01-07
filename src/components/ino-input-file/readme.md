@@ -25,16 +25,22 @@ The component can be used as follows:
 
 ## Properties
 
-| Property           | Attribute            | Description                                                                                                                                              | Type      |
-| ------------------ | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `accept`           | `accept`             | The types of files accepted by the server.                                                                                                               | `string`  |
-| `autofocus`        | `autofocus`          | The autofocus of this element.                                                                                                                           | `boolean` |
-| `disabled`         | `disabled`           | Disables this element.                                                                                                                                   | `boolean` |
-| `inoLabelSelected` | `ino-label-selected` | Sets the phrase of the select button when selecting multiple files. Example: `selected` results in `x selected`.  Only applicable if `multiple` is true. | `string`  |
-| `inoLabel`         | `ino-label`          | Sets the label of the select files button.                                                                                                               | `string`  |
-| `multiple`         | `multiple`           | Indicates whether the user can enter one or more values.                                                                                                 | `boolean` |
-| `name`             | `name`               | The name of this input field.                                                                                                                            | `string`  |
-| `required`         | `required`           | Marks this element as required.                                                                                                                          | `boolean` |
+| Property    | Attribute   | Description                                              | Type      |
+| ----------- | ----------- | -------------------------------------------------------- | --------- |
+| `accept`    | `accept`    | The types of files accepted by the server.               | `string`  |
+| `autofocus` | `autofocus` | The autofocus of this element.                           | `boolean` |
+| `disabled`  | `disabled`  | Disables this element.                                   | `boolean` |
+| `inoLabel`  | `ino-label` | Sets the label of the select files button.               | `string`  |
+| `multiple`  | `multiple`  | Indicates whether the user can enter one or more values. | `boolean` |
+| `name`      | `name`      | The name of this input field.                            | `string`  |
+| `required`  | `required`  | Marks this element as required.                          | `boolean` |
+
+
+## Events
+
+| Event          | Description                   |
+| -------------- | ----------------------------- |
+| `valueChanges` | Emits when the value changes. |
 
 
 ----------------------------------------------
