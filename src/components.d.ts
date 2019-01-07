@@ -1246,7 +1246,7 @@ export namespace Components {
     */
     'step': number;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value': number;
   }
@@ -1280,19 +1280,15 @@ export namespace Components {
     */
     'name'?: string;
     /**
-    * Is emitted whenever the range value is changed and commited by the user.
+    * Emits when the value changes. Contains new value in `event.detail`.
     */
-    'onInoRangeChanged'?: (event: CustomEvent) => void;
-    /**
-    * Is emitted whenever the range value is changed by the user.
-    */
-    'onInoRangeInput'?: (event: CustomEvent) => void;
+    'onValueChanges'?: (event: CustomEvent) => void;
     /**
     * The step size for this element (default = 1)
     */
     'step'?: number;
     /**
-    * The value of this element.
+    * The value of this element. (**unmanaged**)
     */
     'value'?: number;
   }
