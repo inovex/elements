@@ -23,6 +23,8 @@ storiesOf('<ino-range>', module)
             min="${number('min', 0)}"
             max="${number('max', 100)}"
             name="${text('name', '')}"
+            ino-discrete="${boolean('ino-discrete', false)}"
+            ino-markers="${boolean('ino-markers', false)}"
             value="${number('value', 50)}"
             required="${boolean('required', false)}"
             step="${number('step', 1)}"

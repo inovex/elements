@@ -54,13 +54,31 @@ export class Range {
   }
 
   /**
-   * The value of this element.
+   * The value of this element. (**unmanaged**)
    */
-  @Prop({ mutable: true }) value?: number;
+
+  @Prop() value?: number;
+
+  /**
+   * Emits when the value changes. Contains new value in `event.detail`.
+   */
+  @Event() valueChanges!: EventEmitter;
 
   @Watch('value')
   valueChangeHandler(newValue: number) {
     this.sliderInstance.value = newValue;
+  }
+
+  handleChange(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  handleInput(e) {
+    const value = e.detail.foundation_.value_;
+    this.sliderInstance.value = value;
+    this.valueChanges.emit(value);
+    e.stopPropagation();
   }
 
   /**
@@ -76,7 +94,7 @@ export class Range {
   /**
    * The step size for this element (default = 1)
    */
-  @Prop() step?: number;
+  @Prop() step ?= 1;
 
   @Watch('step')
   stepChangeHandler(newValue: number) {
@@ -90,16 +108,6 @@ export class Range {
    */
   @Prop() inoColorScheme?: string;
 
-  /**
-   * Is emitted whenever the range value is changed and commited by the user.
-   */
-  @Event() inoRangeChanged!: EventEmitter;
-
-  /**
-   * Is emitted whenever the range value is changed by the user.
-   */
-  @Event() inoRangeInput!: EventEmitter;
-
   componentDidLoad() {
     this.load();
   }
@@ -108,37 +116,26 @@ export class Range {
     this.unload();
   }
 
-  private unload() {
-    this.sliderInstance.destroy();
-    this.sliderInstance.unlisten('MDCSlider:change', this.onMDCChangeHandler.bind(this));
-    this.sliderInstance.unlisten('MDCSlider:input', this.onMDCInputHandler.bind(this));
-  }
-
   private load() {
     const sliderElement = this.el.querySelector('.mdc-slider');
     this.sliderInstance = new MDCSlider(sliderElement);
-    this.sliderInstance.listen('MDCSlider:change', this.onMDCChangeHandler.bind(this));
-    this.sliderInstance.listen('MDCSlider:input', this.onMDCInputHandler.bind(this));
+    this.sliderInstance.listen('MDCSlider:change', this.handleChange.bind(this));
+    this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
+
+  }
+
+  private unload() {
+    this.sliderInstance.unlisten('MDCSlider:change', this.handleChange.bind(this));
+    this.sliderInstance.unlisten('MDCSlider:input', this.handleInput.bind(this));
+    this.sliderInstance.destroy();
   }
 
   private reload() {
     const oldValue = this.sliderInstance.value;
-
     this.unload();
     setTimeout(_ => this.load()); // hacky?
 
     this.sliderInstance.value = oldValue;
-  }
-
-  private onMDCChangeHandler(e) {
-    this.inoRangeChanged.emit(e.detail.foundation_.value_);
-    e.stopPropagation();
-  }
-
-  private onMDCInputHandler(e) {
-    this.inoRangeInput.emit(e.detail.foundation_.value_);
-    this.value = e.detail.foundation_.value_;
-    e.stopPropagation();
   }
 
   render() {

@@ -35,15 +35,14 @@ The component can be used as follows:
 | `min`            | `min`              | The min value of this element.                                                                                                                                 | `number`  |
 | `name`           | `name`             | The name of this element.                                                                                                                                      | `string`  |
 | `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`  |
-| `value`          | `value`            | The value of this element.                                                                                                                                     | `number`  |
+| `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`  |
 
 
 ## Events
 
-| Event             | Description                                                              |
-| ----------------- | ------------------------------------------------------------------------ |
-| `inoRangeChanged` | Is emitted whenever the range value is changed and commited by the user. |
-| `inoRangeInput`   | Is emitted whenever the range value is changed by the user.              |
+| Event          | Description                                                         |
+| -------------- | ------------------------------------------------------------------- |
+| `valueChanges` | Emits when the value changes. Contains new value in `event.detail`. |
 
 
 ----------------------------------------------
