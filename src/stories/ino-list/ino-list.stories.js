@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/html';
-import { boolean, select, text } from '@storybook/addon-knobs';
+import {storiesOf} from '@storybook/html';
+import {boolean, select, text} from '@storybook/addon-knobs';
 
 import withStencilReadme from '../core/with-stencil-readme';
 
@@ -16,7 +16,11 @@ storiesOf('<ino-list>', module)
   .add('Default usage', () => /*html*/`
     <div class="story-list">
       <h4>Customizable List</h4>
-      <ino-list ino-dense="${boolean('ino-dense', false)}">
+      <ino-list 
+        ino-dense="${boolean('ino-dense', false)}"
+        ino-two-lines="${boolean('ino-two-lines', false)}"
+        ino-avatar="${boolean('ino-avatar', false)}"
+       >
         <ino-list-item ino-text="First text item"></ino-list-item>
         <ino-list-item ino-text="Second text item"></ino-list-item>
         <ino-list-item ino-text="Third text item"></ino-list-item>
@@ -35,10 +39,36 @@ storiesOf('<ino-list>', module)
         <ino-list-item ino-text="Second text item"></ino-list-item>
         <ino-list-item ino-text="Third text item"></ino-list-item>
       </ino-list>
-      <ino-list ino-dense ino-two-lines>
+      <ino-list ino-dense ino-two-lines class="first-densed-list">
         <ino-list-item ino-text="First text item" ino-secondary-text="Secondary"></ino-list-item>
         <ino-list-item ino-text="Second text item" ino-secondary-text="Secondary"></ino-list-item>
         <ino-list-item ino-text="Third text item" ino-secondary-text="Secondary"></ino-list-item>
+      </ino-list>
+      
+      <h4>Avatar</h4>
+      <ino-list ino-avatar class="first-densed-list">
+        <ino-list-item ino-text="First text item">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
+        <ino-list-item ino-text="Second text item">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
+      </ino-list>
+      <ino-list ino-avatar ino-dense class="first-densed-list">
+        <ino-list-item ino-text="First text item">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
+        <ino-list-item ino-text="Second text item">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
+      </ino-list>
+      <ino-list ino-avatar ino-two-lines class="first-densed-list">
+        <ino-list-item ino-text="First text item" ino-secondary-text="Secondary">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
+        <ino-list-item ino-text="Second text item" ino-secondary-text="Secondary">
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+        </ino-list-item>
       </ino-list>
     </div>
   `)

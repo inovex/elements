@@ -1,4 +1,5 @@
-import { Component, Prop } from '@stencil/core';
+import { MDCList } from '@material/list';
+import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -7,6 +8,11 @@ import classNames from 'classnames';
   shadow: false
 })
 export class List {
+
+  private listInstance!: MDCList;
+
+  @Element() el!: HTMLElement;
+
   /**
    * Styles the list more dense, making it appear more compact.
    */
@@ -23,6 +29,15 @@ export class List {
    */
   @Prop() inoAvatar = false;
 
+  componentDidLoad() {
+    const listElement = this.el.querySelector('.mdc-list');
+    this.listInstance = new MDCList(listElement);
+  }
+
+  componentDidUnload() {
+    this.listInstance.destroy();
+  }
+
   render() {
     const listClasses = classNames({
       'mdc-list': true,
@@ -33,7 +48,7 @@ export class List {
 
     return (
       <ul class={listClasses} aria-orientation="vertical">
-        <slot />
+        <slot/>
       </ul>
     );
   }
