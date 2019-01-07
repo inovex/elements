@@ -1049,7 +1049,7 @@ export namespace Components {
     */
     'inoSecondaryText': string;
     /**
-    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely change soon.
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
     */
     'inoSelected': boolean;
     /**
@@ -1067,13 +1067,17 @@ export namespace Components {
     */
     'inoSecondaryText'?: string;
     /**
-    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely change soon.
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
     */
     'inoSelected'?: boolean;
     /**
     * The primary text of this list item (required).
     */
     'inoText'?: string;
+    /**
+    * Emits when the list item is clicked. Contains the element itself in `event.detail`
+    */
+    'onItemClick'?: (event: CustomEvent) => void;
   }
 
   interface InoList {

@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -7,10 +7,12 @@ import classNames from 'classnames';
   shadow: false
 })
 export class ListItem {
+
+  @Element() el!: HTMLElement;
   /**
    * The primary text of this list item (required).
    */
-  @Prop() inoText?: string;
+  @Prop() inoText!: string;
 
   /**
    * Sets the secondary text of this list item.
@@ -23,7 +25,7 @@ export class ListItem {
    * Styles the row in a selected style.
    *
    * In contrast to `inoActivated`, use this option to select one
-   * or multiple items that are likely change soon.
+   * or multiple items that are likely to change soon.
    */
   @Prop() inoSelected?: boolean;
 
@@ -34,6 +36,22 @@ export class ListItem {
    * and to mark it as permantently activated.
    */
   @Prop() inoActivated?: boolean;
+
+  /**
+   * Emits when the list item is clicked.
+   * Contains the element itself in `event.detail`
+   */
+  @Event() itemClick!: EventEmitter;
+
+  @Listen('click')
+  clickHandler(e) {
+    this.itemClick.emit(this.el);
+    e.stopPropagation();
+  }
+
+  componentDidUnload() {
+    this.el.remove();
+  }
 
   render() {
     const listItemClasses = classNames({
