@@ -12,5 +12,10 @@ export default [
   'star',
   'star_border',
   'users',
-  'cancel'
+  'cancel',
+  'delete',
+  'gear',
+  'gps',
+  'menu',
+  'edit'
 ];

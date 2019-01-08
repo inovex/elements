@@ -10,6 +10,18 @@
 <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-menu" viewBox="0 0 24 24">
+<title>menu</title>
+<path d="M3 6h18v2.016h-18v-2.016zM3 12.984v-1.969h18v1.969h-18zM3 18v-2.016h18v2.016h-18z"></path>
+</symbol>
+<symbol id="icon-edit" viewBox="0 0 24 24">
+<title>edit</title>
+<path d="M20.719 7.031l-1.828 1.828-3.75-3.75 1.828-1.828c0.375-0.375 1.031-0.375 1.406 0l2.344 2.344c0.375 0.375 0.375 1.031 0 1.406zM3 17.25l11.063-11.063 3.75 3.75-11.063 11.063h-3.75v-3.75z"></path>
+</symbol>
+<symbol id="icon-delete" viewBox="0 0 24 24">
+<title>delete</title>
+<path d="M18.984 3.984v2.016h-13.969v-2.016h3.469l1.031-0.984h4.969l1.031 0.984h3.469zM6 18.984v-12h12v12c0 1.078-0.938 2.016-2.016 2.016h-7.969c-1.078 0-2.016-0.938-2.016-2.016z"></path>
+</symbol>
 <symbol id="icon-add" viewBox="0 0 24 24">
 <title>add</title>
 <path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"></path>
@@ -70,6 +82,14 @@
 <title>file_upload</title>
 <path d="M5.016 18h13.969v2.016h-13.969v-2.016zM9 15.984v-6h-3.984l6.984-6.984 6.984 6.984h-3.984v6h-6z"></path>
 </symbol>
+<symbol id="icon-gps" viewBox="0 0 24 24">
+<title>gps</title>
+<path d="M12 0c-4.142 0-7.5 3.358-7.5 7.5 0 7.5 7.5 16.5 7.5 16.5s7.5-9 7.5-16.5c0-4.142-3.358-7.5-7.5-7.5zM12 12c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z"></path>
+</symbol>
+<symbol id="icon-gear" viewBox="0 0 24 24">
+<title>gear</title>
+<path d="M21.886 14.303c-1.259-2.181-0.502-4.976 1.691-6.246l-2.358-4.085c-0.674 0.395-1.457 0.622-2.293 0.622-2.52 0-4.563-2.057-4.563-4.594h-4.717c0.006 0.783-0.189 1.577-0.608 2.303-1.259 2.181-4.058 2.923-6.255 1.658l-2.358 4.085c0.679 0.386 1.267 0.951 1.685 1.675 1.257 2.178 0.504 4.967-1.681 6.24l2.358 4.085c0.671-0.391 1.451-0.615 2.283-0.615 2.512 0 4.55 2.044 4.563 4.569h4.717c-0.002-0.775 0.194-1.56 0.609-2.279 1.257-2.177 4.049-2.92 6.244-1.664l2.358-4.085c-0.675-0.386-1.258-0.949-1.674-1.669zM12 16.859c-2.684 0-4.859-2.176-4.859-4.859s2.176-4.859 4.859-4.859c2.684 0 4.859 2.176 4.859 4.859s-2.176 4.859-4.859 4.859z"></path>
+</symbol>
 </defs>
 </svg>
 
@@ -80,6 +100,21 @@
 </header>
     <div class="clearfix mhl ptl">
         <h1 class="mvm mtn fgc1">Grid Size: 24</h1>
+        <div class="glyph fs1">
+            <div class="clearfix pbs">
+                <svg class="icon-menu"><use xlink:href="#icon-menu"></use></svg><span class="name"> icon-menu</span>
+            </div>
+        </div>
+        <div class="glyph fs1">
+            <div class="clearfix pbs">
+                <svg class="icon-edit"><use xlink:href="#icon-edit"></use></svg><span class="name"> icon-edit</span>
+            </div>
+        </div>
+        <div class="glyph fs1">
+            <div class="clearfix pbs">
+                <svg class="icon-delete"><use xlink:href="#icon-delete"></use></svg><span class="name"> icon-delete</span>
+            </div>
+        </div>
         <div class="glyph fs1">
             <div class="clearfix pbs">
                 <svg class="icon-add"><use xlink:href="#icon-add"></use></svg><span class="name"> icon-add</span>
@@ -153,6 +188,19 @@
         <div class="glyph fs1">
             <div class="clearfix pbs">
                 <svg class="icon-file_upload"><use xlink:href="#icon-file_upload"></use></svg><span class="name"> icon-file_upload</span>
+            </div>
+        </div>
+  </div>
+    <div class="clearfix mhl ptl">
+        <h1 class="mvm mtn fgc1">Grid Size: 16</h1>
+        <div class="glyph fs2">
+            <div class="clearfix pbs">
+                <svg class="icon-gps"><use xlink:href="#icon-gps"></use></svg><span class="name"> icon-gps</span>
+            </div>
+        </div>
+        <div class="glyph fs2">
+            <div class="clearfix pbs">
+                <svg class="icon-gear"><use xlink:href="#icon-gear"></use></svg><span class="name"> icon-gear</span>
             </div>
         </div>
   </div>
