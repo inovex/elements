@@ -108,6 +108,21 @@ We use customizable instances of elements to give users the ability to explore a
 * provide a knob for each available attribute.
 * name the knob after the attribute (f.e. `ino-color-scheme`)
 
+
+
+## Updating dependencies
+Our dependencies are still under active devlopment. In order to get the most mature and stable version, we have to update the dependencies regularly.
+
+So, don't be shy. We rather have breaking changes than buggy dependencies.
+
+The yarn update command helps us to update:
+
+* Material components: `yarn upgrade --scope @material --latest`
+* Stencil: `yarn upgrade --scope @stencil --latest` and 
+* Storybook: `yarn upgrade --scope @storybook --latest`
+
+
+
 ## Versioning and Releasing
 The inovex elements project follows [semantic versioning](https://semver.org/). If you are preparing a new release, please make sure to
 increment the version number in the appropriate way.
