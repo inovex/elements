@@ -30,16 +30,16 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 
 ## Properties
 
-| Property       | Attribute        | Description                                           | Type     |
-| -------------- | ---------------- | ----------------------------------------------------- | -------- |
-| `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` |
+| Property       | Attribute        | Description                                           | Type     | Default |
+| -------------- | ---------------- | ----------------------------------------------------- | -------- | ------- |
+| `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
 
 
 ## Events
 
-| Event                 | Description                                                         |
-| --------------------- | ------------------------------------------------------------------- |
-| `inoActiveTabChanges` | Emits when a tab changes. Contains activating tab in `event.detail` |
+| Event                 | Description                                                         | Type                |
+| --------------------- | ------------------------------------------------------------------- | ------------------- |
+| `inoActiveTabChanges` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<void>` |
 
 
 ----------------------------------------------

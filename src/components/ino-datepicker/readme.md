@@ -54,29 +54,29 @@ or as datetime picker
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                      | Type             |
-| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ | ---------------- |
-| `accesskey`           | `accesskey`             | The accesskey of this element.                                                                   | `string`         |
-| `autofocus`           | `autofocus`             | Autofocuses this element.                                                                        | `boolean`        |
-| `disabled`            | `disabled`              | Disables this element.                                                                           | `boolean`        |
-| `hourStep`            | `hour-step`             | Adjusts the step for the hour input (incl. scrolling)                                            | `number`         |
-| `inoDefaultDate`      | `ino-default-date`      | A simple date string that sets the default date.                                                 | `string`         |
-| `inoDefaultHour`      | `ino-default-hour`      | A number containing the initial hour in the date-time picker.                                    | `number`         |
-| `inoDefaultMinute`    | `ino-default-minute`    | A number containing the initial minute in the date-time picker.                                  | `number`         |
-| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                                                 | `boolean`        |
-| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                                                  | `boolean`        |
-| `inoHelper`           | `ino-helper`            | The helper text.                                                                                 | `string`         |
-| `inoLabel`            | `ino-label`             | Defines the label for this element.                                                              | `string`         |
-| `inoOutline`          | `ino-outline`           | Styles the datepicker as outlined element.                                                       | `boolean`        |
-| `inoTwelfHourTime`    | `ino-twelf-hour-time`   | If true, displays time picker in 12 hour mode with AM/PM selection.                              | `boolean`        |
-| `inoType`             | `ino-type`              | The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`. | `DatepickerType` |
-| `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                            | `string`         |
-| `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                 | `string`         |
-| `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling)                                          | `number`         |
-| `name`                | `name`                  | The input name of this element.                                                                  | `string`         |
-| `required`            | `required`              | Marks this element as required.                                                                  | `boolean`        |
-| `tabindex`            | `tabindex`              | The tabindex of this element.                                                                    | `string`         |
-| `value`               | `value`                 | The value of this element.                                                                       | `string`         |
+| Property              | Attribute               | Description                                                                                      | Type                                        | Default     |
+| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------- | ----------- |
+| `accesskey`           | `accesskey`             | The accesskey of this element.                                                                   | `string`                                    | `undefined` |
+| `autofocus`           | `autofocus`             | Autofocuses this element.                                                                        | `boolean`                                   | `undefined` |
+| `disabled`            | `disabled`              | Disables this element.                                                                           | `boolean`                                   | `undefined` |
+| `hourStep`            | `hour-step`             | Adjusts the step for the hour input (incl. scrolling)                                            | `number`                                    | `1`         |
+| `inoDefaultDate`      | `ino-default-date`      | A simple date string that sets the default date.                                                 | `string`                                    | `undefined` |
+| `inoDefaultHour`      | `ino-default-hour`      | A number containing the initial hour in the date-time picker.                                    | `number`                                    | `12`        |
+| `inoDefaultMinute`    | `ino-default-minute`    | A number containing the initial minute in the date-time picker.                                  | `number`                                    | `0`         |
+| `inoHelper`           | `ino-helper`            | The helper text.                                                                                 | `string`                                    | `undefined` |
+| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                                                 | `boolean`                                   | `undefined` |
+| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                                                  | `boolean`                                   | `undefined` |
+| `inoLabel`            | `ino-label`             | Defines the label for this element.                                                              | `string`                                    | `undefined` |
+| `inoOutline`          | `ino-outline`           | Styles the datepicker as outlined element.                                                       | `boolean`                                   | `undefined` |
+| `inoTwelfHourTime`    | `ino-twelf-hour-time`   | If true, displays time picker in 12 hour mode with AM/PM selection.                              | `boolean`                                   | `undefined` |
+| `inoType`             | `ino-type`              | The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`. | `"date" \| "datetime" \| "range" \| "time"` | `'date'`    |
+| `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                            | `string`                                    | `undefined` |
+| `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                 | `string`                                    | `undefined` |
+| `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling)                                          | `number`                                    | `5`         |
+| `name`                | `name`                  | The input name of this element.                                                                  | `string`                                    | `undefined` |
+| `required`            | `required`              | Marks this element as required.                                                                  | `boolean`                                   | `undefined` |
+| `tabindex`            | `tabindex`              | The tabindex of this element.                                                                    | `string`                                    | `undefined` |
+| `value`               | `value`                 | The value of this element.                                                                       | `string`                                    | `undefined` |
 
 
 ----------------------------------------------

@@ -25,22 +25,22 @@ The component can be used as follows:
 
 ## Properties
 
-| Property    | Attribute   | Description                                              | Type      |
-| ----------- | ----------- | -------------------------------------------------------- | --------- |
-| `accept`    | `accept`    | The types of files accepted by the server.               | `string`  |
-| `autofocus` | `autofocus` | The autofocus of this element.                           | `boolean` |
-| `disabled`  | `disabled`  | Disables this element.                                   | `boolean` |
-| `inoLabel`  | `ino-label` | Sets the label of the select files button.               | `string`  |
-| `multiple`  | `multiple`  | Indicates whether the user can enter one or more values. | `boolean` |
-| `name`      | `name`      | The name of this input field.                            | `string`  |
-| `required`  | `required`  | Marks this element as required.                          | `boolean` |
+| Property    | Attribute   | Description                                              | Type      | Default         |
+| ----------- | ----------- | -------------------------------------------------------- | --------- | --------------- |
+| `accept`    | `accept`    | The types of files accepted by the server.               | `string`  | `undefined`     |
+| `autofocus` | `autofocus` | The autofocus of this element.                           | `boolean` | `undefined`     |
+| `disabled`  | `disabled`  | Disables this element.                                   | `boolean` | `undefined`     |
+| `inoLabel`  | `ino-label` | Sets the label of the select files button.               | `string`  | `'Select file'` |
+| `multiple`  | `multiple`  | Indicates whether the user can enter one or more values. | `boolean` | `undefined`     |
+| `name`      | `name`      | The name of this input field.                            | `string`  | `undefined`     |
+| `required`  | `required`  | Marks this element as required.                          | `boolean` | `undefined`     |
 
 
 ## Events
 
-| Event          | Description                   |
-| -------------- | ----------------------------- |
-| `valueChanges` | Emits when the value changes. |
+| Event          | Description                   | Type                                         |
+| -------------- | ----------------------------- | -------------------------------------------- |
+| `valueChanges` | Emits when the value changes. | `CustomEvent<{ e: Event, files: object[] }>` |
 
 
 ----------------------------------------------

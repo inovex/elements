@@ -22,20 +22,20 @@ The component can be used as follows:
 
 ## Properties
 
-| Property                   | Attribute                     | Description                                                                           | Type      |
-| -------------------------- | ----------------------------- | ------------------------------------------------------------------------------------- | --------- |
-| `inoIcon`                  | `ino-icon`                    | Indicates a leading icon in the tab.                                                  | `string`  |
-| `inoIndicatorContentWidth` | `ino-indicator-content-width` | Indicates that the tab only expands to the width of its content.                      | `boolean` |
-| `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  |
-| `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` |
+| Property                   | Attribute                     | Description                                                                           | Type      | Default     |
+| -------------------------- | ----------------------------- | ------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoIcon`                  | `ino-icon`                    | Indicates a leading icon in the tab.                                                  | `string`  | `undefined` |
+| `inoIndicatorContentWidth` | `ino-indicator-content-width` | Indicates that the tab only expands to the width of its content.                      | `boolean` | `false`     |
+| `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
+| `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
 
 ## Events
 
-| Event             | Description                      |
-| ----------------- | -------------------------------- |
-| `inoTabDidLoad`   | Emitted when the tab did load.   |
-| `inoTabDidUnLoad` | Emitted when the tab did unload. |
+| Event             | Description                      | Type                |
+| ----------------- | -------------------------------- | ------------------- |
+| `inoTabDidLoad`   | Emitted when the tab did load.   | `CustomEvent<void>` |
+| `inoTabDidUnLoad` | Emitted when the tab did unload. | `CustomEvent<void>` |
 
 
 ----------------------------------------------

@@ -24,22 +24,22 @@ Snackbar is displayed when ino-show is changed to checked.
 
 ## Properties
 
-| Property            | Attribute              | Description                                                                                           | Type      |
-| ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- | --------- |
-| `inoActionOnBottom` | `ino-action-on-bottom` | Whether to show the action below the multiple lines of text Optional, applies when multiline is true. | `boolean` |
-| `inoActionText`     | `ino-action-text`      | The text to display for the action button.                                                            | `string`  |
-| `inoAlignStart`     | `ino-align-start`      | Controls if Snackbar is centered or start-aligned.                                                    | `boolean` |
-| `inoMessage`        | `ino-message`          | The text message to display.                                                                          | `string`  |
-| `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` |
-| `inoShow`           | `ino-show`             | Trigger the display of a message with optional action.                                                | `boolean` |
+| Property            | Attribute              | Description                                                                                           | Type      | Default     |
+| ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoActionOnBottom` | `ino-action-on-bottom` | Whether to show the action below the multiple lines of text Optional, applies when multiline is true. | `boolean` | `false`     |
+| `inoActionText`     | `ino-action-text`      | The text to display for the action button.                                                            | `string`  | `''`        |
+| `inoAlignStart`     | `ino-align-start`      | Controls if Snackbar is centered or start-aligned.                                                    | `boolean` | `false`     |
+| `inoMessage`        | `ino-message`          | The text message to display.                                                                          | `string`  | `undefined` |
+| `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` | `false`     |
+| `inoShow`           | `ino-show`             | Trigger the display of a message with optional action.                                                | `boolean` | `false`     |
 
 
 ## Events
 
-| Event              | Description                                                                                                      |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `inoActionClicked` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. |
-| `inoSnackbarHide`  | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            |
+| Event              | Description                                                                                                      | Type                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `inoActionClicked` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
+| `inoSnackbarHide`  | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            | `CustomEvent<void>` |
 
 
 ----------------------------------------------

@@ -22,12 +22,12 @@ The component bubbles the native `click`-Event to the user.
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `autofocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                              | `boolean` |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                            | `boolean` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
-| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`  |
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type      | Default     |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `autofocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                              | `boolean` | `undefined` |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                            | `boolean` | `undefined` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  | `undefined` |
+| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`  | `undefined` |
 
 
 ----------------------------------------------

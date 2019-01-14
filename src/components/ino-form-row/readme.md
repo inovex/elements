@@ -15,10 +15,10 @@ The component can be used as follows:
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                            | Type      |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| `inoLabel`     | `ino-label`     | The label for this form row which describes the form element.                                                                                          | `string`  |
-| `inoMandatory` | `ino-mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` |
+| Property       | Attribute       | Description                                                                                                                                            | Type      | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `inoLabel`     | `ino-label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
+| `inoMandatory` | `ino-mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
 
 
 ----------------------------------------------

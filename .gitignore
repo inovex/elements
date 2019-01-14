@@ -5,12 +5,14 @@ coverage/
 *~
 *.sw[mnpcod]
 *.log
+*.lock
 *.tmp
 *.tmp.*
 log.txt
 *.sublime-project
 *.sublime-workspace
 
+.stencil/
 .idea/
 .vscode/
 .sass-cache/
@@ -18,9 +20,9 @@ log.txt
 node_modules/
 $RECYCLE.BIN/
 
-storybook-static/
-
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+storybook-static/

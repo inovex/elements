@@ -9,27 +9,24 @@
     "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
   },
   "license": "UNLICENSED",
-  "main": "dist/inovex-elements.js",
-  "module": "dist/inovex-elements.js",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
-    "dist/",
-    "webpack-plugin.js"
+    "dist/"
   ],
   "scripts": {
     "build": "stencil build --docs",
     "postbuild": "node ./scripts/postbuild.js",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "dev": "sd concurrent \"yarn build --watch\" \"yarn run storybook\" ",
-    "serve": "yarn run dev",
-    "start": "yarn run dev",
+    "start": "sd concurrent \"yarn build --dev --watch\" \"yarn run storybook\" ",
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "storybook": "start-storybook -p 6006 -s ./.storybook/static",
-    "test": "jest --no-cache --coverage",
-    "test.watch": "jest --watch --no-cache",
+    "test": "stencil build && stencil test --e2e --ci",
+    "test.watch": "stencil build && stencil test --e2e --ci --watchAll",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "dependencies": {
@@ -53,15 +50,15 @@
     "@material/tab-scroller": "^0.39.1",
     "@material/textfield": "^0.38.1",
     "@material/typography": "^0.39.0",
-    "@stencil/core": "0.12.4",
+    "@stencil/core": "0.16.2",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "highlightjs": "^9.10.0",
     "tooltip.js": "^1.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.0",
-    "@stencil/sass": "^0.1.0",
+    "@babel/core": "^7.2.2",
+    "@stencil/sass": "^0.1.1",
     "@stencil/utils": "latest",
     "@storybook/addon-actions": "4.0.12",
     "@storybook/addon-knobs": "4.0.12",
@@ -72,7 +69,8 @@
     "@storybook/core": "4.0.12",
     "@storybook/html": "4.0.12",
     "@types/classnames": "^2.2.6",
-    "@types/jest": "^21.1.1",
+    "@types/jest": "23.3.12",
+    "@types/puppeteer": "^1.6.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.2",
     "babel-runtime": "^6.26.0",
@@ -81,9 +79,11 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "fs-extra": "^7.0.0",
-    "jest": "^21.2.1",
+    "jest": "~23.6.0",
+    "jest-environment-node": "23.4.0",
     "marked": "^0.5.0",
     "moment": "^2.22.2",
+    "puppeteer": "~1.8.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "sass-loader": "^7.0.3",
@@ -92,18 +92,5 @@
     "tslint-react": "^3.6.0",
     "typescript": "^3.0.3",
     "webpack": "^4.19.1"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json",
-      "jsx"
-    ]
   }
 }

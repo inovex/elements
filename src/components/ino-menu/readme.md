@@ -21,10 +21,10 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 ## Properties
 
-| Property  | Attribute  | Description                                                                   | Type      |
-| --------- | ---------- | ----------------------------------------------------------------------------- | --------- |
-| `inoFor`  | `ino-for`  | The anchor element for this menu. If empty, the anchor is the parent element. | `string`  |
-| `inoOpen` | `ino-open` | Set this option to show the menu manually.                                    | `boolean` |
+| Property  | Attribute  | Description                                                                   | Type      | Default     |
+| --------- | ---------- | ----------------------------------------------------------------------------- | --------- | ----------- |
+| `inoFor`  | `ino-for`  | The anchor element for this menu. If empty, the anchor is the parent element. | `string`  | `undefined` |
+| `inoOpen` | `ino-open` | Set this option to show the menu manually.                                    | `boolean` | `undefined` |
 
 
 ----------------------------------------------

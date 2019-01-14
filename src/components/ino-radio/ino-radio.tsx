@@ -30,7 +30,7 @@ export class Radio {
   /**
    * The id of this element.
    */
-  @Prop() id?: string;
+  @Prop() inoId?: string;
 
   /**
    * The name of this element.
@@ -40,7 +40,7 @@ export class Radio {
   /**
    * The tabIndex of this element.
    */
-  @Prop() tabIndex?: number;
+  @Prop() inoTabindex?: number;
 
   /**
    * The value of this element.
@@ -93,7 +93,7 @@ export class Radio {
   }
 
   private uniqueRadioId() {
-    return this.id ? `ino-radio-id-${this.id}` : '';
+    return this.inoId ? `ino-radio-id-${this.inoId}` : '';
   }
 
   render() {
@@ -107,7 +107,7 @@ export class Radio {
             checked={this.checked}
             disabled={this.disabled}
             name={this.name}
-            tabindex={this.tabIndex}
+            tabindex={this.inoTabindex}
             value={this.value}
             ref={el => this.nativeInputEl = el as HTMLInputElement}
           />

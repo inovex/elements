@@ -32,21 +32,21 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason, lis
 
 ## Properties
 
-| Property   | Attribute   | Description                                    | Type      |
-| ---------- | ----------- | ---------------------------------------------- | --------- |
-| `checked`  | `checked`   | Marks this element as checked (**unmanaged**). | `boolean` |
-| `disabled` | `disabled`  | Disables this element.                         | `boolean` |
-| `id`       | `id`        | The id of this element.                        | `string`  |
-| `name`     | `name`      | The name of this element.                      | `string`  |
-| `tabIndex` | `tab-index` | The tabIndex of this element.                  | `number`  |
-| `value`    | `value`     | The value of this element.                     | `string`  |
+| Property      | Attribute      | Description                                    | Type      | Default     |
+| ------------- | -------------- | ---------------------------------------------- | --------- | ----------- |
+| `checked`     | `checked`      | Marks this element as checked (**unmanaged**). | `boolean` | `false`     |
+| `disabled`    | `disabled`     | Disables this element.                         | `boolean` | `undefined` |
+| `inoId`       | `ino-id`       | The id of this element.                        | `string`  | `undefined` |
+| `inoTabindex` | `ino-tabindex` | The tabIndex of this element.                  | `number`  | `undefined` |
+| `name`        | `name`         | The name of this element.                      | `string`  | `undefined` |
+| `value`       | `value`        | The value of this element.                     | `string`  | `undefined` |
 
 
 ## Events
 
-| Event            | Description                                                                        |
-| ---------------- | ---------------------------------------------------------------------------------- |
-| `checkedChanges` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` |
+| Event            | Description                                                                        | Type                |
+| ---------------- | ---------------------------------------------------------------------------------- | ------------------- |
+| `checkedChanges` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` | `CustomEvent<void>` |
 
 
 ----------------------------------------------
