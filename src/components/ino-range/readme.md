@@ -25,24 +25,24 @@ The component can be used as follows:
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                    | Type      |
-| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                         | `boolean` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  |
-| `inoDiscrete`    | `ino-discrete`     | Restricts the slider to only allow discrete values.                                                                                                            | `boolean` |
-| `inoMarkers`     | `ino-markers`      | Mark this slider to show the steps of the range. Only applicable if ino-discrete is true                                                                       | `boolean` |
-| `max`            | `max`              | The max value of this element.                                                                                                                                 | `number`  |
-| `min`            | `min`              | The min value of this element.                                                                                                                                 | `number`  |
-| `name`           | `name`             | The name of this element.                                                                                                                                      | `string`  |
-| `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`  |
-| `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`  |
+| Property         | Attribute          | Description                                                                                                                                                    | Type      | Default     |
+| ---------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                         | `boolean` | `undefined` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `string`  | `undefined` |
+| `inoDiscrete`    | `ino-discrete`     | Restricts the slider to only allow discrete values.                                                                                                            | `boolean` | `undefined` |
+| `inoMarkers`     | `ino-markers`      | Mark this slider to show the steps of the range. Only applicable if ino-discrete is true                                                                       | `boolean` | `undefined` |
+| `max`            | `max`              | The max value of this element.                                                                                                                                 | `number`  | `undefined` |
+| `min`            | `min`              | The min value of this element.                                                                                                                                 | `number`  | `undefined` |
+| `name`           | `name`             | The name of this element.                                                                                                                                      | `string`  | `undefined` |
+| `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`  | `1`         |
+| `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`  | `undefined` |
 
 
 ## Events
 
-| Event          | Description                                                         |
-| -------------- | ------------------------------------------------------------------- |
-| `valueChanges` | Emits when the value changes. Contains new value in `event.detail`. |
+| Event          | Description                                                         | Type                |
+| -------------- | ------------------------------------------------------------------- | ------------------- |
+| `valueChanges` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
 
 
 ----------------------------------------------

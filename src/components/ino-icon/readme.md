@@ -35,17 +35,17 @@ If you have to add, remove or change an icon:
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                  | Type      |
-| -------------- | --------------- | ---------------------------------------------------------------------------- | --------- |
-| `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` |
-| `inoIcon`      | `ino-icon`      | The name of the icon of this element.                                        | `string`  |
+| Property       | Attribute       | Description                                                                  | Type      | Default     |
+| -------------- | --------------- | ---------------------------------------------------------------------------- | --------- | ----------- |
+| `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` | `undefined` |
+| `inoIcon`      | `ino-icon`      | The name of the icon of this element.                                        | `string`  | `undefined` |
 
 
 ## Events
 
-| Event            | Description                                                                                                           |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `inoIconClicked` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. |
+| Event            | Description                                                                                                           | Type                |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `inoIconClicked` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<void>` |
 
 
 ----------------------------------------------

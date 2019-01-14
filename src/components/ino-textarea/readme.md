@@ -44,26 +44,26 @@ The component is based on a native input with additional features. Thus, the com
 
 ## Properties
 
-| Property      | Attribute     | Description                                      | Type      |
-| ------------- | ------------- | ------------------------------------------------ | --------- |
-| `autofocus`   | `autofocus`   | The autofocus of this element.                   | `boolean` |
-| `cols`        | `cols`        | The number of cols of this textarea.             | `number`  |
-| `disabled`    | `disabled`    | Disables this element.                           | `boolean` |
-| `inoLabel`    | `ino-label`   | The optional floating label of this input field. | `string`  |
-| `maxlength`   | `maxlength`   | The max length of this element.                  | `number`  |
-| `minlength`   | `minlength`   | The min length of this element.                  | `number`  |
-| `name`        | `name`        | The name of this element.                        | `string`  |
-| `placeholder` | `placeholder` | The placeholder of this element.                 | `string`  |
-| `required`    | `required`    | Marks this element as required.                  | `boolean` |
-| `rows`        | `rows`        | The number of rows of this textarea.             | `number`  |
-| `value`       | `value`       | The value of this element. (**unmanaged**)       | `string`  |
+| Property      | Attribute     | Description                                      | Type      | Default     |
+| ------------- | ------------- | ------------------------------------------------ | --------- | ----------- |
+| `autofocus`   | `autofocus`   | The autofocus of this element.                   | `boolean` | `undefined` |
+| `cols`        | `cols`        | The number of cols of this textarea.             | `number`  | `undefined` |
+| `disabled`    | `disabled`    | Disables this element.                           | `boolean` | `undefined` |
+| `inoLabel`    | `ino-label`   | The optional floating label of this input field. | `string`  | `undefined` |
+| `maxlength`   | `maxlength`   | The max length of this element.                  | `number`  | `undefined` |
+| `minlength`   | `minlength`   | The min length of this element.                  | `number`  | `undefined` |
+| `name`        | `name`        | The name of this element.                        | `string`  | `undefined` |
+| `placeholder` | `placeholder` | The placeholder of this element.                 | `string`  | `undefined` |
+| `required`    | `required`    | Marks this element as required.                  | `boolean` | `undefined` |
+| `rows`        | `rows`        | The number of rows of this textarea.             | `number`  | `undefined` |
+| `value`       | `value`       | The value of this element. (**unmanaged**)       | `string`  | `''`        |
 
 
 ## Events
 
-| Event          | Description                                                                    |
-| -------------- | ------------------------------------------------------------------------------ |
-| `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` |
+| Event          | Description                                                                    | Type                  |
+| -------------- | ------------------------------------------------------------------------------ | --------------------- |
+| `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 
 ----------------------------------------------

@@ -23,11 +23,11 @@ The component can be used as follows:
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                             | Type      |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `inoBetweenLists` | `ino-between-lists` | Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.                                            | `boolean` |
-| `inoInset`        | `ino-inset`         | Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.                   | `boolean` |
-| `inoPadded`       | `ino-padded`        | Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`. | `boolean` |
+| Property          | Attribute           | Description                                                                                                                             | Type      | Default     |
+| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoBetweenLists` | `ino-between-lists` | Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.                                            | `boolean` | `undefined` |
+| `inoInset`        | `ino-inset`         | Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.                   | `boolean` | `undefined` |
+| `inoPadded`       | `ino-padded`        | Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`. | `boolean` | `undefined` |
 
 
 ----------------------------------------------

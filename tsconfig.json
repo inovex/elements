@@ -1,34 +1,26 @@
-
 {
   "compilerOptions": {
-    "strict": true,
     "alwaysStrict": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "declaration": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "jsxFactory": "h",
     "lib": [
       "dom",
       "es2017"
     ],
-    "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
+    "module": "esnext",
+    "target": "es2017",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": ".tmp",
-    "pretty": true,
-    "removeComments": false,
-    "target": "es2017"
+    "jsx": "react",
+    "jsxFactory": "h"
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "stencil.config.ts"
+    "src",
+    "types/jsx.d.ts"
   ],
   "exclude": [
     "node_modules"

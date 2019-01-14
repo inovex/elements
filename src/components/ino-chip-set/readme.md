@@ -46,16 +46,16 @@ For both, choice and filter chip sets emit an `inoChipSetUpdated` event when a u
 
 ## Properties
 
-| Property  | Attribute  | Description                                            | Type          |
-| --------- | ---------- | ------------------------------------------------------ | ------------- |
-| `inoType` | `ino-type` | The type of this chip set that indicates its behavior. | `ChipSetType` |
+| Property  | Attribute  | Description                                            | Type                                    | Default     |
+| --------- | ---------- | ------------------------------------------------------ | --------------------------------------- | ----------- |
+| `inoType` | `ino-type` | The type of this chip set that indicates its behavior. | `"" \| "choice" \| "filter" \| "input"` | `undefined` |
 
 
 ## Events
 
-| Event               | Description                                                                                                     |
-| ------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `inoChipSetUpdated` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. |
+| Event               | Description                                                                                                     | Type                |
+| ------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `inoChipSetUpdated` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
 
 
 ----------------------------------------------

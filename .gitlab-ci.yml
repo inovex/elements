@@ -7,18 +7,12 @@ stages:
 
 image: node:10
 
-cache:
-  untracked: true
-  key: "$CI_BUILD_REF_NAME"
-  paths:
-    - node_modules/
-
 test:
  stage: test
+ image: alekzonder/puppeteer:latest
  script:
  - yarn install
- - yarn run lint
- - yarn run test
+ - yarn test
  tags:
  - shared
 
@@ -26,9 +20,11 @@ build:
  stage: build
  script:
  - yarn install
- - yarn run build
- - yarn run build.storybook
+ - yarn lint
+ - yarn build
+ - yarn build.storybook
  artifacts:
+  expire_in: 1 week
   paths:
   - dist/
   - storybook-static/
@@ -54,7 +50,7 @@ deploy:
  - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
  tags:
  - shared
- only: 
+ only:
  - master
  - tags
 
@@ -66,7 +62,7 @@ deploy-latest:
  - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -rtvu --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
  tags:
  - shared
- only: 
+ only:
  - tags
 
 

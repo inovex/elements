@@ -32,7 +32,7 @@ export class Checkbox {
   /**
    * The id of this element.
    */
-  @Prop() id?: string;
+  @Prop() inoId?: string;
 
   /**
    * The name of this element.
@@ -42,7 +42,7 @@ export class Checkbox {
   /**
    * The tab index of this element.
    */
-  @Prop() tabIndex?: number;
+  @Prop() inoTabindex?: number;
 
   /**
    * The value of this element.
@@ -101,7 +101,7 @@ export class Checkbox {
   }
 
   private uniqueCheckboxId() {
-    return this.id ? `ino-checkbox-id-${this.id}` : '';
+    return this.inoId ? `ino-checkbox-id-${this.inoId}` : '';
   }
 
   render() {
@@ -114,7 +114,7 @@ export class Checkbox {
             checked={this.checked}
             disabled={this.disabled}
             name={this.name}
-            tabindex={this.tabIndex}
+            tabindex={this.inoTabindex}
             value={this.value}
             id={this.uniqueCheckboxId()}
             ref={el => this.nativeInputEl = el as HTMLInputElement}

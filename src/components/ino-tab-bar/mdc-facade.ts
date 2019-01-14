@@ -113,8 +113,8 @@ export class MDCTabBarFacade {
         return -1;
       },
       getFocusedTabIndex: () => {
-        const tabElements = this.getTabElements();
-        const activeElement = document.activeElement;
+        const tabElements = this.getTabElements() as Element[];
+        const activeElement = document.activeElement as Element;
         return tabElements.indexOf(activeElement);
       },
       getIndexOfTab: tabToFind => this.tabList.indexOf(tabToFind),
