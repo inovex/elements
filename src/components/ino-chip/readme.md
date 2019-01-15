@@ -13,9 +13,9 @@ The component can be used as follows:
   ino-fill="<string>"
   ino-icon="<string>"
   ino-label="<string>"
-  ino-removable="<boolean>"
-  ino-selectable="<boolean>"
-  ino-selected="<boolean>"
+  ino-removable
+  ino-selectable
+  ino-selected
   ino-value="<string>">
 </ino-chip>
 ```
@@ -30,12 +30,18 @@ If `ino-removable` is set to `true`, the chip can be removed by the user. The co
 
 However, the component doesn't hide/destroy itself but emits an `inoRemove`-Event instead. Thus, the overlying app can remove the chip by listening to this event.
 
+```js
+document
+  .querySelector('ino-chip')
+  .addEventListener('inoChipRemove', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-chip
-  ino-removable
-  onInoRemove="_ => removeChip()">
+<ino-chip ino-removable>
     Removable chip
-</ino-chip> 
+</ino-chip>
 ```
 
 

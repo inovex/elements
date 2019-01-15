@@ -7,14 +7,14 @@ The component can be used as follows:
 
 ```html
 <ino-select
-  autofocus="<boolean>"
-  disabled="<boolean>"
+  autofocus
+  disabled
   form="<string>"
   name="<string>"
-  required="<boolean>"
-  ino-prepend-default="<boolean>"
+  required
+  ino-prepend-default
   ino-label="<string>"
-  ino-outline="<boolean>">
+  ino-outline
 
   <option value="1">Option 1</option>
   <option value="2">Option 2</option>
@@ -30,12 +30,16 @@ The select items are (so far) no custom inovex elements but native HTML `option`
 ### Control flow
 The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of select.
 
-```html
-document.querySelector('ino-select').addEventListener('valueChanges', e => this.state.value = e.detail);
+```js
+document
+  .querySelector('ino-select')
+  .addEventListener('valueChanges', (e) => {
+    // ...
+  });
+```
 
-<ino-select
-  value={this.state.value}>
-</ino-select>
+```html
+<ino-select value="salutation"></ino-select>
 ```
 
 

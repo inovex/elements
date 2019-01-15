@@ -9,10 +9,10 @@ The component can be used as follows:
 <ino-card 
   ino-subtitle="<string>"
   ino-title="<string>"
-  ino-outline="<boolean>"
+  ino-outline
   ino-image="<string>"
   ino-aspect-ratio="<string>"
-  ino-media-title="<boolean>">
+  ino-media-title=
   <div slot="content"><!-- Any content --></div>
   <ino-button slot="action-buttons" ino-fill="transparent">Read</ino-button>
   <ino-button slot="action-buttons" ...>Bookmark</ino-button>

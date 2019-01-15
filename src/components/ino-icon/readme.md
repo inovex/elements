@@ -4,8 +4,16 @@ A light icon component for texts and other components.
 ### Usage
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-icon')
+  .addEventListener('inoIconClicked', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-icon ino-icon="<string>" ino-clickable="<boolean>"></ino-icon>
+<ino-icon ino-icon="<string>" ino-clickable></ino-icon>
 ```
 
 The component inherits stylings like the text size of the parent element. For custom stylings set css properties on this element.

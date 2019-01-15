@@ -5,17 +5,18 @@ A button component with different styles and icon capability. It functions as a 
 The component can be used as follows (custom properties have an `ino`-prefix):
 ```html
 <ino-button
-  autofocus="<boolean>"
-  disabled="<boolean>"
+  autofocus
+  disabled
   name="<string>"
   form="<string>"
   type="<string>"
   ino-color-scheme="<string>"
-  ino-dense="<boolean>"
+  ino-dense
   ino-fill="<string>"
   ino-icon="<string>"
-  ino-icon-prepend="<boolean>">
- Button Content
+  ino-icon-prepend
+>
+  Button Content
 </ino-button>
 ```
 

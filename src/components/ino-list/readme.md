@@ -8,8 +8,8 @@ The component can be used as follows:
 
 ```html
 <ino-list
-  ino-dense="<boolean>"
-  ino-two-lines="<boolean>">
+  ino-dense
+  ino-two-lines
     <ino-list-item ...></ino-list-item>
     <ino-list-divider></ino-list-divider>
 </ino-list>

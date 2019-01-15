@@ -7,7 +7,7 @@ A compact component wrapping `ino-chip` elements and giving them a behavior. It 
 The component can be used as follows:
 
 ```html
-<ino-chip-set ino-type="'' | 'choice' | 'filter'">
+<ino-chip-set ino-type=<string>>
   <ino-chip ...></ino-chip>
   ...
   <ino-chip ...></ino-chip>
@@ -34,8 +34,16 @@ There are two complex types of chip sets:
 
 For both, choice and filter chip sets emit an `inoChipSetUpdated` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
+```js
+document
+  .querySelector('ino-chip-set')
+  .addEventListener('inoChipSetUpdated', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-chip-set ino-type="choice" onInoChipSetUpdated={(e) => console.log(`Value is `e.detail`)}>
+<ino-chip-set ino-type="choice">
   <ino-chip ino-label="Chip 1" ino-value="Just"></ino-chip>
   <ino-chip ino-label="Chip 2" ino-value="Awesome!"></ino-chip>
 </ino-chip-set>

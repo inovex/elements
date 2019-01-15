@@ -12,29 +12,29 @@ The component can be used as follows:
 <ino-input
   accesskey="<string>"
   autocomplete="<string>"
-  autofocus="<boolean>"
-  disabled="<boolean>"
+  autofocus
+  disabled
   min="<number>"
   max="<number>"
   step="<number>"
   name="<string>"
   pattern="<string>"
   placeholder="<string>"
-  required="<boolean>"
+  required
   size="<number>"
   tabindex="<string>"
   type="<string>"
   value="<string>"
-  ino-outline="<boolean>"
+  ino-outline
   ino-label="<string>"
 
   ino-icon="<string>"
-  ino-icon-trailing="<boolean>"
-  ino-icon-clickable="<boolean>"
+  ino-icon-trailing
+  ino-icon-clickable
 
   ino-helper="<string>"
-  ino-helper-persistent="<boolean>"
-  ino-helper-validation="<boolean">
+  ino-helper-persistent
+  ino-helper-validation
 </ino-input>
 ```
 
@@ -49,11 +49,16 @@ The component can be used as follows:
 ### Control flow
 The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
+```js
+document
+  .querySelector('ino-input')
+  .addEventListener('valueChanges', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-input
-  value={this.state.value}
-  valueChanges={e => this.state.value = e.detail}>
-</ino-input>
+<ino-input value="Here's some text"></ino-input>
 ```
 
 ### Event Behaviour

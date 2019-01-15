@@ -10,8 +10,8 @@ The component can be used as follows:
   ino-color-scheme="<string>"
   ino-icon="<string>"
   ino-label="<string>"
-  ino-extended="<boolean>"
-  ino-mini="<boolean>"
+  ino-extended
+  ino-mini
   ino-tooltip-placement="<string>">
 </ino-fab>
 ```

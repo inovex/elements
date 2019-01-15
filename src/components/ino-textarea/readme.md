@@ -8,14 +8,14 @@ The component can be used as follows:
 
 ```html
 <ino-textarea
-  autofocus="<boolean>"
+  autofocus
   cols="<number>"
-  disabled="<boolean>"
+  disabled
   maxlength="<number>"
   minlength="<number>"
   name="<string>"
   placeholder="<string>"
-  required="<boolean>"
+  required
   rows="<number>"
   value="<string>"
   ino-label="<string>">
@@ -27,11 +27,16 @@ The component can be used as follows:
 ### Control flow
 The textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
+```js
+document
+  .querySelector('ino-textarea')
+  .addEventListener('valueChanges', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-textarea
-  value={this.state.value}
-  valueChanges={e => this.state.value = e.detail}>
-</ino-textarea>
+<ino-textarea value={this.state.value}></ino-textarea>
 ```
 
 

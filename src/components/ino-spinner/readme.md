@@ -11,7 +11,7 @@ The component can be used as follows:
   ino-type="<string>"
   ino-color-scheme="<string>"
   ino-height="<number>" 
-  ino-modal="<boolean>" 
+  ino-modal
   ino-width="<number>">
 </ino-spinner>
 ```

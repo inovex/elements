@@ -7,7 +7,7 @@ The component can be used as follows:
 ```html
 <ino-menu
   ino-for="<string>"
-  ino-open="<boolean>">
+  ino-open>
     <ino-list-item ...></ino-list-item>
     <ino-list-divider></ino-list-divider>
 </ino-menu>
