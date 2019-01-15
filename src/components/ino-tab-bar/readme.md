@@ -6,10 +6,7 @@ Tabs organize and allow navigation between groups of content that are related an
 The component can be used as follows:
 
 ```jsx
-<ino-tab-bar  
-  ino-active-tab="<number>" 
-  onInoTabActivated={e => handler(e.detail.inoIndex)}>
-  
+<ino-tab-bar ino-active-tab="<number>">
   <ino-tab ...></ino-tab>
 </ino-tab-bar>
 ```
@@ -17,11 +14,19 @@ The component can be used as follows:
 ### Control flow
 The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `ino-active-tab`. Listen to `InoActiveTabChanges`, sync it with your local state and pass the new index to the component again to activate the tab.
 
-```jsx
-<ino-tab
-  ino-active-tab={this.state.index}
-  onInoActiveTabChanges={e => this.state.index = e.detail}>
-</ino-tab>
+```js
+document
+  .querySelector('ino-tab-bar')
+  .addEventListener('inoActiveTabChanges', (e) => {
+    // ...
+  });
+```
+
+```html
+<ino-tab-bar ino-active-tab="0">
+  <ino-tab ino-label="Tab 1"></ino-tab>
+  <ino-tab ino-label="Tab 2"></ino-tab>
+</ino-tab-bar>
 ```
 
 

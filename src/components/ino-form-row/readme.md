@@ -5,7 +5,7 @@ A component that styles an form element as a row with label.
 The component can be used as follows:
 
 ```html
-<ino-form-row ino-label="<string>" ino-mandatory="<boolean">
+<ino-form-row ino-label="<string>" ino-mandatory>
   Any desired form element
 <ino-form-row>
 ```

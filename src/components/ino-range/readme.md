@@ -6,6 +6,14 @@ A range component that allows the user select a number using a slider. It functi
 ### Usage
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-range')
+  .addEventListener('valueChanges', (e) => {
+    // ...
+  });
+```
+
 ```html
 <ino-range
   min="<number>"
@@ -13,9 +21,9 @@ The component can be used as follows:
   value="<number>"
   name="<string>"
   step="<number>"
-  ino-discrete="<boolean>"
-  ino-markers="<boolean>"
-  disabled="<boolean>"
+  ino-discrete
+  ino-markers
+  disabled
   ino-color-scheme="<string>">
 </ino-range>
 ```

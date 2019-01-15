@@ -6,17 +6,25 @@ This component replaces the native behaviour with a custom `ino-button` with log
 ### Usage
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-input-file')
+  .addEventListener('valueChanges', (e) => {
+    // ...
+  });
+```
+
 ```html
 <ino-input-file
   accept="<string>"
-  autofocus="<boolean>"
-  disabled="<boolean>"
-  multiple="<boolean>"
+  autofocus
+  disabled
+  multiple
   name="<string>"
-  required="<boolean>"
+  required
 
   ino-label="<string>"
-  ino-label-selected="<boolean>">
+  ino-label-selected
 </ino-input>
 ```
 

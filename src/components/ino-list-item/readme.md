@@ -6,12 +6,20 @@ This component is used as child of `ino-list` and `ino-menu` components.
 ### Usage
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-list-item')
+  .addEventListener('itemClick', (e) => {
+    // ...
+  });
+```
+
 ```html
 <ino-list-item
-  ino-activated="<boolean>"
+  ino-activated
   ino-text="<string>"
   ino-secondary-text="<string>"
-  ino-selected="<boolean>">
+  ino-selected
     <ino-icon slot="ino-leading" ...></ino-icon>
     <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
 </ino-list-item>

@@ -7,8 +7,8 @@ The component can be used as follows:
 
 ```html
 <ino-radio
-  checked="<boolean>"
-  disabled="<boolean>"
+  checked
+  disabled
   name="<string>"
   tabindex="<string>"
   value="<string>">
@@ -19,11 +19,16 @@ The component can be used as follows:
 ### Control flow
 The input has a controlled (unmanaged) attribute `checked`. For this reason, listen to `checkedChanges`, sync it with your local state and pass the new value to the component again to change the value of input.
 
+```js
+document
+  .querySelector('ino-radio')
+  .addEventListener('checkedChanges', (e) => {
+    // ...
+  });
+```
+
 ```html
-<ino-radio
-  checked={this.state.checked}
-  checkedChanges={e => this.state.checked = e.detail}>
-</ino-radio>
+<ino-radio checked></ino-radio>
 ```
 
 

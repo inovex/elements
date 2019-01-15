@@ -4,15 +4,29 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 ### Usage
 The component can be used as follows:
 
-```jsx
+```js
+document
+  .querySelector('ino-snackbar')
+  .addEventListener('inoActionClicked', (e) => {
+    // ...
+  });
+
+document
+  .querySelector('ino-snackbar')
+  .addEventListener('inoSnackbarHide', (e) => {
+    // ...
+  });
+```
+
+```html
 <ino-snackbar
-  ino-show="<boolean>"
+  ino-show
   ino-message="<string>"
   ino-action-text="<string>"
-  ino-multiline="<boolean>"
-  ino-action-on-bottom="<boolean>"
-  ino-align-start="<boolean>"
-  onInoSnackbarHide={e => inoSnackbarHideHandler(e)}/>
+  ino-multiline
+  ino-action-on-bottom
+  ino-align-start
+</ino-snackbar>
 ```
 
 Snackbar is displayed when ino-show is changed to checked.

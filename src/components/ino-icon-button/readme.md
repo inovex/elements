@@ -5,8 +5,8 @@ A rounded button component that contains an icon. It functions as a wrapper arou
 The component can be used as follows (custom properties have an `ino`-prefix):
 ```html
 <ino-icon-button
-  autofocus="<boolean>"
-  disabled="<boolean>"
+  autofocus
+  disabled
   ino-color-scheme="<string>"
   ino-icon="<string>">
 </ino-icon-button>

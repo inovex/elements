@@ -16,7 +16,7 @@ The component can be used as follows (custom preferences have an `ino`-prefix):
 
   ino-ratio-height="<number>"
   ino-ratio-width="<number>"
-  ino-rounded="<boolean>">
+  ino-rounded
 </ino-img>
 ```
 

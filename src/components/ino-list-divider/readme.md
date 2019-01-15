@@ -8,9 +8,9 @@ The component can be used as follows:
 
 ```html
 <ino-list-divder
-  ino-between-lists="<boolean>"
-  ino-inset="<boolean>"
-  ino-padded="<boolan>">
+  ino-between-lists
+  ino-inset
+  ino-padded
 </ino-list-divider>
 ```
 

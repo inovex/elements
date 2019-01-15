@@ -5,12 +5,27 @@ Tabs organize and allow navigation between groups of content that are related an
 ### Usage
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-tab')
+  .addEventListener('inoTabDidLoad', (e) => {
+    // ...
+  });
+
+document
+  .querySelector('ino-tab')
+  .addEventListener('inoTabDidUnLoad', (e) => {
+    // ...
+  });
+```
+
 ```html
 <ino-tab
   ino-label="<string>"
   ino-icon="<string>"
-  ino-indicator-content-width="<boolean>"
-  ino-stacked="<boolean>">
+  ino-indicator-content-width
+  ino-stacked
+>
 </ino-tab>
 ```
 

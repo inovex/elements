@@ -8,13 +8,13 @@ The component can be used as follows:
 
 ```html
 <ino-checkbox
-  checked="<boolean>"
-  disabled="<boolean>"
+  checked
+  disabled
   id="<string>"
   name="<string>"
   tabIndex="<number>"
   value="<string>"
-  indeterminate="<boolean>">
+  indeterminate>
     Label
 </ino-checkbox>
 ```
@@ -36,11 +36,7 @@ document
 ```
 
 ```html
-<ino-checkbox
-  checked={this.state.checked}
-  indeterminate={this.state.indeterminate}
-  checkedChanges={e => this.state.checked = e.detail}>
-</ino-checkbox>
+<ino-checkbox checked indeterminate></ino-checkbox>
 ```
 
 
