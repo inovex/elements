@@ -1,6 +1,9 @@
 import { MDCRipple } from '@material/ripple';
 import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
+import { Placement } from 'popper.js';
+
+import { ColorScheme } from '../types';
 
 @Component({
   tag: 'ino-fab',
@@ -37,7 +40,7 @@ export class Fab {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() inoTooltipPlacement = 'left';
+  @Prop() inoTooltipPlacement: Placement = 'left';
 
   /**
    * The name of the color scheme which is used
@@ -45,7 +48,7 @@ export class Fab {
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(this.el.querySelector('.mdc-fab'));

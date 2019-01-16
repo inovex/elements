@@ -1,6 +1,8 @@
 import { Component, Element, Prop } from '@stencil/core';
 import classnames from 'classnames';
 
+import { CardAspectRatio, ColorScheme } from '../types';
+
 @Component({
   tag: 'ino-card',
   styleUrl: 'ino-card.scss',
@@ -34,7 +36,7 @@ export class Card {
    * Automatically scales the media areas's height according to its width.
    * Possible values: `16-9` (default), `square`
    */
-  @Prop() inoAspectRatio = '16-9';
+  @Prop() inoAspectRatio?: CardAspectRatio = '16-9';
 
   /**
    * Displays the card title inside the image
@@ -47,7 +49,7 @@ export class Card {
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   private headerTemplate() {
     if (this.inoTitle || this.inoSubtitle) {

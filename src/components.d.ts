@@ -10,9 +10,18 @@ import '@stencil/core';
 
 import {
   ButtonType,
+  CardAspectRatio,
   ChipSetType,
+  ChipSurface,
+  ColorScheme,
   DatepickerType,
+  HorizontalLocation,
   ImageDecodingTypes,
+  Locations,
+  SpinnerType,
+  SurfaceType,
+  TooltipTrigger,
+  VerticalLocation,
 } from './components/types';
 import {
   Placement,
@@ -37,7 +46,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Makes the button text and container slightly smaller.
     */
@@ -45,7 +54,7 @@ export namespace Components {
     /**
     * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
     */
-    'inoFill': string;
+    'inoFill'?: SurfaceType;
     /**
     * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
     */
@@ -79,7 +88,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Makes the button text and container slightly smaller.
     */
@@ -87,7 +96,7 @@ export namespace Components {
     /**
     * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
     */
-    'inoFill'?: string;
+    'inoFill'?: SurfaceType;
     /**
     * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
     */
@@ -110,11 +119,11 @@ export namespace Components {
     /**
     * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
     */
-    'inoAspectRatio': string;
+    'inoAspectRatio'?: CardAspectRatio;
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Displays a media area with a custom `background-image` with `background-size: cover`
     */
@@ -140,11 +149,11 @@ export namespace Components {
     /**
     * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
     */
-    'inoAspectRatio'?: string;
+    'inoAspectRatio'?: CardAspectRatio;
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Displays a media area with a custom `background-image` with `background-size: cover`
     */
@@ -234,13 +243,13 @@ export namespace Components {
 
   interface InoChipSet {
     /**
-    * The type of this chip set that indicates its behavior.
+    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
     */
     'inoType'?: ChipSetType;
   }
   interface InoChipSetAttributes extends StencilHTMLAttributes {
     /**
-    * The type of this chip set that indicates its behavior.
+    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
     */
     'inoType'?: ChipSetType;
     /**
@@ -251,13 +260,13 @@ export namespace Components {
 
   interface InoChip {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The fill type of this element. Possible values: `solid` (default) or `outline`.
     */
-    'inoFill'?: string;
+    'inoFill'?: ChipSurface;
     /**
     * The icon before the label in this chip.
     */
@@ -285,13 +294,13 @@ export namespace Components {
   }
   interface InoChipAttributes extends StencilHTMLAttributes {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The fill type of this element. Possible values: `solid` (default) or `outline`.
     */
-    'inoFill'?: string;
+    'inoFill'?: ChipSurface;
     /**
     * The icon before the label in this chip.
     */
@@ -499,36 +508,36 @@ export namespace Components {
     /**
     * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
     */
-    'inoDialDirection': string;
+    'inoDialDirection': Locations;
     /**
     * The side where the Fab is displayed. Possible values: `right`, `left` (default).
     */
-    'inoLeftRightLocation': string;
+    'inoLeftRightLocation': HorizontalLocation;
     /**
     * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
     */
-    'inoTopBottomLocation': string;
+    'inoTopBottomLocation': VerticalLocation;
   }
   interface InoFabSetAttributes extends StencilHTMLAttributes {
     /**
     * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
     */
-    'inoDialDirection'?: string;
+    'inoDialDirection'?: Locations;
     /**
     * The side where the Fab is displayed. Possible values: `right`, `left` (default).
     */
-    'inoLeftRightLocation'?: string;
+    'inoLeftRightLocation'?: HorizontalLocation;
     /**
     * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
     */
-    'inoTopBottomLocation'?: string;
+    'inoTopBottomLocation'?: VerticalLocation;
   }
 
   interface InoFab {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Optional, modifies the FAB to wider size which includes a text label.
     */
@@ -548,13 +557,13 @@ export namespace Components {
     /**
     * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
     */
-    'inoTooltipPlacement': string;
+    'inoTooltipPlacement': Placement;
   }
   interface InoFabAttributes extends StencilHTMLAttributes {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Optional, modifies the FAB to wider size which includes a text label.
     */
@@ -574,7 +583,7 @@ export namespace Components {
     /**
     * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
     */
-    'inoTooltipPlacement'?: string;
+    'inoTooltipPlacement'?: Placement;
   }
 
   interface InoFormRow {
@@ -610,7 +619,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The name of the icon of this element.
     */
@@ -628,7 +637,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The name of the icon of this element.
     */
@@ -1143,7 +1152,7 @@ export namespace Components {
     /**
     * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
     */
-    'inoTrigger': string;
+    'inoTrigger': TooltipTrigger;
   }
   interface InoPopoverAttributes extends StencilHTMLAttributes {
     /**
@@ -1157,7 +1166,7 @@ export namespace Components {
     /**
     * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
     */
-    'inoTrigger'?: string;
+    'inoTrigger'?: TooltipTrigger;
   }
 
   interface InoRadio {
@@ -1225,7 +1234,7 @@ export namespace Components {
     /**
     * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Restricts the slider to only allow discrete values.
     */
@@ -1263,7 +1272,7 @@ export namespace Components {
     /**
     * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * Restricts the slider to only allow discrete values.
     */
@@ -1444,7 +1453,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The height of this spinner (default = 40)
     */
@@ -1454,9 +1463,9 @@ export namespace Components {
     */
     'inoModal'?: boolean;
     /**
-    * The type of this spinner (default = tile). Possible values: `tile`, `bounce` or `circle`
+    * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
     */
-    'inoType': string;
+    'inoType': SpinnerType;
     /**
     * The width of this spinner (defaul = 40)
     */
@@ -1466,7 +1475,7 @@ export namespace Components {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
-    'inoColorScheme'?: string;
+    'inoColorScheme'?: ColorScheme;
     /**
     * The height of this spinner (default = 40)
     */
@@ -1476,9 +1485,9 @@ export namespace Components {
     */
     'inoModal'?: boolean;
     /**
-    * The type of this spinner (default = tile). Possible values: `tile`, `bounce` or `circle`
+    * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
     */
-    'inoType'?: string;
+    'inoType'?: SpinnerType;
     /**
     * The width of this spinner (defaul = 40)
     */
@@ -1660,7 +1669,7 @@ export namespace Components {
     /**
     * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
     */
-    'inoTrigger': string;
+    'inoTrigger': TooltipTrigger;
   }
   interface InoTooltipAttributes extends StencilHTMLAttributes {
     /**
@@ -1678,7 +1687,7 @@ export namespace Components {
     /**
     * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
     */
-    'inoTrigger'?: string;
+    'inoTrigger'?: TooltipTrigger;
   }
 }
 

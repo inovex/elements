@@ -1,6 +1,8 @@
 import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
+import { HorizontalLocation, Locations, VerticalLocation } from '../types';
+
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',
@@ -13,19 +15,19 @@ export class Fab {
    * The direction of the speed dial.
    * Possible values: `top` (default), `bottom`, `right`, `left`.
    */
-  @Prop() inoDialDirection = 'top';
+  @Prop() inoDialDirection: Locations = 'top';
 
   /**
    * The side where the Fab is displayed.
    * Possible values: `top`, `bottom` (default).
    */
-  @Prop() inoTopBottomLocation = 'bottom';
+  @Prop() inoTopBottomLocation: VerticalLocation = 'bottom';
 
   /**
    * The side where the Fab is displayed.
    * Possible values: `right`, `left` (default).
    */
-  @Prop() inoLeftRightLocation = 'right';
+  @Prop() inoLeftRightLocation: HorizontalLocation = 'left';
 
   render() {
     const speedDialClasses = classNames({

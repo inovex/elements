@@ -2,6 +2,8 @@ import { MDCSlider } from '@material/slider';
 import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
+import { ColorScheme } from '../types';
+
 @Component({
   tag: 'ino-range',
   styleUrl: 'ino-range.scss',
@@ -106,7 +108,7 @@ export class Range {
    * Possible values: `primary` (default), `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   componentDidLoad() {
     this.load();

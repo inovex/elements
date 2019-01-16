@@ -32,11 +32,11 @@ The component can be used as follows:
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                                                   | Type     | Default    |
-| ---------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | -------- | ---------- |
-| `inoDialDirection`     | `ino-dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `string` | `'top'`    |
-| `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `string` | `'right'`  |
-| `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `string` | `'bottom'` |
+| Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
+| ---------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
+| `inoDialDirection`     | `ino-dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
+| `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
+| `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
 
 ----------------------------------------------
