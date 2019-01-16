@@ -17,8 +17,9 @@ export class ChipSet {
 
   /**
    * The type of this chip set that indicates its behavior.
+   * Possible values are: `''` (default), `choice`, `filter`, `input`
    */
-  @Prop() inoType?: ChipSetType;
+  @Prop() inoType?: ChipSetType = '';
   @Watch('inoType')
   inoTypeChanged() {
     this.create();

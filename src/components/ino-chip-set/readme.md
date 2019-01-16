@@ -54,9 +54,9 @@ document
 
 ## Properties
 
-| Property  | Attribute  | Description                                            | Type                                    | Default     |
-| --------- | ---------- | ------------------------------------------------------ | --------------------------------------- | ----------- |
-| `inoType` | `ino-type` | The type of this chip set that indicates its behavior. | `"" \| "choice" \| "filter" \| "input"` | `undefined` |
+| Property  | Attribute  | Description                                                                                                             | Type                                    | Default |
+| --------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
+| `inoType` | `ino-type` | The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input` | `"" \| "choice" \| "filter" \| "input"` | `''`    |
 
 
 ## Events

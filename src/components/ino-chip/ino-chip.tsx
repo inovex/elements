@@ -1,6 +1,8 @@
 import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
+import { ChipSurface, ColorScheme } from '../types';
+
 @Component({
   tag: 'ino-chip',
   styleUrl: 'ino-chip.scss',
@@ -12,16 +14,16 @@ export class Chip {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary`,  `secondary`, `tertiary`,
+   * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   /**
    * The fill type of this element.
    * Possible values: `solid` (default) or `outline`.
    */
-  @Prop() inoFill?: string;
+  @Prop() inoFill?: ChipSurface = 'solid';
 
   /**
    * The icon before the label in this chip.

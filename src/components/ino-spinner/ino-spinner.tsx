@@ -1,5 +1,7 @@
 import { Component, Prop } from '@stencil/core';
 
+import { ColorScheme, SpinnerType } from '../types';
+
 @Component({
   tag: 'ino-spinner',
   styleUrl: 'ino-spinner.scss',
@@ -7,10 +9,10 @@ import { Component, Prop } from '@stencil/core';
 })
 export class Spinner {
   /**
-   * The type of this spinner (default = tile).
-   * Possible values: `tile`, `bounce` or `circle`
+   * The type of this spinner.
+   * Possible values: `tile` (default), `bounce` or `circle`
    */
-  @Prop() inoType = 'tile';
+  @Prop() inoType: SpinnerType = 'tile';
 
   /**
    * The name of the color scheme which is used
@@ -18,7 +20,7 @@ export class Spinner {
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   /**
    * The height of this spinner (default = 40)

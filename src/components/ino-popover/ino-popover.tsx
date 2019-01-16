@@ -2,6 +2,8 @@ import { Component, Element, Prop, Watch } from '@stencil/core';
 import { Placement } from 'popper.js';
 import TooltipJS from 'tooltip.js';
 
+import { TooltipTrigger } from '../types';
+
 @Component({
   tag: 'ino-popover',
   styleUrl: 'ino-popover.scss',
@@ -36,7 +38,7 @@ export class Popover {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() inoTrigger = 'hover focus';
+  @Prop() inoTrigger: TooltipTrigger = 'hover focus';
   @Watch('inoTrigger')
   inoTriggerChanged() {
     this.create();

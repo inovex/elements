@@ -2,7 +2,7 @@ import { MDCRipple } from '@material/ripple';
 import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ButtonType } from '../types';
+import { ButtonType, ColorScheme, SurfaceType } from '../types';
 
 @Component({
   tag: 'ino-button',
@@ -41,7 +41,7 @@ export class Button {
    *
    * Can either be `button`, `submit` or `reset`.
    */
-  @Prop() type?: ButtonType;
+  @Prop() type?: ButtonType = 'button';
 
   /**
    * The name of the color scheme which is used
@@ -49,13 +49,13 @@ export class Button {
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   /**
    * The fill type of this element.
    * Possible values: `solid` (default), `outline`, `raised` or `transparent`.
    */
-  @Prop() inoFill = 'solid';
+  @Prop() inoFill?: SurfaceType = 'solid';
 
   /**
    * Adds an icon to the button.

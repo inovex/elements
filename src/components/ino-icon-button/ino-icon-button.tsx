@@ -2,6 +2,8 @@ import { MDCRipple } from '@material/ripple';
 import { Component, Element, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
+import { ColorScheme } from '../types';
+
 @Component({
   tag: 'ino-icon-button',
   styleUrl: 'ino-icon-button.scss',
@@ -35,7 +37,7 @@ export class IconButton {
    * Possible values: `primary` (default),  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: string;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   componentDidLoad() {
     const nativeElement = this.el.querySelector('.mdc-icon-button');
