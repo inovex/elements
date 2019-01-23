@@ -23,7 +23,7 @@ import ICONS from './icons';
 })
 export class Icon {
   /**
-   * The name of the icon of this element.
+   * The name of the icon of this element or an URL.
    */
   @Prop() inoIcon?: string;
   @Watch('inoIcon')
@@ -57,11 +57,10 @@ export class Icon {
   }
 
   private loadIcon() {
-    if (ICONS.indexOf(this.inoIcon) === -1) {
-      return;
-    }
+    const url: string = ICONS.indexOf(this.inoIcon) !== -1
+      ? `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`
+      : this.inoIcon;
 
-    const url = `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`;
     requestSVG(url).then(res => this.svgContent = res || '');
   }
 

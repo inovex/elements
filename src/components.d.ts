@@ -650,7 +650,7 @@ export namespace Components {
     */
     'inoClickable'?: boolean;
     /**
-    * The name of the icon of this element.
+    * The name of the icon of this element or an URL.
     */
     'inoIcon'?: string;
   }
@@ -660,7 +660,7 @@ export namespace Components {
     */
     'inoClickable'?: boolean;
     /**
-    * The name of the icon of this element.
+    * The name of the icon of this element or an URL.
     */
     'inoIcon'?: string;
     /**
