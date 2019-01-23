@@ -37,6 +37,9 @@ If you have to add, remove or change an icon:
 
 > **Note:** Only the `SVG/` subfolder is distributed and contains the icon as SVGs.
 
+### Custom icons
+If you need to use custom icons just hand over the URL to your preferred icon.
+
 
 <!-- Auto Generated Below -->
 
@@ -46,7 +49,7 @@ If you have to add, remove or change an icon:
 | Property       | Attribute       | Description                                                                  | Type      | Default     |
 | -------------- | --------------- | ---------------------------------------------------------------------------- | --------- | ----------- |
 | `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` | `undefined` |
-| `inoIcon`      | `ino-icon`      | The name of the icon of this element.                                        | `string`  | `undefined` |
+| `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                              | `string`  | `undefined` |
 
 
 ## Events
