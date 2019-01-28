@@ -196,10 +196,10 @@ export class Input {
 
   private handleNativeInputChange(e) {
     this.cursorPosition = e.target.selectionStart;
+    this.valueChanges.emit(e.target.value);
     if (this.nativeInputEl) {
       this.nativeInputEl.value = this.value;
     }
-    this.valueChanges.emit(e.target.value);
   }
 
   /**
