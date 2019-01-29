@@ -159,4 +159,3 @@
 * **storybook:** Several improvements and refactoring ([6bf3919](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6bf3919))
 
 
-

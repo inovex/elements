@@ -1,5 +1,6 @@
 import { MDCTextField } from '@material/textfield';
 import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import autosize from 'autosize';
 import classNames from 'classnames';
 
 @Component({
@@ -74,6 +75,19 @@ export class Textarea {
   @Prop() value = '';
 
   /**
+   * An optional flag to allow the textarea adjust its height to display all the content.
+   * The `rows` attribute can also be used to specify a minimum height. Use CSS to specify
+   * a max-height for the textarea element. Once the height exceeds the max-height, autogrow
+   * will re-enable the vertical scrollbar.
+   */
+  @Prop() autogrow = false;
+
+  @Watch('autogrow')
+  handleAutogrow(autogrowActive: boolean) {
+    autogrowActive ? this.initAutogrow() : this.destroyAutogrow();
+  }
+
+  /**
    * The optional floating label of this input field.
    */
   @Prop() inoLabel?: string;
@@ -81,8 +95,9 @@ export class Textarea {
   @Watch('value')
   handleChange(value: string) {
     if (this.nativeTextareaElement) {
-    this.nativeTextareaElement.value = value;
-    this.nativeTextareaElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+      this.nativeTextareaElement.value = value;
+      this.nativeTextareaElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+      this.updateAutogrow();
     }
   }
 
@@ -93,10 +108,14 @@ export class Textarea {
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+    if (this.autogrow) {
+      this.initAutogrow();
+    }
   }
 
   componentWillUnLoad() {
     this.textfield.destroy();
+    this.destroyAutogrow();
   }
 
   @Listen('change')
@@ -109,6 +128,20 @@ export class Textarea {
   handleNativeElement(e) {
     e.preventDefault();
     this.valueChanges.emit(e.target.value);
+  }
+
+  private initAutogrow() {
+    autosize(this.nativeTextareaElement);
+  }
+
+  private destroyAutogrow() {
+    autosize.destroy(this.nativeTextareaElement);
+  }
+
+  private updateAutogrow() {
+    if (this.autogrow) {
+      autosize.update(this.nativeTextareaElement);
+    }
   }
 
   private handleNativeTextareaChange(e) {

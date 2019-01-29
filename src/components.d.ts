@@ -1562,6 +1562,10 @@ export namespace Components {
     */
     'autofocus'?: boolean;
     /**
+    * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+    */
+    'autogrow': boolean;
+    /**
     * The number of cols of this textarea.
     */
     'cols'?: number;
@@ -1607,6 +1611,10 @@ export namespace Components {
     * The autofocus of this element.
     */
     'autofocus'?: boolean;
+    /**
+    * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+    */
+    'autogrow'?: boolean;
     /**
     * The number of cols of this textarea.
     */

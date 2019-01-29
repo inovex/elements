@@ -51,6 +51,7 @@
     "@material/textfield": "^0.38.1",
     "@material/typography": "^0.39.0",
     "@stencil/core": "0.16.2",
+    "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
     "highlightjs": "^9.10.0",
