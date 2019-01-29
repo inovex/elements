@@ -51,7 +51,8 @@ storiesOf('<ino-textarea>', module)
         minlength="${number('minlength', 0)}"
         maxlength="${number('maxlength', 30)}"
         disabled="${boolean('disabled', false)}"
-        required="${boolean('required', false)}">
+        required="${boolean('required', false)}"
+        autogrow="${boolean('autogrow', false)}">
       </ino-textarea>
 
       <h4>Labels</h4>
