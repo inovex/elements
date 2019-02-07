@@ -40,15 +40,13 @@ state and may receive breaking changes. To load a stable version like `0.1.0`, u
 
 ### Integrate via npm
 
-Inovex elements are delivered via a private npm registry hosted at `https://registry.elements.inovex.io`. First, you have to configure
+inovex elements are delivered via a private npm registry hosted at `https://artifactory.inovex.de/artifactory/api/npm/inovex-elements/`. First, you have to configure
 your local environment to use this registry. To do so, execute the following npm commands:
 
-Username and password are both `inovex`.
-
 ```
-npm config set @inovex:registry https://registry.elements.inovex.io
-npm adduser --registry https://registry.elements.inovex.io
-npm config set always-auth true
+npm config set registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
+or
+npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
 ```
 
 Now you are ready to add the `@inovex/elements` dependency to your project using `yarn` or `npm`:
@@ -61,7 +59,7 @@ npm i @inovex/elements
 
 For integration examples with various frameworks, take a look at the `example-vuejs`, `example-react` and `example-angular` projects in the [`inovex-elements` gitlab project](https://gitlab.inovex.de/inovex-elements). **Concrete explanations for react, vuejs and angular are provided in [docs](https://gitlab.inovex.de/inovex-elements/core/tree/master/docs) and [storybook](https://elements.inovex.io/dist/latest/storybook/)**.
 
-Inovex elements components are lazy loaded, which means you have to import the main js file `dist/inovex-elements.js` containing the component
+inovex elements components are lazy loaded, which means you have to import the main js file `dist/inovex-elements.js` containing the component
 registry and everything else will be handled on the fly.
 
 

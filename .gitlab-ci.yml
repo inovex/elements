@@ -65,15 +65,11 @@ deploy-latest:
  only:
  - tags
 
-
-# variables:
-# * REGISTRY_TOKEN: auth token for publisher user (you can get it by running `npm login --registry https://registry.elements.inovex.io` and copying the token from your `~/.npmrc`)
-# * REGISTRY_HOST: host of the registry (currently this should be `registry.elements.inovex.io`)
 deploy-release:
  stage: deploy-release
  script:
- - echo "//$REGISTRY_HOST/:_authToken=$REGISTRY_TOKEN" >> ~/.npmrc
- - npm publish --registry https://$REGISTRY_HOST
+ - echo "//$ARTIFACTORY_HOST/:_authToken=$ARTIFACTORY_TOKEN" >> ~/.npmrc
+ - npm publish --registry https://$ARTIFACTORY_HOST/
  tags:
  - shared
  only:
