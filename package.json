@@ -50,7 +50,7 @@
     "@material/tab-scroller": "^0.39.1",
     "@material/textfield": "^0.38.1",
     "@material/typography": "^0.39.0",
-    "@stencil/core": "0.16.2",
+    "@stencil/core": "0.18.0",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "flatpickr": "^4.4.6",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@stencil/sass": "^0.1.1",
-    "@stencil/utils": "latest",
+    "@stencil/utils": "^0.0.5",
     "@storybook/addon-actions": "4.0.12",
     "@storybook/addon-knobs": "4.0.12",
     "@storybook/addon-options": "4.0.12",
@@ -82,16 +82,16 @@
     "fs-extra": "^7.0.0",
     "jest": "~23.6.0",
     "jest-environment-node": "23.4.0",
-    "marked": "^0.5.0",
-    "moment": "^2.22.2",
-    "puppeteer": "~1.8.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "marked": "^0.6.0",
+    "puppeteer": "1.11.0",
+    "moment": "^2.24.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "sass-loader": "^7.0.3",
-    "tslint": "^5.10.0",
-    "tslint-ionic-rules": "0.0.19",
+    "tslint": "^5.12.1",
+    "tslint-ionic-rules": "0.0.21",
     "tslint-react": "^3.6.0",
-    "typescript": "^3.0.3",
-    "webpack": "^4.19.1"
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3"
   }
 }
