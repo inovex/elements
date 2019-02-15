@@ -1,5 +1,4 @@
 import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
-
 import classNames from 'classnames';
 
 @Component({
