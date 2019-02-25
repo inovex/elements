@@ -176,7 +176,7 @@ export class Input {
       this.helperText = new MDCTextFieldHelperText(document.querySelector('.mdc-text-field-helper-text'));
     }
     if (this.inoIcon) {
-      this.icon = new MDCTextFieldIcon(document.querySelector('.mdc-text-field-icon'));
+      this.icon = new MDCTextFieldIcon(document.querySelector('.mdc-text-field__icon'));
     }
 
     if (this.value && this.nativeInputEl) {
