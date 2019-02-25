@@ -2,6 +2,7 @@ export type ButtonType = 'button' | 'submit' | 'reset';
 export type ColorScheme = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'light' | 'dark';
 export type CardAspectRatio = '16-9' | 'square';
 export type DatepickerType = 'date' | 'datetime' | 'range' | 'time';
+export type DatepickerDateFormatType = 'd-m-Y' | 'Y-m-d' | 'Y-m-j' | 'j-m-Y';
 export type HorizontalLocation = 'left' | 'right';
 export type VerticalLocation = 'top' | 'bottom';
 export type Locations = HorizontalLocation | VerticalLocation;
