@@ -1,8 +1,6 @@
-import { Component, Element, Listen, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
-
-import { DatepickerType } from '../types';
 
 @Component({
   tag: 'ino-datepicker',
@@ -12,8 +10,11 @@ import { DatepickerType } from '../types';
   ],
   shadow: false
 })
+
 export class Datepicker {
   @Element() el!: HTMLElement;
+
+  private flatpickr!: any;
 
   /**
    * The accesskey of this element.
@@ -46,18 +47,21 @@ export class Datepicker {
   @Prop() tabindex?: string;
 
   /**
-   * The value of this element.
+   * A pattern to check the input field on
    */
-  @Prop() value?: string;
-  @Watch('value')
-  valueChanged(value: string) {
-    this.internalValue = value;
-  }
+  @Prop() inoPattern?: string;
+
+  /**
+   * The currently selected date shown in the input field **unmanaged**. The given value
+   * will not be formatted as date.
+   */
+  @Prop() value ? = '';
 
   /**
    * The minimum date that a user can start picking from (inclusive).
    */
   @Prop() min?: string;
+
   @Watch('min')
   minChanged(value: string) {
     this.update('minDate', value);
@@ -67,6 +71,7 @@ export class Datepicker {
    * The maximum date that a user can pick to (inclusive).
    */
   @Prop() max?: string;
+
   @Watch('max')
   maxChanged(value: string) {
     this.update('maxDate', value);
@@ -98,28 +103,45 @@ export class Datepicker {
   @Prop() inoHelperValidation?: boolean;
 
   /**
-   * The type (`date`, `datetime`, `time` or `range`) of this date picker element.
-   * Default is `date`.
+   * If true, enables the user to choose two dates as an interval
    */
-  @Prop() inoType: DatepickerType = 'date';
-  @Watch('inoType')
-  inoTypeChanged() {
+  @Prop() inoRange?: boolean;
+
+  @Watch('inoRange')
+  inoRangeChanged() {
     this.create();
   }
 
   /**
-   * A simple date string that sets the default date.
+   * A string to change the date format. The format decides which calendar is needed (date, time, or datetime).
+   * Possible values are listed [here](https://flatpickr.js.org/formatting/).
+   * The default value is `d-m-Y` which accepts values like `01.01.2019`.
    */
-  @Prop() inoDefaultDate?: string;
+  @Prop() inoDateFormat ? = 'd-m-Y';
+
+  @Watch('inoDateFormat')
+  inoDateFormatChanged(dateFormat: string) {
+    this.update('inoDateFormat', dateFormat);
+    this.update('enableTime', this.requiresTimePicker());
+    this.update('noCalendar', this.requiresNoDatePicker());
+  }
+
+  /**
+   * A string/array containing the initial date. If you're using `inoRange = true` provide an array.
+   */
+  @Prop() inoDefaultDate?: string | string[];
+
   @Watch('inoDefaultDate')
-  inoDefaultDateChanged(value: string) {
-    this.update('inoDefaultDate', value);
+  inoDefaultDateChanged(defaultDate: string) {
+    this.update('inoDefaultDate', defaultDate);
   }
 
   /**
    * A number containing the initial hour in the date-time picker.
+   * The default is `12`
    */
   @Prop() inoDefaultHour = 12;
+
   @Watch('inoDefaultHour')
   inoDefaultHourChanged(value: string) {
     this.update('inoDefaultHour', value);
@@ -127,8 +149,10 @@ export class Datepicker {
 
   /**
    * A number containing the initial minute in the date-time picker.
+   * The default is `0`
    */
-  @Prop() inoDefaultMinute = 0;
+  @Prop() inoDefaultMinute ? = 0;
+
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
     this.update('inoDefaultMinute', value);
@@ -138,6 +162,7 @@ export class Datepicker {
    * If true, displays time picker in 12 hour mode with AM/PM selection.
    */
   @Prop() inoTwelfHourTime?: boolean;
+
   @Watch('inoTwelfHourTime')
   inoTwelfHourTimeChanged(value: string) {
     this.update('inoTwelfHourTime', value);
@@ -145,8 +170,10 @@ export class Datepicker {
 
   /**
    * Adjusts the step for the minute input (incl. scrolling)
+   * Default is 5
    */
   @Prop() minuteStep = 5;
+
   @Watch('minuteStep')
   minuteStepChanged(value: number) {
     this.update('minuteIncrement', value);
@@ -154,63 +181,57 @@ export class Datepicker {
 
   /**
    * Adjusts the step for the hour input (incl. scrolling)
+   * Default is 1
    */
   @Prop() hourStep = 1;
+
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.update('hourIncrement', value);
   }
-
-  @State() flatpickr!: any;
-  @State() internalValue?: string;
 
   @Listen('inoIconClicked')
   inoIconClickedHandler() {
     this.flatpickr.open();
   }
 
-  componentWillLoad() {
-    if (this.value) {
-      this.internalValue = this.value;
-    } else if (this.inoDefaultDate) {
-      this.internalValue = this.inoDefaultDate;
-    }
-  }
+  /**
+   * Emits when the value of the datepicker changes.
+   * The value can be found in `event.detail`
+   */
+  @Event() valueChanges!: EventEmitter<string>;
 
   componentDidLoad() {
     this.create();
   }
 
-  private readonly PATTERNS = {
-    'date': '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])',
-    'time': '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])'
-  };
-
   private create() {
     const options: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
-      defaultDate: this.inoDefaultDate,
+      defaultDate: this.inoDefaultDate || [], // hacky: seems to be a bug in flatpickr when not providing an
+                                              // empty array, flatpickr checks always for the length of this value
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
       minDate: this.min,
       maxDate: this.max,
       minuteIncrement: this.minuteStep,
       hourIncrement: this.hourStep,
-      enableTime: this.inoType === 'time' || this.inoType === 'datetime',
-      noCalendar: this.inoType === 'time',
+      mode: this.inoRange ? 'range' : 'single',
+      enableTime: this.requiresTimePicker(),
+      noCalendar: this.requiresNoDatePicker(),
       ignoredFocusElements: [],
       time_24hr: !this.inoTwelfHourTime,
-      // Set the value immediately to ensure an upgraded input label
-      onValueUpdate: (_, value) => this.internalValue = value
+      dateFormat: this.inoDateFormat,
+      onValueUpdate: (_, newValue) => {
+        // this callback is only called when the user selects a date/time from the flatpickr
+        this.valueChanges.emit(newValue);
+        this.flatpickr.setDate(this.value);
+      }
     };
 
-    if (this.inoType === 'range') {
-      options.mode = this.inoType;
-    }
-
     this.dispose();
-    const target = this.el.querySelector('input') as HTMLElement;
+    const target = this.el.querySelector('ino-input') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
   }
 
@@ -226,17 +247,25 @@ export class Datepicker {
     }
   }
 
-  private inputPattern() {
-    if (this.inoType === 'date') {
-      return this.PATTERNS.date;
-    }
-    if (this.inoType === 'time') {
-      return this.PATTERNS.time;
-    }
-    if (this.inoType === 'range') {
-      return this.PATTERNS.date + ' to ' + this.PATTERNS.date;
-    }
-    return this.PATTERNS.date + ' ' + this.PATTERNS.time;
+  private static readonly FORMATTING_OPTIONS = {
+    time: ['H', 'h', 'i', 'S', 's', 'K'],
+    date: ['d', 'D', 'l', 'j', 'J', 'w', 'F', 'm', 'n', 'M', 'U', 'y', 'Y', 'Z']
+  };
+
+  /**
+   * Checks if a time picker is necessary for the current date format
+   * Is necessary when a time format option is included in `inoDateFormat`
+   */
+  private requiresTimePicker() {
+    return Datepicker.FORMATTING_OPTIONS.time.some(char => this.inoDateFormat!.includes(char));
+  }
+
+  /**
+   * Checks if a date picker is necessary for the current date format
+   * Is not necessary when no date format option is included in `inoDateFormat` and a time picker is enabled
+   */
+  private requiresNoDatePicker() {
+    return this.requiresTimePicker() && !Datepicker.FORMATTING_OPTIONS.date.some(char => this.inoDateFormat!.includes(char));
   }
 
   render() {
@@ -249,17 +278,23 @@ export class Datepicker {
           accessKey={this.accesskey}
           autofocus={this.autofocus}
           name={this.name}
-          pattern={this.inputPattern()}
           required={this.required}
           tabindex={this.tabindex}
-          value={this.internalValue}
           ino-label={this.inoLabel}
+          pattern={this.inoPattern && this.inoPattern !== '' ? this.inoPattern : undefined}
+          value={this.value}
           ino-icon="date_range"
           ino-icon-clickable
           ino-helper={this.inoHelper}
           ino-outline={this.inoOutline}
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
+          onValueChanges={e => {
+            // This callback is only called when the user types into the textfield.
+            // When the user selects a date from the flatpickr, this is NOT called
+            // because flatpickr controls the input field and prevents emitting.
+            this.valueChanges.emit(e.detail);
+          }}
         >
         </ino-input>
       </div>

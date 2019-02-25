@@ -14,7 +14,6 @@ import {
   ChipSetType,
   ChipSurface,
   ColorScheme,
-  DatepickerType,
   HorizontalLocation,
   ImageDecodingTypes,
   Locations,
@@ -345,105 +344,23 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * Adjusts the step for the hour input (incl. scrolling)
+    * Adjusts the step for the hour input (incl. scrolling) Default is 1
     */
     'hourStep': number;
     /**
-    * A simple date string that sets the default date.
+    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
     */
-    'inoDefaultDate'?: string;
+    'inoDateFormat'?: string;
     /**
-    * A number containing the initial hour in the date-time picker.
+    * A string/array containing the initial date. If you're using `inoRange = true` provide an array.
+    */
+    'inoDefaultDate'?: string | string[];
+    /**
+    * A number containing the initial hour in the date-time picker. The default is `12`
     */
     'inoDefaultHour': number;
     /**
-    * A number containing the initial minute in the date-time picker.
-    */
-    'inoDefaultMinute': number;
-    /**
-    * The helper text.
-    */
-    'inoHelper'?: string;
-    /**
-    * Displays the helper permanently.
-    */
-    'inoHelperPersistent'?: boolean;
-    /**
-    * Styles the helper text as a validation message.
-    */
-    'inoHelperValidation'?: boolean;
-    /**
-    * Defines the label for this element.
-    */
-    'inoLabel'?: string;
-    /**
-    * Styles the datepicker as outlined element.
-    */
-    'inoOutline'?: boolean;
-    /**
-    * If true, displays time picker in 12 hour mode with AM/PM selection.
-    */
-    'inoTwelfHourTime'?: boolean;
-    /**
-    * The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`.
-    */
-    'inoType': DatepickerType;
-    /**
-    * The maximum date that a user can pick to (inclusive).
-    */
-    'max'?: string;
-    /**
-    * The minimum date that a user can start picking from (inclusive).
-    */
-    'min'?: string;
-    /**
-    * Adjusts the step for the minute input (incl. scrolling)
-    */
-    'minuteStep': number;
-    /**
-    * The input name of this element.
-    */
-    'name'?: string;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-    /**
-    * The tabindex of this element.
-    */
-    'tabindex'?: string;
-    /**
-    * The value of this element.
-    */
-    'value'?: string;
-  }
-  interface InoDatepickerAttributes extends StencilHTMLAttributes {
-    /**
-    * The accesskey of this element.
-    */
-    'accesskey'?: string;
-    /**
-    * Autofocuses this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Adjusts the step for the hour input (incl. scrolling)
-    */
-    'hourStep'?: number;
-    /**
-    * A simple date string that sets the default date.
-    */
-    'inoDefaultDate'?: string;
-    /**
-    * A number containing the initial hour in the date-time picker.
-    */
-    'inoDefaultHour'?: number;
-    /**
-    * A number containing the initial minute in the date-time picker.
+    * A number containing the initial minute in the date-time picker. The default is `0`
     */
     'inoDefaultMinute'?: number;
     /**
@@ -467,13 +384,17 @@ export namespace Components {
     */
     'inoOutline'?: boolean;
     /**
+    * A pattern to check the input field on
+    */
+    'inoPattern'?: string;
+    /**
+    * If true, enables the user to choose two dates as an interval
+    */
+    'inoRange'?: boolean;
+    /**
     * If true, displays time picker in 12 hour mode with AM/PM selection.
     */
     'inoTwelfHourTime'?: boolean;
-    /**
-    * The type (`date`, `datetime`, `time` or `range`) of this date picker element. Default is `date`.
-    */
-    'inoType'?: DatepickerType;
     /**
     * The maximum date that a user can pick to (inclusive).
     */
@@ -483,9 +404,9 @@ export namespace Components {
     */
     'min'?: string;
     /**
-    * Adjusts the step for the minute input (incl. scrolling)
+    * Adjusts the step for the minute input (incl. scrolling) Default is 5
     */
-    'minuteStep'?: number;
+    'minuteStep': number;
     /**
     * The input name of this element.
     */
@@ -499,7 +420,105 @@ export namespace Components {
     */
     'tabindex'?: string;
     /**
-    * The value of this element.
+    * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+    */
+    'value'?: string;
+  }
+  interface InoDatepickerAttributes extends StencilHTMLAttributes {
+    /**
+    * The accesskey of this element.
+    */
+    'accesskey'?: string;
+    /**
+    * Autofocuses this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Adjusts the step for the hour input (incl. scrolling) Default is 1
+    */
+    'hourStep'?: number;
+    /**
+    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+    */
+    'inoDateFormat'?: string;
+    /**
+    * A string/array containing the initial date. If you're using `inoRange = true` provide an array.
+    */
+    'inoDefaultDate'?: string | string[];
+    /**
+    * A number containing the initial hour in the date-time picker. The default is `12`
+    */
+    'inoDefaultHour'?: number;
+    /**
+    * A number containing the initial minute in the date-time picker. The default is `0`
+    */
+    'inoDefaultMinute'?: number;
+    /**
+    * The helper text.
+    */
+    'inoHelper'?: string;
+    /**
+    * Displays the helper permanently.
+    */
+    'inoHelperPersistent'?: boolean;
+    /**
+    * Styles the helper text as a validation message.
+    */
+    'inoHelperValidation'?: boolean;
+    /**
+    * Defines the label for this element.
+    */
+    'inoLabel'?: string;
+    /**
+    * Styles the datepicker as outlined element.
+    */
+    'inoOutline'?: boolean;
+    /**
+    * A pattern to check the input field on
+    */
+    'inoPattern'?: string;
+    /**
+    * If true, enables the user to choose two dates as an interval
+    */
+    'inoRange'?: boolean;
+    /**
+    * If true, displays time picker in 12 hour mode with AM/PM selection.
+    */
+    'inoTwelfHourTime'?: boolean;
+    /**
+    * The maximum date that a user can pick to (inclusive).
+    */
+    'max'?: string;
+    /**
+    * The minimum date that a user can start picking from (inclusive).
+    */
+    'min'?: string;
+    /**
+    * Adjusts the step for the minute input (incl. scrolling) Default is 5
+    */
+    'minuteStep'?: number;
+    /**
+    * The input name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the value of the datepicker changes. The value can be found in `event.detail`
+    */
+    'onValueChanges'?: (event: CustomEvent<string>) => void;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+    /**
+    * The tabindex of this element.
+    */
+    'tabindex'?: string;
+    /**
+    * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
     */
     'value'?: string;
   }
