@@ -1140,21 +1140,21 @@ export namespace Components {
 
   interface InoMenu {
     /**
-    * The anchor element for this menu. If empty, the anchor is the parent element.
+    * Anchor element for the menu
     */
     'inoFor'?: string;
     /**
-    * Set this option to show the menu manually.
+    * Set this option to show the menu.
     */
     'inoOpen'?: boolean;
   }
   interface InoMenuAttributes extends StencilHTMLAttributes {
     /**
-    * The anchor element for this menu. If empty, the anchor is the parent element.
+    * Anchor element for the menu
     */
     'inoFor'?: string;
     /**
-    * Set this option to show the menu manually.
+    * Set this option to show the menu.
     */
     'inoOpen'?: boolean;
   }
