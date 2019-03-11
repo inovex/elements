@@ -101,12 +101,24 @@ export class Button {
         type={this.type}
         form={this.form}
       >
-        {this.inoIcon && !this.inoIconPrepend
-        && <ino-icon class={CSS_CLASSES.MDC_BUTTON_ICON} ino-icon={this.inoIcon}></ino-icon>}
-        <slot/>
+        {this.inoIcon && !this.inoIconPrepend && (
+          <ino-icon
+            class={CSS_CLASSES.MDC_BUTTON_ICON}
+            ino-icon={this.inoIcon}
+          />
+        )}
+        <slot />
 
-        {this.inoIcon && this.inoIconPrepend
-        && <ino-icon class={CSS_CLASSES.MDC_BUTTON_ICON + ' ' + CSS_CLASSES.MDC_BUTTON_ICON_RIGHT} ino-icon={this.inoIcon}></ino-icon>}
+        {this.inoIcon && this.inoIconPrepend && (
+          <ino-icon
+            class={
+              CSS_CLASSES.MDC_BUTTON_ICON +
+              ' ' +
+              CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
+            }
+            ino-icon={this.inoIcon}
+          />
+        )}
       </button>
     );
   }

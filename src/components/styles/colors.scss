@@ -1,85 +1,76 @@
 // Inovex Colors
 
-
 // Private variables.
 // Use the ino-color() function to access colors.
-$primary:           #003C7E;
-$primary-light:     #004A9C;
-$primary-dark:      #002E62;
-$primary-contrast:  #FFF;
+$primary: #003c7e;
+$primary-light: #004a9c;
+$primary-dark: #002e62;
+$primary-contrast: #fff;
 
-$secondary:         #9CCD00;
-$secondary-light:   #BFF020;
-$secondary-dark:    #2E7D32;
+$secondary: #9ccd00;
+$secondary-light: #bff020;
+$secondary-dark: #2e7d32;
 $secondary-contrast: #000;
 
-$tertiary:          #00B0F0;
-$tertiary-light:    #10BCFE;
-$tertiary-dark:     #006A92;
+$tertiary: #00b0f0;
+$tertiary-light: #10bcfe;
+$tertiary-dark: #006a92;
 
-$success:         $secondary;
-$warning:         #FFDE03;
-$error:           #E00051;
+$success: $secondary;
+$warning: #ffde03;
+$error: #e00051;
 
-$light:           #c1c1c1;
-$dark:            #777;
-
+$light: #c1c1c1;
+$dark: #777;
 
 $ino-color-scheme: (
   primary: (
-    base:   $primary,
-    light:  $primary-light,
-    dark:   $primary-dark,
+    base: $primary,
+    light: $primary-light,
+    dark: $primary-dark,
     contrast: $primary-contrast
   ),
-
   secondary: (
-    base:   $secondary,
-    light:  $secondary-light,
-    dark:   $secondary-dark,
+    base: $secondary,
+    light: $secondary-light,
+    dark: $secondary-dark,
     contrast: $secondary-contrast
   ),
-  
   tertiary: (
-    base:   $tertiary,
-    light:  $tertiary-light,
-    dark:   $tertiary-dark,
+    base: $tertiary,
+    light: $tertiary-light,
+    dark: $tertiary-dark,
     contrast: #000
   ),
-
   success: (
-    base:     $success,
-    light:    lighten($success, 15%),
-    dark:     darken($success, 15%),
+    base: $success,
+    light: lighten($success, 15%),
+    dark: darken($success, 15%),
     contrast: #000
   ),
-
   warning: (
-    base:     $warning,
-    light:    lighten($warning, 15%),
-    dark:     darken($warning, 15%),
+    base: $warning,
+    light: lighten($warning, 15%),
+    dark: darken($warning, 15%),
     contrast: #000
   ),
-
   error: (
-    base:     $error,
-    light:    lighten($error, 15%),
-    dark:     darken($error, 15%),
-    contrast: #FFF
+    base: $error,
+    light: lighten($error, 15%),
+    dark: darken($error, 15%),
+    contrast: #fff
   ),
-
   light: (
-    base:     $light,
-    light:    lighten($light, 15%),
-    dark:     darken($light, 15%),
+    base: $light,
+    light: lighten($light, 15%),
+    dark: darken($light, 15%),
     contrast: #000
   ),
-
   dark: (
-    base:     $dark,
-    light:    lighten($dark, 15%),
-    dark:     darken($dark, 15%),
-    contrast: #FFF
+    base: $dark,
+    light: lighten($dark, 15%),
+    dark: darken($dark, 15%),
+    contrast: #fff
   )
 );
 

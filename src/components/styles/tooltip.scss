@@ -8,7 +8,7 @@
     z-index: 9999;
     background: $background-color;
     color: $font-color;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 
     .ino-tooltip__arrow {
       width: 0;
@@ -19,7 +19,7 @@
       border-color: $background-color;
     }
 
-    &[x-placement^="top"] {
+    &[x-placement^='top'] {
       margin-bottom: 5px;
 
       .ino-tooltip__arrow {
@@ -34,7 +34,7 @@
       }
     }
 
-    &[x-placement^="bottom"] {
+    &[x-placement^='bottom'] {
       margin-top: 5px;
 
       .ino-tooltip__arrow {
@@ -49,7 +49,7 @@
       }
     }
 
-    &[x-placement^="right"] {
+    &[x-placement^='right'] {
       margin-left: 5px;
 
       .ino-tooltip__arrow {
@@ -64,7 +64,7 @@
       }
     }
 
-    &[x-placement^="left"] {
+    &[x-placement^='left'] {
       margin-right: 5px;
 
       .ino-tooltip__arrow {

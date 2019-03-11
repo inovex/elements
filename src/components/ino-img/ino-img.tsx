@@ -98,7 +98,8 @@ export class Image {
   }
 
   private computeFixedDimensions() {
-    this.el.style.height = this.height !== undefined ? `${this.height}px` : null;
+    this.el.style.height =
+      this.height !== undefined ? `${this.height}px` : null;
     this.el.style.width = this.width !== undefined ? `${this.width}px` : null;
   }
 
@@ -109,7 +110,10 @@ export class Image {
 
   render() {
     return (
-      <div class="ino-img__composer" style={{ 'padding-top' : this.composedRatioHeight }}>
+      <div
+        class="ino-img__composer"
+        style={{ 'padding-top': this.composedRatioHeight }}
+      >
         <img
           class="ino-img__image"
           alt={this.alt}

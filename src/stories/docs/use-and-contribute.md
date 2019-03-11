@@ -18,18 +18,19 @@ If you're ready, head up to the next lines and see how you **prepare your projec
 
 Your branch name will be `project-<your project name here>`.
 
-* Simply merge or rebase the master on the head of this branch
-* Run `yarn install`
-* Run `yarn build`
-* Commit the `dist/` folder (you need to remove it from `.gitignore`
+- Simply merge or rebase the master on the head of this branch
+- Run `yarn install`
+- Run `yarn build`
+- Commit the `dist/` folder (you need to remove it from `.gitignore`
 
 > Keep in mind: Everytime you make some changes to the codebase: build, commit and push it. So it's available for everyone and reachable from within your running pipeline jobs.
 
 ## Prepare your project
 
 > A note for @inovex/elements maintainers:
-> * Create project specific branch
-> * Add and hand over deploy key for each project (GitLab -> Settings -> Repository -> Deploy Keys)
+>
+> - Create project specific branch
+> - Add and hand over deploy key for each project (GitLab -> Settings -> Repository -> Deploy Keys)
 
 A few simple steps.
 

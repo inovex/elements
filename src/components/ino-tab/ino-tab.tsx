@@ -55,19 +55,23 @@ export class Tab {
 
     const indicatorWidth = (
       <span class="mdc-tab-indicator">
-        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
       </span>
     );
 
     return (
       <button class={tabClasses} role="tab" aria-selected="false">
         <span class="mdc-tab__content">
-          {this.inoIcon && <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon}></ino-icon>}
-          {this.inoLabel && <span class="mdc-tab__text-label">{this.inoLabel}</span>}
+          {this.inoIcon && (
+            <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon} />
+          )}
+          {this.inoLabel && (
+            <span class="mdc-tab__text-label">{this.inoLabel}</span>
+          )}
           {this.inoIndicatorContentWidth && indicatorWidth}
         </span>
         {!this.inoIndicatorContentWidth && indicatorWidth}
-        <span class="mdc-tab__ripple"></span>
+        <span class="mdc-tab__ripple" />
       </button>
     );
   }

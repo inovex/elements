@@ -1,11 +1,10 @@
 # Integrate with React ([example-react](https://gitlab.inovex.de/inovex-elements/example-react))
 
-This instructions are based on react v16.3.1. 
+This instructions are based on react v16.3.1.
 
 ## Prerequisites
 
 You setup your react project with [react-app-rewired](https://github.com/timarney/react-app-rewired) or similar. The setup needs to update the webpack configuration to copy the static files (`create-react-app` is not satisfactory).
-
 
 ### Using TypeScript support with react-app-rewired
 
@@ -41,10 +40,10 @@ Open `src/index.js` and add this somewhere on the first lines:
 ```ts
 // src/index.js
 
-import React from 'react'
+import React from 'react';
 // ...
 
-import '@inovex/elements' // import the web components loader
+import '@inovex/elements'; // import the web components loader
 // ...
 ```
 
@@ -56,10 +55,13 @@ Next you have to configure the Webpack config files. Using `react-app-rewired`, 
 // config.overrides.js
 
 module.exports = function override(config, env) {
-    // do stuff with the webpack config...
-    config.plugins = [...config.plugins, require('@inovex/elements/webpack-plugin')('static/js')];
-    return config;
-}
+  // do stuff with the webpack config...
+  config.plugins = [
+    ...config.plugins,
+    require('@inovex/elements/webpack-plugin')('static/js')
+  ];
+  return config;
+};
 ```
 
 > The only parameter of the webpack loader has to match the path to the location of the bundle.
@@ -75,11 +77,14 @@ them specifically, you have to import each react wrapper in the file you want to
 import { InoButton } from '@inovex/elements/dist/react/InoButton';
 
 export class MyComponent extends React.Component {
-    render() {
-        return (<div>
-            This is my fancy component using inovex elements:<br />
-            <InoButton ino-color-scheme="secondary">Da button</InoButton>
-        </div>);
-    }
+  render() {
+    return (
+      <div>
+        This is my fancy component using inovex elements:
+        <br />
+        <InoButton ino-color-scheme="secondary">Da button</InoButton>
+      </div>
+    );
+  }
 }
 ```

@@ -8,7 +8,6 @@ import classNames from 'classnames';
   shadow: false
 })
 export class List {
-
   private listInstance!: MDCList;
 
   @Element() el!: HTMLElement;
@@ -48,7 +47,7 @@ export class List {
 
     return (
       <ul class={listClasses} aria-orientation="vertical">
-        <slot/>
+        <slot />
       </ul>
     );
   }

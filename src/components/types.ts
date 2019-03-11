@@ -1,5 +1,13 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
-export type ColorScheme = 'primary' | 'secondary' | 'tertiary' | 'success' | 'warning' | 'error' | 'light' | 'dark';
+export type ColorScheme =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'light'
+  | 'dark';
 export type CardAspectRatio = '16-9' | 'square';
 export type DatepickerType = 'date' | 'datetime' | 'range' | 'time';
 export type DatepickerDateFormatType = 'd-m-Y' | 'Y-m-d' | 'Y-m-j' | 'j-m-Y';
@@ -12,7 +20,7 @@ export type SpinnerType = 'tile' | 'bounce' | 'circle';
 export type ChipSurface = 'solid' | 'outline';
 export type SurfaceType = 'solid' | 'outline' | 'raised' | 'transparent';
 export type TooltipTrigger =
-  'click'
+  | 'click'
   | 'hover'
   | 'focus'
   | 'click focus'
@@ -29,7 +37,7 @@ export type TooltipTrigger =
   | 'click focus hover';
 
 export type ToolTipPlacement =
-  'top'
+  | 'top'
   | 'top-start'
   | 'top-end'
   | 'right'

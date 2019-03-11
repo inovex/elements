@@ -1,17 +1,17 @@
 # ino-range
+
 A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
 
 > Note: Range sliders with multiple thumbs are not yet implemented.
 
 ### Usage
+
 The component can be used as follows:
 
 ```js
-document
-  .querySelector('ino-range')
-  .addEventListener('valueChanges', (e) => {
-    // ...
-  });
+document.querySelector('ino-range').addEventListener('valueChanges', e => {
+  // ...
+});
 ```
 
 ```html
@@ -24,12 +24,12 @@ document
   ino-discrete
   ino-markers
   disabled
-  ino-color-scheme="<string>">
+  ino-color-scheme="<string>"
+>
 </ino-range>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -45,14 +45,12 @@ document
 | `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`                                                                                           | `1`         |
 | `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`                                                                                           | `undefined` |
 
-
 ## Events
 
 | Event          | Description                                                         | Type                |
 | -------------- | ------------------------------------------------------------------- | ------------------- |
 | `valueChanges` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

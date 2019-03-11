@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
-
 // Font Family
 
-$font-family-sans-serif:    'Lato', Helvetica, Verdana, sans-serif;
-$font-family-serif:          Merriweather, Georgia, 'Times New Roman', serif;
-$font-family-mono:          'Source Code Pro', Courier, mono;
+$font-family-sans-serif: 'Lato', Helvetica, Verdana, sans-serif;
+$font-family-serif: Merriweather, Georgia, 'Times New Roman', serif;
+$font-family-mono: 'Source Code Pro', Courier, mono;
 
 // Private variables, use ino-font-family($mode) mixin to access them.
 $ino-font-families: (
@@ -17,7 +16,6 @@ $ino-font-families: (
 @mixin ino-font-family($mode: sans-serif) {
   font-family: map-get($ino-font-families, $mode);
 }
-
 
 // Font weights
 
@@ -38,17 +36,16 @@ $ino-font-weights: (
   font-weight: map-get($ino-font-weights, $weight);
 }
 
-
 // Font sizes
 
 // Private variables, use ino-font-size($type) mixin to access them.
-$size-m:         1rem !default; // Browser default (normally 16px)
-$line-height-m:  1.5 !default;
-$size-l:         ($size-m * 1.25);
-$line-height-l:  1.5 !default;
-$size-s:         ($size-m * 0.875);
-$line-height-s:  1.5 !default;
-$size-xs:        ($size-s * 0.875);
+$size-m: 1rem !default; // Browser default (normally 16px)
+$line-height-m: 1.5 !default;
+$size-l: ($size-m * 1.25);
+$line-height-l: 1.5 !default;
+$size-s: ($size-m * 0.875);
+$line-height-s: 1.5 !default;
+$size-xs: ($size-s * 0.875);
 $line-height-xs: 1.5 !default;
 
 $ino-font-sizes: (
@@ -62,7 +59,7 @@ $ino-font-sizes: (
   ),
   m: (
     font-size: $size-m,
-    line-height: $line-height-m,
+    line-height: $line-height-m
   ),
   l: (
     font-size: $size-l,
@@ -74,7 +71,6 @@ $ino-font-sizes: (
   font-size: map-get(map-get($ino-font-sizes, $type), 'font-size');
   line-height: map-get(map-get($ino-font-sizes, $type), 'line-height');
 }
-
 
 // Further mixins
 

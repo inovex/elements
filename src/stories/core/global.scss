@@ -1,9 +1,10 @@
 @import '../../../node_modules/highlight.js/styles/github.css';
-@import "../../components/styles/mdc.customize";
-@import "@material/typography/mdc-typography";
+@import '../../components/styles/mdc.customize';
+@import '@material/typography/mdc-typography';
 
 body {
-  &, .markdown-body {
+  &,
+  .markdown-body {
     @include mdc-typography-base;
   }
 }

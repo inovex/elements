@@ -1,23 +1,22 @@
 @mixin direction($direction: top) {
-
   // $direction == "top"
   $wrapperDirection: column;
   $speedDialDirection: column;
 
-  @if $direction == "bottom" {
+  @if $direction == 'bottom' {
     $wrapperDirection: column-reverse;
-  } @else if $direction == "left" {
+  } @else if $direction == 'left' {
     $wrapperDirection: row;
     $speedDialDirection: row;
-  } @else if $direction == "right" {
+  } @else if $direction == 'right' {
     $wrapperDirection: row-reverse;
     $speedDialDirection: row;
   }
 
-  &[ino-dial-direction=#{$direction}] {
+  &[ino-dial-direction='#{$direction}'] {
     .ino-fab-set-wrapper {
       flex-direction: $wrapperDirection;
-  
+
       .ino-speed-dial {
         flex-direction: $speedDialDirection;
       }
@@ -31,26 +30,25 @@ ino-fab-set {
   bottom: 20px;
   right: 20px;
 
-  &[ino-top-bottom-location=top] {
+  &[ino-top-bottom-location='top'] {
     top: 20px;
     bottom: auto;
   }
 
-  &[ino-top-bottom-location=bottom] {
+  &[ino-top-bottom-location='bottom'] {
     bottom: 20px;
   }
 
-  &[ino-left-right-location=left] {
+  &[ino-left-right-location='left'] {
     left: 20px;
     right: auto;
   }
-  
-  &[ino-left-right-location=right] {
-    right: 20px
+
+  &[ino-left-right-location='right'] {
+    right: 20px;
   }
 
-
-  $directions: "top", "bottom", "left", "right";
+  $directions: 'top', 'bottom', 'left', 'right';
   @each $direction in $directions {
     @include direction($direction);
   }
@@ -61,12 +59,12 @@ ino-fab-set {
     ino-fab {
       padding: 5px;
     }
-  
+
     .ino-speed-dial {
       display: none;
       align-items: center;
     }
-  
+
     &:hover .ino-speed-dial {
       display: flex;
     }

@@ -33,20 +33,22 @@ export class Menu {
 
   @Watch('inoOpen')
   inoOpenChanged(open: boolean) {
-      this.menu.open = open;
+    this.menu.open = open;
   }
 
   componentDidLoad() {
-    this.menu = new MDCCustomMenu(this.el.querySelector('.mdc-menu') as HTMLElement); // takes root and foundation, foundation takes adapter
+    this.menu = new MDCCustomMenu(this.el.querySelector(
+      '.mdc-menu'
+    ) as HTMLElement); // takes root and foundation, foundation takes adapter
 
     this.menu.open = this.inoOpen;
     this.setAnchor(this.inoFor);
   }
 
   private setAnchor(anchor?: string) {
-    const target = anchor ?
-      document.getElementById(anchor) :
-      this.el.parentElement;
+    const target = anchor
+      ? document.getElementById(anchor)
+      : this.el.parentElement;
 
     this.menu.setAnchorElement(target);
   }
@@ -61,12 +63,8 @@ export class Menu {
     return (
       <div class="mdc-menu-surface--anchor">
         <div class="mdc-menu mdc-menu-surface" tabindex="-1">
-          <ino-list
-            role="menu"
-            aria-hidden="true"
-            aria-orientation="vertical"
-          >
-            <slot/>
+          <ino-list role="menu" aria-hidden="true" aria-orientation="vertical">
+            <slot />
           </ino-list>
         </div>
       </div>

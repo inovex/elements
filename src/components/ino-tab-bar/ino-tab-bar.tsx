@@ -1,4 +1,12 @@
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 
 import { MDCTabBarFacade } from './mdc-facade';
 
@@ -41,7 +49,7 @@ export class TabBar {
   @Listen('inoTabDidLoad')
   @Listen('inoTabDidUnLoad')
   handleTabListChange() {
-     // Recreate the tab-bar if an tab has been added after initialization
+    // Recreate the tab-bar if an tab has been added after initialization
     if (this.mdcFacade) {
       this.mdcFacade.refreshTabList(this.inoActiveTab);
     }

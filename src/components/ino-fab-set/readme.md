@@ -1,23 +1,25 @@
 # ino-fab-set
-A floating action button (FAB) performs the primary, or most common, action on a screen. 
-It appears in front of all screen content, typically as a circular shape with an icon in its center. 
 
-FABs come in three types: regular, mini, and extended. 
+A floating action button (FAB) performs the primary, or most common, action on a screen.
+It appears in front of all screen content, typically as a circular shape with an icon in its center.
+
+FABs come in three types: regular, mini, and extended.
 
 When hovered, a FAB can display three to six related actions in the form of a speed dial.
 
-
 ### Usage
+
 The component can be used as follows:
 
 ```html
-<ino-fab-set 
+<ino-fab-set
   ino-top-bottom-location="<string>"
   ino-left-right-location="<string>"
-  ino-direction="<string>">
-    <ino-fab slot="primary-fab" ...></ino-fab>
-    <ino-fab ...></ino-fab>
-    <ino-fab ...></ino-fab>
+  ino-direction="<string>"
+>
+  <ino-fab slot="primary-fab" ...></ino-fab>
+  <ino-fab ...></ino-fab>
+  <ino-fab ...></ino-fab>
 </ino-fab-set>
 ```
 
@@ -25,10 +27,7 @@ The component can be used as follows:
 
 **Primary FAB**: The Primary FAB is defined with the slot named `primary-fab`.
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -38,7 +37,6 @@ The component can be used as follows:
 | `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
 | `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

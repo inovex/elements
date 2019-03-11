@@ -1,4 +1,11 @@
-import { Component, Event, EventEmitter, Prop, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Event,
+  EventEmitter,
+  Prop,
+  State,
+  Watch
+} from '@stencil/core';
 
 /**
  * If you add new icons you also have to update the `icons.js` file beside that
@@ -57,11 +64,12 @@ export class Icon {
   }
 
   private loadIcon() {
-    const url: string = ICONS.indexOf(this.inoIcon) !== -1
-      ? `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`
-      : this.inoIcon;
+    const url: string =
+      ICONS.indexOf(this.inoIcon) !== -1
+        ? `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`
+        : this.inoIcon;
 
-    requestSVG(url).then(res => this.svgContent = res || '');
+    requestSVG(url).then(res => (this.svgContent = res || ''));
   }
 
   private handleClick(e: Event) {
@@ -84,13 +92,13 @@ export class Icon {
     let iconProps = {};
     if (this.inoClickable) {
       iconProps = {
-        'onClick': e => this.handleClick(e),
-        'onKeyPress': e => this.handleKeyPress(e),
-        'tabindex': 0,
-        'role': 'button'
+        onClick: e => this.handleClick(e),
+        onKeyPress: e => this.handleKeyPress(e),
+        tabindex: 0,
+        role: 'button'
       };
     }
-    return <i innerHTML={this.svgContent} {...iconProps}></i>;
+    return <i innerHTML={this.svgContent} {...iconProps} />;
   }
 }
 
@@ -118,7 +126,7 @@ function requestSVG(url: string) {
   if (!requests.has(url)) {
     // we don't already have a request
     const req = fetch(url, { cache: 'force-cache' })
-      .then(rsp => rsp.ok ? rsp.text() : Promise.resolve(null))
+      .then(rsp => (rsp.ok ? rsp.text() : Promise.resolve(null)))
       .then(svgContent => parseIcon(svgContent));
 
     // cache for the same requests

@@ -1,5 +1,5 @@
-@import "@material/card/mdc-card";
-@import "@material/typography/mdc-typography";
+@import '@material/card/mdc-card';
+@import '@material/typography/mdc-typography';
 
 ino-card {
   display: block;
@@ -17,7 +17,11 @@ ino-card {
 
       .ino-card__header {
         padding: 1rem;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
 
         .ino-card__header-title {
           @include mdc-theme-prop(color, #fff);
@@ -41,7 +45,7 @@ ino-card {
   .mdc-card__action-icons {
     margin-top: 8px;
     margin-bottom: 8px;
-    
+
     &:empty {
       margin: 0;
     }
@@ -49,11 +53,9 @@ ino-card {
   .mdc-card__action-buttons {
     margin-left: 8px;
   }
-  .mdc-card__action-icons {
+  .mdc-card__action-icons  {
     margin-right: 8px !important;
   }
-
-  
 
   .ino-card__header {
     .ino-card__header-title {
@@ -68,12 +70,11 @@ ino-card {
 
   .ino-card__content {
     @include mdc-typography(body2);
-
   }
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] > .ino-card__composer {
+    &[ino-color-scheme='#{$color-name}'] > .ino-card__composer {
       background-color: map-get($map, base);
       border: 1px solid map-get($map, base);
       color: map-get($map, contrast);

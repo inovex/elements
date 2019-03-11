@@ -6,7 +6,6 @@
   transition: all 50ms ease-out;
 }
 
-
 @mixin rotate($deg) {
   transform: rotate($deg);
 }

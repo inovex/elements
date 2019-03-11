@@ -1,4 +1,11 @@
-import { Component, Element, Event, EventEmitter, Listen, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -7,7 +14,6 @@ import classNames from 'classnames';
   shadow: false
 })
 export class ListItem {
-
   @Element() el!: HTMLElement;
   /**
    * The primary text of this list item (required).
@@ -63,20 +69,22 @@ export class ListItem {
     return (
       <li class={listItemClasses}>
         <span class="mdc-list-item__graphic" role="presentation">
-          <slot name="ino-leading"></slot>
+          <slot name="ino-leading" />
         </span>
         <span class="mdc-list-item__text">
-          {
-            this.inoSecondaryText
-              ? ([
+          {this.inoSecondaryText
+            ? [
                 <span class="mdc-list-item__primary-text">{this.inoText}</span>,
-                this.inoSecondaryText && <span class="mdc-list-item__secondary-text">{this.inoSecondaryText}</span>
-              ])
-              : this.inoText
-          }
+                this.inoSecondaryText && (
+                  <span class="mdc-list-item__secondary-text">
+                    {this.inoSecondaryText}
+                  </span>
+                )
+              ]
+            : this.inoText}
         </span>
         <span class="mdc-list-item__meta">
-          <slot name="ino-trailing"></slot>
+          <slot name="ino-trailing" />
         </span>
       </li>
     );

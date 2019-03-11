@@ -72,21 +72,22 @@ export class Tooltip {
   private create() {
     this.dispose();
 
-    this.target = this.inoFor ?
-      document.getElementById(this.inoFor) :
-      this.el.parentElement;
+    this.target = this.inoFor
+      ? document.getElementById(this.inoFor)
+      : this.el.parentElement;
 
     const options = {
-        title: this.inoLabel,
-        container: this.el,
-        placement: this.inoPlacement,
-        trigger: this.inoTrigger,
-        template: '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
-        arrowSelector: '.ino-tooltip__arrow',
-        innerSelector: '.ino-tooltip__inner'
-      };
-      // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
-      // @ts-ignore
+      title: this.inoLabel,
+      container: this.el,
+      placement: this.inoPlacement,
+      trigger: this.inoTrigger,
+      template:
+        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
+      arrowSelector: '.ino-tooltip__arrow',
+      innerSelector: '.ino-tooltip__inner'
+    };
+    // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
+    // @ts-ignore
     this.tooltipInstance = new TooltipJS(this.target, options);
 
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
@@ -98,7 +99,11 @@ export class Tooltip {
       this.tooltipInstance.dispose();
 
       this.target!.removeEventListener('keyup', this.onEnterTarget.bind(this));
-      this.target!.removeEventListener('blur', this.onLeaveTarget.bind(this), true);
+      this.target!.removeEventListener(
+        'blur',
+        this.onLeaveTarget.bind(this),
+        true
+      );
     }
   }
 

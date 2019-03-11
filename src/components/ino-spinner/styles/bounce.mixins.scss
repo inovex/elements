@@ -21,19 +21,19 @@ $tile-margin: 1.5px;
     position: absolute;
     top: 0;
     left: 0;
-    animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2s infinite ease-in-out;
   }
   .ino-spinner__double-bounce-2 {
-    @include animation-delay(-1.0s);
+    @include animation-delay(-1s);
   }
 
   @keyframes sk-bounce {
     0%,
     100% {
-      transform: scale(0.0);
+      transform: scale(0);
     }
     50% {
-      transform: scale(1.0);
+      transform: scale(1);
     }
   }
 }

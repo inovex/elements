@@ -1,7 +1,9 @@
 # ino-datepicker
+
 A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
 
 ### Usage
+
 This component can be used as follows:
 
 ```html
@@ -17,44 +19,45 @@ This component can be used as follows:
   max="<string>"
   minute-step="<number>"
   hour-step="<number>"
-  
   ino-range="<boolean>"
   ino-outline="<boolean>"
   ino-label="<string>"
   ino-pattern="<string>"
-
   ino-date-format="<string>"
   ino-default-date="<string>"
   ino-default-hour="<number>"
   ino-default-minute="<number>"
   ino-twelf-hour-time="<boolean>"
-    
   ino-helper="<string>"
   ino-helper-persistent="<boolean>"
-  ino-helper-validation="<boolean">
+  ino-helper-validation="<boolean"
+>
 </ino-datepicker>
 ```
 
 ### Examples
+
 The correct picker is automatically chosen based on the `ino-date-format`.
 
 The picker can be used as date picker
+
 ```html
 <ino-datepicker ino-date-format="d-m-Y" ino-label="Date"></ino-datepicker>
 ```
 
 or as time picker
+
 ```html
 <ino-datepicker ino-date-format="H:i" ino-label="Time"></ino-datepicker>
 ```
 
 or as datetime picker
+
 ```html
 <ino-datepicker ino-type="d-m-Y H:i" ino-label="Datetime"></ino-datepicker>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -84,14 +87,12 @@ or as datetime picker
 | `tabindex`            | `tabindex`              | The tabindex of this element.                                                                                                                                                                                                                            | `string`             | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                                                                                       | `string`             | `''`        |
 
-
 ## Events
 
 | Event          | Description                                                                              | Type                  |
 | -------------- | ---------------------------------------------------------------------------------------- | --------------------- |
 | `valueChanges` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -1,6 +1,14 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-checkbox',
@@ -60,7 +68,9 @@ export class Checkbox {
   }
 
   componentDidLoad() {
-    this.checkboxInstance = new MDCCheckbox(this.el.querySelector('.mdc-checkbox'));
+    this.checkboxInstance = new MDCCheckbox(
+      this.el.querySelector('.mdc-checkbox')
+    );
     this.formField = new MDCFormField(this.el.querySelector('.mdc-form-field'));
     this.formField.input = this.checkboxInstance;
 
@@ -107,7 +117,9 @@ export class Checkbox {
   render() {
     return (
       <div class="mdc-form-field">
-        <div class={`mdc-checkbox ${this.disabled && 'mdc-checkbox--disabled'}`}>
+        <div
+          class={`mdc-checkbox ${this.disabled && 'mdc-checkbox--disabled'}`}
+        >
           <input
             type="checkbox"
             class="mdc-checkbox__native-control"
@@ -117,13 +129,10 @@ export class Checkbox {
             tabindex={this.inoTabindex}
             value={this.value}
             id={this.uniqueCheckboxId()}
-            ref={el => this.nativeInputEl = el as HTMLInputElement}
+            ref={el => (this.nativeInputEl = el as HTMLInputElement)}
           />
           <div class="mdc-checkbox__background">
-            <svg
-              class="mdc-checkbox__checkmark"
-              viewBox="0 0 24 24"
-            >
+            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
               <path
                 class="mdc-checkbox__checkmark-path"
                 fill="none"
@@ -131,10 +140,12 @@ export class Checkbox {
                 d="M1.73,12.91 8.1,19.28 22.79,4.59"
               />
             </svg>
-            <div class="mdc-checkbox__mixedmark"></div>
+            <div class="mdc-checkbox__mixedmark" />
           </div>
         </div>
-        <label htmlFor={this.uniqueCheckboxId()}><slot /></label>
+        <label htmlFor={this.uniqueCheckboxId()}>
+          <slot />
+        </label>
       </div>
     );
   }

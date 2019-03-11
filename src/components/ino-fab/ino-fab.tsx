@@ -81,10 +81,21 @@ export class Fab {
     return (
       <div>
         <div class={classFab} id={this.uniqueHelperId}>
-          <span class="material-icons mdc-fab__icon"><ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}></ino-icon></span>
-          {this.inoExtended && <span class="mdc-fab__label">{this.inoLabel}</span>}
+          <span class="material-icons mdc-fab__icon">
+            <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
+          </span>
+          {this.inoExtended && (
+            <span class="mdc-fab__label">{this.inoLabel}</span>
+          )}
         </div>
-        {!this.inoExtended && <ino-tooltip ino-for={this.uniqueHelperId} ino-label={this.inoLabel} ino-placement={this.inoTooltipPlacement} ino-trigger="hover focus"></ino-tooltip>}
+        {!this.inoExtended && (
+          <ino-tooltip
+            ino-for={this.uniqueHelperId}
+            ino-label={this.inoLabel}
+            ino-placement={this.inoTooltipPlacement}
+            ino-trigger="hover focus"
+          />
+        )}
       </div>
     );
   }

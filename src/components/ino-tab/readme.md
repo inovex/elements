@@ -1,22 +1,19 @@
 # ino-tab
+
 Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.
 
-
 ### Usage
+
 The component can be used as follows:
 
 ```js
-document
-  .querySelector('ino-tab')
-  .addEventListener('inoTabDidLoad', (e) => {
-    // ...
-  });
+document.querySelector('ino-tab').addEventListener('inoTabDidLoad', e => {
+  // ...
+});
 
-document
-  .querySelector('ino-tab')
-  .addEventListener('inoTabDidUnLoad', (e) => {
-    // ...
-  });
+document.querySelector('ino-tab').addEventListener('inoTabDidUnLoad', e => {
+  // ...
+});
 ```
 
 ```html
@@ -31,9 +28,7 @@ document
 
 **Content**: Provide the text of a Tab and, if desired, an icon of the tab in `ino-icon`.
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -44,7 +39,6 @@ document
 | `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
 | `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
-
 ## Events
 
 | Event             | Description                      | Type                |
@@ -52,7 +46,6 @@ document
 | `inoTabDidLoad`   | Emitted when the tab did load.   | `CustomEvent<void>` |
 | `inoTabDidUnLoad` | Emitted when the tab did unload. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

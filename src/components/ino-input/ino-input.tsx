@@ -1,7 +1,15 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -118,7 +126,10 @@ export class Input {
   valueChanged(newValue: string) {
     if (this.nativeInputEl) {
       this.nativeInputEl.value = newValue;
-      this.nativeInputEl.setSelectionRange(this.cursorPosition, this.cursorPosition);
+      this.nativeInputEl.setSelectionRange(
+        this.cursorPosition,
+        this.cursorPosition
+      );
     }
   }
 
@@ -173,10 +184,14 @@ export class Input {
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
     if (this.inoHelper) {
-      this.helperText = new MDCTextFieldHelperText(document.querySelector('.mdc-text-field-helper-text'));
+      this.helperText = new MDCTextFieldHelperText(
+        document.querySelector('.mdc-text-field-helper-text')
+      );
     }
     if (this.inoIcon) {
-      this.icon = new MDCTextFieldIcon(document.querySelector('.mdc-text-field__icon'));
+      this.icon = new MDCTextFieldIcon(
+        document.querySelector('.mdc-text-field__icon')
+      );
     }
 
     if (this.value && this.nativeInputEl) {
@@ -223,25 +238,26 @@ export class Input {
     if (!this.inoLabel) {
       return '';
     }
-    const classLabel = classNames(
-      'mdc-floating-label',
-      { 'mdc-floating-label--float-above': this.inoLabel && (this.value || this.nativeInputEl === document.activeElement) }
-    );
+    const classLabel = classNames('mdc-floating-label', {
+      'mdc-floating-label--float-above':
+        this.inoLabel &&
+        (this.value || this.nativeInputEl === document.activeElement)
+    });
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
 
   private inputStyleTemplate() {
     if (this.inoOutline) {
-      return ([
+      return [
         <div class="mdc-notched-outline">
           <svg>
-            <path class="mdc-notched-outline__path"/>
+            <path class="mdc-notched-outline__path" />
           </svg>
         </div>,
-        <div class="mdc-notched-outline__idle"></div>
-      ]);
+        <div class="mdc-notched-outline__idle" />
+      ];
     }
-    return <div class="mdc-line-ripple"></div>;
+    return <div class="mdc-line-ripple" />;
   }
 
   private helperTextTemplate() {
@@ -249,23 +265,28 @@ export class Input {
       return '';
     }
     const classInputMessage = classNames({
-      'mdc-text-field-helper-text' : true,
+      'mdc-text-field-helper-text': true,
       'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
       'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation
     });
 
-    return <p class={classInputMessage} id={this.uniqueHelperId} aria-hidden="true">{this.inoHelper}</p>;
+    return (
+      <p class={classInputMessage} id={this.uniqueHelperId} aria-hidden="true">
+        {this.inoHelper}
+      </p>
+    );
   }
 
   private iconTemplate() {
-    return this.inoIcon && (
-      <ino-icon
-        class="mdc-text-field__icon"
-        ino-icon={this.inoIcon}
-        tabindex={this.inoIconClickable ? 0 : -1}
-        ino-clickable={this.inoIconClickable}
-      >
-      </ino-icon>
+    return (
+      this.inoIcon && (
+        <ino-icon
+          class="mdc-text-field__icon"
+          ino-icon={this.inoIcon}
+          tabindex={this.inoIconClickable ? 0 : -1}
+          ino-clickable={this.inoIconClickable}
+        />
+      )
     );
   }
 
@@ -277,15 +298,16 @@ export class Input {
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--upgraded': true,
-      'mdc-text-field--with-leading-icon': this.inoIcon && !this.inoIconTrailing,
-      'mdc-text-field--with-trailing-icon': this.inoIcon && this.inoIconTrailing,
+      'mdc-text-field--with-leading-icon':
+        this.inoIcon && !this.inoIconTrailing,
+      'mdc-text-field--with-trailing-icon': this.inoIcon && this.inoIconTrailing
     });
 
-    return ([
+    return [
       <div class={classTextfield}>
         {!this.inoIconTrailing && this.iconTemplate()}
         <input
-          ref={el => this.nativeInputEl = el}
+          ref={el => (this.nativeInputEl = el)}
           class="mdc-text-field__input"
           accessKey={this.accesskey}
           autocomplete={this.autocomplete}
@@ -312,6 +334,6 @@ export class Input {
         {this.inputStyleTemplate()}
       </div>,
       this.helperTextTemplate()
-    ]);
+    ];
   }
 }

@@ -1,8 +1,11 @@
 # ino-img
+
 An image component with different styles that reserves a predefined space to avoid jumping contents.
 
 ### Usage
+
 The component can be used as follows (custom preferences have an `ino`-prefix):
+
 ```html
 <ino-img
   alt="<string>"
@@ -22,8 +25,8 @@ The component can be used as follows (custom preferences have an `ino`-prefix):
 
 If the attribute `ino-rounded` is true, the image is displayed with rounded corners.
 
-
 ### Pre-defined ratios
+
 The image component has two attributes `ino-ratio-height` and `ino-ratio-width`. Use them to define any desired ratio and avoid content jumping!
 
 Example: The image `image.png` has a ratio of `16:9`. Define the image component as follows:
@@ -34,9 +37,7 @@ Example: The image `image.png` has a ratio of `16:9`. Define the image component
 
 With this setup and while loading the source, the width of this element extends to 100% (or the value defined in `width` attribute) and computes the height based on the ratio attributes.
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -54,7 +55,6 @@ With this setup and while loading the source, the width of this element extends 
 | `usemap`         | `usemap`           | An ID referencing to a defined map element for this image.                                                                                                                           | `string`                      | `undefined` |
 | `width`          | `width`            | The fixed of the image.                                                                                                                                                              | `number`                      | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
