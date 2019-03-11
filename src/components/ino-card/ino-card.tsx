@@ -9,7 +9,6 @@ import { CardAspectRatio, ColorScheme } from '../types';
   shadow: false
 })
 export class Card {
-
   @Element() el!: HTMLElement;
 
   /**
@@ -55,8 +54,12 @@ export class Card {
     if (this.inoTitle || this.inoSubtitle) {
       return (
         <div class="ino-card__header">
-          {this.inoTitle && <div class="ino-card__header-title">{this.inoTitle}</div>}
-          {this.inoSubtitle && <div class="ino-card__header-subtitle">{this.inoSubtitle}</div>}
+          {this.inoTitle && (
+            <div class="ino-card__header-title">{this.inoTitle}</div>
+          )}
+          {this.inoSubtitle && (
+            <div class="ino-card__header-subtitle">{this.inoSubtitle}</div>
+          )}
         </div>
       );
     }
@@ -68,18 +71,17 @@ export class Card {
       backgroundImage: 'url(' + this.inoImage + ')'
     };
 
-    const mediaClass = classnames(
-      'mdc-card__media',
-      {
-        'mdc-card__media--16-9': this.inoAspectRatio === '16-9',
-        'mdc-card__media--square': this.inoAspectRatio === 'square'
-      }
-    );
+    const mediaClass = classnames('mdc-card__media', {
+      'mdc-card__media--16-9': this.inoAspectRatio === '16-9',
+      'mdc-card__media--square': this.inoAspectRatio === 'square'
+    });
 
     if (this.inoImage) {
-      return(
+      return (
         <div class={mediaClass} style={style}>
-          <div class="mdc-card__media-content">{this.inoMediaTitle && this.headerTemplate()}</div>
+          <div class="mdc-card__media-content">
+            {this.inoMediaTitle && this.headerTemplate()}
+          </div>
         </div>
       );
     }
@@ -88,28 +90,27 @@ export class Card {
   }
 
   render() {
-    const cardClass = classnames(
-      'mdc-card',
-      { 'mdc-card--outlined': this.inoOutline }
-    );
+    const cardClass = classnames('mdc-card', {
+      'mdc-card--outlined': this.inoOutline
+    });
 
-    const mdcCardActionsClass = classnames(
-      'mdc-card__actions'
-    );
+    const mdcCardActionsClass = classnames('mdc-card__actions');
 
     return (
       <div class={cardClass}>
         {this.mediaTeamplate()}
         <div class="ino-card__composer">
           {!this.inoMediaTitle && this.headerTemplate()}
-          <div class="ino-card__content"><slot name="content" /></div>
+          <div class="ino-card__content">
+            <slot name="content" />
+          </div>
         </div>
         <div class={mdcCardActionsClass}>
           <div class="mdc-card__action-buttons">
-            <slot name="action-buttons"></slot>
+            <slot name="action-buttons" />
           </div>
           <div class="mdc-card__action-icons">
-            <slot name="action-icons"></slot>
+            <slot name="action-icons" />
           </div>
         </div>
       </div>

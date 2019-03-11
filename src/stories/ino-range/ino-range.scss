@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
 
-    >.flex-child {
+    > .flex-child {
       margin: 0 20px;
     }
   }
@@ -16,7 +16,7 @@
   .stepped-range-container {
     width: 200px;
 
-    >.flex-child {
+    > .flex-child {
       width: 100%;
     }
   }

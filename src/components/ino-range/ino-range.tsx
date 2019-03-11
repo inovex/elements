@@ -1,5 +1,12 @@
 import { MDCSlider } from '@material/slider';
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Prop,
+  Watch
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
@@ -96,7 +103,7 @@ export class Range {
   /**
    * The step size for this element (default = 1)
    */
-  @Prop() step ?= 1;
+  @Prop() step ? = 1;
 
   @Watch('step')
   stepChangeHandler(newValue: number) {
@@ -121,14 +128,22 @@ export class Range {
   private load() {
     const sliderElement = this.el.querySelector('.mdc-slider');
     this.sliderInstance = new MDCSlider(sliderElement);
-    this.sliderInstance.listen('MDCSlider:change', this.handleChange.bind(this));
+    this.sliderInstance.listen(
+      'MDCSlider:change',
+      this.handleChange.bind(this)
+    );
     this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
-
   }
 
   private unload() {
-    this.sliderInstance.unlisten('MDCSlider:change', this.handleChange.bind(this));
-    this.sliderInstance.unlisten('MDCSlider:input', this.handleInput.bind(this));
+    this.sliderInstance.unlisten(
+      'MDCSlider:change',
+      this.handleChange.bind(this)
+    );
+    this.sliderInstance.unlisten(
+      'MDCSlider:input',
+      this.handleInput.bind(this)
+    );
     this.sliderInstance.destroy();
   }
 
@@ -160,17 +175,21 @@ export class Range {
         data-step={this.step}
       >
         <div class="mdc-slider__track-container">
-          <div class="mdc-slider__track"></div>
-          {this.inoMarkers && this.inoDiscrete && <div class="mdc-slider__track-marker-container"></div>}
+          <div class="mdc-slider__track" />
+          {this.inoMarkers && this.inoDiscrete && (
+            <div class="mdc-slider__track-marker-container" />
+          )}
         </div>
         <div class="mdc-slider__thumb-container">
-          {this.inoDiscrete && <div class="mdc-slider__pin">
-            <span class="mdc-slider__pin-value-marker">{this.value}</span>
-          </div>}
+          {this.inoDiscrete && (
+            <div class="mdc-slider__pin">
+              <span class="mdc-slider__pin-value-marker">{this.value}</span>
+            </div>
+          )}
           <svg class="mdc-slider__thumb" width="21" height="21">
-            <circle cx="10.5" cy="10.5" r="7.875"></circle>
+            <circle cx="10.5" cy="10.5" r="7.875" />
           </svg>
-          <div class="mdc-slider__focus-ring"></div>
+          <div class="mdc-slider__focus-ring" />
         </div>
       </div>
     );

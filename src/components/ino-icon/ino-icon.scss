@@ -9,12 +9,12 @@ ino-icon {
     flex-direction: row;
     justify-content: center;
   }
-  i[role="button"] {
+  i[role='button'] {
     cursor: pointer;
   }
   svg {
-    height:1em;
-    width:1em;
+    height: 1em;
+    width: 1em;
     fill: currentColor;
   }
 }

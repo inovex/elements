@@ -1,4 +1,12 @@
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 import flatpickr from 'flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
@@ -10,7 +18,6 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
   ],
   shadow: false
 })
-
 export class Datepicker {
   @Element() el!: HTMLElement;
 
@@ -210,7 +217,7 @@ export class Datepicker {
       allowInput: true,
       clickOpens: false,
       defaultDate: this.inoDefaultDate || [], // hacky: seems to be a bug in flatpickr when not providing an
-                                              // empty array, flatpickr checks always for the length of this value
+      // empty array, flatpickr checks always for the length of this value
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
       minDate: this.min,
@@ -257,7 +264,9 @@ export class Datepicker {
    * Is necessary when a time format option is included in `inoDateFormat`
    */
   private requiresTimePicker() {
-    return Datepicker.FORMATTING_OPTIONS.time.some(char => this.inoDateFormat!.includes(char));
+    return Datepicker.FORMATTING_OPTIONS.time.some(char =>
+      this.inoDateFormat!.includes(char)
+    );
   }
 
   /**
@@ -265,7 +274,12 @@ export class Datepicker {
    * Is not necessary when no date format option is included in `inoDateFormat` and a time picker is enabled
    */
   private requiresNoDatePicker() {
-    return this.requiresTimePicker() && !Datepicker.FORMATTING_OPTIONS.date.some(char => this.inoDateFormat!.includes(char));
+    return (
+      this.requiresTimePicker() &&
+      !Datepicker.FORMATTING_OPTIONS.date.some(char =>
+        this.inoDateFormat!.includes(char)
+      )
+    );
   }
 
   render() {
@@ -281,7 +295,11 @@ export class Datepicker {
           required={this.required}
           tabindex={this.tabindex}
           ino-label={this.inoLabel}
-          pattern={this.inoPattern && this.inoPattern !== '' ? this.inoPattern : undefined}
+          pattern={
+            this.inoPattern && this.inoPattern !== ''
+              ? this.inoPattern
+              : undefined
+          }
           value={this.value}
           ino-icon="date_range"
           ino-icon-clickable
@@ -295,8 +313,7 @@ export class Datepicker {
             // because flatpickr controls the input field and prevents emitting.
             this.valueChanges.emit(e.detail);
           }}
-        >
-        </ino-input>
+        />
       </div>
     );
   }

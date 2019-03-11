@@ -73,10 +73,9 @@ export class Chip {
   }
 
   render() {
-    const chipClasses = classNames(
-      'mdc-chip',
-      { 'mdc-chip--selected': this.inoSelected }
-    );
+    const chipClasses = classNames('mdc-chip', {
+      'mdc-chip--selected': this.inoSelected
+    });
 
     const iconClasses = classNames({
       'mdc-chip__icon': true,
@@ -86,33 +85,35 @@ export class Chip {
 
     return (
       <div class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
-        { this.inoIcon
-          && <ino-icon class={iconClasses} ino-icon={this.inoIcon}></ino-icon>
-        }
+        {this.inoIcon && (
+          <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
+        )}
 
-        { this.inoSelectable
-          && (
-            <div class="mdc-chip__checkmark">
-              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
-                <path class="mdc-chip__checkmark-path" fill="none" stroke="black" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-              </svg>
-            </div>
-          )
-        }
+        {this.inoSelectable && (
+          <div class="mdc-chip__checkmark">
+            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+              <path
+                class="mdc-chip__checkmark-path"
+                fill="none"
+                stroke="black"
+                d="M1.73,12.91 8.1,19.28 22.79,4.59"
+              />
+            </svg>
+          </div>
+        )}
 
         <div class="mdc-chip__text">{this.inoLabel}</div>
 
-        { this.inoRemovable &&
-            <ino-icon
-              class="mdc-chip__icon mdc-chip__icon--trailing"
-              ino-icon="cancel"
-              tabindex="0"
-              role="button"
-              ino-clickable
-              onInoIconClicked={e => this.iconClicked(e)}
-            >
-            </ino-icon>
-        }
+        {this.inoRemovable && (
+          <ino-icon
+            class="mdc-chip__icon mdc-chip__icon--trailing"
+            ino-icon="cancel"
+            tabindex="0"
+            role="button"
+            ino-clickable
+            onInoIconClicked={e => this.iconClicked(e)}
+          />
+        )}
       </div>
     );
   }

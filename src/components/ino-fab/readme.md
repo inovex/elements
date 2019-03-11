@@ -1,8 +1,9 @@
 # ino-fab
+
 A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.
 
-
 ### Usage
+
 The component can be used as follows:
 
 ```html
@@ -12,7 +13,8 @@ The component can be used as follows:
   ino-label="<string>"
   ino-extended
   ino-mini
-  ino-tooltip-placement="<string>">
+  ino-tooltip-placement="<string>"
+>
 </ino-fab>
 ```
 
@@ -20,23 +22,19 @@ The component can be used as follows:
 
 **Styling**: The fab can be styled in different ways with the attribute `ino-color-scheme`. See the attribute documentation below for more informations.
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                                                                                                       | Type                                                                                                                                                                                                         | Default     |
-| --------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `inoColorScheme`      | `ino-color-scheme`      | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"`                                                                                                           | `'primary'` |
-| `inoExtended`         | `ino-extended`          | Optional, modifies the FAB to wider size which includes a text label.                                                                                                                                             | `boolean`                                                                                                                                                                                                    | `false`     |
-| `inoIcon`             | `ino-icon`              | Adds an icon to the Fab.                                                                                                                                                                                          | `string`                                                                                                                                                                                                     | `undefined` |
-| `inoLabel`            | `ino-label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                                                                                   | `string`                                                                                                                                                                                                     | `undefined` |
-| `inoMini`             | `ino-mini`              | Optional, modifies the FAB to a smaller size                                                                                                                                                                      | `boolean`                                                                                                                                                                                                    | `false`     |
-| `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                                           | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
+| Property              | Attribute               | Description                                                                                                                                                                                                      | Type                                                                                                                                                                                                         | Default     |
+| --------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `inoColorScheme`      | `ino-color-scheme`      | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"`                                                                                                           | `'primary'` |
+| `inoExtended`         | `ino-extended`          | Optional, modifies the FAB to wider size which includes a text label.                                                                                                                                            | `boolean`                                                                                                                                                                                                    | `false`     |
+| `inoIcon`             | `ino-icon`              | Adds an icon to the Fab.                                                                                                                                                                                         | `string`                                                                                                                                                                                                     | `undefined` |
+| `inoLabel`            | `ino-label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                                                                                  | `string`                                                                                                                                                                                                     | `undefined` |
+| `inoMini`             | `ino-mini`              | Optional, modifies the FAB to a smaller size                                                                                                                                                                     | `boolean`                                                                                                                                                                                                    | `false`     |
+| `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                                          | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

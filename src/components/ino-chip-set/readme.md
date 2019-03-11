@@ -1,13 +1,16 @@
 # ino-chip-set
+
 A compact component wrapping `ino-chip` elements and giving them a behavior. It functions as a wrapper around the material [chip-set](https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips) capabilities.
 
 > See the `ino-chip` documentation for more details about a single instance of a chip.
 
 ### Usage
+
 The component can be used as follows:
 
 ```html
-<ino-chip-set ino-type=<string>>
+<ino-chip-set ino-type="<string"
+  >>
   <ino-chip ...></ino-chip>
   ...
   <ino-chip ...></ino-chip>
@@ -15,8 +18,11 @@ The component can be used as follows:
 ```
 
 ## Types
+
 ### Simple chip sets
-`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (f. e. email addresses after adding them in an input field), simple miss out the `ino-type` attribute. 
+
+`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (f. e. email addresses after adding them in an input field), simple miss out the `ino-type` attribute.
+
 ```html
 <ino-chip-set>
   <ino-chip ino-label="Action chip" onClick={_ => console.log('Triggers an awesome action!')}></ino-chip>
@@ -29,15 +35,16 @@ The component can be used as follows:
 ### Chip sets as form elements
 
 There are two complex types of chip sets:
-* **`ino-type="choice"`**: Choice chips are a variant of chips which allow single selection from a set of options (similar to radio-inputs).
-* **`ino-type="filter"`**: Filter chips are a variant of chips which allow multiple selection from a set of options (similar to checkbox-inputs).
+
+- **`ino-type="choice"`**: Choice chips are a variant of chips which allow single selection from a set of options (similar to radio-inputs).
+- **`ino-type="filter"`**: Filter chips are a variant of chips which allow multiple selection from a set of options (similar to checkbox-inputs).
 
 For both, choice and filter chip sets emit an `inoChipSetUpdated` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
 ```js
 document
   .querySelector('ino-chip-set')
-  .addEventListener('inoChipSetUpdated', (e) => {
+  .addEventListener('inoChipSetUpdated', e => {
     // ...
   });
 ```
@@ -51,21 +58,18 @@ document
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property  | Attribute  | Description                                                                                                             | Type                                    | Default |
 | --------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
 | `inoType` | `ino-type` | The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input` | `"" \| "choice" \| "filter" \| "input"` | `''`    |
 
-
 ## Events
 
-| Event               | Description                                                                                                     | Type                |
-| ------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `inoChipSetUpdated` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
+| Event               | Description                                                                                                    | Type                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `inoChipSetUpdated` | Event that emits when the value of this element changes. Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

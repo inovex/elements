@@ -1,25 +1,20 @@
 # ino-popover
+
 A Popover is a dialog which is bound to a specific element and appears on top of the current page. It is based on [tooltip.js](https://github.com/FezVrasta/popper.js#tooltipjs) to position the popover.
 
 The Popover and [Tooltip](https://elements.inovex.io/dist/latest/storybook/?selectedKind=<ino-tooltip>&selectedStory=Default%20usage) components are very similar. However, whereas tooltips can only display plain text, popovers are complex dialogs with many HTML elements.
 
 ### Usage
+
 The component can be used as follows:
 
 ```html
-<ino-popover
-  ino-for="<string>"
-  ino-placement="<string"
-  ino-trigger="<string>">
-
-  Any desired HTML 
-
+<ino-popover ino-for="<string>" ino-placement="<string" ino-trigger="<string>">
+  Any desired HTML
 </ino-popover>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -29,7 +24,6 @@ The component can be used as follows:
 | `inoPlacement` | `ino-placement` | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                    | `'auto'`        |
 | `inoTrigger`   | `ino-trigger`   | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus hover" \| "click focus" \| "click hover focus" \| "click hover" \| "click" \| "focus click hover" \| "focus click" \| "focus hover click" \| "focus hover" \| "focus" \| "hover click focus" \| "hover click" \| "hover focus click" \| "hover focus" \| "hover"` | `'hover focus'` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

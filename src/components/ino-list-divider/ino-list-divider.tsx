@@ -35,8 +35,10 @@ export class ListDivider {
       'mdc-list-divider--inset': !this.inoBetweenLists && this.inoInset
     });
 
-    return this.inoBetweenLists ?
-      <hr class={dividerClasses} /> :
-      <li role="separator" class={dividerClasses}></li>;
+    return this.inoBetweenLists ? (
+      <hr class={dividerClasses} />
+    ) : (
+      <li role="separator" class={dividerClasses} />
+    );
   }
 }

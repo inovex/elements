@@ -39,35 +39,35 @@ export class Spinner {
 
   private tileTemplate() {
     return [
-      <div class="ino-spinner__rect1"></div>,
-      <div class="ino-spinner__rect2"></div>,
-      <div class="ino-spinner__rect3"></div>,
-      <div class="ino-spinner__rect4"></div>,
-      <div class="ino-spinner__rect5"></div>,
+      <div class="ino-spinner__rect1" />,
+      <div class="ino-spinner__rect2" />,
+      <div class="ino-spinner__rect3" />,
+      <div class="ino-spinner__rect4" />,
+      <div class="ino-spinner__rect5" />
     ];
   }
 
   private bounceTemplate() {
     return [
-      <div class="ino-spinner__double-bounce-1"></div>,
-      <div class="ino-spinner__double-bounce-2"></div>
+      <div class="ino-spinner__double-bounce-1" />,
+      <div class="ino-spinner__double-bounce-2" />
     ];
   }
 
   private circleTemplate() {
     return [
-      <div class="ino-spinner__circle-1"></div>,
-      <div class="ino-spinner__circle-2"></div>,
-      <div class="ino-spinner__circle-3"></div>,
-      <div class="ino-spinner__circle-4"></div>,
-      <div class="ino-spinner__circle-5"></div>,
-      <div class="ino-spinner__circle-6"></div>,
-      <div class="ino-spinner__circle-7"></div>,
-      <div class="ino-spinner__circle-8"></div>,
-      <div class="ino-spinner__circle-9"></div>,
-      <div class="ino-spinner__circle-10"></div>,
-      <div class="ino-spinner__circle-11"></div>,
-      <div class="ino-spinner__circle-12"></div>
+      <div class="ino-spinner__circle-1" />,
+      <div class="ino-spinner__circle-2" />,
+      <div class="ino-spinner__circle-3" />,
+      <div class="ino-spinner__circle-4" />,
+      <div class="ino-spinner__circle-5" />,
+      <div class="ino-spinner__circle-6" />,
+      <div class="ino-spinner__circle-7" />,
+      <div class="ino-spinner__circle-8" />,
+      <div class="ino-spinner__circle-9" />,
+      <div class="ino-spinner__circle-10" />,
+      <div class="ino-spinner__circle-11" />,
+      <div class="ino-spinner__circle-12" />
     ];
   }
 

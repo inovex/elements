@@ -1,4 +1,4 @@
-@import "@material/chips/mdc-chips";
+@import '@material/chips/mdc-chips';
 @import 'styles/colors.scss';
 
 ino-chip {
@@ -6,19 +6,19 @@ ino-chip {
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] {
+    &[ino-color-scheme='#{$color-name}'] {
       .mdc-chip {
         @include mdc-chip-fill-color-accessible(map-get($map, base));
       }
-      
+
       // Set outline color
-      &[ino-fill="outline"] .mdc-chip {
+      &[ino-fill='outline'] .mdc-chip {
         @include mdc-chip-outline-color(map-get($map, base));
       }
     }
   }
 
-  &[ino-fill="outline"] .mdc-chip {
+  &[ino-fill='outline'] .mdc-chip {
     @include mdc-chip-fill-color-accessible(white);
     @include mdc-chip-outline(1px, solid, $mdc-chip-fill-color-default);
   }

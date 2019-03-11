@@ -20,10 +20,15 @@ export class MDCTabBarFacade {
     this.root = tabBar.el.querySelector('.mdc-tab-bar') as HTMLElement;
 
     this.foundation = new MDCTabBarFoundation(this.adapter(tabBar));
-    this.scroller = new MDCTabScroller(this.root.querySelector('.mdc-tab-scroller'));
+    this.scroller = new MDCTabScroller(
+      this.root.querySelector('.mdc-tab-scroller')
+    );
 
     this.root.addEventListener('keydown', this.handleKeyDown.bind(this));
-    this.root.addEventListener('MDCTab:interacted', this.handleTabInteraction.bind(this));
+    this.root.addEventListener(
+      'MDCTab:interacted',
+      this.handleTabInteraction.bind(this)
+    );
     this.refreshTabList(tabBar.inoActiveTab);
   }
 
@@ -93,16 +98,21 @@ export class MDCTabBarFacade {
   private adapter(tabBar: TabBar) {
     return {
       scrollTo: scrollX => this.scroller.scrollTo(scrollX),
-      incrementScroll: scrollXIncrement => this.scroller.incrementScroll(scrollXIncrement),
+      incrementScroll: scrollXIncrement =>
+        this.scroller.incrementScroll(scrollXIncrement),
       getScrollPosition: () => this.scroller.getScrollPosition(),
       getScrollContentWidth: () => this.scroller.getScrollContentWidth(),
       getOffsetWidth: () => this.root.offsetWidth,
-      isRTL: () => window.getComputedStyle(this.root).getPropertyValue('direction') === 'rtl',
+      isRTL: () =>
+        window.getComputedStyle(this.root).getPropertyValue('direction') ===
+        'rtl',
       setActiveTab: index => tabBar.activeTabChangesHandler(index),
-      activateTabAtIndex: (index, clientRect) => this.tabList[index].activate(clientRect),
+      activateTabAtIndex: (index, clientRect) =>
+        this.tabList[index].activate(clientRect),
       deactivateTabAtIndex: index => this.tabList[index].deactivate(),
       focusTabAtIndex: index => this.tabList[index].focus(),
-      getTabIndicatorClientRectAtIndex: index => this.tabList[index].computeIndicatorClientRect(),
+      getTabIndicatorClientRectAtIndex: index =>
+        this.tabList[index].computeIndicatorClientRect(),
       getTabDimensionsAtIndex: index => this.tabList[index].computeDimensions(),
       getPreviousActiveTabIndex: () => {
         for (const i in this.tabList) {
@@ -119,7 +129,7 @@ export class MDCTabBarFacade {
       },
       getIndexOfTab: tabToFind => this.tabList.indexOf(tabToFind),
       getTabListLength: () => this.tabList.length,
-      notifyTabActivated: index => index,
+      notifyTabActivated: index => index
     };
   }
 }

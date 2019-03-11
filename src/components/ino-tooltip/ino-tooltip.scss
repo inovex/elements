@@ -1,13 +1,12 @@
 @import 'styles/tooltip.scss';
 
 ino-tooltip {
-  @include tooltip(#000, #CCC);
+  @include tooltip(#000, #ccc);
 
   .ino-tooltip__composer {
     border-radius: 3px;
-    padding: .4em .75em;
-    font-size: .8rem;
+    padding: 0.4em 0.75em;
+    font-size: 0.8rem;
     text-align: center;
   }
 }
-

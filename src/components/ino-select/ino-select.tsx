@@ -1,5 +1,13 @@
 import { MDCSelect } from '@material/select';
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -83,16 +91,16 @@ export class Select {
 
   private selectStyleTemplate() {
     if (this.inoOutline) {
-      return ([
+      return [
         <div class="mdc-notched-outline">
           <svg>
-            <path class="mdc-notched-outline__path"/>
+            <path class="mdc-notched-outline__path" />
           </svg>
         </div>,
-        <div class="mdc-notched-outline__idle"></div>
-      ]);
+        <div class="mdc-notched-outline__idle" />
+      ];
     }
-    return <div class="mdc-line-ripple"></div>;
+    return <div class="mdc-line-ripple" />;
   }
 
   @Listen('change')
@@ -126,7 +134,7 @@ export class Select {
     return (
       <div class={classSelect}>
         <select
-          ref={el => this.nativeSelectElement = el}
+          ref={el => (this.nativeSelectElement = el)}
           class="mdc-select__native-control"
           autoFocus={this.autofocus}
           disabled={this.disabled}
@@ -134,7 +142,7 @@ export class Select {
           name={this.name}
           required={this.required}
         >
-          {this.inoPrependDefault && <option disabled selected value=""></option>}
+          {this.inoPrependDefault && <option disabled selected value="" />}
           <slot />
         </select>
         {this.inoLabel && <label class={classLabel}>{this.inoLabel}</label>}

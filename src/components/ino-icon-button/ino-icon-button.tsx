@@ -66,8 +66,7 @@ export class IconButton {
         class={iconButtonClasses}
         disabled={this.disabled}
       >
-
-        <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon"></ino-icon>
+        <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
       </button>
     );
   }

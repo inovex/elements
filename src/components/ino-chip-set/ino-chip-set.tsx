@@ -1,5 +1,12 @@
 import { MDCChip, MDCChipSet } from '@material/chips';
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Prop,
+  Watch
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { ChipSetType } from '../types';
@@ -46,7 +53,9 @@ export class ChipSet {
     }
 
     if (this.listenerAttached) {
-      this.el.removeEventListener('MDCChip:interaction', _ => this.notifyChange());
+      this.el.removeEventListener('MDCChip:interaction', _ =>
+        this.notifyChange()
+      );
       this.listenerAttached = false;
     }
   }
@@ -55,13 +64,17 @@ export class ChipSet {
     this.destroy();
 
     const chipSetEl = this.el.querySelector('.mdc-chip-set');
-    this.mdcInstance = new MDCChipSet(chipSetEl, undefined, (chipEl: HTMLElement) => {
-      // This functions hooks into the mdc to customize the init of a chip
-      const chip = new MDCChip(chipEl);
-      chip.shouldRemoveOnTrailingIconClick = false;
-      this.prepareChip(chip.id);
-      return chip;
-    });
+    this.mdcInstance = new MDCChipSet(
+      chipSetEl,
+      undefined,
+      (chipEl: HTMLElement) => {
+        // This functions hooks into the mdc to customize the init of a chip
+        const chip = new MDCChip(chipEl);
+        chip.shouldRemoveOnTrailingIconClick = false;
+        this.prepareChip(chip.id);
+        return chip;
+      }
+    );
 
     if (this.inoType === 'choice' || this.inoType === 'input') {
       this.el.addEventListener('MDCChip:interaction', _ => this.notifyChange());
@@ -75,8 +88,12 @@ export class ChipSet {
       this.inoChipSetUpdated.emit(true);
       return;
     }
-    const chipValues = selectedChipIds.map(chipId => this.getInoChip(chipId).inoValue);
-    this.inoChipSetUpdated.emit(chipValues.length === 1 ? chipValues[0] : chipValues);
+    const chipValues = selectedChipIds.map(
+      chipId => this.getInoChip(chipId).inoValue
+    );
+    this.inoChipSetUpdated.emit(
+      chipValues.length === 1 ? chipValues[0] : chipValues
+    );
   }
 
   private prepareChip(chipId: string) {
@@ -94,10 +111,14 @@ export class ChipSet {
   render() {
     const classChipSet = classNames(
       'mdc-chip-set',
-      { 'mdc-chip-set--choice' : this.inoType === 'choice' },
-      { 'mdc-chip-set--filter' : this.inoType === 'filter' }
+      { 'mdc-chip-set--choice': this.inoType === 'choice' },
+      { 'mdc-chip-set--filter': this.inoType === 'filter' }
     );
 
-    return <div class={classChipSet}><slot /></div>;
+    return (
+      <div class={classChipSet}>
+        <slot />
+      </div>
+    );
   }
 }

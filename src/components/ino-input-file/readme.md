@@ -1,17 +1,17 @@
 # ino-input-file
+
 An input component for files. It functions as a wrapper around the native input capabilities having the [`type="file"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
 
 This component replaces the native behaviour with a custom `ino-button` with logic.
 
 ### Usage
+
 The component can be used as follows:
 
 ```js
-document
-  .querySelector('ino-input-file')
-  .addEventListener('valueChanges', (e) => {
-    // ...
-  });
+document.querySelector('ino-input-file').addEventListener('valueChanges', e => {
+  // ...
+});
 ```
 
 ```html
@@ -30,7 +30,6 @@ document
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property    | Attribute   | Description                                              | Type      | Default         |
@@ -43,14 +42,12 @@ document
 | `name`      | `name`      | The name of this input field.                            | `string`  | `undefined`     |
 | `required`  | `required`  | Marks this element as required.                          | `boolean` | `undefined`     |
 
-
 ## Events
 
 | Event          | Description                   | Type                                         |
 | -------------- | ----------------------------- | -------------------------------------------- |
 | `valueChanges` | Emits when the value changes. | `CustomEvent<{ e: Event, files: object[] }>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

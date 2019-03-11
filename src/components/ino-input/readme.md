@@ -1,11 +1,11 @@
 # ino-input
-An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
 
+An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.
 
 Use this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.
 
-
 ### Usage
+
 The component can be used as follows:
 
 ```html
@@ -47,14 +47,13 @@ The component can be used as follows:
 **Icons**: Provide a string identifier in `ino-icon` to display a leading icon. Set `ino-icon-trailing` to position the icon after the input field. Make the icon interactive and clickable by adding `ino-icon-clickable` and listen to the `inoIconClicked` event emitted by the icon component.
 
 ### Control flow
+
 The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document
-  .querySelector('ino-input')
-  .addEventListener('valueChanges', (e) => {
-    // ...
-  });
+document.querySelector('ino-input').addEventListener('valueChanges', e => {
+  // ...
+});
 ```
 
 ```html
@@ -62,12 +61,10 @@ document
 ```
 
 ### Event Behaviour
+
 The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -97,14 +94,12 @@ The component is based on a native input with additional features. Thus, the com
 | `type`                | `type`                  | The type of this element (default = text).                                   | `string`  | `'text'`    |
 | `value`               | `value`                 | The value of this element. (**unmanaged**)                                   | `string`  | `''`        |
 
-
 ## Events
 
 | Event          | Description                                                                    | Type                  |
 | -------------- | ------------------------------------------------------------------------------ | --------------------- |
 | `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

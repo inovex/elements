@@ -1,12 +1,11 @@
 @import 'styles/colors';
-@import "@material/button/mdc-button";
+@import '@material/button/mdc-button';
 
 ino-button {
   display: inline-block;
 
   // Generate the different ino-color-schemes buttons
   @each $color-name, $map in $ino-color-scheme {
-
     // Condition to set default styles for primary
     $selector: '&[ino-color-scheme="#{$color-name}"]';
     @if $color-name == primary {

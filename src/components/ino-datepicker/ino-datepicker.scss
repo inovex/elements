@@ -1,6 +1,5 @@
 @import 'styles/fonts.scss';
 
-
 ino-datepicker {
   display: block;
   @include ino-font(sans-serif, m, regular);
@@ -11,25 +10,31 @@ ino-datepicker {
   }
 }
 
-
 // Customize flatpickr styles
 
 $dayMargin: 2px;
 $selectedDayBackground: #003c7d;
 
 .flatpickr-day {
-  &.selected, &.startRange, &.endRange {
-    &, &.inRange, &:focus, &:hover, &.prevMonthDay, &.nextMonthDay {
+  &.selected,
+  &.startRange,
+  &.endRange {
+    &,
+    &.inRange,
+    &:focus,
+    &:hover,
+    &.prevMonthDay,
+    &.nextMonthDay {
       background: $selectedDayBackground;
-      border-color: $selectedDayBackground
+      border-color: $selectedDayBackground;
     }
     // Avoid adding extra fill because it overflows in multimonth mode
-    &.startRange + .endRange:not(:nth-child(7n+1)) {
-      box-shadow: (-5*$dayMargin) 0 0 $selectedDayBackground
+    &.startRange + .endRange:not(:nth-child(7n + 1)) {
+      box-shadow: (-5 * $dayMargin) 0 0 $selectedDayBackground;
     }
   }
   &.week.selected {
-    box-shadow: (-2.5*$dayMargin) 0 0 $selectedDayBackground,
-      (2.5*$dayMargin) 0 0 $selectedDayBackground;
+    box-shadow: (-2.5 * $dayMargin) 0 0 $selectedDayBackground,
+      (2.5 * $dayMargin) 0 0 $selectedDayBackground;
   }
 }

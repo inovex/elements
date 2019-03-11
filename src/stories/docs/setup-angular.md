@@ -1,6 +1,6 @@
 # Integrate with Angular ([example-angular](https://gitlab.inovex.de/inovex-elements/example-angular))
 
-This instructions are based on angular v6.1.6 and angular-cli 6.1.5. 
+This instructions are based on angular v6.1.6 and angular-cli 6.1.5.
 
 ## Prerequisites
 
@@ -24,12 +24,11 @@ Open `src/app/app.module.js`, import the library and add the tag `CUSTOM_ELEMENT
 // ...
 import '@inovex/elements';
 
-
 @NgModule({
   // ...
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}
 // ...
 ```
 
@@ -119,7 +118,7 @@ export class AppComponent {
   onValueChanged($event: any) {
     this.name = $event.target.value;
   }
-  
+
   add() {
     this.todos.push(new Todo(this.name));
     this.name = '';
@@ -132,15 +131,16 @@ with the corresponding template:
 ```html
 <!--- app.component.html -->
 
-<ino-input 
-  ino-icon="add" 
-  ino-icon-clickable 
-  ino-icon-trailing 
-  (inoIconClicked)="add()" 
-  type="text" 
-  [value]="name" 
-  (input)="onValueChanged($event)" 
-  ino-label="What needs to be done...">
+<ino-input
+  ino-icon="add"
+  ino-icon-clickable
+  ino-icon-trailing
+  (inoIconClicked)="add()"
+  type="text"
+  [value]="name"
+  (input)="onValueChanged($event)"
+  ino-label="What needs to be done..."
+>
 </ino-input>
 
 <ul class="todos">

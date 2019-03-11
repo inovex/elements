@@ -73,26 +73,25 @@ These shades will represent the brand in graphical elements, texts, syntax, back
   <div class="color-hex" style="color: #006A92">#006A92, Dark</div>
 </div>
 
-
 ## SASS Variables
 
 ```scss
-$primary:           #003C7E;
-$primary-light:     #004A9C;
-$primary-dark:      #002E62;
+$primary: #003c7e;
+$primary-light: #004a9c;
+$primary-dark: #002e62;
 
-$secondary:         #9CCD00;
-$secondary-light:   #BFF020;
-$secondary-dark:    #2E7D32;
+$secondary: #9ccd00;
+$secondary-light: #bff020;
+$secondary-dark: #2e7d32;
 
-$tertiary:          #00B0F0;
-$tertiary-light:    #10BCFE;
-$tertiary-dark:     #006A92;
+$tertiary: #00b0f0;
+$tertiary-light: #10bcfe;
+$tertiary-dark: #006a92;
 
-$success:           $secondary;
-$warning:           #FFDE03;
-$error:             #E00051;
+$success: $secondary;
+$warning: #ffde03;
+$error: #e00051;
 
-$light:             #c1c1c1;
-$dark:              #777;
- ```
+$light: #c1c1c1;
+$dark: #777;
+```

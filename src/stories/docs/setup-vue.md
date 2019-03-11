@@ -1,6 +1,6 @@
 # Integrate with Vue.js ([example-vuejs](https://gitlab.inovex.de/inovex-elements/example-vuejs))
 
-This instructions are based on Vue.js v2.5.2. 
+This instructions are based on Vue.js v2.5.2.
 
 ## Prerequisites
 
@@ -25,18 +25,18 @@ Open `src/main.js` and add this somewhere on the first lines:
 ```js
 // src/main.js
 
-import Vue from 'vue'
+import Vue from 'vue';
 // ...
 
-import '@inovex/elements' // import the web components loader
+import '@inovex/elements'; // import the web components loader
 
 Vue.config.ignoredElements = [
   /^ino-/ // ignore all web components starting with "ino-"
-]
+];
 ```
 
 > So Vue will not recognize these tags as Vue components and let
-the browser do the custom element upgrading process.
+> the browser do the custom element upgrading process.
 
 ### 2) Configure Webpack
 
@@ -47,9 +47,9 @@ Next you have to configure the Webpack config files.
 
 // ...
 plugins: [
-    // ...
-    require('@inovex/elements/webpack-loader')()
-  ]
+  // ...
+  require('@inovex/elements/webpack-loader')()
+];
 ```
 
 ```js
@@ -57,9 +57,9 @@ plugins: [
 
 // ...
 plugins: [
-    // ...
-    require('@inovex/elements/webpack-loader')('static/js')
-  ]
+  // ...
+  require('@inovex/elements/webpack-loader')('static/js')
+];
 ```
 
 > The only parameter of the webpack loader has to match the path to the location of the bundle.
@@ -84,19 +84,19 @@ Here is an example of how to use a inovex element in your Vue.js template:
 </template>
 
 <script>
-export default {
-  name: 'TestComponent',
-  data () {
-    return {
-      userValue: 'Freaky Fox',
-      userPlaceholder: 'Username'
+  export default {
+    name: 'TestComponent',
+    data() {
+      return {
+        userValue: 'Freaky Fox',
+        userPlaceholder: 'Username'
+      };
+    },
+    methods: {
+      printUsername: function(newUsername) {
+        alert(`New username is: ${newUsername}`);
+      }
     }
-  },
-  methods: {
-    printUsername: function(newUsername) {
-      alert(`New username is: ${newUsername}`)
-    }
-  }
-}
+  };
 </script>
 ```

@@ -1,8 +1,8 @@
 import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
 
 @Component({
-    tag: 'ino-input-file',
-    styleUrl: 'ino-input-file.scss'
+  tag: 'ino-input-file',
+  styleUrl: 'ino-input-file.scss'
 })
 export class InputFile {
   @Element() el!: HTMLElement;
@@ -45,10 +45,12 @@ export class InputFile {
   /**
    * Emits when the value changes.
    */
-  @Event() valueChanges!: EventEmitter<{ e: Event, files: object[] }>;
+  @Event() valueChanges!: EventEmitter<{ e: Event; files: object[] }>;
 
   private selectFiles() {
-    const input = this.el.querySelector('.ino-input-file__native-element') as HTMLElement;
+    const input = this.el.querySelector(
+      '.ino-input-file__native-element'
+    ) as HTMLElement;
     input.click();
   }
 
@@ -59,31 +61,30 @@ export class InputFile {
   }
 
   render() {
-      return (
-        <div class="ino-input-file__composer">
-          <ino-button
-            class="ino-input-file__button"
-            name="file-paths"
-            ino-icon="file_upload"
-            autofocus={this.autofocus}
-            disabled={this.disabled}
-            onClick={_ => this.selectFiles()}
-          >
-            {this.inoLabel}
-          </ino-button>
-          <input
-            class="ino-input-file__native-element"
-            accept={this.accept}
-            disabled={this.disabled}
-            multiple={this.multiple}
-            name={this.name}
-            required={this.required}
-            type="file"
-            aria-hidden="true"
-            onChange={e => this.onFileChange(e)}
-          >
-          </input>
-        </div>
-      );
+    return (
+      <div class="ino-input-file__composer">
+        <ino-button
+          class="ino-input-file__button"
+          name="file-paths"
+          ino-icon="file_upload"
+          autofocus={this.autofocus}
+          disabled={this.disabled}
+          onClick={_ => this.selectFiles()}
+        >
+          {this.inoLabel}
+        </ino-button>
+        <input
+          class="ino-input-file__native-element"
+          accept={this.accept}
+          disabled={this.disabled}
+          multiple={this.multiple}
+          name={this.name}
+          required={this.required}
+          type="file"
+          aria-hidden="true"
+          onChange={e => this.onFileChange(e)}
+        />
+      </div>
+    );
   }
 }

@@ -21,9 +21,12 @@ export class FormRow {
     return (
       <div class="ino-form-row__composer">
         <div class="ino-form-row__label">
-          {this.inoLabel}{this.inoMandatory && <span>*</span>}
+          {this.inoLabel}
+          {this.inoMandatory && <span>*</span>}
         </div>
-        <div class="ino-form-row__element"><slot /></div>
+        <div class="ino-form-row__element">
+          <slot />
+        </div>
       </div>
     );
   }

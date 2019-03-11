@@ -1,9 +1,11 @@
 # ino-textarea
+
 A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.
 
 > **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.
 
 ### Usage
+
 The component can be used as follows:
 
 ```html
@@ -19,34 +21,32 @@ The component can be used as follows:
   rows="<number>"
   value="<string>"
   ino-label="<string>"
-  autogrow>
+  autogrow
+>
 </ino-textarea>
 ```
 
 **Labels**: The component shows a floating label containing the value of `ino-label`.
 
 ### Control flow
+
 The textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document
-  .querySelector('ino-textarea')
-  .addEventListener('valueChanges', (e) => {
-    // ...
-  });
+document.querySelector('ino-textarea').addEventListener('valueChanges', e => {
+  // ...
+});
 ```
 
 ```html
-<ino-textarea value={this.state.value}></ino-textarea>
+<ino-textarea value="{this.state.value}"></ino-textarea>
 ```
 
-
 ### Event Behaviour
+
 The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLTextareaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -65,14 +65,12 @@ The component is based on a native input with additional features. Thus, the com
 | `rows`        | `rows`        | The number of rows of this textarea.                                                                                                                                                                                                                                                                      | `number`  | `undefined` |
 | `value`       | `value`       | The value of this element. (**unmanaged**)                                                                                                                                                                                                                                                                | `string`  | `''`        |
 
-
 ## Events
 
 | Event          | Description                                                                    | Type                  |
 | -------------- | ------------------------------------------------------------------------------ | --------------------- |
 | `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

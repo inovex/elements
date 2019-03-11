@@ -1,5 +1,13 @@
 import { MDCTextField } from '@material/textfield';
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Listen,
+  Prop,
+  Watch
+} from '@stencil/core';
 import autosize from 'autosize';
 import classNames from 'classnames';
 
@@ -9,7 +17,6 @@ import classNames from 'classnames';
   shadow: false
 })
 export class Textarea {
-
   private cursorPosition = 0;
 
   /**
@@ -96,7 +103,10 @@ export class Textarea {
   handleChange(value: string) {
     if (this.nativeTextareaElement) {
       this.nativeTextareaElement.value = value;
-      this.nativeTextareaElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+      this.nativeTextareaElement.setSelectionRange(
+        this.cursorPosition,
+        this.cursorPosition
+      );
       this.updateAutogrow();
     }
   }
@@ -159,7 +169,9 @@ export class Textarea {
     }
     const classLabel = classNames({
       'mdc-floating-label': true,
-      'mdc-floating-label--float-above': this.inoLabel && (this.value || this.nativeTextareaElement === document.activeElement)
+      'mdc-floating-label--float-above':
+        this.inoLabel &&
+        (this.value || this.nativeTextareaElement === document.activeElement)
     });
     return <label class={classLabel}>{this.inoLabel}</label>;
   }
@@ -168,7 +180,7 @@ export class Textarea {
     return (
       <div class="mdc-text-field mdc-text-field--textarea">
         <textarea
-          ref={el => this.nativeTextareaElement = el}
+          ref={el => (this.nativeTextareaElement = el)}
           class="mdc-text-field__input"
           autofocus={this.autofocus}
           cols={this.cols}
@@ -181,8 +193,7 @@ export class Textarea {
           rows={this.rows}
           value={this.value}
           onInput={this.handleNativeTextareaChange.bind(this)}
-        >
-        </textarea>
+        />
 
         {this.labelTemplate()}
       </div>

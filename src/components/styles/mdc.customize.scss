@@ -1,11 +1,11 @@
-@import "styles/colors";
-@import "styles/fonts";
+@import 'styles/colors';
+@import 'styles/fonts';
 
 // @material/typography
 $mdc-typography-font-family: $font-family-sans-serif;
 
 // @material/theme
-$mdc-theme-primary:      $primary;
-$mdc-theme-secondary:    $secondary;
-$mdc-theme-on-primary:   $primary-contrast;
+$mdc-theme-primary: $primary;
+$mdc-theme-secondary: $secondary;
+$mdc-theme-on-primary: $primary-contrast;
 $mdc-theme-on-secondary: $secondary-contrast;

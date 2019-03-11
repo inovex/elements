@@ -1,11 +1,10 @@
-@import "@material/icon-button/mdc-icon-button";
+@import '@material/icon-button/mdc-icon-button';
 
 ino-icon-button {
   // Generate the different ino-color-schemes buttons
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] button {
+    &[ino-color-scheme='#{$color-name}'] button {
       @include mdc-icon-button-ink-color(map-get($map, base));
-
     }
   }
 }

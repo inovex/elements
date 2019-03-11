@@ -1,5 +1,12 @@
 import { MDCSnackbar } from '@material/snackbar';
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Prop,
+  Watch
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -62,13 +69,17 @@ export class Snackbar {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarElement.addEventListener('MDCSnackbar:hide', e => this.handleSnackbarHide(e));
+    this.snackbarElement.addEventListener('MDCSnackbar:hide', e =>
+      this.handleSnackbarHide(e)
+    );
     this.showSnackbar();
   }
 
   componentWillUnload() {
     this.snackbarInstance.destroy();
-    this.snackbarElement.removeEventListener('MDCSnackbar:hide', e => this.handleSnackbarHide(e));
+    this.snackbarElement.removeEventListener('MDCSnackbar:hide', e =>
+      this.handleSnackbarHide(e)
+    );
   }
 
   private handleSnackbarHide(e) {
@@ -78,7 +89,6 @@ export class Snackbar {
   }
 
   private showSnackbar() {
-
     const options = {
       message: this.inoMessage,
       multiline: this.inoMultiline
@@ -103,17 +113,18 @@ export class Snackbar {
 
     return (
       <div
-        ref={el => this.snackbarElement = el as HTMLDivElement}
+        ref={el => (this.snackbarElement = el as HTMLDivElement)}
         class={snackbarClasses}
         aria-live="assertive"
         aria-atomic="true"
       >
         <div class="mdc-snackbar__text">{this.inoMessage}</div>
         <div class="mdc-snackbar__action-wrapper">
-          <button type="button" class="mdc-snackbar__action-button">{this.inoActionText}</button>
+          <button type="button" class="mdc-snackbar__action-button">
+            {this.inoActionText}
+          </button>
         </div>
       </div>
     );
   }
-
 }

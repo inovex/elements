@@ -1,4 +1,4 @@
-@import "@material/fab/mdc-fab";
+@import '@material/fab/mdc-fab';
 @import 'styles/colors.scss';
 
 ino-fab {
@@ -6,7 +6,7 @@ ino-fab {
 
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
-    &[ino-color-scheme="#{$color-name}"] {
+    &[ino-color-scheme='#{$color-name}'] {
       .mdc-fab {
         @include mdc-fab-ink-color(map-get($map, contrast));
         @include mdc-fab-container-color(map-get($map, base));

@@ -46,7 +46,7 @@ export class Fab {
         <div class={speedDialClasses}>
           <slot />
         </div>
-        <slot name="primary-fab"/>
+        <slot name="primary-fab" />
       </div>
     );
   }
