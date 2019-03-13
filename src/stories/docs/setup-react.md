@@ -1,29 +1,17 @@
-# Integrate with React ([example-react](https://gitlab.inovex.de/inovex-elements/example-react))
+# Integrate with React
 
-This instructions are based on react v16.3.1.
+> This instructions are based on react v16.8.1.
+
+You can see an example project here: https://gitlab.inovex.de/inovex-elements/example-react
 
 ## Prerequisites
 
-You setup your react project with [react-app-rewired](https://github.com/timarney/react-app-rewired) or similar. The setup needs to update the webpack configuration to copy the static files (`create-react-app` is not satisfactory).
+You setup your react project with https://github.com/facebook/create-react-app or similar.
 
-### Using TypeScript support with react-app-rewired
 
-> If you're using TypeScript within your React setup you must additionally modify your `package.json`!
+### Using TypeScript support with react-app
 
-Assuming you have the boiler plate from `react-app-rewired` and you've additionally installed `react-scripts-ts` your scripts must look like this:
-
-```json
-  // ...
-
-  "scripts": {
-    "start": "react-app-rewired start --scripts-version react-scripts-ts --config-overrides config.overrides.js",
-    "build": "react-app-rewired build --scripts-version react-scripts-ts --config-overrides config.overrides.js",
-    "test": "react-app-rewired test --env=jsdom --scripts-version react-scripts-ts --config-overrides config.overrides.js",
-    "eject": "react-scripts eject"
-  },
-
-  // ...
-```
+If you want to use TypeScript, please see instructions from https://facebook.github.io/create-react-app/docs/adding-typescript.
 
 ## Prepare your project
 
@@ -35,46 +23,39 @@ Follow the introduction instructions to configure your npm registry and add the 
 
 ### 1) Import component loader
 
-Open `src/index.js` and add this somewhere on the first lines:
+> Prior to `@inovex/elements@0.5` you needed to import `@inovex/elements` directly. This is no longer the case.
 
-```ts
-// src/index.js
+Open `src/index.tsx` and change the lines to something that looks similar to this:
 
+```tsx
 import React from 'react';
-// ...
+import ReactDOM from 'react-dom';
+import './index.css';
+import { registerInovexElements } from '@inovex/elements/dist/react';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-import '@inovex/elements'; // import the web components loader
-// ...
+registerInovexElements();
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
 ```
 
-### 2) Configure Webpack
+### 2) Use the components
 
-Next you have to configure the Webpack config files. Using `react-app-rewired`, create a `config-overrides.js` in the root directory:
+> Prior to `@inovex/elements@0.5` you needed to modify the webpack config. That's no longer the case, as implementation changed. So, if you migrate from `< 0.5` you can securely remove the `config-overrides.js` file from your project, as long as you don't provide any additionally configuration options for your project.
 
-```js
-// config.overrides.js
-
-module.exports = function override(config, env) {
-  // do stuff with the webpack config...
-  config.plugins = [
-    ...config.plugins,
-    require('@inovex/elements/webpack-plugin')('static/js')
-  ];
-  return config;
-};
-```
-
-> The only parameter of the webpack loader has to match the path to the location of the bundle.
-
-### 3) Use the components
-
-To ease the integration into react applications, react wrapper components for each inovex element are provided. They are located in the `@inovex/elements/dist/react` sub folder and match the name of the respective inovex element in PascalCase (e.g. `InoButton` for `ino-button`).
+To ease the integration into react applications, a react wrapper component for each inovex element is provided. They are located in the `@inovex/elements/dist/react` sub folder and match the name of the respective inovex element in PascalCase (e.g. `InoButton` for `ino-button`).
 
 As opposed to bare inovex elements which you can use anywhere in your app after they are loaded in the entrypoint file without importing
 them specifically, you have to import each react wrapper in the file you want to use it:
 
-```jsx
-import { InoButton } from '@inovex/elements/dist/react/InoButton';
+```tsx
+import { InoButton } from '@inovex/elements/dist/react';
 
 export class MyComponent extends React.Component {
   render() {

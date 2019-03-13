@@ -5,12 +5,13 @@ stages:
  - deploy-latest
  - deploy-release
 
-image: node:10
+image: node:10.15.1
 
 test:
  stage: test
- image: alekzonder/puppeteer:latest
+ image: amio/node-chrome:latest
  script:
+ - npm config set scripts-prepend-node-path true
  - yarn install
  - yarn test
  tags:
@@ -19,6 +20,7 @@ test:
 build:
  stage: build
  script:
+ - npm config set scripts-prepend-node-path true
  - yarn install
  - yarn lint
  - yarn build
