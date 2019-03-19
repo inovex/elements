@@ -64,6 +64,13 @@ export class Datepicker {
    */
   @Prop() value ? = '';
 
+  @Watch('value')
+  valueChanged(value: string) {
+    if (this.flatpickr) {
+      this.flatpickr.setDate(value);
+    }
+  }
+
   /**
    * The minimum date that a user can start picking from (inclusive).
    */
@@ -199,7 +206,7 @@ export class Datepicker {
 
   @Listen('clickEl')
   inoIconClickedHandler() {
-    this.flatpickr.open();
+    this.flatpickr.toggle();
   }
 
   /**
