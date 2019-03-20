@@ -126,10 +126,14 @@ export class Input {
   valueChanged(newValue: string) {
     if (this.nativeInputEl) {
       this.nativeInputEl.value = newValue;
-      this.nativeInputEl.setSelectionRange(
-        this.cursorPosition,
-        this.cursorPosition
-      );
+
+      // setSelectionRange does not work on number input
+      if (this.type !== 'number') {
+        this.nativeInputEl.setSelectionRange(
+          this.cursorPosition,
+          this.cursorPosition
+        );
+      }
     }
   }
 
@@ -169,7 +173,7 @@ export class Input {
   @Prop() inoIconTrailing = false;
 
   /**
-   * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+   * Makes the icon clickable and allows to listen to the `clickEl` event.
    */
   @Prop() inoIconClickable?: boolean;
 
@@ -211,7 +215,8 @@ export class Input {
 
   private handleNativeInputChange(e) {
     this.cursorPosition = e.target.selectionStart;
-    this.valueChanges.emit(e.target.value);
+    this.valueChange.emit(e.target.value);
+
     if (this.nativeInputEl) {
       this.nativeInputEl.value = this.value;
     }
@@ -221,7 +226,7 @@ export class Input {
    * Emits when the user types something in.
    * Contains typed input in `event.detail`
    */
-  @Event() valueChanges!: EventEmitter<string>;
+  @Event() valueChange!: EventEmitter<string>;
 
   @Listen('change')
   handleChange(e: Event) {

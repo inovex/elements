@@ -21,31 +21,32 @@ function subscribeToComponentEvents() {
 
     el.setAttribute('checked', e.detail);
 
-    if (el.getAttribute('indeterminate') === "true") {
-        el.setAttribute('indeterminate', 'false');
+    if (el.getAttribute('indeterminate') === 'true') {
+      el.setAttribute('indeterminate', 'false');
     }
   };
 
-  document.addEventListener('checkedChanges', eventHandler);
+  document.addEventListener('checkedChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('checkedChanges', eventHandler);
+    document.removeEventListener('checkedChange', eventHandler);
   };
-};
-
+}
 
 storiesOf('<ino-checkbox>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'checkedChanges .customizable-checkbox'
-  ))
+  .addDecorator(withActions('checkedChange .customizable-checkbox'))
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-checkbox">
       <ino-checkbox
         class="customizable-checkbox"
@@ -60,4 +61,5 @@ storiesOf('<ino-checkbox>', module)
       <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
       <ino-checkbox indeterminate="true">Indeterminated</ino-checkbox>
     </div>
-  `);
+  `
+  );

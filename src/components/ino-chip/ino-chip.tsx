@@ -14,10 +14,10 @@ export class Chip {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`, `tertiary`,
+   * Possible values: `primary`,  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() inoColorScheme?: ColorScheme = null;
 
   /**
    * The fill type of this element.
@@ -45,7 +45,7 @@ export class Chip {
   /**
    * Adds a close icon on the right side of this chip.
    *
-   * If applied, emits the `inoChipRemove` event.
+   * If applied, emits the `removeChip` event.
    */
   @Prop() inoRemovable?: boolean;
 
@@ -65,11 +65,11 @@ export class Chip {
    * Listen to this event to hide or destroy this chip.
    * The event only emits if the property `inoRemovable` is true.
    */
-  @Event() inoChipRemove!: EventEmitter;
+  @Event() removeChip!: EventEmitter;
 
   private iconClicked(e: Event) {
     e.preventDefault();
-    this.inoChipRemove.emit(this);
+    this.removeChip.emit(this);
   }
 
   render() {
@@ -111,7 +111,7 @@ export class Chip {
             tabindex="0"
             role="button"
             ino-clickable
-            onInoIconClicked={e => this.iconClicked(e)}
+            onClick={e => this.iconClicked(e)}
           />
         )}
       </div>

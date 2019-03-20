@@ -14,7 +14,7 @@ The component can be used as follows:
   name="<string>"
   tabIndex="<number>"
   value="<string>"
-  indeterminate
+  indeterminate="<boolean>"
 >
   Label
 </ino-checkbox>
@@ -26,20 +26,25 @@ By default, the label is always shown right after the checkbox.
 
 ### Control flow
 
-The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason listen to `checkedChanges`,
+The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason listen to `checkedChange`,
 sync it with your local state and pass the new value to the component again to change value and indeterminate state of input.
 
 ```js
-document.querySelector('ino-checkbox').addEventListener('checkedChanges', e => {
+document.querySelector('ino-checkbox').addEventListener('checkedChange', e => {
   this.state.checked = e.detail;
 });
 ```
 
 ```html
-<ino-checkbox checked indeterminate></ino-checkbox>
+<ino-checkbox
+  checked={this.state.checked}
+  indeterminate={this.state.indeterminate}
+  checkedChange={e => this.state.checked = e.detail}>
+</ino-checkbox>
 ```
 
 <!-- Auto Generated Below -->
+
 
 ## Properties
 
@@ -53,12 +58,14 @@ document.querySelector('ino-checkbox').addEventListener('checkedChanges', e => {
 | `name`          | `name`          | The name of this element.                           | `string`  | `undefined` |
 | `value`         | `value`         | The value of this element.                          | `string`  | `undefined` |
 
+
 ## Events
 
-| Event            | Description                                                                                                    | Type                |
-| ---------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `checkedChanges` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<void>` |
+| Event           | Description                                                                                                    | Type                |
+| --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

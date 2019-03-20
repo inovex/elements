@@ -19,30 +19,33 @@ function subscribeToComponentEvents() {
       return;
     }
 
-    const fileNames = e.detail.files.map(f => [f.name, f.type, f.size + ' bytes'].join(', ')).join('\n');
-    alert(fileNames)
+    const fileNames = e.detail.files
+      .map(f => [f.name, f.type, f.size + ' bytes'].join(', '))
+      .join('\n');
+    alert(fileNames);
   };
 
-  document.addEventListener('valueChanges', eventHandler);
+  document.addEventListener('changeFile', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('valueChanges', eventHandler);
+    document.removeEventListener('changeFile', eventHandler);
   };
-};
-
+}
 
 storiesOf('<ino-input-file>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'valueChanges .customizable-input')
-  )
+  .addDecorator(withActions('changeFile .customizable-input'))
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-input customizable-input">
       <ino-input-file
         accept="${text('accept', '')}"
@@ -54,4 +57,5 @@ storiesOf('<ino-input-file>', module)
         ino-label-selected="${text('ino-label-selected', 'ausgewählt')}">
       </ino-input-file>
     </div>
-  `);
+  `
+  );

@@ -7,7 +7,7 @@ A light icon component for texts and other components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-icon').addEventListener('inoIconClicked', e => {
+document.querySelector('ino-icon').addEventListener('clickEl', e => {
   // ...
 });
 ```
@@ -18,7 +18,7 @@ document.querySelector('ino-icon').addEventListener('inoIconClicked', e => {
 
 The component inherits stylings like the text size of the parent element. For custom stylings set css properties on this element.
 
-**Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit an `inoIconChanged` event that can be listened to.
+**Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit an `clickEl` event that can be listened to.
 
 ### Manage icons
 
@@ -44,19 +44,22 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property       | Attribute       | Description                                                                  | Type      | Default     |
-| -------------- | --------------- | ---------------------------------------------------------------------------- | --------- | ----------- |
-| `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` | `undefined` |
-| `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                              | `string`  | `undefined` |
+| Property       | Attribute       | Description                                                           | Type      | Default     |
+| -------------- | --------------- | --------------------------------------------------------------------- | --------- | ----------- |
+| `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
+| `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
+
 
 ## Events
 
-| Event            | Description                                                                                                           | Type                |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `inoIconClicked` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<void>` |
+| Event     | Description                                                                                                           | Type                |
+| --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

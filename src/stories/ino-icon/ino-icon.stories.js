@@ -1,4 +1,3 @@
-
 import { storiesOf } from '@storybook/html';
 
 import { withActions } from '@storybook/addon-actions';
@@ -13,8 +12,10 @@ import ICONS from '../../components/ino-icon/icons';
 
 storiesOf('<ino-icon>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('inoIconClicked .customizable-icon'))
-  .add('Default usage', () => /*html*/`
+  .addDecorator(withActions('clickEl .customizable-icon'))
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-icon">
       <div class="flex-parent-center">
         <div>
@@ -30,12 +31,15 @@ storiesOf('<ino-icon>', module)
       <h4>Different Icons</h4>
 
       <div class="flex-parent">
-        ${ICONS.map(name => /*html*/`
+        ${ICONS.map(
+          name => /*html*/ `
           <div class="flex-child">
             <h5>${name}</h5>
             <ino-icon ino-icon="${name}"></ino-icon>
           </div>
-        `)}
+        `
+        )}
       </div>
     </div>
-  `);
+  `
+  );

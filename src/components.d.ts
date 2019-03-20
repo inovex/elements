@@ -227,7 +227,7 @@ export namespace Components {
     /**
      * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
      */
-    onCheckedChanges?: (event: CustomEvent) => void;
+    onCheckedChange?: (event: CustomEvent) => void;
     /**
      * The value of this element.
      */
@@ -248,12 +248,12 @@ export namespace Components {
     /**
      * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
      */
-    onInoChipSetUpdated?: (event: CustomEvent) => void;
+    onUpdateChipSet?: (event: CustomEvent) => void;
   }
 
   interface InoChip {
     /**
-     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
      */
     inoColorScheme?: ColorScheme;
     /**
@@ -269,7 +269,7 @@ export namespace Components {
      */
     inoLabel?: string;
     /**
-     * Adds a close icon on the right side of this chip.  If applied, emits the `inoChipRemove` event.
+     * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
      */
     inoRemovable?: boolean;
     /**
@@ -287,7 +287,7 @@ export namespace Components {
   }
   interface InoChipAttributes extends StencilHTMLAttributes {
     /**
-     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
      */
     inoColorScheme?: ColorScheme;
     /**
@@ -303,7 +303,7 @@ export namespace Components {
      */
     inoLabel?: string;
     /**
-     * Adds a close icon on the right side of this chip.  If applied, emits the `inoChipRemove` event.
+     * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
      */
     inoRemovable?: boolean;
     /**
@@ -321,7 +321,7 @@ export namespace Components {
     /**
      * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
      */
-    onInoChipRemove?: (event: CustomEvent) => void;
+    onRemoveChip?: (event: CustomEvent) => void;
   }
 
   interface InoDatepicker {
@@ -502,7 +502,7 @@ export namespace Components {
     /**
      * Emits when the value of the datepicker changes. The value can be found in `event.detail`
      */
-    onValueChanges?: (event: CustomEvent<string>) => void;
+    onValueChange?: (event: CustomEvent<string>) => void;
     /**
      * Marks this element as required.
      */
@@ -659,7 +659,7 @@ export namespace Components {
 
   interface InoIcon {
     /**
-     * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+     * Makes the icon clickable and allows to listen to the `clickEl` event.
      */
     inoClickable?: boolean;
     /**
@@ -669,7 +669,7 @@ export namespace Components {
   }
   interface InoIconAttributes extends StencilHTMLAttributes {
     /**
-     * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+     * Makes the icon clickable and allows to listen to the `clickEl` event.
      */
     inoClickable?: boolean;
     /**
@@ -679,7 +679,7 @@ export namespace Components {
     /**
      * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
      */
-    onInoIconClicked?: (event: CustomEvent) => void;
+    onClickEl?: (event: CustomEvent) => void;
   }
 
   interface InoImg {
@@ -833,8 +833,11 @@ export namespace Components {
     /**
      * Emits when the value changes.
      */
-    onValueChanges?: (
-      event: CustomEvent<{ e: Event; files: object[] }>
+    onChangeFile?: (
+      event: CustomEvent<{
+        e: Event;
+        files: object[];
+      }>
     ) => void;
     /**
      * Marks this element as required.
@@ -876,7 +879,7 @@ export namespace Components {
      */
     inoIcon?: string;
     /**
-     * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+     * Makes the icon clickable and allows to listen to the `clickEl` event.
      */
     inoIconClickable?: boolean;
     /**
@@ -970,7 +973,7 @@ export namespace Components {
      */
     inoIcon?: string;
     /**
-     * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+     * Makes the icon clickable and allows to listen to the `clickEl` event.
      */
     inoIconClickable?: boolean;
     /**
@@ -1000,7 +1003,7 @@ export namespace Components {
     /**
      * Emits when the user types something in. Contains typed input in `event.detail`
      */
-    onValueChanges?: (event: CustomEvent<string>) => void;
+    onValueChange?: (event: CustomEvent<string>) => void;
     /**
      * The validation pattern of this element.
      */
@@ -1102,7 +1105,7 @@ export namespace Components {
     /**
      * Emits when the list item is clicked. Contains the element itself in `event.detail`
      */
-    onItemClick?: (event: CustomEvent) => void;
+    onClickEl?: (event: CustomEvent) => void;
   }
 
   interface InoList {
@@ -1234,7 +1237,7 @@ export namespace Components {
     /**
      * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
      */
-    onCheckedChanges?: (event: CustomEvent) => void;
+    onCheckedChange?: (event: CustomEvent) => void;
     /**
      * The value of this element.
      */
@@ -1311,7 +1314,7 @@ export namespace Components {
     /**
      * Emits when the value changes. Contains new value in `event.detail`.
      */
-    onValueChanges?: (event: CustomEvent) => void;
+    onValueChange?: (event: CustomEvent) => void;
     /**
      * The step size for this element (default = 1)
      */
@@ -1392,7 +1395,7 @@ export namespace Components {
     /**
      * Emits when a selection changes. Contains new value in `event.detail`.
      */
-    onValueChanges?: (event: CustomEvent<string>) => void;
+    onValueChange?: (event: CustomEvent<string>) => void;
     /**
      * Marks this element as required.
      */
@@ -1457,11 +1460,11 @@ export namespace Components {
     /**
      * Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element.
      */
-    onInoActionClicked?: (event: CustomEvent) => void;
+    onClickEl?: (event: CustomEvent) => void;
     /**
      * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
      */
-    onInoSnackbarHide?: (event: CustomEvent) => void;
+    onHideEl?: (event: CustomEvent) => void;
   }
 
   interface InoSpinner {
@@ -1523,7 +1526,7 @@ export namespace Components {
     /**
      * Emits when a tab changes. Contains activating tab in `event.detail`
      */
-    onInoActiveTabChanges?: (event: CustomEvent) => void;
+    onActiveTabChange?: (event: CustomEvent) => void;
   }
 
   interface InoTab {
@@ -1564,11 +1567,11 @@ export namespace Components {
     /**
      * Emitted when the tab did load.
      */
-    onInoTabDidLoad?: (event: CustomEvent) => void;
+    onLoadEl?: (event: CustomEvent) => void;
     /**
      * Emitted when the tab did unload.
      */
-    onInoTabDidUnLoad?: (event: CustomEvent) => void;
+    onUnloadEl?: (event: CustomEvent) => void;
   }
 
   interface InoTextarea {
@@ -1657,7 +1660,7 @@ export namespace Components {
     /**
      * Emits when the user types something in. Contains typed input in `event.detail`
      */
-    onValueChanges?: (event: CustomEvent<string>) => void;
+    onValueChange?: (event: CustomEvent<string>) => void;
     /**
      * The placeholder of this element.
      */

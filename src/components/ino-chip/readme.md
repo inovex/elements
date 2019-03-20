@@ -14,9 +14,9 @@ The component can be used as follows:
   ino-fill="<string>"
   ino-icon="<string>"
   ino-label="<string>"
-  ino-removable
-  ino-selectable
-  ino-selected
+  ino-removable="<boolean>"
+  ino-selectable="<boolean>"
+  ino-selected="<boolean>"
   ino-value="<string>"
 >
 </ino-chip>
@@ -30,16 +30,16 @@ The component can be used as follows:
 
 If `ino-removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon right after the text.
 
-However, the component doesn't hide/destroy itself but emits an `inoRemove`-Event instead. Thus, the overlying app can remove the chip by listening to this event.
+However, the component doesn't hide/destroy itself but emits an `removeChip`-Event instead. Thus, the overlying app can remove the chip by listening to this event.
 
 ```js
-document.querySelector('ino-chip').addEventListener('inoChipRemove', e => {
+document.querySelector('ino-chip').addEventListener('removeChip', e => {
   // ...
 });
 ```
 
 ```html
-<ino-chip ino-removable>
+<ino-chip ino-removable onRemoveChip="_ => removeChip()">
   Removable chip
 </ino-chip>
 ```
@@ -48,22 +48,22 @@ document.querySelector('ino-chip').addEventListener('inoChipRemove', e => {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                      | Type                                                                                               | Default     |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `'primary'` |
-| `inoFill`        | `ino-fill`         | The fill type of this element. Possible values: `solid` (default) or `outline`.                                                                                                                                  | `"outline" \| "solid"`                                                                             | `'solid'`   |
-| `inoIcon`        | `ino-icon`         | The icon before the label in this chip.                                                                                                                                                                          | `string`                                                                                           | `undefined` |
-| `inoLabel`       | `ino-label`        | The label of this chip (**required**).                                                                                                                                                                           | `string`                                                                                           | `undefined` |
-| `inoRemovable`   | `ino-removable`    | Adds a close icon on the right side of this chip. If applied, emits the `inoChipRemove` event.                                                                                                                   | `boolean`                                                                                          | `undefined` |
-| `inoSelectable`  | `ino-selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                                        | `boolean`                                                                                          | `undefined` |
-| `inoSelected`    | `ino-selected`     | Marks this element as selected.                                                                                                                                                                                  | `boolean`                                                                                          | `undefined` |
-| `inoValue`       | `ino-value`        | The value of this chip. **Required** for chips as part of sets of type `filter` or `choice`.                                                                                                                     | `string`                                                                                           | `undefined` |
+| Property         | Attribute          | Description                                                                                                                                                                                            | Type                                                                                               | Default     |
+| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- | ----------- |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `null`      |
+| `inoFill`        | `ino-fill`         | The fill type of this element. Possible values: `solid` (default) or `outline`.                                                                                                                        | `"outline" \| "solid"`                                                                             | `'solid'`   |
+| `inoIcon`        | `ino-icon`         | The icon before the label in this chip.                                                                                                                                                                | `string`                                                                                           | `undefined` |
+| `inoLabel`       | `ino-label`        | The label of this chip (**required**).                                                                                                                                                                 | `string`                                                                                           | `undefined` |
+| `inoRemovable`   | `ino-removable`    | Adds a close icon on the right side of this chip. If applied, emits the `removeChip` event.                                                                                                            | `boolean`                                                                                          | `undefined` |
+| `inoSelectable`  | `ino-selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                              | `boolean`                                                                                          | `undefined` |
+| `inoSelected`    | `ino-selected`     | Marks this element as selected.                                                                                                                                                                        | `boolean`                                                                                          | `undefined` |
+| `inoValue`       | `ino-value`        | The value of this chip. **Required** for chips as part of sets of type `filter` or `choice`.                                                                                                           | `string`                                                                                           | `undefined` |
 
 ## Events
 
-| Event           | Description                                                                                                                                                             | Type                |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `inoChipRemove` | Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<void>` |
+| Event        | Description                                                                                                                                                             | Type                |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `removeChip` | Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<void>` |
 
 ---
 

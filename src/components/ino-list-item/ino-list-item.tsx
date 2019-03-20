@@ -47,11 +47,11 @@ export class ListItem {
    * Emits when the list item is clicked.
    * Contains the element itself in `event.detail`
    */
-  @Event() itemClick!: EventEmitter;
+  @Event() clickEl!: EventEmitter;
 
   @Listen('click')
   clickHandler(e) {
-    this.itemClick.emit(this.el);
+    this.clickEl.emit(this.el);
     e.stopPropagation();
   }
 

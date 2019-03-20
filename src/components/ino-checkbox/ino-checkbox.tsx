@@ -87,7 +87,7 @@ export class Checkbox {
   /**
    * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
    */
-  @Event() checkedChanges!: EventEmitter;
+  @Event() checkedChange!: EventEmitter;
 
   @Listen('change')
   handleChange(e: Event) {
@@ -105,7 +105,7 @@ export class Checkbox {
 
     // reset indeterminate status
     this.checkboxInstance.indeterminate = this.indeterminate;
-    this.checkedChanges.emit(newValue);
+    this.checkedChange.emit(newValue);
 
     e.stopPropagation();
   }
