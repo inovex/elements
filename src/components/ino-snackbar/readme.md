@@ -7,33 +7,33 @@ Snackbars provide brief messages about app processes at the bottom of the screen
 The component can be used as follows:
 
 ```js
-document
-  .querySelector('ino-snackbar')
-  .addEventListener('inoActionClicked', e => {
-    // ...
-  });
+document.querySelector('ino-snackbar').addEventListener('clickEl', e => {
+  // ...
+});
 
-document
-  .querySelector('ino-snackbar')
-  .addEventListener('inoSnackbarHide', e => {
-    // ...
-  });
+document.querySelector('ino-snackbar').addEventListener('hideEl', e => {
+  // ...
+});
 ```
 
 ```html
-<ino-snackbar
-  ino-show
-  ino-message="<string>"
-  ino-action-text="<string>"
-  ino-multiline
-  ino-action-on-bottom
-  ino-align-start
-</ino-snackbar>
+<ino-snackbar ino-show ino-message="<string
+  >" ino-action-text="<string
+    >" ino-multiline="<boolean
+      >" ino-action-on-bottom="<boolean
+        >" ino-align-start="<boolean
+          >" onInoSnackbarHide={e => inoSnackbarHideHandler(e)} /></boolean
+        ></boolean
+      ></boolean
+    ></string
+  ></string
+>
 ```
 
 Snackbar is displayed when ino-show is changed to checked.
 
 <!-- Auto Generated Below -->
+
 
 ## Properties
 
@@ -46,13 +46,15 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` | `false`     |
 | `inoShow`           | `ino-show`             | Trigger the display of a message with optional action.                                                | `boolean` | `false`     |
 
+
 ## Events
 
-| Event              | Description                                                                                                      | Type                |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `inoActionClicked` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
-| `inoSnackbarHide`  | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            | `CustomEvent<void>` |
+| Event     | Description                                                                                                      | Type                |
+| --------- | ---------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `clickEl` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
+| `hideEl`  | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

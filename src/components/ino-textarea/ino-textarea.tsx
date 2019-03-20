@@ -114,7 +114,7 @@ export class Textarea {
   /**
    * Emits when the user types something in. Contains typed input in `event.detail`
    */
-  @Event() valueChanges!: EventEmitter<string>;
+  @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
@@ -137,7 +137,7 @@ export class Textarea {
   @Listen('input')
   handleNativeElement(e) {
     e.preventDefault();
-    this.valueChanges.emit(e.target.value);
+    this.valueChange.emit(e.target.value);
   }
 
   private initAutogrow() {
@@ -160,7 +160,7 @@ export class Textarea {
     if (this.nativeTextareaElement) {
       this.nativeTextareaElement.value = this.value || '';
     }
-    this.valueChanges.emit(value);
+    this.valueChange.emit(value);
   }
 
   private labelTemplate() {

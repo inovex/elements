@@ -28,18 +28,18 @@ function subscribeToComponentEvents() {
     e.target.setAttribute('value', e.detail);
   };
 
-  document.addEventListener('valueChanges', eventHandler);
+  document.addEventListener('valueChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('valueChanges', eventHandler);
+    document.removeEventListener('valueChange', eventHandler);
   };
 };
 
 storiesOf('<ino-datepicker>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('valueChanges .customizable-picker'))
+  .addDecorator(withActions('valueChange .customizable-picker'))
   .addDecorator(story => {
     addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();

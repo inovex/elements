@@ -37,7 +37,7 @@ export class ChipSet {
    *
    * Only applicable if `inoType` is `choice` or `filter`.
    */
-  @Event() inoChipSetUpdated!: EventEmitter;
+  @Event() updateChipSet!: EventEmitter;
 
   componentDidLoad() {
     this.create();
@@ -85,13 +85,13 @@ export class ChipSet {
   private notifyChange() {
     const selectedChipIds = this.mdcInstance.selectedChipIds;
     if (selectedChipIds.length <= 0) {
-      this.inoChipSetUpdated.emit(true);
+      this.updateChipSet.emit(true);
       return;
     }
     const chipValues = selectedChipIds.map(
       chipId => this.getInoChip(chipId).inoValue
     );
-    this.inoChipSetUpdated.emit(
+    this.updateChipSet.emit(
       chipValues.length === 1 ? chipValues[0] : chipValues
     );
   }

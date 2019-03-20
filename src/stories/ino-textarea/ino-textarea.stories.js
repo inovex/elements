@@ -4,7 +4,6 @@ import { withActions } from '@storybook/addon-actions';
 import { number, text, boolean } from '@storybook/addon-knobs';
 import addons from '@storybook/addons';
 
-
 import withStencilReadme from '../core/with-stencil-readme';
 
 import componentReadme from '../../components/ino-textarea/readme.md';
@@ -22,25 +21,32 @@ function subscribeToComponentEvents() {
     el.setAttribute('value', e.detail);
   };
 
-  document.addEventListener('valueChanges', eventHandler);
+  document.addEventListener('valueChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('valueChanges', eventHandler);
+    document.removeEventListener('valueChange', eventHandler);
   };
-};
-
-
+}
 
 storiesOf('<ino-textarea>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('input .customizable-textarea', 'valueChanges .customizable-textarea'))
+  .addDecorator(
+    withActions(
+      'input .customizable-textarea',
+      'valueChange .customizable-textarea'
+    )
+  )
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-textarea">
       <ino-textarea class="customizable-textarea"
         cols="${number('cols', 60)}"
@@ -63,4 +69,5 @@ storiesOf('<ino-textarea>', module)
       <ino-textarea placeholder="Disabled" disabled cols="30" rows="3"></ino-textarea>
       <ino-textarea placeholder="Required" required cols="30" rows="3"></ino-textarea>
     </div>
-  `);
+  `
+  );

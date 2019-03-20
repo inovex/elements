@@ -11,13 +11,15 @@ import './ino-chip-set.scss';
 
 storiesOf('<ino-chip-set>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('inoChipSetUpdated .customizable-chip-set'))
-  .add('Default usage', () => /*html*/`
+  .addDecorator(withActions('updateChipSet .customizable-chip-set'))
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-chips">
       <h4>Customizable chip set</h4>
       <p>Change the type and check the action logger for events.</p>
-      <ino-chip-set 
-        ino-type="${select('ino-type', ['', 'choice', 'filter'], '')}" 
+      <ino-chip-set
+        ino-type="${select('ino-type', ['', 'choice', 'filter'], '')}"
         class="customizable-chip-set"
       >
         <ino-chip ino-value="1" ino-label="Chip 1" ino-icon="favorite_border" ino-selected></ino-chip>
@@ -28,7 +30,7 @@ storiesOf('<ino-chip-set>', module)
       <h4>Type</h4>
 
       <h5>ino-type="filter"</h5>
-      
+
       <ino-chip-set ino-type="filter">
         <ino-chip ino-value="1" ino-label="Chip 1"></ino-chip>
         <ino-chip ino-value="2" ino-label="Chip 2 - with icon" ino-icon="favorite"></ino-chip>
@@ -42,30 +44,40 @@ storiesOf('<ino-chip-set>', module)
         <ino-chip ino-label="Chip 3" ino-value="3"></ino-chip>
       </ino-chip-set>
     </div>
-  `);
+  `
+  );
 
 storiesOf('<ino-chip-set>', module)
   .addDecorator(withStencilReadme(chipReadme))
-  .addDecorator(withActions('inoChipRemove .customizable-chip'))
-  .add('<ino-chip>', () => /*html*/`
+  .addDecorator(withActions('removeChip .customizable-chip'))
+  .add(
+    '<ino-chip>',
+    () => /*html*/ `
     <div class="story-chip">
-      <ino-chip-set>
+      <ino-chip-set ino-type="choice">
         <ino-chip
           class="customizable-chip"
           ino-color-scheme="${select(
             'ino-color-scheme',
-            ['primary', 'secondary', 'tertiary', 'success', 'warning', 
-            'error', 'light', 'dark'
+            [
+              'default',
+              'primary',
+              'secondary',
+              'tertiary',
+              'success',
+              'warning',
+              'error',
+              'light',
+              'dark'
             ],
-            'primary'
+            'default'
           )}"
           ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
           ino-icon="${text('ino-icon', '')}"
           ino-removable="${boolean('ino-removable', true)}"
-          ino-label="${text('<slot />', 'Customizable chip')}"
           ino-selected="${boolean('ino-selected', false)}"
-
-          ino-checkmark="${boolean('ino-checkmark', false)}">
+          ino-selectable="${boolean('ino-selectable', false)}"
+          ino-label="${text('<slot />', 'Customizable chip')}">
         </ino-chip>
       </ino-chip-set>
 
@@ -90,8 +102,10 @@ storiesOf('<ino-chip-set>', module)
 
       <h4>Removable and states</h4>
       <ino-chip-set>
-        <ino-chip ino-removable ino-label="Removable"></ino-chip>
-        <ino-chip ino-selected ino-label="Selected"></ino-chip>
+        <ino-chip ino-color-scheme="primary" ino-removable ino-label="Removable"></ino-chip>
+        <ino-chip ino-color-scheme="primary" ino-selected ino-label="Selected"></ino-chip>
+        <ino-chip ino-color-scheme="primary" ino-selected ino-label="Selected with Checkmark" ino-selectable></ino-chip>
       </ino-chip-set>
     </div>
-  `);
+  `
+  );

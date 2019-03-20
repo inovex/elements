@@ -3,13 +3,12 @@ import CoreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
 import { withActions } from '@storybook/addon-actions';
-import { boolean, number, select, text} from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '../core/with-stencil-readme';
 
 import componentReadme from '../../components/ino-select/readme.md';
 import './ino-select.scss';
-
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -23,36 +22,37 @@ function subscribeToComponentEvents() {
     el.setAttribute('value', e.detail);
   };
 
-  document.addEventListener('valueChanges', eventHandler);
+  document.addEventListener('valueChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('valueChanges', eventHandler);
+    document.removeEventListener('valueChange', eventHandler);
   };
-};
+}
 
 storiesOf('<ino-select>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'valueChanges .customizable-select',
-    'submit .form'
-  ))
+  .addDecorator(
+    withActions('valueChange .customizable-select', 'submit .form')
+  )
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
   .add('Default usage', () => {
-    const optionsTemplate = /*html*/`
+    const optionsTemplate = /*html*/ `
       <option>Option 1</option>
       <option>Option 2</option>
       <option>Option 3</option>
       <option>Option 4</option>
     `;
-    
-    return /*html*/`
+
+    return /*html*/ `
       <div class="story-select">
-        <ino-select class="customizable-select" 
+        <ino-select class="customizable-select"
           name="${text('name', 'select-1')}"
           ino-outline="${boolean('ino-outline', false)}"
           ino-label="${text('ino-label', 'Customizable select')}"
@@ -99,7 +99,9 @@ storiesOf('<ino-select>', module)
       </div>
     `;
   })
-  .add('Forms', () => /*html*/`
+  .add(
+    'Forms',
+    () => /*html*/ `
     <div class="story-select">
       <h4>Required</h4>
       <p>The form should not submit since no option is selected and the select is required.</p>
@@ -110,4 +112,5 @@ storiesOf('<ino-select>', module)
           <ino-button type="submit">Submit</ino-button>
       </form>
     </div>
-  `);
+  `
+  );

@@ -9,7 +9,7 @@ This component is used as child of `ino-list` and `ino-menu` components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-list-item').addEventListener('itemClick', e => {
+document.querySelector('ino-list-item').addEventListener('clickEl', e => {
   // ...
 });
 ```
@@ -19,9 +19,10 @@ document.querySelector('ino-list-item').addEventListener('itemClick', e => {
   ino-activated
   ino-text="<string>"
   ino-secondary-text="<string>"
-  ino-selected
-    <ino-icon slot="ino-leading" ...></ino-icon>
-    <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
+  ino-selected="<boolean>"
+>
+  <ino-icon slot="ino-leading" ...></ino-icon>
+  <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
 </ino-list-item>
 ```
 
@@ -33,21 +34,24 @@ document.querySelector('ino-list-item').addEventListener('itemClick', e => {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property               | Attribute            | Description                                                                                                                                        | Type      | Default     |
-| ---------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActivated`         | `ino-activated`      | Styles the row in an activated style. In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
-| `inoSecondaryText`     | `ino-secondary-text` | Sets the secondary text of this list item. Requires `ino-two-lines` on the parent `ino-list` element.                                              | `string`  | `undefined` |
-| `inoSelected`          | `ino-selected`       | Styles the row in a selected style. In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
-| `inoText` _(required)_ | `ino-text`           | The primary text of this list item (required).                                                                                                     | `string`  | `undefined` |
+| Property               | Attribute            | Description                                                                                                                                         | Type      | Default     |
+| ---------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoActivated`         | `ino-activated`      | Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
+| `inoSecondaryText`     | `ino-secondary-text` | Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.                                              | `string`  | `undefined` |
+| `inoSelected`          | `ino-selected`       | Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
+| `inoText` _(required)_ | `ino-text`           | The primary text of this list item (required).                                                                                                      | `string`  | `undefined` |
+
 
 ## Events
 
-| Event       | Description                                                                        | Type                |
-| ----------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `itemClick` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<void>` |
+| Event     | Description                                                                        | Type                |
+| --------- | ---------------------------------------------------------------------------------- | ------------------- |
+| `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

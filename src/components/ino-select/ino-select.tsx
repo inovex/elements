@@ -79,7 +79,7 @@ export class Select {
   /**
    * Emits when a selection changes. Contains new value in `event.detail`.
    */
-  @Event() valueChanges!: EventEmitter<string>;
+  @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
     this.mdcInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
@@ -116,7 +116,7 @@ export class Select {
     if (this.nativeSelectElement) {
       this.nativeSelectElement.value = this.mdcInstance.value = this.value;
     }
-    this.valueChanges.emit(value);
+    this.valueChange.emit(value);
   }
 
   render() {

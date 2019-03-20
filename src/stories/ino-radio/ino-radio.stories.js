@@ -21,26 +21,28 @@ function subscribeToComponentEvents() {
     el.setAttribute('checked', e.detail);
   };
 
-  document.addEventListener('checkedChanges', eventHandler);
+  document.addEventListener('checkedChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('checkedChanges', eventHandler);
+    document.removeEventListener('checkedChange', eventHandler);
   };
-};
+}
 
 storiesOf('<ino-radio>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'checkedChanges ino-radio'
-  ))
+  .addDecorator(withActions('checkedChange ino-radio'))
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
 
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-radio">
       <ino-radio
         checked="${boolean('checked', false)}"
@@ -53,4 +55,5 @@ storiesOf('<ino-radio>', module)
       <ino-radio disabled name="radio-2">Disabled</ino-radio>
       <ino-radio checked disabled name="radio-3">Checked and Disabled</ino-radio>
     </div>
-  `);
+  `
+  );

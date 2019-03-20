@@ -36,7 +36,7 @@ export class TabBar {
    * Emits when a tab changes.
    * Contains activating tab in `event.detail`
    */
-  @Event() inoActiveTabChanges!: EventEmitter;
+  @Event() activeTabChange!: EventEmitter;
 
   componentDidLoad() {
     this.mdcFacade = MDCTabBarFacade.create(this);
@@ -60,7 +60,7 @@ export class TabBar {
    * @param index number
    */
   activeTabChangesHandler(index: number) {
-    this.inoActiveTabChanges.emit(index);
+    this.activeTabChange.emit(index);
   }
 
   render() {

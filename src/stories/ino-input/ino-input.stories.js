@@ -12,8 +12,6 @@ import './ino-input.scss';
 
 import ICONS from '../../components/ino-icon/icons';
 
-
-
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
@@ -26,30 +24,40 @@ function subscribeToComponentEvents() {
     e.target.setAttribute('value', e.detail);
   };
 
-  document.addEventListener('valueChanges', eventHandler);
+  document.addEventListener('valueChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('valueChanges', eventHandler);
+    document.removeEventListener('valueChange', eventHandler);
   };
-};
-
+}
 
 storiesOf('<ino-input>', module)
   .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'inoIconClicked .customizable-input',
-    'valueChanges .customizable-input')
+  .addDecorator(
+    withActions(
+      'inoIconClick .customizable-input',
+      'valueChange .customizable-input'
+    )
   )
   .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
   })
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-input">
-      <ino-input class="customizable-input" id="customizable-input" valueChanges={action('value-changes')}
-        type="${select('type', ['text', 'number', 'password'], 'text', 'STANDARD')}"
+      <ino-input class="customizable-input" id="customizable-input" valueChange={action('value-changes')}
+        type="${select(
+          'type',
+          ['text', 'number', 'password'],
+          'text',
+          'STANDARD'
+        )}"
         step="${number('step', 5, ['step'], 'STANDARD')}"
         ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"
         placeholder="${text('placeholder', '', 'STANDARD')}"
@@ -58,8 +66,16 @@ storiesOf('<ino-input>', module)
         required="${boolean('required', false, 'STANDARD')}"
 
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
-        ino-helper-persistent="${boolean('ino-helper-persistent', false, 'HELPER TEXT')}"
-        ino-helper-validation="${boolean('ino-helper-validation', false, 'HELPER TEXT')}"
+        ino-helper-persistent="${boolean(
+          'ino-helper-persistent',
+          false,
+          'HELPER TEXT'
+        )}"
+        ino-helper-validation="${boolean(
+          'ino-helper-validation',
+          false,
+          'HELPER TEXT'
+        )}"
 
         ino-icon="${select('ino-icon', ICONS, '', 'ICONS')}"
         ino-icon-trailing="${boolean('ino-icon-trailing', false, 'ICONS')}"
@@ -99,4 +115,5 @@ storiesOf('<ino-input>', module)
       <ino-input ino-icon="add" ino-icon-trailing ino-label="Trailing icon"></ino-input>
       <ino-input ino-icon="add" ino-icon-clickable ino-label="Clickable icon"></ino-input>
     </div>
-  `);
+  `
+  );

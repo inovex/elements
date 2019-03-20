@@ -29,11 +29,16 @@ function subscribeToComponentEvents() {
       return;
     }
 
-    const icon = 'star';
-    const checkedIcon = 'star_border';
+    const checkedIcons = ['star', 'favorite'];
+    const uncheckedIcons = checkedIcons.map(icon => `${icon}_border`);
 
     const elementIcon = el.getAttribute('ino-icon');
-    el.setAttribute('ino-icon', elementIcon === icon ? checkedIcon : icon);
+
+    const newIcon = checkedIcons.includes(elementIcon) ?
+      `${elementIcon}_border` : uncheckedIcons.includes(elementIcon) ?
+        elementIcon.substring(0, elementIcon.indexOf('_')) : elementIcon;
+
+    el.setAttribute('ino-icon', newIcon);
   }
   // == event block
 
@@ -70,19 +75,6 @@ storiesOf('<ino-icon-button>', module)
           )}"
           disabled="${boolean('disabled', false)}">
         </ino-icon-button>
-      </div>
-
-      <h4>Toggle icon Button</h4>
-      <div class="flex-parent-center">
-        <div class="flex-child">
-          <h5>icon state is off (ino-state-checked="false")</h5>
-          <ino-icon-button ino-icon="favorite_border" ino-icon-checked="favorite"></ino-icon-button>
-        </div>
-
-        <div class="flex-child">
-          <h5>icon state is on (ino-state-checked="true")</h5>
-          <ino-icon-button ino-icon="favorite_border" ino-icon-checked="favorite" ino-state-checked></ino-icon-button>
-        </div>
       </div>
 
       <h4>Colors</h4>

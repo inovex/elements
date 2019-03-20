@@ -25,8 +25,8 @@ The component can be used as follows:
 
 ```html
 <ino-chip-set>
-  <ino-chip ino-label="Action chip" onClick={_ => console.log('Triggers an awesome action!')}></ino-chip>
-  <ino-chip ino-label="Removable" ino-removable onInoChipRemove={_ => removeChip()}></ino-chip>
+  <ino-chip ino-label="Default chip"></ino-chip>
+  <ino-chip ino-label="Removable" ino-removable onRemoveChip={_ => removeChip()}></ino-chip>
 </ino-chip-set>
 ```
 
@@ -39,14 +39,12 @@ There are two complex types of chip sets:
 - **`ino-type="choice"`**: Choice chips are a variant of chips which allow single selection from a set of options (similar to radio-inputs).
 - **`ino-type="filter"`**: Filter chips are a variant of chips which allow multiple selection from a set of options (similar to checkbox-inputs).
 
-For both, choice and filter chip sets emit an `inoChipSetUpdated` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
+For both, choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
 ```js
-document
-  .querySelector('ino-chip-set')
-  .addEventListener('inoChipSetUpdated', e => {
-    // ...
-  });
+document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {
+  // ...
+});
 ```
 
 ```html
@@ -66,9 +64,9 @@ document
 
 ## Events
 
-| Event               | Description                                                                                                    | Type                |
-| ------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `inoChipSetUpdated` | Event that emits when the value of this element changes. Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
+| Event           | Description                                                                                                    | Type                |
+| --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `updateChipSet` | Event that emits when the value of this element changes. Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
 
 ---
 

@@ -13,6 +13,9 @@ import changelog from './../../../CHANGELOG.md'
 import contributing from './../../../CONTRIBUTING.md'
 import useAndContribute from './use-and-contribute.md'
 
+import colors from './styleguide.colors.md'
+import typography from './styleguide.typography.md'
+
 const componentVersion = require('../../../package.json').version
 
 storiesOf('Home', module)
@@ -26,3 +29,7 @@ storiesOf('Framework Integration')
   .add('React', () => markup(setupReact))
   .add('Angular', () => markup(setupAngular))
   .add('Vue.js', () => markup(setupVue))
+
+storiesOf('Styleguide', module)
+  .add('Colors', () => markup(colors))
+  .add('Typography', () => markup(typography))
