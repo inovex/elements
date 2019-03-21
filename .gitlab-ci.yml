@@ -17,7 +17,7 @@ security-check-gitleaks:
   script:
     - go get -u github.com/zricethezav/gitleaks
     - gitleaks --version
-    - gitleaks -v --repo
+    - gitleaks -v --repo .
 
 test:
   stage: test
