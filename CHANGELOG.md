@@ -1,14 +1,55 @@
-<a name="0.4.1"></a>
-## [0.4.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.4.0...v0.4.1) (2018-10-23)
+# [0.5.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.4.0...v0.5.0) (2019-03-21)
 
 
 ### Bug Fixes
 
-* allow React elements to render children properly ([e142a35](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e142a35))
+* **events:** rename (most of) event names ([ed04d98](http://gitlab.inovex.de:2424/inovex-elements/core/commit/ed04d98))
+* **ino-datepicker:** fix too many tabs to skip datepicker ([3e25361](http://gitlab.inovex.de:2424/inovex-elements/core/commit/3e25361))
+* **ino-input:** Emit new value ([5af46f9](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5af46f9))
+* **ino-input:** fix validation bug ([6c2c904](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6c2c904))
+* **ino-textarea:** change event listening ([1340af4](http://gitlab.inovex.de:2424/inovex-elements/core/commit/1340af4))
+* **text-area:** lower case of event ([3a9194d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/3a9194d))
+
+
+### Features
+
+* **ino-button:** add constants ([cea66f3](http://gitlab.inovex.de:2424/inovex-elements/core/commit/cea66f3))
+* **ino-card:** add image, action buttons and action icons ([5e1c59d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5e1c59d))
+* **ino-checkbox:** change to controlled component ([171e12b](http://gitlab.inovex.de:2424/inovex-elements/core/commit/171e12b))
+* **ino-datepicker:** controlled component ([26e2c74](http://gitlab.inovex.de:2424/inovex-elements/core/commit/26e2c74))
+* **ino-fab, ino-fab-set:** add components ([589b176](http://gitlab.inovex.de:2424/inovex-elements/core/commit/589b176))
+* **ino-icon:** add more icons ([0ade6ee](http://gitlab.inovex.de:2424/inovex-elements/core/commit/0ade6ee))
+* **ino-icon:** allow to use custom icons ([9abe27c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9abe27c))
+* **ino-icon-button:** change to controlled component ([dd52485](http://gitlab.inovex.de:2424/inovex-elements/core/commit/dd52485))
+* **ino-input:** change to controlled component ([19541c3](http://gitlab.inovex.de:2424/inovex-elements/core/commit/19541c3))
+* **ino-input-file:** change to controlled-component ([5054e88](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5054e88))
+* **ino-list:** change to controlled component ([f2ba19e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/f2ba19e))
+* **ino-menu:** controlled component ([392c7f5](http://gitlab.inovex.de:2424/inovex-elements/core/commit/392c7f5))
+* **ino-radio:** make checked attribute unmanaged ([489f32f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/489f32f))
+* **ino-range:** change to controlled component ([e9938eb](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e9938eb))
+* **ino-range:** switch to MDC components implementation ([b3ac281](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b3ac281))
+* **ino-select:** change to controlled component ([5318824](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5318824))
+* **ino-tab-bar:** change to controlled component ([5800088](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5800088))
+* **ino-textarea:** change to controlled component ([b6b6678](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b6b6678))
+* **ino-textarea:** optional autogrow to display all content ([55a8034](http://gitlab.inovex.de:2424/inovex-elements/core/commit/55a8034))
+* **react:** add react wrapper ([10e1127](http://gitlab.inovex.de:2424/inovex-elements/core/commit/10e1127))
+* **storybook:** add syntax-highlighting ([7f92b40](http://gitlab.inovex.de:2424/inovex-elements/core/commit/7f92b40))
+* **types:** add types for certain properties ([6e42f9f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6e42f9f))
+
+
+### BREAKING CHANGES
+
+* We switched over to controlled components which means that our inovex element components are now controlled by you,
+the consumer. All the state of the component is derived from the props the component exposes. The input component
+will no longer update its value when the user types. Instead you must listen to the `valueChange` event and set the
+`value` manually.
+* The integration in React projects is now much easier, you no longer need to use `ref="..."` to get a reference to
+the element, you're now able to use the exposed callbacks from our react wrapper. Please see the setup instructions
+for React in Storybook to see how you can migrate.
+* Most of the event names have changed, please check all the components for new event names when upgrading.
 
 
 
-<a name="0.4.0"></a>
 # [0.4.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.3.0...v0.4.0) (2018-09-25)
 
 
@@ -42,7 +83,6 @@
 
 
 
-<a name="0.3.0"></a>
 # [0.3.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.2.0...v0.3.0) (2018-09-11)
 
 
@@ -60,7 +100,6 @@
 
 
 
-<a name="0.2.0"></a>
 # [0.2.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.2...v0.2.0) (2018-08-28)
 
 
@@ -82,7 +121,6 @@
 
 
 
-<a name="0.1.2"></a>
 ## [0.1.2](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.1...v0.1.2) (2018-08-10)
 
 
@@ -100,12 +138,10 @@
 
 
 
-<a name="0.1.1"></a>
 ## [0.1.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.1.0...v0.1.1) (2018-07-05)
 
 
 
-<a name="0.1.0"></a>
 # [0.1.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.0.2...v0.1.0) (2018-07-05)
 
 
@@ -120,7 +156,6 @@
 
 
 
-<a name="0.0.2"></a>
 ## [0.0.2](http://gitlab.inovex.de:2424/inovex-elements/core/compare/10c2882...v0.0.2) (2018-06-23)
 
 
@@ -157,5 +192,6 @@
 * **storybook:** Add playground directly in the readme ([7a61007](http://gitlab.inovex.de:2424/inovex-elements/core/commit/7a61007))
 * **storybook:** Initial commit ([fbfc58c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/fbfc58c))
 * **storybook:** Several improvements and refactoring ([6bf3919](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6bf3919))
+
 
 
