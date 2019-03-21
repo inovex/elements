@@ -288,7 +288,6 @@ export class Input {
         <ino-icon
           class="mdc-text-field__icon"
           ino-icon={this.inoIcon}
-          tabindex={this.inoIconClickable ? 0 : -1}
           ino-clickable={this.inoIconClickable}
         />
       )
