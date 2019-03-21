@@ -6,8 +6,6 @@
 
 - allow React elements to render children properly ([e142a35](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e142a35))
 
-***REMOVED***
-
 <a name="0.4.0"></a>
 
 # [0.4.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.3.0...v0.4.0) (2018-09-25)
