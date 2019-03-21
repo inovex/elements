@@ -1,5 +1,6 @@
 {
   "hooks": {
     "pre-commit": "lint-staged",
+    "pre-push": "truffleHog --regex --en file:////Users/jcofman/Documents/inovex/core"
   }
 }
