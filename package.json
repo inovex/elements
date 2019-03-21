@@ -4,6 +4,22 @@
   "description": "This is the home of the stencil UI components.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
+  "contributors": [
+    "Arne Maier <amaier@inovex.de>",
+    "Daniel Hieber <dhieber@inovex.de>",
+    "Filipe Santos Correa <filipe.santoscorrea@inovex.de>",
+    "Florian Köpke <fkoepke@inovex.de>",
+    "Jacob Cofman <jcofman@inovex.de>",
+    "Jan-Niklas Voß <jvoss@inovex.de>",
+    "Johann Böhler <jboehler@inovex.de>",
+    "Johannes Reuter <johannes.reuter@inovex.de>",
+    "Lukas Kirner <lkirner@inovex.de>",
+    "Mathias Gruschinske <mgruschinske@inovex.de>",
+    "Michael Janssen <mjanssen@inovex.de>",
+    "Pascal Fecht <pfecht@inovex.de>",
+    "Sebastian Löfflath <sebastian.loefflath@inovex.de>",
+    "Viet Duc Mai <viet.mai@inovex.de>"
+  ],
   "homepage": "https://elements.inovex.io",
   "bugs": {
     "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
