@@ -1,37 +1,49 @@
 stages:
- - test
- - build
- - deploy
- - deploy-latest
- - deploy-release
+  - security
+  - test
+  - build
+  - deploy
+  - deploy-latest
+  - deploy-release
 
 image: node:10.15.1
 
+security-check-gitleaks:
+  image:
+    name: golang:1.11.5
+  stage: security
+  tags:
+    - shared # this makes use of shared runners
+  script:
+    - go get -u github.com/zricethezav/gitleaks
+    - gitleaks --version
+    - gitleaks -v --repo
+
 test:
- stage: test
- image: amio/node-chrome:latest
- script:
- - npm config set scripts-prepend-node-path true
- - yarn install
- - yarn test
- tags:
- - shared
+  stage: test
+  image: amio/node-chrome:latest
+  script:
+    - npm config set scripts-prepend-node-path true
+    - yarn install
+    - yarn test
+  tags:
+    - shared
 
 build:
- stage: build
- script:
- - npm config set scripts-prepend-node-path true
- - yarn install
- - yarn lint
- - yarn build
- - yarn build.storybook
- artifacts:
-  expire_in: 1 week
-  paths:
-  - dist/
-  - storybook-static/
- tags:
- - shared
+  stage: build
+  script:
+    - npm config set scripts-prepend-node-path true
+    - yarn install
+    - yarn lint
+    - yarn build
+    - yarn build.storybook
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist/
+      - storybook-static/
+  tags:
+    - shared
 
 # variables (see inovex-elements/inovex-cloud-environment repo for how to set up the infrastructure):
 # * SSH_PRIVATE_KEY: private key to connect to jump host and deploy host
@@ -44,35 +56,35 @@ build:
   echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 
 deploy:
- stage: deploy
- image: instrumentisto/rsync-ssh:latest
- script:
- - *prepare_ssh
- - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
- - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
- tags:
- - shared
- only:
- - master
- - tags
+  stage: deploy
+  image: instrumentisto/rsync-ssh:latest
+  script:
+    - *prepare_ssh
+    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
+    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
+  tags:
+    - shared
+  only:
+    - master
+    - tags
 
 deploy-latest:
- stage: deploy-latest
- image: instrumentisto/rsync-ssh:latest
- script:
- - *prepare_ssh
- - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -rtvu --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
- tags:
- - shared
- only:
- - tags
+  stage: deploy-latest
+  image: instrumentisto/rsync-ssh:latest
+  script:
+    - *prepare_ssh
+    - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -rtvu --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
+  tags:
+    - shared
+  only:
+    - tags
 
 deploy-release:
- stage: deploy-release
- script:
- - echo "//$ARTIFACTORY_HOST/:_authToken=$ARTIFACTORY_TOKEN" >> ~/.npmrc
- - npm publish --registry https://$ARTIFACTORY_HOST/
- tags:
- - shared
- only:
- - tags
+  stage: deploy-release
+  script:
+    - echo "//$ARTIFACTORY_HOST/:_authToken=$ARTIFACTORY_TOKEN" >> ~/.npmrc
+    - npm publish --registry https://$ARTIFACTORY_HOST/
+  tags:
+    - shared
+  only:
+    - tags

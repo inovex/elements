@@ -1,0 +1,28 @@
+# gitleaks.toml
+
+title = "gitleaks config"
+
+[[regexes]]
+description = "AWS"
+regex = '''AKIA[0-9A-Z]{16}'''
+
+# adding your own
+[[regexes]]
+description = "zachs secret"
+regex = '''terces shcaz'''
+
+# another one!
+[[regexes]]
+description = "1024-bit hexadecimal string (possible hash, key or token)"
+regex = '''['\"][0-9a-fA-F]{256}['\"]'''
+
+[whitelist]
+files = [
+  "(.*?)(wav|wma|mp3|m4a|flac|lock)$",
+  "package-lock.json"
+]
+regexes = [
+  "src=",
+]
+
+
