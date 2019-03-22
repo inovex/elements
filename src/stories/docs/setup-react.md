@@ -8,7 +8,6 @@ You can see an example project here: https://gitlab.inovex.de/inovex-elements/ex
 
 You setup your react project with https://github.com/facebook/create-react-app or similar.
 
-
 ### Using TypeScript support with react-app
 
 If you want to use TypeScript, please see instructions from https://facebook.github.io/create-react-app/docs/adding-typescript.
@@ -27,7 +26,7 @@ Follow the introduction instructions to configure your npm registry and add the 
 
 Open `src/index.tsx` and change the lines to something that looks similar to this:
 
-```tsx
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -54,7 +53,7 @@ To ease the integration into react applications, a react wrapper component for e
 As opposed to bare inovex elements which you can use anywhere in your app after they are loaded in the entrypoint file without importing
 them specifically, you have to import each react wrapper in the file you want to use it:
 
-```tsx
+```jsx
 import { InoButton } from '@inovex/elements/dist/react';
 
 export class MyComponent extends React.Component {
