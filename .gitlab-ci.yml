@@ -4,6 +4,7 @@ stages:
  - deploy
  - deploy-latest
  - deploy-release
+ - deploy-latest-storybook
 
 image: node:10.15.1
 
@@ -76,3 +77,15 @@ deploy-release:
  - shared
  only:
  - tags
+
+deploy-latest-storybook:
+ stage: deploy-latest-storybook
+ image: instrumentisto/rsync-ssh:latest
+ script:
+ - *prepare_ssh
+ - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/latest/storybook
+ tags:
+ - shared
+ only:
+ - master
+ when: manual
