@@ -34,7 +34,6 @@
     "dist/"
   ],
   "scripts": {
-    "postinstall": "node ./scripts/postinstall-hints.js",
     "build": "rm -rf ./dist && stencil build --docs",
     "postbuild": "./scripts/postbuild.sh",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
