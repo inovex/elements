@@ -9,7 +9,7 @@ This component is used as child of `ino-list` and `ino-menu` components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-list-item').addEventListener('itemClick', e => {
+document.querySelector('ino-list-item').addEventListener('clickEl', e => {
   // ...
 });
 ```
@@ -19,9 +19,10 @@ document.querySelector('ino-list-item').addEventListener('itemClick', e => {
   ino-activated
   ino-text="<string>"
   ino-secondary-text="<string>"
-  ino-selected
-    <ino-icon slot="ino-leading" ...></ino-icon>
-    <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
+  ino-selected="<boolean>"
+>
+  <ino-icon slot="ino-leading" ...></ino-icon>
+  <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
 </ino-list-item>
 ```
 
@@ -44,9 +45,9 @@ document.querySelector('ino-list-item').addEventListener('itemClick', e => {
 
 ## Events
 
-| Event       | Description                                                                        | Type                |
-| ----------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `itemClick` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<void>` |
+| Event     | Description                                                                        | Type                |
+| --------- | ---------------------------------------------------------------------------------- | ------------------- |
+| `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<void>` |
 
 ---
 

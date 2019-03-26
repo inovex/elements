@@ -64,6 +64,13 @@ export class Datepicker {
    */
   @Prop() value ? = '';
 
+  @Watch('value')
+  valueChanged(value: string) {
+    if (this.flatpickr) {
+      this.flatpickr.setDate(value);
+    }
+  }
+
   /**
    * The minimum date that a user can start picking from (inclusive).
    */
@@ -197,16 +204,16 @@ export class Datepicker {
     this.update('hourIncrement', value);
   }
 
-  @Listen('inoIconClicked')
+  @Listen('clickEl')
   inoIconClickedHandler() {
-    this.flatpickr.open();
+    this.flatpickr.toggle();
   }
 
   /**
    * Emits when the value of the datepicker changes.
    * The value can be found in `event.detail`
    */
-  @Event() valueChanges!: EventEmitter<string>;
+  @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
     this.create();
@@ -232,7 +239,7 @@ export class Datepicker {
       dateFormat: this.inoDateFormat,
       onValueUpdate: (_, newValue) => {
         // this callback is only called when the user selects a date/time from the flatpickr
-        this.valueChanges.emit(newValue);
+        this.valueChange.emit(newValue);
         this.flatpickr.setDate(this.value);
       }
     };
@@ -307,11 +314,11 @@ export class Datepicker {
           ino-outline={this.inoOutline}
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
-          onValueChanges={e => {
+          onValueChange={e => {
             // This callback is only called when the user types into the textfield.
             // When the user selects a date from the flatpickr, this is NOT called
             // because flatpickr controls the input field and prevents emitting.
-            this.valueChanges.emit(e.detail);
+            this.valueChange.emit(e.detail);
           }}
         />
       </div>

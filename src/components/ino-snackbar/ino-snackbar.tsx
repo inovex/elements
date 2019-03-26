@@ -59,13 +59,13 @@ export class Snackbar {
    * Event that emits as soon as the user removes this element.
    * Listen to this event to hide or destroy this element.
    */
-  @Event() inoActionClicked!: EventEmitter;
+  @Event() clickEl!: EventEmitter;
 
   /**
    * Event that emits as soon as the snackbar hides.
    * Listen to this event to hide or destroy this element.
    */
-  @Event() inoSnackbarHide!: EventEmitter;
+  @Event() hideEl!: EventEmitter;
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
@@ -84,7 +84,7 @@ export class Snackbar {
 
   private handleSnackbarHide(e) {
     this.inoShow = false;
-    this.inoSnackbarHide!.emit(true);
+    this.hideEl!.emit(true);
     e.stopPropagation();
   }
 
@@ -95,7 +95,7 @@ export class Snackbar {
     };
 
     if (this.inoActionText) {
-      options['actionHandler'] = () => this.inoActionClicked.emit(true);
+      options['actionHandler'] = () => this.clickEl.emit(true);
       options['actionText'] = this.inoActionText;
       options['actionOnBottom'] = this.inoActionOnBottom;
     }

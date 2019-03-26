@@ -7,28 +7,23 @@ Tabs organize and allow navigation between groups of content that are related an
 The component can be used as follows:
 
 ```jsx
-<ino-tab-bar ino-active-tab="<number>">
+<ino-tab-bar
+  ino-active-tab="<number>"
+  activeTabChange={e => handler(e.detail.inoIndex)}>
+
   <ino-tab ...></ino-tab>
 </ino-tab-bar>
 ```
 
 ### Control flow
 
-The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `ino-active-tab`. Listen to `InoActiveTabChanges`, sync it with your local state and pass the new index to the component again to activate the tab.
+The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `ino-active-tab`. Listen to `activeTabChange`, sync it with your local state and pass the new index to the component again to activate the tab.
 
-```js
-document
-  .querySelector('ino-tab-bar')
-  .addEventListener('inoActiveTabChanges', e => {
-    // ...
-  });
-```
-
-```html
-<ino-tab-bar ino-active-tab="0">
-  <ino-tab ino-label="Tab 1"></ino-tab>
-  <ino-tab ino-label="Tab 2"></ino-tab>
-</ino-tab-bar>
+```jsx
+<ino-tab-bar
+  ino-active-tab={this.state.index}
+  activeTabChange={e => (this.state.index = e.detail)}
+/>
 ```
 
 <!-- Auto Generated Below -->
@@ -41,9 +36,9 @@ document
 
 ## Events
 
-| Event                 | Description                                                         | Type                |
-| --------------------- | ------------------------------------------------------------------- | ------------------- |
-| `inoActiveTabChanges` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<void>` |
+| Event             | Description                                                         | Type                |
+| ----------------- | ------------------------------------------------------------------- | ------------------- |
+| `activeTabChange` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<void>` |
 
 ---
 

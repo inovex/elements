@@ -1,139 +1,164 @@
 # Contributing
+
 Thanks for contributing to this project and pushing the web world forward to standardize and fast web components for everyone.
 
 ## Tracking issues
-If you are using Inovex Elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/dist/latest/storybook/).
+
+If you are using inovex elements and have feedback or bug reports, join the project slack channel #proj-inovex-elements or use the feedback button in the [documentation](https://elements.inovex.io/dist/latest/storybook/).
 
 Planning and coordination takes place in the corresponding [JIRA project](https://jira.inovex.de/projects/ELEMENTS/summary) and weekly hangouts meetings. If you want to participate, chat up Patrick Hillert (@phillert), Arne Maier (@amaier), Filipe Santos Correa (@fsantoscorrea) or Johannes Reuter (@jreuter).
 
 New features, refactorings etc. should have the `task` issue type. To track bug fixes, use the `bug` issue type.
 
 During development, the following process should be loosely followed:
-* Think of an improvement or discover a bug: Create an issue (assigned to no one) and describe what needs to be done
-* Planning: In the weekly coordination meeting, bring up the issue and discuss the priority of the task
-* Development: Assign the issue to your self and change the status to `in progress`. Create a new feature branch and follow the instructions of the _Merge Requests_ section to submit a merge request if you are ready
-* Code-Review: If you are reviewing a merge request, assign the corresponding JIRA ticket to yourself
-* Integrate: When the merge request is accepted and merged into master, the corresponding issue can be set to `done`
 
+- Think of an improvement or discover a bug: Create an issue (assigned to no one) and describe what needs to be done
+- Planning: In the weekly coordination meeting, bring up the issue and discuss the priority of the task
+- Development: Assign the issue to your self and change the status to `in progress`. Create a new feature branch and follow the instructions of the _Merge Requests_ section to submit a merge request if you are ready
+- Code-Review: If you are reviewing a merge request, assign the corresponding JIRA ticket to yourself
+- Integrate: When the merge request is accepted and merged into master, the corresponding issue can be set to `done`
 
 ## Merge Requests
-We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier.  We also please you to give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-button-element`.
+
+We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier. We also please you to give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-button-element`.
 
 When submitting a merge request, please
-* set the checkbox: **Remove source branch when merge request is accepted**
-* set the checkbox: **Squash commits when merge request is accepted.** This feature squashes all commits into one commit before merging which helps us to keep the git history compact.
-* **provide the title of the merge request in a commit message manner (see below).** This is very important because the "squash commit" that occurs in the history has the merge request's title.
+
+- set the checkbox: **Remove source branch when merge request is accepted**
+- set the checkbox: **Squash commits when merge request is accepted.** This feature squashes all commits into one commit before merging which helps us to keep the git history compact.
+- **provide the title of the merge request in a commit message manner (see below).** This is very important because the "squash commit" that occurs in the history has the merge request's title.
 
 ## Commit Messages
+
 We follow a semantic commit message pattern that leads to readable messages that are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits as well as merge requests:
 
 `type(scope): subject`
 
 #### Type
+
 Must be one of the following:
 
-* **feat**: A new feature
-* **fix**:  A bug fix
-* **docs**: Documentation only changes
-* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* **refactor**: A code change that neither fixes a bug nor adds a feature
-* **perf**: A code change that improves performance
-* **test**: Adding missing tests
-* **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **perf**: A code change that improves performance
+- **test**: Adding missing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
 #### Scope
+
 The scope can be anything specifying a package or place of the change. For example `ino-button`, `storybook`, etc. Use an asterisk to designate a global scope.
 
 #### Subject
+
 The subject contains a succinct description of the change:
 
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* do not capitalize first letter
-* do not place a period `.` at the end
-* describe what the commit does, not what issue it relates to or fixes
-* **be brief, yet descriptive** - we should have a good understanding of what the commit does by reading the subject
-
+- use the imperative, present tense: "change" not "changed" nor "changes"
+- do not capitalize first letter
+- do not place a period `.` at the end
+- describe what the commit does, not what issue it relates to or fixes
+- **be brief, yet descriptive** - we should have a good understanding of what the commit does by reading the subject
 
 ## Develop elements
+
 We follow the [style guide](https://stenciljs.com/docs/style-guide) of stencil, the underlying library of inovex elements, for naming and developing conventions. Please read through it. Some important guidelines are:
 
-* Create a separate directory for each component having the component's name (`<ino-name>`).
-* Each component consists of a `.tsx` and `.scss` with the name of the element (`<ino-name>`).
-* The `readme.md` is auto-generated by the stencil compiler.
+- Create a separate directory for each component having the component's name (`<ino-name>`).
+- Each component consists of a `.tsx` and `.scss` with the name of the element (`<ino-name>`).
+- The `readme.md` is auto-generated by the stencil compiler.
 
 ### Material Design Components
+
 We use Google's [material design components](https://github.com/material-components/material-components-web/) to speed up the development and higher quality. When creating a new element, always check for a respective material design implementation. We follow the rules:
 
-* Abstract the features of the material design components for the need of our inovex element.
-* Provide a link to the material component in the documentation.
-* If the element comes with js, instantiate the `MDCFactory` in the `componentDidLoad` method and call the `destroy` method in `componentWillUnLoad`.
-
+- Abstract the features of the material design components for the need of our inovex element.
+- Provide a link to the material component in the documentation.
+- If the element comes with js, instantiate the `MDCFactory` in the `componentDidLoad` method and call the `destroy` method in `componentWillUnLoad`.
 
 ### Properties
+
 We have native and custom properties in components. For example, the `ino-button` element has native properties like `value` and **prefixed** custom attributes like `ino-color-scheme`. This differentation helps the user to understand the underyling functionality and prohibits incompatibilities with native elements.
 
 For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take time since this description is compiled by stencil and used in the storybook.
 
 ### Events
+
 Similar to properties, we differantiate between native and custom events. Native events are triggered by html elements and bubble out of the scope automatically (f.e the button element uses a `HTMLButtonElement` internally that emits `click`, ... events).
 
 **Important:** Native events are not defined in the component. For this reason, we provide an explanation of their behaviour in the `readme.md` and add them to the **Usage** section.
 
-Custom events are prefixed like `inoRemove` and defined in the element itself. They are an instance of `CustomEvent` and come with a short comment above to describe their behaviour.
+Custom events are simple, here's a list for some of them:
+
+```
+checkedChange
+updateChipSet
+removeChip
+valueChange
+clickEl
+changeFile
+hideEl
+activeTabChange
+loadEl
+unloadEl
+```
 
 ### Documentation
+
 Stencil generates a `readme.md` for each component which consists of two parts:
-* An editable header.
-* An auto-generated documentation of attributes and properties.
+
+- An editable header.
+- An auto-generated documentation of attributes and properties.
 
 We extend the generated docs by adding more information of how to use the component in the header section. Normally, we
 
-* provide a **Usage** section to describe the API as HTML element. This is in the form of a generic element containing **all** attributes and there datetype (`<ino-button name="<string>" ...></ino-button>`).
-* explain extraordenary attributes
-* explain the behaviour of native and custom events
+- provide a **Usage** section to describe the API as HTML element. This is in the form of a generic element containing **all** attributes and there datetype (`<ino-button name="<string>" ...></ino-button>`).
+- explain extraordenary attributes
+- explain the behaviour of native and custom events
 
 Our documentation in the header of the readme is then used as first part of the storybook.
 
-
 ## Storybook
+
 We maintain a storybook to demonstrate the usage of our inovex elements. When creating a new component, always create at least one story that
 
-* has the name **Default usage**.
-* has a playground which is wrapped in the component's documentation.
-* contains a **customizable instance** at the beginning of the playground (see below).
+- has the name **Default usage**.
+- has a playground which is wrapped in the component's documentation.
+- contains a **customizable instance** at the beginning of the playground (see below).
 
 #### Customizable instance
+
 We use customizable instances of elements to give users the ability to explore all possible variants of an element. Customizable, in this case, means that users can pass any possible value to an element using storybook's [knobs addon](https://github.com/storybooks/storybook/tree/master/addons/knobs). While using knobs:
-* make sure that you use the most fitting type (text, boolean, number, select, ...).
-* provide a knob for each available attribute.
-* name the knob after the attribute (f.e. `ino-color-scheme`)
 
-
+- make sure that you use the most fitting type (text, boolean, number, select, ...).
+- provide a knob for each available attribute.
+- name the knob after the attribute (f.e. `ino-color-scheme`)
 
 ## Updating dependencies
+
 Our dependencies are still under active devlopment. In order to get the most mature and stable version, we have to update the dependencies regularly.
 
 So, don't be shy. We rather have breaking changes than buggy dependencies.
 
 The yarn update command helps us to update:
 
-* Material components: `yarn upgrade --scope @material --latest`
-* Stencil: `yarn upgrade --scope @stencil --latest` and 
-* Storybook: `yarn upgrade --scope @storybook --latest`
-
-
+- Material components: `yarn upgrade --scope @material --latest`
+- Stencil: `yarn upgrade --scope @stencil --latest` and
+- Storybook: `yarn upgrade --scope @storybook --latest`
 
 ## Versioning and Releasing
+
 The inovex elements project follows [semantic versioning](https://semver.org/). If you are preparing a new release, please make sure to
 increment the version number in the appropriate way.
 
 To build a new release, the following steps have to be performed:
 
-* Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
-* Check out the most recent master branch
-* Run `yarn version --major`, `yarn version --minor` or `yarn version --patch` depending on the changes included in the release
-* Check the last commit for a properly generated `Changelog.md` and new version.
-* Push the changes to gitlab using `git push --follow-tags`
-* Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
+- Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
+- Check out the most recent master branch
+- Run `yarn version --major`, `yarn version --minor` or `yarn version --patch` depending on the changes included in the release
+- Check the last commit for a properly generated `Changelog.md` and new version.
+- Push the changes to gitlab using `git push --follow-tags`
+- Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
 
 This will create a git tag and push it to the gitlab remote. The gitlab pipeline will build and release a new version in the private inovex elements registry. Additionally, the built sources and documentation will be published on `https://elements.inovex.io/` in a folder named by the new version.

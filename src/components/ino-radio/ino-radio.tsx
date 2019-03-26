@@ -68,7 +68,7 @@ export class Radio {
   /**
    * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
    */
-  @Event() checkedChanges!: EventEmitter;
+  @Event() checkedChange!: EventEmitter;
 
   @Listen('change')
   handleChange(e: Event) {
@@ -84,7 +84,7 @@ export class Radio {
 
     // Reset native value
     this.nativeInputEl.checked = this.checked;
-    this.checkedChanges.emit(newValue);
+    this.checkedChange.emit(newValue);
 
     e.stopPropagation();
   }

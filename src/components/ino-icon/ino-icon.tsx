@@ -39,7 +39,7 @@ export class Icon {
   }
 
   /**
-   * Makes the icon clickable and allows to listen to the `inoIconClicked` event.
+   * Makes the icon clickable and allows to listen to the `clickEl` event.
    */
   @Prop() inoClickable?: boolean;
 
@@ -52,7 +52,7 @@ export class Icon {
    * Event that emits as soon as the user clicks on the icon.
    * The event only emits if the property `inoClickable` is true.
    */
-  @Event() inoIconClicked!: EventEmitter;
+  @Event() clickEl!: EventEmitter;
 
   /**
    * The svg content loaded dynamically.
@@ -74,13 +74,13 @@ export class Icon {
 
   private handleClick(e: Event) {
     e.preventDefault();
-    this.inoIconClicked.emit(true);
+    this.clickEl.emit(true);
   }
 
   private handleKeyPress(e: KeyboardEvent) {
     if (e.code === 'Enter') {
       e.preventDefault();
-      this.inoIconClicked.emit(true);
+      this.clickEl.emit(true);
     }
   }
 

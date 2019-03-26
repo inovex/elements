@@ -20,16 +20,19 @@ The component can be used as follows:
 
 ### Control flow
 
-The input has a controlled (unmanaged) attribute `checked`. For this reason, listen to `checkedChanges`, sync it with your local state and pass the new value to the component again to change the value of input.
+The input has a controlled (unmanaged) attribute `checked`. For this reason, listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change the value of input.
 
 ```js
-document.querySelector('ino-radio').addEventListener('checkedChanges', e => {
+document.querySelector('ino-radio').addEventListener('checkedChange', e => {
   // ...
 });
 ```
 
 ```html
-<ino-radio checked></ino-radio>
+<ino-radio
+  checked={this.state.checked}
+  checkedChange={e => this.state.checked = e.detail}>
+</ino-radio>
 ```
 
 <!-- Auto Generated Below -->
@@ -47,9 +50,9 @@ document.querySelector('ino-radio').addEventListener('checkedChanges', e => {
 
 ## Events
 
-| Event            | Description                                                                        | Type                |
-| ---------------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `checkedChanges` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` | `CustomEvent<void>` |
+| Event           | Description                                                                        | Type                |
+| --------------- | ---------------------------------------------------------------------------------- | ------------------- |
+| `checkedChange` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` | `CustomEvent<void>` |
 
 ---
 

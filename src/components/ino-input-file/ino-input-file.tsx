@@ -45,7 +45,10 @@ export class InputFile {
   /**
    * Emits when the value changes.
    */
-  @Event() valueChanges!: EventEmitter<{ e: Event; files: object[] }>;
+  @Event() changeFile!: EventEmitter<{
+    e: Event;
+    files: object[];
+  }>;
 
   private selectFiles() {
     const input = this.el.querySelector(
@@ -57,7 +60,7 @@ export class InputFile {
   private onFileChange(e: Event) {
     const target = e.target as any;
     const files = target.files as FileList;
-    this.valueChanges.emit({ e, files: Array.from(files) });
+    this.changeFile.emit({ e, files: Array.from(files) });
   }
 
   render() {

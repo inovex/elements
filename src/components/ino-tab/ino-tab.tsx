@@ -32,19 +32,19 @@ export class Tab {
   /**
    * Emitted when the tab did load.
    */
-  @Event() inoTabDidLoad!: EventEmitter;
+  @Event() loadEl!: EventEmitter;
 
   /**
    * Emitted when the tab did unload.
    */
-  @Event() inoTabDidUnLoad!: EventEmitter;
+  @Event() unloadEl!: EventEmitter;
 
   componentDidLoad() {
-    this.inoTabDidLoad.emit({ tab: this });
+    this.loadEl.emit({ tab: this });
   }
 
   componentDidUnLoad() {
-    this.inoTabDidUnLoad.emit({ tab: this });
+    this.unloadEl.emit({ tab: this });
   }
 
   render() {

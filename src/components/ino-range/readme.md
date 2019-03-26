@@ -9,7 +9,7 @@ A range component that allows the user select a number using a slider. It functi
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-range').addEventListener('valueChanges', e => {
+document.querySelector('ino-range').addEventListener('valueChange', e => {
   // ...
 });
 ```
@@ -21,9 +21,9 @@ document.querySelector('ino-range').addEventListener('valueChanges', e => {
   value="<number>"
   name="<string>"
   step="<number>"
-  ino-discrete
-  ino-markers
-  disabled
+  ino-discrete="<boolean>"
+  ino-markers="<boolean>"
+  disabled="<boolean>"
   ino-color-scheme="<string>"
 >
 </ino-range>
@@ -47,9 +47,9 @@ document.querySelector('ino-range').addEventListener('valueChanges', e => {
 
 ## Events
 
-| Event          | Description                                                         | Type                |
-| -------------- | ------------------------------------------------------------------- | ------------------- |
-| `valueChanges` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
+| Event         | Description                                                         | Type                |
+| ------------- | ------------------------------------------------------------------- | ------------------- |
+| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
 
 ---
 

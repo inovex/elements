@@ -89,9 +89,9 @@ or as datetime picker
 
 ## Events
 
-| Event          | Description                                                                              | Type                  |
-| -------------- | ---------------------------------------------------------------------------------------- | --------------------- |
-| `valueChanges` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
+| Event         | Description                                                                              | Type                  |
+| ------------- | ---------------------------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
 
 ---
 

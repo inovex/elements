@@ -15,12 +15,9 @@ The component can be used as follows:
   required
   ino-prepend-default
   ino-label="<string>"
-  ino-outline
-
-  <option value="1">Option 1</option>
-  <option value="2">Option 2</option>
-  ...
-
+  ino-outline="<boolean>"
+>
+  <option value="1">Option 1</option> <option value="2">Option 2</option> ...
 </ino-select>
 ```
 
@@ -30,13 +27,16 @@ The select items are (so far) no custom inovex elements but native HTML `option`
 
 ### Control flow
 
-The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of select.
+The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.
 
-```js
-document.querySelector('ino-select').addEventListener('valueChanges', e => {
-  // ...
-});
-```
+````html
+document.querySelector('ino-select').addEventListener('valueChange', e =>
+this.state.value = e.detail);
+
+<ino-select value="{this.state.value}"> </ino-select>
+```js document .querySelector('ino-select') .addEventListener('valueChange', (e)
+=> { // ... });
+````
 
 ```html
 <ino-select value="salutation"></ino-select>
@@ -44,7 +44,7 @@ document.querySelector('ino-select').addEventListener('valueChanges', e => {
 
 ### Event Behaviour
 
-The component behaves like a native select with additional features. The native `input'` and `change` event is not bubbled. Only `valueChanges` will be emitted when the user selects another option.
+The component behaves like a native select with additional features. The native `input'` and `change` event is not bubbled. Only `inoSelectDidChange` will be emitted when the user selects another option.
 
 <!-- Auto Generated Below -->
 
@@ -64,9 +64,9 @@ The component behaves like a native select with additional features. The native 
 
 ## Events
 
-| Event          | Description                                                           | Type                  |
-| -------------- | --------------------------------------------------------------------- | --------------------- |
-| `valueChanges` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
+| Event         | Description                                                           | Type                  |
+| ------------- | --------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
 
 ---
 

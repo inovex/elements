@@ -20,10 +20,10 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 ## Properties
 
-| Property  | Attribute  | Description                       | Type      |
-| --------- | ---------- | --------------------------------- | --------- |
-| `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  |
-| `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` |
+| Property  | Attribute  | Description                       | Type      | Default     |
+| --------- | ---------- | --------------------------------- | --------- | ----------- |
+| `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  | `undefined` |
+| `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
 
 ---
 

@@ -71,7 +71,7 @@ export class Range {
   /**
    * Emits when the value changes. Contains new value in `event.detail`.
    */
-  @Event() valueChanges!: EventEmitter;
+  @Event() valueChange!: EventEmitter;
 
   @Watch('value')
   valueChangeHandler(newValue: number) {
@@ -86,7 +86,7 @@ export class Range {
   handleInput(e) {
     const value = e.detail.foundation_.value_;
     this.sliderInstance.value = value;
-    this.valueChanges.emit(value);
+    this.valueChange.emit(value);
     e.stopPropagation();
   }
 

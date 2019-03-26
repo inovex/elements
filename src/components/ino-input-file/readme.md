@@ -9,7 +9,7 @@ This component replaces the native behaviour with a custom `ino-button` with log
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-input-file').addEventListener('valueChanges', e => {
+document.querySelector('ino-input-file').addEventListener('changeFile', e => {
   // ...
 });
 ```
@@ -44,9 +44,9 @@ document.querySelector('ino-input-file').addEventListener('valueChanges', e => {
 
 ## Events
 
-| Event          | Description                   | Type                                         |
-| -------------- | ----------------------------- | -------------------------------------------- |
-| `valueChanges` | Emits when the value changes. | `CustomEvent<{ e: Event, files: object[] }>` |
+| Event        | Description                   | Type                                          |
+| ------------ | ----------------------------- | --------------------------------------------- |
+| `changeFile` | Emits when the value changes. | `CustomEvent<{ e: Event; files: object[]; }>` |
 
 ---
 

@@ -7,11 +7,11 @@ Tabs organize and allow navigation between groups of content that are related an
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-tab').addEventListener('inoTabDidLoad', e => {
+document.querySelector('ino-tab').addEventListener('leadEl', e => {
   // ...
 });
 
-document.querySelector('ino-tab').addEventListener('inoTabDidUnLoad', e => {
+document.querySelector('ino-tab').addEventListener('unloadEl', e => {
   // ...
 });
 ```
@@ -20,8 +20,8 @@ document.querySelector('ino-tab').addEventListener('inoTabDidUnLoad', e => {
 <ino-tab
   ino-label="<string>"
   ino-icon="<string>"
-  ino-indicator-content-width
-  ino-stacked
+  ino-indicator-content-width="<boolean>"
+  ino-stacked="<boolean>"
 >
 </ino-tab>
 ```
@@ -41,10 +41,10 @@ document.querySelector('ino-tab').addEventListener('inoTabDidUnLoad', e => {
 
 ## Events
 
-| Event             | Description                      | Type                |
-| ----------------- | -------------------------------- | ------------------- |
-| `inoTabDidLoad`   | Emitted when the tab did load.   | `CustomEvent<void>` |
-| `inoTabDidUnLoad` | Emitted when the tab did unload. | `CustomEvent<void>` |
+| Event      | Description                      | Type                |
+| ---------- | -------------------------------- | ------------------- |
+| `loadEl`   | Emitted when the tab did load.   | `CustomEvent<void>` |
+| `unloadEl` | Emitted when the tab did unload. | `CustomEvent<void>` |
 
 ---
 

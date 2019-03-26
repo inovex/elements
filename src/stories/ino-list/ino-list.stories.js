@@ -1,5 +1,5 @@
-import {storiesOf} from '@storybook/html';
-import {boolean, select, text} from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/html';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '../core/with-stencil-readme';
 
@@ -7,16 +7,16 @@ import listReadme from '../../components/ino-list/readme.md';
 import listItemReadme from '../../components/ino-list-item/readme.md';
 import listDividerReadme from '../../components/ino-list-divider/readme.md';
 
-import ICONS from '../../components/ino-icon/icons';
-
 import './ino-list.scss';
 
 storiesOf('<ino-list>', module)
   .addDecorator(withStencilReadme(listReadme))
-  .add('Default usage', () => /*html*/`
+  .add(
+    'Default usage',
+    () => /*html*/ `
     <div class="story-list">
       <h4>Customizable List</h4>
-      <ino-list 
+      <ino-list
         ino-dense="${boolean('ino-dense', false)}"
         ino-two-lines="${boolean('ino-two-lines', false)}"
         ino-avatar="${boolean('ino-avatar', false)}"
@@ -44,7 +44,7 @@ storiesOf('<ino-list>', module)
         <ino-list-item ino-text="Second text item" ino-secondary-text="Secondary"></ino-list-item>
         <ino-list-item ino-text="Third text item" ino-secondary-text="Secondary"></ino-list-item>
       </ino-list>
-      
+
       <h4>Avatar</h4>
       <ino-list ino-avatar class="first-densed-list">
         <ino-list-item ino-text="First text item">
@@ -71,13 +71,16 @@ storiesOf('<ino-list>', module)
         </ino-list-item>
       </ino-list>
     </div>
-  `)
+  `
+  );
 
 storiesOf('<ino-list>', module)
   .addDecorator(withStencilReadme(listItemReadme))
-  .add('List item', () => /*html*/`
+  .add(
+    'List item',
+    () => /*html*/ `
     <div class="story-list">
-      <h4>Customizable list item</h4> 
+      <h4>Customizable list item</h4>
       <ino-list ino-two-lines="${boolean('ino-two-lines (on ino-list)', true)}">
         <ino-list-item
           ino-secondary-text="${text('ino-secondary-text', 'Second line text')}"
@@ -110,11 +113,12 @@ storiesOf('<ino-list>', module)
         </ino-list-item>
       </ino-list>
     </div>
-  `);
+  `
+  );
 
-
-storiesOf('<ino-list>', module)
-  .add('List item variants', () => /*html*/`
+storiesOf('<ino-list>', module).add(
+  'List item variants',
+  () => /*html*/ `
     <div class="story-list">
       <h1>List item variants</h1>
       <h4>Graphic</h4>
@@ -323,11 +327,14 @@ storiesOf('<ino-list>', module)
         </ino-list-item>
       </ino-list>
     </div>
-  `);
+  `
+);
 
 storiesOf('<ino-list>', module)
   .addDecorator(withStencilReadme(listDividerReadme))
-  .add('List divider', () => /*html*/`
+  .add(
+    'List divider',
+    () => /*html*/ `
     <div class="story-list">
       <h4>Divider to seperate list items</h4>
       <ino-list>
@@ -361,4 +368,5 @@ storiesOf('<ino-list>', module)
         </ino-list-item>
       </ino-list>
     </div>
-  `);
+  `
+  );

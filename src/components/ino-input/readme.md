@@ -27,14 +27,13 @@ The component can be used as follows:
   value="<string>"
   ino-outline
   ino-label="<string>"
-
   ino-icon="<string>"
-  ino-icon-trailing
-  ino-icon-clickable
-
+  ino-icon-trailing="<boolean>"
+  ino-icon-clickable="<boolean>"
   ino-helper="<string>"
-  ino-helper-persistent
-  ino-helper-validation
+  ino-helper-persistent="<boolean>"
+  ino-helper-validation="<boolean"
+>
 </ino-input>
 ```
 
@@ -48,10 +47,10 @@ The component can be used as follows:
 
 ### Control flow
 
-The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChanges`, sync it with your local state and pass the new value to the component again to change value of input.
+The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document.querySelector('ino-input').addEventListener('valueChanges', e => {
+document.querySelector('ino-input').addEventListener('valueChange', e => {
   // ...
 });
 ```
@@ -68,37 +67,37 @@ The component is based on a native input with additional features. Thus, the com
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                  | Type      | Default     |
-| --------------------- | ----------------------- | ---------------------------------------------------------------------------- | --------- | ----------- |
-| `accesskey`           | `accesskey`             | The accesskey of this native element.                                        | `string`  | `undefined` |
-| `autocomplete`        | `autocomplete`          | The autocomplete property of this element.                                   | `string`  | `undefined` |
-| `autofocus`           | `autofocus`             | The autofocus of this element.                                               | `boolean` | `undefined` |
-| `disabled`            | `disabled`              | Disables this element.                                                       | `boolean` | `undefined` |
-| `inoHelper`           | `ino-helper`            | The optional helper text.                                                    | `string`  | `undefined` |
-| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                             | `boolean` | `undefined` |
-| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                              | `boolean` | `undefined` |
-| `inoIcon`             | `ino-icon`              | The optional icon of this input field.                                       | `string`  | `undefined` |
-| `inoIconClickable`    | `ino-icon-clickable`    | Makes the icon clickable and allows to listen to the `inoIconClicked` event. | `boolean` | `undefined` |
-| `inoIconTrailing`     | `ino-icon-trailing`     | Positions the icon trailing after the input field.                           | `boolean` | `false`     |
-| `inoLabel`            | `ino-label`             | The optional floating label of this input field.                             | `string`  | `undefined` |
-| `inoOutline`          | `ino-outline`           | Styles the input field as outlined element.                                  | `boolean` | `undefined` |
-| `max`                 | `max`                   | The max value of this element.                                               | `string`  | `undefined` |
-| `min`                 | `min`                   | The min value of this element.                                               | `string`  | `undefined` |
-| `name`                | `name`                  | The name of this element.                                                    | `string`  | `undefined` |
-| `pattern`             | `pattern`               | The validation pattern of this element.                                      | `string`  | `undefined` |
-| `placeholder`         | `placeholder`           | The placeholder of this element.                                             | `string`  | `undefined` |
-| `required`            | `required`              | Marks this element as required.                                              | `boolean` | `undefined` |
-| `size`                | `size`                  | The size of this element.                                                    | `number`  | `undefined` |
-| `step`                | `step`                  | The step value of this element                                               | `number`  | `1`         |
-| `tabindex`            | `tabindex`              | The tabindex of this element.                                                | `string`  | `undefined` |
-| `type`                | `type`                  | The type of this element (default = text).                                   | `string`  | `'text'`    |
-| `value`               | `value`                 | The value of this element. (**unmanaged**)                                   | `string`  | `''`        |
+| Property              | Attribute               | Description                                                           | Type      | Default     |
+| --------------------- | ----------------------- | --------------------------------------------------------------------- | --------- | ----------- |
+| `accesskey`           | `accesskey`             | The accesskey of this native element.                                 | `string`  | `undefined` |
+| `autocomplete`        | `autocomplete`          | The autocomplete property of this element.                            | `string`  | `undefined` |
+| `autofocus`           | `autofocus`             | The autofocus of this element.                                        | `boolean` | `undefined` |
+| `disabled`            | `disabled`              | Disables this element.                                                | `boolean` | `undefined` |
+| `inoHelper`           | `ino-helper`            | The optional helper text.                                             | `string`  | `undefined` |
+| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                      | `boolean` | `undefined` |
+| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                       | `boolean` | `undefined` |
+| `inoIcon`             | `ino-icon`              | The optional icon of this input field.                                | `string`  | `undefined` |
+| `inoIconClickable`    | `ino-icon-clickable`    | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
+| `inoIconTrailing`     | `ino-icon-trailing`     | Positions the icon trailing after the input field.                    | `boolean` | `false`     |
+| `inoLabel`            | `ino-label`             | The optional floating label of this input field.                      | `string`  | `undefined` |
+| `inoOutline`          | `ino-outline`           | Styles the input field as outlined element.                           | `boolean` | `undefined` |
+| `max`                 | `max`                   | The max value of this element.                                        | `string`  | `undefined` |
+| `min`                 | `min`                   | The min value of this element.                                        | `string`  | `undefined` |
+| `name`                | `name`                  | The name of this element.                                             | `string`  | `undefined` |
+| `pattern`             | `pattern`               | The validation pattern of this element.                               | `string`  | `undefined` |
+| `placeholder`         | `placeholder`           | The placeholder of this element.                                      | `string`  | `undefined` |
+| `required`            | `required`              | Marks this element as required.                                       | `boolean` | `undefined` |
+| `size`                | `size`                  | The size of this element.                                             | `number`  | `undefined` |
+| `step`                | `step`                  | The step value of this element                                        | `number`  | `1`         |
+| `tabindex`            | `tabindex`              | The tabindex of this element.                                         | `string`  | `undefined` |
+| `type`                | `type`                  | The type of this element (default = text).                            | `string`  | `'text'`    |
+| `value`               | `value`                 | The value of this element. (**unmanaged**)                            | `string`  | `''`        |
 
 ## Events
 
-| Event          | Description                                                                    | Type                  |
-| -------------- | ------------------------------------------------------------------------------ | --------------------- |
-| `valueChanges` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
+| Event         | Description                                                                    | Type                  |
+| ------------- | ------------------------------------------------------------------------------ | --------------------- |
+| `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 ---
 
