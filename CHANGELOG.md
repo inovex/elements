@@ -1,4 +1,14 @@
-# [0.5.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.4.0...v0.5.0) (2019-03-21)
+## [0.5.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.5.0-rc1...v0.5.1) (2019-03-26)
+
+
+### Bug Fixes
+
+* **postinstall:** remove postinstall from released package ([9b0d202](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9b0d202))
+* **storybook:** remove tsx for syntax highlight ([f1dbfb9](http://gitlab.inovex.de:2424/inovex-elements/core/commit/f1dbfb9))
+
+
+
+# [0.5.0-rc1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.5.0...v0.5.0-rc1) (2019-03-21)
 
 
 ### Bug Fixes
@@ -35,18 +45,6 @@
 * **react:** add react wrapper ([10e1127](http://gitlab.inovex.de:2424/inovex-elements/core/commit/10e1127))
 * **storybook:** add syntax-highlighting ([7f92b40](http://gitlab.inovex.de:2424/inovex-elements/core/commit/7f92b40))
 * **types:** add types for certain properties ([6e42f9f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6e42f9f))
-
-
-### BREAKING CHANGES
-
-* We switched over to controlled components which means that our inovex element components are now controlled by you,
-the consumer. All the state of the component is derived from the props the component exposes. The input component
-will no longer update its value when the user types. Instead you must listen to the `valueChange` event and set the
-`value` manually.
-* The integration in React projects is now much easier, you no longer need to use `ref="..."` to get a reference to
-the element, you're now able to use the exposed callbacks from our react wrapper. Please see the setup instructions
-for React in Storybook to see how you can migrate.
-* Most of the event names have changed, please check all the components for new event names when upgrading.
 
 
 
