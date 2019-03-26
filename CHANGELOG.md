@@ -1,3 +1,13 @@
+## [0.5.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.5.0...v0.5.1) (2019-03-26)
+
+
+### Bug Fixes
+
+* **postinstall:** remove postinstall from released package ([9b0d202](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9b0d202))
+* **storybook:** remove tsx for syntax highlight ([f1dbfb9](http://gitlab.inovex.de:2424/inovex-elements/core/commit/f1dbfb9))
+
+
+
 # [0.5.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.4.0...v0.5.0) (2019-03-21)
 
 
