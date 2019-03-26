@@ -16,7 +16,7 @@ security-check-gitleaks:
     - shared # this makes use of shared runners
   script:
     - go get -u github.com/zricethezav/gitleaks
-    - gitleaks --version
+    - gitleaks --version # check wheter gitleaks is available
     - gitleaks -v --repo-path ./
 
 test:
