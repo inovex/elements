@@ -29,7 +29,6 @@ The component can be used as follows:
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
@@ -38,7 +37,6 @@ The component can be used as follows:
 | `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
 | `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

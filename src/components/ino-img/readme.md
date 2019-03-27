@@ -39,7 +39,6 @@ With this setup and while loading the source, the width of this element extends 
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                                                          | Type                          | Default     |
@@ -56,7 +55,6 @@ With this setup and while loading the source, the width of this element extends 
 | `usemap`         | `usemap`           | An ID referencing to a defined map element for this image.                                                                                                                           | `string`                      | `undefined` |
 | `width`          | `width`            | The fixed of the image.                                                                                                                                                              | `number`                      | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

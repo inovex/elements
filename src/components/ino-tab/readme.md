@@ -30,7 +30,6 @@ document.querySelector('ino-tab').addEventListener('unloadEl', e => {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property                   | Attribute                     | Description                                                                           | Type      | Default     |
@@ -40,7 +39,6 @@ document.querySelector('ino-tab').addEventListener('unloadEl', e => {
 | `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
 | `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
-
 ## Events
 
 | Event      | Description                      | Type                |
@@ -48,7 +46,6 @@ document.querySelector('ino-tab').addEventListener('unloadEl', e => {
 | `loadEl`   | Emitted when the tab did load.   | `CustomEvent<void>` |
 | `unloadEl` | Emitted when the tab did unload. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -51,7 +51,6 @@ The component is based on a native input with additional features. Thus, the com
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property      | Attribute     | Description                                                                                                                                                                                                                                                                                               | Type      | Default     |
@@ -69,14 +68,12 @@ The component is based on a native input with additional features. Thus, the com
 | `rows`        | `rows`        | The number of rows of this textarea.                                                                                                                                                                                                                                                                      | `number`  | `undefined` |
 | `value`       | `value`       | The value of this element. (**unmanaged**)                                                                                                                                                                                                                                                                | `string`  | `''`        |
 
-
 ## Events
 
 | Event         | Description                                                                    | Type                  |
 | ------------- | ------------------------------------------------------------------------------ | --------------------- |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

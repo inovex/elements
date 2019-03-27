@@ -31,7 +31,6 @@ document.querySelector('ino-range').addEventListener('valueChange', e => {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                                    | Type                                                                                               | Default     |
@@ -46,14 +45,12 @@ document.querySelector('ino-range').addEventListener('valueChange', e => {
 | `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`                                                                                           | `1`         |
 | `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`                                                                                           | `undefined` |
 
-
 ## Events
 
 | Event         | Description                                                         | Type                |
 | ------------- | ------------------------------------------------------------------- | ------------------- |
 | `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

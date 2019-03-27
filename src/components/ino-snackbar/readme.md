@@ -34,7 +34,6 @@ Snackbar is displayed when ino-show is changed to checked.
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property            | Attribute              | Description                                                                                           | Type      | Default     |
@@ -46,7 +45,6 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` | `false`     |
 | `inoShow`           | `ino-show`             | Trigger the display of a message with optional action.                                                | `boolean` | `false`     |
 
-
 ## Events
 
 | Event     | Description                                                                                                      | Type                |
@@ -54,7 +52,6 @@ Snackbar is displayed when ino-show is changed to checked.
 | `clickEl` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
 | `hideEl`  | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

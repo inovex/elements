@@ -44,7 +44,6 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property       | Attribute       | Description                                                           | Type      | Default     |
@@ -52,14 +51,12 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 | `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
 | `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
 
-
 ## Events
 
 | Event     | Description                                                                                                           | Type                |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<void>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
