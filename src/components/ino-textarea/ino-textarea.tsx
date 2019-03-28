@@ -136,8 +136,8 @@ export class Textarea {
 
   @Listen('input')
   handleNativeElement(e) {
+    e.stopImmediatePropagation();
     e.preventDefault();
-    this.valueChange.emit(e.target.value);
   }
 
   private initAutogrow() {
