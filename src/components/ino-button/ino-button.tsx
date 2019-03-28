@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, Element, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ButtonType, ColorScheme, SurfaceType } from '../types';
@@ -74,6 +74,14 @@ export class Button {
    * Makes the button text and container slightly smaller.
    */
   @Prop() inoDense = false;
+
+  @Listen('click')
+  onClickHandler(e: MouseEvent) {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
 
   componentDidLoad() {
     this.button = new MDCRipple(this.el.querySelector(SELECTORS.MDC_BUTTON));
