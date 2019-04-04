@@ -42,8 +42,8 @@
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "storybook": "start-storybook -p 6006 -s ./.storybook/static",
-    "test": "stencil build && stencil test --e2e --ci",
-    "test.watch": "stencil build && stencil test --e2e --ci --watchAll",
+    "test": "stencil test --e2e --ci",
+    "test.watch": "stencil test --e2e --spec --watch",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
   "dependencies": {
