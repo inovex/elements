@@ -3,7 +3,8 @@
   "linterOptions": {
     "exclude": [
       "**/*.spec.ts",
-      "**/*.spec.tsx"
+      "**/*.spec.tsx",
+      "**/*.e2e.ts"
     ]
   },
   "rules": {
