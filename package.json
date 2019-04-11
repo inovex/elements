@@ -44,7 +44,8 @@
     "storybook": "start-storybook -p 6006 -s ./.storybook/static",
     "test": "stencil test --e2e --ci",
     "test.watch": "stencil test --e2e --spec --watch",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md"
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "sed -i'' -e 's/gitlab.inovex.de:2424/gitlab.inovex.de/g' ./CHANGELOG.md && rm ./CHANGELOG.md-e"
   },
   "dependencies": {
     "@material/button": "^0.37.0",
