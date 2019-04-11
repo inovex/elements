@@ -204,7 +204,7 @@ export class Datepicker {
     this.update('hourIncrement', value);
   }
 
-  @Listen('clickEl')
+  @Listen('click')
   inoIconClickedHandler() {
     this.flatpickr.toggle();
   }
