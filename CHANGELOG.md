@@ -1,3 +1,14 @@
+## [0.5.2](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.1...v0.5.2) (2019-04-11)
+
+
+### Bug Fixes
+
+* **ino-datepicker:** datepicker will now open on input click ([842d21b](http://gitlab.inovex.de/inovex-elements/core/commit/842d21b))
+* **postinstall:** remove postinstall from released package ([9b0d202](http://gitlab.inovex.de/inovex-elements/core/commit/9b0d202))
+* **storybook:** remove tsx for syntax highlight ([f1dbfb9](http://gitlab.inovex.de/inovex-elements/core/commit/f1dbfb9))
+
+
+
 ## [0.5.1](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.0...v0.5.1) (2019-03-26)
 
 ### Bug Fixes
