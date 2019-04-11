@@ -71,9 +71,7 @@ export class Select {
 
   @Watch('value')
   handleValueChange(value: string) {
-    if (this.nativeSelectElement) {
-      this.nativeSelectElement.value = this.mdcInstance.value = value;
-    }
+    this.setSelectValue(value);
   }
 
   /**
@@ -83,6 +81,10 @@ export class Select {
 
   componentDidLoad() {
     this.mdcInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
+
+    if (this.value) {
+      this.setSelectValue(this.value);
+    }
   }
 
   componentWillUnLoad() {
@@ -103,6 +105,12 @@ export class Select {
     return <div class="mdc-line-ripple" />;
   }
 
+  private setSelectValue(value: string) {
+    if (this.nativeSelectElement) {
+      this.nativeSelectElement.value = this.mdcInstance.value = value;
+    }
+  }
+
   @Listen('change')
   handleChange(e) {
     e.stopPropagation();
@@ -113,9 +121,6 @@ export class Select {
   handleInput(e) {
     e.preventDefault();
     const value = e.target.value;
-    if (this.nativeSelectElement) {
-      this.nativeSelectElement.value = this.mdcInstance.value = this.value;
-    }
     this.valueChange.emit(value);
   }
 
