@@ -54,7 +54,10 @@ or as time picker
 or as datetime picker
 
 ```html
-<ino-datepicker ino-type="d-m-Y H:i" ino-label="Datetime"></ino-datepicker>
+<ino-datepicker
+  ino-date-format="d-m-Y H:i"
+  ino-label="Datetime"
+></ino-datepicker>
 ```
 
 <!-- Auto Generated Below -->
