@@ -9,9 +9,11 @@ A range component that allows the user select a number using a slider. It functi
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-range').addEventListener('valueChange', e => {
-  // ...
-});
+document
+  .querySelector('ino-datepicker')
+  .addEventListener('valueChange', e =>
+    alert(`The new range value is: ${e.detail}`)
+  );
 ```
 
 ```html
@@ -21,13 +23,50 @@ document.querySelector('ino-range').addEventListener('valueChange', e => {
   value="<number>"
   name="<string>"
   step="<number>"
-  ino-discrete="<boolean>"
-  ino-markers="<boolean>"
-  disabled="<boolean>"
+  disabled
   ino-color-scheme="<string>"
+  ino-discrete
+  ino-markers
 >
 </ino-range>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoRange } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return <InoRange inoColorScheme="primary" />;
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoRange } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Range: React.FunctionComponent<Components.InoRangeAttributes> = props => {
+  const { inoColorScheme } = props;
+
+  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;
+};
+
+class MyComponent extends Component {
+  render() {
+    return <Range inoColorScheme="primary" />;
+  }
+}
+```
+
+## Additional Hints
 
 <!-- Auto Generated Below -->
 

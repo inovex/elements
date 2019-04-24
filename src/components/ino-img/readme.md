@@ -6,22 +6,81 @@ An image component with different styles that reserves a predefined space to avo
 
 The component can be used as follows (custom preferences have an `ino`-prefix):
 
+```js
+document
+  .querySelector('ino-img')
+  .addEventListener('click', _ => alert('The image was clicked'));
+```
+
 ```html
 <ino-img
   alt="<string>"
   decoding="<string>"
+  width="<number>"
   height="<number>"
   sizes="<string>"
   src="<string>"
   srcset="<string>"
   usemap="<string>"
-  width="<number>"
-
   ino-ratio-height="<number>"
   ino-ratio-width="<number>"
   ino-rounded
+>
 </ino-img>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoImg } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoImg
+        height={100}
+        width={100}
+        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+      />
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoImg } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Img: React.FunctionComponent<Components.InoImgAttributes> = props => {
+  const { height, width, src } = props;
+
+  return (
+    <InoImg height={height} width={width} src={src}>
+      {props.children}
+    </InoImg>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Img
+        height={100}
+        width={100}
+        src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+      />
+    );
+  }
+}
+```
+
+## Additional Hints
 
 If the attribute `ino-rounded` is true, the image is displayed with rounded corners.
 

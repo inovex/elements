@@ -2,38 +2,105 @@
 
 A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.
 
-### Usage
+## Usage
 
-This component can be used as follows:
+The component can be used as follows:
+
+### Web Component
+
+```js
+document
+  .querySelector('ino-datepicker')
+  .addEventListener('valueChange', e =>
+    alert(`The new datepicker value is: ${e.detail}`)
+  );
+```
 
 ```html
 <ino-datepicker
   accesskey="<string>"
-  autofocus="<string>"
-  disabled="<boolean>"
+  autofocus
+  disabled
   name="<string>"
-  required="<boolean>"
+  required
   tabindex="<string>"
   value="<string>"
   min="<string>"
   max="<string>"
   minute-step="<number>"
   hour-step="<number>"
-  ino-range="<boolean>"
-  ino-outline="<boolean>"
+  ino-range
+  ino-outline
   ino-label="<string>"
   ino-pattern="<string>"
   ino-date-format="<string>"
   ino-default-date="<string>"
   ino-default-hour="<number>"
   ino-default-minute="<number>"
-  ino-twelf-hour-time="<boolean>"
+  ino-twelf-hour-time
   ino-helper="<string>"
-  ino-helper-persistent="<boolean>"
-  ino-helper-validation="<boolean"
+  ino-helper-persistent
+  ino-helper-validation
 >
 </ino-datepicker>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoDatepicker } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  valueChange(e: any) {
+    alert(`The new value is ${e.detail}`);
+  }
+
+  render() {
+    return (
+      <InoDatepicker
+        inoLabel="Select a date"
+        inoHelper="Choose a date"
+        onValueChange={valueChange}
+      />
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoDatepicker } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = props => {
+  const { inoLabel, inoHelper } = props;
+
+  const valueChange = (e: any) => {
+    alert(`The new value is ${e.detail}`);
+  };
+
+  return (
+    <InoDatepicker
+      inoLabel={inoLabel}
+      inoHelper={inoHelper}
+      onValueChange={valueChange}
+    />
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <Datepicker inoLabel="Select a date" inoHelper="Choose a date" />;
+  }
+}
+```
+
+## Additional Hints
 
 ### Examples
 
@@ -59,6 +126,8 @@ or as datetime picker
   ino-label="Datetime"
 ></ino-datepicker>
 ```
+
+## Demo
 
 <!-- Auto Generated Below -->
 

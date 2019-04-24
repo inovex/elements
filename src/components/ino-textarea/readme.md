@@ -8,6 +8,14 @@ A textarea component with styles. It uses a material [textfield](https://github.
 
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-textarea')
+  .addEventListener('valueChange', e =>
+    alert(`The new textarea value is ${e.detail}`)
+  );
+```
+
 ```html
 <ino-textarea
   autofocus
@@ -20,11 +28,56 @@ The component can be used as follows:
   required
   rows="<number>"
   value="<string>"
-  ino-label="<string>"
   autogrow
+  ino-label="<string>"
 >
 </ino-textarea>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoTextarea } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoTextarea autogrow>
+        Here's some text. And the textarea will grow when you enter more...
+      </InoTextarea>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoTextarea } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = props => {
+  const { autogrow } = props;
+
+  return <InoTextarea autogrow={autogrow}>{props.children}</InoTextarea>;
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Textarea autogrow>
+        Here's some text. And the textarea will grow when you enter more...
+      </Textarea>
+    );
+  }
+}
+```
+
+## Additional Hints
 
 **Labels**: The component shows a floating label containing the value of `ino-label`.
 

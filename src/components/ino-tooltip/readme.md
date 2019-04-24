@@ -12,12 +12,55 @@ The component can be used as follows:
 <ino-tooltip
   ino-for="<string>"
   ino-label="<string>"
-  ino-placement="<string"
+  ino-placement="<string>"
   ino-trigger="<string>"
 >
   Any desired HTML
 </ino-tooltip>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoButton, InoTooltip } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoButton id="tooltip-button">Hover me to see the Tooltip!</InoButton>
+      <InoTooltip inoFor="tooltip-button" inoLabel="This is the tooltip!" inoPlacement="top" inoTrigger="hover" />
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoButton, InoTooltip } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Tooltip: React.FunctionComponent<Components.InoTooltipAttributes> = props => {
+  const { inoPlacement, inoTrigger, inoFor, inoLabel } = props;
+
+  return <InoTooltip inoFor={inoFor} inoLabel={inoLabel} inoPlacement={inoPlacement} inoTrigger={inoTrigger}>{props.children}</InoTooltip>
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoButton id="tooltip-button">Hover me to see the Tooltip!</InoButton>
+      <Tooltip inoFor="tooltip-button" inoLabel="This is the tooltip!" inoPlacement="top" inoTrigger="hover" />
+    );
+  }
+}
+```
+
+## Additional Hints
 
 <!-- Auto Generated Below -->
 

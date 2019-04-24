@@ -9,9 +9,9 @@ This component replaces the native behaviour with a custom `ino-button` with log
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-input-file').addEventListener('changeFile', e => {
-  // ...
-});
+document
+  .querySelector('ino-datepicker')
+  .addEventListener('changeFile', e => alert(`The new file is: ${e.detail}`));
 ```
 
 ```html
@@ -24,9 +24,52 @@ document.querySelector('ino-input-file').addEventListener('changeFile', e => {
   required
 
   ino-label="<string>"
-  ino-label-selected
+>
 </ino-input>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoInputFile } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  onChangeFile(e: any) {
+    alert(`The new file is: ${e.detail}`);
+  }
+
+  render() {
+    return <InoInputFile onChangeFile={onChangeFile} />;
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoInputFile } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const FileInput: React.FunctionComponent<Components.InoInputFile> = props => {
+  const onFileChange = (e: any) => {
+    alert(`The new file is: ${e.detail}`);
+  };
+
+  return <InoInputFile onFileChange={onFileChange} />;
+};
+
+class MyComponent extends Component {
+  render() {
+    return <FileInput />;
+  }
+}
+```
+
+## Additional Hints
 
 <!-- Auto Generated Below -->
 

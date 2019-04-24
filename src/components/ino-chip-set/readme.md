@@ -1,23 +1,102 @@
 # ino-chip-set
 
-A compact component wrapping `ino-chip` elements and giving them a behavior. It functions as a wrapper around the material [chip-set](https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips) capabilities.
+A compact component wrapping `ino-chip` elements and giving them a behavior.
 
 > See the `ino-chip` documentation for more details about a single instance of a chip.
 
-### Usage
+## Usage
 
 The component can be used as follows:
 
+### Web Component
+
+```js
+document
+  .querySelector('ino-chip-set')
+  .addEventListener('updateChipSet', e =>
+    alert(
+      `The selected chip values are (only when ino-type='filter' or 'choice'): ${
+        e.detail
+      }`
+    )
+  );
+```
+
 ```html
-<ino-chip-set ino-type="<string"
-  >>
+<ino-chip-set ino-type="<string>">
+  <ino-chip ...></ino-chip>
   <ino-chip ...></ino-chip>
   ...
-  <ino-chip ...></ino-chip>
 </ino-chip-set>
 ```
 
-## Types
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  chipsetSelectionChange(e: any) {
+    console.log(
+      e.detail === true
+        ? 'The last one was toggled'
+        : `User clicked: ${e.detail}`
+    );
+  }
+
+  render() {
+    return (
+      <InoChipSet
+        inoType="choice"
+        onUpdateChipSet={this.chipsetSelectionChange}
+      >
+        <InoChip inoValue="apple" inoLabel="Apple" />
+        <InoChip inoValue="banana" inoLabel="Banana" />
+        <InoChip inoValue="cherry" inoLabel="Cherry" />
+      </InoChipSet>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = props => {
+  const { inoType } = props;
+
+  const chipsetSelectionChange = (e: any) => {
+    console.log(
+      e.detail === true
+        ? 'The last one was toggled'
+        : `User clicked: ${e.detail}`
+    );
+  };
+
+  return (
+    <InoChipSet inoType={inoType} onUpdateChipSet={chipsetSelectionChange}>
+      <InoChip inoValue="apple" inoLabel="Apple" />
+      <InoChip inoValue="banana" inoLabel="Banana" />
+      <InoChip inoValue="cherry" inoLabel="Cherry" />
+    </InoChipSet>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <ChipSet inoType="choice" />;
+  }
+}
+```
+
+## Additional Hints
 
 ### Simple chip sets
 
@@ -43,16 +122,18 @@ For both, choice and filter chip sets emit an `updateChipSet` event when a user 
 
 ```js
 document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {
-  // ...
+  // console.log(e.detail)
 });
 ```
 
 ```html
 <ino-chip-set ino-type="choice">
-  <ino-chip ino-label="Chip 1" ino-value="Just"></ino-chip>
-  <ino-chip ino-label="Chip 2" ino-value="Awesome!"></ino-chip>
+  <ino-chip ino-label="Chip 1" ino-value="Apple"></ino-chip>
+  <ino-chip ino-label="Chip 2" ino-value="Banana"></ino-chip>
 </ino-chip-set>
 ```
+
+## Demo
 
 <!-- Auto Generated Below -->
 
