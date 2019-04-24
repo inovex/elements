@@ -1,10 +1,18 @@
 # ino-button
 
-A button component with different styles and icon capability. It functions as a wrapper around the material [button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-button) component.
+A button component with different styles and icon capability.
 
-### Usage
+## Usage
 
-The component can be used as follows (custom properties have an `ino`-prefix):
+The component can be used as follows:
+
+### Web Component
+
+```js
+document
+  .querySelector('ino-button')
+  .addEventListener('click', _ => alert('Button was clicked!'));
+```
 
 ```html
 <ino-button
@@ -14,32 +22,74 @@ The component can be used as follows (custom properties have an `ino`-prefix):
   form="<string>"
   type="<string>"
   ino-color-scheme="<string>"
-  ino-dense
   ino-fill="<string>"
   ino-icon="<string>"
   ino-icon-prepend
+  ino-dense
+  onClick="handleClick()"
 >
   Button Content
 </ino-button>
 ```
 
-The button style can be customised as follows. The attribute `ino-color-scheme` sets the color of the button, `ino-fill` enables outlined, raised and transparent buttons. With `ino-dense`, the button is made slightly smaller. See the respective attribute docs for more details.
+### React
 
-### Event Behaviour
-
-The component behaves like a native button with additional features (see prefixed properties / attributes). Thus, the component bubbles events triggered by the native [HTMLButtonElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement) like `click`, `submit` and `reset`.
-
-Events can be catched as usal with event listeners on the `ino-button` element like:
+#### Example #1 - Basic
 
 ```js
-document.querySelector('ino-button').addEventListener('<event>', ...)
+import { Component } from 'react';
+import { InoButton } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoButton
+        inoIcon="star"
+        inoColorScheme="dark"
+        onClick={_ => alert('Yeah, you clicked the button!')}
+      >
+        You can click me!
+      </InoButton>
+    );
+  }
+}
 ```
 
-The declarative version is supported as well, for example:
+#### Example #2 - With Types
 
-```html
-<ino-button onclick="handler()"></ino-button>
+```js
+import React, { Component } from 'react';
+import { InoButton } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Button: React.FunctionComponent<Components.InoButtonAttributes> = props => {
+  const { inoIcon, inoColorScheme, onClick } = props;
+
+  return (
+    <InoButton
+      inoIcon={inoIcon}
+      inoColorScheme={inoColorScheme}
+      onClick={onClick}
+    >
+      Button Text
+    </InoButton>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Button
+        inoIcon="star"
+        inoColorScheme="dark"
+        onClick={_ => alert('Yeah, you clicked the button!')}
+      />
+    );
+  }
+}
 ```
+
+## Demo
 
 <!-- Auto Generated Below -->
 

@@ -6,14 +6,71 @@ Tabs organize and allow navigation between groups of content that are related an
 
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-tab-bar')
+  .addEventListener('activeTabChange', e =>
+    console.log(`The new tab is: ${e.detail}`)
+  );
+```
+
 ```jsx
 <ino-tab-bar
   ino-active-tab="<number>"
-  activeTabChange={e => handler(e.detail.inoIndex)}>
-
+  onactivetabchange="handleActiveTabChange()"
+>
   <ino-tab ...></ino-tab>
 </ino-tab-bar>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoTab, InoTabBar } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoTabBar inoActiveTab={2}>
+        <InoTab inoLabel="Tab #1" />
+        <InoTab inoLabel="Tab #2" />
+        <InoTab inoLabel="Tab #3" />
+      </InoTabBar>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoTab, InoTabBar } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = props => {
+  const { inoActiveTab } = props;
+
+  return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <TabBar inoActiveTab={2}>
+        <InoTab inoLabel="Tab #1" />
+        <InoTab inoLabel="Tab #2" />
+        <InoTab inoLabel="Tab #3" />
+      </TabBar>
+    );
+  }
+}
+```
+
+## Additional Hints
 
 ### Control flow
 

@@ -1,47 +1,117 @@
 # ino-checkbox
 
-A checkbox that allows the user to select one or more items from a set. It functions as a wrapper around the material [checkbox](https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox) component.
+A checkbox that allows the user to select one or more items from a set.
 
-### Usage
+## Usage
 
 The component can be used as follows:
+
+### Web Component
+
+```js
+document
+  .querySelector('ino-checkbox')
+  .addEventListener('checkedChange', e =>
+    alert(`The checked state is: ${e.detail}`)
+  );
+```
 
 ```html
 <ino-checkbox
   checked
   disabled
-  id="<string>"
   name="<string>"
-  tabIndex="<number>"
   value="<string>"
-  indeterminate="<boolean>"
+  indeterminate
+  ino-id="<string>"
+  ino-tab-index="<number>"
 >
   Label
 </ino-checkbox>
 ```
 
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoCheckbox } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  state = {
+    checked: false
+  };
+
+  handleCheckboxClick() {
+    this.setState({ checked: !this.state.checked });
+  }
+
+  render() {
+    return (
+      <InoCheckbox
+        value="Apple"
+        onClick={_ => this.handleCheckboxClick()}
+        checked={this.state.checked}
+      >
+        Apple
+      </InoCheckbox>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoCheckbox } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = props => {
+  const { value, onClick, checked } = props;
+
+  return (
+    <InoCheckbox value={value} onClick={onClick} checked={checked}>
+      {value}
+    </InoCheckbox>
+  );
+};
+
+class MyComponent extends Component {
+  state = {
+    checked: false
+  };
+
+  handleCheckboxClick() {
+    this.setState({ checked: !this.state.checked });
+  }
+
+  render() {
+    return (
+      <Checkbox
+        value="Apple"
+        onClick={_ => this.handleCheckboxClick()}
+        checked={this.state.checked}
+      >
+        Apple
+      </Checkbox>
+    );
+  }
+}
+```
+
+## Additional Hints
+
 By default, the label is always shown right after the checkbox.
 
 **Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is set unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
 
-### Control flow
+## Control flow
 
-The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason listen to `checkedChange`,
-sync it with your local state and pass the new value to the component again to change value and indeterminate state of input.
+The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change value and indeterminate state of input:
 
-```js
-document.querySelector('ino-checkbox').addEventListener('checkedChange', e => {
-  this.state.checked = e.detail;
-});
-```
-
-```html
-<ino-checkbox
-  checked={this.state.checked}
-  indeterminate={this.state.indeterminate}
-  checkedChange={e => this.state.checked = e.detail}>
-</ino-checkbox>
-```
+## Demo
 
 <!-- Auto Generated Below -->
 

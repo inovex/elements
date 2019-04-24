@@ -12,9 +12,65 @@ document.querySelector('ino-icon').addEventListener('clickEl', e => {
 });
 ```
 
-```html
-<ino-icon ino-icon="<string>" ino-clickable></ino-icon>
+```js
+document
+  .querySelector('ino-icon')
+  .addEventListener('clickEl', _ => alert('The icon was clicked'));
 ```
+
+```html
+<ino-icon ino-icon="<string>" ino-clickable onclickel="handleClickEl()">
+</ino-icon>
+```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoIcon } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`Icon was clicked`);
+  };
+
+  render() {
+    return <InoIcon inoIcon="search" inoClickable onClickEl={handleClick} />;
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoIcon } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Icon: React.FunctionComponent<Components.InoIconAttributes> = props => {
+  const { inoIcon } = props;
+
+  const handleClick = (e: any) => {
+    alert(`Icon was clicked`);
+  };
+
+  return (
+    <InoIcon inoIcon={inoIcon} onClickEl={handleClick}>
+      {props.children}
+    </InoIcon>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <Icon inoIcon="search" />;
+  }
+}
+```
+
+## Additional Hints
 
 The component inherits stylings like the text size of the parent element. For custom stylings set css properties on this element.
 

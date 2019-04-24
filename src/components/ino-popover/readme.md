@@ -14,6 +14,55 @@ The component can be used as follows:
 </ino-popover>
 ```
 
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoPopover } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoPopover inoPlacement="left" inoFor="popover-positions-target">
+        This is a simple popover on the left
+      </InoPopover>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoPopover } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Popover: React.FunctionComponent<Components.InoPopoverAttributes> = props => {
+  const { inoPlacement, inoFor } = props;
+
+  return (
+    <InoPopover inoPlacement={inoPlacement} inoFor={inoFor}>
+      {props.children}
+    </InoPopover>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Popover inoPlacement="left" inoFor="popover-positions-target">
+        This is a simple popover on the left
+      </Popover>
+    );
+  }
+}
+```
+
+## Additional Hints
+
 <!-- Auto Generated Below -->
 
 ## Properties

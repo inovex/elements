@@ -18,9 +18,62 @@ The component can be used as follows:
 </ino-fab>
 ```
 
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoFab } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`Fab was clicked`);
+  };
+
+  render() {
+    return (
+      <InoFab
+        inoIcon="star"
+        inoLabel="This is a fab"
+        onClick={this.handleClick}
+      />
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoFab } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Fab: React.FunctionComponent<Components.InoFabAttributes> = props => {
+  const { inoLabel, inoIcon } = props;
+
+  const handleClick = (e: any) => {
+    alert(`Fab was clicked`);
+  };
+
+  return <InoFab inoIcon={inoIcon} inoLabel={inoLabel} onClick={handleClick} />;
+};
+
+class MyComponent extends Component {
+  render() {
+    return <Fab inoLabel="This is a fab" inoIcon="star" />;
+  }
+}
+```
+
+## Additional Hints
+
 **Content**: Provide the text of a fab in ino-label and an icon in `ino-icon`.
 
 **Styling**: The fab can be styled in different ways with the attribute `ino-color-scheme`. See the attribute documentation below for more informations.
+
+## Demo
 
 <!-- Auto Generated Below -->
 

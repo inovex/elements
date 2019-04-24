@@ -13,6 +13,7 @@ The component can be used as follows:
   ino-between-lists
   ino-inset
   ino-padded
+>
 </ino-list-divider>
 ```
 

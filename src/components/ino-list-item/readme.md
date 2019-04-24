@@ -9,9 +9,14 @@ This component is used as child of `ino-list` and `ino-menu` components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-list-item').addEventListener('clickEl', e => {
-  // ...
-});
+document
+  .querySelector('ino-list-item')
+  .addEventListener('clickEl', e =>
+    console.log(
+      'The new list-item was clicked, the element itself is:',
+      e.detail
+    )
+  );
 ```
 
 ```html
@@ -19,7 +24,8 @@ document.querySelector('ino-list-item').addEventListener('clickEl', e => {
   ino-activated
   ino-text="<string>"
   ino-secondary-text="<string>"
-  ino-selected="<boolean>"
+  ino-selected
+  onclickel="handleClickEl()"
 >
   <ino-icon slot="ino-leading" ...></ino-icon>
   <ino-checkbox slot="ino-trailing" ...></ino-checkbox>

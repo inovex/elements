@@ -8,14 +8,22 @@ Use this element for **simple types** like `text`, `password`, `number` or `emai
 
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-input')
+  .addEventListener('valueChange', e =>
+    alert(`The new input value is: ${e.detail}`)
+  );
+```
+
 ```html
 <ino-input
   accesskey="<string>"
   autocomplete="<string>"
   autofocus
   disabled
-  min="<number>"
-  max="<number>"
+  min="<string>"
+  max="<string>"
   step="<number>"
   name="<string>"
   pattern="<string>"
@@ -28,14 +36,69 @@ The component can be used as follows:
   ino-outline
   ino-label="<string>"
   ino-icon="<string>"
-  ino-icon-trailing="<boolean>"
-  ino-icon-clickable="<boolean>"
+  ino-icon-trailing
+  ino-icon-clickable
   ino-helper="<string>"
-  ino-helper-persistent="<boolean>"
-  ino-helper-validation="<boolean"
+  ino-helper-persistent
+  ino-helper-validation
 >
 </ino-input>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoInput } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  onValueChange(e: any) {
+    alert(`The new value is ${e.detail}`);
+  }
+
+  render() {
+    return (
+      <InoInput
+        placeholder="You can insert some text..."
+        onValueChange={onValueChange}
+      />
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoInput } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Input: React.FunctionComponent<Components.InoInputAttributes> = props => {
+  const { inoPlaceholder } = props;
+
+  const onValueChange = (e: any) => {
+    alert(`The new value is ${e.detail}`);
+  };
+
+  return (
+    <InoInput
+      placeholder="You can insert some text..."
+      onValueChange={onValueChange}
+    />
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <Input inoPlaceholder="You can insert some text..." />;
+  }
+}
+```
+
+## Additional Hints
 
 **Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
 

@@ -1,12 +1,22 @@
 # ino-chip
 
-A compact component that contains contents and icons styled as chip. It functions as a wrapper around the material [chip](https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips) component.
+A compact component that contains contents and icons styled as chip.
 
 > A chip **always** has to be composed by an `ino-chip-set` component.
 
-### Usage
+## Usage
 
 The component can be used as follows:
+
+### Web Component
+
+```js
+document
+  .querySelector('ino-chip')
+  .addEventListener('removeChip', e =>
+    console.log('This chip will be removed', e.detail)
+  );
+```
 
 ```html
 <ino-chip
@@ -14,13 +24,81 @@ The component can be used as follows:
   ino-fill="<string>"
   ino-icon="<string>"
   ino-label="<string>"
-  ino-removable="<boolean>"
-  ino-selectable="<boolean>"
-  ino-selected="<boolean>"
+  ino-removable
+  ino-selectable
+  ino-selected
   ino-value="<string>"
 >
 </ino-chip>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  chipsetSelectionChange(e: any) {
+    console.log(
+      e.detail === true
+        ? 'The last one was toggled'
+        : `User clicked: ${e.detail}`
+    );
+  }
+
+  render() {
+    return (
+      <InoChipSet
+        inoType="choice"
+        onUpdateChipSet={this.chipsetSelectionChange}
+      >
+        <InoChip inoValue="apple" inoLabel="Apple" />
+        <InoChip inoValue="banana" inoLabel="Banana" />
+        <InoChip inoValue="cherry" inoLabel="Cherry" />
+      </InoChipSet>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = props => {
+  const { inoType } = props;
+
+  const chipsetSelectionChange = (e: any) => {
+    console.log(
+      e.detail === true
+        ? 'The last one was toggled'
+        : `User clicked: ${e.detail}`
+    );
+  };
+
+  return (
+    <InoChipSet inoType={inoType} onUpdateChipSet={chipsetSelectionChange}>
+      <InoChip inoValue="apple" inoLabel="Apple" />
+      <InoChip inoValue="banana" inoLabel="Banana" />
+      <InoChip inoValue="cherry" inoLabel="Cherry" />
+    </InoChipSet>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <ChipSet inoType="choice" />;
+  }
+}
+```
+
+## Additional Hints
 
 **Content**: Provide the text of a chip the slot and, if desired, an icon on the left side of the chip in `ino-icon`.
 
@@ -32,17 +110,7 @@ If `ino-removable` is set to `true`, the chip can be removed by the user. The co
 
 However, the component doesn't hide/destroy itself but emits an `removeChip`-Event instead. Thus, the overlying app can remove the chip by listening to this event.
 
-```js
-document.querySelector('ino-chip').addEventListener('removeChip', e => {
-  // ...
-});
-```
-
-```html
-<ino-chip ino-removable onRemoveChip="_ => removeChip()">
-  Removable chip
-</ino-chip>
-```
+## Demo
 
 <!-- Auto Generated Below -->
 

@@ -6,6 +6,14 @@ A component providing single-option select menus. It functions as a wrapper arou
 
 The component can be used as follows:
 
+```js
+document
+  .querySelector('ino-select')
+  .addEventListener('valueChange', e =>
+    alert(`The new select value is: ${e.detail}`)
+  );
+```
+
 ```html
 <ino-select
   autofocus
@@ -13,13 +21,67 @@ The component can be used as follows:
   form="<string>"
   name="<string>"
   required
+  value="<string>"
   ino-prepend-default
   ino-label="<string>"
-  ino-outline="<boolean>"
+  ino-outline
 >
   <option value="1">Option 1</option> <option value="2">Option 2</option> ...
 </ino-select>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoSelect } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <InoSelect inoLabel="Form select" inoPrependDefault required>
+        <option value="Test">Test</option>
+      </InoSelect>
+    );
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoSelect } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {
+  const { inoLabel, inoPrependDefault, required } = props;
+
+  return (
+    <InoSelect
+      inoLabel={inoLabel}
+      inoPrependDefault={inoPrependDefault}
+      required={required}
+    >
+      {props.children}
+    </InoSelect>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return (
+      <Select inoLabel="Form select" inoPrependDefault required>
+        <option value="Test">Test</option>
+      </Select>
+    );
+  }
+}
+```
+
+## Additional Hints
 
 The select items are (so far) no custom inovex elements but native HTML `option`-elements. The `ino-label` attribute sets an optional floating label for this element.
 

@@ -4,7 +4,13 @@ A rounded button component that contains an icon. It functions as a wrapper arou
 
 ### Usage
 
-The component can be used as follows (custom properties have an `ino`-prefix):
+The component can be used as follows:
+
+```js
+document
+  .querySelector('ino-icon-button')
+  .addEventListener('click', _ => alert('The icon button was clicked'));
+```
 
 ```html
 <ino-icon-button
@@ -15,6 +21,55 @@ The component can be used as follows (custom properties have an `ino`-prefix):
 >
 </ino-icon-button>
 ```
+
+### React
+
+#### Example #1 - Basic
+
+```js
+import { Component } from 'react';
+import { InoIconButton } from '@inovex/elements/dist/react';
+
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`IconButton was clicked`);
+  };
+
+  render() {
+    return <InoIconButton inoIcon="search" onClick={handleClick} />;
+  }
+}
+```
+
+#### Example #2 - With Types
+
+```js
+import React, { Component } from 'react';
+import { InoIconButton } from '@inovex/elements/dist/react';
+import { Components } from '@inovex/elements/dist/types/components';
+
+const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = props => {
+  const { inoIcon } = props;
+
+  const handleClick = (e: any) => {
+    alert(`IconButton was clicked`);
+  };
+
+  return (
+    <InoIconButton inoIcon={inoIcon} onClick={handleClick}>
+      {props.children}
+    </InoIconButton>
+  );
+};
+
+class MyComponent extends Component {
+  render() {
+    return <IconButton inoIcon="search" />;
+  }
+}
+```
+
+## Additional Hints
 
 **Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in `ino-icon`-Attribute.
 
