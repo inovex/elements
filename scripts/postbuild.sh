@@ -25,6 +25,6 @@ yarn build
 #   @inovex/elements/dist/loader  -> ../loader
 #   @inovex/elements              -> ../..
 #
-sed -i'' -e 's/@inovex\/elements\/dist\/loader/..\/loader/g' ./dist/register.js
+sed -i'' -e 's/@inovex\/elements\/dist\/loader/..\/loader/g' ./dist/components/index.js
 sed -i'' -e 's/@inovex\/elements/..\/..\/types\/components/g' ./dist/components/index.d.ts
 mv ./dist/* ../dist/react

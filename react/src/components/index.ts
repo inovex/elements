@@ -1,5 +1,9 @@
+import { defineCustomElements } from '@inovex/elements/dist/loader';  // must be replaced with '../loader' when copied
+                                                                      // => is done in core/scripts/postbuild.sh
 import { Components } from '@inovex/elements';
 import { createReactComponent } from './createComponent';
+
+defineCustomElements(window);
 
 //
 // Export all the elements we have. This is THE react wrapper.

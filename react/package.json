@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React specific wrapper for @inovex/elements",
   "keywords": [
     "ionic",
@@ -33,6 +33,7 @@
     "dist/"
   ],
   "devDependencies": {
+    "@trust/webcrypto": "^0.9.2",
     "@types/jest": "23.3.9",
     "@types/node": "10.12.9",
     "@types/react": "16.8.2",
