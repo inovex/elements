@@ -1,21 +1,9 @@
-## @ionic/react (alpha)
+## @ionic/react (beta)
 
 These are React specific building blocks on top of  `@inovex/elements` and is gathered from [@ionic/core](https://www.npmjs.com/package/@ionic/core) components/services.
 
 We are currently working on providing more detailed documentation on usage but please refer to our example application for now.
 If you would like to see an example app of the implementation please go to our [example react app](https://gitlab.inovex.de/inovex-elements/example-react).
-
-
-```ts
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { registerInovexElements } from '@inovex/elements/dist/react';
-import App from './App';
-
-registerInovexElements();
-
-ReactDOM.render(<App />, document.getElementById('root'));
-```
 
 ## Updating this react wrapper
 

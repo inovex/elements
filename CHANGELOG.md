@@ -1,3 +1,17 @@
+## [0.5.3](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.2...v0.5.3) (2019-04-29)
+
+
+### Bug Fixes
+
+* **ino-datepicker:** replace ino-type with newer ino-date-format attribute in readme ([db92e69](http://gitlab.inovex.de/inovex-elements/core/commit/db92e69))
+* **react:** export InoInputFile, was missing and export InoListDivider as InoListDivider instead exporting it as InoDivider ([8e310a6](http://gitlab.inovex.de/inovex-elements/core/commit/8e310a6))
+
+### Features
+
+* add react examples to every component readme ([2314dd6](http://gitlab.inovex.de/inovex-elements/core/commit/2314dd6))
+
+
+
 ## [0.5.2](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.1...v0.5.2) (2019-04-11)
 
 
