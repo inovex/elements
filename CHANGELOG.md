@@ -1,3 +1,12 @@
+## [0.5.4](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.3...v0.5.4) (2019-04-30)
+
+
+### Bug Fixes
+
+* **postbuild:** fix wrong path ([b1291b0](http://gitlab.inovex.de/inovex-elements/core/commit/b1291b0))
+
+
+
 ## [0.5.3](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.2...v0.5.3) (2019-04-29)
 
 

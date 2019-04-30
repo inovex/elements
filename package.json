@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "This is the home of the stencil UI components.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -44,8 +44,7 @@
     "storybook": "start-storybook -p 6006 -s ./.storybook/static",
     "test": "stencil test --e2e --ci",
     "test.watch": "stencil test --e2e --spec --watch",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "postversion": "sed -i'' -e 's/gitlab.inovex.de:2424/gitlab.inovex.de/g' ./CHANGELOG.md && rm ./CHANGELOG.md-e && git add CHANGELOG.md"
+    "version": "yarn changelog && sed -i'' -e 's/gitlab.inovex.de:2424/gitlab.inovex.de/g' ./CHANGELOG.md && rm ./CHANGELOG.md-e && git add CHANGELOG.md"
   },
   "dependencies": {
     "@material/button": "^0.37.0",
