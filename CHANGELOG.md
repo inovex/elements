@@ -1,3 +1,12 @@
+## [0.5.5](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.4...v0.5.5) (2019-05-02)
+
+
+### Bug Fixes
+
+* **react:** add Fragment wrapper around children ([35ce49b](http://gitlab.inovex.de/inovex-elements/core/commit/35ce49b))
+
+
+
 ## [0.5.4](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.3...v0.5.4) (2019-04-30)
 
 
