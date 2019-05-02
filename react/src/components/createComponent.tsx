@@ -50,7 +50,7 @@ export function createReactComponent<T extends object, E>(tagName: string) {
           ...toStencilProps(cProps),
           ref: forwardedRef
         },
-        children
+        children && React.createElement(React.Fragment, null, children)
       );
     }
   }
