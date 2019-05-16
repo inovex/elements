@@ -1,3 +1,49 @@
+<a name="0.5.6"></a>
+## [0.5.6](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.5...v0.5.6) (2019-05-16)
+
+### Features
+
+* **webpack:** re-add webpack-plugin for webpack projects ([bf5ac07](http://gitlab.inovex.de/inovex-elements/core/commit/bf5ac07))
+
+In most cases, the integration of inovex elements requires two steps:
+
+#### 1) Copy `dist` folder of `inovex-elements` dependency to project's assets
+
+If you are using webpack and provide your own webpack config file, you can use the provided `webpack-plugin.js` as a plugin
+and the elements will be provided automatically. You just have to import the component registry as part of your main bundle:
+
+```javascript
+// webpack.config.js
+
+module.exports = {
+    //...
+    plugins: [ /* ... */, require('@inovex/elements/webpack-plugin')()]
+}
+```
+
+or
+
+```javascript
+// webpack.config.js
+
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  config.plugins = [...config.plugins, require('@inovex/elements/webpack-plugin')('static/js')];
+  return config;
+};
+```
+
+If the final javascript bundle is not located in the root of the web root, you have to specify the path as the first parameter,
+e.g. if your javascript bundle is located in `static/js`, use `require('@inovex/elements/webpack-plugin')('static/js')`.
+
+#### 2) Load the elements module in entrypoint file
+
+```javascript
+// entrypoint file
+
+import '@inovex/elements';
+```
+
 ## [0.5.5](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.4...v0.5.5) (2019-05-02)
 
 
