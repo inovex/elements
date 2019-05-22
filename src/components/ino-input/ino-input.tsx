@@ -128,7 +128,7 @@ export class Input {
       this.nativeInputEl.value = newValue;
 
       // setSelectionRange does not work on number input
-      if (this.type !== 'number') {
+      if (this.type !== 'number' && this.type !== 'email') {
         this.nativeInputEl.setSelectionRange(
           this.cursorPosition,
           this.cursorPosition
