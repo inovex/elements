@@ -54,7 +54,7 @@ storiesOf('<ino-input>', module)
       <ino-input class="customizable-input" id="customizable-input" valueChange={action('value-changes')}
         type="${select(
           'type',
-          ['text', 'number', 'password'],
+          ['text', 'number', 'password', 'email'],
           'text',
           'STANDARD'
         )}"
