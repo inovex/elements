@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": { "*": ["types/*"] },
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
