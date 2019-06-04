@@ -6,10 +6,7 @@
     "declaration": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "dom",
-      "es2017"
-    ],
+    "lib": ["dom", "es2017"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
@@ -19,11 +16,6 @@
     "jsxFactory": "h",
     "types": ["jest"]
   },
-  "include": [
-    "src",
-    "types/jsx.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src", "types/jsx.d.ts"],
+  "exclude": ["node_modules"]
 }

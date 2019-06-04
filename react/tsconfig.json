@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"] },
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
@@ -19,10 +21,7 @@
     "jsx": "react",
     "target": "es2015"
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compileOnSave": false,
   "buildOnSave": false
 }

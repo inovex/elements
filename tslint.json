@@ -1,18 +1,14 @@
 {
   "extends": ["tslint-ionic-rules/strict", "tslint-react"],
   "linterOptions": {
-    "exclude": [
-      "**/*.spec.ts",
-      "**/*.spec.tsx",
-      "**/*.e2e.ts"
-    ]
+    "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.e2e.ts", "dist"]
   },
   "rules": {
     "strict-boolean-conditions": [
-      true, 
-      "allow-null-union", 
-      "allow-undefined-union", 
-      "allow-boolean-or-undefined", 
+      true,
+      "allow-null-union",
+      "allow-undefined-union",
+      "allow-boolean-or-undefined",
       "allow-string"
     ],
     "no-conditional-assignment": false,

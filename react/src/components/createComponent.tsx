@@ -62,4 +62,3 @@ export function createReactComponent<T extends object, E>(tagName: string) {
 
   return React.forwardRef<E, T & IonicReactExternalProps>(forwardRef);
 }
-

@@ -20,7 +20,8 @@ import {
  * 5) Update `icons.js` with the string of the icons you added
  * 6) Done! The consumer is now able to use the new icons
  */
-import ICONS from './icons';
+// import ICONS from './icons';
+import { getIconMap, getSrc, isSrc } from '../../util/icons';
 
 @Component({
   tag: 'ino-icon',
@@ -45,9 +46,14 @@ export class Icon {
 
   /**
    * The resource url of the svg icons (global variable by stencil).
+   *
    */
   @Prop({ context: 'resourcesUrl' }) resourcesUrl!: string;
 
+  /**
+   * Specifies the exact `src` of an SVG file to use.
+   */
+  @Prop() src?: string;
   /**
    * Event that emits as soon as the user clicks on the icon.
    * The event only emits if the property `inoClickable` is true.
@@ -64,12 +70,44 @@ export class Icon {
   }
 
   private loadIcon() {
-    const url: string =
-      ICONS.indexOf(this.inoIcon) !== -1
-        ? `${this.resourcesUrl}icon-assets/SVG/${this.inoIcon}.svg`
-        : this.inoIcon;
+    const url = this.getUrl();
+    if (url) {
+      requestSVG(url).then(res => (this.svgContent = res || ''));
+    } else {
+      console.error('icon was not resolved');
+    }
+  }
+  private getName() {
+    if (this.inoIcon && !isSrc(this.inoIcon)) {
+      return this.inoIcon;
+    }
+    return undefined;
+  }
+  private getUrl() {
+    let url = getSrc(this.src);
 
-    requestSVG(url).then(res => (this.svgContent = res || ''));
+    if (url) {
+      return url;
+    }
+    url = this.getName();
+    if (url) {
+      return this.getNamedUrl(url);
+    }
+
+    url = getSrc(this.inoIcon);
+    if (url) {
+      return url;
+    }
+
+    return null;
+  }
+
+  private getNamedUrl(name: string) {
+    const url = getIconMap().get(name);
+    if (url) {
+      return url;
+    }
+    return `${this.resourcesUrl}icon-assets/svg/${name}.svg`;
   }
 
   private handleClick(e: Event) {

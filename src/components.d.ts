@@ -666,6 +666,10 @@ export namespace Components {
      * The name of the icon of this element or an URL.
      */
     inoIcon?: string;
+    /**
+     * Specifies the exact `src` of an SVG file to use.
+     */
+    src?: string;
   }
   interface InoIconAttributes extends StencilHTMLAttributes {
     /**
@@ -680,6 +684,10 @@ export namespace Components {
      * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
      */
     onClickEl?: (event: CustomEvent) => void;
+    /**
+     * Specifies the exact `src` of an SVG file to use.
+     */
+    src?: string;
   }
 
   interface InoImg {
