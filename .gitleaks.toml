@@ -172,7 +172,8 @@ tags = ["key", "twilio"]
 [whitelist]
 files = [
   "(.*?)(jpg|gif|doc|pdf|bin)$",
-  "storybook-static/static/vendors~iframe.966e9cb48235befe25f0.bundle.js"
+  "storybook-static/static/vendors~iframe.966e9cb48235befe25f0.bundle.js",
+  ".gitleaks.toml"
 ]
 
 #commits = [
