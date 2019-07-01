@@ -18,7 +18,7 @@ security-check-gitleaks:
   script:
     - go get -u github.com/zricethezav/gitleaks
     - gitleaks --version # check wheter gitleaks is available
-    - gitleaks -v --repo-path ./
+    - gitleaks -v --repo-path ./ --config=.gitleaks.toml
 
 test:
   stage: test
