@@ -83,7 +83,7 @@ deploy-latest:
 deploy-release:
   stage: deploy-release
   script:
-    - echo "//$ARTIFACTORY_HOST/:_authToken=$ARTIFACTORY_TOKEN" >> ~/.npmrc
+    - curl curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
     - npm publish --registry https://$ARTIFACTORY_HOST/
   tags:
     - shared
