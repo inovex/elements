@@ -1,5 +1,5 @@
-
-export const pascalCaseToDash = (name: string) => name.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+export const pascalCaseToDash = (name: string) =>
+  name.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`);
 
 export const toStencilProps = (reactProps: any) => {
   const stencilProps = {} as any;
@@ -13,4 +13,7 @@ export const toStencilProps = (reactProps: any) => {
 
   return stencilProps;
 };
-const isInoElementsProp = (propName: string) => propName.startsWith('ino') && propName[3] && propName[3] === propName[3].toUpperCase();
+const isInoElementsProp = (propName: string) =>
+  propName.startsWith('ino') &&
+  propName[3] &&
+  propName[3] === propName[3].toUpperCase();

@@ -106,6 +106,7 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 | -------------- | --------------- | --------------------------------------------------------------------- | --------- | ----------- |
 | `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
 | `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
+| `src`          | `src`           | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
 
 ## Events
 

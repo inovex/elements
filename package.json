@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements",
-  "version": "0.5.6",
+  "version": "0.6.0-rc",
   "description": "This is the home of the stencil UI components.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -35,7 +35,7 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "rm -rf ./dist && stencil build --docs",
+    "build": "rm -rf ./dist && stencil build --docs && node scripts/generateWrappedIcons.js",
     "postbuild": "./scripts/postbuild.sh",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
@@ -89,6 +89,7 @@
     "@storybook/html": "4.0.12",
     "@types/classnames": "^2.2.6",
     "@types/jest": "23.3.12",
+    "@types/node": "^12.0.4",
     "@types/puppeteer": "^1.6.4",
     "@types/react": "^16.8.6",
     "awesome-typescript-loader": "^5.2.1",

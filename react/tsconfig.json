@@ -19,10 +19,7 @@
     "jsx": "react",
     "target": "es2015"
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compileOnSave": false,
   "buildOnSave": false
 }
