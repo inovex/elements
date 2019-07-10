@@ -13,13 +13,8 @@ export const config: Config = {
   ],
   plugins: [
     sass({
-      injectGlobalPaths: [
-        './src/components/styles/mdc.customize.scss'
-      ],
-      includePaths: [
-        './src/components',
-        './node_modules'
-      ]
+      injectGlobalPaths: ['./src/components/styles/mdc.customize.scss'],
+      includePaths: ['./src/components', './node_modules']
     })
   ]
 };
