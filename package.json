@@ -39,7 +39,7 @@
     "postbuild": "./scripts/postbuild.sh",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "start": "sd concurrent \"yarn build --dev --watch\" \"yarn run storybook\" ",
+    "start": "sd concurrent \"stencil build --docs --dev --watch\" \"yarn run storybook\" ",
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "storybook": "start-storybook -p 6006 -s ./.storybook/static",
