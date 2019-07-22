@@ -86,6 +86,7 @@ storiesOf('<ino-list>', module)
           ino-secondary-text="${text('ino-secondary-text', 'Second line text')}"
           ino-selected="${boolean('ino-selected', false)}"
           ino-activated="${boolean('ino-activated', false)}"
+          ino-disabled="${boolean('ino-disabled', false)}"
           ino-text="${text('ino-text', 'List item')}">
         </ino-list-item>
       </ino-list>
@@ -97,6 +98,7 @@ storiesOf('<ino-list>', module)
         <ino-list-item ino-selected ino-text="Selected item 2"></ino-list-item>
         <ino-list-item ino-text="Simple item 2"></ino-list-item>
         <ino-list-item ino-activated ino-text="Activated item"></ino-list-item>
+        <ino-list-item ino-disabled ino-text="Disabled item"></ino-list-item>
       </ino-list>
 
 

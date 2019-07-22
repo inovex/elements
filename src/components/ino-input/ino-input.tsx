@@ -78,6 +78,11 @@ export class Input {
   @Prop() max?: string;
 
   /**
+   * Limits the number of possible characters to the given number
+   */
+  @Prop() maxlength?: number;
+
+  /**
    * The step value of this element
    */
   @Prop() step = 1;
@@ -163,6 +168,12 @@ export class Input {
   @Prop() inoHelperValidation?: boolean;
 
   /**
+   * Displays the number of characters. The maxlength-property must be set.
+   * This helper text will be displayed persistently.
+   */
+  @Prop() inoHelperCharacterCounter?: boolean;
+
+  /**
    * The optional icon of this input field.
    */
   @Prop() inoIcon?: string;
@@ -181,6 +192,7 @@ export class Input {
    * Simple static construct to generate unique helper text ids.
    */
   private static HELPER_COUNTER = 0;
+
   static generateHelperTextId() {
     return `input-helper-text__${Input.HELPER_COUNTER++}`;
   }
@@ -255,20 +267,20 @@ export class Input {
     if (this.inoOutline) {
       return [
         <div class="mdc-notched-outline">
-          <svg>
-            <path class="mdc-notched-outline__path" />
-          </svg>
-        </div>,
-        <div class="mdc-notched-outline__idle" />
+          <div class="mdc-notched-outline__leading" />
+          <div class="mdc-notched-outline__notch">{this.labelTemplate()}</div>
+          <div class="mdc-notched-outline__trailing" />
+        </div>
       ];
     }
-    return <div class="mdc-line-ripple" />;
+    return [<div class="mdc-line-ripple" />, this.labelTemplate()];
   }
 
   private helperTextTemplate() {
-    if (!this.inoHelper) {
+    if (!this.inoHelper && !this.inoHelperCharacterCounter) {
       return '';
     }
+
     const classInputMessage = classNames({
       'mdc-text-field-helper-text': true,
       'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
@@ -276,9 +288,20 @@ export class Input {
     });
 
     return (
-      <p class={classInputMessage} id={this.uniqueHelperId} aria-hidden="true">
-        {this.inoHelper}
-      </p>
+      <div class="mdc-text-field-helper-line">
+        <div
+          class={classInputMessage}
+          id={this.uniqueHelperId}
+          aria-hidden="true"
+        >
+          {this.inoHelper}
+        </div>
+        {this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength) && (
+          <div class="mdc-text-field-character-counter">
+            {`${this.value.length} / ${this.maxlength}`}
+          </div>
+        )}
+      </div>
     );
   }
 
@@ -287,6 +310,7 @@ export class Input {
       this.inoIcon && (
         <ino-icon
           class="mdc-text-field__icon"
+          tabindex={this.inoIconClickable ? 1 : -1}
           ino-icon={this.inoIcon}
           ino-clickable={this.inoIconClickable}
         />
@@ -301,10 +325,11 @@ export class Input {
       'mdc-text-field--focused': this.autofocus,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
-      'mdc-text-field--upgraded': true,
       'mdc-text-field--with-leading-icon':
         this.inoIcon && !this.inoIconTrailing,
-      'mdc-text-field--with-trailing-icon': this.inoIcon && this.inoIconTrailing
+      'mdc-text-field--with-trailing-icon':
+        this.inoIcon && this.inoIconTrailing,
+      'mdc-text-field--no-label': !this.inoLabel
     });
 
     return [
@@ -319,6 +344,7 @@ export class Input {
           disabled={this.disabled}
           min={this.min}
           max={this.max}
+          maxLength={this.maxlength}
           step={this.step}
           name={this.name}
           pattern={this.pattern}
@@ -332,10 +358,8 @@ export class Input {
           aria-describedby={this.inoHelper && this.uniqueHelperId}
           onInput={this.handleNativeInputChange.bind(this)}
         />
-
-        {this.labelTemplate()}
-        {this.inoIconTrailing && this.iconTemplate()}
         {this.inputStyleTemplate()}
+        {this.inoIconTrailing && this.iconTemplate()}
       </div>,
       this.helperTextTemplate()
     ];

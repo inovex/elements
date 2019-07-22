@@ -875,6 +875,10 @@ export namespace Components {
      */
     inoHelper?: string;
     /**
+     * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+     */
+    inoHelperCharacterCounter?: boolean;
+    /**
      * Displays the helper permanently.
      */
     inoHelperPersistent?: boolean;
@@ -906,6 +910,10 @@ export namespace Components {
      * The max value of this element.
      */
     max?: string;
+    /**
+     * Limits the number of possible characters to the given number
+     */
+    maxlength?: number;
     /**
      * The min value of this element.
      */
@@ -969,6 +977,10 @@ export namespace Components {
      */
     inoHelper?: string;
     /**
+     * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+     */
+    inoHelperCharacterCounter?: boolean;
+    /**
      * Displays the helper permanently.
      */
     inoHelperPersistent?: boolean;
@@ -1000,6 +1012,10 @@ export namespace Components {
      * The max value of this element.
      */
     max?: string;
+    /**
+     * Limits the number of possible characters to the given number
+     */
+    maxlength?: number;
     /**
      * The min value of this element.
      */
@@ -1081,6 +1097,10 @@ export namespace Components {
      */
     inoActivated?: boolean;
     /**
+     * Styles the row in a disabled style.
+     */
+    inoDisabled?: boolean;
+    /**
      * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
      */
     inoSecondaryText?: string;
@@ -1098,6 +1118,10 @@ export namespace Components {
      * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
      */
     inoActivated?: boolean;
+    /**
+     * Styles the row in a disabled style.
+     */
+    inoDisabled?: boolean;
     /**
      * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
      */
@@ -1432,10 +1456,6 @@ export namespace Components {
      */
     inoMessage?: string;
     /**
-     * Whether to show the snackbar with space for multiple lines of text.
-     */
-    inoMultiline: boolean;
-    /**
      * Trigger the display of a message with optional action.
      */
     inoShow: boolean;
@@ -1458,21 +1478,17 @@ export namespace Components {
      */
     inoMessage?: string;
     /**
-     * Whether to show the snackbar with space for multiple lines of text.
-     */
-    inoMultiline?: boolean;
-    /**
      * Trigger the display of a message with optional action.
      */
     inoShow?: boolean;
     /**
-     * Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element.
-     */
-    onClickEl?: (event: CustomEvent) => void;
-    /**
      * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
      */
     onHideEl?: (event: CustomEvent) => void;
+    /**
+     * Event that emits as soon as the action button is clicked.
+     */
+    onInoActionClick?: (event: CustomEvent) => void;
   }
 
   interface InoSpinner {
@@ -1628,6 +1644,10 @@ export namespace Components {
      */
     rows?: number;
     /**
+     * Displays the number of characters. The maxlength-property must be set.
+     */
+    showCharacterCounter?: boolean;
+    /**
      * The value of this element. (**unmanaged**)
      */
     value: string;
@@ -1681,6 +1701,10 @@ export namespace Components {
      * The number of rows of this textarea.
      */
     rows?: number;
+    /**
+     * Displays the number of characters. The maxlength-property must be set.
+     */
+    showCharacterCounter?: boolean;
     /**
      * The value of this element. (**unmanaged**)
      */

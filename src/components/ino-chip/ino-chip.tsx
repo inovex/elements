@@ -84,13 +84,13 @@ export class Chip {
     });
 
     return (
-      <div class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
+      <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
         {this.inoIcon && (
           <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
         )}
 
         {this.inoSelectable && (
-          <div class="mdc-chip__checkmark">
+          <span class="mdc-chip__checkmark">
             <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
               <path
                 class="mdc-chip__checkmark-path"
@@ -99,10 +99,10 @@ export class Chip {
                 d="M1.73,12.91 8.1,19.28 22.79,4.59"
               />
             </svg>
-          </div>
+          </span>
         )}
 
-        <div class="mdc-chip__text">{this.inoLabel}</div>
+        <span class="mdc-chip__text">{this.inoLabel}</span>
 
         {this.inoRemovable && (
           <ino-icon
@@ -114,7 +114,7 @@ export class Chip {
             onClick={e => this.iconClicked(e)}
           />
         )}
-      </div>
+      </button>
     );
   }
 }

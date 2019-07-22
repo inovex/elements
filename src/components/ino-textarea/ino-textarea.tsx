@@ -57,6 +57,11 @@ export class Textarea {
   @Prop() minlength?: number;
 
   /**
+   * Displays the number of characters. The maxlength-property must be set.
+   */
+  @Prop() showCharacterCounter?: boolean;
+
+  /**
    * The name of this element.
    */
   @Prop() name?: string;
@@ -164,21 +169,33 @@ export class Textarea {
   }
 
   private labelTemplate() {
-    if (!this.inoLabel) {
-      return '';
-    }
     const classLabel = classNames({
       'mdc-floating-label': true,
       'mdc-floating-label--float-above':
         this.inoLabel &&
         (this.value || this.nativeTextareaElement === document.activeElement)
     });
-    return <label class={classLabel}>{this.inoLabel}</label>;
+
+    return (
+      <div class="mdc-notched-outline">
+        <div class="mdc-notched-outline__leading" />
+        <div class="mdc-notched-outline__notch">
+          {this.inoLabel && <label class={classLabel}>{this.inoLabel}</label>}
+        </div>
+        <div class="mdc-notched-outline__trailing" />
+      </div>
+    );
   }
 
   render() {
+    const classes = classNames({
+      'mdc-text-field': true,
+      'mdc-text-field--textarea': true,
+      'mdc-text-field--no-label': !this.inoLabel
+    });
+
     return (
-      <div class="mdc-text-field mdc-text-field--textarea">
+      <div class={classes}>
         <textarea
           ref={el => (this.nativeTextareaElement = el)}
           class="mdc-text-field__input"
@@ -194,7 +211,11 @@ export class Textarea {
           value={this.value}
           onInput={this.handleNativeTextareaChange.bind(this)}
         />
-
+        {this.maxlength && (
+          <div class="mdc-text-field-character-counter">
+            {this.value.length} / {this.maxlength}
+          </div>
+        )}
         {this.labelTemplate()}
       </div>
     );

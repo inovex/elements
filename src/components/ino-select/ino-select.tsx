@@ -91,18 +91,29 @@ export class Select {
     this.mdcInstance.destroy();
   }
 
-  private selectStyleTemplate() {
+  private labelTemplate() {
+    const classLabel = classNames({
+      'mdc-floating-label': true,
+      'mdc-floating-label--float-above': !this.inoPrependDefault
+    });
+
+    const label = this.inoLabel ? (
+      <label class={classLabel}>{this.inoLabel}</label>
+    ) : (
+      ''
+    );
+
     if (this.inoOutline) {
-      return [
+      return (
         <div class="mdc-notched-outline">
-          <svg>
-            <path class="mdc-notched-outline__path" />
-          </svg>
-        </div>,
-        <div class="mdc-notched-outline__idle" />
-      ];
+          <div class="mdc-notched-outline__leading" />
+          <div class="mdc-notched-outline__notch">{label}</div>
+          <div class="mdc-notched-outline__trailing" />
+        </div>
+      );
     }
-    return <div class="mdc-line-ripple" />;
+
+    return [label, <div class="mdc-line-ripple" />];
   }
 
   private setSelectValue(value: string) {
@@ -131,13 +142,10 @@ export class Select {
       'mdc-select--outlined': this.inoOutline,
       'mdc-select--box': !this.inoOutline
     });
-    const classLabel = classNames({
-      'mdc-floating-label': true,
-      'mdc-floating-label--float-above': !this.inoPrependDefault
-    });
 
     return (
       <div class={classSelect}>
+        <i class="mdc-select__dropdown-icon" />
         <select
           ref={el => (this.nativeSelectElement = el)}
           class="mdc-select__native-control"
@@ -150,8 +158,7 @@ export class Select {
           {this.inoPrependDefault && <option disabled selected value="" />}
           <slot />
         </select>
-        {this.inoLabel && <label class={classLabel}>{this.inoLabel}</label>}
-        {this.selectStyleTemplate()}
+        {this.labelTemplate()}
       </div>
     );
   }

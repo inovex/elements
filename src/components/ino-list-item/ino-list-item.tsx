@@ -44,6 +44,11 @@ export class ListItem {
   @Prop() inoActivated?: boolean;
 
   /**
+   * Styles the row in a disabled style.
+   */
+  @Prop() inoDisabled?: boolean;
+
+  /**
    * Emits when the list item is clicked.
    * Contains the element itself in `event.detail`
    */
@@ -63,7 +68,8 @@ export class ListItem {
     const listItemClasses = classNames({
       'mdc-list-item': true,
       'mdc-list-item--selected': this.inoSelected,
-      'mdc-list-item--activated': this.inoActivated
+      'mdc-list-item--activated': this.inoActivated,
+      'mdc-list-item--disabled': this.inoDisabled
     });
 
     return (

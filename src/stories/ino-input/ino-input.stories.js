@@ -59,6 +59,7 @@ storiesOf('<ino-input>', module)
           'STANDARD'
         )}"
         step="${number('step', 5, ['step'], 'STANDARD')}"
+        maxlength="${number('maxlength', 100, ['maxlength'], 'STANDARD')}"
         ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"
         placeholder="${text('placeholder', '', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
@@ -76,6 +77,12 @@ storiesOf('<ino-input>', module)
           false,
           'HELPER TEXT'
         )}"
+        
+        ino-helper-character-counter="${boolean(
+        'ino-helper-character-counter',
+        false,
+      'HELPER TEXT'
+         )}"
 
         ino-icon="${select('ino-icon', ICONS, '', 'ICONS')}"
         ino-icon-trailing="${boolean('ino-icon-trailing', false, 'ICONS')}"
@@ -102,6 +109,7 @@ storiesOf('<ino-input>', module)
       <ino-input placeholder="Helper text on focus (default)" ino-helper="Helper text"></ino-input>
       <ino-input placeholder="Persistent helper text" ino-helper="Persistent helper text" ino-helper-persistent></ino-input>
       <ino-input required placeholder="Validation message for required input" ino-helper="This field is required" ino-helper-validation></ino-input>
+      <ino-input value="Length of 12" ino-helper-character-counter maxlength=25></ino-input>
 
       <h4>States</h4>
       <ino-input placeholder="Disabled" disabled></ino-input>

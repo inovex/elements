@@ -113,9 +113,12 @@ export class Button {
           <ino-icon
             class={CSS_CLASSES.MDC_BUTTON_ICON}
             ino-icon={this.inoIcon}
+            aria-hidden="true"
           />
         )}
-        <slot />
+        <span class="mdc-button__label">
+          <slot />
+        </span>
 
         {this.inoIcon && this.inoIconPrepend && (
           <ino-icon
@@ -125,6 +128,7 @@ export class Button {
               CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
             }
             ino-icon={this.inoIcon}
+            aria-hidden="true"
           />
         )}
       </button>

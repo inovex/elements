@@ -62,8 +62,13 @@ export class Menu {
   render() {
     return (
       <div class="mdc-menu-surface--anchor">
-        <div class="mdc-menu mdc-menu-surface" tabindex="-1">
-          <ino-list role="menu" aria-hidden="true" aria-orientation="vertical">
+        <div class="mdc-menu mdc-menu-surface">
+          <ino-list
+            role="menu"
+            aria-hidden="true"
+            aria-orientation="vertical"
+            tabindex="-1"
+          >
             <slot />
           </ino-list>
         </div>

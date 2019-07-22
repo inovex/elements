@@ -24,9 +24,12 @@ export class Snackbar {
    * Trigger the display of a message with optional action.
    */
   @Prop({ mutable: true }) inoShow = false;
+
   @Watch('inoShow')
   inoShowHandler() {
-    this.showSnackbar();
+    if (this.inoShow) {
+      this.snackbarInstance.open();
+    }
   }
 
   /**
@@ -40,11 +43,6 @@ export class Snackbar {
   @Prop() inoActionText = '';
 
   /**
-   * Whether to show the snackbar with space for multiple lines of text.
-   */
-  @Prop() inoMultiline = false;
-
-  /**
    * Whether to show the action below the multiple lines of text
    * Optional, applies when multiline is true.
    */
@@ -56,10 +54,15 @@ export class Snackbar {
   @Prop() inoAlignStart = false;
 
   /**
-   * Event that emits as soon as the user removes this element.
-   * Listen to this event to hide or destroy this element.
+   * Event that emits as soon as the action button is clicked.
    */
-  @Event() clickEl!: EventEmitter;
+  @Event() inoActionClick!: EventEmitter;
+
+  clickHandler = (e: MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+    this.inoActionClick.emit();
+  }
 
   /**
    * Event that emits as soon as the snackbar hides.
@@ -69,15 +72,14 @@ export class Snackbar {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarElement.addEventListener('MDCSnackbar:hide', e =>
+    this.snackbarElement.addEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
-    this.showSnackbar();
   }
 
   componentWillUnload() {
     this.snackbarInstance.destroy();
-    this.snackbarElement.removeEventListener('MDCSnackbar:hide', e =>
+    this.snackbarElement.removeEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
   }
@@ -88,27 +90,11 @@ export class Snackbar {
     e.stopPropagation();
   }
 
-  private showSnackbar() {
-    const options = {
-      message: this.inoMessage,
-      multiline: this.inoMultiline
-    };
-
-    if (this.inoActionText) {
-      options['actionHandler'] = () => this.clickEl.emit(true);
-      options['actionText'] = this.inoActionText;
-      options['actionOnBottom'] = this.inoActionOnBottom;
-    }
-
-    if (this.inoShow) {
-      this.snackbarInstance.show(options);
-    }
-  }
-
   render() {
     const snackbarClasses = classNames({
       'mdc-snackbar': true,
-      'mdc-snackbar--align-start': this.inoAlignStart
+      'mdc-snackbar--leading': this.inoAlignStart,
+      'mdc-snackbar--stacked': this.inoActionOnBottom
     });
 
     return (
@@ -118,11 +104,21 @@ export class Snackbar {
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div class="mdc-snackbar__text">{this.inoMessage}</div>
-        <div class="mdc-snackbar__action-wrapper">
-          <button type="button" class="mdc-snackbar__action-button">
-            {this.inoActionText}
-          </button>
+        <div class="mdc-snackbar__surface">
+          <div class="mdc-snackbar__label" role="status" aria-live="polite">
+            {this.inoMessage}
+          </div>
+          {this.inoActionText && (
+            <div class="mdc-snackbar__actions">
+              <button
+                type="button"
+                class="mdc-button mdc-snackbar__action"
+                onClick={this.clickHandler}
+              >
+                {this.inoActionText}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 import { MDCTab } from '@material/tab';
-import { MDCTabBarFoundation } from '@material/tab-bar';
+import { MDCTabBarAdapter, MDCTabBarFoundation } from '@material/tab-bar';
 import { MDCTabScroller } from '@material/tab-scroller';
 
 import { TabBar } from './ino-tab-bar';
@@ -10,13 +10,15 @@ import { TabBar } from './ino-tab-bar';
  * This facade implements a custom adapter to enable the controlled component
  * behavior of inovex elements.
  */
-export class MDCTabBarFacade {
+export class MDCTabBarFacade extends MDCTabBarFoundation {
   private foundation!: MDCTabBarFoundation;
   private scroller!: MDCTabScroller;
   private tabList: MDCTab[] = [];
   private root: HTMLElement;
 
   constructor(tabBar: TabBar) {
+    super();
+
     this.root = tabBar.el.querySelector('.mdc-tab-bar') as HTMLElement;
 
     this.foundation = new MDCTabBarFoundation(this.adapter(tabBar));
@@ -58,7 +60,7 @@ export class MDCTabBarFacade {
    * Handles a KeyDown of the user.
    * @param evt The KeyboardEvent
    */
-  handleKeyDown(evt: Event) {
+  handleKeyDown(evt: KeyboardEvent) {
     this.foundation.handleKeyDown(evt);
   }
 
@@ -96,7 +98,7 @@ export class MDCTabBarFacade {
   }
 
   private adapter(tabBar: TabBar) {
-    return {
+    const adapter: MDCTabBarAdapter = {
       scrollTo: scrollX => this.scroller.scrollTo(scrollX),
       incrementScroll: scrollXIncrement =>
         this.scroller.incrementScroll(scrollXIncrement),
@@ -115,7 +117,7 @@ export class MDCTabBarFacade {
         this.tabList[index].computeIndicatorClientRect(),
       getTabDimensionsAtIndex: index => this.tabList[index].computeDimensions(),
       getPreviousActiveTabIndex: () => {
-        for (const i in this.tabList) {
+        for (let i = 0; i < this.tabList.length; i++) {
           if (this.tabList[i].active) {
             return i;
           }
@@ -127,9 +129,12 @@ export class MDCTabBarFacade {
         const activeElement = document.activeElement as Element;
         return tabElements.indexOf(activeElement);
       },
-      getIndexOfTab: tabToFind => this.tabList.indexOf(tabToFind),
+      getIndexOfTabById: (tabToFind: string) =>
+        this.tabList.findIndex(tab => tab.id === tabToFind),
       getTabListLength: () => this.tabList.length,
       notifyTabActivated: index => index
     };
+
+    return adapter;
   }
 }
