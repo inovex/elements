@@ -1,1 +1,7 @@
-@import '@material/snackbar/mdc-snackbar.scss';
+@import '@material/snackbar/mdc-snackbar';
+
+ino-snackbar {
+  .mdc-snackbar__action:not(:disabled) {
+    @include mdc-icon-button-ink-color($secondary);
+  }
+}

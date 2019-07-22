@@ -6,7 +6,6 @@ ino-input {
   display: block;
 
   & > .ino-input__composer {
-    display: block;
     text-align: left;
     width: 100%;
     box-sizing: border-box;
@@ -15,5 +14,9 @@ ino-input {
   .mdc-text-field--with-leading-icon .mdc-text-field__icon,
   .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
     bottom: 20px;
+  }
+
+  .mdc-text-field__icon i {
+    cursor: pointer;
   }
 }

@@ -136,6 +136,7 @@ export class Icon {
         role: 'button'
       };
     }
+
     return <i innerHTML={this.svgContent} {...iconProps} />;
   }
 }

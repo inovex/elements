@@ -80,14 +80,14 @@ export class Fab {
 
     return (
       <div>
-        <div class={classFab} id={this.uniqueHelperId}>
+        <button class={classFab} id={this.uniqueHelperId}>
           <span class="material-icons mdc-fab__icon">
             <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
           </span>
           {this.inoExtended && (
             <span class="mdc-fab__label">{this.inoLabel}</span>
           )}
-        </div>
+        </button>
         {!this.inoExtended && (
           <ino-tooltip
             ino-for={this.uniqueHelperId}

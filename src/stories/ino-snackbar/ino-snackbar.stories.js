@@ -7,11 +7,13 @@ import CoreEvents from '@storybook/core-events';
 
 import addons from '@storybook/addons';
 
+
 function subscribeToComponentEvents() {
   // == event block
   const eventHandler = function(e) {
     const el = document.getElementById('custom-snackbar');
-    if (!el) {
+
+    if (!el || e.target.innerHTML !== 'Show Snackbar') {
       return;
     }
 
@@ -46,12 +48,9 @@ storiesOf('<ino-snackbar>', module)
             ino-show="${boolean('ino-show', false)}"
             ino-message="${text('ino-message', 'Message deleted')}" 
             ino-action-text="${text('ino-action-text', 'Undo')}" 
-            ino-multiline="${boolean('ino-multiline', false)}" 
             ino-action-on-bottom="${boolean('ino-action-on-bottom', false)}" 
             ino-align-start="${boolean('ino-align-start', false)}"/>
         </div>
       </div>
-
-      <h4>Types</h4>
     </div>
   `);
