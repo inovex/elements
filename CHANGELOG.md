@@ -1,3 +1,18 @@
+# [0.6.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.6...v0.6.0) (2019-07-23)
+
+
+### Bug Fixes
+
+* **icons:** add icon support for react components ([7ca10fa](http://gitlab.inovex.de/inovex-elements/core/commit/7ca10fa))
+* **ino-input:** DOM-Exception error when using email-type ([4f8a8f1](http://gitlab.inovex.de/inovex-elements/core/commit/4f8a8f1))
+
+
+### Features
+
+* **mdc-components:** update to version 3.0.0 ([6250abe](http://gitlab.inovex.de/inovex-elements/core/commit/6250abe))
+
+
+
 <a name="0.5.6"></a>
 ## [0.5.6](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.5...v0.5.6) (2019-05-16)
 
