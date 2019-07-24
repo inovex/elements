@@ -36,7 +36,8 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && stencil build --docs && node scripts/generateWrappedIcons.js",
-    "postbuild": "./scripts/postbuild.sh",
+    "postbuild": "./scripts/postbuild.sh && yalc push --changed",
+    "postinstall": "yalc publish --no-sig",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "start": "sd concurrent \"stencil build --docs --dev --watch\" \"yarn run storybook\" ",
@@ -117,6 +118,7 @@
     "tslint-ionic-rules": "0.0.21",
     "tslint-react": "^3.6.0",
     "typescript": "^3.3.3",
-    "webpack": "^4.29.3"
+    "webpack": "^4.29.3",
+    "yalc": "^1.0.0-pre.32"
   }
 }
