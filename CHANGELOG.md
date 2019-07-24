@@ -1,3 +1,12 @@
+## [0.6.1](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.0...v0.6.1) (2019-07-24)
+
+
+### Bug Fixes
+
+* **ino-snackbar:** always show snackbar to avoid internal state ([acfb1ac](http://gitlab.inovex.de/inovex-elements/core/commit/acfb1ac))
+
+
+
 # [0.6.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.5.6...v0.6.0) (2019-07-23)
 
 
