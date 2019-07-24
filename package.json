@@ -36,8 +36,8 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && stencil build --docs && node scripts/generateWrappedIcons.js",
-    "postbuild": "./scripts/postbuild.sh && yalc push --changed",
-    "postinstall": "yalc publish --no-sig",
+    "postbuild": "./scripts/postbuild.sh",
+    "build.james": "yalc publish --no-sig && yarn build && yalc push --changed",
     "build.storybook": "yarn run build && build-storybook -s ./.storybook/static",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "start": "sd concurrent \"stencil build --docs --dev --watch\" \"yarn run storybook\" ",
