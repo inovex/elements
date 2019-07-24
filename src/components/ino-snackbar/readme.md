@@ -18,7 +18,6 @@ document
 
 ```html
 <ino-snackbar
-  ino-show
   ino-message="<string>"
   ino-action-text="<string>"
   ino-action-on-bottom
@@ -41,7 +40,6 @@ class MyComponent extends Component {
   render() {
     return (
       <InoSnackbar
-        inoShow={false}
         inoMessage="Message deleted"
         inoActionText="Undo"
         inoActionOnBottom={false}
@@ -61,7 +59,6 @@ import { Components } from '@inovex/elements/dist/types/components';
 
 const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = props => {
   const {
-    inoShow,
     inoMessage,
     inoActionText,
     inoActionOnBottom,
@@ -70,7 +67,6 @@ const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = prop
 
   return (
     <InoSnackbar
-      inoShow={inoShow}
       inoMessage={inoMessage}
       inoActionText={inoActionText}
       inoActionOnBottom={inoActionOnBottom}
@@ -82,10 +78,11 @@ const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = prop
 };
 
 class MyComponent extends Component {
+  const conditionToRender = true;
+
   render() {
-    return (
+    return conditionToRender && (
       <Snackbar
-        inoShow={false}
         inoMessage="Message deleted"
         inoActionText="Undo"
         inoActionOnBottom={false}
@@ -110,14 +107,14 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoActionText`     | `ino-action-text`      | The text to display for the action button.                                                            | `string`  | `''`        |
 | `inoAlignStart`     | `ino-align-start`      | Controls if Snackbar is centered or start-aligned.                                                    | `boolean` | `false`     |
 | `inoMessage`        | `ino-message`          | The text message to display.                                                                          | `string`  | `undefined` |
-| `inoShow`           | `ino-show`             | Trigger the display of a message with optional action.                                                | `boolean` | `false`     |
+| `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` | `false`     |
 
 ## Events
 
-| Event            | Description                                                                                                      | Type                |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.            | `CustomEvent<void>` |
-| `inoActionClick` | Event that emits as soon as the user removes this element. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
+| Event            | Description                                                                                           | Type                |
+| ---------------- | ----------------------------------------------------------------------------------------------------- | ------------------- |
+| `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
+| `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<void>` |
 
 ---
 

@@ -1,12 +1,5 @@
 import { MDCSnackbar } from '@material/snackbar';
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Prop,
-  Watch
-} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -19,18 +12,6 @@ export class Snackbar {
   private snackbarElement!: HTMLElement;
 
   @Element() el!: HTMLElement;
-
-  /**
-   * Trigger the display of a message with optional action.
-   */
-  @Prop({ mutable: true }) inoShow = false;
-
-  @Watch('inoShow')
-  inoShowHandler() {
-    if (this.inoShow) {
-      this.snackbarInstance.open();
-    }
-  }
 
   /**
    * The text message to display.
@@ -58,12 +39,6 @@ export class Snackbar {
    */
   @Event() inoActionClick!: EventEmitter;
 
-  clickHandler = (e: MouseEvent) => {
-    e.stopPropagation();
-    e.preventDefault();
-    this.inoActionClick.emit();
-  }
-
   /**
    * Event that emits as soon as the snackbar hides.
    * Listen to this event to hide or destroy this element.
@@ -75,6 +50,7 @@ export class Snackbar {
     this.snackbarElement.addEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
+    this.snackbarInstance.open();
   }
 
   componentWillUnload() {
@@ -85,7 +61,6 @@ export class Snackbar {
   }
 
   private handleSnackbarHide(e) {
-    this.inoShow = false;
     this.hideEl!.emit(true);
     e.stopPropagation();
   }
@@ -113,7 +88,7 @@ export class Snackbar {
               <button
                 type="button"
                 class="mdc-button mdc-snackbar__action"
-                onClick={this.clickHandler}
+                onClick={_ => this.inoActionClick.emit()}
               >
                 {this.inoActionText}
               </button>

@@ -12,12 +12,11 @@ function subscribeToComponentEvents() {
   // == event block
   const eventHandler = function(e) {
     const el = document.getElementById('custom-snackbar');
-
-    if (!el || e.target.innerHTML !== 'Show Snackbar') {
+    if (e.target.innerHTML !== 'Show Snackbar') {
       return;
     }
-
-    el.setAttribute('ino-show', true);
+    let temp = document.getElementById("snackbar-temp");
+    document.body.appendChild(temp.content.cloneNode(true));
   };
 
   document.addEventListener('click', eventHandler);
@@ -42,14 +41,16 @@ storiesOf('<ino-snackbar>', module)
       <div class="flex-parent-center">
         <div>
           <h4>Customizable Snackbar</h4>
-          <ino-button>Show Snackbar</ino-button>
-          <ino-snackbar 
-            id="custom-snackbar"
-            ino-show="${boolean('ino-show', false)}"
-            ino-message="${text('ino-message', 'Message deleted')}" 
-            ino-action-text="${text('ino-action-text', 'Undo')}" 
-            ino-action-on-bottom="${boolean('ino-action-on-bottom', false)}" 
-            ino-align-start="${boolean('ino-align-start', false)}"/>
+          <ino-button id="show-button">Show Snackbar</ino-button>
+          <template id="snackbar-temp">
+            <ino-snackbar 
+                id="custom-snackbar"
+                ino-multiline="${boolean('ino-multiline', false)}"
+                ino-message="${text('ino-message', 'Message deleted')}" 
+                ino-action-text="${text('ino-action-text', 'Undo')}" 
+                ino-action-on-bottom="${boolean('ino-action-on-bottom', false)}" 
+                ino-align-start="${boolean('ino-align-start', false)}" />
+          </template>
         </div>
       </div>
     </div>
