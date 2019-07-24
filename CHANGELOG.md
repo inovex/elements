@@ -1,3 +1,7 @@
+## [0.6.2](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.1...v0.6.2) (2019-07-24)
+
+
+
 ## [0.6.1](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.0...v0.6.1) (2019-07-24)
 
 
