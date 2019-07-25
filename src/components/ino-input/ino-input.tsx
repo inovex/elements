@@ -322,6 +322,7 @@ export class Input {
     const classTextfield = classNames({
       'ino-input__composer': true,
       'mdc-text-field': true,
+      'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autofocus,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
