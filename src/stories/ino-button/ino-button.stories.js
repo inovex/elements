@@ -61,6 +61,7 @@ storiesOf('<ino-button>', module)
 
       <h4>States</h4>
       <ino-button disabled>Disabled button</ino-button>
+      <ino-button disabled ino-fill="outline">Disabled outlined button</ino-button>
     </div>
   `)
   .add('Forms', () => /*html*/`
