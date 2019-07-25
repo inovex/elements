@@ -1,10 +1,59 @@
-@import 'styles/colors';
+@import '../styles/colors';
+@import '../styles/fonts';
 @import '@material/button/mdc-button';
+
+// Shadows
+$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+  0 12px 28px 0 rgba(61, 214, 245, 0.14);
+$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+  0 16px 32px 0 rgba(61, 214, 245, 0.14);
+
+// Borders
+$round-border: 24px 24px 24px 24px;
+$edged-border: 0 24px 24px 24px;
+
+@mixin animateBorderRadius($name, $from, $to, $duration) {
+  animation: $name $duration;
+
+  @keyframes #{$name} {
+    from {
+      border-radius: $from;
+    }
+
+    to {
+      border-radius: $to;
+    }
+  }
+}
 
 ino-button {
   display: inline-block;
 
-  // Generate the different ino-color-schemes buttons
+  // Shared Attributes
+  .mdc-button {
+    @include ino-font($size: s, $weight: semibold);
+    letter-spacing: 1.5px;
+    text-align: center;
+    @include mdc-button-shape-radius($edged-border);
+    @include animateBorderRadius(
+      'round-to-edge',
+      $round-border,
+      $edged-border,
+      0.3s
+    );
+
+    &:active,
+    &:hover {
+      @include animateBorderRadius(
+        'edge-to-round',
+        $edged-border,
+        $round-border,
+        0.15s
+      );
+      @include mdc-button-shape-radius($round-border);
+    }
+  }
+
   @each $color-name, $map in $ino-color-scheme {
     // Condition to set default styles for primary
     $selector: '&[ino-color-scheme="#{$color-name}"]';
@@ -14,22 +63,38 @@ ino-button {
 
     #{$selector} .mdc-button {
       &.mdc-button--raised {
-        @include mdc-button-filled-accessible(map-get($map, base));
+        box-shadow: $big-shadow;
+
+        &:hover {
+          box-shadow: $small-shadow;
+        }
+
+        &:active {
+          box-shadow: $big-shadow;
+        }
       }
 
+      &.mdc-button--raised,
       &.mdc-button--unelevated {
         @include mdc-button-filled-accessible(map-get($map, base));
+        @include mdc-button-ink-color(map-get($map, contrast));
+
+        &:disabled {
+          background-color: ino-color(light, dark);
+          color: #fff;
+        }
       }
 
       &.mdc-button--outlined {
+        @include mdc-button-outline-width(2px);
         @include mdc-button-outline-color(map-get($map, base));
         @include mdc-button-ink-color(map-get($map, dark));
+
+        &:disabled {
+          @include mdc-button-outline-color(ino-color(dark, base));
+          @include mdc-button-ink-color(ino-color(light, base));
+        }
       }
     }
-  }
-
-  .mdc-button .mdc-button__icon--right {
-    margin-left: 8px;
-    margin-right: -4px;
   }
 }

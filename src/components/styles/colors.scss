@@ -2,15 +2,17 @@
 
 // Private variables.
 // Use the ino-color() function to access colors.
-$primary: #003c7e;
-$primary-light: #004a9c;
-$primary-dark: #002e62;
+$inovex: #003c7e;
+
+$primary: #3d40f5;
+$primary-light: #5d60f7;
+$primary-dark: #0d10f3;
 $primary-contrast: #fff;
 
 $secondary: #9ccd00;
-$secondary-light: #bff020;
-$secondary-dark: #2e7d32;
-$secondary-contrast: #000;
+$secondary-light: #bbe962;
+$secondary-dark: #93bf00;
+$secondary-contrast: #fff;
 
 $tertiary: #00b0f0;
 $tertiary-light: #10bcfe;
@@ -18,7 +20,7 @@ $tertiary-dark: #006a92;
 
 $success: $secondary;
 $warning: #ffde03;
-$error: #e00051;
+$error: #eb003b;
 
 $light: #c1c1c1;
 $dark: #777;
