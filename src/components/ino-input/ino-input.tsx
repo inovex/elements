@@ -251,6 +251,18 @@ export class Input {
     e.stopPropagation();
   }
 
+  /**
+   * Emits when the input field is blurred
+   */
+  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+  private handleBlur = e => this.inoBlur.emit(e);
+
+  /**
+   * Emits when the input field is focused
+   */
+  @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
+  private handleFocus = e => this.inoFocus.emit(e);
+
   private labelTemplate() {
     if (!this.inoLabel) {
       return '';
@@ -358,6 +370,8 @@ export class Input {
           aria-controls={this.inoHelper && this.uniqueHelperId}
           aria-describedby={this.inoHelper && this.uniqueHelperId}
           onInput={this.handleNativeInputChange.bind(this)}
+          onBlur={this.handleBlur}
+          onFocus={this.handleFocus}
         />
         {this.inputStyleTemplate()}
         {this.inoIconTrailing && this.iconTemplate()}

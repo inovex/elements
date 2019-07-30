@@ -162,6 +162,8 @@ The component is based on a native input with additional features. Thus, the com
 
 | Event         | Description                                                                    | Type                  |
 | ------------- | ------------------------------------------------------------------------------ | --------------------- |
+| `inoBlur`     | Emits when the input field is blurred                                          | `CustomEvent<void>`   |
+| `inoFocus`    | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 ---
