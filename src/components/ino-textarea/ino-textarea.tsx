@@ -126,6 +126,10 @@ export class Textarea {
     if (this.autogrow) {
       this.initAutogrow();
     }
+
+    if (this.autofocus) {
+      this.textfield.focus();
+    }
   }
 
   componentWillUnLoad() {
@@ -168,25 +172,6 @@ export class Textarea {
     this.valueChange.emit(value);
   }
 
-  private labelTemplate() {
-    const classLabel = classNames({
-      'mdc-floating-label': true,
-      'mdc-floating-label--float-above':
-        this.inoLabel &&
-        (this.value || this.nativeTextareaElement === document.activeElement)
-    });
-
-    return (
-      <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading" />
-        <div class="mdc-notched-outline__notch">
-          {this.inoLabel && <label class={classLabel}>{this.inoLabel}</label>}
-        </div>
-        <div class="mdc-notched-outline__trailing" />
-      </div>
-    );
-  }
-
   render() {
     const classes = classNames({
       'mdc-text-field': true,
@@ -216,7 +201,7 @@ export class Textarea {
             {this.value.length} / {this.maxlength}
           </div>
         )}
-        {this.labelTemplate()}
+        <ino-label ino-outline ino-text={this.inoLabel} />
       </div>
     );
   }

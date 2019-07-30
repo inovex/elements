@@ -1024,7 +1024,13 @@ export namespace Components {
      * The name of this element.
      */
     name?: string;
+    /**
+     * Emits when the input field is blurred
+     */
     onInoBlur?: (event: CustomEvent<void>) => void;
+    /**
+     * Emits when the input field is focused
+     */
     onInoFocus?: (event: CustomEvent<void>) => void;
     /**
      * Emits when the user types something in. Contains typed input in `event.detail`
@@ -1062,6 +1068,27 @@ export namespace Components {
      * The value of this element. (**unmanaged**)
      */
     value?: string;
+  }
+
+  interface InoLabel {
+    /**
+     * Styles the label in an outlined style
+     */
+    inoOutline: boolean;
+    /**
+     * The optional floating label of this input field.
+     */
+    inoText: string;
+  }
+  interface InoLabelAttributes extends StencilHTMLAttributes {
+    /**
+     * Styles the label in an outlined style
+     */
+    inoOutline?: boolean;
+    /**
+     * The optional floating label of this input field.
+     */
+    inoText?: string;
   }
 
   interface InoListDivider {
@@ -1457,10 +1484,6 @@ export namespace Components {
      * The text message to display.
      */
     inoMessage?: string;
-    /**
-     * Trigger the display of a message with optional action.
-     */
-    inoShow: boolean;
   }
   interface InoSnackbarAttributes extends StencilHTMLAttributes {
     /**
@@ -1479,10 +1502,6 @@ export namespace Components {
      * The text message to display.
      */
     inoMessage?: string;
-    /**
-     * Trigger the display of a message with optional action.
-     */
-    inoShow?: boolean;
     /**
      * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
      */
@@ -1767,6 +1786,7 @@ declare global {
     InoImg: Components.InoImg;
     InoInputFile: Components.InoInputFile;
     InoInput: Components.InoInput;
+    InoLabel: Components.InoLabel;
     InoListDivider: Components.InoListDivider;
     InoListItem: Components.InoListItem;
     InoList: Components.InoList;
@@ -1798,6 +1818,7 @@ declare global {
     'ino-img': Components.InoImgAttributes;
     'ino-input-file': Components.InoInputFileAttributes;
     'ino-input': Components.InoInputAttributes;
+    'ino-label': Components.InoLabelAttributes;
     'ino-list-divider': Components.InoListDividerAttributes;
     'ino-list-item': Components.InoListItemAttributes;
     'ino-list': Components.InoListAttributes;
@@ -1914,6 +1935,14 @@ declare global {
   var HTMLInoInputElement: {
     prototype: HTMLInoInputElement;
     new (): HTMLInoInputElement;
+  };
+
+  interface HTMLInoLabelElement
+    extends Components.InoLabel,
+      HTMLStencilElement {}
+  var HTMLInoLabelElement: {
+    prototype: HTMLInoLabelElement;
+    new (): HTMLInoLabelElement;
   };
 
   interface HTMLInoListDividerElement
@@ -2037,6 +2066,7 @@ declare global {
     'ino-img': HTMLInoImgElement;
     'ino-input-file': HTMLInoInputFileElement;
     'ino-input': HTMLInoInputElement;
+    'ino-label': HTMLInoLabelElement;
     'ino-list-divider': HTMLInoListDividerElement;
     'ino-list-item': HTMLInoListItemElement;
     'ino-list': HTMLInoListElement;
@@ -2068,6 +2098,7 @@ declare global {
     'ino-img': HTMLInoImgElement;
     'ino-input-file': HTMLInoInputFileElement;
     'ino-input': HTMLInoInputElement;
+    'ino-label': HTMLInoLabelElement;
     'ino-list-divider': HTMLInoListDividerElement;
     'ino-list-item': HTMLInoListItemElement;
     'ino-list': HTMLInoListElement;

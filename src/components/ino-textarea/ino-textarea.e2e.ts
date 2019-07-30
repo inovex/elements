@@ -45,15 +45,17 @@ describe('ino-textarea', () => {
     await inoTextArea.click();
     const label = await page.find('label');
     await page.waitForChanges();
-
     expect(
       label.classList.contains('mdc-floating-label--float-above')
     ).toBeTruthy();
   });
 
   it('should be focused after render', async () => {
-    const page = await setupPageWithContent(createTextarea('autofocus'));
+    const page = await setupPageWithContent(
+      '<ino-textarea autofocus></ino-textarea>'
+    );
     const focusedElement = await page.$eval(':focus', el => el);
+
     expect(focusedElement).toBeDefined();
   });
 
@@ -112,21 +114,11 @@ describe('ino-textarea', () => {
     await checkSettingOfProp('placeholder', 'Sample Placeholder');
   });
 
-  it('should have the after pseudo-class within the label', async () => {
-    const page = await setupPageWithContent(
-      createTextarea(`ino-label=\'SomeLabel' required`)
-    );
-    const label = await page.find('label');
-    const afterElement = await label.getComputedStyle(':after');
-
-    expect(afterElement.content).toEqual('"*"');
-  });
-
   it('should NOT have the after pseudo-class within the label', async () => {
     const page = await setupPageWithContent(
       createTextarea(`ino-label=\'SomeLabel'`)
     );
-    const label = await page.find('label');
+    const label = await page.find('ino-label');
     const afterElement = await label.getComputedStyle(':after');
 
     expect(afterElement.content).toEqual('none');
@@ -180,7 +172,7 @@ describe('ino-textarea', () => {
     expect(spyOnChangeEvent).toHaveReceivedEventDetail('t');
   });
 
-  it('should emit 4 valueChange events while typing \'test\' in textarea', async () => {
+  it("should emit 4 valueChange events while typing 'test' in textarea", async () => {
     const page = await setupPageWithContent(createTextarea());
     const textarea = await page.find('textarea');
     const spyOnChangeEvent = await page.spyOnEvent('valueChange');
