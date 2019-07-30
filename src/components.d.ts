@@ -1024,6 +1024,8 @@ export namespace Components {
      * The name of this element.
      */
     name?: string;
+    onInoBlur?: (event: CustomEvent<void>) => void;
+    onInoFocus?: (event: CustomEvent<void>) => void;
     /**
      * Emits when the user types something in. Contains typed input in `event.detail`
      */
