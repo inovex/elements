@@ -91,31 +91,6 @@ export class Select {
     this.mdcInstance.destroy();
   }
 
-  private labelTemplate() {
-    const classLabel = classNames({
-      'mdc-floating-label': true,
-      'mdc-floating-label--float-above': !this.inoPrependDefault
-    });
-
-    const label = this.inoLabel ? (
-      <label class={classLabel}>{this.inoLabel}</label>
-    ) : (
-      ''
-    );
-
-    if (this.inoOutline) {
-      return (
-        <div class="mdc-notched-outline">
-          <div class="mdc-notched-outline__leading" />
-          <div class="mdc-notched-outline__notch">{label}</div>
-          <div class="mdc-notched-outline__trailing" />
-        </div>
-      );
-    }
-
-    return [label, <div class="mdc-line-ripple" />];
-  }
-
   private setSelectValue(value: string) {
     if (this.nativeSelectElement) {
       this.nativeSelectElement.value = this.mdcInstance.value = value;
@@ -158,7 +133,7 @@ export class Select {
           {this.inoPrependDefault && <option disabled selected value="" />}
           <slot />
         </select>
-        {this.labelTemplate()}
+        <ino-label ino-outline={this.inoOutline} ino-text={this.inoLabel} />
       </div>
     );
   }

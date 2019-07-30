@@ -1,0 +1,20 @@
+# ino-label
+
+This is an internally used component and it should not be used by the consumer.
+
+```html
+<ino-label ino-outline="<boolean>" ino-label="<string>"> </ino-label>
+```
+
+<!-- Auto Generated Below -->
+
+## Properties
+
+| Property     | Attribute     | Description                                      | Type      | Default     |
+| ------------ | ------------- | ------------------------------------------------ | --------- | ----------- |
+| `inoOutline` | `ino-outline` | Styles the label in an outlined style            | `boolean` | `undefined` |
+| `inoText`    | `ino-text`    | The optional floating label of this input field. | `string`  | `undefined` |
+
+---
+
+_Built with [StencilJS](https://stenciljs.com/)_

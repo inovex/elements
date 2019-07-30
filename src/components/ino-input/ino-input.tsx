@@ -263,31 +263,6 @@ export class Input {
   @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
   private handleFocus = e => this.inoFocus.emit(e);
 
-  private labelTemplate() {
-    if (!this.inoLabel) {
-      return '';
-    }
-    const classLabel = classNames('mdc-floating-label', {
-      'mdc-floating-label--float-above':
-        this.inoLabel &&
-        (this.value || this.nativeInputEl === document.activeElement)
-    });
-    return <label class={classLabel}>{this.inoLabel}</label>;
-  }
-
-  private inputStyleTemplate() {
-    if (this.inoOutline) {
-      return [
-        <div class="mdc-notched-outline">
-          <div class="mdc-notched-outline__leading" />
-          <div class="mdc-notched-outline__notch">{this.labelTemplate()}</div>
-          <div class="mdc-notched-outline__trailing" />
-        </div>
-      ];
-    }
-    return [<div class="mdc-line-ripple" />, this.labelTemplate()];
-  }
-
   private helperTextTemplate() {
     if (!this.inoHelper && !this.inoHelperCharacterCounter) {
       return '';
@@ -345,6 +320,12 @@ export class Input {
       'mdc-text-field--no-label': !this.inoLabel
     });
 
+    // To avoid layout issues with the notch
+    // (namely: elements-402, Länge der Notch wird nicht richtig berechnet)
+    if (this.textfield && this.inoOutline) {
+      this.textfield.layout();
+    }
+
     return [
       <div class={classTextfield}>
         {!this.inoIconTrailing && this.iconTemplate()}
@@ -373,7 +354,7 @@ export class Input {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
         />
-        {this.inputStyleTemplate()}
+        <ino-label ino-outline={this.inoOutline} ino-text={this.inoLabel} />
         {this.inoIconTrailing && this.iconTemplate()}
       </div>,
       this.helperTextTemplate()
