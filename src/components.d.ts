@@ -1076,6 +1076,10 @@ export namespace Components {
      */
     inoOutline: boolean;
     /**
+     * Appends * to the label
+     */
+    inoRequired: boolean;
+    /**
      * The optional floating label of this input field.
      */
     inoText: string;
@@ -1085,6 +1089,10 @@ export namespace Components {
      * Styles the label in an outlined style
      */
     inoOutline?: boolean;
+    /**
+     * Appends * to the label
+     */
+    inoRequired?: boolean;
     /**
      * The optional floating label of this input field.
      */

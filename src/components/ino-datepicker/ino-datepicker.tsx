@@ -141,7 +141,7 @@ export class Datepicker {
   }
 
   /**
-   * A string/array containing the initial date. If you're using `inoRange = true` provide an array.
+   * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
    */
   @Prop() inoDefaultDate?: string | string[];
 
@@ -151,7 +151,7 @@ export class Datepicker {
   }
 
   /**
-   * A number containing the initial hour in the date-time picker.
+   * A number containing the initial hour in the date-time picker overlay.
    * The default is `12`
    */
   @Prop() inoDefaultHour = 12;
@@ -162,7 +162,7 @@ export class Datepicker {
   }
 
   /**
-   * A number containing the initial minute in the date-time picker.
+   * A number containing the initial minute in the date-time picker overlay.
    * The default is `0`
    */
   @Prop() inoDefaultMinute ? = 0;
@@ -207,6 +207,12 @@ export class Datepicker {
   @Listen('click')
   inoIconClickedHandler() {
     this.flatpickr.toggle();
+    this.focusInputField();
+  }
+
+  private focusInputField() {
+    const input = this.el.querySelector('input') as HTMLInputElement;
+    input.focus();
   }
 
   /**
@@ -217,6 +223,15 @@ export class Datepicker {
 
   componentDidLoad() {
     this.create();
+  }
+
+  componentDidUpdate() {
+    // Fix for elements-402
+    // if flatpickr is still open (range-mode only), the textfield must remain in focus
+    // Important that it happens after rendering!
+    if (this.flatpickr.isOpen && this.inoRange) {
+      this.focusInputField();
+    }
   }
 
   private create() {
@@ -245,7 +260,7 @@ export class Datepicker {
     };
 
     this.dispose();
-    const target = this.el.querySelector('ino-input') as HTMLElement;
+    const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
   }
 
