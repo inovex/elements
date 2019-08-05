@@ -60,7 +60,7 @@ storiesOf('<ino-chip-set>', module)
           ino-color-scheme="${select(
             'ino-color-scheme',
             [
-              'default',
+              '',
               'primary',
               'secondary',
               'tertiary',
@@ -70,14 +70,14 @@ storiesOf('<ino-chip-set>', module)
               'light',
               'dark'
             ],
-            'default'
+            ''
           )}"
           ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
           ino-icon="${text('ino-icon', '')}"
           ino-removable="${boolean('ino-removable', true)}"
           ino-selected="${boolean('ino-selected', false)}"
           ino-selectable="${boolean('ino-selectable', false)}"
-          ino-label="${text('<slot />', 'Customizable chip')}">
+          ino-label="${text('<slot />', 'Customizable chip')}"
         </ino-chip>
       </ino-chip-set>
 

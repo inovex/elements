@@ -17,7 +17,7 @@ export class Chip {
    * Possible values: `primary`,  `secondary`, `tertiary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = null;
+  @Prop() inoColorScheme?: ColorScheme;
 
   /**
    * The fill type of this element.
