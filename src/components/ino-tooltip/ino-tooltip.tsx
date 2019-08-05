@@ -86,8 +86,7 @@ export class Tooltip {
       arrowSelector: '.ino-tooltip__arrow',
       innerSelector: '.ino-tooltip__inner'
     };
-    // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
-    // @ts-ignore
+
     this.tooltipInstance = new TooltipJS(this.target, options);
 
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));

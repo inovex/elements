@@ -88,7 +88,7 @@ export class Fab {
             <span class="mdc-fab__label">{this.inoLabel}</span>
           )}
         </button>
-        {!this.inoExtended && (
+        {this.inoExtended && (
           <ino-tooltip
             ino-for={this.uniqueHelperId}
             ino-label={this.inoLabel}
