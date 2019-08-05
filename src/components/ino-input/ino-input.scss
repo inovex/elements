@@ -2,6 +2,10 @@
 @import '@material/textfield/helper-text/mdc-text-field-helper-text';
 @import '@material/textfield/icon/mdc-text-field-icon';
 
+$default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
+$label-color: rgba(0, 0, 0, 0.6);
+$placeholder-color: rgba(0, 0, 0, 0.6);
+
 ino-input {
   display: block;
 
@@ -11,12 +15,97 @@ ino-input {
     box-sizing: border-box;
   }
 
-  .mdc-text-field--with-leading-icon .mdc-text-field__icon,
-  .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
-    bottom: 20px;
+  .mdc-text-field {
+    &--focused {
+      @include mdc-text-field-icon-color(ino-color(primary, base));
+    }
+
+    &--disabled {
+      background-color: transparent;
+    }
+
+    // Adjustments to the new icon font-size
+    &--outlined .mdc-text-field__icon {
+      bottom: 19px;
+    }
+
+    & + .mdc-text-field-helper-line {
+      padding: 0;
+    }
+
+    // Placeholder color
+    &:not(.mdc-text-field--disabled) {
+      & input::placeholder {
+        color: $placeholder-color;
+      }
+
+      & > ino-label .mdc-floating-label:not(.mdc-floating-label--float-above) {
+        color: $label-color;
+      }
+    }
+
+    &:#{$default-text-field} {
+      @include mdc-text-field-fill-color(transparent);
+
+      // change background von greyish to transparent
+      &:before {
+        background-color: transparent;
+      }
+
+      &:not([class*='--with-leading-icon']) {
+        & .mdc-text-field__input {
+          padding-left: 0;
+        }
+
+        & .mdc-floating-label {
+          left: 0;
+        }
+      }
+
+      .mdc-text-field__icon {
+        bottom: 8px;
+      }
+
+      &[class*='--with-leading-icon'] {
+        $padding-to-left: 38px;
+
+        input {
+          padding-left: $padding-to-left;
+        }
+
+        .mdc-floating-label,
+        .mdc-floating-label--float-above {
+          left: $padding-to-left;
+        }
+
+        .mdc-text-field__icon {
+          left: 6px;
+        }
+      }
+
+      &[class*='--with-trailing-icon'] .mdc-text-field__icon {
+        right: 6px;
+      }
+
+      .mdc-text-field__input {
+        padding-bottom: 0;
+      }
+
+      .mdc-floating-label {
+        top: 30px;
+
+        &--float-above {
+          top: 18px;
+        }
+      }
+    }
+
+    .mdc-text-field__icon {
+      font-size: 20px;
+    }
   }
 
-  .mdc-text-field__icon i {
-    cursor: pointer;
+  &:hover {
+    @include mdc-text-field-fill-color(transparent);
   }
 }

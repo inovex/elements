@@ -320,12 +320,6 @@ export class Input {
       'mdc-text-field--no-label': !this.inoLabel
     });
 
-    // To avoid layout issues with the notch
-    // (namely: elements-402, Länge der Notch wird nicht richtig berechnet)
-    if (this.textfield && this.inoOutline) {
-      this.textfield.layout();
-    }
-
     return [
       <div class={classTextfield}>
         {!this.inoIconTrailing && this.iconTemplate()}
@@ -354,7 +348,11 @@ export class Input {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
         />
-        <ino-label ino-outline={this.inoOutline} ino-text={this.inoLabel} />
+        <ino-label
+          ino-outline={this.inoOutline}
+          ino-text={this.inoLabel}
+          ino-required={this.required}
+        />
         {this.inoIconTrailing && this.iconTemplate()}
       </div>,
       this.helperTextTemplate()

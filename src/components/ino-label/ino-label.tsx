@@ -16,6 +16,11 @@ export class Label {
    */
   @Prop() inoText: string;
 
+  /**
+   * Appends * to the label
+   */
+  @Prop() inoRequired: boolean;
+
   render() {
     const label = this.inoText ? (
       <label class={'mdc-floating-label'}>{this.inoText}</label>

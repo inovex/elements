@@ -13,7 +13,7 @@ ino-datepicker {
 // Customize flatpickr styles
 
 $dayMargin: 2px;
-$selectedDayBackground: #003c7d;
+$selectedDayBackground: ino-color(primary);
 
 .flatpickr-day {
   &.selected,

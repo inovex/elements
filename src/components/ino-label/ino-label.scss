@@ -1,1 +1,7 @@
 @import '@material/textfield/mdc-text-field';
+
+ino-label {
+  &[ino-required] .mdc-floating-label:after {
+    content: '*';
+  }
+}

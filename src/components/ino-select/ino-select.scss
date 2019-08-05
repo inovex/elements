@@ -1,9 +1,33 @@
 @import '@material/select/mdc-select';
 
+$not-outlined-select: 'not(.mdc-select--outlined)';
+
 ino-select {
   display: block;
 
   .mdc-select {
     width: 100%;
+    @include mdc-select-container-fill-color(transparent);
+
+    &--focused,
+    &:hover,
+    &:active {
+      @include mdc-select-container-fill-color(transparent);
+    }
+
+    &--disabled,
+    &:before {
+      background-color: transparent;
+    }
+
+    &:#{$not-outlined-select} {
+      & > select {
+        padding-left: 0;
+      }
+
+      .mdc-floating-label {
+        left: 0;
+      }
+    }
   }
 }

@@ -201,7 +201,11 @@ export class Textarea {
             {this.value.length} / {this.maxlength}
           </div>
         )}
-        <ino-label ino-outline ino-text={this.inoLabel} />
+        <ino-label
+          ino-outline
+          ino-text={this.inoLabel}
+          ino-required={this.required}
+        />
       </div>
     );
   }

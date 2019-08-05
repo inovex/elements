@@ -133,7 +133,11 @@ export class Select {
           {this.inoPrependDefault && <option disabled selected value="" />}
           <slot />
         </select>
-        <ino-label ino-outline={this.inoOutline} ino-text={this.inoLabel} />
+        <ino-label
+          ino-outline={this.inoOutline}
+          ino-text={this.inoLabel}
+          ino-required={this.required}
+        />
       </div>
     );
   }
