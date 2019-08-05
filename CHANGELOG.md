@@ -1,3 +1,18 @@
+## [0.6.4](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.3...v0.6.4) (2019-08-05)
+
+
+### Bug Fixes
+
+* **ino-fab:** wrong rendering condition for ino-tooltip within ino-fab ([3c45eff](http://gitlab.inovex.de/inovex-elements/core/commit/3c45eff))
+
+
+### Features
+
+* **ino-chip:** new default color ([4458b17](http://gitlab.inovex.de/inovex-elements/core/commit/4458b17))
+* **ino-input:** add ino-blur und ino-focus events ([013004b](http://gitlab.inovex.de/inovex-elements/core/commit/013004b))
+
+
+
 ## [0.6.3](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.2...v0.6.3) (2019-07-29)
 
 
