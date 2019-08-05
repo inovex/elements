@@ -1,2 +1,15 @@
 @import '@material/form-field/mdc-form-field';
 @import '@material/radio/mdc-radio';
+
+ino-radio {
+  .mdc-radio {
+    @include mdc-radio-unchecked-stroke-color(ino-color(primary));
+    @include mdc-radio-checked-stroke-color(ino-color(primary));
+    @include mdc-radio-ink-color(ino-color(primary));
+
+    &:before,
+    &:after {
+      background-color: ino-color(primary);
+    }
+  }
+}
