@@ -1390,8 +1390,9 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-10.12.26.tgz#2dec19f1f7981c95cb54bab8f618ecb5dc983d0e"
 
 "@types/node@^12.0.4":
-  version "12.0.4"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@types/node/-/node-12.0.4.tgz#46832183115c904410c275e34cf9403992999c32"
+  version "12.6.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.9.tgz#ffeee23afdc19ab16e979338e7b536fdebbbaeaf"
+  integrity sha512-+YB9FtyxXGyD54p8rXwWaN1EWEyar5L58GlGWgtH2I9rGmLGBQcw63+0jw+ujqVavNuO47S1ByAjm9zdHMnskw==
 
 "@types/prop-types@*":
   version "15.7.0"
@@ -9757,8 +9758,8 @@ toggle-selection@^1.0.3:
 
 tooltip.js@^1.3.2:
   version "1.3.2"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/tooltip.js/-/tooltip.js-1.3.2.tgz#ccfe450ffd7332ce5f254033778649526c1db542"
-  integrity sha1-zP5FD/1zMs5fJUAzd4ZJUmwdtUI=
+  resolved "https://registry.yarnpkg.com/tooltip.js/-/tooltip.js-1.3.2.tgz#ccfe450ffd7332ce5f254033778649526c1db542"
+  integrity sha512-DeDr9JxYx/lSvQ53ZCRFLxXrmrSyU3fLz6k+ITUTw69AIYtpWij/NmOJQscJ7BwY5lcEwWJWSfqqQWVvTMYZiw==
   dependencies:
     popper.js "^1.0.2"
 
