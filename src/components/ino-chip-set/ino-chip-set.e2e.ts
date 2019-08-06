@@ -20,6 +20,7 @@ describe('InoChipSet', () => {
     const updateChipSet = await page.spyOnEvent('updateChipSet');
     expect(updateChipSet).not.toHaveReceivedEvent();
     await page.click('#one');
+    await page.waitFor(300);
     await page.waitForChanges();
     expect(updateChipSet).toHaveReceivedEvent();
   });
