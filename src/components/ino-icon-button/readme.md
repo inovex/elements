@@ -79,15 +79,17 @@ The component bubbles the native `click`-Event to the user.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                      | Type                                                                                               | Default     |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `autofocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                             | `boolean`                                                                                          | `undefined` |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                           | `boolean`                                                                                          | `undefined` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `'primary'` |
-| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                            | `string`                                                                                           | `undefined` |
+| Property         | Attribute          | Description                                                                                                                                                                                                       | Type                                                                                               | Default     |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
+| `autofocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                              | `boolean`                                                                                          | `undefined` |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                            | `boolean`                                                                                          | `undefined` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `'primary'` |
+| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`                                                                                           | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

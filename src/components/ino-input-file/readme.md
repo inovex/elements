@@ -73,6 +73,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                                              | Type      | Default         |
@@ -85,12 +86,14 @@ class MyComponent extends Component {
 | `name`      | `name`      | The name of this input field.                            | `string`  | `undefined`     |
 | `required`  | `required`  | Marks this element as required.                          | `boolean` | `undefined`     |
 
+
 ## Events
 
-| Event        | Description                   | Type                                          |
-| ------------ | ----------------------------- | --------------------------------------------- |
-| `changeFile` | Emits when the value changes. | `CustomEvent<{ e: Event; files: object[]; }>` |
+| Event        | Description                   | Type                                                    |
+| ------------ | ----------------------------- | ------------------------------------------------------- |
+| `changeFile` | Emits when the value changes. | `CustomEvent<{     e: Event;     files: object[];   }>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

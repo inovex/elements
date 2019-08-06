@@ -100,6 +100,7 @@ document.querySelector('ino-radio').addEventListener('checkedChange', e => {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute      | Description                                    | Type      | Default     |
@@ -111,12 +112,14 @@ document.querySelector('ino-radio').addEventListener('checkedChange', e => {
 | `name`        | `name`         | The name of this element.                      | `string`  | `undefined` |
 | `value`       | `value`        | The value of this element.                     | `string`  | `undefined` |
 
+
 ## Events
 
 | Event           | Description                                                                        | Type                |
 | --------------- | ---------------------------------------------------------------------------------- | ------------------- |
 | `checkedChange` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

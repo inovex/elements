@@ -99,6 +99,7 @@ Snackbar is displayed when ino-show is changed to checked.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute              | Description                                                                                           | Type      | Default     |
@@ -107,7 +108,7 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoActionText`     | `ino-action-text`      | The text to display for the action button.                                                            | `string`  | `''`        |
 | `inoAlignStart`     | `ino-align-start`      | Controls if Snackbar is centered or start-aligned.                                                    | `boolean` | `false`     |
 | `inoMessage`        | `ino-message`          | The text message to display.                                                                          | `string`  | `undefined` |
-| `inoMultiline`      | `ino-multiline`        | Whether to show the snackbar with space for multiple lines of text.                                   | `boolean` | `false`     |
+
 
 ## Events
 
@@ -116,6 +117,7 @@ Snackbar is displayed when ino-show is changed to checked.
 | `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
 | `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

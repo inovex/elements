@@ -87,6 +87,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                   | Attribute                     | Description                                                                           | Type      | Default     |
@@ -96,6 +97,7 @@ class MyComponent extends Component {
 | `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
 | `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
+
 ## Events
 
 | Event      | Description                      | Type                |
@@ -103,6 +105,7 @@ class MyComponent extends Component {
 | `loadEl`   | Emitted when the tab did load.   | `CustomEvent<void>` |
 | `unloadEl` | Emitted when the tab did unload. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

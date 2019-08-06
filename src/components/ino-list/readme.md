@@ -94,6 +94,7 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute       | Description                                                                                                                        | Type      | Default     |
@@ -102,6 +103,7 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 | `inoDense`    | `ino-dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
 | `inoTwoLines` | `ino-two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

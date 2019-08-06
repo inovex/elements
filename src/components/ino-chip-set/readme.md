@@ -137,18 +137,21 @@ document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute  | Description                                                                                                             | Type                                    | Default |
 | --------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
 | `inoType` | `ino-type` | The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input` | `"" \| "choice" \| "filter" \| "input"` | `''`    |
 
+
 ## Events
 
-| Event           | Description                                                                                                    | Type                |
-| --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `updateChipSet` | Event that emits when the value of this element changes. Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
+| Event           | Description                                                                                                     | Type                |
+| --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `updateChipSet` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -85,11 +85,13 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute        | Description                                           | Type     | Default |
 | -------------- | ---------------- | ----------------------------------------------------- | -------- | ------- |
 | `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
+
 
 ## Events
 
@@ -97,6 +99,7 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 | ----------------- | ------------------------------------------------------------------- | ------------------- |
 | `activeTabChange` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

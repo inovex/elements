@@ -88,6 +88,7 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute  | Description                       | Type      | Default     |
@@ -95,6 +96,7 @@ The menu creates a temporary surface with an empty list composer. The items of t
 | `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  | `undefined` |
 | `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

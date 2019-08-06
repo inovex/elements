@@ -70,6 +70,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                                    | Type                                                                                               | Default     |
@@ -84,12 +85,14 @@ class MyComponent extends Component {
 | `step`           | `step`             | The step size for this element (default = 1)                                                                                                                   | `number`                                                                                           | `1`         |
 | `value`          | `value`            | The value of this element. (**unmanaged**)                                                                                                                     | `number`                                                                                           | `undefined` |
 
+
 ## Events
 
 | Event         | Description                                                         | Type                |
 | ------------- | ------------------------------------------------------------------- | ------------------- |
 | `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

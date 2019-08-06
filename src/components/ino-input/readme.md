@@ -128,6 +128,7 @@ The component is based on a native input with additional features. Thus, the com
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                    | Attribute                      | Description                                                                                                             | Type      | Default     |
@@ -158,6 +159,7 @@ The component is based on a native input with additional features. Thus, the com
 | `type`                      | `type`                         | The type of this element (default = text).                                                                              | `string`  | `'text'`    |
 | `value`                     | `value`                        | The value of this element. (**unmanaged**)                                                                              | `string`  | `''`        |
 
+
 ## Events
 
 | Event         | Description                                                                    | Type                  |
@@ -166,6 +168,7 @@ The component is based on a native input with additional features. Thus, the com
 | `inoFocus`    | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

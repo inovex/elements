@@ -115,6 +115,7 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute       | Description                                         | Type      | Default     |
@@ -127,12 +128,14 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `name`          | `name`          | The name of this element.                           | `string`  | `undefined` |
 | `value`         | `value`         | The value of this element.                          | `string`  | `undefined` |
 
+
 ## Events
 
 | Event           | Description                                                                                                    | Type                |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

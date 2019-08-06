@@ -131,6 +131,7 @@ or as datetime picker
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property              | Attribute               | Description                                                                                                                                                                                                                                              | Type                 | Default     |
@@ -159,12 +160,14 @@ or as datetime picker
 | `tabindex`            | `tabindex`              | The tabindex of this element.                                                                                                                                                                                                                            | `string`             | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                                                                                       | `string`             | `''`        |
 
+
 ## Events
 
 | Event         | Description                                                                              | Type                  |
 | ------------- | ---------------------------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
