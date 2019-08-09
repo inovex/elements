@@ -1,3 +1,13 @@
+## [0.6.6](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.5...v0.6.6) (2019-08-09)
+
+
+### Bug Fixes
+
+* **ino-chip-set:** add timeout for ino-chip-set-test ([574e86a](http://gitlab.inovex.de/inovex-elements/core/commit/574e86a))
+* **ino-datepicker:** keep input focus as long as picker is opened ([bec1190](http://gitlab.inovex.de/inovex-elements/core/commit/bec1190))
+
+
+
 ## [0.6.5](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.4...v0.6.5) (2019-08-06)
 
 
