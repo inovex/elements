@@ -137,6 +137,7 @@ export class Select {
           ino-outline={this.inoOutline}
           ino-text={this.inoLabel}
           ino-required={this.required}
+          ino-disabled={this.disabled}
         />
       </div>
     );

@@ -1076,29 +1076,37 @@ export namespace Components {
 
   interface InoLabel {
     /**
+    * Colors the label in an light grey to indicate the disabled status for this element
+    */
+    'inoDisabled': boolean;
+    /**
     * Styles the label in an outlined style
     */
     'inoOutline': boolean;
     /**
-    * Appends * to the label
+    * Appends * to the label to make it appear as an required input in a form
     */
     'inoRequired': boolean;
     /**
-    * The optional floating label of this input field.
+    * The text of the label itself
     */
     'inoText': string;
   }
   interface InoLabelAttributes extends StencilHTMLAttributes {
     /**
+    * Colors the label in an light grey to indicate the disabled status for this element
+    */
+    'inoDisabled'?: boolean;
+    /**
     * Styles the label in an outlined style
     */
     'inoOutline'?: boolean;
     /**
-    * Appends * to the label
+    * Appends * to the label to make it appear as an required input in a form
     */
     'inoRequired'?: boolean;
     /**
-    * The optional floating label of this input field.
+    * The text of the label itself
     */
     'inoText'?: string;
   }
