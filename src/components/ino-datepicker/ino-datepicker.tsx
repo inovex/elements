@@ -210,9 +210,15 @@ export class Datepicker {
     this.focusInputField();
   }
 
-  private focusInputField() {
+  focusInputField = () => {
+    const currentFocus: Element = document.activeElement;
     const input = this.el.querySelector('input') as HTMLInputElement;
-    input.focus();
+    const isTimeInput = currentFocus && currentFocus.className.includes('flatpickr-hour') || currentFocus.className.includes('flatpickr-minute');
+
+    // Don't change focus if currently in time picker
+    if (!isTimeInput) {
+      input.focus();
+    }
   }
 
   /**
@@ -221,10 +227,6 @@ export class Datepicker {
    */
   @Event() valueChange!: EventEmitter<string>;
 
-  componentDidLoad() {
-    this.create();
-  }
-
   componentDidUpdate() {
     // Fix for elements-402
     // if flatpickr is still open (range-mode only), the textfield must remain in focus
@@ -232,6 +234,10 @@ export class Datepicker {
     if (this.flatpickr.isOpen && this.inoRange) {
       this.focusInputField();
     }
+  }
+
+  componentDidLoad() {
+    this.create();
   }
 
   private create() {
@@ -256,6 +262,7 @@ export class Datepicker {
         // this callback is only called when the user selects a date/time from the flatpickr
         this.valueChange.emit(newValue);
         this.flatpickr.setDate(this.value);
+        this.focusInputField();
       }
     };
 
