@@ -12,14 +12,19 @@ export class Label {
   @Prop() inoOutline: boolean;
 
   /**
-   * The optional floating label of this input field.
+   * The text of the label itself
    */
   @Prop() inoText: string;
 
   /**
-   * Appends * to the label
+   * Appends * to the label to make it appear as an required input in a form
    */
   @Prop() inoRequired: boolean;
+
+  /**
+   * Colors the label in an light grey to indicate the disabled status for this element
+   */
+  @Prop() inoDisabled: boolean;
 
   render() {
     const label = this.inoText ? (
@@ -31,13 +36,13 @@ export class Label {
     if (this.inoOutline) {
       return [
         <div class={'mdc-notched-outline'}>
-          <div class="mdc-notched-outline__leading" />
+          <div class="mdc-notched-outline__leading"/>
           <div class="mdc-notched-outline__notch">{label}</div>
-          <div class="mdc-notched-outline__trailing" />
+          <div class="mdc-notched-outline__trailing"/>
         </div>
       ];
     }
 
-    return [<div class="mdc-line-ripple" />, label];
+    return [<div class="mdc-line-ripple"/>, label];
   }
 }

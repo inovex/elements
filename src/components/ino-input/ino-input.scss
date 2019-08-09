@@ -3,7 +3,6 @@
 @import '@material/textfield/icon/mdc-text-field-icon';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
-$label-color: rgba(0, 0, 0, 0.6);
 $placeholder-color: rgba(0, 0, 0, 0.6);
 
 ino-input {
@@ -13,6 +12,11 @@ ino-input {
     text-align: left;
     width: 100%;
     box-sizing: border-box;
+  }
+
+
+  &:hover {
+    @include mdc-text-field-fill-color(transparent);
   }
 
   .mdc-text-field {
@@ -38,10 +42,6 @@ ino-input {
       & input::placeholder {
         color: $placeholder-color;
       }
-
-      & > ino-label .mdc-floating-label:not(.mdc-floating-label--float-above) {
-        color: $label-color;
-      }
     }
 
     &:#{$default-text-field} {
@@ -55,10 +55,6 @@ ino-input {
       &:not([class*='--with-leading-icon']) {
         & .mdc-text-field__input {
           padding-left: 0;
-        }
-
-        & .mdc-floating-label {
-          left: 0;
         }
       }
 
@@ -89,23 +85,12 @@ ino-input {
 
       .mdc-text-field__input {
         padding-bottom: 0;
-      }
-
-      .mdc-floating-label {
-        top: 30px;
-
-        &--float-above {
-          top: 18px;
-        }
+        padding-top: 20px;
       }
     }
 
     .mdc-text-field__icon {
       font-size: 20px;
     }
-  }
-
-  &:hover {
-    @include mdc-text-field-fill-color(transparent);
   }
 }

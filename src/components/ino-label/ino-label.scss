@@ -1,7 +1,22 @@
 @import '@material/textfield/mdc-text-field';
 
+$label-color: rgba(0, 0, 0, 0.6);
+
 ino-label {
   &[ino-required] .mdc-floating-label:after {
     content: '*';
+  }
+
+  &:not([ino-outline]) .mdc-floating-label {
+    left: 0;
+    top: 30px;
+
+    &--float-above {
+      top: 18px;
+    }
+  }
+
+  &:not([ino-disabled]) .mdc-floating-label:not(.mdc-floating-label--float-above) {
+    color: $label-color;
   }
 }

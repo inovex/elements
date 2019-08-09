@@ -352,6 +352,7 @@ export class Input {
           ino-outline={this.inoOutline}
           ino-text={this.inoLabel}
           ino-required={this.required}
+          ino-disabled={this.disabled}
         />
         {this.inoIconTrailing && this.iconTemplate()}
       </div>,

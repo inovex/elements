@@ -205,6 +205,7 @@ export class Textarea {
           ino-outline
           ino-text={this.inoLabel}
           ino-required={this.required}
+          ino-disabled={this.disabled}
         />
       </div>
     );

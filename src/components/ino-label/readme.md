@@ -1,12 +1,12 @@
 # ino-label
 
-This is an internally used component and it should not be used by the consumer.
-
+This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.
 ```html
 <ino-label
   ino-outline="<boolean>"
   ino-label="<string>"
   ino-required="<boolean>"
+  ino-disabled="<boolean>"
 >
 </ino-label>
 ```
@@ -16,11 +16,12 @@ This is an internally used component and it should not be used by the consumer.
 
 ## Properties
 
-| Property      | Attribute      | Description                                      | Type      | Default     |
-| ------------- | -------------- | ------------------------------------------------ | --------- | ----------- |
-| `inoOutline`  | `ino-outline`  | Styles the label in an outlined style            | `boolean` | `undefined` |
-| `inoRequired` | `ino-required` | Appends * to the label                           | `boolean` | `undefined` |
-| `inoText`     | `ino-text`     | The optional floating label of this input field. | `string`  | `undefined` |
+| Property      | Attribute      | Description                                                                        | Type      | Default     |
+| ------------- | -------------- | ---------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoDisabled` | `ino-disabled` | Colors the label in an light grey to indicate the disabled status for this element | `boolean` | `undefined` |
+| `inoOutline`  | `ino-outline`  | Styles the label in an outlined style                                              | `boolean` | `undefined` |
+| `inoRequired` | `ino-required` | Appends * to the label to make it appear as an required input in a form            | `boolean` | `undefined` |
+| `inoText`     | `ino-text`     | The text of the label itself                                                       | `string`  | `undefined` |
 
 
 ----------------------------------------------
