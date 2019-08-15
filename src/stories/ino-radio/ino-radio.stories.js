@@ -47,8 +47,23 @@ storiesOf('<ino-radio>', module)
       <ino-radio
         checked="${boolean('checked', false)}"
         disabled="${boolean('disabled', false)}"
-        name="radio-0"
+        name="radio-custom"
       >
+        ${text('<slot />', 'Customizable Radio Button')}
+      </ino-radio>
+    </div>
+    
+    <h4>Radio Group</h4>
+    <div class="story-radio">
+      <ino-radio ino-id="11" name="group">Option 1</ino-radio>
+      <ino-radio ino-id="22" name="group">Option 2</ino-radio>
+      <ino-radio ino-id="33" name="group">Option 3</ino-radio>
+      <ino-radio ino-id="44" name="group">Option 4</ino-radio>
+    </div>
+    
+    <h4>States</h4>
+    <div class="story-radio">
+      <ino-radio name="radio-0">
         ${text('<slot />', 'Unchecked')}
       </ino-radio>
       <ino-radio checked name="radio-1">Checked</ino-radio>

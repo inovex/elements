@@ -1,6 +1,6 @@
 # ino-radio
 
-A radio component that allows the user to select one option from a set. with label. around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
+A radio component that allows the user to select one option from a set of radio-buttons. This components functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.
 
 ### Usage
 
@@ -9,19 +9,17 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-radio')
-  .addEventListener('checkedChange', e =>
+  .addEventListener('checkedChange', _ =>
     alert(
-      `The radio button should be ${
-        e.detail === true ? 'checked' : 'unchecked'
-      }`
+      `The radio button should be checked`
     )
   );
 ```
 
 ```html
 <ino-radio
-  checked
-  disabled
+  checked="<boolean>"
+  disabled="<boolean>"
   name="<string>"
   value="<string>"
   ino-id="<string>"
@@ -83,7 +81,7 @@ class MyComponent extends Component {
 
 ### Control flow
 
-The input has a controlled (unmanaged) attribute `checked`. For this reason, listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change the value of input.
+Clicking on the radio button triggers an event that has the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). If there are several radio buttons in a group (same `name`), there can only be a single element with the state `checked=true`. If this property (`checked=true`) is passed to another element, the other elements in this group will be unchecked (`checked=false`).
 
 ```js
 document.querySelector('ino-radio').addEventListener('checkedChange', e => {
@@ -103,21 +101,21 @@ document.querySelector('ino-radio').addEventListener('checkedChange', e => {
 
 ## Properties
 
-| Property      | Attribute      | Description                                    | Type      | Default     |
-| ------------- | -------------- | ---------------------------------------------- | --------- | ----------- |
-| `checked`     | `checked`      | Marks this element as checked (**unmanaged**). | `boolean` | `false`     |
-| `disabled`    | `disabled`     | Disables this element.                         | `boolean` | `undefined` |
-| `inoId`       | `ino-id`       | The id of this element.                        | `string`  | `undefined` |
-| `inoTabindex` | `ino-tabindex` | The tabIndex of this element.                  | `number`  | `undefined` |
-| `name`        | `name`         | The name of this element.                      | `string`  | `undefined` |
-| `value`       | `value`        | The value of this element.                     | `string`  | `undefined` |
+| Property      | Attribute      | Description                                                                                                                                                | Type      | Default     |
+| ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `checked`     | `checked`      | Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically. | `boolean` | `false`     |
+| `disabled`    | `disabled`     | Disables this element.                                                                                                                                     | `boolean` | `undefined` |
+| `inoId`       | `ino-id`       | The id of this element                                                                                                                                     | `string`  | `undefined` |
+| `inoTabindex` | `ino-tabindex` | The tabIndex of this element.                                                                                                                              | `number`  | `undefined` |
+| `name`        | `name`         | The name of this element. Use the same name for radio groups                                                                                               | `string`  | `undefined` |
+| `value`       | `value`        | The value of this element.                                                                                                                                 | `string`  | `undefined` |
 
 
 ## Events
 
-| Event           | Description                                                                        | Type                |
-| --------------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `checkedChange` | Emits when the user enters some keystrokes. Contains typed input in `event.detail` | `CustomEvent<void>` |
+| Event           | Description                                                                                                                                                                | Type                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<void>` |
 
 
 ----------------------------------------------

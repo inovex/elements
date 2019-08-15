@@ -330,6 +330,127 @@ export namespace Components {
     'onRemoveChip'?: (event: CustomEvent) => void;
   }
 
+  interface InoControlItem {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked': boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Marks this element as indeterminate (**unmanaged**) Checkbox only
+    */
+    'indeterminate'?: boolean;
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated'?: boolean;
+    /**
+    * Styles the row in a disabled style.
+    */
+    'inoDisabled'?: boolean;
+    /**
+    * The id of this element.
+    */
+    'inoId'?: string;
+    /**
+    * The type of control element
+    */
+    'inoRole': 'checkbox' | 'radio';
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText'?: string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The tab index of this element.
+    */
+    'inoTabindex'?: number;
+    /**
+    * The primary text of this list item (required).
+    */
+    'inoText': string;
+    /**
+    * Places the checkbox at the end of the item
+    */
+    'inoTrailing'?: boolean;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * The value of this element.
+    */
+    'value'?: string;
+  }
+  interface InoControlItemAttributes extends StencilHTMLAttributes {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Marks this element as indeterminate (**unmanaged**) Checkbox only
+    */
+    'indeterminate'?: boolean;
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated'?: boolean;
+    /**
+    * Styles the row in a disabled style.
+    */
+    'inoDisabled'?: boolean;
+    /**
+    * The id of this element.
+    */
+    'inoId'?: string;
+    /**
+    * The type of control element
+    */
+    'inoRole': 'checkbox' | 'radio';
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText'?: string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The tab index of this element.
+    */
+    'inoTabindex'?: number;
+    /**
+    * The primary text of this list item (required).
+    */
+    'inoText': string;
+    /**
+    * Places the checkbox at the end of the item
+    */
+    'inoTrailing'?: boolean;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
+    */
+    'onCheckedChange'?: (event: CustomEvent) => void;
+    /**
+    * The value of this element.
+    */
+    'value'?: string;
+  }
+
   interface InoDatepicker {
     /**
     * The accesskey of this element.
@@ -1270,7 +1391,7 @@ export namespace Components {
 
   interface InoRadio {
     /**
-    * Marks this element as checked (**unmanaged**).
+    * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
     */
     'checked': boolean;
     /**
@@ -1278,7 +1399,7 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * The id of this element.
+    * The id of this element
     */
     'inoId'?: string;
     /**
@@ -1286,7 +1407,7 @@ export namespace Components {
     */
     'inoTabindex'?: number;
     /**
-    * The name of this element.
+    * The name of this element. Use the same name for radio groups
     */
     'name'?: string;
     /**
@@ -1296,7 +1417,7 @@ export namespace Components {
   }
   interface InoRadioAttributes extends StencilHTMLAttributes {
     /**
-    * Marks this element as checked (**unmanaged**).
+    * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
     */
     'checked'?: boolean;
     /**
@@ -1304,7 +1425,7 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * The id of this element.
+    * The id of this element
     */
     'inoId'?: string;
     /**
@@ -1312,11 +1433,11 @@ export namespace Components {
     */
     'inoTabindex'?: number;
     /**
-    * The name of this element.
+    * The name of this element. Use the same name for radio groups
     */
     'name'?: string;
     /**
-    * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
+    * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false.
     */
     'onCheckedChange'?: (event: CustomEvent) => void;
     /**
@@ -1797,6 +1918,7 @@ declare global {
     'InoCheckbox': Components.InoCheckbox;
     'InoChipSet': Components.InoChipSet;
     'InoChip': Components.InoChip;
+    'InoControlItem': Components.InoControlItem;
     'InoDatepicker': Components.InoDatepicker;
     'InoFabSet': Components.InoFabSet;
     'InoFab': Components.InoFab;
@@ -1829,6 +1951,7 @@ declare global {
     'ino-checkbox': Components.InoCheckboxAttributes;
     'ino-chip-set': Components.InoChipSetAttributes;
     'ino-chip': Components.InoChipAttributes;
+    'ino-control-item': Components.InoControlItemAttributes;
     'ino-datepicker': Components.InoDatepickerAttributes;
     'ino-fab-set': Components.InoFabSetAttributes;
     'ino-fab': Components.InoFabAttributes;
@@ -1884,6 +2007,12 @@ declare global {
   var HTMLInoChipElement: {
     prototype: HTMLInoChipElement;
     new (): HTMLInoChipElement;
+  };
+
+  interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {}
+  var HTMLInoControlItemElement: {
+    prototype: HTMLInoControlItemElement;
+    new (): HTMLInoControlItemElement;
   };
 
   interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {}
@@ -2036,6 +2165,7 @@ declare global {
     'ino-checkbox': HTMLInoCheckboxElement
     'ino-chip-set': HTMLInoChipSetElement
     'ino-chip': HTMLInoChipElement
+    'ino-control-item': HTMLInoControlItemElement
     'ino-datepicker': HTMLInoDatepickerElement
     'ino-fab-set': HTMLInoFabSetElement
     'ino-fab': HTMLInoFabElement
@@ -2068,6 +2198,7 @@ declare global {
     'ino-checkbox': HTMLInoCheckboxElement;
     'ino-chip-set': HTMLInoChipSetElement;
     'ino-chip': HTMLInoChipElement;
+    'ino-control-item': HTMLInoControlItemElement;
     'ino-datepicker': HTMLInoDatepickerElement;
     'ino-fab-set': HTMLInoFabSetElement;
     'ino-fab': HTMLInoFabElement;

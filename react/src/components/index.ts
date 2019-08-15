@@ -28,6 +28,10 @@ export const InoCheckbox = createReactComponent<
   Components.InoCheckboxAttributes,
   HTMLInoCheckboxElement
 >('ino-checkbox');
+export const InoControlItem = createReactComponent<
+  Components.InoControlItemAttributes,
+  HTMLInoControlItemElement
+  >('ino-control-item');
 export const InoChip = createReactComponent<
   Components.InoChipAttributes,
   HTMLInoChipElement
