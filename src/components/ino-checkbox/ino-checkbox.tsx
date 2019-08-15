@@ -1,14 +1,8 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Listen,
-  Prop,
-  Watch
-} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+
+import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-checkbox',
@@ -38,11 +32,6 @@ export class Checkbox {
   @Prop() disabled?: boolean;
 
   /**
-   * The id of this element.
-   */
-  @Prop() inoId?: string;
-
-  /**
    * The name of this element.
    */
   @Prop() name?: string;
@@ -67,6 +56,8 @@ export class Checkbox {
     this.checkboxInstance.indeterminate = newValue;
   }
 
+  private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
+
   componentDidLoad() {
     this.checkboxInstance = new MDCCheckbox(
       this.el.querySelector('.mdc-checkbox')
@@ -89,32 +80,14 @@ export class Checkbox {
    */
   @Event() checkedChange!: EventEmitter;
 
-  @Listen('change')
-  handleChange(e: Event) {
-    e.stopPropagation();
-  }
-
-  @Listen('input')
-  handleInput(e: Event) {
-    const newValue = this.nativeInputEl.checked;
-    if (newValue === this.checked) {
-      return;
-    }
-    // Reset native value
+  handleInput = (e: Event) => {
     this.nativeInputEl.checked = this.checked;
-
-    // reset indeterminate status
-    this.checkboxInstance.indeterminate = this.indeterminate;
-    this.checkedChange.emit(newValue);
-
+    this.checkedChange.emit(!this.checked);
     e.stopPropagation();
-  }
-
-  private uniqueCheckboxId() {
-    return this.inoId ? `ino-checkbox-id-${this.inoId}` : '';
   }
 
   render() {
+
     return (
       <div class="mdc-form-field">
         <div
@@ -128,8 +101,10 @@ export class Checkbox {
             name={this.name}
             tabindex={this.inoTabindex}
             value={this.value}
-            id={this.uniqueCheckboxId()}
+            id={this.checkboxId}
             ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+            onChange={e => e.stopPropagation()}
+            onInput={this.handleInput}
           />
           <div class="mdc-checkbox__background">
             <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
@@ -140,11 +115,11 @@ export class Checkbox {
                 d="M1.73,12.91 8.1,19.28 22.79,4.59"
               />
             </svg>
-            <div class="mdc-checkbox__mixedmark" />
+            <div class="mdc-checkbox__mixedmark"/>
           </div>
         </div>
-        <label htmlFor={this.uniqueCheckboxId()}>
-          <slot />
+        <label htmlFor={this.checkboxId}>
+          <slot/>
         </label>
       </div>
     );

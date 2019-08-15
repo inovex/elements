@@ -1,15 +1,9 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Listen,
-  Prop,
-  Watch
-} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
 import classnames from 'classnames';
+
+import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-radio',
@@ -21,7 +15,9 @@ export class Radio {
   private nativeInputEl!: HTMLInputElement;
 
   /**
-   * Marks this element as checked (**unmanaged**).
+   * Initially marks this element as checked.
+   * If another ino-radio element in the same group receives `true`,
+   * the value will be changed to false automatically.
    */
   @Prop() checked = false;
 
@@ -36,12 +32,7 @@ export class Radio {
   @Prop() disabled?: boolean;
 
   /**
-   * The id of this element.
-   */
-  @Prop() inoId?: string;
-
-  /**
-   * The name of this element.
+   * The name of this element. Use the same name for radio groups
    */
   @Prop() name?: string;
 
@@ -66,28 +57,18 @@ export class Radio {
   private formField: MDCFormField;
 
   /**
-   * Emits when the user enters some keystrokes. Contains typed input in `event.detail`
+   * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`.
+   * This event will only be emitted if the current state of the radio button is false.
    */
   @Event() checkedChange!: EventEmitter;
 
-  @Listen('change')
-  handleChange(e: Event) {
+  handleInput = (e: Event) => {
     e.stopPropagation();
-  }
-
-  @Listen('input')
-  handleInput(e: Event) {
-    const newValue = this.nativeInputEl.checked;
-    if (newValue === this.checked) {
-      return;
-    }
-
-    // Reset native value
     this.nativeInputEl.checked = this.checked;
-    this.checkedChange.emit(newValue);
-
-    e.stopPropagation();
+    this.checkedChange.emit(true);
   }
+
+  private radioId = `ino-radio-id_${generateUniqueId()}`;
 
   componentDidLoad() {
     this.radio = new MDCRadio(this.el.querySelector('.mdc-radio'));
@@ -100,37 +81,37 @@ export class Radio {
     this.formField.destroy();
   }
 
-  private uniqueRadioId() {
-    return this.inoId ? `ino-radio-id-${this.inoId}` : '';
-  }
-
   render() {
+
+    const classes = classnames({
+      'mdc-radio': true,
+      'mdc-radio--disabled': this.disabled
+    });
+
     return (
       <div class="mdc-form-field">
-        <div
-          class={classnames('mdc-radio', {
-            'mdc-radio--disabled': this.disabled
-          })}
-        >
+        <div class={classes}>
           <input
             class="mdc-radio__native-control"
             type="radio"
-            id={this.uniqueRadioId()}
+            id={this.radioId}
             checked={this.checked}
             disabled={this.disabled}
             name={this.name}
             tabindex={this.inoTabindex}
             value={this.value}
             ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+            onInput={this.handleInput}
+            onChange={e => e.stopPropagation()}
           />
 
           <div class="mdc-radio__background">
-            <div class="mdc-radio__outer-circle" />
-            <div class="mdc-radio__inner-circle" />
+            <div class="mdc-radio__outer-circle"/>
+            <div class="mdc-radio__inner-circle"/>
           </div>
         </div>
-        <label htmlFor={this.uniqueRadioId()}>
-          <slot />
+        <label htmlFor={this.radioId}>
+          <slot/>
         </label>
       </div>
     );

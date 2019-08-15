@@ -28,7 +28,7 @@ document
   onclickel="handleClickEl()"
 >
   <ino-icon slot="ino-leading" ...></ino-icon>
-  <ino-checkbox slot="ino-trailing" ...></ino-checkbox>
+  <ino-icon slot="ino-trailing" ...></ino-icon>
 </ino-list-item>
 ```
 
