@@ -123,7 +123,6 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `checked`       | `checked`       | Marks this element as checked. (**unmanaged**)      | `boolean` | `false`     |
 | `disabled`      | `disabled`      | Disables this element.                              | `boolean` | `undefined` |
 | `indeterminate` | `indeterminate` | Marks this element as indeterminate (**unmanaged**) | `boolean` | `undefined` |
-| `inoId`         | `ino-id`        | The id of this element.                             | `string`  | `undefined` |
 | `inoTabindex`   | `ino-tabindex`  | The tab index of this element.                      | `number`  | `undefined` |
 | `name`          | `name`          | The name of this element.                           | `string`  | `undefined` |
 | `value`         | `value`         | The value of this element.                          | `string`  | `undefined` |
