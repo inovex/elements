@@ -48,11 +48,18 @@ export class Select {
 
   /**
    * Prepends a selected, empty and disabled option.
-   *
-   * The label is positioned as placeholder and floats to
-   * the top after selecting an option.
+   * This property cannot be changed after initial render to avoid layout problems.
    */
-  @Prop() inoPrependDefault?: boolean;
+  @Prop() inoPrependDefault ? = false;
+
+  @Watch('inoPrependDefault')
+  changeHandler(newValue: boolean) {
+    if (newValue !== this.inoPrependDefaultConst) {
+      console.warn('ino-select/ino-prepend-default: This property cannot be changed after initial render to avoid layout problems.');
+    }
+  }
+
+  private inoPrependDefaultConst: boolean;
 
   /**
    * The label of this element
@@ -78,6 +85,10 @@ export class Select {
    * Emits when a selection changes. Contains new value in `event.detail`.
    */
   @Event() valueChange!: EventEmitter<string>;
+
+  componentWillLoad() {
+    this.inoPrependDefaultConst = this.inoPrependDefault;
+  }
 
   componentDidLoad() {
     this.mdcInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
@@ -120,7 +131,7 @@ export class Select {
 
     return (
       <div class={classSelect}>
-        <i class="mdc-select__dropdown-icon" />
+        <i class="mdc-select__dropdown-icon"/>
         <select
           ref={el => (this.nativeSelectElement = el)}
           class="mdc-select__native-control"
@@ -130,8 +141,8 @@ export class Select {
           name={this.name}
           required={this.required}
         >
-          {this.inoPrependDefault && <option disabled selected value="" />}
-          <slot />
+          {this.inoPrependDefaultConst && <option disabled selected value=""/>}
+          <slot/>
         </select>
         <ino-label
           ino-outline={this.inoOutline}
