@@ -41,7 +41,11 @@ document
   ino-helper="<string>"
   ino-helper-persistent
   ino-helper-validation
+  ino-data-list="<string>"
 >
+    <datalist id="<string>">
+        <option>...</option>
+    </datalist>
 </ino-input>
 ```
 
@@ -108,6 +112,7 @@ class MyComponent extends Component {
 
 **Icons**: Provide a string identifier in `ino-icon` to display a leading icon. Set `ino-icon-trailing` to position the icon after the input field. Make the icon interactive and clickable by adding `ino-icon-clickable` and listen to the `inoIconClicked` event emitted by the icon component.
 
+**Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
 ### Control flow
 
 The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
@@ -137,6 +142,7 @@ The component is based on a native input with additional features. Thus, the com
 | `autocomplete`              | `autocomplete`                 | The autocomplete property of this element.                                                                              | `string`  | `undefined` |
 | `autofocus`                 | `autofocus`                    | The autofocus of this element.                                                                                          | `boolean` | `undefined` |
 | `disabled`                  | `disabled`                     | Disables this element.                                                                                                  | `boolean` | `undefined` |
+| `inoDataList`               | `ino-data-list`                | The id of the datalist child                                                                                            | `string`  | `undefined` |
 | `inoHelper`                 | `ino-helper`                   | The optional helper text.                                                                                               | `string`  | `undefined` |
 | `inoHelperCharacterCounter` | `ino-helper-character-counter` | Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently. | `boolean` | `undefined` |
 | `inoHelperPersistent`       | `ino-helper-persistent`        | Displays the helper permanently.                                                                                        | `boolean` | `undefined` |

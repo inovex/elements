@@ -996,6 +996,10 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
+    * The id of the datalist child
+    */
+    'inoDataList'?: string;
+    /**
     * The optional helper text.
     */
     'inoHelper'?: string;
@@ -1097,6 +1101,10 @@ export namespace Components {
     * Disables this element.
     */
     'disabled'?: boolean;
+    /**
+    * The id of the datalist child
+    */
+    'inoDataList'?: string;
     /**
     * The optional helper text.
     */

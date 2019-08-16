@@ -1,15 +1,7 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Listen,
-  Prop,
-  Watch
-} from '@stencil/core';
+import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -189,6 +181,11 @@ export class Input {
   @Prop() inoIconClickable?: boolean;
 
   /**
+   * The id of the datalist child
+   */
+  @Prop() inoDataList?: string;
+
+  /**
    * Simple static construct to generate unique helper text ids.
    */
   private static HELPER_COUNTER = 0;
@@ -347,7 +344,9 @@ export class Input {
           onInput={this.handleNativeInputChange.bind(this)}
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
+          list={this.inoDataList}
         />
+        <slot/>
         <ino-label
           ino-outline={this.inoOutline}
           ino-text={this.inoLabel}

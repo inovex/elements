@@ -98,6 +98,17 @@ storiesOf('<ino-input>', module)
       <h4 class="outline">Outlined</h4>
       <ino-input placeholder="Outline" ino-outline></ino-input>
 
+      <h4>Datalist</h4>
+      <ino-input ino-label="Datalist" ino-data-list="languages">
+        <datalist id="languages">
+          <option>HTML</option>
+          <option>Java</option>
+          <option>Perl</option>
+          <option>PHP</option>
+          <option>Ruby on Rails</option>
+        </datalist>
+      </ino-input>
+
       <h4>Labels</h4>
       <ino-input ino-label="Floating label"></ino-input>
       <ino-input ino-label="Floating label" value="With value"></ino-input>
