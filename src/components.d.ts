@@ -189,10 +189,6 @@ export namespace Components {
     */
     'indeterminate'?: boolean;
     /**
-    * The id of this element.
-    */
-    'inoId'?: string;
-    /**
     * The tab index of this element.
     */
     'inoTabindex'?: number;
@@ -218,10 +214,6 @@ export namespace Components {
     * Marks this element as indeterminate (**unmanaged**)
     */
     'indeterminate'?: boolean;
-    /**
-    * The id of this element.
-    */
-    'inoId'?: string;
     /**
     * The tab index of this element.
     */
@@ -1407,10 +1399,6 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * The id of this element
-    */
-    'inoId'?: string;
-    /**
     * The tabIndex of this element.
     */
     'inoTabindex'?: number;
@@ -1432,10 +1420,6 @@ export namespace Components {
     * Disables this element.
     */
     'disabled'?: boolean;
-    /**
-    * The id of this element
-    */
-    'inoId'?: string;
     /**
     * The tabIndex of this element.
     */
