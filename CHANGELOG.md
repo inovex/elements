@@ -1,3 +1,19 @@
+# [0.7.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.6...v0.7.0) (2019-08-16)
+
+
+### Bug Fixes
+
+* **ino-select:** prevent change of inoPrependDefault to avoid layout problems ([a12eac1](http://gitlab.inovex.de/inovex-elements/core/commit/a12eac1))
+* **ino-textarea:** add black border on hover ([ff0d1c5](http://gitlab.inovex.de/inovex-elements/core/commit/ff0d1c5))
+
+
+### Features
+
+* **ino-control-item:** add component ([da8cc86](http://gitlab.inovex.de/inovex-elements/core/commit/da8cc86))
+* **ino-input:** add datalist ([6c4e495](http://gitlab.inovex.de/inovex-elements/core/commit/6c4e495))
+
+
+
 ## [0.6.6](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.5...v0.6.6) (2019-08-09)
 
 
