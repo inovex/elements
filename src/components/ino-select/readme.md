@@ -113,17 +113,17 @@ The component behaves like a native select with additional features. The native 
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                                                              | Type      | Default     |
-| ------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `autofocus`         | `autofocus`           | Marks this element as autofocused.                                                                                                       | `boolean` | `undefined` |
-| `disabled`          | `disabled`            | Disables this element.                                                                                                                   | `boolean` | `undefined` |
-| `form`              | `form`                | The form this element belongs to.                                                                                                        | `string`  | `undefined` |
-| `inoLabel`          | `ino-label`           | The label of this element                                                                                                                | `string`  | `undefined` |
-| `inoOutline`        | `ino-outline`         | Styles this select box as outlined element.                                                                                              | `boolean` | `undefined` |
-| `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option. | `boolean` | `undefined` |
-| `name`              | `name`                | The name of this element.                                                                                                                | `string`  | `undefined` |
-| `required`          | `required`            | Marks this element as required.                                                                                                          | `boolean` | `undefined` |
-| `value`             | `value`               | The value of this element. (**unmanaged**)                                                                                               | `string`  | `''`        |
+| Property            | Attribute             | Description                                                                                                                    | Type      | Default     |
+| ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `autofocus`         | `autofocus`           | Marks this element as autofocused.                                                                                             | `boolean` | `undefined` |
+| `disabled`          | `disabled`            | Disables this element.                                                                                                         | `boolean` | `undefined` |
+| `form`              | `form`                | The form this element belongs to.                                                                                              | `string`  | `undefined` |
+| `inoLabel`          | `ino-label`           | The label of this element                                                                                                      | `string`  | `undefined` |
+| `inoOutline`        | `ino-outline`         | Styles this select box as outlined element.                                                                                    | `boolean` | `undefined` |
+| `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems. | `boolean` | `false`     |
+| `name`              | `name`                | The name of this element.                                                                                                      | `string`  | `undefined` |
+| `required`          | `required`            | Marks this element as required.                                                                                                | `boolean` | `undefined` |
+| `value`             | `value`               | The value of this element. (**unmanaged**)                                                                                     | `string`  | `''`        |
 
 
 ## Events

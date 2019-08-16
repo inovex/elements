@@ -1557,7 +1557,7 @@ export namespace Components {
     */
     'inoOutline'?: boolean;
     /**
-    * Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option.
+    * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
     */
     'inoPrependDefault'?: boolean;
     /**
@@ -1595,7 +1595,7 @@ export namespace Components {
     */
     'inoOutline'?: boolean;
     /**
-    * Prepends a selected, empty and disabled option.  The label is positioned as placeholder and floats to the top after selecting an option.
+    * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
     */
     'inoPrependDefault'?: boolean;
     /**
