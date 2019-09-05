@@ -52,6 +52,12 @@ export class Select {
    */
   @Prop() inoPrependDefault ? = false;
 
+  /**
+   * Disables the default empty element. Usable if `inoPrependDefault` is set.
+   * Default value is `true`.
+   */
+  @Prop() inoDisableDefault ? = true;
+
   @Watch('inoPrependDefault')
   changeHandler(newValue: boolean) {
     if (newValue !== this.inoPrependDefaultConst) {
@@ -141,7 +147,7 @@ export class Select {
           name={this.name}
           required={this.required}
         >
-          {this.inoPrependDefaultConst && <option disabled selected value=""/>}
+          {this.inoPrependDefaultConst && <option disabled={this.inoDisableDefault} selected value=""/>}
           <slot/>
         </select>
         <ino-label

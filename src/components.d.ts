@@ -1533,6 +1533,10 @@ export namespace Components {
     */
     'form'?: string;
     /**
+    * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
+    */
+    'inoDisableDefault'?: boolean;
+    /**
     * The label of this element
     */
     'inoLabel'?: string;
@@ -1570,6 +1574,10 @@ export namespace Components {
     * The form this element belongs to.
     */
     'form'?: string;
+    /**
+    * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
+    */
+    'inoDisableDefault'?: boolean;
     /**
     * The label of this element
     */
