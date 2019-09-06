@@ -1,3 +1,12 @@
+# [0.8.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.7.0...v0.8.0) (2019-09-06)
+
+
+### Features
+
+* **ino-select:** add prop to enable/disable prepended empty element ([e38c9b8](http://gitlab.inovex.de/inovex-elements/core/commit/e38c9b8))
+
+
+
 # [0.7.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.6.6...v0.7.0) (2019-08-16)
 
 
