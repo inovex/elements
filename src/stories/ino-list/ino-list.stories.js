@@ -177,6 +177,24 @@ storiesOf('<ino-list>', module)
             <p slot="ino-trailing">$10.00</p>
         </ino-list-item>
       </ino-list>
+      
+      <h4>Primary and Leading Slot</h4>
+      <ino-list>
+        <ino-list-item>
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+            <a slot="ino-primary" href="">Link Element</a>
+        </ino-list-item>
+      </ino-list>
+      
+      <h4>Two Lines with Primary and Secondary Slot</h4>
+      <ino-list ino-two-lines>
+        <ino-list-item>
+            <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+            <a slot="ino-primary" href="">Primary Link Element</a>
+            <a slot="ino-secondary" href="">Secondary Link Element</a>
+            <p slot="ino-trailing">$10.00</p>
+        </ino-list-item>
+      </ino-list>
     </div>
   `
   );

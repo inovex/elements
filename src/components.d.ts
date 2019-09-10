@@ -1279,9 +1279,9 @@ export namespace Components {
     */
     'inoSelected'?: boolean;
     /**
-    * The primary text of this list item (required).
+    * The primary text of this list item.
     */
-    'inoText': string;
+    'inoText'?: string;
   }
   interface InoListItemAttributes extends StencilHTMLAttributes {
     /**
@@ -1301,9 +1301,9 @@ export namespace Components {
     */
     'inoSelected'?: boolean;
     /**
-    * The primary text of this list item (required).
+    * The primary text of this list item.
     */
-    'inoText': string;
+    'inoText'?: string;
     /**
     * Emits when the list item is clicked. Contains the element itself in `event.detail`
     */

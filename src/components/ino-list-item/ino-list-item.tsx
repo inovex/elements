@@ -16,9 +16,9 @@ import classNames from 'classnames';
 export class ListItem {
   @Element() el!: HTMLElement;
   /**
-   * The primary text of this list item (required).
+   * The primary text of this list item.
    */
-  @Prop() inoText!: string;
+  @Prop() inoText?: string;
 
   /**
    * Sets the secondary text of this list item.
@@ -72,25 +72,25 @@ export class ListItem {
       'mdc-list-item--disabled': this.inoDisabled
     });
 
+    const primaryContent = this.inoText || <slot name="ino-primary"/>;
+    const secondaryContent = this.inoSecondaryText || <slot name="ino-secondary"/>;
+
     return (
       <li class={listItemClasses}>
         <span class="mdc-list-item__graphic" role="presentation">
-          <slot name="ino-leading" />
+          <slot name="ino-leading"/>
         </span>
         <span class="mdc-list-item__text">
-          {this.inoSecondaryText
-            ? [
-                <span class="mdc-list-item__primary-text">{this.inoText}</span>,
-                this.inoSecondaryText && (
-                  <span class="mdc-list-item__secondary-text">
-                    {this.inoSecondaryText}
-                  </span>
-                )
-              ]
-            : this.inoText}
+          {
+            secondaryContent ?
+              [
+                <span class="mdc-list-item__primary-text">{primaryContent}</span>,
+                <span class="mdc-list-item__secondary-text">{secondaryContent}</span>
+              ] : primaryContent
+          }
         </span>
         <span class="mdc-list-item__meta">
-          <slot name="ino-trailing" />
+          <slot name="ino-trailing"/>
         </span>
       </li>
     );
