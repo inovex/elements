@@ -57,6 +57,7 @@ storiesOf('<ino-select>', module)
           ino-outline="${boolean('ino-outline', false)}"
           ino-label="${text('ino-label', 'Customizable select')}"
           ino-prepend-default="${boolean('ino-prepend-default', false)}"
+          ino-disable-default="${boolean('ino-disable-default', false)}"
         >
           ${optionsTemplate}
         </ino-select>

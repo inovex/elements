@@ -23,6 +23,7 @@ document
   required
   value="<string>"
   ino-prepend-default
+  ino-disable-default
   ino-label="<string>"
   ino-outline
 >
