@@ -205,20 +205,38 @@ export class Datepicker {
   }
 
   @Listen('click')
-  inoIconClickedHandler() {
+  inoInputClickedHandler(e) {
+    const target = e.target;
+    const tagName = target.tagName;
+
+    if (!tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+      return;
+    }
+
     this.flatpickr.toggle();
+  }
+
+  @Listen('clickEl')
+  inoIconClickedHandler() {
     this.focusInputField();
+    this.flatpickr.toggle();
   }
 
   focusInputField = () => {
     const currentFocus: Element = document.activeElement;
     const input = this.el.querySelector('input') as HTMLInputElement;
-    const isTimeInput = currentFocus && currentFocus.className.includes('flatpickr-hour') || currentFocus.className.includes('flatpickr-minute');
 
     // Don't change focus if currently in time picker
-    if (!isTimeInput) {
+    if (!this.elementIsInput(currentFocus)) {
       input.focus();
     }
+  }
+
+  private static INPUT_CLASSES = ['cur-year', 'flatpickr-hour', 'flatpickr-minute', 'flatpickr-time'];
+
+  private elementIsInput(element: Element) {
+    const elementClasses = element.className;
+    return Datepicker.INPUT_CLASSES.some(cl => elementClasses.includes(cl));
   }
 
   /**
@@ -240,6 +258,9 @@ export class Datepicker {
     this.create();
   }
 
+  private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+
   private create() {
     const options: Partial<BaseOptions> = {
       allowInput: true,
@@ -256,19 +277,21 @@ export class Datepicker {
       enableTime: this.requiresTimePicker(),
       noCalendar: this.requiresNoDatePicker(),
       ignoredFocusElements: [],
+      static: true,
       time_24hr: !this.inoTwelfHourTime,
       dateFormat: this.inoDateFormat,
       onValueUpdate: (_, newValue) => {
         // this callback is only called when the user selects a date/time from the flatpickr
         this.valueChange.emit(newValue);
-        this.flatpickr.setDate(this.value);
-        this.focusInputField();
-      }
+      },
+      onChange: () => this.focusInputField()
     };
 
     this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
+    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT;
+    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG;
   }
 
   private update(option, value) {
