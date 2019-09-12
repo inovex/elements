@@ -642,7 +642,7 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2":
   version "7.6.0"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@babel/runtime/-/runtime-7.6.0.tgz#4fc1d642a9fd0299754e8b5de62c631cf5568205"
   integrity sha1-T8HWQqn9Apl1Totd5ixjHPVWggU=
@@ -691,16 +691,6 @@
     "@emotion/stylis" "^0.7.1"
     "@emotion/utils" "^0.8.2"
 
-"@emotion/cache@^10.0.17":
-  version "10.0.17"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/cache/-/cache-10.0.17.tgz#3491a035f62f276620d586677bfc3d4fad0b8472"
-  integrity sha1-NJGgNfYvJ2Yg1YZne/w9T60LhHI=
-  dependencies:
-    "@emotion/sheet" "0.9.3"
-    "@emotion/stylis" "0.8.4"
-    "@emotion/utils" "0.11.2"
-    "@emotion/weak-memoize" "0.2.3"
-
 "@emotion/core@^0.13.1":
   version "0.13.1"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/core/-/core-0.13.1.tgz#4fa4983e18dbf089fa16584486c8033ca50013ea"
@@ -712,18 +702,6 @@
     "@emotion/sheet" "^0.8.1"
     "@emotion/utils" "^0.8.2"
 
-"@emotion/core@^10.0.10":
-  version "10.0.17"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/core/-/core-10.0.17.tgz#3367376709721f4ee2068cff54ba581d362789d8"
-  integrity sha1-M2c3ZwlyH07iBoz/VLpYHTYnidg=
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@emotion/cache" "^10.0.17"
-    "@emotion/css" "^10.0.14"
-    "@emotion/serialize" "^0.11.10"
-    "@emotion/sheet" "0.9.3"
-    "@emotion/utils" "0.11.2"
-
 "@emotion/css@^0.9.8":
   version "0.9.8"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/css/-/css-0.9.8.tgz#43fd45c576656d4ed9cc3b8b427c66a2ed6af30a"
@@ -732,31 +710,10 @@
     "@emotion/serialize" "^0.9.1"
     "@emotion/utils" "^0.8.2"
 
-"@emotion/css@^10.0.14":
-  version "10.0.14"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/css/-/css-10.0.14.tgz#95dacabdd0e22845d1a1b0b5968d9afa34011139"
-  integrity sha1-ldrKvdDiKEXRobC1lo2a+jQBETk=
-  dependencies:
-    "@emotion/serialize" "^0.11.8"
-    "@emotion/utils" "0.11.2"
-    babel-plugin-emotion "^10.0.14"
-
-"@emotion/hash@0.7.2":
-  version "0.7.2"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/hash/-/hash-0.7.2.tgz#53211e564604beb9befa7a4400ebf8147473eeef"
-  integrity sha1-UyEeVkYEvrm++npEAOv4FHRz7u8=
-
 "@emotion/hash@^0.6.6":
   version "0.6.6"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/hash/-/hash-0.6.6.tgz#62266c5f0eac6941fece302abad69f2ee7e25e44"
   integrity sha1-YiZsXw6saUH+zjAqutafLufiXkQ=
-
-"@emotion/is-prop-valid@0.8.2":
-  version "0.8.2"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/is-prop-valid/-/is-prop-valid-0.8.2.tgz#b9692080da79041683021fcc32f96b40c54c59dc"
-  integrity sha1-uWkggNp5BBaDAh/MMvlrQMVMWdw=
-  dependencies:
-    "@emotion/memoize" "0.7.2"
 
 "@emotion/is-prop-valid@^0.6.8":
   version "0.6.8"
@@ -764,11 +721,6 @@
   integrity sha1-aK0Cgx2kEhOiCJ0sq06KyLMMvYU=
   dependencies:
     "@emotion/memoize" "^0.6.6"
-
-"@emotion/memoize@0.7.2":
-  version "0.7.2"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/memoize/-/memoize-0.7.2.tgz#7f4c71b7654068dfcccad29553520f984cc66b30"
-  integrity sha1-f0xxt2VAaN/MytKVU1IPmEzGazA=
 
 "@emotion/memoize@^0.6.6":
   version "0.6.6"
@@ -783,17 +735,6 @@
     "@emotion/cache" "^0.8.8"
     "@emotion/weak-memoize" "^0.1.3"
 
-"@emotion/serialize@^0.11.10", "@emotion/serialize@^0.11.8":
-  version "0.11.10"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/serialize/-/serialize-0.11.10.tgz#53207dba7e28bd96928fc2a37e20b31b712bf9a2"
-  integrity sha1-UyB9un4ovZaSj8KjfiCzG3Er+aI=
-  dependencies:
-    "@emotion/hash" "0.7.2"
-    "@emotion/memoize" "0.7.2"
-    "@emotion/unitless" "0.7.4"
-    "@emotion/utils" "0.11.2"
-    csstype "^2.5.7"
-
 "@emotion/serialize@^0.9.1":
   version "0.9.1"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/serialize/-/serialize-0.9.1.tgz#a494982a6920730dba6303eb018220a2b629c145"
@@ -803,11 +744,6 @@
     "@emotion/memoize" "^0.6.6"
     "@emotion/unitless" "^0.6.7"
     "@emotion/utils" "^0.8.2"
-
-"@emotion/sheet@0.9.3":
-  version "0.9.3"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/sheet/-/sheet-0.9.3.tgz#689f135ecf87d3c650ed0c4f5ddcbe579883564a"
-  integrity sha1-aJ8TXs+H08ZQ7QxPXdy+V5iDVko=
 
 "@emotion/sheet@^0.8.1":
   version "0.8.1"
@@ -823,16 +759,6 @@
     "@emotion/serialize" "^0.9.1"
     "@emotion/utils" "^0.8.2"
 
-"@emotion/styled-base@^10.0.17":
-  version "10.0.17"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/styled-base/-/styled-base-10.0.17.tgz#701af0cd256be2977db8d67c33630f542e460b85"
-  integrity sha1-cBrwzSVr4pd9uNZ8M2MPVC5GC4U=
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@emotion/is-prop-valid" "0.8.2"
-    "@emotion/serialize" "^0.11.10"
-    "@emotion/utils" "0.11.2"
-
 "@emotion/styled@^0.10.6":
   version "0.10.6"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/styled/-/styled-0.10.6.tgz#1f6af1d3d4bf9fdeb05a4d220046ce11ad21a7ca"
@@ -840,48 +766,20 @@
   dependencies:
     "@emotion/styled-base" "^0.10.6"
 
-"@emotion/styled@^10.0.10":
-  version "10.0.17"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/styled/-/styled-10.0.17.tgz#0cd38b8b36259541f2c6717fc22607a120623654"
-  integrity sha1-DNOLizYllUHyxnF/wiYHoSBiNlQ=
-  dependencies:
-    "@emotion/styled-base" "^10.0.17"
-    babel-plugin-emotion "^10.0.17"
-
-"@emotion/stylis@0.8.4":
-  version "0.8.4"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/stylis/-/stylis-0.8.4.tgz#6c51afdf1dd0d73666ba09d2eb6c25c220d6fe4c"
-  integrity sha1-bFGv3x3Q1zZmugnS62wlwiDW/kw=
-
 "@emotion/stylis@^0.7.1":
   version "0.7.1"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/stylis/-/stylis-0.7.1.tgz#50f63225e712d99e2b2b39c19c70fff023793ca5"
   integrity sha1-UPYyJecS2Z4rKznBnHD/8CN5PKU=
-
-"@emotion/unitless@0.7.4":
-  version "0.7.4"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/unitless/-/unitless-0.7.4.tgz#a87b4b04e5ae14a88d48ebef15015f6b7d1f5677"
-  integrity sha1-qHtLBOWuFKiNSOvvFQFfa30fVnc=
 
 "@emotion/unitless@^0.6.7":
   version "0.6.7"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/unitless/-/unitless-0.6.7.tgz#53e9f1892f725b194d5e6a1684a7b394df592397"
   integrity sha1-U+nxiS9yWxlNXmoWhKezlN9ZI5c=
 
-"@emotion/utils@0.11.2":
-  version "0.11.2"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/utils/-/utils-0.11.2.tgz#713056bfdffb396b0a14f1c8f18e7b4d0d200183"
-  integrity sha1-cTBWv9/7OWsKFPHI8Y57TQ0gAYM=
-
 "@emotion/utils@^0.8.2":
   version "0.8.2"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
   integrity sha1-V2/3+xIwGFthmnXSWMvJjwhnqNw=
-
-"@emotion/weak-memoize@0.2.3":
-  version "0.2.3"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@emotion/weak-memoize/-/weak-memoize-0.2.3.tgz#dfa0c92efe44a1d1a7974fb49ffeb40ef2da5a27"
-  integrity sha1-36DJLv5EodGnl0+0n/60DvLaWic=
 
 "@emotion/weak-memoize@^0.1.3":
   version "0.1.3"
@@ -2417,22 +2315,6 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-emotion@^10.0.14, babel-plugin-emotion@^10.0.17:
-  version "10.0.17"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/babel-plugin-emotion/-/babel-plugin-emotion-10.0.17.tgz#5673fbed7b1ed61b4b98d5530f33c8a4d1b08484"
-  integrity sha1-VnP77Xse1htLmNVTDzPIpNGwhIQ=
-  dependencies:
-    "@babel/helper-module-imports" "^7.0.0"
-    "@emotion/hash" "0.7.2"
-    "@emotion/memoize" "0.7.2"
-    "@emotion/serialize" "^0.11.10"
-    babel-plugin-macros "^2.0.0"
-    babel-plugin-syntax-jsx "^6.18.0"
-    convert-source-map "^1.5.0"
-    escape-string-regexp "^1.0.5"
-    find-root "^1.1.0"
-    source-map "^0.5.7"
-
 babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/babel-plugin-istanbul/-/babel-plugin-istanbul-4.1.6.tgz#36c59b2192efce81c5b378321b74175add1c9a45"
@@ -2448,7 +2330,7 @@ babel-plugin-jest-hoist@^23.2.0:
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-23.2.0.tgz#e61fae05a1ca8801aadee57a6d66b8cefaf44167"
   integrity sha1-5h+uBaHKiAGq3uV6bWa4zvr0QWc=
 
-babel-plugin-macros@^2.0.0, babel-plugin-macros@^2.4.2:
+babel-plugin-macros@^2.4.2:
   version "2.6.1"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/babel-plugin-macros/-/babel-plugin-macros-2.6.1.tgz#41f7ead616fc36f6a93180e89697f69f51671181"
   integrity sha1-Qffq1hb8NvapMYDolpf2n1FnEYE=
@@ -2532,11 +2414,6 @@ babel-plugin-minify-type-constructors@^0.4.3:
   integrity sha1-G8bxW4f3qxCF1CszC3F2V6IVZQA=
   dependencies:
     babel-helper-is-void-0 "^0.4.3"
-
-babel-plugin-syntax-jsx@^6.18.0:
-  version "6.18.0"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
-  integrity sha1-CvMqmm4Tyno/1QaeYtew9Y0NiUY=
 
 babel-plugin-syntax-object-rest-spread@^6.13.0:
   version "6.13.0"
@@ -3687,7 +3564,7 @@ conventional-commits-parser@^3.0.3:
     through2 "^3.0.0"
     trim-off-newlines "^1.0.0"
 
-convert-source-map@^1.1.0, convert-source-map@^1.4.0, convert-source-map@^1.5.0, convert-source-map@^1.5.1:
+convert-source-map@^1.1.0, convert-source-map@^1.4.0, convert-source-map@^1.5.1:
   version "1.6.0"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/convert-source-map/-/convert-source-map-1.6.0.tgz#51b537a8c43e0f04dec1993bffcdd504e758ac20"
   integrity sha1-UbU3qMQ+DwTewZk7/83VBOdYrCA=
@@ -3997,7 +3874,7 @@ cssstyle@^1.0.0:
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.2.0, csstype@^2.5.7:
+csstype@^2.2.0:
   version "2.6.6"
   resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/csstype/-/csstype-2.6.6.tgz#c34f8226a94bbb10c32cc0d714afdf942291fc41"
   integrity sha1-w0+CJqlLuxDDLMDXFK/flCKR/EE=
@@ -5055,11 +4932,6 @@ find-cache-dir@^2.0.0, find-cache-dir@^2.1.0:
     commondir "^1.0.1"
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
-
-find-root@^1.1.0:
-  version "1.1.0"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
-  integrity sha1-q8/Iunb3CMQql7PWhbfpRQv7nOQ=
 
 find-up@3.0.0, find-up@^3.0.0:
   version "3.0.0"
@@ -9363,14 +9235,16 @@ react-transition-group@^2.0.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-treebeard@^3.1.0:
-  version "3.2.4"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/react-treebeard/-/react-treebeard-3.2.4.tgz#8a27bf132b1f834307d03cc2398dd7c73b7f0910"
-  integrity sha1-iie/Eysfg0MH0DzCOY3Xxzt/CRA=
+react-treebeard@3.1.0, react-treebeard@^3.1.0:
+  version "3.1.0"
+  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/react-treebeard/-/react-treebeard-3.1.0.tgz#e380b9e75f900e538044280ac365d29092583642"
+  integrity sha1-44C551+QDlOARCgKw2XSkJJYNkI=
   dependencies:
-    "@emotion/core" "^10.0.10"
-    "@emotion/styled" "^10.0.10"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^0.13.1"
+    "@emotion/styled" "^0.10.6"
     deep-equal "^1.0.1"
+    prop-types "^15.6.2"
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
 
