@@ -2,6 +2,11 @@
 
 ino-datepicker {
   display: block;
+
+  ino-input, .flatpickr-wrapper, .mdc-text-field {
+    width: 100%;
+  }
+
   @include ino-font(sans-serif, m, regular);
 
   .mdc-text-field--with-leading-icon .mdc-text-field__icon,
@@ -12,29 +17,85 @@ ino-datepicker {
 
 // Customize flatpickr styles
 
-$dayMargin: 2px;
-$selectedDayBackground: ino-color(primary);
+.flatpickr-calendar {
+  @include ino-font($size: xs);
+  width: auto;
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
+  border-radius: 0 6px 6px 6px;
+  margin-top: 4px;
 
-.flatpickr-day {
-  &.selected,
-  &.startRange,
-  &.endRange {
-    &,
-    &.inRange,
-    &:focus,
-    &:hover,
-    &.prevMonthDay,
-    &.nextMonthDay {
-      background: $selectedDayBackground;
-      border-color: $selectedDayBackground;
-    }
-    // Avoid adding extra fill because it overflows in multimonth mode
-    &.startRange + .endRange:not(:nth-child(7n + 1)) {
-      box-shadow: (-5 * $dayMargin) 0 0 $selectedDayBackground;
+  &::before, &::after {
+    display: none;
+  }
+
+  input {
+    @include ino-font($size: s);
+  }
+
+  .flatpickr-innerContainer {
+    margin: 0 20px 15px 20px;
+
+    .flatpickr-day {
+      border-width: 0;
+
+      &:hover:not(focus) {
+        background-color: lighten(ino-color(primary), 36.5%);
+      }
+
+      &.today:not(.selected) {
+        color: ino-color(primary);
+        @include ino-font-weight(semibold);
+      }
+
+      &.selected {
+        background: ino-color(primary);
+        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
+
+        &:hover {
+          background: ino-color(primary);
+        }
+      }
+
+      &.endRange, &.endRange:hover {
+        background-color: ino-color(primary);
+      }
     }
   }
-  &.week.selected {
-    box-shadow: (-2.5 * $dayMargin) 0 0 $selectedDayBackground,
-      (2.5 * $dayMargin) 0 0 $selectedDayBackground;
+
+  .flatpickr-months {
+    margin: 15px 20px 0 20px;
+
+    .flatpickr-month {
+      .cur-month, .numInput {
+        @include ino-font-weight(regular);
+      }
+    }
+
+    .flatpickr-prev-month {
+      margin-left: 10px;
+    }
+
+    .flatpickr-next-month {
+      margin-right: 10px;
+    }
+
+    .flatpickr-prev-month, .flatpickr-next-month {
+      position: relative;
+
+      svg {
+        fill: ino-color(primary);
+        height: 11px;
+        width: 11px;
+
+        path {
+          stroke: ino-color(primary);
+          stroke-width: 1px;
+        }
+      }
+
+      &:hover > svg {
+        fill: ino-color(primary);
+      }
+    }
   }
 }
