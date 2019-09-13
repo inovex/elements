@@ -210,6 +210,10 @@ export class Input {
     if (this.value && this.nativeInputEl) {
       this.nativeInputEl.value = this.value;
     }
+
+    if (this.autofocus) {
+      this.textfield.focus();
+    }
   }
 
   componentWillUnLoad() {
@@ -325,7 +329,6 @@ export class Input {
           class="mdc-text-field__input"
           accessKey={this.accesskey}
           autocomplete={this.autocomplete}
-          autofocus={this.autofocus}
           disabled={this.disabled}
           min={this.min}
           max={this.max}
