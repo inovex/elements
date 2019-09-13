@@ -42,4 +42,16 @@ describe('InoInput', () => {
     expect(spyOnFocusEvent).not.toHaveReceivedEvent();
     expect(spyOnBlurEvent).not.toHaveReceivedEvent();
   });
+
+  it('should be focused automatically', async () => {
+    const emptyElement = {};
+
+    const pageWithDefaultInput = await setupPageWithContent(INO_INPUT);
+    const focusedElementWithoutAutofocus = await pageWithDefaultInput.evaluate(() => document.activeElement);
+    expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
+
+    const pageWithFocusedInput = await setupPageWithContent(`<ino-input autofocus></ino-input>`);
+    const focusedElement = await pageWithFocusedInput.evaluate(() => document.activeElement);
+    expect(focusedElement).not.toEqual(emptyElement);
+  });
 });
