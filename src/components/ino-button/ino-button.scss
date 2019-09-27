@@ -26,7 +26,7 @@ $edged-border: 0 24px 24px 24px;
   }
 }
 
-ino-button {
+:host {
   display: inline-block;
 
   // Shared Attributes
@@ -53,48 +53,49 @@ ino-button {
       @include mdc-button-shape-radius($round-border);
     }
   }
+}
 
-  @each $color-name, $map in $ino-color-scheme {
-    // Condition to set default styles for primary
-    $selector: '&[ino-color-scheme="#{$color-name}"]';
-    @if $color-name == primary {
-      $selector: '&';
+@each $color-name, $map in $ino-color-scheme {
+  // Condition to set default styles for primary
+  $selector: ':host([ino-color-scheme="#{$color-name}"])';
+  @if $color-name == primary {
+    $selector: ':host';
+  }
+
+  #{$selector} .mdc-button {
+    &.mdc-button--raised {
+      box-shadow: $big-shadow;
+
+      &:hover {
+        box-shadow: $small-shadow;
+      }
+
+      &:active {
+        box-shadow: $big-shadow;
+      }
     }
 
-    #{$selector} .mdc-button {
-      &.mdc-button--raised {
-        box-shadow: $big-shadow;
+    &.mdc-button--raised,
+    &.mdc-button--unelevated {
+      @include mdc-button-filled-accessible(map-get($map, base));
+      @include mdc-button-ink-color(map-get($map, contrast));
 
-        &:hover {
-          box-shadow: $small-shadow;
-        }
-
-        &:active {
-          box-shadow: $big-shadow;
-        }
+      &:disabled {
+        background-color: ino-color(light, dark);
+        color: #fff;
       }
+    }
 
-      &.mdc-button--raised,
-      &.mdc-button--unelevated {
-        @include mdc-button-filled-accessible(map-get($map, base));
-        @include mdc-button-ink-color(map-get($map, contrast));
+    &.mdc-button--outlined {
+      @include mdc-button-outline-width(2px);
+      @include mdc-button-outline-color(map-get($map, base));
+      @include mdc-button-ink-color(map-get($map, dark));
 
-        &:disabled {
-          background-color: ino-color(light, dark);
-          color: #fff;
-        }
-      }
-
-      &.mdc-button--outlined {
-        @include mdc-button-outline-width(2px);
-        @include mdc-button-outline-color(map-get($map, base));
-        @include mdc-button-ink-color(map-get($map, dark));
-
-        &:disabled {
-          @include mdc-button-outline-color(ino-color(dark, base));
-          @include mdc-button-ink-color(ino-color(light, base));
-        }
+      &:disabled {
+        @include mdc-button-outline-color(ino-color(dark, base));
+        @include mdc-button-ink-color(ino-color(light, base));
       }
     }
   }
 }
+

@@ -1,11 +1,11 @@
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ino-control-item',
   styleUrl: 'ino-control-item.scss',
   shadow: false
 })
-export class InoControlItem {
+export class InoControlItem implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -54,7 +54,7 @@ export class InoControlItem {
   /**
    * Marks this element as checked. (**unmanaged**)
    */
-  @Prop() checked = false;
+  @Prop() checked?: boolean = false;
 
   /**
    * Disables this element.
@@ -65,11 +65,6 @@ export class InoControlItem {
    * The name of this element.
    */
   @Prop() name?: string;
-
-  /**
-   * The tab index of this element.
-   */
-  @Prop() inoTabindex?: number;
 
   /**
    * The value of this element.
@@ -123,31 +118,33 @@ export class InoControlItem {
       checked: this.checked,
       disabled: this.inoDisabled,
       name: this.name,
-      tabIndex: this.inoTabindex,
       value: this.value,
       onCheckedChange: this.changedHandler
     };
 
     return (
-      <ino-list-item
-        id={this.inoId}
-        inoText={this.inoText}
-        inoSecondaryText={this.inoSecondaryText}
-        inoActivated={this.inoActivated}
-        inoSelected={this.inoSelected}
-        inoDisabled={this.inoDisabled}
-        onClick={this.clickHandler}
-      >
-        {
-          this.inoRole === 'checkbox' ?
-            <ino-checkbox {...controlItemProps} indeterminate={this.indeterminate}/>
-            :
-            <ino-radio {...controlItemProps}/>
-        }
-        <span slot={slotPosition}>
-          <slot/>
+      <Host>
+        <ino-list-item
+          id={this.inoId}
+          inoText={this.inoText}
+          inoSecondaryText={this.inoSecondaryText}
+          inoActivated={this.inoActivated}
+          inoSelected={this.inoSelected}
+          inoDisabled={this.inoDisabled}
+          onClick={this.clickHandler}
+        >
+          {
+            this.inoRole === 'checkbox' ?
+              <ino-checkbox {...controlItemProps} indeterminate={this.indeterminate}/>
+              :
+              <ino-radio {...controlItemProps}/>
+          }
+          <span slot={slotPosition}>
+          <slot>
+          </slot>
         </span>
-      </ino-list-item>
+        </ino-list-item>
+      </Host>
     );
   }
 }

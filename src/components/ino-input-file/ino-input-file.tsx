@@ -1,10 +1,10 @@
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ino-input-file',
   styleUrl: 'ino-input-file.scss'
 })
-export class InputFile {
+export class InputFile implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -40,13 +40,13 @@ export class InputFile {
   /**
    * Sets the label of the select files button.
    */
-  @Prop() inoLabel = 'Select file';
+  @Prop() inoLabel?: string = 'Select file';
 
   /**
    * Emits when the value changes.
    */
   @Event() changeFile!: EventEmitter<{
-    e: Event;
+    e: any;
     files: object[];
   }>;
 
@@ -65,29 +65,31 @@ export class InputFile {
 
   render() {
     return (
-      <div class="ino-input-file__composer">
-        <ino-button
-          class="ino-input-file__button"
-          name="file-paths"
-          ino-icon="file_upload"
-          autofocus={this.autofocus}
-          disabled={this.disabled}
-          onClick={_ => this.selectFiles()}
-        >
-          {this.inoLabel}
-        </ino-button>
-        <input
-          class="ino-input-file__native-element"
-          accept={this.accept}
-          disabled={this.disabled}
-          multiple={this.multiple}
-          name={this.name}
-          required={this.required}
-          type="file"
-          aria-hidden="true"
-          onChange={e => this.onFileChange(e)}
-        />
-      </div>
+      <Host>
+        <div class="ino-input-file__composer">
+          <ino-button
+            class="ino-input-file__button"
+            name="file-paths"
+            ino-icon="file_upload"
+            autofocus={this.autofocus}
+            disabled={this.disabled}
+            onClick={_ => this.selectFiles()}
+          >
+            {this.inoLabel}
+          </ino-button>
+          <input
+            class="ino-input-file__native-element"
+            accept={this.accept}
+            disabled={this.disabled}
+            multiple={this.multiple}
+            name={this.name}
+            required={this.required}
+            type="file"
+            aria-hidden="true"
+            onChange={e => this.onFileChange(e)}
+          />
+        </div>
+      </Host>
     );
   }
 }

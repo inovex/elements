@@ -1,11 +1,11 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ino-form-row',
   styleUrl: 'ino-form-row.scss',
   shadow: false
 })
-export class FormRow {
+export class FormRow implements ComponentInterface {
   /**
    * The label for this form row which describes the form element.
    */
@@ -19,15 +19,17 @@ export class FormRow {
 
   render() {
     return (
-      <div class="ino-form-row__composer">
-        <div class="ino-form-row__label">
-          {this.inoLabel}
-          {this.inoMandatory && <span>*</span>}
+      <Host>
+        <div class="ino-form-row__composer">
+          <div class="ino-form-row__label">
+            {this.inoLabel}
+            {this.inoMandatory && <span>*</span>}
+          </div>
+          <div class="ino-form-row__element">
+            <slot />
+          </div>
         </div>
-        <div class="ino-form-row__element">
-          <slot />
-        </div>
-      </div>
+      </Host>
     );
   }
 }

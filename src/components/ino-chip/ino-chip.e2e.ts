@@ -54,7 +54,6 @@ describe('InoChip', () => {
     const removeChip = await page.spyOnEvent('removeChip');
     await page.click('ino-icon');
     expect(removeChip).toHaveReceivedEventDetail({
-      inoFill: 'solid',
       removeChip: {}
     });
   });

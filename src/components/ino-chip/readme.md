@@ -131,10 +131,23 @@ However, the component doesn't hide/destroy itself but emits an `removeChip`-Eve
 
 ## Events
 
-| Event        | Description                                                                                                                                                              | Type                |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<void>` |
+| Event        | Description                                                                                                                                                              | Type               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-chip --> ino-icon
+  style ino-chip fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

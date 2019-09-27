@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, Element, Listen, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ButtonType, ColorScheme, SurfaceType } from '../types';
@@ -9,9 +9,13 @@ import { CSS_CLASSES, SELECTORS } from './constants';
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
-  shadow: false
+  shadow: true
+  // as exception, we use shadow DOM for the button to avoid
+  // https://github.com/ionic-team/stencil/issues/1454.
+  // TODO: We should either use ShadowDOM for all or no elements in future!!!
+  // https://jira.inovex.de/browse/ELEMENTS-90
 })
-export class Button {
+export class Button implements ComponentInterface {
   /**
    * An internal instance of the material design button.
    */
@@ -73,22 +77,36 @@ export class Button {
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() inoDense = false;
-
-  @Listen('click')
-  onClickHandler(e: MouseEvent) {
-    if (this.disabled) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }
+  @Prop() inoDense?: boolean = false;
 
   componentDidLoad() {
-    this.button = new MDCRipple(this.el.querySelector(SELECTORS.MDC_BUTTON));
+    this.button = new MDCRipple(this.el.shadowRoot.querySelector(SELECTORS.MDC_BUTTON));
   }
 
   componentWillUnload() {
     this.button.destroy();
+  }
+
+  private handleClick = (e: Event) => {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    // this button wants to specifically submit a form
+    // see https://github.com/ionic-team/ionic/blob/master/core/src/components/button/button.tsx
+    const form = this.el.closest('form');
+    if (form) {
+      e.preventDefault();
+
+      const fakeButton = document.createElement('button');
+      fakeButton.type = this.type;
+      fakeButton.style.display = 'none';
+      fakeButton.name = 'fake-button';
+      form.appendChild(fakeButton);
+      fakeButton.click();
+      fakeButton.remove();
+    }
   }
 
   render() {
@@ -101,37 +119,38 @@ export class Button {
     );
 
     return (
-      <button
-        class={classButton}
-        autoFocus={this.autofocus}
-        disabled={this.disabled}
-        name={this.name}
-        type={this.type}
-        form={this.form}
-      >
-        {this.inoIcon && !this.inoIconPrepend && (
-          <ino-icon
-            class={CSS_CLASSES.MDC_BUTTON_ICON}
-            ino-icon={this.inoIcon}
-            aria-hidden="true"
-          />
-        )}
-        <span class="mdc-button__label">
-          <slot />
-        </span>
-
-        {this.inoIcon && this.inoIconPrepend && (
-          <ino-icon
-            class={
-              CSS_CLASSES.MDC_BUTTON_ICON +
-              ' ' +
-              CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
-            }
-            ino-icon={this.inoIcon}
-            aria-hidden="true"
-          />
-        )}
-      </button>
+      <Host onClick={this.handleClick}>
+        <button
+          class={classButton}
+          autoFocus={this.autofocus}
+          disabled={this.disabled}
+          name={this.name}
+          type={this.type}
+          form={this.form}
+        >
+          {this.inoIcon && !this.inoIconPrepend && (
+            <ino-icon
+              class={CSS_CLASSES.MDC_BUTTON_ICON}
+              ino-icon={this.inoIcon}
+              aria-hidden="true"
+            />
+          )}
+          <div class="mdc-button__label">
+            <slot></slot>
+          </div>
+          {this.inoIcon && this.inoIconPrepend && (
+            <ino-icon
+              class={
+                CSS_CLASSES.MDC_BUTTON_ICON +
+                ' ' +
+                CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
+              }
+              ino-icon={this.inoIcon}
+              aria-hidden="true"
+            />
+          )}
+        </button>
+      </Host>
     );
   }
 }

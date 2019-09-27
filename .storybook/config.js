@@ -1,11 +1,12 @@
-import { configure, addDecorator } from '@storybook/html';
-import { withOptions } from '@storybook/addon-options';
+import { addParameters, configure, addDecorator } from '@storybook/html';
 import { withKnobs } from '@storybook/addon-knobs';
+import inovexTheme from './theme'
 
-const version = require('../package.json').version;
 
-// Add components
-import '../dist/inovex-elements';
+import { applyPolyfills, defineCustomElements } from '../dist/loader';
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
 
 // Global sass file
 import '../src/stories/core/global.scss';
@@ -14,10 +15,11 @@ import '../src/stories/core/global.scss';
 addDecorator((storyFn) => `<div class="ino-story-composer">${storyFn()}</div>`);
 
 // Options
-addDecorator(withOptions({
-  name: 'INOVEX ELEMENTS v' + version,
-  url: '/'
-}));
+addParameters({
+  options: {
+    theme: inovexTheme
+  }
+});
 
 addDecorator(withKnobs);
 

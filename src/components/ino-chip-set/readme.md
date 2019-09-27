@@ -147,9 +147,9 @@ document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {
 
 ## Events
 
-| Event           | Description                                                                                                     | Type                |
-| --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `updateChipSet` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<void>` |
+| Event           | Description                                                                                                     | Type               |
+| --------------- | --------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `updateChipSet` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<any>` |
 
 
 ----------------------------------------------

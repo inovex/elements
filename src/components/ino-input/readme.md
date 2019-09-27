@@ -18,7 +18,6 @@ document
 
 ```html
 <ino-input
-  accesskey="<string>"
   autocomplete="<string>"
   autofocus
   disabled
@@ -30,7 +29,6 @@ document
   placeholder="<string>"
   required
   size="<number>"
-  tabindex="<string>"
   type="<string>"
   value="<string>"
   ino-outline
@@ -138,7 +136,6 @@ The component is based on a native input with additional features. Thus, the com
 
 | Property                    | Attribute                      | Description                                                                                                             | Type      | Default     |
 | --------------------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `accesskey`                 | `accesskey`                    | The accesskey of this native element.                                                                                   | `string`  | `undefined` |
 | `autocomplete`              | `autocomplete`                 | The autocomplete property of this element.                                                                              | `string`  | `undefined` |
 | `autofocus`                 | `autofocus`                    | The autofocus of this element.                                                                                          | `boolean` | `undefined` |
 | `disabled`                  | `disabled`                     | Disables this element.                                                                                                  | `boolean` | `undefined` |
@@ -161,7 +158,6 @@ The component is based on a native input with additional features. Thus, the com
 | `required`                  | `required`                     | Marks this element as required.                                                                                         | `boolean` | `undefined` |
 | `size`                      | `size`                         | The size of this element.                                                                                               | `number`  | `undefined` |
 | `step`                      | `step`                         | The step value of this element                                                                                          | `number`  | `1`         |
-| `tabindex`                  | `tabindex`                     | The tabindex of this element.                                                                                           | `string`  | `undefined` |
 | `type`                      | `type`                         | The type of this element (default = text).                                                                              | `string`  | `'text'`    |
 | `value`                     | `value`                        | The value of this element. (**unmanaged**)                                                                              | `string`  | `''`        |
 
@@ -174,6 +170,26 @@ The component is based on a native input with additional features. Thus, the com
 | `inoFocus`    | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ino-datepicker](../ino-datepicker)
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+- [ino-label](../ino-label)
+
+### Graph
+```mermaid
+graph TD;
+  ino-input --> ino-icon
+  ino-input --> ino-label
+  ino-datepicker --> ino-input
+  style ino-input fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

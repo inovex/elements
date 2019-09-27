@@ -24,6 +24,23 @@ This is an internally used component for various sorts of inputs like `ino-input
 | `inoText`     | `ino-text`     | The text of the label itself                                                       | `string`  | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-input](../ino-input)
+ - [ino-select](../ino-select)
+ - [ino-textarea](../ino-textarea)
+
+### Graph
+```mermaid
+graph TD;
+  ino-input --> ino-label
+  ino-select --> ino-label
+  ino-textarea --> ino-label
+  style ino-label fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

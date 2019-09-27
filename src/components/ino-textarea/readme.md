@@ -131,6 +131,19 @@ The component is based on a native input with additional features. Thus, the com
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-label](../ino-label)
+
+### Graph
+```mermaid
+graph TD;
+  ino-textarea --> ino-label
+  style ino-textarea fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

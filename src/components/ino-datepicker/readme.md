@@ -18,12 +18,10 @@ document
 
 ```html
 <ino-datepicker
-  accesskey="<string>"
   autofocus
   disabled
   name="<string>"
   required
-  tabindex="<string>"
   value="<string>"
   min="<string>"
   max="<string>"
@@ -136,7 +134,6 @@ or as datetime picker
 
 | Property              | Attribute               | Description                                                                                                                                                                                                                                              | Type                 | Default     |
 | --------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ----------- |
-| `accesskey`           | `accesskey`             | The accesskey of this element.                                                                                                                                                                                                                           | `string`             | `undefined` |
 | `autofocus`           | `autofocus`             | Autofocuses this element.                                                                                                                                                                                                                                | `boolean`            | `undefined` |
 | `disabled`            | `disabled`              | Disables this element.                                                                                                                                                                                                                                   | `boolean`            | `undefined` |
 | `hourStep`            | `hour-step`             | Adjusts the step for the hour input (incl. scrolling) Default is 1                                                                                                                                                                                       | `number`             | `1`         |
@@ -157,7 +154,6 @@ or as datetime picker
 | `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling) Default is 5                                                                                                                                                                                     | `number`             | `5`         |
 | `name`                | `name`                  | The input name of this element.                                                                                                                                                                                                                          | `string`             | `undefined` |
 | `required`            | `required`              | Marks this element as required.                                                                                                                                                                                                                          | `boolean`            | `undefined` |
-| `tabindex`            | `tabindex`              | The tabindex of this element.                                                                                                                                                                                                                            | `string`             | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                                                                                       | `string`             | `''`        |
 
 
@@ -167,6 +163,21 @@ or as datetime picker
 | ------------- | ---------------------------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-input](../ino-input)
+
+### Graph
+```mermaid
+graph TD;
+  ino-datepicker --> ino-input
+  ino-input --> ino-icon
+  ino-input --> ino-label
+  style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -1,6 +1,6 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 
 import { generateUniqueId } from '../../util/component-utils';
 
@@ -9,7 +9,7 @@ import { generateUniqueId } from '../../util/component-utils';
   styleUrl: 'ino-checkbox.scss',
   shadow: false
 })
-export class Checkbox {
+export class Checkbox implements ComponentInterface {
   private checkboxInstance: MDCCheckbox;
   private formField: MDCFormField;
   private nativeInputEl!: HTMLInputElement;
@@ -19,7 +19,7 @@ export class Checkbox {
   /**
    * Marks this element as checked. (**unmanaged**)
    */
-  @Prop() checked = false;
+  @Prop() checked?: boolean = false;
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
@@ -35,11 +35,6 @@ export class Checkbox {
    * The name of this element.
    */
   @Prop() name?: string;
-
-  /**
-   * The tab index of this element.
-   */
-  @Prop() inoTabindex?: number;
 
   /**
    * The value of this element.
@@ -89,39 +84,40 @@ export class Checkbox {
   render() {
 
     return (
-      <div class="mdc-form-field">
-        <div
-          class={`mdc-checkbox ${this.disabled && 'mdc-checkbox--disabled'}`}
-        >
-          <input
-            type="checkbox"
-            class="mdc-checkbox__native-control"
-            checked={this.checked}
-            disabled={this.disabled}
-            name={this.name}
-            tabindex={this.inoTabindex}
-            value={this.value}
-            id={this.checkboxId}
-            ref={el => (this.nativeInputEl = el as HTMLInputElement)}
-            onChange={e => e.stopPropagation()}
-            onInput={this.handleInput}
-          />
-          <div class="mdc-checkbox__background">
-            <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-              <path
-                class="mdc-checkbox__checkmark-path"
-                fill="none"
-                stroke="white"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"
-              />
-            </svg>
-            <div class="mdc-checkbox__mixedmark"/>
+      <Host>
+        <div class="mdc-form-field">
+          <div
+            class={`mdc-checkbox ${this.disabled && 'mdc-checkbox--disabled'}`}
+          >
+            <input
+              type="checkbox"
+              class="mdc-checkbox__native-control"
+              checked={this.checked}
+              disabled={this.disabled}
+              name={this.name}
+              value={this.value}
+              id={this.checkboxId}
+              ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+              onChange={e => e.stopPropagation()}
+              onInput={this.handleInput}
+            />
+            <div class="mdc-checkbox__background">
+              <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                <path
+                  class="mdc-checkbox__checkmark-path"
+                  fill="none"
+                  stroke="white"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                />
+              </svg>
+              <div class="mdc-checkbox__mixedmark"/>
+            </div>
           </div>
+          <label htmlFor={this.checkboxId}>
+            <slot></slot>
+          </label>
         </div>
-        <label htmlFor={this.checkboxId}>
-          <slot/>
-        </label>
-      </div>
+      </Host>
     );
   }
 }

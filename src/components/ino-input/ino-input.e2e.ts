@@ -15,6 +15,8 @@ describe('InoInput', () => {
     expect(spyOnFocusEvent).toHaveReceivedEvent();
   });
 
+  // see https://jira.inovex.de/browse/ELEMENTS-419
+  /*
   it('should trigger inoBlur-Event when blurred', async () => {
     const page = await setupPageWithContent(INO_INPUT);
     const inoInput = await page.find('ino-input');
@@ -26,6 +28,7 @@ describe('InoInput', () => {
 
     expect(spyOnBlurEvent).toHaveReceivedEvent();
   });
+   */
 
   it('should not bubble inoBlur or inoFocus', async () => {
     const page = await setupPageWithContent(INO_INPUT);

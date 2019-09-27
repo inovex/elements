@@ -97,6 +97,19 @@ The menu creates a temporary surface with an empty list composer. The items of t
 | `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-list](../ino-list)
+
+### Graph
+```mermaid
+graph TD;
+  ino-menu --> ino-list
+  style ino-menu fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

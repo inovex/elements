@@ -75,6 +75,19 @@ class MyComponent extends Component {
 | `inoTrigger`   | `ino-trigger`   | The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.             | `"click focus hover" \| "click focus" \| "click hover focus" \| "click hover" \| "click" \| "focus click hover" \| "focus click" \| "focus hover click" \| "focus hover" \| "focus" \| "hover click focus" \| "hover click" \| "hover focus click" \| "hover focus" \| "hover"` | `'hover focus'` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-fab](../ino-fab)
+
+### Graph
+```mermaid
+graph TD;
+  ino-fab --> ino-tooltip
+  style ino-tooltip fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

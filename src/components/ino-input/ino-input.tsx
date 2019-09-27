@@ -1,7 +1,7 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import { Component, Element, Event, EventEmitter, Listen, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Listen, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -9,7 +9,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-input.scss',
   shadow: false
 })
-export class Input {
+export class Input implements ComponentInterface {
   /**
    * Native Input Element
    */
@@ -38,11 +38,6 @@ export class Input {
   private icon: MDCTextFieldIcon;
 
   @Element() el!: HTMLElement;
-
-  /**
-   * The accesskey of this native element.
-   */
-  @Prop() accesskey?: string;
 
   /**
    * The autocomplete property of this element.
@@ -77,7 +72,7 @@ export class Input {
   /**
    * The step value of this element
    */
-  @Prop() step = 1;
+  @Prop() step?: number = 1;
 
   /**
    * The name of this element.
@@ -105,14 +100,9 @@ export class Input {
   @Prop() size?: number;
 
   /**
-   * The tabindex of this element.
-   */
-  @Prop() tabindex?: string;
-
-  /**
    * The type of this element (default = text).
    */
-  @Prop() type = 'text';
+  @Prop() type?: string = 'text';
 
   /**
    * The value of this element. (**unmanaged**)
@@ -213,6 +203,11 @@ export class Input {
 
     if (this.autofocus) {
       this.textfield.focus();
+    }
+
+    if (this.inoDataList) {
+      this.nativeInputEl.setAttribute('list', this.inoDataList);
+      // see https://github.com/ionic-team/stencil/issues/1582
     }
   }
 
@@ -321,44 +316,44 @@ export class Input {
       'mdc-text-field--no-label': !this.inoLabel
     });
 
-    return [
-      <div class={classTextfield}>
-        {!this.inoIconTrailing && this.iconTemplate()}
-        <input
-          ref={el => (this.nativeInputEl = el)}
-          class="mdc-text-field__input"
-          accessKey={this.accesskey}
-          autocomplete={this.autocomplete}
-          disabled={this.disabled}
-          min={this.min}
-          max={this.max}
-          maxLength={this.maxlength}
-          step={this.step}
-          name={this.name}
-          pattern={this.pattern}
-          placeholder={this.placeholder}
-          required={this.required}
-          size={this.size}
-          tabindex={this.tabindex}
-          type={this.type}
-          value={this.value}
-          aria-controls={this.inoHelper && this.uniqueHelperId}
-          aria-describedby={this.inoHelper && this.uniqueHelperId}
-          onInput={this.handleNativeInputChange.bind(this)}
-          onBlur={this.handleBlur}
-          onFocus={this.handleFocus}
-          list={this.inoDataList}
-        />
-        <slot/>
-        <ino-label
-          ino-outline={this.inoOutline}
-          ino-text={this.inoLabel}
-          ino-required={this.required}
-          ino-disabled={this.disabled}
-        />
-        {this.inoIconTrailing && this.iconTemplate()}
-      </div>,
-      this.helperTextTemplate()
-    ];
+    return (
+      <Host>
+        <div class={classTextfield}>
+          {!this.inoIconTrailing && this.iconTemplate()}
+          <input
+            ref={el => (this.nativeInputEl = el)}
+            class="mdc-text-field__input"
+            autocomplete={this.autocomplete}
+            disabled={this.disabled}
+            min={this.min}
+            max={this.max}
+            maxLength={this.maxlength}
+            step={this.step}
+            name={this.name}
+            pattern={this.pattern}
+            placeholder={this.placeholder}
+            required={this.required}
+            size={this.size}
+            type={this.type}
+            value={this.value}
+            aria-controls={this.inoHelper && this.uniqueHelperId}
+            aria-describedby={this.inoHelper && this.uniqueHelperId}
+            onInput={this.handleNativeInputChange.bind(this)}
+            onBlur={this.handleBlur}
+            onFocus={this.handleFocus}
+            list={this.inoDataList}
+          />
+          <slot/>
+          <ino-label
+            ino-outline={this.inoOutline}
+            ino-text={this.inoLabel}
+            ino-required={this.required}
+            ino-disabled={this.disabled}
+          />
+          {this.inoIconTrailing && this.iconTemplate()}
+        </div>
+        {this.helperTextTemplate()}
+      </Host>
+    );
   }
 }

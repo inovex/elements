@@ -88,9 +88,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event         | Description                                                         | Type                |
-| ------------- | ------------------------------------------------------------------- | ------------------- |
-| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<void>` |
+| Event         | Description                                                         | Type               |
+| ------------- | ------------------------------------------------------------------- | ------------------ |
+| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<any>` |
 
 
 ----------------------------------------------

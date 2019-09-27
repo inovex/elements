@@ -135,6 +135,19 @@ The component behaves like a native select with additional features. The native 
 | `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-label](../ino-label)
+
+### Graph
+```mermaid
+graph TD;
+  ino-select --> ino-label
+  style ino-select fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

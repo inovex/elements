@@ -95,9 +95,9 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 
 ## Events
 
-| Event             | Description                                                         | Type                |
-| ----------------- | ------------------------------------------------------------------- | ------------------- |
-| `activeTabChange` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<void>` |
+| Event             | Description                                                         | Type               |
+| ----------------- | ------------------------------------------------------------------- | ------------------ |
+| `activeTabChange` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<any>` |
 
 
 ----------------------------------------------

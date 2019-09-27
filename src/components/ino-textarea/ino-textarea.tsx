@@ -1,12 +1,15 @@
 import { MDCTextField } from '@material/textfield';
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Listen,
   Prop,
-  Watch
+  Watch,
+  h
 } from '@stencil/core';
 import autosize from 'autosize';
 import classNames from 'classnames';
@@ -16,7 +19,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-textarea.scss',
   shadow: false
 })
-export class Textarea {
+export class Textarea implements ComponentInterface {
   private cursorPosition = 0;
 
   /**
@@ -84,7 +87,7 @@ export class Textarea {
   /**
    * The value of this element. (**unmanaged**)
    */
-  @Prop() value = '';
+  @Prop() value?: string = '';
 
   /**
    * An optional flag to allow the textarea adjust its height to display all the content.
@@ -180,34 +183,36 @@ export class Textarea {
     });
 
     return (
-      <div class={classes}>
-        <textarea
-          ref={el => (this.nativeTextareaElement = el)}
-          class="mdc-text-field__input"
-          autofocus={this.autofocus}
-          cols={this.cols}
-          disabled={this.disabled}
-          maxLength={this.maxlength}
-          minLength={this.minlength}
-          name={this.name}
-          placeholder={this.placeholder}
-          required={this.required}
-          rows={this.rows}
-          value={this.value}
-          onInput={this.handleNativeTextareaChange.bind(this)}
-        />
-        {this.maxlength && (
-          <div class="mdc-text-field-character-counter">
-            {this.value.length} / {this.maxlength}
-          </div>
-        )}
-        <ino-label
-          ino-outline
-          ino-text={this.inoLabel}
-          ino-required={this.required}
-          ino-disabled={this.disabled}
-        />
-      </div>
+      <Host>
+        <div class={classes}>
+          <textarea
+            ref={el => (this.nativeTextareaElement = el)}
+            class="mdc-text-field__input"
+            autofocus={this.autofocus}
+            cols={this.cols}
+            disabled={this.disabled}
+            maxLength={this.maxlength}
+            minLength={this.minlength}
+            name={this.name}
+            placeholder={this.placeholder}
+            required={this.required}
+            rows={this.rows}
+            value={this.value}
+            onInput={this.handleNativeTextareaChange.bind(this)}
+          />
+          {this.maxlength && (
+            <div class="mdc-text-field-character-counter">
+              {this.value.length} / {this.maxlength}
+            </div>
+          )}
+          <ino-label
+            ino-outline
+            ino-text={this.inoLabel}
+            ino-required={this.required}
+            ino-disabled={this.disabled}
+          />
+        </div>
+      </Host>
     );
   }
 }

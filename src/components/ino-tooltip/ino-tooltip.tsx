@@ -1,4 +1,4 @@
-import { Component, Element, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Prop, Watch } from '@stencil/core';
 import { Placement } from 'popper.js';
 import TooltipJS from 'tooltip.js';
 
@@ -9,7 +9,7 @@ import { TooltipTrigger } from '../types';
   styleUrl: 'ino-tooltip.scss',
   shadow: false
 })
-export class Tooltip {
+export class Tooltip implements ComponentInterface {
   private tooltipInstance!: any;
   private target!: HTMLElement | null;
 

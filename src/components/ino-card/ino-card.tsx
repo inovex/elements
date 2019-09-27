@@ -1,4 +1,4 @@
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classnames from 'classnames';
 
 import { CardAspectRatio, ColorScheme } from '../types';
@@ -8,7 +8,7 @@ import { CardAspectRatio, ColorScheme } from '../types';
   styleUrl: 'ino-card.scss',
   shadow: false
 })
-export class Card {
+export class Card implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -40,7 +40,7 @@ export class Card {
   /**
    * Displays the card title inside the image
    */
-  @Prop() inoMediaTitle = false;
+  @Prop() inoMediaTitle?: boolean = false;
 
   /**
    * The name of the color scheme which is used
@@ -97,23 +97,23 @@ export class Card {
     const mdcCardActionsClass = classnames('mdc-card__actions');
 
     return (
-      <div class={cardClass}>
+      <Host class={cardClass}>
         {this.mediaTeamplate()}
         <div class="ino-card__composer">
           {!this.inoMediaTitle && this.headerTemplate()}
           <div class="ino-card__content">
-            <slot name="content" />
+            <slot name="content"/>
           </div>
         </div>
         <div class={mdcCardActionsClass}>
           <div class="mdc-card__action-buttons">
-            <slot name="action-buttons" />
+            <slot name="action-buttons"/>
           </div>
           <div class="mdc-card__action-icons">
-            <slot name="action-icons" />
+            <slot name="action-icons"/>
           </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

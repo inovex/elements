@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, State, Watch, h } from '@stencil/core';
 
 import { ImageDecodingTypes } from '../types';
 
@@ -7,7 +7,7 @@ import { ImageDecodingTypes } from '../types';
   styleUrl: 'ino-img.scss',
   shadow: false
 })
-export class Image {
+export class Image implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -65,7 +65,7 @@ export class Image {
    * Use this attribute together with `ino-ratio-height` to reserve a
    * space for the image during rendering and to prevent jumping contents.
    */
-  @Prop() inoRatioWidth = 1;
+  @Prop() inoRatioWidth?: number = 1;
   @Watch('inoRatioWidth')
   inoRatioWidthChanged() {
     this.computeRatio();
@@ -76,7 +76,7 @@ export class Image {
    * Use this attribute together with `ino-ratio-width` to reserve a
    * space for the image during rendering and to prevent jumping contents.
    */
-  @Prop() inoRatioHeight = 1;
+  @Prop() inoRatioHeight?: number = 1;
   @Watch('inoRatioHeight')
   inoRatioHeightChanged() {
     this.computeRatio();
@@ -90,7 +90,7 @@ export class Image {
   /**
    * State containing the composed ratio width for this image.
    */
-  @State() composedRatioHeight = '100%';
+  @State() composedRatioHeight?: string = '100%';
 
   componentWillLoad() {
     this.computeRatio();
@@ -110,22 +110,24 @@ export class Image {
 
   render() {
     return (
-      <div
-        class="ino-img__composer"
-        style={{ 'padding-top': this.composedRatioHeight }}
-      >
-        <img
-          class="ino-img__image"
-          alt={this.alt}
-          decoding={this.decoding}
-          height={this.height}
-          sizes={this.sizes}
-          src={this.src}
-          srcset={this.srcset}
-          usemap={this.usemap}
-          width={this.width}
-        />
-      </div>
+      <Host>
+        <div
+          class="ino-img__composer"
+          style={{ 'padding-top': this.composedRatioHeight }}
+        >
+          <img
+            class="ino-img__image"
+            alt={this.alt}
+            decoding={this.decoding}
+            height={this.height}
+            sizes={this.sizes}
+            src={this.src}
+            srcset={this.srcset}
+            usemap={this.usemap}
+            width={this.width}
+          />
+        </div>
+      </Host>
     );
   }
 }

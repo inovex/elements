@@ -5,17 +5,18 @@ set -euxo pipefail
 # This is necessary as we need this package at build time without publishing it the registry.
 
 # make @inovex/elements locally available to import within this /react project from it
-yarn link
+yalc publish
+yalc push --changed
 
 # create the react folder in the /dist directory and switch into it
 mkdir -p ./dist/react
 cd react
 
 # install all the dependencies from this /react project
+yalc add --link @inovex/elements
+
 yarn install
 
-# use the previously built elements in this project
-yarn link @inovex/elements
 
 # finally, build the react wrapper
 yarn build

@@ -1,25 +1,16 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  // We extend the default config by
-  const copyWebpackPlugin = new CopyWebpackPlugin([
-    {
-      from: path.resolve(__dirname, '../dist/inovex-elements'),
-      to: path.posix.join('static', 'inovex-elements'),
-      ignore: ['.*']
-    }
-  ]);
-
-  defaultConfig.module.rules.push({
-    test: [/\.(js)$/],
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+module.exports = ({config}) => {
+  config.module.rules.push({
+    test: [/\.(stories.js)$/],
+    loaders: [require.resolve('@storybook/source-loader')],
+    include: [path.resolve(__dirname, '../src/stories')],
     enforce: 'pre',
   });
-  defaultConfig.resolve.extensions.push(".ts", ".tsx");
+  config.resolve.extensions.push(".ts", ".tsx");
 
   // Sass Support
-  defaultConfig.module.rules.push({
+  config.module.rules.push({
     test: /\.scss$/,
     use: [{
         loader: "style-loader"
@@ -36,14 +27,5 @@ module.exports = (baseConfig, env, defaultConfig) => {
         }
     }],
   });
-
-  if (defaultConfig.plugins) {
-    defaultConfig.plugins.push(copyWebpackPlugin);
-  } else {
-    defaultConfig.plugins = [
-      copyWebpackPlugin
-    ];
-  }
-
-  return defaultConfig;
+  return config;
 };

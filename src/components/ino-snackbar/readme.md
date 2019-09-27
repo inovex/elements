@@ -112,10 +112,10 @@ Snackbar is displayed when ino-show is changed to checked.
 
 ## Events
 
-| Event            | Description                                                                                           | Type                |
-| ---------------- | ----------------------------------------------------------------------------------------------------- | ------------------- |
-| `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<void>` |
-| `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<void>` |
+| Event            | Description                                                                                           | Type               |
+| ---------------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
+| `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
+| `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
 
 
 ----------------------------------------------

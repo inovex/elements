@@ -1,11 +1,14 @@
 import { MDCSlider } from '@material/slider';
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Prop,
-  Watch
+  Watch,
+  h
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -16,7 +19,7 @@ import { ColorScheme } from '../types';
   styleUrl: 'ino-range.scss',
   shadow: false
 })
-export class Range {
+export class Range implements ComponentInterface {
   private sliderInstance!: MDCSlider;
 
   @Element() el!: HTMLElement;
@@ -103,7 +106,7 @@ export class Range {
   /**
    * The step size for this element (default = 1)
    */
-  @Prop() step ? = 1;
+  @Prop() step?: number = 1;
 
   @Watch('step')
   stepChangeHandler(newValue: number) {
@@ -163,35 +166,37 @@ export class Range {
     });
 
     return (
-      <div
-        class={sliderClasses}
-        tabindex="0"
-        role="slider"
-        aria-valuemin={this.min}
-        aria-valuemax={this.max}
-        aria-valuenow={this.value}
-        aria-label={this.name}
-        aria-disabled={this.disabled}
-        data-step={this.step}
-      >
-        <div class="mdc-slider__track-container">
-          <div class="mdc-slider__track" />
-          {this.inoMarkers && this.inoDiscrete && (
-            <div class="mdc-slider__track-marker-container" />
-          )}
+      <Host>
+        <div
+          class={sliderClasses}
+          tabindex="0"
+          role="slider"
+          aria-valuemin={this.min}
+          aria-valuemax={this.max}
+          aria-valuenow={this.value}
+          aria-label={this.name}
+          aria-disabled={this.disabled}
+          data-step={this.step}
+        >
+          <div class="mdc-slider__track-container">
+            <div class="mdc-slider__track" />
+            {this.inoMarkers && this.inoDiscrete && (
+              <div class="mdc-slider__track-marker-container" />
+            )}
+          </div>
+          <div class="mdc-slider__thumb-container">
+            {this.inoDiscrete && (
+              <div class="mdc-slider__pin">
+                <span class="mdc-slider__pin-value-marker">{this.value}</span>
+              </div>
+            )}
+            <svg class="mdc-slider__thumb" width="21" height="21">
+              <circle cx="10.5" cy="10.5" r="7.875" />
+            </svg>
+            <div class="mdc-slider__focus-ring" />
+          </div>
         </div>
-        <div class="mdc-slider__thumb-container">
-          {this.inoDiscrete && (
-            <div class="mdc-slider__pin">
-              <span class="mdc-slider__pin-value-marker">{this.value}</span>
-            </div>
-          )}
-          <svg class="mdc-slider__thumb" width="21" height="21">
-            <circle cx="10.5" cy="10.5" r="7.875" />
-          </svg>
-          <div class="mdc-slider__focus-ring" />
-        </div>
-      </div>
+      </Host>
     );
   }
 }

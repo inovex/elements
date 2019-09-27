@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -6,7 +6,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-tab.scss',
   shadow: false
 })
-export class Tab {
+export class Tab implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -22,12 +22,12 @@ export class Tab {
   /**
    * Indicates that the tab icon and label should flow vertically instead of horizontally.
    */
-  @Prop() inoStacked = false;
+  @Prop() inoStacked: boolean = false;
 
   /**
    * Indicates that the tab only expands to the width of its content.
    */
-  @Prop() inoIndicatorContentWidth = false;
+  @Prop() inoIndicatorContentWidth: boolean = false;
 
   /**
    * Emitted when the tab did load.
@@ -60,19 +60,21 @@ export class Tab {
     );
 
     return (
-      <button class={tabClasses} role="tab" aria-selected="false">
-        <span class="mdc-tab__content">
-          {this.inoIcon && (
-            <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon} />
-          )}
-          {this.inoLabel && (
-            <span class="mdc-tab__text-label">{this.inoLabel}</span>
-          )}
-          {this.inoIndicatorContentWidth && indicatorWidth}
-        </span>
-        {!this.inoIndicatorContentWidth && indicatorWidth}
-        <span class="mdc-tab__ripple" />
-      </button>
+      <Host>
+        <button class={tabClasses} role="tab" aria-selected="false">
+          <span class="mdc-tab__content">
+            {this.inoIcon && (
+              <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon} />
+            )}
+            {this.inoLabel && (
+              <span class="mdc-tab__text-label">{this.inoLabel}</span>
+            )}
+            {this.inoIndicatorContentWidth && indicatorWidth}
+          </span>
+          {!this.inoIndicatorContentWidth && indicatorWidth}
+          <span class="mdc-tab__ripple" />
+        </button>
+      </Host>
     );
   }
 }

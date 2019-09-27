@@ -25,3 +25,6 @@ UserInterfaceState.xcuserstate
 .env
 
 storybook-static/
+
+.yalc
+yalc.lock

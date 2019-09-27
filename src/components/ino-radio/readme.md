@@ -23,7 +23,6 @@ document
   name="<string>"
   value="<string>"
   ino-id="<string>"
-  ino-tab-index="<string>"
   oncheckedChange="handleCheckedChange()"
 >
   Label
@@ -101,21 +100,33 @@ document.querySelector('ino-radio').addEventListener('checkedChange', e => {
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                                                                | Type      | Default     |
-| ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `checked`     | `checked`      | Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically. | `boolean` | `false`     |
-| `disabled`    | `disabled`     | Disables this element.                                                                                                                                     | `boolean` | `undefined` |
-| `inoTabindex` | `ino-tabindex` | The tabIndex of this element.                                                                                                                              | `number`  | `undefined` |
-| `name`        | `name`         | The name of this element. Use the same name for radio groups                                                                                               | `string`  | `undefined` |
-| `value`       | `value`        | The value of this element.                                                                                                                                 | `string`  | `undefined` |
+| Property   | Attribute  | Description                                                                                                                                                | Type      | Default     |
+| ---------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `checked`  | `checked`  | Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically. | `boolean` | `false`     |
+| `disabled` | `disabled` | Disables this element.                                                                                                                                     | `boolean` | `undefined` |
+| `name`     | `name`     | The name of this element. Use the same name for radio groups                                                                                               | `string`  | `undefined` |
+| `value`    | `value`    | The value of this element.                                                                                                                                 | `string`  | `undefined` |
 
 
 ## Events
 
-| Event           | Description                                                                                                                                                                | Type                |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<void>` |
+| Event           | Description                                                                                                                                                                | Type               |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ino-control-item](../ino-control-item)
+
+### Graph
+```mermaid
+graph TD;
+  ino-control-item --> ino-radio
+  style ino-radio fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
