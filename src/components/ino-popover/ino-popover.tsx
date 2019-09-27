@@ -1,4 +1,4 @@
-import { Component, Element, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import { Placement } from 'popper.js';
 import TooltipJS from 'tooltip.js';
 
@@ -9,7 +9,7 @@ import { TooltipTrigger } from '../types';
   styleUrl: 'ino-popover.scss',
   shadow: false
 })
-export class Popover {
+export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;
   private tooltipInstance?: TooltipJS;
 
@@ -87,9 +87,11 @@ export class Popover {
 
   render() {
     return (
-      <div class="ino-popover__content">
-        <slot />
-      </div>
+      <Host>
+        <div class="ino-popover__content">
+          <slot />
+        </div>
+      </Host>
     );
   }
 }

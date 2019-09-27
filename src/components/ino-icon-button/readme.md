@@ -90,6 +90,19 @@ The component bubbles the native `click`-Event to the user.
 | `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`                                                                                           | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-icon-button --> ino-icon
+  style ino-icon-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

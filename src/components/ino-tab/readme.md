@@ -100,11 +100,24 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event      | Description                      | Type                |
-| ---------- | -------------------------------- | ------------------- |
-| `loadEl`   | Emitted when the tab did load.   | `CustomEvent<void>` |
-| `unloadEl` | Emitted when the tab did unload. | `CustomEvent<void>` |
+| Event      | Description                      | Type               |
+| ---------- | -------------------------------- | ------------------ |
+| `loadEl`   | Emitted when the tab did load.   | `CustomEvent<any>` |
+| `unloadEl` | Emitted when the tab did unload. | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-tab --> ino-icon
+  style ino-tab fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

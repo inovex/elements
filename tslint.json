@@ -16,6 +16,7 @@
     "no-unnecessary-type-assertion": false,
     "no-import-side-effect": false,
     "trailing-comma": false,
+    "no-inferrable-types": false,
     "no-null-keyword": false,
     "no-console": false,
     "no-unbound-method": true,

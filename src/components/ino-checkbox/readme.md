@@ -123,17 +123,29 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `checked`       | `checked`       | Marks this element as checked. (**unmanaged**)      | `boolean` | `false`     |
 | `disabled`      | `disabled`      | Disables this element.                              | `boolean` | `undefined` |
 | `indeterminate` | `indeterminate` | Marks this element as indeterminate (**unmanaged**) | `boolean` | `undefined` |
-| `inoTabindex`   | `ino-tabindex`  | The tab index of this element.                      | `number`  | `undefined` |
 | `name`          | `name`          | The name of this element.                           | `string`  | `undefined` |
 | `value`         | `value`         | The value of this element.                          | `string`  | `undefined` |
 
 
 ## Events
 
-| Event           | Description                                                                                                    | Type                |
-| --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<void>` |
+| Event           | Description                                                                                                    | Type               |
+| --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ino-control-item](../ino-control-item)
+
+### Graph
+```mermaid
+graph TD;
+  ino-control-item --> ino-checkbox
+  style ino-checkbox fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -7,7 +7,7 @@ If you would like to see an example app of the implementation please go to our [
 
 ## Updating this react wrapper
 
-Simply copy all the files from https://github.com/ionic-team/ionic/tree/master/react and see what has changed.
+Simply copy all the files from https://github.com/ionic-team/ionic/blob/master/packages/react/ and see what has changed.
 
 The `props` in the wrapper need to be changed to match the typings. The function to change the names is in `react/src/inovexCustom.ts` and should only left out if ionic takes care of changing propnames.
 

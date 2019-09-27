@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
@@ -9,7 +9,7 @@ import { ColorScheme } from '../types';
   styleUrl: 'ino-icon-button.scss',
   shadow: false
 })
-export class IconButton {
+export class IconButton implements ComponentInterface {
   // An internal instance of the icon button. Either the ripple effect
   // or a toggle button instance.
   private mdcInstance: MDCRipple;
@@ -61,13 +61,15 @@ export class IconButton {
     });
 
     return (
-      <button
-        autoFocus={this.autofocus}
-        class={iconButtonClasses}
-        disabled={this.disabled}
-      >
-        <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
-      </button>
+      <Host>
+        <button
+          autoFocus={this.autofocus}
+          class={iconButtonClasses}
+          disabled={this.disabled}
+        >
+          <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
+        </button>
+      </Host>
     );
   }
 }

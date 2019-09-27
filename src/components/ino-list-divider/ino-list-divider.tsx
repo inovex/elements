@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -6,7 +6,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-list-divider.scss',
   shadow: false
 })
-export class ListDivider {
+export class ListDivider implements ComponentInterface {
   /**
    * Marks the divider as a separator between two `ino-list`
    * instead of `ino-list-item` elements.
@@ -35,10 +35,15 @@ export class ListDivider {
       'mdc-list-divider--inset': !this.inoBetweenLists && this.inoInset
     });
 
-    return this.inoBetweenLists ? (
-      <hr class={dividerClasses} />
-    ) : (
-      <li role="separator" class={dividerClasses} />
+    return (
+      <Host>
+        { this.inoBetweenLists ? (
+            <hr class={dividerClasses} />
+          ) : (
+            <li role="separator" class={dividerClasses} />
+          )
+        }
+      </Host>
     );
   }
 }

@@ -112,10 +112,33 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 
 ## Events
 
-| Event     | Description                                                                                                           | Type                |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<void>` |
+| Event     | Description                                                                                                           | Type               |
+| --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ino-button](../ino-button)
+ - [ino-chip](../ino-chip)
+ - [ino-fab](../ino-fab)
+ - [ino-icon-button](../ino-icon-button)
+ - [ino-input](../ino-input)
+ - [ino-tab](../ino-tab)
+
+### Graph
+```mermaid
+graph TD;
+  ino-button --> ino-icon
+  ino-chip --> ino-icon
+  ino-fab --> ino-icon
+  ino-icon-button --> ino-icon
+  ino-input --> ino-icon
+  ino-tab --> ino-icon
+  style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

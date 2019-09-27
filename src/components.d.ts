@@ -5,9 +5,7 @@
  */
 
 
-import '@stencil/core';
-
-
+import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   ButtonType,
   CardAspectRatio,
@@ -26,52 +24,8 @@ import {
   Placement,
 } from 'popper.js';
 
-
 export namespace Components {
-
   interface InoButton {
-    /**
-    * Sets the autofocus for this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The form id this element origins to.
-    */
-    'form'?: string;
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * Makes the button text and container slightly smaller.
-    */
-    'inoDense': boolean;
-    /**
-    * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
-    */
-    'inoFill'?: SurfaceType;
-    /**
-    * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
-    */
-    'inoIcon'?: string;
-    /**
-    * Prepends an icon after the text.
-    */
-    'inoIconPrepend'?: boolean;
-    /**
-    * The name of the element.
-    */
-    'name'?: string;
-    /**
-    * The type of this form.  Can either be `button`, `submit` or `reset`.
-    */
-    'type'?: ButtonType;
-  }
-  interface InoButtonAttributes extends StencilHTMLAttributes {
     /**
     * Sets the autofocus for this element.
     */
@@ -113,38 +67,7 @@ export namespace Components {
     */
     'type'?: ButtonType;
   }
-
   interface InoCard {
-    /**
-    * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
-    */
-    'inoAspectRatio'?: CardAspectRatio;
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * Displays a media area with a custom `background-image` with `background-size: cover`
-    */
-    'inoImage'?: string;
-    /**
-    * Displays the card title inside the image
-    */
-    'inoMediaTitle': boolean;
-    /**
-    * Removes the shadow and displays a hairline outline instead.
-    */
-    'inoOutline'?: boolean;
-    /**
-    * An optional subtitle of this card.
-    */
-    'inoSubtitle'?: string;
-    /**
-    * An optional title of this card.
-    */
-    'inoTitle'?: string;
-  }
-  interface InoCardAttributes extends StencilHTMLAttributes {
     /**
     * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
     */
@@ -174,34 +97,7 @@ export namespace Components {
     */
     'inoTitle'?: string;
   }
-
   interface InoCheckbox {
-    /**
-    * Marks this element as checked. (**unmanaged**)
-    */
-    'checked': boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Marks this element as indeterminate (**unmanaged**)
-    */
-    'indeterminate'?: boolean;
-    /**
-    * The tab index of this element.
-    */
-    'inoTabindex'?: number;
-    /**
-    * The name of this element.
-    */
-    'name'?: string;
-    /**
-    * The value of this element.
-    */
-    'value'?: string;
-  }
-  interface InoCheckboxAttributes extends StencilHTMLAttributes {
     /**
     * Marks this element as checked. (**unmanaged**)
     */
@@ -215,40 +111,14 @@ export namespace Components {
     */
     'indeterminate'?: boolean;
     /**
-    * The tab index of this element.
-    */
-    'inoTabindex'?: number;
-    /**
     * The name of this element.
     */
     'name'?: string;
-    /**
-    * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
-    */
-    'onCheckedChange'?: (event: CustomEvent) => void;
     /**
     * The value of this element.
     */
     'value'?: string;
   }
-
-  interface InoChipSet {
-    /**
-    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
-    */
-    'inoType'?: ChipSetType;
-  }
-  interface InoChipSetAttributes extends StencilHTMLAttributes {
-    /**
-    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
-    */
-    'inoType'?: ChipSetType;
-    /**
-    * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
-    */
-    'onUpdateChipSet'?: (event: CustomEvent) => void;
-  }
-
   interface InoChip {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
@@ -283,104 +153,13 @@ export namespace Components {
     */
     'inoValue'?: string;
   }
-  interface InoChipAttributes extends StencilHTMLAttributes {
+  interface InoChipSet {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
     */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * The fill type of this element. Possible values: `solid` (default) or `outline`.
-    */
-    'inoFill'?: ChipSurface;
-    /**
-    * The icon before the label in this chip.
-    */
-    'inoIcon'?: string;
-    /**
-    * The label of this chip (**required**).
-    */
-    'inoLabel'?: string;
-    /**
-    * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
-    */
-    'inoRemovable'?: boolean;
-    /**
-    * Adds a checkmark if the icon is selected.
-    */
-    'inoSelectable'?: boolean;
-    /**
-    * Marks this element as selected.
-    */
-    'inoSelected'?: boolean;
-    /**
-    * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
-    */
-    'inoValue'?: string;
-    /**
-    * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
-    */
-    'onRemoveChip'?: (event: CustomEvent) => void;
+    'inoType'?: ChipSetType;
   }
-
   interface InoControlItem {
-    /**
-    * Marks this element as checked. (**unmanaged**)
-    */
-    'checked': boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Marks this element as indeterminate (**unmanaged**) Checkbox only
-    */
-    'indeterminate'?: boolean;
-    /**
-    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
-    */
-    'inoActivated'?: boolean;
-    /**
-    * Styles the row in a disabled style.
-    */
-    'inoDisabled'?: boolean;
-    /**
-    * The id of this element.
-    */
-    'inoId'?: string;
-    /**
-    * The type of control element
-    */
-    'inoRole': 'checkbox' | 'radio';
-    /**
-    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
-    */
-    'inoSecondaryText'?: string;
-    /**
-    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
-    */
-    'inoSelected'?: boolean;
-    /**
-    * The tab index of this element.
-    */
-    'inoTabindex'?: number;
-    /**
-    * The primary text of this list item (required).
-    */
-    'inoText': string;
-    /**
-    * Places the checkbox at the end of the item
-    */
-    'inoTrailing'?: boolean;
-    /**
-    * The name of this element.
-    */
-    'name'?: string;
-    /**
-    * The value of this element.
-    */
-    'value'?: string;
-  }
-  interface InoControlItemAttributes extends StencilHTMLAttributes {
     /**
     * Marks this element as checked. (**unmanaged**)
     */
@@ -418,10 +197,6 @@ export namespace Components {
     */
     'inoSelected'?: boolean;
     /**
-    * The tab index of this element.
-    */
-    'inoTabindex'?: number;
-    /**
     * The primary text of this list item (required).
     */
     'inoText': string;
@@ -434,20 +209,11 @@ export namespace Components {
     */
     'name'?: string;
     /**
-    * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
-    */
-    'onCheckedChange'?: (event: CustomEvent) => void;
-    /**
     * The value of this element.
     */
     'value'?: string;
   }
-
   interface InoDatepicker {
-    /**
-    * The accesskey of this element.
-    */
-    'accesskey'?: string;
     /**
     * Autofocuses this element.
     */
@@ -529,142 +295,10 @@ export namespace Components {
     */
     'required'?: boolean;
     /**
-    * The tabindex of this element.
-    */
-    'tabindex'?: string;
-    /**
     * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
     */
     'value'?: string;
   }
-  interface InoDatepickerAttributes extends StencilHTMLAttributes {
-    /**
-    * The accesskey of this element.
-    */
-    'accesskey'?: string;
-    /**
-    * Autofocuses this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Adjusts the step for the hour input (incl. scrolling) Default is 1
-    */
-    'hourStep'?: number;
-    /**
-    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
-    */
-    'inoDateFormat'?: string;
-    /**
-    * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
-    */
-    'inoDefaultDate'?: string | string[];
-    /**
-    * A number containing the initial hour in the date-time picker overlay. The default is `12`
-    */
-    'inoDefaultHour'?: number;
-    /**
-    * A number containing the initial minute in the date-time picker overlay. The default is `0`
-    */
-    'inoDefaultMinute'?: number;
-    /**
-    * The helper text.
-    */
-    'inoHelper'?: string;
-    /**
-    * Displays the helper permanently.
-    */
-    'inoHelperPersistent'?: boolean;
-    /**
-    * Styles the helper text as a validation message.
-    */
-    'inoHelperValidation'?: boolean;
-    /**
-    * Defines the label for this element.
-    */
-    'inoLabel'?: string;
-    /**
-    * Styles the datepicker as outlined element.
-    */
-    'inoOutline'?: boolean;
-    /**
-    * A pattern to check the input field on
-    */
-    'inoPattern'?: string;
-    /**
-    * If true, enables the user to choose two dates as an interval
-    */
-    'inoRange'?: boolean;
-    /**
-    * If true, displays time picker in 12 hour mode with AM/PM selection.
-    */
-    'inoTwelfHourTime'?: boolean;
-    /**
-    * The maximum date that a user can pick to (inclusive).
-    */
-    'max'?: string;
-    /**
-    * The minimum date that a user can start picking from (inclusive).
-    */
-    'min'?: string;
-    /**
-    * Adjusts the step for the minute input (incl. scrolling) Default is 5
-    */
-    'minuteStep'?: number;
-    /**
-    * The input name of this element.
-    */
-    'name'?: string;
-    /**
-    * Emits when the value of the datepicker changes. The value can be found in `event.detail`
-    */
-    'onValueChange'?: (event: CustomEvent<string>) => void;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-    /**
-    * The tabindex of this element.
-    */
-    'tabindex'?: string;
-    /**
-    * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
-    */
-    'value'?: string;
-  }
-
-  interface InoFabSet {
-    /**
-    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-    */
-    'inoDialDirection': Locations;
-    /**
-    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-    */
-    'inoLeftRightLocation': HorizontalLocation;
-    /**
-    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
-    */
-    'inoTopBottomLocation': VerticalLocation;
-  }
-  interface InoFabSetAttributes extends StencilHTMLAttributes {
-    /**
-    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
-    */
-    'inoDialDirection'?: Locations;
-    /**
-    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
-    */
-    'inoLeftRightLocation'?: HorizontalLocation;
-    /**
-    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
-    */
-    'inoTopBottomLocation'?: VerticalLocation;
-  }
-
   interface InoFab {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
@@ -691,33 +325,20 @@ export namespace Components {
     */
     'inoTooltipPlacement': Placement;
   }
-  interface InoFabAttributes extends StencilHTMLAttributes {
+  interface InoFabSet {
     /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
     */
-    'inoColorScheme'?: ColorScheme;
+    'inoDialDirection': Locations;
     /**
-    * Optional, modifies the FAB to wider size which includes a text label.
+    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
     */
-    'inoExtended'?: boolean;
+    'inoLeftRightLocation': HorizontalLocation;
     /**
-    * Adds an icon to the Fab.
+    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
     */
-    'inoIcon'?: string;
-    /**
-    * Optional, for the text label. Applicable only for Extended FAB.
-    */
-    'inoLabel'?: string;
-    /**
-    * Optional, modifies the FAB to a smaller size
-    */
-    'inoMini'?: boolean;
-    /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-    */
-    'inoTooltipPlacement'?: Placement;
+    'inoTopBottomLocation': VerticalLocation;
   }
-
   interface InoFormRow {
     /**
     * The label for this form row which describes the form element.
@@ -728,17 +349,20 @@ export namespace Components {
     */
     'inoMandatory'?: boolean;
   }
-  interface InoFormRowAttributes extends StencilHTMLAttributes {
+  interface InoIcon {
     /**
-    * The label for this form row which describes the form element.
+    * Makes the icon clickable and allows to listen to the `clickEl` event.
     */
-    'inoLabel'?: string;
+    'inoClickable'?: boolean;
     /**
-    * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
+    * The name of the icon of this element or an URL.
     */
-    'inoMandatory'?: boolean;
+    'inoIcon'?: string;
+    /**
+    * Specifies the exact `src` of an SVG file to use.
+    */
+    'src'?: string;
   }
-
   interface InoIconButton {
     /**
     * Sets the autofocus for this element.
@@ -757,105 +381,7 @@ export namespace Components {
     */
     'inoIcon'?: string;
   }
-  interface InoIconButtonAttributes extends StencilHTMLAttributes {
-    /**
-    * Sets the autofocus for this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * The name of the icon of this element.
-    */
-    'inoIcon'?: string;
-  }
-
-  interface InoIcon {
-    /**
-    * Makes the icon clickable and allows to listen to the `clickEl` event.
-    */
-    'inoClickable'?: boolean;
-    /**
-    * The name of the icon of this element or an URL.
-    */
-    'inoIcon'?: string;
-    /**
-    * Specifies the exact `src` of an SVG file to use.
-    */
-    'src'?: string;
-  }
-  interface InoIconAttributes extends StencilHTMLAttributes {
-    /**
-    * Makes the icon clickable and allows to listen to the `clickEl` event.
-    */
-    'inoClickable'?: boolean;
-    /**
-    * The name of the icon of this element or an URL.
-    */
-    'inoIcon'?: string;
-    /**
-    * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
-    */
-    'onClickEl'?: (event: CustomEvent) => void;
-    /**
-    * Specifies the exact `src` of an SVG file to use.
-    */
-    'src'?: string;
-  }
-
   interface InoImg {
-    /**
-    * The alternative text of this image.
-    */
-    'alt'?: string;
-    /**
-    * The decoding method of the native html input element. Can either be `async`, `auto` or `sync`.
-    */
-    'decoding'?: ImageDecodingTypes;
-    /**
-    * The fixed height of this image.
-    */
-    'height'?: number;
-    /**
-    * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
-    */
-    'inoRatioHeight': number;
-    /**
-    * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
-    */
-    'inoRatioWidth': number;
-    /**
-    * If true, styles the image with rounded borders.
-    */
-    'inoRounded'?: boolean;
-    /**
-    * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
-    */
-    'sizes'?: string;
-    /**
-    * The source of this image element.
-    */
-    'src'?: string;
-    /**
-    * A set of sources of this image for different viewports or devices.
-    */
-    'srcset'?: string;
-    /**
-    * An ID referencing to a defined map element for this image.
-    */
-    'usemap'?: string;
-    /**
-    * The fixed of the image.
-    */
-    'width'?: number;
-  }
-  interface InoImgAttributes extends StencilHTMLAttributes {
     /**
     * The alternative text of this image.
     */
@@ -901,80 +427,7 @@ export namespace Components {
     */
     'width'?: number;
   }
-
-  interface InoInputFile {
-    /**
-    * The types of files accepted by the server.
-    */
-    'accept'?: string;
-    /**
-    * The autofocus of this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Sets the label of the select files button.
-    */
-    'inoLabel': string;
-    /**
-    * Indicates whether the user can enter one or more values.
-    */
-    'multiple'?: boolean;
-    /**
-    * The name of this input field.
-    */
-    'name'?: string;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-  }
-  interface InoInputFileAttributes extends StencilHTMLAttributes {
-    /**
-    * The types of files accepted by the server.
-    */
-    'accept'?: string;
-    /**
-    * The autofocus of this element.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * Sets the label of the select files button.
-    */
-    'inoLabel'?: string;
-    /**
-    * Indicates whether the user can enter one or more values.
-    */
-    'multiple'?: boolean;
-    /**
-    * The name of this input field.
-    */
-    'name'?: string;
-    /**
-    * Emits when the value changes.
-    */
-    'onChangeFile'?: (event: CustomEvent<{
-      e: Event;
-      files: object[];
-    }>) => void;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-  }
-
   interface InoInput {
-    /**
-    * The accesskey of this native element.
-    */
-    'accesskey'?: string;
     /**
     * The autocomplete property of this element.
     */
@@ -1062,25 +515,1018 @@ export namespace Components {
     /**
     * The step value of this element
     */
-    'step': number;
-    /**
-    * The tabindex of this element.
-    */
-    'tabindex'?: string;
+    'step'?: number;
     /**
     * The type of this element (default = text).
     */
-    'type': string;
+    'type'?: string;
     /**
     * The value of this element. (**unmanaged**)
     */
     'value': string;
   }
-  interface InoInputAttributes extends StencilHTMLAttributes {
+  interface InoInputFile {
     /**
-    * The accesskey of this native element.
+    * The types of files accepted by the server.
     */
-    'accesskey'?: string;
+    'accept'?: string;
+    /**
+    * The autofocus of this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Sets the label of the select files button.
+    */
+    'inoLabel'?: string;
+    /**
+    * Indicates whether the user can enter one or more values.
+    */
+    'multiple'?: boolean;
+    /**
+    * The name of this input field.
+    */
+    'name'?: string;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+  }
+  interface InoLabel {
+    /**
+    * Colors the label in an light grey to indicate the disabled status for this element
+    */
+    'inoDisabled': boolean;
+    /**
+    * Styles the label in an outlined style
+    */
+    'inoOutline': boolean;
+    /**
+    * Appends * to the label to make it appear as an required input in a form
+    */
+    'inoRequired': boolean;
+    /**
+    * The text of the label itself
+    */
+    'inoText': string;
+  }
+  interface InoList {
+    /**
+    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+    */
+    'inoAvatar'?: boolean;
+    /**
+    * Styles the list more dense, making it appear more compact.
+    */
+    'inoDense'?: boolean;
+    /**
+    * Marks this element as list with items having two lines.
+    */
+    'inoTwoLines'?: boolean;
+  }
+  interface InoListDivider {
+    /**
+    * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
+    */
+    'inoBetweenLists'?: boolean;
+    /**
+    * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoInset'?: boolean;
+    /**
+    * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+    */
+    'inoPadded'?: boolean;
+  }
+  interface InoListItem {
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated'?: boolean;
+    /**
+    * Styles the row in a disabled style.
+    */
+    'inoDisabled'?: boolean;
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText'?: string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The primary text of this list item.
+    */
+    'inoText'?: string;
+  }
+  interface InoMenu {
+    /**
+    * Anchor element for the menu
+    */
+    'inoFor'?: string;
+    /**
+    * Set this option to show the menu.
+    */
+    'inoOpen'?: boolean;
+  }
+  interface InoPopover {
+    /**
+    * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
+    */
+    'inoFor'?: string;
+    /**
+    * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+    */
+    'inoPlacement': Placement;
+    /**
+    * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
+    */
+    'inoTrigger': TooltipTrigger;
+  }
+  interface InoRadio {
+    /**
+    * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
+    */
+    'checked': boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of this element. Use the same name for radio groups
+    */
+    'name'?: string;
+    /**
+    * The value of this element.
+    */
+    'value'?: string;
+  }
+  interface InoRange {
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * Restricts the slider to only allow discrete values.
+    */
+    'inoDiscrete'?: boolean;
+    /**
+    * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
+    */
+    'inoMarkers'?: boolean;
+    /**
+    * The max value of this element.
+    */
+    'max'?: number;
+    /**
+    * The min value of this element.
+    */
+    'min'?: number;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * The step size for this element (default = 1)
+    */
+    'step'?: number;
+    /**
+    * The value of this element. (**unmanaged**)
+    */
+    'value'?: number;
+  }
+  interface InoSelect {
+    /**
+    * Marks this element as autofocused.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The form this element belongs to.
+    */
+    'form'?: string;
+    /**
+    * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
+    */
+    'inoDisableDefault'?: boolean;
+    /**
+    * The label of this element
+    */
+    'inoLabel'?: string;
+    /**
+    * Styles this select box as outlined element.
+    */
+    'inoOutline'?: boolean;
+    /**
+    * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
+    */
+    'inoPrependDefault'?: boolean;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+    /**
+    * The value of this element. (**unmanaged**)
+    */
+    'value'?: string;
+  }
+  interface InoSnackbar {
+    /**
+    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
+    */
+    'inoActionOnBottom'?: boolean;
+    /**
+    * The text to display for the action button.
+    */
+    'inoActionText'?: string;
+    /**
+    * Controls if Snackbar is centered or start-aligned.
+    */
+    'inoAlignStart'?: boolean;
+    /**
+    * The text message to display.
+    */
+    'inoMessage'?: string;
+  }
+  interface InoSpinner {
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * The height of this spinner (default = 40)
+    */
+    'inoHeight'?: number;
+    /**
+    * If true, the spinner is shown as modal over the current app page.
+    */
+    'inoModal'?: boolean;
+    /**
+    * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
+    */
+    'inoType': SpinnerType;
+    /**
+    * The width of this spinner (defaul = 40)
+    */
+    'inoWidth'?: number;
+  }
+  interface InoTab {
+    /**
+    * Indicates a leading icon in the tab.
+    */
+    'inoIcon'?: string;
+    /**
+    * Indicates that the tab only expands to the width of its content.
+    */
+    'inoIndicatorContentWidth': boolean;
+    /**
+    * Indicates a label text in the tab.
+    */
+    'inoLabel'?: string;
+    /**
+    * Indicates that the tab icon and label should flow vertically instead of horizontally.
+    */
+    'inoStacked': boolean;
+  }
+  interface InoTabBar {
+    /**
+    * Activates the tab at the given index (**unmanaged**).
+    */
+    'inoActiveTab'?: number;
+  }
+  interface InoTextarea {
+    /**
+    * The autofocus of this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+    */
+    'autogrow': boolean;
+    /**
+    * The number of cols of this textarea.
+    */
+    'cols'?: number;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The optional floating label of this input field.
+    */
+    'inoLabel'?: string;
+    /**
+    * The max length of this element.
+    */
+    'maxlength'?: number;
+    /**
+    * The min length of this element.
+    */
+    'minlength'?: number;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * The placeholder of this element.
+    */
+    'placeholder'?: string;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+    /**
+    * The number of rows of this textarea.
+    */
+    'rows'?: number;
+    /**
+    * Displays the number of characters. The maxlength-property must be set.
+    */
+    'showCharacterCounter'?: boolean;
+    /**
+    * The value of this element. (**unmanaged**)
+    */
+    'value'?: string;
+  }
+  interface InoTooltip {
+    /**
+    * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
+    */
+    'inoFor'?: string;
+    /**
+    * The text shown in the tooltip.
+    */
+    'inoLabel'?: string;
+    /**
+    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+    */
+    'inoPlacement': Placement;
+    /**
+    * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+    */
+    'inoTrigger': TooltipTrigger;
+  }
+}
+
+declare global {
+
+
+  interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {}
+  var HTMLInoButtonElement: {
+    prototype: HTMLInoButtonElement;
+    new (): HTMLInoButtonElement;
+  };
+
+  interface HTMLInoCardElement extends Components.InoCard, HTMLStencilElement {}
+  var HTMLInoCardElement: {
+    prototype: HTMLInoCardElement;
+    new (): HTMLInoCardElement;
+  };
+
+  interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {}
+  var HTMLInoCheckboxElement: {
+    prototype: HTMLInoCheckboxElement;
+    new (): HTMLInoCheckboxElement;
+  };
+
+  interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {}
+  var HTMLInoChipElement: {
+    prototype: HTMLInoChipElement;
+    new (): HTMLInoChipElement;
+  };
+
+  interface HTMLInoChipSetElement extends Components.InoChipSet, HTMLStencilElement {}
+  var HTMLInoChipSetElement: {
+    prototype: HTMLInoChipSetElement;
+    new (): HTMLInoChipSetElement;
+  };
+
+  interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {}
+  var HTMLInoControlItemElement: {
+    prototype: HTMLInoControlItemElement;
+    new (): HTMLInoControlItemElement;
+  };
+
+  interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {}
+  var HTMLInoDatepickerElement: {
+    prototype: HTMLInoDatepickerElement;
+    new (): HTMLInoDatepickerElement;
+  };
+
+  interface HTMLInoFabElement extends Components.InoFab, HTMLStencilElement {}
+  var HTMLInoFabElement: {
+    prototype: HTMLInoFabElement;
+    new (): HTMLInoFabElement;
+  };
+
+  interface HTMLInoFabSetElement extends Components.InoFabSet, HTMLStencilElement {}
+  var HTMLInoFabSetElement: {
+    prototype: HTMLInoFabSetElement;
+    new (): HTMLInoFabSetElement;
+  };
+
+  interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {}
+  var HTMLInoFormRowElement: {
+    prototype: HTMLInoFormRowElement;
+    new (): HTMLInoFormRowElement;
+  };
+
+  interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {}
+  var HTMLInoIconElement: {
+    prototype: HTMLInoIconElement;
+    new (): HTMLInoIconElement;
+  };
+
+  interface HTMLInoIconButtonElement extends Components.InoIconButton, HTMLStencilElement {}
+  var HTMLInoIconButtonElement: {
+    prototype: HTMLInoIconButtonElement;
+    new (): HTMLInoIconButtonElement;
+  };
+
+  interface HTMLInoImgElement extends Components.InoImg, HTMLStencilElement {}
+  var HTMLInoImgElement: {
+    prototype: HTMLInoImgElement;
+    new (): HTMLInoImgElement;
+  };
+
+  interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {}
+  var HTMLInoInputElement: {
+    prototype: HTMLInoInputElement;
+    new (): HTMLInoInputElement;
+  };
+
+  interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {}
+  var HTMLInoInputFileElement: {
+    prototype: HTMLInoInputFileElement;
+    new (): HTMLInoInputFileElement;
+  };
+
+  interface HTMLInoLabelElement extends Components.InoLabel, HTMLStencilElement {}
+  var HTMLInoLabelElement: {
+    prototype: HTMLInoLabelElement;
+    new (): HTMLInoLabelElement;
+  };
+
+  interface HTMLInoListElement extends Components.InoList, HTMLStencilElement {}
+  var HTMLInoListElement: {
+    prototype: HTMLInoListElement;
+    new (): HTMLInoListElement;
+  };
+
+  interface HTMLInoListDividerElement extends Components.InoListDivider, HTMLStencilElement {}
+  var HTMLInoListDividerElement: {
+    prototype: HTMLInoListDividerElement;
+    new (): HTMLInoListDividerElement;
+  };
+
+  interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {}
+  var HTMLInoListItemElement: {
+    prototype: HTMLInoListItemElement;
+    new (): HTMLInoListItemElement;
+  };
+
+  interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {}
+  var HTMLInoMenuElement: {
+    prototype: HTMLInoMenuElement;
+    new (): HTMLInoMenuElement;
+  };
+
+  interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {}
+  var HTMLInoPopoverElement: {
+    prototype: HTMLInoPopoverElement;
+    new (): HTMLInoPopoverElement;
+  };
+
+  interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {}
+  var HTMLInoRadioElement: {
+    prototype: HTMLInoRadioElement;
+    new (): HTMLInoRadioElement;
+  };
+
+  interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {}
+  var HTMLInoRangeElement: {
+    prototype: HTMLInoRangeElement;
+    new (): HTMLInoRangeElement;
+  };
+
+  interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {}
+  var HTMLInoSelectElement: {
+    prototype: HTMLInoSelectElement;
+    new (): HTMLInoSelectElement;
+  };
+
+  interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {}
+  var HTMLInoSnackbarElement: {
+    prototype: HTMLInoSnackbarElement;
+    new (): HTMLInoSnackbarElement;
+  };
+
+  interface HTMLInoSpinnerElement extends Components.InoSpinner, HTMLStencilElement {}
+  var HTMLInoSpinnerElement: {
+    prototype: HTMLInoSpinnerElement;
+    new (): HTMLInoSpinnerElement;
+  };
+
+  interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {}
+  var HTMLInoTabElement: {
+    prototype: HTMLInoTabElement;
+    new (): HTMLInoTabElement;
+  };
+
+  interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {}
+  var HTMLInoTabBarElement: {
+    prototype: HTMLInoTabBarElement;
+    new (): HTMLInoTabBarElement;
+  };
+
+  interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {}
+  var HTMLInoTextareaElement: {
+    prototype: HTMLInoTextareaElement;
+    new (): HTMLInoTextareaElement;
+  };
+
+  interface HTMLInoTooltipElement extends Components.InoTooltip, HTMLStencilElement {}
+  var HTMLInoTooltipElement: {
+    prototype: HTMLInoTooltipElement;
+    new (): HTMLInoTooltipElement;
+  };
+  interface HTMLElementTagNameMap {
+    'ino-button': HTMLInoButtonElement;
+    'ino-card': HTMLInoCardElement;
+    'ino-checkbox': HTMLInoCheckboxElement;
+    'ino-chip': HTMLInoChipElement;
+    'ino-chip-set': HTMLInoChipSetElement;
+    'ino-control-item': HTMLInoControlItemElement;
+    'ino-datepicker': HTMLInoDatepickerElement;
+    'ino-fab': HTMLInoFabElement;
+    'ino-fab-set': HTMLInoFabSetElement;
+    'ino-form-row': HTMLInoFormRowElement;
+    'ino-icon': HTMLInoIconElement;
+    'ino-icon-button': HTMLInoIconButtonElement;
+    'ino-img': HTMLInoImgElement;
+    'ino-input': HTMLInoInputElement;
+    'ino-input-file': HTMLInoInputFileElement;
+    'ino-label': HTMLInoLabelElement;
+    'ino-list': HTMLInoListElement;
+    'ino-list-divider': HTMLInoListDividerElement;
+    'ino-list-item': HTMLInoListItemElement;
+    'ino-menu': HTMLInoMenuElement;
+    'ino-popover': HTMLInoPopoverElement;
+    'ino-radio': HTMLInoRadioElement;
+    'ino-range': HTMLInoRangeElement;
+    'ino-select': HTMLInoSelectElement;
+    'ino-snackbar': HTMLInoSnackbarElement;
+    'ino-spinner': HTMLInoSpinnerElement;
+    'ino-tab': HTMLInoTabElement;
+    'ino-tab-bar': HTMLInoTabBarElement;
+    'ino-textarea': HTMLInoTextareaElement;
+    'ino-tooltip': HTMLInoTooltipElement;
+  }
+}
+
+declare namespace LocalJSX {
+  interface InoButton extends JSXBase.HTMLAttributes<HTMLInoButtonElement> {
+    /**
+    * Sets the autofocus for this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The form id this element origins to.
+    */
+    'form'?: string;
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * Makes the button text and container slightly smaller.
+    */
+    'inoDense'?: boolean;
+    /**
+    * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
+    */
+    'inoFill'?: SurfaceType;
+    /**
+    * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
+    */
+    'inoIcon'?: string;
+    /**
+    * Prepends an icon after the text.
+    */
+    'inoIconPrepend'?: boolean;
+    /**
+    * The name of the element.
+    */
+    'name'?: string;
+    /**
+    * The type of this form.  Can either be `button`, `submit` or `reset`.
+    */
+    'type'?: ButtonType;
+  }
+  interface InoCard extends JSXBase.HTMLAttributes<HTMLInoCardElement> {
+    /**
+    * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
+    */
+    'inoAspectRatio'?: CardAspectRatio;
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * Displays a media area with a custom `background-image` with `background-size: cover`
+    */
+    'inoImage'?: string;
+    /**
+    * Displays the card title inside the image
+    */
+    'inoMediaTitle'?: boolean;
+    /**
+    * Removes the shadow and displays a hairline outline instead.
+    */
+    'inoOutline'?: boolean;
+    /**
+    * An optional subtitle of this card.
+    */
+    'inoSubtitle'?: string;
+    /**
+    * An optional title of this card.
+    */
+    'inoTitle'?: string;
+  }
+  interface InoCheckbox extends JSXBase.HTMLAttributes<HTMLInoCheckboxElement> {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Marks this element as indeterminate (**unmanaged**)
+    */
+    'indeterminate'?: boolean;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+    */
+    'onCheckedChange'?: (event: CustomEvent<any>) => void;
+    /**
+    * The value of this element.
+    */
+    'value'?: string;
+  }
+  interface InoChip extends JSXBase.HTMLAttributes<HTMLInoChipElement> {
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * The fill type of this element. Possible values: `solid` (default) or `outline`.
+    */
+    'inoFill'?: ChipSurface;
+    /**
+    * The icon before the label in this chip.
+    */
+    'inoIcon'?: string;
+    /**
+    * The label of this chip (**required**).
+    */
+    'inoLabel'?: string;
+    /**
+    * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+    */
+    'inoRemovable'?: boolean;
+    /**
+    * Adds a checkmark if the icon is selected.
+    */
+    'inoSelectable'?: boolean;
+    /**
+    * Marks this element as selected.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+    */
+    'inoValue'?: string;
+    /**
+    * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
+    */
+    'onRemoveChip'?: (event: CustomEvent<any>) => void;
+  }
+  interface InoChipSet extends JSXBase.HTMLAttributes<HTMLInoChipSetElement> {
+    /**
+    * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
+    */
+    'inoType'?: ChipSetType;
+    /**
+    * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
+    */
+    'onUpdateChipSet'?: (event: CustomEvent<any>) => void;
+  }
+  interface InoControlItem extends JSXBase.HTMLAttributes<HTMLInoControlItemElement> {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Marks this element as indeterminate (**unmanaged**) Checkbox only
+    */
+    'indeterminate'?: boolean;
+    /**
+    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+    */
+    'inoActivated'?: boolean;
+    /**
+    * Styles the row in a disabled style.
+    */
+    'inoDisabled'?: boolean;
+    /**
+    * The id of this element.
+    */
+    'inoId'?: string;
+    /**
+    * The type of control element
+    */
+    'inoRole': 'checkbox' | 'radio';
+    /**
+    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+    */
+    'inoSecondaryText'?: string;
+    /**
+    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+    */
+    'inoSelected'?: boolean;
+    /**
+    * The primary text of this list item (required).
+    */
+    'inoText': string;
+    /**
+    * Places the checkbox at the end of the item
+    */
+    'inoTrailing'?: boolean;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
+    */
+    'onCheckedChange'?: (event: CustomEvent<any>) => void;
+    /**
+    * The value of this element.
+    */
+    'value'?: string;
+  }
+  interface InoDatepicker extends JSXBase.HTMLAttributes<HTMLInoDatepickerElement> {
+    /**
+    * Autofocuses this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * Adjusts the step for the hour input (incl. scrolling) Default is 1
+    */
+    'hourStep'?: number;
+    /**
+    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+    */
+    'inoDateFormat'?: string;
+    /**
+    * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
+    */
+    'inoDefaultDate'?: string | string[];
+    /**
+    * A number containing the initial hour in the date-time picker overlay. The default is `12`
+    */
+    'inoDefaultHour'?: number;
+    /**
+    * A number containing the initial minute in the date-time picker overlay. The default is `0`
+    */
+    'inoDefaultMinute'?: number;
+    /**
+    * The helper text.
+    */
+    'inoHelper'?: string;
+    /**
+    * Displays the helper permanently.
+    */
+    'inoHelperPersistent'?: boolean;
+    /**
+    * Styles the helper text as a validation message.
+    */
+    'inoHelperValidation'?: boolean;
+    /**
+    * Defines the label for this element.
+    */
+    'inoLabel'?: string;
+    /**
+    * Styles the datepicker as outlined element.
+    */
+    'inoOutline'?: boolean;
+    /**
+    * A pattern to check the input field on
+    */
+    'inoPattern'?: string;
+    /**
+    * If true, enables the user to choose two dates as an interval
+    */
+    'inoRange'?: boolean;
+    /**
+    * If true, displays time picker in 12 hour mode with AM/PM selection.
+    */
+    'inoTwelfHourTime'?: boolean;
+    /**
+    * The maximum date that a user can pick to (inclusive).
+    */
+    'max'?: string;
+    /**
+    * The minimum date that a user can start picking from (inclusive).
+    */
+    'min'?: string;
+    /**
+    * Adjusts the step for the minute input (incl. scrolling) Default is 5
+    */
+    'minuteStep'?: number;
+    /**
+    * The input name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the value of the datepicker changes. The value can be found in `event.detail`
+    */
+    'onValueChange'?: (event: CustomEvent<string>) => void;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
+    /**
+    * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+    */
+    'value'?: string;
+  }
+  interface InoFab extends JSXBase.HTMLAttributes<HTMLInoFabElement> {
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * Optional, modifies the FAB to wider size which includes a text label.
+    */
+    'inoExtended'?: boolean;
+    /**
+    * Adds an icon to the Fab.
+    */
+    'inoIcon'?: string;
+    /**
+    * Optional, for the text label. Applicable only for Extended FAB.
+    */
+    'inoLabel'?: string;
+    /**
+    * Optional, modifies the FAB to a smaller size
+    */
+    'inoMini'?: boolean;
+    /**
+    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+    */
+    'inoTooltipPlacement'?: Placement;
+  }
+  interface InoFabSet extends JSXBase.HTMLAttributes<HTMLInoFabSetElement> {
+    /**
+    * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
+    */
+    'inoDialDirection'?: Locations;
+    /**
+    * The side where the Fab is displayed. Possible values: `right`, `left` (default).
+    */
+    'inoLeftRightLocation'?: HorizontalLocation;
+    /**
+    * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
+    */
+    'inoTopBottomLocation'?: VerticalLocation;
+  }
+  interface InoFormRow extends JSXBase.HTMLAttributes<HTMLInoFormRowElement> {
+    /**
+    * The label for this form row which describes the form element.
+    */
+    'inoLabel'?: string;
+    /**
+    * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
+    */
+    'inoMandatory'?: boolean;
+  }
+  interface InoIcon extends JSXBase.HTMLAttributes<HTMLInoIconElement> {
+    /**
+    * Makes the icon clickable and allows to listen to the `clickEl` event.
+    */
+    'inoClickable'?: boolean;
+    /**
+    * The name of the icon of this element or an URL.
+    */
+    'inoIcon'?: string;
+    /**
+    * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
+    */
+    'onClickEl'?: (event: CustomEvent<any>) => void;
+    /**
+    * Specifies the exact `src` of an SVG file to use.
+    */
+    'src'?: string;
+  }
+  interface InoIconButton extends JSXBase.HTMLAttributes<HTMLInoIconButtonElement> {
+    /**
+    * Sets the autofocus for this element.
+    */
+    'autofocus'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * The name of the icon of this element.
+    */
+    'inoIcon'?: string;
+  }
+  interface InoImg extends JSXBase.HTMLAttributes<HTMLInoImgElement> {
+    /**
+    * The alternative text of this image.
+    */
+    'alt'?: string;
+    /**
+    * The decoding method of the native html input element. Can either be `async`, `auto` or `sync`.
+    */
+    'decoding'?: ImageDecodingTypes;
+    /**
+    * The fixed height of this image.
+    */
+    'height'?: number;
+    /**
+    * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+    */
+    'inoRatioHeight'?: number;
+    /**
+    * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+    */
+    'inoRatioWidth'?: number;
+    /**
+    * If true, styles the image with rounded borders.
+    */
+    'inoRounded'?: boolean;
+    /**
+    * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
+    */
+    'sizes'?: string;
+    /**
+    * The source of this image element.
+    */
+    'src'?: string;
+    /**
+    * A set of sources of this image for different viewports or devices.
+    */
+    'srcset'?: string;
+    /**
+    * An ID referencing to a defined map element for this image.
+    */
+    'usemap'?: string;
+    /**
+    * The fixed of the image.
+    */
+    'width'?: number;
+  }
+  interface InoInput extends JSXBase.HTMLAttributes<HTMLInoInputElement> {
     /**
     * The autocomplete property of this element.
     */
@@ -1182,10 +1628,6 @@ export namespace Components {
     */
     'step'?: number;
     /**
-    * The tabindex of this element.
-    */
-    'tabindex'?: string;
-    /**
     * The type of this element (default = text).
     */
     'type'?: string;
@@ -1194,26 +1636,44 @@ export namespace Components {
     */
     'value'?: string;
   }
-
-  interface InoLabel {
+  interface InoInputFile extends JSXBase.HTMLAttributes<HTMLInoInputFileElement> {
     /**
-    * Colors the label in an light grey to indicate the disabled status for this element
+    * The types of files accepted by the server.
     */
-    'inoDisabled': boolean;
+    'accept'?: string;
     /**
-    * Styles the label in an outlined style
+    * The autofocus of this element.
     */
-    'inoOutline': boolean;
+    'autofocus'?: boolean;
     /**
-    * Appends * to the label to make it appear as an required input in a form
+    * Disables this element.
     */
-    'inoRequired': boolean;
+    'disabled'?: boolean;
     /**
-    * The text of the label itself
+    * Sets the label of the select files button.
     */
-    'inoText': string;
+    'inoLabel'?: string;
+    /**
+    * Indicates whether the user can enter one or more values.
+    */
+    'multiple'?: boolean;
+    /**
+    * The name of this input field.
+    */
+    'name'?: string;
+    /**
+    * Emits when the value changes.
+    */
+    'onChangeFile'?: (event: CustomEvent<{
+      e: any;
+      files: object[];
+    }>) => void;
+    /**
+    * Marks this element as required.
+    */
+    'required'?: boolean;
   }
-  interface InoLabelAttributes extends StencilHTMLAttributes {
+  interface InoLabel extends JSXBase.HTMLAttributes<HTMLInoLabelElement> {
     /**
     * Colors the label in an light grey to indicate the disabled status for this element
     */
@@ -1231,8 +1691,21 @@ export namespace Components {
     */
     'inoText'?: string;
   }
-
-  interface InoListDivider {
+  interface InoList extends JSXBase.HTMLAttributes<HTMLInoListElement> {
+    /**
+    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+    */
+    'inoAvatar'?: boolean;
+    /**
+    * Styles the list more dense, making it appear more compact.
+    */
+    'inoDense'?: boolean;
+    /**
+    * Marks this element as list with items having two lines.
+    */
+    'inoTwoLines'?: boolean;
+  }
+  interface InoListDivider extends JSXBase.HTMLAttributes<HTMLInoListDividerElement> {
     /**
     * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
     */
@@ -1246,44 +1719,7 @@ export namespace Components {
     */
     'inoPadded'?: boolean;
   }
-  interface InoListDividerAttributes extends StencilHTMLAttributes {
-    /**
-    * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
-    */
-    'inoBetweenLists'?: boolean;
-    /**
-    * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
-    */
-    'inoInset'?: boolean;
-    /**
-    * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
-    */
-    'inoPadded'?: boolean;
-  }
-
-  interface InoListItem {
-    /**
-    * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
-    */
-    'inoActivated'?: boolean;
-    /**
-    * Styles the row in a disabled style.
-    */
-    'inoDisabled'?: boolean;
-    /**
-    * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
-    */
-    'inoSecondaryText'?: string;
-    /**
-    * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
-    */
-    'inoSelected'?: boolean;
-    /**
-    * The primary text of this list item.
-    */
-    'inoText'?: string;
-  }
-  interface InoListItemAttributes extends StencilHTMLAttributes {
+  interface InoListItem extends JSXBase.HTMLAttributes<HTMLInoListItemElement> {
     /**
     * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
     */
@@ -1307,39 +1743,9 @@ export namespace Components {
     /**
     * Emits when the list item is clicked. Contains the element itself in `event.detail`
     */
-    'onClickEl'?: (event: CustomEvent) => void;
+    'onClickEl'?: (event: CustomEvent<any>) => void;
   }
-
-  interface InoList {
-    /**
-    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
-    */
-    'inoAvatar': boolean;
-    /**
-    * Styles the list more dense, making it appear more compact.
-    */
-    'inoDense'?: boolean;
-    /**
-    * Marks this element as list with items having two lines.
-    */
-    'inoTwoLines'?: boolean;
-  }
-  interface InoListAttributes extends StencilHTMLAttributes {
-    /**
-    * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
-    */
-    'inoAvatar'?: boolean;
-    /**
-    * Styles the list more dense, making it appear more compact.
-    */
-    'inoDense'?: boolean;
-    /**
-    * Marks this element as list with items having two lines.
-    */
-    'inoTwoLines'?: boolean;
-  }
-
-  interface InoMenu {
+  interface InoMenu extends JSXBase.HTMLAttributes<HTMLInoMenuElement> {
     /**
     * Anchor element for the menu
     */
@@ -1349,32 +1755,7 @@ export namespace Components {
     */
     'inoOpen'?: boolean;
   }
-  interface InoMenuAttributes extends StencilHTMLAttributes {
-    /**
-    * Anchor element for the menu
-    */
-    'inoFor'?: string;
-    /**
-    * Set this option to show the menu.
-    */
-    'inoOpen'?: boolean;
-  }
-
-  interface InoPopover {
-    /**
-    * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
-    */
-    'inoFor'?: string;
-    /**
-    * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-    */
-    'inoPlacement': Placement;
-    /**
-    * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
-    */
-    'inoTrigger': TooltipTrigger;
-  }
-  interface InoPopoverAttributes extends StencilHTMLAttributes {
+  interface InoPopover extends JSXBase.HTMLAttributes<HTMLInoPopoverElement> {
     /**
     * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
     */
@@ -1388,30 +1769,7 @@ export namespace Components {
     */
     'inoTrigger'?: TooltipTrigger;
   }
-
-  interface InoRadio {
-    /**
-    * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
-    */
-    'checked': boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The tabIndex of this element.
-    */
-    'inoTabindex'?: number;
-    /**
-    * The name of this element. Use the same name for radio groups
-    */
-    'name'?: string;
-    /**
-    * The value of this element.
-    */
-    'value'?: string;
-  }
-  interface InoRadioAttributes extends StencilHTMLAttributes {
+  interface InoRadio extends JSXBase.HTMLAttributes<HTMLInoRadioElement> {
     /**
     * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
     */
@@ -1421,62 +1779,19 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * The tabIndex of this element.
-    */
-    'inoTabindex'?: number;
-    /**
     * The name of this element. Use the same name for radio groups
     */
     'name'?: string;
     /**
     * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false.
     */
-    'onCheckedChange'?: (event: CustomEvent) => void;
+    'onCheckedChange'?: (event: CustomEvent<any>) => void;
     /**
     * The value of this element.
     */
     'value'?: string;
   }
-
-  interface InoRange {
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * Restricts the slider to only allow discrete values.
-    */
-    'inoDiscrete'?: boolean;
-    /**
-    * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
-    */
-    'inoMarkers'?: boolean;
-    /**
-    * The max value of this element.
-    */
-    'max'?: number;
-    /**
-    * The min value of this element.
-    */
-    'min'?: number;
-    /**
-    * The name of this element.
-    */
-    'name'?: string;
-    /**
-    * The step size for this element (default = 1)
-    */
-    'step'?: number;
-    /**
-    * The value of this element. (**unmanaged**)
-    */
-    'value'?: number;
-  }
-  interface InoRangeAttributes extends StencilHTMLAttributes {
+  interface InoRange extends JSXBase.HTMLAttributes<HTMLInoRangeElement> {
     /**
     * Disables this element.
     */
@@ -1508,7 +1823,7 @@ export namespace Components {
     /**
     * Emits when the value changes. Contains new value in `event.detail`.
     */
-    'onValueChange'?: (event: CustomEvent) => void;
+    'onValueChange'?: (event: CustomEvent<any>) => void;
     /**
     * The step size for this element (default = 1)
     */
@@ -1518,50 +1833,7 @@ export namespace Components {
     */
     'value'?: number;
   }
-
-  interface InoSelect {
-    /**
-    * Marks this element as autofocused.
-    */
-    'autofocus'?: boolean;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The form this element belongs to.
-    */
-    'form'?: string;
-    /**
-    * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
-    */
-    'inoDisableDefault'?: boolean;
-    /**
-    * The label of this element
-    */
-    'inoLabel'?: string;
-    /**
-    * Styles this select box as outlined element.
-    */
-    'inoOutline'?: boolean;
-    /**
-    * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
-    */
-    'inoPrependDefault'?: boolean;
-    /**
-    * The name of this element.
-    */
-    'name'?: string;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-    /**
-    * The value of this element. (**unmanaged**)
-    */
-    'value': string;
-  }
-  interface InoSelectAttributes extends StencilHTMLAttributes {
+  interface InoSelect extends JSXBase.HTMLAttributes<HTMLInoSelectElement> {
     /**
     * Marks this element as autofocused.
     */
@@ -1607,26 +1879,7 @@ export namespace Components {
     */
     'value'?: string;
   }
-
-  interface InoSnackbar {
-    /**
-    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
-    */
-    'inoActionOnBottom': boolean;
-    /**
-    * The text to display for the action button.
-    */
-    'inoActionText': string;
-    /**
-    * Controls if Snackbar is centered or start-aligned.
-    */
-    'inoAlignStart': boolean;
-    /**
-    * The text message to display.
-    */
-    'inoMessage'?: string;
-  }
-  interface InoSnackbarAttributes extends StencilHTMLAttributes {
+  interface InoSnackbar extends JSXBase.HTMLAttributes<HTMLInoSnackbarElement> {
     /**
     * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
     */
@@ -1646,36 +1899,13 @@ export namespace Components {
     /**
     * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
     */
-    'onHideEl'?: (event: CustomEvent) => void;
+    'onHideEl'?: (event: CustomEvent<any>) => void;
     /**
     * Event that emits as soon as the action button is clicked.
     */
-    'onInoActionClick'?: (event: CustomEvent) => void;
+    'onInoActionClick'?: (event: CustomEvent<any>) => void;
   }
-
-  interface InoSpinner {
-    /**
-    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-    */
-    'inoColorScheme'?: ColorScheme;
-    /**
-    * The height of this spinner (default = 40)
-    */
-    'inoHeight': number;
-    /**
-    * If true, the spinner is shown as modal over the current app page.
-    */
-    'inoModal'?: boolean;
-    /**
-    * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
-    */
-    'inoType': SpinnerType;
-    /**
-    * The width of this spinner (defaul = 40)
-    */
-    'inoWidth': number;
-  }
-  interface InoSpinnerAttributes extends StencilHTMLAttributes {
+  interface InoSpinner extends JSXBase.HTMLAttributes<HTMLInoSpinnerElement> {
     /**
     * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
     */
@@ -1697,43 +1927,7 @@ export namespace Components {
     */
     'inoWidth'?: number;
   }
-
-  interface InoTabBar {
-    /**
-    * Activates the tab at the given index (**unmanaged**).
-    */
-    'inoActiveTab': number;
-  }
-  interface InoTabBarAttributes extends StencilHTMLAttributes {
-    /**
-    * Activates the tab at the given index (**unmanaged**).
-    */
-    'inoActiveTab'?: number;
-    /**
-    * Emits when a tab changes. Contains activating tab in `event.detail`
-    */
-    'onActiveTabChange'?: (event: CustomEvent) => void;
-  }
-
-  interface InoTab {
-    /**
-    * Indicates a leading icon in the tab.
-    */
-    'inoIcon'?: string;
-    /**
-    * Indicates that the tab only expands to the width of its content.
-    */
-    'inoIndicatorContentWidth': boolean;
-    /**
-    * Indicates a label text in the tab.
-    */
-    'inoLabel'?: string;
-    /**
-    * Indicates that the tab icon and label should flow vertically instead of horizontally.
-    */
-    'inoStacked': boolean;
-  }
-  interface InoTabAttributes extends StencilHTMLAttributes {
+  interface InoTab extends JSXBase.HTMLAttributes<HTMLInoTabElement> {
     /**
     * Indicates a leading icon in the tab.
     */
@@ -1753,68 +1947,23 @@ export namespace Components {
     /**
     * Emitted when the tab did load.
     */
-    'onLoadEl'?: (event: CustomEvent) => void;
+    'onLoadEl'?: (event: CustomEvent<any>) => void;
     /**
     * Emitted when the tab did unload.
     */
-    'onUnloadEl'?: (event: CustomEvent) => void;
+    'onUnloadEl'?: (event: CustomEvent<any>) => void;
   }
-
-  interface InoTextarea {
+  interface InoTabBar extends JSXBase.HTMLAttributes<HTMLInoTabBarElement> {
     /**
-    * The autofocus of this element.
+    * Activates the tab at the given index (**unmanaged**).
     */
-    'autofocus'?: boolean;
+    'inoActiveTab'?: number;
     /**
-    * An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar.
+    * Emits when a tab changes. Contains activating tab in `event.detail`
     */
-    'autogrow': boolean;
-    /**
-    * The number of cols of this textarea.
-    */
-    'cols'?: number;
-    /**
-    * Disables this element.
-    */
-    'disabled'?: boolean;
-    /**
-    * The optional floating label of this input field.
-    */
-    'inoLabel'?: string;
-    /**
-    * The max length of this element.
-    */
-    'maxlength'?: number;
-    /**
-    * The min length of this element.
-    */
-    'minlength'?: number;
-    /**
-    * The name of this element.
-    */
-    'name'?: string;
-    /**
-    * The placeholder of this element.
-    */
-    'placeholder'?: string;
-    /**
-    * Marks this element as required.
-    */
-    'required'?: boolean;
-    /**
-    * The number of rows of this textarea.
-    */
-    'rows'?: number;
-    /**
-    * Displays the number of characters. The maxlength-property must be set.
-    */
-    'showCharacterCounter'?: boolean;
-    /**
-    * The value of this element. (**unmanaged**)
-    */
-    'value': string;
+    'onActiveTabChange'?: (event: CustomEvent<any>) => void;
   }
-  interface InoTextareaAttributes extends StencilHTMLAttributes {
+  interface InoTextarea extends JSXBase.HTMLAttributes<HTMLInoTextareaElement> {
     /**
     * The autofocus of this element.
     */
@@ -1872,26 +2021,7 @@ export namespace Components {
     */
     'value'?: string;
   }
-
-  interface InoTooltip {
-    /**
-    * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
-    */
-    'inoFor'?: string;
-    /**
-    * The text shown in the tooltip.
-    */
-    'inoLabel'?: string;
-    /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-    */
-    'inoPlacement': Placement;
-    /**
-    * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
-    */
-    'inoTrigger': TooltipTrigger;
-  }
-  interface InoTooltipAttributes extends StencilHTMLAttributes {
+  interface InoTooltip extends JSXBase.HTMLAttributes<HTMLInoTooltipElement> {
     /**
     * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
     */
@@ -1909,329 +2039,48 @@ export namespace Components {
     */
     'inoTrigger'?: TooltipTrigger;
   }
+
+  interface IntrinsicElements {
+    'ino-button': InoButton;
+    'ino-card': InoCard;
+    'ino-checkbox': InoCheckbox;
+    'ino-chip': InoChip;
+    'ino-chip-set': InoChipSet;
+    'ino-control-item': InoControlItem;
+    'ino-datepicker': InoDatepicker;
+    'ino-fab': InoFab;
+    'ino-fab-set': InoFabSet;
+    'ino-form-row': InoFormRow;
+    'ino-icon': InoIcon;
+    'ino-icon-button': InoIconButton;
+    'ino-img': InoImg;
+    'ino-input': InoInput;
+    'ino-input-file': InoInputFile;
+    'ino-label': InoLabel;
+    'ino-list': InoList;
+    'ino-list-divider': InoListDivider;
+    'ino-list-item': InoListItem;
+    'ino-menu': InoMenu;
+    'ino-popover': InoPopover;
+    'ino-radio': InoRadio;
+    'ino-range': InoRange;
+    'ino-select': InoSelect;
+    'ino-snackbar': InoSnackbar;
+    'ino-spinner': InoSpinner;
+    'ino-tab': InoTab;
+    'ino-tab-bar': InoTabBar;
+    'ino-textarea': InoTextarea;
+    'ino-tooltip': InoTooltip;
+  }
 }
 
-declare global {
-  interface StencilElementInterfaces {
-    'InoButton': Components.InoButton;
-    'InoCard': Components.InoCard;
-    'InoCheckbox': Components.InoCheckbox;
-    'InoChipSet': Components.InoChipSet;
-    'InoChip': Components.InoChip;
-    'InoControlItem': Components.InoControlItem;
-    'InoDatepicker': Components.InoDatepicker;
-    'InoFabSet': Components.InoFabSet;
-    'InoFab': Components.InoFab;
-    'InoFormRow': Components.InoFormRow;
-    'InoIconButton': Components.InoIconButton;
-    'InoIcon': Components.InoIcon;
-    'InoImg': Components.InoImg;
-    'InoInputFile': Components.InoInputFile;
-    'InoInput': Components.InoInput;
-    'InoLabel': Components.InoLabel;
-    'InoListDivider': Components.InoListDivider;
-    'InoListItem': Components.InoListItem;
-    'InoList': Components.InoList;
-    'InoMenu': Components.InoMenu;
-    'InoPopover': Components.InoPopover;
-    'InoRadio': Components.InoRadio;
-    'InoRange': Components.InoRange;
-    'InoSelect': Components.InoSelect;
-    'InoSnackbar': Components.InoSnackbar;
-    'InoSpinner': Components.InoSpinner;
-    'InoTabBar': Components.InoTabBar;
-    'InoTab': Components.InoTab;
-    'InoTextarea': Components.InoTextarea;
-    'InoTooltip': Components.InoTooltip;
-  }
-
-  interface StencilIntrinsicElements {
-    'ino-button': Components.InoButtonAttributes;
-    'ino-card': Components.InoCardAttributes;
-    'ino-checkbox': Components.InoCheckboxAttributes;
-    'ino-chip-set': Components.InoChipSetAttributes;
-    'ino-chip': Components.InoChipAttributes;
-    'ino-control-item': Components.InoControlItemAttributes;
-    'ino-datepicker': Components.InoDatepickerAttributes;
-    'ino-fab-set': Components.InoFabSetAttributes;
-    'ino-fab': Components.InoFabAttributes;
-    'ino-form-row': Components.InoFormRowAttributes;
-    'ino-icon-button': Components.InoIconButtonAttributes;
-    'ino-icon': Components.InoIconAttributes;
-    'ino-img': Components.InoImgAttributes;
-    'ino-input-file': Components.InoInputFileAttributes;
-    'ino-input': Components.InoInputAttributes;
-    'ino-label': Components.InoLabelAttributes;
-    'ino-list-divider': Components.InoListDividerAttributes;
-    'ino-list-item': Components.InoListItemAttributes;
-    'ino-list': Components.InoListAttributes;
-    'ino-menu': Components.InoMenuAttributes;
-    'ino-popover': Components.InoPopoverAttributes;
-    'ino-radio': Components.InoRadioAttributes;
-    'ino-range': Components.InoRangeAttributes;
-    'ino-select': Components.InoSelectAttributes;
-    'ino-snackbar': Components.InoSnackbarAttributes;
-    'ino-spinner': Components.InoSpinnerAttributes;
-    'ino-tab-bar': Components.InoTabBarAttributes;
-    'ino-tab': Components.InoTabAttributes;
-    'ino-textarea': Components.InoTextareaAttributes;
-    'ino-tooltip': Components.InoTooltipAttributes;
-  }
+export { LocalJSX as JSX };
 
 
-  interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {}
-  var HTMLInoButtonElement: {
-    prototype: HTMLInoButtonElement;
-    new (): HTMLInoButtonElement;
-  };
-
-  interface HTMLInoCardElement extends Components.InoCard, HTMLStencilElement {}
-  var HTMLInoCardElement: {
-    prototype: HTMLInoCardElement;
-    new (): HTMLInoCardElement;
-  };
-
-  interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {}
-  var HTMLInoCheckboxElement: {
-    prototype: HTMLInoCheckboxElement;
-    new (): HTMLInoCheckboxElement;
-  };
-
-  interface HTMLInoChipSetElement extends Components.InoChipSet, HTMLStencilElement {}
-  var HTMLInoChipSetElement: {
-    prototype: HTMLInoChipSetElement;
-    new (): HTMLInoChipSetElement;
-  };
-
-  interface HTMLInoChipElement extends Components.InoChip, HTMLStencilElement {}
-  var HTMLInoChipElement: {
-    prototype: HTMLInoChipElement;
-    new (): HTMLInoChipElement;
-  };
-
-  interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {}
-  var HTMLInoControlItemElement: {
-    prototype: HTMLInoControlItemElement;
-    new (): HTMLInoControlItemElement;
-  };
-
-  interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {}
-  var HTMLInoDatepickerElement: {
-    prototype: HTMLInoDatepickerElement;
-    new (): HTMLInoDatepickerElement;
-  };
-
-  interface HTMLInoFabSetElement extends Components.InoFabSet, HTMLStencilElement {}
-  var HTMLInoFabSetElement: {
-    prototype: HTMLInoFabSetElement;
-    new (): HTMLInoFabSetElement;
-  };
-
-  interface HTMLInoFabElement extends Components.InoFab, HTMLStencilElement {}
-  var HTMLInoFabElement: {
-    prototype: HTMLInoFabElement;
-    new (): HTMLInoFabElement;
-  };
-
-  interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {}
-  var HTMLInoFormRowElement: {
-    prototype: HTMLInoFormRowElement;
-    new (): HTMLInoFormRowElement;
-  };
-
-  interface HTMLInoIconButtonElement extends Components.InoIconButton, HTMLStencilElement {}
-  var HTMLInoIconButtonElement: {
-    prototype: HTMLInoIconButtonElement;
-    new (): HTMLInoIconButtonElement;
-  };
-
-  interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {}
-  var HTMLInoIconElement: {
-    prototype: HTMLInoIconElement;
-    new (): HTMLInoIconElement;
-  };
-
-  interface HTMLInoImgElement extends Components.InoImg, HTMLStencilElement {}
-  var HTMLInoImgElement: {
-    prototype: HTMLInoImgElement;
-    new (): HTMLInoImgElement;
-  };
-
-  interface HTMLInoInputFileElement extends Components.InoInputFile, HTMLStencilElement {}
-  var HTMLInoInputFileElement: {
-    prototype: HTMLInoInputFileElement;
-    new (): HTMLInoInputFileElement;
-  };
-
-  interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {}
-  var HTMLInoInputElement: {
-    prototype: HTMLInoInputElement;
-    new (): HTMLInoInputElement;
-  };
-
-  interface HTMLInoLabelElement extends Components.InoLabel, HTMLStencilElement {}
-  var HTMLInoLabelElement: {
-    prototype: HTMLInoLabelElement;
-    new (): HTMLInoLabelElement;
-  };
-
-  interface HTMLInoListDividerElement extends Components.InoListDivider, HTMLStencilElement {}
-  var HTMLInoListDividerElement: {
-    prototype: HTMLInoListDividerElement;
-    new (): HTMLInoListDividerElement;
-  };
-
-  interface HTMLInoListItemElement extends Components.InoListItem, HTMLStencilElement {}
-  var HTMLInoListItemElement: {
-    prototype: HTMLInoListItemElement;
-    new (): HTMLInoListItemElement;
-  };
-
-  interface HTMLInoListElement extends Components.InoList, HTMLStencilElement {}
-  var HTMLInoListElement: {
-    prototype: HTMLInoListElement;
-    new (): HTMLInoListElement;
-  };
-
-  interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {}
-  var HTMLInoMenuElement: {
-    prototype: HTMLInoMenuElement;
-    new (): HTMLInoMenuElement;
-  };
-
-  interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {}
-  var HTMLInoPopoverElement: {
-    prototype: HTMLInoPopoverElement;
-    new (): HTMLInoPopoverElement;
-  };
-
-  interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {}
-  var HTMLInoRadioElement: {
-    prototype: HTMLInoRadioElement;
-    new (): HTMLInoRadioElement;
-  };
-
-  interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {}
-  var HTMLInoRangeElement: {
-    prototype: HTMLInoRangeElement;
-    new (): HTMLInoRangeElement;
-  };
-
-  interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {}
-  var HTMLInoSelectElement: {
-    prototype: HTMLInoSelectElement;
-    new (): HTMLInoSelectElement;
-  };
-
-  interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {}
-  var HTMLInoSnackbarElement: {
-    prototype: HTMLInoSnackbarElement;
-    new (): HTMLInoSnackbarElement;
-  };
-
-  interface HTMLInoSpinnerElement extends Components.InoSpinner, HTMLStencilElement {}
-  var HTMLInoSpinnerElement: {
-    prototype: HTMLInoSpinnerElement;
-    new (): HTMLInoSpinnerElement;
-  };
-
-  interface HTMLInoTabBarElement extends Components.InoTabBar, HTMLStencilElement {}
-  var HTMLInoTabBarElement: {
-    prototype: HTMLInoTabBarElement;
-    new (): HTMLInoTabBarElement;
-  };
-
-  interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {}
-  var HTMLInoTabElement: {
-    prototype: HTMLInoTabElement;
-    new (): HTMLInoTabElement;
-  };
-
-  interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {}
-  var HTMLInoTextareaElement: {
-    prototype: HTMLInoTextareaElement;
-    new (): HTMLInoTextareaElement;
-  };
-
-  interface HTMLInoTooltipElement extends Components.InoTooltip, HTMLStencilElement {}
-  var HTMLInoTooltipElement: {
-    prototype: HTMLInoTooltipElement;
-    new (): HTMLInoTooltipElement;
-  };
-
-  interface HTMLElementTagNameMap {
-    'ino-button': HTMLInoButtonElement
-    'ino-card': HTMLInoCardElement
-    'ino-checkbox': HTMLInoCheckboxElement
-    'ino-chip-set': HTMLInoChipSetElement
-    'ino-chip': HTMLInoChipElement
-    'ino-control-item': HTMLInoControlItemElement
-    'ino-datepicker': HTMLInoDatepickerElement
-    'ino-fab-set': HTMLInoFabSetElement
-    'ino-fab': HTMLInoFabElement
-    'ino-form-row': HTMLInoFormRowElement
-    'ino-icon-button': HTMLInoIconButtonElement
-    'ino-icon': HTMLInoIconElement
-    'ino-img': HTMLInoImgElement
-    'ino-input-file': HTMLInoInputFileElement
-    'ino-input': HTMLInoInputElement
-    'ino-label': HTMLInoLabelElement
-    'ino-list-divider': HTMLInoListDividerElement
-    'ino-list-item': HTMLInoListItemElement
-    'ino-list': HTMLInoListElement
-    'ino-menu': HTMLInoMenuElement
-    'ino-popover': HTMLInoPopoverElement
-    'ino-radio': HTMLInoRadioElement
-    'ino-range': HTMLInoRangeElement
-    'ino-select': HTMLInoSelectElement
-    'ino-snackbar': HTMLInoSnackbarElement
-    'ino-spinner': HTMLInoSpinnerElement
-    'ino-tab-bar': HTMLInoTabBarElement
-    'ino-tab': HTMLInoTabElement
-    'ino-textarea': HTMLInoTextareaElement
-    'ino-tooltip': HTMLInoTooltipElement
-  }
-
-  interface ElementTagNameMap {
-    'ino-button': HTMLInoButtonElement;
-    'ino-card': HTMLInoCardElement;
-    'ino-checkbox': HTMLInoCheckboxElement;
-    'ino-chip-set': HTMLInoChipSetElement;
-    'ino-chip': HTMLInoChipElement;
-    'ino-control-item': HTMLInoControlItemElement;
-    'ino-datepicker': HTMLInoDatepickerElement;
-    'ino-fab-set': HTMLInoFabSetElement;
-    'ino-fab': HTMLInoFabElement;
-    'ino-form-row': HTMLInoFormRowElement;
-    'ino-icon-button': HTMLInoIconButtonElement;
-    'ino-icon': HTMLInoIconElement;
-    'ino-img': HTMLInoImgElement;
-    'ino-input-file': HTMLInoInputFileElement;
-    'ino-input': HTMLInoInputElement;
-    'ino-label': HTMLInoLabelElement;
-    'ino-list-divider': HTMLInoListDividerElement;
-    'ino-list-item': HTMLInoListItemElement;
-    'ino-list': HTMLInoListElement;
-    'ino-menu': HTMLInoMenuElement;
-    'ino-popover': HTMLInoPopoverElement;
-    'ino-radio': HTMLInoRadioElement;
-    'ino-range': HTMLInoRangeElement;
-    'ino-select': HTMLInoSelectElement;
-    'ino-snackbar': HTMLInoSnackbarElement;
-    'ino-spinner': HTMLInoSpinnerElement;
-    'ino-tab-bar': HTMLInoTabBarElement;
-    'ino-tab': HTMLInoTabElement;
-    'ino-textarea': HTMLInoTextareaElement;
-    'ino-tooltip': HTMLInoTooltipElement;
-  }
-
-
+declare module "@stencil/core" {
   export namespace JSX {
-    export interface Element {}
-    export interface IntrinsicElements extends StencilIntrinsicElements {
-      [tagName: string]: any;
-    }
+    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
-  export interface HTMLAttributes extends StencilHTMLAttributes {}
-
 }
+
+

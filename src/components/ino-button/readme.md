@@ -110,6 +110,24 @@ class MyComponent extends Component {
 | `type`           | `type`             | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                              | `"button" \| "reset" \| "submit"`                                                                  | `'button'`  |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-input-file](../ino-input-file)
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-button --> ino-icon
+  ino-input-file --> ino-button
+  style ino-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

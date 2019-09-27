@@ -1,11 +1,12 @@
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Listen,
-  Prop,
-  Watch
+  Prop, Watch, h
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
@@ -18,15 +19,10 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
   ],
   shadow: false
 })
-export class Datepicker {
+export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   private flatpickr!: any;
-
-  /**
-   * The accesskey of this element.
-   */
-  @Prop() accesskey?: string;
 
   /**
    * Autofocuses this element.
@@ -49,11 +45,6 @@ export class Datepicker {
   @Prop() required?: boolean;
 
   /**
-   * The tabindex of this element.
-   */
-  @Prop() tabindex?: string;
-
-  /**
    * A pattern to check the input field on
    */
   @Prop() inoPattern?: string;
@@ -62,7 +53,7 @@ export class Datepicker {
    * The currently selected date shown in the input field **unmanaged**. The given value
    * will not be formatted as date.
    */
-  @Prop() value ? = '';
+  @Prop() value?: string = '';
 
   @Watch('value')
   valueChanged(value: string) {
@@ -336,16 +327,14 @@ export class Datepicker {
 
   render() {
     return (
-      <div>
+      <Host>
         <ino-input
           type="text"
           autocomplete="off"
           disabled={this.disabled}
-          accessKey={this.accesskey}
           autofocus={this.autofocus}
           name={this.name}
           required={this.required}
-          tabindex={this.tabindex}
           ino-label={this.inoLabel}
           pattern={
             this.inoPattern && this.inoPattern !== ''
@@ -366,7 +355,7 @@ export class Datepicker {
             this.valueChange.emit(e.detail);
           }}
         />
-      </div>
+      </Host>
     );
   }
 }

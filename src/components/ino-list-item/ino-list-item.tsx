@@ -1,10 +1,13 @@
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Listen,
-  Prop
+  Prop,
+  h
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -13,7 +16,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-list-item.scss',
   shadow: false
 })
-export class ListItem {
+export class ListItem implements ComponentInterface {
   @Element() el!: HTMLElement;
   /**
    * The primary text of this list item.
@@ -76,23 +79,25 @@ export class ListItem {
     const secondaryContent = this.inoSecondaryText || <slot name="ino-secondary"/>;
 
     return (
-      <li class={listItemClasses}>
-        <span class="mdc-list-item__graphic" role="presentation">
-          <slot name="ino-leading"/>
-        </span>
-        <span class="mdc-list-item__text">
-          {
-            secondaryContent ?
-              [
-                <span class="mdc-list-item__primary-text">{primaryContent}</span>,
-                <span class="mdc-list-item__secondary-text">{secondaryContent}</span>
-              ] : primaryContent
-          }
-        </span>
-        <span class="mdc-list-item__meta">
-          <slot name="ino-trailing"/>
-        </span>
-      </li>
+      <Host>
+        <li class={listItemClasses}>
+          <span class="mdc-list-item__graphic" role="presentation">
+            <slot name="ino-leading"/>
+          </span>
+          <span class="mdc-list-item__text">
+            {
+              secondaryContent ?
+                [
+                  <span class="mdc-list-item__primary-text">{primaryContent}</span>,
+                  <span class="mdc-list-item__secondary-text">{secondaryContent}</span>
+                ] : primaryContent
+            }
+          </span>
+          <span class="mdc-list-item__meta">
+            <slot name="ino-trailing"/>
+          </span>
+        </li>
+      </Host>
     );
   }
 }

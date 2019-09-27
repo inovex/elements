@@ -1,5 +1,5 @@
 import { MDCMenu } from '@material/menu';
-import { Component, Element, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 
 import { MDCCustomMenu } from './MDCCustomMenu';
 
@@ -8,7 +8,7 @@ import { MDCCustomMenu } from './MDCCustomMenu';
   styleUrl: 'ino-menu.scss',
   shadow: false
 })
-export class Menu {
+export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -29,7 +29,7 @@ export class Menu {
   /**
    * Set this option to show the menu.
    */
-  @Prop() inoOpen ? = false;
+  @Prop() inoOpen?: boolean = false;
 
   @Watch('inoOpen')
   inoOpenChanged(open: boolean) {
@@ -61,18 +61,20 @@ export class Menu {
 
   render() {
     return (
-      <div class="mdc-menu-surface--anchor">
-        <div class="mdc-menu mdc-menu-surface">
-          <ino-list
-            role="menu"
-            aria-hidden="true"
-            aria-orientation="vertical"
-            tabindex="-1"
-          >
-            <slot />
-          </ino-list>
+      <Host>
+        <div class="mdc-menu-surface--anchor">
+          <div class="mdc-menu mdc-menu-surface">
+            <ino-list
+              role="menu"
+              aria-hidden="true"
+              aria-orientation="vertical"
+              tabindex="-1"
+            >
+              <slot />
+            </ino-list>
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

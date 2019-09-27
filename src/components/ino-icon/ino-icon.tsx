@@ -1,11 +1,4 @@
-import {
-  Component,
-  Event,
-  EventEmitter,
-  Prop,
-  State,
-  Watch
-} from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
 
 /**
  * If you add new icons you also have to update the `icons.js` file beside that
@@ -21,19 +14,24 @@ import {
  * 6) Done! The consumer is now able to use the new icons
  */
 // import ICONS from './icons';
-import { getIconMap, getSrc, isSrc } from '../../util/icons';
+import { getSvgContent, inoiconContent } from './request';
+import { getUrl } from './utils';
 
+/**
+ * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
+ */
 @Component({
   tag: 'ino-icon',
   styleUrl: 'ino-icon.scss',
-  assetsDir: 'icon-assets/SVG',
+  assetsDirs: ['icon-assets/SVG'],
   shadow: false
 })
-export class Icon {
+export class Icon implements ComponentInterface {
   /**
    * The name of the icon of this element or an URL.
    */
   @Prop() inoIcon?: string;
+
   @Watch('inoIcon')
   inoIconChanged() {
     this.loadIcon();
@@ -43,12 +41,6 @@ export class Icon {
    * Makes the icon clickable and allows to listen to the `clickEl` event.
    */
   @Prop() inoClickable?: boolean;
-
-  /**
-   * The resource url of the svg icons (global variable by stencil).
-   *
-   */
-  @Prop({ context: 'resourcesUrl' }) resourcesUrl!: string;
 
   /**
    * Specifies the exact `src` of an SVG file to use.
@@ -70,44 +62,16 @@ export class Icon {
   }
 
   private loadIcon() {
-    const url = this.getUrl();
+    const url = getUrl(this.src, this.inoIcon);
     if (url) {
-      requestSVG(url).then(res => (this.svgContent = res || ''));
-    } else {
-      console.error('icon was not resolved');
+      if (inoiconContent.has(url)) {
+        // sync if it's already loaded
+        this.svgContent = inoiconContent.get(url);
+      } else {
+        // async if it hasn't been loaded
+        getSvgContent(url).then(() => this.svgContent = inoiconContent.get(url));
+      }
     }
-  }
-  private getName() {
-    if (this.inoIcon && !isSrc(this.inoIcon)) {
-      return this.inoIcon;
-    }
-    return undefined;
-  }
-  private getUrl() {
-    let url = getSrc(this.src);
-
-    if (url) {
-      return url;
-    }
-    url = this.getName();
-    if (url) {
-      return this.getNamedUrl(url);
-    }
-
-    url = getSrc(this.inoIcon);
-    if (url) {
-      return url;
-    }
-
-    return null;
-  }
-
-  private getNamedUrl(name: string) {
-    const url = getIconMap().get(name);
-    if (url) {
-      return url;
-    }
-    return `${this.resourcesUrl}icon-assets/svg/${name}.svg`;
   }
 
   private handleClick(e: Event) {
@@ -137,39 +101,10 @@ export class Icon {
       };
     }
 
-    return <i innerHTML={this.svgContent} {...iconProps} />;
+    return (
+      <Host>
+        <i innerHTML={this.svgContent} {...iconProps} />
+      </Host>
+    );
   }
-}
-
-function parseIcon(svgContent: string | null): string {
-  if (!svgContent) {
-    return '';
-  }
-
-  const div = document.createElement('div');
-  div.innerHTML = svgContent;
-
-  // setup this way to ensure it works on IE
-  for (let i = div.childNodes.length - 1; i >= 0; i--) {
-    if (div.childNodes[i].nodeName.toLowerCase() !== 'svg') {
-      div.removeChild(div.childNodes[i]);
-    }
-  }
-  return div.innerHTML;
-}
-
-// Helper to load the SVG files effectively
-
-const requests = new Map<string, Promise<string>>();
-function requestSVG(url: string) {
-  if (!requests.has(url)) {
-    // we don't already have a request
-    const req = fetch(url, { cache: 'force-cache' })
-      .then(rsp => (rsp.ok ? rsp.text() : Promise.resolve(null)))
-      .then(svgContent => parseIcon(svgContent));
-
-    // cache for the same requests
-    requests.set(url, req);
-  }
-  return requests.get(url) || Promise.resolve('');
 }

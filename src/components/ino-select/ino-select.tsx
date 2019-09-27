@@ -1,12 +1,15 @@
 import { MDCSelect } from '@material/select';
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Listen,
   Prop,
-  Watch
+  Watch,
+  h
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -15,7 +18,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-select.scss',
   shadow: false
 })
-export class Select {
+export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcInstance: MDCSelect;
   private nativeSelectElement?: HTMLSelectElement;
@@ -50,13 +53,13 @@ export class Select {
    * Prepends a selected, empty and disabled option.
    * This property cannot be changed after initial render to avoid layout problems.
    */
-  @Prop() inoPrependDefault ? = false;
+  @Prop() inoPrependDefault?: boolean = false;
 
   /**
    * Disables the default empty element. Usable if `inoPrependDefault` is set.
    * Default value is `true`.
    */
-  @Prop() inoDisableDefault ? = true;
+  @Prop() inoDisableDefault?: boolean = true;
 
   @Watch('inoPrependDefault')
   changeHandler(newValue: boolean) {
@@ -80,7 +83,7 @@ export class Select {
   /**
    * The value of this element. (**unmanaged**)
    */
-  @Prop() value = '';
+  @Prop() value?: string = '';
 
   @Watch('value')
   handleValueChange(value: string) {
@@ -136,27 +139,29 @@ export class Select {
     });
 
     return (
-      <div class={classSelect}>
-        <i class="mdc-select__dropdown-icon"/>
-        <select
-          ref={el => (this.nativeSelectElement = el)}
-          class="mdc-select__native-control"
-          autoFocus={this.autofocus}
-          disabled={this.disabled}
-          form={this.form}
-          name={this.name}
-          required={this.required}
-        >
-          {this.inoPrependDefaultConst && <option disabled={this.inoDisableDefault} selected value=""/>}
-          <slot/>
-        </select>
-        <ino-label
-          ino-outline={this.inoOutline}
-          ino-text={this.inoLabel}
-          ino-required={this.required}
-          ino-disabled={this.disabled}
-        />
-      </div>
+      <Host>
+        <div class={classSelect}>
+          <i class="mdc-select__dropdown-icon"/>
+          <select
+            ref={el => (this.nativeSelectElement = el)}
+            class="mdc-select__native-control"
+            autoFocus={this.autofocus}
+            disabled={this.disabled}
+            form={this.form}
+            name={this.name}
+            required={this.required}
+          >
+            {this.inoPrependDefaultConst && <option disabled={this.inoDisableDefault} selected value=""/>}
+            <slot/>
+          </select>
+          <ino-label
+            ino-outline={this.inoOutline}
+            ino-text={this.inoLabel}
+            ino-required={this.required}
+            ino-disabled={this.disabled}
+          />
+        </div>
+      </Host>
     );
   }
 }

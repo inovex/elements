@@ -1,4 +1,4 @@
-import { Component, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 
 import { ColorScheme, SpinnerType } from '../types';
 
@@ -7,7 +7,7 @@ import { ColorScheme, SpinnerType } from '../types';
   styleUrl: 'ino-spinner.scss',
   shadow: false
 })
-export class Spinner {
+export class Spinner implements ComponentInterface {
   /**
    * The type of this spinner.
    * Possible values: `tile` (default), `bounce` or `circle`
@@ -25,7 +25,7 @@ export class Spinner {
   /**
    * The height of this spinner (default = 40)
    */
-  @Prop() inoHeight = 40;
+  @Prop() inoHeight?: number = 40;
 
   /**
    * If true, the spinner is shown as modal over the current app page.
@@ -35,7 +35,7 @@ export class Spinner {
   /**
    * The width of this spinner (defaul = 40)
    */
-  @Prop() inoWidth = 40;
+  @Prop() inoWidth?: number = 40;
 
   private tileTemplate() {
     return [
@@ -82,12 +82,14 @@ export class Spinner {
     }
 
     return (
-      <div
-        class="ino-spinner__composer"
-        style={{ width: `${this.inoWidth}px`, height: `${this.inoHeight}px` }}
-      >
-        {spinnerTemplate}
-      </div>
+      <Host>
+        <div
+          class="ino-spinner__composer"
+          style={{ width: `${this.inoWidth}px`, height: `${this.inoHeight}px` }}
+        >
+          {spinnerTemplate}
+        </div>
+      </Host>
     );
   }
 }

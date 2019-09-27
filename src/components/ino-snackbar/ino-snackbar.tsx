@@ -1,5 +1,5 @@
 import { MDCSnackbar } from '@material/snackbar';
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -7,7 +7,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-snackbar.scss',
   shadow: false
 })
-export class Snackbar {
+export class Snackbar implements ComponentInterface {
   private snackbarInstance: MDCSnackbar;
   private snackbarElement!: HTMLElement;
 
@@ -21,18 +21,18 @@ export class Snackbar {
   /**
    * The text to display for the action button.
    */
-  @Prop() inoActionText = '';
+  @Prop() inoActionText?: string = '';
 
   /**
    * Whether to show the action below the multiple lines of text
    * Optional, applies when multiline is true.
    */
-  @Prop() inoActionOnBottom = false;
+  @Prop() inoActionOnBottom?: boolean = false;
 
   /**
    * Controls if Snackbar is centered or start-aligned.
    */
-  @Prop() inoAlignStart = false;
+  @Prop() inoAlignStart?: boolean = false;
 
   /**
    * Event that emits as soon as the action button is clicked.
@@ -73,29 +73,31 @@ export class Snackbar {
     });
 
     return (
-      <div
-        ref={el => (this.snackbarElement = el as HTMLDivElement)}
-        class={snackbarClasses}
-        aria-live="assertive"
-        aria-atomic="true"
-      >
-        <div class="mdc-snackbar__surface">
-          <div class="mdc-snackbar__label" role="status" aria-live="polite">
-            {this.inoMessage}
-          </div>
-          {this.inoActionText && (
-            <div class="mdc-snackbar__actions">
-              <button
-                type="button"
-                class="mdc-button mdc-snackbar__action"
-                onClick={_ => this.inoActionClick.emit()}
-              >
-                {this.inoActionText}
-              </button>
+      <Host>
+        <div
+          ref={el => (this.snackbarElement = el as HTMLDivElement)}
+          class={snackbarClasses}
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="mdc-snackbar__surface">
+            <div class="mdc-snackbar__label" role="status" aria-live="polite">
+              {this.inoMessage}
             </div>
-          )}
+            {this.inoActionText && (
+              <div class="mdc-snackbar__actions">
+                <button
+                  type="button"
+                  class="mdc-button mdc-snackbar__action"
+                  onClick={_ => this.inoActionClick.emit()}
+                >
+                  {this.inoActionText}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

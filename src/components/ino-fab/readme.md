@@ -90,6 +90,21 @@ class MyComponent extends Component {
 | `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                                           | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+- [ino-tooltip](../ino-tooltip)
+
+### Graph
+```mermaid
+graph TD;
+  ino-fab --> ino-icon
+  ino-fab --> ino-tooltip
+  style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

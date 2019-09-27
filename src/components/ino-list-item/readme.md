@@ -56,10 +56,23 @@ document
 
 ## Events
 
-| Event     | Description                                                                        | Type                |
-| --------- | ---------------------------------------------------------------------------------- | ------------------- |
-| `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<void>` |
+| Event     | Description                                                                        | Type               |
+| --------- | ---------------------------------------------------------------------------------- | ------------------ |
+| `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<any>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [ino-control-item](../ino-control-item)
+
+### Graph
+```mermaid
+graph TD;
+  ino-control-item --> ino-list-item
+  style ino-list-item fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

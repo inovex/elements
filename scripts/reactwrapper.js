@@ -47,7 +47,7 @@ function getWrapperTypings(componentName) {
     const reactName = getReactName(componentName);
     return `
         import { Components } from '../types/components';
-        export interface ${reactName}Props extends Components.${reactName}Attributes {}
+        export interface ${reactName}Props extends Components.${reactName} {}
         export declare const ${reactName}: React.SFC<${reactName}Props>;
     `;
 }

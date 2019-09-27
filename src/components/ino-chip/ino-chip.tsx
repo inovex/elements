@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ChipSurface, ColorScheme } from '../types';
@@ -8,7 +8,7 @@ import { ChipSurface, ColorScheme } from '../types';
   styleUrl: 'ino-chip.scss',
   shadow: false
 })
-export class Chip {
+export class Chip implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -84,13 +84,14 @@ export class Chip {
     });
 
     return (
-      <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
-        {this.inoIcon && (
-          <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
-        )}
+      <Host>
+        <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
+          {this.inoIcon && (
+            <ino-icon class={iconClasses} ino-icon={this.inoIcon}/>
+          )}
 
-        {this.inoSelectable && (
-          <span class="mdc-chip__checkmark">
+          {this.inoSelectable && (
+            <span class="mdc-chip__checkmark">
             <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
               <path
                 class="mdc-chip__checkmark-path"
@@ -100,21 +101,22 @@ export class Chip {
               />
             </svg>
           </span>
-        )}
+          )}
 
-        <span class="mdc-chip__text">{this.inoLabel}</span>
+          <span class="mdc-chip__text">{this.inoLabel}</span>
 
-        {this.inoRemovable && (
-          <ino-icon
-            class="mdc-chip__icon mdc-chip__icon--trailing"
-            ino-icon="cancel"
-            tabindex="0"
-            role="button"
-            ino-clickable
-            onClick={e => this.iconClicked(e)}
-          />
-        )}
-      </button>
+          {this.inoRemovable && (
+            <ino-icon
+              class="mdc-chip__icon mdc-chip__icon--trailing"
+              ino-icon="cancel"
+              tabindex="0"
+              role="button"
+              ino-clickable
+              onClick={e => this.iconClicked(e)}
+            />
+          )}
+        </button>
+      </Host>
     );
   }
 }

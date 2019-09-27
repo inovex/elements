@@ -1,6 +1,6 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import { Component, Element, Event, EventEmitter, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 import classnames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -10,7 +10,7 @@ import { generateUniqueId } from '../../util/component-utils';
   styleUrl: 'ino-radio.scss',
   shadow: false
 })
-export class Radio {
+export class Radio implements ComponentInterface {
   @Element() el!: HTMLElement;
   private nativeInputEl!: HTMLInputElement;
 
@@ -35,11 +35,6 @@ export class Radio {
    * The name of this element. Use the same name for radio groups
    */
   @Prop() name?: string;
-
-  /**
-   * The tabIndex of this element.
-   */
-  @Prop() inoTabindex?: number;
 
   /**
    * The value of this element.
@@ -89,31 +84,32 @@ export class Radio {
     });
 
     return (
-      <div class="mdc-form-field">
-        <div class={classes}>
-          <input
-            class="mdc-radio__native-control"
-            type="radio"
-            id={this.radioId}
-            checked={this.checked}
-            disabled={this.disabled}
-            name={this.name}
-            tabindex={this.inoTabindex}
-            value={this.value}
-            ref={el => (this.nativeInputEl = el as HTMLInputElement)}
-            onInput={this.handleInput}
-            onChange={e => e.stopPropagation()}
-          />
+      <Host>
+        <div class="mdc-form-field">
+          <div class={classes}>
+            <input
+              class="mdc-radio__native-control"
+              type="radio"
+              id={this.radioId}
+              checked={this.checked}
+              disabled={this.disabled}
+              name={this.name}
+              value={this.value}
+              ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+              onInput={this.handleInput}
+              onChange={e => e.stopPropagation()}
+            />
 
-          <div class="mdc-radio__background">
-            <div class="mdc-radio__outer-circle"/>
-            <div class="mdc-radio__inner-circle"/>
+            <div class="mdc-radio__background">
+              <div class="mdc-radio__outer-circle"/>
+              <div class="mdc-radio__inner-circle"/>
+            </div>
           </div>
+          <label htmlFor={this.radioId}>
+            <slot/>
+          </label>
         </div>
-        <label htmlFor={this.radioId}>
-          <slot/>
-        </label>
-      </div>
+      </Host>
     );
   }
 }

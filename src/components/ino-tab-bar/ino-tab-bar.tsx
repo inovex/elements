@@ -1,11 +1,14 @@
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  Host,
   Listen,
   Prop,
-  Watch
+  Watch,
+  h
 } from '@stencil/core';
 
 import { MDCTabBarFacade } from './mdc-facade';
@@ -15,7 +18,7 @@ import { MDCTabBarFacade } from './mdc-facade';
   styleUrl: 'ino-tab-bar.scss',
   shadow: false
 })
-export class TabBar {
+export class TabBar implements ComponentInterface {
   // A facade implementing all the mdc behavior.
   private mdcFacade?: MDCTabBarFacade;
 
@@ -24,7 +27,7 @@ export class TabBar {
   /**
    * Activates the tab at the given index (**unmanaged**).
    */
-  @Prop() inoActiveTab = 0;
+  @Prop() inoActiveTab?: number = 0;
   @Watch('inoActiveTab')
   activeTabChanged(newTabIndex: number, oldTabIndex: number) {
     if (newTabIndex !== oldTabIndex) {
@@ -65,15 +68,17 @@ export class TabBar {
 
   render() {
     return (
-      <div class="mdc-tab-bar" role="tablist">
-        <div class="mdc-tab-scroller">
-          <div class="mdc-tab-scroller__scroll-area">
-            <div class="mdc-tab-scroller__scroll-content">
-              <slot />
+      <Host>
+        <div class="mdc-tab-bar" role="tablist">
+          <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+              <div class="mdc-tab-scroller__scroll-content">
+                <slot />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Host>
     );
   }
 }

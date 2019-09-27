@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'popper.js';
 
@@ -10,7 +10,7 @@ import { ColorScheme } from '../types';
   styleUrl: 'ino-fab.scss',
   shadow: false
 })
-export class Fab {
+export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
 
   @Element() el!: HTMLElement;
@@ -79,7 +79,7 @@ export class Fab {
     });
 
     return (
-      <div>
+      <Host>
         <button class={classFab} id={this.uniqueHelperId}>
           <span class="material-icons mdc-fab__icon">
             <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
@@ -96,7 +96,7 @@ export class Fab {
             ino-trigger="hover focus"
           />
         )}
-      </div>
+      </Host>
     );
   }
 }

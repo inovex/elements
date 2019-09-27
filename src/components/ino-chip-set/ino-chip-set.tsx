@@ -1,11 +1,11 @@
 import { MDCChip, MDCChipSet } from '@material/chips';
 import {
   Component,
+  ComponentInterface,
   Element,
   Event,
   EventEmitter,
-  Prop,
-  Watch
+  Host, Prop, Watch, h
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -16,7 +16,7 @@ import { ChipSetType } from '../types';
   styleUrl: 'ino-chip-set.scss',
   shadow: false
 })
-export class ChipSet {
+export class ChipSet implements ComponentInterface {
   private mdcInstance: MDCChipSet;
   private listenerAttached = false;
 
@@ -27,6 +27,7 @@ export class ChipSet {
    * Possible values are: `''` (default), `choice`, `filter`, `input`
    */
   @Prop() inoType?: ChipSetType = '';
+
   @Watch('inoType')
   inoTypeChanged() {
     this.create();
@@ -116,9 +117,11 @@ export class ChipSet {
     );
 
     return (
-      <div class={classChipSet}>
-        <slot />
-      </div>
+      <Host>
+        <div class={classChipSet}>
+          <slot/>
+        </div>
+      </Host>
     );
   }
 }

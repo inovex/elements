@@ -1,4 +1,4 @@
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
@@ -8,7 +8,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
   styleUrl: 'ino-fab-set.scss',
   shadow: false
 })
-export class Fab {
+export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
@@ -42,12 +42,14 @@ export class Fab {
     );
 
     return (
-      <div class={directionClasses}>
-        <div class={speedDialClasses}>
-          <slot />
+      <Host>
+        <div class={directionClasses}>
+          <div class={speedDialClasses}>
+            <slot></slot>
+          </div>
+          <slot name="primary-fab"/>
         </div>
-        <slot name="primary-fab" />
-      </div>
+      </Host>
     );
   }
 }

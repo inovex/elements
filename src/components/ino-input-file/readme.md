@@ -89,10 +89,24 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event        | Description                   | Type                                                    |
-| ------------ | ----------------------------- | ------------------------------------------------------- |
-| `changeFile` | Emits when the value changes. | `CustomEvent<{     e: Event;     files: object[];   }>` |
+| Event        | Description                   | Type                                        |
+| ------------ | ----------------------------- | ------------------------------------------- |
+| `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: object[]; }>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-button](../ino-button)
+
+### Graph
+```mermaid
+graph TD;
+  ino-input-file --> ino-button
+  ino-button --> ino-icon
+  style ino-input-file fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

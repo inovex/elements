@@ -105,6 +105,19 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 | `inoTwoLines` | `ino-two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-menu](../ino-menu)
+
+### Graph
+```mermaid
+graph TD;
+  ino-menu --> ino-list
+  style ino-list fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

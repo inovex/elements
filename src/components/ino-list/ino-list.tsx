@@ -1,5 +1,5 @@
 import { MDCList } from '@material/list';
-import { Component, Element, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -7,7 +7,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-list.scss',
   shadow: false
 })
-export class List {
+export class List implements ComponentInterface {
   private listInstance!: MDCList;
 
   @Element() el!: HTMLElement;
@@ -26,7 +26,7 @@ export class List {
    * Configures the leading tiles of each row to display images instead of icons.
    * This will make the graphics of the list items larger.
    */
-  @Prop() inoAvatar = false;
+  @Prop() inoAvatar?: boolean = false;
 
   componentDidLoad() {
     const listElement = this.el.querySelector('.mdc-list');
@@ -46,9 +46,11 @@ export class List {
     });
 
     return (
-      <ul class={listClasses} aria-orientation="vertical">
-        <slot />
-      </ul>
+      <Host>
+        <ul class={listClasses} aria-orientation="vertical">
+          <slot />
+        </ul>
+      </Host>
     );
   }
 }
