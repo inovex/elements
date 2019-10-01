@@ -16,25 +16,25 @@ describe('InoCard', () => {
 
   it('should render with property header if title is set', async () => {
     const page = await setupPageWithContent(INO_CARD_WITH_TITLES);
-
-    const headerEl = await page.find('.ino-card__header');
+    const inoCardEl = await page.find('ino-card');
+    const headerEl = inoCardEl.shadowRoot.querySelector('.ino-card__header');
     expect(headerEl).not.toBeNull();
   });
 
   it('should render with correct title', async () => {
     const page = await setupPageWithContent(INO_CARD_WITH_TITLES);
-
-    const titelEl = await page.find('.ino-card__header-title');
+    const inoCardEl = await page.find('ino-card');
+    const titelEl = inoCardEl.shadowRoot.querySelector('.ino-card__header-title');
     expect(titelEl).not.toBeNull();
     expect(titelEl).toEqualText(TITEL);
   });
 
   it('should render with correct subtitle', async () => {
     const page = await setupPageWithContent(INO_CARD_WITH_TITLES);
-
-    const subtitelEl = await page.find('.ino-card__header-subtitle');
-    expect(subtitelEl).not.toBeNull();
-    expect(subtitelEl).toEqualText(SUBTITEL);
+    const inoCardEl = await page.find('ino-card');
+    const subtitleEl = inoCardEl.shadowRoot.querySelector('.ino-card__header-subtitle');
+    expect(subtitleEl).not.toBeNull();
+    expect(subtitleEl).toEqualText(SUBTITEL);
   });
 
   it('should render with property image', async () => {
@@ -43,7 +43,7 @@ describe('InoCard', () => {
     const inoCardEl = await page.find('ino-card');
     inoCardEl.setAttribute('ino-image', 'testpath');
     await page.waitForChanges();
-    const mdcMedia = await inoCardEl.find('.mdc-card__media');
+    const mdcMedia = inoCardEl.shadowRoot.querySelector('.mdc-card__media');
     expect(mdcMedia).not.toBeNull();
   });
 });

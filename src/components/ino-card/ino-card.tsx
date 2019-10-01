@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 import classnames from 'classnames';
 
 import { CardAspectRatio, ColorScheme } from '../types';
@@ -6,11 +6,9 @@ import { CardAspectRatio, ColorScheme } from '../types';
 @Component({
   tag: 'ino-card',
   styleUrl: 'ino-card.scss',
-  shadow: false
+  shadow: true
 })
 export class Card implements ComponentInterface {
-  @Element() el!: HTMLElement;
-
   /**
    * Removes the shadow and displays a hairline outline instead.
    */
@@ -97,20 +95,22 @@ export class Card implements ComponentInterface {
     const mdcCardActionsClass = classnames('mdc-card__actions');
 
     return (
-      <Host class={cardClass}>
-        {this.mediaTeamplate()}
-        <div class="ino-card__composer">
-          {!this.inoMediaTitle && this.headerTemplate()}
-          <div class="ino-card__content">
-            <slot name="content"/>
+      <Host>
+        <div class={cardClass}>
+          {this.mediaTeamplate()}
+          <div class="ino-card__composer">
+            {!this.inoMediaTitle && this.headerTemplate()}
+            <div class="ino-card__content">
+              <slot name="content"/>
+            </div>
           </div>
-        </div>
-        <div class={mdcCardActionsClass}>
-          <div class="mdc-card__action-buttons">
-            <slot name="action-buttons"/>
-          </div>
-          <div class="mdc-card__action-icons">
-            <slot name="action-icons"/>
+          <div class={mdcCardActionsClass}>
+            <div class="mdc-card__action-buttons">
+              <slot name="action-buttons"/>
+            </div>
+            <div class="mdc-card__action-icons">
+              <slot name="action-icons"/>
+            </div>
           </div>
         </div>
       </Host>
