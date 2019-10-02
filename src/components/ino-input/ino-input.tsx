@@ -70,9 +70,9 @@ export class Input implements ComponentInterface {
   @Prop() maxlength?: number;
 
   /**
-   * The step value of this element
+   * The step value of this element. Use `any` for decimal numbers
    */
-  @Prop() step?: number = 1;
+  @Prop() step?: number | 'any' = 1;
 
   /**
    * The name of this element.
