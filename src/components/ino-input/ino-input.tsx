@@ -111,8 +111,8 @@ export class Input implements ComponentInterface {
 
   @Watch('value')
   valueChanged(newValue: string) {
-    if (this.nativeInputEl) {
-      this.nativeInputEl.value = newValue;
+    if (this.textfield && this.nativeInputEl) {
+      this.textfield.value = newValue;
 
       // setSelectionRange does not work on number input
       if (this.type !== 'number' && this.type !== 'email') {
@@ -197,8 +197,8 @@ export class Input implements ComponentInterface {
       );
     }
 
-    if (this.value && this.nativeInputEl) {
-      this.nativeInputEl.value = this.value;
+    if (this.value && this.textfield) {
+      this.textfield.value = this.value;
     }
 
     if (this.autofocus) {
@@ -224,10 +224,6 @@ export class Input implements ComponentInterface {
   private handleNativeInputChange(e) {
     this.cursorPosition = e.target.selectionStart;
     this.valueChange.emit(e.target.value);
-
-    if (this.nativeInputEl) {
-      this.nativeInputEl.value = this.value;
-    }
   }
 
   /**
