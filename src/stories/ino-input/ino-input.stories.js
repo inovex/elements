@@ -58,7 +58,7 @@ storiesOf('<ino-input>', module)
           'text',
           'STANDARD'
         )}"
-        step="${number('step', 5, ['step'], 'STANDARD')}"
+        step="${text('step', 5, ['step'], 'STANDARD')}"
         maxlength="${number('maxlength', 100, ['maxlength'], 'STANDARD')}"
         ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"
         placeholder="${text('placeholder', '', 'STANDARD')}"
@@ -93,6 +93,7 @@ storiesOf('<ino-input>', module)
       <ino-input placeholder="type = text"></ino-input>
       <ino-input type="number" placeholder="type = number"></ino-input>
       <ino-input type="number" placeholder="type = number with steps=5" step="5"></ino-input>
+      <ino-input type="number" placeholder="type = number with step='any' (decimal numbers)" step="any"></ino-input>
       <ino-input type="password" placeholder="type = password"></ino-input>
 
       <h4 class="outline">Outlined</h4>

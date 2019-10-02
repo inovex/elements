@@ -513,9 +513,9 @@ export namespace Components {
     */
     'size'?: number;
     /**
-    * The step value of this element
+    * The step value of this element. Use `any` for decimal numbers
     */
-    'step'?: number;
+    'step'?: number | 'any';
     /**
     * The type of this element (default = text).
     */
@@ -1624,9 +1624,9 @@ declare namespace LocalJSX {
     */
     'size'?: number;
     /**
-    * The step value of this element
+    * The step value of this element. Use `any` for decimal numbers
     */
-    'step'?: number;
+    'step'?: number | 'any';
     /**
     * The type of this element (default = text).
     */
