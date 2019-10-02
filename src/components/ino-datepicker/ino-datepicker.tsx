@@ -236,15 +236,6 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
-  componentDidUpdate() {
-    // Fix for elements-402
-    // if flatpickr is still open (range-mode only), the textfield must remain in focus
-    // Important that it happens after rendering!
-    if (this.flatpickr.isOpen && this.inoRange) {
-      this.focusInputField();
-    }
-  }
-
   componentDidLoad() {
     this.create();
   }
