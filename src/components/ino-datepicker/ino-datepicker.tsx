@@ -259,7 +259,6 @@ export class Datepicker implements ComponentInterface {
       enableTime: this.requiresTimePicker(),
       noCalendar: this.requiresNoDatePicker(),
       ignoredFocusElements: [],
-      static: true,
       time_24hr: !this.inoTwelfHourTime,
       dateFormat: this.inoDateFormat,
       onValueUpdate: (_, newValue) => {
