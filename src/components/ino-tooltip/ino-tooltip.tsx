@@ -81,6 +81,9 @@ export class Tooltip implements ComponentInterface {
       container: this.el,
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
+      popperOptions: {modifiers: {
+        preventOverflow: { padding:  0 }
+      }},
       template:
         '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
       arrowSelector: '.ino-tooltip__arrow',
