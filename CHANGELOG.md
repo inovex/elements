@@ -1,3 +1,21 @@
+# [0.9.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.8.0...v0.9.0) (2019-10-11)
+
+
+### Bug Fixes
+
+* **ino-datepicker:** fix overlapping label ([0e29ecd](http://gitlab.inovex.de/inovex-elements/core/commit/0e29ecd))
+* **ino-datepicker:** remove internal static option ([abffbcc](http://gitlab.inovex.de/inovex-elements/core/commit/abffbcc))
+* **ino-input:** autofocus ([cc70866](http://gitlab.inovex.de/inovex-elements/core/commit/cc70866))
+* **ino-tooltip:** fix misplacement ([2e4f2f8](http://gitlab.inovex.de/inovex-elements/core/commit/2e4f2f8))
+
+
+### Features
+
+* **ino-datepicker:** inovex design ([b956bab](http://gitlab.inovex.de/inovex-elements/core/commit/b956bab))
+* **ino-input:** add 'any' as step option ([77b1f74](http://gitlab.inovex.de/inovex-elements/core/commit/77b1f74))
+
+
+
 # [0.8.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.7.0...v0.8.0) (2019-09-06)
 
 
