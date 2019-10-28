@@ -23,7 +23,9 @@ export class Radio implements ComponentInterface {
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
-    this.nativeInputEl.checked = newChecked;
+    if (this.radio) {
+      this.radio.checked = newChecked;
+    }
   }
 
   /**

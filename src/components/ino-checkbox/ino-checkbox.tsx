@@ -23,7 +23,9 @@ export class Checkbox implements ComponentInterface {
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
-    this.nativeInputEl.checked = newChecked;
+    if (this.checkboxInstance) {
+      this.checkboxInstance.checked = newChecked;
+    }
   }
 
   /**

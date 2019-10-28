@@ -78,7 +78,9 @@ export class Range implements ComponentInterface {
 
   @Watch('value')
   valueChangeHandler(newValue: number) {
-    this.sliderInstance.value = newValue;
+    if (this.sliderInstance) {
+      this.sliderInstance.value = newValue;
+    }
   }
 
   handleChange(e) {
