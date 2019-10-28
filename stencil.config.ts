@@ -7,7 +7,14 @@ export const config: Config = {
   namespace: 'inovex-elements',
   outputTargets: [
     { type: 'dist' },
-    { type: 'docs-readme' }
+    { type: 'docs-readme' },
+    {
+      type: 'angular',
+      componentCorePackage: '@inovex/elements',
+      directivesProxyFile: 'angular/elements/src/directives/proxies.ts',
+      directivesUtilsFile: 'angular/elements/src/directives/proxies-utils.ts',
+      directivesArrayFile: 'angular/elements/src/directives/proxies-list.ts'
+    }
   ],
   plugins: [
     sass({

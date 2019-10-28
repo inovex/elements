@@ -1,0 +1,35 @@
+
+import * as d from './proxies';
+
+export const DIRECTIVES = [
+d.InoButton,
+  d.InoCard,
+  d.InoCheckbox,
+  d.InoChip,
+  d.InoChipSet,
+  d.InoControlItem,
+  d.InoDatepicker,
+  d.InoFab,
+  d.InoFabSet,
+  d.InoFormRow,
+  d.InoIcon,
+  d.InoIconButton,
+  d.InoImg,
+  d.InoInput,
+  d.InoInputFile,
+  d.InoLabel,
+  d.InoList,
+  d.InoListDivider,
+  d.InoListItem,
+  d.InoMenu,
+  d.InoPopover,
+  d.InoRadio,
+  d.InoRange,
+  d.InoSelect,
+  d.InoSnackbar,
+  d.InoSpinner,
+  d.InoTab,
+  d.InoTabBar,
+  d.InoTextarea,
+  d.InoTooltip
+];
