@@ -109,8 +109,8 @@ export class Textarea implements ComponentInterface {
 
   @Watch('value')
   handleChange(value: string) {
-    if (this.nativeTextareaElement) {
-      this.nativeTextareaElement.value = value;
+    if (this.nativeTextareaElement && this.textfield) {
+      this.textfield.value = value;
       this.nativeTextareaElement.setSelectionRange(
         this.cursorPosition,
         this.cursorPosition

@@ -228,6 +228,10 @@ export class Input implements ComponentInterface {
   private handleNativeInputChange(e) {
     this.cursorPosition = e.target.selectionStart;
     this.valueChange.emit(e.target.value);
+
+    if (this.nativeInputEl) {
+      this.nativeInputEl.value = this.value;
+    }
   }
 
   /**
