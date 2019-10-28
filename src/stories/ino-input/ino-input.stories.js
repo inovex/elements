@@ -83,10 +83,7 @@ storiesOf('<ino-input>', module)
         false,
       'HELPER TEXT'
          )}"
-
-        ino-icon="${select('ino-icon', ICONS, '', 'ICONS')}"
-        ino-icon-trailing="${boolean('ino-icon-trailing', false, 'ICONS')}"
-        ino-icon-clickable="${boolean('ino-icon-clickable', false, 'ICONS')}">
+      >
       </ino-input>
 
       <h4>Types</h4>
@@ -131,9 +128,19 @@ storiesOf('<ino-input>', module)
       <ino-input placeholder="Outline required" ino-outline required></ino-input>
 
       <h4>Icons</h4>
-      <ino-input ino-icon="add" ino-label="Leading icon"></ino-input>
-      <ino-input ino-icon="add" ino-icon-trailing ino-label="Trailing icon"></ino-input>
-      <ino-input ino-icon="add" ino-icon-clickable ino-label="Clickable icon"></ino-input>
-    </div>
+      <ino-input ino-icon-leading ino-label="Leading icon">
+        <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
+      </ino-input>
+      <ino-input ino-icon-trailing ino-label="Trailing icon">
+        <ino-icon slot="ino-icon-trailing" ino-icon="search"></ino-icon>
+      </ino-input> 
+      <ino-input ino-icon-leading ino-icon-trailing ino-label="Leading and Trailing icon">
+       <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
+       <ino-icon slot="ino-icon-trailing" ino-icon="add"></ino-icon>
+      </ino-input>  
+      <ino-input ino-icon-trailing ino-label="Clickable Icon">
+        <ino-icon ino-clickable slot="ino-icon-trailing" ino-icon="search"></ino-icon>
+      </ino-input>   
+     </div>
   `
   );

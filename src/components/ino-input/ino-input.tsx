@@ -1,7 +1,18 @@
 import { MDCTextField } from '@material/textfield';
 import { MDCTextFieldHelperText } from '@material/textfield/helper-text';
 import { MDCTextFieldIcon } from '@material/textfield/icon';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Listen, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Listen,
+  Prop,
+  Watch,
+  h
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -156,19 +167,14 @@ export class Input implements ComponentInterface {
   @Prop() inoHelperCharacterCounter?: boolean;
 
   /**
-   * The optional icon of this input field.
+   * Positions the icon at the beginning of the input field.
    */
-  @Prop() inoIcon?: string;
+  @Prop() inoIconLeading = false;
 
   /**
    * Positions the icon trailing after the input field.
    */
   @Prop() inoIconTrailing = false;
-
-  /**
-   * Makes the icon clickable and allows to listen to the `clickEl` event.
-   */
-  @Prop() inoIconClickable?: boolean;
 
   /**
    * The id of the datalist child
@@ -191,10 +197,8 @@ export class Input implements ComponentInterface {
         document.querySelector('.mdc-text-field-helper-text')
       );
     }
-    if (this.inoIcon) {
-      this.icon = new MDCTextFieldIcon(
-        document.querySelector('.mdc-text-field__icon')
-      );
+    if (this.inoIconLeading || this.inoIconTrailing) {
+        this.icon = new MDCTextFieldIcon(this.el.querySelector('.mdc-text-field__icon'));
     }
 
     if (this.value && this.textfield) {
@@ -256,48 +260,37 @@ export class Input implements ComponentInterface {
   private handleFocus = e => this.inoFocus.emit(e);
 
   private helperTextTemplate() {
-    if (!this.inoHelper && !this.inoHelperCharacterCounter) {
-      return '';
-    }
 
-    const classInputMessage = classNames({
+    const classHelperText = classNames({
       'mdc-text-field-helper-text': true,
       'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
       'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation
     });
 
     return (
-      <div class="mdc-text-field-helper-line">
-        <div
-          class={classInputMessage}
-          id={this.uniqueHelperId}
-          aria-hidden="true"
-        >
-          {this.inoHelper}
-        </div>
-        {this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength) && (
-          <div class="mdc-text-field-character-counter">
-            {`${this.value.length} / ${this.maxlength}`}
-          </div>
-        )}
+      <div
+        class={classHelperText}
+        id={this.uniqueHelperId}
+        aria-hidden="true"
+      >
+        {this.inoHelper}
       </div>
     );
   }
 
-  private iconTemplate() {
+  private characterCounterTemplate() {
     return (
-      this.inoIcon && (
-        <ino-icon
-          class="mdc-text-field__icon"
-          tabindex={this.inoIconClickable ? 1 : -1}
-          ino-icon={this.inoIcon}
-          ino-clickable={this.inoIconClickable}
-        />
-      )
+      <div class="mdc-text-field-character-counter">
+        {`${this.value.length} / ${this.maxlength}`}
+      </div>
     );
   }
 
   render() {
+
+    const hasHelperText = Boolean(this.inoHelper);
+    const hasCharacterCounter = Boolean(this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength));
+
     const classTextfield = classNames({
       'ino-input__composer': true,
       'mdc-text-field': true,
@@ -305,17 +298,17 @@ export class Input implements ComponentInterface {
       'mdc-text-field--focused': this.autofocus,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
-      'mdc-text-field--with-leading-icon':
-        this.inoIcon && !this.inoIconTrailing,
-      'mdc-text-field--with-trailing-icon':
-        this.inoIcon && this.inoIconTrailing,
+      'mdc-text-field--with-leading-icon': this.inoIconLeading,
+      'mdc-text-field--with-trailing-icon': this.inoIconTrailing,
       'mdc-text-field--no-label': !this.inoLabel
     });
 
     return (
       <Host>
         <div class={classTextfield}>
-          {!this.inoIconTrailing && this.iconTemplate()}
+          <span class={'mdc-text-field__icon icon-leading'}>
+            <slot name={'ino-icon-leading'}></slot>
+          </span>
           <input
             ref={el => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
@@ -339,16 +332,20 @@ export class Input implements ComponentInterface {
             onFocus={this.handleFocus}
             list={this.inoDataList}
           />
-          <slot/>
           <ino-label
             ino-outline={this.inoOutline}
             ino-text={this.inoLabel}
             ino-required={this.required}
             ino-disabled={this.disabled}
           />
-          {this.inoIconTrailing && this.iconTemplate()}
+          <span class={'mdc-text-field__icon icon-trailing'}>
+            <slot name={'ino-icon-trailing'}></slot>
+          </span>
         </div>
-        {this.helperTextTemplate()}
+        <div class="mdc-text-field-helper-line">
+          {hasHelperText && this.helperTextTemplate()}
+          {hasCharacterCounter && this.characterCounterTemplate()}
+        </div>
       </Host>
     );
   }

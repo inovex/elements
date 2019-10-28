@@ -144,8 +144,7 @@ The component is based on a native input with additional features. Thus, the com
 | `inoHelperCharacterCounter` | `ino-helper-character-counter` | Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently. | `boolean`         | `undefined` |
 | `inoHelperPersistent`       | `ino-helper-persistent`        | Displays the helper permanently.                                                                                        | `boolean`         | `undefined` |
 | `inoHelperValidation`       | `ino-helper-validation`        | Styles the helper text as a validation message.                                                                         | `boolean`         | `undefined` |
-| `inoIcon`                   | `ino-icon`                     | The optional icon of this input field.                                                                                  | `string`          | `undefined` |
-| `inoIconClickable`          | `ino-icon-clickable`           | Makes the icon clickable and allows to listen to the `clickEl` event.                                                   | `boolean`         | `undefined` |
+| `inoIconLeading`            | `ino-icon-leading`             | Positions the icon at the beginning of the input field.                                                                 | `boolean`         | `false`     |
 | `inoIconTrailing`           | `ino-icon-trailing`            | Positions the icon trailing after the input field.                                                                      | `boolean`         | `false`     |
 | `inoLabel`                  | `ino-label`                    | The optional floating label of this input field.                                                                        | `string`          | `undefined` |
 | `inoOutline`                | `ino-outline`                  | Styles the input field as outlined element.                                                                             | `boolean`         | `undefined` |
@@ -179,13 +178,11 @@ The component is based on a native input with additional features. Thus, the com
 
 ### Depends on
 
-- [ino-icon](../ino-icon)
 - [ino-label](../ino-label)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-input --> ino-icon
   ino-input --> ino-label
   ino-datepicker --> ino-input
   style ino-input fill:#f9f,stroke:#333,stroke-width:4px
