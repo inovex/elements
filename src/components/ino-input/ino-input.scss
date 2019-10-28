@@ -59,6 +59,8 @@ ino-input {
       }
 
       .mdc-text-field__icon {
+        cursor: auto;
+        pointer-events: auto;
         bottom: 8px;
       }
 
@@ -73,13 +75,13 @@ ino-input {
         .mdc-floating-label--float-above {
           left: $padding-to-left;
         }
-
-        .mdc-text-field__icon {
-          left: 6px;
-        }
       }
 
-      &[class*='--with-trailing-icon'] .mdc-text-field__icon {
+      .icon-leading {
+        left: 6px;
+      }
+
+      .icon-trailing {
         right: 6px;
       }
 

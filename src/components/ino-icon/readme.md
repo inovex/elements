@@ -125,7 +125,6 @@ If you need to use custom icons just hand over the URL to your preferred icon.
  - [ino-chip](../ino-chip)
  - [ino-fab](../ino-fab)
  - [ino-icon-button](../ino-icon-button)
- - [ino-input](../ino-input)
  - [ino-tab](../ino-tab)
 
 ### Graph
@@ -135,7 +134,6 @@ graph TD;
   ino-chip --> ino-icon
   ino-fab --> ino-icon
   ino-icon-button --> ino-icon
-  ino-input --> ino-icon
   ino-tab --> ino-icon
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

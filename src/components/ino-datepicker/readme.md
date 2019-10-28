@@ -174,7 +174,6 @@ or as datetime picker
 ```mermaid
 graph TD;
   ino-datepicker --> ino-input
-  ino-input --> ino-icon
   ino-input --> ino-label
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```

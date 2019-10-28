@@ -461,13 +461,9 @@ export namespace Components {
     */
     'inoHelperValidation'?: boolean;
     /**
-    * The optional icon of this input field.
+    * Positions the icon at the beginning of the input field.
     */
-    'inoIcon'?: string;
-    /**
-    * Makes the icon clickable and allows to listen to the `clickEl` event.
-    */
-    'inoIconClickable'?: boolean;
+    'inoIconLeading': boolean;
     /**
     * Positions the icon trailing after the input field.
     */
@@ -1560,13 +1556,9 @@ declare namespace LocalJSX {
     */
     'inoHelperValidation'?: boolean;
     /**
-    * The optional icon of this input field.
+    * Positions the icon at the beginning of the input field.
     */
-    'inoIcon'?: string;
-    /**
-    * Makes the icon clickable and allows to listen to the `clickEl` event.
-    */
-    'inoIconClickable'?: boolean;
+    'inoIconLeading'?: boolean;
     /**
     * Positions the icon trailing after the input field.
     */
