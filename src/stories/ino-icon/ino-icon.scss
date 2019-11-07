@@ -1,15 +1,30 @@
 .story-icon {
-  .flex-parent {
-    display: flex;
-    flex-wrap: wrap;
 
-    > .flex-child {
-      margin: 0 20px;
-    }
+  .customizable-icon svg {
+    height: 40px;
+    width: 40px;
+  }
+
+  .customizable-input {
+    margin-top: 0
   }
 
   .flex-parent-center {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center; /* center items horizontally, in this case */
+
+    .flex-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
+
+  .mdc-chip-set {
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
