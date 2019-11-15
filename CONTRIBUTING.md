@@ -149,14 +149,14 @@ The yarn update command helps us to update:
 
 ## Versioning and Releasing
 
-The inovex elements project follows [semantic versioning](https://semver.org/). If you are preparing a new release, please make sure to
-increment the version number in the appropriate way.
+The inovex elements project uses lerna as Monorepo and follows [semantic versioning](https://semver.org/). If you are preparing a new release, please make 
+sure to increment the version in an appropriate way. See the [lerna version doc](https://github.com/lerna/lerna/tree/master/commands/version) for more information.
 
 To build a new release, the following steps have to be performed:
 
 - Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
 - Check out the most recent master branch
-- Run `yarn version --major`, `yarn version --minor` or `yarn version --patch` depending on the changes included in the release
+- Run `yarn lerna.version` in the root folder. This builds all projects, creates the changelog and a new version message.
 - Check the last commit for a properly generated `Changelog.md` and new version.
 - Push the changes to gitlab using `git push --follow-tags`
 - Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel

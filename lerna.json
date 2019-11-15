@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "packages/*",
+    "packages/elements-angular/elements/**"
+  ],
+  "version": "0.9.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "push": false,
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
+    }
+  }
+}

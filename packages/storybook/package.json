@@ -1,0 +1,76 @@
+{
+  "name": "@inovex/elements-storybook",
+  "version": "0.0.0",
+  "description": "This is the home of a storybook for the @inovex/elements.",
+  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
+  "author": "Patrick Hillert <phillert@inovex.de>",
+  "private": true,
+  "contributors": [
+    "Arne Maier <amaier@inovex.de>",
+    "Daniel Hieber <dhieber@inovex.de>",
+    "Filipe Santos Correa <filipe.santoscorrea@inovex.de>",
+    "Florian Köpke <fkoepke@inovex.de>",
+    "Jacob Cofman <jcofman@inovex.de>",
+    "Jan-Niklas Voß <jvoss@inovex.de>",
+    "Johann Böhler <jboehler@inovex.de>",
+    "Johannes Reuter <johannes.reuter@inovex.de>",
+    "Lukas Kirner <lkirner@inovex.de>",
+    "Mathias Gruschinske <mgruschinske@inovex.de>",
+    "Michael Janssen <mjanssen@inovex.de>",
+    "Pascal Fecht <pfecht@inovex.de>",
+    "Sebastian Löfflath <sebastian.loefflath@inovex.de>",
+    "Simon Rey <srey@inovex.de>",
+    "Sven Lindauer <slindauer@inovex.de>",
+    "Viet Duc Mai <viet.mai@inovex.de>"
+  ],
+  "homepage": "https://elements.inovex.io",
+  "bugs": {
+    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "start-storybook -p 6006 -c config -s static --quiet",
+    "build": "build-storybook -c config -s static -o dist"
+  },
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@inovex/elements": "^0.9.0",
+    "mermaid": "^8.2.6",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "5.2.1",
+    "@storybook/addon-knobs": "5.2.1",
+    "@storybook/addon-options": "5.2.1",
+    "@storybook/addon-storysource": "^5.2.1",
+    "@storybook/addon-viewport": "5.2.1",
+    "@storybook/addons": "5.2.1",
+    "@storybook/core": "5.2.1",
+    "@storybook/html": "5.2.1",
+    "@storybook/theming": "5.2.1",
+    "@types/node": "^12.0.4",
+    "babel-loader": "8.0.4",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "chalk": "^2.4.2",
+    "core-js": "^3.2.1",
+    "css-loader": "^0.28.0",
+    "d3": "^4.13.0",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "jest-environment-node": "23.4.0",
+    "marked": "^0.6.0",
+    "node-sass": "^4.12.0",
+    "prettier": "^1.16.4",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "sass-loader": "^7.0.3",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3"
+  },
+  "resolutions": {
+    "uglify-js": "3.6.4"
+  }
+}

@@ -39,12 +39,13 @@ build:
     - yarn install
     - yarn lint
     - yarn build
-    - yarn build.storybook
   artifacts:
     expire_in: 1 week
     paths:
-      - dist/
-      - storybook-static/
+      - packages/elements/dist/
+      - packages/elements-react/dist/
+      - packages/elements-angular/dist/
+      - packages/storybook/dist/
   tags:
     - shared
 
@@ -63,8 +64,8 @@ deploy:
   image: instrumentisto/rsync-ssh:latest
   script:
     - *prepare_ssh
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
+    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/elements/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
+    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/storybook/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
   tags:
     - shared
   only:
@@ -86,7 +87,7 @@ deploy-release:
   stage: deploy-release
   script:
     - curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
-    - npm publish --registry https://$ARTIFACTORY_HOST
+    - yarn lerna publish from-package --yes --registry https://$ARTIFACTORY_HOST
   tags:
     - shared
   only:
@@ -97,7 +98,7 @@ deploy-latest-storybook:
   image: instrumentisto/rsync-ssh:latest
   script:
     - *prepare_ssh
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' storybook-static/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/latest/storybook
+    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/storybook/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/latest/storybook
   tags:
     - shared
   only:
