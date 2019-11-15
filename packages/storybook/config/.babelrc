@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "corejs": 3,
+      "useBuiltIns": "entry"
+    }]
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": [".."],
+      "alias": {
+        "_local-root": "./../../",
+        "_local-docs": "./../../doc/",
+        "_local-storybookcore": "./src/core",
+        "_local-elements":"../elements"
+      }
+    }]
+  ]
+}
