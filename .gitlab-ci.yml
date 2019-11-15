@@ -11,7 +11,7 @@ image: node:12.10.0
 
 security-check-gitleaks:
   image:
-    name: golang:1.11.5
+    name: golang:1.13.4
   stage: security
   tags:
     - shared # this makes use of shared runners
