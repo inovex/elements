@@ -4,7 +4,7 @@
   "scripts": {
     "build": "lerna run build",
     "build.local": "./scripts/publishlocal.sh",
-    "start": "lerna run dev --parallel",
+    "start": "lerna run build --scope=@inovex/elements && lerna run dev --parallel",
     "test": "lerna run test",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
     "clean:packages": "lerna clean --yes",

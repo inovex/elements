@@ -156,7 +156,7 @@ with the corresponding template:
 
 ### 4) Icon support
 
-To make use of the icons you have to integrate them into the `main.ts``
+To make use of the icons you have to integrate them into the `main.ts`.
 
 ```Typescript
 import { addIcons } from '@inovex/elements/dist/collection/util/icons';
