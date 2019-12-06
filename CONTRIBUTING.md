@@ -156,8 +156,8 @@ To build a new release, the following steps have to be performed:
 
 - Develop new features or fix bugs which justify a new release (should include at least one thing which benefits the user, e.g. not only refactorings)
 - Check out the most recent master branch
-- Run `yarn lerna.version` in the root folder. This builds all projects, creates the changelog and a new version message.
-- Check the last commit for a properly generated `Changelog.md` and new version.
+- Run `npx lerna version` or `lerna version` in the root folder. This builds all projects, creates the changelog and a new version message.
+- Check the last commit for properly generated `Changelog.md` files and new version.
 - Push the changes to gitlab using `git push --follow-tags`
 - Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
 

@@ -8,9 +8,10 @@
   "useWorkspaces": true,
   "command": {
     "version": {
+      "yes": true,
       "push": false,
-      "allowBranch": "master",
-      "message": "chore(release): publish %s"
+      "message": "chore: publish %s",
+      "allowBranch": "master"
     }
   }
 }
