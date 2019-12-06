@@ -5,15 +5,22 @@
     "build": "lerna run build",
     "build.local": "./scripts/publishlocal.sh",
     "start": "lerna run build --scope=@inovex/elements && lerna run dev --parallel",
+    "changelog": "yarn changelog:root && yarn changelog:pkgs",
+    "changelog:root": "conventional-changelog -p angular -i ./CHANGELOG.md -s",
+    "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'conventional-changelog --p angular --commit-path $PWD --pkg $PWD/package.json -i $PWD/CHANGELOG.md -s'",
     "test": "lerna run test",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
     "clean:packages": "lerna clean --yes",
     "clean:artifacts": "lerna run clean --parallel",
     "clean:root": "rm -rf node_modules",
     "lint": "lerna run lint",
-    "version": "lerna run build && lerna run test && lerna version --no-push --yes"
+    "preversion": "yarn run build && yarn run test",
+    "version": "node ./scripts/bumprootversion.js && yarn changelog && git add -A"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/config-lerna-scopes": "^8.2.0",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
@@ -21,6 +28,11 @@
   },
   "dependencies": {
     "lerna": "^3.18.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "workspaces": {
     "packages": [
@@ -34,5 +46,5 @@
     ]
   },
   "name": "core",
-  "version": "0.0.1"
+  "version": "0.9.0"
 }
