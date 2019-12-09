@@ -88,6 +88,7 @@ deploy-latest:
 deploy-release:
   stage: deploy-release
   script:
+    - yarn install
     - curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
     - yarn lerna publish from-package --yes --registry https://$ARTIFACTORY_HOST
   tags:
