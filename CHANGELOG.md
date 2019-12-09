@@ -1,3 +1,12 @@
+## [0.10.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.10.0...v0.10.1) (2019-12-09)
+
+
+### Bug Fixes
+
+* pipeline ([e237d00](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e237d00ae7d9925fd231e476746adf09384056a4))
+
+
+
 # [0.10.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.9.0...v0.10.0) (2019-12-09)
 
 

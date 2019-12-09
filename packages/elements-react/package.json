@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements-react",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "description": "This is the home of fully-integrated react components for @inovex/elements.",
   "contributors": [
@@ -73,6 +73,6 @@
     "react-router-dom": "^4.3.1"
   },
   "dependencies": {
-    "@inovex/elements": "^0.10.0"
+    "@inovex/elements": "^0.10.1"
   }
 }
