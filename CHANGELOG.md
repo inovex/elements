@@ -1,3 +1,18 @@
+# [0.10.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.9.0...v0.10.0) (2019-12-09)
+
+
+### Bug Fixes
+
+* reset native input properly ([c397da0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c397da01cdc46b30e5e507f2fab5ab7798c2ff5b))
+
+
+### Features
+
+* **angular:** inital project ([df78166](http://gitlab.inovex.de:2424/inovex-elements/core/commit/df78166498a76f1b752727a8ba57b6dfa1ee4434))
+* **ino-icon:** add james icons, improve stories, add search functionality ([d67db75](http://gitlab.inovex.de:2424/inovex-elements/core/commit/d67db758b539e5f99e0c1b412bfdebb079a4f162))
+
+
+
 # [0.9.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.8.0...v0.9.0) (2019-10-11)
 
 

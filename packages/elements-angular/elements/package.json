@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements-angular",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "description": "Angular library for @inovex/elements to use the components in Angular projects",
   "contributors": [
@@ -12,7 +12,7 @@
     "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
   },
   "dependencies": {
-    "@inovex/elements": "^0.9.0"
+    "@inovex/elements": "^0.10.0"
   },
   "peerDependencies": {
     "@angular/common": "^8.2.11",
