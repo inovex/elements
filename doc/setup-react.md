@@ -68,14 +68,3 @@ export class MyComponent extends React.Component {
   }
 }
 ```
-
-### 3) Icon support
-
-To make use of the icons you have to integrate them into the `index.js``
-
-```Typescript
-import { addIcons } from '@inovex/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
-
-addIcons(ICON_PATHS);
-```
