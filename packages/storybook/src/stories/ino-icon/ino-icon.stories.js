@@ -27,11 +27,13 @@ function subscribeToComponentEvents() {
 
     chips
       .filter(chip => !chip.getAttribute('ino-icon').includes(value))
-      .forEach(chip => chip.style.display = 'none')
+      .forEach(chip => chip.style.display = 'none');
 
     chips
       .filter(chip => chip.getAttribute('ino-icon').includes(value))
-      .forEach(chip => chip.style.display = 'block')
+      .forEach(chip => chip.style.display = 'block');
+
+    el.value = value;
   };
 
   document.addEventListener('valueChange', eventHandler);
