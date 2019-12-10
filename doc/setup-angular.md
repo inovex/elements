@@ -36,67 +36,7 @@ export class AppModule {}
 // ...
 ```
 
-### 2) Configure angular-cli
-
-Next you have to configure the `angular.json` and add the inovex elements as assets:
-
-```json
-// angular.json
-
-// ...
-
-{
-  // ...
-  "projects": {
-    "stencil-in-angular": {
-      // ...
-      "architect": {
-        "build": {
-          // ...
-          "options": {
-            // ...
-            "assets": [
-              "src/assets",
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@inovex/elements/dist/inovex-elements",
-                "output": "/inovex-elements"
-              }
-            ],
-            // ..
-          }
-          // ...
-        },
-        // ...
-        "test": {
-          // ...
-          "options": {
-            // ...
-            "assets": [
-              "src/assets",
-              "src/favicon.ico",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@inovex/elements/dist/inovex-elements",
-                "output": "/inovex-elements"
-              }
-            ]
-          }
-        },
-        // ...
-      }
-    },
-    // ...
-    }
-  },
-  // ...
-}
-```
-
-> For more details, see [angular-cli doc](https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md).
-
-### 3) Use the components
+### 2) Use the components
 
 You can use the components now in your Angular project in the same way as you would use any native HTML elements.
 
@@ -152,15 +92,4 @@ with the corresponding template:
     {{ todo.name }} <ino-button (click)="delete(i, todo)">Delete</ino-button>
   </li>
 </ul>
-```
-
-### 4) Icon support
-
-To make use of the icons you have to integrate them into the `main.ts`.
-
-```Typescript
-import { addIcons } from '@inovex/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
-
-addIcons(ICON_PATHS);
 ```
