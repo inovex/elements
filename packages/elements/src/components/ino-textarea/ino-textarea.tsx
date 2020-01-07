@@ -179,6 +179,7 @@ export class Textarea implements ComponentInterface {
     const classes = classNames({
       'mdc-text-field': true,
       'mdc-text-field--textarea': true,
+      'mdc-text-field-fullwidth': !Boolean(this.cols),
       'mdc-text-field--no-label': !this.inoLabel
     });
 
