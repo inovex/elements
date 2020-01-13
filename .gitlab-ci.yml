@@ -3,9 +3,7 @@ stages:
   - test
   - build
   - deploy
-  - deploy-latest
-  - deploy-release
-  - deploy-latest-storybook
+  - link-latest
 
 image: node:12.10.0
 
@@ -20,9 +18,7 @@ security-check-gitleaks:
     - gitleaks --version # check wheter gitleaks is available
     - gitleaks -v --repo-path ./ --config=.gitleaks.toml
   only:
-      - master
-
-
+    - master
 
 test:
   stage: test
@@ -51,42 +47,35 @@ build:
   tags:
     - shared
 
-# variables (see inovex-elements/inovex-cloud-environment repo for how to set up the infrastructure):
-# * SSH_PRIVATE_KEY: private key to connect to jump host and deploy host
-# * DEPLOY_JUMPHOST: ip of the jumphost
-# * DEPLOY_HOST: internal ip of the host
-
-.prepare_ssh: &prepare_ssh |
-  mkdir -p ~/.ssh
-  echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa && chmod 0600 ~/.ssh/id_rsa
-  echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-
-deploy:
+upload:
   stage: deploy
-  image: instrumentisto/rsync-ssh:latest
   script:
-    - *prepare_ssh
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/elements/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/storybook/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/storybook
+    - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME
+    - rsync -a packages/elements/dist/ /srv/webhost/dist/$CI_COMMIT_REF_NAME
+    - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME/storybook
+    - rsync -a packages/storybook/dist/ /srv/webhost/dist/$CI_COMMIT_REF_NAME/storybook
   tags:
-    - shared
+    - elements
+    - webhost
+    - deploy
   only:
     - master
     - tags
 
-deploy-latest:
-  stage: deploy-latest
-  image: instrumentisto/rsync-ssh:latest
+link-latest:
+  stage: link-latest
   script:
-    - *prepare_ssh
-    - ssh -A -J ubuntu@$DEPLOY_JUMPHOST ubuntu@$DEPLOY_HOST rsync -rtvu --delete /dev/vdb/stencil-components/dist/$CI_COMMIT_REF_NAME/ /dev/vdb/stencil-components/dist/latest
+    - cd /srv/webhost/dist
+    - ln -s -f $CI_COMMIT_REF_NAME latest
   tags:
-    - shared
+    - elements
+    - webhost
+    - deploy
   only:
     - tags
 
-deploy-release:
-  stage: deploy-release
+publish-package:
+  stage: deploy
   script:
     - yarn install
     - curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
@@ -95,15 +84,3 @@ deploy-release:
     - shared
   only:
     - tags
-
-deploy-latest-storybook:
-  stage: deploy-latest-storybook
-  image: instrumentisto/rsync-ssh:latest
-  script:
-    - *prepare_ssh
-    - rsync -azv -e 'ssh -A -J ubuntu@$DEPLOY_JUMPHOST' packages/storybook/dist/ ubuntu@$DEPLOY_HOST:/dev/vdb/stencil-components/dist/latest/storybook
-  tags:
-    - shared
-  only:
-    - master
-  when: manual
