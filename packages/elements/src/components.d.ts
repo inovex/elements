@@ -1588,7 +1588,7 @@ declare namespace LocalJSX {
     */
     'name'?: string;
     /**
-    * Emits when the input field is blurred
+    * Emits when the input field is blurred and validates email input
     */
     'onInoBlur'?: (event: CustomEvent<void>) => void;
     /**
