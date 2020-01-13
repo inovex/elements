@@ -192,6 +192,9 @@ export class Input implements ComponentInterface {
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+    if (this.type === 'email') {
+      this.textfield.useNativeValidation = false;
+    }
     if (this.inoHelper) {
       this.helperText = new MDCTextFieldHelperText(
         document.querySelector('.mdc-text-field-helper-text')
@@ -252,16 +255,24 @@ export class Input implements ComponentInterface {
   }
 
   /**
-   * Emits when the input field is blurred
+   * Emits when the input field is blurred and validates email input
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
-  private handleBlur = e => this.inoBlur.emit(e);
+  private handleBlur = e => {
+    if (this.type === 'email' && this.value !== '') {
+      const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      emailPattern.test(this.value) ? this.textfield.valid = true : this.textfield.valid = false;
+    }
+    this.inoBlur.emit(e);
+  }
 
   /**
    * Emits when the input field is focused
    */
   @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
-  private handleFocus = e => this.inoFocus.emit(e);
+  private handleFocus = e => {
+    this.inoFocus.emit(e);
+  }
 
   private helperTextTemplate() {
 
