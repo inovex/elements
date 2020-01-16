@@ -14,6 +14,7 @@ import {
   h
 } from '@stencil/core';
 import classNames from 'classnames';
+import currency from 'currency.js';
 
 @Component({
   tag: 'ino-input',
@@ -120,10 +121,27 @@ export class Input implements ComponentInterface {
    */
   @Prop() value = '';
 
+  /**
+   * Shows a dot as a thousands separator. Only works on 'text' type input.
+   */
+  @Prop() inoThousandsSeparator?: boolean;
+
+  /**
+   * The number of decimal places. Only works on 'text' type input.
+   */
+  @Prop() inoDecimalPlaces?: number;
+
+  /**
+   * Displays the given unit at the end of the input field.
+   */
+  @Prop() inoUnit: string;
+
   @Watch('value')
   valueChanged(newValue: string) {
     if (this.textfield && this.nativeInputEl) {
-      this.textfield.value = newValue;
+      const parsedInput = this.parseInput(newValue);
+      this.textfield.value = parsedInput;
+      this.nativeInputEl.value = parsedInput;
 
       // setSelectionRange does not work on number input
       if (this.type !== 'number' && this.type !== 'email') {
@@ -201,7 +219,7 @@ export class Input implements ComponentInterface {
       );
     }
     if (this.inoIconLeading || this.inoIconTrailing) {
-        this.icon = new MDCTextFieldIcon(this.el.querySelector('.mdc-text-field__icon'));
+      this.icon = new MDCTextFieldIcon(this.el.querySelector('.mdc-text-field__icon'));
     }
 
     if (this.value && this.textfield) {
@@ -233,7 +251,7 @@ export class Input implements ComponentInterface {
     this.valueChange.emit(e.target.value);
 
     if (this.nativeInputEl) {
-      this.nativeInputEl.value = this.value;
+      this.nativeInputEl.value = this.parseInput(this.value);
     }
   }
 
@@ -293,6 +311,42 @@ export class Input implements ComponentInterface {
     );
   }
 
+  /**
+   * Formats the given input according to the Props inoDecimalPlaces or inoThousandsSeparator
+   * @param val The value which should be formatted
+   * @return if the val can be formatted, returns the formatted string, else returns the original input val
+   */
+  private parseInput(val?: string): string {
+
+    const canBeFormatted = Boolean(val) && this.type === 'text' && Boolean(this.inoDecimalPlaces || this.inoThousandsSeparator);
+
+    if (!canBeFormatted) {
+      return val;
+    }
+
+    const formatOptions = {
+      separator: this.inoThousandsSeparator ? '.' : '',
+      decimal: ',',
+      precision: this.inoDecimalPlaces | 0
+    };
+
+    const formattedValue: string = currency(val, formatOptions).format();
+
+    // Compute the new cursor position after . was added
+    if (this.inoThousandsSeparator) {
+      const numberOfAddedCharacters: number = Math.abs(val.length - formattedValue.length);
+
+      if (numberOfAddedCharacters !== 0) {
+        this.nativeInputEl.setSelectionRange(
+          this.cursorPosition + numberOfAddedCharacters,
+          this.cursorPosition + numberOfAddedCharacters
+        );
+      }
+    }
+
+    return formattedValue;
+  }
+
   private characterCounterTemplate() {
     return (
       <div class="mdc-text-field-character-counter">
@@ -314,7 +368,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,
-      'mdc-text-field--with-trailing-icon': this.inoIconTrailing,
+      'mdc-text-field--with-trailing-icon': this.inoIconTrailing || this.inoUnit,
       'mdc-text-field--no-label': !this.inoLabel
     });
 
@@ -339,7 +393,7 @@ export class Input implements ComponentInterface {
             required={this.required}
             size={this.size}
             type={this.type}
-            value={this.value}
+            value={this.parseInput(this.value)}
             aria-controls={this.inoHelper && this.uniqueHelperId}
             aria-describedby={this.inoHelper && this.uniqueHelperId}
             onInput={this.handleNativeInputChange.bind(this)}
@@ -347,6 +401,11 @@ export class Input implements ComponentInterface {
             onFocus={this.handleFocus}
             list={this.inoDataList}
           />
+          <slot/>
+          {
+            this.inoUnit &&
+            <span class={'mdc-text-field__icon unit'}>{this.inoUnit}</span>
+          }
           <ino-label
             ino-outline={this.inoOutline}
             ino-text={this.inoLabel}

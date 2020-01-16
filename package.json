@@ -27,6 +27,7 @@
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
+    "currency.js": "^1.2.2",
     "lerna": "^3.18.3"
   },
   "husky": {

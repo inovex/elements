@@ -161,7 +161,7 @@ export class InoImg {
 proxyInputs(InoImg, ['alt', 'decoding', 'height', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']);
 
 export declare interface InoInput extends Components.InoInput {}
-@Component({ selector: 'ino-input', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'] })
+@Component({ selector: 'ino-input', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'] })
 export class InoInput {
   valueChange!: EventEmitter<CustomEvent>;
   inoBlur!: EventEmitter<CustomEvent>;
@@ -173,7 +173,7 @@ export class InoInput {
     proxyOutputs(this, this.el, ['valueChange', 'inoBlur', 'inoFocus']);
   }
 }
-proxyInputs(InoInput, ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value']);
+proxyInputs(InoInput, ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value']);
 
 export declare interface InoInputFile extends Components.InoInputFile {}
 @Component({ selector: 'ino-input-file', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['accept', 'autofocus', 'disabled', 'inoLabel', 'multiple', 'name', 'required'] })
