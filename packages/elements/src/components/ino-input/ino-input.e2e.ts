@@ -57,4 +57,55 @@ describe('InoInput', () => {
     const focusedElement = await pageWithFocusedInput.evaluate(() => document.activeElement);
     expect(focusedElement).not.toEqual(emptyElement);
   });
+
+  it('should be formatted to a decimal with two decimal places', async () => {
+    const page = await setupPageWithContent(`
+      <ino-input
+        ino-decimal-places="2"
+      >
+      </ino-input>
+    `);
+
+    const inoInput = await page.find('ino-input');
+    const input = await page.find('ino-input > div > input');
+    inoInput.setProperty('value', 1);
+    await page.waitForChanges();
+    const value = await input.getProperty('value');
+
+    expect(value).toEqual('1,00');
+  });
+
+  it('should be formatted to have a dot as a thousand separator', async () => {
+    const page = await setupPageWithContent(`
+      <ino-input
+        ino-thousands-separator
+      >
+      </ino-input>
+    `);
+
+    const inoInput = await page.find('ino-input');
+    const input = await page.find('ino-input > div > input');
+    inoInput.setProperty('value', 1000);
+    await page.waitForChanges();
+    const value = await input.getProperty('value');
+
+    expect(value).toEqual('1.000');
+  });
+
+  it('should be formatted to have two dots as a thousand separator', async () => {
+    const page = await setupPageWithContent(`
+      <ino-input
+        ino-thousands-separator
+      >
+      </ino-input>
+    `);
+
+    const inoInput = await page.find('ino-input');
+    const input = await page.find('ino-input > div > input');
+    inoInput.setProperty('value', 1000000);
+    await page.waitForChanges();
+    const value = await input.getProperty('value');
+
+    expect(value).toEqual('1.000.000');
+  });
 });

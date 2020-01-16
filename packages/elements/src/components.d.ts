@@ -445,6 +445,10 @@ export namespace Components {
     */
     'inoDataList'?: string;
     /**
+    * The number of decimal places. Only works on 'text' type input.
+    */
+    'inoDecimalPlaces'?: number;
+    /**
     * The optional helper text.
     */
     'inoHelper'?: string;
@@ -476,6 +480,14 @@ export namespace Components {
     * Styles the input field as outlined element.
     */
     'inoOutline'?: boolean;
+    /**
+    * Shows a dot as a thousands separator. Only works on 'text' type input.
+    */
+    'inoThousandsSeparator'?: boolean;
+    /**
+    * Displays the given unit at the end of the input field.
+    */
+    'inoUnit': string;
     /**
     * The max value of this element.
     */
@@ -1540,6 +1552,10 @@ declare namespace LocalJSX {
     */
     'inoDataList'?: string;
     /**
+    * The number of decimal places. Only works on 'text' type input.
+    */
+    'inoDecimalPlaces'?: number;
+    /**
     * The optional helper text.
     */
     'inoHelper'?: string;
@@ -1571,6 +1587,14 @@ declare namespace LocalJSX {
     * Styles the input field as outlined element.
     */
     'inoOutline'?: boolean;
+    /**
+    * Shows a dot as a thousands separator. Only works on 'text' type input.
+    */
+    'inoThousandsSeparator'?: boolean;
+    /**
+    * Displays the given unit at the end of the input field.
+    */
+    'inoUnit'?: string;
     /**
     * The max value of this element.
     */

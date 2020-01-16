@@ -107,6 +107,14 @@ storiesOf('<ino-input>', module)
         </datalist>
       </ino-input>
 
+      <h4>Number Formats</h4>
+      <ino-input ino-decimal-places="2" placeholder="With 2 decimal places"></ino-input>
+      <ino-input ino-thousands-separator placeholder="With thousands separator"></ino-input>
+
+      <h4>Metadata</h4>
+      <ino-input value="2,00" ino-decimal-places="2" ino-thousands-separator ino-unit="€" ino-label="Euro Input"></ino-input>
+      <ino-input value="2" type="number" ino-unit="h" ino-label="Hours input"></ino-input>
+
       <h4>Labels</h4>
       <ino-input ino-label="Floating label"></ino-input>
       <ino-input ino-label="Floating label" value="With value"></ino-input>
