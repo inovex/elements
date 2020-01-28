@@ -4,11 +4,12 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop
 import classnames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
+import { renderHiddenInput } from '../../util/helpers';
 
 @Component({
   tag: 'ino-radio',
   styleUrl: 'ino-radio.scss',
-  shadow: false
+  shadow: true
 })
 export class Radio implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -68,8 +69,8 @@ export class Radio implements ComponentInterface {
   private radioId = `ino-radio-id_${generateUniqueId()}`;
 
   componentDidLoad() {
-    this.radio = new MDCRadio(this.el.querySelector('.mdc-radio'));
-    this.formField = new MDCFormField(this.el.querySelector('.mdc-form-field'));
+    this.radio = new MDCRadio(this.el.shadowRoot.querySelector('.mdc-radio'));
+    this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.radio;
   }
 
@@ -80,10 +81,14 @@ export class Radio implements ComponentInterface {
 
   render() {
 
+    const { el, name, checked, value, disabled } = this;
+
     const classes = classnames({
       'mdc-radio': true,
-      'mdc-radio--disabled': this.disabled
+      'mdc-radio--disabled': disabled
     });
+
+    renderHiddenInput(el, name, (checked ? value : ''), disabled);
 
     return (
       <Host>
@@ -97,7 +102,7 @@ export class Radio implements ComponentInterface {
               disabled={this.disabled}
               name={this.name}
               value={this.value}
-              ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+              ref={input => (this.nativeInputEl = input as HTMLInputElement)}
               onInput={this.handleInput}
               onChange={e => e.stopPropagation()}
             />
@@ -108,7 +113,7 @@ export class Radio implements ComponentInterface {
             </div>
           </div>
           <label htmlFor={this.radioId}>
-            <slot/>
+            <slot></slot>
           </label>
         </div>
       </Host>

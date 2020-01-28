@@ -32,40 +32,40 @@ describe('InoControlItem', () => {
 
   it('should render with a checkbox', async () => {
     const page = await setupPageWithContent(INO_CHECKBOX_ITEM);
-    const input = await page.find('input');
-    expect(input).toEqualAttribute('type', 'checkbox');
+    const input = await page.find('ino-checkbox');
+    expect(input).toBeDefined();
   });
 
   it('should render with a radio-button', async () => {
     const page = await setupPageWithContent(INO_RADIO_ITEM);
-    const input = await page.find('input');
-    expect(input).toEqualAttribute('type', 'radio');
+    const input = await page.find('ino-radio');
+    expect(input).toBeDefined();
   });
 
   it('should render with unchecked checkbox', async () => {
     const page = await setupPageWithContent(INO_CHECKBOX_ITEM);
-    const input = await page.find('input');
+    const input = await page.find('ino-checkbox');
     const checked = await input.getProperty('checked');
     expect(checked).toBeFalsy();
   });
 
   it('should render with unchecked radio-button', async () => {
     const page = await setupPageWithContent(INO_RADIO_ITEM);
-    const input = await page.find('input');
+    const input = await page.find('ino-radio');
     const checked = await input.getProperty('checked');
     expect(checked).toBeFalsy();
   });
 
   it('should render with checked checkbox', async () => {
     const page = await setupPageWithContent(INO_CHECKBOX_ITEM_CHECKED);
-    const input = await page.find('input');
+    const input = await page.find('ino-checkbox');
     const checked = await input.getProperty('checked');
     expect(checked).toBeTruthy();
   });
 
   it('should render with checked radio-button', async () => {
     const page = await setupPageWithContent(INO_RADIO_ITEM_CHECKED);
-    const input = await page.find('input');
+    const input = await page.find('ino-radio');
     const checked = await input.getProperty('checked');
     expect(checked).toBeTruthy();
   });

@@ -18,7 +18,7 @@ function subscribeToComponentEvents() {
       return;
     }
 
-    el.setAttribute('checked', e.detail);
+    document.querySelector('#my-group').setAttribute('value', el.value);
   };
 
   document.addEventListener('checkedChange', eventHandler);
@@ -55,10 +55,12 @@ storiesOf('<ino-radio>', module)
     
     <h4>Radio Group</h4>
     <div class="story-radio">
-      <ino-radio ino-id="11" name="group">Option 1</ino-radio>
-      <ino-radio ino-id="22" name="group">Option 2</ino-radio>
-      <ino-radio ino-id="33" name="group">Option 3</ino-radio>
-      <ino-radio ino-id="44" name="group">Option 4</ino-radio>
+    <ino-radio-group id="my-group" value="val1">
+      <ino-radio ino-id="11" value="val1">Option 1</ino-radio>
+      <ino-radio ino-id="22" value="val2">Option 2</ino-radio>
+      <ino-radio ino-id="33" value="val3">Option 3</ino-radio>
+      <ino-radio ino-id="44" value="val4">Option 4</ino-radio>
+     </ino-radio-group>
     </div>
     
     <h4>States</h4>

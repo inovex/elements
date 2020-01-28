@@ -13,14 +13,14 @@ describe('InoRadio', () => {
 
   it('should render unchecked', async () => {
     const page = await setupPageWithContent(INO_RADIO);
-    const input = await page.find('input');
+    const input = await page.find('ino-radio');
     const isChecked = await input.getProperty('checked');
     expect(isChecked).toBeFalsy();
   });
 
   it('should render checked', async () => {
     const page = await setupPageWithContent(INO_RADIO_CHECKED);
-    const input = await page.find('input');
+    const input = await page.find('ino-radio');
     const isChecked = await input.getProperty('checked');
     expect(isChecked).toBeTruthy();
   });

@@ -6,6 +6,8 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop
   shadow: false
 })
 export class InoControlItem implements ComponentInterface {
+  private inputEl: HTMLInputElement;
+
   @Element() el!: HTMLElement;
 
   /**
@@ -94,13 +96,13 @@ export class InoControlItem implements ComponentInterface {
 
   clickHandler = (e: MouseEvent) => {
     e.stopPropagation();
-
-    if (this.inoDisabled || e.target['tagName'] === 'INPUT') {
+    if (this.inoDisabled || e.target['tagName'] === 'INO-CHECKBOX') {
       return;
     }
 
-    const input = this.el.querySelector('input');
-    input.dispatchEvent(new CustomEvent('input'));
+    this.inputEl
+      .shadowRoot.querySelector('input')
+      .dispatchEvent(new CustomEvent('input'));
   }
 
   render() {
@@ -119,7 +121,8 @@ export class InoControlItem implements ComponentInterface {
       disabled: this.inoDisabled,
       name: this.name,
       value: this.value,
-      onCheckedChange: this.changedHandler
+      onCheckedChange: this.changedHandler,
+      ref: inputEl => this.inputEl = inputEl
     };
 
     return (

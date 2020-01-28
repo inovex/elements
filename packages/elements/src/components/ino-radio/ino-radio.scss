@@ -3,7 +3,7 @@
 
 $disabled-color: ino-color(dark, light);
 
-ino-radio {
+:host {
   .mdc-radio {
     @include mdc-radio-unchecked-stroke-color(ino-color(light, dark));
     @include mdc-radio-checked-stroke-color(ino-color(primary));
