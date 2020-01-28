@@ -673,6 +673,12 @@ export namespace Components {
     */
     'value'?: string;
   }
+  interface InoRadioGroup {
+    /**
+    * the value of the radio group.
+    */
+    'value'?: any | null;
+  }
   interface InoRange {
     /**
     * Disables this element.
@@ -1026,6 +1032,12 @@ declare global {
     new (): HTMLInoRadioElement;
   };
 
+  interface HTMLInoRadioGroupElement extends Components.InoRadioGroup, HTMLStencilElement {}
+  var HTMLInoRadioGroupElement: {
+    prototype: HTMLInoRadioGroupElement;
+    new (): HTMLInoRadioGroupElement;
+  };
+
   interface HTMLInoRangeElement extends Components.InoRange, HTMLStencilElement {}
   var HTMLInoRangeElement: {
     prototype: HTMLInoRangeElement;
@@ -1096,6 +1108,7 @@ declare global {
     'ino-menu': HTMLInoMenuElement;
     'ino-popover': HTMLInoPopoverElement;
     'ino-radio': HTMLInoRadioElement;
+    'ino-radio-group': HTMLInoRadioGroupElement;
     'ino-range': HTMLInoRangeElement;
     'ino-select': HTMLInoSelectElement;
     'ino-snackbar': HTMLInoSnackbarElement;
@@ -1807,6 +1820,12 @@ declare namespace LocalJSX {
     */
     'value'?: string;
   }
+  interface InoRadioGroup extends JSXBase.HTMLAttributes<HTMLInoRadioGroupElement> {
+    /**
+    * the value of the radio group.
+    */
+    'value'?: any | null;
+  }
   interface InoRange extends JSXBase.HTMLAttributes<HTMLInoRangeElement> {
     /**
     * Disables this element.
@@ -2079,6 +2098,7 @@ declare namespace LocalJSX {
     'ino-menu': InoMenu;
     'ino-popover': InoPopover;
     'ino-radio': InoRadio;
+    'ino-radio-group': InoRadioGroup;
     'ino-range': InoRange;
     'ino-select': InoSelect;
     'ino-snackbar': InoSnackbar;

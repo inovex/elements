@@ -3,11 +3,12 @@ import { MDCFormField } from '@material/form-field';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 
 import { generateUniqueId } from '../../util/component-utils';
+import { renderHiddenInput } from '../../util/helpers';
 
 @Component({
   tag: 'ino-checkbox',
   styleUrl: 'ino-checkbox.scss',
-  shadow: false
+  shadow: true
 })
 export class Checkbox implements ComponentInterface {
   private checkboxInstance: MDCCheckbox;
@@ -57,9 +58,9 @@ export class Checkbox implements ComponentInterface {
 
   componentDidLoad() {
     this.checkboxInstance = new MDCCheckbox(
-      this.el.querySelector('.mdc-checkbox')
+      this.el.shadowRoot.querySelector('.mdc-checkbox')
     );
-    this.formField = new MDCFormField(this.el.querySelector('.mdc-form-field'));
+    this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.checkboxInstance;
 
     if (this.indeterminate) {
@@ -84,22 +85,23 @@ export class Checkbox implements ComponentInterface {
   }
 
   render() {
+    const { el, name, checked, value, disabled } = this;
+
+    renderHiddenInput(el, name, (checked ? value : ''), disabled);
 
     return (
       <Host>
         <div class="mdc-form-field">
           <div
-            class={`mdc-checkbox ${this.disabled && 'mdc-checkbox--disabled'}`}
+            class={`mdc-checkbox ${disabled && 'mdc-checkbox--disabled'}`}
           >
             <input
               type="checkbox"
               class="mdc-checkbox__native-control"
-              checked={this.checked}
-              disabled={this.disabled}
-              name={this.name}
-              value={this.value}
+              checked={checked}
+              disabled={disabled}
               id={this.checkboxId}
-              ref={el => (this.nativeInputEl = el as HTMLInputElement)}
+              ref={input => (this.nativeInputEl = input as HTMLInputElement)}
               onChange={e => e.stopPropagation()}
               onInput={this.handleInput}
             />

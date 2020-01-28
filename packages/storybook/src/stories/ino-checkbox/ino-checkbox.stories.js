@@ -50,6 +50,8 @@ storiesOf('<ino-checkbox>', module)
     <div class="story-checkbox">
       <ino-checkbox
         class="customizable-checkbox"
+        name="customizable-checkbox"
+        value="placeholder-value"
         checked="${boolean('checked', false)}"
         disabled="${boolean('disabled', false)}"
         indeterminate="${boolean('indeterminate', false)}"

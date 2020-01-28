@@ -23,7 +23,7 @@ document
   disabled
   min="<string>"
   max="<string>"
-  step="<number> | 'any'"
+  step="<number>"
   name="<string>"
   pattern="<string>"
   placeholder="<string>"

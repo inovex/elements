@@ -3,7 +3,7 @@
 
 $primary: ino-color(primary);
 
-ino-checkbox {
+:host {
   .mdc-checkbox {
     @include mdc-checkbox-container-colors($primary, white, $primary, $primary);
     @include mdc-checkbox-ink-color(white);
