@@ -33,7 +33,7 @@ document
   value="<string>"
   ino-outline
   ino-label="<string>"
-  ino-icon="<string>"
+  ino-icon-leading
   ino-icon-trailing
   ino-icon-clickable
   ino-helper="<string>"
@@ -44,6 +44,8 @@ document
     <datalist id="<string>">
         <option>...</option>
     </datalist>
+    <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
+    <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
 </ino-input>
 ```
 
@@ -108,7 +110,7 @@ class MyComponent extends Component {
 
 **Helper Text**: The component shows an optional helper text underneath the input field (`ino-helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `ino-helper-persistent` to show it all the time. Furthermore, use `ino-helper-validation` to style the helper text as validation message.
 
-**Icons**: Provide a string identifier in `ino-icon` to display a leading icon. Set `ino-icon-trailing` to position the icon after the input field. Make the icon interactive and clickable by adding `ino-icon-clickable` and listen to the `inoIconClicked` event emitted by the icon component.
+**Icons**: There are currently two options two place an icon: at the start/left (`ino-icon-leading`) or at the end/right (`ino-icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally you have to provide either `slot=ino-icon-leading` or `slot="ino-icon-trailing`to your icon element.
 
 **Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
 ### Control flow
