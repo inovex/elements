@@ -675,7 +675,7 @@ export namespace Components {
   }
   interface InoRadioGroup {
     /**
-    * the value of the radio group.
+    * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
     */
     'value'?: any | null;
   }
@@ -1822,7 +1822,7 @@ declare namespace LocalJSX {
   }
   interface InoRadioGroup extends JSXBase.HTMLAttributes<HTMLInoRadioGroupElement> {
     /**
-    * the value of the radio group.
+    * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
     */
     'value'?: any | null;
   }

@@ -269,6 +269,17 @@ export class InoRadio {
 }
 proxyInputs(InoRadio, ['checked', 'disabled', 'name', 'value']);
 
+export declare interface InoRadioGroup extends Components.InoRadioGroup {}
+@Component({ selector: 'ino-radio-group', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['value'] })
+export class InoRadioGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+proxyInputs(InoRadioGroup, ['value']);
+
 export declare interface InoRange extends Components.InoRange {}
 @Component({ selector: 'ino-range', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'inoColorScheme', 'inoDiscrete', 'inoMarkers', 'max', 'min', 'name', 'step', 'value'] })
 export class InoRange {

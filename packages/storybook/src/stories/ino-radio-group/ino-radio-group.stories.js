@@ -3,11 +3,10 @@ import CoreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
 import { withActions } from '@storybook/addon-actions';
-import { text, boolean } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import componentReadme from '_local-elements/src/components/ino-radio/readme.md';
-import './ino-radio.scss';
+import componentReadme from '_local-elements/src/components/ino-radio-group/readme.md';
+import './ino-radio-group.scss';
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -17,8 +16,8 @@ function subscribeToComponentEvents() {
     if (el.tagName.toLowerCase() !== 'ino-radio') {
       return;
     }
-
-    el.setAttribute('checked', true);
+    const group = document.querySelector('#radio-grp');
+    group.setAttribute('value', el.getAttribute('value'));
   };
 
   document.addEventListener('checkedChange', eventHandler);
@@ -30,7 +29,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-radio>', module)
+storiesOf('<ino-radio-group>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('checkedChange ino-radio'))
   .addDecorator(story => {
@@ -44,21 +43,13 @@ storiesOf('<ino-radio>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-radio">
-      <ino-radio
-        checked="${boolean('checked', false)}"
-        disabled="${boolean('disabled', false)}"
-        name="radio-custom"
-      >
-        ${text('<slot />', 'Customizable Radio Button')}
-      </ino-radio>
-    </div>
-
-    <h4>States</h4>
-    <div class="story-radio">
-      <ino-radio>Unchecked</ino-radio>
-      <ino-radio checked>Checked</ino-radio>
-      <ino-radio disabled>Disabled</ino-radio>
-      <ino-radio checked disabled>Checked and Disabled</ino-radio>
+      <div>
+        <ino-radio-group id="radio-grp">
+          <ino-radio value="1">Opt 1</ino-radio>
+          <ino-radio value="2">Opt 2</ino-radio>
+          <ino-radio value="3">Opt 3</ino-radio>
+        </ino-radio-group>
+      </div>
     </div>
   `
   );
