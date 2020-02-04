@@ -91,7 +91,9 @@ storiesOf('<ino-icon>', module)
       </div>
       <div class="flex-parent-center">
         <h4 style="margin-bottom: 0">Different Icons</h4>
-        <ino-input class="customizable-input" ino-icon="search"></ino-input>
+        <ino-input class="customizable-input" ino-icon-leading>
+            <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
+        </ino-input>
         <ino-chip-set>
           ${iconChips}
         </ino-chip-set>
