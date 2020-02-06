@@ -1,4 +1,17 @@
-.story-checkbox {
+.story-checkbox-states {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.customizable-checkbox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  align-self: center;
+}
+
+ino-checkbox {
+  width: 33%;
 }

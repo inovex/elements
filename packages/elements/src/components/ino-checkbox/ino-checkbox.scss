@@ -1,17 +1,61 @@
 @import '@material/form-field/mdc-form-field';
 @import '@material/checkbox/mdc-checkbox';
 
-$primary: ino-color(primary);
+$primary-color: ino-color(primary);
+$primary-light-color: ino-color(primary, light);
+$primary-dark-color: ino-color(primary, dark);
+$unchecked-container-color: ino-color(dark, light);
+
+$text-disabled-color: ino-color(dark);
+$background-disabled-color: ino-color(light, light);
+$checkmark-disabled-color: ino-color(light);
+
 
 :host {
   .mdc-checkbox {
-    @include mdc-checkbox-container-colors($primary, white, $primary, $primary);
+    @include mdc-checkbox-container-colors($unchecked-container-color, white, $primary-color, $primary-color);
     @include mdc-checkbox-ink-color(white);
-    @include mdc-checkbox-focus-indicator-color($primary);
 
-    &:before,
-    &:after {
-      background-color: $primary;
+    &:before, &:after {
+      display: none; // Remove ripple effect
+    }
+  }
+
+  .mdc-checkbox--disabled {
+
+    .mdc-checkbox__checkmark {
+      color: $checkmark-disabled-color;
+    }
+
+    .mdc-checkbox__mixedmark {
+      border-color: $checkmark-disabled-color;
+    }
+
+    .mdc-checkbox__native-control[disabled] {
+      &:checked ~ .mdc-checkbox__background,
+      &:indeterminate ~ .mdc-checkbox__background,
+      &:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
+        background-color: $background-disabled-color;
+        border-color: $background-disabled-color;
+      }
+    }
+  }
+
+  &[disabled]:not([disabled="false"]) label {
+    color: $text-disabled-color;
+  }
+}
+
+:host(:hover) {
+  .mdc-checkbox:not(.checked) {
+    @include mdc-checkbox-container-colors($primary-color, white, $primary-color, $primary-color);
+  }
+
+  .mdc-checkbox:not(.mdc-checkbox--disabled) {
+    @include mdc-checkbox-container-colors($primary-light-color, white, $primary-light-color, $primary-light-color);
+
+    .mdc-checkbox__background {
+      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
     }
   }
 }

@@ -56,12 +56,17 @@ storiesOf('<ino-checkbox>', module)
         disabled="${boolean('disabled', false)}"
         indeterminate="${boolean('indeterminate', false)}"
       >
-        ${text('<slot />', 'A standard checkbox')}
+        ${text('<slot />', 'Customizable checkbox')}
       </ino-checkbox>
-      <ino-checkbox checked>Checked</ino-checkbox>
-      <ino-checkbox disabled>Disabled</ino-checkbox>
-      <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
-      <ino-checkbox indeterminate="true">Indeterminated</ino-checkbox>
+      
+      <div class="story-checkbox-states">
+        <ino-checkbox checked>Checked</ino-checkbox>
+        <ino-checkbox>Unchecked</ino-checkbox>
+        <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
+        <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
+        <ino-checkbox disabled>Disabled</ino-checkbox>
+        <ino-checkbox disabled indeterminate>Indeterminated and Disabled</ino-checkbox>
+      </div>
     </div>
   `
   );
