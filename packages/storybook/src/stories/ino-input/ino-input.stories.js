@@ -65,7 +65,8 @@ storiesOf('<ino-input>', module)
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
-
+        pattern="${text('pattern', '', 'STANDARD')}"
+        ino-error="${boolean('ino-error', false, 'STANDARD')}"
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
         ino-helper-persistent="${boolean(
           'ino-helper-persistent',
@@ -77,7 +78,7 @@ storiesOf('<ino-input>', module)
           false,
           'HELPER TEXT'
         )}"
-        
+
         ino-helper-character-counter="${boolean(
         'ino-helper-character-counter',
         false,
@@ -141,14 +142,14 @@ storiesOf('<ino-input>', module)
       </ino-input>
       <ino-input ino-icon-trailing ino-label="Trailing icon">
         <ino-icon slot="ino-icon-trailing" ino-icon="search"></ino-icon>
-      </ino-input> 
+      </ino-input>
       <ino-input ino-icon-leading ino-icon-trailing ino-label="Leading and Trailing icon">
        <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
        <ino-icon slot="ino-icon-trailing" ino-icon="add"></ino-icon>
-      </ino-input>  
+      </ino-input>
       <ino-input ino-icon-trailing ino-label="Clickable Icon">
         <ino-icon ino-clickable slot="ino-icon-trailing" ino-icon="search"></ino-icon>
-      </ino-input>   
+      </ino-input>
      </div>
   `
   );
