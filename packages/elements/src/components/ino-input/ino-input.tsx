@@ -200,6 +200,23 @@ export class Input implements ComponentInterface {
   @Prop() inoDataList?: string;
 
   /**
+   * Displays the input field as invalid if set to true.
+   * If the property is not set or set to false, the validation is handled by the `pattern` property.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() inoError?: boolean;
+
+  @Watch('inoError')
+  inoErrorHandler(value?: boolean) {
+    if (value) {
+      this.textfield.valid = false;
+    } else {
+      this.textfield.valid = true;
+      this.nativeInputEl.checkValidity();
+    }
+  }
+
+  /**
    * Simple static construct to generate unique helper text ids.
    */
   private static HELPER_COUNTER = 0;
@@ -233,6 +250,10 @@ export class Input implements ComponentInterface {
     if (this.inoDataList) {
       this.nativeInputEl.setAttribute('list', this.inoDataList);
       // see https://github.com/ionic-team/stencil/issues/1582
+    }
+
+    if (Boolean(this.inoError)) {
+      this.textfield.valid = false;
     }
   }
 

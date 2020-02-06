@@ -449,6 +449,10 @@ export namespace Components {
     */
     'inoDecimalPlaces'?: number;
     /**
+    * Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend.
+    */
+    'inoError'?: boolean;
+    /**
     * The optional helper text.
     */
     'inoHelper'?: string;
@@ -1568,6 +1572,10 @@ declare namespace LocalJSX {
     * The number of decimal places. Only works on 'text' type input.
     */
     'inoDecimalPlaces'?: number;
+    /**
+    * Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend.
+    */
+    'inoError'?: boolean;
     /**
     * The optional helper text.
     */
