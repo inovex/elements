@@ -45,7 +45,8 @@
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "test": "stencil test --e2e --ci",
-    "test.watch": "stencil test --e2e --spec --watch"
+    "test.watch": "stencil test --e2e --spec --watch",
+    "icon:integrate-icons": "node scripts/integrateIcons.js"
   },
   "dependencies": {
     "@material/button": "^3.0.0",
