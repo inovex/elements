@@ -17,6 +17,8 @@ ino-datepicker {
 
 // Customize flatpickr styles
 
+$hover-color: lighten(ino-color(primary), 36.5%);
+
 .flatpickr-calendar {
   @include ino-font($size: xs);
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
@@ -27,8 +29,12 @@ ino-datepicker {
     display: none;
   }
 
-  &:not(.noCalendar) {
+  &:not(.noCalendar):not(.flatpickr-monthSelect-theme-light) {
     width: auto;
+  }
+
+  &.flatpickr-monthSelect-theme-light {
+    min-width: 300px;
   }
 
   input {
@@ -42,7 +48,7 @@ ino-datepicker {
       border-width: 0;
 
       &:hover:not(focus) {
-        background-color: lighten(ino-color(primary), 36.5%);
+        background-color: $hover-color;
       }
 
       &.today:not(.selected) {
@@ -61,6 +67,31 @@ ino-datepicker {
 
       &.endRange, &.endRange:hover {
         background-color: ino-color(primary);
+      }
+    }
+  }
+
+
+  .flatpickr-monthSelect-months {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    .flatpickr-monthSelect-month {
+
+      width: 30%;
+      margin: 3px;
+      border-radius: 20px;
+
+      &.selected {
+        background-color: ino-color(primary);
+        color: white;
+        box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.30), 0 8px 24px 0 rgba(61, 214, 245, 0.14);
+      }
+
+      &:hover:not(.selected) {
+        background-color: $hover-color;
       }
     }
   }

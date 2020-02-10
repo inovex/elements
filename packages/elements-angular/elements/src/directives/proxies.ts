@@ -80,7 +80,7 @@ export class InoControlItem {
 proxyInputs(InoControlItem, ['checked', 'disabled', 'indeterminate', 'inoActivated', 'inoDisabled', 'inoId', 'inoRole', 'inoSecondaryText', 'inoSelected', 'inoText', 'inoTrailing', 'name', 'value']);
 
 export declare interface InoDatepicker extends Components.InoDatepicker {}
-@Component({ selector: 'ino-datepicker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'max', 'min', 'minuteStep', 'name', 'required', 'value'] })
+@Component({ selector: 'ino-datepicker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value'] })
 export class InoDatepicker {
   valueChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -90,7 +90,7 @@ export class InoDatepicker {
     proxyOutputs(this, this.el, ['valueChange']);
   }
 }
-proxyInputs(InoDatepicker, ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'max', 'min', 'minuteStep', 'name', 'required', 'value']);
+proxyInputs(InoDatepicker, ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']);
 
 export declare interface InoFab extends Components.InoFab {}
 @Component({ selector: 'ino-fab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoColorScheme', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement'] })

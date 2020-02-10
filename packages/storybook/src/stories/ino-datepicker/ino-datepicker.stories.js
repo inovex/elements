@@ -4,7 +4,7 @@ import CoreEvents from '@storybook/core-events';
 import moment from 'moment';
 
 import {withActions} from '@storybook/addon-actions';
-import {text, boolean} from '@storybook/addon-knobs';
+import {select, text, boolean} from '@storybook/addon-knobs';
 import addons from '@storybook/addons';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -24,7 +24,6 @@ function subscribeToComponentEvents() {
     if (el.tagName.toLowerCase() !== 'ino-datepicker') {
       return;
     }
-
     e.target.setAttribute('value', e.detail);
   };
 
@@ -50,6 +49,7 @@ storiesOf('<ino-datepicker>', module)
     <div class="story-datepicker">
       <ino-datepicker class="customizable-picker"
         value="${text('value', defaultDate, 'DATE CONFIG')}"
+        ino-type="${select('ino-type', ['dateime', 'month', 'date', 'time'], 'datetime', 'STANDARD')}"
         ino-label="${text('ino-label', 'Label', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         min="${text('min', minDate, 'STANDARD')}"
@@ -69,21 +69,22 @@ storiesOf('<ino-datepicker>', module)
 
 
       <h4>Formats</h4>
-      <ino-datepicker ino-date-format="H:i d.m.Y" ino-label="Datetime"></ino-datepicker>
-      <ino-datepicker ino-date-format="d.m.Y" ino-label="Date"></ino-datepicker>
-      <ino-datepicker ino-date-format="H:i" ino-label="Time"></ino-datepicker>
+      <ino-datepicker ino-type="datetime" ino-date-format="H:i d.m.Y" ino-label="Datetime"></ino-datepicker>
+      <ino-datepicker ino-type="date" ino-date-format="d.m.Y" ino-label="Date"></ino-datepicker>
+      <ino-datepicker ino-type="time" ino-date-format="H:i" ino-label="Time"></ino-datepicker>
       <ino-datepicker ino-date-format="d.m.Y" ino-range ino-label="Range"></ino-datepicker>
+      <ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 
       <h4>Restrictions</h4>
-      <ino-datepicker ino-label="Custom default date" ino-default-date="${defaultDate}" ino-date-format="Y-m-d"></ino-datepicker>
-      <ino-datepicker ino-label="Min date" min="${minDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Max date" max="${maxDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Min and Max date" min="${minDate}" max="${maxDate}"></ino-datepicker>
-      <ino-datepicker ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-date-format="H:i"></ino-datepicker>
-      <ino-datepicker ino-label="Default hour and minute" ino-date-format="H:i" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
+      <ino-datepicker ino-label="Custom default date" ino-date-format="Y-m-d" ino-default-date="${defaultDate}" ino-date-format="Y-m-d"></ino-datepicker>
+      <ino-datepicker ino-label="Min date" ino-date-format="Y-m-d" min="${minDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Max date" ino-date-format="Y-m-d" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min and Max date" ino-date-format="Y-m-d" min="${minDate}" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-type="time" ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-date-format="H:i"></ino-datepicker>
+      <ino-datepicker ino-type="time" ino-label="Default hour and minute" ino-date-format="H:i" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 
       <h4>Variations</h4>
-      <ino-datepicker ino-date-format="h:i K" ino-label="Twelf hour time" ino-twelf-hour-time></ino-datepicker>
+      <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelf hour time" ino-twelf-hour-time></ino-datepicker>
 
       <h4>States</h4>
       <ino-datepicker ino-label="Pattern numbers from 1 - 6" ino-pattern="[1-6]+"></ino-datepicker>
