@@ -227,7 +227,7 @@ export namespace Components {
     */
     'hourStep': number;
     /**
-    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+    * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
     */
     'inoDateFormat'?: string;
     /**
@@ -267,13 +267,17 @@ export namespace Components {
     */
     'inoPattern'?: string;
     /**
-    * If true, enables the user to choose two dates as an interval
+    * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
     */
     'inoRange'?: boolean;
     /**
     * If true, displays time picker in 12 hour mode with AM/PM selection.
     */
     'inoTwelfHourTime'?: boolean;
+    /**
+    * Selects the correct picker corresponding to the given type.
+    */
+    'inoType'?: 'date' | 'month' | 'time' | 'datetime';
     /**
     * The maximum date that a user can pick to (inclusive).
     */
@@ -1343,7 +1347,7 @@ declare namespace LocalJSX {
     */
     'hourStep'?: number;
     /**
-    * A string to change the date format. The format decides which calendar is needed (date, time, or datetime). Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+    * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
     */
     'inoDateFormat'?: string;
     /**
@@ -1383,13 +1387,17 @@ declare namespace LocalJSX {
     */
     'inoPattern'?: string;
     /**
-    * If true, enables the user to choose two dates as an interval
+    * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
     */
     'inoRange'?: boolean;
     /**
     * If true, displays time picker in 12 hour mode with AM/PM selection.
     */
     'inoTwelfHourTime'?: boolean;
+    /**
+    * Selects the correct picker corresponding to the given type.
+    */
+    'inoType'?: 'date' | 'month' | 'time' | 'datetime';
     /**
     * The maximum date that a user can pick to (inclusive).
     */
