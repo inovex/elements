@@ -5,7 +5,7 @@ import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'ino-checkbox,ino-control-item[ino-role="checkbox"]',
+  selector: 'ino-checkbox,ino-control-item[ino-role="checkbox"],ino-switch',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

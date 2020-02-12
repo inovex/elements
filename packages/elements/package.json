@@ -63,6 +63,7 @@
     "@material/select": "^3.0.0",
     "@material/slider": "^3.0.0",
     "@material/snackbar": "^3.0.0",
+    "@material/switch": "^3.0.0",
     "@material/tab": "^3.0.0",
     "@material/tab-bar": "^3.0.0",
     "@material/tab-indicator": "^3.0.0",

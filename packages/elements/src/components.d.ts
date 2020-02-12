@@ -823,6 +823,24 @@ export namespace Components {
     */
     'inoWidth'?: number;
   }
+  interface InoSwitch {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+  }
   interface InoTab {
     /**
     * Indicates a leading icon in the tab.
@@ -1090,6 +1108,12 @@ declare global {
     new (): HTMLInoSpinnerElement;
   };
 
+  interface HTMLInoSwitchElement extends Components.InoSwitch, HTMLStencilElement {}
+  var HTMLInoSwitchElement: {
+    prototype: HTMLInoSwitchElement;
+    new (): HTMLInoSwitchElement;
+  };
+
   interface HTMLInoTabElement extends Components.InoTab, HTMLStencilElement {}
   var HTMLInoTabElement: {
     prototype: HTMLInoTabElement;
@@ -1141,6 +1165,7 @@ declare global {
     'ino-select': HTMLInoSelectElement;
     'ino-snackbar': HTMLInoSnackbarElement;
     'ino-spinner': HTMLInoSpinnerElement;
+    'ino-switch': HTMLInoSwitchElement;
     'ino-tab': HTMLInoTabElement;
     'ino-tab-bar': HTMLInoTabBarElement;
     'ino-textarea': HTMLInoTextareaElement;
@@ -2014,6 +2039,28 @@ declare namespace LocalJSX {
     */
     'inoWidth'?: number;
   }
+  interface InoSwitch extends JSXBase.HTMLAttributes<HTMLInoSwitchElement> {
+    /**
+    * Marks this element as checked. (**unmanaged**)
+    */
+    'checked'?: boolean;
+    /**
+    * Disables this element.
+    */
+    'disabled'?: boolean;
+    /**
+    * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+    */
+    'inoColorScheme'?: ColorScheme;
+    /**
+    * The name of this element.
+    */
+    'name'?: string;
+    /**
+    * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+    */
+    'onCheckedChange'?: (event: CustomEvent<any>) => void;
+  }
   interface InoTab extends JSXBase.HTMLAttributes<HTMLInoTabElement> {
     /**
     * Indicates a leading icon in the tab.
@@ -2159,6 +2206,7 @@ declare namespace LocalJSX {
     'ino-select': InoSelect;
     'ino-snackbar': InoSnackbar;
     'ino-spinner': InoSpinner;
+    'ino-switch': InoSwitch;
     'ino-tab': InoTab;
     'ino-tab-bar': InoTabBar;
     'ino-textarea': InoTextarea;

@@ -39,6 +39,7 @@ export const InoRange = createReactComponent<JSX.InoRange, HTMLInoRangeElement>(
 export const InoSelect = createReactComponent<JSX.InoSelect, HTMLInoSelectElement>('ino-select');
 export const InoSnackbar = createReactComponent<JSX.InoSnackbar, HTMLInoSnackbarElement>('ino-snackbar');
 export const InoSpinner = createReactComponent<JSX.InoSpinner, HTMLInoSpinnerElement>('ino-spinner');
+export const InoSwitch = createReactComponent<JSX.InoSwitch, HTMLInoSwitchElement>('ino-switch');
 export const InoTab = createReactComponent<JSX.InoTab, HTMLInoTabElement>('ino-tab');
 export const InoTabBar = createReactComponent<JSX.InoTabBar, HTMLInoTabBarElement>('ino-tab-bar');
 export const InoTextarea = createReactComponent<JSX.InoTextarea, HTMLInoTextareaElement>('ino-textarea');
