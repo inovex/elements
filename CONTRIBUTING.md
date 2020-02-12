@@ -26,7 +26,7 @@ When submitting a merge request, please
 
 - set the checkbox: **Remove source branch when merge request is accepted**
 - set the checkbox: **Squash commits when merge request is accepted.** This feature squashes all commits into one commit before merging which helps us to keep the git history compact.
-- **provide the title of the merge request in a commit message manner (see below).** This is very important because the "squash commit" that occurs in the history has the merge request's title.
+- **provide the title of the merge request in a commit message manner (see below).** This is very important because the "squash commit" that occurs in the history usually has the merge request's title. The exceptions are multi line commits. If any of your commits have a multi line description, the first multi line commit message will be chosen as the title for the "squash commit". Further information on squashing can be found in [the GitLab documentation](https://gitlab.inovex.de/help/user/project/merge_requests/squash_and_merge).
 
 ## Commit Messages
 
@@ -60,6 +60,15 @@ The subject contains a succinct description of the change:
 - do not place a period `.` at the end
 - describe what the commit does, not what issue it relates to or fixes
 - **be brief, yet descriptive** - we should have a good understanding of what the commit does by reading the subject
+
+#### Breaking Changes
+
+To document breaking changes, use a multiline commit message, which will be taken as the main commit message for the whole MR when squashed. Here is an example:
+```
+feat(x): my brief feature description
+
+BREAKING CHANGES: <description of breaking changes>
+```
 
 ## Develop elements
 
@@ -162,3 +171,6 @@ To build a new release, the following steps have to be performed:
 - Wait for the gitlab build to finish and notify users in the `#proj-inovex-elements` channel
 
 This will create a git tag and push it to the gitlab remote. The gitlab pipeline will build and release a new version in the private inovex elements registry. Additionally, the built sources and documentation will be published on `https://elements.inovex.io/` in a folder named by the new version.
+
+
+[]: https://gitlab.inovex.de/help/user/project/merge_requests/squash_and_merge
