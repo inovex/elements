@@ -105,6 +105,12 @@ $hover-color: lighten(ino-color(primary), 36.5%);
       }
     }
 
+    // Keep layout working when arrow hidden
+    .flatpickr-disabled {
+      display: block;
+      visibility: hidden;
+    }
+
     .flatpickr-prev-month {
       margin-left: 10px;
     }
