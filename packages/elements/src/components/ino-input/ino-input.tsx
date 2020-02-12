@@ -154,6 +154,12 @@ export class Input implements ComponentInterface {
   }
 
   /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() inoShowLabelHint?: boolean;
+
+  /**
    * Styles the input field as outlined element.
    */
   @Prop() inoOutline?: boolean;
@@ -431,6 +437,7 @@ export class Input implements ComponentInterface {
             ino-outline={this.inoOutline}
             ino-text={this.inoLabel}
             ino-required={this.required}
+            ino-show-hint={this.inoShowLabelHint}
             ino-disabled={this.disabled}
           />
           <span class={'mdc-text-field__icon icon-trailing'}>

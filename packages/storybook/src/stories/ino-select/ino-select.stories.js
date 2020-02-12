@@ -58,6 +58,8 @@ storiesOf('<ino-select>', module)
           ino-label="${text('ino-label', 'Customizable select')}"
           ino-prepend-default="${boolean('ino-prepend-default', false)}"
           ino-disable-default="${boolean('ino-disable-default', false)}"
+          required="${boolean('required', false)}"
+          ino-show-label-hint="${boolean('ino-show-label-hint', false)}"
         >
           ${optionsTemplate}
         </ino-select>
@@ -90,14 +92,18 @@ storiesOf('<ino-select>', module)
           <option disabled>Disabled option</option>
         </ino-select>
 
-        <ino-select required ino-prepend-default ino-label="required select">
+        <ino-select required ino-prepend-default ino-label="required select" ino-show-label-hint>
+          ${optionsTemplate}
+        </ino-select>
+
+        <ino-select ino-prepend-default ino-label="optional select" ino-show-label-hint>
           ${optionsTemplate}
         </ino-select>
 
         <ino-select ino-prepend-default ino-label="With prepended disabled empty option">
           ${optionsTemplate}
         </ino-select>
-        
+
         <ino-select ino-prepend-default ino-disable-default="false" ino-label="With prepended selectable empty option">
           ${optionsTemplate}
         </ino-select>

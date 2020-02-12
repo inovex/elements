@@ -27,4 +27,9 @@ ino-select {
       }
     }
   }
+
+  .mdc-select--required .mdc-floating-label::after {
+    content: "";
+  }
+
 }

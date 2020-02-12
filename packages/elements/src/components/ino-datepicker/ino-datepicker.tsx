@@ -47,6 +47,12 @@ export class Datepicker implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() inoShowLabelHint?: boolean;
+
+  /**
    * A pattern to check the input field on
    */
   @Prop() inoPattern?: string;
@@ -386,6 +392,7 @@ export class Datepicker implements ComponentInterface {
           ino-outline={this.inoOutline}
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
+          ino-show-label-hint={this.inoShowLabelHint}
           onValueChange={e => {
             // This callback is only called when the user types into the textfield.
             // When the user selects a date from the flatpickr, this is NOT called

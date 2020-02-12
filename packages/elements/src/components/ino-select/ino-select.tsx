@@ -50,6 +50,12 @@ export class Select implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() inoShowLabelHint?: boolean;
+
+  /**
    * Prepends a selected, empty and disabled option.
    * This property cannot be changed after initial render to avoid layout problems.
    */
@@ -159,6 +165,7 @@ export class Select implements ComponentInterface {
             ino-text={this.inoLabel}
             ino-required={this.required}
             ino-disabled={this.disabled}
+            ino-show-hint={this.inoShowLabelHint}
           />
         </div>
       </Host>

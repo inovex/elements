@@ -80,7 +80,7 @@ export class InoControlItem {
 proxyInputs(InoControlItem, ['checked', 'disabled', 'indeterminate', 'inoActivated', 'inoDisabled', 'inoId', 'inoRole', 'inoSecondaryText', 'inoSelected', 'inoText', 'inoTrailing', 'name', 'value']);
 
 export declare interface InoDatepicker extends Components.InoDatepicker {}
-@Component({ selector: 'ino-datepicker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value'] })
+@Component({ selector: 'ino-datepicker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoShowLabelHint', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value'] })
 export class InoDatepicker {
   valueChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -90,7 +90,7 @@ export class InoDatepicker {
     proxyOutputs(this, this.el, ['valueChange']);
   }
 }
-proxyInputs(InoDatepicker, ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']);
+proxyInputs(InoDatepicker, ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoShowLabelHint', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']);
 
 export declare interface InoFab extends Components.InoFab {}
 @Component({ selector: 'ino-fab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoColorScheme', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement'] })
@@ -161,7 +161,7 @@ export class InoImg {
 proxyInputs(InoImg, ['alt', 'decoding', 'height', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']);
 
 export declare interface InoInput extends Components.InoInput {}
-@Component({ selector: 'ino-input', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'] })
+@Component({ selector: 'ino-input', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'] })
 export class InoInput {
   valueChange!: EventEmitter<CustomEvent>;
   inoBlur!: EventEmitter<CustomEvent>;
@@ -173,7 +173,7 @@ export class InoInput {
     proxyOutputs(this, this.el, ['valueChange', 'inoBlur', 'inoFocus']);
   }
 }
-proxyInputs(InoInput, ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value']);
+proxyInputs(InoInput, ['autocomplete', 'autofocus', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value']);
 
 export declare interface InoInputFile extends Components.InoInputFile {}
 @Component({ selector: 'ino-input-file', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['accept', 'autofocus', 'disabled', 'inoLabel', 'multiple', 'name', 'required'] })
@@ -189,7 +189,7 @@ export class InoInputFile {
 proxyInputs(InoInputFile, ['accept', 'autofocus', 'disabled', 'inoLabel', 'multiple', 'name', 'required']);
 
 export declare interface InoLabel extends Components.InoLabel {}
-@Component({ selector: 'ino-label', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoDisabled', 'inoOutline', 'inoRequired', 'inoText'] })
+@Component({ selector: 'ino-label', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoDisabled', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText'] })
 export class InoLabel {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -197,7 +197,7 @@ export class InoLabel {
     this.el = r.nativeElement;
   }
 }
-proxyInputs(InoLabel, ['inoDisabled', 'inoOutline', 'inoRequired', 'inoText']);
+proxyInputs(InoLabel, ['inoDisabled', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText']);
 
 export declare interface InoList extends Components.InoList {}
 @Component({ selector: 'ino-list', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoAvatar', 'inoDense', 'inoTwoLines'] })
@@ -294,7 +294,7 @@ export class InoRange {
 proxyInputs(InoRange, ['disabled', 'inoColorScheme', 'inoDiscrete', 'inoMarkers', 'max', 'min', 'name', 'step', 'value']);
 
 export declare interface InoSelect extends Components.InoSelect {}
-@Component({ selector: 'ino-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'name', 'required', 'value'] })
+@Component({ selector: 'ino-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value'] })
 export class InoSelect {
   valueChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -304,7 +304,7 @@ export class InoSelect {
     proxyOutputs(this, this.el, ['valueChange']);
   }
 }
-proxyInputs(InoSelect, ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'name', 'required', 'value']);
+proxyInputs(InoSelect, ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value']);
 
 export declare interface InoSnackbar extends Components.InoSnackbar {}
 @Component({ selector: 'ino-snackbar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoActionOnBottom', 'inoActionText', 'inoAlignStart', 'inoMessage'] })
@@ -359,7 +359,7 @@ export class InoTabBar {
 proxyInputs(InoTabBar, ['inoActiveTab']);
 
 export declare interface InoTextarea extends Components.InoTextarea {}
-@Component({ selector: 'ino-textarea', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'] })
+@Component({ selector: 'ino-textarea', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'] })
 export class InoTextarea {
   valueChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -369,7 +369,7 @@ export class InoTextarea {
     proxyOutputs(this, this.el, ['valueChange']);
   }
 }
-proxyInputs(InoTextarea, ['autofocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value']);
+proxyInputs(InoTextarea, ['autofocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value']);
 
 export declare interface InoTooltip extends Components.InoTooltip {}
 @Component({ selector: 'ino-tooltip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoFor', 'inoLabel', 'inoPlacement', 'inoTrigger'] })

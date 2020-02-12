@@ -80,6 +80,12 @@ export class Textarea implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * If true, an *optional* message is displayed if not required,
+   * otherwise a * marker is displayed if required
+   */
+  @Prop() inoShowLabelHint?: boolean;
+
+  /**
    * The number of rows of this textarea.
    */
   @Prop() rows?: number;
@@ -211,6 +217,7 @@ export class Textarea implements ComponentInterface {
             ino-text={this.inoLabel}
             ino-required={this.required}
             ino-disabled={this.disabled}
+            ino-show-hint={this.inoShowLabelHint}
           />
         </div>
       </Host>
