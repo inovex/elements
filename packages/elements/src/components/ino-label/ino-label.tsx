@@ -19,7 +19,13 @@ export class Label {
   /**
    * Appends * to the label to make it appear as an required input in a form
    */
-  @Prop() inoRequired: boolean;
+  @Prop() inoRequired?: boolean;
+
+  /**
+   * Shows a "optional" message, when not inoRequired;
+   * Shows a * mark, when inoRequired
+   */
+  @Prop() inoShowHint?: boolean;
 
   /**
    * Colors the label in an light grey to indicate the disabled status for this element

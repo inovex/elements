@@ -271,6 +271,10 @@ export namespace Components {
     */
     'inoRange'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * If true, displays time picker in 12 hour mode with AM/PM selection.
     */
     'inoTwelfHourTime'?: boolean;
@@ -489,6 +493,10 @@ export namespace Components {
     */
     'inoOutline'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * Shows a dot as a thousands separator. Only works on 'text' type input.
     */
     'inoThousandsSeparator'?: boolean;
@@ -583,7 +591,11 @@ export namespace Components {
     /**
     * Appends * to the label to make it appear as an required input in a form
     */
-    'inoRequired': boolean;
+    'inoRequired'?: boolean;
+    /**
+    * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
+    */
+    'inoShowHint'?: boolean;
     /**
     * The text of the label itself
     */
@@ -755,6 +767,10 @@ export namespace Components {
     */
     'inoPrependDefault'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * The name of this element.
     */
     'name'?: string;
@@ -852,6 +868,10 @@ export namespace Components {
     * The optional floating label of this input field.
     */
     'inoLabel'?: string;
+    /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
     /**
     * The max length of this element.
     */
@@ -1391,6 +1411,10 @@ declare namespace LocalJSX {
     */
     'inoRange'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * If true, displays time picker in 12 hour mode with AM/PM selection.
     */
     'inoTwelfHourTime'?: boolean;
@@ -1617,6 +1641,10 @@ declare namespace LocalJSX {
     */
     'inoOutline'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * Shows a dot as a thousands separator. Only works on 'text' type input.
     */
     'inoThousandsSeparator'?: boolean;
@@ -1731,6 +1759,10 @@ declare namespace LocalJSX {
     * Appends * to the label to make it appear as an required input in a form
     */
     'inoRequired'?: boolean;
+    /**
+    * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
+    */
+    'inoShowHint'?: boolean;
     /**
     * The text of the label itself
     */
@@ -1914,6 +1946,10 @@ declare namespace LocalJSX {
     */
     'inoPrependDefault'?: boolean;
     /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
+    /**
     * The name of this element.
     */
     'name'?: string;
@@ -2035,6 +2071,10 @@ declare namespace LocalJSX {
     * The optional floating label of this input field.
     */
     'inoLabel'?: string;
+    /**
+    * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+    */
+    'inoShowLabelHint'?: boolean;
     /**
     * The max length of this element.
     */

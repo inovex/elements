@@ -57,6 +57,7 @@ storiesOf('<ino-datepicker>', module)
         ino-pattern="${text('ino-pattern', '', 'STANDARD')}"
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
+        ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
         ino-date-format="${text('ino-date-format', 'Y-m-d H:i', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text('ino-default-date', defaultDate, 'DATE CONFIG')}"
@@ -89,7 +90,8 @@ storiesOf('<ino-datepicker>', module)
       <h4>States</h4>
       <ino-datepicker ino-label="Pattern numbers from 1 - 6" ino-pattern="[1-6]+"></ino-datepicker>
       <ino-datepicker ino-label="Disabled" disabled></ino-datepicker>
-      <ino-datepicker ino-label="Required" required></ino-datepicker>
+      <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
+      <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>
   `)
   .addDecorator(withActions('submit .form'))

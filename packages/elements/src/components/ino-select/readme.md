@@ -123,6 +123,7 @@ The component behaves like a native select with additional features. The native 
 | `inoLabel`          | `ino-label`           | The label of this element                                                                                                      | `string`  | `undefined` |
 | `inoOutline`        | `ino-outline`         | Styles this select box as outlined element.                                                                                    | `boolean` | `undefined` |
 | `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems. | `boolean` | `false`     |
+| `inoShowLabelHint`  | `ino-show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                     | `boolean` | `undefined` |
 | `name`              | `name`                | The name of this element.                                                                                                      | `string`  | `undefined` |
 | `required`          | `required`            | Marks this element as required.                                                                                                | `boolean` | `undefined` |
 | `value`             | `value`               | The value of this element. (**unmanaged**)                                                                                     | `string`  | `''`        |

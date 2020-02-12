@@ -3,8 +3,18 @@
 $label-color: rgba(0, 0, 0, 0.6);
 
 ino-label {
-  &[ino-required] .mdc-floating-label:after {
-    content: '*';
+
+  &[ino-show-hint] {
+
+    .mdc-floating-label:after {
+      content: '*';
+    }
+
+    &:not([ino-required]) .mdc-floating-label:after {
+      content: ' - Optional' + '\a0';
+      font-style: italic;
+      color: lighten($label-color, 30);
+    }
   }
 
   &:not([ino-outline]) .mdc-floating-label {

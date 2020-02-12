@@ -58,6 +58,7 @@ storiesOf('<ino-textarea>', module)
         maxlength="${number('maxlength', 30)}"
         disabled="${boolean('disabled', false)}"
         required="${boolean('required', false)}"
+        ino-show-label-hint="${boolean('ino-show-label-hint', false)}"
         autogrow="${boolean('autogrow', false)}">
       </ino-textarea>
 
@@ -67,7 +68,8 @@ storiesOf('<ino-textarea>', module)
 
       <h4>States</h4>
       <ino-textarea placeholder="Disabled" disabled cols="30" rows="3"></ino-textarea>
-      <ino-textarea placeholder="Required" required cols="30" rows="3"></ino-textarea>
+      <ino-textarea ino-label="Required" required ino-show-label-hint cols="30" rows="3"></ino-textarea>
+      <ino-textarea ino-label="Optional" cols="30" ino-show-label-hint rows="3"></ino-textarea>
     </div>
   `
   );

@@ -65,6 +65,8 @@ storiesOf('<ino-input>', module)
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
+        ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
+
         pattern="${text('pattern', '', 'STANDARD')}"
         ino-error="${boolean('ino-error', false, 'STANDARD')}"
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
@@ -131,10 +133,12 @@ storiesOf('<ino-input>', module)
 
       <h4>States</h4>
       <ino-input placeholder="Disabled" disabled></ino-input>
-      <ino-input placeholder="Required" required></ino-input>
+      <ino-input ino-label="Optional" ino-show-label-hint></ino-input>
+      <ino-input ino-label="Required" required ino-show-label-hint></ino-input>
 
       <ino-input placeholder="Outline disabled" ino-outline disabled></ino-input>
-      <ino-input placeholder="Outline required" ino-outline required></ino-input>
+      <ino-input ino-label="Outline optional" ino-outline ino-show-label-hint></ino-input>
+      <ino-input ino-label="Outline required" ino-outline ino-show-label-hint required></ino-input>
 
       <h4>Icons</h4>
       <ino-input ino-icon-leading ino-label="Leading icon">
