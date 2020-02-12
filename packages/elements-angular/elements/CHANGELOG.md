@@ -1,3 +1,18 @@
+# [0.12.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.11.0...v0.12.0) (2020-02-12)
+
+
+### Bug Fixes
+
+* **ino-input:** adjust spacing of ino-icon ([1f796a6](https://gitlab.inovex.de/inovex-elements/core/commit/1f796a64bcd69d1dba450127589174fb1f3d0562))
+
+
+### Features
+
+* **elements:** add attribute ino-show-label-hint to ino-input component ([6ee24de](https://gitlab.inovex.de/inovex-elements/core/commit/6ee24de3e8953967e28483a7cc2c83e136a5d0bc))
+* **elements:** add ino-switch ([23a5512](https://gitlab.inovex.de/inovex-elements/core/commit/23a55126912e218b47170b9a0442b1c2924cc3d7))
+
+
+
 # [0.11.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.10.1...v0.11.0) (2020-02-07)
 
 

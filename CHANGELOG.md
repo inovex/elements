@@ -1,3 +1,19 @@
+# [0.12.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.11.0...v0.12.0) (2020-02-12)
+
+
+### Bug Fixes
+
+* **elements:** disable click on icon when datepicker disabled ([ebb757e](https://gitlab.inovex.de/inovex-elements/core/commit/ebb757ef9fba177715cbe0c693297511d470c7e1))
+* **elements:** fix layout of datepicker with disabled month arrow(s) ([2a47f9f](https://gitlab.inovex.de/inovex-elements/core/commit/2a47f9f5f12c29bffc2fe169c523ac62b9bd0ed5))
+* **elements:** set correct parameters for latest symbolic link ([2a6a888](https://gitlab.inovex.de/inovex-elements/core/commit/2a6a8888e60098b3ff5950cdd2f8a038195d63ca))
+
+### Features
+
+* **elements:** add option to mark inputs as optional ([6ee24de](https://gitlab.inovex.de/inovex-elements/core/commit/6ee24de3e8953967e28483a7cc2c83e136a5d0bc))
+* **elements:** add ino-switch component ([23a5512](https://gitlab.inovex.de/inovex-elements/core/commit/23a55126912e218b47170b9a0442b1c2924cc3d7))
+* **elements:** add month picker option to ino-datepicker ([1f796a6](https://gitlab.inovex.de/inovex-elements/core/commit/1f796a64bcd69d1dba450127589174fb1f3d0562))
+
+
 # [0.11.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.10.1...v0.11.0) (2020-02-07)
 
 
