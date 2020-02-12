@@ -18,10 +18,8 @@ describe('InoChipSet', () => {
       </ino-chip-set>`);
 
     const updateChipSet = await page.spyOnEvent('updateChipSet');
-    expect(updateChipSet).not.toHaveReceivedEvent();
-    await page.click('#one');
-    await page.waitFor(2000);
-    await page.waitForChanges();
+    const chip = await page.find('ino-chip');
+    await chip.click();
     expect(updateChipSet).toHaveReceivedEvent();
   });
 });
