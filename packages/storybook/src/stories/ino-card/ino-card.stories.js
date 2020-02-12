@@ -1,7 +1,7 @@
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/html';
 
-import componentReadme from '_local-elements/src/components/ino-button/readme.md';
+import componentReadme from '_local-elements/src/components/ino-card/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import './ino-card.scss';
