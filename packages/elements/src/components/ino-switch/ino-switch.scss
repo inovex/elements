@@ -1,0 +1,24 @@
+@import '@material/switch/mdc-switch';
+@import '../styles/colors';
+
+label {
+  margin-left: 10px;
+}
+
+// Default option
+:not([ino-color-scheme]) {
+  @include mdc-switch-toggled-on-color($primary);
+  @include mdc-switch-toggled-on-thumb-color($primary);
+  @include mdc-switch-toggled-on-ripple-color($primary);
+}
+
+// Generate ino-color-scheme classes
+@each $color-name, $map in $ino-color-scheme {
+  $selector: '[ino-color-scheme="#{$color-name}"]';
+
+  #{$selector} .mdc-switch {
+    @include mdc-switch-toggled-on-color(map-get($map, base));
+    @include mdc-switch-toggled-on-thumb-color(map-get($map, base));
+    @include mdc-switch-toggled-on-ripple-color(map-get($map, base));
+  }
+}

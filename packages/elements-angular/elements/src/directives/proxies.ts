@@ -331,6 +331,19 @@ export class InoSpinner {
 }
 proxyInputs(InoSpinner, ['inoColorScheme', 'inoHeight', 'inoModal', 'inoType', 'inoWidth']);
 
+export declare interface InoSwitch extends Components.InoSwitch {}
+@Component({ selector: 'ino-switch', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'inoColorScheme', 'name'] })
+export class InoSwitch {
+  checkedChange!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChange']);
+  }
+}
+proxyInputs(InoSwitch, ['checked', 'disabled', 'inoColorScheme', 'name']);
+
 export declare interface InoTab extends Components.InoTab {}
 @Component({ selector: 'ino-tab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoIcon', 'inoIndicatorContentWidth', 'inoLabel', 'inoStacked'] })
 export class InoTab {

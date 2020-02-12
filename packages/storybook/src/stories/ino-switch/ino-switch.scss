@@ -1,0 +1,23 @@
+.story-switch-states {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.customizable-switch {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  align-self: center;
+}
+
+.ino-switch-colors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+ino-switch {
+  margin: 5px;
+}
