@@ -81,20 +81,26 @@ export class Snackbar implements ComponentInterface {
           aria-atomic="true"
         >
           <div class="mdc-snackbar__surface">
-            <div class="mdc-snackbar__label" role="status" aria-live="polite">
-              {this.inoMessage}
-            </div>
-            {this.inoActionText && (
-              <div class="mdc-snackbar__actions">
-                <button
+            <div class="mdc-snackbar__actions">
+              <ino-icon-button
+                ino-icon="close-a"
+                class="custom mdc-snackbar__action"
+              >
+              </ino-icon-button>
+              <div class="mdc-snackbar__label" role="status" aria-live="polite">
+                {this.inoMessage}
+              </div>
+              {this.inoActionText && (
+                <ino-button
                   type="button"
-                  class="mdc-button mdc-snackbar__action"
+                  ino-color-scheme="primary"
+                  class="ino-action-button"
                   onClick={_ => this.inoActionClick.emit()}
                 >
                   {this.inoActionText}
-                </button>
-              </div>
-            )}
+                </ino-button>
+              )}
+            </div>
           </div>
         </div>
       </Host>

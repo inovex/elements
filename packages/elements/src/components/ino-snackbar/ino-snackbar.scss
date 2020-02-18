@@ -1,7 +1,42 @@
+@import '../styles/fonts';
+@import '../styles/mixins';
 @import '@material/snackbar/mdc-snackbar';
 
 ino-snackbar {
   .mdc-snackbar__action:not(:disabled) {
     @include mdc-icon-button-ink-color($secondary);
+  }
+
+  .mdc-snackbar__surface {
+    background-color: $primary-contrast;
+    padding: 16px;
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+    flex-flow: row wrap;
+
+    border-radius: 4px;
+
+    .mdc-snackbar__actions {
+      flex-grow: 1;
+    }
+
+    .mdc-snackbar__label {
+      display: inline;
+      color: ino-color(dark);
+      word-break: break-all;
+      flex-grow: 3;
+      max-width: 400px;
+      min-width: 150px;
+    }
+
+    .ino-button {
+      flex-grow: 1;
+    }
+
+    ino-icon-button .mdc-icon-button::before {
+      top: 12px;
+      left: 12px;
+    }
   }
 }
