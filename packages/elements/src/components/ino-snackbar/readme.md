@@ -118,6 +118,23 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
 
 
+## Dependencies
+
+### Depends on
+
+- [ino-icon-button](../ino-icon-button)
+- [ino-button](../ino-button)
+
+### Graph
+```mermaid
+graph TD;
+  ino-snackbar --> ino-icon-button
+  ino-snackbar --> ino-button
+  ino-icon-button --> ino-icon
+  ino-button --> ino-icon
+  style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

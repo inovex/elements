@@ -92,6 +92,10 @@ The component bubbles the native `click`-Event to the user.
 
 ## Dependencies
 
+### Used by
+
+ - [ino-snackbar](../ino-snackbar)
+
 ### Depends on
 
 - [ino-icon](../ino-icon)
@@ -100,6 +104,7 @@ The component bubbles the native `click`-Event to the user.
 ```mermaid
 graph TD;
   ino-icon-button --> ino-icon
+  ino-snackbar --> ino-icon-button
   style ino-icon-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

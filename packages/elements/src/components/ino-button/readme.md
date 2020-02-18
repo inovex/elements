@@ -115,6 +115,7 @@ class MyComponent extends Component {
 ### Used by
 
  - [ino-input-file](../ino-input-file)
+ - [ino-snackbar](../ino-snackbar)
 
 ### Depends on
 
@@ -125,6 +126,7 @@ class MyComponent extends Component {
 graph TD;
   ino-button --> ino-icon
   ino-input-file --> ino-button
+  ino-snackbar --> ino-button
   style ino-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
