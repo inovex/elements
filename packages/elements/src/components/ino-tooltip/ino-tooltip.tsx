@@ -71,14 +71,21 @@ export class Tooltip implements ComponentInterface {
     this.dispose();
   }
 
-  // Private methods
+  private retrieveTarget = () => this.inoFor ?
+    document.getElementById(this.inoFor)
+    :
+    this.el.parentElement
 
-  private create() {
+  private async create() {
     this.dispose();
 
-    this.target = this.inoFor
-      ? document.getElementById(this.inoFor)
-      : this.el.parentElement;
+    this.target = this.retrieveTarget();
+
+    if (!this.target) {
+      // Wait 1 sec for the host element to be rendered
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      this.target = this.retrieveTarget();
+    }
 
     if (!this.target) {
       throw new Error(`Target with the ID '${this.inoFor}' could not be found in this document.`);
