@@ -1,4 +1,17 @@
+# [0.13.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.12.0...v0.13.0) (2020-02-19)
+
+
+### Bug Fixes
+
+* **elements:** add timeout to ino-tooltip to wait for host element to be rendered ([43e7b5a](http://gitlab.inovex.de:2424/inovex-elements/core/commit/43e7b5a0c7b53138ab5600eb02ab28be66180dec))
+* **elements:** throw better exception in ino-tooltip when target not found ([8c0412f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/8c0412f37828f48553432b3effcb8d44eaab4191))
+
+### Features
+
+* **elements:** ino-snackbar in inovex design ([f080cab6](https://gitlab.inovex.de/inovex-elements/core/commit/f080cab6dd6bc2b64809a9774ea4551730bd7837))
+
 # [0.12.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.11.0...v0.12.0) (2020-02-12)
+
 
 
 ### Bug Fixes
@@ -6,12 +19,12 @@
 * **elements:** disable click on icon when datepicker disabled ([ebb757e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/ebb757ef9fba177715cbe0c693297511d470c7e1))
 * **elements:** fix layout of datepicker with disabled month arrow(s) ([2a47f9f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/2a47f9f5f12c29bffc2fe169c523ac62b9bd0ed5))
 
+
 ### Features
 
 * **elements:** add option to mark inputs as optional ([6ee24de](https://gitlab.inovex.de/inovex-elements/core/commit/6ee24de3e8953967e28483a7cc2c83e136a5d0bc))
 * **elements:** add ino-switch component ([23a5512](https://gitlab.inovex.de/inovex-elements/core/commit/23a55126912e218b47170b9a0442b1c2924cc3d7))
 * **elements:** add month picker option to ino-datepicker ([1f796a6](https://gitlab.inovex.de/inovex-elements/core/commit/1f796a64bcd69d1dba450127589174fb1f3d0562))
-
 
 
 # [0.11.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.10.1...v0.11.0) (2020-02-07)
