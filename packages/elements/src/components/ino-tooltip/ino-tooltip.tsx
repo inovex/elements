@@ -21,6 +21,7 @@ export class Tooltip implements ComponentInterface {
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
   @Prop() inoPlacement: Placement = 'auto';
+
   @Watch('inoPlacement')
   inoPlacementChanged() {
     this.create();
@@ -31,6 +32,7 @@ export class Tooltip implements ComponentInterface {
    * If not given, the tooltip is attached to the parent component.
    */
   @Prop() inoFor?: string;
+
   @Watch('inoFor')
   inoForChanged() {
     this.create();
@@ -41,6 +43,7 @@ export class Tooltip implements ComponentInterface {
    * Multiple triggers possible by separating them with a space.
    */
   @Prop() inoTrigger: TooltipTrigger = 'hover focus';
+
   @Watch('inoTrigger')
   inoTriggerChanged() {
     this.create();
@@ -50,6 +53,7 @@ export class Tooltip implements ComponentInterface {
    * The text shown in the tooltip.
    */
   @Prop() inoLabel?: string;
+
   @Watch('inoLabel')
   inoLabelChanged() {
     if (this.tooltipInstance) {
@@ -76,14 +80,20 @@ export class Tooltip implements ComponentInterface {
       ? document.getElementById(this.inoFor)
       : this.el.parentElement;
 
+    if (!this.target) {
+      throw new Error(`Target with the ID '${this.inoFor}' could not be found in this document.`);
+    }
+
     const options = {
       title: this.inoLabel,
       container: this.el,
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
-      popperOptions: {modifiers: {
-        preventOverflow: { padding:  0 }
-      }},
+      popperOptions: {
+        modifiers: {
+          preventOverflow: { padding: 0 }
+        }
+      },
       template:
         '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
       arrowSelector: '.ino-tooltip__arrow',
