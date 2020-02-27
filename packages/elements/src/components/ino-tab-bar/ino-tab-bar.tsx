@@ -1,17 +1,5 @@
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  Host,
-  Listen,
-  Prop,
-  Watch,
-  h
-} from '@stencil/core';
-
-import { MDCTabBarFacade } from './mdc-facade';
+import { MDCTabBar } from '@material/tab-bar/component';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
 
 @Component({
   tag: 'ino-tab-bar',
@@ -19,8 +7,8 @@ import { MDCTabBarFacade } from './mdc-facade';
   shadow: false
 })
 export class TabBar implements ComponentInterface {
-  // A facade implementing all the mdc behavior.
-  private mdcFacade?: MDCTabBarFacade;
+
+  private mdcInstance?: MDCTabBar;
 
   @Element() el!: HTMLElement;
 
@@ -28,42 +16,36 @@ export class TabBar implements ComponentInterface {
    * Activates the tab at the given index (**unmanaged**).
    */
   @Prop() inoActiveTab?: number = 0;
+
   @Watch('inoActiveTab')
-  activeTabChanged(newTabIndex: number, oldTabIndex: number) {
-    if (newTabIndex !== oldTabIndex) {
-      this.mdcFacade!.activateTab(newTabIndex);
+  activeTabChangedWatcher(newTabIndex: number) {
+    if (this.mdcInstance) {
+      this.mdcInstance.activateTab(newTabIndex);
     }
   }
 
   /**
    * Emits when a tab changes.
-   * Contains activating tab in `event.detail`
+   * Contains the index of the activated tab in `event.detail`
    */
   @Event() activeTabChange!: EventEmitter;
 
   componentDidLoad() {
-    this.mdcFacade = MDCTabBarFacade.create(this);
+    this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
+    this.mdcInstance.activateTab(this.inoActiveTab);
+    this.el.addEventListener('inoInteracted', this.interactionHandler);
   }
 
   componentDidUnload() {
-    this.mdcFacade!.destroy();
+    this.mdcInstance.destroy();
+    this.el.removeEventListener('inoInteracted', this.interactionHandler);
   }
 
-  @Listen('inoTabDidLoad')
-  @Listen('inoTabDidUnLoad')
-  handleTabListChange() {
-    // Recreate the tab-bar if an tab has been added after initialization
-    if (this.mdcFacade) {
-      this.mdcFacade.refreshTabList(this.inoActiveTab);
-    }
-  }
-
-  /**
-   * A handler called by the facade to notify when the active tab changes.
-   * @param index number
-   */
-  activeTabChangesHandler(index: number) {
-    this.activeTabChange.emit(index);
+  interactionHandler = async e => {
+    e.stopPropagation();
+    const allTabs = await Promise.all(Array.from(this.el.querySelectorAll('ino-tab')));
+    const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
+    this.activeTabChange.emit(indexOfActivatedTab);
   }
 
   render() {
@@ -73,7 +55,7 @@ export class TabBar implements ComponentInterface {
           <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
               <div class="mdc-tab-scroller__scroll-content">
-                <slot />
+                <slot/>
               </div>
             </div>
           </div>

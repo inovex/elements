@@ -2079,13 +2079,9 @@ declare namespace LocalJSX {
     */
     'inoStacked'?: boolean;
     /**
-    * Emitted when the tab did load.
+    * Emitted when the user interacts with the tab. This event is used by the ino-tab-bar.
     */
-    'onLoadEl'?: (event: CustomEvent<any>) => void;
-    /**
-    * Emitted when the tab did unload.
-    */
-    'onUnloadEl'?: (event: CustomEvent<any>) => void;
+    'onInoInteracted'?: (event: CustomEvent<any>) => void;
   }
   interface InoTabBar extends JSXBase.HTMLAttributes<HTMLInoTabBarElement> {
     /**
@@ -2093,7 +2089,7 @@ declare namespace LocalJSX {
     */
     'inoActiveTab'?: number;
     /**
-    * Emits when a tab changes. Contains activating tab in `event.detail`
+    * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
     */
     'onActiveTabChange'?: (event: CustomEvent<any>) => void;
   }

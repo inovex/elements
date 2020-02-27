@@ -10,7 +10,7 @@ The component can be used as follows:
 document
   .querySelector('ino-tab-bar')
   .addEventListener('activeTabChange', e =>
-    console.log(`The new tab is: ${e.detail}`)
+    console.log(`The index of the new tab is: ${e.detail}`)
   );
 ```
 
@@ -95,9 +95,9 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 
 ## Events
 
-| Event             | Description                                                         | Type               |
-| ----------------- | ------------------------------------------------------------------- | ------------------ |
-| `activeTabChange` | Emits when a tab changes. Contains activating tab in `event.detail` | `CustomEvent<any>` |
+| Event             | Description                                                                         | Type               |
+| ----------------- | ----------------------------------------------------------------------------------- | ------------------ |
+| `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<any>` |
 
 
 ----------------------------------------------
