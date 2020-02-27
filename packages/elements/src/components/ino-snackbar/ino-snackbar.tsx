@@ -24,15 +24,9 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoActionText?: string = '';
 
   /**
-   * Whether to show the action below the multiple lines of text
-   * Optional, applies when multiline is true.
+   * Controls if Snackbar is centered or left-aligned or right-aligned.
    */
-  @Prop() inoActionOnBottom?: boolean = false;
-
-  /**
-   * Controls if Snackbar is centered or start-aligned.
-   */
-  @Prop() inoAlignStart?: boolean = false;
+  @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
 
   /**
    * Event that emits as soon as the action button is clicked.
@@ -68,8 +62,7 @@ export class Snackbar implements ComponentInterface {
   render() {
     const snackbarClasses = classNames({
       'mdc-snackbar': true,
-      'mdc-snackbar--leading': this.inoAlignStart,
-      'mdc-snackbar--stacked': this.inoActionOnBottom
+      'mdc-snackbar--leading': this.inoAlignment === 'left' || this.inoAlignment === 'right'
     });
 
     return (
@@ -83,7 +76,7 @@ export class Snackbar implements ComponentInterface {
           <div class="mdc-snackbar__surface">
             <div class="mdc-snackbar__actions">
               <ino-icon-button
-                ino-icon="close-a"
+                ino-icon="close-m"
                 class="custom mdc-snackbar__action"
               >
               </ino-icon-button>
@@ -96,6 +89,7 @@ export class Snackbar implements ComponentInterface {
                   ino-color-scheme="primary"
                   class="ino-action-button"
                   onClick={_ => this.inoActionClick.emit()}
+                  ino-fill="outline"
                 >
                   {this.inoActionText}
                 </ino-button>

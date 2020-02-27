@@ -307,7 +307,7 @@ export class InoSelect {
 proxyInputs(InoSelect, ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value']);
 
 export declare interface InoSnackbar extends Components.InoSnackbar {}
-@Component({ selector: 'ino-snackbar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoActionOnBottom', 'inoActionText', 'inoAlignStart', 'inoMessage'] })
+@Component({ selector: 'ino-snackbar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoActionText', 'inoAlignment', 'inoMessage'] })
 export class InoSnackbar {
   inoActionClick!: EventEmitter<CustomEvent>;
   hideEl!: EventEmitter<CustomEvent>;
@@ -318,7 +318,7 @@ export class InoSnackbar {
     proxyOutputs(this, this.el, ['inoActionClick', 'hideEl']);
   }
 }
-proxyInputs(InoSnackbar, ['inoActionOnBottom', 'inoActionText', 'inoAlignStart', 'inoMessage']);
+proxyInputs(InoSnackbar, ['inoActionText', 'inoAlignment', 'inoMessage']);
 
 export declare interface InoSpinner extends Components.InoSpinner {}
 @Component({ selector: 'ino-spinner', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoColorScheme', 'inoHeight', 'inoModal', 'inoType', 'inoWidth'] })

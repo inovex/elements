@@ -102,12 +102,11 @@ Snackbar is displayed when ino-show is changed to checked.
 
 ## Properties
 
-| Property            | Attribute              | Description                                                                                           | Type      | Default     |
-| ------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActionOnBottom` | `ino-action-on-bottom` | Whether to show the action below the multiple lines of text Optional, applies when multiline is true. | `boolean` | `false`     |
-| `inoActionText`     | `ino-action-text`      | The text to display for the action button.                                                            | `string`  | `''`        |
-| `inoAlignStart`     | `ino-align-start`      | Controls if Snackbar is centered or start-aligned.                                                    | `boolean` | `false`     |
-| `inoMessage`        | `ino-message`          | The text message to display.                                                                          | `string`  | `undefined` |
+| Property        | Attribute         | Description                                                        | Type                            | Default     |
+| --------------- | ----------------- | ------------------------------------------------------------------ | ------------------------------- | ----------- |
+| `inoActionText` | `ino-action-text` | The text to display for the action button.                         | `string`                        | `''`        |
+| `inoAlignment`  | `ino-alignment`   | Controls if Snackbar is centered or left-aligned or right-aligned. | `"center" \| "left" \| "right"` | `'center'`  |
+| `inoMessage`    | `ino-message`     | The text message to display.                                       | `string`                        | `undefined` |
 
 
 ## Events

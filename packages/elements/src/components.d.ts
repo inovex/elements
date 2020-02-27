@@ -785,17 +785,13 @@ export namespace Components {
   }
   interface InoSnackbar {
     /**
-    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
-    */
-    'inoActionOnBottom'?: boolean;
-    /**
     * The text to display for the action button.
     */
     'inoActionText'?: string;
     /**
-    * Controls if Snackbar is centered or start-aligned.
+    * Controls if Snackbar is centered or left-aligned or right-aligned.
     */
-    'inoAlignStart'?: boolean;
+    'inoAlignment'?: 'left' | 'right' | 'center';
     /**
     * The text message to display.
     */
@@ -1993,17 +1989,13 @@ declare namespace LocalJSX {
   }
   interface InoSnackbar extends JSXBase.HTMLAttributes<HTMLInoSnackbarElement> {
     /**
-    * Whether to show the action below the multiple lines of text Optional, applies when multiline is true.
-    */
-    'inoActionOnBottom'?: boolean;
-    /**
     * The text to display for the action button.
     */
     'inoActionText'?: string;
     /**
-    * Controls if Snackbar is centered or start-aligned.
+    * Controls if Snackbar is centered or left-aligned or right-aligned.
     */
-    'inoAlignStart'?: boolean;
+    'inoAlignment'?: 'left' | 'right' | 'center';
     /**
     * The text message to display.
     */

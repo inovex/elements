@@ -3,6 +3,11 @@
 @import '@material/snackbar/mdc-snackbar';
 
 ino-snackbar {
+
+  &[ino-alignment="right"] .mdc-snackbar--leading {
+    justify-content: flex-end;
+  }
+
   .mdc-snackbar__action:not(:disabled) {
     @include mdc-icon-button-ink-color($secondary);
   }
