@@ -347,13 +347,12 @@ proxyInputs(InoSwitch, ['checked', 'disabled', 'inoColorScheme', 'name']);
 export declare interface InoTab extends Components.InoTab {}
 @Component({ selector: 'ino-tab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoIcon', 'inoIndicatorContentWidth', 'inoLabel', 'inoStacked'] })
 export class InoTab {
-  loadEl!: EventEmitter<CustomEvent>;
-  unloadEl!: EventEmitter<CustomEvent>;
+  inoInteracted!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['loadEl', 'unloadEl']);
+    proxyOutputs(this, this.el, ['inoInteracted']);
   }
 }
 proxyInputs(InoTab, ['inoIcon', 'inoIndicatorContentWidth', 'inoLabel', 'inoStacked']);

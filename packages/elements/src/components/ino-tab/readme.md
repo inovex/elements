@@ -6,30 +6,12 @@ Tabs organize and allow navigation between groups of content that are related an
 
 The component can be used as follows:
 
-```js
-document
-  .querySelector('ino-tab')
-  .addEventListener('loadEl', e =>
-    console.log('The tab has been loaded', e.detail)
-  );
-```
-
-```js
-document
-  .querySelector('ino-tab')
-  .addEventListener('unloadEl', e =>
-    console.log('The tab has been unloaded', e.detail)
-  );
-```
-
 ```html
 <ino-tab
   ino-label="<string>"
   ino-icon="<string>"
   ino-indicator-content-width
   ino-stacked
-  onloadel="handleLoadEl()"
-  onunloadel="handleUnloadEl()"
 >
 </ino-tab>
 ```
@@ -100,10 +82,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event      | Description                      | Type               |
-| ---------- | -------------------------------- | ------------------ |
-| `loadEl`   | Emitted when the tab did load.   | `CustomEvent<any>` |
-| `unloadEl` | Emitted when the tab did unload. | `CustomEvent<any>` |
+| Event           | Description                                                                          | Type               |
+| --------------- | ------------------------------------------------------------------------------------ | ------------------ |
+| `inoInteracted` | Emitted when the user interacts with the tab. This event is used by the ino-tab-bar. | `CustomEvent<any>` |
 
 
 ## Dependencies

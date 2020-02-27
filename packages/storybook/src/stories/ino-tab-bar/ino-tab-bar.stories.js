@@ -20,23 +20,15 @@ function subscribeToComponentEvents() {
 
     if (!el) return;
 
-    const clickedTab = el.parentElement.parentElement;
-
-    if(!clickedTab) return;
-
-    const tabBar = document.getElementById('tab-bar-1');
-    const tabsInTabBar = Array.from(tabBar.getElementsByTagName('ino-tab'));
-    const indexOfClickedTab = tabsInTabBar.indexOf(clickedTab)
-
-    tabBar.setAttribute('ino-active-tab', indexOfClickedTab);
+    el.setAttribute('ino-active-tab', e.detail);
   };
 
-  document.addEventListener('click', eventHandler);
+  document.addEventListener('activeTabChange', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('click', eventHandler);
+    document.removeEventListener('activeTabChange', eventHandler);
   };
 }
 
@@ -53,38 +45,87 @@ storiesOf('<ino-tab-bar>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-tab">
-      <ino-tab-bar id="tab-bar-1" ino-active-tab="${number(
-        'ino-active-tab',
-        0
-      )}">
-        <ino-tab ino-label="Label1" ino-icon="users" ino-stacked="${boolean(
-          'ino-stacked',
-          false
-        )}" ino-indicator-content-width="${boolean(
+    <h4>Customizable ino-tab-bar</h4>
+      <div>
+        <ino-tab-bar id="tab-bar-1" ino-active-tab="${number(
+      'ino-active-tab',
+      0
+    )}">
+          <ino-tab ino-label="Label1" ino-icon="users" ino-stacked="${boolean(
+      'ino-stacked',
+      false
+    )}" ino-indicator-content-width="${boolean(
       'ino-indicator-content-width',
       false
     )}"></ino-tab>
-        <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean(
-          'ino-stacked',
-          false
-        )}" ino-indicator-content-width="${boolean(
+          <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean(
+      'ino-stacked',
+      false
+    )}" ino-indicator-content-width="${boolean(
       'ino-indicator-content-width',
       false
     )}"></ino-tab>
-        <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean(
-          'ino-stacked',
-          false
-        )}" ino-indicator-content-width="${boolean(
+          <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean(
+      'ino-stacked',
+      false
+    )}" ino-indicator-content-width="${boolean(
       'ino-indicator-content-width',
       false
     )}"></ino-tab>
-        <ino-tab ino-label="Label4" ino-icon="help" ino-stacked="${boolean(
-          'ino-stacked',
-          false
-        )}" ino-indicator-content-width="${boolean(
+          <ino-tab ino-label="Label4" ino-icon="help" ino-stacked="${boolean(
+      'ino-stacked',
+      false
+    )}" ino-indicator-content-width="${boolean(
       'ino-indicator-content-width',
       false
     )}"></ino-tab>
+        </ino-tab-bar>
+      </div>
+      <h4>Stacked</h4>
+      <ino-tab-bar>
+        <ino-tab
+                ino-label="Label 1"
+                ino-icon="info"
+                ino-stacked="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 2"
+                ino-icon="info"
+                ino-stacked="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 3"
+                ino-icon="info"
+                ino-stacked="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 4"
+                ino-icon="info"
+                ino-stacked="true">
+        </ino-tab>
+      </ino-tab-bar>
+      <h4>Indicator Content Width</h4>
+      <ino-tab-bar>
+        <ino-tab
+                ino-label="Label 1"
+                ino-icon="info"
+                ino-indicator-content-width="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 2"
+                ino-icon="info"
+                ino-indicator-content-width="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 3"
+                ino-icon="info"
+                ino-indicator-content-width="true">
+        </ino-tab>
+        <ino-tab
+                ino-label="Label 4"
+                ino-icon="info"
+                ino-indicator-content-width="true">
+        </ino-tab>
       </ino-tab-bar>
     </div>
   `
@@ -96,11 +137,42 @@ storiesOf('<ino-tab-bar>', module)
     'Tab',
     () => /*html*/ `
     <div class="story-tab">
+    <h4>Customizable Tab</h4>
+    <div class="customizable-tab">
       <ino-tab
-        ino-label="${text('ino-label', 'Label')}"
+        ino-label="${text('ino-label', 'Customizable Tab')}"
         ino-icon="${select('ino-icon', ICONS, 'info')}"
         ino-stacked="${boolean('ino-stacked', false)}">
       </ino-tab>
+      </div>
+      <h4>Variants</h4>
+      <div class="story-tab-variants">
+        <ino-tab
+            ino-label="Default"
+            ino-icon="info"
+            ino-stacked="false">
+        </ino-tab>
+        <ino-tab
+              ino-label="Stacked"
+              ino-icon="info"
+              ino-stacked="true">
+        </ino-tab>
+        <ino-tab-bar ino-active-tab="0">
+          <ino-tab
+                ino-label="Default active Tab"
+                ino-icon="info"
+                >
+          </ino-tab>
+        </ino-tab-bar>
+        <ino-tab-bar ino-active-tab="0">
+          <ino-tab
+                ino-label="Active content width indicator"
+                ino-icon="info"
+                ino-indicator-content-width="true"
+                >
+          </ino-tab>
+        </ino-tab-bar>
+      </div>
     </div>
   `
   );
