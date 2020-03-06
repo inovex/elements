@@ -49,7 +49,7 @@ Must be one of the following:
 
 #### Scope
 
-The scope can be anything specifying a package or place of the change. For example `ino-button`, `storybook`, etc. Use an asterisk to designate a global scope.
+The scope can be anything specifying a package or the place of the change inside a package. For example `elements`, `elements|ino-button`, `storybook|ino-button`, etc. Use an asterisk (`*`) to designate a global scope.
 
 #### Subject
 
@@ -65,7 +65,7 @@ The subject contains a succinct description of the change:
 
 To document breaking changes, use a multiline commit message, which will be taken as the main commit message for the whole MR when squashed. Here is an example:
 ```
-feat(x): my brief feature description
+type(scope): brief description
 
 BREAKING CHANGES: <description of breaking changes>
 ```
