@@ -13,6 +13,7 @@
     "clean:packages": "lerna clean --yes",
     "clean:artifacts": "lerna run clean --parallel",
     "clean:root": "rm -rf node_modules",
+    "update:commit-scopes": "node scripts/generateCommitScopeEnum.js",
     "lint": "lerna run lint",
     "preversion": "yarn run build && yarn run test",
     "version": "node ./scripts/bumprootversion.js && yarn changelog && git add -A"
@@ -32,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "yarn update:commit-scopes && commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "workspaces": {
