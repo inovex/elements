@@ -1,3 +1,14 @@
+@import '../styles/mixins.scss';
+
+$primary-fab-icon-selector: 'ino-fab#primary-fab .mdc-fab__icon';
+
+$rotationsByDirection: (
+  top: 0deg,
+  bottom: 180deg,
+  left: 270deg,
+  right: 90deg
+);
+
 @mixin direction($direction: top) {
   // $direction == "top"
   $wrapperDirection: column;
@@ -20,6 +31,10 @@
       .ino-speed-dial {
         flex-direction: $speedDialDirection;
       }
+    }
+
+    #{$primary-fab-icon-selector} {
+      transform: rotate(map_get($rotationsByDirection, $direction));
     }
   }
 }
@@ -58,15 +73,41 @@ ino-fab-set {
 
     ino-fab {
       padding: 5px;
+
+      .mdc-fab .mdc-fab__icon {
+        font-size: 25px;
+      }
     }
 
     .ino-speed-dial {
       display: none;
       align-items: center;
     }
+  }
 
-    &:hover .ino-speed-dial {
+  &[ino-open-dial="true"] {
+    .ino-speed-dial {
       display: flex;
+    }
+
+    #{$primary-fab-icon-selector} {
+      transition-duration: 100ms;
+    }
+
+    &[ino-dial-direction='top'] #{$primary-fab-icon-selector} {
+      transform: scaleY(-1);
+    }
+
+    &[ino-dial-direction='bottom'] #{$primary-fab-icon-selector} {
+      transform: scaleY(1);
+    }
+
+    &[ino-dial-direction='left'] #{$primary-fab-icon-selector} {
+      transform: rotate(90deg);
+    }
+
+    &[ino-dial-direction='right'] #{$primary-fab-icon-selector} {
+      transform: rotate(270deg);
     }
   }
 }

@@ -33,6 +33,7 @@ function addToIconsFile() {
   const svgFiles = fs.readdirSync(SRC_SVG_DIR);
 
   const svgString = svgFiles
+    .filter(file => file.includes('.svg'))
     .map(removeSVGSuffix)
     .map(file => `'${file}'`)
     .join(',\n\t');

@@ -313,6 +313,14 @@ export namespace Components {
     */
     'inoColorScheme'?: ColorScheme;
     /**
+    * Disables the button.
+    */
+    'inoDisabled': boolean;
+    /**
+    * The position of the edge.
+    */
+    'inoEdgePosition': 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+    /**
     * Optional, modifies the FAB to wider size which includes a text label.
     */
     'inoExtended': boolean;
@@ -329,9 +337,9 @@ export namespace Components {
     */
     'inoMini': boolean;
     /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+    * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
     */
-    'inoTooltipPlacement': Placement;
+    'inoTooltipPlacement': Placement | 'none';
   }
   interface InoFabSet {
     /**
@@ -342,6 +350,10 @@ export namespace Components {
     * The side where the Fab is displayed. Possible values: `right`, `left` (default).
     */
     'inoLeftRightLocation': HorizontalLocation;
+    /**
+    * Opens the dial (**uncontrolled**)
+    */
+    'inoOpenDial': boolean;
     /**
     * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
     */
@@ -1478,6 +1490,14 @@ declare namespace LocalJSX {
     */
     'inoColorScheme'?: ColorScheme;
     /**
+    * Disables the button.
+    */
+    'inoDisabled'?: boolean;
+    /**
+    * The position of the edge.
+    */
+    'inoEdgePosition'?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+    /**
     * Optional, modifies the FAB to wider size which includes a text label.
     */
     'inoExtended'?: boolean;
@@ -1494,9 +1514,9 @@ declare namespace LocalJSX {
     */
     'inoMini'?: boolean;
     /**
-    * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+    * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
     */
-    'inoTooltipPlacement'?: Placement;
+    'inoTooltipPlacement'?: Placement | 'none';
   }
   interface InoFabSet extends JSXBase.HTMLAttributes<HTMLInoFabSetElement> {
     /**
@@ -1507,6 +1527,10 @@ declare namespace LocalJSX {
     * The side where the Fab is displayed. Possible values: `right`, `left` (default).
     */
     'inoLeftRightLocation'?: HorizontalLocation;
+    /**
+    * Opens the dial (**uncontrolled**)
+    */
+    'inoOpenDial'?: boolean;
     /**
     * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
     */

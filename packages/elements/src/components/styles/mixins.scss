@@ -3,3 +3,37 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+@mixin animateBorderRadius($name, $from, $to, $duration) {
+  animation: $name $duration;
+
+  @keyframes #{$name} {
+    from {
+      border-radius: $from;
+    }
+
+    to {
+      border-radius: $to;
+    }
+  }
+}
+
+@mixin buttonRoundingAnimation($round-border, $edged-border, $name) {
+  @include animateBorderRadius(
+      $name + 'to-edged',
+      $round-border,
+      $edged-border,
+      0.3s
+  );
+
+  &:hover {
+    border-radius: $round-border;
+
+    @include animateBorderRadius(
+        $name+ 'to-round',
+        $edged-border,
+        $round-border,
+        0.15s
+    );
+  }
+}

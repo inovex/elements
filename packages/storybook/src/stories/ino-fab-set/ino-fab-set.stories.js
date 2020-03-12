@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { text, boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import { withActions } from '@storybook/addon-actions';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -8,6 +8,8 @@ import componentReadme from '_local-elements/src/components/ino-fab-set/readme.m
 
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 import './ino-fab-set.scss';
+import addons from '@storybook/addons';
+import CoreEvents from '@storybook/core-events';
 
 const tooltipPlacementOptions = [
   'top',
@@ -21,72 +23,83 @@ const tooltipPlacementOptions = [
   'bottom-end',
   'left',
   'left-start',
-  'left-end'
-]
+  'left-end',
+  'none'
+];
+
+// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
+function subscribeToComponentEvents() {
+  // == event block
+  const eventHandler = function(e) {
+    const el = e.path.find(element => element.tagName === 'INO-FAB-SET');
+
+    if (!el) return;
+
+    const newState = el.getAttribute('ino-open-dial') === 'false' ? 'true' : 'false';
+    el.setAttribute('ino-open-dial', newState);
+  };
+
+  document.addEventListener('click', eventHandler);
+  // == event block
+
+  // unsubscribe function will be called by Storybook
+  return () => {
+    document.removeEventListener('click', eventHandler);
+  };
+}
 
 storiesOf('<ino-fab-set>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('click ino-fab'))
+  .addDecorator(story => {
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
   .add('Default usage', () => /*html*/`
     <div class="story-fab-set">
-      <ino-fab-set 
+      <ino-fab-set
+      ino-open-dial="${boolean('ino-open-dial', false)}"
       ino-top-bottom-location="${select('ino-top-bottom-location', ['top', 'bottom'], 'bottom', 'FAB-set')}"
-      ino-left-right-location="${select('in-left-right-location', ['left', 'right'], 'right', 'FAB-set')}"
+      ino-left-right-location="${select('in-left-right-location', ['left', 'right'], 'left', 'FAB-set')}"
       ino-dial-direction="${select('ino-dial-direction', ['top', 'bottom', 'left', 'right'], 'top', 'FAB-set')}">
 
         <ino-fab
-          slot="primary-fab"
           ino-color-scheme="${select(
-            'ino-color-scheme',
-            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning', 
-              'error', 'light', 'dark'
-            ],
-            'primary',
-            'Primary FAB'
-          )}"
-          ino-icon="${select('ino-icon', ICONS, 'add', 'Primary FAB')}"
-          ino-label="${text('ino-label', 'Label 1', 'Primary FAB')}"
-          ino-extended="${boolean('ino-extended', false, 'Primary FAB')}"
-          ino-tooltip-placement="${select('ino-tooltip-placement', tooltipPlacementOptions, 'left', 'Primary FAB')}"
-          ino-mini="${boolean('ino-mini', false, 'Primary FAB')}"
-        >
-        </ino-fab>
-
-        <ino-fab
-          ino-color-scheme="${select(
-            'ino-color-scheme-fab-1',
-            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning', 
-              'error', 'light', 'dark'
-            ],
-            'secondary',
-            'First FAB'
-          )}"
+    'ino-color-scheme-fab-1',
+    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+      'error', 'light', 'dark'
+    ],
+    'primary',
+    'First FAB'
+  )}"
           ino-icon="${select('ino-icon-fab1', ICONS, 'star', 'First FAB')}"
           ino-label="${text('ino-label-fab1', 'Label 1', 'First FAB')}"
           ino-mini="${boolean('ino-mini-fab1', true, 'First FAB')}"
         ></ino-fab>
         <ino-fab
           ino-color-scheme="${select(
-            'ino-color-scheme-fab-2',
-            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning', 
-              'error', 'light', 'dark'
-            ],
-            'secondary',
-            'Second FAB'
-          )}"
+    'ino-color-scheme-fab-2',
+    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+      'error', 'light', 'dark'
+    ],
+    'primary',
+    'Second FAB'
+  )}"
           ino-icon="${select('ino-icon-fab2', ICONS, 'favorite', 'Second FAB')}"
           ino-label="${text('ino-label-fab2', 'Label 2', 'Second FAB')}"
           ino-mini="${boolean('ino-mini-fab2', true, 'Second FAB')}"
         ></ino-fab>
         <ino-fab
           ino-color-scheme="${select(
-            'ino-color-scheme-fab-3',
-            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning', 
-              'error', 'light', 'dark'
-            ],
-            'secondary',
-            'Third FAB'
-          )}"
+    'ino-color-scheme-fab-3',
+    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+      'error', 'light', 'dark'
+    ],
+    'primary',
+    'Third FAB'
+  )}"
           ino-icon="${select('ino-icon-fab3', ICONS, 'info', 'Third FAB')}"
           ino-label="${text('ino-label-fab3', 'Label 3', 'Third FAB')}"
           ino-mini="${boolean('ino-mini-fab3', true, 'Third FAB')}"
