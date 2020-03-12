@@ -1,5 +1,6 @@
 @import '../styles/colors';
 @import '../styles/fonts';
+@import '../styles/mixins';
 @import '@material/button/mdc-button';
 
 // Shadows
@@ -11,20 +12,6 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 // Borders
 $round-border: 24px 24px 24px 24px;
 $edged-border: 0 24px 24px 24px;
-
-@mixin animateBorderRadius($name, $from, $to, $duration) {
-  animation: $name $duration;
-
-  @keyframes #{$name} {
-    from {
-      border-radius: $from;
-    }
-
-    to {
-      border-radius: $to;
-    }
-  }
-}
 
 :host {
   display: inline-block;

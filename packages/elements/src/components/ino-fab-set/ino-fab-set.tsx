@@ -29,6 +29,11 @@ export class Fab implements ComponentInterface {
    */
   @Prop() inoLeftRightLocation: HorizontalLocation = 'left';
 
+  /**
+   * Opens the dial (**uncontrolled**)
+   */
+  @Prop() inoOpenDial = false;
+
   render() {
     const speedDialClasses = classNames({
       'ino-speed-dial': true
@@ -47,7 +52,9 @@ export class Fab implements ComponentInterface {
           <div class={speedDialClasses}>
             <slot></slot>
           </div>
-          <slot name="primary-fab"/>
+          <ino-fab id={'primary-fab'} ino-edge-position="none">
+            <ino-icon ino-icon={'icon-assets/SVG/internals/fab_set_arrow_up.svg'}></ino-icon>
+          </ino-fab>
         </div>
       </Host>
     );

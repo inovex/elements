@@ -128,6 +128,7 @@ If you need to use custom icons just hand over the URL to your preferred icon.
  - [ino-chip](../ino-chip)
  - [ino-datepicker](../ino-datepicker)
  - [ino-fab](../ino-fab)
+ - [ino-fab-set](../ino-fab-set)
  - [ino-icon-button](../ino-icon-button)
  - [ino-tab](../ino-tab)
 
@@ -138,6 +139,7 @@ graph TD;
   ino-chip --> ino-icon
   ino-datepicker --> ino-icon
   ino-fab --> ino-icon
+  ino-fab-set --> ino-icon
   ino-icon-button --> ino-icon
   ino-tab --> ino-icon
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px

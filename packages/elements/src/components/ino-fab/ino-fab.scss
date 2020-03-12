@@ -1,16 +1,97 @@
 @import '@material/fab/mdc-fab';
-@import 'styles/colors.scss';
+@import '../styles/colors.scss';
+@import '../styles/mixins.scss';
+
+$edge-positions: top-left, top-right, bottom-right, bottom-left;
+
+$edged-borders: (
+  none: 50%,
+  top-left: 0 50% 50% 50%,
+  top-right: 50% 0 50% 50%,
+  bottom-right: 50% 50% 0 50%,
+  bottom-left: 50% 50% 50% 0
+);
+
+$extended-edged-borders: (
+  none: 24px,
+  top-left: 0 24px 24px 24px,
+  top-right: 24px 0 24px 24px,
+  bottom-right: 24px 24px 0 24px,
+  bottom-left: 24px 24px 24px 0
+);
+
+@mixin setColorsPerState($map) {
+  .mdc-fab {
+    @include mdc-fab-ink-color(map-get($map, contrast));
+    @include mdc-fab-container-color(map-get($map, base));
+
+    &:hover {
+      @include mdc-fab-container-color(map-get($map, light));
+    }
+
+    &:active, &:after {
+      @include mdc-fab-container-color(map-get($map, dark));
+    }
+  }
+}
+
+@mixin setEdgedBorders($position) {
+  &:not(.mdc-fab--extended) {
+    border-radius: map_get($edged-borders, $position);
+    @include buttonRoundingAnimation(map_get($edged-borders, none), map_get($edged-borders, $position), 'fab-#{$position}-default');
+  }
+
+  &.mdc-fab--extended {
+    border-radius: map_get($extended-edged-borders, $position);
+    @include buttonRoundingAnimation(map_get($extended-edged-borders, none), map_get($extended-edged-borders, $position), 'fab-#{$position}-extended');
+  }
+}
 
 ino-fab {
   display: inline-block;
 
+  // Default color scheme
+  &:not([ino-color-scheme]) {
+    @include setColorsPerState(map-get($ino-color-scheme, primary));
+  }
+
   // Generate ino-color-scheme classes
   @each $color-name, $map in $ino-color-scheme {
     &[ino-color-scheme='#{$color-name}'] {
-      .mdc-fab {
-        @include mdc-fab-ink-color(map-get($map, contrast));
-        @include mdc-fab-container-color(map-get($map, base));
-      }
+      @include setColorsPerState($map);
+    }
+  }
+
+  // Default Edge
+  &:not([ino-edge-position]) .mdc-fab {
+    @include setEdgedBorders(top-left);
+  }
+
+  // Generate ino-edge-position classes
+  @each $position in $edge-positions {
+    &[ino-edge-position="#{$position}"] .mdc-fab {
+      @include setEdgedBorders($position);
+    }
+  }
+
+  .mdc-fab {
+
+    .mdc-fab__icon {
+      font-size: 35px;
+    }
+
+    &:not(.mdc-fab--extended), &.mdc-fab--extended {
+      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
+    }
+
+    &:active {
+      box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
+    }
+
+    &:disabled {
+      @include mdc-fab-ink-color(white);
+      @include mdc-fab-container-color(ino-color(dark, light));
+      pointer-events: none;
     }
   }
 }

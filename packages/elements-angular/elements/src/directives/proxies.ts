@@ -93,7 +93,7 @@ export class InoDatepicker {
 proxyInputs(InoDatepicker, ['autofocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoPattern', 'inoRange', 'inoShowLabelHint', 'inoTwelfHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']);
 
 export declare interface InoFab extends Components.InoFab {}
-@Component({ selector: 'ino-fab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoColorScheme', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement'] })
+@Component({ selector: 'ino-fab', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoColorScheme', 'inoDisabled', 'inoEdgePosition', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement'] })
 export class InoFab {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -101,10 +101,10 @@ export class InoFab {
     this.el = r.nativeElement;
   }
 }
-proxyInputs(InoFab, ['inoColorScheme', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement']);
+proxyInputs(InoFab, ['inoColorScheme', 'inoDisabled', 'inoEdgePosition', 'inoExtended', 'inoIcon', 'inoLabel', 'inoMini', 'inoTooltipPlacement']);
 
 export declare interface InoFabSet extends Components.InoFabSet {}
-@Component({ selector: 'ino-fab-set', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoDialDirection', 'inoLeftRightLocation', 'inoTopBottomLocation'] })
+@Component({ selector: 'ino-fab-set', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoDialDirection', 'inoLeftRightLocation', 'inoOpenDial', 'inoTopBottomLocation'] })
 export class InoFabSet {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -112,7 +112,7 @@ export class InoFabSet {
     this.el = r.nativeElement;
   }
 }
-proxyInputs(InoFabSet, ['inoDialDirection', 'inoLeftRightLocation', 'inoTopBottomLocation']);
+proxyInputs(InoFabSet, ['inoDialDirection', 'inoLeftRightLocation', 'inoOpenDial', 'inoTopBottomLocation']);
 
 export declare interface InoFormRow extends Components.InoFormRow {}
 @Component({ selector: 'ino-form-row', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoLabel', 'inoMandatory'] })
