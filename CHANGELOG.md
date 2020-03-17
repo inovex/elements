@@ -1,3 +1,18 @@
+# [0.14.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.13.0...v0.14.0) (2020-03-17)
+
+
+### Bug Fixes
+
+* **elements:** fix wrong index in activeTabChange event in the ino-tab-bar ([4c90881](https://gitlab.inovex.de/inovex-elements/core/commit/4c908817d62af58fc6442ebd5271c5b099ade997))
+
+
+### Features
+
+* **elements:** add option to align snackbar to the right ([eb8b8ab](https://gitlab.inovex.de/inovex-elements/core/commit/eb8b8ab39660e0f5fe4ea3a99ae5aa338b37d31a))
+* **elements:** ino-fab(-set) in inovex style ([8bd1b32](https://gitlab.inovex.de/inovex-elements/core/commit/8bd1b32458f60ce2c876e005e5cbc1159e269587))
+
+
+
 # [0.13.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.12.0...v0.13.0) (2020-02-19)
 
 ### Bug Fixes
