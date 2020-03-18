@@ -1,0 +1,55 @@
+@import '../styles/colors';
+@import '../styles/fonts';
+@import '@material/button/mdc-button';
+
+// Borders
+$edged-border: 0;
+
+// Shadows
+$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+0 12px 28px 0 rgba(61, 214, 245, 0.14);
+$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+0 16px 32px 0 rgba(61, 214, 245, 0.14);
+
+:host {
+  display: inline-block;
+}
+
+ino-segment-button {
+  .mdc-button {
+    @include ino-font($size: s, $weight: none);
+    letter-spacing: 1.5px;
+    text-align: center;
+
+    @include mdc-button-shape-radius($edged-border);
+    @include mdc-button-container-fill-color(#fff);
+    margin: 0;
+
+    &:after, &:before {
+      background-color: #fff;
+    }
+  }
+
+  .mdc-button--outlined {
+    @include mdc-button-outline-width(1px);
+    @include mdc-button-outline-color(ino-color(light, base));
+    @include mdc-button-ink-color(ino-color(light, dark));
+
+    &:disabled {
+      @include mdc-button-outline-color(ino-color(dark, base));
+      @include mdc-button-ink-color(ino-color(light, base));
+    }
+
+    &:hover{
+      @include mdc-button-outline-color(ino-color(primary, light));
+      @include mdc-button-ink-color(ino-color(primary, light));
+      box-shadow: $small-shadow;
+    }
+  }
+
+  .ino-segment-button--active, .ino-segment-button--active:hover {
+    @include mdc-button-outline-color(ino-color(primary, dark));
+    @include mdc-button-ink-color(ino-color(primary, dark));
+    box-shadow: $big-shadow;
+  }
+}

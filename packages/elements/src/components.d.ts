@@ -749,6 +749,38 @@ export namespace Components {
     */
     'value'?: number;
   }
+  interface InoSegmentButton {
+    /**
+    * Activates the button
+    */
+    'checked': boolean;
+    /**
+    * Disables the button
+    */
+    'disabled': boolean;
+    /**
+    * Slightly decreases the size of the button
+    */
+    'inoDense': boolean;
+    /**
+    * Name of the element
+    */
+    'name'?: string;
+    /**
+    * Value of the element
+    */
+    'value'?: string;
+  }
+  interface InoSegmentGroup {
+    /**
+    * Name of the segment group
+    */
+    'name'?: string;
+    /**
+    * Value of the segment group
+    */
+    'value'?: any;
+  }
   interface InoSelect {
     /**
     * Marks this element as autofocused.
@@ -1098,6 +1130,18 @@ declare global {
     new (): HTMLInoRangeElement;
   };
 
+  interface HTMLInoSegmentButtonElement extends Components.InoSegmentButton, HTMLStencilElement {}
+  var HTMLInoSegmentButtonElement: {
+    prototype: HTMLInoSegmentButtonElement;
+    new (): HTMLInoSegmentButtonElement;
+  };
+
+  interface HTMLInoSegmentGroupElement extends Components.InoSegmentGroup, HTMLStencilElement {}
+  var HTMLInoSegmentGroupElement: {
+    prototype: HTMLInoSegmentGroupElement;
+    new (): HTMLInoSegmentGroupElement;
+  };
+
   interface HTMLInoSelectElement extends Components.InoSelect, HTMLStencilElement {}
   var HTMLInoSelectElement: {
     prototype: HTMLInoSelectElement;
@@ -1170,6 +1214,8 @@ declare global {
     'ino-radio': HTMLInoRadioElement;
     'ino-radio-group': HTMLInoRadioGroupElement;
     'ino-range': HTMLInoRangeElement;
+    'ino-segment-button': HTMLInoSegmentButtonElement;
+    'ino-segment-group': HTMLInoSegmentGroupElement;
     'ino-select': HTMLInoSelectElement;
     'ino-snackbar': HTMLInoSnackbarElement;
     'ino-spinner': HTMLInoSpinnerElement;
@@ -1961,6 +2007,42 @@ declare namespace LocalJSX {
     */
     'value'?: number;
   }
+  interface InoSegmentButton extends JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement> {
+    /**
+    * Activates the button
+    */
+    'checked'?: boolean;
+    /**
+    * Disables the button
+    */
+    'disabled'?: boolean;
+    /**
+    * Slightly decreases the size of the button
+    */
+    'inoDense'?: boolean;
+    /**
+    * Name of the element
+    */
+    'name'?: string;
+    /**
+    * Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted.
+    */
+    'onCheckedChange'?: (event: CustomEvent<any>) => void;
+    /**
+    * Value of the element
+    */
+    'value'?: string;
+  }
+  interface InoSegmentGroup extends JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement> {
+    /**
+    * Name of the segment group
+    */
+    'name'?: string;
+    /**
+    * Value of the segment group
+    */
+    'value'?: any;
+  }
   interface InoSelect extends JSXBase.HTMLAttributes<HTMLInoSelectElement> {
     /**
     * Marks this element as autofocused.
@@ -2215,6 +2297,8 @@ declare namespace LocalJSX {
     'ino-radio': InoRadio;
     'ino-radio-group': InoRadioGroup;
     'ino-range': InoRange;
+    'ino-segment-button': InoSegmentButton;
+    'ino-segment-group': InoSegmentGroup;
     'ino-select': InoSelect;
     'ino-snackbar': InoSnackbar;
     'ino-spinner': InoSpinner;
