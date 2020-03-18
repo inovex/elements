@@ -293,6 +293,30 @@ export class InoRange {
 }
 proxyInputs(InoRange, ['disabled', 'inoColorScheme', 'inoDiscrete', 'inoMarkers', 'max', 'min', 'name', 'step', 'value']);
 
+export declare interface InoSegmentButton extends Components.InoSegmentButton {}
+@Component({ selector: 'ino-segment-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'inoDense', 'name', 'value'] })
+export class InoSegmentButton {
+  checkedChange!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChange']);
+  }
+}
+proxyInputs(InoSegmentButton, ['checked', 'disabled', 'inoDense', 'name', 'value']);
+
+export declare interface InoSegmentGroup extends Components.InoSegmentGroup {}
+@Component({ selector: 'ino-segment-group', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['name', 'value'] })
+export class InoSegmentGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+proxyInputs(InoSegmentGroup, ['name', 'value']);
+
 export declare interface InoSelect extends Components.InoSelect {}
 @Component({ selector: 'ino-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value'] })
 export class InoSelect {
