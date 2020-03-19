@@ -19,6 +19,7 @@ export const InoCard = createReactComponent<JSX.InoCard, HTMLInoCardElement>('in
 export const InoCheckbox = createReactComponent<JSX.InoCheckbox, HTMLInoCheckboxElement>('ino-checkbox');
 export const InoChip = createReactComponent<JSX.InoChip, HTMLInoChipElement>('ino-chip');
 export const InoChipSet = createReactComponent<JSX.InoChipSet, HTMLInoChipSetElement>('ino-chip-set');
+export const InoControlItem = createReactComponent<JSX.InoControlItem, HTMLInoControlItemElement>('ino-control-item');
 export const InoDatepicker = createReactComponent<JSX.InoDatepicker, HTMLInoDatepickerElement>('ino-datepicker');
 export const InoFab = createReactComponent<JSX.InoFab, HTMLInoFabElement>('ino-fab');
 export const InoFabSet = createReactComponent<JSX.InoFabSet, HTMLInoFabSetElement>('ino-fab-set');
