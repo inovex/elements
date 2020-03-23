@@ -105,6 +105,7 @@ class MyComponent extends Component {
 graph TD;
   ino-input-file --> ino-button
   ino-button --> ino-icon
+  ino-button --> ino-spinner
   style ino-input-file fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

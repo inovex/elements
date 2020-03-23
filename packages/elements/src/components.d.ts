@@ -59,6 +59,10 @@ export namespace Components {
     */
     'inoIconPrepend'?: boolean;
     /**
+    * Shows an infinite loading spinner and prevents further clicks
+    */
+    'inoLoading'?: boolean;
+    /**
     * The name of the element.
     */
     'name'?: string;
@@ -1261,6 +1265,10 @@ declare namespace LocalJSX {
     * Prepends an icon after the text.
     */
     'inoIconPrepend'?: boolean;
+    /**
+    * Shows an infinite loading spinner and prevents further clicks
+    */
+    'inoLoading'?: boolean;
     /**
     * The name of the element.
     */

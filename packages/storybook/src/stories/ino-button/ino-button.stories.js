@@ -30,6 +30,7 @@ storiesOf('<ino-button>', module)
         ino-icon-prepend="${boolean('ino-icon-prepend', false)}"
         ino-dense="${boolean('ino-dense', false)}"
         disabled="${boolean('disabled', false)}"
+        ino-loading="${boolean('ino-loading', false)}"
       >
         ${text('<slot />', 'Customizable button')}
       </ino-button>
@@ -62,6 +63,8 @@ storiesOf('<ino-button>', module)
       <h4>States</h4>
       <ino-button disabled>Disabled button</ino-button>
       <ino-button disabled ino-fill="outline">Disabled outlined button</ino-button>
+      <ino-button ino-loading="true">Loading button</ino-button>
+      <ino-button ino-loading="true" ino-fill="outline">Loading button</ino-button>
     </div>
   `)
   .add('Forms', () => /*html*/`

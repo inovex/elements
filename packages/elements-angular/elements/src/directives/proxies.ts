@@ -6,7 +6,7 @@ import { proxyInputs, proxyMethods, proxyOutputs } from './proxies-utils';
 import { Components } from '@inovex/elements';
 
 export declare interface InoButton extends Components.InoButton {}
-@Component({ selector: 'ino-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoFill', 'inoIcon', 'inoIconPrepend', 'name', 'type'] })
+@Component({ selector: 'ino-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autofocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoFill', 'inoIcon', 'inoIconPrepend', 'inoLoading', 'name', 'type'] })
 export class InoButton {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -14,7 +14,7 @@ export class InoButton {
     this.el = r.nativeElement;
   }
 }
-proxyInputs(InoButton, ['autofocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoFill', 'inoIcon', 'inoIconPrepend', 'name', 'type']);
+proxyInputs(InoButton, ['autofocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoFill', 'inoIcon', 'inoIconPrepend', 'inoLoading', 'name', 'type']);
 
 export declare interface InoCard extends Components.InoCard {}
 @Component({ selector: 'ino-card', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoAspectRatio', 'inoColorScheme', 'inoImage', 'inoMediaTitle', 'inoOutline', 'inoSubtitle', 'inoTitle'] })

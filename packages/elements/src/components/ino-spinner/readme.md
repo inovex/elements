@@ -76,6 +76,19 @@ Use one of the provided types in `ino-type` to give the spinner the shape. Adjus
 | `inoWidth`       | `ino-width`        | The width of this spinner (defaul = 40)                                                                                                                                                                           | `number`                                                                                           | `40`        |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-button](../ino-button)
+
+### Graph
+```mermaid
+graph TD;
+  ino-button --> ino-spinner
+  style ino-spinner fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
