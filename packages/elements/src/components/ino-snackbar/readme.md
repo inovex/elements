@@ -131,6 +131,7 @@ graph TD;
   ino-snackbar --> ino-button
   ino-icon-button --> ino-icon
   ino-button --> ino-icon
+  ino-button --> ino-spinner
   style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ButtonType, ColorScheme, SurfaceType } from '../types';
@@ -79,6 +79,31 @@ export class Button implements ComponentInterface {
    */
   @Prop() inoDense?: boolean = false;
 
+  /**
+   * Shows an infinite loading spinner and prevents further clicks.
+   */
+  @Prop() inoLoading?: boolean;
+
+  private buttonSizeBeforeLoad: string;
+
+  @Watch('inoLoading')
+  inoLoadingChanged(isLoading: boolean) {
+    if (isLoading) {
+      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
+      const labelStyles = window.getComputedStyle(mdcLabel);
+      this.buttonSizeBeforeLoad = labelStyles.width;
+    } else {
+      this.buttonSizeBeforeLoad = undefined;
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.inoLoading && this.buttonSizeBeforeLoad) {
+      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label') as HTMLDivElement;
+      mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
+    }
+  }
+
   componentDidLoad() {
     this.button = new MDCRipple(this.el.shadowRoot.querySelector(SELECTORS.MDC_BUTTON));
   }
@@ -136,7 +161,11 @@ export class Button implements ComponentInterface {
             />
           )}
           <div class="mdc-button__label">
-            <slot></slot>
+            {this.inoLoading ?
+              <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>
+              :
+              <slot></slot>
+            }
           </div>
           {this.inoIcon && this.inoIconPrepend && (
             <ino-icon
