@@ -8,10 +8,6 @@ ino-snackbar {
     justify-content: flex-end;
   }
 
-  .mdc-snackbar__action:not(:disabled) {
-    @include mdc-icon-button-ink-color($secondary);
-  }
-
   .mdc-snackbar__surface {
     background-color: $primary-contrast;
     padding: 16px;
@@ -29,6 +25,7 @@ ino-snackbar {
     .mdc-snackbar__label {
       display: inline;
       color: ino-color(dark);
+      @include ino-font-size(s);
       word-break: break-all;
       flex-grow: 3;
       max-width: 400px;
@@ -42,6 +39,21 @@ ino-snackbar {
     ino-icon-button .mdc-icon-button::before {
       top: 12px;
       left: 12px;
+    }
+  }
+
+  &:not([ino-action-text]), &[ino-action-text=""] {
+
+    .mdc-snackbar__surface {
+      background-color: lighten($primary-light, 5%);
+
+      .mdc-snackbar__label {
+        color: white;
+      }
+
+      ino-icon-button .mdc-icon-button path {
+        stroke: white;
+      }
     }
   }
 }

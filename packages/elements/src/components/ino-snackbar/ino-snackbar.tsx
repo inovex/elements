@@ -20,6 +20,7 @@ export class Snackbar implements ComponentInterface {
 
   /**
    * The text to display for the action button.
+   * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
   @Prop() inoActionText?: string = '';
 
@@ -76,7 +77,7 @@ export class Snackbar implements ComponentInterface {
           <div class="mdc-snackbar__surface">
             <div class="mdc-snackbar__actions">
               <ino-icon-button
-                ino-icon="close-m"
+                ino-icon={'close-m'}
                 class="custom mdc-snackbar__action"
               >
               </ino-icon-button>

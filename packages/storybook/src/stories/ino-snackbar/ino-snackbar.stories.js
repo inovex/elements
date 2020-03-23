@@ -46,7 +46,6 @@ storiesOf('<ino-snackbar>', module)
   .add('Default usage', () => /*html*/`
     <div class="story-message-box">
       <div class="flex-parent-center">
-        <div>
           <h4>Customizable Snackbar</h4>
           <ino-button id="snackbar-temp">Show Snackbar</ino-button>
           <template id="snackbar-temp">
@@ -55,6 +54,22 @@ storiesOf('<ino-snackbar>', module)
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
                 ino-alignment="${select('ino-alignment', ['center', 'leading', 'trailing'], 'center')}" />
+          </template>
+
+        <h4>Variants</h4>
+        <div class="snackbar-variants">
+          <ino-button id="snackbar-with-action-temp">Show Snackbar (With Action)</ino-button>
+          <template id="snackbar-with-action-temp">
+              <ino-snackbar
+                  ino-message="${sampleText}"
+                  ino-action-text="Action"
+                  ino-alignment="left" />
+            </template>
+          <ino-button id="snackbar-no-action-temp">Show Snackbar (No Action)</ino-button>
+          <template id="snackbar-no-action-temp">
+            <ino-snackbar
+                ino-message="${sampleText}"
+                ino-alignment="right" />
           </template>
         </div>
         <h4>Alignments</h4>
@@ -85,7 +100,7 @@ storiesOf('<ino-snackbar>', module)
                   >
               </ino-snackbar>
             </template>
+            </div>
         </div>
-      </div>
     </div>
   `);

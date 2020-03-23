@@ -785,7 +785,7 @@ export namespace Components {
   }
   interface InoSnackbar {
     /**
-    * The text to display for the action button.
+    * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
     */
     'inoActionText'?: string;
     /**
@@ -1989,7 +1989,7 @@ declare namespace LocalJSX {
   }
   interface InoSnackbar extends JSXBase.HTMLAttributes<HTMLInoSnackbarElement> {
     /**
-    * The text to display for the action button.
+    * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
     */
     'inoActionText'?: string;
     /**
