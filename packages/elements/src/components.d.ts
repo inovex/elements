@@ -373,6 +373,12 @@ export namespace Components {
     */
     'inoMandatory'?: boolean;
   }
+  interface InoHeader {
+    /**
+    * The text of this header
+    */
+    'inoTitle': string;
+  }
   interface InoIcon {
     /**
     * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -1050,6 +1056,12 @@ declare global {
     new (): HTMLInoFormRowElement;
   };
 
+  interface HTMLInoHeaderElement extends Components.InoHeader, HTMLStencilElement {}
+  var HTMLInoHeaderElement: {
+    prototype: HTMLInoHeaderElement;
+    new (): HTMLInoHeaderElement;
+  };
+
   interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {}
   var HTMLInoIconElement: {
     prototype: HTMLInoIconElement;
@@ -1204,6 +1216,7 @@ declare global {
     'ino-fab': HTMLInoFabElement;
     'ino-fab-set': HTMLInoFabSetElement;
     'ino-form-row': HTMLInoFormRowElement;
+    'ino-header': HTMLInoHeaderElement;
     'ino-icon': HTMLInoIconElement;
     'ino-icon-button': HTMLInoIconButtonElement;
     'ino-img': HTMLInoImgElement;
@@ -1599,6 +1612,12 @@ declare namespace LocalJSX {
     * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
     */
     'inoMandatory'?: boolean;
+  }
+  interface InoHeader extends JSXBase.HTMLAttributes<HTMLInoHeaderElement> {
+    /**
+    * The text of this header
+    */
+    'inoTitle': string;
   }
   interface InoIcon extends JSXBase.HTMLAttributes<HTMLInoIconElement> {
     /**
@@ -2291,6 +2310,7 @@ declare namespace LocalJSX {
     'ino-fab': InoFab;
     'ino-fab-set': InoFabSet;
     'ino-form-row': InoFormRow;
+    'ino-header': InoHeader;
     'ino-icon': InoIcon;
     'ino-icon-button': InoIconButton;
     'ino-img': InoImg;

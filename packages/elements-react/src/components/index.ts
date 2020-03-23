@@ -24,6 +24,7 @@ export const InoDatepicker = createReactComponent<JSX.InoDatepicker, HTMLInoDate
 export const InoFab = createReactComponent<JSX.InoFab, HTMLInoFabElement>('ino-fab');
 export const InoFabSet = createReactComponent<JSX.InoFabSet, HTMLInoFabSetElement>('ino-fab-set');
 export const InoFormRow = createReactComponent<JSX.InoFormRow, HTMLInoFormRowElement>('ino-form-row');
+export const InoHeader = createReactComponent<JSX.InoHeader, HTMLInoHeaderElement>('ino-header');
 export const InoIcon = createReactComponent<JSX.InoIcon, HTMLInoIconElement>('ino-icon');
 export const InoIconButton = createReactComponent<JSX.InoIconButton, HTMLInoIconButtonElement>('ino-icon-button');
 export const InoImg = createReactComponent<JSX.InoImg, HTMLInoImgElement>('ino-img');
