@@ -1,0 +1,33 @@
+@import 'src/components/styles/fonts';
+
+$header-color: #525368;
+$box-color: rgba(0, 0, 0, 0.05);
+
+:host {
+
+  .header-container {
+    display: table-row;
+  }
+
+  p {
+    font-size: 13px;
+    @include ino-font-weight(semibold);
+    color: $header-color;
+    white-space: nowrap;
+    display: table-cell;
+
+  }
+
+  .header-separator {
+    display: table-cell;
+    width: 100%;
+  }
+
+  .header-inner-box {
+    margin-left: 6px;
+    border-radius: 1px;
+    background-color: $box-color;
+    height: 10px;
+  }
+}
+

@@ -125,6 +125,17 @@ export class InoFormRow {
 }
 proxyInputs(InoFormRow, ['inoLabel', 'inoMandatory']);
 
+export declare interface InoHeader extends Components.InoHeader {}
+@Component({ selector: 'ino-header', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoTitle'] })
+export class InoHeader {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+proxyInputs(InoHeader, ['inoTitle']);
+
 export declare interface InoIcon extends Components.InoIcon {}
 @Component({ selector: 'ino-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoClickable', 'inoIcon', 'src'] })
 export class InoIcon {
