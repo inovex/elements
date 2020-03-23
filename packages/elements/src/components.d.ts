@@ -59,7 +59,7 @@ export namespace Components {
     */
     'inoIconPrepend'?: boolean;
     /**
-    * Shows an infinite loading spinner and prevents further clicks
+    * Shows an infinite loading spinner and prevents further clicks.
     */
     'inoLoading'?: boolean;
     /**
@@ -1266,7 +1266,7 @@ declare namespace LocalJSX {
     */
     'inoIconPrepend'?: boolean;
     /**
-    * Shows an infinite loading spinner and prevents further clicks
+    * Shows an infinite loading spinner and prevents further clicks.
     */
     'inoLoading'?: boolean;
     /**
