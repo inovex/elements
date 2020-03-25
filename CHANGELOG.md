@@ -1,3 +1,21 @@
+# [0.15.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.14.0...v0.15.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* **elements-react|ino-control-item:** add missing component ([9f29b68](https://gitlab.inovex.de/inovex-elements/core/commit/9f29b68095b5286368533aa359a491580c7e848d))
+
+
+### Features
+
+* **elements|ino-button:** add property ino-loading to display a loading spinner ([7cbbce7](https://gitlab.inovex.de/inovex-elements/core/commit/7cbbce7058162e2a585ce08431d28e0113a19cf8))
+* **elements|ino-header:** add component ([4c5c69f](https://gitlab.inovex.de/inovex-elements/core/commit/4c5c69f5f97f43beb462197aad0c62ffab2e80b6))
+* **elements|ino-segment-group:** add ino-segment-group and -button ([e26478c](https://gitlab.inovex.de/inovex-elements/core/commit/e26478cf593052c23cd707ecb678997dd5cd6e85))
+* **elements|ino-snackbar:** add feedback variant ([252c044](https://gitlab.inovex.de/inovex-elements/core/commit/252c0441131a97cc3c8151039c6727f48ae8809e))
+
+### BREAKING CHANGES
+We updated our dependencies, which resulted in conflicts with the `autofocus` property. If you use the typed version of the elements package, you need to change all appearances of `autofocus` to `autoFocus`. If you use the web components you don't need to change anything.
+
 # [0.14.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.13.0...v0.14.0) (2020-03-17)
 
 

@@ -1,3 +1,17 @@
+# [0.15.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.14.0...v0.15.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* **elements-react|ino-control-item:** add missing component ([9f29b68](https://gitlab.inovex.de/inovex-elements/core/commit/9f29b68095b5286368533aa359a491580c7e848d))
+
+
+### Features
+
+* **elements|ino-header:** add component ([4c5c69f](https://gitlab.inovex.de/inovex-elements/core/commit/4c5c69f5f97f43beb462197aad0c62ffab2e80b6))
+
+
+
 # [0.14.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.13.0...v0.14.0) (2020-03-17)
 
 

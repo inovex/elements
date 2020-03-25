@@ -1,3 +1,14 @@
+# [0.15.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.14.0...v0.15.0) (2020-03-25)
+
+
+### Features
+
+* **elements|ino-button:** add property ino-loading to display a loading spinner ([7cbbce7](https://gitlab.inovex.de/inovex-elements/core/commit/7cbbce7058162e2a585ce08431d28e0113a19cf8))
+* **elements|ino-header:** add component ([4c5c69f](https://gitlab.inovex.de/inovex-elements/core/commit/4c5c69f5f97f43beb462197aad0c62ffab2e80b6))
+* **elements|ino-segment-group:** add ino-segment-group and -button ([e26478c](https://gitlab.inovex.de/inovex-elements/core/commit/e26478cf593052c23cd707ecb678997dd5cd6e85))
+
+
+
 # [0.14.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.13.0...v0.14.0) (2020-03-17)
 
 
