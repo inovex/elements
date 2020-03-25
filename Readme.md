@@ -31,9 +31,9 @@ These are the necessary scripts:
 
 To use the components refer to the proper packages:
 
-* [@inovex/elements](packages/core/readme.md)
+* [@inovex/elements](packages/elements/readme.md)
 * [@inovex/elements-angular](packages/elements-angular/elements/README.md)
-* [@inovex/elements-react](packages/react/README.md)
+* [@inovex/elements-react](packages/elements-react/README.md)
 
 
 ## Framework providers
