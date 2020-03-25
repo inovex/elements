@@ -21,6 +21,8 @@
     "no-console": false,
     "no-unbound-method": true,
     "no-floating-promises": false,
+    "class-name": false,
+    "no-string-throw": false,
 
     "jsx-key": false,
     "jsx-self-close": false,

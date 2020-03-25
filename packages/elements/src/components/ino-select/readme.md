@@ -116,7 +116,7 @@ The component behaves like a native select with additional features. The native 
 
 | Property            | Attribute             | Description                                                                                                                    | Type      | Default     |
 | ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `autofocus`         | `autofocus`           | Marks this element as autofocused.                                                                                             | `boolean` | `undefined` |
+| `autoFocus`         | `autofocus`           | Marks this element as autofocused.                                                                                             | `boolean` | `undefined` |
 | `disabled`          | `disabled`            | Disables this element.                                                                                                         | `boolean` | `undefined` |
 | `form`              | `form`                | The form this element belongs to.                                                                                              | `string`  | `undefined` |
 | `inoDisableDefault` | `ino-disable-default` | Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.                             | `boolean` | `true`      |

@@ -15,7 +15,7 @@ export class InputFile implements ComponentInterface {
   /**
    * The autofocus of this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -71,7 +71,7 @@ export class InputFile implements ComponentInterface {
             class="ino-input-file__button"
             name="file-paths"
             ino-icon="file_upload"
-            autofocus={this.autofocus}
+            autoFocus={this.autoFocus}
             disabled={this.disabled}
             onClick={_ => this.selectFiles()}
           >

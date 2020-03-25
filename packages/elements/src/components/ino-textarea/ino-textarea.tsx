@@ -37,7 +37,7 @@ export class Textarea implements ComponentInterface {
   /**
    * The autofocus of this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * The number of cols of this textarea.
@@ -136,7 +136,7 @@ export class Textarea implements ComponentInterface {
       this.initAutogrow();
     }
 
-    if (this.autofocus) {
+    if (this.autoFocus) {
       this.textfield.focus();
     }
   }
@@ -195,7 +195,7 @@ export class Textarea implements ComponentInterface {
           <textarea
             ref={el => (this.nativeTextareaElement = el)}
             class="mdc-text-field__input"
-            autofocus={this.autofocus}
+            autofocus={this.autoFocus}
             cols={this.cols}
             disabled={this.disabled}
             maxLength={this.maxlength}

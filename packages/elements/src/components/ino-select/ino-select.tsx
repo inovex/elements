@@ -27,7 +27,7 @@ export class Select implements ComponentInterface {
   /**
    * Marks this element as autofocused.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -151,7 +151,7 @@ export class Select implements ComponentInterface {
           <select
             ref={el => (this.nativeSelectElement = el)}
             class="mdc-select__native-control"
-            autoFocus={this.autofocus}
+            autoFocus={this.autoFocus}
             disabled={this.disabled}
             form={this.form}
             name={this.name}
