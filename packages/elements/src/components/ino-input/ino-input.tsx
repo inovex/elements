@@ -59,7 +59,7 @@ export class Input implements ComponentInterface {
   /**
    * The autofocus of this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -249,7 +249,7 @@ export class Input implements ComponentInterface {
       this.textfield.value = this.value;
     }
 
-    if (this.autofocus) {
+    if (this.autoFocus) {
       this.textfield.focus();
     }
 
@@ -391,7 +391,7 @@ export class Input implements ComponentInterface {
       'ino-input__composer': true,
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
-      'mdc-text-field--focused': this.autofocus,
+      'mdc-text-field--focused': this.autoFocus,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,

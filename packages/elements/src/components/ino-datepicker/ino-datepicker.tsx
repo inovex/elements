@@ -29,7 +29,7 @@ export class Datepicker implements ComponentInterface {
   /**
    * Autofocuses this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -377,7 +377,7 @@ export class Datepicker implements ComponentInterface {
           type="text"
           autocomplete="off"
           disabled={this.disabled}
-          autofocus={this.autofocus}
+          autoFocus={this.autoFocus}
           name={this.name}
           required={this.required}
           ino-label={this.inoLabel}

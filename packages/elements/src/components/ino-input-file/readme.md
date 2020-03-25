@@ -79,7 +79,7 @@ class MyComponent extends Component {
 | Property    | Attribute   | Description                                              | Type      | Default         |
 | ----------- | ----------- | -------------------------------------------------------- | --------- | --------------- |
 | `accept`    | `accept`    | The types of files accepted by the server.               | `string`  | `undefined`     |
-| `autofocus` | `autofocus` | The autofocus of this element.                           | `boolean` | `undefined`     |
+| `autoFocus` | `autofocus` | The autofocus of this element.                           | `boolean` | `undefined`     |
 | `disabled`  | `disabled`  | Disables this element.                                   | `boolean` | `undefined`     |
 | `inoLabel`  | `ino-label` | Sets the label of the select files button.               | `string`  | `'Select file'` |
 | `multiple`  | `multiple`  | Indicates whether the user can enter one or more values. | `boolean` | `undefined`     |

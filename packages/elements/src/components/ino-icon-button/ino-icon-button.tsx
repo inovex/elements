@@ -19,7 +19,7 @@ export class IconButton implements ComponentInterface {
   /**
    * Sets the autofocus for this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -63,7 +63,7 @@ export class IconButton implements ComponentInterface {
     return (
       <Host>
         <button
-          autoFocus={this.autofocus}
+          autoFocus={this.autoFocus}
           class={iconButtonClasses}
           disabled={this.disabled}
         >

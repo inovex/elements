@@ -88,6 +88,7 @@ export class Tooltip implements ComponentInterface {
     }
 
     if (!this.target) {
+      // tslint:disable-next-line:no-var-keyword
       throw new Error(`Target with the ID '${this.inoFor}' could not be found in this document.`);
     }
 

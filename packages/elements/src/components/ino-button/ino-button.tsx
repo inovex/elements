@@ -25,7 +25,7 @@ export class Button implements ComponentInterface {
   /**
    * Sets the autofocus for this element.
    */
-  @Prop() autofocus?: boolean;
+  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
 
   /**
    * Disables this element.
@@ -147,7 +147,7 @@ export class Button implements ComponentInterface {
       <Host onClick={this.handleClick}>
         <button
           class={classButton}
-          autoFocus={this.autofocus}
+          autoFocus={this.autoFocus}
           disabled={this.disabled}
           name={this.name}
           type={this.type}
