@@ -3,25 +3,76 @@
 
 $disabled-color: ino-color(dark, light);
 
+// Shadows
+$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+0 12px 28px 0 rgba(61, 214, 245, 0.14);
+$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+0 16px 32px 0 rgba(61, 214, 245, 0.14);
+
+@mixin animateInnerCircle($scale) {
+  .mdc-radio__background .mdc-radio__inner-circle {
+    transform: scale($scale);
+  }
+}
+
+
 :host {
   .mdc-radio {
     @include mdc-radio-unchecked-stroke-color(ino-color(light, dark));
     @include mdc-radio-checked-stroke-color(ino-color(primary));
     @include mdc-radio-ink-color(ino-color(primary));
 
-    &:before,
-    &:after {
-      background-color: ino-color(primary);
-    }
-
-    &--disabled {
-      @include mdc-radio-unchecked-stroke-color($disabled-color);
-      @include mdc-radio-checked-stroke-color($disabled-color);
-      @include mdc-radio-ink-color($disabled-color);
+    &:before, &:after {
+      display: none;
     }
   }
 
-  &[disabled]:not([disabled="false"]) label {
-    color: $disabled-color;
+  :hover .mdc-radio:not(.mdc-radio--disabled) {
+    @include mdc-radio-unchecked-stroke-color(ino-color(primary, light));
+    @include mdc-radio-checked-stroke-color(ino-color(primary, light));
+    @include mdc-radio-ink-color(ino-color(primary, light));
+    @include animateInnerCircle(.45);
+
+    .mdc-radio__outer-circle {
+      box-shadow: $small-shadow;
+    }
   }
+
+  :active .mdc-radio:not(.mdc-radio--disabled) {
+    @include mdc-radio-unchecked-stroke-color(ino-color(primary, dark));
+    @include mdc-radio-checked-stroke-color(ino-color(primary, dark));
+    @include mdc-radio-ink-color(ino-color(primary, dark));
+    @include animateInnerCircle(.65);
+
+    .mdc-radio__outer-circle {
+      box-shadow: $big-shadow;
+    }
+  }
+
+  .mdc-radio--disabled {
+    @include mdc-radio-unchecked-stroke-color($disabled-color);
+    @include mdc-radio-checked-stroke-color($disabled-color);
+    @include mdc-radio-ink-color($disabled-color);
+
+    ~ label {
+      color: $disabled-color;
+    }
+
+    .mdc-radio__outer-circle {
+      background-color: ino-color(light, light);
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
+
+:host([checked]:not([checked="false"])) .mdc-radio {
+  @include animateInnerCircle(.6)
+}
+
+:host(.ino-checked-hover) .mdc-form-field .mdc-radio {
+  @include animateInnerCircle(.25);
+  @include mdc-radio-unchecked-stroke-color(ino-color(primary, light));
+  @include mdc-radio-checked-stroke-color(ino-color(primary, light));
+  @include mdc-radio-ink-color(ino-color(primary, light));
 }

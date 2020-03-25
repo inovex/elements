@@ -19,8 +19,47 @@ export class RadioGroup implements ComponentInterface {
     this.updateRadios(value);
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     this.updateRadios(this.value);
+
+    const radios = await this.getRadios();
+    radios.forEach(radio => {
+      radio.addEventListener('mouseover', () => this.addHoverAnimation(radio));
+      radio.addEventListener('mouseout', () => this.removeHoverAnimation());
+    });
+  }
+
+  async componentDidUnload() {
+    const radios = await this.getRadios();
+    radios.forEach(radio => {
+      radio.removeEventListener('mouseover', () => this.addHoverAnimation(radio));
+      radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
+    });
+  }
+
+  /**
+   * Adds a hover animation to the currently checked ino radio
+   */
+  private async addHoverAnimation(hoveredRadio: HTMLInoRadioElement) {
+    const radios = await this.getRadios();
+    const checkedRadio = radios.find(radio => Boolean(radio.checked));
+
+    if (!checkedRadio || hoveredRadio === checkedRadio) {
+      return;
+    }
+
+    checkedRadio.classList.add('ino-checked-hover');
+  }
+
+  private async removeHoverAnimation() {
+    const radios = await this.getRadios();
+    const checkedRadio = radios.find(radio => radio.classList.contains('ino-checked-hover'));
+
+    if (!checkedRadio) {
+      return;
+    }
+
+    checkedRadio.classList.remove('ino-checked-hover');
   }
 
   private async updateRadios(value) {
@@ -35,6 +74,10 @@ export class RadioGroup implements ComponentInterface {
 
     // Walk the DOM in reverse order, since the last selected one wins!
     for (const radio of radios) {
+
+      if (radio.checked) {
+        radio.classList.remove('ino-checked-hover');
+      }
 
       if (!hasChecked && radio.value === value) {
         // correct value for this radio

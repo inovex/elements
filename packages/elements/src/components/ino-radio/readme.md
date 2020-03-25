@@ -82,18 +82,14 @@ class MyComponent extends Component {
 
 Clicking on the radio button triggers an event that has the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.
 
-```js
-document.querySelector('ino-radio').addEventListener('checkedChange', e => {
-  // ...
-});
-```
-
 ```html
 <ino-radio
   checked={this.state.checked}
   checkedChange={e => this.state.checked = e.detail}>
 </ino-radio>
 ```
+
+## Demo
 
 <!-- Auto Generated Below -->
 

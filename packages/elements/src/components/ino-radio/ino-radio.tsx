@@ -1,6 +1,16 @@
 import { MDCFormField } from '@material/form-field';
 import { MDCRadio } from '@material/radio';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h
+} from '@stencil/core';
 import classnames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -91,7 +101,7 @@ export class Radio implements ComponentInterface {
     renderHiddenInput(el, name, (checked ? value : ''), disabled);
 
     return (
-      <Host>
+      <Host checked={checked}>
         <div class="mdc-form-field">
           <div class={classes}>
             <input
