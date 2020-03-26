@@ -39,9 +39,9 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "stencil build --docs && node scripts/generateWrappedIcons.js",
+    "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
     "clean": "rm -rf dist",
-    "dev": "stencil build --docs --watch",
+    "dev": "stencil build --docs --watch --legacy",
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "test": "stencil test --e2e --ci",
@@ -70,7 +70,7 @@
     "@material/tab-scroller": "^3.0.0",
     "@material/textfield": "^3.0.0",
     "@material/typography": "^3.0.0",
-    "@stencil/core": "1.11.2",
+    "@stencil/core": "1.10.3",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
