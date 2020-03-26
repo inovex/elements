@@ -1,3 +1,12 @@
+## [0.15.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.15.0...v0.15.1) (2020-03-26)
+
+
+### Bug Fixes
+
+* **elements:** revert @stencil/core to 1.10.3 due to style issues ([376c79d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/376c79d94d45c4ab52bbf635bbfa9c446a0d7264))
+
+
+
 # [0.15.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.14.0...v0.15.0) (2020-03-25)
 
 

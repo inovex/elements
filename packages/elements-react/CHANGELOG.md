@@ -1,3 +1,7 @@
+## [0.15.1](https://gitlab.inovex.de/inovex-elements/core/compare/v0.15.0...v0.15.1) (2020-03-26)
+
+
+
 # [0.15.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.14.0...v0.15.0) (2020-03-25)
 
 
