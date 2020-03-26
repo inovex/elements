@@ -2664,10 +2664,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@stencil/core@1.11.2":
-  version "1.11.2"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-1.11.2.tgz#9ef89555fb534a98b8fddd73f58a172087258fb2"
-  integrity sha512-jF06JqUYa6Rt2kA4CTMY44WEmU+Nqw9lK9EYSCFZLzRg2lIG6i1hsn+zsH/Z9hQe8HDsZsQzr2MTlQCrTXCW9w==
+"@stencil/core@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-1.10.3.tgz#c48de680f99b931fa193309d995a260866041521"
+  integrity sha512-FsP48oMBc1JvN286eBDN+CYm5IveL1IUKYgHjZ680JIlT3OpBNCj6xf9D2TGcCr67vJ9f32qbWSn3Apa4ZsnZw==
   dependencies:
     typescript "3.8.3"
 
