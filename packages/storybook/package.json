@@ -1,7 +1,7 @@
 {
   "name": "@inovex/elements-storybook",
   "version": "0.15.1",
-  "description": "This is the home of a storybook for the @inovex/elements.",
+  "description": "This is the storybook package containing all the documentation for @inovex/elements, @inovex/elements-angular, @inovex/elements-react.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,

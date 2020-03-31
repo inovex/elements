@@ -1,8 +1,8 @@
 {
   "name": "@inovex/elements-react",
   "version": "0.15.1",
+  "description": "This is the react package of the integration layer for  @inovex/elements.",
   "author": "Patrick Hillert <phillert@inovex.de>",
-  "description": "This is the home of fully-integrated react components for @inovex/elements.",
   "contributors": [
     "Arne Maier <amaier@inovex.de>",
     "Daniel Hieber <dhieber@inovex.de>",
@@ -25,18 +25,6 @@
   "bugs": {
     "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
   },
-  "keywords": [
-    "ionic",
-    "framework",
-    "react",
-    "mobile",
-    "app",
-    "hybrid",
-    "webapp",
-    "cordova",
-    "progressive web app",
-    "pwa"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && npm run compile",

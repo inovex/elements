@@ -32,7 +32,7 @@ class MyComponent extends Component {
 
   state = {
     open: false
-  } 
+  }
 
   handleClick = (e: any) => {
     alert(`Fab-Set was clicked`);
@@ -90,6 +90,13 @@ class MyComponent extends Component {
 ## Additional Hints
 
 **Content**: Put the the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+
+### Manage icons
+
+> **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+> `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
+> at runtime to be located in `icon-assets/`. Please refer to the Storybook documenmtation to get detailed instructions
+> how to integrate the icons with Angular, React or plain JavaScript.
 
 ## Control flow
 

@@ -1,9 +1,9 @@
-// => is done in core/scripts/postbuild.sh
 import { JSX } from '@inovex/elements';
+
 // @ts-ignore
 import { addIcons } from '@inovex/elements/dist/collection/util/icons';
 import { ICON_PATHS } from '@inovex/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
-import { defineCustomElements } from '@inovex/elements/dist/loader';  // must be replaced with '../loader' when copied
+import { defineCustomElements } from '@inovex/elements/dist/loader';
 
 import { createReactComponent } from './createComponent';
 

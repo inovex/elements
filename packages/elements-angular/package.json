@@ -1,6 +1,16 @@
 {
-  "name": "angular",
+  "name": "@inovex/elements-angular-builder",
   "version": "0.15.1",
+  "description": "This is the angular package of the integration layer for  @inovex/elements.",
+  "author": "Sven Lindauer <slindauer@inovex.de>",
+  "contributors": [
+    "Jan-Niklas Voß <jvoss@inovex.de>",
+    "Pascal Fecht <pfecht@inovex.de>"
+  ],
+  "homepage": "https://elements.inovex.io",
+  "bugs": {
+    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
