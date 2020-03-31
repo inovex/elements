@@ -4,9 +4,17 @@ import markup from '_local-storybookcore/markup';
 import introduction from '_local-docs/getting-started.md'
 import readme from '_local-root/Readme.md'
 
-import setupVue from '_local-docs/setup-vue.md'
-import setupReact from '_local-docs/setup-react.md'
-import setupAngular from '_local-docs/setup-angular.md'
+import setupVueInstructions from '_local-docs/framework-integration/setup-vue-instructions.md'
+import setupVueProject from '_local-docs/framework-integration/setup-vue-project.html'
+
+import setupReactInstructions from '_local-docs/framework-integration/setup-react-instructions.md'
+import setupReactProject from '_local-docs/framework-integration/setup-react-project.html'
+
+import setupAngularInstructions from '_local-docs/framework-integration/setup-angular-instructions.md'
+import setupAngularProject from '_local-docs/framework-integration/setup-angular-project.html'
+
+import setupJavaScriptInstructions from '_local-docs/framework-integration/setup-js-instructions.md'
+import setupJavaScriptProject from '_local-docs/framework-integration/setup-js-project.html'
 
 import changelog from '_local-root/CHANGELOG.md'
 import contributing from '_local-root/CONTRIBUTING.md'
@@ -24,10 +32,21 @@ storiesOf('Home', module)
   .add('Contributing', () => markup(contributing))
   .add('Use and contribute', () => markup(useAndContribute))
 
-storiesOf('Framework Integration', module)
-  .add('React', () => markup(setupReact))
-  .add('Angular', () => markup(setupAngular))
-  .add('Vue.js', () => markup(setupVue))
+storiesOf('Framework Integration / Angular', module)
+  .add('Instructions', () => markup(setupAngularInstructions))
+  .add('Example Project', () => setupAngularProject)
+
+storiesOf('Framework Integration / React', module)
+  .add('Instructions', () => markup(setupReactInstructions))
+  .add('Example Project', () => setupReactProject)
+
+storiesOf('Framework Integration / Vue', module)
+  .add('Instructions', () => markup(setupVueInstructions))
+  .add('Example Project', () => setupVueProject)
+
+storiesOf('Framework Integration / JavaScript', module)
+  .add('Instructions', () => markup(setupJavaScriptInstructions))
+  .add('Example Project', () => setupJavaScriptProject)
 
 storiesOf('Styleguide', module)
   .add('Colors', () => markup(colors))
