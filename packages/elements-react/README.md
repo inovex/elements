@@ -1,61 +1,28 @@
-## @inovex/elements-react
+# @inovex/elements-react
 
-This is a package contains awesome and reusable components based on native web components compatible to React. :fire:
+> The following information is only relevant if you want to contribute to this `@inovex/elements-react`
+> package. If you just want to use the UI elements for your own project, please refer to the top level
+> [README](../../README.md).
 
-> Please note: We are at the beginning of the inovex elements library. Things may break without giving any deprecation notice. Join the project slack channel #proj-inovex-elements to be up to date.
+This is the integration layer package for integrating the inovex elements into React projects.
 
-These are React specific building blocks on top of  `@inovex/elements` and is gathered from [@ionic/core](https://www.npmjs.com/package/@ionic/core) components/services.
+## Contributing
 
-### Integrate via npm
+Please refer to the top level [README](../../README.md) to see the available script commands.
 
-`@inovex/elements-react` are delivered via a private npm registry hosted at `https://artifactory.inovex.de/artifactory/api/npm/inovex-elements-react/`. First, you have to configure
-your local environment to use this registry. To do so, execute the following npm commands:
+### Adding or Removing components
 
-```
-npm config set registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-or
-npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
+Everytime a new component ist added or removed from the `@inovex/elements` package, you must make sure
+that `src/components/index.ts` is adjusted properly. For each new component a new export is needed to
+make that element available for the consumer of this package and therefor for the React world. Same
+goes for removing a component.
 
-Now you are ready to add the `@inovex/elements-react` dependency to your project using `yarn` or `npm`:
+### Updating the react integration layer
 
-```
-yarn add @inovex/elements-react
-npm i @inovex/elements-react
-```
-
-## Installation
-
-After providing the dependency the components may be imported as usually.
-
-```jsx
-
-import React from 'react';
-
-import { InoButton } from '@inovex/elements-react/dist';
-
-const App: React.FC = () => {
-
-    [...]
-    return (
-        <InoButton onClick={(ev: any) => addTodo()} ino-icon="add">
-            Add
-        </InoButton>
-    );
-}
-```
-
-
-If you would like to see an example app of the implementation please go to our [example react app](https://gitlab.inovex.de/inovex-elements/example-react).
-
-
-
-## Updating this react wrapper
-
-Simply copy all the files from https://github.com/ionic-team/ionic/blob/master/packages/react/ and see what has changed.
-
-The `props` in the wrapper need to be changed to match the typings. The function to change the names is in `react/src/inovexCustom.ts` and should only left out if ionic takes care of changing propnames.
+See https://github.com/ionic-team/ionic/tree/master/packages/react for more info about implementation
+details. The structure of files and folders in this package should be in sync with that of the react
+package in the ionic repo.
 
 ## License
 
-* [MIT](https://raw.githubusercontent.com/ionic-team/ionic/master/LICENSE)
+TBD

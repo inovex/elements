@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/html'
 import markup from '_local-storybookcore/markup';
 
 import introduction from '_local-docs/getting-started.md'
-import readme from '_local-root/Readme.md'
+import readme from '_local-root/README.md'
 
 import setupVue from '_local-docs/setup-vue.md'
 import setupReact from '_local-docs/setup-react.md'
@@ -18,11 +18,11 @@ import typography from '_local-docs/styleguide.typography.md'
 const componentVersion = require('_local-elements/package.json').version
 
 storiesOf('Home', module)
-  .add('Getting started', () => markup(readme.replace(/&#8203;/g, `v${componentVersion}`)))
+  .add('Getting Started', () => markup(readme.replace(/&#8203;/g, `v${componentVersion}`)))
   .add('Storybook', () => markup(introduction))
   .add('Changelog', () => markup(`# Changelog ${changelog}`))
   .add('Contributing', () => markup(contributing))
-  .add('Use and contribute', () => markup(useAndContribute))
+  .add('Use and Contribute', () => markup(useAndContribute))
 
 storiesOf('Framework Integration', module)
   .add('React', () => markup(setupReact))

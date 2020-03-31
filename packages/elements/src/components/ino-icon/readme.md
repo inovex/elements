@@ -86,7 +86,7 @@ If you have to add, remove or change an icon:
     1. Import the `selection.json` in the [icomoon app](http://icomoon.io/app/#).
     2. Add, remove, rename, ... the icons
     3. Export the new icon set by clicking on `Generate SVG & More`.
-    
+
 2. Make sure the exported icons have the same structure and the settings in `selection.json` didn't change.
 
 3. Copy&Paste the **entire** `icon-assets` folder and override the old one.
@@ -95,7 +95,10 @@ If you have to add, remove or change an icon:
 
 5. Don't forget to update the storybook whenever the API changes.
 
-> **Note:** Only the `SVG/` subfolder is distributed and contains the icon as SVGs.
+> **Note:** To use the provided icons in your consumer project, you need to copy all contents of
+> `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
+> at runtime to be located in `icon-assets/`. Please refer to the Storybook documenmtation to get detailed instructions
+> how to integrate the icons with Angular, React or plain JavaScript.
 
 ### Custom icons
 

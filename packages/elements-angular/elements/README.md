@@ -1,58 +1,37 @@
 # @inovex/elements-angular
 
-This is a package contains awesome and reusable components based on native web components compatible to Angular. :fire:
+> The following information is only relevant if you want to contribute to this `@inovex/elements-angular`
+> package. If you just want to use the UI elements for your own project, please refer to the top level
+> [README](../../../README.md).
 
-> Please note: We are at the beginning of the inovex elements library. Things may break without giving any deprecation notice. Join the project slack channel #proj-inovex-elements to be up to date.
+This is the integration layer package for integrating the inovex elements into Angular projects.
 
-### Integrate via npm
+## Contributing
 
-`@inovex/elements-angular` are delivered via a private npm registry hosted at `https://artifactory.inovex.de/artifactory/api/npm/inovex-elements-angular/`. First, you have to configure
-your local environment to use this registry. To do so, execute the following npm commands:
+Please refer to the top level [README](../../../README.md) to see the available script commands.
 
-```
-npm config set registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-or
-npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
+### Adding or Removing components
 
-Now you are ready to add the `@inovex/elements-angular` dependency to your project using `yarn` or `npm`:
+Everytime a new component ist added or removed from the `@inovex/elements` package you must ensure that
+the following files are written after running the `build` command:
 
-```
-yarn add @inovex/elements-angular
-npm i @inovex/elements-angular
-```
+* `src/directives/proxies-list.ts`
+* `src/directives/proxies.ts`
 
-## Installation
+These files are updated automatically. This ensures that the component is available for the consumer in
+the Angular world. If the component needs a custom value accessor to support the `ngModel` directive,
+please update the following files also:
 
-The Angular Directives needed to use elements in
-components are bundled into the `InoElementsModule`.
+* `src/public-api` (modify)
+* `src/ino-elements.module.ts` (modify)
+* `src/directives/control-value-accesors/ino-COMPONENT-NAME-value-accessor.directive.ts` (create)
 
-You have to add it to your `AppModule`:
+### Updating the Angular integration layer
 
-```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
+as an Angular library project. So you can update this project as you would do any other Angular
+library project.
 
-import { AppComponent } from './app.component';
+## License
 
-// Import your library
-import { InoElementsModule } from '@inovex/elements-angular';
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    InoElementsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-```
-
-Once the `InoElementsModule` is imported, you are ready to use all components.
-
-
-If you would like to see an example app of the implementation please go to our [example react app](https://gitlab.inovex.de/inovex-elements/example-angular).
+TBD
