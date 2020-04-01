@@ -1,3 +1,17 @@
+# [0.16.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.15.1...v0.16.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* **storybook:** show elements logo also in storybook ([14cc38d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/14cc38dccb50efb01e8fc842edef9254696e0980))
+
+
+### Features
+
+* **storybook:** integrate stackblitz code examples ([a4b0e8d](http://gitlab.inovex.de:2424/inovex-elements/core/commit/a4b0e8d7abaaca1753672b809ef48827113a1281))
+
+
+
 ## [0.15.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.15.0...v0.15.1) (2020-03-26)
 
 
