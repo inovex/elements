@@ -1,81 +1,14 @@
 # @inovex/elements
 
-This is a package containing native and reusable Web components.
+> The following information is only relevant if you want to contribute to this `@inovex/elements`
+> package. If you just want to use the UI elements for your own project, please refer to the top level
+> [README](../..).
 
-## Usage
-There are two ways to add inovex elements to your project. By loading them via `script` tag from a central server or by
-downloading them via npm and adding them to your build process. 
-
-If you are building a single page application, integration with your build process makes sense, if you are just playing around, use
-the central server.
-
-### Script Tag
-Add the following snippet to your html file
-
-```
-<script src="https://elements.inovex.io/dist/latest/inovex-elements.js"></script>
-```
-
-This preloader will only lazy load components you use. So if you only use `<ino-button>`, the script will just load the
-button for you when needed. Nothing more.
-
-The first part of the path defines the loaded version of the inovex elements. `latest` always contains the most current
-state and may receive breaking changes. To load a stable version like `0.9.0`, use `https://elements.inovex.io/dist/v0.9.0/inovex-elements/inovex-elements.esm.js`.
-
-The inovex elements components are lazy loaded, which means you have to import the main js file `dist/v0.9.0/inovex-elements/inovex-elements.esm.js` containing the component
-registry and everything else will be handled on the fly. To support older Browsers it is recommended to set the differential scripts in the head as follows:
-
-```
-<script type="module" src="https://elements.inovex.io/dist/v0.9.0/inovex-elements/inovex-elements.esm.js"></script>
-<script nomodule="" src="https://elements.inovex.io/dist/v0.9.0/inovex-elements/inovex-elements.js"></script>
-```
-
-### Integrate via npm
-
-inovex elements are delivered via a private npm registry hosted at `https://artifactory.inovex.de/artifactory/api/npm/inovex-elements/`. First, you have to configure
-your local environment to use this registry. To do so, execute the following npm commands:
-
-```
-npm config set registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-or
-npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
-
-Now you are ready to add the `@inovex/elements` dependency to your project using `yarn` or `npm`:
-```
-yarn add @inovex/elements
-npm i @inovex/elements
-```
-
-## Getting started
-In most cases, the integration of inovex elements requires two steps:
-
-#### 1) Copy `dist` folder of `inovex-elements` dependency to project's assets
-
-If you are using webpack and provide your own webpack config file, you can use the provided `webpack-plugin.js` as a plugin
-and the elements will be provided automatically. You just have to import the component registry as part of your main bundle:
-
-```javascript
-// webpack.config.js
-
-module.exports = {
-    //...
-    plugins: [ /* ... */, require('@inovex/elements/webpack-plugin')()]
-}
-```
-If the final javascript bundle is not located in the root of the web root, you have to specify the path as the first parameter,
-e.g. if your javascript bundle is located in `static/js`, use `require('@inovex/elements/webpack-plugin')('static/js')`.
-
-#### 2) Load the elements module in entrypoint file
-
-```javascript
-// entrypoint file
-
-import '@inovex/elements';
-```
+This is the core package containing all the inovex elements as pure Web Components.
 
 ## Contributing
-> TODO
+
+Please refer to the top level [README](../..) to see the available script commands.
 
 ## Technologies
 
@@ -83,13 +16,17 @@ import '@inovex/elements';
 
 Stencil is a compiler for building fast web apps using Web Components.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes
+TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber),
+and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements
+v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
 ### Storybook
 
-[Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex elements, view the different states of each component, and interactively develop and test inovex components.
+[Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex
+elements, view the different states of each component, and interactively develop and test inovex components.
 
 The storybook is part of the development process and used to test the components as well as to show the most common use cases.
 
