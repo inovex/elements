@@ -2,13 +2,13 @@
 
 > The following information is only relevant if you want to contribute to this `@inovex/elements-react`
 > package. If you just want to use the UI elements for your own project, please refer to the top level
-> [README](../../README.md).
+> [README](../..).
 
 This is the integration layer package for integrating the inovex elements into React projects.
 
 ## Contributing
 
-Please refer to the top level [README](../../README.md) to see the available script commands.
+Please refer to the top level [README](../..) to see the available script commands.
 
 ### Adding or Removing components
 

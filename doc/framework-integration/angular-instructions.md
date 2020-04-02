@@ -1,11 +1,11 @@
 # Integrate with Angular
 
 > We set up a demo project with Angular CLI to show you how to integrate the components into a newly generated Angular
-> project. See ([our Angular example project](https://gitlab.inovex.de/inovex-elements/example-angular)) for more details.
+> project. Scroll down to see the Stackblitz.
 >
 > These instructions are based on `angular@9.1.0` and [`angular-cli@9.1.0`](https://cli.angular.io/).
 
-## 0) Prepare your project
+## 0) Prepare your Project
 
 First of all you should make sure your current setup without the inovex elements work and boot properly.
 If that's the case you can proceed.
@@ -124,60 +124,6 @@ any unexpected errors. If all is fine, go to the last step.
 As the integration is completed, you can use the components in your project the same way as you would
 any other Angular directive.
 
-Here is an example how you can use the `ino-input` and `ino-button` in a component. This will render
-a simple todo app with a textfield and buttons to delete a task:
+To help you getting started, we created a simple todo app where you can get in touch and play around:
 
-```ts
-// app.component.ts
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  todos: Array<Todo>;
-  newTodoName: string;
-
-  constructor(private todoService: TodoService) {
-    this.todos = this.todoService.getRandomTodos();
-  }
-
-  onValueChanged($event: any) {
-    this.newTodoName = $event.target.value;
-  }
-
-  add() {
-    this.todos.push(new Todo(this.newTodoName));
-    this.newTodoName = '';
-  }
-
-  delete(index: number, todo: Todo) {
-    this.todos = this.todos.filter(currentTodo => currentTodo !== todo);
-  }
-}
-```
-
-with the corresponding template:
-
-```html
-<!--- app.component.html -->
-
-<ino-input
-  ino-icon-clickable
-  ino-icon-trailing
-  (inoIconClicked)="add()"
-  type="text"
-  [value]="newTodoName"
-  (keyup)="onValueChanged($event)"
-  placeholder="What needs to be done...">
-    <ino-icon slot="ino-icon-trailing" ino-icon="add"></ino-icon>
-</ino-input>
-
-<ul class="todos">
-  <li *ngFor="let todo of todos; index as i">
-    {{ todo.name }} <ino-button (click)="delete(i, todo)">Delete</ino-button>
-  </li>
-</ul>
-```
+<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-angular-example?embed=1&file=index.js" />

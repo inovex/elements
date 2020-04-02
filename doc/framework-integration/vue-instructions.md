@@ -1,11 +1,11 @@
-# Integrate with Vue.js
+# Integrate with Vue.js (as Web Components)
 
 > We set up a demo project with Vue.js to show you how to integrate the components into a newly generated Vue.js
-> project. See ([our Vue.js example project](https://gitlab.inovex.de/inovex-elements/example-vuejs)) for more details.
+> project. Scroll down to see the Stackblitz.
 >
 > These instructions are based on `vue@2.6.11` and [`create-react-app@4.2.3`](https://cli.vuejs.org/).
 
-## 0) Prepare your project
+## 0) Prepare your Project
 
 First of all you should make sure your current setup without the inovex elements work and boot properly.
 If that's the case you can proceed.
@@ -69,37 +69,8 @@ applyPolyfills().then(() => {
 ### 3) Use the Components
 
 You can now use the components in your Vue.js project the same way as you would use any native HTML element.
-Here is an example of how to use an inovex element in your Vue.js template:
+Here is an example of how to use an inovex element in your Vue.js template
 
-```html
-<template>
-  <div>
-    <ino-input
-      :ino-placeholder="userPlaceholder"
-      :value="userValue"
-      @valueChange="printUsername($event.detail)"
-      ino-type="text"
-      ino-icon-leading="true"
-    >
-      <ino-icon slot="ino-icon-leading" ino-icon="users"></ino-icon>
-    </ino-input>
-  </div>
-</template>
+To help you getting started, we created a simple todo app where you can get in touch and play around:
 
-<script>
-  export default {
-    name: 'TestComponent',
-    data() {
-      return {
-        userValue: 'Freaky Fox',
-        userPlaceholder: 'Username'
-      };
-    },
-    methods: {
-      printUsername: function(newUsername) {
-        alert(`New username is: ${newUsername}`);
-      }
-    }
-  };
-</script>
-```
+<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-vue-example?embed=1&file=index.js" />
