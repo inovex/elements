@@ -23,11 +23,11 @@ $checkmark-disabled-color: ino-color(light);
 
   .mdc-checkbox--disabled {
 
-    .mdc-checkbox__checkmark {
+    .mdc-checkbox__background .mdc-checkbox__checkmark {
       color: $checkmark-disabled-color;
     }
 
-    .mdc-checkbox__mixedmark {
+    .mdc-checkbox__background .mdc-checkbox__mixedmark {
       border-color: $checkmark-disabled-color;
     }
 

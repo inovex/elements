@@ -1,22 +1,33 @@
-@import '@material/select/mdc-select';
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/select/mdc-select";
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 
 ino-select {
+
   display: block;
 
-  .mdc-select {
+  input {
+    opacity: 0;
     width: 100%;
+    cursor: pointer;
+  }
+
+  .mdc-select__anchor, .mdc-select, .mdc-select__menu {
+    width: 100%;
+  }
+
+  .mdc-select {
     @include mdc-select-container-fill-color(transparent);
 
-    &--focused,
-    &:hover,
-    &:active {
-      @include mdc-select-container-fill-color(transparent);
+    .mdc-select__anchor:before {
+      display: none;
     }
 
-    &--disabled,
-    &:before {
+
+    &--disabled .mdc-select__anchor {
       background-color: transparent;
     }
 
@@ -26,10 +37,18 @@ ino-select {
         padding-bottom: 0;
       }
     }
+
+    .mdc-floating-label {
+      top: 28px;
+    }
   }
 
-  .mdc-select--required .mdc-floating-label::after {
-    content: "";
+  .mdc-select__selected-text {
+    padding-left: 0;
+    padding-top: 22px;
   }
 
+  .mdc-floating-label.mdc-floating-label--float-above {
+    top: 18px;
+  }
 }

@@ -1,0 +1,9 @@
+@import "@material/list/mdc-list";
+
+ino-option {
+
+  .mdc-list-item--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

@@ -8,6 +8,7 @@ import { boolean, text } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-select/readme.md';
+import optionComponentReadme from '_local-elements/src/components/ino-option/readme.md';
 import './ino-select.scss';
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
@@ -44,10 +45,10 @@ storiesOf('<ino-select>', module)
   })
   .add('Default usage', () => {
     const optionsTemplate = /*html*/ `
-      <option>Option 1</option>
-      <option>Option 2</option>
-      <option>Option 3</option>
-      <option>Option 4</option>
+    <ino-option value="Option 1">Option 1</ino-option>
+    <ino-option value="Option 2">Option 2</ino-option>
+    <ino-option value="Option 3">Option 3</ino-option>
+    <ino-option value="Option 4">Option 4</ino-option>
     `;
 
     return /*html*/ `
@@ -56,10 +57,9 @@ storiesOf('<ino-select>', module)
           name="${text('name', 'select-1')}"
           ino-outline="${boolean('ino-outline', false)}"
           ino-label="${text('ino-label', 'Customizable select')}"
-          ino-prepend-default="${boolean('ino-prepend-default', false)}"
-          ino-disable-default="${boolean('ino-disable-default', false)}"
           required="${boolean('required', false)}"
           ino-show-label-hint="${boolean('ino-show-label-hint', false)}"
+          value="${text('value', 'Option 1')}"
         >
           ${optionsTemplate}
         </ino-select>
@@ -67,44 +67,39 @@ storiesOf('<ino-select>', module)
         <h4 class="outline">Outlined</h4>
         <ino-select ino-outline>
           ${optionsTemplate}
+          <ino-option value="Option 5" selected>Option 5</ino-option>
         </ino-select>
 
         <h4>Labels</h4>
         <ino-select>
-          <option selected>No label</option>
+          <ino-option value="No Label" selected>No label</ino-option>
           ${optionsTemplate}
         </ino-select>
         <ino-select ino-label="Floating label">
-          <option value="" />
+         <ino-option value="Selected Option" selected>Selected Option</ino-option>
           ${optionsTemplate}
         </ino-select>
 
         <ino-select ino-label="Floating label outlined" ino-outline>
+          <ino-option value="Selected Option" selected>Selected Option</ino-option>
           ${optionsTemplate}
         </ino-select>
 
         <h4>States</h4>
         <ino-select disabled ino-label="Disabled select">
+          <ino-option value="Selected Option" selected>Selected Option</ino-option>
           ${optionsTemplate}
         </ino-select>
         <ino-select ino-label="Select with disabled option">
           ${optionsTemplate}
-          <option disabled>Disabled option</option>
+          <ino-option value="Disabled Option" disabled>Disabled Option</ino-option>
         </ino-select>
 
-        <ino-select required ino-prepend-default ino-label="required select" ino-show-label-hint>
+        <ino-select required ino-label="required select" ino-show-label-hint>
           ${optionsTemplate}
         </ino-select>
 
-        <ino-select ino-prepend-default ino-label="optional select" ino-show-label-hint>
-          ${optionsTemplate}
-        </ino-select>
-
-        <ino-select ino-prepend-default ino-label="With prepended disabled empty option">
-          ${optionsTemplate}
-        </ino-select>
-
-        <ino-select ino-prepend-default ino-disable-default="false" ino-label="With prepended selectable empty option">
+        <ino-select ino-label="optional select" ino-show-label-hint>
           ${optionsTemplate}
         </ino-select>
       </div>
@@ -117,11 +112,36 @@ storiesOf('<ino-select>', module)
       <h4>Required</h4>
       <p>The form should not submit since no option is selected and the select is required.</p>
       <form class="form" onSubmit="alert('Form submitted'); return false;">
-          <ino-select ino-label="Form select" ino-prepend-default required>
-            <option value="Test">Test</option>
+          <ino-select ino-label="Form select" required>
+            <ino-option value="Test">Test</ino-option>
           </ino-select>
           <ino-button type="submit">Submit</ino-button>
       </form>
     </div>
   `
   );
+
+storiesOf('<ino-select>', module)
+  .addDecorator(withStencilReadme(optionComponentReadme))
+  .add('Select options', () => /*html*/ `
+    <h4>Customizable option</h4>
+    <ino-select ino-label="Customizable option">
+        <ino-option
+            disabled="${boolean('disabled', false)}"
+            selected="${boolean('selected', false)}"
+            value="${text('value', 'Content')}"
+        >
+            Content
+        </ino-option>
+    </ino-select>
+
+    <h4>Disabled option</h4>
+    <ino-select ino-label="Disabled option">
+        <ino-option value="Content" disabled>Content</ino-option>
+    </ino-select>
+
+    <h4>Selected option</h4>
+        <ino-select ino-label="Selected option">
+        <ino-option value="Content" selected>Content</ino-option>
+    </ino-select>
+  `);

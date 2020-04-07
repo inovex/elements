@@ -21,7 +21,7 @@ describe('InoButton', () => {
     inoButtonEl.setAttribute('ino-dense', true);
     await page.waitForChanges();
     const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
-    expect(mdcButtonEl).toHaveClass('mdc-button--dense');
+    expect(mdcButtonEl).toHaveClass('ino-button--dense');
   });
 
   it('should render with property disabled', async () => {

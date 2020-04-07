@@ -86,6 +86,7 @@ export class Chip implements ComponentInterface {
     return (
       <Host>
         <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
+          <div class="mdc-chip__ripple"></div>
           {this.inoIcon && (
             <ino-icon class={iconClasses} ino-icon={this.inoIcon}/>
           )}
