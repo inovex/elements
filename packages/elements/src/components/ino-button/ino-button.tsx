@@ -160,6 +160,7 @@ export class Button implements ComponentInterface {
               aria-hidden="true"
             />
           )}
+          <div class="mdc-button__ripple"></div>
           <div class="mdc-button__label">
             {this.inoLoading ?
               <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>

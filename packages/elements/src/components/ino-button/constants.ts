@@ -9,5 +9,5 @@ export const CSS_CLASSES = {
   UNELEVATED: 'mdc-button--unelevated',
   OUTLINED: 'mdc-button--outlined',
   RAISED: 'mdc-button--raised',
-  DENSE: 'mdc-button--dense'
+  DENSE: 'ino-button--dense'
 };

@@ -1,5 +1,8 @@
 {
-  "extends": ["tslint-ionic-rules/strict", "tslint-react"],
+  "extends": [
+    // "tslint-ionic-rules",
+    "tslint-react"
+  ],
   "linterOptions": {
     "exclude": ["**/*.spec.ts", "**/*.spec.tsx", "**/*.e2e.ts", "dist"]
   },

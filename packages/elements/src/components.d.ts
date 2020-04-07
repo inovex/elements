@@ -666,6 +666,20 @@ export namespace Components {
          */
         "inoOpen"?: boolean;
     }
+    interface InoOption {
+        /**
+          * Disables the option
+         */
+        "disabled"?: boolean;
+        /**
+          * Selects the option
+         */
+        "selected"?: boolean;
+        /**
+          * Value of the option
+         */
+        "value": string;
+    }
     interface InoPopover {
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
@@ -776,21 +790,9 @@ export namespace Components {
     }
     interface InoSelect {
         /**
-          * Marks this element as autofocused.
-         */
-        "autoFocus"?: boolean;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * The form this element belongs to.
-         */
-        "form"?: string;
-        /**
-          * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
-         */
-        "inoDisableDefault"?: boolean;
         /**
           * The label of this element
          */
@@ -799,10 +801,6 @@ export namespace Components {
           * Styles this select box as outlined element.
          */
         "inoOutline"?: boolean;
-        /**
-          * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
-         */
-        "inoPrependDefault"?: boolean;
         /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
@@ -1102,6 +1100,12 @@ declare global {
         prototype: HTMLInoMenuElement;
         new (): HTMLInoMenuElement;
     };
+    interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
+    }
+    var HTMLInoOptionElement: {
+        prototype: HTMLInoOptionElement;
+        new (): HTMLInoOptionElement;
+    };
     interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {
     }
     var HTMLInoPopoverElement: {
@@ -1208,6 +1212,7 @@ declare global {
         "ino-list-divider": HTMLInoListDividerElement;
         "ino-list-item": HTMLInoListItemElement;
         "ino-menu": HTMLInoMenuElement;
+        "ino-option": HTMLInoOptionElement;
         "ino-popover": HTMLInoPopoverElement;
         "ino-radio": HTMLInoRadioElement;
         "ino-radio-group": HTMLInoRadioGroupElement;
@@ -1930,6 +1935,20 @@ declare namespace LocalJSX {
          */
         "inoOpen"?: boolean;
     }
+    interface InoOption {
+        /**
+          * Disables the option
+         */
+        "disabled"?: boolean;
+        /**
+          * Selects the option
+         */
+        "selected"?: boolean;
+        /**
+          * Value of the option
+         */
+        "value": string;
+    }
     interface InoPopover {
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
@@ -2052,21 +2071,9 @@ declare namespace LocalJSX {
     }
     interface InoSelect {
         /**
-          * Marks this element as autofocused.
-         */
-        "autoFocus"?: boolean;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * The form this element belongs to.
-         */
-        "form"?: string;
-        /**
-          * Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.
-         */
-        "inoDisableDefault"?: boolean;
         /**
           * The label of this element
          */
@@ -2075,10 +2082,6 @@ declare namespace LocalJSX {
           * Styles this select box as outlined element.
          */
         "inoOutline"?: boolean;
-        /**
-          * Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems.
-         */
-        "inoPrependDefault"?: boolean;
         /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
@@ -2300,6 +2303,7 @@ declare namespace LocalJSX {
         "ino-list-divider": InoListDivider;
         "ino-list-item": InoListItem;
         "ino-menu": InoMenu;
+        "ino-option": InoOption;
         "ino-popover": InoPopover;
         "ino-radio": InoRadio;
         "ino-radio-group": InoRadioGroup;
@@ -2341,6 +2345,7 @@ declare module "@stencil/core" {
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
+            "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
             "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;

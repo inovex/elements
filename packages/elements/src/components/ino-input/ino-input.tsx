@@ -309,7 +309,7 @@ export class Input implements ComponentInterface {
       emailPattern.test(this.value) ? this.textfield.valid = true : this.textfield.valid = false;
     }
     this.inoBlur.emit(e);
-  }
+  };
 
   /**
    * Emits when the input field is focused
@@ -317,7 +317,7 @@ export class Input implements ComponentInterface {
   @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
   private handleFocus = e => {
     this.inoFocus.emit(e);
-  }
+  };
 
   private helperTextTemplate() {
 
@@ -402,9 +402,11 @@ export class Input implements ComponentInterface {
     return (
       <Host>
         <div class={classTextfield}>
+          {this.inoIconLeading &&
           <span class={'mdc-text-field__icon icon-leading'}>
             <slot name={'ino-icon-leading'}></slot>
           </span>
+          }
           <input
             ref={el => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
@@ -440,9 +442,11 @@ export class Input implements ComponentInterface {
             ino-show-hint={this.inoShowLabelHint}
             ino-disabled={this.disabled}
           />
+          {this.inoIconTrailing &&
           <span class={'mdc-text-field__icon icon-trailing'}>
             <slot name={'ino-icon-trailing'}></slot>
           </span>
+          }
         </div>
         <div class="mdc-text-field-helper-line">
           {hasHelperText && this.helperTextTemplate()}

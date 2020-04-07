@@ -18,16 +18,13 @@ document
 <ino-select
   autofocus
   disabled
-  form="<string>"
   name="<string>"
   required
   value="<string>"
-  ino-prepend-default
-  ino-disable-default
   ino-label="<string>"
   ino-outline
 >
-  <option value="1">Option 1</option> <option value="2">Option 2</option> ...
+  <ino-option value="Option 1">Option 1</ino-option> <ino-option value="Option 2">Option 2</ino-option> ...
 </ino-select>
 ```
 
@@ -37,15 +34,15 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoSelect } from '@inovex/elements/dist/react';
+import { InoSelect, InoOption } from '@inovex/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
     return (
-      <InoSelect inoLabel="Form select" inoPrependDefault required>
-        <option value="Test">Test</option>
-      </InoSelect>
-    );
+      <InoSelect; inoLabel="Form select"; required>
+        <InoOption; value="Test">Test</InoOption>
+      </InoSelect>;;
+    )
   }
 }
 ```
@@ -54,79 +51,63 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoSelect } from '@inovex/elements/dist/react';
+import { InoSelect, InoOption } from '@inovex/elements/dist/react';
 import { Components } from '@inovex/elements/dist/types/components';
 
 const Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {
-  const { inoLabel, inoPrependDefault, required } = props;
+  const { inoLabel, required } = props;
 
   return (
-    <InoSelect
-      inoLabel={inoLabel}
-      inoPrependDefault={inoPrependDefault}
+    <InoSelect;
+      inoLabel={inoLabel};
       required={required}
     >
       {props.children}
-    </InoSelect>
-  );
+    </InoSelect>;;
+  )
 };
 
 class MyComponent extends Component {
   render() {
     return (
-      <Select inoLabel="Form select" inoPrependDefault required>
-        <option value="Test">Test</option>
-      </Select>
-    );
+      <Select; inoLabel="Form select"; required>
+        <InoOption; value="Test">Test</InoOption>
+      </Select>;;
+    )
   }
 }
 ```
 
 ## Additional Hints
 
-The select items are (so far) no custom inovex elements but native HTML `option`-elements. The `ino-label` attribute sets an optional floating label for this element.
-
-**Empty default**: `ino-prepend-default` adds an option in the form of `<option disabled selected value=""></option>` to the select. Furthermore, the label is positioned as placeholder and floats to the top after an option has been selected.
-
+Use the custom `ino-option` component to add options to the select component. The `ino-label` attribute sets an optional floating label for this element.
 ### Control flow
 
 The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.
 
-````html
-document.querySelector('ino-select').addEventListener('valueChange', e =>
-this.state.value = e.detail);
-
-<ino-select value="{this.state.value}"> </ino-select>
-```js document .querySelector('ino-select') .addEventListener('valueChange', (e)
-=> { // ... });
-````
-
-```html
-<ino-select value="salutation"></ino-select>
+```js
+document.querySelector('ino-select')
+  .addEventListener('valueChange', e => this.state.value = e.detail);
 ```
 
 ### Event Behaviour
 
-The component behaves like a native select with additional features. The native `input'` and `change` event is not bubbled. Only `inoSelectDidChange` will be emitted when the user selects another option.
+The component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property            | Attribute             | Description                                                                                                                    | Type      | Default     |
-| ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `autoFocus`         | `autofocus`           | Marks this element as autofocused.                                                                                             | `boolean` | `undefined` |
-| `disabled`          | `disabled`            | Disables this element.                                                                                                         | `boolean` | `undefined` |
-| `form`              | `form`                | The form this element belongs to.                                                                                              | `string`  | `undefined` |
-| `inoDisableDefault` | `ino-disable-default` | Disables the default empty element. Usable if `inoPrependDefault` is set. Default value is `true`.                             | `boolean` | `true`      |
-| `inoLabel`          | `ino-label`           | The label of this element                                                                                                      | `string`  | `undefined` |
-| `inoOutline`        | `ino-outline`         | Styles this select box as outlined element.                                                                                    | `boolean` | `undefined` |
-| `inoPrependDefault` | `ino-prepend-default` | Prepends a selected, empty and disabled option. This property cannot be changed after initial render to avoid layout problems. | `boolean` | `false`     |
-| `inoShowLabelHint`  | `ino-show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                     | `boolean` | `undefined` |
-| `name`              | `name`                | The name of this element.                                                                                                      | `string`  | `undefined` |
-| `required`          | `required`            | Marks this element as required.                                                                                                | `boolean` | `undefined` |
-| `value`             | `value`               | The value of this element. (**unmanaged**)                                                                                     | `string`  | `''`        |
+| Property           | Attribute             | Description                                                                                                | Type      | Default     |
+| ------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`         | `disabled`            | Disables this element.                                                                                     | `boolean` | `undefined` |
+| `inoLabel`         | `ino-label`           | The label of this element                                                                                  | `string`  | `undefined` |
+| `inoOutline`       | `ino-outline`         | Styles this select box as outlined element.                                                                | `boolean` | `undefined` |
+| `inoShowLabelHint` | `ino-show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required | `boolean` | `undefined` |
+| `name`             | `name`                | The name of this element.                                                                                  | `string`  | `undefined` |
+| `required`         | `required`            | Marks this element as required.                                                                            | `boolean` | `undefined` |
+| `value`            | `value`               | The value of this element. (**unmanaged**)                                                                 | `string`  | `''`        |
 
 
 ## Events

@@ -76,3 +76,24 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   @include mdc-radio-checked-stroke-color(ino-color(primary, light));
   @include mdc-radio-ink-color(ino-color(primary, light));
 }
+
+:host(ino-radio:not([checked="true"])) {
+  .mdc-radio:hover {
+    .mdc-radio__inner-circle {
+      transform: scale(.45);
+      -webkit-transform: scale(.45);
+      border-color: ino-color(primary, light) !important;
+    }
+
+    .mdc-radio__outer-circle {
+      border-color: ino-color(primary, light) !important;
+    }
+  }
+}
+
+:host(ino-radio[checked="true"]:not([checked="false"])) {
+  .mdc-radio__inner-circle {
+    transform: scale(.6);
+    -webkit-transform: scale(.6);
+  }
+}

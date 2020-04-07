@@ -90,7 +90,7 @@ export class Switch implements ComponentInterface {
     });
 
     return (
-      <Host>
+      <Host checked={this.checked} disabled={this.disabled}>
         <div class={classesSwitch}>
           <div class="mdc-switch__track"></div>
           <div class="mdc-switch__thumb-underlay">

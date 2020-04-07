@@ -256,6 +256,17 @@ export class InoMenu {
   }
 }
 
+export declare interface InoOption extends Components.InoOption {}
+@ProxyCmp({inputs: ['disabled', 'selected', 'value']})
+@Component({ selector: 'ino-option', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'selected', 'value'] })
+export class InoOption {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface InoPopover extends Components.InoPopover {}
 @ProxyCmp({inputs: ['inoFor', 'inoPlacement', 'inoTrigger']})
 @Component({ selector: 'ino-popover', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoFor', 'inoPlacement', 'inoTrigger'] })
@@ -329,8 +340,8 @@ export class InoSegmentGroup {
 }
 
 export declare interface InoSelect extends Components.InoSelect {}
-@ProxyCmp({inputs: ['autoFocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value']})
-@Component({ selector: 'ino-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['autoFocus', 'disabled', 'form', 'inoDisableDefault', 'inoLabel', 'inoOutline', 'inoPrependDefault', 'inoShowLabelHint', 'name', 'required', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'name', 'required', 'value']})
+@Component({ selector: 'ino-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'name', 'required', 'value'] })
 export class InoSelect {
   valueChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;

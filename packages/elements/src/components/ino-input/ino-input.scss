@@ -1,6 +1,7 @@
 @import '@material/textfield/mdc-text-field';
 @import '@material/textfield/helper-text/mdc-text-field-helper-text';
 @import '@material/textfield/icon/mdc-text-field-icon';
+@import 'styles/fonts.scss';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
@@ -13,6 +14,8 @@ ino-input {
     width: 100%;
     box-sizing: border-box;
   }
+
+  @include ino-font(sans-serif, m, regular);
 
 
   &:hover {
@@ -93,6 +96,7 @@ ino-input {
 
     .mdc-text-field__icon {
       font-size: 20px;
+      top: 65%;
 
       &.unit {
         font-size: 16px;

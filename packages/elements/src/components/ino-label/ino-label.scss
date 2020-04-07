@@ -19,10 +19,9 @@ ino-label {
 
   &:not([ino-outline]) .mdc-floating-label {
     left: 0;
-    top: 30px;
 
-    &--float-above {
-      top: 18px;
+    ino-input &:not(.mdc-floating-label--float-above) {
+      top: 70%;
     }
   }
 
