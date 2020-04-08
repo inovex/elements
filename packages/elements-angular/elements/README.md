@@ -10,7 +10,7 @@ This is the integration layer package for integrating the inovex elements into A
 
 Please refer to the top level [README](../../..) to see the available script commands.
 
-### Adding or Removing components
+### Adding or Removing Components
 
 Everytime a new component ist added or removed from the `@inovex/elements` package you must ensure that
 the following files are written after running the `build` command:
@@ -26,7 +26,7 @@ please update the following files also:
 * `src/ino-elements.module.ts` (modify)
 * `src/directives/control-value-accesors/ino-COMPONENT-NAME-value-accessor.directive.ts` (create)
 
-### Updating the Angular integration layer
+### Updating the Angular Integration Layer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 as an Angular library project. So you can update this project as you would do any other Angular

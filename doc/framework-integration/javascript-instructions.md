@@ -2,7 +2,7 @@
 
 > We set up a demo project for a plain setup only working with native browser APIs to show you how to integrate the components into any website. Scroll down to see the Stackblitz.
 
-## 0) Prepare your project
+## 0) Prepare your Project
 
 First of all you should make sure your current setup without the inovex elements work properly.
 If that's the case you can proceed.
@@ -26,7 +26,7 @@ Use the npm package manager if...
 * ... you plan to migrate a static website to a single page application.
 * ... you plan to start a new project.
 
-### a) Install the package
+### a) Install the Package
 
 We're not yet on npm, so you need to set a npm config before you can install the package. The following command
 will update your local npm config to always request `@inovex` prefixed packages from our private registry and not
