@@ -28,8 +28,8 @@ export class InoCard {
 }
 
 export declare interface InoCheckbox extends Components.InoCheckbox {}
-@ProxyCmp({inputs: ['checked', 'disabled', 'indeterminate', 'name', 'value']})
-@Component({ selector: 'ino-checkbox', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'indeterminate', 'name', 'value'] })
+@ProxyCmp({inputs: ['checked', 'disabled', 'indeterminate', 'inoSelection', 'name', 'value']})
+@Component({ selector: 'ino-checkbox', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'indeterminate', 'inoSelection', 'name', 'value'] })
 export class InoCheckbox {
   checkedChange!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
