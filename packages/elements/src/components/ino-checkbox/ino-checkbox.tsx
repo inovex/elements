@@ -1,6 +1,7 @@
 import { MDCCheckbox } from '@material/checkbox';
 import { MDCFormField } from '@material/form-field';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
@@ -45,13 +46,22 @@ export class Checkbox implements ComponentInterface {
   @Prop() value?: string;
 
   /**
+   * Styles the checkbox as a selection variant that has a larger radius.
+   * While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.
+   * The indeterminate state is not supported here.
+   */
+  @Prop() inoSelection?: boolean;
+
+  /**
    * Marks this element as indeterminate (**unmanaged**)
    */
   @Prop() indeterminate?: boolean;
 
   @Watch('indeterminate')
   indeterminateChanged(newValue: boolean) {
-    this.checkboxInstance.indeterminate = newValue;
+    if (!this.inoSelection) {
+      this.checkboxInstance.indeterminate = newValue;
+    }
   }
 
   private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
@@ -63,7 +73,7 @@ export class Checkbox implements ComponentInterface {
     this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.checkboxInstance;
 
-    if (this.indeterminate) {
+    if (this.indeterminate && !this.inoSelection) {
       this.checkboxInstance.indeterminate = true;
     }
   }
@@ -82,10 +92,16 @@ export class Checkbox implements ComponentInterface {
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(!this.checked);
     e.stopPropagation();
-  }
+  };
 
   render() {
     const { el, name, checked, value, disabled } = this;
+
+    const checkboxClasses = classNames({
+      'mdc-checkbox': true,
+      'mdc-checkbox--disabled': disabled,
+      'ino-checkbox-selection': this.inoSelection
+    });
 
     renderHiddenInput(el, name, (checked ? value : ''), disabled);
 
@@ -93,7 +109,7 @@ export class Checkbox implements ComponentInterface {
       <Host>
         <div class="mdc-form-field">
           <div
-            class={`mdc-checkbox ${disabled && 'mdc-checkbox--disabled'}`}
+            class={checkboxClasses}
           >
             <input
               type="checkbox"

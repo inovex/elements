@@ -98,6 +98,10 @@ export namespace Components {
          */
         "indeterminate"?: boolean;
         /**
+          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
+         */
+        "inoSelection"?: boolean;
+        /**
           * The name of this element.
          */
         "name"?: string;
@@ -1319,6 +1323,10 @@ declare namespace LocalJSX {
           * Marks this element as indeterminate (**unmanaged**)
          */
         "indeterminate"?: boolean;
+        /**
+          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
+         */
+        "inoSelection"?: boolean;
         /**
           * The name of this element.
          */
