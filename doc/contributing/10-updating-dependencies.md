@@ -21,3 +21,17 @@ In order to get the most mature and stable version, we have to update the depend
    - `typescript: update to typescript 3.7.2`
    - `jest: bump jest versions to fix types`
 11. Repeat step 2) - 7) until you reached the latest version of `@stencil/core`.
+
+## How to update the material web components
+
+1. Visit the [material-components-web github page](https://github.com/material-components/material-components-web) 
+   and open the [CHANGELOG](https://github.com/material-components/material-components-web/releases)
+2. Search for the currently used material-components-web version in the `CHANGELOG`, e.g. `5.0.0`
+3. If a new version is available, open the `package.json` located in the elements package directory and replace 
+   the current version of **every** material component with the next minor version, e.g. `5.1.0`.
+4. Run `yarn install` in the root directory
+5. Run `yarn start` to check if the build succeeds and the Storybook opens in the browser.
+6. Go through every component and check the `CHANGELOG` for any changes. Adjust the component accordingly and
+   make sure that the component works as intended, the styles have not been altered by the upgrade, and that
+   all component tests pass.
+7. Repeat steps 2) - 6) until you have reached the latest version.

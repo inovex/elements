@@ -1,6 +1,7 @@
-@import '../styles/colors';
-@import '../styles/fonts';
-@import '@material/button/mdc-button';
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use 'styles/colors';
+@use 'styles/fonts';
 
 $left-segment-border: 0 0 0 24px;
 $right-segment-border: 0 24px 24px 0;
@@ -18,18 +19,18 @@ ino-segment-group ino-segment-button {
   }
 
   &:first-child button {
-      @include mdc-button-shape-radius($left-segment-border);
+      @include button.shape-radius($left-segment-border);
   }
 
   &:last-child button {
-    @include mdc-button-shape-radius($right-segment-border);
+    @include button.shape-radius($right-segment-border);
   }
 
   &:hover, &:active, &[checked] {
     button {
       border-right: 1px solid;
     }
-    
+
     & + ino-segment-button {
       button {
         border-left: none;

@@ -1,33 +1,34 @@
-@import '@material/chips/mdc-chips';
-@import 'styles/colors.scss';
+@use '@material/chips/mdc-chips';
+@use '@material/chips';
+@use 'styles/colors';
 
-$default-chip-color: lighten(ino-color(primary), 36.5%);
+$default-chip-color: lighten(colors.ino-color(primary), 36.5%);
 
 ino-chip {
   display: inline-block;
 
   .mdc-chip {
-    @include mdc-chip-fill-color-accessible($default-chip-color);
+    @include chips.fill-color-accessible($default-chip-color);
   }
 
   // Generate ino-color-scheme classes
-  @each $color-name, $map in $ino-color-scheme {
+  @each $color-name, $map in colors.$ino-color-scheme {
     &[ino-color-scheme='#{$color-name}'] {
       .mdc-chip {
-        @include mdc-chip-fill-color-accessible(map-get($map, base));
+        @include chips.fill-color-accessible(map-get($map, base));
       }
 
       // Set outline color
       &[ino-fill='outline'] .mdc-chip {
-        @include mdc-chip-outline-color(map-get($map, base));
+        @include chips.outline-color(map-get($map, base));
       }
     }
   }
 
   // Set outline color
   &[ino-fill='outline'] .mdc-chip {
-    @include mdc-chip-fill-color-accessible(white);
-    @include mdc-chip-outline(1px, solid, $default-chip-color);
+    @include chips.fill-color-accessible(white);
+    @include chips.outline(1px, solid, $default-chip-color);
   }
 
   .mdc-chip__text {

@@ -1,6 +1,7 @@
-@import '../styles/fonts';
-@import '../styles/mixins';
-@import '@material/snackbar/mdc-snackbar';
+@use '@material/snackbar/mdc-snackbar';
+@use 'styles/fonts';
+@use 'styles/colors';
+@use 'styles/mixins';
 
 ino-snackbar {
 
@@ -9,7 +10,7 @@ ino-snackbar {
   }
 
   .mdc-snackbar__surface {
-    background-color: $primary-contrast;
+    background-color: colors.$primary-contrast;
     padding: 16px;
     display: flex;
     align-items: stretch;
@@ -24,8 +25,8 @@ ino-snackbar {
 
     .mdc-snackbar__label {
       display: inline;
-      color: ino-color(dark);
-      @include ino-font-size(s);
+      color: colors.ino-color(dark);
+      @include fonts.ino-font-size(s);
       word-break: break-all;
       flex-grow: 3;
       max-width: 400px;
@@ -45,7 +46,7 @@ ino-snackbar {
   &:not([ino-action-text]), &[ino-action-text=""] {
 
     .mdc-snackbar__surface {
-      background-color: lighten($primary-light, 5%);
+      background-color: lighten(colors.$primary-light, 5%);
 
       .mdc-snackbar__label {
         color: white;

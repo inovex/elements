@@ -1,6 +1,7 @@
-@import '../styles/colors';
-@import '../styles/fonts';
-@import '@material/button/mdc-button';
+@use '@material/button/mdc-button';
+@use '@material/button';
+@use 'styles/colors';
+@use 'styles/fonts';
 
 // Borders
 $edged-border: 0;
@@ -17,12 +18,12 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 
 ino-segment-button {
   .mdc-button {
-    @include ino-font($size: s, $weight: none);
+    @include fonts.ino-font($size: s, $weight: none);
     letter-spacing: 1.5px;
     text-align: center;
 
-    @include mdc-button-shape-radius($edged-border);
-    @include mdc-button-container-fill-color(#fff);
+    @include button.shape-radius($edged-border);
+    @include button.container-fill-color(#fff);
     margin: 0;
 
     &:after, &:before {
@@ -31,29 +32,29 @@ ino-segment-button {
   }
 
   .mdc-button--outlined {
-    @include mdc-button-outline-width(1px);
-    @include mdc-button-outline-color(ino-color(light, base));
-    @include mdc-button-ink-color(ino-color(light, dark));
+    @include button.outline-width(1px);
+    @include button.outline-color(colors.ino-color(light, base));
+    @include button.ink-color(colors.ino-color(light, dark));
 
     &:disabled {
-      @include mdc-button-outline-color(ino-color(dark, base));
-      @include mdc-button-ink-color(ino-color(light, base));
+      @include button.outline-color(colors.ino-color(dark, base));
+      @include button.ink-color(colors.ino-color(light, base));
     }
 
     &:hover{
-      @include mdc-button-outline-color(ino-color(primary, light));
-      @include mdc-button-ink-color(ino-color(primary, light));
+      @include button.outline-color(colors.ino-color(primary, light));
+      @include button.ink-color(colors.ino-color(primary, light));
       box-shadow: $small-shadow;
     }
   }
 
   .ino-segment-button--active, .ino-segment-button--active:hover {
-    @include mdc-button-outline-color(ino-color(primary, dark));
-    @include mdc-button-ink-color(ino-color(primary, dark));
+    @include button.outline-color(colors.ino-color(primary, dark));
+    @include button.ink-color(colors.ino-color(primary, dark));
     box-shadow: $big-shadow;
   }
 
   .ino-segment-button--dense {
-    @include mdc-button-density(-1);
+    @include button.density(-1);
   }
 }

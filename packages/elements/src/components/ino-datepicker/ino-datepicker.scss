@@ -1,4 +1,5 @@
-@import 'styles/fonts.scss';
+@use 'styles/fonts';
+@use 'styles/colors';
 
 ino-datepicker {
   display: block;
@@ -7,7 +8,7 @@ ino-datepicker {
     width: 100%;
   }
 
-  @include ino-font(sans-serif, m, regular);
+  @include fonts.ino-font(sans-serif, m, regular);
 
   .mdc-text-field--with-leading-icon .mdc-text-field__icon,
   .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
@@ -17,10 +18,10 @@ ino-datepicker {
 
 // Customize flatpickr styles
 
-$hover-color: lighten(ino-color(primary), 36.5%);
+$hover-color: lighten(colors.ino-color(primary), 36.5%);
 
 .flatpickr-calendar {
-  @include ino-font($size: xs);
+  @include fonts.ino-font($size: xs);
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
@@ -38,7 +39,7 @@ $hover-color: lighten(ino-color(primary), 36.5%);
   }
 
   input {
-    @include ino-font($size: s);
+    @include fonts.ino-font($size: s);
   }
 
   .flatpickr-innerContainer {
@@ -52,21 +53,21 @@ $hover-color: lighten(ino-color(primary), 36.5%);
       }
 
       &.today:not(.selected) {
-        color: ino-color(primary);
-        @include ino-font-weight(semibold);
+        color: colors.ino-color(primary);
+        @include fonts.ino-font-weight(semibold);
       }
 
       &.selected {
-        background: ino-color(primary);
+        background: colors.ino-color(primary);
         box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
         &:hover {
-          background: ino-color(primary);
+          background: colors.ino-color(primary);
         }
       }
 
       &.endRange, &.endRange:hover {
-        background-color: ino-color(primary);
+        background-color: colors.ino-color(primary);
       }
     }
   }
@@ -85,7 +86,7 @@ $hover-color: lighten(ino-color(primary), 36.5%);
       border-radius: 20px;
 
       &.selected {
-        background-color: ino-color(primary);
+        background-color: colors.ino-color(primary);
         color: white;
         box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.30), 0 8px 24px 0 rgba(61, 214, 245, 0.14);
       }
@@ -101,7 +102,7 @@ $hover-color: lighten(ino-color(primary), 36.5%);
 
     .flatpickr-month {
       .cur-month, .numInput {
-        @include ino-font-weight(regular);
+        @include fonts.ino-font-weight(regular);
       }
     }
 
@@ -123,18 +124,18 @@ $hover-color: lighten(ino-color(primary), 36.5%);
       position: relative;
 
       svg {
-        fill: ino-color(primary);
+        fill: colors.ino-color(primary);
         height: 11px;
         width: 11px;
 
         path {
-          stroke: ino-color(primary);
+          stroke: colors.ino-color(primary);
           stroke-width: 1px;
         }
       }
 
       &:hover > svg {
-        fill: ino-color(primary);
+        fill: colors.ino-color(primary);
       }
     }
   }

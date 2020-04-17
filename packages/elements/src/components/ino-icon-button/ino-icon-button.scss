@@ -1,10 +1,12 @@
-@import '@material/icon-button/mdc-icon-button';
+@use '@material/icon-button/mdc-icon-button';
+@use '@material/icon-button';
+@use 'styles/colors';
 
 ino-icon-button {
   // Generate the different ino-color-schemes buttons
-  @each $color-name, $map in $ino-color-scheme {
+  @each $color-name, $map in colors.$ino-color-scheme {
     &[ino-color-scheme='#{$color-name}'] button {
-      @include mdc-icon-button-ink-color(map-get($map, base));
+      @include icon-button.ink-color(map-get($map, base));
     }
   }
 }

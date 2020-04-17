@@ -19,6 +19,7 @@ module.exports = ({config}) => {
     }, {
         loader: "sass-loader",
         options: {
+          implementation: require('sass'),
           includePaths: [
             path.resolve(__dirname, "../src/stories"),
             path.resolve(__dirname, "../../core/src/components"),

@@ -1,7 +1,7 @@
-@import 'styles/tooltip.scss';
+@use 'styles/tooltip';
 
 ino-tooltip {
-  @include tooltip(#000, #ccc);
+  @include tooltip.tooltip(#000, #ccc);
 
   .ino-tooltip__composer {
     border-radius: 3px;

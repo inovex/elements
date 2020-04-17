@@ -40,7 +40,7 @@ class MyComponent extends Component {
       >
         You can click me!
       </InoSegmentButton>
-    );
+    )
   }
 }
 
