@@ -1,8 +1,9 @@
-@import '../styles/colors';
-@import '../styles/fonts';
-@import '../ino-spinner/styles/circle.mixins.scss';
-@import '../styles/mixins';
-@import '@material/button/mdc-button';
+@use "@material/button/mdc-button";
+@use "@material/button";
+@use 'styles/colors';
+@use 'styles/fonts';
+@use '../ino-spinner/styles/circle.mixins.scss' as spinner;
+@use 'styles/mixins';
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
@@ -17,23 +18,38 @@ $edged-border: 0 24px 24px 24px;
 @mixin setButtonColors($color-map) {
 
   .mdc-button {
+    @include button.ink-color(map-get($color-map, base));
+
+    &:hover {
+      @include button.container-fill-color(rgba(map-get($color-map, base), 0.1));
+    }
+    &:active {
+      @include button.container-fill-color(rgba(map-get($color-map, base), 0.25));
+    }
 
     &.mdc-button--raised,
     &.mdc-button--unelevated {
-      @include mdc-button-filled-accessible(map-get($color-map, base));
-      @include mdc-button-ink-color(map-get($color-map, contrast));
+      @include button.filled-accessible(map-get($color-map, base));
+      @include button.ink-color(map-get($color-map, contrast));
 
       .ino-spinner__composer {
-        @include circle-color(map-get($color-map, contrast));
+        @include spinner.circle-color(map-get($color-map, contrast));
+      }
+
+      &:hover {
+        @include button.filled-accessible(rgba(map-get($color-map, base), 0.85));
+      }
+      &:active {
+        @include button.container-fill-color(rgba(map-get($color-map, base), 0.75));
       }
     }
 
     &.mdc-button--outlined {
-      @include mdc-button-outline-color(map-get($color-map, base));
-      @include mdc-button-ink-color(map-get($color-map, dark));
+      @include button.outline-color(map-get($color-map, base));
+      @include button.ink-color(map-get($color-map, dark));
 
       .ino-spinner__composer {
-        @include circle-color(map-get($color-map, base));
+        @include spinner.circle-color(map-get($color-map, base));
       }
     }
   }
@@ -44,11 +60,11 @@ $edged-border: 0 24px 24px 24px;
 
   // Shared Attributes
   .mdc-button {
-    @include ino-font($size: s, $weight: semibold);
+    @include fonts.ino-font($size: s, $weight: semibold);
     letter-spacing: 1.5px;
     text-align: center;
-    @include mdc-button-shape-radius($edged-border);
-    @include animateBorderRadius(
+    @include button.shape-radius($edged-border);
+    @include mixins.animateBorderRadius(
         'round-to-edge',
         $round-border,
         $edged-border,
@@ -57,13 +73,13 @@ $edged-border: 0 24px 24px 24px;
 
     &:active,
     &:hover {
-      @include animateBorderRadius(
+      @include mixins.animateBorderRadius(
           'edge-to-round',
           $edged-border,
           $round-border,
           0.15s
       );
-      @include mdc-button-shape-radius($round-border);
+      @include button.shape-radius($round-border);
     }
 
     &.mdc-button--raised {
@@ -80,22 +96,22 @@ $edged-border: 0 24px 24px 24px;
 
     &.mdc-button--raised:disabled,
     &.mdc-button--unelevated:disabled {
-      background-color: ino-color(light, dark);
+      background-color: colors.ino-color(light, dark);
       color: white;
     }
 
     &.mdc-button--outlined {
-      @include mdc-button-outline-width(2px);
+      @include button.outline-width(2px);
 
       &:disabled {
-        @include mdc-button-outline-color(ino-color(dark, base));
-        @include mdc-button-ink-color(ino-color(light, base));
+        @include button.disabled-outline-color(colors.ino-color(light, base));
+        @include button.ink-color(colors.ino-color(light, base));
       }
     }
   }
 
   .ino-button--dense {
-    @include mdc-button-density(-1);
+    @include button.density(-1);
   }
 }
 
@@ -110,10 +126,14 @@ $edged-border: 0 24px 24px 24px;
 }
 
 // set default when no color scheme is provided
-@include setButtonColors(map-get($ino-color-scheme, primary));
+@include setButtonColors(map-get(colors.$ino-color-scheme, primary));
 
-@each $color-name, $map in $ino-color-scheme {
+@each $color-name, $map in colors.$ino-color-scheme {
   :host([ino-color-scheme="#{$color-name}"]) {
     @include setButtonColors($map);
   }
+}
+
+.ino-button--dense {
+  @include button.density(-1);
 }

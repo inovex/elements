@@ -1,9 +1,33 @@
-@import "@material/list/mdc-list";
+@use "@material/list/mdc-list";
+@use 'styles/colors';
 
 ino-option {
 
   .mdc-list-item--disabled {
     pointer-events: none;
     opacity: 0.5;
+  }
+
+  .mdc-list-item {
+    &.mdc-list-item--selected, &.mdc-list-item--activated {
+      background-color: rgba(colors.ino-color(primary, base), 0.05);
+      color: colors.$primary;
+
+      &::before, &::after {
+        display: none;
+      }
+
+      &:hover {
+        background-color: rgba(colors.ino-color(primary, base), 0.1);
+      }
+
+      &:focus {
+        background-color: rgba(colors.ino-color(primary, base), 0.15);
+      }
+
+      &:active {
+        background-color: rgba(colors.ino-color(primary, base), 0.3);
+      }
+    }
   }
 }

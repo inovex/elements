@@ -1,5 +1,6 @@
-@import '@material/switch/mdc-switch';
-@import '../styles/colors';
+@use '@material/switch/mdc-switch';
+@use '@material/switch';
+@use 'styles/colors';
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
@@ -9,8 +10,8 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 
 @mixin setColors($map, $selector: "") {
   #{$selector} .mdc-switch {
-    @include mdc-switch-toggled-on-color(map-get($map, base));
-    @include mdc-switch-toggled-on-thumb-color(map-get($map, base));
+    @include switch.toggled-on-color(map-get($map, base));
+    @include switch.toggled-on-thumb-color(map-get($map, base));
 
     &:hover {
       .mdc-switch__thumb {
@@ -46,11 +47,11 @@ label {
 
 // Default option
 :not([ino-color-scheme]) {
-  @include setColors(map-get($ino-color-scheme, primary));
+  @include setColors(map-get(colors.$ino-color-scheme, primary));
 }
 
 // Generate ino-color-scheme classes
-@each $color-name, $map in $ino-color-scheme {
+@each $color-name, $map in colors.$ino-color-scheme {
   $selector: '[ino-color-scheme="#{$color-name}"]';
 
   @include setColors($map, $selector);
@@ -61,14 +62,14 @@ ino-switch {
     top: -3px;
 
     &:not(.mdc-switch--checked) .mdc-switch__thumb {
-      border-color: ino-color(light, base);
+      border-color: colors.ino-color(light, base);
     }
 
     &.mdc-switch--disabled {
-      @include mdc-switch-toggled-on-color($light);
-      @include mdc-switch-toggled-on-thumb-color($light);
-      @include mdc-switch-toggled-off-color($light);
-      @include mdc-switch-toggled-off-thumb-color($light);
+      @include switch.toggled-on-color(colors.$light);
+      @include switch.toggled-on-thumb-color(colors.$light);
+      @include switch.toggled-off-color(colors.$light);
+      @include switch.toggled-off-thumb-color(colors.$light);
     }
   }
 

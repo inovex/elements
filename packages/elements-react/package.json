@@ -4,6 +4,7 @@
   "description": "This is the react package of the integration layer for  @inovex/elements.",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
+    "Alexander Gerlach <agerlach@inovex.de",
     "Arne Maier <amaier@inovex.de>",
     "Daniel Hieber <dhieber@inovex.de>",
     "Filipe Santos Correa <filipe.santoscorrea@inovex.de>",

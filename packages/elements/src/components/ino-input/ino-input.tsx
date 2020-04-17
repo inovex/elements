@@ -403,7 +403,7 @@ export class Input implements ComponentInterface {
       <Host>
         <div class={classTextfield}>
           {this.inoIconLeading &&
-          <span class={'mdc-text-field__icon icon-leading'}>
+          <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
             <slot name={'ino-icon-leading'}></slot>
           </span>
           }
@@ -433,7 +433,7 @@ export class Input implements ComponentInterface {
           <slot/>
           {
             this.inoUnit &&
-            <span class={'mdc-text-field__icon unit'}>{this.inoUnit}</span>
+            <span class={'mdc-text-field__icon unit mdc-text-field__icon--trailing'}>{this.inoUnit}</span>
           }
           <ino-label
             ino-outline={this.inoOutline}
@@ -443,7 +443,7 @@ export class Input implements ComponentInterface {
             ino-disabled={this.disabled}
           />
           {this.inoIconTrailing &&
-          <span class={'mdc-text-field__icon icon-trailing'}>
+          <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
             <slot name={'ino-icon-trailing'}></slot>
           </span>
           }

@@ -1,10 +1,10 @@
-@import 'styles/variables.scss';
-@import 'styles/colors.scss';
+@use 'styles/variables';
+@use 'styles/colors';
 
 // Import the different spinner styles
-@import 'ino-spinner/styles/tile.mixins.scss';
-@import 'ino-spinner/styles/bounce.mixins.scss';
-@import 'ino-spinner/styles/circle.mixins.scss';
+@use './styles/bounce.mixins' as bounce;
+@use './styles/circle.mixins' as circle;
+@use './styles/tile.mixins' as tile;
 
 ino-spinner {
   // Styles for all spinners
@@ -17,28 +17,28 @@ ino-spinner {
   // Include different styles depending on the ino-type attribute
   &:not([ino-type]) .ino-spinner__composer,
   &[ino-type='tile'] .ino-spinner__composer {
-    @include tile();
+    @include tile.tile();
   }
   &[ino-type='bounce'] .ino-spinner__composer {
-    @include bounce;
+    @include bounce.bounce;
   }
   &[ino-type='circle'] .ino-spinner__composer {
-    @include circle;
+    @include circle.circle;
   }
 
   // Generate ino-color-scheme classes
-  @each $color-name, $map in $ino-color-scheme {
+  @each $color-name, $map in colors.$ino-color-scheme {
     &[ino-color-scheme='#{$color-name}'] {
       // Generate for each color class and type the color styles
       &:not([ino-type]) .ino-spinner__composer,
       &[ino-type='tile'] .ino-spinner__composer {
-        @include tile-color(map-get($map, base));
+        @include tile.tile-color(map-get($map, base));
       }
       &[ino-type='bounce'] .ino-spinner__composer {
-        @include bounce-color(map-get($map, base));
+        @include bounce.bounce-color(map-get($map, base));
       }
       &[ino-type='circle'] .ino-spinner__composer {
-        @include circle-color(map-get($map, base));
+        @include circle.circle-color(map-get($map, base));
       }
     }
   }
@@ -46,7 +46,7 @@ ino-spinner {
   // Modal
   &[ino-modal]:not([ino-modal='false']) {
     position: fixed;
-    z-index: $z-index-spinner;
+    z-index: variables.$z-index-spinner;
     left: 0;
     top: 0;
     width: 100%;

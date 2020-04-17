@@ -1,4 +1,4 @@
-@import 'src/components/styles/fonts';
+@use 'styles/fonts';
 
 $header-color: #525368;
 $box-color: rgba(0, 0, 0, 0.05);
@@ -11,7 +11,7 @@ $box-color: rgba(0, 0, 0, 0.05);
 
   p {
     font-size: 13px;
-    @include ino-font-weight(semibold);
+    @include fonts.ino-font-weight(semibold);
     color: $header-color;
     white-space: nowrap;
     display: table-cell;

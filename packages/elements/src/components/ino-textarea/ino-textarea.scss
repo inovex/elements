@@ -1,9 +1,16 @@
-@import '@material/textfield/mdc-text-field';
+@use '@material/textfield/mdc-text-field';
+@use '@material/textfield';
+@use 'styles/colors';
 
 ino-textarea {
   display: block;
 
-  .mdc-text-field:hover:not(:focus-within) {
-    @include mdc-text-field-textarea-stroke-color(black);
+  .mdc-text-field {
+    @include textfield.focused-outline-color(colors.ino-color(primary, base));
+
+    &.mdc-text-field--focused:not(.mdc-text-field--invalid) {
+      @include textfield.caret-color(colors.ino-color(primary, base));
+      @include textfield.label-color(colors.ino-color(primary, base));
+    }
   }
 }

@@ -1,5 +1,8 @@
-@import '@material/card/mdc-card';
-@import '@material/typography/mdc-typography';
+@use '@material/card/mdc-card';
+@use '@material/typography/mdc-typography';
+@use '@material/typography' as mdc;
+@use '@material/theme';
+@use 'styles/colors';
 
 :host {
   display: block;
@@ -24,12 +27,12 @@
         );
 
         .ino-card__header-title {
-          @include mdc-theme-prop(color, #fff);
-          @include mdc-typography(headline6);
+          @include theme.prop(color, #fff);
+          @include mdc.typography(headline6);
         }
         .ino-card__header-subtitle {
-          @include mdc-theme-prop(color, #fff);
-          @include mdc-typography(subtitle2);
+          @include theme.prop(color, #fff);
+          @include mdc.typography(subtitle2);
         }
       }
     }
@@ -59,22 +62,22 @@
 
   .ino-card__header {
     .ino-card__header-title {
-      @include mdc-typography(headline6);
+      @include mdc.typography(headline6);
     }
     .ino-card__header-subtitle {
-      @include mdc-theme-prop(color, text-secondary-on-background);
-      @include mdc-typography(subtitle2);
+      @include theme.prop(color, text-secondary-on-background);
+      @include mdc.typography(subtitle2);
     }
     padding-bottom: 1em;
   }
 
   .ino-card__content {
-    @include mdc-typography(body2);
+    @include mdc.typography(body2);
   }
 }
 
 // Generate ino-color-scheme classes
-@each $color-name, $map in $ino-color-scheme {
+@each $color-name, $map in colors.$ino-color-scheme {
   :host([ino-color-scheme='#{$color-name}']) {
     .ino-card__composer, .mdc-card__actions {
       background-color: map-get($map, base);

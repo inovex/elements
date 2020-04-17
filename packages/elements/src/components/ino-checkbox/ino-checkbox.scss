@@ -1,20 +1,22 @@
-@import '@material/form-field/mdc-form-field';
-@import '@material/checkbox/mdc-checkbox';
+@use '@material/form-field/mdc-form-field';
+@use '@material/checkbox/mdc-checkbox';
+@use '@material/checkbox';
+@use 'styles/colors';
 
-$primary-color: ino-color(primary);
-$primary-light-color: ino-color(primary, light);
-$primary-dark-color: ino-color(primary, dark);
-$unchecked-container-color: ino-color(dark, light);
+$primary-color: colors.ino-color(primary);
+$primary-light-color: colors.ino-color(primary, light);
+$primary-dark-color: colors.ino-color(primary, dark);
+$unchecked-container-color: colors.ino-color(dark, light);
 
-$text-disabled-color: ino-color(dark);
-$background-disabled-color: ino-color(light, light);
-$checkmark-disabled-color: ino-color(light);
+$text-disabled-color: colors.ino-color(dark);
+$background-disabled-color: colors.ino-color(light, light);
+$checkmark-disabled-color: colors.ino-color(light);
 
 
 :host {
   .mdc-checkbox {
-    @include mdc-checkbox-container-colors($unchecked-container-color, white, $primary-color, $primary-color);
-    @include mdc-checkbox-ink-color(white);
+    @include checkbox.container-colors($unchecked-container-color, white, $primary-color, $primary-color);
+    @include checkbox.ink-color(white);
 
     &:before, &:after {
       display: none; // Remove ripple effect
@@ -49,7 +51,7 @@ $checkmark-disabled-color: ino-color(light);
 
 :host(:hover) {
   .mdc-checkbox:not(.mdc-checkbox--disabled) {
-    @include mdc-checkbox-container-colors($primary-light-color, white, $primary-light-color, $primary-light-color);
+    @include checkbox.container-colors($primary-light-color, white, $primary-light-color, $primary-light-color);
 
     .mdc-checkbox__background {
       box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
@@ -60,7 +62,7 @@ $checkmark-disabled-color: ino-color(light);
 }
 
 :host(:active) .mdc-checkbox:not(.checked), :host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
-  @include mdc-checkbox-container-colors($primary-dark-color, white, $primary-dark-color, $primary-dark-color);
+  @include checkbox.container-colors($primary-dark-color, white, $primary-dark-color, $primary-dark-color);
 }
 
 // ino-selection

@@ -1,7 +1,10 @@
-@import '@material/textfield/mdc-text-field';
-@import '@material/textfield/helper-text/mdc-text-field-helper-text';
-@import '@material/textfield/icon/mdc-text-field-icon';
-@import 'styles/fonts.scss';
+@use '@material/textfield/mdc-text-field';
+@use '@material/textfield';
+@use '@material/textfield/icon';
+@use '@material/textfield/helper-text/mdc-text-field-helper-text';
+@use '@material/textfield/icon/mdc-text-field-icon';
+@use 'styles/colors';
+@use 'styles/fonts';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
@@ -9,22 +12,31 @@ $placeholder-color: rgba(0, 0, 0, 0.6);
 ino-input {
   display: block;
 
+  @include icon.icon-core-styles;
+
   & > .ino-input__composer {
     text-align: left;
     width: 100%;
     box-sizing: border-box;
   }
 
-  @include ino-font(sans-serif, m, regular);
+  @include fonts.ino-font(sans-serif, m, regular);
 
 
   &:hover {
-    @include mdc-text-field-fill-color(transparent);
+    @include textfield.fill-color(transparent);
   }
 
   .mdc-text-field {
-    &--focused {
-      @include mdc-text-field-icon-color(ino-color(primary, base));
+
+    @include textfield.focused-outline-color(colors.ino-color(primary, base));
+
+    &--focused:not(.mdc-text-field--invalid) {
+      @include textfield.label-color(colors.ino-color(primary, base));
+      @include textfield.caret-color(colors.ino-color(primary, base));
+      @include textfield.line-ripple-color(colors.ino-color(primary, base));
+      @include icon.leading-icon-color(colors.ino-color(primary, base));
+      @include icon.trailing-icon-color(colors.ino-color(primary, base));
     }
 
     &--disabled {
@@ -48,7 +60,7 @@ ino-input {
     }
 
     &:#{$default-text-field} {
-      @include mdc-text-field-fill-color(transparent);
+      @include textfield.fill-color(transparent);
 
       // change background von greyish to transparent
       &:before {
@@ -80,11 +92,11 @@ ino-input {
         }
       }
 
-      .icon-leading {
+      .mdc-text-field__icon--leading {
         left: 6px;
       }
 
-      .icon-trailing {
+      .mdc-text-field__icon--trailing {
         right: 6px;
       }
 
@@ -96,7 +108,7 @@ ino-input {
 
     .mdc-text-field__icon {
       font-size: 20px;
-      top: 65%;
+      top: 61%;
 
       &.unit {
         font-size: 16px;
