@@ -35,6 +35,7 @@ export const InoListDivider = createReactComponent<JSX.InoListDivider, HTMLInoLi
 export const InoListItem = createReactComponent<JSX.InoListItem, HTMLInoListItemElement>('ino-list-item');
 export const InoMenu = createReactComponent<JSX.InoMenu, HTMLInoMenuElement>('ino-menu');
 export const InoPopover = createReactComponent<JSX.InoPopover, HTMLInoPopoverElement>('ino-popover');
+export const InoOption = createReactComponent<JSX.InoOption, HTMLInoOptionElement>('ino-option');
 export const InoRadio = createReactComponent<JSX.InoRadio, HTMLInoRadioElement>('ino-radio');
 export const InoRadioGroup = createReactComponent<JSX.InoRadioGroup, HTMLInoRadioGroupElement>('ino-radio-group');
 export const InoRange = createReactComponent<JSX.InoRange, HTMLInoRangeElement>('ino-range');
