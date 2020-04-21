@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, h, Listen } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
@@ -38,6 +38,14 @@ export class IconButton implements ComponentInterface {
    * `success`, `warning`, `error`, `light`, `dark`.
    */
   @Prop() inoColorScheme?: ColorScheme = 'primary';
+
+  @Listen('click')
+  clickHandler(e) {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }
 
   componentDidLoad() {
     const nativeElement = this.el.querySelector('.mdc-icon-button');
