@@ -1,52 +1,50 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 
-const INO_TAB_BAR = `<ino-tab-bar id="tab-bar" ino-active-tab="0">
-    <ino-tab id="tab-1" ino-label="Label 1"/>
-    <ino-tab id="tab-2" ino-label="Label 1"/>
-    <ino-tab id="tab-3" ino-label="Label 1"/>
-</ino-tab-bar>`;
+const INO_TAB_BAR = `
+    <ino-tab-bar>
+        <ino-tab></ino-tab>
+    </ino-tab-bar>`;
+const TAB_BAR_SELECTOR = 'ino-tab-bar';
+const TAB_SELECTOR = 'ino-tab-bar ino-tab';
 
 describe('InoTabBar', () => {
 
-  it('should render correctly', async () => {
+  it('should render with default values', async () => {
     const page = await setupPageWithContent(INO_TAB_BAR);
     const tabBar = await page.find('ino-tab-bar');
     expect(tabBar).toBeDefined();
   });
-  // FIXME: Tests are very inconsistent
-  /*
-  it('should render with tab at position 0 being activated by default', async () => {
-    const page = await setupPageWithContent(INO_TAB_BAR);
-    const inoTabOne = await page.waitForSelector('#tab-1 > button.mdc-tab--active', { visible: true, timeout: 2000 });
-    expect(inoTabOne).toBeDefined();
+
+  describe('Properties', () => {
+
+    it('should render with the inoActiveTab property set correctly', async () => {
+      const page = await setupPageWithContent(INO_TAB_BAR);
+      const tabBar = await page.find(TAB_BAR_SELECTOR);
+
+      await tabBar.setAttribute('ino-active-tab', 3);
+      await page.waitForChanges();
+
+      const activeTab = await tabBar.getAttribute('ino-active-tab');
+      expect(activeTab).toBe("3");
+    });
+
   });
 
-  it('should have activated tab two', async () => {
-    const page = await setupPageWithContent(INO_TAB_BAR);
-    const inoTabBar = await page.find('ino-tab-bar');
-    await inoTabBar.setAttribute('ino-active-tab', 1);
-    const inoTabTwo = await page.waitForSelector('#tab-2 > button.mdc-tab--active', { visible: true, timeout: 2000 });
+  describe('Events', () => {
 
-    expect(inoTabTwo).toBeDefined();
+    it('should emit an activeTabChange event upon clicking on ino-tab component', async () => {
+      const page = await setupPageWithContent(INO_TAB_BAR);
+      const tab = await page.find(TAB_SELECTOR);
+      const tabChangeEvent = await page.spyOnEvent('activeTabChange');
+
+      await tab.click();
+      await page.waitForChanges();
+
+      expect(tabChangeEvent).toHaveReceivedEvent();
+      expect(tabChangeEvent).toHaveReceivedEventDetail(0);
+    });
+
   });
 
-  it('should receive event on tab interaction', async () => {
-    const page = await setupPageWithContent(INO_TAB_BAR);
-    const inoTabBar = await page.waitForSelector('#tab-2 > button');
-    const activeTabChanged = await page.spyOnEvent('activeTabChange');
-    await inoTabBar.click();
-
-    expect(activeTabChanged).toHaveReceivedEvent();
-  });
-
-  it('should receive event on tab interaction with 1 as detail', async () => {
-    const page = await setupPageWithContent(INO_TAB_BAR);
-    const inoTabBar = await page.find('#tab-2 > button');
-    const activeTabChanged = await page.spyOnEvent('activeTabChange');
-    await inoTabBar.click();
-
-    expect(activeTabChanged).toHaveReceivedEventDetail(1);
-  });
-   */
 });
