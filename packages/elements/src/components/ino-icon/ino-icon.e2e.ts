@@ -32,6 +32,8 @@ describe('InoIcon', () => {
       const page = await setupPageWithContent(INO_ICON);
       const inoIcon = await page.find(INO_ICON_SELECTOR);
       const clickEvent = await page.spyOnEvent('clickEl');
+
+      await page.waitFor('ino-icon > i');
       const iTag = await page.find('ino-icon > i');
 
       await inoIcon.setAttribute('ino-clickable', true);
@@ -46,6 +48,8 @@ describe('InoIcon', () => {
     it('should not emit a clickEl event if the icon is not clickable', async () => {
       const page = await setupPageWithContent(INO_ICON);
       const clickEvent = await page.spyOnEvent('clickEl');
+
+      await page.waitFor('ino-icon > i');
       const iTag = await page.find('ino-icon > i');
 
       await iTag.click();
