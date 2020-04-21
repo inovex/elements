@@ -1,18 +1,19 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_INPUT = `<ino-input></ino-input>`;
+const INO_INPUT_SELECTOR = 'ino-input';
+const INPUT_SELECTOR = 'ino-input > div > input';
+const DIV_SELECTOR = 'ino-input > div';
 
 describe('InoInput', () => {
-  it('should trigger inoFocus-Event when focused', async () => {
+
+  it('should render with default values', async () => {
     const page = await setupPageWithContent(INO_INPUT);
-    const inoInput = await page.find('ino-input');
-    const input = await page.find('ino-input > div > input');
+    const inoInput = await page.find(INO_INPUT_SELECTOR);
+    const input = await page.find(INPUT_SELECTOR);
 
-    const spyOnFocusEvent = await inoInput.spyOnEvent('inoFocus');
-    await input.focus();
-    await page.waitForChanges();
-
-    expect(spyOnFocusEvent).toHaveReceivedEvent();
+    expect(inoInput).toBeDefined();
+    expect(input).toBeDefined();
   });
 
   // see https://jira.inovex.de/browse/ELEMENTS-419
@@ -29,22 +30,6 @@ describe('InoInput', () => {
     expect(spyOnBlurEvent).toHaveReceivedEvent();
   });
    */
-
-  it('should not bubble inoBlur or inoFocus', async () => {
-    const page = await setupPageWithContent(INO_INPUT);
-    const input = await page.find('ino-input > div > input');
-
-    const spyOnFocusEvent = await page.spyOnEvent('inoFocus');
-    const spyOnBlurEvent = await page.spyOnEvent('inoBlur');
-
-    await input.triggerEvent('blur');
-    await input.triggerEvent('focus');
-
-    await page.waitForChanges();
-
-    expect(spyOnFocusEvent).not.toHaveReceivedEvent();
-    expect(spyOnBlurEvent).not.toHaveReceivedEvent();
-  });
 
   it('should be focused automatically', async () => {
     const emptyElement = {};
@@ -131,5 +116,176 @@ describe('InoInput', () => {
     const page = await setupPageWithContent(`<ino-input ino-error pattern="a" value="a"></ino-input>`);
     const inputContainer = await page.find('ino-input > div');
     expect(inputContainer).toHaveClass('mdc-text-field--invalid');
+  });
+
+  describe('Properties', () => {
+
+    it('should render with autocomplete property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('autocomplete', true);
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('autocomplete');
+    });
+
+    it('should render with disabled property set to true', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('disabled', true);
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('disabled');
+      expect(div).toHaveClass('mdc-text-field--disabled');
+    });
+
+    it('should render with max property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('max', '30');
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('max');
+
+      const inputMinVal = await input.getAttribute('max');
+      expect(inputMinVal).toBe('30');
+    });
+
+    it('should render with min property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('min', '30');
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('min');
+
+      const inputMinVal = await input.getAttribute('min');
+      expect(inputMinVal).toBe('30');
+    });
+
+    it('should render with maxLength property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('maxLength', '5');
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('maxLength');
+
+      const inputMinVal = await input.getAttribute('maxLength');
+      expect(inputMinVal).toBe('5');
+    });
+
+    it('should render with pattern property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      const pattern = '[A-Z]{5}';
+      await inoInput.setAttribute('pattern', pattern);
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('pattern');
+
+      const inputMinVal = await input.getAttribute('pattern');
+      expect(inputMinVal).toBe(pattern);
+    });
+
+    it('should render with placeholder property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      const placeholder = "test";
+      await inoInput.setAttribute('placeholder', placeholder);
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('placeholder');
+
+      const inputMinVal = await input.getAttribute('placeholder');
+      expect(inputMinVal).toBe(placeholder);
+    });
+
+    it('should render with required property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('required', true);
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('required');
+    });
+
+    it('should render with step property', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      await inoInput.setAttribute('step', '2');
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT_SELECTOR);
+      expect(input).toHaveAttribute('step');
+
+      const inputMinVal = await input.getAttribute('step');
+      expect(inputMinVal).toBe('2');
+    });
+  });
+
+  describe('Events', () => {
+
+    it('should trigger inoFocus-Event when focused', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+      const input = await page.find(INPUT_SELECTOR);
+
+      const spyOnFocusEvent = await inoInput.spyOnEvent('inoFocus');
+      await input.focus();
+      await page.waitForChanges();
+
+      expect(spyOnFocusEvent).toHaveReceivedEvent();
+    });
+
+    it('should not bubble inoBlur or inoFocus', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const input = await page.find(INPUT_SELECTOR);
+
+      const spyOnFocusEvent = await page.spyOnEvent('inoFocus');
+      const spyOnBlurEvent = await page.spyOnEvent('inoBlur');
+
+      await input.triggerEvent('blur');
+      await input.triggerEvent('focus');
+
+      await page.waitForChanges();
+
+      expect(spyOnFocusEvent).not.toHaveReceivedEvent();
+      expect(spyOnBlurEvent).not.toHaveReceivedEvent();
+    });
+
+    it('should emit a valueChange event upon changing the input value', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const input = await page.find(INPUT_SELECTOR);
+      const valueChangeEvent = await page.spyOnEvent('valueChange');
+
+      await input.type('5');
+      await page.waitForChanges();
+
+      expect(valueChangeEvent).toHaveReceivedEvent();
+      expect(valueChangeEvent).toHaveReceivedEventDetail('5');
+    });
+
+    it('should not emit a change or input event upon changing the input value', async () => {
+      const page = await setupPageWithContent(INO_INPUT);
+      const input = await page.find(INPUT_SELECTOR);
+      const changeEvent = await page.spyOnEvent('change');
+      const inputEvent = await page.spyOnEvent('input');
+
+      await input.type('5');
+      await page.waitForChanges();
+
+      expect(changeEvent).not.toHaveReceivedEvent();
+      expect(inputEvent).not.toHaveReceivedEvent();
+    });
   });
 });
