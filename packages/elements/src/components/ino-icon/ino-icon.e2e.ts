@@ -32,14 +32,10 @@ describe('InoIcon', () => {
       const page = await setupPageWithContent(INO_ICON);
       const inoIcon = await page.find(INO_ICON_SELECTOR);
       const clickEvent = await page.spyOnEvent('clickEl');
-
-      await page.waitFor('ino-icon > i');
-      const iTag = await page.find('ino-icon > i');
-
       await inoIcon.setAttribute('ino-clickable', true);
       await page.waitForChanges();
 
-      await iTag.click();
+      await inoIcon.click();
       await page.waitForChanges();
 
       expect(clickEvent).toHaveReceivedEvent();
@@ -48,11 +44,9 @@ describe('InoIcon', () => {
     it('should not emit a clickEl event if the icon is not clickable', async () => {
       const page = await setupPageWithContent(INO_ICON);
       const clickEvent = await page.spyOnEvent('clickEl');
+      const inoIcon = await page.find(INO_ICON_SELECTOR);
 
-      await page.waitFor('ino-icon > i');
-      const iTag = await page.find('ino-icon > i');
-
-      await iTag.click();
+      await inoIcon.click();
       await page.waitForChanges();
 
       expect(clickEvent).not.toHaveReceivedEvent();
