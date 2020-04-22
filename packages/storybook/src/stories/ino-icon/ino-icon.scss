@@ -1,8 +1,17 @@
 .story-icon {
 
-  .customizable-icon svg {
-    height: 40px;
-    width: 40px;
+  .customizable-icon, .preview-icon {
+    margin: 5px;
+  }
+
+  ino-icon.customizable-icon  {
+    --height: 3em;
+    --width: 3em;
+  }
+
+  ino-icon.preview-icon {
+    --height: 2em;
+    --width: 2em;
   }
 
   .customizable-input {
@@ -20,11 +29,16 @@
       flex-direction: column;
       justify-content: center;
     }
+
+    .flex-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   .mdc-chip-set {
     display: flex;
     justify-content: space-between;
   }
-
 }

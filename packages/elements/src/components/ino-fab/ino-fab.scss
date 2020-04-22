@@ -33,6 +33,10 @@ $extended-edged-borders: (
     &:active, &:after {
       @include fab.container-color(map-get($map, dark));
     }
+
+    ino-icon {
+      --color: #{map-get($map, contrast)};
+    }
   }
 }
 
@@ -77,8 +81,14 @@ ino-fab {
 
   .mdc-fab {
 
-    .mdc-fab__icon {
-      font-size: 35px;
+    ino-icon {
+      --width: 30px;
+      --height: 30px;
+    }
+
+    &.mdc-fab--mini ino-icon {
+      --width: 25px;
+      --height: 25px;
     }
 
     &:not(.mdc-fab--extended), &.mdc-fab--extended {
@@ -93,6 +103,10 @@ ino-fab {
       @include fab.ink-color(white);
       @include fab.container-color(colors.ino-color(dark, light));
       pointer-events: none;
+
+      ino-icon {
+        --color: white;
+      }
     }
   }
 }

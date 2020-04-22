@@ -8,18 +8,24 @@ ino-tab {
   .mdc-tab {
     @include fonts.ino-font(sans-serif, s, regular);
     @include tab.active-text-label-color(colors.$primary);
-    @include tab.active-icon-color(colors.$primary);
     @include tab.active-states-color(colors.$primary);
     @include tab.states-color(colors.$primary);
 
+    ino-icon {
+      --color: buttontext;
+    }
+
+    &.mdc-tab--active ino-icon {
+      --color: #{colors.ino-color(primary, base)}
+    }
+
     .mdc-tab-indicator__content--underline {
-      border-color: colors.$primary;
+      border-color: colors.ino-color(primary, base);
     }
   }
 
-  .mdc-tab__icon {
-    font-size: 14px;
-    width: 14px;
-    height: 26px;
+  ino-icon {
+    --width: 14px;
+    --height: 26px;
   }
 }

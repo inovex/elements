@@ -22,7 +22,7 @@ storiesOf('<ino-chip-set>', module)
         ino-type="${select('ino-type', ['', 'choice', 'filter'], '')}"
         class="customizable-chip-set"
       >
-        <ino-chip ino-value="1" ino-label="Chip 1" ino-icon="favorite_border" ino-selected></ino-chip>
+        <ino-chip ino-value="1" ino-label="Chip 1" ino-icon="favorite" ino-selected></ino-chip>
         <ino-chip ino-value="2" ino-label="Chip 2"></ino-chip>
         <ino-chip ino-value="3" ino-label="Chip 3"></ino-chip>
       </ino-chip-set>
@@ -58,20 +58,20 @@ storiesOf('<ino-chip-set>', module)
         <ino-chip
           class="customizable-chip"
           ino-color-scheme="${select(
-            'ino-color-scheme',
-            [
-              '',
-              'primary',
-              'secondary',
-              'tertiary',
-              'success',
-              'warning',
-              'error',
-              'light',
-              'dark'
-            ],
-            ''
-          )}"
+      'ino-color-scheme',
+      [
+        '',
+        'primary',
+        'secondary',
+        'tertiary',
+        'success',
+        'warning',
+        'error',
+        'light',
+        'dark'
+      ],
+      ''
+    )}"
           ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
           ino-icon="${text('ino-icon', '')}"
           ino-removable="${boolean('ino-removable', true)}"
@@ -85,8 +85,8 @@ storiesOf('<ino-chip-set>', module)
       <ino-chip-set>
         <ino-chip ino-label="Default"></ino-chip>
         <ino-chip ino-color-scheme="primary" ino-label="Primary"></ino-chip>
-        <ino-chip ino-color-scheme="secondary" ino-removable ino-label="Secondary"></ino-chip>
-        <ino-chip ino-color-scheme="tertiary" ino-icon="users" ino-label="Tertiary"></ino-chip>
+        <ino-chip ino-color-scheme="secondary" ino-label="Secondary"></ino-chip>
+        <ino-chip ino-color-scheme="tertiary" ino-label="Tertiary"></ino-chip>
         <ino-chip ino-color-scheme="success" ino-label="Success"></ino-chip>
         <ino-chip ino-color-scheme="warning" ino-label="Warning"></ino-chip>
         <ino-chip ino-color-scheme="error" ino-label="Error"></ino-chip>
@@ -98,6 +98,14 @@ storiesOf('<ino-chip-set>', module)
       <h4>Outline</h4>
       <ino-chip-set>
         <ino-chip ino-fill="outline" ino-label="Outline"></ino-chip>
+        <ino-chip ino-fill="outline" ino-label="Primary" ino-color-scheme="primary"></ino-chip>
+        <ino-chip ino-fill="outline" ino-label="Primary" ino-color-scheme="secondary"></ino-chip>
+      </ino-chip-set>
+
+      <h4>With Icon</h4>
+      <ino-chip-set>
+        <ino-chip ino-color-scheme="primary" ino-label="Primary" ino-icon="close"></ino-chip>
+        <ino-chip ino-color-scheme="secondary" ino-label="Secondary" ino-icon="close"></ino-chip>
       </ino-chip-set>
 
       <h4>Removable and states</h4>

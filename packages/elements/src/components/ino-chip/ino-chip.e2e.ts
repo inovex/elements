@@ -33,7 +33,7 @@ describe('InoChip', () => {
     const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
 
     const inoIcon = await page.find('ino-icon');
-    expect(inoIcon.getAttribute('ino-icon')).toEqual('cancel');
+    expect(inoIcon.getAttribute('ino-icon')).toEqual('close');
     expect(inoIcon.getAttribute('role')).toEqual('button');
   });
 

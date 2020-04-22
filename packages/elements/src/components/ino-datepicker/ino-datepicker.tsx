@@ -400,7 +400,7 @@ export class Datepicker implements ComponentInterface {
             this.valueChange.emit(e.detail);
           }}
         >
-          <ino-icon ino-clickable={!this.disabled} slot={'ino-icon-leading'} ino-icon={'date_range'}></ino-icon>
+          <ino-icon ino-clickable={!this.disabled} slot={'ino-icon-leading'} ino-icon={'calendar'}></ino-icon>
         </ino-input>
       </Host>
     );

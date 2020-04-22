@@ -109,7 +109,7 @@ export class Chip implements ComponentInterface {
           {this.inoRemovable && (
             <ino-icon
               class="mdc-chip__icon mdc-chip__icon--trailing"
-              ino-icon="cancel"
+              ino-icon="close"
               tabindex="0"
               role="button"
               ino-clickable

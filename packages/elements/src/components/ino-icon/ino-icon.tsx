@@ -24,7 +24,7 @@ import { getUrl } from './utils';
   tag: 'ino-icon',
   styleUrl: 'ino-icon.scss',
   assetsDirs: ['icon-assets/SVG'],
-  shadow: false
+  shadow: true
 })
 export class Icon implements ComponentInterface {
   /**
@@ -38,6 +38,11 @@ export class Icon implements ComponentInterface {
   }
 
   /**
+   * Colors the icon in the global secondary color
+   */
+  @Prop() inoColorSecondary?: boolean;
+
+  /**
    * Makes the icon clickable and allows to listen to the `clickEl` event.
    */
   @Prop() inoClickable?: boolean;
@@ -46,6 +51,7 @@ export class Icon implements ComponentInterface {
    * Specifies the exact `src` of an SVG file to use.
    */
   @Prop() src?: string;
+
   /**
    * Event that emits as soon as the user clicks on the icon.
    * The event only emits if the property `inoClickable` is true.

@@ -372,6 +372,10 @@ export namespace Components {
          */
         "inoClickable"?: boolean;
         /**
+          * Colors the icon in the global secondary color
+         */
+        "inoColorSecondary"?: boolean;
+        /**
           * The name of the icon of this element or an URL.
          */
         "inoIcon"?: string;
@@ -1617,6 +1621,10 @@ declare namespace LocalJSX {
           * Makes the icon clickable and allows to listen to the `clickEl` event.
          */
         "inoClickable"?: boolean;
+        /**
+          * Colors the icon in the global secondary color
+         */
+        "inoColorSecondary"?: boolean;
         /**
           * The name of the icon of this element or an URL.
          */

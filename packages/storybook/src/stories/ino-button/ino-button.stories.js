@@ -1,6 +1,8 @@
 import { withActions } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/html';
+import ICONS from '_local-elements/src/components/ino-icon/icons';
+
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -26,7 +28,7 @@ storiesOf('<ino-button>', module)
           'primary'
         )}"
         ino-fill="${select('ino-fill', ['solid', 'outline', 'raised', 'transparent'], 'solid')}"
-        ino-icon="${text('ino-icon', '')}"
+        ino-icon="${select('ino-icon', ICONS, '')}"
         ino-icon-prepend="${boolean('ino-icon-prepend', false)}"
         ino-dense="${boolean('ino-dense', false)}"
         disabled="${boolean('disabled', false)}"
@@ -57,8 +59,8 @@ storiesOf('<ino-button>', module)
 
 
       <h4>With icons</h4>
-      <ino-button ino-icon="equalizer">Button Icon left</ino-button>
-      <ino-button ino-icon="equalizer" ino-icon-prepend>Button icon right</ino-button>
+      <ino-button ino-icon="checkmark">Button Icon left</ino-button>
+      <ino-button ino-icon="checkmark" ino-icon-prepend>Button icon right</ino-button>
 
       <h4>States</h4>
       <ino-button disabled>Disabled button</ino-button>

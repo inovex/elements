@@ -30,12 +30,12 @@ function subscribeToComponentEvents() {
     }
 
     const checkedIcons = ['star', 'favorite'];
-    const uncheckedIcons = checkedIcons.map(icon => `${icon}_border`);
+    const uncheckedIcons = checkedIcons.map(icon => `${icon}`);
 
     const elementIcon = el.getAttribute('ino-icon');
 
     const newIcon = checkedIcons.includes(elementIcon) ?
-      `${elementIcon}_border` : uncheckedIcons.includes(elementIcon) ?
+      `${elementIcon}` : uncheckedIcons.includes(elementIcon) ?
         elementIcon.substring(0, elementIcon.indexOf('_')) : elementIcon;
 
     el.setAttribute('ino-icon', newIcon);
@@ -65,7 +65,7 @@ storiesOf('<ino-icon-button>', module)
         <h4>Customizable icon button</h4>
         <ino-icon-button
           class="custom"
-          ino-icon="${select('ino-icon', ICONS, 'star_border')}"
+          ino-icon="${select('ino-icon', ICONS, 'star')}"
           ino-color-scheme="${select(
             'ino-color-scheme',
             ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
@@ -81,27 +81,27 @@ storiesOf('<ino-icon-button>', module)
       <div class="flex-parent-center">
         <div class="flex-child">
           <h5>Primary</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="primary"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="primary"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Secondary</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="secondary"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="secondary"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Tertiary</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="tertiary"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="tertiary"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Success</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="success"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="success"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Warning</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="warning"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="warning"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Error</h5>
-          <ino-icon-button ino-icon="add" ino-color-scheme="error"></ino-icon-button>
+          <ino-icon-button ino-icon="star" ino-color-scheme="error"></ino-icon-button>
         </div>
       </div>
     </div>

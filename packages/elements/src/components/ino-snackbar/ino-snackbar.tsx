@@ -77,8 +77,9 @@ export class Snackbar implements ComponentInterface {
           <div class="mdc-snackbar__surface">
             <div class="mdc-snackbar__actions">
               <ino-icon-button
-                ino-icon={'close-m'}
+                ino-icon={'close'}
                 class="custom mdc-snackbar__action"
+                ino-small
               >
               </ino-icon-button>
               <div class="mdc-snackbar__label" role="status" aria-live="polite">

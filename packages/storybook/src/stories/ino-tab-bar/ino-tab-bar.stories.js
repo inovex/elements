@@ -51,7 +51,7 @@ storiesOf('<ino-tab-bar>', module)
       'ino-active-tab',
       0
     )}">
-          <ino-tab ino-label="Label1" ino-icon="users" ino-stacked="${boolean(
+          <ino-tab ino-label="Label1" ino-icon="user" ino-stacked="${boolean(
       'ino-stacked',
       false
     )}" ino-indicator-content-width="${boolean(

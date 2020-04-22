@@ -1,6 +1,32 @@
 @use '@material/textfield/icon/mdc-text-field-icon';
+@use '../styles/colors';
 
-ino-icon {
+$icons-with-special-strokes: "call", "copy", "delete", "display", "edit", "help", "partner", "sort_az", "sort_down", "sort_up", "sort_za", "web";
+$icons-with-special-strokes-at-exact-position: "checkmark", "warning";
+
+@mixin adjustIconColors() {
+  stroke: none;
+  fill: var(--color);
+}
+
+:host {
+
+  /**
+    * @prop --width: Width of the icon
+    * @prop --height: Height of the icon
+    * @prop --color: Color of the icon
+   */
+
+  --width: 1em;
+  --height: 1em;
+  --color: var(--ino-global-primary-color, #{colors.ino-color(primary, base)});
+}
+
+:host([ino-color-secondary]):host(:not([ino-color-secondary="false"])) {
+  --color: var(--ino-global-secondary-color, #{colors.ino-color(secondary, base)});
+}
+
+:host {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +43,25 @@ ino-icon {
   }
 
   svg {
-    height: 1em;
-    width: 1em;
-    fill: currentColor;
+    height: var(--height);
+    width: var(--width);
+  }
+
+  // ----------------------------- DEFAULT CASE ----------------------------- //
+  svg path {
+    stroke: var(--color);
+  }
+}
+
+// ----------------------------- SPECIAL CASES ----------------------------- //
+@each $icon in $icons-with-special-strokes {
+  :host([ino-icon=#{$icon}]) svg path {
+    @include adjustIconColors();
+  }
+}
+
+@each $icon in $icons-with-special-strokes-at-exact-position {
+  :host([ino-icon=#{$icon}]) svg path:nth-child(2) {
+    @include adjustIconColors();
   }
 }

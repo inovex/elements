@@ -20,6 +20,10 @@ $edged-border: 0 24px 24px 24px;
   .mdc-button {
     @include button.ink-color(map-get($color-map, base));
 
+    ino-icon {
+      --color: #{map-get($color-map, base)};
+    }
+
     &:hover {
       @include button.container-fill-color(rgba(map-get($color-map, base), 0.1));
     }
@@ -29,6 +33,11 @@ $edged-border: 0 24px 24px 24px;
 
     &.mdc-button--raised,
     &.mdc-button--unelevated {
+
+      ino-icon {
+        --color: #{map-get($color-map, contrast)};
+      }
+
       @include button.filled-accessible(map-get($color-map, base));
       @include button.ink-color(map-get($color-map, contrast));
 
@@ -47,6 +56,10 @@ $edged-border: 0 24px 24px 24px;
     &.mdc-button--outlined {
       @include button.outline-color(map-get($color-map, base));
       @include button.ink-color(map-get($color-map, dark));
+
+      ino-icon {
+        --color: #{map-get($color-map, dark)};
+      }
 
       .ino-spinner__composer {
         @include spinner.circle-color(map-get($color-map, base));
