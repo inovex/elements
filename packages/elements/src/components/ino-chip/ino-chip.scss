@@ -9,6 +9,11 @@ ino-chip {
 
   .mdc-chip {
     @include chips.fill-color-accessible($default-chip-color);
+
+    ino-icon {
+      --width: .75em;
+      --height: .75em;
+    }
   }
 
   // Generate ino-color-scheme classes
@@ -16,11 +21,21 @@ ino-chip {
     &[ino-color-scheme='#{$color-name}'] {
       .mdc-chip {
         @include chips.fill-color-accessible(map-get($map, base));
+        @include chips.ink-color(map-get($map, contrast));
+
+        ino-icon {
+          --color: #{map-get($map, contrast)};
+        }
       }
 
       // Set outline color
       &[ino-fill='outline'] .mdc-chip {
         @include chips.outline-color(map-get($map, base));
+        @include chips.ink-color(map-get($map, dark));
+
+        ino-icon {
+          --color: #{map-get($map, dark)};
+        }
       }
     }
   }

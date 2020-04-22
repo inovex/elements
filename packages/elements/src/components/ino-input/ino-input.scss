@@ -31,21 +31,26 @@ ino-input {
 
     @include textfield.focused-outline-color(colors.ino-color(primary, base));
 
+    ino-icon {
+      --color: #{$placeholder-color};
+    }
+
     &--focused:not(.mdc-text-field--invalid) {
       @include textfield.label-color(colors.ino-color(primary, base));
       @include textfield.caret-color(colors.ino-color(primary, base));
       @include textfield.line-ripple-color(colors.ino-color(primary, base));
-      @include icon.leading-icon-color(colors.ino-color(primary, base));
-      @include icon.trailing-icon-color(colors.ino-color(primary, base));
+
+      ino-icon {
+        --color: #{colors.ino-color(primary, base)};
+      }
+    }
+
+    &--invalid ino-icon {
+      --color: var(--mdc-theme-error, #b00020);
     }
 
     &--disabled {
       background-color: transparent;
-    }
-
-    // Adjustments to the new icon font-size
-    &--outlined .mdc-text-field__icon {
-      bottom: 19px;
     }
 
     & + .mdc-text-field-helper-line {
@@ -92,12 +97,16 @@ ino-input {
         }
       }
 
-      .mdc-text-field__icon--leading {
-        left: 6px;
-      }
+      .mdc-text-field__icon {
+        top: 61%;
 
-      .mdc-text-field__icon--trailing {
-        right: 6px;
+        &--leading {
+          left: 6px;
+        }
+
+        &--trailing {
+          right: 6px;
+        }
       }
 
       .mdc-text-field__input {
@@ -107,8 +116,10 @@ ino-input {
     }
 
     .mdc-text-field__icon {
-      font-size: 20px;
-      top: 61%;
+      ino-icon {
+        --height: 1em;
+        --width: 1em;
+      }
 
       &.unit {
         font-size: 16px;

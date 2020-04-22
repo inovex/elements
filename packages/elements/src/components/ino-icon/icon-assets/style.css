@@ -14,3 +14,19 @@ Single-colored icons can be modified like so:
   color: red;
 }
 ========================================== */
+
+.icon-birthday {
+  width: 0.8076171875em;
+}
+
+.icon-chat {
+  width: 0.9619140625em;
+}
+
+.icon-location {
+  width: 0.73046875em;
+}
+
+.icon-password {
+  width: 0.6923828125em;
+}

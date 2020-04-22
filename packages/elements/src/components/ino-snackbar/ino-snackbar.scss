@@ -52,8 +52,8 @@ ino-snackbar {
         color: white;
       }
 
-      ino-icon-button .mdc-icon-button path {
-        stroke: white;
+      ino-icon-button ino-icon {
+        --color: white;
       }
     }
   }

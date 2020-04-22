@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/html';
 
 import { withActions } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -11,6 +11,7 @@ import './ino-icon.scss';
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 import addons from '@storybook/addons';
 import CoreEvents from '@storybook/core-events';
+import findElementUpwards from '../../core/helpers/findElementUpwards';
 
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
@@ -36,25 +37,68 @@ function subscribeToComponentEvents() {
     el.value = value;
   };
 
+  const chipClickHandler = function(e) {
+    const inoChip = findElementUpwards(e.target, 'ino-chip', 'hydrated');
+
+    if (!inoChip) return;
+
+    copyToClipboard(inoChip.getAttribute('ino-label'));
+  };
+
+  const hideHandler = function(e) {
+    document.body.removeChild(e.target);
+  };
+
+  document.addEventListener('click', chipClickHandler);
   document.addEventListener('valueChange', eventHandler);
+  document.addEventListener('hideEl', hideHandler);
+
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
     document.removeEventListener('valueChange', eventHandler);
+    document.removeEventListener('click', chipClickHandler);
+    document.removeEventListener('hideEl', hideHandler);
   };
 }
 
-const iconChips = ICONS
+function copyToClipboard(text) {
+  function setData(e) {
+    e.preventDefault();
+    e.clipboardData.setData('text/plain', text);
+    document.removeEventListener('copy', setData);
+  };
+  document.addEventListener('copy', setData);
+
+  const snackbar = document.createElement('ino-snackbar');
+
+  try {
+    document.execCommand('copy');
+    snackbar.setAttribute('ino-message', `Successfully copied "${text}" to your clipboard!`);
+  } catch (err) {
+    snackbar.setAttribute('ino-message', `An error occurred while copying the id to your clipboard!`);
+  } finally {
+    document.body.appendChild(snackbar);
+  }
+}
+
+const ICON_IDS = ICONS
   .sort()
-  .filter(name => name.length >= 1)
+  .filter(name => name.length >= 1);
+
+const iconChips = ICON_IDS
   .map(name => /*html*/ `
+             <div>
               <ino-chip
+                id="icon-${name}"
                 ino-label="${name}"
                 ino-icon="${name}"
                 ino-fill="outline"
                >
                </ino-chip>
+               <ino-tooltip ino-for="icon-${name}" ino-label="Click to copy ${name} to your clipboard" ino-placement="top" ino-trigger="hover focus" />
+               </div>
             `
   )
   .join()
@@ -79,25 +123,65 @@ storiesOf('<ino-icon>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-icon">
-      <div class="flex-parent-center">
-        <div class="flex-child">
-            <h4>Customizable Icon</h4>
+    <style>
+      .customizable-icon {
+        --color: ${text('--color', '#3d40f5')};
+      }
+    </style>
+    <div class="flex-parent-center">
+      <div class="flex-child">
+          <h4>Customizable Icon</h4>
+          <div class="flex-icons">
             <ino-icon
               class="customizable-icon"
-              ino-icon="${select('ino-icon', ICONS, 'info')}"
-              ino-clickable="${boolean('ino-clickable', false)}">
+              ino-icon="${select('ino-icon', ICON_IDS, 'info')}"
+              ino-clickable="${boolean('ino-clickable', false)}"
+              ino-color-secondary="false"
+            >
             </ino-icon>
-        </div>
-      </div>
-      <div class="flex-parent-center">
-        <h4 style="margin-bottom: 0">Different Icons</h4>
-        <ino-input class="customizable-input" ino-icon-leading>
-            <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
-        </ino-input>
-        <ino-chip-set>
-          ${iconChips}
-        </ino-chip-set>
-      </div>
+          </div>
     </div>
+    <div class="flex-parent-center">
+      <h4>Primary und Secondary Icons</h4>
+      <div class="flex-icons">
+            <ino-icon
+                id="primary-icon"
+                class="preview-icon"
+                ino-icon="info"
+                ino-color-secondary="false"
+            >
+            </ino-icon>
+            <ino-tooltip
+                ino-for="primary-icon"
+                ino-trigger="hover"
+                ino-label="I'm the default icon"
+                ino-placement="left"
+            ></ino-tooltip>
+            <ino-icon
+                id="secondary-icon"
+                class="preview-icon"
+                ino-icon="info"
+                ino-color-secondary="true"
+            >
+            </ino-icon>
+            <ino-tooltip
+                ino-for="secondary-icon"
+                ino-trigger="hover"
+                ino-label="I'm the secondary icon (ino-color-secondary=true)"
+                ino-placement="right"
+            ></ino-tooltip>
+          </div>
+    </div>
+    <div class="flex-parent-center">
+      <h4 style="margin-bottom: 0">Different Icons</h4>
+      <ino-input class="customizable-input" ino-icon-leading>
+          <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
+      </ino-input>
+      <ino-chip-set>
+        ${iconChips}
+      </ino-chip-set>
+    </div>
+  </div>
+  </div>
   `
   );

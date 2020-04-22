@@ -137,8 +137,8 @@ export class InoHeader {
 }
 
 export declare interface InoIcon extends Components.InoIcon {}
-@ProxyCmp({inputs: ['inoClickable', 'inoIcon', 'src']})
-@Component({ selector: 'ino-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoClickable', 'inoIcon', 'src'] })
+@ProxyCmp({inputs: ['inoClickable', 'inoColorSecondary', 'inoIcon', 'src']})
+@Component({ selector: 'ino-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoClickable', 'inoColorSecondary', 'inoIcon', 'src'] })
 export class InoIcon {
   clickEl!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;

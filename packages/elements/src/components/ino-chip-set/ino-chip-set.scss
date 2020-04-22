@@ -5,7 +5,7 @@
 ino-chip-set {
   .mdc-chip-set--choice {
     .mdc-chip {
-      @include chips.selected-ink-color(colors.$primary);
+      @include chips.selected-ink-color(colors.ino-color(primary, base));
     }
   }
 }

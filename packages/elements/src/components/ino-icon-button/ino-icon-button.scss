@@ -3,10 +3,19 @@
 @use 'styles/colors';
 
 ino-icon-button {
+
+  ino-icon {
+    --color: #{colors.ino-color(primary, base)};
+  }
+
   // Generate the different ino-color-schemes buttons
   @each $color-name, $map in colors.$ino-color-scheme {
-    &[ino-color-scheme='#{$color-name}'] button {
-      @include icon-button.ink-color(map-get($map, base));
+    &[ino-color-scheme='#{$color-name}'] ino-icon {
+      --color: #{map-get($map, base)};
     }
+  }
+
+  button:disabled ino-icon {
+    --color: #{colors.ino-color(dark, light)};
   }
 }

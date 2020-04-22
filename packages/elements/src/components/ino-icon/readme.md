@@ -97,7 +97,7 @@ If you have to add, remove or change an icon:
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
-> at runtime to be located in `icon-assets/`. Please refer to the Storybook documenmtation to get detailed instructions
+> at runtime to be located in `icon-assets/`. Please refer to the Storybook documentation to get detailed instructions
 > how to integrate the icons with Angular, React or plain JavaScript.
 
 ### Custom icons
@@ -109,11 +109,12 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 
 ## Properties
 
-| Property       | Attribute       | Description                                                           | Type      | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------- | --------- | ----------- |
-| `inoClickable` | `ino-clickable` | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
-| `inoIcon`      | `ino-icon`      | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
-| `src`          | `src`           | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
+| Property            | Attribute             | Description                                                           | Type      | Default     |
+| ------------------- | --------------------- | --------------------------------------------------------------------- | --------- | ----------- |
+| `inoClickable`      | `ino-clickable`       | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
+| `inoColorSecondary` | `ino-color-secondary` | Colors the icon in the global secondary color                         | `boolean` | `undefined` |
+| `inoIcon`           | `ino-icon`            | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
+| `src`               | `src`                 | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
 
 
 ## Events
@@ -121,6 +122,15 @@ If you need to use custom icons just hand over the URL to your preferred icon.
 | Event     | Description                                                                                                           | Type               |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
+
+
+## CSS Custom Properties
+
+| Name       | Description        |
+| ---------- | ------------------ |
+| `--color`  | Color of the icon  |
+| `--height` | Height of the icon |
+| `--width`  | Width of the icon  |
 
 
 ## Dependencies
