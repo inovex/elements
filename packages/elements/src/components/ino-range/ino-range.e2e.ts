@@ -60,10 +60,44 @@ describe('InoRange', () => {
 
   describe('Events', () => {
 
-    it('should emit a valueChange event upon receiving MDCSlider:input event', async () => {
+    //FIXME: unable to access and change the value of the MDCSlider instance to invoke valueChange event
+    /*
+    // first attempt
+    it('should emit a valueChange event upon changing the value', async () => {
+      const page = await setupPageWithContent(INO_RANGE);
+      const valueChangeEvent = await page.spyOnEvent('valueChange');
 
+      await page.$eval(MDC_SELECTOR, (elem: any) => {
+        elem.value = "test";
+      });
+      await page.waitForChanges();
 
+      expect(valueChangeEvent).toHaveReceivedEvent();
     });
+
+    // second attempt
+    it('should emit a valueChange event upon changing the value', async () => {
+      const page = await setupPageWithContent(INO_RANGE);
+      const mdcSlider = await page.find(MDC_SELECTOR);
+      const valueChangeEvent = await page.spyOnEvent('valueChange');
+
+      await mdcSlider.triggerEvent('MDCSlider:input');
+      await page.waitForChanges();
+
+      expect(valueChangeEvent).toHaveReceivedEvent();
+    });
+
+    // third attempt
+    it('should emit a valueChange event upon changing the value', async () => {
+      const page = await setupPageWithContent(INO_RANGE);
+      const mdcSlider = await page.find(MDC_SELECTOR);
+      const valueChangeEvent = await page.spyOnEvent('valueChange');
+
+      await mdcSlider.setAttribute('value', 'test');
+      await page.waitForChanges();
+
+      expect(valueChangeEvent).toHaveReceivedEvent();
+    });*/
 
     it('should prevent the propagation of the MDCSlider:change event', async () => {
       const page = await setupPageWithContent(INO_RANGE);
