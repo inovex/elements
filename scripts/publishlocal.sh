@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 #link @inovex/elements dependency
-lerna exec --scope=@inovex/elements-react --scope=@inovex/elements-angular -- yalc add @inovex/elements &&
+lerna exec --scope=@inovex/elements-react --scope=@inovex/elements-angular -- yalc add --link @inovex/elements &&
 
 #build packages
 yarn build &&
@@ -10,7 +10,7 @@ yarn build &&
 #publish all packages (ignore @inovex/elements-angular) to yalc store
 lerna exec --ignore=@inovex/elements-angular -- yalc publish --no-sig &&
 
-#move local .yalc dependency to dist folder 
+#move local .yalc dependency to dist folder
 lerna exec --scope=@inovex/elements-angular -- mv .yalc ../dist &&
 
 #publish ignore @inovex/elements-angular to yalc store
