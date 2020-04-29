@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonType, CardAspectRatio, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
+import { ButtonType, CardAspectRatio, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
 import { Placement, } from "popper.js";
 export namespace Components {
     interface InoButton {
@@ -674,6 +674,34 @@ export namespace Components {
          */
         "inoOpen"?: boolean;
     }
+    interface InoNavDrawer {
+        /**
+          * Side from which the drawer will appear. Possible values: `left` (default), `right`.
+         */
+        "inoAnchor"?: NavDrawerAnchor;
+        /**
+          * Marks this element as open. (**unmanaged**)
+         */
+        "inoOpen"?: boolean;
+        /**
+          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+         */
+        "inoVariant"?: NavDrawerVariant;
+    }
+    interface InoNavItem {
+        /**
+          * Styles the row in an activated style.  Use this for only one item and to mark it as permantently activated.
+         */
+        "inoActivated"?: boolean;
+        /**
+          * Styles the row in a disabled style.
+         */
+        "inoDisabled"?: boolean;
+        /**
+          * The text of this list item.
+         */
+        "inoText"?: string;
+    }
     interface InoOption {
         /**
           * Disables the option
@@ -1122,6 +1150,18 @@ declare global {
         prototype: HTMLInoMenuElement;
         new (): HTMLInoMenuElement;
     };
+    interface HTMLInoNavDrawerElement extends Components.InoNavDrawer, HTMLStencilElement {
+    }
+    var HTMLInoNavDrawerElement: {
+        prototype: HTMLInoNavDrawerElement;
+        new (): HTMLInoNavDrawerElement;
+    };
+    interface HTMLInoNavItemElement extends Components.InoNavItem, HTMLStencilElement {
+    }
+    var HTMLInoNavItemElement: {
+        prototype: HTMLInoNavItemElement;
+        new (): HTMLInoNavItemElement;
+    };
     interface HTMLInoOptionElement extends Components.InoOption, HTMLStencilElement {
     }
     var HTMLInoOptionElement: {
@@ -1240,6 +1280,8 @@ declare global {
         "ino-list-divider": HTMLInoListDividerElement;
         "ino-list-item": HTMLInoListItemElement;
         "ino-menu": HTMLInoMenuElement;
+        "ino-nav-drawer": HTMLInoNavDrawerElement;
+        "ino-nav-item": HTMLInoNavItemElement;
         "ino-option": HTMLInoOptionElement;
         "ino-popover": HTMLInoPopoverElement;
         "ino-radio": HTMLInoRadioElement;
@@ -1972,6 +2014,38 @@ declare namespace LocalJSX {
          */
         "inoOpen"?: boolean;
     }
+    interface InoNavDrawer {
+        /**
+          * Side from which the drawer will appear. Possible values: `left` (default), `right`.
+         */
+        "inoAnchor"?: NavDrawerAnchor;
+        /**
+          * Marks this element as open. (**unmanaged**)
+         */
+        "inoOpen"?: boolean;
+        /**
+          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+         */
+        "inoVariant"?: NavDrawerVariant;
+        /**
+          * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
+         */
+        "onOpenChange"?: (event: CustomEvent<boolean>) => void;
+    }
+    interface InoNavItem {
+        /**
+          * Styles the row in an activated style.  Use this for only one item and to mark it as permantently activated.
+         */
+        "inoActivated"?: boolean;
+        /**
+          * Styles the row in a disabled style.
+         */
+        "inoDisabled"?: boolean;
+        /**
+          * The text of this list item.
+         */
+        "inoText"?: string;
+    }
     interface InoOption {
         /**
           * Disables the option
@@ -2358,6 +2432,8 @@ declare namespace LocalJSX {
         "ino-list-divider": InoListDivider;
         "ino-list-item": InoListItem;
         "ino-menu": InoMenu;
+        "ino-nav-drawer": InoNavDrawer;
+        "ino-nav-item": InoNavItem;
         "ino-option": InoOption;
         "ino-popover": InoPopover;
         "ino-radio": InoRadio;
@@ -2401,6 +2477,8 @@ declare module "@stencil/core" {
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
+            "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
+            "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
             "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;

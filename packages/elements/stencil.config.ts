@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   buildEs5: false, // see https://github.com/ionic-team/stencil/issues/253
+  globalStyle: './src/components/styles/variables.scss',
   enableCache: true,
   namespace: 'inovex-elements',
   outputTargets: [
@@ -11,9 +12,12 @@ export const config: Config = {
     {
       type: 'angular',
       componentCorePackage: '@inovex/elements',
-      directivesProxyFile: '../elements-angular/elements/src/directives/proxies.ts',
-      directivesUtilsFile: '../elements-angular/elements/src/directives/proxies-utils.ts',
-      directivesArrayFile: '../elements-angular/elements/src/directives/proxies-list.ts'
+      directivesProxyFile:
+        '../elements-angular/elements/src/directives/proxies.ts',
+      directivesUtilsFile:
+        '../elements-angular/elements/src/directives/proxies-utils.ts',
+      directivesArrayFile:
+        '../elements-angular/elements/src/directives/proxies-list.ts'
     }
   ],
   plugins: [

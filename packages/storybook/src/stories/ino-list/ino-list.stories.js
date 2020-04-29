@@ -7,6 +7,7 @@ import listReadme from '_local-elements/src/components/ino-list/readme.md';
 import listItemReadme from '_local-elements/src/components/ino-list-item/readme.md';
 import listDividerReadme from '_local-elements/src/components/ino-list-divider/readme.md';
 import listItemControlReadme from '_local-elements/src/components/ino-control-item/readme.md';
+import navItemReadme from '_local-elements/src/components/ino-nav-item/readme.md';
 
 import './ino-list.scss';
 import addons from '@storybook/addons';
@@ -105,7 +106,7 @@ storiesOf('<ino-list>', module)
             <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
         </ino-list-item>
       </ino-list>
-      
+
       <h4>Checkbox</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-text="First text item"> </ino-control-item>
@@ -119,7 +120,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="checkbox" checked ino-text="First text item" ino-secondary-text="Secondary Text"> </ino-control-item>
         <ino-control-item ino-role="checkbox" ino-text="Second text item" ino-secondary-text="Secondary Text"></ino-control-item>
       </ino-list>
-      
+
       <h4>Radio Button</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="radio" name="group-1" ino-text="First text item"> </ino-control-item>
@@ -177,7 +178,7 @@ storiesOf('<ino-list>', module)
             <p slot="ino-trailing">$10.00</p>
         </ino-list-item>
       </ino-list>
-      
+
       <h4>Primary and Leading Slot</h4>
       <ino-list>
         <ino-list-item>
@@ -185,7 +186,7 @@ storiesOf('<ino-list>', module)
             <a slot="ino-primary" href="">Link Element</a>
         </ino-list-item>
       </ino-list>
-      
+
       <h4>Two Lines with Primary and Secondary Slot</h4>
       <ino-list ino-two-lines>
         <ino-list-item>
@@ -249,7 +250,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="checkbox" ino-text="Lorem ipsum dolor sit"></ino-control-item>
         <ino-control-item ino-role="checkbox" ino-text="Lorem ipsum dolor sit"></ino-control-item>
       </ino-list>
-      
+
       <h4>Leading Radio-Button</h4>
       <ino-list>
         <ino-control-item ino-role="radio" name="group-4" ino-text="Lorem ipsum dolor sit"></ino-control-item>
@@ -312,7 +313,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="checkbox" ino-text="Lorem ipsum dolor sit"><p>Some Text</p></ino-control-item>
         <ino-control-item ino-role="checkbox" ino-text="Lorem ipsum dolor sit"><p>Some Text</p></ino-control-item>
       </ino-list>
-      
+
       <h4>Checkbox + Metadata + Leading Icon</h4>
       <ino-list>
         <ino-control-item ino-role="checkbox" ino-trailing ino-text="Lorem ipsum dolor sit"><ino-icon ino-icon="add" /></ino-control-item>
@@ -330,7 +331,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-6" ino-text="Lorem ipsum dolor sit"><p>Some Text</p></ino-control-item>
         <ino-control-item ino-role="radio" name="group-6" ino-text="Lorem ipsum dolor sit"><p>Some Text</p></ino-control-item>
       </ino-list>
-      
+
       <h4>Radio-Button + Metadata + Leading Icon</h4>
       <ino-list>
         <ino-control-item ino-role="radio" name="group-7" ino-trailing ino-text="Lorem ipsum dolor sit"><ino-icon ino-icon="add" /></ino-control-item>
@@ -505,12 +506,12 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="checkbox" checked ino-text="First text item"> </ino-control-item>
         <ino-control-item ino-role="checkbox" ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <ino-list class="first-densed-list">
         <ino-control-item name="group" ino-role="radio" name="group-8" ino-text="First text item"> </ino-control-item>
         <ino-control-item name="group" ino-role="radio" name="group-8" ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <h4>Different checkbox/radio items</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-trailing ino-text="First text item"><ino-icon ino-icon="add"></ino-icon></ino-control-item>
@@ -522,7 +523,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-9" ino-text="First text item"><p>Some Text</p></ino-control-item>
         <ino-control-item ino-role="radio" name="group-9" ino-trailing ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <h4>Trailing checkbox/radio items</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-trailing ino-text="First text item"></ino-control-item>
@@ -532,7 +533,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-10" ino-trailing ino-text="First text item"></ino-control-item>
         <ino-control-item ino-role="radio" name="group-10" ino-trailing ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <h4>Densed checkbox/radio item</h4>
       <ino-list class="first-densed-list" ino-dense>
         <ino-control-item ino-role="checkbox" ino-text="First text item"> </ino-control-item>
@@ -542,7 +543,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-11" ino-text="First text item"> </ino-control-item>
         <ino-control-item ino-role="radio" name="group-11" ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <h4>Two lined checkbox/radio item</h4>
       <ino-list ino-two-lines class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-text="First text item" ino-secondary-text="Secondary Text"> </ino-control-item>
@@ -552,7 +553,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-12" ino-text="First text item" ino-secondary-text="Secondary Text"> </ino-control-item>
         <ino-control-item ino-role="radio" name="group-12" ino-text="Second text item" ino-secondary-text="Secondary Text"></ino-control-item>
       </ino-list>
-      
+
       <h4>Disabled checkbox/radio item</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-disabled ino-text="First text item"> </ino-control-item>
@@ -562,7 +563,7 @@ storiesOf('<ino-list>', module)
         <ino-control-item ino-role="radio" name="group-13" ino-disabled ino-text="First text item"> </ino-control-item>
         <ino-control-item ino-role="radio" name="group-13" ino-disabled ino-text="Second text item"></ino-control-item>
       </ino-list>
-      
+
       <h4>Activated & selected checkbox/radio item</h4>
       <ino-list class="first-densed-list">
         <ino-control-item ino-role="checkbox" ino-activated ino-text="Activated item"> </ino-control-item>
@@ -575,3 +576,66 @@ storiesOf('<ino-list>', module)
     </div>
   `
   );
+
+storiesOf('<ino-list>', module)
+.addDecorator(withStencilReadme(navItemReadme))
+.add(
+  'Nav item',
+  () => /*html*/ `
+  <style>
+    .customizable-nav-item {
+      --ino-nav-item-color: ${text(
+        '--ino-nav-item-color',
+        'black',
+        'Custom Properties'
+      )};
+      --ino-nav-item-color-active: ${text(
+        '--ino-nav-item-color-active',
+        'blue',
+        'Custom Properties'
+      )};
+      --ino-nav-item-background-color: ${text(
+        '--ino-nav-item-background-color',
+        '#ffffff',
+        'Custom Properties'
+      )};
+      --ino-nav-item-background-color-active: ${text(
+        '--ino-nav-item-background-color-active',
+        '#red',
+        'Custom Properties'
+      )};
+    }
+  </style>
+  <div class="story-list">
+    <h4>Customizable nav item</h4>
+    <ino-list>
+      <ino-nav-item
+        class="customizable-nav-item"
+        ino-text="${text('ino-text', 'Nav item')}"
+        ino-activated="${boolean('ino-activated', false)}"
+        ino-disabled="${boolean('ino-disabled', false)}"
+      >
+        <ino-icon ino-icon="onboarding" class="ino-list-item__icon"></ino-icon>
+      </ino-nav-item>
+    </ino-list>
+
+    <h4>States</h4>
+    <ino-list>
+      <ino-nav-item ino-text="Simple item"></ino-nav-item>
+      <ino-nav-item ino-text="Simple item 2"></ino-nav-item>
+      <ino-nav-item ino-activated ino-text="Activated item"></ino-nav-item>
+      <ino-nav-item ino-disabled ino-text="Disabled item"></ino-nav-item>
+    </ino-list>
+
+    <h4>Graphic</h4>
+    <ino-list>
+      <ino-nav-item ino-text="Lorem ipsum dolor sit">
+        <ino-icon ino-icon="onboarding" class="ino-list-item__icon"></ino-icon>
+      </ino-nav-item>
+      <ino-nav-item ino-text="Lorem ipsum dolor sit">
+        <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+      </ino-nav-item>
+    </ino-list>
+  </div>
+`
+);

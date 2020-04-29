@@ -12,7 +12,6 @@ function subscribeToComponentEvents() {
 
   const handleEvent = function(e) {
     const el = e.target;
-    console.log(el);
     if (el.tagName.toLowerCase() !== 'ino-icon') {
       return;
     }

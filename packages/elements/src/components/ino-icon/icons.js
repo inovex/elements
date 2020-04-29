@@ -1,5 +1,6 @@
 export default [
   'add',
+	'arrow_right',
 	'back_arrow',
 	'birthday',
 	'calendar',
