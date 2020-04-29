@@ -21,6 +21,7 @@
 * **ino-icon:** The 'ino-icon' component has also been updated. The naming scheme `<icon>-<s|m>' has been discarded. Each icon now only has its own ID without the size suffix. The width and height, as well as the color can now be changed using the new CSS variables. The default color of the icons is now blue.
 
 All icons have been unified. Also the following icons have been renamed, removed and new ones added:
+
 | Added         | Removed            | Renamed                                             |
 |---------------|--------------------|-----------------------------------------------------|
 | `back-arrow`  | `equalizer`        | `abwesend` -> `status_abwesend`                     |
