@@ -15,6 +15,10 @@ Single-colored icons can be modified like so:
 }
 ========================================== */
 
+.icon-arrow_right {
+  width: 0.6669921875em;
+}
+
 .icon-birthday {
   width: 0.8076171875em;
 }

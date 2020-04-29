@@ -1,5 +1,12 @@
 import { MDCList } from '@material/list';
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  h
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({

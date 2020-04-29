@@ -1,0 +1,217 @@
+@use '@material/drawer/mdc-drawer';
+@use '@material/drawer';
+@use 'styles/colors';
+
+:host {
+  /**
+   * @prop --ino-nav-drawer-width-open: The width of the open drawer.
+   * @prop --ino-nav-drawer-width-closed: Docked variant only! The width of the collapsed drawer.
+   * @prop --ino-nav-drawer-background: Background of the drawer.
+   * @prop --ino-nav-drawer-height: Height of the drawer.
+   * @prop --ino-nav-drawer-text-color: Color of text inside the drawer.
+   * @prop --ino-nav-drawer-transition-duration: Duration of the slide animation of the drawer.
+   * @prop --ino-nav-drawer-timing-function: Timing function of the slide animation of the drawer.
+  */
+
+  --nav-drawer-width-open: var(--ino-nav-drawer-width-open, 250px);
+  --nav-drawer-width-closed: var(--ino-nav-drawer-width-closed, 72px);
+  --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
+  --nav-drawer-background: var(
+    --ino-nav-drawer-background,
+    #{colors.ino-color(primary, contrast)}
+  );
+  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, colors.inovex);
+  --nav-drawer-transition-duration: var(
+    --ino-nav-drawer-transition-duration,
+    0.25s
+  );
+  --nav-drawer-timing-function: var(
+    --ino-nav-drawer-timing-function,
+    (0.4, 0, 0.2, 1)
+  );
+
+  display: flex;
+  height: 100%;
+
+  .mdc-drawer-app-content {
+    flex: auto;
+    transition-property: margin;
+    transition-duration: var(--nav-drawer-transition-duration);
+    transition-timing-function: var(--nav-drawer-timing-function);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+    z-index: 3;
+  }
+
+  .mdc-drawer-scrim {
+    z-index: 1;
+  }
+
+  .mdc-drawer {
+    @include drawer.width(var(--nav-drawer-width-open));
+    @include drawer.surface-fill-color(var(--nav-drawer-background));
+    height: var(--nav-drawer-height);
+    color: var(--nav-drawer-text-color);
+    border: none;
+    z-index: 2;
+
+    // default styling for all variants
+    &.mdc-drawer--dismissible.mdc-drawer--docked,
+    &.mdc-drawer--dismissible,
+    &.mdc-drawer--modal {
+      &.mdc-drawer--anchor-left {
+        // closed is default state
+        .mdc-drawer__footer .mdc-drawer__toggle {
+          ino-icon {
+            transform: scale(0.5);
+          }
+        }
+        &.mdc-drawer--open.mdc-drawer--open:not(.mdc-drawer--closing) {
+          .mdc-drawer__footer .mdc-drawer__toggle {
+            ino-icon {
+              transform: scale(-0.5);
+            }
+          }
+        }
+      }
+
+      &.mdc-drawer--anchor-right {
+        left: initial;
+        right: 0;
+
+        .mdc-drawer__footer .mdc-drawer__toggle {
+          justify-content: flex-end;
+        }
+
+        // closed is default state
+        .mdc-drawer__footer .mdc-drawer__toggle {
+          ino-icon {
+            transform: scale(-0.5);
+          }
+        }
+        &.mdc-drawer--open.mdc-drawer--open:not(.mdc-drawer--closing) {
+          & + .mdc-drawer-app-content {
+            margin-left: 0;
+            margin-right: var(--nav-drawer-width-open);
+          }
+          .mdc-drawer__footer .mdc-drawer__toggle {
+            ino-icon {
+              transform: scale(0.5);
+            }
+          }
+        }
+      }
+
+      .mdc-drawer__header {
+        padding: 24px 12px 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .mdc-drawer__subtitle {
+          font-size: 12px;
+          line-height: 13px;
+        }
+      }
+
+      .mdc-drawer__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        margin-top: 36px;
+      }
+
+      .mdc-drawer__footer {
+        display: flex;
+        flex: 0 0 auto;
+        flex-direction: column;
+
+        .mdc-drawer__toggle {
+          display: flex;
+          padding: 4px 12px;
+
+          ino-icon {
+            transform: scale(0.5);
+            transition-property: transform;
+            transition-duration: var(--nav-drawer-transition-duration);
+            transition-timing-function: var(--nav-drawer-timing-function);
+          }
+        }
+      }
+    }
+
+    // Styles for variant: 'docked' (does not exist in MDC)
+    &.mdc-drawer--dismissible.mdc-drawer--docked {
+      @include drawer.width(var(--nav-drawer-width-closed));
+      display: flex;
+      white-space: nowrap;
+      transition-property: width;
+      transition-timing-function: var(--nav-drawer-timing-function);
+      transition-duration: var(--nav-drawer-transition-duration);
+
+      &.mdc-drawer--anchor-left {
+        & + .mdc-drawer-app-content {
+          margin-left: var(--nav-drawer-width-closed);
+        }
+      }
+      &.mdc-drawer--anchor-right {
+        & + .mdc-drawer-app-content {
+          margin-right: var(--nav-drawer-width-closed);
+        }
+      }
+      &.mdc-drawer--open,
+      &.mdc-drawer--opening {
+        @include drawer.width(var(--nav-drawer-width-open));
+      }
+      &.mdc-drawer--closed,
+      &.mdc-drawer--closing {
+        @include drawer.width(var(--nav-drawer-width-closed));
+      }
+      &.mdc-drawer--animate {
+        transform: translateX(0);
+      }
+      &.mdc-drawer--opening {
+        transition-duration: var(--nav-drawer-transition-duration);
+        transform: translateX(0);
+      }
+      &.mdc-drawer--closing {
+        transition-duration: var(--nav-drawer-transition-duration);
+        transform: translateX(0);
+      }
+    }
+
+    // Styles for variants: 'dismissible' and 'modal'
+    &.mdc-drawer--dismissible:not(.mdc-drawer--docked),
+    &.mdc-drawer--modal {
+      // specify right alignment (does not exist in MDC)
+      &.mdc-drawer--anchor-right {
+        transition-property: transform;
+        transition-duration: var(--nav-drawer-transition-duration);
+        transition-timing-function: var(--nav-drawer-timing-function);
+        &.mdc-drawer--open {
+          transform: translateX(0);
+        }
+        &.mdc-drawer--closed {
+          transform: translateX(100%);
+        }
+        &.mdc-drawer--animate {
+          transform: translateX(0);
+        }
+        &.mdc-drawer--opening {
+          transform: translateX(0);
+          transition-duration: var(--nav-drawer-transition-duration);
+        }
+        &.mdc-drawer--closing {
+          transform: translateX(100%);
+          transition-duration: var(--nav-drawer-transition-duration);
+        }
+      }
+    }
+
+    // Styles for variant: 'modal'
+    &.mdc-drawer--modal {
+      top: 0;
+    }
+  }
+}

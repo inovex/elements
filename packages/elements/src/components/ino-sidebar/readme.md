@@ -1,6 +1,7 @@
 # ino-sidebar
 
-The ino-sidebar is a modal sidebar based on the MDCDrawer that can be used to display additional information.
+The ino-sidebar is a modal sidebar that can be used to display additional information.
+It functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.
 
 ## Usage
 
@@ -11,7 +12,7 @@ The component can be used as follows:
 ```js
 document
     .querySelector('ino-sidebar')
-    .addEventListener('expandedChange', (e) => console.log(`state of sidebar changed to ${e.detail}`);
+    .addEventListener('openChange', (e) => console.log(`state of sidebar changed to ${e.detail}`);
 ```
 
 ```html
@@ -35,7 +36,7 @@ import { Component } from 'react';
 import { InoSidebar, InoButton } from '@inovex/elements/dist/react';
 
 class MyComponent extends Component {
-  
+
   state = {
     expanded: false
   };
@@ -45,21 +46,21 @@ class MyComponent extends Component {
       expanded: !state.expanded
     }));
   };
-  
+
   render() {
     return (
       <InoButton onClick={() => this.handleClick()}>Sidebar</InoButton>
       <InoSidebar inoOpen={this.state.expanded}></InoSidebar>
     )
-  } 
+  }
 
 }
 ```
 
 ## Sidenotes
 
-The empty `div` tag with the `tabindex="0"` attribute as well as the `<div class="mdc-drawer-scrim"/>` tag 
-are indispensable for the sidebar to work properly. For further information, 
+The empty `div` tag with the `tabindex="0"` attribute as well as the `<div class="mdc-drawer-scrim"/>` tag
+are indispensable for the sidebar to work properly. For further information,
 refer to https://github.com/material-components/material-components-web/issues/5615 and
 https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer.
 

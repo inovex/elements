@@ -66,11 +66,13 @@ document
 ### Used by
 
  - [ino-control-item](../ino-control-item)
+ - [ino-nav-item](../ino-nav-item)
 
 ### Graph
 ```mermaid
 graph TD;
   ino-control-item --> ino-list-item
+  ino-nav-item --> ino-list-item
   style ino-list-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

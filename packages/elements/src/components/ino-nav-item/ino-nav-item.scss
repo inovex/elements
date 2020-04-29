@@ -1,0 +1,48 @@
+@use '@material/list/mdc-list';
+@use 'styles/colors';
+
+ino-nav-item {
+  /**
+   * @prop --ino-nav-item-color: Inactive color of icon.
+   * @prop --ino-nav-item-color-active: Active color of icon.
+   * @prop --ino-nav-item-background-color: Inactive color of the background of one item.
+   * @prop --ino-nav-item-background-color-active: Active color of the background of one item.
+   */
+
+  --nav-item-color: var(--ino-nav-item-color, #{colors.ino-color(dark, dark)});
+  --nav-item-color-active: var(--ino-nav-item-color-active, #{colors.ino-color(primary, base)});
+  --nav-item-background-color: var(--ino-nav-item-background-color, white);
+  --nav-item-background-color-active: var(--ino-nav-item-background-color-active, #{rgba(colors.ino-color(light, contrast), 0.04)});
+
+  .mdc-list-item, ino-list-item .mdc-list-item {
+    padding: 0px 24px;
+    height: 60px;
+    background-color: var(--nav-item-background-color);
+    color: var(--nav-item-color);
+
+    // icon
+    ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
+      --width: 24px;
+      --height: 24px;
+      --color: var(--nav-item-color);
+    }
+
+    // graphic
+    span[slot='ino-leading'] {
+      width: 100%;
+      height: 100%;
+    }
+
+    &.mdc-list-item--activated {
+      transition: border-left 0.1s ease-in-out;
+      background-color: var(--nav-item-background-color-active);
+      border-left: 2px solid var(--nav-item-color-active);
+      color: var(--nav-item-color-active);
+
+      // icon
+      ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
+        --color: var(--nav-item-color-active);
+      }
+    }
+  }
+}
