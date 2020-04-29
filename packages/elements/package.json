@@ -71,7 +71,7 @@
     "@material/tab-scroller": "^5.1.0",
     "@material/textfield": "^5.1.0",
     "@material/typography": "^5.1.0",
-    "@stencil/core": "1.10.3",
+    "@stencil/core": "1.12.6",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
