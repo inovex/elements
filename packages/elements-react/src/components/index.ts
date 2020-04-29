@@ -41,6 +41,7 @@ export const InoRadio = createReactComponent<StencilJSX.IntrinsicElements["ino-r
 export const InoRadioGroup = createReactComponent<StencilJSX.IntrinsicElements["ino-radio-group"], HTMLInoRadioGroupElement>('ino-radio-group');
 export const InoRange = createReactComponent<StencilJSX.IntrinsicElements["ino-range"], HTMLInoRangeElement>('ino-range');
 export const InoSelect = createReactComponent<StencilJSX.IntrinsicElements["ino-select"], HTMLInoSelectElement>('ino-select');
+export const InoSidebar = createReactComponent<StencilJSX.IntrinsicElements["ino-sidebar"], HTMLInoSelectElement>('ino-sidebar');
 export const InoSnackbar = createReactComponent<StencilJSX.IntrinsicElements["ino-snackbar"], HTMLInoSnackbarElement>('ino-snackbar');
 export const InoSpinner = createReactComponent<StencilJSX.IntrinsicElements["ino-spinner"], HTMLInoSpinnerElement>('ino-spinner');
 export const InoSwitch = createReactComponent<StencilJSX.IntrinsicElements["ino-switch"], HTMLInoSwitchElement>('ino-switch');

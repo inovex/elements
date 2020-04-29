@@ -1,3 +1,46 @@
+# [0.17.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.16.0...v0.17.0) (2020-04-29)
+
+
+### Bug Fixes
+
+* **react|wrapper:** fix react types for stencil update (fixes elements 0.15.x and 0.16.x) ([4ffff06](http://gitlab.inovex.de/inovex-elements/core/commit/4ffff06dbe33bb58d250ae89bee81bbb08c9c600))
+
+
+### Features
+
+* **elements-react|ino-option:** add component ([dbfc1e4](http://gitlab.inovex.de/inovex-elements/core/commit/dbfc1e4dd6fd3ebc0f55d257948b88f422b520be))
+* **elements|ino-checkbox:** add selection variant ([3e74a78](http://gitlab.inovex.de/inovex-elements/core/commit/3e74a7892bdaa9dd12e1be8cf60780881a7b10d4))
+* **elements|ino-icon:** unify icons & add styling options with CSS variables ([a755e69](http://gitlab.inovex.de/inovex-elements/core/commit/a755e69a656b591d869f23af818bc8a51b3718cb))
+* **elements|ino-nav-drawer:** create nav-drawer element ([72dd914](http://gitlab.inovex.de/inovex-elements/core/commit/72dd9143c3859a9b173a779de4d1ef9114d3f65c))
+* **elements|ino-nav-item:** create nav-item element ([72dd914](http://gitlab.inovex.de/inovex-elements/core/commit/72dd9143c3859a9b173a779de4d1ef9114d3f65c))
+* **elements|ino-sidebar:** add ino-sidebar ([e9d56de](http://gitlab.inovex.de/inovex-elements/core/commit/e9d56de9abfec70139f8f1cce9f164b245040f89))
+* **storybook:** add pure js example and cleanup docs ([7cc9fdb](http://gitlab.inovex.de/inovex-elements/core/commit/7cc9fdb77bf746096dcedfc769f66ecdf981d3ea))
+
+### BREAKING CHANGES
+* **ino-select:** To implement the new design of the Select component, the component has been reworked. It is no longer based on the native Select element. The `inoPrependDefault ` has been removed, as no option is now automatically selected by default. Also, the `ino-option` element is now required instead of the native option element.  The `autofocus' and `form' properties have been removed because they were not used internally.
+* **ino-icon:** The 'ino-icon' component has also been updated. The naming scheme `<icon>-<s|m>' has been discarded. Each icon now only has its own ID without the size suffix. The width and height, as well as the color can now be changed using the new CSS variables. The default color of the icons is now blue.
+
+All icons have been unified. Also the following icons have been renamed, removed and new ones added:
+| Added         | Removed            | Renamed                                             |
+|---------------|--------------------|-----------------------------------------------------|
+| `back-arrow`  | `equalizer`        | `abwesend` -> `status_abwesend`                     |
+| `chart`       | `equal`            | `aktuell` -> `time`                                 |
+| `chat`        | `favorite_border`  | `delete` -> `remove`                                |
+| `checkmark`   | `greater_or_equal` | `date_range` -> `calendar`                          |
+| `copy`        | `less_or_equal`    | `file_upload` -> `upload`                           |
+| `developer`   | `info-outline`     | `future` -> `status_zukuenftige`                    |
+| `logout`      | `star-border`      | `gear` -> `settings`                                |
+| `message`     |                    | `gps` -> `location`                                 |
+| `offboarding` |                    | `onboarding_laufen` -> `status_onboarding_laufend`  |
+| `partner`     |                    | `offboarding_laufen` -> `status_onboarding_laufend` |
+| `warning`     |                    | `past` -> `status_vergangene`                       |
+| `web`         |                    | `person` | `employee` -> `user`                     |
+|               |                    | `sort_AZ` -> `sort_az`                              |
+|               |                    | `sort_ZA` -> `sort_za`                              |
+|               |                    | `users` -> `employees`                              |
+
+
+
 # [0.16.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.15.1...v0.16.0) (2020-04-01)
 
 
@@ -107,27 +150,27 @@ Some icons have been renamed to match the new naming convention. The new naming 
 There are three different sizes: xs, s and m. The default which should be used is m. Many icons also have a grey version which has the suffix "-grey" (e.g. `birthday-m-grey`).
 
 
-## [0.10.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.10.0...v0.10.1) (2019-12-09)
+## [0.10.1](http://gitlab.inovex.de/inovex-elements/core/compare/v0.10.0...v0.10.1) (2019-12-09)
 
 
 ### Bug Fixes
 
-* pipeline ([e237d00](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e237d00ae7d9925fd231e476746adf09384056a4))
+* pipeline ([e237d00](http://gitlab.inovex.de/inovex-elements/core/commit/e237d00ae7d9925fd231e476746adf09384056a4))
 
 
 
-# [0.10.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.9.0...v0.10.0) (2019-12-09)
+# [0.10.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.9.0...v0.10.0) (2019-12-09)
 
 
 ### Bug Fixes
 
-* reset native input properly ([c397da0](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c397da01cdc46b30e5e507f2fab5ab7798c2ff5b))
+* reset native input properly ([c397da0](http://gitlab.inovex.de/inovex-elements/core/commit/c397da01cdc46b30e5e507f2fab5ab7798c2ff5b))
 
 
 ### Features
 
-* **angular:** inital project ([df78166](http://gitlab.inovex.de:2424/inovex-elements/core/commit/df78166498a76f1b752727a8ba57b6dfa1ee4434))
-* **ino-icon:** add james icons, improve stories, add search functionality ([d67db75](http://gitlab.inovex.de:2424/inovex-elements/core/commit/d67db758b539e5f99e0c1b412bfdebb079a4f162))
+* **angular:** inital project ([df78166](http://gitlab.inovex.de/inovex-elements/core/commit/df78166498a76f1b752727a8ba57b6dfa1ee4434))
+* **ino-icon:** add james icons, improve stories, add search functionality ([d67db75](http://gitlab.inovex.de/inovex-elements/core/commit/d67db758b539e5f99e0c1b412bfdebb079a4f162))
 
 
 
