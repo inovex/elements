@@ -1,0 +1,39 @@
+@use '@material/drawer/mdc-drawer';
+@use '@material/drawer';
+@use 'styles/colors';
+
+$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+0 16px 32px 0 rgba(61, 214, 245, 0.14);
+
+:host {
+
+  .mdc-drawer {
+    height: 100%;
+    box-shadow: $big-shadow;
+
+    &.ino-sidebar--right {
+      left: unset;
+      right: 0;
+
+      &.mdc-drawer--modal {
+        right: 0;
+      }
+
+      &.mdc-drawer--animate {
+        transform: translateX(100%);
+      }
+
+      &.mdc-drawer--opening {
+        transform: translateX(0);
+      }
+
+      &.mdc-drawer--closing {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  .mdc-drawer-scrim {
+    display: none;
+  }
+}

@@ -1,0 +1,60 @@
+@use '../../../../elements/src/components/styles/colors';
+
+$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+0 12px 28px 0 rgba(61, 214, 245, 0.14);
+
+body {
+ margin: 0;
+}
+
+.sidebar-iframe {
+  width: 100%;
+  height: 400px;
+  border: 1px colors.ino-color(light, base) solid;
+}
+
+.sidebar-demo {
+  display: block;
+  height: 100%;
+
+  .header {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    height: 40px;
+    background-color: colors.$inovex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 0 10px 0 10px;
+
+    &--section {
+      justify-content: flex-start;
+      display: inline-flex;
+      align-items: center;
+      color: #fff;
+      font-size: 25px;
+
+      p {
+        padding: 0 0 0 20px;
+        color: #fff;
+      }
+    }
+  }
+
+  .content {
+    padding-top: 40px;
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  height: 60px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+ino-sidebar[ino-align-right] {
+  .sidebar-header {
+    justify-content: flex-start;
+  }
+}

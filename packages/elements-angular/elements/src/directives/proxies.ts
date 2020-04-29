@@ -352,6 +352,19 @@ export class InoSelect {
   }
 }
 
+export declare interface InoSidebar extends Components.InoSidebar {}
+@ProxyCmp({inputs: ['inoAlignRight', 'inoOpen', 'name']})
+@Component({ selector: 'ino-sidebar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoAlignRight', 'inoOpen', 'name'] })
+export class InoSidebar {
+  openChange!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['openChange']);
+  }
+}
+
 export declare interface InoSnackbar extends Components.InoSnackbar {}
 @ProxyCmp({inputs: ['inoActionText', 'inoAlignment', 'inoMessage']})
 @Component({ selector: 'ino-snackbar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['inoActionText', 'inoAlignment', 'inoMessage'] })
