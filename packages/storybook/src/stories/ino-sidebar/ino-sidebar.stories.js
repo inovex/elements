@@ -89,8 +89,9 @@ const header = `
 `;
 
 const sidebarContent = `
+
 <div class="sidebar-header" slot="header">
-    <ino-icon ino-clickable ino-icon="close-s"></ino-icon>
+    <ino-icon ino-clickable ino-icon="close"/>
 </div>
 <div class="sidebar-content" slot="content">
   <ino-list>
