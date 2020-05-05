@@ -19,6 +19,7 @@ ino-nav-item {
     height: 60px;
     background-color: var(--nav-item-background-color);
     color: var(--nav-item-color);
+    font-size: 14px;
 
     // icon
     ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
