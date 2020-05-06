@@ -30,6 +30,7 @@ ino-select {
     &--focused .mdc-select__dropdown-icon {
       @include select.dd-arrow-svg-bg_(colors.$primary, 1);
     }
+
     .mdc-select__anchor:before {
       display: none;
     }
