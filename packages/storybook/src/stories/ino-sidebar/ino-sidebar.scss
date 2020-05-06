@@ -13,13 +13,13 @@ body {
   border: 1px colors.ino-color(light, base) solid;
 }
 
-ino-icon {
-  --color: #fff;
-}
-
 .sidebar-demo {
   display: block;
   height: 100%;
+
+  ino-icon {
+    --color: #fff;
+  }
 
   .header {
     position: absolute;
