@@ -173,11 +173,11 @@ export class Datepicker implements ComponentInterface {
   /**
    * If true, displays time picker in 12 hour mode with AM/PM selection.
    */
-  @Prop() inoTwelfHourTime?: boolean;
+  @Prop() inoTwelveHourTime?: boolean;
 
-  @Watch('inoTwelfHourTime')
-  inoTwelfHourTimeChanged(value: string) {
-    this.updateFlatpickr('inoTwelfHourTime', value);
+  @Watch('inoTwelveHourTime')
+  inoTwelveHourTimeChanged(value: string) {
+    this.updateFlatpickr('inoTwelveHourTime', value);
   }
 
   /**
@@ -264,7 +264,7 @@ export class Datepicker implements ComponentInterface {
     if (currentFocus.tagName !== 'input') {
       input.focus();
     }
-  }
+  };
 
   private static INPUT_CLASSES = ['cur-year', 'flatpickr-hour', 'flatpickr-minute', 'flatpickr-time'];
 
@@ -321,24 +321,24 @@ export class Datepicker implements ComponentInterface {
       const formattedDate = this.flatpickr.formatDate(newDate, this.flatpickr.config.dateFormat);
       this.valueChange.emit(formattedDate);
     }
-  })
+  });
 
   createTimePickerOptions = () => ({
     defaultHour: this.inoDefaultHour,
     defaultMinute: this.inoDefaultMinute,
     enableTime: true,
-    time_24hr: !this.inoTwelfHourTime,
+    time_24hr: !this.inoTwelveHourTime,
     minuteIncrement: this.minuteStep,
     hourIncrement: this.hourStep,
     noCalendar: this.isTimePicker()
-  })
+  });
 
   createDatePickerOptions = (): Partial<BaseOptions> => ({
     dateFormat: this.inoDateFormat,
     minDate: this.min,
     maxDate: this.max,
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
-  })
+  });
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
     switch (this.inoType) {

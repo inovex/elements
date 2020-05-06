@@ -268,7 +268,7 @@ export namespace Components {
         /**
           * If true, displays time picker in 12 hour mode with AM/PM selection.
          */
-        "inoTwelfHourTime"?: boolean;
+        "inoTwelveHourTime"?: boolean;
         /**
           * Selects the correct picker corresponding to the given type.
          */
@@ -1577,7 +1577,7 @@ declare namespace LocalJSX {
         /**
           * If true, displays time picker in 12 hour mode with AM/PM selection.
          */
-        "inoTwelfHourTime"?: boolean;
+        "inoTwelveHourTime"?: boolean;
         /**
           * Selects the correct picker corresponding to the given type.
          */

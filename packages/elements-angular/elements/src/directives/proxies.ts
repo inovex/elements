@@ -80,8 +80,8 @@ export class InoControlItem {
 }
 export declare interface InoDatepicker extends Components.InoDatepicker {
 }
-@ProxyCmp({ inputs: ["autoFocus", "disabled", "hourStep", "inoDateFormat", "inoDefaultDate", "inoDefaultHour", "inoDefaultMinute", "inoHelper", "inoHelperPersistent", "inoHelperValidation", "inoLabel", "inoOutline", "inoPattern", "inoRange", "inoShowLabelHint", "inoTwelfHourTime", "inoType", "max", "min", "minuteStep", "name", "required", "value"] })
-@Component({ selector: "ino-datepicker", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "disabled", "hourStep", "inoDateFormat", "inoDefaultDate", "inoDefaultHour", "inoDefaultMinute", "inoHelper", "inoHelperPersistent", "inoHelperValidation", "inoLabel", "inoOutline", "inoPattern", "inoRange", "inoShowLabelHint", "inoTwelfHourTime", "inoType", "max", "min", "minuteStep", "name", "required", "value"] })
+@ProxyCmp({ inputs: ["autoFocus", "disabled", "hourStep", "inoDateFormat", "inoDefaultDate", "inoDefaultHour", "inoDefaultMinute", "inoHelper", "inoHelperPersistent", "inoHelperValidation", "inoLabel", "inoOutline", "inoPattern", "inoRange", "inoShowLabelHint", "inoTwelveHourTime", "inoType", "max", "min", "minuteStep", "name", "required", "value"] })
+@Component({ selector: "ino-datepicker", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "disabled", "hourStep", "inoDateFormat", "inoDefaultDate", "inoDefaultHour", "inoDefaultMinute", "inoHelper", "inoHelperPersistent", "inoHelperValidation", "inoLabel", "inoOutline", "inoPattern", "inoRange", "inoShowLabelHint", "inoTwelveHourTime", "inoType", "max", "min", "minuteStep", "name", "required", "value"] })
 export class InoDatepicker {
     valueChange!: EventEmitter<CustomEvent>;
     protected el: HTMLElement;
