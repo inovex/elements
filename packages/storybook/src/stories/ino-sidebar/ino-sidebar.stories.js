@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/html';
+import { number } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -78,6 +79,26 @@ storiesOf('<ino-sidebar>', module)
     </div>
     `;
   });
+
+storiesOf('<ino-sidebar>', module)
+  .addDecorator(story => {
+    addons
+      .getChannel()
+      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+    return story();
+  })
+  .add('Sidebar different width', () => {
+    return `
+    <div class="sidebar-demo">
+      ${header}
+      <ino-sidebar style="--ino-sidebar-width:${number('--ino-sidebar-width', 500)}px;">
+        ${sidebarContent}
+      </ino-sidebar>
+      ${mainContent}
+    </div>
+    `;
+  });
+
 
 const header = `
 <div class="header">

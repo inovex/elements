@@ -83,6 +83,13 @@ https://github.com/material-components/material-components-web/tree/master/packa
 | `openChange` | Emits an event if the user expands or collapses the sidebar | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name              | Description                    |
+| ----------------- | ------------------------------ |
+| `--sidebar-width` | The width of the open sidebar. |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
