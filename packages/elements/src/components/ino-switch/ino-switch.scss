@@ -41,10 +41,6 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 
 }
 
-label {
-  margin-left: 10px;
-}
-
 // Default option
 :not([ino-color-scheme]) {
   @include setColors(map-get(colors.$ino-color-scheme, primary));
@@ -58,6 +54,11 @@ label {
 }
 
 ino-switch {
+
+  label {
+    margin-left: 10px;
+  }
+
   .mdc-switch {
     top: -3px;
 
