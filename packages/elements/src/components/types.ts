@@ -1,4 +1,5 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonColorScheme = 'primary' | 'secondary' | 'grey' | 'white';
 export type CardAspectRatio = '16-9' | 'square';
 export type ChipSetType = '' | 'choice' | 'filter' | 'input';
 export type ChipSurface = 'solid' | 'outline';
@@ -19,7 +20,7 @@ export type Locations = HorizontalLocation | VerticalLocation;
 export type NavDrawerAnchor = 'left' | 'right';
 export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
-export type SurfaceType = 'solid' | 'outline' | 'raised' | 'transparent';
+export type SurfaceType = 'solid' | 'outline' | 'inverse';
 export type TooltipTrigger =
   | 'click'
   | 'hover'

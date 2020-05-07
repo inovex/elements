@@ -23,7 +23,7 @@ $warning: #ffde03;
 $error: #eb003b;
 
 $light: #c1c1c1;
-$dark: #777;
+$dark: #777777;
 
 $ino-color-scheme: (
   primary: (
@@ -72,7 +72,7 @@ $ino-color-scheme: (
     base: $dark,
     light: lighten($dark, 15%),
     dark: darken($dark, 15%),
-    contrast: #fff
+    contrast: #ffffff
   )
 );
 
