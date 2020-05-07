@@ -14,11 +14,7 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
 
 @Component({
   tag: 'ino-datepicker',
-  styleUrls: [
-    '../../../node_modules/flatpickr/dist/flatpickr.css',
-    '../../../node_modules/flatpickr/dist/plugins/monthSelect/style.css',
-    'ino-datepicker.scss'
-  ],
+  styleUrl: 'ino-datepicker.scss',
   shadow: false
 })
 export class Datepicker implements ComponentInterface {

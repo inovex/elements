@@ -65,7 +65,7 @@ storiesOf('<ino-datepicker>', module)
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
         ino-helper-persistent="${boolean('ino-helper-persistent', false, 'HELPER TEXT')}"
         ino-helper-validation="${boolean('ino-helper-validation', false, 'HELPER TEXT')}"
-        </ino-datepicker>
+       >
       </ino-datepicker>
 
 
