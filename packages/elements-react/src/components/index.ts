@@ -37,6 +37,7 @@ export const InoNavDrawer = createReactComponent<StencilJSX.IntrinsicElements["i
 export const InoNavItem = createReactComponent<StencilJSX.IntrinsicElements["ino-nav-item"], HTMLInoNavItemElement>('ino-nav-item');
 export const InoPopover = createReactComponent<StencilJSX.IntrinsicElements["ino-popover"], HTMLInoPopoverElement>('ino-popover');
 export const InoOption = createReactComponent<StencilJSX.IntrinsicElements["ino-option"], HTMLInoOptionElement>('ino-option');
+export const InoOptionGroup = createReactComponent<StencilJSX.IntrinsicElements["ino-option-group"], HTMLInoOptionGroupElement>('ino-option-group');
 export const InoRadio = createReactComponent<StencilJSX.IntrinsicElements["ino-radio"], HTMLInoRadioElement>('ino-radio');
 export const InoRadioGroup = createReactComponent<StencilJSX.IntrinsicElements["ino-radio-group"], HTMLInoRadioGroupElement>('ino-radio-group');
 export const InoRange = createReactComponent<StencilJSX.IntrinsicElements["ino-range"], HTMLInoRangeElement>('ino-range');

@@ -29,6 +29,19 @@ The component can be used as follows:
 | `value` _(required)_ | `value`    | Value of the option | `string`  | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-option-group](../ino-option-group)
+
+### Graph
+```mermaid
+graph TD;
+  ino-option-group --> ino-option
+  style ino-option fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

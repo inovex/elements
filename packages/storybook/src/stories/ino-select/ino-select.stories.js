@@ -9,6 +9,8 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-select/readme.md';
 import optionComponentReadme from '_local-elements/src/components/ino-option/readme.md';
+import optionGroupComponentReadme from '_local-elements/src/components/ino-option-group/readme.md';
+
 import './ino-select.scss';
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
@@ -63,6 +65,18 @@ storiesOf('<ino-select>', module)
         >
           ${optionsTemplate}
         </ino-select>
+
+        <ino-select ino-label="Select with Groups">
+            <ino-option-group ino-label="My First Group">
+                ${optionsTemplate}
+            </ino-option-group>
+            <ino-option-group ino-label="My Second Group">
+                <ino-option value="Option 5">Option 5</ino-option>
+                <ino-option value="Option 6">Option 6</ino-option>
+                <ino-option value="Option 7">Option 7</ino-option>
+                <ino-option value="Option 8">Option 8</ino-option>
+            </ino-option-group>
+          </ino-select>
 
         <h4 class="outline">Outlined</h4>
         <ino-select ino-outline>
@@ -143,5 +157,25 @@ storiesOf('<ino-select>', module)
     <h4>Selected option</h4>
         <ino-select ino-label="Selected option">
         <ino-option value="Content" selected>Content</ino-option>
+    </ino-select>
+  `);
+
+storiesOf('<ino-select>', module)
+  .addDecorator(withStencilReadme(optionGroupComponentReadme))
+  .add('Option Group', () => /*html*/ `
+    <h4>Option Group Example</h4>
+    <ino-select ino-label="Select with Groups">
+      <ino-option-group ino-label="My First Group">
+          <ino-option value="Option 1">Option 1</ino-option>
+          <ino-option value="Option 2">Option 2</ino-option>
+          <ino-option value="Option 3">Option 3</ino-option>
+          <ino-option value="Option 4">Option 4</ino-option>
+      </ino-option-group>
+      <ino-option-group ino-label="My Second Group">
+          <ino-option value="Option 5">Option 5</ino-option>
+          <ino-option value="Option 6">Option 6</ino-option>
+          <ino-option value="Option 7">Option 7</ino-option>
+          <ino-option value="Option 8">Option 8</ino-option>
+      </ino-option-group>
     </ino-select>
   `);

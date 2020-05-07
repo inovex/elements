@@ -716,6 +716,12 @@ export namespace Components {
          */
         "value": string;
     }
+    interface InoOptionGroup {
+        /**
+          * Label of the group
+         */
+        "inoLabel": string;
+    }
     interface InoPopover {
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
@@ -1168,6 +1174,12 @@ declare global {
         prototype: HTMLInoOptionElement;
         new (): HTMLInoOptionElement;
     };
+    interface HTMLInoOptionGroupElement extends Components.InoOptionGroup, HTMLStencilElement {
+    }
+    var HTMLInoOptionGroupElement: {
+        prototype: HTMLInoOptionGroupElement;
+        new (): HTMLInoOptionGroupElement;
+    };
     interface HTMLInoPopoverElement extends Components.InoPopover, HTMLStencilElement {
     }
     var HTMLInoPopoverElement: {
@@ -1283,6 +1295,7 @@ declare global {
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
         "ino-option": HTMLInoOptionElement;
+        "ino-option-group": HTMLInoOptionGroupElement;
         "ino-popover": HTMLInoPopoverElement;
         "ino-radio": HTMLInoRadioElement;
         "ino-radio-group": HTMLInoRadioGroupElement;
@@ -2060,6 +2073,12 @@ declare namespace LocalJSX {
          */
         "value": string;
     }
+    interface InoOptionGroup {
+        /**
+          * Label of the group
+         */
+        "inoLabel": string;
+    }
     interface InoPopover {
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
@@ -2435,6 +2454,7 @@ declare namespace LocalJSX {
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
         "ino-option": InoOption;
+        "ino-option-group": InoOptionGroup;
         "ino-popover": InoPopover;
         "ino-radio": InoRadio;
         "ino-radio-group": InoRadioGroup;
@@ -2480,6 +2500,7 @@ declare module "@stencil/core" {
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
             "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
+            "ino-option-group": LocalJSX.InoOptionGroup & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
             "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;

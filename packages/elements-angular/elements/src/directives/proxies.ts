@@ -290,6 +290,17 @@ export class InoOption {
         this.el = r.nativeElement;
     }
 }
+export declare interface InoOptionGroup extends Components.InoOptionGroup {
+}
+@ProxyCmp({ inputs: ["inoLabel"] })
+@Component({ selector: "ino-option-group", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoLabel"] })
+export class InoOptionGroup {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
 export declare interface InoPopover extends Components.InoPopover {
 }
 @ProxyCmp({ inputs: ["inoFor", "inoPlacement", "inoTrigger"] })
