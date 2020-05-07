@@ -2,7 +2,7 @@ import { MDCRipple } from '@material/ripple';
 import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ButtonType, ColorScheme, SurfaceType } from '../types';
+import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 
 import { CSS_CLASSES, SELECTORS } from './constants';
 
@@ -52,16 +52,26 @@ export class Button implements ComponentInterface {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`, `tertiary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
+   * Possible values: `primary` (default),  `secondary`, `grey`, `white`.
+   * `white` and `grey` can only be used in combination with the `outline` fill-option!
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() inoColorScheme?: ButtonColorScheme = 'primary';
+
+  /**
+   * Styles the button to have the edge on the top-right instead of the top-left
+   */
+  @Prop() inoEdgeMirrored? = false;
 
   /**
    * The fill type of this element.
-   * Possible values: `solid` (default), `outline`, `raised` or `transparent`.
+   * Possible values: `solid` (default), `outline`, `inverse`.
    */
   @Prop() inoFill?: SurfaceType = 'solid';
+
+  /**
+   * Styles the button in 100% width.
+   */
+  @Prop() inoFullWidth? = false;
 
   /**
    * Adds an icon to the button.
@@ -135,16 +145,19 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const classButton = classNames(
-      CSS_CLASSES.MDC_BUTTON,
-      this.inoFill === 'solid' && CSS_CLASSES.UNELEVATED,
-      this.inoFill === 'outline' && CSS_CLASSES.OUTLINED,
-      this.inoFill === 'raised' && CSS_CLASSES.RAISED,
-      this.inoDense && CSS_CLASSES.DENSE
-    );
+    const classButton = classNames({
+      [CSS_CLASSES.MDC_BUTTON]: true,
+      [CSS_CLASSES.UNELEVATED]: this.inoFill === 'solid' || this.inoFill === 'inverse',
+      [CSS_CLASSES.OUTLINED]: this.inoFill === 'outline',
+      [CSS_CLASSES.DENSE]: this.inoDense
+    });
 
     return (
-      <Host onClick={this.handleClick}>
+      <Host
+        onClick={this.handleClick}
+        ino-fill={this.inoFill}
+        ino-color-scheme={this.inoColorScheme}
+      >
         <button
           class={classButton}
           autoFocus={this.autoFocus}

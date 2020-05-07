@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@inovex/elements@^0.14.0":
-  version "0.14.0"
-  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@inovex/elements/-/@inovex/elements-0.14.0.tgz#fa03e7fd154bc88513f030999f66f7f692869cbb"
-  integrity sha1-+gPn/RVLyIUT8DCZn2b39pKGnLs=
+"@inovex/elements@^0.15.1":
+  version "0.15.1"
+  resolved "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/@inovex/elements/-/@inovex/elements-0.15.1.tgz#ce7abc9a4d23b49111af40c5e7a677194bb5fac5"
+  integrity sha1-znq8mk0jtJERr0DF56Z3GUu1+sU=
   dependencies:
     "@material/button" "^3.0.0"
     "@material/card" "^3.0.0"
@@ -28,12 +28,12 @@
     "@material/tab-scroller" "^3.0.0"
     "@material/textfield" "^3.0.0"
     "@material/typography" "^3.0.0"
-    "@stencil/core" "1.4.0"
+    "@stencil/core" "1.10.3"
     autosize "^4.0.2"
     classnames "^2.2.6"
     currency.js "^1.2.2"
     flatpickr "^4.4.6"
-    highlightjs "^9.10.0"
+    highlight.js "^9.18.1"
     tooltip.js "^1.3.2"
 
 "@material/animation@^3.1.0":
@@ -437,12 +437,12 @@
   dependencies:
     "@material/feature-targeting" "^3.1.0"
 
-"@stencil/core@1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.4.0.tgz#309dbbb9470ed735b642397c12dd082c94e070fc"
-  integrity sha512-/iI87p7XsqE3U96ykx4SSY/btv9jZguI3JkG8RaTNlQipPUmPb0JmLei8sgijTUD/fY5TFuE3L1o8hwLI0rW3A==
+"@stencil/core@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-1.10.3.tgz#c48de680f99b931fa193309d995a260866041521"
+  integrity sha512-FsP48oMBc1JvN286eBDN+CYm5IveL1IUKYgHjZ680JIlT3OpBNCj6xf9D2TGcCr67vJ9f32qbWSn3Apa4ZsnZw==
   dependencies:
-    typescript "3.6.2"
+    typescript "3.8.3"
 
 autosize@^4.0.2:
   version "4.0.2"
@@ -464,10 +464,10 @@ flatpickr@^4.4.6:
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.3.tgz#15a8b76b6e34e3a072861250503a5995b9d3bc60"
   integrity sha512-007VucCkqNOMMb9ggRLNuJowwaJcyOh4sKAFcdGfahfGc7JQbf94zSzjdBq/wVyHWUEs5o3+idhFZ0wbZMRmVQ==
 
-highlightjs@^9.10.0:
-  version "9.12.0"
-  resolved "https://registry.yarnpkg.com/highlightjs/-/highlightjs-9.12.0.tgz#9b84eb42a7aa8488eb69ac79fec44cf495bf72a1"
-  integrity sha512-eAhWMtDZaOZIQdxIP4UEB1vNp/CVXQPdMSihTSuaExhFIRC0BVpXbtP3mTP1hDoGOyh7nbB3cuC3sOPhG5wGDA==
+highlight.js@^9.18.1:
+  version "9.18.1"
+  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
+  integrity sha512-OrVKYz70LHsnCgmbXctv/bfuvntIKDz177h0Co37DQ5jamGZLVmoCVMtjMtNZY3X9DrCcKfklHPNeA0uPZhSJg==
 
 popper.js@^1.0.2:
   version "1.16.0"
@@ -486,7 +486,7 @@ tslib@^1.9.3:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
-typescript@3.6.2:
-  version "3.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.2.tgz#105b0f1934119dde543ac8eb71af3a91009efe54"
-  integrity sha512-lmQ4L+J6mnu3xweP8+rOrUwzmN+MRAj7TgtJtDaXE5PMyX2kCrklhg3rvOsOIfNeAWMQWO2F1GPc1kMD2vLAfw==
+typescript@3.8.3:
+  version "3.8.3"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==

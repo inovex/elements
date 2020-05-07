@@ -55,25 +55,14 @@ describe('InoButton', () => {
       expect(mdcButtonEl).toHaveClass('mdc-button--outlined');
     });
 
-    it('should render with raised', async () => {
+    it('should render with inverse', async () => {
       const page = await setupPageWithContent(INO_BUTTON);
 
       const inoButtonEl = await page.find('ino-button');
-      inoButtonEl.setAttribute('ino-fill', 'raised');
-      await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
-      expect(mdcButtonEl).toHaveClass('mdc-button--raised');
-    });
-
-    it('should render with transparent', async () => {
-      const page = await setupPageWithContent(INO_BUTTON);
-
-      const inoButtonEl = await page.find('ino-button');
-      inoButtonEl.setAttribute('ino-fill', 'transparent');
+      inoButtonEl.setAttribute('ino-fill', 'inverse');
       await page.waitForChanges();
       const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).not.toHaveClasses([
-        'mdc-button--unelevated',
         'mdc-button--outlined',
         'mdc-button--raised'
       ]);

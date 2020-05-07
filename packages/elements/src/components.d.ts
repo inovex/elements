@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonType, CardAspectRatio, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
+import { ButtonColorScheme, ButtonType, CardAspectRatio, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
 import { Placement, } from "popper.js";
 export namespace Components {
     interface InoButton {
@@ -22,17 +22,25 @@ export namespace Components {
          */
         "form"?: string;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme"?: ButtonColorScheme;
         /**
           * Makes the button text and container slightly smaller.
          */
         "inoDense"?: boolean;
         /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
+          * Styles the button to have the edge on the top-right instead of the top-left
+         */
+        "inoEdgeMirrored"?: boolean;
+        /**
+          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
          */
         "inoFill"?: SurfaceType;
+        /**
+          * Styles the button in 100% width.
+         */
+        "inoFullWidth"?: boolean;
         /**
           * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
          */
@@ -1328,17 +1336,25 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme"?: ButtonColorScheme;
         /**
           * Makes the button text and container slightly smaller.
          */
         "inoDense"?: boolean;
         /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `raised` or `transparent`.
+          * Styles the button to have the edge on the top-right instead of the top-left
+         */
+        "inoEdgeMirrored"?: boolean;
+        /**
+          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
          */
         "inoFill"?: SurfaceType;
+        /**
+          * Styles the button in 100% width.
+         */
+        "inoFullWidth"?: boolean;
         /**
           * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
          */
