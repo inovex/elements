@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, h, Listen } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -22,6 +22,14 @@ export class InoOption {
    * Value of the option
    */
   @Prop() value!: string;
+
+  @Listen('keydown')
+  keydownHandler(e) {
+    if (this.disabled && (e.key === 'Enter' || e.key === ' ')) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }
 
   render() {
     const classSelect = classNames({
