@@ -66,7 +66,7 @@ export class Datepicker implements ComponentInterface {
   @Watch('value')
   valueChanged(value: string) {
     if (this.flatpickr) {
-      this.flatpickr.setDate(value, true);
+      this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
   }
 
@@ -393,14 +393,14 @@ export class Datepicker implements ComponentInterface {
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
-          onValueChange={e => {
-            // This callback is only called when the user types into the textfield.
-            // When the user selects a date from the flatpickr, this is NOT called
-            // because flatpickr controls the input field and prevents emitting.
-            this.valueChange.emit(e.detail);
-          }}
+          onValueChange={e => this.valueChange.emit(e.detail)}
         >
-          <ino-icon ino-clickable={!this.disabled} slot={'ino-icon-leading'} ino-icon={'calendar'}></ino-icon>
+          <ino-icon
+            ino-clickable={!this.disabled}
+            slot={'ino-icon-leading'}
+            ino-icon={this.isTimePicker() ? 'time' : 'calendar'}
+          >
+          </ino-icon>
         </ino-input>
       </Host>
     );
