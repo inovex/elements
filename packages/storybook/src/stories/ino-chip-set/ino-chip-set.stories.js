@@ -99,7 +99,7 @@ storiesOf('<ino-chip-set>', module)
       <ino-chip-set>
         <ino-chip ino-fill="outline" ino-label="Outline"></ino-chip>
         <ino-chip ino-fill="outline" ino-label="Primary" ino-color-scheme="primary"></ino-chip>
-        <ino-chip ino-fill="outline" ino-label="Primary" ino-color-scheme="secondary"></ino-chip>
+        <ino-chip ino-fill="outline" ino-label="Secondary" ino-color-scheme="secondary"></ino-chip>
       </ino-chip-set>
 
       <h4>With Icon</h4>

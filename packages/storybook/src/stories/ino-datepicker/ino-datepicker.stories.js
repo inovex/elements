@@ -85,7 +85,7 @@ storiesOf('<ino-datepicker>', module)
       <ino-datepicker ino-type="time" ino-label="Default hour and minute" ino-date-format="H:i" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 
       <h4>Variations</h4>
-      <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelf hour time" ino-twelf-hour-time></ino-datepicker>
+      <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelve hour time" ino-twelve-hour-time></ino-datepicker>
 
       <h4>States</h4>
       <ino-datepicker ino-label="Pattern numbers from 1 - 6" ino-pattern="[1-6]+"></ino-datepicker>
