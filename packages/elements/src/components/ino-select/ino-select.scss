@@ -9,12 +9,21 @@ $not-outlined-select: 'not(.mdc-select--outlined)';
 
 ino-select {
 
+  /**
+  * @prop --select-height: Height of the open select menu
+   */
+
   display: block;
+  --select-height: auto;
 
   input {
     opacity: 0;
     width: 100%;
     cursor: pointer;
+  }
+
+  .mdc-select__menu {
+    height: var(--select-height);
   }
 
   .mdc-select__anchor, .mdc-select, .mdc-select__menu {

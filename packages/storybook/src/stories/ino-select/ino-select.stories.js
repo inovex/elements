@@ -78,6 +78,10 @@ storiesOf('<ino-select>', module)
             </ino-option-group>
           </ino-select>
 
+        <ino-select style="--select-height: 80px" ino-label="Select with custom height">
+          ${optionsTemplate}
+        </ino-select>
+
         <h4 class="outline">Outlined</h4>
         <ino-select ino-outline>
           ${optionsTemplate}

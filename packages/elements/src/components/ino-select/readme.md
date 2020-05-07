@@ -117,6 +117,13 @@ The component behaves like a native select with additional features. The native 
 | `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
 
 
+## CSS Custom Properties
+
+| Name              | Description                    |
+| ----------------- | ------------------------------ |
+| `--select-height` | Height of the open select menu |
+
+
 ## Dependencies
 
 ### Depends on
