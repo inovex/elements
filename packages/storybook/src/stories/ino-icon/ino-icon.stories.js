@@ -177,7 +177,7 @@ storiesOf('<ino-icon>', module)
       <ino-input class="customizable-input" ino-icon-leading>
           <ino-icon slot="ino-icon-leading" ino-icon="search"></ino-icon>
       </ino-input>
-      <ino-chip-set>
+      <ino-chip-set class="icon-collection">
         ${iconChips}
       </ino-chip-set>
     </div>
