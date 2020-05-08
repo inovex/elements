@@ -9,6 +9,9 @@ ino-option {
   }
 
   .mdc-list-item {
+
+    height: 30px;
+
     &.mdc-list-item--selected, &.mdc-list-item--activated {
       background-color: rgba(colors.ino-color(primary, base), 0.05);
       color: colors.$primary;
