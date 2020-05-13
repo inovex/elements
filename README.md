@@ -70,7 +70,8 @@ These are the available scripts to get started with this mono repository:
 |`yarn start`|Launches [@inovex/elements](packages/elements) components in development mode locally, opens Storybook.|
 |`yarn test`|Runs all tests for [@inovex/elements](packages/elements).|
 |`yarn build`|Builds [@inovex/elements](packages/elements), [@inovex/elements-angular](packages/elements-angular), [@inovex/elements-react](packages/elements-react), [storybook](packages/storybook).|
-|`yarn build.local`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store.|
+|`yarn linklocal:npm`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for npm projects.|
+|`yarn linklocal:yarn`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for yarn projects.|
 |`yarn lint`|Runs TypeScript linting in [@inovex/elements](packages/elements), [@inovex/elements-angular](packages/elements-angular).|
 |`yarn clean`|Removes `node_modules` and `dist` from root and all packages.|
 |`yarn version`|Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.|
