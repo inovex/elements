@@ -288,4 +288,35 @@ describe('InoInput', () => {
       expect(inputEvent).not.toHaveReceivedEvent();
     });
   });
+  describe('Methods', () => {
+    it('should be focused after calling focusInput()', async () => {
+      const emptyElement = {};
+
+      const page = await setupPageWithContent(INO_INPUT);
+      const activeElement = await page.evaluate(() => document.activeElement);
+      expect(activeElement).toEqual(emptyElement);
+
+      await page.evaluate(async () => await document.querySelector('ino-input').focusInput());
+
+      const activeElementProps = await page.evaluate(() => ({
+        tagName: document.activeElement.tagName,
+        parentClassName: document.activeElement.parentElement.className
+      }));
+
+      expect(activeElementProps.tagName).toEqual('INPUT');
+      expect(activeElementProps.parentClassName).toContain('mdc-text-field--focused');
+    });
+
+    it('should be blurred after calling blurInput()', async () => {
+      const emptyElement = {};
+
+      const page = await setupPageWithContent(INO_INPUT);
+
+      await page.evaluate(async () => await document.querySelector('ino-input').focusInput());
+      await page.evaluate(async () => await document.querySelector('ino-input').blurInput());
+
+      const activeElement = await page.evaluate(() => document.activeElement);
+      expect(activeElement).toEqual(emptyElement);
+    });
+  });
 });

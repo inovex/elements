@@ -178,6 +178,29 @@ The component is based on a native input with additional features. Thus, the com
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 
+## Methods
+
+### `blurInput() => Promise<void>`
+
+Blurs the input field.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `focusInput() => Promise<void>`
+
+Focuses the input field.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by
