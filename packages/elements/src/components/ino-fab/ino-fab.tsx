@@ -8,7 +8,7 @@ import { ColorScheme } from '../types';
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
-  shadow: false
+  shadow: true
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
@@ -68,7 +68,7 @@ export class Fab implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.fabRipple = new MDCRipple(this.el.querySelector('.mdc-fab'));
+    this.fabRipple = new MDCRipple(this.el.shadowRoot.querySelector('.mdc-fab'));
   }
 
   componentWillUnload() {
@@ -97,8 +97,8 @@ export class Fab implements ComponentInterface {
     });
 
     return (
-      <Host>
-        <button class={classFab} id={this.uniqueHelperId} disabled={this.inoDisabled}>
+      <Host id={this.uniqueHelperId}>
+        <button class={classFab} disabled={this.inoDisabled}>
           <span class="material-icons mdc-fab__icon">
             {this.inoIcon ?
               <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}/>
