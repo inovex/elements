@@ -1,5 +1,4 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
-import { MDCSelect } from '@material/select/component';
 
 const INO_SELECT = `
   <ino-select>

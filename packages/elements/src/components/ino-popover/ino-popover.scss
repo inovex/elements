@@ -1,4 +1,5 @@
 @use 'styles/tooltip';
+@use 'styles/colors';
 
 ino-popover {
   // Hide popover, as long as it's not moved by the js plugin.
@@ -6,8 +7,24 @@ ino-popover {
     display: none;
   }
 
-  // A popover is basically a tooltip
-  @include tooltip.tooltip(#fff, #000);
+  //default color scheme
+  @include tooltip.tooltip(colors.$primary-light, #fff);
+
+  &[ino-color-scheme="primary"] {
+    @include tooltip.tooltip(colors.$primary-light, #fff);
+  }
+
+  &[ino-color-scheme="secondary"] {
+    @include tooltip.tooltip(colors.$secondary, #fff);
+  }
+
+  &[ino-color-scheme="light"] {
+    @include tooltip.tooltip(#ebebff, #000);
+  }
+
+  &[ino-color-scheme="transparent"] {
+    @include tooltip.tooltip(#fff, colors.$dark);
+  }
 
   > .ino-popover__content {
     padding-right: 5px;

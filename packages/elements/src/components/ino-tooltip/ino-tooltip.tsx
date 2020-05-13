@@ -16,6 +16,12 @@ export class Tooltip implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
+   * Sets the color scheme of the tooltip
+   * Valid options include: 'primary', 'secondary' 'light', 'transparent'
+   */
+  @Prop() inoColorScheme: string = 'primary';
+
+  /**
    * The placement of the tooltip.
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
@@ -23,8 +29,8 @@ export class Tooltip implements ComponentInterface {
   @Prop() inoPlacement: Placement = 'auto';
 
   @Watch('inoPlacement')
-  inoPlacementChanged() {
-    this.create();
+  async inoPlacementChanged() {
+    await this.create();
   }
 
   /**
@@ -34,8 +40,8 @@ export class Tooltip implements ComponentInterface {
   @Prop() inoFor?: string;
 
   @Watch('inoFor')
-  inoForChanged() {
-    this.create();
+  async inoForChanged() {
+    await this.create();
   }
 
   /**
@@ -45,8 +51,8 @@ export class Tooltip implements ComponentInterface {
   @Prop() inoTrigger: TooltipTrigger = 'hover focus';
 
   @Watch('inoTrigger')
-  inoTriggerChanged() {
-    this.create();
+  async inoTriggerChanged() {
+    await this.create();
   }
 
   /**
@@ -63,8 +69,8 @@ export class Tooltip implements ComponentInterface {
 
   // Lifecycle
 
-  componentDidLoad() {
-    this.create();
+  async componentDidLoad() {
+    await this.create();
   }
 
   componentWillUnLoad() {
@@ -74,7 +80,7 @@ export class Tooltip implements ComponentInterface {
   private retrieveTarget = () => this.inoFor ?
     document.getElementById(this.inoFor)
     :
-    this.el.parentElement
+    this.el.parentElement;
 
   private async create() {
     this.dispose();
@@ -103,8 +109,7 @@ export class Tooltip implements ComponentInterface {
         }
       },
       template:
-        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
-      arrowSelector: '.ino-tooltip__arrow',
+        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__inner"></div></div>',
       innerSelector: '.ino-tooltip__inner'
     };
 

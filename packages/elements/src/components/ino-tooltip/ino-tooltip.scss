@@ -1,15 +1,33 @@
 @use 'styles/tooltip';
+@use 'styles/colors';
 
 ino-tooltip {
-  @include tooltip.tooltip(#000, #ccc);
 
   .ino-tooltip__composer {
-    border-radius: 3px;
     padding: 0.4em 0.75em;
     font-size: 0.8rem;
     text-align: center;
     position: absolute;
     left: 0px;
     top: 0px;
+  }
+
+  //default color scheme
+  @include tooltip.tooltip(colors.$primary-light, #fff);
+
+  &[ino-color-scheme="primary"] {
+    @include tooltip.tooltip(colors.$primary-light, #fff);
+  }
+
+  &[ino-color-scheme="secondary"] {
+    @include tooltip.tooltip(colors.$secondary, #fff);
+  }
+
+  &[ino-color-scheme="light"] {
+    @include tooltip.tooltip(#ebebff, #000);
+  }
+
+  &[ino-color-scheme="transparent"] {
+    @include tooltip.tooltip(#fff, colors.$dark);
   }
 }
