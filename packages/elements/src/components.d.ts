@@ -732,6 +732,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+         */
+        "inoColorScheme"?: string;
+        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "inoFor"?: string;
@@ -1019,6 +1023,10 @@ export namespace Components {
         "value"?: string;
     }
     interface InoTooltip {
+        /**
+          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+         */
+        "inoColorScheme": string;
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -2097,6 +2105,10 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
+          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+         */
+        "inoColorScheme"?: string;
+        /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "inoFor"?: string;
@@ -2428,6 +2440,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoTooltip {
+        /**
+          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+         */
+        "inoColorScheme"?: string;
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

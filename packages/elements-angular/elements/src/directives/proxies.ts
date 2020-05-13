@@ -303,8 +303,8 @@ export class InoOptionGroup {
 }
 export declare interface InoPopover extends Components.InoPopover {
 }
-@ProxyCmp({ inputs: ["inoFor", "inoPlacement", "inoTrigger"] })
-@Component({ selector: "ino-popover", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoFor", "inoPlacement", "inoTrigger"] })
+@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
+@Component({ selector: "ino-popover", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
 export class InoPopover {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -478,8 +478,8 @@ export class InoTextarea {
 }
 export declare interface InoTooltip extends Components.InoTooltip {
 }
-@ProxyCmp({ inputs: ["inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
-@Component({ selector: "ino-tooltip", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
+@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
+@Component({ selector: "ino-tooltip", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
 export class InoTooltip {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

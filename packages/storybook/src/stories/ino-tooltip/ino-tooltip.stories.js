@@ -34,5 +34,18 @@ storiesOf('<ino-tooltip>', module)
 
       <ino-button id="tooltip-click">Click</ino-button>
       <ino-tooltip ino-for="tooltip-click" ino-label="This tooltip occurs on click" ino-trigger="click"></ino-tooltip>
+
+      <h4>Colors</h4>
+      <ino-button id="primary-tooltip" ino-color-scheme="primary">Primary</ino-button>
+      <ino-tooltip ino-for="primary-tooltip" ino-label="Primary color scheme" ino-color-scheme="primary"></ino-tooltip>
+
+      <ino-button id="secondary-tooltip" ino-color-scheme="secondary">Secondary</ino-button>
+      <ino-tooltip ino-for="secondary-tooltip" ino-label="Secondary color scheme" ino-color-scheme="secondary"></ino-tooltip>
+
+      <ino-button id="light-tooltip" ino-color-scheme="light">Light</ino-button>
+      <ino-tooltip ino-for="light-tooltip" ino-label="Light color scheme" ino-color-scheme="light"></ino-tooltip>
+
+      <ino-button id="transparent-tooltip" ino-fill="transparent">Transparent</ino-button>
+      <ino-tooltip ino-for="transparent-tooltip" ino-label="Contrast color scheme" ino-color-scheme="transparent"></ino-tooltip>
     </div>
   `);

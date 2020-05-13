@@ -35,6 +35,12 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * Sets the color scheme of the popup
+   * Valid options include: 'primary', 'secondary', 'light', 'transparent'
+   */
+  @Prop() inoColorScheme?: string = 'primary';
+
+  /**
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
@@ -70,7 +76,7 @@ export class Popover implements ComponentInterface {
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
       template:
-        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__arrow"></div><div class="ino-tooltip__inner"></div></div>',
+        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__inner"></div></div>',
       arrowSelector: '.ino-tooltip__arrow',
       innerSelector: '.ino-tooltip__inner'
     };

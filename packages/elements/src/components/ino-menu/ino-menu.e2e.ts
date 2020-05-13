@@ -26,7 +26,6 @@ describe('InoMenu', () => {
 
     it('should render closed', async () => {
       const page = await setupPageWithContent(INO_MENU);
-      const inoMenu = await page.find(INO_MENU_SELECTOR);
       const innerDiv = await page.find('.mdc-menu');
 
       expect(innerDiv).not.toHaveClass('mdc-menu-surface--open');
