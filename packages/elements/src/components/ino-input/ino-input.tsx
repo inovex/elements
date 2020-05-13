@@ -11,7 +11,7 @@ import {
   Listen,
   Prop,
   Watch,
-  h
+  h, Method
 } from '@stencil/core';
 import classNames from 'classnames';
 import currency from 'currency.js';
@@ -220,6 +220,22 @@ export class Input implements ComponentInterface {
       this.textfield.valid = true;
       this.nativeInputEl.checkValidity();
     }
+  }
+
+  /**
+   * Focuses the input field.
+   */
+  @Method()
+  async focusInput() {
+    this.textfield.focus();
+  }
+
+  /**
+   * Blurs the input field.
+   */
+  @Method()
+  async blurInput() {
+    this.nativeInputEl.blur();
   }
 
   /**
