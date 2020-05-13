@@ -6,7 +6,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',
-  shadow: false
+  shadow: true
 })
 export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;

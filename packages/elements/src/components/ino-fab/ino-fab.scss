@@ -34,7 +34,7 @@ $extended-edged-borders: (
       @include fab.container-color(map-get($map, dark));
     }
 
-    ino-icon {
+    ::slotted(ino-icon), ino-icon {
       --color: #{map-get($map, contrast)};
     }
   }
@@ -43,50 +43,50 @@ $extended-edged-borders: (
 @mixin setEdgedBorders($position) {
   &:not(.mdc-fab--extended) {
     border-radius: map_get($edged-borders, $position);
-    @include mixins.buttonRoundingAnimation(map_get($edged-borders, none), map_get($edged-borders, $position), 'fab-#{$position}-default');
+    @include mixins.buttonRoundingAnimation(map_get($edged-borders, none), map_get($edged-borders, $position), fab-#{$position}-default);
   }
 
   &.mdc-fab--extended {
     border-radius: map_get($extended-edged-borders, $position);
-    @include mixins.buttonRoundingAnimation(map_get($extended-edged-borders, none), map_get($extended-edged-borders, $position), 'fab-#{$position}-extended');
+    @include mixins.buttonRoundingAnimation(map_get($extended-edged-borders, none), map_get($extended-edged-borders, $position), fab-#{$position}-extended);
   }
 }
 
-ino-fab {
+// Default color scheme
+:host(:not([ino-color-scheme])) {
+  @include setColorsPerState(map-get(colors.$ino-color-scheme, primary));
+}
+
+// Generate ino-color-scheme classes
+@each $color-name, $map in colors.$ino-color-scheme {
+  :host([ino-color-scheme='#{$color-name}']) {
+    @include setColorsPerState($map);
+  }
+}
+
+// Default Edge
+:host(:not([ino-edge-position])) .mdc-fab {
+  @include setEdgedBorders(top-left);
+}
+
+// Generate ino-edge-position classes
+@each $position in $edge-positions {
+  :host([ino-edge-position="#{$position}"]) .mdc-fab {
+    @include setEdgedBorders($position);
+  }
+}
+
+:host {
   display: inline-block;
-
-  // Default color scheme
-  &:not([ino-color-scheme]) {
-    @include setColorsPerState(map-get(colors.$ino-color-scheme, primary));
-  }
-
-  // Generate ino-color-scheme classes
-  @each $color-name, $map in colors.$ino-color-scheme {
-    &[ino-color-scheme='#{$color-name}'] {
-      @include setColorsPerState($map);
-    }
-  }
-
-  // Default Edge
-  &:not([ino-edge-position]) .mdc-fab {
-    @include setEdgedBorders(top-left);
-  }
-
-  // Generate ino-edge-position classes
-  @each $position in $edge-positions {
-    &[ino-edge-position="#{$position}"] .mdc-fab {
-      @include setEdgedBorders($position);
-    }
-  }
 
   .mdc-fab {
 
-    ino-icon {
+    ::slotted(ino-icon), ino-icon {
       --width: 30px;
       --height: 30px;
     }
 
-    &.mdc-fab--mini ino-icon {
+    &.mdc-fab--mini ::slotted(ino-icon), &.mdc-fab--mini ino-icon {
       --width: 25px;
       --height: 25px;
     }
@@ -104,7 +104,7 @@ ino-fab {
       @include fab.container-color(colors.ino-color(dark, light));
       pointer-events: none;
 
-      ino-icon {
+      ::slotted(ino-icon), ino-icon {
         --color: white;
       }
     }

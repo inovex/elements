@@ -2,8 +2,8 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_FAB_SET = `<ino-fab-set><ino-fab></ino-fab><ino-fab></ino-fab></ino-fab-set>`;
 const INO_FAB_SET_SELECTOR = 'ino-fab-set';
-const INO_FAB_PRIMARY_SELECTOR = '#primary-fab';
-const DIAL_SELECTOR = '.ino-speed-dial';
+const INO_FAB_PRIMARY_SELECTOR = 'ino-fab-set >>> ino-fab >>> #primary-fab';
+const DIAL_SELECTOR = 'ino-fab-set >>> .ino-speed-dial';
 
 describe('InoFabButton', () => {
   it('should render with default values', async () => {
@@ -12,7 +12,7 @@ describe('InoFabButton', () => {
     const inoFabSetEl = await page.find(INO_FAB_SET_SELECTOR);
     expect(inoFabSetEl).toBeDefined();
 
-    const dialEl = await inoFabSetEl.find(DIAL_SELECTOR);
+    const dialEl = await page.find(DIAL_SELECTOR);
     expect(dialEl).toBeDefined();
   });
 
@@ -20,9 +20,8 @@ describe('InoFabButton', () => {
 
     it('should not open the dial by default', async () => {
       const page = await setupPageWithContent(INO_FAB_SET);
-      const inoFabSetEl = await page.find(INO_FAB_SET_SELECTOR);
 
-      const dialEl = await inoFabSetEl.find(DIAL_SELECTOR);
+      const dialEl = await page.find(DIAL_SELECTOR);
       const dialElStyle = await dialEl.getComputedStyle();
 
       expect(dialElStyle.display).toBe('none');
@@ -35,7 +34,7 @@ describe('InoFabButton', () => {
       inoFabSetEl.setAttribute('ino-open-dial', true);
       await page.waitForChanges();
 
-      const dialEl = await inoFabSetEl.find(DIAL_SELECTOR);
+      const dialEl = await page.find(DIAL_SELECTOR);
       const dialElStyle = await dialEl.getComputedStyle();
 
       expect(dialElStyle.display).toBe('flex');
@@ -54,10 +53,9 @@ describe('InoFabButton', () => {
 
     it('should not open the dial by click', async () => {
       const page = await setupPageWithContent(INO_FAB_SET);
-      const inoFabSetEl = await page.find(INO_FAB_SET_SELECTOR);
       const inoPrimaryFabEl = await page.find(INO_FAB_PRIMARY_SELECTOR);
 
-      const dialEl = await inoFabSetEl.find(DIAL_SELECTOR);
+      const dialEl = await page.find(DIAL_SELECTOR);
       let dialElStyle = await dialEl.getComputedStyle();
       expect(dialElStyle.display).toBe('none');
 

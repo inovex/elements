@@ -31,9 +31,9 @@ const tooltipPlacementOptions = [
 function subscribeToComponentEvents() {
   // == event block
   const eventHandler = function(e) {
-    const el = e.path.find(element => element.tagName === 'INO-FAB-SET');
+    const el = e.target;
 
-    if (!el) return;
+    if (el.tagName !== 'INO-FAB-SET') return;
 
     const newState = el.getAttribute('ino-open-dial') === 'false' ? 'true' : 'false';
     el.setAttribute('ino-open-dial', newState);

@@ -1,6 +1,6 @@
 @use 'styles/mixins';
 
-$primary-fab-icon-selector: 'ino-fab#primary-fab .mdc-fab__icon';
+$primary-fab-icon-selector: 'ino-fab';
 
 $rotationsByDirection: (
   top: 0deg,
@@ -24,7 +24,7 @@ $rotationsByDirection: (
     $speedDialDirection: row;
   }
 
-  &[ino-dial-direction='#{$direction}'] {
+  :host([ino-dial-direction='#{$direction}']) {
     .ino-fab-set-wrapper {
       flex-direction: $wrapperDirection;
 
@@ -39,39 +39,16 @@ $rotationsByDirection: (
   }
 }
 
-ino-fab-set {
+:host {
   position: fixed;
 
   bottom: 20px;
   right: 20px;
 
-  &[ino-top-bottom-location='top'] {
-    top: 20px;
-    bottom: auto;
-  }
-
-  &[ino-top-bottom-location='bottom'] {
-    bottom: 20px;
-  }
-
-  &[ino-left-right-location='left'] {
-    left: 20px;
-    right: auto;
-  }
-
-  &[ino-left-right-location='right'] {
-    right: 20px;
-  }
-
-  $directions: 'top', 'bottom', 'left', 'right';
-  @each $direction in $directions {
-    @include direction($direction);
-  }
-
   .ino-fab-set-wrapper {
     display: flex;
 
-    ino-fab {
+    ::slotted(ino-fab) {
       padding: 5px;
 
       .mdc-fab .mdc-fab__icon {
@@ -85,29 +62,54 @@ ino-fab-set {
     }
   }
 
-  &[ino-open-dial="true"] {
-    .ino-speed-dial {
-      display: flex;
-    }
 
-    #{$primary-fab-icon-selector} {
-      transition-duration: 100ms;
-    }
+}
 
-    &[ino-dial-direction='top'] #{$primary-fab-icon-selector} {
-      transform: scaleY(-1);
-    }
+:host([ino-top-bottom-location='top']) {
+  top: 20px;
+  bottom: auto;
+}
 
-    &[ino-dial-direction='bottom'] #{$primary-fab-icon-selector} {
-      transform: scaleY(1);
-    }
+:host([ino-top-bottom-location='bottom']) {
+  bottom: 20px;
+}
 
-    &[ino-dial-direction='left'] #{$primary-fab-icon-selector} {
-      transform: rotate(90deg);
-    }
+:host([ino-left-right-location='left']) {
+  left: 20px;
+  right: auto;
+}
 
-    &[ino-dial-direction='right'] #{$primary-fab-icon-selector} {
-      transform: rotate(270deg);
-    }
+:host([ino-left-right-location='right']) {
+  right: 20px;
+}
+
+$directions: 'top', 'bottom', 'left', 'right';
+@each $direction in $directions {
+  @include direction($direction);
+}
+
+:host([ino-open-dial="true"]) {
+  .ino-speed-dial {
+    display: flex;
   }
+
+  #{$primary-fab-icon-selector} {
+    transition-duration: 100ms;
+  }
+}
+
+:host([ino-open-dial="true"][ino-dial-direction='top']) #{$primary-fab-icon-selector} {
+  transform: scaleY(-1);
+}
+
+:host([ino-open-dial="true"][ino-dial-direction='bottom']) #{$primary-fab-icon-selector} {
+    transform: scaleY(1);
+}
+
+:host([ino-open-dial="true"][ino-dial-direction='left']) #{$primary-fab-icon-selector} {
+    transform: rotate(90deg);
+}
+
+:host([ino-open-dial="true"][ino-dial-direction='right']) #{$primary-fab-icon-selector} {
+    transform: rotate(270deg);
 }

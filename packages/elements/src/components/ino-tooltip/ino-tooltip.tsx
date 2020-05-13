@@ -73,8 +73,8 @@ export class Tooltip implements ComponentInterface {
     await this.create();
   }
 
-  componentWillUnLoad() {
-    this.dispose();
+  async componentWillUnLoad() {
+    await this.dispose();
   }
 
   private retrieveTarget = () => this.inoFor ?
@@ -83,7 +83,7 @@ export class Tooltip implements ComponentInterface {
     this.el.parentElement;
 
   private async create() {
-    this.dispose();
+    await this.dispose();
 
     this.target = this.retrieveTarget();
 
@@ -117,11 +117,14 @@ export class Tooltip implements ComponentInterface {
 
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
     this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
+    this.target!.addEventListener('mouseleave', () => {
+      this.tooltipInstance.hide();
+    });
   }
 
-  private dispose() {
+  private async dispose() {
     if (this.tooltipInstance) {
-      this.tooltipInstance.dispose();
+      await this.tooltipInstance.dispose();
 
       this.target!.removeEventListener('keyup', this.onEnterTarget.bind(this));
       this.target!.removeEventListener(
