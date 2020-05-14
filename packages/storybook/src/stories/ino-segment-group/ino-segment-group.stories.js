@@ -52,5 +52,10 @@ storiesOf('<ino-segment-group>', module)
             <ino-segment-button value="3">Option 3</ino-segment-button>
             <ino-segment-button value="4">Option 4</ino-segment-button>
         </ino-segment-group>
+
+        <h4>Group with a single button</h4>
+        <ino-segment-group id="single-segment-grp">
+            <ino-segment-button value="1">Option 1</ino-segment-button>
+        </ino-segment-group>
     </div>
-    `)
+    `);

@@ -5,6 +5,9 @@
 
 // Borders
 $edged-border: 0;
+$left-segment-border: 0 0 0 24px;
+$right-segment-border: 0 24px 24px 0;
+$left-right-segment-border: 0 24px 24px 24px;
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
@@ -13,10 +16,8 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
 :host {
-  display: inline-block;
-}
+  float: left;
 
-ino-segment-button {
   .mdc-button {
     @include fonts.ino-font($size: s, $weight: none);
     letter-spacing: 1.5px;
@@ -56,5 +57,32 @@ ino-segment-button {
 
   .ino-segment-button--dense {
     @include button.density(-1);
+  }
+}
+
+/*
+  Regarding belongs-to-group class:
+  Prevents styles from being applied to segment-buttons that do not belong to a group.
+  The host-context selector cannot be used as it is not compatible with firefox and safari.
+*/
+:host(:not(:last-child)) button.belongs-to-group {
+  border-right: none;
+}
+
+:host(:first-child) button.belongs-to-group {
+  @include button.shape-radius($left-segment-border);
+}
+
+:host(:last-child) button.belongs-to-group {
+  @include button.shape-radius($right-segment-border);
+}
+
+:host(:only-of-type) button.belongs-to-group {
+  @include button.shape-radius($left-right-segment-border);
+}
+
+:host(:hover), :host(:active), :host([checked]) {
+  button.belongs-to-group {
+    border-right: 1px solid;
   }
 }
