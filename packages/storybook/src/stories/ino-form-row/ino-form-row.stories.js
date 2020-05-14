@@ -31,7 +31,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-form-row>', module)
+storiesOf('Input|<ino-form-row>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(
     withActions(

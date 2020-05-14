@@ -36,7 +36,7 @@ function subscribeToComponentEvents() {
   };
 };
 
-storiesOf('<ino-datepicker>', module)
+storiesOf('Input|<ino-datepicker>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('valueChange .customizable-picker'))
   .addDecorator(story => {

@@ -26,7 +26,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-segment-group>', module)
+storiesOf('Buttons|<ino-segment-group>', module)
     .addDecorator(withStencilReadme(componentReadme))
     .addDecorator(story => {
       addons

@@ -50,7 +50,7 @@ function subscribeToComponentEvents() {
   }
 }
 
-storiesOf('<ino-icon-button>', module)
+storiesOf('Buttons|<ino-icon-button>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions(
     `${eventToListen} .customizable-icon-button ino-icon-button` // this is just for the "ACTION LOGGER" panel

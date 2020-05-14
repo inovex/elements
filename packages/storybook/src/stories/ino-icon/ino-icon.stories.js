@@ -105,7 +105,7 @@ const iconChips = ICON_IDS
   .replace(/,/g, ''); // Remove commas
 
 
-storiesOf('<ino-icon>', module)
+storiesOf('Graphic|<ino-icon>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(
     withActions(

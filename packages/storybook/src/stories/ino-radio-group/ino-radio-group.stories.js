@@ -29,7 +29,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-radio-group>', module)
+storiesOf('Input|<ino-radio-group>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('checkedChange ino-radio'))
   .addDecorator(story => {

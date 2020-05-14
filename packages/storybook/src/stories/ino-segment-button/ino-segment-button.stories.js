@@ -4,7 +4,7 @@ import componentReadme from '_local-elements/src/components/ino-segment-button/r
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-segment-button.scss';
 
-storiesOf('<ino-segment-button>', module)
+storiesOf('Buttons|<ino-segment-button>', module)
   .addDecorator(withStencilReadme(componentReadme))
 
   .add('Default usage', () => /* html */`

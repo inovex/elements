@@ -9,7 +9,7 @@ import './ino-range.scss';
 
 
 
-storiesOf('<ino-range>', module)
+storiesOf('Input|<ino-range>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-range">

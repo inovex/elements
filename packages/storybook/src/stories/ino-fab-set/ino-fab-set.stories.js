@@ -48,7 +48,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-fab-set>', module)
+storiesOf('Buttons|<ino-fab-set>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('click ino-fab'))
   .addDecorator(story => {
