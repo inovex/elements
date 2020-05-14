@@ -43,7 +43,7 @@ function handler() {
 }
 
 
-storiesOf('<ino-menu>', module)
+storiesOf('Structure|<ino-menu>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);

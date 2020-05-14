@@ -35,7 +35,7 @@ function subscribeToComponentEvents() {
 
 const sampleText = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
-storiesOf('<ino-snackbar>', module)
+storiesOf('Notification|<ino-snackbar>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons

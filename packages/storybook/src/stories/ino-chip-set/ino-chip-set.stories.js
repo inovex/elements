@@ -9,7 +9,7 @@ import componentReadme from '_local-elements/src/components/ino-chip-set/readme.
 import chipReadme from '_local-elements/src/components/ino-chip/readme.md';
 import './ino-chip-set.scss';
 
-storiesOf('<ino-chip-set>', module)
+storiesOf('Buttons|<ino-chip-set>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('updateChipSet .customizable-chip-set'))
   .add(
@@ -47,7 +47,7 @@ storiesOf('<ino-chip-set>', module)
   `
   );
 
-storiesOf('<ino-chip-set>', module)
+storiesOf('Buttons|<ino-chip-set>', module)
   .addDecorator(withStencilReadme(chipReadme))
   .addDecorator(withActions('removeChip .customizable-chip'))
   .add(

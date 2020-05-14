@@ -6,7 +6,7 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import './ino-header.scss';
 
-storiesOf('<ino-header>', module)
+storiesOf('Structure|<ino-header>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-header">

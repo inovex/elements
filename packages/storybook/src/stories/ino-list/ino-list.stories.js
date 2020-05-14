@@ -39,7 +39,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
   .addDecorator(withStencilReadme(listReadme))
   .addDecorator(story => {
     addons
@@ -138,7 +138,7 @@ storiesOf('<ino-list>', module)
   `
   );
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
   .addDecorator(withStencilReadme(listItemReadme))
   .add(
     'List item',
@@ -200,7 +200,7 @@ storiesOf('<ino-list>', module)
   `
   );
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
   .addDecorator(story => {
     addons
       .getChannel()
@@ -448,7 +448,7 @@ storiesOf('<ino-list>', module)
   `
   );
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
   .addDecorator(withStencilReadme(listDividerReadme))
   .add(
     'List divider',
@@ -489,7 +489,7 @@ storiesOf('<ino-list>', module)
   `
   );
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
   .addDecorator(withStencilReadme(listItemControlReadme))
   .addDecorator(story => {
     addons
@@ -577,7 +577,7 @@ storiesOf('<ino-list>', module)
   `
   );
 
-storiesOf('<ino-list>', module)
+storiesOf('Structure|<ino-list>', module)
 .addDecorator(withStencilReadme(navItemReadme))
 .add(
   'Nav item',

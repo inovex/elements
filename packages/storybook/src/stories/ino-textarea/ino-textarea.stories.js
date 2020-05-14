@@ -30,7 +30,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-textarea>', module)
+storiesOf('Input|<ino-textarea>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(
     withActions(

@@ -26,21 +26,21 @@ import typography from '_local-docs/styleguide.typography.md'
 
 const componentVersion = require('_local-elements/package.json').version
 
-storiesOf('Home', module)
+storiesOf('Docs|Home', module)
   .add('Welcome', () => markup(welcome.replace(/{ELEMENTS_VERSION}/g, `v${componentVersion}`)))
   .add('Changelog', () => markup(`# CHANGELOG \n${changelog}`))
 
-storiesOf('Framework Integration', module)
+storiesOf('Docs|Framework Integration', module)
   .add('Angular', () => markup(setupAngularInstructions))
   .add('React', () => markup(setupReactInstructions))
   .add('Vue', () => markup(setupVueInstructions))
   .add('JavaScript', () => markup(setupJavaScriptInstructions))
 
-storiesOf('Styleguide', module)
+storiesOf('Docs|Styleguide', module)
   .add('Colors', () => markup(colors))
   .add('Typography', () => markup(typography))
 
-storiesOf('Contributing', module)
+storiesOf('Docs|Contributing', module)
   .add('Architectural Overview', () => markup(contributing01))
   .add('Quick Start', () => markup(contributing02))
   .add('Team Organization', () => markup(contributing03))
