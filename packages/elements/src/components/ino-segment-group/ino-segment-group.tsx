@@ -5,7 +5,7 @@ import { generateUniqueId } from '../../util/component-utils';
 @Component({
   tag: 'ino-segment-group',
   styleUrl: 'ino-segment-group.scss',
-  shadow: false
+  shadow: true
 })
 export class InoSegmentGroup implements ComponentInterface {
 
@@ -36,7 +36,7 @@ export class InoSegmentGroup implements ComponentInterface {
     this.updateButtons();
   }
 
-  private getButtons() {
+  private async getButtons() {
     return Array.from(this.el.querySelectorAll('ino-segment-button'));
   }
 
@@ -44,7 +44,7 @@ export class InoSegmentGroup implements ComponentInterface {
    * Updates the checked property of the segment-buttons in the group
    */
   private async updateButtons() {
-    const buttons = this.getButtons();
+    const buttons = await this.getButtons();
 
     for (const btn of buttons) {
       btn.checked = this.value === btn.value;
