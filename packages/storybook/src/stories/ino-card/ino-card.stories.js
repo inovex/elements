@@ -25,8 +25,8 @@ storiesOf('<ino-card>', module)
           ''
         )}">
         <div slot="content">${text('<slot />', 'Here comes your content.')}</div>
-        <ino-button ino-fill="transparent" slot="action-buttons">Read</ino-button>
-        <ino-button ino-fill="transparent" slot="action-buttons">Bookmark</ino-button>
+        <ino-button ino-fill="inverse" slot="action-buttons">Read</ino-button>
+        <ino-button ino-fill="inverse" slot="action-buttons">Bookmark</ino-button>
         <ino-icon-button ino-icon="favorite" slot="action-icons"></ino-icon-button>
         <ino-icon-button ino-icon="info" slot="action-icons"></ino-icon-button>
         <ino-icon-button ino-icon="help" slot="action-icons"></ino-icon-button>
