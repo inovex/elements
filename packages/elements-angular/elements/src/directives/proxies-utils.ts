@@ -30,7 +30,7 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
 
 export const proxyOutputs = (instance: any, el: any, events: string[]) => {
   events.forEach(eventName => instance[eventName] = fromEvent(el, eventName));
-};
+}
 
 export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
   const decorator =  function(cls: any){

@@ -1,3 +1,14 @@
+# [0.18.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
+
+
+### Features
+
+* **elements|ino-button:** add css variables ([9295b65](https://gitlab.inovex.de/inovex-elements/core/commit/9295b6510029e4c37ef25e535467d1ad3ce90fb2))
+* **elements|ino-input:** add methods to focus and blur the input element ([9c9e863](https://gitlab.inovex.de/inovex-elements/core/commit/9c9e863b2d0fa798ab0484132855977a1634df03))
+* **elements|ino-option-group:** add ino-option-group component ([6aa7a3c](https://gitlab.inovex.de/inovex-elements/core/commit/6aa7a3ca7bbe771b269b27934bea88ce021b9bc6))
+
+
+
 # [0.17.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.16.0...v0.17.0) (2020-04-29)
 
 

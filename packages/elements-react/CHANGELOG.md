@@ -1,3 +1,12 @@
+# [0.18.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
+
+
+### Features
+
+* **elements|ino-option-group:** add ino-option-group component ([6aa7a3c](https://gitlab.inovex.de/inovex-elements/core/commit/6aa7a3ca7bbe771b269b27934bea88ce021b9bc6))
+
+
+
 # [0.17.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.16.0...v0.17.0) (2020-04-29)
 
 

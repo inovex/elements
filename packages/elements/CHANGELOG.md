@@ -1,3 +1,24 @@
+# [0.18.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix parsing on keyboard input ([9ea3628](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9ea36286b600d2fd77f62090ee2513282d2463ba))
+* **elements|ino-datepicker:** styles are now applied correctly ([b114ed3](http://gitlab.inovex.de:2424/inovex-elements/core/commit/b114ed3473f7e0a7e610c235aac6acfb74818f77))
+* **elements|ino-select:** fix label hint when required ([c01c4fb](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c01c4fb5775f1c842568221b9789cc7b223217d1))
+* **elements|ino-tooltip:** tooltip disappearing on mouseout when click trigger ([7a3859a](http://gitlab.inovex.de:2424/inovex-elements/core/commit/7a3859a68437c27632f9159fca11127066d4472c))
+
+
+### Features
+
+* **elements|ino-button:** add css variables ([9295b65](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9295b6510029e4c37ef25e535467d1ad3ce90fb2))
+* **elements|ino-input:** add methods to focus and blur the input element ([9c9e863](http://gitlab.inovex.de:2424/inovex-elements/core/commit/9c9e863b2d0fa798ab0484132855977a1634df03))
+* **elements|ino-option-group:** add ino-option-group component ([6aa7a3c](http://gitlab.inovex.de:2424/inovex-elements/core/commit/6aa7a3ca7bbe771b269b27934bea88ce021b9bc6))
+* **elements|ino-select:** add css variable for custom height ([7c8966b](http://gitlab.inovex.de:2424/inovex-elements/core/commit/7c8966b0aea80ba856ee13dd5d85295168e9d60b))
+* **elements|ino-sidebar:** add css variable to specify the width ([062fe24](http://gitlab.inovex.de:2424/inovex-elements/core/commit/062fe24a1de532481e19f1f3b9aaf3ba69b8f74c))
+
+
+
 # [0.17.0](http://gitlab.inovex.de/inovex-elements/core/compare/v0.16.0...v0.17.0) (2020-04-29)
 
 
