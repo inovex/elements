@@ -289,14 +289,14 @@ describe('InoInput', () => {
     });
   });
   describe('Methods', () => {
-    it('should be focused after calling focusInput()', async () => {
+    it('should be focused after calling focus()', async () => {
       const emptyElement = {};
 
       const page = await setupPageWithContent(INO_INPUT);
       const activeElement = await page.evaluate(() => document.activeElement);
       expect(activeElement).toEqual(emptyElement);
 
-      await page.evaluate(async () => await document.querySelector('ino-input').focusInput());
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
 
       const activeElementProps = await page.evaluate(() => ({
         tagName: document.activeElement.tagName,
@@ -307,13 +307,16 @@ describe('InoInput', () => {
       expect(activeElementProps.parentClassName).toContain('mdc-text-field--focused');
     });
 
-    it('should be blurred after calling blurInput()', async () => {
+    it('should be blurred after calling blur() on the native input element', async () => {
       const emptyElement = {};
 
       const page = await setupPageWithContent(INO_INPUT);
 
-      await page.evaluate(async () => await document.querySelector('ino-input').focusInput());
-      await page.evaluate(async () => await document.querySelector('ino-input').blurInput());
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.blur();
+      });
 
       const activeElement = await page.evaluate(() => document.activeElement);
       expect(activeElement).toEqual(emptyElement);
