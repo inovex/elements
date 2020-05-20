@@ -466,17 +466,13 @@ export namespace Components {
          */
         "autocomplete"?: string;
         /**
-          * Blurs the input field.
-         */
-        "blurInput": () => Promise<void>;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * Focuses the input field.
+          * Returns the native input element used under the hood.
          */
-        "focusInput": () => Promise<void>;
+        "getInputElement": () => Promise<HTMLInputElement>;
         /**
           * The id of the datalist child
          */

@@ -222,20 +222,17 @@ export class Input implements ComponentInterface {
     }
   }
 
-  /**
-   * Focuses the input field.
-   */
-  @Method()
-  async focusInput() {
+  @Listen('focus')
+  focusListener() {
     this.textfield.focus();
   }
 
   /**
-   * Blurs the input field.
+   * Returns the native input element used under the hood.
    */
   @Method()
-  async blurInput() {
-    this.nativeInputEl.blur();
+  async getInputElement() {
+    return this.nativeInputEl;
   }
 
   /**
@@ -277,6 +274,8 @@ export class Input implements ComponentInterface {
     if (Boolean(this.inoError)) {
       this.textfield.valid = false;
     }
+
+    this.el.setAttribute('tabindex', '-1');
   }
 
   componentWillUnLoad() {

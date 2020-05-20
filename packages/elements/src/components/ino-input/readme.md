@@ -180,23 +180,13 @@ The component is based on a native input with additional features. Thus, the com
 
 ## Methods
 
-### `blurInput() => Promise<void>`
+### `getInputElement() => Promise<HTMLInputElement>`
 
-Blurs the input field.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `focusInput() => Promise<void>`
-
-Focuses the input field.
+Returns the native input element used under the hood.
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<HTMLInputElement>`
 
 
 

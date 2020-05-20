@@ -172,7 +172,7 @@ export class InoImg {
 }
 export declare interface InoInput extends Components.InoInput {
 }
-@ProxyCmp({ inputs: ["autoFocus", "autocomplete", "disabled", "inoDataList", "inoDecimalPlaces", "inoError", "inoHelper", "inoHelperCharacterCounter", "inoHelperPersistent", "inoHelperValidation", "inoIconLeading", "inoIconTrailing", "inoLabel", "inoOutline", "inoShowLabelHint", "inoThousandsSeparator", "inoUnit", "max", "maxlength", "min", "name", "pattern", "placeholder", "required", "size", "step", "type", "value"], "methods": ["focusInput", "blurInput"] })
+@ProxyCmp({ inputs: ["autoFocus", "autocomplete", "disabled", "inoDataList", "inoDecimalPlaces", "inoError", "inoHelper", "inoHelperCharacterCounter", "inoHelperPersistent", "inoHelperValidation", "inoIconLeading", "inoIconTrailing", "inoLabel", "inoOutline", "inoShowLabelHint", "inoThousandsSeparator", "inoUnit", "max", "maxlength", "min", "name", "pattern", "placeholder", "required", "size", "step", "type", "value"], "methods": ["getInputElement"] })
 @Component({ selector: "ino-input", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "autocomplete", "disabled", "inoDataList", "inoDecimalPlaces", "inoError", "inoHelper", "inoHelperCharacterCounter", "inoHelperPersistent", "inoHelperValidation", "inoIconLeading", "inoIconTrailing", "inoLabel", "inoOutline", "inoShowLabelHint", "inoThousandsSeparator", "inoUnit", "max", "maxlength", "min", "name", "pattern", "placeholder", "required", "size", "step", "type", "value"] })
 export class InoInput {
     valueChange!: EventEmitter<CustomEvent>;
