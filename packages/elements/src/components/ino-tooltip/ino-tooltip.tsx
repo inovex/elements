@@ -117,9 +117,10 @@ export class Tooltip implements ComponentInterface {
 
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
     this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
-    this.target!.addEventListener('mouseleave', () => {
-      this.tooltipInstance.hide();
-    });
+
+    if (this.inoTrigger.includes('hover')) {
+      this.target!.addEventListener('mouseleave', this.onLeaveTarget.bind(this));
+    }
   }
 
   private async dispose() {
@@ -132,6 +133,7 @@ export class Tooltip implements ComponentInterface {
         this.onLeaveTarget.bind(this),
         true
       );
+      this.target!.removeEventListener('mouseleave', this.onLeaveTarget.bind(this));
     }
   }
 
