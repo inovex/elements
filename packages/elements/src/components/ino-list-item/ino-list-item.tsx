@@ -58,14 +58,14 @@ export class ListItem implements ComponentInterface {
   @Event() clickEl!: EventEmitter;
 
   @Listen('click')
-  clickHandler(e) {
+  clickHandler() {
     this.clickEl.emit(this.el);
-    e.stopPropagation();
   }
 
   componentDidUnload() {
     this.el.remove();
   }
+
 
   render() {
     const listItemClasses = classNames({
@@ -75,14 +75,14 @@ export class ListItem implements ComponentInterface {
       'mdc-list-item--disabled': this.inoDisabled
     });
 
-    const primaryContent = this.inoText || <slot name="ino-primary"/>;
-    const secondaryContent = this.inoSecondaryText || <slot name="ino-secondary"/>;
+    const primaryContent = this.inoText || <slot name="ino-primary" />;
+    const secondaryContent = this.inoSecondaryText || <slot name="ino-secondary" />;
 
     return (
       <Host>
         <li class={listItemClasses}>
           <span class="mdc-list-item__graphic" role="presentation">
-            <slot name="ino-leading"/>
+            <slot name="ino-leading" />
           </span>
           <span class="mdc-list-item__text">
             {
@@ -94,7 +94,7 @@ export class ListItem implements ComponentInterface {
             }
           </span>
           <span class="mdc-list-item__meta">
-            <slot name="ino-trailing"/>
+            <slot name="ino-trailing" />
           </span>
         </li>
       </Host>
