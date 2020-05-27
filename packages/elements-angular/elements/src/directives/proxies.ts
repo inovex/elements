@@ -153,10 +153,12 @@ export declare interface InoIconButton extends Components.InoIconButton {
 @ProxyCmp({ inputs: ["autoFocus", "disabled", "inoColorScheme", "inoIcon"] })
 @Component({ selector: "ino-icon-button", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "disabled", "inoColorScheme", "inoIcon"] })
 export class InoIconButton {
+    clickEl!: EventEmitter<CustomEvent>;
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
         c.detach();
         this.el = r.nativeElement;
+        proxyOutputs(this, this.el, ["clickEl"]);
     }
 }
 export declare interface InoImg extends Components.InoImg {
@@ -306,6 +308,17 @@ export declare interface InoPopover extends Components.InoPopover {
 @ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
 @Component({ selector: "ino-popover", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
 export class InoPopover {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
+export declare interface InoProgressBar extends Components.InoProgressBar {
+}
+@ProxyCmp({ inputs: ["inoBuffer", "inoIndeterminate", "inoLabel", "inoProgress", "inoReversed"] })
+@Component({ selector: "ino-progress-bar", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoBuffer", "inoIndeterminate", "inoLabel", "inoProgress", "inoReversed"] })
+export class InoProgressBar {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
         c.detach();
