@@ -90,6 +90,13 @@ The component bubbles the native `click`-Event to the user.
 | `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                             | `string`                                                                                           | `undefined` |
 
 
+## Events
+
+| Event     | Description | Type               |
+| --------- | ----------- | ------------------ |
+| `clickEl` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

@@ -28,6 +28,7 @@ export const DIRECTIVES = [
   d.InoOption,
   d.InoOptionGroup,
   d.InoPopover,
+  d.InoProgressBar,
   d.InoRadio,
   d.InoRadioGroup,
   d.InoRange,

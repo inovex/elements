@@ -2309,6 +2309,18 @@
     "@material/theme" "^5.1.0"
     tslib "^1.9.3"
 
+"@material/linear-progress@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material/linear-progress/-/linear-progress-5.1.0.tgz#e1d9c0f65f19588845c2f30370545441c9fe505a"
+  integrity sha512-wuBH2Y7psdiG5ubsKCHFWriHv4IqLeUARCmHoHyFsAdW0snwMPzSgb2mbVDiGl5gjWbSDxBsqGjKo5kOl3Vaug==
+  dependencies:
+    "@material/animation" "^5.1.0"
+    "@material/base" "^5.1.0"
+    "@material/feature-targeting" "^5.1.0"
+    "@material/progress-indicator" "^5.1.0"
+    "@material/theme" "^5.1.0"
+    tslib "^1.9.3"
+
 "@material/list@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@material/list/-/list-5.1.0.tgz#04c010e393c88c7da2091426fd12b8206585c37e"
@@ -2366,6 +2378,13 @@
     "@material/rtl" "^5.1.0"
     "@material/shape" "^5.1.0"
     "@material/theme" "^5.1.0"
+    tslib "^1.9.3"
+
+"@material/progress-indicator@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material/progress-indicator/-/progress-indicator-5.1.0.tgz#d7885c4d2de7d3c9c0951bf19cc4bb6344d75cab"
+  integrity sha512-+bsiQogKFu42Td8cXpsxX1u2BOyB4erR6NBWMrSWZJNmKM95EFQrQEnr9nxfU94bY47V3UqYtcAY9Y6GgfJyZQ==
+  dependencies:
     tslib "^1.9.3"
 
 "@material/radio@^5.1.0":

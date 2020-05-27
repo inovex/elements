@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Host, Prop, h, Listen } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
@@ -39,11 +39,15 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() inoColorScheme?: ColorScheme = 'primary';
 
+  @Event() clickEl: EventEmitter;
+
   @Listen('click')
   clickHandler(e) {
     if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
+    } else {
+      this.clickEl.emit();
     }
   }
 
