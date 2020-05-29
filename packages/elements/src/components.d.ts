@@ -68,6 +68,10 @@ export namespace Components {
          */
         "inoSelected": boolean;
     }
+    interface InoCarousel {
+    }
+    interface InoCarouselSlide {
+    }
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -1106,6 +1110,18 @@ declare global {
         prototype: HTMLInoCardElement;
         new (): HTMLInoCardElement;
     };
+    interface HTMLInoCarouselElement extends Components.InoCarousel, HTMLStencilElement {
+    }
+    var HTMLInoCarouselElement: {
+        prototype: HTMLInoCarouselElement;
+        new (): HTMLInoCarouselElement;
+    };
+    interface HTMLInoCarouselSlideElement extends Components.InoCarouselSlide, HTMLStencilElement {
+    }
+    var HTMLInoCarouselSlideElement: {
+        prototype: HTMLInoCarouselSlideElement;
+        new (): HTMLInoCarouselSlideElement;
+    };
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
     }
     var HTMLInoCheckboxElement: {
@@ -1373,6 +1389,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
+        "ino-carousel": HTMLInoCarouselElement;
+        "ino-carousel-slide": HTMLInoCarouselSlideElement;
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
         "ino-chip-set": HTMLInoChipSetElement;
@@ -1479,6 +1497,10 @@ declare namespace LocalJSX {
           * Selects the card and displays a check mark icon on top of the card
          */
         "inoSelected"?: boolean;
+    }
+    interface InoCarousel {
+    }
+    interface InoCarouselSlide {
     }
     interface InoCheckbox {
         /**
@@ -2595,6 +2617,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-button": InoButton;
         "ino-card": InoCard;
+        "ino-carousel": InoCarousel;
+        "ino-carousel-slide": InoCarouselSlide;
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
         "ino-chip-set": InoChipSet;
@@ -2647,6 +2671,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
+            "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
+            "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;

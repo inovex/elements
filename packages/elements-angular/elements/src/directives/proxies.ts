@@ -26,6 +26,26 @@ export class InoCard {
         this.el = r.nativeElement;
     }
 }
+export declare interface InoCarousel extends Components.InoCarousel {
+}
+@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>" })
+export class InoCarousel {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
+export declare interface InoCarouselSlide extends Components.InoCarouselSlide {
+}
+@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>" })
+export class InoCarouselSlide {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
 export declare interface InoCheckbox extends Components.InoCheckbox {
 }
 @ProxyCmp({ inputs: ["checked", "disabled", "indeterminate", "inoSelection", "name", "value"] })
