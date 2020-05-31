@@ -1,5 +1,7 @@
-import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
+import { Components } from '../../..';
+import InoCarouselSlide = Components.InoCarouselSlide;
 
 @Component({
   tag: 'ino-carousel',
@@ -9,11 +11,19 @@ import classNames from 'classnames';
 export class InoCarousel implements ComponentInterface{
 
   @Element() el: HTMLElement;
+  private slides: InoCarouselSlide[];
+  private currentSlide: number = 0;
 
   /**
-   * Sets the current value of the carousel
+   * Optional group value to manage the displayed slide
    */
-  @Prop() value: number;
+  @Prop() value?: any;
+  @Watch('value')
+  valueChanged(newVal: any) {
+    this.slides.forEach((slide) => {
+      slide.selected = newVal === slide.value;
+    });
+  }
 
   /**
    * Sets the duration of the slide animation
@@ -40,6 +50,35 @@ export class InoCarousel implements ComponentInterface{
    */
   @Prop() inoInterludeDuration: number = 5000;
 
+  componentDidLoad(): void {
+    this.slides = this.getSlides();
+    if(this.slides.length > 0) {
+      this.slides[this.currentSlide].selected = true;
+    }
+  }
+
+  // required for autoplay
+  private nextSlide = () => {
+    if(this.slides.length > 0) {
+      this.slides[this.currentSlide].selected = false;
+      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+      this.slides[this.currentSlide].selected = true;
+    }
+  };
+
+  // required for autoplay
+  private previousSlide = () => {
+    if(this.slides.length > 0) {
+      this.slides[this.currentSlide].selected = false;
+      this.currentSlide = ((this.currentSlide - 1 % this.slides.length) + this.slides.length) % this.slides.length;
+      this.slides[this.currentSlide].selected = true;
+    }
+  };
+
+  private getSlides() {
+    return Array.from(this.el.querySelectorAll('ino-carousel-slide')) as InoCarouselSlide[];
+  };
+
   //TODO: use ino-icon-button for arrow buttons and slide navigation bar
 
   render() {
@@ -48,19 +87,18 @@ export class InoCarousel implements ComponentInterface{
     });
 
     return (
-      <Host>
+      <Host
+        value={this.value}
+      >
         <div class={classes}>
           <div class="ino-carousel__container">
             <slot/>
           </div>
-          <div class="ino-carousel__nav-bar">
-            <ino-icon-button ino-icon="info"/>
-          </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_right"/>
+            <ino-icon-button ino-icon="arrow_right" onClick={() => this.previousSlide()}/>
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button ino-icon="arrow_right"/>
+            <ino-icon-button ino-icon="arrow_right" onClick={() => this.nextSlide()}/>
           </div>
         </div>
       </Host>
