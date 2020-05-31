@@ -1,4 +1,52 @@
 
 ino-carousel {
+  /**
+   * @Prop --icon-color: sets the color of the navigation buttons
+   */
+  --icon-color: #fff;
+}
 
+ino-carousel {
+  .ino-carousel {
+    display: block;
+    position: relative;
+    height: 400px;
+    width: 700px;
+  }
+
+  .ino-carousel__nav-bar, .ino-carousel__left-arrow, .ino-carousel__right-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+
+    ino-icon {
+      --color: var(--icon-color);
+    }
+  }
+
+  .ino-carousel__nav-bar {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .ino-carousel__left-arrow, .ino-carousel__right-arrow {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .ino-carousel__right-arrow {
+    right: 16px;
+  }
+
+  .ino-carousel__left-arrow ino-icon{
+    left: 16px;
+    transform: rotateY(180deg);
+  }
+
+  .ino-carousel__container {
+    height: 100%;
+    overflow: hidden;
+  }
 }
