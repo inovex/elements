@@ -12,5 +12,9 @@ storiesOf('Graphic|<ino-carousel>', module)
     <ino-carousel>
         <ino-carousel-slide src="https://cdn.quasar.dev/img/mountains.jpg">
         </ino-carousel-slide>
+        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax1.jpg">
+        </ino-carousel-slide>
+        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax2.jpg">
+        </ino-carousel-slide>
     </ino-carousel>
   `);
