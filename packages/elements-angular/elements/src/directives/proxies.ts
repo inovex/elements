@@ -28,7 +28,8 @@ export class InoCard {
 }
 export declare interface InoCarousel extends Components.InoCarousel {
 }
-@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>" })
+@ProxyCmp({ inputs: ["inoAnimationDuration", "inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "value"] })
+@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAnimationDuration", "inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "value"] })
 export class InoCarousel {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -38,7 +39,8 @@ export class InoCarousel {
 }
 export declare interface InoCarouselSlide extends Components.InoCarouselSlide {
 }
-@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>" })
+@ProxyCmp({ inputs: ["src"] })
+@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["src"] })
 export class InoCarouselSlide {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

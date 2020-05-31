@@ -93,8 +93,36 @@ export namespace Components {
         "inoTitle"?: string;
     }
     interface InoCarousel {
+        /**
+          * Sets the duration of the slide animation
+         */
+        "inoAnimationDuration": number;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay": boolean;
+        /**
+          * Disables the slide animation
+         */
+        "inoDisableAnimation": boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite": boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoInterludeDuration": number;
+        /**
+          * Sets the current value of the carousel
+         */
+        "value": number;
     }
     interface InoCarouselSlide {
+        /**
+          * Link to the image
+         */
+        "src": string;
     }
     interface InoCheckbox {
         /**
@@ -1466,8 +1494,36 @@ declare namespace LocalJSX {
         "inoTitle"?: string;
     }
     interface InoCarousel {
+        /**
+          * Sets the duration of the slide animation
+         */
+        "inoAnimationDuration"?: number;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay"?: boolean;
+        /**
+          * Disables the slide animation
+         */
+        "inoDisableAnimation"?: boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite"?: boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoInterludeDuration"?: number;
+        /**
+          * Sets the current value of the carousel
+         */
+        "value"?: number;
     }
     interface InoCarouselSlide {
+        /**
+          * Link to the image
+         */
+        "src"?: string;
     }
     interface InoCheckbox {
         /**

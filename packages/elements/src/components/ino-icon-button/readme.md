@@ -101,6 +101,7 @@ The component bubbles the native `click`-Event to the user.
 
 ### Used by
 
+ - [ino-carousel](../ino-carousel)
  - [ino-nav-drawer](../ino-nav-drawer)
  - [ino-snackbar](../ino-snackbar)
 
@@ -112,6 +113,7 @@ The component bubbles the native `click`-Event to the user.
 ```mermaid
 graph TD;
   ino-icon-button --> ino-icon
+  ino-carousel --> ino-icon-button
   ino-nav-drawer --> ino-icon-button
   ino-snackbar --> ino-icon-button
   style ino-icon-button fill:#f9f,stroke:#333,stroke-width:4px

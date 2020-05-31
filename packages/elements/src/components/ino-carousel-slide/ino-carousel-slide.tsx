@@ -1,16 +1,26 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
 
 @Component({
   tag: 'ino-carousel-slide',
   styleUrl: 'ino-carousel-slide.scss',
   shadow: false
 })
-export class InoCarouselSlide {
+export class InoCarouselSlide implements ComponentInterface{
+
+  @Element() el: HTMLElement;
+
+  /**
+   * Link to the image
+   */
+  @Prop() src: string;
+
+  componentDidLoad(): void {
+  }
 
   render() {
     return (
       <Host>
-        <slot></slot>
+        <div style={{"background-image": `url(${this.src})`}}/>
       </Host>
     );
   }
