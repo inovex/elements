@@ -114,15 +114,23 @@ export namespace Components {
          */
         "inoInterludeDuration": number;
         /**
-          * Sets the current value of the carousel
+          * Optional group value to manage the displayed slide
          */
-        "value": number;
+        "value"?: any;
     }
     interface InoCarouselSlide {
+        /**
+          * Indicates whether the slide is selected or not
+         */
+        "selected": boolean;
         /**
           * Link to the image
          */
         "src": string;
+        /**
+          * Value of the slide
+         */
+        "value": any;
     }
     interface InoCheckbox {
         /**
@@ -1515,15 +1523,23 @@ declare namespace LocalJSX {
          */
         "inoInterludeDuration"?: number;
         /**
-          * Sets the current value of the carousel
+          * Optional group value to manage the displayed slide
          */
-        "value"?: number;
+        "value"?: any;
     }
     interface InoCarouselSlide {
+        /**
+          * Indicates whether the slide is selected or not
+         */
+        "selected"?: boolean;
         /**
           * Link to the image
          */
         "src"?: string;
+        /**
+          * Value of the slide
+         */
+        "value"?: any;
     }
     interface InoCheckbox {
         /**

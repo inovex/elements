@@ -1,8 +1,14 @@
 ino-carousel-slide {
+  display: none;
+
   >div {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: 50%;
+  }
+
+  &.ino-carousel-slide--selected {
+    display: unset;
   }
 }

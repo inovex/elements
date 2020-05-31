@@ -14,7 +14,7 @@
 | `inoDisableAnimation`  | `ino-disable-animation`  | Disables the slide animation                                        | `boolean` | `false`     |
 | `inoInfinite`          | `ino-infinite`           | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
 | `inoInterludeDuration` | `ino-interlude-duration` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
-| `value`                | `value`                  | Sets the current value of the carousel                              | `number`  | `undefined` |
+| `value`                | `value`                  | Optional group value to manage the displayed slide                  | `any`     | `undefined` |
 
 
 ## Dependencies
