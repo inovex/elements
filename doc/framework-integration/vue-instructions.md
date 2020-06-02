@@ -7,17 +7,17 @@
 
 ## 0) Prepare your Project
 
-First of all you should make sure your current setup without the inovex elements work and boot properly.
-If that's the case you can proceed.
+Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+If this is the case, proceed to the next step.
 
 ## 1) Install `@inovex/elements`
 
 > Hint: We do not provide an integration package for Vue.js as we do for Angular and React.
 > Vue.js works out-of-the box with Web Components as Vue.js respects the DOM API standards.
 
-We're not yet on npm, so you need to set a npm config before you can install the package. The following command
-will update your local npm config to always request `@inovex` prefixed packages from our private registry and not
-from npmjs.org. To do so, copy the following command into your terminal and execute it:
+We're not yet on npm. Hence, you need to set up a npm config before you are able to install 
+the package. The following command will update your local npm config to always request `@inovex` prefixed packages 
+from our private registry and not from npmjs.org. To do so, copy the following command into your terminal and execute it:
 
 ```sh
 $ npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
@@ -41,7 +41,7 @@ $ yarn add @inovex/elements
 
 Before you start using the components, you need to prepare the project.
 
-Open `src/main.js` and add this somewhere on the first lines, to...
+Open `src/main.js` and add the following code snippet somewhere on the first lines, to...
 
 - ... tell the Vue compiler to ignore Custom Elements starting with `ino-` during compilation (1)
 - ... define the Custom Elements (these are the inovex elements Web Components) (2)
@@ -68,9 +68,8 @@ applyPolyfills().then(() => {
 
 ### 3) Use the Components
 
-You can now use the components in your Vue.js project the same way as you would use any native HTML element.
-Here is an example of how to use an inovex element in your Vue.js template
+You can now use the components in your Vue.js project in the same way you would use any native HTML element.
 
-To help you getting started, we created a simple todo app where you can get in touch and play around:
+To help you getting started, we created a simple todo app for you to play around with:
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-vue-example?embed=1&file=index.js" />

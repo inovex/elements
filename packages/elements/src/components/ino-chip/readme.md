@@ -1,8 +1,8 @@
 # ino-chip
 
-A compact component that contains contents and icons styled as chip.
+The ino-chip component displays the provided content and icon as a chip.
 
-> A chip **always** has to be composed by an `ino-chip-set` component.
+> An ino-chip component must **always** belong to a `ino-chip-set` component.
 
 ## Usage
 
@@ -100,15 +100,16 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Content**: Provide the text of a chip the slot and, if desired, an icon on the left side of the chip in `ino-icon`.
+**Content**: Use the `ino-label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `ino-icon` attribute.
 
-**Styling**: The chip can be styled in different ways with the attributes `ino-fill` and `ino-color-scheme`. See their attribute documentation below for more informations.
+**Styling**: The chip can be styled in many different ways with the help of the `ino-fill` and `ino-color-scheme` attributes. 
+Take a look at the attribute documentation at the bottom of the page for further information. 
 
 ### Removable chips
 
-If `ino-removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon right after the text.
+If `ino-removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.
 
-However, the component doesn't hide/destroy itself but emits an `removeChip`-Event instead. Thus, the overlying app can remove the chip by listening to this event.
+However, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.
 
 ## Demo
 

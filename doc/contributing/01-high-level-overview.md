@@ -1,12 +1,13 @@
 # High Level Overview
 
-To provide you a better understanding what this mono repo contains and how things relate to each other.
+The goal of this high level overview is to provide you with a better understanding of what this mono repository 
+contains and how things relate to each other.
 
 ## The Repository Structure
 
 This is a mono repository based on Lerna. Lerna is a tool for managing JavaScript projects with multiple packages. Visit the [Lerna GitHub repository website](https://github.com/lerna/lerna) to learn more about Lerna.
 
-Each package provides a separate README and is distributed as self contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the subfolder of the corresponding package to get more information about the package itself:
+Each package provides a separate README and is distributed as a self contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the sub-folder of the corresponding package to get more information about the package itself:
 
 > You can follow the link on the package name to directly go to the repository location.
 
@@ -34,11 +35,11 @@ Stencil components are just Web Components, so they work in any major framework 
 
 #### Google Material Design Components for the Web
 
-We use [Googles Material Design Components for the Web](https://github.com/material-components/material-components-web/) to speed up the development. This is also a good foundation as the major functionality is already implemented. We often only need to tweak and change some bits to match our behaviour.
+We use [Googles Material Design Components for the Web](https://github.com/material-components/material-components-web/) to speed up the development. This is also a good foundation as the major functionality is already implemented. We often only need to tweak and change some bits to achieve the desired behaviour.
 
-Each component is published on npm as separate package. So in theory we can upgrade single components and use them in different versions. The repo is structured in a nice way. Each component has its own README. You can find the [list of all MDC components in the GitHub repo](https://github.com/material-components/material-components-web/blob/master/packages). It feels a bit like back in the days when the [Twitter Bootstrap](https://getbootstrap.com/) framework came out. You go to the documentation, copy a piece of HTML markup into your template and import the SASS mixin into your sass Stylesheet and only modify those parts you want to make dynamic.
+Each component is published on npm as a separate package. Thus, in theory, we can upgrade the components independently and use different versions of the underlying packages. The repository is structured in a nice way with each component having its own README. You can find the [list of all MDC components in the GitHub repo](https://github.com/material-components/material-components-web/blob/master/packages). It feels a bit like back in the days when the [Twitter Bootstrap](https://getbootstrap.com/) framework was released. You open the documentation, copy a piece of HTML markup into your template and import the required SASS mixins into your sass Stylesheet and only modify the parts you want to make dynamic.
 
-When creating a new element, always check for a respective material design implementation. We losely follow these rules:
+When creating a new element, always check for a respective material design implementation. We loosely follow these rules:
 
 - Abstract the features of the material design components to the need of our inovex element.
 - Provide a link to the material component in the documentation.
@@ -50,9 +51,9 @@ When creating a new element, always check for a respective material design imple
 
 This project is just a normal Angular Library which consumes the core package and outputs Directives for other Angular projects to consume.
 
-Everytime you run `yarn start` or `yarn build` from within the root of this repo, Lerna builds first the core package, then the Directives in this package. The core package is just a dependeny of this Angular Library. This project does only provide a wrapper Directive to map the Custom Elements attributes and events to the @Input and @Output values in the Angular world.
+Every time you run `yarn start` or `yarn build` from within the root of this repo, Lerna first builds the core package before building the Directives in this package. The core package is just a dependency of this Angular Library. This project only provides a wrapper Directive to map the Custom Elements attributes and events to the @Input and @Output values in the Angular world.
 
-You only need to change this package if you add a new or remove an existing component from the core. As well as you want to support `ngModel`. To learn more on this, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-angular/elements/README.md) of `@inovex/elements-angular`.
+You only need to change this package if you add a new or remove an existing component from the core or if you want to support `ngModel`. To learn more about this topic, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-angular/elements/README.md) of `@inovex/elements-angular`.
 
 ### React Integration Layer
 
@@ -60,9 +61,9 @@ You only need to change this package if you add a new or remove an existing comp
 
 This project is just a normal React project which consumes the core package and outputs React components for other React projects to consume.
 
-Everytime you run `yarn start` or `yarn build` from within the root of this repo, Lerna builds first the core package, then the React components in this package. The core package is just a dependeny of this React project. This project does only provide a wrapper component to map the Custom Elements attributes and events to the props in the React world.
+Every time you run `yarn start` or `yarn build` from within the root of this repo, Lerna first builds the core package before building the React components in this package. The core package is just a dependency of this React project. This project only provides a wrapper component to map the Custom Elements attributes and events to the props in the React world.
 
-You should never have to make changes to this package. To learn more on this, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-react/README.md) of `@inovex/elements-react`.
+You should never have to make changes to this package. To learn more about this topic, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-react/README.md) of `@inovex/elements-react`.
 
 ### Storybook
 
@@ -70,4 +71,4 @@ You should never have to make changes to this package. To learn more on this, re
 
 [Storybook](https://github.com/storybooks/storybook) is a development environment for UI components. It allows us to browse the inovex elements, view the different states of each component, and interactively develop and test inovex components.
 
-The Storybook is part of the development process and used to test the components as well as to show the most common use cases. We work with it and provide it as our documentation for consuming developers.
+The Storybook is part of the development process and used to test the components as well as to show the most common use cases. We work with it and provide it as our documentation to developers using our components.

@@ -72,9 +72,9 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-The component inherits stylings like the text size of the parent element. For custom stylings set css properties on this element.
+The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
 
-**Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit an `clickEl` event that can be listened to.
+**Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
 
 ### Manage icons
 
@@ -83,13 +83,13 @@ The `icon-assets` folder is an exported [icomoon](https://icomoon.io/) project. 
 If you have to add, remove or change an icon:
 
 1. Manage the Icons in the icomoon App
-    1. Import the `selection.json` in the [icomoon app](http://icomoon.io/app/#).
+    1. Import the `selection.json` to the [icomoon app](http://icomoon.io/app/#).
     2. Add, remove, rename, ... the icons
     3. Export the new icon set by clicking on `Generate SVG & More`.
 
-2. Make sure the exported icons have the same structure and the settings in `selection.json` didn't change.
+2. Make sure that the exported icons have the same structure and that the settings in `selection.json` didn't change.
 
-3. Copy&Paste the **entire** `icon-assets` folder and override the old one.
+3. Copy and paste the **entire** `icon-assets` folder to replace the old folder.
 
 4. Run `yarn icon:integrate-icons`. The new icons will be added to the `icons.js` file and copied to the storybook.
 
@@ -97,12 +97,12 @@ If you have to add, remove or change an icon:
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
-> at runtime to be located in `icon-assets/`. Please refer to the Storybook documentation to get detailed instructions
-> how to integrate the icons with Angular, React or plain JavaScript.
+> to be located in `icon-assets/` at runtime. Please refer to the Storybook documentation to get detailed instructions
+> on how to integrate the icons with Angular, React or plain JavaScript.
 
 ### Custom icons
 
-If you need to use custom icons just hand over the URL to your preferred icon.
+If you want to use custom icons, just use the URL to your preferred icon.
 
 <!-- Auto Generated Below -->
 

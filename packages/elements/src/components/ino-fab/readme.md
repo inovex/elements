@@ -72,9 +72,9 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Content**: Provide the text of a fab in ino-label and an icon in `ino-icon`.
+**Content**: Use the `ino-label` attribute to set the text of a fab. To add an icon, use the `ino-icon` attribute.
 
-**Styling**: The fab can be styled in different ways with the attribute `ino-color-scheme`. See the attribute documentation below for more informations.
+**Styling**: The fab can be styled in many different ways using the `ino-color-scheme` attribute. See the attribute documentation below for additional information.
 
 ## Demo
 

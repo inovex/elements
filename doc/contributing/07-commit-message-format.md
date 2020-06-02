@@ -6,7 +6,7 @@ We follow the [Conventional Commits Specification](https://www.conventionalcommi
 
 `<type>([<package>]<scope>): <subject>`
 
-> Don't worry, to make it easy for all of us we added a pre-commit script hook that ensures we only use allowed syntax. So you can only commit a message that follows the above format.
+> Don't worry, to make it easy for all of us, we added a pre-commit script hook that ensures we only use allowed syntax. So you can only commit a message that follows the above format.
 
 ## Type
 
@@ -27,7 +27,7 @@ Must be one of the following:
 
 > This is optional but it's recommended to set the affected package when the change is assignable to exactly one package.
 
-In our mono repo we need to distinct which package is affected by the change. So additionally to the scope we added a package in front of the scope.
+In our mono repo we need to distinct which package is affected by the change. Hence, in addition to the scope we added the name of the package in front of the scope.
 
 You're able to use **one** or **none** of the following packages:
 

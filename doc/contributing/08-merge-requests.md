@@ -1,6 +1,6 @@
 # Merge Requests
 
-We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective Jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier. We also please you to give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-create-button-element`.
+We have very precise rules to ensure an understandable and compact history. Before creating a feature branch, make sure that a respective Jira task, story or issue exists. Also, provide a reference to it in the description of the merge request to make the life of reviewers easier. Please give the branch a speaking name that fits the template `<jira-id>-<what-is-the-feature>` like `ELEMENTS-12-create-button-element`.
 
 When submitting a merge request, please
 

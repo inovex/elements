@@ -50,6 +50,11 @@ class MyComponent extends Component {
 }
 ```
 
+## Event handling
+The `checkedChange` event can be used to set the selected option. Simply subscribe to the event and set the group value 
+to the value of the button that emitted the event.
+
+
 <!-- Auto Generated Below -->
 
 

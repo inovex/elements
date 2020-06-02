@@ -9,16 +9,17 @@
 
 ## 0) Prepare your Project
 
-First of all you should make sure your current setup without the inovex elements work and boot properly.
-If that's the case you can proceed.
+Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+If this is the case, proceed to the next step.
 
 ## 1) Install `@inovex/elements-react`
 
-We provide an integration layer package for React so you are able to integrate the elements as any other dependency
-into your React project. The package match the name of the respective inovex element in PascalCase (e.g. `InoButton` for `ino-button`).
+We provide an integration layer package for React so that you can integrate the elements just like any other dependency
+into your React project. The name of the package matches the name of the respective inovex element in PascalCase
+(e.g. `InoButton` for `ino-button`). 
 
-We're not yet on npm, so you need to set a npm config before you can install the package. The following command
-will update your local npm config to always request `@inovex` prefixed packages from our private
+We're not yet on npm. Hence, you need to set up a npm config before you are able to install 
+the package. The following command will update your local npm config to always request `@inovex` prefixed packages from our private
 registry and not from npmjs.org. To do so, copy the following command into your terminal and execute it:
 
 ```sh
@@ -41,14 +42,14 @@ $ yarn add @inovex/elements-react
 
 ### 2) Use the Components
 
-> A hint on icons: The React integration layer automatically imports the icons. You don't have to import
+> A hint on the icons: The React integration layer automatically imports the icons. You don't have to import
 > them manually.
 
-As the integration is completed, you can use the components in your project the same way as you would
+As the integration is now completed, you can use the components in your project in the same way you would use
 any other React component.
 
 <!--
-To help you getting started, we created a simple todo app where you can get in touch and play around:
+To help you getting started, we created a simple todo app for you to play around with:
 
 <iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-react-example?embed=1&file=index.js" />
 -->

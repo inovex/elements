@@ -1,6 +1,7 @@
 # ino-chip-set
 
-A compact component wrapping `ino-chip` elements and giving them a behavior.
+The ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,
+select a choice, or trigger an action.
 
 > See the `ino-chip` documentation for more details about a single instance of a chip.
 
@@ -100,7 +101,7 @@ class MyComponent extends Component {
 
 ### Simple chip sets
 
-`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (f. e. email addresses after adding them in an input field), simple miss out the `ino-type` attribute.
+`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (e.g. email addresses), simply exclude the `ino-type` attribute.
 
 ```html
 <ino-chip-set>
@@ -115,10 +116,10 @@ class MyComponent extends Component {
 
 There are two complex types of chip sets:
 
-- **`ino-type="choice"`**: Choice chips are a variant of chips which allow single selection from a set of options (similar to radio-inputs).
-- **`ino-type="filter"`**: Filter chips are a variant of chips which allow multiple selection from a set of options (similar to checkbox-inputs).
+- **`ino-type="choice"`**: Choice chips mimic the behaviour of a radio button and allow the selection of a single option from a set of options.
+- **`ino-type="filter"`**: Filter chips mimic the behaviour of a checkbox and allow multiple options to be selected from a set of options.
 
-For both, choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` that contains one or multiple values of chips. The values are provided via the `ino-value` attribute of each `ino-chip`.
+Both choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
 ```js
 document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {

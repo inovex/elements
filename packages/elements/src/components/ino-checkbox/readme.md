@@ -1,6 +1,6 @@
 # ino-checkbox
 
-A checkbox that allows the user to select one or more items from a set.
+A checkbox that allows the user to select one or more items from a set of options.
 
 ## Usage
 
@@ -103,15 +103,15 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-By default, the label is always shown right after the checkbox.
+By default, the label is always shown on the right side of the checkbox.
 
-**Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is set unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
+**Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
 
 **Selection:** Checkboxes are mainly used in lists. Selection should be used as single, stand-alone UI element. The indeterminate state is not supported.
 
 ## Control flow
 
-The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change value and indeterminate state of input:
+The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason, listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change value and indeterminate state of input:
 
 ## Demo
 
