@@ -32,13 +32,13 @@ document
   <ino-icon slot="ino-trailing" ...></ino-icon>
 </ino-list-item>
 ```
-**Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `ino-primary` or `ino-secondary `<slot>`. To do so, just set the `slot`-Attribute of your custom element to `ino-primary` or `ino-secondary`.
+**Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `ino-primary` or `ino-secondary` slot. To do so, just set the `slot`-attribute of your custom element to `ino-primary` or `ino-secondary`.
 
 **Two lines:** For items having two lines, provide an `ino-secondary-text` and make sure you set the `ino-two-lines` attribute in the respective parent component (only available for `ino-list`).
 
-**Leading items:** Add an item with the slot-attribute `ino-leading` to add a first column in the list item in LTR languages. Typically an icon or image.
+**Leading items:** Add an item with the slot-attribute `ino-leading` to add a leading column to the list item in LTR languages. Typically an icon or image.
 
-**Trailing items:** Add an item with the slot-attribute `ino-trailing` to add a last column in the list item in LTR languages. Typically small text, icon or image.
+**Trailing items:** Add an item with the slot-attribute `ino-trailing` to add a trailing column to the list item in LTR languages. Typically small text, icon or image.
 
 <!-- Auto Generated Below -->
 

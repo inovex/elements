@@ -1,7 +1,7 @@
 # ino-fab-set
 
-This component is a container for multiple fab buttons. This collection of fab buttons contains actions related to the main fab button.
-When hovered, a FAB-Set can display three to six related actions in the form of a speed dial.
+The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab button.
+Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed dial.
 
 ### Usage
 
@@ -95,12 +95,12 @@ class MyComponent extends Component {
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
-> at runtime to be located in `icon-assets/`. Please refer to the Storybook documenmtation to get detailed instructions
-> how to integrate the icons with Angular, React or plain JavaScript.
+> at runtime to be located in `icon-assets/`. Please refer to the Storybook documentation to get detailed instructions
+> on how to integrate the icons with Angular, React or plain JavaScript.
 
 ## Control flow
 
-The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this reason listen to `click` events, sync to your local state and pass the state to the component again to open/close the fab-set.
+The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this reason, listen to `click` events, sync to your local state and pass the state to the component again to open/close the fab-set.
 
 <!-- Auto Generated Below -->
 

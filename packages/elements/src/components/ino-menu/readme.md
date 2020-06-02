@@ -1,7 +1,7 @@
 # ino-menu
 
 A menu component that displays a list of choices on a temporary surface. It functions as a wrapper around the material [menu](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu/) component.
-The anchor element is the element above.
+The anchor element is the parent element.
 
 ### Usage
 
@@ -84,7 +84,7 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-The menu creates a temporary surface with an empty list composer. The items of this list are provided via the slot (see example above). For more details about the list capabilities itself, check the documentation of `ino-list` and `ino-list-item` component.
+The menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see example above). For more details about the list capabilities itself, check the documentation of `ino-list` and `ino-list-item` component.
 
 <!-- Auto Generated Below -->
 

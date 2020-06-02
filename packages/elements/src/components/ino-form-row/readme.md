@@ -1,6 +1,6 @@
 # ino-form-row
 
-A component that styles an form element as a row with label.
+A component that styles a form element as a row with a leading label.
 
 ### Usage
 
@@ -16,7 +16,7 @@ The component can be used as follows:
 
 #### Example #1 - Basic
 
-```js
+```jsx harmony
 import { Component } from 'react';
 import { InoFormRow, InoInput } from '@inovex/elements/dist/react';
 
@@ -39,7 +39,7 @@ class MyComponent extends Component {
 
 #### Example #2 - With Types
 
-```js
+```jsx harmony
 import React, { Component } from 'react';
 import { InoFormRow, InoInput } from '@inovex/elements/dist/react';
 import { Components } from '@inovex/elements/dist/types/components';

@@ -88,13 +88,13 @@ If the attribute `ino-rounded` is true, the image is displayed with rounded corn
 
 The image component has two attributes `ino-ratio-height` and `ino-ratio-width`. Use them to define any desired ratio and avoid content jumping!
 
-Example: The image `image.png` has a ratio of `16:9`. Define the image component as follows:
+Example: If the image `image.png` has a ratio of `16:9`, define the image component as follows:
 
 ```html
 <ino-img src="image.png" ino-ratio-width="16" ino-ratio-height="9"></ino-img>
 ```
 
-With this setup and while loading the source, the width of this element extends to 100% (or the value defined in `width` attribute) and computes the height based on the ratio attributes.
+Using this setup, the width of the element extends to 100% (or the value defined in `width` attribute) and the computed height is based on the ratio attributes.
 
 <!-- Auto Generated Below -->
 
