@@ -47,6 +47,11 @@ export class InoCarousel implements ComponentInterface{
   @Prop() inoDisableAnimation: boolean = false;
 
   /**
+   * Hides the arrow buttons
+   */
+  @Prop() inoHideButtons: boolean = false;
+
+  /**
    * Restarts playback from the first slide upon reaching the last slide
    */
   @Prop() inoInfinite: boolean = false;
@@ -112,6 +117,7 @@ export class InoCarousel implements ComponentInterface{
   render() {
     const classes = classNames({
       'ino-carousel': true,
+      'ino-carousel--no-buttons': this.inoHideButtons
     });
 
     return (

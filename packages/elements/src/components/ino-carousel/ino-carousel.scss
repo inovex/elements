@@ -15,26 +15,24 @@ ino-carousel {
     width: 700px;
   }
 
-  .ino-carousel__nav-bar, .ino-carousel__left-arrow, .ino-carousel__right-arrow {
+  .ino-carousel__left-arrow, .ino-carousel__right-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     bottom: 0;
+    flex-direction: column;
+    height: 100%;
 
     ino-icon {
       --color: var(--ino-carousel-icon-color);
     }
   }
 
-  .ino-carousel__nav-bar {
-    flex-direction: row;
-    width: 100%;
-  }
-
-  .ino-carousel__left-arrow, .ino-carousel__right-arrow {
-    flex-direction: column;
-    height: 100%;
+  .ino-carousel--no-buttons {
+    .ino-carousel__left-arrow, .ino-carousel__right-arrow {
+      display: none;
+    }
   }
 
   .ino-carousel__right-arrow {

@@ -17,20 +17,23 @@ function subscribeToComponentEvents() {
     if (el.tagName.toLowerCase() !== 'ino-icon-button') {
       return;
     }
-    const parentDiv = el.parent;
-    if(parentDiv.hasClass('ino-carousel__left-arrow')) {
-
+    const carousel = el.closest('ino-carousel');
+    const parentDiv = el.closest('div');
+    if(parentDiv.classList.contains('ino-carousel__left-arrow')) {
+      carousel.value = mod(carousel.value - 1, 3);
+    } else {
+      carousel.value = mod(carousel.value + 1, 3);
     }
-    const group = el.closest('ino-segment-group');
-    group.setAttribute('value', el.getAttribute('value'));
   };
 
-  document.addEventListener('click', eventHandler);
+  const mod = (a, b) => ((a % b) + b) % b;
+
+  document.addEventListener('clickEl', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('click', eventHandler);
+    document.removeEventListener('clickEl', eventHandler);
   };
 }
 
@@ -50,14 +53,15 @@ storiesOf('Graphic|<ino-carousel>', module)
         class="customizable-carousel"
         value="${text('value', '0', 'General')}"
         ino-autoplay="${boolean('ino-autoplay', false, 'General')}"
-        ino-disable-animation=""${boolean('ino-disable-animation', false, 'General')}
+        ino-disable-animation="${boolean('ino-disable-animation', false, 'General')}"
+        ino-hide-buttons="${boolean('ino-hide-buttons', false, 'General')}"
         ino-infinite="${boolean('ino-infinite', false, 'General')}"
         ino-interlude-duration="${number('ino-interlude-duration', 5000, undefined, 'General')}"
         ino-reverse-playback="${boolean('ino-reverse-playback', false, 'General')}"
       >
-        <ino-carousel-slide src="https://cdn.quasar.dev/img/mountains.jpg" value="0">
+        <ino-carousel-slide src="https://cdn.quasar.dev/img/mountains.jpg" value="0" ino-selected>
         </ino-carousel-slide>
-        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax1.jpg" value="1">
+        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax1.jpg" value="1" ino-selected>
         </ino-carousel-slide>
         <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax2.jpg" value="2">
         </ino-carousel-slide>
