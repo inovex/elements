@@ -9,12 +9,12 @@
 
 | Property               | Attribute                | Description                                                         | Type      | Default     |
 | ---------------------- | ------------------------ | ------------------------------------------------------------------- | --------- | ----------- |
-| `inoAnimationDuration` | `ino-animation-duration` | Sets the duration of the slide animation                            | `number`  | `500`       |
 | `inoAutoplay`          | `ino-autoplay`           | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
 | `inoDisableAnimation`  | `ino-disable-animation`  | Disables the slide animation                                        | `boolean` | `false`     |
-| `inoInfinite`          | `ino-infinite`           | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
+| `inoInfinite`          | `ino-infinite`           | Restarts playback from the first slide upon reaching the last slide | `boolean` | `true`      |
 | `inoInterludeDuration` | `ino-interlude-duration` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
-| `value`                | `value`                  | Optional group value to manage the displayed slide                  | `any`     | `undefined` |
+| `inoReversePlayback`   | `ino-reverse-playback`   | Plays the slides in reverse order                                   | `boolean` | `false`     |
+| `value`                | `value`                  | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
 
 ## Dependencies

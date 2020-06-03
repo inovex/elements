@@ -94,10 +94,6 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
-          * Sets the duration of the slide animation
-         */
-        "inoAnimationDuration": number;
-        /**
           * Enables autoplay which causes slides to be changed automatically
          */
         "inoAutoplay": boolean;
@@ -114,7 +110,11 @@ export namespace Components {
          */
         "inoInterludeDuration": number;
         /**
-          * Optional group value to manage the displayed slide
+          * Plays the slides in reverse order
+         */
+        "inoReversePlayback": boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
          */
         "value"?: any;
     }
@@ -1503,10 +1503,6 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
-          * Sets the duration of the slide animation
-         */
-        "inoAnimationDuration"?: number;
-        /**
           * Enables autoplay which causes slides to be changed automatically
          */
         "inoAutoplay"?: boolean;
@@ -1523,7 +1519,11 @@ declare namespace LocalJSX {
          */
         "inoInterludeDuration"?: number;
         /**
-          * Optional group value to manage the displayed slide
+          * Plays the slides in reverse order
+         */
+        "inoReversePlayback"?: boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
          */
         "value"?: any;
     }
