@@ -64,7 +64,12 @@ export class InoCarousel implements ComponentInterface{
   componentDidLoad(): void {
     this.slides = this.getSlides();
     if(this.slides.length > 0 ) {
-      this.slides[this.currentSlide].inoSelected = true;
+      this.slides.forEach((slide) => {
+        slide.inoSelected = this.value === slide.value;
+        if(slide.inoSelected) {
+          this.currentSlide = this.slides.indexOf(slide);
+        }
+      });
       this.setupAutoplay();
     }
   }
@@ -118,10 +123,10 @@ export class InoCarousel implements ComponentInterface{
             <slot/>
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_right" onClick={() => this.nextSlide()}/>
+            <ino-icon-button ino-icon="arrow_right"/>
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button ino-icon="arrow_right" onClick={() => this.nextSlide()}/>
+            <ino-icon-button ino-icon="arrow_right"/>
           </div>
         </div>
       </Host>
