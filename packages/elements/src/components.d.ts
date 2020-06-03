@@ -78,6 +78,10 @@ export namespace Components {
          */
         "inoDisableAnimation": boolean;
         /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons": boolean;
+        /**
           * Restarts playback from the first slide upon reaching the last slide
          */
         "inoInfinite": boolean;
@@ -1543,6 +1547,10 @@ declare namespace LocalJSX {
           * Disables the slide animation
          */
         "inoDisableAnimation"?: boolean;
+        /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons"?: boolean;
         /**
           * Restarts playback from the first slide upon reaching the last slide
          */
