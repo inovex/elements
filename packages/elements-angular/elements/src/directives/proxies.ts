@@ -28,8 +28,8 @@ export class InoCard {
 }
 export declare interface InoCarousel extends Components.InoCarousel {
 }
-@ProxyCmp({ inputs: ["inoAnimationDuration", "inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "value"] })
-@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAnimationDuration", "inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "value"] })
+@ProxyCmp({ inputs: ["inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
+@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAutoplay", "inoDisableAnimation", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
 export class InoCarousel {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
