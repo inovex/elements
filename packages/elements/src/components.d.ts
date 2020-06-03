@@ -86,7 +86,7 @@ export namespace Components {
          */
         "inoInterludeDuration": number;
         /**
-          * Plays the slides in reverse order
+          * Enables reverse playback of the slides
          */
         "inoReversePlayback": boolean;
         /**
@@ -98,7 +98,7 @@ export namespace Components {
         /**
           * Indicates whether the slide is selected or not
          */
-        "selected": boolean;
+        "inoSelected": boolean;
         /**
           * Link to the image
          */
@@ -1552,7 +1552,7 @@ declare namespace LocalJSX {
          */
         "inoInterludeDuration"?: number;
         /**
-          * Plays the slides in reverse order
+          * Enables reverse playback of the slides
          */
         "inoReversePlayback"?: boolean;
         /**
@@ -1564,7 +1564,7 @@ declare namespace LocalJSX {
         /**
           * Indicates whether the slide is selected or not
          */
-        "selected"?: boolean;
+        "inoSelected"?: boolean;
         /**
           * Link to the image
          */

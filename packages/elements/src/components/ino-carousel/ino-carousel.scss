@@ -1,9 +1,10 @@
 
 ino-carousel {
   /**
-   * @Prop --icon-color: sets the color of the navigation buttons
+   * @prop --ino-carousel-icon-color: sets the color of the navigation buttons
+   * @prop --ino-carousel-animation-duration: sets the duration of the animation (in ms)
    */
-  --icon-color: #fff;
+  --ino-carousel-icon-color: #fff;
 }
 
 ino-carousel {
@@ -22,7 +23,7 @@ ino-carousel {
     bottom: 0;
 
     ino-icon {
-      --color: var(--icon-color);
+      --color: var(--ino-carousel-icon-color);
     }
   }
 

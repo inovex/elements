@@ -13,6 +13,7 @@ export class InoCarousel implements ComponentInterface{
   @Element() el: HTMLElement;
   private slides: InoCarouselSlide[];
   private currentSlide: number = 0;
+  private slideCounter: number = 1;
   private timer: NodeJS.Timeout;
 
   /**
@@ -22,8 +23,10 @@ export class InoCarousel implements ComponentInterface{
   @Watch('value')
   valueChanged(newVal: any) {
     this.slides.forEach((slide) => {
-      slide.selected = newVal === slide.value;
-      this.currentSlide = newVal;
+      slide.inoSelected = newVal === slide.value;
+      if(slide.inoSelected) {
+        this.currentSlide = this.slides.indexOf(slide);
+      }
     });
   }
 
@@ -32,11 +35,9 @@ export class InoCarousel implements ComponentInterface{
    */
   @Prop() inoAutoplay: boolean = false;
   @Watch('inoAutoplay')
-  inoAutoplayChanged(newVal: boolean) {
-    if(newVal && this.slides.length > 0) {
+  inoAutoplayChanged() {
+    if(this.slides.length > 0 ) {
       this.setupAutoplay();
-    } else {
-      clearInterval(this.timer);
     }
   }
 
@@ -48,7 +49,7 @@ export class InoCarousel implements ComponentInterface{
   /**
    * Restarts playback from the first slide upon reaching the last slide
    */
-  @Prop() inoInfinite: boolean = true;
+  @Prop() inoInfinite: boolean = false;
 
   /**
    * Sets the intermission between two slides (Unit: ms)
@@ -56,46 +57,42 @@ export class InoCarousel implements ComponentInterface{
   @Prop() inoInterludeDuration: number = 5000;
 
   /**
-   * Plays the slides in reverse order
+   * Enables reverse playback of the slides
    */
   @Prop() inoReversePlayback: boolean = false;
 
   componentDidLoad(): void {
     this.slides = this.getSlides();
-    if(this.slides.length > 0) {
-      this.slides[this.currentSlide].selected = true;
+    if(this.slides.length > 0 ) {
+      this.slides[this.currentSlide].inoSelected = true;
       this.setupAutoplay();
     }
   }
 
   private setupAutoplay = () => {
-    if(this.inoAutoplay && this.inoInterludeDuration) {
-      this.timer = setInterval(this.previousSlide, this.inoInterludeDuration);
-    } else if (this.inoAutoplay) {
+    if(this.inoAutoplay) {
       this.timer = setInterval(this.nextSlide, this.inoInterludeDuration);
+    } else {
+      clearInterval(this.timer);
     }
   };
 
   // required for autoplay
   private nextSlide = () => {
     if(this.slides.length > 0) {
-      this.slides[this.currentSlide].selected = false;
-      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-      this.slides[this.currentSlide].selected = true;
+      this.slides[this.currentSlide].inoSelected = false;
+      if(this.inoReversePlayback) {
+        this.currentSlide = this.mod(this.currentSlide + 1, this.slides.length);
+      } else {
+        this.currentSlide = this.mod(this.currentSlide - 1 , this.slides.length);
+      }
+      this.slides[this.currentSlide].inoSelected = true;
+      this.slideCounter++
     }
-    if(!this.inoInfinite && this.currentSlide === this.slides.length -1) { // TODO: should play all slides once
-      clearInterval(this.timer);
-    }
-  };
 
-  // required for autoplay
-  private previousSlide = () => {
-    if(this.slides.length > 0) {
-      this.slides[this.currentSlide].selected = false;
-      this.currentSlide = ((this.currentSlide - 1 % this.slides.length) + this.slides.length) % this.slides.length;
-      this.slides[this.currentSlide].selected = true;
-    }
-    if(!this.inoInfinite && this.currentSlide === 0) { // TODO: should play all slides once
+    // disables the timer after all slides have been shown
+    if(!this.inoInfinite && this.slideCounter >= this.slides.length) {
+      this.slideCounter = 1;
       clearInterval(this.timer);
     }
   };
@@ -103,6 +100,8 @@ export class InoCarousel implements ComponentInterface{
   private getSlides() {
     return Array.from(this.el.querySelectorAll('ino-carousel-slide')) as InoCarouselSlide[];
   };
+
+  private mod = (a, b) => ((a % b) + b) % b;
 
 
   render() {
@@ -119,7 +118,7 @@ export class InoCarousel implements ComponentInterface{
             <slot/>
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_right" onClick={() => this.previousSlide()}/>
+            <ino-icon-button ino-icon="arrow_right" onClick={() => this.nextSlide()}/>
           </div>
           <div class="ino-carousel__right-arrow">
             <ino-icon-button ino-icon="arrow_right" onClick={() => this.nextSlide()}/>
