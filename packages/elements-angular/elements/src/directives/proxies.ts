@@ -39,8 +39,8 @@ export class InoCarousel {
 }
 export declare interface InoCarouselSlide extends Components.InoCarouselSlide {
 }
-@ProxyCmp({ inputs: ["selected", "src", "value"] })
-@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["selected", "src", "value"] })
+@ProxyCmp({ inputs: ["inoSelected", "src", "value"] })
+@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoSelected", "src", "value"] })
 export class InoCarouselSlide {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
