@@ -5,6 +5,21 @@ ino-carousel {
    * @prop --ino-carousel-animation-duration: sets the duration of the animation (in ms)
    */
   --ino-carousel-icon-color: #fff;
+  --ino-carousel-animation-duration: 1s;
+}
+
+@mixin fadeTransition($name, $from, $to, $duration) {
+  animation: $name $duration;
+
+  @keyframes #{$name} {
+    from {
+      opacity: $from;
+    }
+
+    to {
+      opacity: $to;
+    }
+  }
 }
 
 ino-carousel {
@@ -12,6 +27,7 @@ ino-carousel {
     position: relative;
     height: 400px;
     width: 700px;
+    overflow: hidden;
   }
 
   .ino-carousel__left-arrow, .ino-carousel__right-arrow {
@@ -38,8 +54,9 @@ ino-carousel {
     right: 16px;
   }
 
-  .ino-carousel__left-arrow{
+  .ino-carousel__left-arrow {
     left: 16px;
+
     ino-icon {
       transform: rotate(180deg);
     }
@@ -47,6 +64,13 @@ ino-carousel {
 
   .ino-carousel__container {
     height: 100%;
-    overflow: hidden;
+  }
+
+  .ino-carousel-slide--fade-in ino-carousel-slide {
+    @include fadeTransition('fadeIn', 0, 1, var(--ino-carousel-animation-duration));
+  }
+
+  .ino-carousel-slide--fade-out ino-carousel-slide {
+    @include fadeTransition('fadeOut', 1, 0, var(--ino-carousel-animation-duration));
   }
 }

@@ -1,14 +1,32 @@
 ino-carousel-slide {
-  display: none;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  @mixin fadeTransition($name, $from, $to, $duration) {
+    animation: $name $duration;
+
+    @keyframes #{$name} {
+      from {
+        opacity: $from;
+      }
+
+      to {
+        opacity: $to;
+      }
+    }
+  }
 
   >div {
-    width: 100%;
-    height: 100%;
     background-size: cover;
     background-position: 50%;
+    width: 100%;
+    height: 100%;
   }
 
   &.ino-carousel-slide--selected {
-    display: unset;
+    opacity: 1;
   }
 }

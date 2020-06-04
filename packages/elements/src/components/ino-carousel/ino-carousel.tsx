@@ -1,7 +1,5 @@
 import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
-import { Components } from '../../components';
-import InoCarouselSlide = Components.InoCarouselSlide;
 
 @Component({
   tag: 'ino-carousel',
@@ -11,7 +9,7 @@ import InoCarouselSlide = Components.InoCarouselSlide;
 export class InoCarousel implements ComponentInterface{
 
   @Element() el: HTMLElement;
-  private slides: InoCarouselSlide[];
+  private slides: HTMLInoCarouselSlideElement[];
   private currentSlide: number = 0;
   private slideCounter: number = 1;
   private timer: NodeJS.Timeout;
@@ -68,13 +66,18 @@ export class InoCarousel implements ComponentInterface{
 
   componentDidLoad(): void {
     this.slides = this.getSlides();
+    let slideSelected = false;
     if(this.slides.length > 0 ) {
       this.slides.forEach((slide) => {
         slide.inoSelected = this.value === slide.value;
         if(slide.inoSelected) {
           this.currentSlide = this.slides.indexOf(slide);
+          slideSelected = true;
         }
       });
+      if(!slideSelected) {
+        this.slides[this.currentSlide].inoSelected = true;
+      }
       this.setupAutoplay();
     }
   }
@@ -86,6 +89,8 @@ export class InoCarousel implements ComponentInterface{
       clearInterval(this.timer);
     }
   };
+
+
 
   // required for autoplay
   private nextSlide = () => {
@@ -108,7 +113,7 @@ export class InoCarousel implements ComponentInterface{
   };
 
   private getSlides() {
-    return Array.from(this.el.querySelectorAll('ino-carousel-slide')) as InoCarouselSlide[];
+    return Array.from(this.el.querySelectorAll('ino-carousel-slide')) as HTMLInoCarouselSlideElement[];
   };
 
   private mod = (a, b) => ((a % b) + b) % b;
@@ -117,7 +122,8 @@ export class InoCarousel implements ComponentInterface{
   render() {
     const classes = classNames({
       'ino-carousel': true,
-      'ino-carousel--no-buttons': this.inoHideButtons
+      'ino-carousel--no-buttons': this.inoHideButtons,
+      'ino-carousel--animated': !this.inoDisableAnimation
     });
 
     return (
