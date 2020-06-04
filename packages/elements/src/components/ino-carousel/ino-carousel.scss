@@ -9,7 +9,6 @@ ino-carousel {
 
 ino-carousel {
   .ino-carousel {
-    display: block;
     position: relative;
     height: 400px;
     width: 700px;
@@ -39,9 +38,11 @@ ino-carousel {
     right: 16px;
   }
 
-  .ino-carousel__left-arrow ino-icon{
+  .ino-carousel__left-arrow{
     left: 16px;
-    transform: rotateY(180deg);
+    ino-icon {
+      transform: rotate(180deg);
+    }
   }
 
   .ino-carousel__container {
