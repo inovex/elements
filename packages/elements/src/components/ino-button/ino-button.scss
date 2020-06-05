@@ -63,7 +63,6 @@ $color-states: (
 }
 
 :host([ino-fill="outline"]) {
-  --button-background: transparent;
   --button-background-disabled: transparent;
   --button-border-color-disabled: #{colors.ino-color(dark, light)};
   --button-box-shadow: none;
@@ -75,6 +74,10 @@ $color-states: (
   --button-border-color: transparent;
   --button-background-disabled: #{colors.ino-color(dark, light)};
   --button-color-disabled: white;
+}
+
+:host([ino-fill="inverse"]), :host([ino-fill="outline"]) {
+  --button-background: var(--ino-button-color-primary-contrast, transparent);
 }
 
 /* ------------------ COLOR SCHEME STYLES ------------------ */
