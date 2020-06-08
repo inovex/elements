@@ -29,15 +29,15 @@ The component can be used as follows:
 
 ## Properties
 
-| Property               | Attribute                | Description                                                         | Type      | Default     |
-| ---------------------- | ------------------------ | ------------------------------------------------------------------- | --------- | ----------- |
-| `inoAnimated`          | `ino-animated`           | Disables the slide animation                                        | `boolean` | `false`     |
-| `inoAutoplay`          | `ino-autoplay`           | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
-| `inoHideButtons`       | `ino-hide-buttons`       | Hides the arrow buttons                                             | `boolean` | `false`     |
-| `inoInfinite`          | `ino-infinite`           | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
-| `inoInterludeDuration` | `ino-interlude-duration` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
-| `inoReversePlayback`   | `ino-reverse-playback`   | Enables reverse playback of the slides                              | `boolean` | `false`     |
-| `value`                | `value`                  | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
+| Property          | Attribute          | Description                                                         | Type      | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------- | --------- | ----------- |
+| `inoAnimated`     | `ino-animated`     | Disables the slide animation                                        | `boolean` | `false`     |
+| `inoAutoplay`     | `ino-autoplay`     | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
+| `inoHideButtons`  | `ino-hide-buttons` | Hides the arrow buttons                                             | `boolean` | `false`     |
+| `inoInfinite`     | `ino-infinite`     | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
+| `inoIntermission` | `ino-intermission` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
+| `inoReverse`      | `ino-reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
+| `value`           | `value`            | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
 
 ## Dependencies
