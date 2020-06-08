@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, CardAspectRatio, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
 import { Placement, } from "popper.js";
 export namespace Components {
     interface InoButton {
@@ -64,33 +64,9 @@ export namespace Components {
     }
     interface InoCard {
         /**
-          * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
+          * Selects the card and displays a check mark icon on top of the card
          */
-        "inoAspectRatio"?: CardAspectRatio;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
-          * Displays a media area with a custom `background-image` with `background-size: cover`
-         */
-        "inoImage"?: string;
-        /**
-          * Displays the card title inside the image
-         */
-        "inoMediaTitle"?: boolean;
-        /**
-          * Removes the shadow and displays a hairline outline instead.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * An optional subtitle of this card.
-         */
-        "inoSubtitle"?: string;
-        /**
-          * An optional title of this card.
-         */
-        "inoTitle"?: string;
+        "inoSelected": boolean;
     }
     interface InoCheckbox {
         /**
@@ -752,28 +728,6 @@ export namespace Components {
          */
         "inoTrigger": TooltipTrigger;
     }
-    interface InoProgressBar {
-        /**
-          * Sets the buffer progress
-         */
-        "inoBuffer"?: number;
-        /**
-          * Indicates whether the state of the progress bar is indeterminate
-         */
-        "inoIndeterminate"?: boolean;
-        /**
-          * Sets the label of the progress bar
-         */
-        "inoLabel"?: string;
-        /**
-          * Sets the progress of the progress bar Should always be between 0 and 1
-         */
-        "inoProgress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "inoReversed"?: boolean;
-    }
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
@@ -1228,12 +1182,6 @@ declare global {
         prototype: HTMLInoPopoverElement;
         new (): HTMLInoPopoverElement;
     };
-    interface HTMLInoProgressBarElement extends Components.InoProgressBar, HTMLStencilElement {
-    }
-    var HTMLInoProgressBarElement: {
-        prototype: HTMLInoProgressBarElement;
-        new (): HTMLInoProgressBarElement;
-    };
     interface HTMLInoRadioElement extends Components.InoRadio, HTMLStencilElement {
     }
     var HTMLInoRadioElement: {
@@ -1345,7 +1293,6 @@ declare global {
         "ino-option": HTMLInoOptionElement;
         "ino-option-group": HTMLInoOptionGroupElement;
         "ino-popover": HTMLInoPopoverElement;
-        "ino-progress-bar": HTMLInoProgressBarElement;
         "ino-radio": HTMLInoRadioElement;
         "ino-radio-group": HTMLInoRadioGroupElement;
         "ino-range": HTMLInoRangeElement;
@@ -1419,33 +1366,9 @@ declare namespace LocalJSX {
     }
     interface InoCard {
         /**
-          * Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`
+          * Selects the card and displays a check mark icon on top of the card
          */
-        "inoAspectRatio"?: CardAspectRatio;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
-          * Displays a media area with a custom `background-image` with `background-size: cover`
-         */
-        "inoImage"?: string;
-        /**
-          * Displays the card title inside the image
-         */
-        "inoMediaTitle"?: boolean;
-        /**
-          * Removes the shadow and displays a hairline outline instead.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * An optional subtitle of this card.
-         */
-        "inoSubtitle"?: string;
-        /**
-          * An optional title of this card.
-         */
-        "inoTitle"?: string;
+        "inoSelected"?: boolean;
     }
     interface InoCheckbox {
         /**
@@ -2155,28 +2078,6 @@ declare namespace LocalJSX {
          */
         "inoTrigger"?: TooltipTrigger;
     }
-    interface InoProgressBar {
-        /**
-          * Sets the buffer progress
-         */
-        "inoBuffer"?: number;
-        /**
-          * Indicates whether the state of the progress bar is indeterminate
-         */
-        "inoIndeterminate"?: boolean;
-        /**
-          * Sets the label of the progress bar
-         */
-        "inoLabel"?: string;
-        /**
-          * Sets the progress of the progress bar Should always be between 0 and 1
-         */
-        "inoProgress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "inoReversed"?: boolean;
-    }
     interface InoRadio {
         /**
           * Initially marks this element as checked. If another ino-radio element in the same group receives `true`, the value will be changed to false automatically.
@@ -2544,7 +2445,6 @@ declare namespace LocalJSX {
         "ino-option": InoOption;
         "ino-option-group": InoOptionGroup;
         "ino-popover": InoPopover;
-        "ino-progress-bar": InoProgressBar;
         "ino-radio": InoRadio;
         "ino-radio-group": InoRadioGroup;
         "ino-range": InoRange;
@@ -2591,7 +2491,6 @@ declare module "@stencil/core" {
             "ino-option": LocalJSX.InoOption & JSXBase.HTMLAttributes<HTMLInoOptionElement>;
             "ino-option-group": LocalJSX.InoOptionGroup & JSXBase.HTMLAttributes<HTMLInoOptionGroupElement>;
             "ino-popover": LocalJSX.InoPopover & JSXBase.HTMLAttributes<HTMLInoPopoverElement>;
-            "ino-progress-bar": LocalJSX.InoProgressBar & JSXBase.HTMLAttributes<HTMLInoProgressBarElement>;
             "ino-radio": LocalJSX.InoRadio & JSXBase.HTMLAttributes<HTMLInoRadioElement>;
             "ino-radio-group": LocalJSX.InoRadioGroup & JSXBase.HTMLAttributes<HTMLInoRadioGroupElement>;
             "ino-range": LocalJSX.InoRange & JSXBase.HTMLAttributes<HTMLInoRangeElement>;

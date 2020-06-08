@@ -17,8 +17,8 @@ export class InoButton {
 }
 export declare interface InoCard extends Components.InoCard {
 }
-@ProxyCmp({ inputs: ["inoAspectRatio", "inoColorScheme", "inoImage", "inoMediaTitle", "inoOutline", "inoSubtitle", "inoTitle"] })
-@Component({ selector: "ino-card", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAspectRatio", "inoColorScheme", "inoImage", "inoMediaTitle", "inoOutline", "inoSubtitle", "inoTitle"] })
+@ProxyCmp({ inputs: ["inoSelected"] })
+@Component({ selector: "ino-card", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoSelected"] })
 export class InoCard {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
