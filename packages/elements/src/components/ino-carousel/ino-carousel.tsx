@@ -20,12 +20,14 @@ export class InoCarousel implements ComponentInterface{
   @Prop() value?: any;
   @Watch('value')
   valueChanged(newVal: any) {
+    this.addSlideAnimation(this.currentSlide); // adds the slide animation to the current slide
     this.slides.forEach((slide) => {
       slide.inoSelected = newVal === slide.value;
       if(slide.inoSelected) {
         this.currentSlide = this.slides.indexOf(slide);
       }
     });
+    this.addSlideAnimation(this.currentSlide); // adds the slide animation to the new slide
   }
 
   /**
@@ -64,11 +66,19 @@ export class InoCarousel implements ComponentInterface{
     this.configureAutoplay();
   }
 
+  // adds a slide animation to the slide with the given index
+  // required to prevent the animation from playing when loading the component
+  private addSlideAnimation = (index: number) => {
+    if (!this.inoAnimated || index < 0 || index >= this.slides.length) return;
+    if(!this.slides[index].classList.contains('ino-carousel--animated')) {
+      this.slides[index].classList.add('ino-carousel--animated');
+    }
+  };
+
   private configureSlides = () => {
     if (this.slides.length < 1) return;
     let slideSelected = false;
     this.slides.forEach((slide) => {
-      slide.inoAnimated = this.inoAnimated;
       slide.inoSelected = this.value === slide.value;
       if(slide.inoSelected) {
         this.currentSlide = this.slides.indexOf(slide);
@@ -87,13 +97,18 @@ export class InoCarousel implements ComponentInterface{
     clearInterval(this.timer);
   };
 
-  // required for autoplay
+  // required for autoplay to work
   private nextSlide = () => {
     if (this.slides.length < 1) return;
     this.slides[this.currentSlide].inoSelected = false;
+    this.addSlideAnimation(this.currentSlide); // adds the slide animation to current slide
+
+    // determines the index of the next slide
     this.currentSlide = this.inoReverse
-      ? this.mod(this.currentSlide + 1, this.slides.length)
-      : this.mod(this.currentSlide - 1 , this.slides.length);
+      ? this.mod(this.currentSlide - 1, this.slides.length)
+      : this.mod(this.currentSlide + 1 , this.slides.length);
+
+    this.addSlideAnimation(this.currentSlide); // adds the slide animation to the new slide
     this.slides[this.currentSlide].inoSelected = true;
     this.slideCounter++;
 
