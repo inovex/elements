@@ -2,6 +2,8 @@ import { Component, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@
 import classNames from 'classnames';
 import { MDCDrawer } from '@material/drawer/component';
 
+import {MDCCustomDrawer} from './MDCCustomDrawer';
+
 @Component({
   tag: 'ino-sidebar',
   styleUrl: 'ino-sidebar.scss',
@@ -39,7 +41,7 @@ export class InoSidebar {
   @Event() openChange: EventEmitter;
 
   componentDidLoad() {
-    this.drawer = new MDCDrawer(this.el.shadowRoot.querySelector('.mdc-drawer'));
+    this.drawer = new MDCCustomDrawer(this.el.shadowRoot.querySelector('.mdc-drawer'));
     this.drawer.open = this.inoOpen;
   }
 
