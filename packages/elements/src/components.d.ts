@@ -944,6 +944,24 @@ export namespace Components {
          */
         "inoActiveTab"?: number;
     }
+    interface InoTable {
+    }
+    interface InoTableCell {
+        /**
+          * Indicates that the cell contains numeric values
+         */
+        "inoNumeric": boolean;
+    }
+    interface InoTableRow {
+        /**
+          * Indicates that the row is a header row
+         */
+        "inoHeaderRow": boolean;
+        /**
+          * Indicates whether the row is selected or not
+         */
+        "inoSelected": boolean;
+    }
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -1254,6 +1272,24 @@ declare global {
         prototype: HTMLInoTabBarElement;
         new (): HTMLInoTabBarElement;
     };
+    interface HTMLInoTableElement extends Components.InoTable, HTMLStencilElement {
+    }
+    var HTMLInoTableElement: {
+        prototype: HTMLInoTableElement;
+        new (): HTMLInoTableElement;
+    };
+    interface HTMLInoTableCellElement extends Components.InoTableCell, HTMLStencilElement {
+    }
+    var HTMLInoTableCellElement: {
+        prototype: HTMLInoTableCellElement;
+        new (): HTMLInoTableCellElement;
+    };
+    interface HTMLInoTableRowElement extends Components.InoTableRow, HTMLStencilElement {
+    }
+    var HTMLInoTableRowElement: {
+        prototype: HTMLInoTableRowElement;
+        new (): HTMLInoTableRowElement;
+    };
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
     var HTMLInoTextareaElement: {
@@ -1305,6 +1341,9 @@ declare global {
         "ino-switch": HTMLInoSwitchElement;
         "ino-tab": HTMLInoTabElement;
         "ino-tab-bar": HTMLInoTabBarElement;
+        "ino-table": HTMLInoTableElement;
+        "ino-table-cell": HTMLInoTableCellElement;
+        "ino-table-row": HTMLInoTableRowElement;
         "ino-textarea": HTMLInoTextareaElement;
         "ino-tooltip": HTMLInoTooltipElement;
     }
@@ -2334,6 +2373,24 @@ declare namespace LocalJSX {
          */
         "onActiveTabChange"?: (event: CustomEvent<any>) => void;
     }
+    interface InoTable {
+    }
+    interface InoTableCell {
+        /**
+          * Indicates that the cell contains numeric values
+         */
+        "inoNumeric"?: boolean;
+    }
+    interface InoTableRow {
+        /**
+          * Indicates that the row is a header row
+         */
+        "inoHeaderRow"?: boolean;
+        /**
+          * Indicates whether the row is selected or not
+         */
+        "inoSelected"?: boolean;
+    }
     interface InoTextarea {
         /**
           * The autofocus of this element.
@@ -2457,6 +2514,9 @@ declare namespace LocalJSX {
         "ino-switch": InoSwitch;
         "ino-tab": InoTab;
         "ino-tab-bar": InoTabBar;
+        "ino-table": InoTable;
+        "ino-table-cell": InoTableCell;
+        "ino-table-row": InoTableRow;
         "ino-textarea": InoTextarea;
         "ino-tooltip": InoTooltip;
     }
@@ -2503,6 +2563,9 @@ declare module "@stencil/core" {
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
+            "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
+            "ino-table-cell": LocalJSX.InoTableCell & JSXBase.HTMLAttributes<HTMLInoTableCellElement>;
+            "ino-table-row": LocalJSX.InoTableRow & JSXBase.HTMLAttributes<HTMLInoTableRowElement>;
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }
