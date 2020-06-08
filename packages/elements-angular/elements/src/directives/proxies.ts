@@ -28,8 +28,8 @@ export class InoCard {
 }
 export declare interface InoCarousel extends Components.InoCarousel {
 }
-@ProxyCmp({ inputs: ["inoAutoplay", "inoDisableAnimation", "inoHideButtons", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
-@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAutoplay", "inoDisableAnimation", "inoHideButtons", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
+@ProxyCmp({ inputs: ["inoAnimated", "inoAutoplay", "inoHideButtons", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
+@Component({ selector: "ino-carousel", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAnimated", "inoAutoplay", "inoHideButtons", "inoInfinite", "inoInterludeDuration", "inoReversePlayback", "value"] })
 export class InoCarousel {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -39,8 +39,8 @@ export class InoCarousel {
 }
 export declare interface InoCarouselSlide extends Components.InoCarouselSlide {
 }
-@ProxyCmp({ inputs: ["inoSelected", "src", "value"] })
-@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoSelected", "src", "value"] })
+@ProxyCmp({ inputs: ["inoAnimated", "inoSelected", "src", "value"] })
+@Component({ selector: "ino-carousel-slide", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoAnimated", "inoSelected", "src", "value"] })
 export class InoCarouselSlide {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
