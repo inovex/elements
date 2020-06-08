@@ -32,12 +32,6 @@ export class InoCarousel implements ComponentInterface{
    * Enables autoplay which causes slides to be changed automatically
    */
   @Prop() inoAutoplay: boolean = false;
-  @Watch('inoAutoplay')
-  inoAutoplayChanged() {
-    if(this.slides.length > 0 ) {
-      this.setupAutoplay();
-    }
-  }
 
   /**
    * Disables the slide animation
@@ -57,52 +51,51 @@ export class InoCarousel implements ComponentInterface{
   /**
    * Sets the intermission between two slides (Unit: ms)
    */
-  @Prop() inoInterludeDuration: number = 5000;
+  @Prop() inoIntermission: number = 5000;
 
   /**
    * Enables reverse playback of the slides
    */
-  @Prop() inoReversePlayback: boolean = false;
+  @Prop() inoReverse: boolean = false;
 
   componentDidLoad(): void {
     this.slides = this.getSlides();
-    let slideSelected = false;
-    if(this.slides.length > 0 ) {
-      this.slides.forEach((slide) => {
-        slide.inoAnimated = this.inoAnimated;
-        slide.inoSelected = this.value === slide.value;
-        if(slide.inoSelected) {
-          this.currentSlide = this.slides.indexOf(slide);
-          slideSelected = true;
-        }
-      });
-      if(!slideSelected) {
-        this.slides[this.currentSlide].inoSelected = true;
-      }
-      this.setupAutoplay();
-    }
+    this.configureSlides();
+    this.configureAutoplay();
   }
 
-  private setupAutoplay = () => {
-    if(this.inoAutoplay) {
-      this.timer = setInterval(this.nextSlide, this.inoInterludeDuration);
-    } else {
-      clearInterval(this.timer);
+  private configureSlides = () => {
+    if (this.slides.length < 1) return;
+    let slideSelected = false;
+    this.slides.forEach((slide) => {
+      slide.inoAnimated = this.inoAnimated;
+      slide.inoSelected = this.value === slide.value;
+      if(slide.inoSelected) {
+        this.currentSlide = this.slides.indexOf(slide);
+        slideSelected = true;
+      }
+    });
+    if(!slideSelected) this.slides[this.currentSlide].inoSelected = true;
+  };
+
+  private configureAutoplay = () => {
+    if (this.slides.length < 1) return;
+    if (this.inoAutoplay) {
+      this.timer = setInterval(this.nextSlide, this.inoIntermission);
+      return;
     }
+    clearInterval(this.timer);
   };
 
   // required for autoplay
   private nextSlide = () => {
-    if(this.slides.length > 0) {
-      this.slides[this.currentSlide].inoSelected = false;
-      if(this.inoReversePlayback) {
-        this.currentSlide = this.mod(this.currentSlide + 1, this.slides.length);
-      } else {
-        this.currentSlide = this.mod(this.currentSlide - 1 , this.slides.length);
-      }
-      this.slides[this.currentSlide].inoSelected = true;
-      this.slideCounter++
-    }
+    if (this.slides.length < 1) return;
+    this.slides[this.currentSlide].inoSelected = false;
+    this.currentSlide = this.inoReverse
+      ? this.mod(this.currentSlide + 1, this.slides.length)
+      : this.mod(this.currentSlide - 1 , this.slides.length);
+    this.slides[this.currentSlide].inoSelected = true;
+    this.slideCounter++;
 
     // disables the timer after all slides have been shown
     if(!this.inoInfinite && this.slideCounter >= this.slides.length) {
