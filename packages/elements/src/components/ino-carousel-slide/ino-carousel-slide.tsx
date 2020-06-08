@@ -1,4 +1,4 @@
-import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
+import { Component, Element, Host, Prop, h, ComponentInterface, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -21,16 +21,24 @@ export class InoCarouselSlide implements ComponentInterface{
   @Prop() value: any;
 
   /**
+   * Enables/Disables the slide animation
+   */
+  @Prop() inoAnimated: boolean = false;
+
+  /**
    * Indicates whether the slide is selected or not
    */
   @Prop() inoSelected: boolean = false;
-
-  componentDidLoad(): void {
+  @Watch('inoSelected')
+  inoSelectedChanged() {
+    if(this.inoAnimated && !this.el.classList.contains('ino-carousel-slide__animation')) {
+      this.el.classList.add('ino-carousel-slide__animation');
+    }
   }
 
   render() {
     const classes = classNames({
-      'ino-carousel-slide--selected': this.inoSelected
+      'ino-carousel-slide--selected': this.inoSelected,
     });
 
     return (

@@ -26,6 +26,13 @@ ino-carousel-slide {
     height: 100%;
   }
 
+  &.ino-carousel-slide__animation.ino-carousel-slide--selected {
+      @include fadeTransition('fadeIn', 0, 1, 1s);
+    }
+  &.ino-carousel-slide__animation:not(.ino-carousel-slide--selected) {
+      @include fadeTransition('fadeOut', 1, 0, 1s);
+    }
+
   &.ino-carousel-slide--selected {
     opacity: 1;
   }
