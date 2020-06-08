@@ -70,13 +70,13 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
+          * Disables the slide animation
+         */
+        "inoAnimated": boolean;
+        /**
           * Enables autoplay which causes slides to be changed automatically
          */
         "inoAutoplay": boolean;
-        /**
-          * Disables the slide animation
-         */
-        "inoDisableAnimation": boolean;
         /**
           * Hides the arrow buttons
          */
@@ -99,6 +99,10 @@ export namespace Components {
         "value"?: any;
     }
     interface InoCarouselSlide {
+        /**
+          * Enables/Disables the slide animation
+         */
+        "inoAnimated": boolean;
         /**
           * Indicates whether the slide is selected or not
          */
@@ -1540,13 +1544,13 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
+          * Disables the slide animation
+         */
+        "inoAnimated"?: boolean;
+        /**
           * Enables autoplay which causes slides to be changed automatically
          */
         "inoAutoplay"?: boolean;
-        /**
-          * Disables the slide animation
-         */
-        "inoDisableAnimation"?: boolean;
         /**
           * Hides the arrow buttons
          */
@@ -1569,6 +1573,10 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface InoCarouselSlide {
+        /**
+          * Enables/Disables the slide animation
+         */
+        "inoAnimated"?: boolean;
         /**
           * Indicates whether the slide is selected or not
          */

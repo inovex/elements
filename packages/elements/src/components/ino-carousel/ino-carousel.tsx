@@ -42,7 +42,7 @@ export class InoCarousel implements ComponentInterface{
   /**
    * Disables the slide animation
    */
-  @Prop() inoDisableAnimation: boolean = false;
+  @Prop() inoAnimated: boolean = false;
 
   /**
    * Hides the arrow buttons
@@ -69,6 +69,7 @@ export class InoCarousel implements ComponentInterface{
     let slideSelected = false;
     if(this.slides.length > 0 ) {
       this.slides.forEach((slide) => {
+        slide.inoAnimated = this.inoAnimated;
         slide.inoSelected = this.value === slide.value;
         if(slide.inoSelected) {
           this.currentSlide = this.slides.indexOf(slide);
@@ -89,8 +90,6 @@ export class InoCarousel implements ComponentInterface{
       clearInterval(this.timer);
     }
   };
-
-
 
   // required for autoplay
   private nextSlide = () => {
@@ -123,7 +122,6 @@ export class InoCarousel implements ComponentInterface{
     const classes = classNames({
       'ino-carousel': true,
       'ino-carousel--no-buttons': this.inoHideButtons,
-      'ino-carousel--animated': !this.inoDisableAnimation
     });
 
     return (
