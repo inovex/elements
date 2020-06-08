@@ -31,7 +31,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('<ino-card>', module)
+storiesOf('Structure|<ino-card>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons
