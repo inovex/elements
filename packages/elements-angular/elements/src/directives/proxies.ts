@@ -476,6 +476,38 @@ export class InoTabBar {
         proxyOutputs(this, this.el, ["activeTabChange"]);
     }
 }
+export declare interface InoTable extends Components.InoTable {
+}
+@Component({ selector: "ino-table", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>" })
+export class InoTable {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
+export declare interface InoTableCell extends Components.InoTableCell {
+}
+@ProxyCmp({ inputs: ["inoNumeric"] })
+@Component({ selector: "ino-table-cell", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoNumeric"] })
+export class InoTableCell {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
+export declare interface InoTableRow extends Components.InoTableRow {
+}
+@ProxyCmp({ inputs: ["inoHeaderRow", "inoSelected"] })
+@Component({ selector: "ino-table-row", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoHeaderRow", "inoSelected"] })
+export class InoTableRow {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
 export declare interface InoTextarea extends Components.InoTextarea {
 }
 @ProxyCmp({ inputs: ["autoFocus", "autogrow", "cols", "disabled", "inoLabel", "inoShowLabelHint", "maxlength", "minlength", "name", "placeholder", "required", "rows", "showCharacterCounter", "value"] })

@@ -1,0 +1,18 @@
+@use '@material/data-table';
+@use 'styles/colors';
+
+:host {
+  .ino-table__table {
+    display: table;
+  }
+
+  .ino-table__header {
+    display: table-header-group;
+  }
+
+  .ino-table__body {
+    display: table-row-group;
+  }
+
+  @include data-table.core-styles;
+}

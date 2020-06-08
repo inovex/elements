@@ -1,0 +1,12 @@
+@use '@material/data-table';
+
+ino-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+
+  @include data-table.core-styles;
+
+  &.ino-table__header-cell {
+    font-weight: bold;
+  }
+}
