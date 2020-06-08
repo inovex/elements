@@ -25,18 +25,18 @@ $color-states: (
 
 :host {
   /**
-  * @prop --button-color-primary: Color of the primary button
-  * @prop --button-color-primary-light: Light color of the primary button. Will be used for the hover effect
-  * @prop --button-color-primary-dark: Dark color of the primary button. Will be used for the active effect
-  * @prop --button-color-primary-contrast: Contrast color of the primary button. Will be used for the text color
-  * @prop --button-color-primary-shadow-light: Shadow color of the primary button used on hover
-  * @prop --button-color-primary-shadow-dark: Shadow color of the primary button used on active
-  * @prop --button-color-secondary: Color of the primary button
-  * @prop --button-color-secondary-light: Light color of the secondary button. Will be used for the hover effect
-  * @prop --button-color-secondary-dark: Dark color of the secondary button. Will be used for the active effect
-  * @prop --button-color-secondary-contrast: Contrast color of the secondary button. Will be used for the text color
-  * @prop --button-color-secondary-shadow-light: Shadow color of the secondary button used on hover
-  * @prop --button-color-secondary-shadow-dark: Shadow color of the secondary button used on active
+  * @prop --ino-button-color-primary: Color of the primary button
+  * @prop --ino-button-color-primary-light: Light color of the primary button. Will be used for the hover effect
+  * @prop --ino-button-color-primary-dark: Dark color of the primary button. Will be used for the active effect
+  * @prop --ino-button-color-primary-contrast: Contrast color of the primary button. Will be used for the text color
+  * @prop --ino-button-color-primary-shadow-light: Shadow color of the primary button used on hover
+  * @prop --ino-button-color-primary-shadow-dark: Shadow color of the primary button used on active
+  * @prop --ino-button-color-secondary: Color of the primary button
+  * @prop --ino-button-color-secondary-light: Light color of the secondary button. Will be used for the hover effect
+  * @prop --ino-button-color-secondary-dark: Dark color of the secondary button. Will be used for the active effect
+  * @prop --ino-button-color-secondary-contrast: Contrast color of the secondary button. Will be used for the text color
+  * @prop --ino-button-color-secondary-shadow-light: Shadow color of the secondary button used on hover
+  * @prop --ino-button-color-secondary-shadow-dark: Shadow color of the secondary button used on active
   */
   --button-border-radius: #{$edged-border};
 
@@ -68,7 +68,6 @@ $color-states: (
   --button-box-shadow: none;
   --button-color-disabled: #{colors.ino-color(dark, light)};
 }
-
 
 :host([ino-fill="inverse"]) {
   --button-border-color: transparent;
