@@ -1,10 +1,9 @@
-ino-carousel-slide {
-}
 ino-carousel {
   /**
    * @prop --ino-carousel-icon-color: sets the color of the navigation buttons
    * @prop --ino-carousel-width: sets the width of the carousel component
    * @prop --ino-carousel-height: sets the height of the carousel component
+   * @prop --ino-carousel-animation-duration: sets the duration of the slide animation
    */
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
   --carousel-width: var(--ino-carousel-width, 700px);
