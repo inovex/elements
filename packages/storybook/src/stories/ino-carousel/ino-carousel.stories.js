@@ -56,8 +56,8 @@ storiesOf('Graphic|<ino-carousel>', module)
         ino-animated="${boolean('ino-animated', false, 'General')}"
         ino-hide-buttons="${boolean('ino-hide-buttons', false, 'General')}"
         ino-infinite="${boolean('ino-infinite', false, 'General')}"
-        ino-interlude-duration="${number('ino-interlude-duration', 5000, undefined, 'General')}"
-        ino-reverse-playback="${boolean('ino-reverse-playback', false, 'General')}"
+        ino-intermission="${number('ino-intermission', 5000, undefined, 'General')}"
+        ino-reverse="${boolean('ino-reverse', false, 'General')}"
       >
         <ino-carousel-slide src="https://cdn.quasar.dev/img/mountains.jpg" value="0" ino-selected>
         </ino-carousel-slide>

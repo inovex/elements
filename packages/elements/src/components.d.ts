@@ -88,21 +88,17 @@ export namespace Components {
         /**
           * Sets the intermission between two slides (Unit: ms)
          */
-        "inoInterludeDuration": number;
+        "inoIntermission": number;
         /**
           * Enables reverse playback of the slides
          */
-        "inoReversePlayback": boolean;
+        "inoReverse": boolean;
         /**
           * Optional group value to manually manage the displayed slide
          */
         "value"?: any;
     }
     interface InoCarouselSlide {
-        /**
-          * Enables/Disables the slide animation
-         */
-        "inoAnimated": boolean;
         /**
           * Indicates whether the slide is selected or not
          */
@@ -1562,21 +1558,17 @@ declare namespace LocalJSX {
         /**
           * Sets the intermission between two slides (Unit: ms)
          */
-        "inoInterludeDuration"?: number;
+        "inoIntermission"?: number;
         /**
           * Enables reverse playback of the slides
          */
-        "inoReversePlayback"?: boolean;
+        "inoReverse"?: boolean;
         /**
           * Optional group value to manually manage the displayed slide
          */
         "value"?: any;
     }
     interface InoCarouselSlide {
-        /**
-          * Enables/Disables the slide animation
-         */
-        "inoAnimated"?: boolean;
         /**
           * Indicates whether the slide is selected or not
          */
