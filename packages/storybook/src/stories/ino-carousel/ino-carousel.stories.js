@@ -49,21 +49,24 @@ storiesOf('Graphic|<ino-carousel>', module)
     return story();
   })
   .add('Default usage', () => /* html */`
-      <ino-carousel
-        class="customizable-carousel"
-        value="${text('value', '0', 'General')}"
-        ino-autoplay="${boolean('ino-autoplay', false, 'General')}"
-        ino-animated="${boolean('ino-animated', false, 'General')}"
-        ino-hide-buttons="${boolean('ino-hide-buttons', false, 'General')}"
-        ino-infinite="${boolean('ino-infinite', false, 'General')}"
-        ino-intermission="${number('ino-intermission', 5000, undefined, 'General')}"
-        ino-reverse="${boolean('ino-reverse', false, 'General')}"
-      >
-        <ino-carousel-slide src="https://cdn.quasar.dev/img/mountains.jpg" value="0" ino-selected>
-        </ino-carousel-slide>
-        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax1.jpg" value="1">
-        </ino-carousel-slide>
-        <ino-carousel-slide src="https://cdn.quasar.dev/img/parallax2.jpg" value="2">
-        </ino-carousel-slide>
-      </ino-carousel>
+      <h3>Customizable carousel</h3>
+      <div class="ino-carousel-example">
+          <ino-carousel
+            class="customizable-carousel"
+            value="${text('value', '0', 'General')}"
+            ino-autoplay="${boolean('ino-autoplay', false, 'General')}"
+            ino-animated="${boolean('ino-animated', false, 'General')}"
+            ino-hide-buttons="${boolean('ino-hide-buttons', false, 'General')}"
+            ino-infinite="${boolean('ino-infinite', false, 'General')}"
+            ino-intermission="${number('ino-intermission', 5000, undefined, 'General')}"
+            ino-reverse="${boolean('ino-reverse', false, 'General')}"
+          >
+            <ino-carousel-slide src="images/lightning.jpg" value="0" ino-selected>
+            </ino-carousel-slide>
+            <ino-carousel-slide src="images/mountains.jpg" value="1">
+            </ino-carousel-slide>
+            <ino-carousel-slide src="images/nidaros.jpg" value="2">
+            </ino-carousel-slide>
+          </ino-carousel>
+      </div>
   `);
