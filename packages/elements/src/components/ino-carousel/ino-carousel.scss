@@ -2,16 +2,19 @@
 ino-carousel {
   /**
    * @prop --ino-carousel-icon-color: sets the color of the navigation buttons
-   * @prop --ino-carousel-animation-duration: sets the duration of the animation (in ms)
+   * @prop --ino-carousel-width: sets the width of the carousel component
+   * @prop --ino-carousel-height: sets the height of the carousel component
    */
-  --ino-carousel-icon-color: #fff;
+  --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
+  --carousel-width: var(--ino-carousel-width, 700px);
+  --carousel-height: var(--ino-carousel-height, 400px);
 }
 
 ino-carousel {
   .ino-carousel {
     position: relative;
-    height: 400px;
-    width: 700px;
+    height: var(--carousel-height);
+    width: var(--carousel-width);
     overflow: hidden;
   }
 
