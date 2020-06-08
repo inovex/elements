@@ -3,8 +3,8 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "scripts": {
     "build": "lerna run build",
-    "linklocal:npm": "./scripts/publishlocal.sh",
-    "linklocal:yarn": "./scripts/publishlocal.sh --link",
+    "publish:react": "./scripts/publishReact.sh",
+    "publish:angular": "./scripts/publishAngular.sh",
     "start": "lerna run build --scope=@inovex/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "conventional-changelog -p angular -i ./CHANGELOG.md -s",
