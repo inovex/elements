@@ -138,6 +138,7 @@ If you want to use custom icons, just use the URL to your preferred icon.
 ### Used by
 
  - [ino-button](../ino-button)
+ - [ino-card](../ino-card)
  - [ino-chip](../ino-chip)
  - [ino-datepicker](../ino-datepicker)
  - [ino-fab](../ino-fab)
@@ -149,6 +150,7 @@ If you want to use custom icons, just use the URL to your preferred icon.
 ```mermaid
 graph TD;
   ino-button --> ino-icon
+  ino-card --> ino-icon
   ino-chip --> ino-icon
   ino-datepicker --> ino-icon
   ino-fab --> ino-icon

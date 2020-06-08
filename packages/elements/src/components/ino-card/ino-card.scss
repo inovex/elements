@@ -1,92 +1,67 @@
 @use '@material/card/mdc-card';
+@use '@material/card';
 @use '@material/typography/mdc-typography';
 @use '@material/typography' as mdc;
 @use '@material/theme';
 @use 'styles/colors';
 
-:host {
+$small-shadow: 0 4px 8px 0 rgba(colors.$dark, 0.3),
+0 12px 28px 0 rgba(colors.$dark, 0.14);
+$big-shadow: 0 8px 16px 0 rgba(colors.$dark, 0.3),
+0 16px 32px 0 rgba(colors.$dark, 0.14);
+
+ino-card {
+  /**
+   * @prop --ino-card-background-color: background color of the check mark
+   * @prop --ino-card-color: check mark color
+   */
+  --card-background-color: var(--ino-card-background-color, --ino-global-primary-color, #{colors.ino-color(primary, base)});
+  --card-color: var(--ino-card-color, #fff);
+}
+
+ino-card {
   display: block;
+  position: relative;
 
-  .ino-card__composer {
-    padding: 1rem;
-    height: 100%;
+  .mdc-card {
+    @include card.outline(colors.$light, 1px);
+    box-shadow: none;
+    border-radius: 20px;
   }
 
-  .mdc-card__media {
-    .mdc-card__media-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+  .ino-card--selected.mdc-card {
+    @include card.outline(#fff, 1px);
+    box-shadow: $big-shadow;
+  }
 
-      .ino-card__header {
-        padding: 1rem;
-        background-image: linear-gradient(
-          to bottom,
-          rgba(0, 0, 0, 0) 0%,
-          rgba(0, 0, 0, 0.5) 100%
-        );
+  .ino-card__checkmark {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--card-background-color);
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: $small-shadow;
 
-        .ino-card__header-title {
-          @include theme.prop(color, #fff);
-          @include mdc.typography(headline6);
-        }
-        .ino-card__header-subtitle {
-          @include theme.prop(color, #fff);
-          @include mdc.typography(subtitle2);
-        }
-      }
+    ino-icon {
+      font-size: 20pt;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      --color: var(--card-color);
     }
   }
 
-  .mdc-card__actions {
-    min-height: 0;
-    height: auto;
-    padding: 0;
+  .ino-card__footer, .ino-card__content, .ino-card__header {
+    padding: 10px;
   }
 
-  .mdc-card__action-buttons,
-  .mdc-card__action-icons {
-    margin-top: 8px;
-    margin-bottom: 8px;
-
-    &:empty {
-      margin: 0;
-    }
-  }
-  .mdc-card__action-buttons {
-    margin-left: 8px;
-  }
-  .mdc-card__action-icons  {
-    margin-right: 8px !important;
-  }
-
-  .ino-card__header {
-    .ino-card__header-title {
-      @include mdc.typography(headline6);
-    }
-    .ino-card__header-subtitle {
-      @include theme.prop(color, text-secondary-on-background);
-      @include mdc.typography(subtitle2);
-    }
-    padding-bottom: 1em;
-  }
-
-  .ino-card__content {
-    @include mdc.typography(body2);
-  }
-}
-
-// Generate ino-color-scheme classes
-@each $color-name, $map in colors.$ino-color-scheme {
-  :host([ino-color-scheme='#{$color-name}']) {
-    .ino-card__composer, .mdc-card__actions {
-      background-color: map-get($map, base);
-      border: 1px solid map-get($map, base);
-      color: map-get($map, contrast);
-    }
-    .ino-card__header-subtitle {
-      color: rgba(map-get($map, contrast), 0.5);
+  &:hover {
+    .mdc-card {
+      @include card.outline(#fff, 1px);
+      box-shadow: $small-shadow;
     }
   }
 }
-

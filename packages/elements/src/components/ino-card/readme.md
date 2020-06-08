@@ -96,16 +96,31 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                       | Type                                                                                               | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------- |
-| `inoAspectRatio` | `ino-aspect-ratio` | Automatically scales the media areas's height according to its width. Possible values: `16-9` (default), `square`                                                                                                 | `"16-9" \| "square"`                                                                               | `'16-9'`    |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning"` | `'primary'` |
-| `inoImage`       | `ino-image`        | Displays a media area with a custom `background-image` with `background-size: cover`                                                                                                                              | `string`                                                                                           | `undefined` |
-| `inoMediaTitle`  | `ino-media-title`  | Displays the card title inside the image                                                                                                                                                                          | `boolean`                                                                                          | `false`     |
-| `inoOutline`     | `ino-outline`      | Removes the shadow and displays a hairline outline instead.                                                                                                                                                       | `boolean`                                                                                          | `undefined` |
-| `inoSubtitle`    | `ino-subtitle`     | An optional subtitle of this card.                                                                                                                                                                                | `string`                                                                                           | `undefined` |
-| `inoTitle`       | `ino-title`        | An optional title of this card.                                                                                                                                                                                   | `string`                                                                                           | `undefined` |
+| Property      | Attribute      | Description                                                        | Type      | Default |
+| ------------- | -------------- | ------------------------------------------------------------------ | --------- | ------- |
+| `inoSelected` | `ino-selected` | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
+
+## CSS Custom Properties
+
+| Name                          | Description                        |
+| ----------------------------- | ---------------------------------- |
+| `--ino-card-background-color` | background color of the check mark |
+| `--ino-card-color`            | check mark color                   |
+
+
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-card --> ino-icon
+  style ino-card fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

@@ -4,8 +4,10 @@
   }
 
   .flex-cards {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     > ino-card {
       flex: 1;
@@ -19,4 +21,46 @@
   h4 {
     margin-top: 52px;
   }
+}
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  h3 {
+    margin: 0;
+  }
+
+  ino-img img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.sample-card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  p {
+    color: #c1c1c1;
+    margin: 0;
+  }
+}
+
+ino-card {
+  width: 300px;
 }
