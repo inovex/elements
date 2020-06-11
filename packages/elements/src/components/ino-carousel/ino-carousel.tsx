@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import classNames from 'classnames';
 
+
 @Component({
   tag: 'ino-carousel',
   styleUrl: 'ino-carousel.scss',
@@ -78,13 +79,16 @@ export class InoCarousel implements ComponentInterface{
   private configureSlides = () => {
     if (this.slides.length < 1) return;
     let slideSelected = false;
-    this.slides.forEach((slide) => {
-      slide.inoSelected = this.value === slide.value;
-      if(slide.inoSelected) {
-        this.currentSlide = this.slides.indexOf(slide);
-        slideSelected = true;
-      }
-    });
+
+    if(this.value !== undefined) {
+      this.slides.forEach((slide) => {
+        slide.inoSelected = this.value === slide.value;
+        if(slide.inoSelected) {
+          this.currentSlide = this.slides.indexOf(slide);
+          slideSelected = true;
+        }
+      });
+    }
     if(!slideSelected) this.slides[this.currentSlide].inoSelected = true;
   };
 
