@@ -28,12 +28,14 @@ function subscribeToComponentEvents() {
 
   const mod = (a, b) => ((a % b) + b) % b;
 
-  document.addEventListener('clickEl', eventHandler);
+  document.addEventListener('leftClick', eventHandler);
+  document.addEventListener('rightClick', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
     document.removeEventListener('clickEl', eventHandler);
+    document.removeEventListener('rightClick', eventHandler);
   };
 }
 
@@ -69,4 +71,14 @@ storiesOf('Graphic|<ino-carousel>', module)
             </ino-carousel-slide>
           </ino-carousel>
       </div>
+
+      <h3>Autoplay enabled</h3>
+      <ino-carousel ino-autoplay ino-animated ino-infinite value="0">
+            <ino-carousel-slide src="images/lightning.jpg" value="0">
+            </ino-carousel-slide>
+            <ino-carousel-slide src="images/mountains.jpg" value="1">
+            </ino-carousel-slide>
+            <ino-carousel-slide src="images/nidaros.jpg" value="2">
+            </ino-carousel-slide>
+      </ino-carousel>
   `);
