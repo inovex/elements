@@ -76,52 +76,7 @@ import { AppComponent } from './app.component';
 export class AppModule { }
 ```
 
-### 3) Call the Method `defineCustomElements`
-
-Now it is time to bring the components to life. The directives are simply
-interfaces used to declare the components in Angular. Still, our Angular Library does not (yet) instantiate the 
-components. The components are provided as Custom Elements
-and loaded by the component loader that ships with our `@inovex/elements` package.
-
-> Important: You don't need to import `@inovex/elements` as a direct dependency of your Angular project. It's already
-> resolved as a dependency through `@inovex/elements-angular`.
-
-Import the method `defineCustomElements` and call it with the `window` instance:
-
-```typescript
-// src/main.ts
-
-import { defineCustomElements } from '@inovex/elements/dist/loader'; // a) import the method
-
-// ...
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
-
-defineCustomElements(window); // b) call the method after the bootstrap
-```
-
-### 4) Import the Icons (optional)
-
-If you want to use the icons, you need to import them separately.
-
-> It's important to keep the output folder structure as it is (`icon-assets/SVG`):
-
-```json
-// angular.json
-
-{
-  "glob": "**/*",
-  "input": "node_modules/@inovex/elements/dist/inovex-elements/icon-assets",
-  "output": "/icon-assets"
-}
-```
-
-To check if everything works properly, run `ng serve` from within your project folder to ensure that
-Angular is able to find the package and boots up properly. Make sure that the Web Console is not showing
-any unexpected errors. If everything works properly, proceed to the final step.
-
-### 5) Use the Components
+### 3) Use the Components
 
 As the integration is completed, you can now use the components in your project in the same way you would use
 any other Angular directive.

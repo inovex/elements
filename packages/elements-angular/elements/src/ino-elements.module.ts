@@ -5,6 +5,13 @@ import { FsValueAccessorDirective } from './directives/control-value-accesors/fs
 import { InoRadioValueAccessorDirective } from './directives/control-value-accesors/ino-radio-value-accessor.directive';
 import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
 
+import { addIcons } from '@inovex/elements/dist/collection/util/icons';
+import { ICON_PATHS } from '@inovex/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
+import { defineCustomElements } from '@inovex/elements/dist/loader';
+
+defineCustomElements(window);
+addIcons(ICON_PATHS);
+
 @NgModule({
   declarations: [
     ...DIRECTIVES,
