@@ -199,11 +199,13 @@ Type: `Promise<HTMLInputElement>`
 
 ### Depends on
 
+- [ino-icon](../ino-icon)
 - [ino-label](../ino-label)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-input --> ino-icon
   ino-input --> ino-label
   ino-datepicker --> ino-input
   style ino-input fill:#f9f,stroke:#333,stroke-width:4px

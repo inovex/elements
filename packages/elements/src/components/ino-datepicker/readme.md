@@ -178,6 +178,7 @@ or as datetime picker
 graph TD;
   ino-datepicker --> ino-input
   ino-datepicker --> ino-icon
+  ino-input --> ino-icon
   ino-input --> ino-label
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```

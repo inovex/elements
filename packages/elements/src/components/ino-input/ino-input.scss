@@ -9,7 +9,43 @@
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+ino-icon {
+  font-size: 24px;
+}
+
 ino-input {
+
+  .arrow-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    right: 5px;
+    top: 50%;
+    height: 50%;
+
+    .ino-num-arrows {
+      --height: 5px;
+      padding: 2px 0;
+      cursor: pointer;
+
+      &.up {
+        transform: scaleY(-1);
+      }
+    }
+  }
+
   display: block;
 
   @include icon.icon-core-styles;
