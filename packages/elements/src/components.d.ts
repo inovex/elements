@@ -367,6 +367,10 @@ export namespace Components {
           * Specifies the exact `src` of an SVG file to use.
          */
         "src"?: string;
+        /**
+          * Sets a meaningful svg title for assistive technologies.
+         */
+        "svgTitle"?: string;
     }
     interface InoIconButton {
         /**
@@ -1761,6 +1765,10 @@ declare namespace LocalJSX {
           * Specifies the exact `src` of an SVG file to use.
          */
         "src"?: string;
+        /**
+          * Sets a meaningful svg title for assistive technologies.
+         */
+        "svgTitle"?: string;
     }
     interface InoIconButton {
         /**

@@ -16,6 +16,7 @@ import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, State, 
 // import ICONS from './icons';
 import { getSvgContent, inoiconContent } from './request';
 import { getUrl } from './utils';
+import { SvgParser } from '../../util/svg-parser';
 
 /**
  * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
@@ -53,6 +54,11 @@ export class Icon implements ComponentInterface {
   @Prop() src?: string;
 
   /**
+   * Sets a meaningful svg title for assistive technologies.
+   */
+  @Prop() svgTitle?: string;
+
+  /**
    * Event that emits as soon as the user clicks on the icon.
    * The event only emits if the property `inoClickable` is true.
    */
@@ -62,6 +68,12 @@ export class Icon implements ComponentInterface {
    * The svg content loaded dynamically.
    */
   @State() svgContent?: string;
+  @Watch('svgContent')
+  watchHandler() {
+    this.svgContent = this.svgTitle 
+    ? SvgParser.setSvgTitle(this.svgContent, this.svgTitle) 
+    : SvgParser.removeSvgTitle(this.svgContent);
+  }
 
   componentWillLoad() {
     this.loadIcon();

@@ -136,6 +136,7 @@ storiesOf('Graphic|<ino-icon>', module)
               class="customizable-icon"
               ino-icon="${select('ino-icon', ICON_IDS, 'info')}"
               ino-clickable="${boolean('ino-clickable', false)}"
+              svg-title="This is a custom title"
             >
             </ino-icon>
           </div>
