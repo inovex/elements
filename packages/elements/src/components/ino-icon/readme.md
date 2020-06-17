@@ -115,6 +115,7 @@ If you want to use custom icons, just use the URL to your preferred icon.
 | `inoColorSecondary` | `ino-color-secondary` | Colors the icon in the global secondary color                         | `boolean` | `undefined` |
 | `inoIcon`           | `ino-icon`            | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
 | `src`               | `src`                 | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
+| `svgTitle`          | `svg-title`           | Sets a meaningful svg title for assistive technologies.               | `string`  | `undefined` |
 
 
 ## Events
