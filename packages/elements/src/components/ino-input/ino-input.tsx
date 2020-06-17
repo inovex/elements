@@ -60,7 +60,7 @@ export class Input implements ComponentInterface {
   /**
    * The autofocus of this element.
    */
-  @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
+  @Prop() autoFocus?: boolean;
 
   /**
    * Disables this element.

@@ -38,7 +38,7 @@ describe('InoInput', () => {
     const focusedElementWithoutAutofocus = await pageWithDefaultInput.evaluate(() => document.activeElement);
     expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
 
-    const pageWithFocusedInput = await setupPageWithContent(`<ino-input autofocus></ino-input>`);
+    const pageWithFocusedInput = await setupPageWithContent(`<ino-input auto-focus></ino-input>`);
     const focusedElement = await pageWithFocusedInput.evaluate(() => document.activeElement);
     expect(focusedElement).not.toEqual(emptyElement);
   });
