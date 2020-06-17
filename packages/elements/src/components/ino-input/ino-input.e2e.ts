@@ -94,6 +94,40 @@ describe('InoInput', () => {
     expect(value).toEqual('1.000.000');
   });
 
+  it('should increase the value when clicking on up arrow', async () => {
+    const page = await setupPageWithContent(`
+      <ino-input
+        type="number"
+      >
+      </ino-input>
+    `);
+
+    const valueChangedSpy = await page.spyOnEvent('valueChange');
+
+    await page.evaluate(() => {
+      (document.querySelector('.up') as HTMLElement).click();
+    });
+
+    expect(valueChangedSpy).toHaveReceivedEventDetail('1');
+  });
+
+  it('should decrease the value when clicking on down arrow', async () => {
+    const page = await setupPageWithContent(`
+      <ino-input
+        type="number"
+      >
+      </ino-input>
+    `);
+
+    const valueChangedSpy = await page.spyOnEvent('valueChange');
+
+    await page.evaluate(() => {
+      (document.querySelector('.down') as HTMLElement).click();
+    });
+
+    expect(valueChangedSpy).toHaveReceivedEventDetail('-1');
+  });
+
   it('should not be invalid by default', async () => {
     const page = await setupPageWithContent(INO_INPUT);
     const inputContainer = await page.find('ino-input > div');

@@ -15,6 +15,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import currency from 'currency.js';
+import { getPrecision } from '../../util/math-utils';
 
 @Component({
   tag: 'ino-input',
@@ -334,6 +335,20 @@ export class Input implements ComponentInterface {
     this.inoFocus.emit(e);
   };
 
+  private handleInputNumberArrowClick = (shouldIncrement: boolean) => {
+    const stepWithFallback = this.step && this.step !== 'any' ? this.step : 1;
+
+    const precisionOfValue = this.value ? getPrecision(Number(this.value)) : 0;
+    const formattedValue = currency(this.value, { precision: precisionOfValue });
+
+    const newValue = shouldIncrement ?
+      formattedValue.add(stepWithFallback)
+      :
+      formattedValue.subtract(stepWithFallback)
+
+    this.valueChange.emit(newValue.toString());
+  }
+
   private helperTextTemplate() {
 
     const classHelperText = classNames({
@@ -449,6 +464,13 @@ export class Input implements ComponentInterface {
           {
             this.inoUnit &&
             <span class={'mdc-text-field__icon unit mdc-text-field__icon--trailing'}>{this.inoUnit}</span>
+          }
+          {
+            this.type === 'number' &&
+              <div class={'arrow-container'}>
+                <ino-icon class={'ino-num-arrows up'} onClick={() => this.handleInputNumberArrowClick(true)} ino-icon="icon-assets/SVG/internals/arrow_down.svg"></ino-icon>
+                <ino-icon class={'ino-num-arrows down'} onClick={() => this.handleInputNumberArrowClick(false)} ino-icon="icon-assets/SVG/internals/arrow_down.svg"></ino-icon>
+              </div>
           }
           <ino-label
             ino-outline={this.inoOutline}
