@@ -4,13 +4,14 @@ export class SvgParser {
     
     public static setSvgTitle(svgContent: string, title: string) {
         const parsedSVG = this.parser.parseFromString(svgContent,"image/svg+xml");
-        parsedSVG.getElementsByTagName('title')[0].innerHTML = title;
+        const titleTag = parsedSVG.querySelector('title');
+        if(titleTag) titleTag.innerHTML = title;
         return this.serializer.serializeToString(parsedSVG);
     }
 
     public static removeSvgTitle(svgContent: string) {
         const parsedSVG = this.parser.parseFromString(svgContent,"image/svg+xml");
-        parsedSVG.getElementsByTagName('title')[0].remove();
+        parsedSVG.querySelector('title')?.remove();
         return this.serializer.serializeToString(parsedSVG);
     }
 }
