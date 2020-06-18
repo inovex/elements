@@ -89,11 +89,13 @@ If you have to add, remove or change an icon:
 
 2. Make sure that the exported icons have the same structure and that the settings in `selection.json` didn't change.
 
-3. Copy and paste the **entire** `icon-assets` folder to replace the old folder.
+3. Before integrating the new generated icons you have to keep the `internals` icons that are not maintained in [icomoon](https://icomoon.io/). Copy the current project `icon-assets/SVG/internals` folder to the new (downloaded) `icon-assets` folder. 
 
-4. Run `yarn icon:integrate-icons`. The new icons will be added to the `icons.js` file and copied to the storybook.
+4. Copy and paste the **entire** (downloaded) `icon-assets` folder to replace the old folder.
 
-5. Don't forget to update the storybook whenever the API changes.
+5. Run `yarn icon:integrate-icons`. The new icons will be added to the `icons.js` file and copied to the storybook.
+
+6. Don't forget to update the storybook whenever the API changes.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
