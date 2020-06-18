@@ -1,6 +1,6 @@
 {
   "name": "@inovex/elements",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -60,8 +60,8 @@
     "@material/fab": "^5.1.0",
     "@material/form-field": "^5.1.0",
     "@material/icon-button": "^5.1.0",
-    "@material/list": "^5.1.0",
     "@material/linear-progress": "^5.1.0",
+    "@material/list": "^5.1.0",
     "@material/menu": "^5.1.0",
     "@material/radio": "^5.1.0",
     "@material/ripple": "^5.1.0",

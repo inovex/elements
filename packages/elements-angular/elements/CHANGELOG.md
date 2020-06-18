@@ -1,3 +1,14 @@
+# [0.19.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.18.0...v0.19.0) (2020-06-18)
+
+
+### Features
+
+* **elements:** add ino-table/-row/-cell components ([fc2f778](http://gitlab.inovex.de:2424/inovex-elements/core/commit/fc2f778ada0c4153d9f67a2a8daef4250228b64f))
+* **elements:** add progress bar ([5fbd35e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5fbd35e9c1a8e2494bdbce4f0148e39d7794d8c0))
+* **elements|ino-icon:** ability to set svg title ([e6a6b60](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e6a6b608168364186a840a1952f89afe046f4512))
+
+
+
 # [0.18.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
 
 

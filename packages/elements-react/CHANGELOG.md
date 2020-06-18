@@ -1,3 +1,12 @@
+# [0.19.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.18.0...v0.19.0) (2020-06-18)
+
+
+### Features
+
+* **elements:** add ino-table/-row/-cell components ([fc2f778](http://gitlab.inovex.de:2424/inovex-elements/core/commit/fc2f778ada0c4153d9f67a2a8daef4250228b64f))
+
+
+
 # [0.18.0](https://gitlab.inovex.de/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
 
 

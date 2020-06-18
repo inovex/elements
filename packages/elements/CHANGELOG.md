@@ -1,3 +1,24 @@
+# [0.19.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.18.0...v0.19.0) (2020-06-18)
+
+
+### Bug Fixes
+
+* **elements|ino-input:** fix autoFocus property not being recognized ([c5a4d6f](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c5a4d6f6c988dbcbda22086238940d90f64f96c4))
+* **elements|ino-list-item:** fix propagation bug ([c20ceaa](http://gitlab.inovex.de:2424/inovex-elements/core/commit/c20ceaac7f4723954e48720b5e56afdcf4baf2b4))
+* **elements|ino-option:** use min-height instead of fixed height ([21717eb](http://gitlab.inovex.de:2424/inovex-elements/core/commit/21717eb2e9c646c034dbef467fcec4cf28309ae4))
+* **elements|ino-select:** fix wrong positioning of opened select ([e05b83e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e05b83e39c7b0ee6a2a11c6354734a4d992c14f9))
+* **elements|ino-select:** truncate overflowed text in select field ([2dc54fc](http://gitlab.inovex.de:2424/inovex-elements/core/commit/2dc54fccc438bc2d3279c76e8ade46675c449b24))
+* **elements|ino-sidebar:** remove the ability to close the sidebar by pressing escape ([1ae8845](http://gitlab.inovex.de:2424/inovex-elements/core/commit/1ae884565fc30a58a0bb79ac32b3580bb6a2fd27))
+
+
+### Features
+
+* **elements:** add ino-table/-row/-cell components ([fc2f778](http://gitlab.inovex.de:2424/inovex-elements/core/commit/fc2f778ada0c4153d9f67a2a8daef4250228b64f))
+* **elements:** add progress-bar component ([5fbd35e](http://gitlab.inovex.de:2424/inovex-elements/core/commit/5fbd35e9c1a8e2494bdbce4f0148e39d7794d8c0))
+* **elements|ino-icon:** add property to set svg title ([e6a6b60](http://gitlab.inovex.de:2424/inovex-elements/core/commit/e6a6b608168364186a840a1952f89afe046f4512))
+* **elements|ino-icon:** add additional arrow icons ([8215b05](http://gitlab.inovex.de:2424/inovex-elements/core/commit/8215b05665e5fba9cd79edf41b4a1151d1699d26))
+
+
 # [0.18.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.17.0...v0.18.0) (2020-05-20)
 
 
