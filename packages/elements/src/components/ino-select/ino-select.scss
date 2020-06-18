@@ -48,21 +48,20 @@ ino-select {
       background-color: transparent;
     }
 
-    &:#{$not-outlined-select} {
-      & > select {
-        padding-left: 0;
-        padding-bottom: 0;
-      }
-    }
-
     .mdc-floating-label {
       top: 28px;
     }
   }
 
+  .mdc-select.mdc-select--outlined .mdc-select__selected-text {
+    display: block;
+  }
+
   .mdc-select__selected-text {
     padding-left: 0;
     padding-top: 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   .mdc-floating-label.mdc-floating-label--float-above {
