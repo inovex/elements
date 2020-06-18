@@ -1,3 +1,12 @@
+## [0.19.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.19.0...v0.19.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* **elements|ino-icon:** fix svg parser typescript error ([34775b8](http://gitlab.inovex.de:2424/inovex-elements/core/commit/34775b8be60ccdfb2d97bba1019fe5858a09fe88))
+
+
+
 # [0.19.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.18.0...v0.19.0) (2020-06-18)
 
 
