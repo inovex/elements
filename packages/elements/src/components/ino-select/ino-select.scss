@@ -23,6 +23,10 @@ ino-select {
   }
 
   .mdc-select__menu {
+    position: fixed;
+    top: var(--ino-vertical-alignment) !important; // to overwrite MDC inline styles, important is necessary
+    left: var(--ino-horizontal-alignment) !important;
+    bottom: unset !important;
     height: var(--select-height);
   }
 

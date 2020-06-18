@@ -12,6 +12,7 @@ import {
   h
 } from '@stencil/core';
 import classNames from 'classnames';
+import { MDCMenuSurface } from '@material/menu-surface/component';
 
 @Component({
   tag: 'ino-select',
@@ -20,7 +21,8 @@ import classNames from 'classnames';
 })
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
-  private mdcInstance: MDCSelect;
+  private mdcSelectInstance: MDCSelect;
+  private mdcMenuSurfaceInstance: MDCMenuSurface;
   private nativeInputElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
@@ -72,31 +74,53 @@ export class Select implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
-    this.mdcInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
+    this.mdcSelectInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
 
     if (this.value) {
       this.setSelectValue(this.value);
-    } else if (this.mdcInstance.value) {
-      this.value = this.mdcInstance.value;
+    } else if (this.mdcSelectInstance.value) {
+      this.value = this.mdcSelectInstance.value;
     }
+
+    this.mdcMenuSurfaceInstance = new MDCMenuSurface(this.el.querySelector('.mdc-menu-surface'));
+    this.mdcMenuSurfaceInstance.listen('MDCMenuSurface:opened', this.positionOpenedMenu);
   }
 
   componentWillUnLoad() {
-    this.mdcInstance.destroy();
+    this.mdcMenuSurfaceInstance.unlisten('MDCMenuSurface:opened', this.positionOpenedMenu);
+
+    this.mdcSelectInstance.destroy();
+    this.mdcMenuSurfaceInstance.destroy();
   }
+
+  positionOpenedMenu = () => {
+    const { bottom, top, left } = this.el.getBoundingClientRect();
+    const menu = this.el.querySelector('.mdc-menu') as HTMLDivElement;
+    const menuHeight = Number(getComputedStyle(menu).height.slice(0, -2)); // Height of open menu without 'px' suffix
+
+    const shouldMenuOpenUpwards = (menuHeight + bottom) > window.innerHeight; // Check if the opened menu would overflow when aligned downwards
+    const verticalPositionInPx = shouldMenuOpenUpwards ?
+      top - menuHeight // position so that the lowest option intersects the top side of the select field
+      :
+      bottom; // position at the bottom side of the select field
+
+    menu.style.setProperty('--ino-vertical-alignment', `${verticalPositionInPx}px`);
+    menu.style.setProperty('--ino-horizontal-alignment', `${left}px`);
+    menu.style.width = `${this.el.clientWidth}px`;
+  };
 
   private setSelectValue(value: string) {
     if (this.nativeInputElement) {
       this.nativeInputElement.value = value;
     }
-    this.mdcInstance.value = value;
+    this.mdcSelectInstance.value = value;
   }
 
   @Listen('MDCSelect:change')
   handleInput(e) {
     e.preventDefault();
-    if (this.mdcInstance && this.mdcInstance.value !== undefined) {
-      const value = this.mdcInstance.value;
+    if (this.mdcSelectInstance && this.mdcSelectInstance.value !== undefined) {
+      const value = this.mdcSelectInstance.value;
       this.valueChange.emit(value);
     }
   }
