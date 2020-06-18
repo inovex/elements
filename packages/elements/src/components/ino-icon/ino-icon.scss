@@ -4,11 +4,6 @@
 $icons-with-special-strokes: "arrow_right", "arrow_left", "arrow_up", "arrow_down", "call", "copy", "delete", "display", "edit", "help", "partner", "sort_az", "sort_down", "sort_up", "sort_za", "web";
 $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
 
-@mixin adjustIconColors() {
-  stroke: none;
-  fill: var(--color);
-}
-
 :host {
 
   /**
@@ -56,12 +51,14 @@ $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
 // ----------------------------- SPECIAL CASES ----------------------------- //
 @each $icon in $icons-with-special-strokes {
   :host([ino-icon=#{$icon}]) svg path {
-    @include adjustIconColors();
+    stroke: none;
+    fill: var(--color);
   }
 }
 
 @each $icon in $icons-with-special-strokes-at-exact-position {
   :host([ino-icon=#{$icon}]) svg path:nth-child(2) {
-    @include adjustIconColors();
+    stroke: var(--color);
+    fill: none;
   }
 }
