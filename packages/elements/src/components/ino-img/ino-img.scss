@@ -1,7 +1,11 @@
+@use "@material/image-list/mdc-image-list";
+
 ino-img {
-  display: inline-block;
-  overflow: hidden;
-  width: 100%;
+  &:not(.mdc-image-list__item) {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+  }
 
   .ino-img__composer {
     position: relative;
@@ -20,5 +24,9 @@ ino-img {
     .ino-img__image {
       border-radius: 50%;
     }
+  }
+
+  &.mdc-image-list__item {
+    display: list-item;
   }
 }

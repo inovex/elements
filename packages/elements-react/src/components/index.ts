@@ -27,6 +27,7 @@ export const InoHeader = createReactComponent<StencilJSX.IntrinsicElements["ino-
 export const InoIcon = createReactComponent<StencilJSX.IntrinsicElements["ino-icon"], HTMLInoIconElement>('ino-icon');
 export const InoIconButton = createReactComponent<StencilJSX.IntrinsicElements["ino-icon-button"], HTMLInoIconButtonElement>('ino-icon-button');
 export const InoImg = createReactComponent<StencilJSX.IntrinsicElements["ino-img"], HTMLInoImgElement>('ino-img');
+export const InoImgList = createReactComponent<StencilJSX.IntrinsicElements["ino-img-list"], HTMLInoImgListElement>('ino-img-list');
 export const InoInput = createReactComponent<StencilJSX.IntrinsicElements["ino-input"], HTMLInoInputElement>('ino-input');
 export const InoInputFile = createReactComponent<StencilJSX.IntrinsicElements["ino-input-file"], HTMLInoInputFileElement>('ino-input-file');
 export const InoList = createReactComponent<StencilJSX.IntrinsicElements["ino-list"], HTMLInoListElement>('ino-list');

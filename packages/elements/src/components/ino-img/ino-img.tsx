@@ -1,6 +1,7 @@
 import { Component, ComponentInterface, Element, Host, Prop, State, Watch, h } from '@stencil/core';
 
 import { ImageDecodingTypes } from '../types';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-img',
@@ -61,6 +62,17 @@ export class Image implements ComponentInterface {
   @Prop() usemap?: string;
 
   /**
+   * Indicates that the image is a part of an image list component
+   */
+  @Prop() inoImgListItem: boolean = false;
+
+  /**
+   * Sets the label of the image. Note: Only works if image is part of
+   * an ino-img-list component.
+   */
+  @Prop() inoLabel?: string;
+
+  /**
    * The ratio width of this image (default = 1).
    * Use this attribute together with `ino-ratio-height` to reserve a
    * space for the image during rendering and to prevent jumping contents.
@@ -97,6 +109,12 @@ export class Image implements ComponentInterface {
     this.computeFixedDimensions();
   }
 
+  componentDidLoad(): void {
+    if(!this.inoImgListItem) {
+      this.el.querySelector('div').style.paddingTop = this.composedRatioHeight;
+    }
+  }
+
   private computeFixedDimensions() {
     this.el.style.height =
       this.height !== undefined ? `${this.height}px` : null;
@@ -109,14 +127,27 @@ export class Image implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames({
+      "mdc-image-list__item": this.inoImgListItem
+    });
+
+    const divClasses = classNames({
+      "ino-img__composer": !this.inoImgListItem,
+      "mdc-image-list__image-aspect-container": this.inoImgListItem
+    });
+
+    const imgClasses = classNames({
+      "ino-img__image": !this.inoImgListItem,
+      "mdc-image-list__image": this.inoImgListItem
+    });
+
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div
-          class="ino-img__composer"
-          style={{ 'padding-top': this.composedRatioHeight }}
+          class={divClasses}
         >
           <img
-            class="ino-img__image"
+            class={imgClasses}
             alt={this.alt}
             decoding={this.decoding}
             height={this.height}
@@ -127,6 +158,11 @@ export class Image implements ComponentInterface {
             width={this.width}
           />
         </div>
+        {this.inoImgListItem && (
+          <div class="mdc-image-list__supporting">
+            <span class="mdc-image-list__label">{this.inoLabel}</span>
+          </div>
+        )}
       </Host>
     );
   }

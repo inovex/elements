@@ -2480,6 +2480,16 @@
     "@material/theme" "^5.1.0"
     tslib "^1.9.3"
 
+"@material/image-list@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material/image-list/-/image-list-5.1.0.tgz#d7ef3896dc69d1a1be52ccf4c8a39a8240b45cf2"
+  integrity sha512-LFl7W8AFp2baFY38BBGVX5C6c/zZoPOsHsRMhVP8jvIH5q1BfUg6SaXkleos6Yxmy+18hdPnVuWdAQ38hhje8Q==
+  dependencies:
+    "@material/feature-targeting" "^5.1.0"
+    "@material/shape" "^5.1.0"
+    "@material/theme" "^5.1.0"
+    "@material/typography" "^5.1.0"
+
 "@material/line-ripple@^5.1.0":
   version "5.1.0"
   resolved "https://registry.npmjs.org/@material/line-ripple/-/line-ripple-5.1.0.tgz#86cb1b8a91bf010231109211b8eb38ad059f5f23"

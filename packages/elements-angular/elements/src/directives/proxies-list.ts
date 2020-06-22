@@ -16,6 +16,7 @@ export const DIRECTIVES = [
   d.InoIcon,
   d.InoIconButton,
   d.InoImg,
+  d.InoImgList,
   d.InoInput,
   d.InoInputFile,
   d.InoLabel,
