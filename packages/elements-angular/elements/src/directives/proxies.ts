@@ -163,9 +163,20 @@ export class InoIconButton {
 }
 export declare interface InoImg extends Components.InoImg {
 }
-@ProxyCmp({ inputs: ["alt", "decoding", "height", "inoRatioHeight", "inoRatioWidth", "inoRounded", "sizes", "src", "srcset", "usemap", "width"] })
-@Component({ selector: "ino-img", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["alt", "decoding", "height", "inoRatioHeight", "inoRatioWidth", "inoRounded", "sizes", "src", "srcset", "usemap", "width"] })
+@ProxyCmp({ inputs: ["alt", "decoding", "height", "inoImgListItem", "inoLabel", "inoRatioHeight", "inoRatioWidth", "inoRounded", "sizes", "src", "srcset", "usemap", "width"] })
+@Component({ selector: "ino-img", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["alt", "decoding", "height", "inoImgListItem", "inoLabel", "inoRatioHeight", "inoRatioWidth", "inoRounded", "sizes", "src", "srcset", "usemap", "width"] })
 export class InoImg {
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+    }
+}
+export declare interface InoImgList extends Components.InoImgList {
+}
+@ProxyCmp({ inputs: ["inoEncloseLabel", "inoMasonry"] })
+@Component({ selector: "ino-img-list", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoEncloseLabel", "inoMasonry"] })
+export class InoImgList {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
         c.detach();

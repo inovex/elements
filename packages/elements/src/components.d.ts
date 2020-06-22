@@ -404,6 +404,14 @@ export namespace Components {
          */
         "height"?: number;
         /**
+          * Indicates that the image is a part of an image list component
+         */
+        "inoImgListItem": boolean;
+        /**
+          * Sets the label of the image. Note: Only works if image is part of an ino-img-list component.
+         */
+        "inoLabel"?: string;
+        /**
           * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "inoRatioHeight"?: number;
@@ -435,6 +443,16 @@ export namespace Components {
           * The fixed of the image.
          */
         "width"?: number;
+    }
+    interface InoImgList {
+        /**
+          * Encapsulates the label of all img-list-items within the image
+         */
+        "inoEncloseLabel": boolean;
+        /**
+          * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
+         */
+        "inoMasonry": boolean;
     }
     interface InoInput {
         /**
@@ -1154,6 +1172,12 @@ declare global {
         prototype: HTMLInoImgElement;
         new (): HTMLInoImgElement;
     };
+    interface HTMLInoImgListElement extends Components.InoImgList, HTMLStencilElement {
+    }
+    var HTMLInoImgListElement: {
+        prototype: HTMLInoImgListElement;
+        new (): HTMLInoImgListElement;
+    };
     interface HTMLInoInputElement extends Components.InoInput, HTMLStencilElement {
     }
     var HTMLInoInputElement: {
@@ -1349,6 +1373,7 @@ declare global {
         "ino-icon": HTMLInoIconElement;
         "ino-icon-button": HTMLInoIconButtonElement;
         "ino-img": HTMLInoImgElement;
+        "ino-img-list": HTMLInoImgListElement;
         "ino-input": HTMLInoInputElement;
         "ino-input-file": HTMLInoInputFileElement;
         "ino-label": HTMLInoLabelElement;
@@ -1803,6 +1828,14 @@ declare namespace LocalJSX {
          */
         "height"?: number;
         /**
+          * Indicates that the image is a part of an image list component
+         */
+        "inoImgListItem"?: boolean;
+        /**
+          * Sets the label of the image. Note: Only works if image is part of an ino-img-list component.
+         */
+        "inoLabel"?: string;
+        /**
           * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "inoRatioHeight"?: number;
@@ -1834,6 +1867,16 @@ declare namespace LocalJSX {
           * The fixed of the image.
          */
         "width"?: number;
+    }
+    interface InoImgList {
+        /**
+          * Encapsulates the label of all img-list-items within the image
+         */
+        "inoEncloseLabel"?: boolean;
+        /**
+          * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
+         */
+        "inoMasonry"?: boolean;
     }
     interface InoInput {
         /**
@@ -2549,6 +2592,7 @@ declare namespace LocalJSX {
         "ino-icon": InoIcon;
         "ino-icon-button": InoIconButton;
         "ino-img": InoImg;
+        "ino-img-list": InoImgList;
         "ino-input": InoInput;
         "ino-input-file": InoInputFile;
         "ino-label": InoLabel;
@@ -2599,6 +2643,7 @@ declare module "@stencil/core" {
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
+            "ino-img-list": LocalJSX.InoImgList & JSXBase.HTMLAttributes<HTMLInoImgListElement>;
             "ino-input": LocalJSX.InoInput & JSXBase.HTMLAttributes<HTMLInoInputElement>;
             "ino-input-file": LocalJSX.InoInputFile & JSXBase.HTMLAttributes<HTMLInoInputFileElement>;
             "ino-label": LocalJSX.InoLabel & JSXBase.HTMLAttributes<HTMLInoLabelElement>;
