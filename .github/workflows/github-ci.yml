@@ -1,0 +1,85 @@
+name: GitHub CI
+
+on: [push]
+
+jobs:
+
+  security:
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v1
+      - uses: zricethezav/gitleaks-action@master
+
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn install
+      - run: yarn test
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn build
+      - uses: actions/upload-artifact@v2
+        with:
+          path: |
+            packages/elements/dist/
+            packages/elements-react/dist/
+            packages/elements-angular/dist/
+            packages/storybook/dist/
+
+  upload:
+    runs-on: ubuntu-latest
+
+    if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v2
+      - run: mkdir -p /srv/webhost/dist/${{ github.ref }}
+      - run: rsync -a packages/elements/dist/ /srv/webhost/dist/${{ github.ref }}
+      - run: mkdir -p /srv/webhost/dist/${{ github.ref }}/storybook
+      - run: rsync -a packages/storybook/dist/ /srv/webhost/dist/${{ github.ref }}/storybook
+
+  link-latest:
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - run: cd /srv/webhost/dist
+      - run: ln -sfn ${{ github.ref }} latest
+
+  publish-package:
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACTORY_USERNAME: ${{ secret.ArtifactoryUsername }}
+      ARTIFACTORY_APITOKEN: ${{ secret.ArtifactoryApiToken }}
+      ARTIFACTORY_HOST: ${{ secret.ArtifcatoryHost }}
+
+
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: yarn install
+      - run: curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
+      - run: yarn lerna publish from-package --yes --registry https://$ARTIFACTORY_HOST
+
+
