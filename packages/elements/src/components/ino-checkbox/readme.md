@@ -137,6 +137,20 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                       | Description                                  |
+| ------------------------------------------ | -------------------------------------------- |
+| `--checkbox-container-color-unchecked`     | color of the checkbox container if unchecked |
+| `--ino-checkbox-background-color-disabled` | color of the checkbox background if disabled |
+| `--ino-checkbox-checkmark-color`           | primary color of the check mark              |
+| `--ino-checkbox-checkmark-color-disabled`  | color of the check mark if disabled          |
+| `--ino-checkbox-color`                     | primary color of the checkbox                |
+| `--ino-checkbox-color-active`              | color of the checkbox if active              |
+| `--ino-checkbox-color-hover`               | color of the checkbox on hover               |
+| `--ino-checkbox-text-color-disabled`       | color of the checkbox text if disabled       |
+
+
 ## Dependencies
 
 ### Used by
