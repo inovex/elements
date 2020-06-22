@@ -68,11 +68,14 @@ export class Icon implements ComponentInterface {
    * The svg content loaded dynamically.
    */
   @State() svgContent?: string;
+
   @Watch('svgContent')
-  watchHandler() {
-    this.svgContent = this.svgTitle 
-    ? SvgParser.setSvgTitle(this.svgContent, this.svgTitle) 
-    : SvgParser.removeSvgTitle(this.svgContent);
+  watchHandler(content: string) {
+    if (content) {
+      this.svgContent = this.svgTitle
+        ? SvgParser.setSvgTitle(this.svgContent, this.svgTitle)
+        : SvgParser.removeSvgTitle(this.svgContent);
+    }
   }
 
   componentWillLoad() {

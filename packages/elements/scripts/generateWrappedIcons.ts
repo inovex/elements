@@ -18,17 +18,27 @@ let svgFiles = fs.readdirSync(SRC_SVG_DIR);
 
 svgFiles = svgFiles.filter((f: string) => f.indexOf('.svg') > -1);
 
-function upFirst(word: string) {
+function capitalize(word: string) {
   return word[0].toUpperCase() + word.toLowerCase().slice(1);
 }
 
+function isInternal(icon: string) {
+  return icon.startsWith('_');
+}
+
 function camelize(text: string) {
+
+  if (isInternal(text)) {
+    return '_' + camelize(text.slice(1));
+  }
+
   let words = text.split(/[-_]/g); // ok one simple regexp.
+
   return (
     words[0].toLowerCase() +
     words
       .slice(1)
-      .map(upFirst)
+      .map(capitalize)
       .join('')
   );
 }

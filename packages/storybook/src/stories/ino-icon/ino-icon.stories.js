@@ -13,6 +13,7 @@ import addons from '@storybook/addons';
 import CoreEvents from '@storybook/core-events';
 import findElementUpwards from '../../core/helpers/findElementUpwards';
 
+const ICONS_WITHOUT_INTERNALS = ICONS.filter(icon => !icon.startsWith('_'));
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -83,7 +84,7 @@ function copyToClipboard(text) {
   }
 }
 
-const ICON_IDS = ICONS
+const ICON_IDS = ICONS_WITHOUT_INTERNALS
   .sort()
   .filter(name => name.length >= 1);
 
