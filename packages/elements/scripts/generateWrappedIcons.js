@@ -9,15 +9,21 @@ var SRC_DIR = path.join(ROOT_DIR, 'src');
 var SRC_SVG_DIR = path.join(SRC_DIR, 'components/ino-icon/icon-assets/SVG');
 var svgFiles = fs.readdirSync(SRC_SVG_DIR);
 svgFiles = svgFiles.filter(function (f) { return f.indexOf('.svg') > -1; });
-function upFirst(word) {
+function capitalize(word) {
     return word[0].toUpperCase() + word.toLowerCase().slice(1);
 }
+function isInternal(icon) {
+    return icon.startsWith('_');
+}
 function camelize(text) {
+    if (isInternal(text)) {
+        return '_' + camelize(text.slice(1));
+    }
     var words = text.split(/[-_]/g); // ok one simple regexp.
     return (words[0].toLowerCase() +
         words
             .slice(1)
-            .map(upFirst)
+            .map(capitalize)
             .join(''));
 }
 var iconData = svgFiles.map(function (filename) {
@@ -33,12 +39,12 @@ var BASE_PATH = '.';
 var finalFile = "\n" + iconData
     .map(function (_a) {
     var filename = _a.filename, importName = _a.importName;
-    return ("import " + importName + " from '" + BASE_PATH + "/" + filename + "';");
+    return "import " + importName + " from '" + BASE_PATH + "/" + filename + "';";
 })
     .join('\n') + "\nexport var ICON_PATHS = {\n" + iconData
     .map(function (_a) {
     var name = _a.name, importName = _a.importName;
-    return ("  '" + name + "': " + importName);
+    return "  '" + name + "': " + importName;
 })
     .join(',\n') + "\n};\nexport { " + iconData
     .map(function (_a) {
@@ -50,12 +56,12 @@ fs.writeFileSync(DST_ESM, finalFile);
 var finalDts = "\nexport type IconMap = {\n" + iconData
     .map(function (_a) {
     var name = _a.name;
-    return ("  '" + name + "': string;");
+    return "  '" + name + "': string;";
 })
     .join('\n') + "\n};\nexport type IconNames = keyof IconMap;\nexport declare const ICON_PATHS: IconMap;\n" + iconData
     .map(function (_a) {
     var importName = _a.importName;
-    return ("export declare const " + importName + ": string;");
+    return "export declare const " + importName + ": string;";
 })
     .join('\n') + "\n";
 fs.writeFileSync(DST_ESM_D_TS, finalDts);

@@ -53,7 +53,7 @@ export class Fab implements ComponentInterface {
             <slot></slot>
           </div>
           <ino-fab id={'primary-fab'} ino-edge-position="none">
-            <ino-icon ino-icon={'icon-assets/SVG/internals/fab_set_arrow_up.svg'}></ino-icon>
+            <ino-icon ino-icon={'_fab_set_arrow_up'}></ino-icon>
           </ino-fab>
         </div>
       </Host>

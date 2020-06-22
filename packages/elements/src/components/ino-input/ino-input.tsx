@@ -468,8 +468,8 @@ export class Input implements ComponentInterface {
           {
             this.type === 'number' &&
               <div class={'arrow-container'}>
-                <ino-icon class={'ino-num-arrows up'} onClick={() => this.handleInputNumberArrowClick(true)} ino-icon="icon-assets/SVG/internals/arrow_down.svg"></ino-icon>
-                <ino-icon class={'ino-num-arrows down'} onClick={() => this.handleInputNumberArrowClick(false)} ino-icon="icon-assets/SVG/internals/arrow_down.svg"></ino-icon>
+                <ino-icon class={'ino-num-arrows up'} onClick={() => this.handleInputNumberArrowClick(true)} ino-icon="_input_number_arrow_down"></ino-icon>
+                <ino-icon class={'ino-num-arrows down'} onClick={() => this.handleInputNumberArrowClick(false)} ino-icon="_input_number_arrow_down"></ino-icon>
               </div>
           }
           <ino-label
