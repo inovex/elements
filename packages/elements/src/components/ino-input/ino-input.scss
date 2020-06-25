@@ -9,46 +9,25 @@
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+@mixin hideNativeNumberInputArrows() {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-ino-icon {
-  font-size: 24px;
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 }
 
 ino-input {
 
-  .arrow-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    right: 5px;
-    top: 50%;
-    height: 50%;
-
-    .ino-num-arrows {
-      --height: 5px;
-      padding: 2px 0;
-      cursor: pointer;
-
-      &.up {
-        transform: scaleY(-1);
-      }
-    }
-  }
-
   display: block;
-
   @include icon.icon-core-styles;
+
 
   & > .ino-input__composer {
     text-align: left;
@@ -57,7 +36,6 @@ ino-input {
   }
 
   @include fonts.ino-font(sans-serif, m, regular);
-
 
   &:hover {
     @include textfield.fill-color(transparent);
@@ -159,6 +137,42 @@ ino-input {
 
       &.unit {
         font-size: 16px;
+      }
+    }
+  }
+
+
+  // Custom number arrows
+  &[type='number'] {
+
+    @include hideNativeNumberInputArrows();
+
+    .arrow-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      right: 5px;
+      top: 50%;
+      height: 50%;
+
+      .ino-num-arrows {
+        --height: 5px;
+        padding: 2px 0;
+        cursor: pointer;
+
+        &.up {
+          transform: scaleY(-1);
+        }
+      }
+    }
+
+    .mdc-text-field--outlined .arrow-container {
+      top: 36%;
+    }
+
+    .mdc-text-field:#{$default-text-field}, .mdc-text-field.mdc-text-field--outlined {
+      .mdc-text-field__icon.mdc-text-field__icon--trailing {
+        right: 25px;
       }
     }
   }
