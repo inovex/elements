@@ -22,33 +22,20 @@ export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
 export type SurfaceType = 'solid' | 'outline' | 'inverse';
 export type TooltipTrigger =
-  | 'click'
-  | 'hover'
+  | 'mouseenter'
+  | 'mouseenter focus'
+  | 'mouseenter click'
+  | 'mouseenter focus click'
+  | 'mouseenter click focus'
   | 'focus'
-  | 'click focus'
+  | 'focus mouseenter'
   | 'focus click'
-  | 'click hover'
-  | 'hover click'
-  | 'hover focus'
-  | 'focus hover'
-  | 'click hover focus'
-  | 'hover focus click'
-  | 'focus click hover'
-  | 'focus hover click'
-  | 'hover click focus'
-  | 'click focus hover';
+  | 'focus mouseenter click'
+  | 'focus click mouseenter'
+  | 'click'
+  | 'click mouseenter'
+  | 'click focus'
+  | 'click mouseenter focus'
+  | 'click focus mouseenter';
 
-export type ToolTipPlacement =
-  | 'top'
-  | 'top-start'
-  | 'top-end'
-  | 'right'
-  | 'right-start'
-  | 'right-end'
-  | 'bottom'
-  | 'bottom-start'
-  | 'bottom-end'
-  | 'left'
-  | 'left-start'
-  | 'left-end';
-  export type VerticalLocation = 'top' | 'bottom';
+export type VerticalLocation = 'top' | 'bottom';

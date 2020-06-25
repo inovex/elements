@@ -2,10 +2,6 @@
 @use 'styles/colors';
 
 ino-popover {
-  // Hide popover, as long as it's not moved by the js plugin.
-  > .ino-popover__content {
-    display: none;
-  }
 
   //default color scheme
   @include tooltip.tooltip(colors.$primary-light, #fff);

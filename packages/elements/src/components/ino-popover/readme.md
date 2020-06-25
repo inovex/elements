@@ -69,12 +69,26 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                              | Type                                                                                                                                                                                                                                                                            | Default         |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `inoColorScheme` | `ino-color-scheme` | Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'                                 | `string`                                                                                                                                                                                                                                                                        | `'primary'`     |
-| `inoFor`         | `ino-for`          | The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.                                     | `string`                                                                                                                                                                                                                                                                        | `undefined`     |
-| `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                    | `'auto'`        |
-| `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus hover" \| "click focus" \| "click hover focus" \| "click hover" \| "click" \| "focus click hover" \| "focus click" \| "focus hover click" \| "focus hover" \| "focus" \| "hover click focus" \| "hover click" \| "hover focus click" \| "hover focus" \| "hover"` | `'hover focus'` |
+| Property         | Attribute          | Description                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
+| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| `inoColorScheme` | `ino-color-scheme` | Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'                                 | `string`                                                                                                                                                                                                                                                                                                                               | `'primary'`          |
+| `inoFor`         | `ino-for`          | The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.                                     | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
+| `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
+| `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
+
+
+## Methods
+
+### `getTippyInstance() => Promise<any>`
+
+Returns the internally used tippy.js instance
+For more informations see: https://atomiks.github.io/tippyjs/
+
+#### Returns
+
+Type: `Promise<any>`
+
+
 
 
 ----------------------------------------------

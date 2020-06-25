@@ -1,6 +1,6 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
 import { Placement } from 'popper.js';
-import TooltipJS from 'tooltip.js';
+import TippyJS, { Instance } from 'tippy.js';
 
 import { TooltipTrigger } from '../types';
 
@@ -11,7 +11,7 @@ import { TooltipTrigger } from '../types';
 })
 export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;
-  private tooltipInstance?: TooltipJS;
+  private tooltipInstance?: Instance;
 
   /**
    * The placement of this popover.
@@ -19,6 +19,7 @@ export class Popover implements ComponentInterface {
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
   @Prop() inoPlacement: Placement = 'auto';
+
   @Watch('inoPlacement')
   inoPlacementChanged() {
     this.create();
@@ -29,6 +30,7 @@ export class Popover implements ComponentInterface {
    * If not given, the tooltip is attached to the parent component.
    */
   @Prop() inoFor?: string;
+
   @Watch('inoFor')
   inoForChanged() {
     this.create();
@@ -44,10 +46,20 @@ export class Popover implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() inoTrigger: TooltipTrigger = 'hover focus';
+  @Prop() inoTrigger: TooltipTrigger = 'mouseenter focus';
+
   @Watch('inoTrigger')
   inoTriggerChanged() {
     this.create();
+  }
+
+  /**
+   * Returns the internally used tippy.js instance
+   * For more informations see: https://atomiks.github.io/tippyjs/
+   */
+  @Method()
+  async getTippyInstance(): Promise<any> {
+    return this.tooltipInstance;
   }
 
   // Lifecycle
@@ -70,32 +82,32 @@ export class Popover implements ComponentInterface {
       : this.el.parentElement;
 
     const options = {
-      html: true,
-      container: this.el,
-      title: this.el.querySelector('.ino-popover__content') as HTMLElement,
+      allowHTML: true,
+      appendTo: this.el.parentElement,
+      content: this.el,
+      duration: 100,
       placement: this.inoPlacement,
-      trigger: this.inoTrigger,
-      template:
-        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__inner"></div></div>',
-      arrowSelector: '.ino-tooltip__arrow',
-      innerSelector: '.ino-tooltip__inner'
+      trigger: this.inoTrigger
     };
-    // TODO: Remove ts-ignore after https://github.com/FezVrasta/popper.js/pull/675 is released
-    // @ts-ignore
-    this.tooltipInstance = new TooltipJS(target, options);
+
+    this.tooltipInstance = TippyJS(target, options);
   }
 
   private dispose() {
     if (this.tooltipInstance) {
-      this.tooltipInstance.dispose();
+      this.tooltipInstance.destroy();
     }
   }
 
   render() {
     return (
       <Host>
-        <div class="ino-popover__content">
-          <slot />
+        <div class="ino-tooltip__composer ino-popover__content" role="tooltip">
+          <div class="ino-tooltip__inner">
+            <div class="ino-popover__content">
+              <slot></slot>
+            </div>
+          </div>
         </div>
       </Host>
     );

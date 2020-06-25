@@ -316,7 +316,7 @@ export class InoOptionGroup {
 }
 export declare interface InoPopover extends Components.InoPopover {
 }
-@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
+@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"], "methods": ["getTippyInstance"] })
 @Component({ selector: "ino-popover", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoFor", "inoPlacement", "inoTrigger"] })
 export class InoPopover {
     protected el: HTMLElement;
@@ -534,7 +534,7 @@ export class InoTextarea {
 }
 export declare interface InoTooltip extends Components.InoTooltip {
 }
-@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
+@ProxyCmp({ inputs: ["inoColorScheme", "inoFor", "inoLabel", "inoPlacement", "inoTrigger"], "methods": ["getTippyInstance"] })
 @Component({ selector: "ino-tooltip", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoFor", "inoLabel", "inoPlacement", "inoTrigger"] })
 export class InoTooltip {
     protected el: HTMLElement;

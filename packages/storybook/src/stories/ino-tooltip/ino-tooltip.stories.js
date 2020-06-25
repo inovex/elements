@@ -16,9 +16,9 @@ storiesOf('Notification|<ino-tooltip>', module)
         ino-for="${text('ino-for', 'tooltip-target')}"
         ino-label="${text('ino-label', 'This is a customaziable tooltip text.')}"
         ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
-        ino-trigger="${select('ino-trigger', ['hover', 'focus', 'click',
-          'hover focus', 'hover click', 'focus click', 'hover focus click'], 'hover focus'
-        )}">
+        ino-trigger="${select('ino-trigger', ['mouseenter', 'focus', 'click',
+    'mouseenter focus', 'mouseenter click', 'focus click', 'mouseenter focus click'], 'mouseenter focus'
+  )}">
       </ino-tooltip>
 
       <h4>Placements</h4>
@@ -29,23 +29,26 @@ storiesOf('Notification|<ino-tooltip>', module)
       <ino-button class="placement-button" id="tooltip-positions-target">Tooltip</ino-button>
 
       <h4>Triggers</h4>
-      <ino-button id="tooltip-hover-focus">Hover & focus</ino-button>
-      <ino-tooltip ino-for="tooltip-hover-focus" ino-label="This tooltip occurs on hover and focus"></ino-tooltip>
+      <ino-button id="tooltip-mouseenter">Mouseenter</ino-button>
+      <ino-tooltip ino-placement="top" ino-for="tooltip-mouseenter" ino-label="This tooltip occurs on hover"></ino-tooltip>
+
+      <ino-button id="tooltip-focus">Focus</ino-button>
+      <ino-tooltip ino-placement="top" ino-for="tooltip-focus" ino-label="This tooltip occurs on focus" ino-trigger="focus"></ino-tooltip>
 
       <ino-button id="tooltip-click">Click</ino-button>
-      <ino-tooltip ino-for="tooltip-click" ino-label="This tooltip occurs on click" ino-trigger="click"></ino-tooltip>
+      <ino-tooltip ino-placement="right" ino-for="tooltip-click" ino-label="This tooltip occurs on click" ino-trigger="click"></ino-tooltip>
 
       <h4>Colors</h4>
       <ino-button id="primary-tooltip" ino-color-scheme="primary">Primary</ino-button>
-      <ino-tooltip ino-for="primary-tooltip" ino-label="Primary color scheme" ino-color-scheme="primary"></ino-tooltip>
+      <ino-tooltip ino-for="primary-tooltip" ino-label="Primary color scheme" ino-color-scheme="primary" ino-placement="top"></ino-tooltip>
 
       <ino-button id="secondary-tooltip" ino-color-scheme="secondary">Secondary</ino-button>
-      <ino-tooltip ino-for="secondary-tooltip" ino-label="Secondary color scheme" ino-color-scheme="secondary"></ino-tooltip>
+      <ino-tooltip ino-for="secondary-tooltip" ino-label="Secondary color scheme" ino-color-scheme="secondary" ino-placement="top"></ino-tooltip>
 
-      <ino-button id="light-tooltip" ino-color-scheme="light">Light</ino-button>
-      <ino-tooltip ino-for="light-tooltip" ino-label="Light color scheme" ino-color-scheme="light"></ino-tooltip>
+      <ino-button id="light-tooltip" ino-fill="outline" ino-color-scheme="grey">Light</ino-button>
+      <ino-tooltip ino-for="light-tooltip" ino-label="Light color scheme" ino-color-scheme="light" ino-placement="top"></ino-tooltip>
 
-      <ino-button id="transparent-tooltip" ino-fill="transparent">Transparent</ino-button>
-      <ino-tooltip ino-for="transparent-tooltip" ino-label="Contrast color scheme" ino-color-scheme="transparent"></ino-tooltip>
+      <ino-button id="transparent-tooltip" ino-fill="outline" ino-color-scheme="grey">Transparent</ino-button>
+      <ino-tooltip ino-for="transparent-tooltip" ino-label="Transparent color scheme" ino-color-scheme="transparent" ino-placement="top"></ino-tooltip>
     </div>
   `);

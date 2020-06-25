@@ -4,12 +4,10 @@
 ino-tooltip {
 
   .ino-tooltip__composer {
-    padding: 0.4em 0.75em;
     font-size: 0.8rem;
     text-align: center;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    letter-spacing: 0;
+    padding: 4px 8px;
   }
 
   //default color scheme
@@ -24,10 +22,10 @@ ino-tooltip {
   }
 
   &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(#ebebff, #000);
+    @include tooltip.tooltip(colors.ino-color(light, light), #000);
   }
 
   &[ino-color-scheme="transparent"] {
-    @include tooltip.tooltip(#fff, colors.$dark);
+    @include tooltip.tooltip(#ffffff, colors.$dark);
   }
 }
