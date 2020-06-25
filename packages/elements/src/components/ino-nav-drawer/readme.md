@@ -24,7 +24,7 @@ document
   ino-anchor="left|right"
   ino-variant="docked|dismissible|modal"
 >
-  <ino-list>
+  <ino-list slot="content">
     <ino-nav-item ino-text="View1">
       <ino-icon ino-icon="user">
     </ino-nav-item>
@@ -59,7 +59,7 @@ class MyComponent extends Component {
         <ino-list slot="header">
           <ino-img src="https://picsum.photos/50/50" />
         </ino-list>
-        <ino-list>
+        <ino-list slot="content">
           <ino-nav-item ino-text="Some Link">
             <ino-icon ino-icon="onboarding"></ino-icon>
           </ino-nav-item>
