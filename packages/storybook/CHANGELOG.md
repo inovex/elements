@@ -1,3 +1,17 @@
+# [0.20.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.19.1...v0.20.0) (2020-06-25)
+
+
+### Bug Fixes
+
+* **elements|ino-icon:** fix internally used icon not loading correctly ([cc77301](http://gitlab.inovex.de:2424/inovex-elements/core/commit/cc77301e43afc3a44052dbbb56cbcccf76a4ab58))
+
+
+### Features
+
+* **elements:** add ino-img-list component ([3c15e98](http://gitlab.inovex.de:2424/inovex-elements/core/commit/3c15e9818a46e1f5860eed8e83ad6f200262f71f))
+
+
+
 ## [0.19.1](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.19.0...v0.19.1) (2020-06-18)
 
 
