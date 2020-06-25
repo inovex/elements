@@ -734,6 +734,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
+         */
+        "getTippyInstance": () => Promise<any>;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "inoColorScheme"?: string;
@@ -1065,6 +1069,10 @@ export namespace Components {
         "value"?: string;
     }
     interface InoTooltip {
+        /**
+          * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
+         */
+        "getTippyInstance": () => Promise<any>;
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */

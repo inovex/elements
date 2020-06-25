@@ -1,7 +1,6 @@
-import { Component, ComponentInterface, Element, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
 import { Placement } from 'popper.js';
-import TooltipJS from 'tooltip.js';
-
+import TippyJS, { Instance } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
 @Component({
@@ -10,7 +9,7 @@ import { TooltipTrigger } from '../types';
   shadow: false
 })
 export class Tooltip implements ComponentInterface {
-  private tooltipInstance!: any;
+  private tooltipInstance!: Instance;
   private target!: HTMLElement | null;
 
   @Element() el!: HTMLElement;
@@ -48,7 +47,7 @@ export class Tooltip implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers possible by separating them with a space.
    */
-  @Prop() inoTrigger: TooltipTrigger = 'hover focus';
+  @Prop() inoTrigger: TooltipTrigger = 'mouseenter focus';
 
   @Watch('inoTrigger')
   async inoTriggerChanged() {
@@ -63,8 +62,17 @@ export class Tooltip implements ComponentInterface {
   @Watch('inoLabel')
   inoLabelChanged() {
     if (this.tooltipInstance) {
-      this.tooltipInstance.updateTitleContent(this.inoLabel);
+      this.tooltipInstance.setContent(this.inoLabel);
     }
+  }
+
+  /**
+   * Returns the internally used tippy.js instance
+   * For more informations see: https://atomiks.github.io/tippyjs/
+   */
+  @Method()
+  async getTippyInstance(): Promise<any> {
+    return this.tooltipInstance;
   }
 
   // Lifecycle
@@ -99,21 +107,13 @@ export class Tooltip implements ComponentInterface {
     }
 
     const options = {
-      title: this.inoLabel,
-      container: this.el,
+      content: this.el,
+      duration: 100,
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
-      popperOptions: {
-        modifiers: {
-          preventOverflow: { padding: 0 }
-        }
-      },
-      template:
-        '<div class="ino-tooltip__composer" role="tooltip"><div class="ino-tooltip__inner"></div></div>',
-      innerSelector: '.ino-tooltip__inner'
     };
 
-    this.tooltipInstance = new TooltipJS(this.target, options);
+    this.tooltipInstance = TippyJS(this.target, options);
 
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
     this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
@@ -125,7 +125,7 @@ export class Tooltip implements ComponentInterface {
 
   private async dispose() {
     if (this.tooltipInstance) {
-      await this.tooltipInstance.dispose();
+      await this.tooltipInstance.destroy();
 
       this.target!.removeEventListener('keyup', this.onEnterTarget.bind(this));
       this.target!.removeEventListener(
@@ -139,7 +139,7 @@ export class Tooltip implements ComponentInterface {
 
   private onEnterTarget(e: KeyboardEvent) {
     if (e.code === 'Tab' && !this.inoTrigger.includes('click')) {
-      this.tooltipInstance.toggle();
+      this.tooltipInstance.show();
     }
 
     if (e.code === 'Escape') {
@@ -149,5 +149,17 @@ export class Tooltip implements ComponentInterface {
 
   private onLeaveTarget() {
     this.tooltipInstance.hide();
+  }
+
+  render() {
+    return (
+      <Host>
+        <div class="ino-tooltip__composer" role="tooltip">
+          <div class="ino-tooltip__inner">
+            {this.inoLabel}
+          </div>
+        </div>
+      </Host>
+    );
   }
 }

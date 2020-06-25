@@ -4,27 +4,11 @@
   .ino-tooltip__composer {
     @include ino-font(sans-serif, m, regular);
 
-    position: absolute;
+    // position: absolute;
     z-index: 9999;
     background: $background-color;
     color: $font-color;
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-
-    &[x-placement^='top'] {
-      margin-bottom: 5px;
-    }
-
-    &[x-placement^='bottom'] {
-      margin-top: 5px;
-    }
-
-    &[x-placement^='right'] {
-      margin-left: 5px;
-    }
-
-    &[x-placement^='left'] {
-      margin-right: 5px;
-    }
+    border-radius: 6px;
   }
 }

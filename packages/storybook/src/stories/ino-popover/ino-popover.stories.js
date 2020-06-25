@@ -16,8 +16,8 @@ storiesOf('Notification|<ino-popover>', module)
         ino-for="${text('ino-for', 'popover-target')}"
         ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
         ino-color-scheme="${select('ino-color-scheme', ['primary', 'secondary', 'light', 'transparent'], 'transparent')}"
-        ino-trigger="${select('ino-trigger', ['hover', 'focus', 'click',
-          'hover focus', 'hover click', 'focus click', 'hover focus click'], 'hover focus'
+        ino-trigger="${select('ino-trigger', ['mouseenter', 'focus', 'click',
+        'mouseenter focus', 'mouseenter click', 'focus click', 'mouseenter focus click'], 'mouseenter focus'
         )}">
         <div class="styled-popover"><ino-icon ino-icon="user"></ino-icon> This is a styled popover.</div>
       </ino-popover>
