@@ -39,18 +39,22 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v2
         with:
+          name: elements
           path:
             packages/elements/dist/
       - uses: actions/upload-artifact@v2
         with:
+          name: elements-react
           path:
             packages/elements-react/dist/
       - uses: actions/upload-artifact@v2
         with:
+          name: elements-angular
           path:
             packages/elements-angular/dist/
       - uses: actions/upload-artifact@v2
         with:
+          name: storybook
           path:
             packages/storybook/dist/
 
