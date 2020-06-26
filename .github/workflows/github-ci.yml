@@ -76,9 +76,9 @@ jobs:
   publish-package:
     runs-on: ubuntu-latest
     env:
-      ARTIFACTORY_USERNAME: ${{ secrets.ArtifactoryUsername }}
-      ARTIFACTORY_APITOKEN: ${{ secrets.ArtifactoryApiToken }}
-      ARTIFACTORY_HOST: ${{ secrets.ArtifcatoryHost }}
+      ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+      ARTIFACTORY_APITOKEN: ${{ secrets.ARTIFACTORY_APITOKEN }}
+      ARTIFACTORY_HOST: ${{ secrets.ARTIFACTORY_HOST }}
 
 
     if: startsWith(github.ref, 'refs/tags/v')
