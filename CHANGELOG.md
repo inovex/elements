@@ -1,3 +1,25 @@
+# [0.21.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.20.0...v0.21.0) (2020-07-02)
+
+
+### Bug Fixes
+* **elements:** remove obsolete popper.js dependency ([2f934feb](https://gitlab.inovex.de:2424/inovex-elements/core/commit/2f934febf5b5eff052056b43d3cf34b0d4244670))
+
+
+### Feature
+* **elements|ino-icon:** update names of custom properties ([efc56f15](https://gitlab.inovex.de:2424/inovex-elements/core/commit/efc56f15d0f01517d8b20640a20f265b533e0d25))
+
+
+### BREAKING CHANGES
+In order to apply the correct naming pattern for custom variables (a.k.a. CSS-Variables) it was necessary to rename the custom properties of the ino-icon component. The renamed variables are listed in the following table:
+
+| Old Name        | New Name           | 
+|---------------|--------------------|
+| `--color`  | `--ino-icon-color-primary` or `--ino-icon-color-secondary`   |
+| `--height`    | `--ino-icon-height`    |
+| `--width` | `--ino-icon-width` |
+
+
+
 # [0.20.0](http://gitlab.inovex.de:2424/inovex-elements/core/compare/v0.19.1...v0.20.0) (2020-06-25)
 
 
