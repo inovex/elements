@@ -1,7 +1,7 @@
 import { MDCRipple } from '@material/ripple';
 import { Component, ComponentInterface, Element, Host, Listen, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
-import { Placement } from 'popper.js';
+import { Placement } from 'tippy.js';
 
 import { ColorScheme } from '../types';
 

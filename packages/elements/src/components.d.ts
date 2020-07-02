@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
-import { Placement, } from "popper.js";
+import { Placement, } from "tippy.js";
 export namespace Components {
     interface InoButton {
         /**
