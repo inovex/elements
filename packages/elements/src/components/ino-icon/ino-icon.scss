@@ -1,7 +1,7 @@
 @use '@material/textfield/icon/mdc-text-field-icon';
 @use '../styles/colors';
 
-$icons-with-special-strokes: "arrow_right", "arrow_left", "arrow_up", "arrow_down", "call", "copy", "delete", "display", "edit", "help", "partner", "sort_az", "sort_down", "sort_up", "sort_za", "web";
+$icons-with-special-strokes: "arrow_right", "arrow_left", "arrow_up", "arrow_down", "call", "copy", "delete", "display", "edit", "help", "partner", "remove", "sort_az", "sort_down", "sort_up", "sort_za", "web";
 $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
 
 :host {
