@@ -12,11 +12,11 @@ ino-tab {
     @include tab.states-color(colors.$primary);
 
     ino-icon {
-      --color: buttontext;
+      --icon-color: buttontext;
     }
 
     &.mdc-tab--active ino-icon {
-      --color: #{colors.ino-color(primary, base)}
+      --icon-color: #{colors.ino-color(primary, base)}
     }
 
     .mdc-tab-indicator__content--underline {
@@ -25,7 +25,7 @@ ino-tab {
   }
 
   ino-icon {
-    --width: 14px;
-    --height: 26px;
+    --icon-width: 14px;
+    --icon-height: 26px;
   }
 }

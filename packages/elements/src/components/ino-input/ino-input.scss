@@ -46,7 +46,7 @@ ino-input {
     @include textfield.focused-outline-color(colors.ino-color(primary, base));
 
     ino-icon {
-      --color: #{$placeholder-color};
+      --icon-color: #{$placeholder-color};
     }
 
     &--focused:not(.mdc-text-field--invalid) {
@@ -55,12 +55,12 @@ ino-input {
       @include textfield.line-ripple-color(colors.ino-color(primary, base));
 
       ino-icon {
-        --color: #{colors.ino-color(primary, base)};
+        --icon-color: #{colors.ino-color(primary, base)};
       }
     }
 
     &--invalid ino-icon {
-      --color: var(--mdc-theme-error, #b00020);
+      --icon-color: var(--mdc-theme-error, #b00020);
     }
 
     &--disabled {
@@ -131,8 +131,8 @@ ino-input {
 
     .mdc-text-field__icon {
       ino-icon {
-        --height: 1em;
-        --width: 1em;
+        --icon-height: 1em;
+        --icon-width: 1em;
       }
 
       &.unit {

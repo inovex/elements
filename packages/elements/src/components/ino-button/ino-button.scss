@@ -205,19 +205,19 @@ $color-states: (
 // Icon Styles
 :host([ino-icon]) .mdc-button {
   ino-icon.mdc-button__icon {
-    --color: var(--button-color);
+    --ino-icon-color-primary: var(--button-color);
   }
 
   &:hover ino-icon.mdc-button__icon {
-    --color: var(--button-color-hover);
+    --ino-icon-color-primary: var(--button-color-hover);
   }
 
   &:active ino-icon.mdc-button__icon {
-    --color: var(--button-color-active);
+    --ino-icon-color-primary: var(--button-color-active);
   }
 
   &:disabled ino-icon.mdc-button__icon {
-    --color: var(--button-color-disabled);
+    --ino-icon-color-primary: var(--button-color-disabled);
   }
 }
 

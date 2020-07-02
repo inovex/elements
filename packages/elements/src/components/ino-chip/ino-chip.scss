@@ -11,9 +11,9 @@ ino-chip {
     @include chips.fill-color-accessible($default-chip-color);
 
     ino-icon {
-      --width: .75em;
-      --height: .75em;
-      --color: currentColor;
+      --icon-width: .75em;
+      --icon-height: .75em;
+      --icon-color: currentColor;
     }
   }
 
@@ -25,7 +25,7 @@ ino-chip {
         @include chips.ink-color(map-get($map, contrast));
 
         ino-icon {
-          --color: #{map-get($map, contrast)};
+          --icon-color: #{map-get($map, contrast)};
         }
       }
 
@@ -35,7 +35,7 @@ ino-chip {
         @include chips.ink-color(map-get($map, dark));
 
         ino-icon {
-          --color: #{map-get($map, dark)};
+          --icon-color: #{map-get($map, dark)};
         }
       }
     }

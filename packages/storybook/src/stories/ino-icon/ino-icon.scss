@@ -5,13 +5,13 @@
   }
 
   ino-icon.customizable-icon  {
-    --height: 3em;
-    --width: 3em;
+    --icon-height: 3em;
+    --icon-width: 3em;
   }
 
   ino-icon.preview-icon {
-    --height: 2em;
-    --width: 2em;
+    --icon-height: 2em;
+    --icon-width: 2em;
   }
 
   .customizable-input {
@@ -43,6 +43,6 @@
   }
 
   ino-chip-set.icon-collection ino-icon {
-    --color: #3d40f5;
+    --icon-color: #3d40f5;
   }
 }
