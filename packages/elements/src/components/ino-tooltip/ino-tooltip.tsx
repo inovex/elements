@@ -1,6 +1,5 @@
 import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
-import { Placement } from 'popper.js';
-import TippyJS, { Instance } from 'tippy.js';
+import TippyJS, { Instance, Placement } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
 @Component({
