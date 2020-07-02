@@ -1,6 +1,6 @@
 # ino-popover
 
-A Popover is a dialog which is bound to a specific element and appears on top of the current page. It uses [tooltip.js](https://github.com/FezVrasta/popper.js#tooltipjs) to position the popover correctly.
+A Popover is a dialog which is bound to a specific element and appears on top of the current page. It uses [tippy.js](https://atomiks.github.io/tippyjs/) to position the popover correctly.
 
 The Popover and [Tooltip](https://elements.inovex.io/dist/latest/storybook/?selectedKind=<ino-tooltip>&selectedStory=Default%20usage) components are very similar. 
 However, popovers are complex dialogs consisting of several HTML elements, while tooltips can only display plain text.
