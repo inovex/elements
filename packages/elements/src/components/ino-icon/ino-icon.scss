@@ -4,21 +4,27 @@
 $icons-with-special-strokes: "arrow_right", "arrow_left", "arrow_up", "arrow_down", "call", "copy", "delete", "display", "edit", "help", "partner", "sort_az", "sort_down", "sort_up", "sort_za", "web";
 $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
 
+@mixin adjustIconColors() {
+  stroke: none;
+  fill: var(--icon-color);
+}
+
 :host {
 
   /**
-    * @prop --width: Width of the icon
-    * @prop --height: Height of the icon
-    * @prop --color: Color of the icon
+    * @prop --ino-icon-width: Width of the icon
+    * @prop --ino-icon-height: Height of the icon
+    * @prop --ino-icon-color-primary: Primary (default) color of the icon
+    * @prop --ino-icon-color-secondary: Secondary color of the icon
    */
 
-  --width: 1em;
-  --height: 1em;
-  --color: var(--ino-global-primary-color, #{colors.ino-color(primary, base)});
+  --icon-width: var(--ino-icon-width, 1em);
+  --icon-height:  var(--ino-icon-height, 1em);
+  --icon-color: var(--ino-icon-color-primary, var(--ino-global-primary-color, #{colors.ino-color(primary, base)}));
 }
 
 :host([ino-color-secondary]):host(:not([ino-color-secondary="false"])) {
-  --color: var(--ino-global-secondary-color, #{colors.ino-color(secondary, base)});
+  --icon-color: var(--ino-icon-color-secondary, var(--ino-global-secondary-color, #{colors.ino-color(secondary, base)}));
 }
 
 :host {
@@ -38,13 +44,13 @@ $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
   }
 
   svg {
-    height: var(--height);
-    width: var(--width);
+    height: var(--icon-height);
+    width: var(--icon-width);
   }
 
   // ----------------------------- DEFAULT CASE ----------------------------- //
   svg path {
-    stroke: var(--color);
+    stroke: var(--icon-color);
   }
 }
 

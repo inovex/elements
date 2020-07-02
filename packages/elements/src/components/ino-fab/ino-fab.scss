@@ -35,7 +35,7 @@ $extended-edged-borders: (
     }
 
     ::slotted(ino-icon), ino-icon {
-      --color: #{map-get($map, contrast)};
+      --icon-color: #{map-get($map, contrast)};
     }
   }
 }
@@ -82,13 +82,13 @@ $extended-edged-borders: (
   .mdc-fab {
 
     ::slotted(ino-icon), ino-icon {
-      --width: 30px;
-      --height: 30px;
+      --icon-width: 30px;
+      --icon-height: 30px;
     }
 
     &.mdc-fab--mini ::slotted(ino-icon), &.mdc-fab--mini ino-icon {
-      --width: 25px;
-      --height: 25px;
+      --icon-width: 25px;
+      --icon-height: 25px;
     }
 
     &:not(.mdc-fab--extended), &.mdc-fab--extended {
@@ -105,7 +105,7 @@ $extended-edged-borders: (
       pointer-events: none;
 
       ::slotted(ino-icon), ino-icon {
-        --color: white;
+        --icon-color: white;
       }
     }
   }

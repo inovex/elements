@@ -129,11 +129,12 @@ If you want to use custom icons, just use the URL to your preferred icon.
 
 ## CSS Custom Properties
 
-| Name       | Description        |
-| ---------- | ------------------ |
-| `--color`  | Color of the icon  |
-| `--height` | Height of the icon |
-| `--width`  | Width of the icon  |
+| Name                         | Description                         |
+| ---------------------------- | ----------------------------------- |
+| `--ino-icon-color-primary`   | Primary (default) color of the icon |
+| `--ino-icon-color-secondary` | Secondary color of the icon         |
+| `--ino-icon-height`          | Height of the icon                  |
+| `--ino-icon-width`           | Width of the icon                   |
 
 
 ## Dependencies
