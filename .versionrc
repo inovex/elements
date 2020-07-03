@@ -1,4 +1,5 @@
 {
+  "header": "# Changelog",
   "skip": {
     "commit": true,
     "tag": true
