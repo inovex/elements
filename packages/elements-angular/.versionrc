@@ -1,5 +1,8 @@
 {
   "path": ".",
+  "skip": {
+    "tag": true
+  },
   "types": [
     {
       "type": "feat",
