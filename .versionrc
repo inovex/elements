@@ -3,6 +3,13 @@
     "commit": true,
     "tag": true
   },
+  "bumpFiles": [
+    "package.json",
+    {
+      "filename": "lerna.json",
+      "type": "json"
+    }
+  ],
   "types": [
     {
       "type": "feat",
