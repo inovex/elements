@@ -20,6 +20,7 @@ export const InoChip = createReactComponent<StencilJSX.IntrinsicElements["ino-ch
 export const InoChipSet = createReactComponent<StencilJSX.IntrinsicElements["ino-chip-set"], HTMLInoChipSetElement>('ino-chip-set');
 export const InoControlItem = createReactComponent<StencilJSX.IntrinsicElements["ino-control-item"], HTMLInoControlItemElement>('ino-control-item');
 export const InoDatepicker = createReactComponent<StencilJSX.IntrinsicElements["ino-datepicker"], HTMLInoDatepickerElement>('ino-datepicker');
+export const InoDialog = createReactComponent<StencilJSX.IntrinsicElements["ino-dialog"], HTMLInoDialogElement>('ino-dialog');
 export const InoFab = createReactComponent<StencilJSX.IntrinsicElements["ino-fab"], HTMLInoFabElement>('ino-fab');
 export const InoFabSet = createReactComponent<StencilJSX.IntrinsicElements["ino-fab-set"], HTMLInoFabSetElement>('ino-fab-set');
 export const InoFormRow = createReactComponent<StencilJSX.IntrinsicElements["ino-form-row"], HTMLInoFormRowElement>('ino-form-row');

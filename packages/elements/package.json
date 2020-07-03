@@ -47,7 +47,8 @@
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
     "test": "stencil test --e2e --ci",
-    "test.watch": "stencil test --e2e --spec --watch",
+    "test.watch": "stencil test --e2e --watch",
+    "test:update": "stencil test --e2e -u ./",
     "icon:integrate-icons": "node scripts/integrateIcons.js"
   },
   "dependencies": {
@@ -57,6 +58,7 @@
     "@material/chips": "^5.1.0",
     "@material/data-table": "^5.1.0",
     "@material/drawer": "^5.1.0",
+    "@material/dialog": "^5.1.0",
     "@material/fab": "^5.1.0",
     "@material/form-field": "^5.1.0",
     "@material/icon-button": "^5.1.0",

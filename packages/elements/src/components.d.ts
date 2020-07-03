@@ -282,6 +282,12 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface InoDialog {
+        /**
+          * Opens the dialog if set to true
+         */
+        "inoOpen": boolean;
+    }
     interface InoFab {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
@@ -1138,6 +1144,12 @@ declare global {
         prototype: HTMLInoDatepickerElement;
         new (): HTMLInoDatepickerElement;
     };
+    interface HTMLInoDialogElement extends Components.InoDialog, HTMLStencilElement {
+    }
+    var HTMLInoDialogElement: {
+        prototype: HTMLInoDialogElement;
+        new (): HTMLInoDialogElement;
+    };
     interface HTMLInoFabElement extends Components.InoFab, HTMLStencilElement {
     }
     var HTMLInoFabElement: {
@@ -1374,6 +1386,7 @@ declare global {
         "ino-chip-set": HTMLInoChipSetElement;
         "ino-control-item": HTMLInoControlItemElement;
         "ino-datepicker": HTMLInoDatepickerElement;
+        "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
         "ino-fab-set": HTMLInoFabSetElement;
         "ino-form-row": HTMLInoFormRowElement;
@@ -1708,6 +1721,16 @@ declare namespace LocalJSX {
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
          */
         "value"?: string;
+    }
+    interface InoDialog {
+        /**
+          * Opens the dialog if set to true
+         */
+        "inoOpen"?: boolean;
+        /**
+          * Emits an event upon opening or closing the dialog
+         */
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
     }
     interface InoFab {
         /**
@@ -2593,6 +2616,7 @@ declare namespace LocalJSX {
         "ino-chip-set": InoChipSet;
         "ino-control-item": InoControlItem;
         "ino-datepicker": InoDatepicker;
+        "ino-dialog": InoDialog;
         "ino-fab": InoFab;
         "ino-fab-set": InoFabSet;
         "ino-form-row": InoFormRow;
@@ -2644,6 +2668,7 @@ declare module "@stencil/core" {
             "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
+            "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
             "ino-form-row": LocalJSX.InoFormRow & JSXBase.HTMLAttributes<HTMLInoFormRowElement>;
