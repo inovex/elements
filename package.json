@@ -29,6 +29,7 @@
     "js-yaml": "^3.14.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
+    "standard-version": "^8.0.0",
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
