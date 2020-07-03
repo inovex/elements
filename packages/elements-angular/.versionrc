@@ -1,6 +1,7 @@
 {
   "path": ".",
   "skip": {
+    "commit": true,
     "tag": true
   },
   "types": [
