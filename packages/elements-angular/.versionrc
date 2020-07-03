@@ -2,6 +2,7 @@
   "path": ".",
   "header": "# Changelog",
   "skip": {
+    "bump": true,
     "commit": true,
     "tag": true
   },
