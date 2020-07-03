@@ -19,6 +19,7 @@ scopes:
   - elements|ino-chip-set
   - elements|ino-control-item
   - elements|ino-datepicker
+  - elements|ino-dialog
   - elements|ino-fab
   - elements|ino-fab-set
   - elements|ino-form-row
@@ -64,6 +65,7 @@ scopes:
   - elements-angular|ino-chip-set
   - elements-angular|ino-control-item
   - elements-angular|ino-datepicker
+  - elements-angular|ino-dialog
   - elements-angular|ino-fab
   - elements-angular|ino-fab-set
   - elements-angular|ino-form-row
@@ -109,6 +111,7 @@ scopes:
   - elements-react|ino-chip-set
   - elements-react|ino-control-item
   - elements-react|ino-datepicker
+  - elements-react|ino-dialog
   - elements-react|ino-fab
   - elements-react|ino-fab-set
   - elements-react|ino-form-row
@@ -154,6 +157,7 @@ scopes:
   - storybook|ino-chip-set
   - storybook|ino-control-item
   - storybook|ino-datepicker
+  - storybook|ino-dialog
   - storybook|ino-fab
   - storybook|ino-fab-set
   - storybook|ino-form-row
