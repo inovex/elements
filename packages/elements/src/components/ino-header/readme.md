@@ -1,4 +1,4 @@
-# ino-card
+# ino-header
 
 A header component with a separator.
 
