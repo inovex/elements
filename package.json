@@ -10,6 +10,7 @@
     "changelog:root": "conventional-changelog -p angular -i ./CHANGELOG.md -s",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'conventional-changelog --p angular --commit-path $PWD --pkg $PWD/package.json -i $PWD/CHANGELOG.md -s'",
     "test": "lerna run test",
+    "test:update": "lerna run test:update",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
     "clean:packages": "lerna clean --yes",
     "clean:artifacts": "lerna run clean --parallel",

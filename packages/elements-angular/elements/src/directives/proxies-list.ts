@@ -9,6 +9,7 @@ export const DIRECTIVES = [
   d.InoChipSet,
   d.InoControlItem,
   d.InoDatepicker,
+  d.InoDialog,
   d.InoFab,
   d.InoFabSet,
   d.InoFormRow,

@@ -1,0 +1,46 @@
+@use '@material/dialog/mdc-dialog';
+
+:host {
+  /**
+   * @prop --ino-dialog-background-color: background color of the dialog
+   * @prop --ino-dialog-width: width of the dialog
+   * @prop --ino-dialog-height: height of the dialog
+   * @prop --ino-dialog-header-height: height of the header section
+   * @prop --ino-dialog-content-height: height of the content section
+   * @prop --ino-dialog-footer-height: height of the footer section
+   */
+  --dialog-background-color: var(--ino-dialog-background, #fff);
+  --dialog-width: var(--ino-dialog-width, 300px);
+  --dialog-height: var(--ino-dialog-height, 200px);
+  --dialog-header-height: var(--ino-dialog-header-height, 20%);
+  --dialog-content-height: var(--ino-dialog-content-height, 60%);
+  --dialog-footer-height: var(--ino-dialog-footer-height, 20%);
+}
+
+:host {
+  .mdc-dialog__surface {
+    background-color: var(--dialog-background-color);
+    height: var(--dialog-height);
+    width: var(--dialog-width);
+    overflow: visible;
+    max-width: unset;
+    min-width: unset;
+    max-height: unset;
+    min-height: unset;
+  }
+
+  .ino-dialog__header {
+    padding: 0;
+    height: var(--dialog-header-height);
+  }
+
+  .ino-dialog__content {
+    padding: 0;
+    height: var(--dialog-content-height);
+  }
+
+  .ino-dialog__footer {
+    padding: 0;
+    height: var(--dialog-footer-height);
+  }
+}

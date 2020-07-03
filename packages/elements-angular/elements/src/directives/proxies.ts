@@ -91,6 +91,19 @@ export class InoDatepicker {
         proxyOutputs(this, this.el, ["valueChange"]);
     }
 }
+export declare interface InoDialog extends Components.InoDialog {
+}
+@ProxyCmp({ inputs: ["inoOpen"] })
+@Component({ selector: "ino-dialog", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoOpen"] })
+export class InoDialog {
+    openChange!: EventEmitter<CustomEvent>;
+    protected el: HTMLElement;
+    constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+        c.detach();
+        this.el = r.nativeElement;
+        proxyOutputs(this, this.el, ["openChange"]);
+    }
+}
 export declare interface InoFab extends Components.InoFab {
 }
 @ProxyCmp({ inputs: ["inoColorScheme", "inoDisabled", "inoEdgePosition", "inoExtended", "inoIcon", "inoLabel", "inoMini", "inoTooltipPlacement"] })
