@@ -3,14 +3,10 @@
 // Font Family
 
 $font-family-sans-serif: 'Lato', Helvetica, Verdana, sans-serif;
-$font-family-serif: Merriweather, Georgia, 'Times New Roman', serif;
-$font-family-mono: 'Source Code Pro', Courier, mono;
 
 // Private variables, use ino-font-family($mode) mixin to access them.
 $ino-font-families: (
   sans-serif: $font-family-sans-serif,
-  serif: $font-family-serif,
-  mono: $font-family-mono
 );
 
 @mixin ino-font-family($mode: sans-serif) {

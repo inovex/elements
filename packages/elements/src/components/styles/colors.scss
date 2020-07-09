@@ -10,16 +10,10 @@ $primary-dark: #0d10f3;
 $primary-contrast: #fff;
 
 $secondary: #9ccd00;
-$secondary-light: #bbe962;
+$secondary-light: #bbd962;
 $secondary-dark: #93bf00;
 $secondary-contrast: #fff;
 
-$tertiary: #00b0f0;
-$tertiary-light: #10bcfe;
-$tertiary-dark: #006a92;
-
-$success: $secondary;
-$warning: #ffde03;
 $error: #eb003b;
 
 $light: #c1c1c1;
@@ -37,24 +31,6 @@ $ino-color-scheme: (
     light: $secondary-light,
     dark: $secondary-dark,
     contrast: $secondary-contrast
-  ),
-  tertiary: (
-    base: $tertiary,
-    light: $tertiary-light,
-    dark: $tertiary-dark,
-    contrast: #000
-  ),
-  success: (
-    base: $success,
-    light: lighten($success, 15%),
-    dark: darken($success, 15%),
-    contrast: #000
-  ),
-  warning: (
-    base: $warning,
-    light: lighten($warning, 15%),
-    dark: darken($warning, 15%),
-    contrast: #000
   ),
   error: (
     base: $error,
