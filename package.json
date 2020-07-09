@@ -7,8 +7,8 @@
     "publish:angular": "./scripts/publishAngular.sh",
     "start": "lerna run build --scope=@inovex/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
-    "changelog:root": "conventional-changelog -p angular -i ./CHANGELOG.md -s",
-    "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'conventional-changelog --p angular --commit-path $PWD --pkg $PWD/package.json -i $PWD/CHANGELOG.md -s'",
+    "changelog:root": "standard-version",
+    "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'standard-version'",
     "test": "lerna run test",
     "test:update": "lerna run test:update",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
@@ -24,11 +24,11 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@commitlint/config-lerna-scopes": "^8.2.0",
-    "conventional-changelog-cli": "^2.0.31",
     "husky": "^1.3.1",
     "js-yaml": "^3.14.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
+    "standard-version": "^8.0.0",
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
