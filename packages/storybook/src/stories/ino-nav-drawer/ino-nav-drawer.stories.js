@@ -225,9 +225,11 @@ storiesOf('Structure|<ino-nav-drawer>', module)
               <br /> <br />
               ${text(
                 'App Content',
-                `Your App goes here 🤘 ${mainContent}`,
+                `Your App goes here 🤘`,
                 'Slots'
-              )}<br/><br />
+              )}
+              ${mainContent}
+              <br/><br />
             </main>
           </ino-nav-drawer>
         </div>
