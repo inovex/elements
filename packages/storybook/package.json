@@ -31,7 +31,7 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "start-storybook -p 6006 -c config -s static --quiet",
+    "dev": "start-storybook -p 6006 -c config -s static --quiet --no-version-updates",
     "build": "build-storybook -c config -s static -o dist"
   },
   "files": [
