@@ -89,7 +89,7 @@ If you have to add, remove or change an icon:
 
 2. Make sure that the exported icons have the same structure and that the settings in `selection.json` didn't change.
 
-3. Before integrating the new generated icons you have to keep the `internals` icons that are not maintained in [icomoon](https://icomoon.io/). Copy the current project `icon-assets/SVG/internals` folder to the new (downloaded) `icon-assets` folder. 
+3. Before integrating the new generated icons you have to keep the `internals` icons that are not maintained in [icomoon](https://icomoon.io/). Copy the all files prefixed with an underscore e.g. `icon-assets/SVG/_fab_set_arrow_down.svg` into the downloaded `icon-assets/SVG` folder. 
 
 4. Copy and paste the **entire** (downloaded) `icon-assets` folder to replace the old folder.
 

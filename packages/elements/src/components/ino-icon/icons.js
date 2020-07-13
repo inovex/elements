@@ -44,6 +44,7 @@ export default [
 	'phone',
 	'print',
 	'remove',
+	'report',
 	'search',
 	'settings',
 	'sort_az',
