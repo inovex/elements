@@ -16,7 +16,7 @@ The advantages are faster development cycles and fewer maintaining resources. Th
 
 ## Documentation
 
-You can find all the information on using the elements in the [Storybook Docs](https://elements.inovex.io/dist/latest/storybook).
+You can find all the information on using the elements in the [Storybook Docs](https://elements.inovex.de/dist/latest/storybook).
 
 ## Repository Structure
 
@@ -52,7 +52,7 @@ We experienced the same and as the buzzwords *Design System* and *Component Libr
 
 The purpose of this repository is to continue the development, making the elements easier to use, reducing the cpu footprint, creating new components and API features as well as fixing bugs. The development itself is fully managed within the space of this GitLab repo and Artifactory.
 
-To learn more about how you can contribute please refer to our [Contributing Section](https://elements.inovex.io/dist/latest/storybook).
+To learn more about how you can contribute please refer to our [Contributing Section](https://elements.inovex.de/dist/latest/storybook/?path=/story/docs-contributing--architectural-overview).
 
 ### Prerequisites
 
