@@ -22,7 +22,7 @@ These shades will represent the brand in graphical elements, texts, syntax, back
   }
 </style>
 
-## Inovex
+## inovex
 
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #003C7E"></div>
@@ -63,6 +63,18 @@ These shades will represent the brand in graphical elements, texts, syntax, back
   <div class="color-hex" style="color: #93BF00">#93BF00, Dark</div>
 </div>
 
+## Success
+<div class="color-wrapper">
+  <div class="color-rect" style="background-color: #9CCD00"></div>
+  <div class="color-hex" style="color: #9CCD00">#9CCD00</div>
+</div>
+
+## Warning
+<div class="color-wrapper">
+  <div class="color-rect" style="background-color: #FFDE03"></div>
+  <div class="color-hex" style="color: #FFDE03">#FFDE03</div>
+</div>
+
 ## Error
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #E00051"></div>
@@ -96,6 +108,8 @@ $secondary-light: #bbd962;
 $secondary-dark: #93bf00;
 $secondary-contrast: #fff;
 
+$success: #9ccd00;
+$warning: #ffde03;
 $error: #eb003b;
 
 $light: #c1c1c1;
