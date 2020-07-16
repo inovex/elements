@@ -17,8 +17,10 @@
     "clean:root": "rm -rf node_modules",
     "update:commit-scopes": "node scripts/generateCommitScopeEnum.js",
     "lint": "lerna run lint",
-    "preversion": "yarn run build && yarn run test",
-    "version": "node ./scripts/bumprootversion.js && yarn changelog && git add -A"
+    "lerna:version": "lerna version --conventional-commits --no-changelog",
+    "preversion": "yarn build && yarn test",
+    "version": "node scripts/bumprootversion.js && yarn changelog",
+    "postversion": "git add -A"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
