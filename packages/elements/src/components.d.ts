@@ -96,7 +96,7 @@ export namespace Components {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -290,7 +290,7 @@ export namespace Components {
     }
     interface InoFab {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -388,7 +388,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -812,7 +812,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -936,7 +936,7 @@ export namespace Components {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -966,7 +966,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -1520,7 +1520,7 @@ declare namespace LocalJSX {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`,  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -1734,7 +1734,7 @@ declare namespace LocalJSX {
     }
     interface InoFab {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -1836,7 +1836,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -2284,7 +2284,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -2432,7 +2432,7 @@ declare namespace LocalJSX {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**
@@ -2462,7 +2462,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `tertiary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
         /**

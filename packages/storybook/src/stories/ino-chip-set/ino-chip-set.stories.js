@@ -63,7 +63,6 @@ storiesOf('Buttons|<ino-chip-set>', module)
         '',
         'primary',
         'secondary',
-        'tertiary',
         'success',
         'warning',
         'error',
@@ -86,7 +85,6 @@ storiesOf('Buttons|<ino-chip-set>', module)
         <ino-chip ino-label="Default"></ino-chip>
         <ino-chip ino-color-scheme="primary" ino-label="Primary"></ino-chip>
         <ino-chip ino-color-scheme="secondary" ino-label="Secondary"></ino-chip>
-        <ino-chip ino-color-scheme="tertiary" ino-label="Tertiary"></ino-chip>
         <ino-chip ino-color-scheme="success" ino-label="Success"></ino-chip>
         <ino-chip ino-color-scheme="warning" ino-label="Warning"></ino-chip>
         <ino-chip ino-color-scheme="error" ino-label="Error"></ino-chip>
