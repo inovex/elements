@@ -34,6 +34,18 @@ $ino-color-scheme: (
     dark: $secondary-dark,
     contrast: $secondary-contrast
   ),
+  success: (
+    base: $success,
+    light: lighten($success, 15%),
+    dark: darken($succss, 15%),
+    contrast: #fff
+  ),
+  warning: (
+    base: $warning,
+    light: lighten($warning, 15%),
+    dark: darken($warning, 15%),
+    contrast: #fff
+  ),
   error: (
     base: $error,
     light: lighten($error, 15%),
