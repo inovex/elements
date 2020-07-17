@@ -222,7 +222,7 @@ $color-states: (
 }
 
 // Loading Styles
-:host([ino-loading="true"]) {
+:host([ino-loading]:not([ino-loading="false"])) {
   button {
     pointer-events: none;
   }
