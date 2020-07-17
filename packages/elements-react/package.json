@@ -25,7 +25,7 @@
   ],
   "homepage": "https://elements.inovex.de",
   "bugs": {
-    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+    "url": "https://github.com/inovex/elements/issues"
   },
   "license": "MIT",
   "scripts": {

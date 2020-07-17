@@ -2,7 +2,7 @@
   "name": "@inovex/elements",
   "version": "0.21.0",
   "description": "This is the home of a web component library based on Stencil.",
-  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
+  "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
     "Alexander Gerlach <agerlach@inovex.de",
@@ -26,7 +26,7 @@
   ],
   "homepage": "https://elements.inovex.de",
   "bugs": {
-    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+    "url": "https://github.com/inovex/elements/issues"
   },
   "license": "UNLICENSED",
   "main": "dist/index.js",
