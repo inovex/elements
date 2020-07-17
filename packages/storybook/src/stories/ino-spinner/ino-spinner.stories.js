@@ -20,7 +20,7 @@ storiesOf('Notification|<ino-spinner>', module)
             class="customizable-spinner"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'light', 'dark' ],
+              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark' ],
               'primary'
             )}"
             ino-type="${select(
@@ -46,10 +46,6 @@ storiesOf('Notification|<ino-spinner>', module)
         <div class="flex-child">
           <h5>secondary</h5>
           <ino-spinner ino-color-scheme="secondary"></ino-spinner>
-        </div>
-        <div class="flex-child">
-          <h5>tertiary</h5>
-          <ino-spinner ino-color-scheme="tertiary"></ino-spinner>
         </div>
         <div class="flex-child">
           <h5>success</h5>
