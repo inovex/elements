@@ -6,7 +6,6 @@ export type ChipSurface = 'solid' | 'outline';
 export type ColorScheme =
   | 'primary'
   | 'secondary'
-  | 'tertiary'
   | 'success'
   | 'warning'
   | 'error'
