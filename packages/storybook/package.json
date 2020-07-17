@@ -2,7 +2,7 @@
   "name": "@inovex/elements-storybook",
   "version": "0.21.0",
   "description": "This is the storybook package containing all the documentation for @inovex/elements, @inovex/elements-angular, @inovex/elements-react.",
-  "repository": "ssh://git@gitlab.inovex.de:2424/inovex-elements/core.git",
+  "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,
   "contributors": [
@@ -27,9 +27,9 @@
   ],
   "homepage": "https://elements.inovex.de",
   "bugs": {
-    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+    "url": "https://github.com/inovex/elements/issues"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "dev": "start-storybook -p 6006 -c config -s static --quiet --no-version-updates",
     "build": "build-storybook -c config -s static -o dist"

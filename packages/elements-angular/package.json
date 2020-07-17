@@ -9,7 +9,7 @@
   ],
   "homepage": "https://elements.inovex.de",
   "bugs": {
-    "url": "https://gitlab.inovex.de/inovex-elements/core/issues"
+    "url": "https://github.com/inovex/elements/issues"
   },
   "scripts": {
     "ng": "ng",
@@ -58,5 +58,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   },
-  "license": "UNLICENSED"
+  "license": "MIT"
 }
