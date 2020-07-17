@@ -2,7 +2,7 @@
 
 A tooltip component that displays text when users hover over, focus on, or tap an element.
 
-> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.io/dist/latest/storybook/?selectedKind=<ino-popover>&selectedStory=Default%20usage) component.
+> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.
 
 ### Usage
 

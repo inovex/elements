@@ -57,6 +57,7 @@ $ yarn add @inovex/elements
 
 To load the components at runtime, you need to insert the following code fragment. Make sure that the script tag is set on each web page the user can visit on your website. For most of the websites it should be sufficient to add the tag to the `index.html` file:
 
+
 ```
 <script src="https://elements.inovex.io/dist/v0.15.1/inovex-elements.js"></script>
 ```

@@ -14,4 +14,4 @@ To build a new release, the following steps have to be performed:
 - Always check the contents of `Changelog.md` and version number.
 - If all seems right, push the changes using `git push --follow-tags` to the remote origin.
 
-The gitlab pipeline will build and release a new version in the private registry. Additionally, the built sources and documentation will be published to `https://elements.inovex.io/` in a folder named by the new version
+The gitlab pipeline will build and release a new version in the private registry. Additionally, the built sources and documentation will be published to `https://elements.inovex.de/` in a folder named by the new version
