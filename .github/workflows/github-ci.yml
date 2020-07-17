@@ -17,8 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup nodejs
+        uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: npm config set scripts-prepend-node-path true
@@ -29,30 +31,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup nodejs
+        uses: actions/setup-node@v1
         with:
           node-version: 12.x
       - run: npm config set scripts-prepend-node-path true
       - run: yarn install
       - run: yarn lint
       - run: yarn build
-      - uses: actions/upload-artifact@v2
+        
+      - if: github.ref == 'refs/heads/master'
+        name: upload elements artifact
+        uses: actions/upload-artifact@v2
         with:
           name: elements
           path:
             packages/elements/dist/
-      - uses: actions/upload-artifact@v2
+      - if: github.ref == 'refs/heads/master'
+        name: upload elements-react artifact
+        uses: actions/upload-artifact@v2
         with:
           name: elements-react
           path:
             packages/elements-react/dist/
-      - uses: actions/upload-artifact@v2
+      - if: github.ref == 'refs/heads/master' 
+        name: upload elements-angular artifact
+        uses: actions/upload-artifact@v2
         with:
           name: elements-angular
           path:
             packages/elements-angular/dist/
-      - uses: actions/upload-artifact@v2
+      - if: github.ref == 'refs/heads/master'
+        name: upload storybook artifact 
+        uses: actions/upload-artifact@v2
         with:
           name: storybook
           path:
