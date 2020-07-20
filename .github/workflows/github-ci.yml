@@ -37,11 +37,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - run: curl -X POST \
+          -F token=${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }} \
+          -F ref=elements-semantic-pull-request-bot \
+          ${{ secrets.GITLAB_PIPELINE_TRIGGER_URL }}
       - run: npm config set scripts-prepend-node-path true
       - run: yarn install
       - run: yarn lint
       - run: yarn build
-        
+
       - if: github.ref == 'refs/heads/master'
         name: upload elements artifact
         uses: actions/upload-artifact@v2
@@ -56,7 +60,7 @@ jobs:
           name: elements-react
           path:
             packages/elements-react/dist/
-      - if: github.ref == 'refs/heads/master' 
+      - if: github.ref == 'refs/heads/master'
         name: upload elements-angular artifact
         uses: actions/upload-artifact@v2
         with:
@@ -64,7 +68,7 @@ jobs:
           path:
             packages/elements-angular/dist/
       - if: github.ref == 'refs/heads/master'
-        name: upload storybook artifact 
+        name: upload storybook artifact
         uses: actions/upload-artifact@v2
         with:
           name: storybook
