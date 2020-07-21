@@ -76,13 +76,16 @@ jobs:
 
     steps:
       - if: startsWith(github.ref, 'refs/heads/elements-673') # replace with 'refs/tags/v'
-      # FORCE UPDATE
-      - run: curl
+        uses: actions/checkout@v2
+      - name: Trigger update in GitLab
+        run: curl
           --request POST
           --header "PRIVATE-TOKEN:${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
           ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
-      - run: sleep 10 # Wait for update
-      - run: curl -X POST
+      - name: Wait for update
+        run: sleep 10 # Wait for update
+      - name: Trigger Pipeline in GitLab
+        run: curl -X POST
           -F token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
           -F ref="${{ github.ref }}"
           -F "variables[ARTIFACT_ID]=true"
