@@ -79,7 +79,7 @@ jobs:
       # FORCE UPDATE
       - run: curl
         --request POST
-        --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
+        --header "PRIVATE-TOKEN:" ${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}
         "${{ GITLAB_URL_WITH_ID }}/mirror/pull"
       - run: sleep 10 # Wait for update
       - run: curl -X POST
