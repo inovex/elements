@@ -77,10 +77,10 @@ jobs:
     steps:
       - if: startsWith(github.ref, 'refs/heads/elements-673') # replace with 'refs/tags/v'
       # FORCE UPDATE
-      - run: curl
-        --request POST
-        --header 'PRIVATE-TOKEN: ${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}'
-        ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
+        run: curl
+          --request POST
+          --header "PRIVATE-TOKEN:${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
+          ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
       - run: sleep 10 # Wait for update
       - run: curl -X POST
           -F token=${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }} # Trigger Token
