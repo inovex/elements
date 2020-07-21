@@ -74,8 +74,8 @@ jobs:
   trigger-release:
     runs-on: ubuntu-latest
 
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
-      - if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/checkout@v2
       - name: Trigger update in GitLab
         run: curl
