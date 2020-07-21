@@ -74,7 +74,7 @@ jobs:
   trigger-release:
     runs-on: ubuntu-latest
 
-    if: startsWith(github.ref, 'refs/heads/elements-673')
+    if: startsWith(github.ref, 'refs/heads/master')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
