@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - if: startsWith(github.ref, 'refs/heads/elements-673') # replace with 'refs/tags/v'
+      - if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/checkout@v2
       - name: Trigger update in GitLab
         run: curl
