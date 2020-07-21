@@ -83,8 +83,8 @@ jobs:
           ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
       - run: sleep 10 # Wait for update
       - run: curl -X POST
-          -F token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}" # Trigger Token
-          -F ref="${{ github.ref }}" # Branch/Tag
-          -F "variables[ARTIFACT_ID]=true" # Variables
-          ${{ secrets.GITLAB_PIPELINE_TRIGGER_URL }} # URL
+          -F token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
+          -F ref="${{ github.ref }}"
+          -F "variables[ARTIFACT_ID]=true"
+          ${{ secrets.GITLAB_PIPELINE_TRIGGER_URL }}
 
