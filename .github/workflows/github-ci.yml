@@ -37,7 +37,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: curl -X POST -F token=${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }} -F ref=elements-semantic-pull-request-bot ${{ secrets.GITLAB_PIPELINE_TRIGGER_URL }}
       - run: npm config set scripts-prepend-node-path true
       - run: yarn install
       - run: yarn lint
@@ -71,3 +70,21 @@ jobs:
           name: storybook
           path:
             packages/storybook/dist/
+
+  trigger-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - if: startsWith(github.ref, 'refs/heads/elements-673') # replace with 'refs/tags/v'
+      # FORCE UPDATE
+      - run: curl
+        --request POST
+        --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
+        "${{ GITLAB_URL_WITH_ID }}/mirror/pull"
+      - run: sleep 10 # Wait for update
+      - run: curl -X POST
+          -F token=${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }} # Trigger Token
+          -F ref=${{ github.ref }} # Branch/Tag
+          -F "variables[ARTIFACT_ID]=true" # Variables
+          ${{ secrets.GITLAB_PIPELINE_TRIGGER_URL }} # URL
+
