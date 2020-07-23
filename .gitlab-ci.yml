@@ -1,55 +1,22 @@
 stages:
-  - security
-  - test
-  - build
   - deploy
   - link-latest
 
 image: node:12.10.0
 
-security-check-gitleaks:
-  image:
-    name: zricethezav/gitleaks@sha256:a936a25b78d34143034d4adfeadeeabd888640bf1ee076cf7b4b6260fa66c335
-    entrypoint: [""]
-  stage: security
-  tags:
-    - shared # this makes use of shared runners
-  script:
-    - gitleaks --version # check wheter gitleaks is available
-    - gitleaks -v --repo-path ./ --config=.gitleaks.toml
-  only:
-    - master
-
-test:
-  stage: test
-  image: amio/node-chrome:latest
-  script:
-    - npm config set scripts-prepend-node-path true
-    - yarn install
-    - yarn test
-  tags:
-    - shared
-
-build:
-  stage: build
-  script:
-    - npm config set scripts-prepend-node-path true
-    - yarn install
-    - yarn lint
-    - yarn build
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - packages/elements/dist/
-      - packages/elements-react/dist/
-      - packages/elements-angular/dist/
-      - packages/storybook/dist/
-  tags:
-    - shared
-
 upload:
   stage: deploy
   script:
+    - apt-get install unzip jq
+    - curl # Download artifacts
+      --url https://api.github.com/repos/inovex/elements/actions/runs/$RUN_ID/artifacts
+      --header 'authorization: Bearer ${GITHUB_ACCESS_TOKEN}'
+      | jq --raw-output '.artifacts | map(.archive_download_url) | @sh' # Get Download URL's
+      | xargs -n1 curl -OJ --location --header 'authorization: Bearer ${GITHUB_ACCESS_TOKEN}' --url # Download Artifacts
+    - mkdir -p packages/elements/dist/
+    - mkdir -p packages/storybook/dist/
+    - unzip elements.zip -d packages/elements/dist/
+    - unzip storybook.zip -d packages/storybook/dist/
     - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME
     - rsync -a packages/elements/dist/ /srv/webhost/dist/$CI_COMMIT_REF_NAME
     - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME/storybook
