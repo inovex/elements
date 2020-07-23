@@ -90,6 +90,6 @@ jobs:
           --request POST
           --form token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
           --form ref="${{ github.ref }}"
-          --form "variables[ARTIFACT_ID]=true"
+          --form "variables[RUN_ID]=${{ GITHUB_RUN_ID }}"
           ${{ secrets.GITLAB_URL_WITH_ID }}/trigger/pipeline
 
