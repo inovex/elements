@@ -68,7 +68,7 @@ storiesOf('Buttons|<ino-icon-button>', module)
           ino-icon="${select('ino-icon', ICONS, 'star')}"
           ino-color-scheme="${select(
             'ino-color-scheme',
-            ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+            ['', 'primary', 'secondary', 'success', 'warning',
             'error', 'light', 'dark'
             ],
             ''
@@ -86,10 +86,6 @@ storiesOf('Buttons|<ino-icon-button>', module)
         <div class="flex-child">
           <h5>Secondary</h5>
           <ino-icon-button ino-icon="star" ino-color-scheme="secondary"></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Tertiary</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="tertiary"></ino-icon-button>
         </div>
         <div class="flex-child">
           <h5>Success</h5>

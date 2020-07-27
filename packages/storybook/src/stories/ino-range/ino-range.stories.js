@@ -30,7 +30,7 @@ storiesOf('Input|<ino-range>', module)
             step="${number('step', 1)}"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'tertiary', 'success', 'warning',
+              ['primary', 'secondary', 'success', 'warning',
               'error', 'light', 'dark'
               ],
               'primary'
@@ -49,10 +49,6 @@ storiesOf('Input|<ino-range>', module)
         <div class="flex-child">
           <h5>secondary</h5>
           <ino-range ino-color-scheme="secondary"></ino-range>
-        </div>
-        <div class="flex-child">
-          <h5>tertiary</h5>
-          <ino-range ino-color-scheme="tertiary"></ino-range>
         </div>
         <div class="flex-child">
           <h5>success</h5>

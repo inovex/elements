@@ -16,7 +16,7 @@ storiesOf('Buttons|<ino-fab>', module)
       <ino-fab
       ino-color-scheme="${select(
     'ino-color-scheme',
-    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+    ['', 'primary', 'secondary', 'success', 'warning',
       'error', 'light', 'dark'
     ],
     'primary'

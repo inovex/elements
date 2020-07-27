@@ -68,7 +68,7 @@ storiesOf('Buttons|<ino-fab-set>', module)
         <ino-fab
           ino-color-scheme="${select(
     'ino-color-scheme-fab-1',
-    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+    ['', 'primary', 'secondary', 'success', 'warning',
       'error', 'light', 'dark'
     ],
     'primary',
@@ -81,7 +81,7 @@ storiesOf('Buttons|<ino-fab-set>', module)
         <ino-fab
           ino-color-scheme="${select(
     'ino-color-scheme-fab-2',
-    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+    ['', 'primary', 'secondary', 'success', 'warning',
       'error', 'light', 'dark'
     ],
     'primary',
@@ -94,7 +94,7 @@ storiesOf('Buttons|<ino-fab-set>', module)
         <ino-fab
           ino-color-scheme="${select(
     'ino-color-scheme-fab-3',
-    ['', 'primary', 'secondary', 'tertiary', 'success', 'warning',
+    ['', 'primary', 'secondary', 'success', 'warning',
       'error', 'light', 'dark'
     ],
     'primary',
