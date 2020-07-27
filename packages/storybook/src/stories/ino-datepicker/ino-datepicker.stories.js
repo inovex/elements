@@ -39,6 +39,7 @@ function subscribeToComponentEvents() {
 storiesOf('Input|<ino-datepicker>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('valueChange .customizable-picker'))
+  .addDecorator(withActions('submit .form'))
   .addDecorator(story => {
     addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
@@ -94,7 +95,6 @@ storiesOf('Input|<ino-datepicker>', module)
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>
   `)
-  .addDecorator(withActions('submit .form'))
   .add('Forms', () => /*html*/`
     <div class="story-datepicker">
       <h4>Required</h4>
