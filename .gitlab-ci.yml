@@ -8,7 +8,8 @@ upload:
   stage: deploy
   script:
     - apt-get install unzip jq
-    - curl # Download artifacts
+    - |
+      curl
       --url https://api.github.com/repos/inovex/elements/actions/runs/$RUN_ID/artifacts
       --header 'authorization:Bearer ${GITHUB_ACCESS_TOKEN}'
       | jq --raw-output '.artifacts | map(.archive_download_url) | @sh' # Get Download URL's
