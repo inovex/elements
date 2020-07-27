@@ -7,6 +7,14 @@ import './ino-img-list.scss';
 import { boolean, number } from '@storybook/addon-knobs';
 import { withActions } from '@storybook/addon-actions';
 
+import beachImg from '_local-assets/images/beach.jpg';
+import fjordImg from '_local-assets/images/fjord.jpg';
+import forrestImg from '_local-assets/images/forrest.jpg';
+import libertyImg from '_local-assets/images/liberty.jpg';
+import trondheimImg from '_local-assets/images/trondheim.jpg';
+import waterfallImg from '_local-assets/images/waterfall.jpg';
+
+
 storiesOf('Graphic|<ino-img-list>', module)
   .addDecorator(withStencilReadme(imgListReadme))
   .addDecorator(withActions(
@@ -63,7 +71,7 @@ storiesOf('Graphic|<ino-img-list>', module)
 
 const sampleImg = `
     <ino-img
-      src="/images/beach.jpg"
+      src=${beachImg}
       alt="beach"
       ino-label="Label"
       ino-img-list-item
@@ -72,7 +80,7 @@ const sampleImg = `
 
 const sampleImg2 = `
   <ino-img
-      src="/images/waterfall.jpg"
+      src=${waterfallImg}
       alt="waterfall"
       ino-label="Label"
       ino-img-list-item
@@ -81,7 +89,7 @@ const sampleImg2 = `
 
 const sampleImg3 = `
   <ino-img
-      src="/images/trondheim.jpg"
+      src=${trondheimImg}
       alt="trondheim"
       ino-label="Label"
       ino-img-list-item
@@ -90,7 +98,7 @@ const sampleImg3 = `
 
 const sampleImg4 = `
   <ino-img
-      src="/images/forrest.jpg"
+      src=${forrestImg}
       alt="forrest"
       ino-label="Label"
       ino-img-list-item
@@ -99,7 +107,7 @@ const sampleImg4 = `
 
 const sampleImg5 = `
   <ino-img
-      src="/images/fjord.jpg"
+      src=${fjordImg}
       alt="fjord"
       ino-label="Label"
       ino-img-list-item
@@ -108,7 +116,7 @@ const sampleImg5 = `
 
 const sampleImg6 = `
   <ino-img
-      src="/images/liberty.jpg"
+      src=${libertyImg}
       alt="liberty"
       ino-label="Label"
       ino-img-list-item
