@@ -734,9 +734,9 @@ export namespace Components {
     }
     interface InoOptionGroup {
         /**
-          * Label of the group
+          * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
-        "inoLabel": string;
+        "inoLabel"?: string;
     }
     interface InoPopover {
         /**
@@ -2206,9 +2206,9 @@ declare namespace LocalJSX {
     }
     interface InoOptionGroup {
         /**
-          * Label of the group
+          * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
-        "inoLabel": string;
+        "inoLabel"?: string;
     }
     interface InoPopover {
         /**

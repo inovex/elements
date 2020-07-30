@@ -59,9 +59,9 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property                | Attribute   | Description        | Type     | Default     |
-| ----------------------- | ----------- | ------------------ | -------- | ----------- |
-| `inoLabel` _(required)_ | `ino-label` | Label of the group | `string` | `undefined` |
+| Property   | Attribute   | Description                                                                                                                                                                                                                                                               | Type     | Default     |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `inoLabel` | `ino-label` | Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259). | `string` | `undefined` |
 
 
 ## Dependencies
