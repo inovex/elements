@@ -1,6 +1,6 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_OPTION_GROUP = '<ino-option-group><ino-option value="My Option">My Option</ino-option></ino-option-group>';
+const INO_OPTION_GROUP = '<ino-option-group ino-label="My Label"><ino-option value="My Option">My Option</ino-option></ino-option-group>';
 
 describe('ino-option-group', () => {
   it('should render with default values', async () => {
