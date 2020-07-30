@@ -12,7 +12,8 @@
         "_local-root": "./../../",
         "_local-docs": "./../../doc/",
         "_local-storybookcore": "./src/core",
-        "_local-elements":"../elements"
+        "_local-elements":"../elements",
+        "_local-assets": "./src/assets"
       }
     }]
   ]
