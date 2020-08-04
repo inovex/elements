@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/html';
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 
 import './ino-button.scss';
@@ -43,8 +42,6 @@ storiesOf('Buttons|<ino-button>', module)
           'General'
           )}"
         ino-fill="${select('ino-fill', ['solid', 'outline', 'inverse'], 'solid', 'General')}"
-        ino-icon="${select('ino-icon', ICONS, 'Add', 'Icon')}"
-        ino-icon-prepend="${boolean('ino-icon-prepend', false, 'Icon')}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
         ino-full-width="${boolean('ino-full-width', false, 'General')}"
         disabled="${boolean('disabled', false, 'General')}"
