@@ -91,6 +91,7 @@ storiesOf('Input|<ino-input>', module)
 
       <h4>Types</h4>
       <ino-input placeholder="type = text"></ino-input>
+      <ino-input placeholder="type = email" type="email"></ino-input>
       <ino-input type="number" placeholder="type = number"></ino-input>
       <ino-input type="number" placeholder="type = number with steps=5" step="5"></ino-input>
       <ino-input type="number" placeholder="type = number with step='any' (decimal numbers)" step="any"></ino-input>
