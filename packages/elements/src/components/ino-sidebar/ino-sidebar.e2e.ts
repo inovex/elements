@@ -15,7 +15,7 @@ describe('ino-sidebar', () => {
     expect(sidebar).toBeDefined();
   });
 
-  describe('Properties', async () => {
+  describe('Properties',  () => {
 
     it('should render with ino-open set to true', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
@@ -39,7 +39,7 @@ describe('ino-sidebar', () => {
 
   });
 
-  describe('Events', async () => {
+  describe('Events',  () => {
 
     it('should emit an openChange event upon changing the ino-open property', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
