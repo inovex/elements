@@ -203,22 +203,20 @@ $color-states: (
 }
 
 // Icon Styles
-:host([ino-icon]) .mdc-button {
-  ino-icon.mdc-button__icon {
-    --ino-icon-color-primary: var(--button-color);
-  }
+::slotted(ino-icon) {
+  --ino-icon-color-primary: var(--button-color);
+}
 
-  &:hover ino-icon.mdc-button__icon {
-    --ino-icon-color-primary: var(--button-color-hover);
-  }
+:host(:hover)::slotted(ino-icon) {
+  --ino-icon-color-primary: var(--button-color-hover);
+}
 
-  &:active ino-icon.mdc-button__icon {
-    --ino-icon-color-primary: var(--button-color-active);
-  }
+:host(:active)::slotted(ino-icon) {
+  --ino-icon-color-primary: var(--button-color-active);
+}
 
-  &:disabled ino-icon.mdc-button__icon {
-    --ino-icon-color-primary: var(--button-color-disabled);
-  }
+:host(:disabled)::slotted(ino-icon) {
+  --ino-icon-color-primary: var(--button-color-disabled);
 }
 
 // Loading Styles

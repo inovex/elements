@@ -73,8 +73,14 @@ storiesOf('Buttons|<ino-button>', module)
       </div>
 
       <h4>With icons</h4>
-      <ino-button ino-icon="info">Button Icon left</ino-button>
-      <ino-button ino-icon="info" ino-icon-prepend>Button icon right</ino-button>
+      <ino-button ino-icon="info">
+        <ino-icon slot="ino-icon-leading" ino-icon="info"></ino-icon>
+        Button Icon left
+      </ino-button>
+      <ino-button ino-icon="info">
+        <ino-icon slot="ino-icon-trailing" ino-icon="info"></ino-icon>
+        Button Icon right
+      </ino-button>
 
       <h4>States</h4>
       <div class="button-row">

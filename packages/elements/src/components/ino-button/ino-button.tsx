@@ -116,6 +116,7 @@ export class Button implements ComponentInterface {
 
   componentDidLoad() {
     this.button = new MDCRipple(this.el.shadowRoot.querySelector(SELECTORS.MDC_BUTTON));
+    this.el.querySelectorAll('ino-icon').forEach((e) => e.classList.add(CSS_CLASSES.MDC_BUTTON_ICON));
   }
 
   componentWillUnload() {
@@ -166,13 +167,7 @@ export class Button implements ComponentInterface {
           type={this.type}
           form={this.form}
         >
-          {this.inoIcon && !this.inoIconPrepend && (
-            <ino-icon
-              class={CSS_CLASSES.MDC_BUTTON_ICON}
-              ino-icon={this.inoIcon}
-              aria-hidden="true"
-            />
-          )}
+          <slot name="ino-icon-leading"/>
           <div class="mdc-button__label">
             {this.inoLoading ?
               <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>
@@ -180,17 +175,7 @@ export class Button implements ComponentInterface {
               <slot></slot>
             }
           </div>
-          {this.inoIcon && this.inoIconPrepend && (
-            <ino-icon
-              class={
-                CSS_CLASSES.MDC_BUTTON_ICON +
-                ' ' +
-                CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
-              }
-              ino-icon={this.inoIcon}
-              aria-hidden="true"
-            />
-          )}
+          <slot name="ino-icon-trailing"/>
         </button>
       </Host>
     );
