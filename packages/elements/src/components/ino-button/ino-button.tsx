@@ -9,11 +9,7 @@ import { CSS_CLASSES, SELECTORS } from './constants';
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
-  shadow: true
-  // as exception, we use shadow DOM for the button to avoid
-  // https://github.com/ionic-team/stencil/issues/1454.
-  // TODO: We should either use ShadowDOM for all or no elements in future!!!
-  // https://jira.inovex.de/browse/ELEMENTS-90
+  shadow: false
 })
 export class Button implements ComponentInterface {
   /**
@@ -74,17 +70,6 @@ export class Button implements ComponentInterface {
   @Prop() inoFullWidth? = false;
 
   /**
-   * Adds an icon to the button.
-   * The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
-   */
-  @Prop() inoIcon?: string;
-
-  /**
-   * Prepends an icon after the text.
-   */
-  @Prop() inoIconPrepend?: boolean;
-
-  /**
    * Makes the button text and container slightly smaller.
    */
   @Prop() inoDense?: boolean = false;
@@ -99,7 +84,7 @@ export class Button implements ComponentInterface {
   @Watch('inoLoading')
   inoLoadingChanged(isLoading: boolean) {
     if (isLoading) {
-      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
+      const mdcLabel = this.el.querySelector('.mdc-button__label');
       const labelStyles = window.getComputedStyle(mdcLabel);
       this.buttonSizeBeforeLoad = labelStyles.width;
     } else {
@@ -109,14 +94,17 @@ export class Button implements ComponentInterface {
 
   componentDidUpdate() {
     if (this.inoLoading && this.buttonSizeBeforeLoad) {
-      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label') as HTMLDivElement;
+      const mdcLabel = this.el.querySelector('.mdc-button__label') as HTMLDivElement;
       mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
     }
   }
 
-  componentDidLoad() {
-    this.button = new MDCRipple(this.el.shadowRoot.querySelector(SELECTORS.MDC_BUTTON));
+  componentWillLoad(): Promise<void> | void {
     this.el.querySelectorAll('ino-icon').forEach((e) => e.classList.add(CSS_CLASSES.MDC_BUTTON_ICON));
+  }
+
+  componentDidLoad() {
+    this.button = new MDCRipple(this.el.querySelector(SELECTORS.MDC_BUTTON));
   }
 
   componentWillUnload() {
@@ -167,7 +155,7 @@ export class Button implements ComponentInterface {
           type={this.type}
           form={this.form}
         >
-          <slot name="ino-icon-leading"/>
+          <slot name="ino-icon-leading"></slot>
           <div class="mdc-button__label">
             {this.inoLoading ?
               <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>
@@ -175,7 +163,7 @@ export class Button implements ComponentInterface {
               <slot></slot>
             }
           </div>
-          <slot name="ino-icon-trailing"/>
+          <slot name="ino-icon-trailing"></slot>
         </button>
       </Host>
     );

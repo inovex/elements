@@ -88,8 +88,8 @@ storiesOf('Buttons|<ino-button>', module)
         <ino-button disabled ino-fill="outline">Disabled outlined</ino-button>
         <ino-button ino-edge-mirrored="true">With mirrored edge</ino-button>
         <ino-button ino-dense="true">Dense</ino-button>
-        <ino-button ino-loading="true">Loading button</ino-button>
-        <ino-button ino-loading="true" ino-fill="outline">Loading button</ino-button>
+        <ino-button ino-loading="true"></ino-button>
+        <ino-button ino-loading="true" ino-fill="outline"></ino-button>
        </div>
        <ino-button ino-full-width>Full Width Button</ino-button>
     </div>

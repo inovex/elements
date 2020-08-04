@@ -106,11 +106,27 @@ class MyComponent extends Component {
 | `inoEdgeMirrored` | `ino-edge-mirrored` | Styles the button to have the edge on the top-right instead of the top-left                                                                                                                                                                               | `boolean`                                       | `false`     |
 | `inoFill`         | `ino-fill`          | The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.                                                                                                                                                                  | `"inverse" \| "outline" \| "solid"`             | `'solid'`   |
 | `inoFullWidth`    | `ino-full-width`    | Styles the button in 100% width.                                                                                                                                                                                                                          | `boolean`                                       | `false`     |
-| `inoIcon`         | `ino-icon`          | Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.                                                                                                                                        | `string`                                        | `undefined` |
-| `inoIconPrepend`  | `ino-icon-prepend`  | Prepends an icon after the text.                                                                                                                                                                                                                          | `boolean`                                       | `undefined` |
 | `inoLoading`      | `ino-loading`       | Shows an infinite loading spinner and prevents further clicks.                                                                                                                                                                                            | `boolean`                                       | `undefined` |
 | `name`            | `name`              | The name of the element.                                                                                                                                                                                                                                  | `string`                                        | `undefined` |
 | `type`            | `type`              | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`               | `'button'`  |
+
+
+## CSS Custom Properties
+
+| Name                                        | Description                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------- |
+| `--ino-button-color-primary`                | Color of the primary button                                             |
+| `--ino-button-color-primary-contrast`       | Contrast color of the primary button. Will be used for the text color   |
+| `--ino-button-color-primary-dark`           | Dark color of the primary button. Will be used for the active effect    |
+| `--ino-button-color-primary-light`          | Light color of the primary button. Will be used for the hover effect    |
+| `--ino-button-color-primary-shadow-dark`    | Shadow color of the primary button used on active                       |
+| `--ino-button-color-primary-shadow-light`   | Shadow color of the primary button used on hover                        |
+| `--ino-button-color-secondary`              | Color of the primary button                                             |
+| `--ino-button-color-secondary-contrast`     | Contrast color of the secondary button. Will be used for the text color |
+| `--ino-button-color-secondary-dark`         | Dark color of the secondary button. Will be used for the active effect  |
+| `--ino-button-color-secondary-light`        | Light color of the secondary button. Will be used for the hover effect  |
+| `--ino-button-color-secondary-shadow-dark`  | Shadow color of the secondary button used on active                     |
+| `--ino-button-color-secondary-shadow-light` | Shadow color of the secondary button used on hover                      |
 
 
 ## Dependencies
