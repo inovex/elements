@@ -155,7 +155,7 @@ export class Button implements ComponentInterface {
           type={this.type}
           form={this.form}
         >
-          <slot name="ino-icon-leading"></slot>
+          <slot name="ino-icon-leading"/>
           <div class="mdc-button__label">
             {this.inoLoading ?
               <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>
@@ -163,7 +163,7 @@ export class Button implements ComponentInterface {
               <slot></slot>
             }
           </div>
-          <slot name="ino-icon-trailing"></slot>
+          <slot name="ino-icon-trailing"/>
         </button>
       </Host>
     );
