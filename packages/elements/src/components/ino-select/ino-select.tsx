@@ -139,10 +139,13 @@ export class Select implements ComponentInterface {
       ''
     );
 
+    // Calulate fix width to prevent resize on option change
+    const initialWidth = this.el
+      .getBoundingClientRect().width.toString();
+
     return (
       <Host name={this.name}>
-        <div class={classSelect}>
-
+        <div class={classSelect} style={{ width: `${initialWidth}px` }}>
           <div class="mdc-select__anchor">
             <i class="mdc-select__dropdown-icon"/>
 
@@ -157,12 +160,11 @@ export class Select implements ComponentInterface {
               ino-disabled={this.disabled}
               ino-show-hint={this.inoShowLabelHint}
             />
-
           </div>
 
           <div class="mdc-select__menu mdc-menu mdc-menu-surface">
             <ul class="mdc-list">
-              <slot/>
+              <slot />
             </ul>
           </div>
         </div>
