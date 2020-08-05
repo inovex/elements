@@ -18,7 +18,7 @@ ino-select {
 
   input {
     opacity: 0;
-    width: 100%;
+    width: 95%; // 100% shows ellipsis in Chrome
     cursor: pointer;
   }
 
