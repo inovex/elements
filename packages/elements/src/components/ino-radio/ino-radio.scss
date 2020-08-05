@@ -3,8 +3,6 @@
 @use '@material/radio';
 @use 'styles/colors';
 
-$disabled-color: colors.ino-color(dark, light);
-
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
 0 12px 28px 0 rgba(61, 214, 245, 0.14);
@@ -17,12 +15,29 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 }
 
+:host {
+  /**
+   * @prop --ino-radio-unchecked-color: color of the radio if unchecked
+   * @prop --ino-radio-checked-color: color of the radio if checked
+   * @prop --ino-radio-hover-color: color of the radio on hover
+   * @prop --ino-radio-active-color: color of the radio if active
+   * @prop --ino-radio-disabled-inner-circle-color: color of the inner circle if disabled
+   * @prop --ino-radio-disabled-outer-circle-color: color of the outer circle if disabled
+   */
+  --radio-unchecked-color: var(--ino-radio-unchecked-color, #{colors.ino-color(light, dark)});
+  --radio-checked-color: var(--ino-radio-checked-color, #{colors.ino-color(primary)});
+  --radio-hover-color: var(--ino-radio-hover-color, #{colors.ino-color(primary, light)});
+  --radio-active-color: var(--ino-radio-active-color, #{colors.ino-color(primary, dark)});
+  --radio-disabled-inner-circle-color: var(--ino-radio-disabled-inner-circle-color, #{colors.ino-color(dark, light)});
+  --radio-disabled-outer-circle-color: var(--ino-radio-disabled-outer-circle-color, #{colors.ino-color(light, light)})
+}
+
 
 :host {
   .mdc-radio {
-    @include radio.unchecked-stroke-color(colors.ino-color(light, dark));
-    @include radio.checked-stroke-color(colors.ino-color(primary));
-    @include radio.ink-color(colors.ino-color(primary));
+    @include radio.unchecked-stroke-color(var(--radio-unchecked-color));
+    @include radio.checked-stroke-color(var(--radio-checked-color));
+    @include radio.ink-color(var(--radio-checked-color));
 
     &:before, &:after {
       display: none;
@@ -30,9 +45,9 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 
   :hover .mdc-radio:not(.mdc-radio--disabled) {
-    @include radio.unchecked-stroke-color(colors.ino-color(primary, light));
-    @include radio.checked-stroke-color(colors.ino-color(primary, light));
-    @include radio.ink-color(colors.ino-color(primary, light));
+    @include radio.unchecked-stroke-color(var(--radio-hover-color));
+    @include radio.checked-stroke-color(var(--radio-hover-color));
+    @include radio.ink-color(var(--radio-hover-color));
     @include animateInnerCircle(.45);
 
     .mdc-radio__outer-circle {
@@ -41,9 +56,9 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 
   :active .mdc-radio:not(.mdc-radio--disabled) {
-    @include radio.unchecked-stroke-color(colors.ino-color(primary, dark));
-    @include radio.checked-stroke-color(colors.ino-color(primary, dark));
-    @include radio.ink-color(colors.ino-color(primary, dark));
+    @include radio.unchecked-stroke-color(var(--radio-active-color));
+    @include radio.checked-stroke-color(var(--radio-active-color));
+    @include radio.ink-color(var(--radio-active-color));
     @include animateInnerCircle(.65);
 
     .mdc-radio__outer-circle {
@@ -52,16 +67,16 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 
   .mdc-radio--disabled {
-    @include radio.unchecked-stroke-color($disabled-color);
-    @include radio.checked-stroke-color($disabled-color);
-    @include radio.ink-color($disabled-color);
+    @include radio.unchecked-stroke-color(var(--radio-disabled-inner-circle-color));
+    @include radio.checked-stroke-color(var(--radio-disabled-inner-circle-color));
+    @include radio.ink-color(var(--radio-disabled-inner-circle-color));
 
     ~ label {
-      color: $disabled-color;
+      color: var(--radio-disabled-inner-circle-color);
     }
 
     .mdc-radio__outer-circle {
-      background-color: colors.ino-color(light, light);
+      background-color: var(--radio-disabled-outer-circle-color);
       border: none;
       box-shadow: none;
     }
@@ -74,9 +89,9 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 
 :host(.ino-checked-hover) .mdc-form-field .mdc-radio {
   @include animateInnerCircle(.25);
-  @include radio.unchecked-stroke-color(colors.ino-color(primary, light));
-  @include radio.checked-stroke-color(colors.ino-color(primary, light));
-  @include radio.ink-color(colors.ino-color(primary, light));
+  @include radio.unchecked-stroke-color(var(--radio-hover-color));
+  @include radio.checked-stroke-color(var(--radio-hover-color));
+  @include radio.ink-color(var(--radio-hover-color));
 }
 
 :host(ino-radio:not([checked="true"])) {
@@ -84,11 +99,11 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
     .mdc-radio__inner-circle {
       transform: scale(.45);
       -webkit-transform: scale(.45);
-      border-color: ino-color(primary, light) !important;
+      border-color: var(--radio-hover-color);
     }
 
     .mdc-radio__outer-circle {
-      border-color: ino-color(primary, light) !important;
+      border-color: var(--radio-hover-color);
     }
   }
 }
