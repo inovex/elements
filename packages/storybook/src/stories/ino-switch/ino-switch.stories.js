@@ -60,7 +60,7 @@ storiesOf('Input|<ino-switch>', module)
      <h4>Color Schemes</h4>
      <div class="ino-switch-colors">
         ${INO_COLOR_SCHEMES
-            .map(color => `<ino-switch ino-color-scheme="${color}" checked>${color}</ino-switch>`)
+            .map(color => `<ino-switch class="${color}" checked>${color}</ino-switch>`)
             .join()
             .replace(/,/g, '')
         }

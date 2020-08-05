@@ -120,6 +120,27 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                   | Description                               |
+| -------------------------------------- | ----------------------------------------- |
+| `--ino-switch-active-color`            | border color of the switch if active      |
+| `--ino-switch-active-thumb-color`      | thumb color of the switch if active       |
+| `--ino-switch-active-track-color`      | track color of the switch if active       |
+| `--ino-switch-disabled-color`          | border color of the switch if disabled    |
+| `--ino-switch-disabled-thumb-color`    | thumb color of the switch if disabled     |
+| `--ino-switch-disabled-track-color`    | track color of the switch if disabled     |
+| `--ino-switch-hover-color`             | border color of the switch on hover       |
+| `--ino-switch-hover-thumb-color`       | thumb color of the switch on hover        |
+| `--ino-switch-hover-track-color`       | track color of the switch on hover        |
+| `--ino-switch-toggled-off-color`       | border color of the switch if toggled off |
+| `--ino-switch-toggled-off-thumb-color` | thumb color of the switch if toggled off  |
+| `--ino-switch-toggled-off-track-color` | track color of the switch if toggled off  |
+| `--ino-switch-toggled-on-color`        | border color of the switch if toggled on  |
+| `--ino-switch-toggled-on-thumb-color`  | thumb color of the switch if toggled on   |
+| `--ino-switch-toggled-on-track-color`  | track color of the switch if toggled on   |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
