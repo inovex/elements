@@ -10,7 +10,7 @@ ino-option {
 
   .mdc-list-item {
 
-    min-height: 30px;
+    min-height: 30px; // display two lined options properly
 
     &.mdc-list-item--selected, &.mdc-list-item--activated {
       background-color: rgba(colors.ino-color(primary, base), 0.05);
