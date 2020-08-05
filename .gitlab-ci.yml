@@ -18,10 +18,10 @@ upload:
     - mkdir -p packages/storybook/dist/
     - unzip elements.zip -d packages/elements/dist/
     - unzip storybook.zip -d packages/storybook/dist/
-    - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME
-    - rsync -a packages/elements/dist/ /srv/webhost/dist/$CI_COMMIT_REF_NAME
-    - mkdir -p /srv/webhost/dist/$CI_COMMIT_REF_NAME/storybook
-    - rsync -a packages/storybook/dist/ /srv/webhost/dist/$CI_COMMIT_REF_NAME/storybook
+    - mkdir -p /srv/webhost/dist/$RELEASE_TAG
+    - rsync -a packages/elements/dist/ /srv/webhost/dist/$RELEASE_TAG
+    - mkdir -p /srv/webhost/dist/$RELEASE_TAG/storybook
+    - rsync -a packages/storybook/dist/ /srv/webhost/dist/$RELEASE_TAG/storybook
   tags:
     - elements
     - webhost
@@ -34,7 +34,7 @@ link-latest:
   stage: link-latest
   script:
     - cd /srv/webhost/dist
-    - ln -sfn $CI_COMMIT_REF_NAME latest
+    - ln -sfn $RELEASE_TAG latest
   tags:
     - elements
     - webhost

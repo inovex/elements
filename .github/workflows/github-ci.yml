@@ -78,18 +78,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Trigger update in GitLab
-        run: curl
-          --request POST
-          --header "PRIVATE-TOKEN:${{ secrets.GITLAB_ACCESS_TOKEN }}"
-          ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
-      - name: Wait for update
-        run: sleep 10
+      - name: Set tag as env
+        run: echo ::set-env name=RELEASE_VERSION::${GITHUB_REF#refs/*/}
       - name: Trigger Pipeline in GitLab
         run: curl
           --request POST
           --form token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
           --form ref="${{ github.ref }}"
           --form "variables[RUN_ID]=${{ github.run_id }}"
+          --form "variables[RELEASE_TAG]=${{ env.RELEASE_VERSION }}"
           ${{ secrets.GITLAB_URL_WITH_ID }}/trigger/pipeline
 
