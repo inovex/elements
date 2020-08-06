@@ -83,7 +83,7 @@ jobs:
         run: curl
           --request POST
           --form token="${{ secrets.GITLAB_RELEASE_TRIGGER_TOKEN }}"
-          --form ref="${{ github.ref }}"
+          --form ref="master"
           --form "variables[RUN_ID]=${{ github.run_id }}"
           --form "variables[RELEASE_TAG]=${{ env.RELEASE_VERSION }}"
           ${{ secrets.GITLAB_URL_WITH_ID }}/trigger/pipeline
