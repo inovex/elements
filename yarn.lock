@@ -3202,15 +3202,6 @@
     react-lifecycles-compat "^3.0.4"
     react-select "^3.0.8"
 
-"@storybook/addon-options@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.npmjs.org/@storybook/addon-options/-/addon-options-5.3.0.tgz#3198ea0fb03d2999b88e2e60d3c5e220b56599e2"
-  integrity sha512-oh/Bdj5SGBZ8s4/Um9KgPmUrZLHhZKs5EaeSbLoks4jO8zSl8dp+4RaBoQ5voXEe3jfN/PjrN7C+nrwRFAe8pw==
-  dependencies:
-    "@storybook/addons" "5.3.0"
-    core-js "^3.0.1"
-    util-deprecate "^1.0.2"
-
 "@storybook/addon-storysource@^5.3.0":
   version "5.3.19"
   resolved "https://registry.npmjs.org/@storybook/addon-storysource/-/addon-storysource-5.3.19.tgz#ae693e88db5d220cb256a9ef4a2366c300e8d88c"

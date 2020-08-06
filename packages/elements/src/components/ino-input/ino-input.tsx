@@ -320,9 +320,8 @@ export class Input implements ComponentInterface {
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
   private handleBlur = e => {
-    if (this.type === 'email' && this.value !== '') {
-      const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      emailPattern.test(this.value) ? this.textfield.valid = true : this.textfield.valid = false;
+    if (this.type === 'email') {
+      this.textfield.valid = this.nativeInputEl.checkValidity();
     }
     this.inoBlur.emit(e);
   };
@@ -344,10 +343,10 @@ export class Input implements ComponentInterface {
     const newValue = shouldIncrement ?
       formattedValue.add(stepWithFallback)
       :
-      formattedValue.subtract(stepWithFallback)
+      formattedValue.subtract(stepWithFallback);
 
     this.valueChange.emit(newValue.toString());
-  }
+  };
 
   private helperTextTemplate() {
 

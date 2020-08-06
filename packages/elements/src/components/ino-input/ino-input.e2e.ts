@@ -1,6 +1,7 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_INPUT = `<ino-input></ino-input>`;
+const INO_EMAIL_INPUT = `<ino-input type="email"></ino-input>`;
 const INO_INPUT_SELECTOR = 'ino-input';
 const INPUT_SELECTOR = 'ino-input > div > input';
 const DIV_SELECTOR = 'ino-input > div';
@@ -354,6 +355,105 @@ describe('InoInput', () => {
 
       const activeElement = await page.evaluate(() => document.activeElement);
       expect(activeElement).toEqual(emptyElement);
+    });
+  });
+
+  describe('Email validation', () => {
+    it('should mark the email as valid if the domain consists of multiple dots separated by at least one character', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@test.test.com';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).not.toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as valid if the domain comprises of two single characters separated by a dot', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@t.t';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).not.toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as invalid if it ends with a dot', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@d.';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as invalid if it does not contain an @ symbol',async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as invalid if it contains multiple @ symbols', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@@test';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as invalid if the domain contains multiple dots that are not separated by a character', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@test..com';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).toHaveClass('mdc-text-field--invalid');
+    });
+    it('should mark the email as invalid if it does not conform to the given pattern', async () => {
+      const page = await setupPageWithContent(INO_EMAIL_INPUT);
+      const inoInput = await page.find(INO_INPUT_SELECTOR);
+
+      await inoInput.setAttribute('pattern', '.+@inovex.de');
+      await page.waitForChanges();
+
+      await page.evaluate(async () => await document.querySelector('ino-input').focus());
+      await page.evaluate(async () => {
+        const nativeInputElement = await document.querySelector('ino-input').getInputElement();
+        nativeInputElement.value = 'test@inoflex.com';
+        nativeInputElement.blur();
+      });
+      await page.waitForChanges();
+
+      const div = await page.find(DIV_SELECTOR);
+      expect(div).toHaveClass('mdc-text-field--invalid');
     });
   });
 });
