@@ -343,10 +343,10 @@ export class Input implements ComponentInterface {
     const newValue = shouldIncrement ?
       formattedValue.add(stepWithFallback)
       :
-      formattedValue.subtract(stepWithFallback)
+      formattedValue.subtract(stepWithFallback);
 
     this.valueChange.emit(newValue.toString());
-  }
+  };
 
   private helperTextTemplate() {
 
