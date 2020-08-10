@@ -5,22 +5,35 @@
 @use 'styles/fonts';
 
 ino-tab {
+  /**
+   * @prop --ino-tab-states-color: sets the focus, hover, and ripple color of the tab
+   * @prop --ino-tab-active-color: sets the active color of the tab
+   * @prop --ino-tab-icon-color: sets the icon color of the tab
+   * @prop --ino-tab-line-color: sets the line color of the tab, if selected
+   */
+  --tab-states-color: var(--ino-tab-states-color, #{colors.$primary});
+  --tab-active-color: var(--ino-tab-active-color, #{colors.$primary});
+  --tab-icon-color: var(--ino-tab-icon-color, #{colors.$primary});
+  --tab-line-color: var(--ino-tab-line-color, #{colors.$primary});
+}
+
+ino-tab {
   .mdc-tab {
     @include fonts.ino-font(sans-serif, s, regular);
-    @include tab.active-text-label-color(colors.$primary);
-    @include tab.active-states-color(colors.$primary);
-    @include tab.states-color(colors.$primary);
+    @include tab.active-text-label-color(#{var(--tab-active-color)});
+    @include tab.active-states-color(#{var(--tab-active-color)});
+    @include tab.states-color(#{var(--tab-states-color)});
 
     ino-icon {
       --icon-color: buttontext;
     }
 
     &.mdc-tab--active ino-icon {
-      --icon-color: #{colors.ino-color(primary, base)}
+      --icon-color: var(--tab-icon-color);
     }
 
     .mdc-tab-indicator__content--underline {
-      border-color: colors.ino-color(primary, base);
+      border-color: var(--tab-line-color);
     }
   }
 

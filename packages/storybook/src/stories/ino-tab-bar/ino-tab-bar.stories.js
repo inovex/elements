@@ -47,38 +47,50 @@ storiesOf('Structure|<ino-tab-bar>', module)
     <div class="story-tab">
     <h4>Customizable ino-tab-bar</h4>
       <div>
-        <ino-tab-bar id="tab-bar-1" ino-active-tab="${number(
-      'ino-active-tab',
-      0
-    )}">
-          <ino-tab ino-label="Label1" ino-icon="user" ino-stacked="${boolean(
-      'ino-stacked',
-      false
-    )}" ino-indicator-content-width="${boolean(
-      'ino-indicator-content-width',
-      false
-    )}"></ino-tab>
-          <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean(
-      'ino-stacked',
-      false
-    )}" ino-indicator-content-width="${boolean(
-      'ino-indicator-content-width',
-      false
-    )}"></ino-tab>
-          <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean(
-      'ino-stacked',
-      false
-    )}" ino-indicator-content-width="${boolean(
-      'ino-indicator-content-width',
-      false
-    )}"></ino-tab>
-          <ino-tab ino-label="Label4" ino-icon="help" ino-stacked="${boolean(
-      'ino-stacked',
-      false
-    )}" ino-indicator-content-width="${boolean(
-      'ino-indicator-content-width',
-      false
-    )}"></ino-tab>
+        <style>
+        ino-tab.customizable-tab {
+            --tab-states-color: ${text('--tab-states-color', '#3d40f5', 'Custom Properties')};
+            --tab-active-color: ${text('--tab-active-color', '#3d40f5', 'Custom Properties')};
+            --tab-icon-color: ${text('--tab-icon-color', '#3d40f5', 'Custom Properties')};
+            --tab-line-color: ${text('--tab-line-color', '#3d40f5', 'Custom Properties')};
+        }
+        </style>
+        <ino-tab-bar
+          id="tab-bar-1"
+          ino-active-tab="${number('ino-active-tab', 0)}"
+        >
+          <ino-tab
+            class="customizable-tab"
+            ino-label="Label1"
+            ino-icon="user"
+            ino-stacked="${boolean('ino-stacked', false)}"
+            ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"
+          >
+          </ino-tab>
+          <ino-tab
+            class="customizable-tab"
+            ino-label="Label2"
+            ino-icon="info"
+            ino-stacked="${boolean('ino-stacked', false)}"
+            ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"
+          >
+          </ino-tab>
+          <ino-tab
+            class="customizable-tab"
+            ino-label="Label3"
+            ino-icon="star"
+            ino-stacked="${boolean('ino-stacked', false)}"
+            ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"
+          >
+          </ino-tab>
+          <ino-tab
+            class="customizable-tab"
+            ino-label="Label4"
+            ino-icon="help"
+            ino-stacked="${boolean('ino-stacked', false)}"
+            ino-indicator-content-width="${boolean('ino-indicator-content-width', false)}"
+          >
+          </ino-tab>
         </ino-tab-bar>
       </div>
       <h4>Stacked</h4>
