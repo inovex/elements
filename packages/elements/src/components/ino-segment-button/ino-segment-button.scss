@@ -94,7 +94,9 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   @include button.shape-radius($left-right-segment-border);
 }
 
-:host(:hover), :host(:active), :host([checked]) {
+:host(:hover:not(.ino-segment-button--disabled)),
+:host(:active):not(.ino-segment-button--disabled),
+:host([checked]:not(.ino-segment-button--disabled)) {
   button.belongs-to-group {
     border-right: 1px solid;
   }

@@ -5,5 +5,6 @@ export const CSS_CLASSES = {
   OUTLINED: 'mdc-button--outlined',
   INO_SEGMENT_BUTTON_ACTIVE: 'ino-segment-button--active',
   DENSE: 'ino-segment-button--dense',
-  BELONGS_TO_GROUP: 'belongs-to-group'
+  BELONGS_TO_GROUP: 'belongs-to-group',
+  DISABLED: 'ino-segment-button--disabled'
 };
