@@ -67,6 +67,16 @@ class MyComponent extends Component {
 | `checkedChange` | Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                  | Description                             |
+| ------------------------------------- | --------------------------------------- |
+| `--ino-segment-button-active-color`   | color of the segment button if active   |
+| `--ino-segment-button-color`          | color of the segment button if inactive |
+| `--ino-segment-button-disabled-color` | color of the segment button if disabled |
+| `--ino-segment-button-hover-color`    | color of the segment button on hover    |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
