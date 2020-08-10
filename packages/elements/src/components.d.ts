@@ -42,6 +42,14 @@ export namespace Components {
          */
         "inoFullWidth"?: boolean;
         /**
+          * If enabled, prepends the slotted icon to the button label
+         */
+        "inoIconLeading": boolean;
+        /**
+          * If enabled, appends the slotted icon to the button label
+         */
+        "inoIconTrailing": boolean;
+        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
         "inoLoading"?: boolean;
@@ -1453,6 +1461,14 @@ declare namespace LocalJSX {
           * Styles the button in 100% width.
          */
         "inoFullWidth"?: boolean;
+        /**
+          * If enabled, prepends the slotted icon to the button label
+         */
+        "inoIconLeading"?: boolean;
+        /**
+          * If enabled, appends the slotted icon to the button label
+         */
+        "inoIconTrailing"?: boolean;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */

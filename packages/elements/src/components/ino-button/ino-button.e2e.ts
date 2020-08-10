@@ -2,6 +2,18 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_BUTTON = `<ino-button></ino-button>`;
 
+const INO_BTN_WITH_LEADING_ICON = `
+  <ino-button ino-icon-leading>
+    <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
+  </ino-button>
+`;
+
+const INO_BTN_WITH_TRAILING_ICON = `
+  <ino-button ino-icon-trailing>
+    <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
+  </ino-button>
+`;
+
 describe('InoButton', () => {
   it('should render with default values', async () => {
     const page = await setupPageWithContent(INO_BUTTON);
@@ -98,6 +110,20 @@ describe('InoButton', () => {
       await page.waitForChanges();
       const mdcButtonEl = await inoButtonEl.find('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'submit');
+    });
+
+    it('should render with a leading icon', async () => {
+      const page = await setupPageWithContent(INO_BTN_WITH_LEADING_ICON);
+
+      const icon = await page.find('ino-icon');
+      expect(icon).toBeTruthy();
+    });
+
+    it('should render with a trailing icon', async () => {
+      const page = await setupPageWithContent(INO_BTN_WITH_TRAILING_ICON);
+
+      const icon = await page.find('ino-icon');
+      expect(icon).toBeTruthy();
     });
   });
 });

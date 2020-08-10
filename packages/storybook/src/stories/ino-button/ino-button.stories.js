@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/html';
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
+import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 
 import './ino-button.scss';
@@ -42,6 +43,8 @@ storiesOf('Buttons|<ino-button>', module)
           'General'
           )}"
         ino-fill="${select('ino-fill', ['solid', 'outline', 'inverse'], 'solid', 'General')}"
+        ino-icon="${select('ino-icon', ICONS, 'Add', 'Icon')}"
+        ino-icon-prepend="${boolean('ino-icon-prepend', false, 'Icon')}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
         ino-full-width="${boolean('ino-full-width', false, 'General')}"
         disabled="${boolean('disabled', false, 'General')}"
@@ -70,12 +73,12 @@ storiesOf('Buttons|<ino-button>', module)
       </div>
 
       <h4>With icons</h4>
-      <ino-button ino-icon="info">
-        <ino-icon slot="ino-icon-leading" ino-icon="info"></ino-icon>
+      <ino-button ino-icon-leading>
+        <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
         Button Icon left
       </ino-button>
-      <ino-button ino-icon="info">
-        <ino-icon slot="ino-icon-trailing" ino-icon="info"></ino-icon>
+      <ino-button ino-icon-trailing>
+        <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
         Button Icon right
       </ino-button>
 
@@ -85,8 +88,8 @@ storiesOf('Buttons|<ino-button>', module)
         <ino-button disabled ino-fill="outline">Disabled outlined</ino-button>
         <ino-button ino-edge-mirrored="true">With mirrored edge</ino-button>
         <ino-button ino-dense="true">Dense</ino-button>
-        <ino-button ino-loading="true"></ino-button>
-        <ino-button ino-loading="true" ino-fill="outline"></ino-button>
+        <ino-button ino-loading="true">Loading button</ino-button>
+        <ino-button ino-loading="true" ino-fill="outline">Loading button</ino-button>
        </div>
        <ino-button ino-full-width>Full Width Button</ino-button>
     </div>
