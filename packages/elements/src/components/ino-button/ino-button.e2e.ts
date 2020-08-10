@@ -21,7 +21,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     expect(inoButtonEl).not.toBeNull();
 
-    const mdcButtonEl = await inoButtonEl.find('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toEqualAttribute('type', 'button');
     expect(mdcButtonEl).toHaveClasses(['mdc-button', 'mdc-button--unelevated']);
   });
@@ -32,7 +32,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     inoButtonEl.setAttribute('ino-dense', true);
     await page.waitForChanges();
-    const mdcButtonEl = await inoButtonEl.find('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toHaveClass('ino-button--dense');
   });
 
@@ -42,7 +42,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     inoButtonEl.setAttribute('disabled', true);
     await page.waitForChanges();
-    const mdcButtonEl = await inoButtonEl.find('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toHaveAttribute('disabled');
   });
 
@@ -53,7 +53,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'solid');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--unelevated');
     });
 
@@ -63,7 +63,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'outline');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--outlined');
     });
 
@@ -73,7 +73,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'inverse');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).not.toHaveClasses([
         'mdc-button--outlined',
         'mdc-button--raised'
@@ -88,7 +88,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'button');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'button');
     });
 
@@ -98,7 +98,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'reset');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'reset');
     });
 
@@ -108,7 +108,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'submit');
       await page.waitForChanges();
-      const mdcButtonEl = await inoButtonEl.find('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'submit');
     });
 

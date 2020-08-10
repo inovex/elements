@@ -3,7 +3,7 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 const INO_INPUT_FILE = `<ino-input-file></ino-input-file>`;
 const INPUT_FILE_SELECTOR = 'ino-input-file';
 const INPUT_SELECTOR = 'ino-input-file input';
-const BTN_SELECTOR = 'ino-input-file ino-button button';
+const BTN_SELECTOR = 'ino-input-file ino-button >>> button';
 
 describe('InoInputFile', () => {
   it('should render with default values', async () => {
