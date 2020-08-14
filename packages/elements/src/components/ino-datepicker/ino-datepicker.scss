@@ -28,6 +28,8 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
+  width: 358px;
+  height: 276px;
 
   &::before, &::after {
     display: none;
@@ -46,7 +48,7 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
   }
 
   .flatpickr-innerContainer {
-    margin: 0 20px 15px 20px;
+    margin: 0 11px 32px 11px;
 
     .flatpickr-day {
       border-width: 0;
@@ -80,13 +82,18 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
     display: flex;
     flex-wrap: wrap;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 
     .flatpickr-monthSelect-month {
 
       width: 30%;
-      margin: 3px;
+      margin: 5px;
       border-radius: 20px;
+      width: 100px;
+      height: 30px;
+      line-height: 10px;
+      padding-left: 17px;
+      text-align: left;
 
       &.selected {
         background-color: colors.ino-color(primary);
@@ -101,12 +108,16 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
   }
 
   .flatpickr-months {
-    margin: 15px 20px 0 20px;
+    margin: 22px auto;
+    height: 40px;
+    max-width: 264px;
 
     .flatpickr-month {
       .cur-month, .numInput {
         @include fonts.ino-font-weight(regular);
       }
+      border-bottom: 1px solid #C0C0CD;
+      max-width: 200px;
     }
 
     // Keep layout working when arrow hidden
@@ -116,11 +127,17 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
     }
 
     .flatpickr-prev-month {
-      margin-left: 10px;
+      padding-left: 0px;
+      padding-right: 20px;
+      display: inline-flex;
+      align-items: center;
     }
 
     .flatpickr-next-month {
-      margin-right: 10px;
+      padding-right: 0px;
+      padding-left: 20px;
+      display: inline-flex;
+      align-items: center;
     }
 
     .flatpickr-prev-month, .flatpickr-next-month {
