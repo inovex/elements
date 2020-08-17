@@ -2,6 +2,21 @@
 @use 'styles/colors';
 
 ino-option {
+  /**
+   * @prop --ino-option-color: text color
+   * @prop --ino-option-background-color: background color
+   * @prop --ino-option-background-color-hover: background color on hover
+   * @prop --ino-option-background-color-focus: background color on focus
+   * @prop --ino-option-background-color-active: background color if active
+   */
+  --option-color: var(--ino-option-color, #{colors.$primary});
+  --option-background-color: var(--ino-option-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
+  --option-background-color-hover: var(--ino-option-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
+  --option-background-color-focus: var(--ino-option-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
+  --option-background-color-active: var(--ino-option-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+}
+
+ino-option {
 
   .mdc-list-item--disabled {
     pointer-events: none;
@@ -15,23 +30,23 @@ ino-option {
     height: auto;
 
     &.mdc-list-item--selected, &.mdc-list-item--activated {
-      background-color: rgba(colors.ino-color(primary, base), 0.05);
-      color: colors.$primary;
+      background-color: var(--option-background-color);
+      color: var(--option-color);
 
       &::before, &::after {
         display: none;
       }
 
       &:hover {
-        background-color: rgba(colors.ino-color(primary, base), 0.1);
+        background-color: var(--option-background-color-hover);
       }
 
       &:focus {
-        background-color: rgba(colors.ino-color(primary, base), 0.15);
+        background-color: var(--option-background-color-focus);
       }
 
       &:active {
-        background-color: rgba(colors.ino-color(primary, base), 0.3);
+        background-color: var(--option-background-color-active);
       }
     }
   }

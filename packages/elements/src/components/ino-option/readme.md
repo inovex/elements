@@ -29,6 +29,17 @@ The component can be used as follows:
 | `value` _(required)_ | `value`    | Value of the option | `string`  | `undefined` |
 
 
+## CSS Custom Properties
+
+| Name                                   | Description                |
+| -------------------------------------- | -------------------------- |
+| `--ino-option-background-color`        | background color           |
+| `--ino-option-background-color-active` | background color if active |
+| `--ino-option-background-color-focus`  | background color on focus  |
+| `--ino-option-background-color-hover`  | background color on hover  |
+| `--ino-option-color`                   | text color                 |
+
+
 ## Dependencies
 
 ### Used by
