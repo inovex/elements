@@ -37,7 +37,6 @@ The component can be used as follows:
 | `--ino-option-background-color-active` | background color if active |
 | `--ino-option-background-color-focus`  | background color on focus  |
 | `--ino-option-background-color-hover`  | background color on hover  |
-| `--ino-option-color`                   | text color                 |
 
 
 ## Dependencies
