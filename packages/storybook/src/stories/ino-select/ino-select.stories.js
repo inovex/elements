@@ -142,7 +142,6 @@ export const Forms = () => /*html*/ `
 export const SelectOptions = () => /*html*/ `
     <style>
         ino-option.customizable-option {
-          --option-color: ${text('--option-color', 'rgba(61, 64, 245, 1)', 'Custom Properties')};
           --option-background-color: ${text('--option-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
           --option-background-color-hover: ${text('--option-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
           --option-background-color-focus: ${text('--option-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
@@ -150,14 +149,16 @@ export const SelectOptions = () => /*html*/ `
         }
     </style>
     <h4>Customizable option</h4>
-    <ino-select ino-label="Customizable option" class="customizable-option">
+    <ino-select ino-label="Customizable option">
         <ino-option
+            class="customizable-option"
             disabled="${boolean('disabled', false)}"
             value="${text('value', 'Content')}"
         >
             Content
         </ino-option>
         <ino-option
+            class="customizable-option"
             disabled="${boolean('disabled', false)}"
             value="${text('value', 'Content')}"
         >
