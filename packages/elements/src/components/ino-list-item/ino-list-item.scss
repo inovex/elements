@@ -2,6 +2,21 @@
 @use 'styles/colors';
 
 ino-list-item {
+  /**
+   * @prop --ino-list-item-color: text color
+   * @prop --list-item-selected-background-color background color of a selected list item
+   * @prop --list-item-selected-background-color-hover background color of a selected list item on hover
+   * @prop --list-item-selected-background-color-active background color of a selected list item if active
+   * @prop --list-item-selected-background-color-focus background color of a selected list item if focused
+   */
+  --list-item-color: var(--ino-list-item-color, #{colors.$primary});
+  --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
+  --list-item-selected-background-color-hover: var(--ino-list-item-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
+  --list-item-selected-background-color-active: var(--ino-list-item-selected-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+  --list-item-selected-background-color-focus: var(--ino-list-item-selected-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
+}
+
+ino-list-item {
   display: block;
 
   .ino-list-item__icon {
@@ -19,23 +34,23 @@ ino-list-item {
 
   .mdc-list-item {
     &.mdc-list-item--selected, &.mdc-list-item--activated {
-      background-color: rgba(colors.ino-color(primary, base), 0.05);
-      color: colors.$primary;
+      background-color: var(--list-item-selected-background-color);
+      color: var(--list-item-color);
 
       &::before, &::after {
         display: none;
       }
 
       &:hover {
-        background-color: rgba(colors.ino-color(primary, base), 0.1);
+        background-color: var(--list-item-selected-background-color-hover);
       }
 
       &:focus {
-        background-color: rgba(colors.ino-color(primary, base), 0.15);
+        background-color: var(--list-item-selected-background-color-focus);
       }
 
       &:active {
-        background-color: rgba(colors.ino-color(primary, base), 0.3);
+        background-color: var(--list-item-selected-background-color-active);
       }
     }
   }

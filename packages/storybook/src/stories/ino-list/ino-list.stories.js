@@ -138,7 +138,17 @@ export const ListItem = () => /*html*/ `
 <div class="story-list">
   <h4>Customizable list item</h4>
   <ino-list ino-two-lines="${boolean('ino-two-lines (on ino-list)', true)}">
+    <style>
+      ino-list-item.customizable-list-item {
+        --list-item-color: ${text('--list-item-color', '#3d40f5', 'Custom Properties')};
+        --list-item-selected-background-color: ${text('--list-item-selected-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
+        --list-item-selected-background-color-hover: ${text('--list-item-selected-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
+        --list-item-selected-background-color-active: ${text('--list-item-selected-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
+        --list-item-selected-background-color-focus: ${text('--list-item-selected-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
+      }
+    </style>
     <ino-list-item
+      class="customizable-list-item"
       ino-secondary-text="${text('ino-secondary-text', 'Second line text')}"
       ino-selected="${boolean('ino-selected', false)}"
       ino-activated="${boolean('ino-activated', false)}"

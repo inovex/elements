@@ -61,6 +61,17 @@ document
 | `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                                                                              | Description |
+| ------------------------------------------------------------------------------------------------- | ----------- |
+| `--ino-list-item-color`                                                                           | text color  |
+| `--list-item-selected-background-color background color of a selected list item`                  |             |
+| `--list-item-selected-background-color-active background color of a selected list item if active` |             |
+| `--list-item-selected-background-color-focus background color of a selected list item if focused` |             |
+| `--list-item-selected-background-color-hover background color of a selected list item on hover`   |             |
+
+
 ## Dependencies
 
 ### Used by
