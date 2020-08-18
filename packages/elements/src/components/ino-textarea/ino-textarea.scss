@@ -3,14 +3,25 @@
 @use 'styles/colors';
 
 ino-textarea {
+  /**
+   * @prop --ino-textarea-outline-color: outline color of the textarea
+   * @prop --ino-textarea-caret-color: color of the caret
+   * @prop --ino-textarea-label-color: color of the label
+   */
+  --textarea-outline-color: var(--ino-textarea-outline-color, #{colors.$primary});
+  --textarea-caret-color: var(--ino-textarea-caret-color, #{colors.$primary});
+  --textarea-label-color: var(--ino-textarea-label-color, #{colors.$primary});
+}
+
+ino-textarea {
   display: block;
 
   .mdc-text-field {
-    @include textfield.focused-outline-color(colors.ino-color(primary, base));
+    @include textfield.focused-outline-color(var(--textarea-outline-color));
 
     &.mdc-text-field--focused:not(.mdc-text-field--invalid) {
-      @include textfield.caret-color(colors.ino-color(primary, base));
-      @include textfield.label-color(colors.ino-color(primary, base));
+      @include textfield.caret-color(var(--textarea-caret-color));
+      @include textfield.label-color(var(--textarea-label-color));
     }
   }
 }

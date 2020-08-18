@@ -48,6 +48,13 @@ storiesOf('Input|<ino-textarea>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-textarea">
+        <style>
+          ino-textarea.customizable-textarea {
+            --textarea-outline-color: ${text('--textarea-outline-color', '#3d40f5', 'Custom Properties')};
+            --textarea-caret-color: ${text('--textarea-caret-color', '#3d40f5', 'Custom Properties')};
+            --textarea-label-color: ${text('--textarea-label-color', '#3d40f5', 'Custom Properties')};
+          }
+      </style>
       <ino-textarea class="customizable-textarea"
         cols="${number('cols', 60)}"
         rows="${number('rows', 5)}"
