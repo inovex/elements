@@ -13,21 +13,27 @@ storiesOf('Buttons|<ino-fab>', module)
   .add('Default usage', () => /*html*/`
     <div class="story-fab">
     <h4>Customizable Fab</h4>
+     <style>
+          ino-fab.customizable-fab {
+            --fab-color: ${text('--fab-color', '#ffffff', 'Custom Properties')};
+            --fab-background-color: ${text('--fab-background-color', '#3d40f5', 'Custom Properties')};
+            --fab-background-color-hover: ${text('--fab-background-color-hover', '#5d60f7', 'Custom Properties')};
+            --fab-background-color-active: ${text('--fab-background-color-active', '#0d10f3', 'Custom Properties')};
+            --fab-icon-color: ${text('--fab-icon-color', '#ffffff', 'Custom Properties')};
+            --fab-color-disabled: ${text('--fab-color-disabled', '#ffffff', 'Custom Properties')};
+            --fab-background-color-disabled: ${text('--fab-background-color-disabled', '#9d9d9d', 'Custom Properties')};
+            --fab-icon-color-disabled: ${text('--fab-icon-color-disabled', '#ffffff', 'Custom Properties')};
+          }
+      </style>
       <ino-fab
-      ino-color-scheme="${select(
-    'ino-color-scheme',
-    ['', 'primary', 'secondary', 'success', 'warning',
-      'error', 'light', 'dark'
-    ],
-    'primary'
-  )}"
-      ino-edge-position="${select('ino-edge-position',
-    ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'], 'top-left')}"
-      ino-icon="${select('ino-leading-icon', ICONS, 'add')}"
-      ino-label="${text('ino-label', 'Label')}"
-      ino-extended="${boolean('ino-extended', false)}"
-      ino-disabled="${boolean('ino-disabled', false)}"
-      ino-mini="${boolean('ino-mini', false)}"></ino-fab>
+        class="customizable-fab"
+        ino-edge-position="${select('ino-edge-position', ['    top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'], 'top-left')}"
+        ino-icon="${select('ino-leading-icon', ICONS, 'add')}"
+        ino-label="${text('ino-label', 'Label')}"
+        ino-extended="${boolean('ino-extended', false)}"
+        ino-disabled="${boolean('ino-disabled', false)}"
+        ino-mini="${boolean('ino-mini', false)}">
+    </ino-fab>
 
     <h4>Variants</h4>
       <div class="ino-fab-variants">

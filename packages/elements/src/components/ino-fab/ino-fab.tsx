@@ -3,8 +3,6 @@ import { Component, ComponentInterface, Element, Host, Listen, Prop, h } from '@
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
 
-import { ColorScheme } from '../types';
-
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
@@ -50,14 +48,6 @@ export class Fab implements ComponentInterface {
    * Use `none`, if you don't want a tooltip to be displayed.
    */
   @Prop() inoTooltipPlacement: Placement | 'none' = 'left';
-
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   @Listen('click')
   clickHandler(e) {

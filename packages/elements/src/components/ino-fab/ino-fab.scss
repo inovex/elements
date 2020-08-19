@@ -21,25 +21,6 @@ $extended-edged-borders: (
   bottom-left: 24px 24px 24px 0
 );
 
-@mixin setColorsPerState($map) {
-  .mdc-fab {
-    @include fab.ink-color(map-get($map, contrast));
-    @include fab.container-color(map-get($map, base));
-
-    &:hover {
-      @include fab.container-color(map-get($map, light));
-    }
-
-    &:active, &:after {
-      @include fab.container-color(map-get($map, dark));
-    }
-
-    ::slotted(ino-icon), ino-icon {
-      --icon-color: #{map-get($map, contrast)};
-    }
-  }
-}
-
 @mixin setEdgedBorders($position) {
   &:not(.mdc-fab--extended) {
     border-radius: map_get($edged-borders, $position);
@@ -52,16 +33,25 @@ $extended-edged-borders: (
   }
 }
 
-// Default color scheme
-:host(:not([ino-color-scheme])) {
-  @include setColorsPerState(map-get(colors.$ino-color-scheme, primary));
-}
-
-// Generate ino-color-scheme classes
-@each $color-name, $map in colors.$ino-color-scheme {
-  :host([ino-color-scheme='#{$color-name}']) {
-    @include setColorsPerState($map);
-  }
+:host {
+  /**
+   * @prop --ino-fab-color: text color
+   * @prop --fab-background-color: background color
+   * @prop --fab-background-color-hover: background color on hover
+   * @prop --fab-background-color-active: background color if active
+   * @prop --fab-icon-color: color of the slotted icon
+   * @prop --fab-color-disabled: text color if disabled
+   * @prop --fab-background-color-disabled: background color if disabled
+   * @prop --fab-icon-color-disabled: color of the slotted icon if disabled
+   */
+  --fab-color: var(--ino-fab-color, #fff);
+  --fab-background-color: var(--ino-fab-background-color, #{colors.$primary});
+  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{colors.$primary-light});
+  --fab-background-color-active: var(--ino-fab-background-color-active, #{colors.$primary-dark});
+  --fab-icon-color: var(--ino-fab-icon-color, #fff);
+  --fab-color-disabled: var(--ino-fab-color-disabled, #fff);
+  --fab-background-color-disabled: var(--ino-background-color-disabled, #{colors.ino-color(dark, light)});
+  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #fff);
 }
 
 // Default Edge
@@ -73,6 +63,33 @@ $extended-edged-borders: (
 @each $position in $edge-positions {
   :host([ino-edge-position="#{$position}"]) .mdc-fab {
     @include setEdgedBorders($position);
+  }
+}
+/*** colors ***/
+:host .mdc-fab {
+  @include fab.ink-color(var(--fab-color));
+  @include fab.container-color(var(--fab-background-color));
+
+  &:hover {
+    @include fab.container-color(var(--fab-background-color-hover));
+  }
+
+  &:active, &:after {
+    @include fab.container-color(var(--fab-background-color-active));
+  }
+
+  &:disabled {
+    @include fab.ink-color(var(--fab-color-disabled));
+    @include fab.container-color(var(--fab-background-color-disabled));
+    pointer-events: none;
+
+    ::slotted(ino-icon), ino-icon {
+      --icon-color: var(--fab-icon-color-disabled);
+    }
+  }
+
+  ::slotted(ino-icon), ino-icon {
+    --icon-color: var(--fab-icon-color);
   }
 }
 
@@ -97,16 +114,6 @@ $extended-edged-borders: (
 
     &:active {
       box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
-    }
-
-    &:disabled {
-      @include fab.ink-color(white);
-      @include fab.container-color(colors.ino-color(dark, light));
-      pointer-events: none;
-
-      ::slotted(ino-icon), ino-icon {
-        --icon-color: white;
-      }
     }
   }
 }
