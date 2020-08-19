@@ -51,6 +51,14 @@ storiesOf('Input|<ino-input>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-input">
+      <style>
+          ino-input.customizable-input {
+            --input-caret-color: ${text('--input-caret-color', '#3d40f5', 'Custom Properties')};
+            --input-label-color: ${text('--input-label-color', '#3d40f5', 'Custom Properties')};
+            --input-line-color: ${text('--input-line-color', '#3d40f5', 'Custom Properties')};
+            --input-icon-color: ${text('--input-icon-color', '#3d40f5', 'Custom Properties')};
+          }
+      </style>
       <ino-input class="customizable-input" id="customizable-input" valueChange={action('value-changes')}
         type="${select(
           'type',

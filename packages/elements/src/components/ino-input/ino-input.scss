@@ -24,6 +24,19 @@ $placeholder-color: rgba(0, 0, 0, 0.6);
 }
 
 ino-input {
+  /**
+   * @prop --ino-input-caret-color: color of the caret
+   * @prop --ino-input-label-color: color of the label
+   * @prop --ino-input-line-color: line color
+   * @prop --ino-input-icon-color: icon color
+   */
+  --input-caret-color: var(--ino-input-caret-color, #{colors.$primary});
+  --input-label-color: var(--ino-input-label-color, #{colors.$primary});
+  --input-line-color: var(--ino-input-line-color, #{colors.$primary});
+  --input-icon-color: var(--ino-input-icon-color, #{colors.$primary});
+}
+
+ino-input {
 
   display: block;
   @include icon.icon-core-styles;
@@ -43,19 +56,19 @@ ino-input {
 
   .mdc-text-field {
 
-    @include textfield.focused-outline-color(colors.ino-color(primary, base));
+    @include textfield.focused-outline-color(var(--input-line-color));
 
     ino-icon {
       --icon-color: #{$placeholder-color};
     }
 
     &--focused:not(.mdc-text-field--invalid) {
-      @include textfield.label-color(colors.ino-color(primary, base));
-      @include textfield.caret-color(colors.ino-color(primary, base));
-      @include textfield.line-ripple-color(colors.ino-color(primary, base));
+      @include textfield.label-color(var(--input-label-color));
+      @include textfield.caret-color(var(--input-caret-color));
+      @include textfield.line-ripple-color(var(--input-line-color));
 
       ino-icon {
-        --icon-color: #{colors.ino-color(primary, base)};
+        --icon-color: var(--input-icon-color);
       }
     }
 
