@@ -161,6 +161,10 @@ $color-states: (
         0.3s
     );
 
+    .mdc-button__icon {
+      display: flex;
+    }
+
     &:before, &:after {
       display: none; // Remove Ripple
     }

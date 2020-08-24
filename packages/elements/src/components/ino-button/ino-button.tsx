@@ -166,7 +166,7 @@ export class Button implements ComponentInterface {
           form={this.form}
         >
           {this.inoIconLeading && (
-            <span class={CSS_CLASSES.MDC_BUTTON_ICON} style={{"display": "flex"}}>
+            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
               <slot name="ino-icon-leading"/>
             </span>
           )}
@@ -178,7 +178,7 @@ export class Button implements ComponentInterface {
             }
           </div>
           {this.inoIconTrailing && (
-            <span class={CSS_CLASSES.MDC_BUTTON_ICON} style={{"display": "flex"}}>
+            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
               <slot name="ino-icon-trailing"/>
             </span>
           )}
