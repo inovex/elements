@@ -44,14 +44,14 @@ $extended-edged-borders: (
    * @prop --fab-background-color-disabled: background color if disabled
    * @prop --fab-icon-color-disabled: color of the slotted icon if disabled
    */
-  --fab-color: var(--ino-fab-color, #fff);
+  --fab-color: var(--ino-fab-color, #{colors.$white});
   --fab-background-color: var(--ino-fab-background-color, #{colors.$primary});
   --fab-background-color-hover: var(--ino-fab-background-color-hover, #{colors.$primary-light});
   --fab-background-color-active: var(--ino-fab-background-color-active, #{colors.$primary-dark});
-  --fab-icon-color: var(--ino-fab-icon-color, #fff);
-  --fab-color-disabled: var(--ino-fab-color-disabled, #fff);
+  --fab-icon-color: var(--ino-fab-icon-color, #{colors.$white});
+  --fab-color-disabled: var(--ino-fab-color-disabled, #{colors.$white});
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{colors.ino-color(dark, light)});
-  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #fff);
+  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{colors.$white});
 }
 
 // Default Edge
