@@ -45,6 +45,7 @@ link-latest:
 publish-npm:
   stage: deploy
   script:
+    - yarn install
     - yarn config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
     - yarn lerna publish from-package --yes
   tags:
