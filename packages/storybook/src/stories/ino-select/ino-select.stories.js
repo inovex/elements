@@ -34,7 +34,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-select>', module)
+storiesOf('Input/<ino-select>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(
     withActions('valueChange .customizable-select', 'submit .form')
@@ -139,7 +139,7 @@ storiesOf('Input|<ino-select>', module)
   `
   );
 
-storiesOf('Input|<ino-select>', module)
+storiesOf('Input/<ino-select>', module)
   .addDecorator(withStencilReadme(optionComponentReadme))
   .add('Select options', () => /*html*/ `
     <h4>Customizable option</h4>
@@ -164,7 +164,7 @@ storiesOf('Input|<ino-select>', module)
     </ino-select>
   `);
 
-storiesOf('Input|<ino-select>', module)
+storiesOf('Input/<ino-select>', module)
   .addDecorator(withStencilReadme(optionGroupComponentReadme))
   .add('Option Group', () => /*html*/ `
     <h4>Option Group Example</h4>

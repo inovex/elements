@@ -9,7 +9,7 @@ import './ino-spinner.scss';
 
 
 
-storiesOf('Notification|<ino-spinner>', module)
+storiesOf('Notification/<ino-spinner>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-spinner">

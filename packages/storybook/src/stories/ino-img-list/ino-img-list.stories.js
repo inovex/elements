@@ -15,7 +15,7 @@ import trondheimImg from '_local-assets/images/trondheim.jpg';
 import waterfallImg from '_local-assets/images/waterfall.jpg';
 
 
-storiesOf('Graphic|<ino-img-list>', module)
+storiesOf('Graphic/<ino-img-list>', module)
   .addDecorator(withStencilReadme(imgListReadme))
   .addDecorator(withActions(
     'click .customizable-img-list'

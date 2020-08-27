@@ -34,7 +34,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-input-file>', module)
+storiesOf('Input/<ino-input-file>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('changeFile .customizable-input'))
   .addDecorator(story => {

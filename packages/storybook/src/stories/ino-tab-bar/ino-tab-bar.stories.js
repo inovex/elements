@@ -32,7 +32,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure|<ino-tab-bar>', module)
+storiesOf('Structure/<ino-tab-bar>', module)
   .addDecorator(withStencilReadme(tabBarReadme))
   .addDecorator(withActions('activeTabChange ino-tab-bar'))
   .addDecorator(story => {
@@ -131,7 +131,7 @@ storiesOf('Structure|<ino-tab-bar>', module)
   `
   );
 
-storiesOf('Structure|<ino-tab-bar>', module)
+storiesOf('Structure/<ino-tab-bar>', module)
   .addDecorator(withStencilReadme(tabReadme))
   .add(
     'Tab',

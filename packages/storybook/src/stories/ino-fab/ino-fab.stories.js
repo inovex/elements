@@ -8,7 +8,7 @@ import componentReadme from '_local-elements/src/components/ino-fab/readme.md';
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 import './ino-fab.scss';
 
-storiesOf('Buttons|<ino-fab>', module)
+storiesOf('Buttons/<ino-fab>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-fab">

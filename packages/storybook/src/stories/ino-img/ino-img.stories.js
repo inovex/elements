@@ -9,7 +9,7 @@ import './ino-img.scss';
 
 
 
-storiesOf('Graphic|<ino-img>', module)
+storiesOf('Graphic/<ino-img>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-img">

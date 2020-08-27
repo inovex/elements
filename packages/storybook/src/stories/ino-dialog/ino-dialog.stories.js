@@ -44,7 +44,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('structure|<ino-dialog>', module)
+storiesOf('structure/<ino-dialog>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons

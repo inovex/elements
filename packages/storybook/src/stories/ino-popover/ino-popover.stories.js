@@ -7,7 +7,7 @@ import componentReadme from '_local-elements/src/components/ino-popover/readme.m
 import './ino-popover.scss';
 
 
-storiesOf('Notification|<ino-popover>', module)
+storiesOf('Notification/<ino-popover>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-popover">

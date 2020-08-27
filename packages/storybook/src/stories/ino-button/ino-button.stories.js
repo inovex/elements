@@ -9,7 +9,7 @@ import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 import './ino-button.scss';
 
-storiesOf('Buttons|<ino-button>', module)
+storiesOf('Buttons/<ino-button>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions(
     'click .customizable-button',
