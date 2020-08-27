@@ -49,10 +49,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Buttons/<ino-fab-set>',
-
+  parameters: {
+    actions: {
+      handles: ['click ino-fab']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('click ino-fab'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

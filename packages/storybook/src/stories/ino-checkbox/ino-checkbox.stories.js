@@ -36,10 +36,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-checkbox>',
-
+  parameters: {
+    actions: {
+      handles: ['checkedChange .customizable-checkbox']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('checkedChange .customizable-checkbox'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

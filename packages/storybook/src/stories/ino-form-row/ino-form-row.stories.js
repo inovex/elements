@@ -32,10 +32,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-form-row>',
-
+  parameters: {
+    actions: {
+      handles: ['valueChange .customizable-form-row']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('valueChange .customizable-form-row'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

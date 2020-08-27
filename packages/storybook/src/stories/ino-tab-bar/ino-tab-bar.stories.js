@@ -122,9 +122,13 @@ export const DefaultUsage = () => /*html*/ `
 </div>
 `;
 
+DefaultUsage.parameters = {
+  actions: {
+    handles: ['activeTabChange ino-tab-bar']
+  }
+};
 DefaultUsage.decorators = [
   withStencilReadme(tabBarReadme),
-  withActions('activeTabChange ino-tab-bar'),
   story => {
     subscribeToComponentEvents();
     return story();

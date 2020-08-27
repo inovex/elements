@@ -9,11 +9,12 @@ import './ino-button.scss';
 
 export default {
   title: 'Buttons/<ino-button>',
-
-  decorators: [
-    withStencilReadme(componentReadme),
-    withActions('click .customizable-button', 'reset .reset-form', 'submit .submit-form'),
-  ],
+  parameters: {
+    actions: {
+      handles: ['click .customizable-button', 'reset .reset-form', 'submit .submit-form']
+    }
+  },
+  decorators: [withStencilReadme(componentReadme)],
 };
 
 export const DefaultUsage = () => /* html */ `

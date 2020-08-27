@@ -117,5 +117,5 @@ export const InoChip = () => /*html*/ `
 
 InoChip.storyName = '<ino-chip>';
 InoChip.decorators = [
-  withStencilReadme(chipReadme),
+  withStencilReadme(chipReadme)
 ];
