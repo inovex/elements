@@ -1,5 +1,4 @@
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/html';
 
 import componentReadme from '_local-elements/src/components/ino-card/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -10,13 +9,13 @@ import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el === null) {
       return;
     }
     const card = el.closest('ino-card');
-    if(card === null) {
+    if (card === null) {
       return;
     }
     card.inoSelected = !card.inoSelected;
@@ -31,25 +30,25 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure/<ino-card>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'Structure/<ino-card>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
     <div class="story-card">
 
       <h4>Customizable card</h4>
       <ino-card class="customizable-card"
         ino-selected="${boolean('ino-selected', false)}"
-        ino-color-scheme="${select(
-          'ino-color-scheme',
-          ['', 'primary', 'secondary', 'dark'],
-          ''
-        )}">
+        ino-color-scheme="${select('ino-color-scheme', ['', 'primary', 'secondary', 'dark'], '')}">
         ${sampleCard}
       </ino-card>
 
@@ -59,7 +58,9 @@ storiesOf('Structure/<ino-card>', module)
         ${flexCard}
       </div>
     </div>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';
 
 const sampleCard = `
   <div slot="header" class="card-header">

@@ -1,10 +1,9 @@
-import {storiesOf} from '@storybook/html';
 import CoreEvents from '@storybook/core-events';
 
 import moment from 'moment';
 
-import {withActions} from '@storybook/addon-actions';
-import {select, text, boolean} from '@storybook/addon-knobs';
+import { withActions } from '@storybook/addon-actions';
+import { select, text, boolean } from '@storybook/addon-knobs';
 import addons from '@storybook/addons';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -19,7 +18,7 @@ const maxDate = moment().add(5, 'days').format('YYYY-MM-DD HH:MM');
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-datepicker') {
       return;
@@ -34,23 +33,33 @@ function subscribeToComponentEvents() {
   return () => {
     document.removeEventListener('valueChange', eventHandler);
   };
+}
+
+export default {
+  title: 'Input/<ino-datepicker>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    withActions('valueChange .customizable-picker'),
+    withActions('submit .form'),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
 };
 
-storiesOf('Input/<ino-datepicker>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('valueChange .customizable-picker'))
-  .addDecorator(withActions('submit .form'))
-  .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () =>
-    /*html*/`
+export const DefaultUsage = () => /*html*/ `
 
     <div class="story-datepicker">
       <ino-datepicker class="customizable-picker"
         value="${text('value', defaultDate, 'DATE CONFIG')}"
-        ino-type="${select('ino-type', ['dateime', 'month', 'date', 'time'], 'datetime', 'STANDARD')}"
+        ino-type="${select(
+          'ino-type',
+          ['dateime', 'month', 'date', 'time'],
+          'datetime',
+          'STANDARD'
+        )}"
         ino-label="${text('ino-label', 'Label', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         min="${text('min', minDate, 'STANDARD')}"
@@ -94,8 +103,11 @@ storiesOf('Input/<ino-datepicker>', module)
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>
-  `)
-  .add('Forms', () => /*html*/`
+  `;
+
+DefaultUsage.storyName = 'Default usage';
+
+export const Forms = () => /*html*/ `
     <div class="story-datepicker">
       <h4>Required</h4>
       <p>The form should not submit as long as the date field is empty.</p>
@@ -104,5 +116,4 @@ storiesOf('Input/<ino-datepicker>', module)
         <ino-button type="submit">Submit</ino-button>
       </form>
     </div>
-  `)
-;
+  `;

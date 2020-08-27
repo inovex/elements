@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import CoreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 
@@ -11,7 +10,7 @@ import './ino-radio-group.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-radio') {
       return;
@@ -29,27 +28,29 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input/<ino-radio-group>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('checkedChange ino-radio'))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
+export default {
+  title: 'Input/<ino-radio-group>',
 
-  .add(
-    'Default usage',
-    () => /*html*/ `
-    <div class="story-radio">
-      <div>
-        <ino-radio-group id="radio-grp">
-          <ino-radio value="1">Opt 1</ino-radio>
-          <ino-radio value="2">Opt 2</ino-radio>
-          <ino-radio value="3">Opt 3</ino-radio>
-        </ino-radio-group>
-      </div>
-    </div>
-  `
-  );
+  decorators: [
+    withStencilReadme(componentReadme),
+    withActions('checkedChange ino-radio'),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
+<div class="story-radio">
+  <div>
+    <ino-radio-group id="radio-grp">
+      <ino-radio value="1">Opt 1</ino-radio>
+      <ino-radio value="2">Opt 2</ino-radio>
+      <ino-radio value="3">Opt 3</ino-radio>
+    </ino-radio-group>
+  </div>
+</div>
+`;
+
+DefaultUsage.storyName = 'Default usage';

@@ -1,5 +1,3 @@
-
-import { storiesOf } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions';
 
 import addons from '@storybook/addons';
@@ -22,7 +20,7 @@ const eventToListen = 'click';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = findElementUpwards(e.target, 'ino-icon-button', 'custom');
 
     if (!el) {
@@ -30,16 +28,18 @@ function subscribeToComponentEvents() {
     }
 
     const checkedIcons = ['star', 'favorite'];
-    const uncheckedIcons = checkedIcons.map(icon => `${icon}`);
+    const uncheckedIcons = checkedIcons.map((icon) => `${icon}`);
 
     const elementIcon = el.getAttribute('ino-icon');
 
-    const newIcon = checkedIcons.includes(elementIcon) ?
-      `${elementIcon}` : uncheckedIcons.includes(elementIcon) ?
-        elementIcon.substring(0, elementIcon.indexOf('_')) : elementIcon;
+    const newIcon = checkedIcons.includes(elementIcon)
+      ? `${elementIcon}`
+      : uncheckedIcons.includes(elementIcon)
+      ? elementIcon.substring(0, elementIcon.indexOf('_'))
+      : elementIcon;
 
     el.setAttribute('ino-icon', newIcon);
-  }
+  };
   // == event block
 
   document.addEventListener(eventToListen, eventHandler);
@@ -47,19 +47,25 @@ function subscribeToComponentEvents() {
   // unsubscribe function will be called by Storybook
   return () => {
     document.removeEventListener(eventToListen, eventHandler);
-  }
+  };
 }
 
-storiesOf('Buttons/<ino-icon-button>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    `${eventToListen} .customizable-icon-button ino-icon-button` // this is just for the "ACTION LOGGER" panel
-  ))
-  .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'Buttons/<ino-icon-button>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    withActions(
+      `${eventToListen} .customizable-icon-button ino-icon-button` // this is just for the "ACTION LOGGER" panel
+    ),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
     <div class="story-icon-button">
       <div class="customizable-icon-button">
         <h4>Customizable icon button</h4>
@@ -68,9 +74,7 @@ storiesOf('Buttons/<ino-icon-button>', module)
           ino-icon="${select('ino-icon', ICONS, 'star')}"
           ino-color-scheme="${select(
             'ino-color-scheme',
-            ['', 'primary', 'secondary', 'success', 'warning',
-            'error', 'light', 'dark'
-            ],
+            ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
             ''
           )}"
           disabled="${boolean('disabled', false)}">
@@ -101,4 +105,6 @@ storiesOf('Buttons/<ino-icon-button>', module)
         </div>
       </div>
     </div>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';

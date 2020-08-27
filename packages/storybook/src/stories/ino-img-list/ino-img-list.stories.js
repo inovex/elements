@@ -1,5 +1,3 @@
-import { storiesOf } from '@storybook/html';
-
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import imgListReadme from '_local-elements/src/components/ino-img-list/readme.md';
@@ -14,16 +12,16 @@ import libertyImg from '_local-assets/images/liberty.jpg';
 import trondheimImg from '_local-assets/images/trondheim.jpg';
 import waterfallImg from '_local-assets/images/waterfall.jpg';
 
+export default {
+  title: 'Graphic/<ino-img-list>',
 
-storiesOf('Graphic/<ino-img-list>', module)
-  .addDecorator(withStencilReadme(imgListReadme))
-  .addDecorator(withActions(
-    'click .customizable-img-list'
-  ))
-  .add('Default Usage', () => {
-    return `
+  decorators: [withStencilReadme(imgListReadme), withActions('click .customizable-img-list')],
+};
+
+export const DefaultUsage = () => {
+  return `
       <h4>Customizable Image List</h4>
-	      <style>
+          <style>
             ino-img-list.customizable-img-list {
               --img-list-cols: ${number('--img-list-cols', 3, 'Custom Properties')};
             }
@@ -67,7 +65,7 @@ storiesOf('Graphic/<ino-img-list>', module)
         ${sampleImg5}
       </ino-img-list>
     `;
-  });
+};
 
 const sampleImg = `
     <ino-img

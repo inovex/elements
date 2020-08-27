@@ -1,5 +1,3 @@
-import { storiesOf } from '@storybook/html';
-
 import componentReadme from '_local-elements/src/components/ino-dialog/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import addons from '@storybook/addons';
@@ -8,20 +6,20 @@ import './ino-dialog.scss';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     console.log(el);
     if (el.id === 'open-dialog-btn') {
       const dialog = document.getElementById('demo-dialog-1');
       dialog.inoOpen = true;
     }
-    if(el.id === 'close-dialog-btn') {
+    if (el.id === 'close-dialog-btn') {
       const dialog = document.getElementById('demo-dialog-1');
       dialog.inoOpen = false;
     }
   };
 
-  const checkedChangeHandler = function(e) {
+  const checkedChangeHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-segment-button') {
       return;
@@ -44,15 +42,19 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('structure/<ino-dialog>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'structure/<ino-dialog>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
 
      <ino-button id="open-dialog-btn">Open Dialog</ino-button>
      <ino-dialog id="demo-dialog-1">
@@ -77,4 +79,6 @@ storiesOf('structure/<ino-dialog>', module)
           <ino-button ino-icon="mail" id="close-dialog-btn">Submit</ino-button>
         </div>
      </ino-dialog>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';
