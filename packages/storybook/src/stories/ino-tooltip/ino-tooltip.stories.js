@@ -63,5 +63,3 @@ export const DefaultUsage = () => /*html*/ `
       <ino-tooltip ino-for="transparent-tooltip" ino-label="Transparent color scheme" ino-color-scheme="transparent" ino-placement="top"></ino-tooltip>
     </div>
   `;
-
-DefaultUsage.storyName = 'Default usage';

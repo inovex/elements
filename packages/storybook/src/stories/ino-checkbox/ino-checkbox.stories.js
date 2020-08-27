@@ -78,5 +78,3 @@ export const DefaultUsage = () => /*html*/ `
   </div>
 </div>
 `;
-
-DefaultUsage.storyName = 'Default usage';

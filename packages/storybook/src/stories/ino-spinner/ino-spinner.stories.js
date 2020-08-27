@@ -82,8 +82,6 @@ export const DefaultUsage = () => /*html*/ `
     </div>
   `;
 
-DefaultUsage.storyName = 'Default usage';
-
 export const AsModal = () => /*html*/ `
     <div class="story-button">
       <ino-spinner ino-modal></ino-spinner>

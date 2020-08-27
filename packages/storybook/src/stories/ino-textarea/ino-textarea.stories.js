@@ -79,5 +79,3 @@ export const DefaultUsage = () => /*html*/ `
   <ino-textarea ino-label="Optional" cols="30" ino-show-label-hint rows="3"></ino-textarea>
 </div>
 `;
-
-DefaultUsage.storyName = 'Default usage';

@@ -84,5 +84,3 @@ export const DefaultUsage = () => /* html */ `
     <h4>Inverted progress bar</h4>
     <ino-progress-bar ino-reversed ino-progress="0.6" ino-buffer="0.8"></ino-progress-bar>
     `;
-
-DefaultUsage.storyName = 'Default usage';
