@@ -29,7 +29,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure|<ino-sidebar>', module)
+storiesOf('Structure/<ino-sidebar>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons
@@ -42,7 +42,7 @@ storiesOf('Structure|<ino-sidebar>', module)
     `;
   });
 
-storiesOf('Structure|<ino-sidebar>', module)
+storiesOf('Structure/<ino-sidebar>', module)
   .addDecorator(story => {
     addons
       .getChannel()
@@ -61,7 +61,7 @@ storiesOf('Structure|<ino-sidebar>', module)
     `;
   });
 
-storiesOf('Structure|<ino-sidebar>', module)
+storiesOf('Structure/<ino-sidebar>', module)
   .addDecorator(story => {
     addons
       .getChannel()
@@ -80,7 +80,7 @@ storiesOf('Structure|<ino-sidebar>', module)
     `;
   });
 
-storiesOf('Structure|<ino-sidebar>', module)
+storiesOf('Structure/<ino-sidebar>', module)
   .addDecorator(story => {
     addons
       .getChannel()

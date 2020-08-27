@@ -32,7 +32,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-switch>', module)
+storiesOf('Input/<ino-switch>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons

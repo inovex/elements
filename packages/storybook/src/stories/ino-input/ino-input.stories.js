@@ -33,7 +33,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-input>', module)
+storiesOf('Input/<ino-input>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(
     withActions(

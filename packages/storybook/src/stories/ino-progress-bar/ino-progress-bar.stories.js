@@ -50,7 +50,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Notification|<ino-progress-bar>', module)
+storiesOf('Notification/<ino-progress-bar>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(story => {
     addons

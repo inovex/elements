@@ -59,7 +59,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure|<ino-table>', module)
+storiesOf('Structure/<ino-table>', module)
   .addDecorator(withStencilReadme(tableReadme))
   .addDecorator(story => {
     addons
@@ -175,12 +175,12 @@ storiesOf('Structure|<ino-table>', module)
     </ino-table>
   `);
 
-storiesOf('Structure|<ino-table>', module)
+storiesOf('Structure/<ino-table>', module)
   .addDecorator(withStencilReadme(tableRowReadme))
   .add('ino-table-row', () => /*html*/ `
   `);
 
-storiesOf('Structure|<ino-table>', module)
+storiesOf('Structure/<ino-table>', module)
   .addDecorator(withStencilReadme(tableCellReadme))
   .add('ino-table-cell', () => /*html*/ `
   `);

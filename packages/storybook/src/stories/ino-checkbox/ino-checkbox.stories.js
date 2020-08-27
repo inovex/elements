@@ -35,7 +35,7 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-checkbox>', module)
+storiesOf('Input/<ino-checkbox>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .addDecorator(withActions('checkedChange .customizable-checkbox'))
   .addDecorator(story => {

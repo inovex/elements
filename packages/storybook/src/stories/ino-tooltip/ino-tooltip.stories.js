@@ -7,7 +7,7 @@ import componentReadme from '_local-elements/src/components/ino-tooltip/readme.m
 import './ino-tooltip.scss';
 
 
-storiesOf('Notification|<ino-tooltip>', module)
+storiesOf('Notification/<ino-tooltip>', module)
   .addDecorator(withStencilReadme(componentReadme))
   .add('Default usage', () => /*html*/`
     <div class="story-tooltip">
