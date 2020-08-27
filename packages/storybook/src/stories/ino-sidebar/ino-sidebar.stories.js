@@ -31,10 +31,8 @@ function subscribeToComponentEvents() {
 export default {
   title: 'Structure/<ino-sidebar>',
 
-  decorators: [withStencilReadme(componentReadme), story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+  decorators: [story => {
+    subscribeToComponentEvents();
     return story();
   }]
 };
@@ -43,6 +41,8 @@ export const DefaultUsage = () => {
   return /*html*/ `
     `;
 };
+
+DefaultUsage.decorators = [withStencilReadme(componentReadme)];
 
 export const SidebarLeft = () => {
   return `
@@ -56,13 +56,6 @@ export const SidebarLeft = () => {
     `;
 };
 
-SidebarLeft.decorators = [story => {
-  addons
-    .getChannel()
-    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-  return story();
-}];
-
 export const SidebarRight = () => {
   return `
     <div class="sidebar-demo">
@@ -75,13 +68,6 @@ export const SidebarRight = () => {
     `;
 };
 
-SidebarRight.decorators = [story => {
-  addons
-    .getChannel()
-    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-  return story();
-}];
-
 export const SidebarDifferentWidth = () => {
   return `
     <div class="sidebar-demo">
@@ -93,13 +79,6 @@ export const SidebarDifferentWidth = () => {
     </div>
     `;
 };
-
-SidebarDifferentWidth.decorators = [story => {
-  addons
-    .getChannel()
-    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-  return story();
-}];
 
 
 const header = `

@@ -65,17 +65,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Structure/<ino-nav-drawer>',
-
   decorators: [
-    withStencilReadme(componentReadme),
     withActions(
       'openChange .customizable-drawer',
       'click .toggle-nav',
       'clickEl ino-nav-item'
     ), story => {
-      addons
-        .getChannel()
-        .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     }]
 };
@@ -249,6 +245,8 @@ export const DefaultUsage = () => /* html */ `
       </div>
   `;
 
+DefaultUsage.decorators = [withStencilReadme(componentReadme)];
+
 export const Dismissible = () => {
   return /* html */ `
     <h4>Variant: Dismissble</h4>
@@ -268,16 +266,6 @@ export const Dismissible = () => {
   `;
 };
 
-Dismissible.decorators = [
-  withActions('openChange .nav-drawer-modal', 'click .toggle-nav'),
-  story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  }
-];
-
 export const Modal = () => {
   return /* html */ `
       <div class="story-nav-drawer__modal">
@@ -296,13 +284,3 @@ export const Modal = () => {
       </div>
     `;
 };
-
-Modal.decorators = [
-  withActions('openChange .nav-drawer-modal', 'click .toggle-nav'),
-  story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  }
-];

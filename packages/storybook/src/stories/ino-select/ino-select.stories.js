@@ -35,14 +35,10 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-select>',
-
   decorators: [
-    withStencilReadme(componentReadme),
     withActions('valueChange .customizable-select', 'submit .form'),
     story => {
-      addons
-        .getChannel()
-        .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     }
   ]
@@ -126,6 +122,9 @@ export const DefaultUsage = () => {
       </div>
     `;
 };
+
+DefaultUsage.decorators = [withStencilReadme(componentReadme)];
+
 
 export const Forms = () => /*html*/ `
 <div class="story-select">
