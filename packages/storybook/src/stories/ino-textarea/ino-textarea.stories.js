@@ -1,7 +1,4 @@
-import CoreEvents from '@storybook/core-events';
-import { withActions } from '@storybook/addon-actions';
-import { number, text, boolean } from '@storybook/addon-knobs';
-import addons from '@storybook/addons';
+import { boolean, number, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -39,7 +36,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

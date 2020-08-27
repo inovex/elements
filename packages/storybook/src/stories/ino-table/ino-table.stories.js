@@ -3,10 +3,6 @@ import tableRowReadme from '_local-elements/src/components/ino-table-row/readme.
 import tableCellReadme from '_local-elements/src/components/ino-table-cell/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-table.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
-import { withActions } from '@storybook/addon-actions';
-import { InoChip } from '../ino-chip-set/ino-chip-set.stories';
 
 function subscribeToComponentEvents() {
   // == event block

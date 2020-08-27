@@ -1,10 +1,5 @@
-import CoreEvents from '@storybook/core-events';
-
 import moment from 'moment';
-
-import { withActions } from '@storybook/addon-actions';
-import { select, text, boolean } from '@storybook/addon-knobs';
-import addons from '@storybook/addons';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 

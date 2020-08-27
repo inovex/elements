@@ -1,8 +1,3 @@
-import CoreEvents from '@storybook/core-events';
-import addons from '@storybook/addons';
-
-import { withActions } from '@storybook/addon-actions';
-
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-radio-group/readme.md';
 import './ino-radio-group.scss';
@@ -38,7 +33,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

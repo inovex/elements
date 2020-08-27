@@ -1,14 +1,9 @@
-import { withActions } from '@storybook/addon-actions';
-import { text, boolean, select, number } from '@storybook/addon-knobs';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-input/readme.md';
 import './ino-input.scss';
-
-import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -41,7 +36,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

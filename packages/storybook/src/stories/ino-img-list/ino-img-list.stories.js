@@ -3,7 +3,6 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import imgListReadme from '_local-elements/src/components/ino-img-list/readme.md';
 import './ino-img-list.scss';
 import { boolean, number } from '@storybook/addon-knobs';
-import { withActions } from '@storybook/addon-actions';
 
 import beachImg from '_local-assets/images/beach.jpg';
 import fjordImg from '_local-assets/images/fjord.jpg';

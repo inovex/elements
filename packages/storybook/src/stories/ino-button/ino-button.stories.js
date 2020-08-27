@@ -1,4 +1,3 @@
-import { withActions } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';

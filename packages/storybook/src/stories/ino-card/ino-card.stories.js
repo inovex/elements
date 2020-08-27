@@ -1,11 +1,9 @@
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 import componentReadme from '_local-elements/src/components/ino-card/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import './ino-card.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -36,7 +34,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

@@ -1,10 +1,7 @@
-import { text, select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-snackbar/readme.md';
 import './ino-snackbar.scss';
-import CoreEvents from '@storybook/core-events';
-
-import addons from '@storybook/addons';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -39,7 +36,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

@@ -4,8 +4,6 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-sidebar/readme.md';
 import './ino-sidebar.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
