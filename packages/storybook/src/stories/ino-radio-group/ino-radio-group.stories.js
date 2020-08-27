@@ -30,10 +30,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-radio-group>',
-
+  parameters: {
+    actions: {
+      handles: ['checkedChange ino-radio']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('checkedChange ino-radio'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

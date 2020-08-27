@@ -33,10 +33,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-input>',
-
+  parameters: {
+    actions: {
+      handles: ['inoIconClick .customizable-input', 'valueChange .customizable-input']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('inoIconClick .customizable-input', 'valueChange .customizable-input'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

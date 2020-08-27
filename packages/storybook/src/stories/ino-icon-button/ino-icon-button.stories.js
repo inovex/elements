@@ -52,12 +52,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Buttons/<ino-icon-button>',
-
+  parameters: {
+    actions: {
+      handles: [`${eventToListen} .customizable-icon-button ino-icon-button`]
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions(
-      `${eventToListen} .customizable-icon-button ino-icon-button` // this is just for the "ACTION LOGGER" panel
-    ),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

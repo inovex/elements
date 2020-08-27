@@ -34,10 +34,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-input-file>',
-
+  parameters: {
+    actions: {
+      handles: ['changeFile .customizable-input']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('changeFile .customizable-input'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

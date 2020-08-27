@@ -31,10 +31,13 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-textarea>',
-
+  parameters: {
+    actions: {
+      handles: ['input .customizable-textarea', 'valueChange .customizable-textarea']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('input .customizable-textarea', 'valueChange .customizable-textarea'),
     (story) => {
       addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
       return story();

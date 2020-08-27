@@ -14,8 +14,12 @@ import waterfallImg from '_local-assets/images/waterfall.jpg';
 
 export default {
   title: 'Graphic/<ino-img-list>',
-
-  decorators: [withStencilReadme(imgListReadme), withActions('click .customizable-img-list')],
+  parameters: {
+    actions: {
+      handles: ['click .customizable-img-listr', 'submit .form']
+    }
+  },
+  decorators: [withStencilReadme(imgListReadme)],
 };
 
 export const DefaultUsage = () => {

@@ -35,8 +35,12 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-select>',
+  parameters: {
+    actions: {
+      handles: ['valueChange .customizable-select', 'submit .form']
+    }
+  },
   decorators: [
-    withActions('valueChange .customizable-select', 'submit .form'),
     story => {
       subscribeToComponentEvents();
       return story();

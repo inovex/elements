@@ -65,12 +65,17 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Structure/<ino-nav-drawer>',
+  parameters: {
+    actions: {
+      handles: [
+        'openChange .customizable-drawer',
+        'click .toggle-nav',
+        'clickEl ino-nav-item'
+      ]
+    }
+  },
   decorators: [
-    withActions(
-      'openChange .customizable-drawer',
-      'click .toggle-nav',
-      'clickEl ino-nav-item'
-    ), story => {
+   story => {
       subscribeToComponentEvents();
       return story();
     }]

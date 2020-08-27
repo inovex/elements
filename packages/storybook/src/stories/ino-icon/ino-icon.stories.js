@@ -106,12 +106,15 @@ const iconChips = ICON_IDS.map(
 
 export default {
   title: 'Graphic/<ino-icon>',
-
+  parameters: {
+    actions: {
+      handles: ['clickEl .customizable-icon', 'valueChange .customizable-input']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('clickEl .customizable-icon', 'valueChange .customizable-input'),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

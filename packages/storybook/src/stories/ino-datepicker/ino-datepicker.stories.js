@@ -37,13 +37,15 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Input/<ino-datepicker>',
-
+  parameters: {
+    actions: {
+      handles: ['valueChange .customizable-picker', 'submit .form']
+    }
+  },
   decorators: [
     withStencilReadme(componentReadme),
-    withActions('valueChange .customizable-picker'),
-    withActions('submit .form'),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],
