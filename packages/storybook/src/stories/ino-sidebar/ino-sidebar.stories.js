@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { number } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -29,28 +28,24 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure/<ino-sidebar>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => {
-    return /*html*/ `
-    `;
-  });
+export default {
+  title: 'Structure/<ino-sidebar>',
 
-storiesOf('Structure/<ino-sidebar>', module)
-  .addDecorator(story => {
+  decorators: [withStencilReadme(componentReadme), story => {
     addons
       .getChannel()
       .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
-  })
-  .add('Sidebar Left', () => {
-    return `
+  }]
+};
+
+export const DefaultUsage = () => {
+  return /*html*/ `
+    `;
+};
+
+export const SidebarLeft = () => {
+  return `
     <div class="sidebar-demo">
       ${header}
       <ino-sidebar>
@@ -59,17 +54,17 @@ storiesOf('Structure/<ino-sidebar>', module)
       ${mainContent}
     </div>
     `;
-  });
+};
 
-storiesOf('Structure/<ino-sidebar>', module)
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Sidebar Right', () => {
-    return `
+SidebarLeft.decorators = [story => {
+  addons
+    .getChannel()
+    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+  return story();
+}];
+
+export const SidebarRight = () => {
+  return `
     <div class="sidebar-demo">
       ${header}
       <ino-sidebar ino-align-right>
@@ -78,17 +73,17 @@ storiesOf('Structure/<ino-sidebar>', module)
       ${mainContent}
     </div>
     `;
-  });
+};
 
-storiesOf('Structure/<ino-sidebar>', module)
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Sidebar different width', () => {
-    return `
+SidebarRight.decorators = [story => {
+  addons
+    .getChannel()
+    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+  return story();
+}];
+
+export const SidebarDifferentWidth = () => {
+  return `
     <div class="sidebar-demo">
       ${header}
       <ino-sidebar style="--ino-sidebar-width:${number('--ino-sidebar-width', 500)}px;">
@@ -97,7 +92,14 @@ storiesOf('Structure/<ino-sidebar>', module)
       ${mainContent}
     </div>
     `;
-  });
+};
+
+SidebarDifferentWidth.decorators = [story => {
+  addons
+    .getChannel()
+    .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+  return story();
+}];
 
 
 const header = `

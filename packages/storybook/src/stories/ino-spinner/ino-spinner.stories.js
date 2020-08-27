@@ -1,5 +1,3 @@
-import { storiesOf } from '@storybook/html';
-
 import { number, boolean, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -7,11 +5,12 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-spinner/readme.md';
 import './ino-spinner.scss';
 
+export default {
+  title: 'Notification/<ino-spinner>',
+  decorators: [withStencilReadme(componentReadme)],
+};
 
-
-storiesOf('Notification/<ino-spinner>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .add('Default usage', () => /*html*/`
+export const DefaultUsage = () => /*html*/ `
     <div class="story-spinner">
       <div class="flex-parent-center">
         <div>
@@ -20,14 +19,10 @@ storiesOf('Notification/<ino-spinner>', module)
             class="customizable-spinner"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark' ],
+              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
               'primary'
             )}"
-            ino-type="${select(
-              'ino-type',
-              ['tile', 'bounce', 'circle'],
-              'tile'
-            )}"
+            ino-type="${select('ino-type', ['tile', 'bounce', 'circle'], 'tile')}"
             ino-height="${number('ino-height', 40)}"
             ino-width="${number('ino-width', 40)}"
             ino-modal="${boolean('ino-modal', false)}"
@@ -85,9 +80,14 @@ storiesOf('Notification/<ino-spinner>', module)
         </div>
       </div>
     </div>
-  `)
-  .add('As modal', () => /*html*/`
+  `;
+
+DefaultUsage.storyName = 'Default usage';
+
+export const AsModal = () => /*html*/ `
     <div class="story-button">
       <ino-spinner ino-modal></ino-spinner>
     </div>
-  `);
+  `;
+
+AsModal.storyName = 'As modal';

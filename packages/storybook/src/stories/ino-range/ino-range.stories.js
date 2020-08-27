@@ -1,5 +1,3 @@
-import { storiesOf } from '@storybook/html';
-
 import { number, boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -7,11 +5,12 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-range/readme.md';
 import './ino-range.scss';
 
+export default {
+  title: 'Input/<ino-range>',
+  decorators: [withStencilReadme(componentReadme)],
+};
 
-
-storiesOf('Input/<ino-range>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .add('Default usage', () => /*html*/`
+export const DefaultUsage = () => /*html*/ `
     <div class="story-range">
       <div class="flex-parent-center">
         <div>
@@ -30,9 +29,7 @@ storiesOf('Input/<ino-range>', module)
             step="${number('step', 1)}"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'success', 'warning',
-              'error', 'light', 'dark'
-              ],
+              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
               'primary'
             )}">
           </ino-range>
@@ -80,4 +77,6 @@ storiesOf('Input/<ino-range>', module)
         </div>
       </div>
     </div>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';

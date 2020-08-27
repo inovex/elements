@@ -1,5 +1,3 @@
-import { storiesOf } from '@storybook/html';
-
 import tableReadme from '_local-elements/src/components/ino-table/readme.md';
 import tableRowReadme from '_local-elements/src/components/ino-table-row/readme.md';
 import tableCellReadme from '_local-elements/src/components/ino-table-cell/readme.md';
@@ -7,6 +5,8 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-table.scss';
 import addons from '@storybook/addons';
 import CoreEvents from '@storybook/core-events';
+import { withActions } from '@storybook/addon-actions';
+import { InoChip } from '../ino-chip-set/ino-chip-set.stories';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -19,7 +19,7 @@ function subscribeToComponentEvents() {
     const row = el.closest('ino-table-row');
     el.checked = !el.checked;
     row.inoSelected = el.checked;
-    if (el.id === "headerBox") {
+    if (el.id === 'headerBox') {
       el.indeterminate = false;
       setAllBoxes();
     } else {
@@ -59,15 +59,18 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Structure/<ino-table>', module)
-  .addDecorator(withStencilReadme(tableReadme))
-  .addDecorator(story => {
+export default {
+  title: 'Structure/<ino-table>',
+
+  decorators: [withStencilReadme(tableReadme), story => {
     addons
       .getChannel()
       .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
     return story();
-  })
-  .add('Default usage', () => /* html */`
+  }]
+};
+
+export const DefaultUsage = () => /* html */`
     <h4>Data table example</h4>
     <ino-table>
         <ino-table-row slot="header" ino-header-row>
@@ -173,14 +176,13 @@ storiesOf('Structure/<ino-table>', module)
             <ino-table-cell><ino-icon-button ino-icon="download"></ino-icon-button></ino-table-cell>
         </ino-table-row>
     </ino-table>
-  `);
+  `;
 
-storiesOf('Structure/<ino-table>', module)
-  .addDecorator(withStencilReadme(tableRowReadme))
-  .add('ino-table-row', () => /*html*/ `
-  `);
 
-storiesOf('Structure/<ino-table>', module)
-  .addDecorator(withStencilReadme(tableCellReadme))
-  .add('ino-table-cell', () => /*html*/ `
-  `);
+export const InoTableRow = () => /*html*/ ``;
+InoTableRow.storyName = '<ino-table-row>';
+InoTableRow.decorators = [withStencilReadme(tableRowReadme)];
+
+export const InoTableCell = () => /*html*/ ``;
+InoTableCell.storyName = '<ino-table-cell>';
+InoTableCell.decorators = [withStencilReadme(tableCellReadme)];

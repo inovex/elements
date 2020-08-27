@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -6,19 +5,31 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-tooltip/readme.md';
 import './ino-tooltip.scss';
 
+export default {
+  title: 'Notification/<ino-tooltip>',
+  decorators: [withStencilReadme(componentReadme)],
+};
 
-storiesOf('Notification/<ino-tooltip>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .add('Default usage', () => /*html*/`
+export const DefaultUsage = () => /*html*/ `
     <div class="story-tooltip">
       <ino-button id="tooltip-target">Tooltip</ino-button>
       <ino-tooltip
         ino-for="${text('ino-for', 'tooltip-target')}"
         ino-label="${text('ino-label', 'This is a customaziable tooltip text.')}"
         ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
-        ino-trigger="${select('ino-trigger', ['mouseenter', 'focus', 'click',
-    'mouseenter focus', 'mouseenter click', 'focus click', 'mouseenter focus click'], 'mouseenter focus'
-  )}">
+        ino-trigger="${select(
+          'ino-trigger',
+          [
+            'mouseenter',
+            'focus',
+            'click',
+            'mouseenter focus',
+            'mouseenter click',
+            'focus click',
+            'mouseenter focus click',
+          ],
+          'mouseenter focus'
+        )}">
       </ino-tooltip>
 
       <h4>Placements</h4>
@@ -51,4 +62,6 @@ storiesOf('Notification/<ino-tooltip>', module)
       <ino-button id="transparent-tooltip" ino-fill="outline" ino-color-scheme="grey">Transparent</ino-button>
       <ino-tooltip ino-for="transparent-tooltip" ino-label="Transparent color scheme" ino-color-scheme="transparent" ino-placement="top"></ino-tooltip>
     </div>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';

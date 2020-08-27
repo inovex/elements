@@ -1,9 +1,4 @@
-import { storiesOf } from '@storybook/html';
-import CoreEvents from '@storybook/core-events';
-import addons from '@storybook/addons';
-
-import { withActions } from '@storybook/addon-actions';
-import { text, boolean } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-radio/readme.md';
@@ -12,7 +7,7 @@ import './ino-radio.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-radio') {
       return;
@@ -30,21 +25,25 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input/<ino-radio>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('checkedChange ino-radio'))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
+export default {
+  title: 'Input/<ino-radio>',
+  parameters: {
+    actions: {
+      handles: ['checkedChange ino-radio']
+    }
+  },
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
+};
 
-  .add(
-    'Default usage',
-    () => /*html*/ `
-    <div class="story-radio">
-        <style>
+export const DefaultUsage = () => /*html*/ `
+<div class="story-radio">
+  <style>
           ino-radio.customizable-radio {
             --radio-unchecked-color: ${text('--radio-unchecked-color', '#c1c1c1', 'Custom Properties')};
             --radio-checked-color: ${text('--radio-checked-color', '#3d40f5', 'Custom Properties')};
@@ -56,20 +55,19 @@ storiesOf('Input/<ino-radio>', module)
       </style>
         <ino-radio
           class="customizable-radio"
-          checked="${boolean('checked', false)}"
-          disabled="${boolean('disabled', false)}"
-          name="radio-custom"
-        >
-          ${text('<slot />', 'Customizable Radio Button')}
-        </ino-radio>
-    </div>
+    checked="${boolean('checked', false)}"
+    disabled="${boolean('disabled', false)}"
+    name="radio-custom"
+  >
+    ${text('<slot />', 'Customizable Radio Button')}
+  </ino-radio>
+</div>
 
-    <h4>States</h4>
-    <div class="story-radio">
-      <ino-radio>Unchecked</ino-radio>
-      <ino-radio checked>Checked</ino-radio>
-      <ino-radio disabled>Disabled</ino-radio>
-      <ino-radio checked disabled>Checked and Disabled</ino-radio>
-    </div>
-  `
-  );
+<h4>States</h4>
+<div class="story-radio">
+  <ino-radio>Unchecked</ino-radio>
+  <ino-radio checked>Checked</ino-radio>
+  <ino-radio disabled>Disabled</ino-radio>
+  <ino-radio checked disabled>Checked and Disabled</ino-radio>
+</div>
+`;

@@ -8,9 +8,12 @@ import componentReadme from '_local-elements/src/components/ino-fab/readme.md';
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 import './ino-fab.scss';
 
-storiesOf('Buttons/<ino-fab>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'Buttons/<ino-fab>',
+  decorators: [withStencilReadme(componentReadme)],
+};
+
+export const DefaultUsage = () => /*html*/ `
     <div class="story-fab">
     <h4>Customizable Fab</h4>
      <style>
@@ -27,13 +30,16 @@ storiesOf('Buttons/<ino-fab>', module)
       </style>
       <ino-fab
         class="customizable-fab"
-        ino-edge-position="${select('ino-edge-position', ['    top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'], 'top-left')}"
-        ino-icon="${select('ino-leading-icon', ICONS, 'add')}"
-        ino-label="${text('ino-label', 'Label')}"
-        ino-extended="${boolean('ino-extended', false)}"
-        ino-disabled="${boolean('ino-disabled', false)}"
-        ino-mini="${boolean('ino-mini', false)}">
-    </ino-fab>
+      ino-edge-position="${select(
+        'ino-edge-position',
+        ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
+        'top-left'
+      )}"
+      ino-icon="${select('ino-leading-icon', ICONS, 'add')}"
+      ino-label="${text('ino-label', 'Label')}"
+      ino-extended="${boolean('ino-extended', false)}"
+      ino-disabled="${boolean('ino-disabled', false)}"
+      ino-mini="${boolean('ino-mini', false)}"></ino-fab>
 
     <h4>Variants</h4>
       <div class="ino-fab-variants">
@@ -51,4 +57,4 @@ storiesOf('Buttons/<ino-fab>', module)
        <ino-fab ino-label="bottom-left" ino-icon="add" ino-edge-position="bottom-left"></ino-fab>
        <ino-fab ino-label="none" ino-icon="add" ino-edge-position="none"></ino-fab>
     </div>
-  `);
+  `;

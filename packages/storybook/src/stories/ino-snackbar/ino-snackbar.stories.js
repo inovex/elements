@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { text, select } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-snackbar/readme.md';
@@ -7,11 +6,9 @@ import CoreEvents from '@storybook/core-events';
 
 import addons from '@storybook/addons';
 
-
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
-
+  const eventHandler = function (e) {
     const target = e.target;
 
     if (target.tagName !== 'INO-BUTTON') {
@@ -19,7 +16,7 @@ function subscribeToComponentEvents() {
     }
 
     const templates = Array.from(document.getElementsByTagName('template'));
-    const templateWithId = templates.find(template => template.id === target.id);
+    const templateWithId = templates.find((template) => template.id === target.id);
 
     document.body.appendChild(templateWithId.content.cloneNode(true));
   };
@@ -33,17 +30,22 @@ function subscribeToComponentEvents() {
   };
 }
 
-const sampleText = 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
+const sampleText =
+  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
 
-storiesOf('Notification/<ino-snackbar>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'Notification/<ino-snackbar>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
     <div class="story-message-box">
       <div class="flex-parent-center">
           <h4>Customizable Snackbar</h4>
@@ -53,7 +55,11 @@ storiesOf('Notification/<ino-snackbar>', module)
                 id="custom-snackbar"
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
-                ino-alignment="${select('ino-alignment', ['center', 'leading', 'trailing'], 'center')}" />
+                ino-alignment="${select(
+                  'ino-alignment',
+                  ['center', 'leading', 'trailing'],
+                  'center'
+                )}" />
           </template>
 
         <h4>Variants</h4>
@@ -103,4 +109,6 @@ storiesOf('Notification/<ino-snackbar>', module)
             </div>
         </div>
     </div>
-  `);
+  `;
+
+DefaultUsage.storyName = 'Default usage';

@@ -1,5 +1,4 @@
 import { boolean, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions';
 
 import addons from '@storybook/addons';
@@ -13,7 +12,7 @@ import './ino-checkbox.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-checkbox') {
       return;
@@ -35,47 +34,50 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input/<ino-checkbox>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions('checkedChange .customizable-checkbox'))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add(
-    'Default usage',
-    () => /*html*/ `
-    <div class="story-checkbox">
-      <ino-checkbox
-        class="customizable-checkbox"
-        name="customizable-checkbox"
-        value="placeholder-value"
-        checked="${boolean('checked', false)}"
-        disabled="${boolean('disabled', false)}"
-        indeterminate="${boolean('indeterminate', false)}"
-        ino-selection="${boolean('ino-selection', false)}"
-      >
-        ${text('<slot />', 'Customizable checkbox')}
-      </ino-checkbox>
-      <h4>Default</h4>
-      <div class="story-checkbox-states">
-        <ino-checkbox checked>Checked</ino-checkbox>
-        <ino-checkbox>Unchecked</ino-checkbox>
-        <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
-        <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
-        <ino-checkbox disabled>Unchecked and Disabled</ino-checkbox>
-        <ino-checkbox disabled indeterminate>Indeterminated and Disabled</ino-checkbox>
-      </div>
+export default {
+  title: 'Input/<ino-checkbox>',
 
-      <h4>Selection</h4>
-      <div class="story-selection-states">
-           <ino-checkbox ino-selection checked>Checked</ino-checkbox>
-           <ino-checkbox ino-selection>Unchecked</ino-checkbox>
-           <ino-checkbox checked ino-selection disabled>Checked and disabled</ino-checkbox>
-           <ino-checkbox ino-selection disabled>Unchecked and disabled</ino-checkbox>
-      </div>
-    </div>
-  `
-  );
+  decorators: [
+    withStencilReadme(componentReadme),
+    withActions('checkedChange .customizable-checkbox'),
+    (story) => {
+      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
+<div class="story-checkbox">
+  <ino-checkbox
+    class="customizable-checkbox"
+    name="customizable-checkbox"
+    value="placeholder-value"
+    checked="${boolean('checked', false)}"
+    disabled="${boolean('disabled', false)}"
+    indeterminate="${boolean('indeterminate', false)}"
+    ino-selection="${boolean('ino-selection', false)}"
+  >
+    ${text('<slot />', 'Customizable checkbox')}
+  </ino-checkbox>
+  <h4>Default</h4>
+  <div class="story-checkbox-states">
+    <ino-checkbox checked>Checked</ino-checkbox>
+    <ino-checkbox>Unchecked</ino-checkbox>
+    <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
+    <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
+    <ino-checkbox disabled>Unchecked and Disabled</ino-checkbox>
+    <ino-checkbox disabled indeterminate>Indeterminated and Disabled</ino-checkbox>
+  </div>
+
+  <h4>Selection</h4>
+  <div class="story-selection-states">
+       <ino-checkbox ino-selection checked>Checked</ino-checkbox>
+       <ino-checkbox ino-selection>Unchecked</ino-checkbox>
+       <ino-checkbox checked ino-selection disabled>Checked and disabled</ino-checkbox>
+       <ino-checkbox ino-selection disabled>Unchecked and disabled</ino-checkbox>
+  </div>
+</div>
+`;
+
+DefaultUsage.storyName = 'Default usage';
