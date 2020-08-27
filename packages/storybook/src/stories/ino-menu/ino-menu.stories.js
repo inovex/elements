@@ -1,11 +1,9 @@
 import { boolean } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import CoreEvents from '@storybook/core-events';
 
 import componentReadme from '_local-elements/src/components/ino-menu/readme.md';
 import './ino-menu.scss';
-import addons from '@storybook/addons';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -45,17 +43,17 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],
 };
 
 export const DefaultUsage = () => /*html*/ `
-    <div class="story-menu">      
-      <h4>Customizable Menu</h4>  
+    <div class="story-menu">
+      <h4>Customizable Menu</h4>
       <ino-button id="button-custom-menu">Open menu</ino-button>
-      <ino-menu 
+      <ino-menu
         id="custom-menu"
         ino-for="button"
         ino-open="${boolean('ino-open', false)}"

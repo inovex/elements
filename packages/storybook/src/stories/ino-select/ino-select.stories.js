@@ -1,7 +1,3 @@
-import CoreEvents from '@storybook/core-events';
-import addons from '@storybook/addons';
-
-import { withActions } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';

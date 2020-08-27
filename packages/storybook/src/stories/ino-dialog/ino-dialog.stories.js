@@ -1,7 +1,5 @@
 import componentReadme from '_local-elements/src/components/ino-dialog/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 import './ino-dialog.scss';
 
 function subscribeToComponentEvents() {
@@ -48,7 +46,7 @@ export default {
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
-      addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+      subscribeToComponentEvents();
       return story();
     },
   ],

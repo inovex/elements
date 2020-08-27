@@ -1,4 +1,4 @@
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -9,8 +9,6 @@ import listItemControlReadme from '_local-elements/src/components/ino-control-it
 import navItemReadme from '_local-elements/src/components/ino-nav-item/readme.md';
 
 import './ino-list.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 
 function subscribeToComponentEvents() {

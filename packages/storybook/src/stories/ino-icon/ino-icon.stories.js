@@ -1,4 +1,3 @@
-import { withActions } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -7,8 +6,6 @@ import componentReadme from '_local-elements/src/components/ino-icon/readme.md';
 import './ino-icon.scss';
 
 import ICONS from '_local-elements/src/components/ino-icon/icons';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 import findElementUpwards from '../../core/helpers/findElementUpwards';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));

@@ -1,7 +1,4 @@
-import CoreEvents from '@storybook/core-events';
-
-import { withActions } from '@storybook/addon-actions';
-import { text, boolean, number, select } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -10,7 +7,6 @@ import tabReadme from '_local-elements/src/components/ino-tab/readme.md';
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 import './ino-tab-bar.scss';
-import addons from '@storybook/addons';
 
 function subscribeToComponentEvents() {
   // == event block
