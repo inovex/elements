@@ -40,13 +40,10 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Structure/<ino-list>',
-
-  decorators: [withStencilReadme(listReadme), story => {
-      addons
-        .getChannel()
-        .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-      return story();
-    }],
+  decorators: [story => {
+    subscribeToComponentEvents();
+    return story();
+  }]
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -136,6 +133,8 @@ export const DefaultUsage = () => /*html*/ `
   </ino-list>
 </div>
 `;
+
+DefaultUsage.decorators = [withStencilReadme(listReadme)];
 
 export const ListItem = () => /*html*/ `
 <div class="story-list">
@@ -557,25 +556,25 @@ export const NavItem = () => /*html*/ `
 <style>
   .customizable-nav-item {
     --ino-nav-item-color: ${text(
-      '--ino-nav-item-color',
-      'black',
-      'Custom Properties'
-    )};
+  '--ino-nav-item-color',
+  'black',
+  'Custom Properties'
+)};
     --ino-nav-item-color-active: ${text(
-      '--ino-nav-item-color-active',
-      'blue',
-      'Custom Properties'
-    )};
+  '--ino-nav-item-color-active',
+  'blue',
+  'Custom Properties'
+)};
     --ino-nav-item-background-color: ${text(
-      '--ino-nav-item-background-color',
-      '#ffffff',
-      'Custom Properties'
-    )};
+  '--ino-nav-item-background-color',
+  '#ffffff',
+  'Custom Properties'
+)};
     --ino-nav-item-background-color-active: ${text(
-      '--ino-nav-item-background-color-active',
-      '#red',
-      'Custom Properties'
-    )};
+  '--ino-nav-item-background-color-active',
+  '#red',
+  'Custom Properties'
+)};
   }
 </style>
 <div class="story-list">

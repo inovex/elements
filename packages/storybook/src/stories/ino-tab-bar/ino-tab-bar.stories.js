@@ -32,18 +32,7 @@ function subscribeToComponentEvents() {
 }
 
 export default {
-  title: 'Structure/<ino-tab-bar>',
-
-  decorators: [
-    withStencilReadme(tabBarReadme),
-    withActions('activeTabChange ino-tab-bar'),
-    story => {
-        addons
-          .getChannel()
-          .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-        return story();
-      },
-  ],
+  title: 'Structure/<ino-tab-bar>'
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -132,6 +121,15 @@ export const DefaultUsage = () => /*html*/ `
   </ino-tab-bar>
 </div>
 `;
+
+DefaultUsage.decorators = [
+  withStencilReadme(tabBarReadme),
+  withActions('activeTabChange ino-tab-bar'),
+  story => {
+    subscribeToComponentEvents();
+    return story();
+  }
+];
 
 export const Tab = () => /*html*/ `
 <div class="story-tab">

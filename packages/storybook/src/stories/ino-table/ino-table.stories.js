@@ -62,10 +62,8 @@ function subscribeToComponentEvents() {
 export default {
   title: 'Structure/<ino-table>',
 
-  decorators: [withStencilReadme(tableReadme), story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+  decorators: [story => {
+    subscribeToComponentEvents();
     return story();
   }]
 };
@@ -177,6 +175,8 @@ export const DefaultUsage = () => /* html */`
         </ino-table-row>
     </ino-table>
   `;
+
+DefaultUsage.decorators = [withStencilReadme(tableReadme)];
 
 
 export const InoTableRow = () => /*html*/ ``;

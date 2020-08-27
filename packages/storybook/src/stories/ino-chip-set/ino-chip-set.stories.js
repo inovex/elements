@@ -9,6 +9,11 @@ import './ino-chip-set.scss';
 
 export default {
   title: 'Buttons/<ino-chip-set>',
+  parameters: {
+    actions: {
+      handles: ['removeChip']
+    }
+  }
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -45,7 +50,6 @@ export const DefaultUsage = () => /*html*/ `
 
 DefaultUsage.decorators = [
   withStencilReadme(chipSetReadme),
-  withActions('removeChip .customizable-chip'),
 ];
 
 export const InoChip = () => /*html*/ `
@@ -114,5 +118,4 @@ export const InoChip = () => /*html*/ `
 InoChip.storyName = '<ino-chip>';
 InoChip.decorators = [
   withStencilReadme(chipReadme),
-  withActions('removeChip .customizable-chip'),
 ];
