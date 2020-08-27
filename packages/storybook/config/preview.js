@@ -11,3 +11,20 @@ applyPolyfills().then(() => {
 
 // Add story composer to apply default styles
 addDecorator((storyFn) => `<div class="ino-story-composer">${storyFn()}</div>`);
+
+// Explicit order for the docs section
+export const parameters = {
+  options: {
+    storySort: {
+      order: [
+        'Docs',
+        [
+          'Home',
+          'Framework Integration',
+          'Styleguide',
+          'Contributing'
+        ]
+      ]
+    }
+  }
+};
