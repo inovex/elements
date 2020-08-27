@@ -59,5 +59,3 @@ export const DefaultUsage = () => /* html */ `
         </ino-segment-group>
     </div>
     `;
-
-DefaultUsage.storyName = 'Default usage';

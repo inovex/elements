@@ -49,5 +49,3 @@ export const DefaultUsage = () => /*html*/ `
        <ino-fab ino-label="none" ino-icon="add" ino-edge-position="none"></ino-fab>
     </div>
   `;
-
-DefaultUsage.storyName = 'Default usage';

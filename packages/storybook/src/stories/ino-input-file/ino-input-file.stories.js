@@ -58,5 +58,3 @@ export const DefaultUsage = () => /*html*/ `
   </ino-input-file>
 </div>
 `;
-
-DefaultUsage.storyName = 'Default usage';

@@ -118,5 +118,3 @@ export const DefaultUsage = () => /*html*/ `
       </ino-fab-set>
     </div>
   `;
-
-DefaultUsage.storyName = 'Default usage';

@@ -52,5 +52,3 @@ export const DefaultUsage = () => /*html*/ `
       <ino-popover ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
     </div>
   `;
-
-DefaultUsage.storyName = 'Default usage';

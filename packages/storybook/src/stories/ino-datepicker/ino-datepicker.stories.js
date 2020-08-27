@@ -102,8 +102,6 @@ export const DefaultUsage = () => /*html*/ `
     </div>
   `;
 
-DefaultUsage.storyName = 'Default usage';
-
 export const Forms = () => /*html*/ `
     <div class="story-datepicker">
       <h4>Required</h4>

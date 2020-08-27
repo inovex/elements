@@ -141,5 +141,3 @@ export const DefaultUsage = () => /*html*/ `
   </ino-input>
  </div>
 `;
-
-DefaultUsage.storyName = 'Default usage';

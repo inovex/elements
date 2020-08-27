@@ -137,8 +137,6 @@ export const DefaultUsage = () => /* html */ `
     </div>
   `;
 
-DefaultUsage.storyName = 'Default usage';
-
 export const Forms = () => /*html*/ `
     <script>
       const form = querySelector('form');

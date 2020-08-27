@@ -58,8 +58,6 @@ export const DefaultUsage = () => /*html*/ `
     </div>
   `;
 
-DefaultUsage.storyName = 'Default usage';
-
 const sampleCard = `
   <div slot="header" class="card-header">
       <ino-icon ino-icon="info" ino-clickable></ino-icon>

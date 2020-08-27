@@ -15,5 +15,3 @@ export const DefaultUsage = () => /*html*/ `
       <ino-header ino-title="${text('ino-title', 'TEAM')}"></ino-header>
     </div>
   `;
-
-DefaultUsage.storyName = 'Default usage';

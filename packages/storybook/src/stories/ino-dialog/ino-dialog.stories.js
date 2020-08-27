@@ -78,5 +78,3 @@ export const DefaultUsage = () => /*html*/ `
         </div>
      </ino-dialog>
   `;
-
-DefaultUsage.storyName = 'Default usage';
