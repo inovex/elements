@@ -95,8 +95,6 @@ export class Tooltip implements ComponentInterface {
     this.target = this.retrieveTarget();
 
     if (!this.target) {
-      // Wait 1 sec for the host element to be rendered
-      await new Promise(resolve => setTimeout(resolve, 1000));
       this.target = this.retrieveTarget();
     }
 
