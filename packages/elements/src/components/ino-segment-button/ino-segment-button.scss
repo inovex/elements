@@ -16,10 +16,10 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
 /**
- * @prop --ino-segment-button-color: color of the segment button if inactive
- * @prop --ino-segment-button-active-color: color of the segment button if active
- * @prop --ino-segment-button-hover-color: color of the segment button on hover
- * @prop --ino-segment-button-disabled-color: color of the segment button if disabled
+ * @prop --ino-segment-button-color: Color of the segment button if inactive
+ * @prop --ino-segment-button-active-color: Color of the segment button if active
+ * @prop --ino-segment-button-hover-color: Color of the segment button on hover
+ * @prop --ino-segment-button-disabled-color: Color of the segment button if disabled
  */
 :host {
   --segment-button-color: var(--ino-segment-button-color, #{colors.ino-color(light, base)});

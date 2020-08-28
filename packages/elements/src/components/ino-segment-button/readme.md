@@ -71,10 +71,10 @@ class MyComponent extends Component {
 
 | Name                                  | Description                             |
 | ------------------------------------- | --------------------------------------- |
-| `--ino-segment-button-active-color`   | color of the segment button if active   |
-| `--ino-segment-button-color`          | color of the segment button if inactive |
-| `--ino-segment-button-disabled-color` | color of the segment button if disabled |
-| `--ino-segment-button-hover-color`    | color of the segment button on hover    |
+| `--ino-segment-button-active-color`   | Color of the segment button if active   |
+| `--ino-segment-button-color`          | Color of the segment button if inactive |
+| `--ino-segment-button-disabled-color` | Color of the segment button if disabled |
+| `--ino-segment-button-hover-color`    | Color of the segment button on hover    |
 
 
 ----------------------------------------------
