@@ -65,11 +65,11 @@ document
 
 | Name                                               | Description                                         |
 | -------------------------------------------------- | --------------------------------------------------- |
-| `--ino-list-item-color`                            | text color                                          |
-| `--ino-list-item-selected-background-color`        | background color of a selected list item            |
-| `--ino-list-item-selected-background-color-active` | background color of a selected list item if active  |
-| `--ino-list-item-selected-background-color-focus`  | background color of a selected list item if focused |
-| `--ino-list-item-selected-background-color-hover`  | background color of a selected list item on hover   |
+| `--ino-list-item-color`                            | Text color                                          |
+| `--ino-list-item-selected-background-color`        | Background color of a selected list item            |
+| `--ino-list-item-selected-background-color-active` | Background color of a selected list item if active  |
+| `--ino-list-item-selected-background-color-focus`  | Background color of a selected list item if focused |
+| `--ino-list-item-selected-background-color-hover`  | Background color of a selected list item on hover   |
 
 
 ## Dependencies
