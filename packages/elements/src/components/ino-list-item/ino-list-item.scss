@@ -3,11 +3,11 @@
 
 ino-list-item {
   /**
-   * @prop --ino-list-item-color: text color
-   * @prop --ino-list-item-selected-background-color: background color of a selected list item
-   * @prop --ino-list-item-selected-background-color-hover: background color of a selected list item on hover
-   * @prop --ino-list-item-selected-background-color-active: background color of a selected list item if active
-   * @prop --ino-list-item-selected-background-color-focus: background color of a selected list item if focused
+   * @prop --ino-list-item-color: Text color
+   * @prop --ino-list-item-selected-background-color: Background color of a selected list item
+   * @prop --ino-list-item-selected-background-color-hover: Background color of a selected list item on hover
+   * @prop --ino-list-item-selected-background-color-active: Background color of a selected list item if active
+   * @prop --ino-list-item-selected-background-color-focus: Background color of a selected list item if focused
    */
   --list-item-color: var(--ino-list-item-color, #{colors.$primary});
   --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
