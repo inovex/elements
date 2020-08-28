@@ -1,3 +1,19 @@
+@use '../../../../elements/src/components/styles/colors';
+
+@each $color-name, $map in colors.$ino-color-scheme {
+  $selector: '.#{$color-name}';
+  #{$selector} {
+    --ino-switch-toggled-on-color: #{map_get($map, base)};
+    --ino-switch-toggled-on-thumb-color: #{map_get($map, base)};
+    --ino-switch-toggled-on-track-color: #{map_get($map, light)};
+    --ino-switch-hover-color: #{map_get($map, light)};
+    --ino-switch-hover-track-color: #{map_get($map, light)};
+    --ino-switch-active-color: #{map_get($map, dark)};
+    --ino-switch-active-track-color: #{map_get($map, dark)};
+  }
+}
+
+
 .story-switch-states {
   display: flex;
   justify-content: space-around;

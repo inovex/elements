@@ -8,71 +8,107 @@ $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
 $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
 0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
-@mixin setColors($map, $selector: "") {
-  #{$selector} .mdc-switch {
-    @include switch.toggled-on-color(map-get($map, base));
-    @include switch.toggled-on-thumb-color(map-get($map, base));
+ino-switch {
+  /**
+   * @prop --ino-switch-toggled-on-color: border color of the switch if toggled on
+   * @prop --ino-switch-toggled-on-thumb-color: thumb color of the switch if toggled on
+   * @prop --ino-switch-toggled-on-track-color: track color of the switch if toggled on
+   * @prop --ino-switch-toggled-off-color: border color of the switch if toggled off
+   * @prop --ino-switch-toggled-off-thumb-color: thumb color of the switch if toggled off
+   * @prop --ino-switch-toggled-off-track-color: track color of the switch if toggled off
+   * @prop --ino-switch-hover-color: border color of the switch on hover
+   * @prop --ino-switch-hover-thumb-color: thumb color of the switch on hover
+   * @prop --ino-switch-hover-track-color: track color of the switch on hover
+   * @prop --ino-switch-active-color: border color of the switch if active
+   * @prop --ino-switch-active-thumb-color: thumb color of the switch if active
+   * @prop --ino-switch-active-track-color: track color of the switch if active
+   * @prop --ino-switch-disabled-color: border color of the switch if disabled
+   * @prop --ino-switch-disabled-thumb-color: thumb color of the switch if disabled
+   * @prop --ino-switch-disabled-track-color: track color of the switch if disabled
+   */
+  --switch-toggled-on-color: var(--ino-switch-toggled-on-color, #{colors.ino-color(primary, base)});
+  --switch-toggled-on-thumb-color: var(--ino-switch-toggled-on-thumb-color, #{colors.ino-color(primary, base)});
+  --switch-toggled-on-track-color: var(--ino-switch-toggled-on-track-color, #{colors.ino-color(primary, light)});
+  --switch-toggled-off-color: var(--ino-switch-toggled-off-color, #{colors.ino-color(light, base)});
+  --switch-toggled-off-thumb-color: var(--ino-switch-toggled-off-thumb-color, #fff);
+  --switch-toggled-off-track-color: var(--ino-switch-toggled-off-track-color, #{colors.ino-color(dark, dark)});
+  --switch-hover-color: var(--ino-switch-hover-color, #{colors.ino-color(primary, light)});
+  --switch-hover-thumb-color: var(--ino-switch-hover-thumb-color, #fff);
+  --switch-hover-track-color: var(--ino-switch-hover-track-color, #{colors.ino-color(primary, light)});
+  --switch-active-color: var(--ino-switch-active-color, #{colors.ino-color(primary, dark)});
+  --switch-active-thumb-color: var(--ino-switch-active-thumb-color, #fff);
+  --switch-active-track-color: var(--ino-switch-active-track-color, #{colors.ino-color(primary, dark)});
+  --switch-disabled-color: var(--ino-switch-disabled-color, #{colors.ino-color(light, base)});
+  --switch-disabled-thumb-color: var(--ino-switch-disabled-thumb-color, #{colors.ino-color(light, base)});
+  --switch-disabled-track-color: var(--ino-switch-disabled-track-color, #{colors.ino-color(light, base)});
+}
 
-    &:hover {
-      .mdc-switch__thumb {
-        background-color: #fff;
-        border-color: map_get($map, light);
-        box-shadow: $small-shadow;
-      }
+/** colors **/
+ino-switch .mdc-switch {
 
-      .mdc-switch__track {
-        background-color: map-get($map, light);
-        border-color: map-get($map, light);
-      }
+  &.mdc-switch--checked {
+    .mdc-switch__thumb {
+      background-color: var(--switch-toggled-on-thumb-color);
+      border-color: var(--switch-toggled-on-color);
     }
-
-    &:active {
-      .mdc-switch__thumb {
-        background-color: #fff;
-        box-shadow: $big-shadow;
-        border-color: map_get($map, dark);
-      }
-
-      .mdc-switch__track {
-        background-color: map-get($map, dark);
-        border-color: map-get($map, dark);
-      }
+    .mdc-switch__track {
+      background-color: var(--switch-toggled-on-track-color);
     }
   }
 
-}
+  &:not(.mdc-switch--checked) {
+    .mdc-switch__thumb {
+      background-color: var(--switch-toggled-off-thumb-color);
+      border-color: var(--switch-toggled-off-color);
+    }
+    .mdc-switch__track {
+      background-color: var(--switch-toggled-off-track-color);
+    }
+  }
 
-// Default option
-:not([ino-color-scheme]) {
-  @include setColors(map-get(colors.$ino-color-scheme, primary));
-}
+  &:hover {
+    .mdc-switch__thumb {
+      background-color: var(--switch-hover-thumb-color);
+      border-color: var(--switch-hover-color);
+      box-shadow: $small-shadow;
+    }
 
-// Generate ino-color-scheme classes
-@each $color-name, $map in colors.$ino-color-scheme {
-  $selector: '[ino-color-scheme="#{$color-name}"]';
+    .mdc-switch__track {
+      background-color: var(--switch-hover-track-color);
+    }
+  }
 
-  @include setColors($map, $selector);
+  &:active {
+    .mdc-switch__thumb {
+      background-color: var(--switch-active-thumb-color);
+      box-shadow: $big-shadow;
+      border-color: var(--switch-active-color);
+    }
+
+    .mdc-switch__track {
+      background-color: var(--switch-active-track-color);
+    }
+  }
+
+  &.mdc-switch--disabled {
+   .mdc-switch__thumb {
+     background-color: var(--switch-disabled-thumb-color);
+     border-color: var(--switch-disabled-color);
+   }
+
+    .mdc-switch__track {
+      background-color: var(--switch-disabled-track-color);
+    }
+  }
 }
 
 ino-switch {
-
   label {
     margin-left: 10px;
   }
 
   .mdc-switch {
     top: -3px;
-
-    &:not(.mdc-switch--checked) .mdc-switch__thumb {
-      border-color: colors.ino-color(light, base);
-    }
-
-    &.mdc-switch--disabled {
-      @include switch.toggled-on-color(colors.$light);
-      @include switch.toggled-on-thumb-color(colors.$light);
-      @include switch.toggled-off-color(colors.$light);
-      @include switch.toggled-off-thumb-color(colors.$light);
-    }
   }
 
   .mdc-switch__thumb-underlay {
