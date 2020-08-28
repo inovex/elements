@@ -70,11 +70,12 @@ export class InputFile implements ComponentInterface {
           <ino-button
             class="ino-input-file__button"
             name="file-paths"
-            ino-icon="upload"
             autoFocus={this.autoFocus}
             disabled={this.disabled}
             onClick={_ => this.selectFiles()}
+            ino-icon-leading
           >
+            <ino-icon ino-icon="upload" slot="ino-icon-leading"/>
             {this.inoLabel}
           </ino-button>
           <input
