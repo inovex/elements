@@ -44,13 +44,24 @@ storiesOf('Input|<ino-radio>', module)
     'Default usage',
     () => /*html*/ `
     <div class="story-radio">
-      <ino-radio
-        checked="${boolean('checked', false)}"
-        disabled="${boolean('disabled', false)}"
-        name="radio-custom"
-      >
-        ${text('<slot />', 'Customizable Radio Button')}
-      </ino-radio>
+        <style>
+          ino-radio.customizable-radio {
+            --radio-unchecked-color: ${text('--radio-unchecked-color', '#c1c1c1', 'Custom Properties')};
+            --radio-checked-color: ${text('--radio-checked-color', '#3d40f5', 'Custom Properties')};
+            --radio-hover-color: ${text('--radio-hover-color', '#5d60f7', 'Custom Properties')};
+            --radio-active-color: ${text('--radio-active-color', '#0d10f3', 'Custom Properties')};
+            --radio-disabled-inner-circle-color: ${text('--radio-disabled-inner-circle-color', '#777777', 'Custom Properties')};
+            --radio-disabled-outer-circle-color: ${text('--radio-disabled-outer-circle-color', '#c1c1c1', 'Custom Properties')};
+          }
+      </style>
+        <ino-radio
+          class="customizable-radio"
+          checked="${boolean('checked', false)}"
+          disabled="${boolean('disabled', false)}"
+          name="radio-custom"
+        >
+          ${text('<slot />', 'Customizable Radio Button')}
+        </ino-radio>
     </div>
 
     <h4>States</h4>

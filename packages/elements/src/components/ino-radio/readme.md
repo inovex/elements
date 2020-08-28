@@ -111,6 +111,18 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                      | Description                           |
+| ----------------------------------------- | ------------------------------------- |
+| `--ino-radio-active-color`                | color of the radio if active          |
+| `--ino-radio-checked-color`               | color of the radio if checked         |
+| `--ino-radio-disabled-inner-circle-color` | color of the inner circle if disabled |
+| `--ino-radio-disabled-outer-circle-color` | color of the outer circle if disabled |
+| `--ino-radio-hover-color`                 | color of the radio on hover           |
+| `--ino-radio-unchecked-color`             | color of the radio if unchecked       |
+
+
 ## Dependencies
 
 ### Used by
