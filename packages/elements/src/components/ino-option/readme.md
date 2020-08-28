@@ -33,10 +33,10 @@ The component can be used as follows:
 
 | Name                                   | Description                |
 | -------------------------------------- | -------------------------- |
-| `--ino-option-background-color`        | background color           |
-| `--ino-option-background-color-active` | background color if active |
-| `--ino-option-background-color-focus`  | background color on focus  |
-| `--ino-option-background-color-hover`  | background color on hover  |
+| `--ino-option-background-color`        | Background color           |
+| `--ino-option-background-color-active` | Background color if active |
+| `--ino-option-background-color-focus`  | Background color on focus  |
+| `--ino-option-background-color-hover`  | Background color on hover  |
 
 
 ## Dependencies
