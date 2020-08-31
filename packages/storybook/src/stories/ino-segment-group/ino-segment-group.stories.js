@@ -47,11 +47,31 @@ export const DefaultUsage = () => /* html */ `
               }
           </style>
           <ino-segment-group id="segment-grp">
-              <ino-segment-button value="1" class="customizable-segment-btn">Option 1</ino-segment-button>
-              <ino-segment-button value="2" class="customizable-segment-btn">Option 2</ino-segment-button>
-              <ino-segment-button value="3" class="customizable-segment-btn">Option 3</ino-segment-button>
-              <ino-segment-button value="4" class="customizable-segment-btn">Option 4</ino-segment-button>
-          </ino-segment-group>
+            <ino-segment-button
+                value="1"
+                class="customizable-segment-btn"
+            >
+            Option 1
+            </ino-segment-button>
+            <ino-segment-button
+                value="2"
+                class="customizable-segment-btn"
+            >
+            Option 2
+            </ino-segment-button>
+            <ino-segment-button
+                value="3"
+                class="customizable-segment-btn"
+            >
+            Option 3
+            </ino-segment-button>
+            <ino-segment-button
+                value="4"
+                class="customizable-segment-btn"
+            >
+            Option 4
+            </ino-segment-button>
+        </ino-segment-group>
       </div>
         <h4>Dense group with third option checked</h4>
         <ino-segment-group value="3" id="dense-segment-grp">

@@ -11,10 +11,10 @@ export const DefaultUsage = () => /* html */ `
     <div class="story-segment-button">
         <style>
           ino-segment-button.customizable-segment-btn {
-              --segment-button-color: ${text('--segment-button-color', '#c1c1c1', 'Custom Properties')};
-              --segment-button-active-color: ${text('--segment-button-active-color', '#0d10f3', 'Custom Properties')};
-              --segment-button-hover-color: ${text('--segment-button-hover-color', '#5d60f7', 'Custom Properties')};
-              --segment-button-disabled-color: ${text('--segment-button-disabled-color', '#777777', 'Custom Properties')};
+              --ino-segment-button-color: ${text('--ino-segment-button-color', '#c1c1c1', 'Custom Properties')};
+              --ino-segment-button-active-color: ${text('--ino-segment-button-active-color', '#0d10f3', 'Custom Properties')};
+              --ino-segment-button-hover-color: ${text('--ino-segment-button-hover-color', '#5d60f7', 'Custom Properties')};
+              --ino-segment-button-disabled-color: ${text('--ino-segment-button-disabled-color', '#777777', 'Custom Properties')};
           }
         </style>
         <h4>Customizable Segment Button</h4>
