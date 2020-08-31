@@ -142,10 +142,10 @@ export const Forms = () => /*html*/ `
 export const SelectOptions = () => /*html*/ `
     <style>
         ino-option.customizable-option {
-          --option-background-color: ${text('--option-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
-          --option-background-color-hover: ${text('--option-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
-          --option-background-color-focus: ${text('--option-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
-          --option-background-color-active: ${text('--option-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
+          --ino-option-background-color: ${text('--ino-option-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
+          --ino-option-background-color-hover: ${text('--ino-option-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
+          --ino-option-background-color-focus: ${text('--ino-option-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
+          --ino-option-background-color-active: ${text('--ino-option-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
         }
     </style>
     <h4>Customizable option</h4>
