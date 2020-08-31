@@ -49,8 +49,16 @@ storiesOf('Notification|<ino-snackbar>', module)
           <h4>Customizable Snackbar</h4>
           <ino-button id="snackbar-temp">Show Snackbar</ino-button>
           <template id="snackbar-temp">
+          <style>
+                ino-snackbar.customizable-snackbar {
+                  --ino-snackbar-color: ${text('--ino-snackbar-color', '#777777', 'Custom Properties')};
+                  --ino-snackbar-background-color: ${text('--ino-snackbar-background-color', '#ffffff', 'Custom Properties')};
+                  --ino-snackbar-icon-color: ${text('--ino-snackbar-icon-color', '#3d40f5', 'Custom Properties')};
+                }
+            </style>
             <ino-snackbar
                 id="custom-snackbar"
+                class="customizable-snackbar"
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
                 ino-alignment="${select('ino-alignment', ['center', 'leading', 'trailing'], 'center')}" />

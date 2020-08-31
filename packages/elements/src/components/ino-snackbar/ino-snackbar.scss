@@ -4,13 +4,24 @@
 @use 'styles/mixins';
 
 ino-snackbar {
+  /**
+   * @prop --ino-snackbar-color: Text color
+   * @prop --ino-snackbar-background-color: Background color
+   * @prop --ino-snackbar-icon-color: Icon color
+   */
+  --snackbar-color: var(--ino-snackbar-color, #{colors.$dark});
+  --snackbar-background-color: var(--ino-snackbar-background-color, #{colors.$primary-contrast});
+  --snackbar-icon-color: var(--ino-snackbar-icon-color, #{colors.$primary});
+}
+
+ino-snackbar {
 
   &[ino-alignment="right"] .mdc-snackbar--leading {
     justify-content: flex-end;
   }
 
   .mdc-snackbar__surface {
-    background-color: colors.$primary-contrast;
+    background-color: var(--snackbar-background-color);
     padding: 16px;
     display: flex;
     align-items: stretch;
@@ -25,7 +36,7 @@ ino-snackbar {
 
     .mdc-snackbar__label {
       display: inline;
-      color: colors.ino-color(dark);
+      color: var(--snackbar-color);
       @include fonts.ino-font-size(s);
       word-break: break-all;
       flex-grow: 3;
@@ -41,20 +52,9 @@ ino-snackbar {
       top: 12px;
       left: 12px;
     }
-  }
 
-  &:not([ino-action-text]), &[ino-action-text=""] {
-
-    .mdc-snackbar__surface {
-      background-color: lighten(colors.$primary-light, 5%);
-
-      .mdc-snackbar__label {
-        color: white;
-      }
-
-      ino-icon-button ino-icon {
-        --icon-color: white;
-      }
+    ino-icon-button ino-icon {
+      --icon-color: var(--snackbar-icon-color);
     }
   }
 }

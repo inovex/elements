@@ -117,6 +117,15 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                              | Description      |
+| --------------------------------- | ---------------- |
+| `--ino-snackbar-background-color` | Background color |
+| `--ino-snackbar-color`            | Text color       |
+| `--ino-snackbar-icon-color`       | Icon color       |
+
+
 ## Dependencies
 
 ### Depends on
