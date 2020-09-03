@@ -1,0 +1,35 @@
+.catalog-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  ino-card {
+    width: 230px;
+    margin: 10px;
+  }
+
+  .card-content, .card-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-content {
+    height: 100px;
+  }
+
+  .card-footer {
+    height: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+
+  h3 {
+    color: #777777;
+  }
+}
