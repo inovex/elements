@@ -6,7 +6,7 @@ import {
   EventEmitter,
   Host,
   Listen,
-  Prop, Watch, h
+  Prop, Watch, h, State
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
@@ -49,11 +49,6 @@ export class Datepicker implements ComponentInterface {
   @Prop() inoShowLabelHint?: boolean;
 
   /**
-   * A pattern to check the input field on
-   */
-  @Prop() inoPattern?: string;
-
-  /**
    * The currently selected date shown in the input field **unmanaged**. The given value
    * will not be formatted as date.
    */
@@ -61,6 +56,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    this.setValidState(value);
     if (this.flatpickr) {
       this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
@@ -203,6 +199,8 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() hourStep = 1;
 
+  @State() isInValid: boolean = false;
+  
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.updateFlatpickr('hourIncrement', value);
@@ -281,9 +279,8 @@ export class Datepicker implements ComponentInterface {
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-
+  
   private create() {
-
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -336,6 +333,23 @@ export class Datepicker implements ComponentInterface {
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
   });
 
+  private setValidState(value: string): void {
+    try {
+      let parsedDate: Date  = flatpickr.parseDate(value);
+      let formattedDate: string = flatpickr.formatDate(parsedDate, this.inoDateFormat);
+      
+      if(formattedDate !== value) {
+        this.isInValid = true;
+        return;
+      }
+
+      this.isInValid = false;
+    } catch(e) {
+      console.log(e);
+      this.isInValid = true;
+    }
+  }
+
   private getTypeSpecificOptions(): Partial<BaseOptions> {
     switch (this.inoType) {
       case 'month':
@@ -377,11 +391,7 @@ export class Datepicker implements ComponentInterface {
           name={this.name}
           required={this.required}
           ino-label={this.inoLabel}
-          pattern={
-            this.inoPattern && this.inoPattern !== ''
-              ? this.inoPattern
-              : undefined
-          }
+          ino-error={this.isInValid}
           ino-icon-leading
           value={this.value}
           ino-helper={this.inoHelper}

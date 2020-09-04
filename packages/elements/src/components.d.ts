@@ -238,10 +238,6 @@ export namespace Components {
          */
         "inoOutline"?: boolean;
         /**
-          * A pattern to check the input field on
-         */
-        "inoPattern"?: string;
-        /**
           * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
          */
         "inoRange"?: boolean;
@@ -1673,10 +1669,6 @@ declare namespace LocalJSX {
           * Styles the datepicker as outlined element.
          */
         "inoOutline"?: boolean;
-        /**
-          * A pattern to check the input field on
-         */
-        "inoPattern"?: string;
         /**
           * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
          */

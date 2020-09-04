@@ -12,9 +12,9 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-datepicker/readme.md';
 import './ino-datepicker.scss';
 
-let defaultDate = moment().add(1, 'days').format('YYYY-MM-DD');
-const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD HH:MM');
-const maxDate = moment().add(5, 'days').format('YYYY-MM-DD HH:MM');
+let defaultDate = moment().format('YYYY-MM-DD');
+const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD');
+const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -50,16 +50,15 @@ storiesOf('Input|<ino-datepicker>', module)
     <div class="story-datepicker">
       <ino-datepicker class="customizable-picker"
         value="${text('value', defaultDate, 'DATE CONFIG')}"
-        ino-type="${select('ino-type', ['dateime', 'month', 'date', 'time'], 'datetime', 'STANDARD')}"
+        ino-type="${select('ino-type', ['datetime', 'month', 'date', 'time'], 'datetime', 'STANDARD')}"
         ino-label="${text('ino-label', 'Label', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         min="${text('min', minDate, 'STANDARD')}"
         max="${text('max', maxDate, 'STANDARD')}"
-        ino-pattern="${text('ino-pattern', '', 'STANDARD')}"
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
         ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
-        ino-date-format="${text('ino-date-format', 'Y-m-d H:i', 'DATE CONFIG')}"
+        ino-date-format="${text('ino-date-format', 'Y-m-d', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text('ino-default-date', defaultDate, 'DATE CONFIG')}"
         ino-twelf-hour-time="${boolean('ino-twelf-hour-time', false, 'DATE CONFIG')}"

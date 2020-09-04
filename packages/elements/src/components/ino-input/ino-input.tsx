@@ -217,8 +217,10 @@ export class Input implements ComponentInterface {
   inoErrorHandler(value?: boolean) {
     if (value) {
       this.textfield.valid = false;
+      this.textfield.useNativeValidation = false;
     } else {
       this.textfield.valid = true;
+      this.textfield.useNativeValidation = true;
       this.nativeInputEl.checkValidity();
     }
   }
@@ -247,6 +249,7 @@ export class Input implements ComponentInterface {
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+    
     if (this.type === 'email') {
       this.textfield.useNativeValidation = false;
     }
