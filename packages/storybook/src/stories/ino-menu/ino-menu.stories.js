@@ -33,10 +33,6 @@ function subscribeToComponentEvents() {
   };
 }
 
-function handler() {
-  console.log('test');
-}
-
 export default {
   title: 'Structure/<ino-menu>',
 

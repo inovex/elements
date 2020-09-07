@@ -6,7 +6,6 @@ function subscribeToComponentEvents() {
   // == event block
   const eventHandler = function (e) {
     const el = e.target;
-    console.log(el);
     if (el.id === 'open-dialog-btn') {
       const dialog = document.getElementById('demo-dialog-1');
       dialog.inoOpen = true;
