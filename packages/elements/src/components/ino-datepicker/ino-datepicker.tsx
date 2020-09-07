@@ -335,8 +335,8 @@ export class Datepicker implements ComponentInterface {
 
   private setValidState(value: string): void {
     try {
-      let parsedDate: Date  = flatpickr.parseDate(value);
-      let formattedDate: string = flatpickr.formatDate(parsedDate, this.inoDateFormat);
+      let parsedDate: Date  = this.flatpickr.parseDate(value, this.flatpickr.config.dateFormat);
+      let formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
       
       if(formattedDate !== value) {
         this.isInValid = true;
@@ -345,7 +345,6 @@ export class Datepicker implements ComponentInterface {
 
       this.isInValid = false;
     } catch(e) {
-      console.log(e);
       this.isInValid = true;
     }
   }
