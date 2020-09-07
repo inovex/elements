@@ -42,7 +42,7 @@ export default {
 export const DefaultUsage = () => /*html*/ `
 <div class="story-radio">
   <div>
-    <ino-radio-group id="radio-grp">
+    <ino-radio-group id="radio-grp" value="1">
       <ino-radio value="1">Opt 1</ino-radio>
       <ino-radio value="2">Opt 2</ino-radio>
       <ino-radio value="3">Opt 3</ino-radio>
