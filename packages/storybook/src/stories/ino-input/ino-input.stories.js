@@ -10,7 +10,7 @@ function subscribeToComponentEvents() {
   // == event block
   const eventHandler = function (e) {
     const el = e.target;
-    if (el.tagName.toLowerCase() !== 'ino-input') {
+    if (el.tagName && el.tagName.toLowerCase() !== 'ino-input') {
       return;
     }
 
@@ -45,16 +45,11 @@ export default {
 export const DefaultUsage = () => /*html*/ `
 <div class="story-input">
   <style>
-      ino-input.customizable-input {
-        --input-caret-color: ${text('--input-caret-color', '#3d40f5', 'Custom Properties')};
-        --input-label-color: ${text('--input-label-color', '#3d40f5', 'Custom Properties')};
-        --input-line-color: ${text('--input-line-color', '#3d40f5', 'Custom Properties')};
-        --input-icon-color: ${text('--input-icon-color', '#3d40f5', 'Custom Properties')};
-      }
+
   </style>
   <ino-input class="customizable-input" id="customizable-input" valueChange={action('value-changes')}
     type="${select('type', ['text', 'number', 'password', 'email'], 'text', 'STANDARD')}"
-    step="${text('step', 5, ['step'], 'STANDARD')}"
+    step="${text('step', '5', 'STANDARD')}"
     maxlength="${number('maxlength', 100, ['maxlength'], 'STANDARD')}"
     ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"
     placeholder="${text('placeholder', '', 'STANDARD')}"
