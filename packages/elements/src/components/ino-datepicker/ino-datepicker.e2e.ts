@@ -150,18 +150,6 @@ describe('InoDatepicker', () => {
 
       expect(datepicker).toHaveAttribute('ino-show-label-hint');
     });
-
-    it('should render with a predefined pattern', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-      const datepicker = await page.find(DATEPICKER);
-      const input = await page.find(INPUT);
-
-      await datepicker.setAttribute('ino-pattern', 'abc');
-      await page.waitForChanges();
-
-      const inputPattern = await input.getAttribute('pattern');
-      expect(inputPattern).toBe('abc');
-    });
   });
 
   describe('Events', () => {
@@ -172,10 +160,10 @@ describe('InoDatepicker', () => {
 
       await input.type('1');
       await page.waitForChanges();
-
+      
       expect(valueChangeEvent).toHaveReceivedEvent();
     });
-
+    
     it('should not emit a valueChange event if datepicker is disabled', async () => {
       let page = await setupPageWithContent(INO_DATEPICKER);
       const datepicker = await page.find(DATEPICKER);
