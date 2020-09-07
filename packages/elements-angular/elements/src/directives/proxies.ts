@@ -6,8 +6,8 @@ import { ProxyCmp, proxyOutputs } from "./proxies-utils";
 import { Components } from "@inovex/elements";
 export declare interface InoButton extends Components.InoButton {
 }
-@ProxyCmp({ inputs: ["autoFocus", "disabled", "form", "inoColorScheme", "inoDense", "inoEdgeMirrored", "inoFill", "inoFullWidth", "inoIcon", "inoIconPrepend", "inoLoading", "name", "type"] })
-@Component({ selector: "ino-button", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "disabled", "form", "inoColorScheme", "inoDense", "inoEdgeMirrored", "inoFill", "inoFullWidth", "inoIcon", "inoIconPrepend", "inoLoading", "name", "type"] })
+@ProxyCmp({ inputs: ["autoFocus", "disabled", "form", "inoColorScheme", "inoDense", "inoEdgeMirrored", "inoFill", "inoFullWidth", "inoIconLeading", "inoIconTrailing", "inoLoading", "name", "type"] })
+@Component({ selector: "ino-button", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["autoFocus", "disabled", "form", "inoColorScheme", "inoDense", "inoEdgeMirrored", "inoFill", "inoFullWidth", "inoIconLeading", "inoIconTrailing", "inoLoading", "name", "type"] })
 export class InoButton {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

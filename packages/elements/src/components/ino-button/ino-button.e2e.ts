@@ -2,6 +2,18 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_BUTTON = `<ino-button></ino-button>`;
 
+const INO_BTN_WITH_LEADING_ICON = `
+  <ino-button ino-icon-leading>
+    <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
+  </ino-button>
+`;
+
+const INO_BTN_WITH_TRAILING_ICON = `
+  <ino-button ino-icon-trailing>
+    <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
+  </ino-button>
+`;
+
 describe('InoButton', () => {
   it('should render with default values', async () => {
     const page = await setupPageWithContent(INO_BUTTON);
@@ -9,7 +21,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     expect(inoButtonEl).not.toBeNull();
 
-    const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toEqualAttribute('type', 'button');
     expect(mdcButtonEl).toHaveClasses(['mdc-button', 'mdc-button--unelevated']);
   });
@@ -20,7 +32,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     inoButtonEl.setAttribute('ino-dense', true);
     await page.waitForChanges();
-    const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toHaveClass('ino-button--dense');
   });
 
@@ -30,7 +42,7 @@ describe('InoButton', () => {
     const inoButtonEl = await page.find('ino-button');
     inoButtonEl.setAttribute('disabled', true);
     await page.waitForChanges();
-    const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
     expect(mdcButtonEl).toHaveAttribute('disabled');
   });
 
@@ -41,7 +53,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'solid');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--unelevated');
     });
 
@@ -51,7 +63,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'outline');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--outlined');
     });
 
@@ -61,7 +73,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('ino-fill', 'inverse');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).not.toHaveClasses([
         'mdc-button--outlined',
         'mdc-button--raised'
@@ -76,7 +88,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'button');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'button');
     });
 
@@ -86,7 +98,7 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'reset');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'reset');
     });
 
@@ -96,8 +108,22 @@ describe('InoButton', () => {
       const inoButtonEl = await page.find('ino-button');
       inoButtonEl.setAttribute('type', 'submit');
       await page.waitForChanges();
-      const mdcButtonEl = inoButtonEl.shadowRoot.querySelector('button');
+      const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toEqualAttribute('type', 'submit');
+    });
+
+    it('should render with a leading icon', async () => {
+      const page = await setupPageWithContent(INO_BTN_WITH_LEADING_ICON);
+
+      const icon = await page.find('ino-icon');
+      expect(icon).toBeTruthy();
+    });
+
+    it('should render with a trailing icon', async () => {
+      const page = await setupPageWithContent(INO_BTN_WITH_TRAILING_ICON);
+
+      const icon = await page.find('ino-icon');
+      expect(icon).toBeTruthy();
     });
   });
 });

@@ -42,13 +42,13 @@ export namespace Components {
          */
         "inoFullWidth"?: boolean;
         /**
-          * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
+          * If enabled, prepends the slotted icon to the button label
          */
-        "inoIcon"?: string;
+        "inoIconLeading": boolean;
         /**
-          * Prepends an icon after the text.
+          * If enabled, appends the slotted icon to the button label
          */
-        "inoIconPrepend"?: boolean;
+        "inoIconTrailing": boolean;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
@@ -1462,13 +1462,13 @@ declare namespace LocalJSX {
          */
         "inoFullWidth"?: boolean;
         /**
-          * Adds an icon to the button. The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
+          * If enabled, prepends the slotted icon to the button label
          */
-        "inoIcon"?: string;
+        "inoIconLeading"?: boolean;
         /**
-          * Prepends an icon after the text.
+          * If enabled, appends the slotted icon to the button label
          */
-        "inoIconPrepend"?: boolean;
+        "inoIconTrailing"?: boolean;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */

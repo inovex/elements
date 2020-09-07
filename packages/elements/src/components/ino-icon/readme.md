@@ -141,7 +141,6 @@ If you want to use custom icons, just use the URL to your preferred icon.
 
 ### Used by
 
- - [ino-button](../ino-button)
  - [ino-card](../ino-card)
  - [ino-chip](../ino-chip)
  - [ino-datepicker](../ino-datepicker)
@@ -149,12 +148,12 @@ If you want to use custom icons, just use the URL to your preferred icon.
  - [ino-fab-set](../ino-fab-set)
  - [ino-icon-button](../ino-icon-button)
  - [ino-input](../ino-input)
+ - [ino-input-file](../ino-input-file)
  - [ino-tab](../ino-tab)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-button --> ino-icon
   ino-card --> ino-icon
   ino-chip --> ino-icon
   ino-datepicker --> ino-icon
@@ -162,6 +161,7 @@ graph TD;
   ino-fab-set --> ino-icon
   ino-icon-button --> ino-icon
   ino-input --> ino-icon
+  ino-input-file --> ino-icon
   ino-tab --> ino-icon
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

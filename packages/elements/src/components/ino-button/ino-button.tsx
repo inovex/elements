@@ -74,15 +74,14 @@ export class Button implements ComponentInterface {
   @Prop() inoFullWidth? = false;
 
   /**
-   * Adds an icon to the button.
-   * The icon is appended before the text. Use `inoIconPrepend` to place it after the text.
+   * If enabled, prepends the slotted icon to the button label
    */
-  @Prop() inoIcon?: string;
+  @Prop() inoIconLeading = false;
 
   /**
-   * Prepends an icon after the text.
+   * If enabled, appends the slotted icon to the button label
    */
-  @Prop() inoIconPrepend?: boolean;
+  @Prop() inoIconTrailing = false;
 
   /**
    * Makes the button text and container slightly smaller.
@@ -166,12 +165,10 @@ export class Button implements ComponentInterface {
           type={this.type}
           form={this.form}
         >
-          {this.inoIcon && !this.inoIconPrepend && (
-            <ino-icon
-              class={CSS_CLASSES.MDC_BUTTON_ICON}
-              ino-icon={this.inoIcon}
-              aria-hidden="true"
-            />
+          {this.inoIconLeading && (
+            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
+              <slot name="ino-icon-leading"/>
+            </span>
           )}
           <div class="mdc-button__label">
             {this.inoLoading ?
@@ -180,16 +177,10 @@ export class Button implements ComponentInterface {
               <slot></slot>
             }
           </div>
-          {this.inoIcon && this.inoIconPrepend && (
-            <ino-icon
-              class={
-                CSS_CLASSES.MDC_BUTTON_ICON +
-                ' ' +
-                CSS_CLASSES.MDC_BUTTON_ICON_RIGHT
-              }
-              ino-icon={this.inoIcon}
-              aria-hidden="true"
-            />
+          {this.inoIconTrailing && (
+            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
+              <slot name="ino-icon-trailing"/>
+            </span>
           )}
         </button>
       </Host>

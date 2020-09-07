@@ -43,15 +43,17 @@ storiesOf('Buttons|<ino-button>', module)
           'General'
           )}"
         ino-fill="${select('ino-fill', ['solid', 'outline', 'inverse'], 'solid', 'General')}"
-        ino-icon="${select('ino-icon', ICONS, 'Add', 'Icon')}"
-        ino-icon-prepend="${boolean('ino-icon-prepend', false, 'Icon')}"
+        ino-icon-leading="${boolean('ino-icon-leading', false, 'Icon')}"
+        ino-icon-trailing="${boolean('ino-icon-trailing', false, 'Icon')}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
         ino-full-width="${boolean('ino-full-width', false, 'General')}"
         disabled="${boolean('disabled', false, 'General')}"
         ino-loading="${boolean('ino-loading', false, 'General')}"
         ino-edge-mirrored="${boolean('ino-edge-mirrored', false, 'General')}"
       >
+        <ino-icon slot="ino-icon-leading" ino-icon="${select('ino-icon-leading-slot', ICONS, 'Add', 'Icon')}"></ino-icon>
         ${text('<slot />', 'Customizable button', 'General')}
+        <ino-icon slot="ino-icon-trailing" ino-icon="${select('ino-icon-trailing-slot', ICONS, 'Add', 'Icon')}"></ino-icon>
       </ino-button>
 
       <h4>Variations</h4>
@@ -73,8 +75,14 @@ storiesOf('Buttons|<ino-button>', module)
       </div>
 
       <h4>With icons</h4>
-      <ino-button ino-icon="info">Button Icon left</ino-button>
-      <ino-button ino-icon="info" ino-icon-prepend>Button icon right</ino-button>
+      <ino-button ino-icon-leading>
+        <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
+        Button Icon left
+      </ino-button>
+      <ino-button ino-icon-trailing>
+        <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
+        Button Icon right
+      </ino-button>
 
       <h4>States</h4>
       <div class="button-row">
