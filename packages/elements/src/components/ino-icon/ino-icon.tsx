@@ -1,19 +1,4 @@
 import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
-
-/**
- * If you add new icons you also have to update the `icons.js` file beside that
- * ino-icon.tsx.
- *
- * You only have to do these simple steps:
- *
- * 1) Goto https://icomoon.io/
- * 2) Import the selection.json from `icon-assets`
- * 3) Select/add new icons you want to have in the collection
- * 4) Download the new asset and replace all file in `icon-assets`
- * 5) Update `icons.js` with the string of the icons you added
- * 6) Done! The consumer is now able to use the new icons
- */
-// import ICONS from './icons';
 import { getSvgContent, inoiconContent } from './request';
 import { getUrl } from './utils';
 import { SvgParser } from '../../util/svg-parser';
