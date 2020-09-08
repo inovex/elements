@@ -77,7 +77,9 @@ The component inherits styles, such as the text size, from the parent element. F
 **Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
 
 ### Add icons
-If you would like to add custom icons, you have to add them to the `icon-assets` folder and include them in the `icons.js` file as well.
+If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons` 
+command to include the newly added icons in the `icons.js` file.
+
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
