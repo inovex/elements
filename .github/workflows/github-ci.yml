@@ -83,6 +83,10 @@ jobs:
           --request POST
           --header "PRIVATE-TOKEN: ${{ secrets.GITLAB_MIRROR_TOKEN }}"
           ${{ secrets.GITLAB_URL_WITH_ID }}/mirror/pull
+      - name: Wait for mirroring to be complete
+          uses: jakejarvis/wait-action@master
+          with:
+            time: '10s'
       - name: Trigger Pipeline in GitLab
         run: curl
           --request POST
