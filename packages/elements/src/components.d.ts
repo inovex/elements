@@ -290,10 +290,6 @@ export namespace Components {
     }
     interface InoFab {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
           * Disables the button.
          */
         "inoDisabled": boolean;
@@ -1733,10 +1729,6 @@ declare namespace LocalJSX {
         "onOpenChange"?: (event: CustomEvent<any>) => void;
     }
     interface InoFab {
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
         /**
           * Disables the button.
          */

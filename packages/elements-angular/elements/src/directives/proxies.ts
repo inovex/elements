@@ -106,8 +106,8 @@ export class InoDialog {
 }
 export declare interface InoFab extends Components.InoFab {
 }
-@ProxyCmp({ inputs: ["inoColorScheme", "inoDisabled", "inoEdgePosition", "inoExtended", "inoIcon", "inoLabel", "inoMini", "inoTooltipPlacement"] })
-@Component({ selector: "ino-fab", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoColorScheme", "inoDisabled", "inoEdgePosition", "inoExtended", "inoIcon", "inoLabel", "inoMini", "inoTooltipPlacement"] })
+@ProxyCmp({ inputs: ["inoDisabled", "inoEdgePosition", "inoExtended", "inoIcon", "inoLabel", "inoMini", "inoTooltipPlacement"] })
+@Component({ selector: "ino-fab", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoDisabled", "inoEdgePosition", "inoExtended", "inoIcon", "inoLabel", "inoMini", "inoTooltipPlacement"] })
 export class InoFab {
     protected el: HTMLElement;
     constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
