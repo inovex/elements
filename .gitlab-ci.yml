@@ -78,8 +78,8 @@ publish-package:
   stage: deploy
   script:
     - yarn install
-    - curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
-    - yarn lerna publish from-package --yes --registry https://$ARTIFACTORY_HOST
+    - yarn config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+    - yarn lerna publish from-package --yes
   tags:
     - shared
   only:
