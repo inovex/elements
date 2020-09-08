@@ -2,6 +2,7 @@ stages:
   - build
   - deploy
   - link-latest
+  - publish-package
 
 image: node:12.10.0
 
