@@ -6,11 +6,13 @@ import {
   EventEmitter,
   Host,
   Listen,
-  Prop, Watch, h
+  Prop, Watch, h, State
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
 import { BaseOptions } from 'flatpickr/dist/types/options';
+import { Instance } from 'flatpickr/dist/types/instance';
+import { Locale } from 'flatpickr/dist/types/locale';
 
 @Component({
   tag: 'ino-datepicker',
@@ -20,7 +22,7 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
 export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
 
-  private flatpickr!: any;
+  private flatpickr!: Instance;
 
   /**
    * Autofocuses this element.
@@ -49,11 +51,6 @@ export class Datepicker implements ComponentInterface {
   @Prop() inoShowLabelHint?: boolean;
 
   /**
-   * A pattern to check the input field on
-   */
-  @Prop() inoPattern?: string;
-
-  /**
    * The currently selected date shown in the input field **unmanaged**. The given value
    * will not be formatted as date.
    */
@@ -61,6 +58,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    this.setValidState(value);
     if (this.flatpickr) {
       this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
@@ -203,6 +201,8 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() hourStep = 1;
 
+  @State() isInValid: boolean = false;
+  
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.updateFlatpickr('hourIncrement', value);
@@ -281,9 +281,8 @@ export class Datepicker implements ComponentInterface {
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-
+  
   private create() {
-
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -298,8 +297,8 @@ export class Datepicker implements ComponentInterface {
     this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT;
-    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG;
+    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale["weekdays"]["shorthand"];
+    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale["months"]["longhand"];
 
     if (this.isMonthPicker()) {
       this.flatpickr.prevMonthNav.addEventListener('click', this.monthChangePrevHandler);
@@ -335,6 +334,22 @@ export class Datepicker implements ComponentInterface {
     maxDate: this.max,
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
   });
+
+  private setValidState(value: string): void {
+    try {
+      let parsedDate: Date  = this.flatpickr.parseDate(value);
+      let formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
+      
+      if(formattedDate !== value) {
+        this.isInValid = true;
+        return;
+      }
+
+      this.isInValid = false;
+    } catch(e) {
+      this.isInValid = true;
+    }
+  }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
     switch (this.inoType) {
@@ -377,11 +392,7 @@ export class Datepicker implements ComponentInterface {
           name={this.name}
           required={this.required}
           ino-label={this.inoLabel}
-          pattern={
-            this.inoPattern && this.inoPattern !== ''
-              ? this.inoPattern
-              : undefined
-          }
+          ino-error={this.isInValid}
           ino-icon-leading
           value={this.value}
           ino-helper={this.inoHelper}
