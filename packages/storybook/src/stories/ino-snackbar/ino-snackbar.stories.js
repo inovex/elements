@@ -54,6 +54,9 @@ storiesOf('Notification|<ino-snackbar>', module)
                   --ino-snackbar-color: ${text('--ino-snackbar-color', '#777777', 'Custom Properties')};
                   --ino-snackbar-background-color: ${text('--ino-snackbar-background-color', '#ffffff', 'Custom Properties')};
                   --ino-snackbar-icon-color: ${text('--ino-snackbar-icon-color', '#3d40f5', 'Custom Properties')};
+                  --ino-snackbar-no-action-color: ${text('--ino-snackbar-no-action-color', '#ffffff', 'Custom Properties')};
+                  --ino-snackbar-no-action-background-color: ${text('--ino-snackbar-no-action-background-color', '#7578f8', 'Custom Properties')};
+                  --ino-snackbar-no-action-icon-color: ${text('--ino-snackbar-no-action-icon-color', '#ffffff', 'Custom Properties')};
                 }
             </style>
             <ino-snackbar

@@ -119,11 +119,14 @@ Snackbar is displayed when ino-show is changed to checked.
 
 ## CSS Custom Properties
 
-| Name                              | Description      |
-| --------------------------------- | ---------------- |
-| `--ino-snackbar-background-color` | Background color |
-| `--ino-snackbar-color`            | Text color       |
-| `--ino-snackbar-icon-color`       | Icon color       |
+| Name                                        | Description                                      |
+| ------------------------------------------- | ------------------------------------------------ |
+| `--ino-snackbar-background-color`           | Background color                                 |
+| `--ino-snackbar-color`                      | Text color                                       |
+| `--ino-snackbar-icon-color`                 | Icon color                                       |
+| `--ino-snackbar-no-action-background-color` | Background color of the snackbar without actions |
+| `--ino-snackbar-no-action-color`            | Text color of the snackbar without actions       |
+| `--ino-snackbar-no-action-icon-color`       | Icon color of the snackbar without actions       |
 
 
 ## Dependencies

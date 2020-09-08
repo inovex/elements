@@ -8,10 +8,16 @@ ino-snackbar {
    * @prop --ino-snackbar-color: Text color
    * @prop --ino-snackbar-background-color: Background color
    * @prop --ino-snackbar-icon-color: Icon color
+   * @prop --ino-snackbar-no-action-color: Text color of the snackbar without actions
+   * @prop --ino-snackbar-no-action-background-color: Background color of the snackbar without actions
+   * @prop --ino-snackbar-no-action-icon-color: Icon color of the snackbar without actions
    */
   --snackbar-color: var(--ino-snackbar-color, #{colors.$dark});
   --snackbar-background-color: var(--ino-snackbar-background-color, #{colors.$primary-contrast});
   --snackbar-icon-color: var(--ino-snackbar-icon-color, #{colors.$primary});
+  --snackbar-no-action-color: var(--ino-snackbar-no-action-color, white);
+  --snackbar-no-action-background-color: var(--ino-snackbar-no-action-background-color, #{lighten(colors.$primary-light, 5%)});
+  --snackbar-no-action-icon-color: var(--ino-snackbar-no-action-icon-color, white);
 }
 
 ino-snackbar {
@@ -55,6 +61,21 @@ ino-snackbar {
 
     ino-icon-button ino-icon {
       --icon-color: var(--snackbar-icon-color);
+    }
+  }
+
+  &:not([ino-action-text]), &[ino-action-text=""] {
+
+    .mdc-snackbar__surface {
+      background-color: var(--snackbar-no-action-background-color);
+
+      .mdc-snackbar__label {
+        color: var(--snackbar-no-action-color);
+      }
+
+      ino-icon-button ino-icon {
+        --icon-color: var(--snackbar-no-action-icon-color);
+      }
     }
   }
 }
