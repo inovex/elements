@@ -56,7 +56,6 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
-    this.setValidState(value);
     if (this.flatpickr) {
       this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
@@ -333,6 +332,11 @@ export class Datepicker implements ComponentInterface {
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
   });
 
+  private handleValueChange(e: CustomEvent) {
+    this.setValidState(e.detail);
+    this.valueChange.emit(e.detail)
+  }
+
   private setValidState(value: string): void {
     try {
       let parsedDate: Date  = this.flatpickr.parseDate(value);
@@ -398,7 +402,7 @@ export class Datepicker implements ComponentInterface {
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
-          onValueChange={e => this.valueChange.emit(e.detail)}
+          onValueChange={e => this.handleValueChange(e)}
         >
           <ino-icon
             ino-clickable={!this.disabled}

@@ -197,5 +197,20 @@ describe('InoDatepicker', () => {
       expect(flatpickrCalEl).not.toHaveClass('hasTime');
       expect(flatpickrCalEl).not.toHaveClass('noCalendar');
     })
+
+    it('should set invalid state', async () => {
+      let page = await setupPageWithContent(INO_DATEPICKER);
+      const datepickerEL = await page.find(DATEPICKER);
+
+      datepickerEL.setAttribute('ino-date-format', 'd-Y-m');
+      await page.waitForChanges();
+
+      const input = await page.find(INPUT);
+      await input.type('01.01.1970');
+      await page.waitForChanges();
+
+      const inputComposer = await page.find('.ino-input__composer');
+      expect(inputComposer).toHaveClass('mdc-text-field--invalid');
+    });
   })
 });
