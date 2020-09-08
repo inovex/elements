@@ -11,6 +11,8 @@ import {
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
 import { BaseOptions } from 'flatpickr/dist/types/options';
+import { Instance } from 'flatpickr/dist/types/instance';
+import { Locale } from 'flatpickr/dist/types/locale';
 
 @Component({
   tag: 'ino-datepicker',
@@ -20,7 +22,7 @@ import { BaseOptions } from 'flatpickr/dist/types/options';
 export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
 
-  private flatpickr!: any;
+  private flatpickr!: Instance;
 
   /**
    * Autofocuses this element.
@@ -56,6 +58,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    this.setValidState(value);
     if (this.flatpickr) {
       this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
@@ -294,8 +297,8 @@ export class Datepicker implements ComponentInterface {
     this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT;
-    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG;
+    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale["weekdays"]["shorthand"];
+    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale["months"]["longhand"];
 
     if (this.isMonthPicker()) {
       this.flatpickr.prevMonthNav.addEventListener('click', this.monthChangePrevHandler);
@@ -331,11 +334,6 @@ export class Datepicker implements ComponentInterface {
     maxDate: this.max,
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
   });
-
-  private handleValueChange(e: CustomEvent) {
-    this.setValidState(e.detail);
-    this.valueChange.emit(e.detail)
-  }
 
   private setValidState(value: string): void {
     try {
@@ -402,7 +400,7 @@ export class Datepicker implements ComponentInterface {
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
-          onValueChange={e => this.handleValueChange(e)}
+          onValueChange={e => this.valueChange.emit(e.detail)}
         >
           <ino-icon
             ino-clickable={!this.disabled}
