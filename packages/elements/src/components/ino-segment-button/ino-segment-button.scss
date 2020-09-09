@@ -23,7 +23,7 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
  */
 :host {
   --segment-button-color: var(--ino-segment-button-color, #{colors.ino-color(light, base)});
-  --segment-button-active-color: var(--ino-segment-button-active-color, #{colors.ino-color(primary, dark)});
+  --segment-button-checked-color: var(--ino-segment-button-checked-color, #{colors.ino-color(primary, dark)});
   --segment-button-hover-color: var(--ino-segment-button-hover-color, #{colors.ino-color(primary, light)});
   --segment-button-disabled-color: var(--ino-segment-button-disabled-color, #{colors.ino-color(dark, base)});
 }
@@ -63,8 +63,8 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 
   .ino-segment-button--active, .ino-segment-button--active:hover {
-    @include button.outline-color(var(--segment-button-active-color));
-    @include button.ink-color(var(--segment-button-active-color));
+    @include button.outline-color(var(--segment-button-checked-color));
+    @include button.ink-color(var(--segment-button-checked-color));
     box-shadow: $big-shadow;
   }
 

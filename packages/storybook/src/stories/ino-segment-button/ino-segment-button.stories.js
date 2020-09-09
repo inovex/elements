@@ -12,7 +12,7 @@ export const DefaultUsage = () => /* html */ `
         <style>
           ino-segment-button.customizable-segment-btn {
               --ino-segment-button-color: ${text('--ino-segment-button-color', '#c1c1c1', 'Custom Properties')};
-              --ino-segment-button-active-color: ${text('--ino-segment-button-active-color', '#0d10f3', 'Custom Properties')};
+              --ino-segment-button-checked-color: ${text('--ino-segment-button-checked-color', '#0d10f3', 'Custom Properties')};
               --ino-segment-button-hover-color: ${text('--ino-segment-button-hover-color', '#5d60f7', 'Custom Properties')};
               --ino-segment-button-disabled-color: ${text('--ino-segment-button-disabled-color', '#777777', 'Custom Properties')};
           }
