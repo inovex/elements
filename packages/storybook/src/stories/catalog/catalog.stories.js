@@ -22,8 +22,8 @@ export const DefaultUsage = () => /*html*/ `
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-chip-set--default-usage'">
           <div class="card-content" slot="content">
             <ino-chip-set ino-type="choice">
-              <ino-chip ino-label="No" ino-selected ino-value="0"></ino-chip>
-              <ino-chip ino-label="Yes" ino-value="1"></ino-chip>
+              <ino-chip ino-label="iOS" ino-selected ino-value="0"></ino-chip>
+              <ino-chip ino-label="Android" ino-value="1"></ino-chip>
             </ino-chip-set>
           </div>
           <div class="card-footer" slot="footer">
@@ -76,6 +76,7 @@ export const DefaultUsage = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-dialog--default-usage'">
           <div class="card-content" slot="content">
+            <ino-icon ino-icon="chat" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-dialog</h3>
@@ -243,7 +244,7 @@ export const DefaultUsage = () => /*html*/ `
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/graphic-ino-icon--default-usage'">
           <div class="card-content" slot="content">
-            <ino-icon ino-icon="info" style="--icon-height: 30px; --icon-width: 30px;"></ino-icon>
+            <ino-icon ino-icon="info" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-icon</h3>
@@ -315,7 +316,7 @@ export const DefaultUsage = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-snackbar--default-usage'">
           <div class="card-content" slot="content">
-
+            <ino-icon ino-icon="message" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-snackbar</h3>
