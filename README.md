@@ -78,4 +78,4 @@ These are the available scripts to get started with this mono repository:
 
 ## License
 
-TBD
+MIT
