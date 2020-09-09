@@ -17,7 +17,7 @@ import contributing04 from '_local-docs/contributing/04-developing-components.md
 import contributing05 from '_local-docs/contributing/05-storybook.md'
 import contributing06 from '_local-docs/contributing/06-issue-tracking.md'
 import contributing07 from '_local-docs/contributing/07-commit-message-format.md'
-import contributing08 from '_local-docs/contributing/08-merge-requests.md'
+import contributing08 from '_local-docs/contributing/08-pull-requests.md'
 import contributing09 from '_local-docs/contributing/09-versioning-and-releasing.md'
 import contributing10 from '_local-docs/contributing/10-updating-dependencies.md'
 
@@ -48,6 +48,6 @@ storiesOf('Docs|Contributing', module)
   .add('Storybook', () => markup(contributing05))
   .add('Issue tracking', () => markup(contributing06))
   .add('Commit Message Format', () => markup(contributing07))
-  .add('Merge Requests', () => markup(contributing08))
+  .add('Pull Requests', () => markup(contributing08))
   .add('Versioning and Releasing', () => markup(contributing09))
   .add('Updating Dependencies', () => markup(contributing10))

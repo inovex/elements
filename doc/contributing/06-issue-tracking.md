@@ -1,8 +1,8 @@
 # Issue Tracking
 
-We maintain our backlog in our Project's [GitHub issues](https://github.com/inovex/elements/issues). There we manage all stories, tasks and bugs.
+We maintain our backlog in our Project's [GitHub issues](https://github.com/inovex/elements/issues). There we manage all features and bugs.
 
-New features, refactorings etc. should have the `task` issue type. To track bug fixes, use the `bug` issue type.
+New features, refactorings etc. should have the `feature` label. To track bug fixes, use the `bug` label.
 
 During development, the following process should be loosely followed:
 
@@ -12,8 +12,6 @@ During development, the following process should be loosely followed:
     - For an improvement it's always good to describe your thoughts in a user story style. For example: *As a user I want to change the background color of the button so that I am able to match the colors with my design.*
   - In the weekly coordination meeting, bring up the issue and discuss the priority of the task.
 - Starting Development
-  - Assign the issue to yourself and change the status to **In Progress**. Create a new feature branch and follow the instructions in the **Merge Requests** section (see side panel).
+  - Assign the issue to yourself and change the status to **In Progress** in the project board. Create a new feature branch and follow the instructions in the [Pull Request Section](/?path=/story/docs-contributing--pull-requests) section (see side panel).
 - Reviewing Code
-  - If you are reviewing a merge request, assign the corresponding Jira ticket to yourself.
-  - If you review a merge request as a reviewer, assign the corresponding Jira ticket and the merge request to yourself.
-  - When the merge request is accepted and merged into master, set the corresponding issue to `Done`.
+  - When the pull request is accepted and merged into master, set the corresponding issue to `Done`.

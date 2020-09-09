@@ -1,4 +1,4 @@
-# Merge Requests
+# Pull Requests
 
 We have very precise rules to ensure an understandable and compact history:
 - Before creating a feature branch, make sure that a respective Github issue exists. 
