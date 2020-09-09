@@ -1,6 +1,6 @@
 # Issue Tracking
 
-We maintain our backlog in our Project's [GitHub isses](https://github.com/inovex/elements/issues). There we manage all stories, tasks and bugs.
+We maintain our backlog in our Project's [GitHub issues](https://github.com/inovex/elements/issues). There we manage all stories, tasks and bugs.
 
 New features, refactorings etc. should have the `task` issue type. To track bug fixes, use the `bug` issue type.
 
