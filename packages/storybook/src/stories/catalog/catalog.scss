@@ -11,6 +11,10 @@
   ino-card {
     width: 230px;
     margin: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .card-content, .card-footer {
