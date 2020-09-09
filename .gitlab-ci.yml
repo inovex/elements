@@ -22,6 +22,9 @@ build:
       - packages/storybook/dist/
   tags:
     - shared
+  only:
+    - master
+    - tags
 
 upload:
   stage: deploy
