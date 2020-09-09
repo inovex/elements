@@ -126,7 +126,7 @@ storiesOf('Graphic|<ino-icon>', module)
     <div class="story-icon">
     <style>
       .customizable-icon {
-        --color: ${text('--color', '#3d40f5')};
+        --ino-icon-color-primary: ${text('--ino-icon-color-primary', '#3d40f5')};
       }
     </style>
     <div class="flex-parent-center">

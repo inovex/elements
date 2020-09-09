@@ -76,35 +76,17 @@ The component inherits styles, such as the text size, from the parent element. F
 
 **Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
 
-### Manage icons
+### Add icons
+If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons` 
+command to include the newly added icons in the `icons.js` file.
 
-The `icon-assets` folder is an exported [icomoon](https://icomoon.io/) project. This handy app is used to maintain our icons.
-
-If you have to add, remove or change an icon:
-
-1. Manage the Icons in the icomoon App
-    1. Import the `selection.json` to the [icomoon app](http://icomoon.io/app/#).
-    2. Add, remove, rename, ... the icons
-    3. Export the new icon set by clicking on `Generate SVG & More`.
-
-2. Make sure that the exported icons have the same structure and that the settings in `selection.json` didn't change.
-
-3. Before integrating the new generated icons you have to keep the `internals` icons that are not maintained in [icomoon](https://icomoon.io/). Copy the all files prefixed with an underscore e.g. `icon-assets/SVG/_fab_set_arrow_down.svg` into the downloaded `icon-assets/SVG` folder. 
-
-4. Copy and paste the **entire** (downloaded) `icon-assets` folder to replace the old folder.
-
-5. Run `yarn icon:integrate-icons`. The new icons will be added to the `icons.js` file and copied to the storybook.
-
-6. Don't forget to update the storybook whenever the API changes.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
 > to be located in `icon-assets/` at runtime. Please refer to the Storybook documentation to get detailed instructions
 > on how to integrate the icons with Angular, React or plain JavaScript.
 
-### Custom icons
-
-If you want to use custom icons, just use the URL to your preferred icon.
+Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
 
 <!-- Auto Generated Below -->
 
