@@ -57,7 +57,7 @@ publish-package:
   stage: deploy
   script:
     - yarn install
-    - yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+    - yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN --silent
     - yarn lerna publish from-package --yes
   tags:
     - shared
