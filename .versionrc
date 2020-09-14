@@ -25,6 +25,10 @@
     {
       "type": "chore",
       "section": "Miscellaneous"
+    },
+    {
+      "type": "refactor",
+      "section": "Refactoring"
     }
   ]
 }

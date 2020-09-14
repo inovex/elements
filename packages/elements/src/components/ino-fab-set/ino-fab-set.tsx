@@ -52,7 +52,7 @@ export class Fab implements ComponentInterface {
           <div class={speedDialClasses}>
             <slot></slot>
           </div>
-          <ino-fab id={'primary-fab'} ino-edge-position="none">
+          <ino-fab id={'primary-fab'} ino-edge-position="none" ino-tooltip-placement="none">
             <ino-icon ino-icon={'_fab_set_arrow_up'}></ino-icon>
           </ino-fab>
         </div>

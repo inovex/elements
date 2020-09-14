@@ -10,10 +10,6 @@ import { CSS_CLASSES, SELECTORS } from './constants';
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
   shadow: true
-  // as exception, we use shadow DOM for the button to avoid
-  // https://github.com/ionic-team/stencil/issues/1454.
-  // TODO: We should either use ShadowDOM for all or no elements in future!!!
-  // https://jira.inovex.de/browse/ELEMENTS-90
 })
 export class Button implements ComponentInterface {
   /**
