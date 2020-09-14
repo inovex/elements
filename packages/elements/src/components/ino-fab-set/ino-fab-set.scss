@@ -48,7 +48,7 @@ $rotationsByDirection: (
   .ino-fab-set-wrapper {
     display: flex;
 
-    ::slotted(ino-fab) {
+    ::slotted(*) {
       padding: 5px;
 
       .mdc-fab .mdc-fab__icon {
