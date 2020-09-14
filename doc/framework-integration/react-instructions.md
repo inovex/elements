@@ -1,5 +1,9 @@
 # Integrate with React
 
+We provide an integration layer package for React so that you can integrate the elements just like any other dependency
+into your React project. The name of the package matches the name of the respective inovex element in PascalCase
+(e.g. `InoButton` for `ino-button`). 
+
 > We set up a demo project with React to show you how to integrate the components into a newly generated React
 > project. Scroll down to see the Stackblitz.
 >
@@ -14,19 +18,7 @@ If this is the case, proceed to the next step.
 
 ## 1) Install `@inovex/elements-react`
 
-We provide an integration layer package for React so that you can integrate the elements just like any other dependency
-into your React project. The name of the package matches the name of the respective inovex element in PascalCase
-(e.g. `InoButton` for `ino-button`). 
-
-We're not yet on npm. Hence, you need to set up a npm config before you are able to install 
-the package. The following command will update your local npm config to always request `@inovex` prefixed packages from our private
-registry and not from npmjs.org. To do so, copy the following command into your terminal and execute it:
-
-```sh
-$ npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
-
-Now you are ready to add the package `@inovex/elements-react` to your project using `yarn` or `npm`:
+Add the package `@inovex/elements-react` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
