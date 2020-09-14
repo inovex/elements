@@ -72,8 +72,5 @@ export class AppModule { }
 
 As the integration is completed, you can now use the components in your project in the same way you would use
 any other Angular directive.
-<!--
-To help you getting started, we created a simple todo app for you to play around with:
 
-<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-angular-example?embed=1&file=index.js" />
--->
+To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-angular-example?embed=1&file=index.js) for you to play around with.

@@ -74,6 +74,4 @@ However, for testing purposes, and if you just want to play around with the elem
 > A hint on the icons: The elements loader automatically imports the icons. You don't have to import
 > them manually.
 
-You can now use the components on your website in the same way as you would use any native HTML element. To help you getting started, we created a simple todo app for you to play around with:
-
-<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js" />
+You can now use the components on your website in the same way as you would use any native HTML element. To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js) for you to play around with.
