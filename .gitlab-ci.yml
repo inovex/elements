@@ -1,34 +1,10 @@
 stages:
-  - security
-  - test
   - build
   - deploy
   - link-latest
+  - publish-package
 
 image: node:12.10.0
-
-security-check-gitleaks:
-  image:
-    name: zricethezav/gitleaks@sha256:a936a25b78d34143034d4adfeadeeabd888640bf1ee076cf7b4b6260fa66c335
-    entrypoint: [""]
-  stage: security
-  tags:
-    - shared # this makes use of shared runners
-  script:
-    - gitleaks --version # check wheter gitleaks is available
-    - gitleaks -v --repo-path ./ --config=.gitleaks.toml
-  only:
-    - master
-
-test:
-  stage: test
-  image: amio/node-chrome:latest
-  script:
-    - npm config set scripts-prepend-node-path true
-    - yarn install
-    - yarn test
-  tags:
-    - shared
 
 build:
   stage: build
@@ -37,6 +13,10 @@ build:
     - yarn install
     - yarn lint
     - yarn build
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
   artifacts:
     expire_in: 1 week
     paths:
@@ -46,6 +26,9 @@ build:
       - packages/storybook/dist/
   tags:
     - shared
+  only:
+    - master
+    - tags
 
 upload:
   stage: deploy
@@ -78,9 +61,14 @@ publish-package:
   stage: deploy
   script:
     - yarn install
-    - curl -$ARTIFACTORY_USERNAME:$ARTIFACTORY_APITOKEN https://artifactory.inovex.de/artifactory/api/npm/auth >> ~/.npmrc
-    - yarn lerna publish from-package --yes --registry https://$ARTIFACTORY_HOST
+    - yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN --silent
+    - yarn lerna publish from-package --yes
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
   tags:
     - shared
   only:
+    - master
     - tags
