@@ -8,10 +8,14 @@ ino-option {
    * @prop --ino-option-background-color-focus: Background color on focus
    * @prop --ino-option-background-color-active: Background color if active
    */
-  --option-background-color: var(--ino-option-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
-  --option-background-color-hover: var(--ino-option-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
-  --option-background-color-focus: var(--ino-option-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
-  --option-background-color-active: var(--ino-option-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+  --option-selected-background-color: var(--ino-option-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
+  --option-selected-background-color-hover: var(--ino-option-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
+  --option-selected-background-color-focus: var(--ino-option-selected-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
+  --option-selected-background-color-active: var(--ino-option-selected-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+  --option-deselected-background-color: var(--ino-option-deselected-background-color);
+  --option-deselected-background-color-hover: var(--ino-option-deselected-background-color-hover);
+  --option-deselected-background-color-focus: var(--ino-option-deselected-background-color-focus);
+  --option-deselected-background-color-active: var(--ino-option-deselected-background-color-active);
 }
 
 ino-option {
@@ -26,24 +30,37 @@ ino-option {
     padding-top: 6px;
     padding-bottom: 6px;
     height: auto;
+    background-color: var(--option-deselected-background-color);
+
+    &:hover {
+      background-color: var(--option-deselected-background-color-hover);
+    }
+
+    &:focus {
+      background-color: var(--option-deselected-background-color-focus);
+    }
+
+    &:active {
+      background-color: var(--option-deselected-background-color-active);
+    }
 
     &.mdc-list-item--selected, &.mdc-list-item--activated {
-      background-color: var(--option-background-color);
+      background-color: var(--option-selected-background-color);
 
       &::before, &::after {
         display: none;
       }
 
       &:hover {
-        background-color: var(--option-background-color-hover);
+        background-color: var(--option-selected-background-color-hover);
       }
 
       &:focus {
-        background-color: var(--option-background-color-focus);
+        background-color: var(--option-selected-background-color-focus);
       }
 
       &:active {
-        background-color: var(--option-background-color-active);
+        background-color: var(--option-selected-background-color-active);
       }
     }
   }
