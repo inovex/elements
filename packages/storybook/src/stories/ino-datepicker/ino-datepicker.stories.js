@@ -68,7 +68,7 @@ export const DefaultUsage = () => /*html*/ `
         ino-date-format="${text('ino-date-format', 'Y-m-d H:i', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text('ino-default-date', defaultDate, 'DATE CONFIG')}"
-        ino-twelf-hour-time="${boolean('ino-twelf-hour-time', false, 'DATE CONFIG')}"
+        ino-twelve-hour-time="${boolean('ino-twelve-hour-time', false, 'DATE CONFIG')}"
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
         ino-helper-persistent="${boolean('ino-helper-persistent', false, 'HELPER TEXT')}"
         ino-helper-validation="${boolean('ino-helper-validation', false, 'HELPER TEXT')}"
