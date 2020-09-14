@@ -9,23 +9,21 @@ $left-segment-border: 0 0 0 24px;
 $right-segment-border: 0 24px 24px 0;
 $left-right-segment-border: 0 24px 24px 24px;
 
-// Shadows
-$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-0 12px 28px 0 rgba(61, 214, 245, 0.14);
-$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-0 16px 32px 0 rgba(61, 214, 245, 0.14);
-
 /**
  * @prop --ino-segment-button-color: Color of the segment button if inactive
- * @prop --ino-segment-button-active-color: Color of the segment button if active
+ * @prop --ino-segment-button-checked-color: Color of the segment button if checked
  * @prop --ino-segment-button-hover-color: Color of the segment button on hover
  * @prop --ino-segment-button-disabled-color: Color of the segment button if disabled
+ * @prop --ino-segment-button-hover-shadow: Color and shape of the shadow on hover
+ * @prop --ino-segment-button-checked-shadow: Color and shape of the shadow if checked
  */
 :host {
   --segment-button-color: var(--ino-segment-button-color, #{colors.ino-color(light, base)});
   --segment-button-checked-color: var(--ino-segment-button-checked-color, #{colors.ino-color(primary, dark)});
   --segment-button-hover-color: var(--ino-segment-button-hover-color, #{colors.ino-color(primary, light)});
   --segment-button-disabled-color: var(--ino-segment-button-disabled-color, #{colors.ino-color(dark, base)});
+  --segment-button-hover-shadow: var(--ino-segment-button-hover-shadow, #{0 4px 8px 0 rgba(61, 64, 245, 0.3), 0 12px 28px 0 rgba(61, 214, 245, 0.14)});
+  --segment-button-checked-shadow: var(--ino-segment-button-checked-shadow, #{0 8px 16px 0 rgba(61, 64, 245, 0.3),0 16px 32px 0 rgba(61, 214, 245, 0.14)});
 }
 
 :host {
@@ -58,14 +56,14 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
     &:hover{
       @include button.outline-color(var(--segment-button-hover-color));
       @include button.ink-color(var(--segment-button-hover-color));
-      box-shadow: $small-shadow;
+      box-shadow: var(--segment-button-hover-shadow);
     }
   }
 
   .ino-segment-button--active, .ino-segment-button--active:hover {
     @include button.outline-color(var(--segment-button-checked-color));
     @include button.ink-color(var(--segment-button-checked-color));
-    box-shadow: $big-shadow;
+    box-shadow: var(--segment-button-checked-shadow);
   }
 
   .ino-segment-button--dense {

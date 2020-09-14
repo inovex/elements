@@ -69,12 +69,14 @@ class MyComponent extends Component {
 
 ## CSS Custom Properties
 
-| Name                                  | Description                             |
-| ------------------------------------- | --------------------------------------- |
-| `--ino-segment-button-active-color`   | Color of the segment button if active   |
-| `--ino-segment-button-color`          | Color of the segment button if inactive |
-| `--ino-segment-button-disabled-color` | Color of the segment button if disabled |
-| `--ino-segment-button-hover-color`    | Color of the segment button on hover    |
+| Name                                  | Description                              |
+| ------------------------------------- | ---------------------------------------- |
+| `--ino-segment-button-checked-color`  | Color of the segment button if checked   |
+| `--ino-segment-button-checked-shadow` | Color and shape of the shadow if checked |
+| `--ino-segment-button-color`          | Color of the segment button if inactive  |
+| `--ino-segment-button-disabled-color` | Color of the segment button if disabled  |
+| `--ino-segment-button-hover-color`    | Color of the segment button on hover     |
+| `--ino-segment-button-hover-shadow`   | Color and shape of the shadow on hover   |
 
 
 ----------------------------------------------
