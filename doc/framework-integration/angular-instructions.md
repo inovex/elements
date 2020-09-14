@@ -13,17 +13,9 @@ If this is the case, proceed to the next step.
 ## 1) Install `@inovex/elements-angular`
 
 We provide an integration layer package for Angular so that you can integrate the elements as an Angular library
-into your Angular project. We're not yet on npm. Thus, you need to set up a npm config before you are able to install 
-the package.
+into your Angular project. 
 
-The following command will update your local npm config to always request `@inovex` prefixed packages from our private
-registry and not from npmjs.org. To do so, copy the following command into your terminal and execute it:
-
-```sh
-$ npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
-
-Now you are ready to add the package `@inovex/elements-angular` to your project using `yarn` or `npm`:
+Add the package `@inovex/elements-angular` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
