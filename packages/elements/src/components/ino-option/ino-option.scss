@@ -16,6 +16,8 @@ ino-option {
   --option-selected-background-color-hover: var(--ino-option-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
   --option-selected-background-color-focus: var(--ino-option-selected-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
   --option-selected-background-color-active: var(--ino-option-selected-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+  // the following CSS variables do not have a default value as the component uses the default colors set
+  // by the MDC library if the value of the variable is empty
   --option-deselected-background-color: var(--ino-option-deselected-background-color);
   --option-deselected-background-color-hover: var(--ino-option-deselected-background-color-hover);
   --option-deselected-background-color-focus: var(--ino-option-deselected-background-color-focus);
