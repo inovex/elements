@@ -13,6 +13,10 @@ build:
     - yarn install
     - yarn lint
     - yarn build
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
   artifacts:
     expire_in: 1 week
     paths:
@@ -59,6 +63,10 @@ publish-package:
     - yarn install
     - yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN --silent
     - yarn lerna publish from-package --yes
+  cache:
+    paths:
+      - node_modules/
+      - .yarn
   tags:
     - shared
   only:
