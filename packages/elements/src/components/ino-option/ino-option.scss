@@ -3,10 +3,14 @@
 
 ino-option {
   /**
-   * @prop --ino-option-background-color: Background color
-   * @prop --ino-option-background-color-hover: Background color on hover
-   * @prop --ino-option-background-color-focus: Background color on focus
-   * @prop --ino-option-background-color-active: Background color if active
+   * @prop --ino-option-selected-background-color: Background color if selected
+   * @prop --ino-option-selected-background-color-hover: Background color on hover if selected
+   * @prop --ino-option-selected-background-color-focus: Background color on focus if selected
+   * @prop --ino-option-selected-background-color-active: Background color if active and selected
+   * @prop --ino-option-deselected-background-color: Background color if deselected
+   * @prop --ino-option-deselected-background-color-hover: Background color on hover if deselected
+   * @prop --ino-option-deselected-background-color-focus: Background color on focus if deselected
+   * @prop --ino-option-deselected-background-color-active: Background color if active and deselected
    */
   --option-selected-background-color: var(--ino-option-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
   --option-selected-background-color-hover: var(--ino-option-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
