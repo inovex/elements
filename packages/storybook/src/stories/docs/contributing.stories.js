@@ -7,7 +7,7 @@ import contributing04 from '_local-docs/contributing/04-developing-components.md
 import contributing05 from '_local-docs/contributing/05-storybook.md';
 import contributing06 from '_local-docs/contributing/06-issue-tracking.md';
 import contributing07 from '_local-docs/contributing/07-commit-message-format.md';
-import contributing08 from '_local-docs/contributing/08-merge-requests.md';
+import contributing08 from '_local-docs/contributing/08-pull-requests.md';
 import contributing09 from '_local-docs/contributing/09-versioning-and-releasing.md';
 import contributing10 from '_local-docs/contributing/10-updating-dependencies.md';
 
@@ -22,6 +22,6 @@ export const DevelopingComponents = () => markup(contributing04);
 export const Storybook = () => markup(contributing05);
 export const IssueTracking = () => markup(contributing06);
 export const CommitMessageFormat = () => markup(contributing07);
-export const MergeRequests = () => markup(contributing08);
+export const PullRequests = () => markup(contributing08);
 export const VersioningAndReleasing = () => markup(contributing09);
 export const UpdatingDependencies = () => markup(contributing10);
