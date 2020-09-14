@@ -3,7 +3,7 @@
 - **Deciders**: Daniel Eckelt, Alexander Gerlach, Patrick Hillert, Michael Janssen, Jan-Niklas Voß
 - **Date**: 2020-05-08
 
-Technical Story: https://jira.inovex.de/browse/ELEMENTS-90
+Technical Story: https://github.com/inovex/elements/issues/55
 
 ## Context
 The Shadow DOM API allows to encapsulate the DOM and the styles of a component. This means that we don't have to worry about the correct scoping of our CSS, nor about our internal DOM being disturbed by anything outside our component. Stencil provides the ability to enable the Shadow DOM for our components.

@@ -17,7 +17,7 @@ describe('InoInput', () => {
     expect(input).toBeDefined();
   });
 
-  // see https://jira.inovex.de/browse/ELEMENTS-419
+  // see https://github.com/inovex/elements/issues/56
   /*
   it('should trigger inoBlur-Event when blurred', async () => {
     const page = await setupPageWithContent(INO_INPUT);
