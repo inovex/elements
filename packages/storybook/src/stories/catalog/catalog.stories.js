@@ -11,13 +11,15 @@ export default {
   title: 'Docs/Showcase',
 };
 
-export const DefaultUsage = () => /*html*/ `
+export const components = () => /*html*/ `
   <div class="catalog">
       <h2>Buttons</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-button--default-usage'">
           <div class="card-content" slot="content">
-            <ino-button slot="content">Button</ino-button>
+            <ino-button slot="content" style="margin: 5px">Solid Button</ino-button>
+            <ino-button slot="content" ino-fill="outline" style="margin: 5px">Outlined Button</ino-button>
+            <ino-button slot="content" ino-fill="inverse" style="margin: 5px">Inverted Button</ino-button>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-button</h3>
@@ -34,12 +36,23 @@ export const DefaultUsage = () => /*html*/ `
             <h3>ino-chip-set</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab-set--default-usage'">
+        <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab--default-usage'">
           <div class="card-content" slot="content">
             <ino-fab ino-label="none" ino-icon="add" ino-edge-position="none"></ino-fab>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-fab</h3>
+          </div>
+        </ino-card>
+        <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab-set--default-usage'">
+          <div class="card-content" slot="content">
+            <ino-fab-set style="position: unset" ino-open-dial="true" ino-dial-direction="top">
+                <ino-fab ino-label="none" ino-icon="chat" ino-mini></ino-fab>
+                <ino-fab ino-label="none" ino-icon="search" ino-mini></ino-fab>
+            </ino-fab-set>
+          </div>
+          <div class="card-footer" slot="footer">
+            <h3>ino-fab-set</h3>
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-icon-button--default-usage'">
@@ -53,8 +66,9 @@ export const DefaultUsage = () => /*html*/ `
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-segment-button--default-usage'">
           <div class="card-content" slot="content">
             <ino-segment-group id="segment-grp">
-              <ino-segment-button value="1">No</ino-segment-button>
-              <ino-segment-button value="2">Yes</ino-segment-button>
+              <ino-segment-button value="1">Male</ino-segment-button>
+              <ino-segment-button value="2">Female</ino-segment-button>
+              <ino-segment-button value="3">Diverse</ino-segment-button>
             </ino-segment-group>
           </div>
           <div class="card-footer" slot="footer">
@@ -67,7 +81,7 @@ export const DefaultUsage = () => /*html*/ `
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-card--default-usage'">
           <div class="card-content" slot="content">
-            <ino-card style="width: 150px">
+            <ino-card>
               <div slot="header">
                 <ino-icon ino-icon="info" ino-clickable></ino-icon>
               </div>
