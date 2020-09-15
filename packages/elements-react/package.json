@@ -1,7 +1,7 @@
 {
-  "name": "@inovex/elements-react",
+  "name": "@inovex.de/elements-react",
   "version": "0.21.0",
-  "description": "This is the react package of the integration layer for  @inovex/elements.",
+  "description": "This is the react package of the integration layer for  @inovex.de/elements.",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
     "Alexander Gerlach <agerlach@inovex.de",
@@ -63,6 +63,6 @@
     "react-router-dom": "^4.3.1"
   },
   "dependencies": {
-    "@inovex/elements": "^0.21.0"
+    "@inovex.de/elements": "^0.21.0"
   }
 }

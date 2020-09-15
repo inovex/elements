@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 
 | Software | Version |
 | -------- | ------- |
-| @inovex/elements |
+| @inovex.de/elements |
 | Browser |
 | Operating System |
 

@@ -33,7 +33,7 @@ document
 ```
 import React from 'react';
 import { Component } from 'react';
-import { InoSidebar, InoButton } from '@inovex/elements/dist/react';
+import { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 

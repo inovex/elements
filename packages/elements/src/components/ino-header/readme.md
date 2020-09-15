@@ -18,7 +18,7 @@ The component can be used as follows:
 
 ```js
 import { Component } from 'react';
-import { InoHeader } from '@inovex/elements-react/';
+import { InoHeader } from '@inovex.de/elements-react/';
 
 class MyComponent extends Component {
   render() {

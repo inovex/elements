@@ -31,7 +31,7 @@ The component is composed of multiple sub-components and can be used as follows:
 ```jsx harmony
 import React from 'react';
 import { Component } from 'react';
-import { InoTable, InoTableRow, InoTableCell, InoButton } from '@inovex/elements/dist/react';
+import { InoTable, InoTableRow, InoTableCell, InoButton } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 

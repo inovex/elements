@@ -7,26 +7,26 @@
 
 ## 0) Prepare your Project
 
-Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+Before using `@inovex.de/elements`, you should make sure that your current setup works and boots properly.
 If this is the case, proceed to the next step.
 
-## 1) Install `@inovex/elements`
+## 1) Install `@inovex.de/elements`
 
 > Hint: We do not provide an integration package for Vue.js as we do for Angular and React.
 > Vue.js works out-of-the box with Web Components as Vue.js respects the DOM API standards.
 
-Add the package `@inovex/elements` to your project using `yarn` or `npm`:
+Add the package `@inovex.de/elements` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
 ```sh
-$ npm install @inovex/elements --save
+$ npm install @inovex.de/elements --save
 ```
 
 ### Instructions for Yarn:
 
 ```sh
-$ yarn add @inovex/elements
+$ yarn add @inovex.de/elements
 ```
 
 ### 2) Prepare the Project
@@ -41,9 +41,9 @@ Open `src/main.js` and add the following code snippet somewhere on the first lin
 
 ```js
 // src/main.js
-import { applyPolyfills, defineCustomElements } from '@inovex/elements/dist/loader';
-import { addIcons } from '@inovex/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
+import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
+import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
+import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
 
 addIcons(ICON_PATHS); // 3 (only needed if you want to use our icons)
 

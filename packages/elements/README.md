@@ -1,6 +1,6 @@
-# @inovex/elements
+# @inovex.de/elements
 
-> The following information is only relevant if you want to contribute to this `@inovex/elements`
+> The following information is only relevant if you want to contribute to this `@inovex.de/elements`
 > package. If you just want to use the UI elements for your own project, please refer to the top level
 > [README](../../README.md).
 

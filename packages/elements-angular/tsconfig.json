@@ -19,10 +19,10 @@
       "dom"
     ],
     "paths": {
-      "@inovex/elements-angular": [
+      "@inovex.de/elements-angular": [
         "dist/inovex/elements-angular"
       ],
-      "@inovex/elements-angular/*": [
+      "@inovex.de/elements-angular/*": [
         "dist/inovex/elements-angular/*"
       ]
     }

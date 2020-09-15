@@ -7,26 +7,26 @@
 
 ## 0) Prepare your Project
 
-Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+Before using `@inovex.de/elements`, you should make sure that your current setup works and boots properly.
 If this is the case, proceed to the next step.
 
-## 1) Install `@inovex/elements-angular`
+## 1) Install `@inovex.de/elements-angular`
 
 We provide an integration layer package for Angular so that you can integrate the elements as an Angular library
 into your Angular project. 
 
-Add the package `@inovex/elements-angular` to your project using `yarn` or `npm`:
+Add the package `@inovex.de/elements-angular` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
 ```sh
-$ npm install @inovex/elements-angular --save
+$ npm install @inovex.de/elements-angular --save
 ```
 
 ### Instructions for Yarn:
 
 ```sh
-$ yarn add @inovex/elements-angular
+$ yarn add @inovex.de/elements-angular
 ```
 
 ### 2) Import the Module `InoElementsModule`
@@ -50,7 +50,7 @@ You only need two lines of code to import the package and make it available in A
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { InoElementsModule } from '@inovex/elements-angular'; // <-- a) import our package
+import { InoElementsModule } from '@inovex.de/elements-angular'; // <-- a) import our package
 
 import { AppComponent } from './app.component';
 

@@ -11,7 +11,7 @@ export const config: Config = {
     { type: 'docs-readme' },
     {
       type: 'angular',
-      componentCorePackage: '@inovex/elements',
+      componentCorePackage: '@inovex.de/elements',
       directivesProxyFile:
         '../elements-angular/elements/src/directives/proxies.ts',
       directivesUtilsFile:

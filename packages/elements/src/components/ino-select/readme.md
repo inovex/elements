@@ -34,7 +34,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoSelect, InoOption } from '@inovex/elements/dist/react';
+import { InoSelect, InoOption } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -51,8 +51,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoSelect, InoOption } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoSelect, InoOption } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {
   const { inoLabel, required } = props;

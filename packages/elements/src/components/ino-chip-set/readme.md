@@ -37,7 +37,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
+import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   chipsetSelectionChange(e: any) {
@@ -67,8 +67,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoChipSet, InoChip } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = props => {
   const { inoType } = props;

@@ -19,7 +19,7 @@ The component can be used as follows:
 ```jsx harmony
 import React from 'react';
 import { Component } from 'react';
-import { InoProgressBar, InoButton } from '@inovex/elements/dist/react';
+import { InoProgressBar, InoButton } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
     state = {

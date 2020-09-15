@@ -35,7 +35,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoRadio } from '@inovex/elements/dist/react';
+import { InoRadio } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -52,8 +52,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoRadio } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoRadio } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Radio: React.FunctionComponent<Components.InoRadioAttributes> = props => {
   const { checked, name } = props;

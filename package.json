@@ -5,7 +5,7 @@
     "build": "lerna run build",
     "publish:react": "./scripts/publishReact.sh",
     "publish:angular": "./scripts/publishAngular.sh",
-    "start": "lerna run build --scope=@inovex/elements && lerna run dev --parallel",
+    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'standard-version'",

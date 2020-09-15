@@ -26,7 +26,7 @@ The component can be used as follows:
 
 ```js
 import { Component } from 'react';
-import { InoFab, InoFabSet } from '@inovex/elements/dist/react';
+import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 
@@ -63,8 +63,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoFab, InoFabSet } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = props => {
   const { inoDialDirection } = props;
@@ -94,7 +94,7 @@ class MyComponent extends Component {
 ### Manage icons
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
-> `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
+> `node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
 > at runtime to be located in `icon-assets/`. Please refer to the Storybook documentation to get detailed instructions
 > on how to integrate the icons with Angular, React or plain JavaScript.
 

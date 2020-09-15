@@ -28,7 +28,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoIconButton } from '@inovex/elements/dist/react';
+import { InoIconButton } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   handleClick = (e: any) => {
@@ -45,8 +45,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoIconButton } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoIconButton } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = props => {
   const { inoIcon } = props;

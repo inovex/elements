@@ -35,7 +35,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoImg } from '@inovex/elements/dist/react';
+import { InoImg } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -54,8 +54,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoImg } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoImg } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Img: React.FunctionComponent<Components.InoImgAttributes> = props => {
   const { height, width, src } = props;

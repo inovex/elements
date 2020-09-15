@@ -13,23 +13,23 @@ into your React project. The name of the package matches the name of the respect
 
 ## 0) Prepare your Project
 
-Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+Before using `@inovex.de/elements`, you should make sure that your current setup works and boots properly.
 If this is the case, proceed to the next step.
 
-## 1) Install `@inovex/elements-react`
+## 1) Install `@inovex.de/elements-react`
 
-Add the package `@inovex/elements-react` to your project using `yarn` or `npm`:
+Add the package `@inovex.de/elements-react` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
 ```sh
-$ npm install @inovex/elements-react --save
+$ npm install @inovex.de/elements-react --save
 ```
 
 ### Instructions for Yarn:
 
 ```sh
-$ yarn add @inovex/elements-react
+$ yarn add @inovex.de/elements-react
 ```
 
 ### 2) Use the Components

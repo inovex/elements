@@ -18,7 +18,7 @@ The component can be used as follows:
 
 ```jsx harmony
 import { Component } from 'react';
-import { InoFormRow, InoInput } from '@inovex/elements/dist/react';
+import { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -41,8 +41,8 @@ class MyComponent extends Component {
 
 ```jsx harmony
 import React, { Component } from 'react';
-import { InoFormRow, InoInput } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const FormRow: React.FunctionComponent<Components.InoFormRowAttributes> = props => {
   const { inoLabel, inoMandatory } = props;

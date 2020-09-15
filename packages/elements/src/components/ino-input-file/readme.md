@@ -34,7 +34,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoInputFile } from '@inovex/elements/dist/react';
+import { InoInputFile } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   onChangeFile(e: any) {
@@ -51,8 +51,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoInputFile } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoInputFile } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const FileInput: React.FunctionComponent<Components.InoInputFile> = props => {
   const onFileChange = (e: any) => {

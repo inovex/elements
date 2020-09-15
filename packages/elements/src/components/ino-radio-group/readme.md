@@ -17,7 +17,7 @@ A wrapper component to be used for a group of ino-radio-buttons. This component 
 
 ```js
 import { Component } from 'react';
-import { InoRadio, InoRadioGroup } from '@inovex/elements-react/dist';
+import { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';
 
 class MyComponent extends Component {
 
@@ -45,8 +45,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoRadioGroup } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoRadioGroup } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = props => {
   const { value } = props;

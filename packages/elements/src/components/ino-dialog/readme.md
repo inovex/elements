@@ -32,7 +32,7 @@ document
 ```jsx harmony
 import React from 'react';
 import { Component } from 'react';
-import { InoButton, InoDialog } from '@inovex/elements/dist/react';
+import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 

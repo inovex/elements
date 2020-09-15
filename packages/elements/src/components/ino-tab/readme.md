@@ -22,7 +22,7 @@ The component can be used as follows:
 
 ```js
 import { Component } from 'react';
-import { InoTab, InoTabBar } from '@inovex/elements/dist/react';
+import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -41,8 +41,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoTab, InoTabBar } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = props => {
   const { inoActiveTab } = props;

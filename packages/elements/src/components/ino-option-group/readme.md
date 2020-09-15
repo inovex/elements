@@ -26,7 +26,7 @@ Beyond that, if you encounter problems using React or Vue in conjunction with th
 
 ```js
 import { Component } from 'react';
-import { InoSelect, InoOption, InoOptionGroup } from '@inovex/elements-react/dist';
+import { InoSelect, InoOption, InoOptionGroup } from '@inovex.de/elements-react/dist';
 
 class MyComponent extends Component {
 

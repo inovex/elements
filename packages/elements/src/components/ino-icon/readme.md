@@ -29,7 +29,7 @@ document
 
 ```jsx harmony
 import { Component } from 'react';
-import { InoIcon } from '@inovex/elements/dist/react';
+import { InoIcon } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   handleClick = (e: any) => {
@@ -46,8 +46,8 @@ class MyComponent extends Component {
 
 ```jsx harmony
 import React, { Component } from 'react';
-import { InoIcon } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoIcon } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Icon: React.FunctionComponent<Components.InoIconAttributes> = props => {
   const { inoIcon } = props;
@@ -82,7 +82,7 @@ command to include the newly added icons in the `icons.js` file.
 
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
-> `node_modules/@inovex/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
+> `node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
 > to be located in `icon-assets/` at runtime. Please refer to the Storybook documentation to get detailed instructions
 > on how to integrate the icons with Angular, React or plain JavaScript.
 

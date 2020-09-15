@@ -39,7 +39,7 @@ document
 
 ```jsx
 import { Component } from 'react';
-import { InoButton, InoIcon } from '@inovex/elements/dist/react';
+import { InoButton, InoIcon } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -61,8 +61,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoButton } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoButton } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Button: React.FunctionComponent<Components.InoButtonAttributes> = props => {
   const { inoColorScheme, onClick } = props;

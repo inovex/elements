@@ -25,7 +25,7 @@ import {
   InoMenu,
   InoListItem,
   InoDivider
-} from '@inovex/elements/dist/react';
+} from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -51,8 +51,8 @@ import {
   InoMenu,
   InoListItem,
   InoDivider
-} from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+} from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Menu: React.FunctionComponent<Components.InoMenuAttributes> = props => {
   const { inoFor } = props;

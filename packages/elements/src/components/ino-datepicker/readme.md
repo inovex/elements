@@ -49,7 +49,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoDatepicker } from '@inovex/elements/dist/react';
+import { InoDatepicker } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   valueChange(e: any) {
@@ -72,8 +72,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoDatepicker } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoDatepicker } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = props => {
   const { inoLabel, inoHelper } = props;
