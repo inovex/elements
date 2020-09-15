@@ -9,8 +9,16 @@
   flex-wrap: wrap;
 
   ino-card {
-    width: 230px;
     margin: 10px;
+    width: calc((100% - 60px) / 3);
+
+    @media only screen and (max-width: 850px) {
+      width: calc((100% - 40px) / 2);
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
 
     &:hover {
       cursor: pointer;
@@ -25,7 +33,7 @@
   }
 
   .card-content {
-    height: 100px;
+    height: 170px;
   }
 
   .card-footer {
