@@ -16,7 +16,7 @@ export const components = () => /*html*/ `
       <h2>Buttons</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-button--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-button slot="content" style="margin: 6px">Solid Button</ino-button>
             <ino-button slot="content" ino-fill="outline" style="margin: 6px">Outlined Button</ino-button>
             <ino-button slot="content" ino-fill="inverse" style="margin: 6px">Inverted Button</ino-button>
@@ -26,7 +26,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-chip-set--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-chip-set ino-type="choice">
               <ino-chip ino-label="iOS" ino-selected ino-value="0"></ino-chip>
               <ino-chip ino-label="Android" ino-value="1"></ino-chip>
@@ -37,7 +37,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-fab ino-label="none" ino-icon="add" ino-edge-position="none"></ino-fab>
           </div>
           <div class="card-footer" slot="footer">
@@ -45,7 +45,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab-set--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-fab-set style="position: unset" ino-open-dial="true" ino-dial-direction="top">
                 <ino-fab ino-label="none" ino-icon="chat" ino-mini></ino-fab>
                 <ino-fab ino-label="none" ino-icon="search" ino-mini></ino-fab>
@@ -56,7 +56,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-icon-button--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-icon-button ino-icon="star" ino-color-scheme="primary"></ino-icon-button>
           </div>
           <div class="card-footer" slot="footer">
@@ -64,7 +64,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-segment-button--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-segment-group id="segment-grp">
               <ino-segment-button value="1">Male</ino-segment-button>
               <ino-segment-button value="2">Female</ino-segment-button>
@@ -80,12 +80,12 @@ export const components = () => /*html*/ `
       <h2>Structure</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-card--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-card>
               <div slot="header">
                 <ino-icon ino-icon="info" ino-clickable></ino-icon>
               </div>
-              <div slot="content" class="card-content" style="height: unset"><h3>Content</h3></div>
+              <div slot="content" class="card-content--vertical" style="height: unset"><h3>Content</h3></div>
             </ino-card>
           </div>
           <div class="card-footer" slot="footer">
@@ -93,7 +93,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-dialog--default-usage'">
-          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+          <div class="card-content--vertical" slot="content" style="padding-left: 20px; padding-right: 20px">
             <ino-img src=${dialogDemoImg} ino-ratio-width="2.215" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);"/>
           </div>
           <div class="card-footer" slot="footer">
@@ -101,7 +101,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-header--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-header ino-title="Section"></ino-header>
           </div>
           <div class="card-footer" slot="footer">
@@ -109,7 +109,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-list--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-list style="border: 1px solid rgba(0, 0, 0, 0.15);" ino-dense>
               <ino-list-item ino-text="List item"></ino-list-item>
               <ino-list-item ino-text="With leading icon">
@@ -123,7 +123,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-menu--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-button id="menu-2" ino-icon="menu">Menu</ino-button>
             <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open>
               <ino-list-item ino-text="Item"></ino-list-item>
@@ -135,7 +135,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-naw-drawer--default-usage'">
-          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+          <div class="card-content--vertical" slot="content" style="padding-left: 20px; padding-right: 20px">
             <ino-img src=${navDrawerDemoImg} ino-ratio-width="1.818" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);"/>
           </div>
           <div class="card-footer" slot="footer">
@@ -143,7 +143,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-sidebar--default-usage'">
-          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+          <div class="card-content--vertical" slot="content" style="padding-left: 20px; padding-right: 20px">
             <ino-img src=${sidebarDemoImg} ino-ratio-width="1.783" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);" />
           </div>
           <div class="card-footer" slot="footer">
@@ -151,7 +151,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-tab-bar--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-tab-bar>
               <ino-tab
                 ino-label="Cart"
@@ -172,7 +172,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-table--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-table>
               <ino-table-row slot="header" ino-header-row>
                 <ino-table-cell>ID</ino-table-cell>
@@ -200,7 +200,7 @@ export const components = () => /*html*/ `
       <h2>Input</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-checkbox--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-checkbox checked style="width: 50%">Checked</ino-checkbox>
             <ino-checkbox style="width: 50%">Unchecked</ino-checkbox>
           </div>
@@ -209,7 +209,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-datepicker--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-datepicker ino-type="datetime" ino-date-format="H:i d.m.Y" ino-label="Datetime" disabled></ino-datepicker>
           </div>
           <div class="card-footer" slot="footer">
@@ -217,7 +217,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-form-row--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-form-row ino-label="First Name">
               <ino-input></ino-input>
             </ino-form-row>
@@ -227,7 +227,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-input--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-input placeholder="Email"></ino-input>
           </div>
           <div class="card-footer" slot="footer">
@@ -235,7 +235,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-radio-group--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-radio-group id="radio-grp" value="2">
               <ino-radio value="1">No</ino-radio>
               <ino-radio value="2">Yes</ino-radio>
@@ -246,7 +246,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-range--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-range ino-color-scheme="primary" value="40" min="0" max="100" step="20" ino-discrete ino-markers style="width: 80%"></ino-range>
           </div>
           <div class="card-footer" slot="footer">
@@ -254,7 +254,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-select--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-select ino-label="Select Option" disabled>
               <ino-option value="Selected Option" selected>Selected Option</ino-option>
             </ino-select>
@@ -264,7 +264,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-switch--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-switch checked></ino-switch>
             <ino-switch></ino-switch>
           </div>
@@ -273,7 +273,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-textarea--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-textarea ino-label="Feedback" rows="3" cols="24" style="width: unset"></ino-textarea>
           </div>
           <div class="card-footer" slot="footer">
@@ -285,7 +285,7 @@ export const components = () => /*html*/ `
       <h2>Graphic</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/graphic-ino-icon--default-usage'">
-          <div class="ino-icon-card" slot="content">
+          <div class="card-content--horizontal" slot="content">
             <ino-icon ino-icon="info"></ino-icon>
             <ino-icon ino-icon="star"></ino-icon>
             <ino-icon ino-icon="chat"></ino-icon>
@@ -296,7 +296,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/graphic-ino-img-list--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-img-list>
               <ino-img
                   src=${fjordImg}
@@ -326,7 +326,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/graphic-img--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-img
               src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
               ino-rounded
@@ -343,7 +343,7 @@ export const components = () => /*html*/ `
       <h2>Notification</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-popover--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-button id="popover-hover-focus">Popover Demo</ino-button>
             <ino-popover ino-for="popover-hover-focus">Click for further information</ino-popover>
           </div>
@@ -352,7 +352,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-progress-bar--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-progress-bar ino-buffer="0.8" ino-progress="0.3" style="width: 80%"></ino-progress-bar>
           </div>
           <div class="card-footer" slot="footer">
@@ -360,7 +360,7 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-snackbar--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-img src=${snackbarDemoImg} ino-ratio-width="3.62"></ino-img>
           </div>
           <div class="card-footer" slot="footer">
@@ -368,15 +368,17 @@ export const components = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-spinner--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--horizontal" slot="content">
             <ino-spinner ino-type="tile"></ino-spinner>
+            <ino-spinner ino-type="bounce"></ino-spinner>
+            <ino-spinner ino-type="circle"></ino-spinner>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-spinner</h3>
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-tooltip--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content--vertical" slot="content">
             <ino-button id="primary-tooltip" ino-color-scheme="primary">Tooltip</ino-button>
             <ino-tooltip ino-for="primary-tooltip" ino-label="Click for further information" ino-color-scheme="primary" ino-placement="top"></ino-tooltip>
           </div>
