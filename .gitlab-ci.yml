@@ -58,7 +58,7 @@ link-latest:
     - tags
 
 publish-package:
-  stage: deploy
+  stage: publish-package
   script:
     - yarn install
     - yarn config set //registry.npmjs.org/:_authToken $NPM_TOKEN --silent
