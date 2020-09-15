@@ -1,0 +1,52 @@
+.catalog {
+  width: 100%;
+}
+
+.catalog-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  ino-card {
+    margin: 10px;
+    width: calc((100% - 60px) / 3);
+
+    @media only screen and (max-width: 850px) {
+      width: calc((100% - 40px) / 2);
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .card-content, .card-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-content {
+    height: 170px;
+  }
+
+  .card-footer {
+    height: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: unset;
+  }
+
+}
+
+h2, h3 {
+  color: #777777;
+}
