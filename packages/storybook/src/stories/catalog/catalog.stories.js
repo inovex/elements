@@ -344,7 +344,7 @@ export const components = () => /*html*/ `
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-popover--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-button id="popover-hover-focus">Popover Demo</ino-button>
+            <ino-button id="popover-hover-focus">Display Popover</ino-button>
             <ino-popover ino-for="popover-hover-focus">This is a popover!</ino-popover>
           </div>
           <div class="card-footer" slot="footer">
@@ -379,7 +379,7 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-tooltip--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-button id="primary-tooltip" ino-color-scheme="primary">Tooltip</ino-button>
+            <ino-button id="primary-tooltip" ino-color-scheme="primary">Display Tooltip</ino-button>
             <ino-tooltip ino-for="primary-tooltip" ino-label="This is a tooltip!" ino-color-scheme="primary" ino-placement="top"></ino-tooltip>
           </div>
           <div class="card-footer" slot="footer">
