@@ -28,16 +28,7 @@ Use the npm package manager if...
 
 ### a) Install the Package
 
-We're not yet on npm. Hence, you need to set up a npm config before you are able to install 
-the package. The following command will update your local npm config to always request `@inovex` prefixed packages 
-from our private registry and not from npmjs.org. 
-To do so, copy the following command into your terminal and execute it:
-
-```sh
-$ npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
-
-Now you are ready to add the package `@inovex/elements` to your project using `yarn` or `npm`:
+Add the package `@inovex/elements` to your project using `yarn` or `npm`:
 
 #### Instructions for npm:
 
@@ -59,7 +50,7 @@ To load the components at runtime, you need to insert the following code fragmen
 
 
 ```
-<script src="https://elements.inovex.io/dist/v0.15.1/inovex-elements.js"></script>
+<script src="https://elements.inovex.io/dist/v1.0.0/inovex-elements.js"></script>
 ```
 
 Before we proceed, we need to clarify what's going on here:
@@ -83,6 +74,4 @@ However, for testing purposes, and if you just want to play around with the elem
 > A hint on the icons: The elements loader automatically imports the icons. You don't have to import
 > them manually.
 
-You can now use the components on your website in the same way as you would use any native HTML element. To help you getting started, we created a simple todo app for you to play around with:
-
-<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js" />
+You can now use the components on your website in the same way as you would use any native HTML element. To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js) for you to play around with.

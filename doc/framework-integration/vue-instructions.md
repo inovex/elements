@@ -15,15 +15,7 @@ If this is the case, proceed to the next step.
 > Hint: We do not provide an integration package for Vue.js as we do for Angular and React.
 > Vue.js works out-of-the box with Web Components as Vue.js respects the DOM API standards.
 
-We're not yet on npm. Hence, you need to set up a npm config before you are able to install 
-the package. The following command will update your local npm config to always request `@inovex` prefixed packages 
-from our private registry and not from npmjs.org. To do so, copy the following command into your terminal and execute it:
-
-```sh
-$ npm config set @inovex:registry https://artifactory.inovex.de/artifactory/api/npm/internal-npm/
-```
-
-Now you are ready to add the package `@inovex/elements` to your project using `yarn` or `npm`:
+Add the package `@inovex/elements` to your project using `yarn` or `npm`:
 
 ### Instructions for npm:
 
@@ -70,6 +62,4 @@ applyPolyfills().then(() => {
 
 You can now use the components in your Vue.js project in the same way you would use any native HTML element.
 
-To help you getting started, we created a simple todo app for you to play around with:
-
-<iframe width="100%" height="600px" src="https://stackblitz.com/edit/ino-elements-vue-example?embed=1&file=index.js" />
+To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-vue-example?embed=1&file=index.js) for you to play around with.
