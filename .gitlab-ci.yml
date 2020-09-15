@@ -70,5 +70,4 @@ publish-package:
   tags:
     - shared
   only:
-    - master
     - tags
