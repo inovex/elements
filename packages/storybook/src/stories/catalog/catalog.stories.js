@@ -30,7 +30,7 @@ export const DefaultUsage = () => /*html*/ `
             <h3>ino-chip-set</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab--default-usage'">
+        <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-fab-set--default-usage'">
           <div class="card-content" slot="content">
             <ino-fab ino-label="none" ino-icon="add" ino-edge-position="none"></ino-fab>
           </div>
@@ -103,6 +103,11 @@ export const DefaultUsage = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-menu--default-usage'">
           <div class="card-content" slot="content">
+            <ino-button id="menu-2" ino-icon="menu">Menu</ino-button>
+            <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open>
+              <ino-list-item ino-text="Item"></ino-list-item>
+              <ino-list-item ino-text="Item 2"></ino-list-item>
+            </ino-menu>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-menu</h3>
