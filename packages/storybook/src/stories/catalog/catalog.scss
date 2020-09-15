@@ -50,3 +50,17 @@
 h2, h3 {
   color: #777777;
 }
+
+.ino-icon-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 170px;
+
+  ino-icon {
+    --icon-height: 50px;
+    --icon-width: 50px;
+    margin: 2px;
+  }
+}

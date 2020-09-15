@@ -17,9 +17,9 @@ export const components = () => /*html*/ `
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-button--default-usage'">
           <div class="card-content" slot="content">
-            <ino-button slot="content" style="margin: 5px">Solid Button</ino-button>
-            <ino-button slot="content" ino-fill="outline" style="margin: 5px">Outlined Button</ino-button>
-            <ino-button slot="content" ino-fill="inverse" style="margin: 5px">Inverted Button</ino-button>
+            <ino-button slot="content" style="margin: 6px">Solid Button</ino-button>
+            <ino-button slot="content" ino-fill="outline" style="margin: 6px">Outlined Button</ino-button>
+            <ino-button slot="content" ino-fill="inverse" style="margin: 6px">Inverted Button</ino-button>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-button</h3>
@@ -110,9 +110,12 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-list--default-usage'">
           <div class="card-content" slot="content">
-            <ino-list ino-dense style="border: 1px solid rgba(0, 0, 0, 0.15);">
-              <ino-list-item ino-text="First text item"></ino-list-item>
-              <ino-list-item ino-text="Second text item"></ino-list-item>
+            <ino-list style="border: 1px solid rgba(0, 0, 0, 0.15);" ino-dense>
+              <ino-list-item ino-text="List item"></ino-list-item>
+              <ino-list-item ino-text="With leading icon">
+                  <ino-img slot="ino-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ino-ratio-width="1" ino-ratio-height="1"></ino-img>
+              </ino-list-item>
+              <ino-control-item ino-role="radio" ino-text="Disabled control item" ino-disabled> </ino-control-item>
             </ino-list>
           </div>
           <div class="card-footer" slot="footer">
@@ -151,9 +154,16 @@ export const components = () => /*html*/ `
           <div class="card-content" slot="content">
             <ino-tab-bar>
               <ino-tab
-                ino-label="Label 1"
-                ino-icon="info"
-                ino-indicator-content-width="true">
+                ino-label="Cart"
+                ino-icon="cart"
+                ino-indicator-content-width="true"
+                ino-stacked>
+              </ino-tab>
+              <ino-tab
+                ino-label="Account"
+                ino-icon="user"
+                ino-indicator-content-width="true"
+                ino-stacked>
               </ino-tab>
             </ino-tab-bar>
           </div>
@@ -167,10 +177,17 @@ export const components = () => /*html*/ `
               <ino-table-row slot="header" ino-header-row>
                 <ino-table-cell>ID</ino-table-cell>
                 <ino-table-cell>Header A</ino-table-cell>
+                <ino-table-cell>Header B</ino-table-cell>
               </ino-table-row>
               <ino-table-row>
                 <ino-table-cell ino-numeric>1</ino-table-cell>
+                <ino-table-cell>Cell A1</ino-table-cell>
                 <ino-table-cell>Cell B1</ino-table-cell>
+              </ino-table-row>
+              <ino-table-row>
+                <ino-table-cell ino-numeric>2</ino-table-cell>
+                <ino-table-cell>Cell A2</ino-table-cell>
+                <ino-table-cell>Cell B2</ino-table-cell>
               </ino-table-row>
             </ino-table>
           </div>
@@ -257,7 +274,7 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/input-ino-textarea--default-usage'">
           <div class="card-content" slot="content">
-            <ino-textarea ino-label="Feedback" cols="30" rows="2"></ino-textarea>
+            <ino-textarea ino-label="Feedback" rows="3" cols="24" style="width: unset"></ino-textarea>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-textarea</h3>
@@ -268,8 +285,11 @@ export const components = () => /*html*/ `
       <h2>Graphic</h2>
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/graphic-ino-icon--default-usage'">
-          <div class="card-content" slot="content">
-            <ino-icon ino-icon="info" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
+          <div class="ino-icon-card" slot="content">
+            <ino-icon ino-icon="info"></ino-icon>
+            <ino-icon ino-icon="star"></ino-icon>
+            <ino-icon ino-icon="chat"></ino-icon>
+            <ino-icon ino-icon="onboarding"></ino-icon>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-icon</h3>
