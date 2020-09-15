@@ -1,13 +1,13 @@
-import { storiesOf } from '@storybook/html';
-
 import componentReadme from '_local-elements/src/components/ino-segment-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-segment-button.scss';
 
-storiesOf('Buttons|<ino-segment-button>', module)
-  .addDecorator(withStencilReadme(componentReadme))
+export default {
+  title: 'Buttons/<ino-segment-button>',
+  decorators: [withStencilReadme(componentReadme)],
+};
 
-  .add('Default usage', () => /* html */`
+export const DefaultUsage = () => /* html */ `
     <div class="story-segment-button">
         <h4>Enabled, not checked</h4>
         <ino-segment-button>Content</ino-segment-button>
@@ -22,4 +22,4 @@ storiesOf('Buttons|<ino-segment-button>', module)
         <ino-segment-button ino-dense>Content</ino-segment-button>
     </div>
 
-  `);
+  `;

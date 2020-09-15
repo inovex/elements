@@ -1,47 +1,95 @@
-import { withActions } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/html';
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import ICONS from '_local-elements/src/components/ino-icon/icons';
 
-
 import './ino-button.scss';
 
-storiesOf('Buttons|<ino-button>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'click .customizable-button',
-    'reset .reset-form',
-    'submit .submit-form'
-  ))
-  .add('Default usage', () => /* html */`
+export default {
+  title: 'Buttons/<ino-button>',
+  parameters: {
+    actions: {
+      handles: ['click .customizable-button', 'reset .reset-form', 'submit .submit-form']
+    }
+  },
+  decorators: [withStencilReadme(componentReadme)],
+};
+
+export const DefaultUsage = () => /* html */ `
     <div class="story-button">
       <style>
           ino-button.customizable-button {
-            --button-color-primary: ${text('--button-color-primary', '#3d40f5', 'Custom Properties')};
-            --button-color-primary-light: ${text('--button-color-primary-light', '#5d60f7', 'Custom Properties')};
-            --button-color-primary-dark: ${text('--button-color-primary-dark', '#0d10f3', 'Custom Properties')};
-            --button-color-primary-contrast: ${text('--button-color-primary-contrast', '#fff', 'Custom Properties')};
-            --button-color-primary-shadow-light: ${text('--button-color-primary-shadow-light', 'rgba(61, 214, 245, 0.14)', 'Custom Properties')};
-            --button-color-primary-shadow-dark: ${text('--button-color-primary-shadow-light', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
-            --button-color-secondary: ${text('--button-color-secondary', '#9ccd00', 'Custom Properties')};
-            --button-color-secondary-light: ${text('--button-color-secondary-light', '#bbe962', 'Custom Properties')};
-            --button-color-secondary-dark: ${text('--button-color-secondary-dark', '#93bf00', 'Custom Properties')};
-            --button-color-secondary-contrast: ${text('--button-color-secondary-contrast', '#fff', 'Custom Properties')};
-            --button-color-secondary-shadow-light: ${text('--button-color-secondary-shadow-light', 'rgba(156, 205, 0, 0.14)', 'Custom Properties')};
-            --button-color-secondary-shadow-dark: ${text('--button-color-secondary-shadow-light', 'rgba(181, 230, 23, 0.30)', 'Custom Properties')};
+            --button-color-primary: ${text(
+              '--button-color-primary',
+              '#3d40f5',
+              'Custom Properties'
+            )};
+            --button-color-primary-light: ${text(
+              '--button-color-primary-light',
+              '#5d60f7',
+              'Custom Properties'
+            )};
+            --button-color-primary-dark: ${text(
+              '--button-color-primary-dark',
+              '#0d10f3',
+              'Custom Properties'
+            )};
+            --button-color-primary-contrast: ${text(
+              '--button-color-primary-contrast',
+              '#fff',
+              'Custom Properties'
+            )};
+            --button-color-primary-shadow-light: ${text(
+              '--button-color-primary-shadow-light',
+              'rgba(61, 214, 245, 0.14)',
+              'Custom Properties'
+            )};
+            --button-color-primary-shadow-dark: ${text(
+              '--button-color-primary-shadow-light',
+              'rgba(61, 64, 245, 0.3)',
+              'Custom Properties'
+            )};
+            --button-color-secondary: ${text(
+              '--button-color-secondary',
+              '#9ccd00',
+              'Custom Properties'
+            )};
+            --button-color-secondary-light: ${text(
+              '--button-color-secondary-light',
+              '#bbe962',
+              'Custom Properties'
+            )};
+            --button-color-secondary-dark: ${text(
+              '--button-color-secondary-dark',
+              '#93bf00',
+              'Custom Properties'
+            )};
+            --button-color-secondary-contrast: ${text(
+              '--button-color-secondary-contrast',
+              '#fff',
+              'Custom Properties'
+            )};
+            --button-color-secondary-shadow-light: ${text(
+              '--button-color-secondary-shadow-light',
+              'rgba(156, 205, 0, 0.14)',
+              'Custom Properties'
+            )};
+            --button-color-secondary-shadow-dark: ${text(
+              '--button-color-secondary-shadow-light',
+              'rgba(181, 230, 23, 0.30)',
+              'Custom Properties'
+            )};
           }
       </style>
       <ino-button
         class="customizable-button"
         ino-color-scheme="${select(
-    'ino-color-scheme',
-    ['primary', 'secondary', 'white', 'grey'],
-    'primary',
+          'ino-color-scheme',
+          ['primary', 'secondary', 'white', 'grey'],
+          'primary',
           'General'
-          )}"
+        )}"
         ino-fill="${select('ino-fill', ['solid', 'outline', 'inverse'], 'solid', 'General')}"
         ino-icon-leading="${boolean('ino-icon-leading', false, 'Icon')}"
         ino-icon-trailing="${boolean('ino-icon-trailing', false, 'Icon')}"
@@ -95,8 +143,9 @@ storiesOf('Buttons|<ino-button>', module)
        </div>
        <ino-button ino-full-width>Full Width Button</ino-button>
     </div>
-  `)
-  .add('Forms', () => /*html*/`
+  `;
+
+export const Forms = () => /*html*/ `
     <script>
       const form = querySelector('form');
       form.addEventListener('submit', e => e.preventDefault());
@@ -120,4 +169,4 @@ storiesOf('Buttons|<ino-button>', module)
       <ino-button type="submit" form="form1">Button with form attribute</ino-button>
       </form>
     </div>
-  `);
+  `;

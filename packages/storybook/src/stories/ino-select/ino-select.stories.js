@@ -1,8 +1,3 @@
-import { storiesOf } from '@storybook/html';
-import CoreEvents from '@storybook/core-events';
-import addons from '@storybook/addons';
-
-import { withActions } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -34,26 +29,30 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-select>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(
-    withActions('valueChange .customizable-select', 'submit .form')
-  )
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => {
-    const optionsTemplate = /*html*/ `
+export default {
+  title: 'Input/<ino-select>',
+  parameters: {
+    actions: {
+      handles: ['valueChange .customizable-select', 'submit .form']
+    }
+  },
+  decorators: [
+    story => {
+      subscribeToComponentEvents();
+      return story();
+    }
+  ]
+};
+
+export const DefaultUsage = () => {
+  const optionsTemplate = /*html*/ `
     <ino-option value="Option 1">Option 1</ino-option>
     <ino-option value="Option 2">Option 2</ino-option>
     <ino-option value="Option 3">Option 3</ino-option>
     <ino-option value="Option 4">Option 4</ino-option>
     `;
 
-    return /*html*/ `
+  return /*html*/ `
       <div class="story-select">
         <ino-select class="customizable-select"
           name="${text('name', 'select-1')}"
@@ -122,26 +121,25 @@ storiesOf('Input|<ino-select>', module)
         </ino-select>
       </div>
     `;
-  })
-  .add(
-    'Forms',
-    () => /*html*/ `
-    <div class="story-select">
-      <h4>Required</h4>
-      <p>The form should not submit since no option is selected and the select is required.</p>
-      <form class="form" onSubmit="alert('Form submitted'); return false;">
-          <ino-select ino-label="Form select" required>
-            <ino-option value="Test">Test</ino-option>
-          </ino-select>
-          <ino-button type="submit">Submit</ino-button>
-      </form>
-    </div>
-  `
-  );
+};
 
-storiesOf('Input|<ino-select>', module)
-  .addDecorator(withStencilReadme(optionComponentReadme))
-  .add('Select options', () => /*html*/ `
+DefaultUsage.decorators = [withStencilReadme(componentReadme)];
+
+
+export const Forms = () => /*html*/ `
+<div class="story-select">
+  <h4>Required</h4>
+  <p>The form should not submit since no option is selected and the select is required.</p>
+  <form class="form" onSubmit="alert('Form submitted'); return false;">
+      <ino-select ino-label="Form select" required>
+        <ino-option value="Test">Test</ino-option>
+      </ino-select>
+      <ino-button type="submit">Submit</ino-button>
+  </form>
+</div>
+`;
+
+export const SelectOptions = () => /*html*/ `
     <h4>Customizable option</h4>
     <ino-select ino-label="Customizable option">
         <ino-option
@@ -162,11 +160,11 @@ storiesOf('Input|<ino-select>', module)
         <ino-select ino-label="Selected option">
         <ino-option value="Content" selected>Content</ino-option>
     </ino-select>
-  `);
+  `;
 
-storiesOf('Input|<ino-select>', module)
-  .addDecorator(withStencilReadme(optionGroupComponentReadme))
-  .add('Option Group', () => /*html*/ `
+SelectOptions.decorators = [withStencilReadme(optionComponentReadme)];
+
+export const OptionGroup = () => /*html*/ `
     <h4>Option Group Example</h4>
     <ino-select ino-label="Select with Groups">
       <ino-option-group ino-label="My First Group">
@@ -182,4 +180,6 @@ storiesOf('Input|<ino-select>', module)
           <ino-option value="Option 8">Option 8</ino-option>
       </ino-option-group>
     </ino-select>
-  `);
+  `;
+
+OptionGroup.decorators = [withStencilReadme(optionGroupComponentReadme)];

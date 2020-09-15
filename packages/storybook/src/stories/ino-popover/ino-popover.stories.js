@@ -1,4 +1,3 @@
-import { storiesOf } from '@storybook/html';
 import { select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -6,18 +5,34 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-popover/readme.md';
 import './ino-popover.scss';
 
+export default {
+  title: 'Notification/<ino-popover>',
+  decorators: [withStencilReadme(componentReadme)],
+};
 
-storiesOf('Notification|<ino-popover>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .add('Default usage', () => /*html*/`
+export const DefaultUsage = () => /*html*/ `
     <div class="story-popover">
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
         ino-for="${text('ino-for', 'popover-target')}"
         ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
-        ino-color-scheme="${select('ino-color-scheme', ['primary', 'secondary', 'light', 'transparent'], 'transparent')}"
-        ino-trigger="${select('ino-trigger', ['mouseenter', 'focus', 'click',
-        'mouseenter focus', 'mouseenter click', 'focus click', 'mouseenter focus click'], 'mouseenter focus'
+        ino-color-scheme="${select(
+          'ino-color-scheme',
+          ['primary', 'secondary', 'light', 'transparent'],
+          'transparent'
+        )}"
+        ino-trigger="${select(
+          'ino-trigger',
+          [
+            'mouseenter',
+            'focus',
+            'click',
+            'mouseenter focus',
+            'mouseenter click',
+            'focus click',
+            'mouseenter focus click',
+          ],
+          'mouseenter focus'
         )}">
         <div class="styled-popover"><ino-icon ino-icon="user"></ino-icon> This is a styled popover.</div>
       </ino-popover>
@@ -36,4 +51,4 @@ storiesOf('Notification|<ino-popover>', module)
       <ino-button id="popover-click">Click</ino-button>
       <ino-popover ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
     </div>
-  `);
+  `;

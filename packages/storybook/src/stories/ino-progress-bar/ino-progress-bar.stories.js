@@ -1,10 +1,6 @@
-import { storiesOf } from '@storybook/html';
-
 import componentReadme from '_local-elements/src/components/ino-progress-bar/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-progress-bar.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -16,18 +12,18 @@ function subscribeToComponentEvents() {
     const files = e.detail.files;
 
     if (files) {
-      for(let i = 0; i < files.length; i++) {
+      for (let i = 0; i < files.length; i++) {
         totalFileSize += files[i].size;
       }
-      for(let i = 0; i < files.length; i++) {
-          let reader = new FileReader();
-          reader.onloadend = (e) => {
-            loaded += e.total;
-          };
-          reader.onprogress = (e) => {
-            bar.inoProgress = (loaded + e.loaded) / totalFileSize;
-          };
-          reader.readAsDataURL(files[i]);
+      for (let i = 0; i < files.length; i++) {
+        let reader = new FileReader();
+        reader.onloadend = (e) => {
+          loaded += e.total;
+        };
+        reader.onprogress = (e) => {
+          bar.inoProgress = (loaded + e.loaded) / totalFileSize;
+        };
+        reader.readAsDataURL(files[i]);
       }
     }
   };
@@ -50,15 +46,19 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Notification|<ino-progress-bar>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /* html */`
+export default {
+  title: 'Notification/<ino-progress-bar>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /* html */ `
 
     <h4>With custom max and min values</h4>
     <ino-progress-bar ino-progress="9"></ino-progress-bar>
@@ -83,4 +83,4 @@ storiesOf('Notification|<ino-progress-bar>', module)
 
     <h4>Inverted progress bar</h4>
     <ino-progress-bar ino-reversed ino-progress="0.6" ino-buffer="0.8"></ino-progress-bar>
-    `);
+    `;

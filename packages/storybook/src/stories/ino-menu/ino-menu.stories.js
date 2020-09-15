@@ -1,18 +1,13 @@
-import { storiesOf } from '@storybook/html';
 import { boolean } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import CoreEvents from '@storybook/core-events';
-
 
 import componentReadme from '_local-elements/src/components/ino-menu/readme.md';
 import './ino-menu.scss';
-import addons from '@storybook/addons';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
-
+  const eventHandler = function (e) {
     const innerText = e.target.innerText;
 
     if (!innerText.startsWith('OPEN')) {
@@ -38,22 +33,23 @@ function subscribeToComponentEvents() {
   };
 }
 
-function handler() {
-  console.log('test');
-}
+export default {
+  title: 'Structure/<ino-menu>',
 
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
+};
 
-storiesOf('Structure|<ino-menu>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(story => {
-    addons.getChannel().emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
-    <div class="story-menu">      
-      <h4>Customizable Menu</h4>  
+export const DefaultUsage = () => /*html*/ `
+    <div class="story-menu">
+      <h4>Customizable Menu</h4>
       <ino-button id="button-custom-menu">Open menu</ino-button>
-      <ino-menu 
+      <ino-menu
         id="custom-menu"
         ino-for="button"
         ino-open="${boolean('ino-open', false)}"
@@ -72,4 +68,4 @@ storiesOf('Structure|<ino-menu>', module)
         <ino-list-item ino-text="Settings"></ino-list-item>
       </ino-menu>
     </div>
-  `);
+  `;

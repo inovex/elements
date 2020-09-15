@@ -1,8 +1,3 @@
-import { storiesOf } from '@storybook/html';
-import { withActions } from '@storybook/addon-actions';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
-
 import { boolean, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
@@ -13,7 +8,7 @@ import './ino-form-row.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-input') {
       return;
@@ -31,20 +26,23 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Input|<ino-form-row>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(
-    withActions(
-      'valueChange .customizable-form-row'
-    )
-  )
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /*html*/`
+export default {
+  title: 'Input/<ino-form-row>',
+  parameters: {
+    actions: {
+      handles: ['valueChange .customizable-form-row']
+    }
+  },
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /*html*/ `
     <div class="story-form-row">
       <div>
         <h4>Customizable Form Row</h4>
@@ -57,4 +55,4 @@ storiesOf('Input|<ino-form-row>', module)
         </ino-form-row>
       </div>
     </div>
-  `);
+  `;

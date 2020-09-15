@@ -1,14 +1,10 @@
-import { storiesOf } from '@storybook/html';
-
 import componentReadme from '_local-elements/src/components/ino-segment-group/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-segment-group.scss';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-segment-button') {
       return;
@@ -26,15 +22,19 @@ function subscribeToComponentEvents() {
   };
 }
 
-storiesOf('Buttons|<ino-segment-group>', module)
-    .addDecorator(withStencilReadme(componentReadme))
-    .addDecorator(story => {
-      addons
-        .getChannel()
-        .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
+export default {
+  title: 'Buttons/<ino-segment-group>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
       return story();
-    })
-    .add('Default usage', () => /* html */`
+    },
+  ],
+};
+
+export const DefaultUsage = () => /* html */ `
     <div class="story-segment-group">
 
         <h4>Dense group with third option checked</h4>
@@ -58,4 +58,4 @@ storiesOf('Buttons|<ino-segment-group>', module)
             <ino-segment-button value="1">Option 1</ino-segment-button>
         </ino-segment-group>
     </div>
-    `);
+    `;
