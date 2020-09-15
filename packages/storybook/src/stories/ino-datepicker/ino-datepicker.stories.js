@@ -6,9 +6,9 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-datepicker/readme.md';
 import './ino-datepicker.scss';
 
-let defaultDate = moment().format('YYYY-MM-DD');
-const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD');
-const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
+let defaultDate = moment().add(1, 'days').format('YYYY-MM-DD');
+const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD HH:MM');
+const maxDate = moment().add(5, 'days').format('YYYY-MM-DD HH:MM');
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -53,7 +53,7 @@ export const DefaultUsage = () => /*html*/ `
         value="${text('value', defaultDate, 'DATE CONFIG')}"
         ino-type="${select(
           'ino-type',
-          ['datetime', 'month', 'date', 'time'],
+          ['dateime', 'month', 'date', 'time'],
           'datetime',
           'STANDARD'
         )}"
@@ -68,7 +68,7 @@ export const DefaultUsage = () => /*html*/ `
         ino-date-format="${text('ino-date-format', 'Y-m-d H:i', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text('ino-default-date', defaultDate, 'DATE CONFIG')}"
-        ino-twelve-hour-time="${boolean('ino-twelve-hour-time', false, 'DATE CONFIG')}"
+        ino-twelf-hour-time="${boolean('ino-twelf-hour-time', false, 'DATE CONFIG')}"
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
         ino-helper-persistent="${boolean('ino-helper-persistent', false, 'HELPER TEXT')}"
         ino-helper-validation="${boolean('ino-helper-validation', false, 'HELPER TEXT')}"
