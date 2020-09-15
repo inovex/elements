@@ -2,6 +2,10 @@ import './catalog.scss'
 import fjordImg from '_local-assets/images/fjord.jpg';
 import trondheimImg from '_local-assets/images/trondheim.jpg';
 import libertyImg from '_local-assets/images/liberty.jpg';
+import snackbarDemoImg from '_local-assets/images/InoSnackbar_Demo_Image.png';
+import dialogDemoImg from '_local-assets/images/InoDialog_Demo_Image.jpeg';
+import navDrawerDemoImg from '_local-assets/images/InoNavDrawer_Demo_Image.jpeg';
+import sidebarDemoImg from '_local-assets/images/InoSidebar_Demo_Image.png';
 
 export default {
   title: 'Docs/Showcase',
@@ -75,8 +79,8 @@ export const DefaultUsage = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-dialog--default-usage'">
-          <div class="card-content" slot="content">
-            <ino-icon ino-icon="chat" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
+          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+            <ino-img src=${dialogDemoImg} ino-ratio-width="2.215" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);"/>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-dialog</h3>
@@ -114,14 +118,16 @@ export const DefaultUsage = () => /*html*/ `
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-naw-drawer--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+            <ino-img src=${navDrawerDemoImg} ino-ratio-width="1.818" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);"/>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-nav-drawer</h3>
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-sidebar--default-usage'">
-          <div class="card-content" slot="content">
+          <div class="card-content" slot="content" style="padding-left: 20px; padding-right: 20px">
+            <ino-img src=${sidebarDemoImg} ino-ratio-width="1.783" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);" />
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-sidebar</h3>
@@ -321,7 +327,7 @@ export const DefaultUsage = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='/?path=/story/notification-ino-snackbar--default-usage'">
           <div class="card-content" slot="content">
-            <ino-icon ino-icon="message" style="--icon-height: 50px; --icon-width: 50px;"></ino-icon>
+            <ino-img src=${snackbarDemoImg} ino-ratio-width="3.62"></ino-img>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-snackbar</h3>
