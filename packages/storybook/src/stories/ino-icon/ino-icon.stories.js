@@ -121,7 +121,7 @@ export const DefaultUsage = () => /*html*/ `
 <div class="story-icon">
 <style>
   .customizable-icon {
-    --ino-icon-color-primary: ${text('--ino-icon-color-primary', '#3d40f5')};
+    --color: ${text('--color', '#3d40f5')};
   }
 </style>
 <div class="flex-parent-center">

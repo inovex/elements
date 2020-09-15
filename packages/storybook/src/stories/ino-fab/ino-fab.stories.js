@@ -15,20 +15,12 @@ export default {
 export const DefaultUsage = () => /*html*/ `
     <div class="story-fab">
     <h4>Customizable Fab</h4>
-     <style>
-          ino-fab.customizable-fab {
-            --ino-fab-color: ${text('--ino-fab-color', '#ffffff', 'Custom Properties')};
-            --ino-fab-background-color: ${text('--ino-fab-background-color', '#3d40f5', 'Custom Properties')};
-            --ino-fab-background-color-hover: ${text('--ino-fab-background-color-hover', '#5d60f7', 'Custom Properties')};
-            --ino-fab-background-color-active: ${text('--ino-fab-background-color-active', '#0d10f3', 'Custom Properties')};
-            --ino-fab-icon-color: ${text('--ino-fab-icon-color', '#ffffff', 'Custom Properties')};
-            --ino-fab-color-disabled: ${text('--ino-fab-color-disabled', '#ffffff', 'Custom Properties')};
-            --ino-fab-background-color-disabled: ${text('--ino-fab-background-color-disabled', '#9d9d9d', 'Custom Properties')};
-            --ino-fab-icon-color-disabled: ${text('--ino-fab-icon-color-disabled', '#ffffff', 'Custom Properties')};
-          }
-      </style>
       <ino-fab
-        class="customizable-fab"
+      ino-color-scheme="${select(
+        'ino-color-scheme',
+        ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
+        'primary'
+      )}"
       ino-edge-position="${select(
         'ino-edge-position',
         ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
