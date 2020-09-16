@@ -62,7 +62,7 @@ const sampleCard = `
   <div slot="header" class="card-header">
       <ino-icon ino-icon="info" ino-clickable></ino-icon>
   </div>
-  <div slot="content" class="card-content">
+  <div slot="content" class="card-content--vertical">
       <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"></ino-img>
   </div>
   <div slot="footer" class="sample-card-footer">
@@ -78,7 +78,7 @@ const flexCard = `
       <div slot="header" class="card-header">
           <ino-icon ino-icon="info" ino-clickable></ino-icon>
       </div>
-      <div slot="content" class="card-content">
+      <div slot="content" class="card-content--vertical">
           <h3>Primary</h3>
       </div>
       <div slot="footer" class="card-footer">
