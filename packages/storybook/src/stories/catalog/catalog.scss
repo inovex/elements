@@ -37,7 +37,6 @@ h2, h3 {
   .card-content--vertical, .card-content--horizontal, .card-footer {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
   }
 
   .card-content--vertical {
@@ -50,6 +49,7 @@ h2, h3 {
     flex-direction: row;
     justify-content: space-evenly;
     height: 170px;
+    flex-wrap: wrap;
 
     ino-icon {
       --icon-height: 50px;

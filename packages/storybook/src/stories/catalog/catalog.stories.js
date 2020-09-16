@@ -66,9 +66,9 @@ export const components = () => /*html*/ `
         <ino-card onClick="parent.location.href='/?path=/story/buttons-ino-segment-button--default-usage'">
           <div class="card-content--vertical" slot="content">
             <ino-segment-group id="segment-grp">
-              <ino-segment-button value="1">Male</ino-segment-button>
-              <ino-segment-button value="2">Female</ino-segment-button>
-              <ino-segment-button value="3">Diverse</ino-segment-button>
+              <ino-segment-button value="1">M</ino-segment-button>
+              <ino-segment-button value="2">F</ino-segment-button>
+              <ino-segment-button value="3">D</ino-segment-button>
             </ino-segment-group>
           </div>
           <div class="card-footer" slot="footer">
@@ -81,7 +81,7 @@ export const components = () => /*html*/ `
       <div class="catalog-grid">
         <ino-card onClick="parent.location.href='/?path=/story/structure-ino-card--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-card>
+            <ino-card style="width: 80%">
               <div slot="header">
                 <ino-icon ino-icon="info" ino-clickable></ino-icon>
               </div>
@@ -325,7 +325,7 @@ export const components = () => /*html*/ `
             <h3>ino-img-list</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='/?path=/story/graphic-img--default-usage'">
+        <ino-card onClick="parent.location.href='/?path=/story/graphic-ino-img--default-usage'">
           <div class="card-content--vertical" slot="content">
             <ino-img
               src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
