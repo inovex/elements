@@ -2,24 +2,24 @@
 set -euxo pipefail
 
 # Build current elements version
-lerna exec --scope=@inovex/elements -- yarn install &&
-lerna exec --scope=@inovex/elements -- yarn build &&
-lerna exec --scope=@inovex/elements -- yalc publish --no-sig &&
+lerna exec --scope=@inovex.de/elements -- yarn install &&
+lerna exec --scope=@inovex.de/elements -- yarn build &&
+lerna exec --scope=@inovex.de/elements -- yalc publish --no-sig &&
 
-#link @inovex/elements dependency
-lerna exec --scope=@inovex/elements-angular -- yalc add @inovex/elements &&
+#link @inovex.de/elements dependency
+lerna exec --scope=@inovex.de/elements-angular -- yalc add @inovex.de/elements &&
 
-lerna exec --scope=@inovex/elements-angular -- yarn install &&
+lerna exec --scope=@inovex.de/elements-angular -- yarn install &&
 
 # build packages
-lerna exec --scope=@inovex/elements-angular-builder -- yarn build
+lerna exec --scope=@inovex.de/elements-angular-builder -- yarn build
 
 #move local .yalc dependency to dist folder
-lerna exec --scope=@inovex/elements-angular -- mv .yalc yalc.lock ../dist &&
+lerna exec --scope=@inovex.de/elements-angular -- mv .yalc yalc.lock ../dist &&
 
-#explicitly push @inovex/elements-angular due to angular library project structure
+#explicitly push @inovex.de/elements-angular due to angular library project structure
 yalc publish --no-sig --push ./packages/elements-angular/dist/ &&
 
 #Cleanup
-lerna exec --scope=@inovex/elements-angular -- yalc remove @inovex/elements
+lerna exec --scope=@inovex.de/elements-angular -- yalc remove @inovex.de/elements
 

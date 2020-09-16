@@ -26,7 +26,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoSegmentButton, InoSegmentGroup } from '@inovex/elements/dist/react';
+import { InoSegmentButton, InoSegmentGroup } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 

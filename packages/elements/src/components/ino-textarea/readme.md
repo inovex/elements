@@ -40,7 +40,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoTextarea } from '@inovex/elements/dist/react';
+import { InoTextarea } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -57,8 +57,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoTextarea } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoTextarea } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = props => {
   const { autogrow } = props;

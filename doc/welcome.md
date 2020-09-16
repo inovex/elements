@@ -6,7 +6,7 @@
 
 This repository provides lovingly crafted components based on native Web Components as well as integration layers for the [Angular](https://github.com/angular) framework and the [React](https://github.com/facebook/react) library.
 
-## Why @inovex/elements?
+## Why @inovex.de/elements?
 
 As we all know, new frontends often go along with redundant tasks such as developing inputs, selects, or more complex elements like tooltips. Since the rise of web components has finally happened with native browser support in all major browsers, we take this opportunity to make all of our lives easier and provide a set of ready-to-use UI components.
 

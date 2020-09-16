@@ -133,7 +133,7 @@ function normalizePath(str) {
 module.exports = (path = '.') => {
     return new StencilPlugin({
         collections: [
-            'node-modules/@inovex/elements/dist'
+            'node-modules/@inovex.de/elements/dist'
         ],
         outputBase: path
     });

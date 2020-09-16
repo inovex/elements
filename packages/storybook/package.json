@@ -1,7 +1,7 @@
 {
-  "name": "@inovex/elements-storybook",
+  "name": "@inovex.de/elements-storybook",
   "version": "0.21.0",
-  "description": "This is the storybook package containing all the documentation for @inovex/elements, @inovex/elements-angular, @inovex/elements-react.",
+  "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,
@@ -38,7 +38,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex/elements": "^0.21.0",
+    "@inovex.de/elements": "^0.21.0",
     "mermaid": "^8.2.6",
     "moment": "^2.24.0"
   },

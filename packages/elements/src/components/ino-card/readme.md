@@ -40,7 +40,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoCard } from '@inovex/elements/dist/react';
+import { InoCard } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -61,8 +61,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoButton, InoCard } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoButton, InoCard } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Card: React.FunctionComponent<Components.InoCardAttributes> = props => {
   const { inoTitle, inoSubtitle } = props;

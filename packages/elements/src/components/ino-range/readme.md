@@ -37,7 +37,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoRange } from '@inovex/elements/dist/react';
+import { InoRange } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -50,8 +50,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoRange } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoRange } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Range: React.FunctionComponent<Components.InoRangeAttributes> = props => {
   const { inoColorScheme } = props;

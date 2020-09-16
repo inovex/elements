@@ -23,7 +23,7 @@ The component can be used as follows:
 ```jsx harmony
 import React from 'react';
 import { Component } from 'react';
-import { InoImgList, InoImg } from '@inovex/elements/dist/react';
+import { InoImgList, InoImg } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
 

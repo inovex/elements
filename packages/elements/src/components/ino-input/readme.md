@@ -56,7 +56,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoInput } from '@inovex/elements/dist/react';
+import { InoInput } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   onValueChange(e: any) {
@@ -78,8 +78,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoInput } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoInput } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Input: React.FunctionComponent<Components.InoInputAttributes> = props => {
   const { inoPlaceholder } = props;

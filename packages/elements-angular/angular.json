@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@inovex/elements-angular": {
+    "@inovex.de/elements-angular": {
       "projectType": "library",
       "root": "elements",
       "sourceRoot": "elements/src",
@@ -38,5 +38,5 @@
         }
       }
     }},
-  "defaultProject": "@inovex/elements-angular"
+  "defaultProject": "@inovex.de/elements-angular"
 }

@@ -3,7 +3,7 @@
 /* auto-generated angular directive proxies */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from "@angular/core";
 import { ProxyCmp, proxyOutputs } from "./proxies-utils";
-import { Components } from "@inovex/elements";
+import { Components } from "@inovex.de/elements";
 export declare interface InoButton extends Components.InoButton {
 }
 @ProxyCmp({ inputs: ["autoFocus", "disabled", "form", "inoColorScheme", "inoDense", "inoEdgeMirrored", "inoFill", "inoFullWidth", "inoIconLeading", "inoIconTrailing", "inoLoading", "name", "type"] })

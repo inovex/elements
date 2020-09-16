@@ -45,7 +45,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoNavDrawer } from '@inovex/elements/dist/react';
+import { InoNavDrawer } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -88,8 +88,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoNavDrawer } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoNavDrawer } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = props => {
   const { inoOpen, inoVariant, inoAnchor } = props;

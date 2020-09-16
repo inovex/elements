@@ -6,7 +6,7 @@
 
 This repository provides lovingly crafted components based on native Web Components as well as integration layers for the [Angular](https://github.com/angular) framework and the [React](https://github.com/facebook/react) library.
 
-## Why @inovex/elements?
+## Why @inovex.de/elements?
 
 As we all know, new frontends often go along with redundant tasks like developing inputs, selects or more complex elements like tooltips. Since the rise of web components has finally happened with native browser support in all major browsers, we take this opportunity to make our all lives easier and provide a set of ready-to-use UI components.
 
@@ -29,10 +29,10 @@ Each package provides a separate README and is distributed as self contained pac
 
 | <div style="width:220px">**Package**</div> | <div style="width:200px">**Description**</div> | **Primary Usage Intention** |
 | --- | --- | --- |
-| [@inovex/elements](packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
-| [@inovex/elements-angular](packages/elements-angular/elements)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
-| [@inovex/elements-react](packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
-| [@inovex/elements-storybook](packages/elements-storybook)|Storybook documentation|API reference and guide for developers.|
+| [@inovex.de/elements](packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
+| [@inovex.de/elements-angular](packages/elements-angular/elements)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
+| [@inovex.de/elements-react](packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
+| [@inovex.de/elements-storybook](packages/elements-storybook)|Storybook documentation|API reference and guide for developers.|
 
 ## History and Background
 
@@ -67,12 +67,12 @@ These are the available scripts to get started with this mono repository:
 
 | <div style="width:150px">**Command**</div> | **Description** |
 | --- | --- |
-|`yarn start`|Launches [@inovex/elements](packages/elements) components in development mode locally, opens Storybook.|
-|`yarn test`|Runs all tests for [@inovex/elements](packages/elements).|
-|`yarn build`|Builds [@inovex/elements](packages/elements), [@inovex/elements-angular](packages/elements-angular), [@inovex/elements-react](packages/elements-react), [storybook](packages/storybook).|
+|`yarn start`|Launches [@inovex.de/elements](packages/elements) components in development mode locally, opens Storybook.|
+|`yarn test`|Runs all tests for [@inovex.de/elements](packages/elements).|
+|`yarn build`|Builds [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular), [@inovex.de/elements-react](packages/elements-react), [storybook](packages/storybook).|
 |`yarn linklocal:npm`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for npm projects.|
 |`yarn linklocal:yarn`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for yarn projects.|
-|`yarn lint`|Runs TypeScript linting in [@inovex/elements](packages/elements), [@inovex/elements-angular](packages/elements-angular).|
+|`yarn lint`|Runs TypeScript linting in [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular).|
 |`yarn clean`|Removes `node_modules` and `dist` from root and all packages.|
 |`yarn version`|Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.|
 

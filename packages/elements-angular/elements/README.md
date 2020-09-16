@@ -1,6 +1,6 @@
-# @inovex/elements-angular
+# @inovex.de/elements-angular
 
-> The following information is only relevant if you want to contribute to this `@inovex/elements-angular`
+> The following information is only relevant if you want to contribute to this `@inovex.de/elements-angular`
 > package. If you just want to use the UI elements for your own project, please refer to the top level
 > [README](../../..).
 
@@ -12,7 +12,7 @@ Please refer to the top level [README](../../..) to see the available script com
 
 ### Adding or Removing Components
 
-Everytime a new component ist added or removed from the `@inovex/elements` package you must ensure that
+Everytime a new component ist added or removed from the `@inovex.de/elements` package you must ensure that
 the following files are written after running the `build` command:
 
 * `src/directives/proxies-list.ts`

@@ -36,7 +36,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoCheckbox } from '@inovex/elements/dist/react';
+import { InoCheckbox } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   state = {
@@ -65,8 +65,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoCheckbox } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoCheckbox } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = props => {
   const { value, onClick, checked } = props;

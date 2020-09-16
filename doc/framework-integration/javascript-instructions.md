@@ -4,10 +4,10 @@
 
 ## 0) Prepare your Project
 
-Before using `@inovex/elements`, you should make sure that your current setup works and boots properly.
+Before using `@inovex.de/elements`, you should make sure that your current setup works and boots properly.
 If this is the case, proceed to the next step.
 
-## 1) Install or Integrate `@inovex/elements`
+## 1) Install or Integrate `@inovex.de/elements`
 
 > Hint: The components provided in this package work out-of-the box and are shipped with a preloader. You don't have to import the components manually as the preloader will lazy load the components you use. Hence, if you for instance only use `<ino-button>`, the loader only requests the portions of the package which are needed to render the button.
 
@@ -28,18 +28,18 @@ Use the npm package manager if...
 
 ### a) Install the Package
 
-Add the package `@inovex/elements` to your project using `yarn` or `npm`:
+Add the package `@inovex.de/elements` to your project using `yarn` or `npm`:
 
 #### Instructions for npm:
 
 ```sh
-$ npm install @inovex/elements --save
+$ npm install @inovex.de/elements --save
 ```
 
 #### Instructions for Yarn:
 
 ```sh
-$ yarn add @inovex/elements
+$ yarn add @inovex.de/elements
 ```
 
 ### b) Integrate via script tag

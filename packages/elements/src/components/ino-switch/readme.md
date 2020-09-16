@@ -33,7 +33,7 @@ document
 
 ```js
 import { Component } from 'react';
-import { InoSwitch } from '@inovex/elements-react';
+import { InoSwitch } from '@inovex.de/elements-react';
 
 class MyComponent extends Component {
   state = {
@@ -61,8 +61,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoSwitch } from '@inovex/elements-react';
-import { Components } from '@inovex/elements-react/dist/types/components';
+import { InoSwitch } from '@inovex.de/elements-react';
+import { Components } from '@inovex.de/elements-react/dist/types/components';
 
 const Switch: React.FunctionComponent<Components.InoSwitchAttributes> = props => {
   const { value, onClick, checked } = props;

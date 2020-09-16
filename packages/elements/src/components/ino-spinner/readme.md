@@ -25,7 +25,7 @@ The component can be used as follows:
 
 ```js
 import { Component } from 'react';
-import { InoSpinner } from '@inovex/elements/dist/react';
+import { InoSpinner } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
@@ -38,8 +38,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoSpinner } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoSpinner } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = props => {
   const { inoColorScheme } = props;

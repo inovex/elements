@@ -33,10 +33,10 @@ You're able to use **one** or **none** of the following packages:
 
 |Package Name|Affected Package|
 |---|---|
-|elements|[@inovex/elements](packages/elements)|
-|elements-angular|[@inovex/elements-angular](packages/elements-angular)|
-|elements-react|[@inovex/elements-react](packages/elements-react)|
-|storybook|[@inovex/elements-storybook](packages/storybook)|
+|elements|[@inovex.de/elements](packages/elements)|
+|elements-angular|[@inovex.de/elements-angular](packages/elements-angular)|
+|elements-react|[@inovex.de/elements-react](packages/elements-react)|
+|storybook|[@inovex.de/elements-storybook](packages/storybook)|
 
 ## Scope
 

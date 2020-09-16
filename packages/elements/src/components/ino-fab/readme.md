@@ -27,7 +27,7 @@ The component can be used as follows:
 
 ```js
 import { Component } from 'react';
-import { InoFab } from '@inovex/elements/dist/react';
+import { InoFab } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   handleClick = (e: any) => {
@@ -50,8 +50,8 @@ class MyComponent extends Component {
 
 ```js
 import React, { Component } from 'react';
-import { InoFab } from '@inovex/elements/dist/react';
-import { Components } from '@inovex/elements/dist/types/components';
+import { InoFab } from '@inovex.de/elements/dist/react';
+import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Fab: React.FunctionComponent<Components.InoFabAttributes> = props => {
   const { inoLabel, inoIcon } = props;
