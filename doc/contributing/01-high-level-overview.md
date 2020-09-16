@@ -53,7 +53,7 @@ This project is just a normal Angular Library which consumes the core package an
 
 Every time you run `yarn start` or `yarn build` from within the root of this repo, Lerna first builds the core package before building the Directives in this package. The core package is just a dependency of this Angular Library. This project only provides a wrapper Directive to map the Custom Elements attributes and events to the @Input and @Output values in the Angular world.
 
-You only need to change this package if you add a new or remove an existing component from the core or if you want to support `ngModel`. To learn more about this topic, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-angular/elements/README.md) of `@inovex.de/elements-angular`.
+You only need to change this package if you add a new or remove an existing component from the core or if you want to support `ngModel`. To learn more about this topic, refer to the [README](https://github.com/inovex/elements/blob/master/packages/elements-angular/elements/README.md) of `@inovex.de/elements-angular`.
 
 ### React Integration Layer
 
@@ -63,7 +63,7 @@ This project is just a normal React project which consumes the core package and 
 
 Every time you run `yarn start` or `yarn build` from within the root of this repo, Lerna first builds the core package before building the React components in this package. The core package is just a dependency of this React project. This project only provides a wrapper component to map the Custom Elements attributes and events to the props in the React world.
 
-You should never have to make changes to this package. To learn more about this topic, refer to the [README](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/packages/elements-react/README.md) of `@inovex.de/elements-react`.
+You should never have to make changes to this package. To learn more about this topic, refer to the [README](https://github.com/inovex/elements/blob/master/packages/elements-react/README.md) of `@inovex.de/elements-react`.
 
 ### Storybook
 
