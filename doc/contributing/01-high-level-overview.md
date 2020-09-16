@@ -13,10 +13,10 @@ Each package provides a separate README and is distributed as a self contained p
 
 | <div style="width:220px">**Package**</div> | <div style="width:200px">**Description**</div> | **Primary Usage Intention** |
 | --- | --- | --- |
-| [@inovex.de/elements](https://gitlab.inovex.de/inovex-elements/core/-/tree/master/packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
-| [@inovex.de/elements-angular](https://gitlab.inovex.de/inovex-elements/core/-/tree/master/packages/elements-angular)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
-| [@inovex.de/elements-react](https://gitlab.inovex.de/inovex-elements/core/-/tree/master/packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
-| [@inovex.de/elements-storybook](https://gitlab.inovex.de/inovex-elements/core/-/tree/master/packages/storybook)|Storybook documentation|API reference and guide for developers.|
+| [@inovex.de/elements](https://github.com/inovex/elements/tree/master/packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
+| [@inovex.de/elements-angular](https://github.com/inovex/elements/tree/master/packages/elements-angular)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
+| [@inovex.de/elements-react](https://github.com/inovex/elements/tree/master/packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
+| [@inovex.de/elements-storybook](https://github.com/inovex/elements/tree/master/packages/storybook)|Storybook documentation|API reference and guide for developers.|
 
 ### Elements Core
 
