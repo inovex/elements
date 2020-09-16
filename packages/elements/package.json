@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "0.21.0",
+  "version": "1.0.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -57,8 +57,8 @@
     "@material/checkbox": "^5.1.0",
     "@material/chips": "^5.1.0",
     "@material/data-table": "^5.1.0",
-    "@material/drawer": "^5.1.0",
     "@material/dialog": "^5.1.0",
+    "@material/drawer": "^5.1.0",
     "@material/fab": "^5.1.0",
     "@material/form-field": "^5.1.0",
     "@material/icon-button": "^5.1.0",
