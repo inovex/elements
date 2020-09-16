@@ -60,7 +60,7 @@ Here are some of the allowed scopes:
 - `storybook|ino-card`
 - `*`
 
-> You can always check which package/scope combinations are allowed by checking the [commit-scope-enum.js](https://gitlab.inovex.de/inovex-elements/core/-/blob/master/commit-scope-enum.js) file.
+> You can always check which package/scope combinations are allowed by checking the [commit-scope-enum.js](https://github.com/inovex/elements/blob/master/commit-scope-enum.js) file.
 
 ## Subject
 

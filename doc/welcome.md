@@ -16,4 +16,4 @@ The advantages are faster development cycles and fewer maintaining resources. Th
 
 ## Documentation
 
-You can find all the information on how to use the elements in this Storybook. If you want to contribute, you're welcome to learn more in the [inovex elements README on GitLab](https://gitlab.inovex.de/inovex-elements/core).
+You can find all the information on how to use the elements in this Storybook. If you want to contribute, you're welcome to learn more in the [inovex elements README on Github](https://github.com/inovex/elements).

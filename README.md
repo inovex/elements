@@ -50,7 +50,7 @@ We experienced the same and as the buzzwords *Design System* and *Component Libr
 > The following information is only relevant if you want to contribute to the elements. If you just want
 > to use the UI elements for your own project, please refer to the Documentation section above.
 
-The purpose of this repository is to continue the development, making the elements easier to use, reducing the cpu footprint, creating new components and API features as well as fixing bugs. The development itself is fully managed within the space of this GitLab repo and Artifactory.
+The purpose of this repository is to continue the development, making the elements easier to use, reducing the cpu footprint, creating new components and API features as well as fixing bugs. The development itself is fully managed within the space of this Github repo and Artifactory.
 
 To learn more about how you can contribute please refer to our [Contributing Section](https://elements.inovex.de/dist/latest/storybook/?path=/story/docs-contributing--architectural-overview).
 
