@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/inovex/elements/compare/v1.0.0...v1.0.1) (2020-09-22)
+
+
+### Bug Fixes
+
+* **storybook:** fix showcase urls ([#74](https://github.com/inovex/elements/issues/74)) ([60de0ff](https://github.com/inovex/elements/commit/60de0ffc3051d713d49cb07e4a00bc9de4cbf27a))
+
 ## [1.0.0](https://github.com/inovex/elements/compare/v0.21.0...v1.0.0) (2020-09-16)
 
 
