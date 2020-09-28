@@ -30,6 +30,12 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
 
   /**
+   * Sets the timeout in ms until the snackbar disappears. The timeout can
+   * be disabled by setting it to -1.
+   */
+  @Prop() inoTimeout?: number = 5000;
+
+  /**
    * Event that emits as soon as the action button is clicked.
    */
   @Event() inoActionClick!: EventEmitter;
@@ -46,6 +52,8 @@ export class Snackbar implements ComponentInterface {
       this.handleSnackbarHide(e)
     );
     this.snackbarInstance.open();
+    this.snackbarInstance.timeoutMs = -1;
+    setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
   }
 
   componentWillUnload() {

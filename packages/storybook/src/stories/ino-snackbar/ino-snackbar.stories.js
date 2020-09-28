@@ -1,4 +1,4 @@
-import { select, text } from '@storybook/addon-knobs';
+import { number, select, text } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-snackbar/readme.md';
 import './ino-snackbar.scss';
@@ -52,6 +52,7 @@ export const DefaultUsage = () => /*html*/ `
                 id="custom-snackbar"
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
+                ino-timeout="${number('ino-timeout', 5000)}"
                 ino-alignment="${select(
                   'ino-alignment',
                   ['center', 'leading', 'trailing'],
