@@ -145,7 +145,7 @@ export class InoCarousel implements ComponentInterface{
             <slot/>
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_right"/>
+            <ino-icon-button ino-icon="arrow_left"/>
           </div>
           <div class="ino-carousel__right-arrow">
             <ino-icon-button ino-icon="arrow_right"/>
