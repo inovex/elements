@@ -8,7 +8,7 @@ ino-carousel {
   --carousel-icon-color: var(--ino-carousel-icon-color, #fff);
   --carousel-width: var(--ino-carousel-width, 700px);
   --carousel-height: var(--ino-carousel-height, 400px);
-  --carousel-animation-duration: var(--ino-carousel-animation-duration, 0.7s);
+  --carousel-animation-duration: var(--ino-carousel-animation-duration, 700ms);
 }
 
 @mixin fadeTransition($name, $from, $to, $duration) {
@@ -18,7 +18,6 @@ ino-carousel {
     from {
       opacity: $from;
     }
-
     to {
       opacity: $to;
     }
@@ -43,7 +42,7 @@ ino-carousel {
     height: 100%;
 
     ino-icon {
-      --color: var(--carousel-icon-color);
+      --icon-color: var(--carousel-icon-color);
     }
   }
 
@@ -59,10 +58,6 @@ ino-carousel {
 
   .ino-carousel__left-arrow {
     left: 16px;
-
-    ino-icon {
-      transform: rotate(180deg);
-    }
   }
 
   .ino-carousel__container {
