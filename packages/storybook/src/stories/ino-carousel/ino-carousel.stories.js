@@ -1,14 +1,7 @@
-import { storiesOf } from '@storybook/html';
-
 import componentReadme from '_local-elements/src/components/ino-carousel/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-
-
 import './ino-carousel.scss';
-import { withActions } from '@storybook/addon-actions';
 import { boolean, number, text } from '@storybook/addon-knobs';
-import addons from '@storybook/addons';
-import CoreEvents from '@storybook/core-events';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -28,29 +21,28 @@ function subscribeToComponentEvents() {
 
   const mod = (a, b) => ((a % b) + b) % b;
 
-  document.addEventListener('leftClick', eventHandler);
-  document.addEventListener('rightClick', eventHandler);
+  document.addEventListener('clickEl', eventHandler);
   // == event block
 
   // unsubscribe function will be called by Storybook
   return () => {
     document.removeEventListener('clickEl', eventHandler);
-    document.removeEventListener('rightClick', eventHandler);
   };
 }
 
-storiesOf('Graphic|<ino-carousel>', module)
-  .addDecorator(withStencilReadme(componentReadme))
-  .addDecorator(withActions(
-    'click .customizable-button',
-  ))
-  .addDecorator(story => {
-    addons
-      .getChannel()
-      .emit(CoreEvents.REGISTER_SUBSCRIPTION, subscribeToComponentEvents);
-    return story();
-  })
-  .add('Default usage', () => /* html */`
+export default {
+  title: 'Graphic/<ino-carousel>',
+
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
+};
+
+export const DefaultUsage = () => /* html */`
       <h3>Customizable carousel</h3>
       <div class="ino-carousel-example">
           <ino-carousel
@@ -81,4 +73,4 @@ storiesOf('Graphic|<ino-carousel>', module)
             <ino-carousel-slide src="images/nidaros.jpg" value="2">
             </ino-carousel-slide>
       </ino-carousel>
-  `);
+`;
