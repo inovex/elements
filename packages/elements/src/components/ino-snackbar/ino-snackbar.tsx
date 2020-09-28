@@ -53,7 +53,9 @@ export class Snackbar implements ComponentInterface {
     );
     this.snackbarInstance.open();
     this.snackbarInstance.timeoutMs = -1;
-    setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+    if (this.inoTimeout >= 0) {
+      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+    }
   }
 
   componentWillUnload() {
