@@ -45,6 +45,30 @@ export default {
 export const DefaultUsage = () => /* html */`
       <h3>Customizable carousel</h3>
       <div class="ino-carousel-example">
+          <style>
+            ino-carousel.customizable-carousel {
+            --ino-carousel-icon-color: ${text(
+        '--ino-carousel-icon-color',
+        '#ffffff',
+        'Custom Properties'
+            )};
+            --ino-carousel-width: ${text(
+        '--ino-carousel-width',
+        '700px',
+        'Custom Properties'
+            )};
+            --ino-carousel-height: ${text(
+        '--ino-carousel-height',
+        '400px',
+        'Custom Properties'
+            )};
+            --ino-carousel-animation-duration: ${text(
+        '--ino-carousel-animation-duration',
+        '700ms',
+        'Custom Properties'
+            )};
+            }
+          </style>
           <ino-carousel
             class="customizable-carousel"
             value="${text('value', '0', 'General')}"
