@@ -31,7 +31,7 @@ export class Snackbar implements ComponentInterface {
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
-   * be disabled by setting it to -1.
+   * be disabled by setting it to a negative value.
    */
   @Prop() inoTimeout?: number = 5000;
 
