@@ -112,6 +112,50 @@ export namespace Components {
          */
         "value": any;
     }
+    interface InoCarousel {
+        /**
+          * Disables the slide animation
+         */
+        "inoAnimated": boolean;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay": boolean;
+        /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons": boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite": boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoIntermission": number;
+        /**
+          * Enables reverse playback of the slides
+         */
+        "inoReverse": boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
+         */
+        "value"?: any;
+    }
+    interface InoCarouselSlide {
+        /**
+          * Indicates whether the slide is selected or not
+         */
+        "inoSelected": boolean;
+        /**
+          * Link to the image
+         */
+        "src": string;
+        /**
+          * Value of the slide
+         */
+        "value": any;
+    }
     interface InoCheckbox {
         /**
           * Marks this element as checked. (**unmanaged**)
@@ -1537,6 +1581,50 @@ declare namespace LocalJSX {
           * Selects the card and displays a check mark icon on top of the card
          */
         "inoSelected"?: boolean;
+    }
+    interface InoCarousel {
+        /**
+          * Disables the slide animation
+         */
+        "inoAnimated"?: boolean;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay"?: boolean;
+        /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons"?: boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite"?: boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoIntermission"?: number;
+        /**
+          * Enables reverse playback of the slides
+         */
+        "inoReverse"?: boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
+         */
+        "value"?: any;
+    }
+    interface InoCarouselSlide {
+        /**
+          * Indicates whether the slide is selected or not
+         */
+        "inoSelected"?: boolean;
+        /**
+          * Link to the image
+         */
+        "src"?: string;
+        /**
+          * Value of the slide
+         */
+        "value"?: any;
     }
     interface InoCarousel {
         /**
