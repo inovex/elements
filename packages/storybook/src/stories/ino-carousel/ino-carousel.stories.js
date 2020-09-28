@@ -2,6 +2,9 @@ import componentReadme from '_local-elements/src/components/ino-carousel/readme.
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-carousel.scss';
 import { boolean, number, text } from '@storybook/addon-knobs';
+import lightningImg from '_local-assets/images/lightning.jpg';
+import mountainsImg from '_local-assets/images/mountains.jpg';
+import nidarosImg from '_local-assets/images/nidaros.jpg';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -79,22 +82,22 @@ export const DefaultUsage = () => /* html */`
             ino-intermission="${number('ino-intermission', 5000, undefined, 'General')}"
             ino-reverse="${boolean('ino-reverse', false, 'General')}"
           >
-            <ino-carousel-slide src="images/lightning.jpg" value="0" ino-selected>
+            <ino-carousel-slide src=${lightningImg} value="0" ino-selected>
             </ino-carousel-slide>
-            <ino-carousel-slide src="images/mountains.jpg" value="1">
+            <ino-carousel-slide src=${mountainsImg} value="1">
             </ino-carousel-slide>
-            <ino-carousel-slide src="images/nidaros.jpg" value="2">
+            <ino-carousel-slide src=${nidarosImg} value="2">
             </ino-carousel-slide>
           </ino-carousel>
       </div>
 
       <h3>Autoplay enabled</h3>
       <ino-carousel ino-autoplay ino-animated ino-infinite value="0">
-            <ino-carousel-slide src="images/lightning.jpg" value="0">
+            <ino-carousel-slide src=${lightningImg} value="0">
             </ino-carousel-slide>
-            <ino-carousel-slide src="images/mountains.jpg" value="1">
+            <ino-carousel-slide src=${mountainsImg} value="1">
             </ino-carousel-slide>
-            <ino-carousel-slide src="images/nidaros.jpg" value="2">
+            <ino-carousel-slide src=${nidarosImg} value="2">
             </ino-carousel-slide>
       </ino-carousel>
 `;
