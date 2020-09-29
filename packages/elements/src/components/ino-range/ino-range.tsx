@@ -126,7 +126,7 @@ export class Range implements ComponentInterface {
     this.load();
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.unload();
   }
 

@@ -29,7 +29,7 @@ export class RadioGroup implements ComponentInterface {
     });
   }
 
-  async componentDidUnload() {
+  async disconnectedCallback() {
     const radios = await this.getRadios();
     radios.forEach(radio => {
       radio.removeEventListener('mouseover', () => this.addHoverAnimation(radio));

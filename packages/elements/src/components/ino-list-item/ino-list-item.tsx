@@ -62,7 +62,7 @@ export class ListItem implements ComponentInterface {
     this.clickEl.emit(this.el);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.el.remove();
   }
 
