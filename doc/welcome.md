@@ -12,7 +12,7 @@ As we all know, new frontends often go along with redundant tasks such as develo
 
 This project provides a set of small and generic components that can be used in any project. The fundamental elements work great with major frameworks like Angular, React, Vue or any good old plain website without any complex framework.
 
-The advantages are faster development cycles and fewer maintaining resources. The native elements are designed by inovex to match our brand, increase the consistency and decrease the redundancy of our projects. We decided to make the elements publicly available to allow others to use and contribute to our work.
+The advantages are faster development cycles and fewer maintaining resources. The native elements are designed by inovex to match our brand, increase the consistency, and decrease the redundancy of our projects. We decided to make the elements publicly available to allow others to use and contribute to our work.
 
 ## Documentation
 

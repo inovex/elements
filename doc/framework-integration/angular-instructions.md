@@ -12,8 +12,8 @@ If this is the case, proceed to the next step.
 
 ## 1) Install `@inovex.de/elements-angular`
 
-We provide an integration layer package for Angular so that you can integrate the elements as an Angular library
-into your Angular project. 
+We provide an integration layer package for Angular so you can integrate the elements as an Angular library
+into your Angular project.
 
 Add the package `@inovex.de/elements-angular` to your project using `yarn` or `npm`:
 
@@ -33,7 +33,7 @@ $ yarn add @inovex.de/elements-angular
 
 The components we provide in the Angular project are wrapped in Angular directives within an Angular library.
 All the `@Input` properties and `@Output` events of our components are included. This allows your IDE
-and compiler to infer all the type information from the given interfaces, which is compulsive for code completion
+and compiler to infer all the type information from the given interfaces which is compulsive for code completion
 to work properly.
 
 To use the inovex elements, you need to integrate the `InoElementsModule` into one of your App's
