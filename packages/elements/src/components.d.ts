@@ -926,7 +926,7 @@ export namespace Components {
          */
         "inoMessage"?: string;
         /**
-          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to -1.
+          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
     }
@@ -2410,7 +2410,7 @@ declare namespace LocalJSX {
          */
         "inoMessage"?: string;
         /**
-          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to -1.
+          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
         /**
