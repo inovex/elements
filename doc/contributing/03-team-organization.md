@@ -4,7 +4,7 @@ We coordinate stories, tasks and bugs in the [elements Github project](https://g
 
 ## Plannings
 
-To organize the workload from time to time, we do not have a regular schedule. All team members will be notified when we have a new appointment. Invitations will be sent via Slack or email.
+We organize the workload from time to time and do not have a regular schedule. All team members will be notified when we have a new appointment. Invitations will be sent via Slack or email.
 
 ## Weeklies
 

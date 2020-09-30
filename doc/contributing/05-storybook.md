@@ -10,7 +10,7 @@ Every time we create a new component, we add at least one story which...
 
 ## Customizable Instances
 
-A customizable instance is just a component where all attributes of a component are set through the Storybook [Knobs Addon](https://github.com/storybooks/storybook/tree/master/addons/knobs).
+A customizable instance is just a component where all attributes of a component are set by the Storybook [Knobs Addon](https://github.com/storybooks/storybook/tree/master/addons/knobs).
 
 This allows the consumer (the person who uses the components) to give users the ability to explore all possible variants of an element. Customizable, in this case, means that users can pass any possible value to an element.
 

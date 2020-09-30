@@ -9,16 +9,16 @@ If this is the case, proceed to the next step.
 
 ## 1) Install or Integrate `@inovex.de/elements`
 
-> Hint: The components provided in this package work out-of-the box and are shipped with a preloader. You don't have to import the components manually as the preloader will lazy load the components you use. Hence, if you for instance only use `<ino-button>`, the loader only requests the portions of the package which are needed to render the button.
+> Hint: The components provided in this package work out-of-the box and are shipped with a preloader. You do not have to import the components manually as the preloader will lazy load the components you use. Hence, if you for instance only use `<ino-button>`, the loader only requests the portions of the package which are needed to render the button.
 
 There are two ways to add the inovex elements to your project. Either by loading them via a `script` tag from a central server or by downloading them via npm and adding them to your build process. It is your choice whether you want to use a package manager or the `script` tag.
 
-There are some rules of thumb if you don't know which option better suits your project.
+There are some rules of thumb if you do not know which option better suits your project.
 
 Use the `script` tag if...
 
 * ... you just want to play around with our elements.
-* ... you have a small website which doesn't use any library or framework.
+* ... you have a small website which does not use any library or framework.
 
 Use the npm package manager if...
 
@@ -53,17 +53,17 @@ To load the components at runtime, you need to insert the following code fragmen
 <script src="https://elements.inovex.io/dist/v1.0.0/inovex-elements.js"></script>
 ```
 
-Before we proceed, we need to clarify what's going on here:
+Before we proceed, we need to clarify what is going on here:
 
-#### Why don't we need a `type="module"` / ES6 Module import?
+#### Why do we not need a `type="module"` / ES6 Module import?
 
 We do not need this import because the bootstrap script within the provided scripts already contains two versions of an ES5 script bundle and an ES6 Module. Some browsers still use the old ES5 script and do not support the new ES6 module. In short: The browser will load the ES6 module, if supported. Otherwise it will fall back to the ES5 bundle. The ES6 Module allows you to write import statements inside of your web page's JavaScript code. Read more about [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
-#### I don't want to pin to a concrete version, do you provide a link to the latest release?
+#### I do not want to pin to a concrete version, do you provide a link to the latest release?
 
 Yes, we provide a link to our latest release, but we strongly recommend to not use these links in production since the application can easily break at any time. It is a best practice to pin to a version number to ensure that the application does not break unexpectedly.
 
-> Things always break when you don't expect them to. Hence, we strongly recommend to pin to a specific version number.
+> Things always break when you do not expect them to. Hence, we strongly recommend to pin to a specific version number.
 
 However, for testing purposes, and if you just want to play around with the elements, you can always replace the version number with `latest`:
 
@@ -71,7 +71,7 @@ However, for testing purposes, and if you just want to play around with the elem
 
 ### 2) Use the Components
 
-> A hint on the icons: The elements loader automatically imports the icons. You don't have to import
+> A hint on the icons: The elements loader automatically imports the icons. You do not have to import
 > them manually.
 
-You can now use the components on your website in the same way as you would use any native HTML element. To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js) for you to play around with.
+You can now use the components on your website in the same way as you would use any native HTML element. To help you getting started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-js-example?embed=1&file=index.js) for you to play around with.

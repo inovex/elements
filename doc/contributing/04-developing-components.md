@@ -11,7 +11,7 @@ Some of the important guidelines are:
 
 ## Stateless / Controlled / Dumb Components
 
-We decided to use stateless components so the data flows from top to bottom. This makes sense as most of the frameworks do a DOM diffing and don't see what a component itself is doing. Hence, instead of changing the state directly, we always emit events to denote that something should change. Thus, if the consumer ignores such an event, nothing will happen.
+We decided to use stateless components to provide a top to bottom data flow. This makes sense as most of the frameworks do a DOM diffing and do not see what a component itself is doing. Hence, instead of changing the state directly, we always emit events to denote that something should change. Thus, if the consumer ignores such an event, nothing will happen.
 
 * Only the attributes and children with their attributes describe the current state of the component.
 * The state never changes as long as the input properties are the same.
@@ -24,17 +24,17 @@ For examples and details please refer to the **Events** section below.
 
 We have native and custom properties in components. For example, the `ino-button` element has native properties like `disabled` and **prefixed** custom attributes like `ino-color-scheme`. This differentation helps the user to understand the underyling functionality and prohibits incompatibilities with native elements.
 
-For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take time since this description is compiled by stencil and used in the storybook.
+For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take some time when writing this description, since it will be compiled by stencil and used in the storybook.
 
 ## Events
 
-Similar to properties, we differentiate between native and Custom Events. Native events are triggered by native html elements like `<input>` and bubble out of the scope automatically. For example the button element uses a `HTMLButtonElement` internally that emits `click`, ... events).
+Similar to properties, we differentiate between native and Custom Events. Native events are triggered by native html elements like `<input>` and bubble out of the scope automatically. For example, the button element uses a `HTMLButtonElement` internally that emits `click`, ... events).
 
-**Important:** Native events are not defined in the component. For this reason, we provide an explanation of their behaviour in the `readme.md` and add them to the **Usage** section.
+**Important:** Native events are not defined inside the component. For this reason, we provide an explanation of their behaviour in the `readme.md` and add them to the **Usage** section.
 
 Every time we provide a Custom Event for a component we always set their action in **present tense**.
 
-Here are some examples to make it easier for you to decide how the name of the event should be:
+Here are some examples to make the naming easier for you:
 
 ### Example 1: The ino-input Component
 
@@ -43,9 +43,9 @@ Here are some examples to make it easier for you to decide how the name of the e
 
 #### Description
 
-The name of the input param `value` is contained in the name of the event param `valueChange` to denote the relation between them. In this example, this means that if the `value` should change, the consumer (this is the framework that uses and therefor controls the component) decides if the value should change or not. Speaking for the `ino-input`: If the user types any key into the input field, the component **will not** change the value, but will instead emit an event that says:
+The name of the input param `value` is contained in the name of the event param `valueChange` to denote the relation between them. In this example, this means that if the `value` should change, the consumer (this is the framework that uses and therefore controls the component) decides if the value should change or not. Speaking for the `ino-input`: If the user types any key into the input field, the component **will not** change the value, but will instead emit an event that says:
 
-*Hey consumer, the value should change. Here's the value. But you decide if you want to change the value. You can set the @Input `value` with the value I gave you, then I will update my value. If you don't update the value, I'll not update the value und the old value remains the same*.
+*Hey consumer, the value should change. Here is the value. But you decide if you want to change the value. You can set the @Input `value` with the value I gave you, then I will update my value. If you do not update the value, I will not update the value und the old value remains the same*.
 
 ### Example 2: The ino-chip Component
 
@@ -58,7 +58,7 @@ In this case, the chip component has a little x-icon if `ino-removable` is set. 
 
 *Hey consumer, the x-icon has been clicked and the chip component should be removed. But you decide if you want to remove it.*
 
-Here's a list of some example events we use:
+Here is a list of some example events we use:
 
 ```
 checkedChange
@@ -87,4 +87,4 @@ Normally, we...
 
 - ... provide a **Usage** section to describe the API as HTML element. This is in the form of a generic element containing **all** attributes and the data type (`<ino-button name="<string>" ...></ino-button>`).
 - ... explain extraordinary attributes.
-- ... explain the behaviour of native and custom events if it's more complex.
+- ... explain the behaviour of native and custom events if it is more complex.

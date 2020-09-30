@@ -7,7 +7,7 @@ contains and how things relate to each other.
 
 This is a mono repository based on Lerna. Lerna is a tool for managing JavaScript projects with multiple packages. Visit the [Lerna GitHub repository website](https://github.com/lerna/lerna) to learn more about Lerna.
 
-Each package provides a separate README and is distributed as a self contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the sub-folder of the corresponding package to get more information about the package itself:
+Each package provides a separate README and is distributed as a self-contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the sub-folder of the corresponding package to get more information about the package itself:
 
 > You can follow the link on the package name to directly go to the repository location.
 
@@ -28,16 +28,16 @@ The output of this package is what Stencil produces. Read more on Stencil below.
 
 Stencil is a compiler for building fast web apps using Web Components.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box to generate 100% standards-based Web Components that run in any browser supporting the Custom Elements
 v1 spec.
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
+Stencil components are basic Web Components which makes them work in any major framework as well as completely on their own without any additional framework.
 
 #### Google Material Design Components for the Web
 
 We use [Googles Material Design Components for the Web](https://github.com/material-components/material-components-web/) to speed up the development. This is also a good foundation as the major functionality is already implemented. We often only need to tweak and change some bits to achieve the desired behaviour.
 
-Each component is published on npm as a separate package. Thus, in theory, we can upgrade the components independently and use different versions of the underlying packages. The repository is structured in a nice way with each component having its own README. You can find the [list of all MDC components in the GitHub repo](https://github.com/material-components/material-components-web/blob/master/packages). It feels a bit like back in the days when the [Twitter Bootstrap](https://getbootstrap.com/) framework was released. You open the documentation, copy a piece of HTML markup into your template and import the required SASS mixins into your sass Stylesheet and only modify the parts you want to make dynamic.
+Each component is published on npm as a separate package. Thus, in theory, we can upgrade the components independently and use different versions of the underlying packages. The repository is structured in a nice way with each component having its own README. You can find the [list of all MDC components in the GitHub repo](https://github.com/material-components/material-components-web/blob/master/packages). It feels a bit like back in the days when the [Twitter Bootstrap](https://getbootstrap.com/) framework was released. You open the documentation, copy a piece of HTML markup into your template, import the required SASS mixins into your sass Stylesheet, and only modify the parts you want to make dynamic.
 
 When creating a new element, always check for a respective material design implementation. We loosely follow these rules:
 

@@ -1,8 +1,8 @@
 # Commit Message Format
 
-> We use this format to make it easy to automatically generate the changelog for all packages.
+> We use this format to make the automatic generation of the changelog for all packages easy.
 
-We follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) message pattern that leads to human and machine readable commit messages. They are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits as well as merge requests:
+We follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) message pattern that leads to human and machine readable commit messages. They are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits and merge requests:
 
 `<type>([<package>]<scope>): <subject>`
 
@@ -25,11 +25,11 @@ Must be one of the following:
 
 ## Package (optional)
 
-> This is optional but it's recommended to set the affected package when the change is assignable to exactly one package.
+> This is optional but it is recommended to set the affected package when the change is assignable to exactly one package.
 
 In our mono repo we need to distinct which package is affected by the change. Hence, in addition to the scope we added the name of the package in front of the scope.
 
-You're able to use **one** or **none** of the following packages:
+You are able to use **one** or **none** of the following packages:
 
 |Package Name|Affected Package|
 |---|---|
@@ -74,7 +74,7 @@ The subject contains a succinct description of the change:
 
 ## Breaking Changes
 
-> A breaking change always affects the **MAJOR** version number in the next release. This should rarely be used. You should always talk to the team members about such a change. If you only deprecate things, it's no breaking change.
+> A breaking change always affects the **MAJOR** version number in the next release. This should rarely be used. You should always talk to the team members about such a change. If you only deprecate things, it is no breaking change.
 
 To document breaking changes, use a multiline commit message, which will be taken as the main commit message for the whole MR when squashed.
 
