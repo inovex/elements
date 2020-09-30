@@ -6,7 +6,7 @@ To build a new release, the following steps have to be performed:
 
 - Develop new features or fix bugs which justify a new release. This should include at least one thing which benefits the user and not only contain refactorings.
 - Check out the most recent **master** branch.
-- To build the packages `@inovex.de/elements`, `@inovex.de/elements-react`, `@inovex.de/elements-angular`, and `storybook` run the following command from within the root folder of this git repo: `yarn lerna:version`. This command does the following things:
+- To build the packages `@inovex.de/elements`, `@inovex.de/elements-react`, `@inovex.de/elements-angular`, and `storybook`, run the following command from within the root folder of this git repo: `yarn lerna:version`. This command does the following things:
     1. Build and test the current setup
     2. Determine the new version based on the [conventional-commit guidelines](https://www.conventionalcommits.org/en/v1.0.0/)
     3. Bump the version

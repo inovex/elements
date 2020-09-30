@@ -2,7 +2,7 @@
 
 We have very precise rules to ensure an understandable and compact history:
 - Before creating a feature branch, make sure that a respective Github issue exists. 
-- Provide a reference to the regarding issue in the description of the Pull Request to make the life of reviewers easier.
+- Provide a reference to the issue in the description of the Pull Request to make the life of reviewers easier.
 - Please give the branch a speaking name that fits the template `elements-<issue-id>-<what-is-the-feature>` like `elements-12-create-button-element`.
 
 When submitting a Pull Request, please:

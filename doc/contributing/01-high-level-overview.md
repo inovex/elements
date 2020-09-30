@@ -7,7 +7,7 @@ contains and how things relate to each other.
 
 This is a mono repository based on Lerna. Lerna is a tool for managing JavaScript projects with multiple packages. Visit the [Lerna GitHub repository website](https://github.com/lerna/lerna) to learn more about Lerna.
 
-Each package provides a separate README and is distributed as a self contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the sub-folder of the corresponding package to get more information about the package itself:
+Each package provides a separate README and is distributed as a self-contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the sub-folder of the corresponding package to get more information about the package itself:
 
 > You can follow the link on the package name to directly go to the repository location.
 

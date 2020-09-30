@@ -1,12 +1,12 @@
 # Commit Message Format
 
-> We use this format to make the autmatical generation of the changelog for all packages easy.
+> We use this format to make the automatic generation of the changelog for all packages easy.
 
 We follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) message pattern that leads to human and machine readable commit messages. They are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits and merge requests:
 
 `<type>([<package>]<scope>): <subject>`
 
-> Do not worry, to make it easy for all of us, we added a pre-commit script hook that ensures we only use allowed syntax. So you can only commit a message that follows the above format.
+> Don't worry, to make it easy for all of us, we added a pre-commit script hook that ensures we only use allowed syntax. So you can only commit a message that follows the above format.
 
 ## Type
 
