@@ -105,7 +105,7 @@ export class Fab implements ComponentInterface {
             ino-for={this.uniqueHelperId}
             ino-label={this.inoLabel}
             ino-placement={this.inoTooltipPlacement}
-            ino-trigger="hover focus"
+            ino-trigger="mouseenter focus"
           />
         )}
       </Host>
