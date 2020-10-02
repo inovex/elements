@@ -51,11 +51,8 @@ export class Snackbar implements ComponentInterface {
     this.snackbarElement.addEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
+    this.configureTimeout();
     this.snackbarInstance.open();
-    this.snackbarInstance.timeoutMs = -1;
-    if (this.inoTimeout >= 0) {
-      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
-    }
   }
 
   componentWillUnload() {
@@ -68,6 +65,13 @@ export class Snackbar implements ComponentInterface {
   private handleSnackbarHide(e) {
     this.hideEl!.emit(true);
     e.stopPropagation();
+  }
+
+  private configureTimeout() {
+    this.snackbarInstance.timeoutMs = -1;
+    if (this.inoTimeout >= 0) {
+      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+    }
   }
 
   render() {
