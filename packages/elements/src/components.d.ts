@@ -925,6 +925,10 @@ export namespace Components {
           * The text message to display.
          */
         "inoMessage"?: string;
+        /**
+          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+         */
+        "inoTimeout"?: number;
     }
     interface InoSpinner {
         /**
@@ -2405,6 +2409,10 @@ declare namespace LocalJSX {
           * The text message to display.
          */
         "inoMessage"?: string;
+        /**
+          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+         */
+        "inoTimeout"?: number;
         /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */

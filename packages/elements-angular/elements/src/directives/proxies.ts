@@ -438,8 +438,8 @@ export class InoSidebar {
 }
 export declare interface InoSnackbar extends Components.InoSnackbar {
 }
-@ProxyCmp({ inputs: ["inoActionText", "inoAlignment", "inoMessage"] })
-@Component({ selector: "ino-snackbar", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoActionText", "inoAlignment", "inoMessage"] })
+@ProxyCmp({ inputs: ["inoActionText", "inoAlignment", "inoMessage", "inoTimeout"] })
+@Component({ selector: "ino-snackbar", changeDetection: ChangeDetectionStrategy.OnPush, template: "<ng-content></ng-content>", inputs: ["inoActionText", "inoAlignment", "inoMessage", "inoTimeout"] })
 export class InoSnackbar {
     inoActionClick!: EventEmitter<CustomEvent>;
     hideEl!: EventEmitter<CustomEvent>;
