@@ -187,5 +187,6 @@ module.exports = [
 	'elements-angular',
 	'elements-react',
 	'storybook',
-	'*'
+	'*',
+	'deps'
 ];

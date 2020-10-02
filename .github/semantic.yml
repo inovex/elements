@@ -202,3 +202,4 @@ scopes:
   - elements-react
   - storybook
   - '*'
+  - deps
