@@ -1,7 +1,13 @@
 @use 'styles/fonts';
 
-$header-color: #525368;
-$box-color: rgba(0, 0, 0, 0.05);
+:host {
+  /**
+   * @prop --ino-header-color: Text color of the header
+   * @prop --ino-header-box-color: Color of the header box
+   */
+  --header-color: var(--ino-header-color, #525368);
+  --header-box-color: var(--ino-header-box-color, #{rgba(0, 0, 0, 0.05)})
+}
 
 :host {
 
@@ -12,7 +18,7 @@ $box-color: rgba(0, 0, 0, 0.05);
   p {
     font-size: 13px;
     @include fonts.ino-font-weight(semibold);
-    color: $header-color;
+    color: var(--header-color);
     white-space: nowrap;
     display: table-cell;
 
@@ -26,7 +32,7 @@ $box-color: rgba(0, 0, 0, 0.05);
   .header-inner-box {
     margin-left: 6px;
     border-radius: 1px;
-    background-color: $box-color;
+    background-color: var(--header-box-color);
     height: 10px;
   }
 }
