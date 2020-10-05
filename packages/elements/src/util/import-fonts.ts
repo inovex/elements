@@ -1,4 +1,8 @@
-require('typeface-lato');
+try {
+  require('typeface-lato');
+}catch (e) {
+  // Workaround because of require being undefined in test environment
+}
 
 // For the angular wrapper
 export function importLatoFont() {
