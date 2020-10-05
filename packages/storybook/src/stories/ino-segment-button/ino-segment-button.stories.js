@@ -1,6 +1,7 @@
 import componentReadme from '_local-elements/src/components/ino-segment-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-segment-button.scss';
+import { boolean, text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Buttons/<ino-segment-button>',

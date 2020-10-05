@@ -1,6 +1,7 @@
 import componentReadme from '_local-elements/src/components/ino-segment-group/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-segment-group.scss';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -52,24 +53,32 @@ export const DefaultUsage = () => /* html */ `
             <ino-segment-button
                 value="1"
                 class="customizable-segment-btn"
+                disabled="${boolean('disabled', false)}"
+                ino-dense="${boolean('ino-dense', false)}"
             >
             Option 1
             </ino-segment-button>
             <ino-segment-button
                 value="2"
                 class="customizable-segment-btn"
+                disabled="${boolean('disabled', false)}"
+                ino-dense="${boolean('ino-dense', false)}"
             >
             Option 2
             </ino-segment-button>
             <ino-segment-button
                 value="3"
                 class="customizable-segment-btn"
+                disabled="${boolean('disabled', false)}"
+                ino-dense="${boolean('ino-dense', false)}"
             >
             Option 3
             </ino-segment-button>
             <ino-segment-button
                 value="4"
                 class="customizable-segment-btn"
+                disabled="${boolean('disabled', false)}"
+                ino-dense="${boolean('ino-dense', false)}"
             >
             Option 4
             </ino-segment-button>
