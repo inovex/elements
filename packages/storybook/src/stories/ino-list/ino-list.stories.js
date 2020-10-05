@@ -140,11 +140,16 @@ export const ListItem = () => /*html*/ `
   <ino-list ino-two-lines="${boolean('ino-two-lines (on ino-list)', true)}">
     <style>
       ino-list-item.customizable-list-item {
-        --list-item-color: ${text('--list-item-color', '#3d40f5', 'Custom Properties')};
-        --list-item-selected-background-color: ${text('--list-item-selected-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
-        --list-item-selected-background-color-hover: ${text('--list-item-selected-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
-        --list-item-selected-background-color-active: ${text('--list-item-selected-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
-        --list-item-selected-background-color-focus: ${text('--list-item-selected-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
+        --ino-list-item-selected-color: ${text('--ino-list-item-selected-color', '#3d40f5', 'Custom Properties')};
+        --ino-list-item-selected-background-color: ${text('--ino-list-item-selected-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
+        --ino-list-item-selected-background-color-hover: ${text('--ino-list-item-selected-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
+        --ino-list-item-selected-background-color-active: ${text('--ino-list-item-selected-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
+        --ino-list-item-selected-background-color-focus: ${text('--ino-list-item-selected-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
+        --ino-list-item-deselected-color: ${text('--ino-list-item-deselected-color', '', 'Custom Properties')};
+        --ino-list-item-deselected-background-color: ${text('--ino-list-item-deselected-background-color', '', 'Custom Properties')};
+        --ino-list-item-deselected-background-color-hover: ${text('--ino-list-item-deselected-background-color-hover', '', 'Custom Properties')};
+        --ino-list-item-deselected-background-color-active: ${text('--ino-list-item-deselected-background-color-active', '', 'Custom Properties')};
+        --ino-list-item-deselected-background-color-focus: ${text('--ino-list-item-deselected-background-color-focus', '', 'Custom Properties')};
       }
     </style>
     <ino-list-item
