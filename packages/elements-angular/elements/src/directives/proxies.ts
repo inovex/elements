@@ -43,6 +43,44 @@ export class InoCard {
   }
 }
 
+
+export declare interface InoCarousel extends Components.InoCarousel {}
+@ProxyCmp({
+  inputs: ['inoAnimated', 'inoAutoplay', 'inoHideButtons', 'inoInfinite', 'inoIntermission', 'inoReverse', 'value']
+})
+@Component({
+  selector: 'ino-carousel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['inoAnimated', 'inoAutoplay', 'inoHideButtons', 'inoInfinite', 'inoIntermission', 'inoReverse', 'value']
+})
+export class InoCarousel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface InoCarouselSlide extends Components.InoCarouselSlide {}
+@ProxyCmp({
+  inputs: ['inoSelected', 'src', 'value']
+})
+@Component({
+  selector: 'ino-carousel-slide',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['inoSelected', 'src', 'value']
+})
+export class InoCarouselSlide {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { Checkbox as ICheckbox } from '@inovex.de/elements/dist/types/components/ino-checkbox/ino-checkbox';
 export declare interface InoCheckbox extends Components.InoCheckbox {}
 @ProxyCmp({
