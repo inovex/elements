@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarColorScheme, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoButton {
@@ -922,10 +922,6 @@ export namespace Components {
          */
         "inoAlignment"?: 'left' | 'right' | 'center';
         /**
-          * Color scheme of the snackbar Valid options are: primary, secondary, warning, error
-         */
-        "inoColorScheme"?: SnackbarColorScheme;
-        /**
           * The text message to display.
          */
         "inoMessage"?: string;
@@ -933,6 +929,10 @@ export namespace Components {
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
+        /**
+          * Changes the snackbar type Valid options are: warning, error
+         */
+        "inoType"?: SnackbarType;
     }
     interface InoSpinner {
         /**
@@ -2410,10 +2410,6 @@ declare namespace LocalJSX {
          */
         "inoAlignment"?: 'left' | 'right' | 'center';
         /**
-          * Color scheme of the snackbar Valid options are: primary, secondary, warning, error
-         */
-        "inoColorScheme"?: SnackbarColorScheme;
-        /**
           * The text message to display.
          */
         "inoMessage"?: string;
@@ -2421,6 +2417,10 @@ declare namespace LocalJSX {
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
+        /**
+          * Changes the snackbar type Valid options are: warning, error
+         */
+        "inoType"?: SnackbarType;
         /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */

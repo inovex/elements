@@ -3,7 +3,7 @@
 @use '../styles/colors';
 @use '../styles/mixins';
 
-$color-schemes: "primary", "secondary", "error", "warning";
+$snackbar-types: "error", "warning";
 
 ino-snackbar {
 
@@ -61,10 +61,10 @@ ino-snackbar {
   }
 }
 
-@each $color in $color-schemes {
-  ino-snackbar[ino-color-scheme="#{$color}"] {
+@each $type in $snackbar-types {
+  ino-snackbar[ino-type="#{$type}"] {
     .mdc-snackbar__surface {
-      border: 2px solid #{colors.ino-color($color, base)};
+      border: 2px solid #{colors.ino-color($type, base)};
     }
   }
 }

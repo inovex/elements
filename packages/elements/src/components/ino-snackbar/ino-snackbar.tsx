@@ -1,7 +1,7 @@
 import { MDCSnackbar } from '@material/snackbar';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
-import { SnackbarColorScheme } from '../types';
+import { SnackbarType } from '../types';
 
 @Component({
   tag: 'ino-snackbar',
@@ -31,10 +31,10 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
 
   /**
-   * Color scheme of the snackbar
-   * Valid options are: primary, secondary, warning, error
+   * Changes the snackbar type
+   * Valid options are: warning, error
    */
-  @Prop() inoColorScheme?: SnackbarColorScheme;
+  @Prop() inoType?: SnackbarType;
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
