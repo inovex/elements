@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarColorScheme, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoButton {
@@ -921,6 +921,10 @@ export namespace Components {
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
         "inoAlignment"?: 'left' | 'right' | 'center';
+        /**
+          * Color scheme of the snackbar Valid options are: primary, secondary, warning, error
+         */
+        "inoColorScheme"?: SnackbarColorScheme;
         /**
           * The text message to display.
          */
@@ -2405,6 +2409,10 @@ declare namespace LocalJSX {
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
         "inoAlignment"?: 'left' | 'right' | 'center';
+        /**
+          * Color scheme of the snackbar Valid options are: primary, secondary, warning, error
+         */
+        "inoColorScheme"?: SnackbarColorScheme;
         /**
           * The text message to display.
          */

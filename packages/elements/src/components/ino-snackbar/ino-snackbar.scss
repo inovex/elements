@@ -1,7 +1,9 @@
 @use '@material/snackbar/mdc-snackbar';
-@use 'styles/fonts';
-@use 'styles/colors';
-@use 'styles/mixins';
+@use '../styles/fonts';
+@use '../styles/colors';
+@use '../styles/mixins';
+
+$color-schemes: "primary", "secondary", "error", "warning";
 
 ino-snackbar {
 
@@ -55,6 +57,22 @@ ino-snackbar {
       ino-icon-button ino-icon {
         --icon-color: white;
       }
+    }
+  }
+}
+
+@each $color in $color-schemes {
+  ino-snackbar[ino-color-scheme="#{$color}"] {
+    .mdc-snackbar__surface {
+      background-color: #{colors.ino-color($color, base)};
+
+      ino-icon-button ino-icon {
+        --icon-color: #{colors.ino-color($color, contrast)};
+      }
+    }
+
+    .mdc-snackbar__label {
+      color: #{colors.ino-color($color, contrast)};
     }
   }
 }

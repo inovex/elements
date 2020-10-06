@@ -53,6 +53,7 @@ export const DefaultUsage = () => /*html*/ `
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
                 ino-timeout="${number('ino-timeout', 5000)}"
+                ino-color-scheme="${select('ino-color-scheme', ['', 'primary', 'secondary', 'error', 'warning'], '')}"
                 ino-alignment="${select(
                   'ino-alignment',
                   ['center', 'leading', 'trailing'],
