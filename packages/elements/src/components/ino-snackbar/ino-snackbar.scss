@@ -64,15 +64,7 @@ ino-snackbar {
 @each $color in $color-schemes {
   ino-snackbar[ino-color-scheme="#{$color}"] {
     .mdc-snackbar__surface {
-      background-color: #{colors.ino-color($color, base)};
-
-      ino-icon-button ino-icon {
-        --icon-color: #{colors.ino-color($color, contrast)};
-      }
-    }
-
-    .mdc-snackbar__label {
-      color: #{colors.ino-color($color, contrast)};
+      border: 2px solid #{colors.ino-color($color, base)};
     }
   }
 }

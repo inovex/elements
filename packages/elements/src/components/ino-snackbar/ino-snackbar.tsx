@@ -110,7 +110,7 @@ export class Snackbar implements ComponentInterface {
               {this.inoActionText && (
                 <ino-button
                   type="button"
-                  ino-color-scheme={this.inoColorScheme ? "white" : "primary"}
+                  ino-color-scheme="primary"
                   class="ino-action-button"
                   onClick={_ => this.inoActionClick.emit()}
                   ino-fill="outline"
