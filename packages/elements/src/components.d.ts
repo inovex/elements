@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
-import { Placement } from "tippy.js";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, } from "./components/types";
+import { Placement, } from "tippy.js";
 export namespace Components {
     interface InoButton {
         /**
@@ -162,7 +162,7 @@ export namespace Components {
         /**
           * The type of control element
          */
-        "inoRole": 'checkbox' | 'radio';
+        "inoRole": "checkbox" | "radio";
         /**
           * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
          */
@@ -252,7 +252,7 @@ export namespace Components {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: 'date' | 'month' | 'time' | 'datetime';
+        "inoType"?: "date" | "month" | "time" | "datetime";
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -292,7 +292,7 @@ export namespace Components {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition": "top-right" | "top-left" | "bottom-right" | "bottom-left" | "none";
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
@@ -312,7 +312,7 @@ export namespace Components {
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
-        "inoTooltipPlacement": Placement | 'none';
+        "inoTooltipPlacement": Placement | "none";
     }
     interface InoFabSet {
         /**
@@ -560,7 +560,7 @@ export namespace Components {
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
-        "step"?: number | 'any';
+        "step"?: number | "any";
         /**
           * The type of this element (default = text).
          */
@@ -920,15 +920,11 @@ export namespace Components {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment"?: 'left' | 'right' | 'center';
+        "inoAlignment"?: "left" | "right" | "center";
         /**
           * The text message to display.
          */
         "inoMessage"?: string;
-        /**
-          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
-         */
-        "inoTimeout"?: number;
     }
     interface InoSpinner {
         /**
@@ -1590,7 +1586,7 @@ declare namespace LocalJSX {
         /**
           * The type of control element
          */
-        "inoRole": 'checkbox' | 'radio';
+        "inoRole": "checkbox" | "radio";
         /**
           * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
          */
@@ -1684,7 +1680,7 @@ declare namespace LocalJSX {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: 'date' | 'month' | 'time' | 'datetime';
+        "inoType"?: "date" | "month" | "time" | "datetime";
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -1732,7 +1728,7 @@ declare namespace LocalJSX {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition"?: "top-right" | "top-left" | "bottom-right" | "bottom-left" | "none";
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
@@ -1752,7 +1748,7 @@ declare namespace LocalJSX {
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
-        "inoTooltipPlacement"?: Placement | 'none';
+        "inoTooltipPlacement"?: Placement | "none";
     }
     interface InoFabSet {
         /**
@@ -2013,7 +2009,7 @@ declare namespace LocalJSX {
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
-        "step"?: number | 'any';
+        "step"?: number | "any";
         /**
           * The type of this element (default = text).
          */
@@ -2052,9 +2048,9 @@ declare namespace LocalJSX {
           * Emits when the value changes.
          */
         "onChangeFile"?: (event: CustomEvent<{
-    e: any;
-    files: object[];
-  }>) => void;
+            e: any;
+            files: object[];
+        }>) => void;
         /**
           * Marks this element as required.
          */
@@ -2404,15 +2400,11 @@ declare namespace LocalJSX {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment"?: 'left' | 'right' | 'center';
+        "inoAlignment"?: "left" | "right" | "center";
         /**
           * The text message to display.
          */
         "inoMessage"?: string;
-        /**
-          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
-         */
-        "inoTimeout"?: number;
         /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
