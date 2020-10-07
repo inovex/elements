@@ -77,6 +77,23 @@ export const DefaultUsage = () => /*html*/ `
                 ino-alignment="right" />
           </template>
         </div>
+        <h4>Snackbar Types</h4>
+        <div class="snackbar-variants">
+          <ino-button id="snackbar--warning">Show Snackbar (warning)</ino-button>
+          <template id="snackbar--warning">
+            <ino-snackbar
+                ino-message="${sampleText}"
+                ino-action-text="Action"
+                ino-type="warning"/>
+          </template>
+          <ino-button id="snackbar--error">Show Snackbar (error)</ino-button>
+          <template id="snackbar--error">
+            <ino-snackbar
+                ino-message="${sampleText}"
+                ino-action-text="Action"
+                ino-type="error" />
+          </template>
+        </div>
         <h4>Alignments</h4>
         <div class="snackbar-variants">
             <ino-button id="left-align">Left</ino-button>
