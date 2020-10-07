@@ -12,7 +12,7 @@ ino-carousel {
 }
 
 @mixin fadeTransition($name, $from, $to, $duration) {
-  animation: $name $duration;
+  animation: #{$name} $duration;
 
   @keyframes #{$name} {
     from {
