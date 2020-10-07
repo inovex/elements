@@ -1,6 +1,6 @@
 @use '@material/switch/mdc-switch';
 @use '@material/switch';
-@use 'styles/colors';
+@use '../styles/colors';
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
@@ -41,6 +41,18 @@ ino-switch {
   --switch-disabled-color: var(--ino-switch-disabled-color, #{colors.ino-color(light, base)});
   --switch-disabled-thumb-color: var(--ino-switch-disabled-thumb-color, #{colors.ino-color(light, base)});
   --switch-disabled-track-color: var(--ino-switch-disabled-track-color, #{colors.ino-color(light, base)});
+}
+
+@each $color in colors.$ino-colors {
+  ino-switch[ino-color-scheme="#{$color}"] {
+    --switch-toggled-on-color: #{colors.ino-color($color, base)};
+    --switch-toggled-on-thumb-color: #{colors.ino-color($color, base)};
+    --switch-toggled-on-track-color: #{colors.ino-color($color, light)};
+    --switch-hover-color: #{colors.ino-color($color, light)};
+    --switch-hover-track-color: #{colors.ino-color($color, light)};
+    --switch-active-color: #{colors.ino-color($color, dark)};
+    --switch-active-track-color: #{colors.ino-color($color, dark)};
+  }
 }
 
 /** colors **/
