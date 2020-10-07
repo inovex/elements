@@ -1,5 +1,4 @@
 import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
-import classNames from 'classnames';
 
 @Component({
   tag: 'ino-carousel-slide',
@@ -20,18 +19,9 @@ export class InoCarouselSlide implements ComponentInterface{
    */
   @Prop() value: any;
 
-  /**
-   * Indicates whether the slide is selected or not
-   */
-  @Prop() inoSelected: boolean = false;
-
   render() {
-    const classes = classNames({
-      'ino-carousel-slide--selected': this.inoSelected,
-    });
-
     return (
-      <Host class={classes}>
+      <Host>
         <div style={{"background-image": `url(${this.src})`}}/>
       </Host>
     );

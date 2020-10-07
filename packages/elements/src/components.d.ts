@@ -70,7 +70,7 @@ export namespace Components {
     }
     interface InoCarousel {
         /**
-          * Disables the slide animation
+          * Enables the slide animation
          */
         "inoAnimated": boolean;
         /**
@@ -99,10 +99,6 @@ export namespace Components {
         "value"?: any;
     }
     interface InoCarouselSlide {
-        /**
-          * Indicates whether the slide is selected or not
-         */
-        "inoSelected": boolean;
         /**
           * Link to the image
          */
@@ -1544,7 +1540,7 @@ declare namespace LocalJSX {
     }
     interface InoCarousel {
         /**
-          * Disables the slide animation
+          * Enables the slide animation
          */
         "inoAnimated"?: boolean;
         /**
@@ -1573,10 +1569,6 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface InoCarouselSlide {
-        /**
-          * Indicates whether the slide is selected or not
-         */
-        "inoSelected"?: boolean;
         /**
           * Link to the image
          */
