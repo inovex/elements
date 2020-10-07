@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Features
+
+* **elements|ino-header:** add css variables ([#89](https://github.com/inovex/elements/issues/89)) ([3ab4e53](https://github.com/inovex/elements/commit/3ab4e534e0eccd6d7103294ac249d16547a65719))
+* **elements|ino-icon:** add question mark icon ([#80](https://github.com/inovex/elements/issues/80)) ([4f06fa9](https://github.com/inovex/elements/commit/4f06fa995f6c63081fc32fe9b424b4908e72a1f2))
+* **elements|ino-list-item:** add css variables ([#44](https://github.com/inovex/elements/issues/44)) ([fbf6fdc](https://github.com/inovex/elements/commit/fbf6fdc451498d6dd7c6ef2101a7964392981270))
+* **elements|ino-option:**  add css variables ([#41](https://github.com/inovex/elements/issues/41)) ([0ed6aec](https://github.com/inovex/elements/commit/0ed6aecb77b5d384e400f5cd06aefbbf99f24e49))
+* **elements|ino-segment-button:** add css variables ([#38](https://github.com/inovex/elements/issues/38)) ([69e84e1](https://github.com/inovex/elements/commit/69e84e121f65e819b308091a732602908564d7b1))
+* **elements|ino-snackbar:** add property to set custom timeout ([#83](https://github.com/inovex/elements/issues/83)) ([d9608da](https://github.com/inovex/elements/commit/d9608daa9779acad4c1f43945a20382ca03f6d4e))
+
+
+### Bug Fixes
+
+* **elements|ino-switch:** fix color-schemes not working correctly ([#118](https://github.com/inovex/elements/issues/118)) ([e02e40a](https://github.com/inovex/elements/commit/e02e40a08181041aadd4b594ea9705bcfddab13d))
+
+
+### Miscellaneous
+
+* **deps:** bump handlebars from 4.5.1 to 4.7.6 in /packages/storybook ([#92](https://github.com/inovex/elements/issues/92)) ([1804d2c](https://github.com/inovex/elements/commit/1804d2c3dbe7d8c36aebbe88b37502a1a39201d1))
+* **deps:** bump node-fetch from 1.7.3 to 2.6.1 in /packages/storybook ([#90](https://github.com/inovex/elements/issues/90)) ([58ae792](https://github.com/inovex/elements/commit/58ae7928377e0013e84ba0bc5c14cd90455dcfd9))
+
+
+### Refactoring
+
+* **elements:** move from local font files to font package ([#82](https://github.com/inovex/elements/issues/82)) ([c04d903](https://github.com/inovex/elements/commit/c04d903f7f238f950779d9fedf972f56df9647b2))
+
+# [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Bug Fixes
+
+* **elements|ino-switch:** fix color-schemes not working correctly ([#118](https://github.com/inovex/elements/issues/118)) ([e02e40a](https://github.com/inovex/elements/commit/e02e40a08181041aadd4b594ea9705bcfddab13d))
+
+
+### Features
+
+* **elements|ino-header:** add css variables ([#89](https://github.com/inovex/elements/issues/89)) ([3ab4e53](https://github.com/inovex/elements/commit/3ab4e534e0eccd6d7103294ac249d16547a65719))
+* **elements|ino-icon:** add question mark icon ([#80](https://github.com/inovex/elements/issues/80)) ([4f06fa9](https://github.com/inovex/elements/commit/4f06fa995f6c63081fc32fe9b424b4908e72a1f2))
+* **elements|ino-list-item:** add css variables ([#44](https://github.com/inovex/elements/issues/44)) ([fbf6fdc](https://github.com/inovex/elements/commit/fbf6fdc451498d6dd7c6ef2101a7964392981270))
+* **elements|ino-option:**  add css variables ([#41](https://github.com/inovex/elements/issues/41)) ([0ed6aec](https://github.com/inovex/elements/commit/0ed6aecb77b5d384e400f5cd06aefbbf99f24e49))
+* **elements|ino-segment-button:** add css variables ([#38](https://github.com/inovex/elements/issues/38)) ([69e84e1](https://github.com/inovex/elements/commit/69e84e121f65e819b308091a732602908564d7b1))
+* **elements|ino-snackbar:** add property to set custom timeout ([#83](https://github.com/inovex/elements/issues/83)) ([d9608da](https://github.com/inovex/elements/commit/d9608daa9779acad4c1f43945a20382ca03f6d4e))
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ### [1.0.2](https://github.com/inovex/elements/compare/v1.0.1...v1.0.2) (2020-09-22)
 
 ### [1.0.1](https://github.com/inovex/elements/compare/v1.0.0...v1.0.1) (2020-09-22)

@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -88,8 +88,8 @@
     "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
-    "@stencil/sass": "^1.1.1",
     "@stencil/angular-output-target": "^0.0.5",
+    "@stencil/sass": "^1.1.1",
     "@types/classnames": "^2.2.6",
     "@types/jest": "26.0.14",
     "@types/puppeteer": "^3.0.2",
