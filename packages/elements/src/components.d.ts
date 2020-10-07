@@ -64,6 +64,10 @@ export namespace Components {
     }
     interface InoCard {
         /**
+          * Disables the hover effect if true
+         */
+        "inoDisableHover": boolean;
+        /**
           * Selects the card and displays a check mark icon on top of the card
          */
         "inoSelected": boolean;
@@ -1479,6 +1483,10 @@ declare namespace LocalJSX {
         "type"?: ButtonType;
     }
     interface InoCard {
+        /**
+          * Disables the hover effect if true
+         */
+        "inoDisableHover"?: boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
          */

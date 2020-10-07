@@ -27,13 +27,13 @@ export class InoButton {
 
 export declare interface InoCard extends Components.InoCard {}
 @ProxyCmp({
-  inputs: ['inoSelected']
+  inputs: ['inoDisableHover', 'inoSelected']
 })
 @Component({
   selector: 'ino-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoSelected']
+  inputs: ['inoDisableHover', 'inoSelected']
 })
 export class InoCard {
   protected el: HTMLElement;

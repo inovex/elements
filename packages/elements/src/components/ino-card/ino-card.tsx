@@ -15,6 +15,11 @@ export class Card implements ComponentInterface {
    */
   @Prop() inoSelected: boolean = false;
 
+  /**
+   * Disables the hover effect if true
+   */
+  @Prop() inoDisableHover: boolean = false;
+
   render() {
     const classList = classnames({
       'mdc-card': true,
