@@ -6,10 +6,12 @@ import { InoRadioValueAccessorDirective } from './directives/control-value-acces
 import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
 
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
+import { importLatoFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
 import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
 import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 defineCustomElements(window);
+importLatoFont();
 addIcons(ICON_PATHS);
 
 @NgModule({

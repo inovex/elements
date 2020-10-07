@@ -84,7 +84,8 @@
     "currency.js": "^1.2.2",
     "flatpickr": "^4.4.6",
     "highlight.js": "^9.18.1",
-    "tippy.js": "^6.2.3"
+    "tippy.js": "^6.2.3",
+    "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
     "@stencil/sass": "^1.1.1",

@@ -5,6 +5,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 export const config: Config = {
   buildEs5: false, // see https://github.com/ionic-team/stencil/issues/253
   globalStyle: './src/components/styles/variables.scss',
+  globalScript: './src/util/import-fonts.ts',
   enableCache: true,
   namespace: 'inovex-elements',
   outputTargets: [
