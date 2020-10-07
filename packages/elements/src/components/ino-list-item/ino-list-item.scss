@@ -2,6 +2,31 @@
 @use 'styles/colors';
 
 ino-list-item {
+  /**
+   * @prop --ino-list-item-selected-color: Text color of a selected list item
+   * @prop --ino-list-item-selected-background-color: Background color of a selected list item
+   * @prop --ino-list-item-selected-background-color-hover: Background color of a selected list item on hover
+   * @prop --ino-list-item-selected-background-color-active: Background color of a selected list item if active
+   * @prop --ino-list-item-selected-background-color-focus: Background color of a selected list item if focused
+   * @prop --ino-list-item-deselected-color: Text color of a deselected list item
+   * @prop --ino-list-item-deselected-background-color: Background color of a deselected list item
+   * @prop --ino-list-item-deselected-background-color-hover: Background color of a deselected list item on hover
+   * @prop --ino-list-item-deselected-background-color-active: Background color of a deselected list item if active
+   * @prop --ino-list-item-deselected-background-color-focus: Background color of a deselected list item if focused
+   */
+  --list-item-selected-color: var(--ino-list-item-selected-color, #{colors.$primary});
+  --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
+  --list-item-selected-background-color-hover: var(--ino-list-item-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
+  --list-item-selected-background-color-active: var(--ino-list-item-selected-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});
+  --list-item-selected-background-color-focus: var(--ino-list-item-selected-background-color-focus, #{rgba(colors.ino-color(primary, base), 0.15)});
+  --list-item-deselected-color: var(--ino-list-item-deselected-color);
+  --list-item-deselected-background-color: var(--ino-list-item-deselected-background-color);
+  --list-item-deselected-background-color-hover: var(--ino-list-item-deselected-background-color-hover);
+  --list-item-deselected-background-color-active: var(--ino-list-item-deselected-background-color-active);
+  --list-item-deselected-background-color-focus: var(--ino-list-item-deselected-background-color-focus);
+}
+
+ino-list-item {
   display: block;
 
   .ino-list-item__icon {
@@ -18,24 +43,46 @@ ino-list-item {
   }
 
   .mdc-list-item {
+    color: var(--list-item-deselected-color);
+    background-color: var(--list-item-deselected-background-color);
+
+    .mdc-list-item__primary-text, .mdc-list-item__secondary-text {
+      color: var(--list-item-deselected-color);
+    }
+
+    &:hover {
+      background-color: var(--list-item-deselected-background-color-hover);
+    }
+
+    &:focus {
+      background-color: var(--list-item-deselected-background-color-focus);
+    }
+
+    &:active {
+      background-color: var(--list-item-deselected-background-color-active);
+    }
     &.mdc-list-item--selected, &.mdc-list-item--activated {
-      background-color: rgba(colors.ino-color(primary, base), 0.05);
-      color: colors.$primary;
+      background-color: var(--list-item-selected-background-color);
+      color: var(--list-item-selected-color);
+
+      .mdc-list-item__primary-text, .mdc-list-item__secondary-text {
+        color: var(--list-item-selected-color);
+      }
 
       &::before, &::after {
         display: none;
       }
 
       &:hover {
-        background-color: rgba(colors.ino-color(primary, base), 0.1);
+        background-color: var(--list-item-selected-background-color-hover);
       }
 
       &:focus {
-        background-color: rgba(colors.ino-color(primary, base), 0.15);
+        background-color: var(--list-item-selected-background-color-focus);
       }
 
       &:active {
-        background-color: rgba(colors.ino-color(primary, base), 0.3);
+        background-color: var(--list-item-selected-background-color-active);
       }
     }
   }
