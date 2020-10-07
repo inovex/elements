@@ -8,7 +8,7 @@ This is the integration layer package for integrating the inovex elements into A
 
 ## Contributing
 
-Please refer to the top level [README](../../../README.md)to see the available script commands.
+Please refer to the top level [README](../../../README.md) to see the available script commands.
 
 ### Adding or Removing Components
 
