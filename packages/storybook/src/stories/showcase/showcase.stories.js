@@ -134,7 +134,7 @@ export const components = () => /*html*/ `
             <h3>ino-menu</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='./?path=/story/structure-ino-naw-drawer--default-usage'">
+        <ino-card onClick="parent.location.href='./?path=/story/structure-ino-nav-drawer--default-usage'">
           <div class="card-content--vertical" slot="content" style="padding-left: 20px; padding-right: 20px">
             <ino-img src=${navDrawerDemoImg} ino-ratio-width="1.818" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);"/>
           </div>
