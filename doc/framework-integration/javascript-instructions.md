@@ -49,15 +49,13 @@ $ yarn add @inovex.de/elements
 To load the components at runtime, you need to insert the following code fragment. Make sure that the script tag is set on each web page the user can visit on your website. For most of the websites it should be sufficient to add the tag to the `index.html` file:
 
 
+```html
+<!-- Modern Browsers -->
+<script type="module" src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.esm.js"></script>
+
+<!-- Older Browsers -->
+<script nomodule="" src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.js"></script>
 ```
-<script src="https://elements.inovex.io/dist/v1.0.0/inovex-elements.js"></script>
-```
-
-Before we proceed, we need to clarify what is going on here:
-
-#### Why do we not need a `type="module"` / ES6 Module import?
-
-We do not need this import because the bootstrap script within the provided scripts already contains two versions of an ES5 script bundle and an ES6 Module. Some browsers still use the old ES5 script and do not support the new ES6 module. In short: The browser will load the ES6 module, if supported. Otherwise it will fall back to the ES5 bundle. The ES6 Module allows you to write import statements inside of your web page's JavaScript code. Read more about [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
 #### I do not want to pin to a concrete version, do you provide a link to the latest release?
 
@@ -67,7 +65,9 @@ Yes, we provide a link to our latest release, but we strongly recommend to not u
 
 However, for testing purposes, and if you just want to play around with the elements, you can always replace the version number with `latest`:
 
-* `https://elements.inovex.io/dist/latest/inovex-elements.js`
+```html
+<script type="module" src="https://elements.inovex.de/dist/latest/inovex-elements/inovex-elements.esm.js"></script>
+```
 
 ### 2) Use the Components
 
