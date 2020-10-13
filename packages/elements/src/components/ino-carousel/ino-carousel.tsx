@@ -115,7 +115,7 @@ export class InoCarousel implements ComponentInterface {
     if (this.slides.length < 1) throw new Error('There are no slides to display');
     this.slides[this.currentSlide].classList.remove('ino-carousel-slide--selected');
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to current slide
-    this.getNextSlide();
+    this.currentSlide = this.getNextSlide();
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
     this.slides[this.currentSlide].classList.add('ino-carousel-slide--selected');
     this.slideCounter++;
@@ -136,7 +136,7 @@ export class InoCarousel implements ComponentInterface {
   /**
    * determines the index of the next slide
    */
-  private getNextSlide = () => this.currentSlide = this.inoReverse
+  private getNextSlide = () => this.inoReverse
     ? this.mod(this.currentSlide - 1, this.slides.length)
     : this.mod(this.currentSlide + 1, this.slides.length);
 
