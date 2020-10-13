@@ -4,6 +4,8 @@ import * as d from './proxies';
 export const DIRECTIVES = [
 d.InoButton,
   d.InoCard,
+  d.InoCarousel,
+  d.InoCarouselSlide,
   d.InoCheckbox,
   d.InoChip,
   d.InoChipSet,
