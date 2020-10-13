@@ -73,3 +73,7 @@ ino-snackbar {
     }
   }
 }
+
+ino-snackbar[ino-type="primary"] .mdc-snackbar__surface {
+  border: none;
+}

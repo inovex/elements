@@ -33,7 +33,7 @@ export class Snackbar implements ComponentInterface {
   /**
    * Changes the snackbar type
    */
-  @Prop() inoType?: SnackbarType;
+  @Prop() inoType?: SnackbarType = 'primary';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
