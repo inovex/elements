@@ -46,7 +46,7 @@ export const DefaultUsage = () => /*html*/ `
       <h4>Customizable card</h4>
       <ino-card class="customizable-card"
         ino-color-scheme="${select('ino-color-scheme', ['', 'primary', 'secondary', 'dark'], '')}"
-        ino-disable-hover="${boolean('ino-disable-hover', false)}"
+        ino-disable-elevation="${boolean('ino-disable-elevation', false)}"
         ino-selected="${boolean('ino-selected', false)}">
         ${sampleCard}
       </ino-card>

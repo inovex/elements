@@ -66,7 +66,7 @@ export namespace Components {
         /**
           * Disables the hover effect if true
          */
-        "inoDisableHover": boolean;
+        "inoDisableElevation": boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
          */
@@ -1486,7 +1486,7 @@ declare namespace LocalJSX {
         /**
           * Disables the hover effect if true
          */
-        "inoDisableHover"?: boolean;
+        "inoDisableElevation"?: boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
          */

@@ -18,7 +18,7 @@ export class Card implements ComponentInterface {
   /**
    * Disables the hover effect if true
    */
-  @Prop() inoDisableHover: boolean = false;
+  @Prop() inoDisableElevation: boolean = false;
 
   render() {
     const classList = classnames({
