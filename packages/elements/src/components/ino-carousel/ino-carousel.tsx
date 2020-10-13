@@ -68,7 +68,7 @@ export class InoCarousel implements ComponentInterface {
   }
 
   /**
-   * adds a slide animation to the slide with the given index
+   * adds a slide animation to the given slide
    * required to prevent the animation from playing when loading the component
    * @param slide carousel slide
    */
