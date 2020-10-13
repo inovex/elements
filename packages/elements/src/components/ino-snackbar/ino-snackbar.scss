@@ -1,7 +1,14 @@
 @use '@material/snackbar/mdc-snackbar';
-@use 'styles/fonts';
-@use 'styles/colors';
-@use 'styles/mixins';
+@use '../styles/fonts';
+@use '../styles/colors';
+@use '../styles/mixins';
+
+$snackbar-types: "error", "warning";
+
+ino-snackbar {
+  --snackbar-warning-border-color: var(--ino-snackbar-warning-border-color, #{colors.$warning});
+  --snackbar-error-border-color: var(--ino-snackbar-error-border-color, #{colors.$error});
+}
 
 ino-snackbar {
 
@@ -57,4 +64,16 @@ ino-snackbar {
       }
     }
   }
+}
+
+@each $type in $snackbar-types {
+  ino-snackbar[ino-type="#{$type}"] {
+    .mdc-snackbar__surface {
+      border: 2px solid var(--snackbar-#{$type}-border-color);
+    }
+  }
+}
+
+ino-snackbar[ino-type="primary"] .mdc-snackbar__surface {
+  border: none;
 }

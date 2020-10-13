@@ -1,6 +1,7 @@
 import { MDCSnackbar } from '@material/snackbar';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
+import { SnackbarType } from '../types';
 
 @Component({
   tag: 'ino-snackbar',
@@ -28,6 +29,11 @@ export class Snackbar implements ComponentInterface {
    * Controls if Snackbar is centered or left-aligned or right-aligned.
    */
   @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
+
+  /**
+   * Changes the snackbar type
+   */
+  @Prop() inoType?: SnackbarType = 'primary';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
