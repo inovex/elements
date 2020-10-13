@@ -32,7 +32,6 @@ export class Snackbar implements ComponentInterface {
 
   /**
    * Changes the snackbar type
-   * Valid options are: warning, error
    */
   @Prop() inoType?: SnackbarType;
 

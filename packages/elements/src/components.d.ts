@@ -930,7 +930,7 @@ export namespace Components {
          */
         "inoTimeout"?: number;
         /**
-          * Changes the snackbar type Valid options are: warning, error
+          * Changes the snackbar type
          */
         "inoType"?: SnackbarType;
     }
@@ -2418,7 +2418,7 @@ declare namespace LocalJSX {
          */
         "inoTimeout"?: number;
         /**
-          * Changes the snackbar type Valid options are: warning, error
+          * Changes the snackbar type
          */
         "inoType"?: SnackbarType;
         /**

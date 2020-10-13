@@ -6,6 +6,11 @@
 $snackbar-types: "error", "warning";
 
 ino-snackbar {
+  --snackbar-warning-border-color: var(--ino-snackbar-warning-border-color, #{colors.$warning});
+  --snackbar-error-border-color: var(--ino-snackbar-error-border-color, #{colors.$error});
+}
+
+ino-snackbar {
 
   &[ino-alignment="right"] .mdc-snackbar--leading {
     justify-content: flex-end;
@@ -64,7 +69,7 @@ ino-snackbar {
 @each $type in $snackbar-types {
   ino-snackbar[ino-type="#{$type}"] {
     .mdc-snackbar__surface {
-      border: 2px solid #{colors.ino-color($type, base)};
+      border: 2px solid var(--snackbar-#{$type}-border-color);
     }
   }
 }
