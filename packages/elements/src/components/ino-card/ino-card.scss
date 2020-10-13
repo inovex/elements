@@ -58,7 +58,7 @@ ino-card {
     padding: 10px;
   }
 
-  &:hover {
+  &:not([ino-disable-elevation]):hover, &[ino-disable-elevation="false"]:hover {
     .mdc-card {
       @include card.outline(#fff, 1px);
       box-shadow: $small-shadow;
