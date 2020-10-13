@@ -39,6 +39,7 @@ $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
   }
 
   svg {
+    color: var(--icon-color);
     height: var(--icon-height);
     width: var(--icon-width);
   }
