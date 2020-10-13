@@ -73,4 +73,4 @@ export class AppModule { }
 As the integration is completed, you can now use the components in your project in the same way you would use
 any other Angular directive.
 
-To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-angular-example?embed=1&file=index.js) for you to play around with.
+To help you to get started, we created a [simple todo app](https://codesandbox.io/s/github/inovex/elements-example-angular) for you to play around with.
