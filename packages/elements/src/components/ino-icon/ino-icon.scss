@@ -1,9 +1,6 @@
 @use '@material/textfield/icon/mdc-text-field-icon';
 @use '../styles/colors';
 
-$icons-with-special-strokes: "arrow_right", "arrow_left", "arrow_up", "arrow_down", "call", "copy", "delete", "display", "edit", "help", "partner", "remove", "sort_az", "sort_down", "sort_up", "sort_za", "web";
-$icons-with-special-strokes-at-exact-position: "checkmark", "warning";
-
 :host {
 
   /**
@@ -42,25 +39,5 @@ $icons-with-special-strokes-at-exact-position: "checkmark", "warning";
     color: var(--icon-color);
     height: var(--icon-height);
     width: var(--icon-width);
-  }
-
-  // ----------------------------- DEFAULT CASE ----------------------------- //
-  svg path {
-    stroke: var(--icon-color);
-  }
-}
-
-// ----------------------------- SPECIAL CASES ----------------------------- //
-@each $icon in $icons-with-special-strokes {
-  :host([ino-icon=#{$icon}]) svg path {
-    stroke: none;
-    fill: var(--icon-color);
-  }
-}
-
-@each $icon in $icons-with-special-strokes-at-exact-position {
-  :host([ino-icon=#{$icon}]) svg path:nth-child(2) {
-    stroke: var(--icon-color);
-    fill: none;
   }
 }
