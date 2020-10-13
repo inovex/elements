@@ -62,4 +62,4 @@ applyPolyfills().then(() => {
 
 You can now use the components in your Vue.js project in the same way you would use any native HTML element.
 
-To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-vue-example?embed=1&file=index.js) for you to play around with.
+To help you to get started, we created a [simple todo app](https://codesandbox.io/s/github/inovex/elements-example-vue) for you to play around with.
