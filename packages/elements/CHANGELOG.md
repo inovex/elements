@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Features
+
+* **elements:** add ino-carousel component ([#112](https://github.com/inovex/elements/issues/112)) ([e99b5d7](https://github.com/inovex/elements/commit/e99b5d723903a7060e0691b782d686db01480161))
+* **elements|ino-card:** add property to disable hover animation ([#120](https://github.com/inovex/elements/issues/120)) ([0fac301](https://github.com/inovex/elements/commit/0fac301ab4b3fe1b078b5f4d09db97495aa2e779))
+* **elements|ino-icon:** add refresh icon ([#136](https://github.com/inovex/elements/issues/136)) ([2953f0a](https://github.com/inovex/elements/commit/2953f0a7089fee9a529b0da63e118d4361a68964))
+* **elements|ino-snackbar:** add property for warning and error states ([#116](https://github.com/inovex/elements/issues/116)) ([b648415](https://github.com/inovex/elements/commit/b64841571322656433ab8ed2ef1439b5cd40c23e))
+
+
+### Bug Fixes
+
+* **elements:** fix deprecated integration ([#126](https://github.com/inovex/elements/issues/126)) ([3045c23](https://github.com/inovex/elements/commit/3045c2394312d2efebac47af6e31a7d170ee3760))
+
+
+### Miscellaneous
+
+* hide refactoring commit type in changelog ([#130](https://github.com/inovex/elements/issues/130)) ([00dbf1a](https://github.com/inovex/elements/commit/00dbf1a55828aad4d2c0e29978dc3abe38ab7cbe))
+
+# [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Bug Fixes
+
+* **elements:** fix deprecated integration ([#126](https://github.com/inovex/elements/issues/126)) ([3045c23](https://github.com/inovex/elements/commit/3045c2394312d2efebac47af6e31a7d170ee3760))
+
+
+### Features
+
+* **elements:** add ino-carousel component ([#112](https://github.com/inovex/elements/issues/112)) ([e99b5d7](https://github.com/inovex/elements/commit/e99b5d723903a7060e0691b782d686db01480161))
+* **elements|ino-card:** add property to disable hover animation ([#120](https://github.com/inovex/elements/issues/120)) ([0fac301](https://github.com/inovex/elements/commit/0fac301ab4b3fe1b078b5f4d09db97495aa2e779))
+* **elements|ino-icon:** add refresh icon ([#136](https://github.com/inovex/elements/issues/136)) ([2953f0a](https://github.com/inovex/elements/commit/2953f0a7089fee9a529b0da63e118d4361a68964))
+* **elements|ino-snackbar:** add property for warning and error states ([#116](https://github.com/inovex/elements/issues/116)) ([b648415](https://github.com/inovex/elements/commit/b64841571322656433ab8ed2ef1439b5cd40c23e))
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
 
 
