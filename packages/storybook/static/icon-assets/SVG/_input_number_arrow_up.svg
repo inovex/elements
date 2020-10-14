@@ -3,7 +3,7 @@
   <desc>Created with Sketch.</desc>
   <g id="arrow_dropdown_up" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g id="ic_arrow_drop_down_24px" transform="translate(13.000000, 12.000000) rotate(-180.000000) translate(-13.000000, -12.000000) translate(7.000000, 6.000000)">
-      <polygon id="Shape" fill="#757575" fill-rule="nonzero" points="3 4 6.5 8 10 4"></polygon>
+      <polygon id="Shape" fill="currentColor" fill-rule="nonzero" points="3 4 6.5 8 10 4"></polygon>
       <polygon id="Shape" points="0 0 12 0 12 12 0 12"></polygon>
     </g>
   </g>
