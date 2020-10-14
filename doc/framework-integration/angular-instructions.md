@@ -60,7 +60,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    InoElementsModule // <-- b) make it available in Angular
+    InoElementsModule.forRoot() // <-- b) make it available in Angular
   ],
   providers: [],
   bootstrap: [AppComponent]
