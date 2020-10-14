@@ -14,5 +14,10 @@
       "kebab-case"
     ],
     "class-name": false
+  },
+  "linterOptions": {
+    "exclude": [
+      "src/directives/angular-component-lib/utils.ts"
+    ]
   }
 }
