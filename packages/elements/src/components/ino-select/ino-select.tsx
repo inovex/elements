@@ -130,7 +130,7 @@ export class Select implements ComponentInterface {
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.inoOutline,
-      'mdc-select--box': !this.inoOutline,
+      'mdc-select--filled': !this.inoOutline,
       'mdc-select--required': this.required
     });
     const hiddenInput = this.required ? (
@@ -142,22 +142,38 @@ export class Select implements ComponentInterface {
     return (
       <Host name={this.name}>
         <div class={classSelect}>
-
-          <div class="mdc-select__anchor">
-            <i class="mdc-select__dropdown-icon"/>
-
-            <div class="mdc-select__selected-text" aria-required={this.required} aria-disabled={this.disabled}>
-              {this.value}
-              {hiddenInput}
-            </div>
+          <div class="mdc-select__anchor" aria-required={this.required} aria-disabled={this.disabled}>
+            {hiddenInput}
+    <span class="mdc-select__selected-text">{this.value}</span>
             <ino-label
-              ino-outline={this.inoOutline}
-              ino-text={this.inoLabel}
-              ino-required={this.required}
-              ino-disabled={this.disabled}
-              ino-show-hint={this.inoShowLabelHint}
+                ino-outline={this.inoOutline}
+                ino-text={this.inoLabel}
+                ino-required={this.required}
+                ino-disabled={this.disabled}
+                ino-show-hint={this.inoShowLabelHint}
             />
-
+            <span class="mdc-select__dropdown-icon">
+                <svg
+                    class="mdc-select__dropdown-icon-graphic"
+                    viewBox="7 10 10 5"
+                >
+                    <polygon
+                        class="mdc-select__dropdown-icon-inactive"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 10 12 15 17 10"
+                    >
+                    </polygon>
+                    <polygon
+                        class="mdc-select__dropdown-icon-active"
+                        stroke="none"
+                        fill-rule="evenodd"
+                        points="7 15 12 10 17 15"
+                    >
+                    </polygon>
+                </svg>
+            </span>
+            {!this.inoOutline && <span class="mdc-line-ripple"></span>}
           </div>
 
           <div class="mdc-select__menu mdc-menu mdc-menu-surface">

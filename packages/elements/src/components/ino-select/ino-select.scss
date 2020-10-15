@@ -1,9 +1,11 @@
-@use "@material/list/mdc-list";
+@use "@material/list";
 @use "@material/menu-surface/mdc-menu-surface";
 @use "@material/menu/mdc-menu";
 @use "@material/select/mdc-select";
 @use "@material/select";
 @use 'styles/colors';
+
+@include select.core-styles();
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 
@@ -36,13 +38,11 @@ ino-select {
 
   .mdc-select {
     @include select.container-fill-color(transparent);
+    @include select.disabled-container-fill-color(transparent);
     @include select.focused-label-color(colors.$primary);
     @include select.focused-bottom-line-color(colors.$primary);
     @include select.focused-outline-color(colors.$primary);
-
-    &--focused .mdc-select__dropdown-icon {
-      @include select.dd-arrow-svg-bg_(colors.$primary, 1);
-    }
+    @include select.focused-dropdown-icon-color(colors.$primary);
 
     .mdc-select__anchor:before {
       display: none;
@@ -53,7 +53,7 @@ ino-select {
     }
 
     .mdc-floating-label {
-      top: 28px;
+      top: 34px;
     }
   }
 
@@ -69,6 +69,6 @@ ino-select {
   }
 
   .mdc-floating-label.mdc-floating-label--float-above {
-    top: 18px;
+    top: 28px;
   }
 }
