@@ -2,6 +2,9 @@
 @use 'styles/colors';
 
 :host {
+  @include data-table.core-styles;
+  @include data-table.theme-baseline;
+
   .ino-table__table {
     display: table;
   }
@@ -13,6 +16,4 @@
   .ino-table__body {
     display: table-row-group;
   }
-
-  @include data-table.core-styles;
 }
