@@ -37,7 +37,7 @@ export class TabBar implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.mdcInstance.destroy();
+    this.mdcInstance?.destroy();
     this.el.removeEventListener('inoInteracted', this.interactionHandler);
   }
 
