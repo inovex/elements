@@ -18,8 +18,6 @@
   "linterOptions": {
     "exclude": [
       "src/directives/angular-component-lib/utils.ts"
-    ],
-    "only-arrow-functions": false,
-    "space-before-function-paren": false
+    ]
   }
 }
