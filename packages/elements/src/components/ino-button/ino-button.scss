@@ -150,7 +150,7 @@ $color-states: (
     @include button.ink-color(var(--button-color));
     
     // TODO Fix for border-radius css variable
-    @include button.shape-radius((0, 24px, 24px, 24px));
+    @include button.shape-radius($edged-border);
 
     border-color: var(--button-border-color);
     box-shadow: var(--button-box-shadow);
