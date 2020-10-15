@@ -22,7 +22,6 @@ document
   ino-image="<string>"
   ino-aspect-ratio="<string>"
   ino-media-title
-  ino-color-scheme
   onClick="handleClick()"
 >
   <div slot="content"><!-- Any content --></div>
@@ -93,14 +92,12 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property              | Attribute               | Description                                                        | Type      | Default |
 | --------------------- | ----------------------- | ------------------------------------------------------------------ | --------- | ------- |
 | `inoDisableElevation` | `ino-disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
 | `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
-
 
 ## CSS Custom Properties
 
@@ -109,7 +106,6 @@ class MyComponent extends Component {
 | `--ino-card-background-color` | background color of the check mark |
 | `--ino-card-color`            | check mark color                   |
 
-
 ## Dependencies
 
 ### Depends on
@@ -117,12 +113,13 @@ class MyComponent extends Component {
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-card --> ino-icon
   style ino-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
