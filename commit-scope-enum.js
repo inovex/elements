@@ -1,6 +1,8 @@
 module.exports = [
 	'elements|ino-button',
 	'elements|ino-card',
+	'elements|ino-carousel',
+	'elements|ino-carousel-slide',
 	'elements|ino-checkbox',
 	'elements|ino-chip',
 	'elements|ino-chip-set',
@@ -47,6 +49,8 @@ module.exports = [
 	'elements|ino-tooltip',
 	'elements-angular|ino-button',
 	'elements-angular|ino-card',
+	'elements-angular|ino-carousel',
+	'elements-angular|ino-carousel-slide',
 	'elements-angular|ino-checkbox',
 	'elements-angular|ino-chip',
 	'elements-angular|ino-chip-set',
@@ -93,6 +97,8 @@ module.exports = [
 	'elements-angular|ino-tooltip',
 	'elements-react|ino-button',
 	'elements-react|ino-card',
+	'elements-react|ino-carousel',
+	'elements-react|ino-carousel-slide',
 	'elements-react|ino-checkbox',
 	'elements-react|ino-chip',
 	'elements-react|ino-chip-set',
@@ -139,6 +145,8 @@ module.exports = [
 	'elements-react|ino-tooltip',
 	'storybook|ino-button',
 	'storybook|ino-card',
+	'storybook|ino-carousel',
+	'storybook|ino-carousel-slide',
 	'storybook|ino-checkbox',
 	'storybook|ino-chip',
 	'storybook|ino-chip-set',
@@ -187,5 +195,6 @@ module.exports = [
 	'elements-angular',
 	'elements-react',
 	'storybook',
-	'*'
+	'*',
+	'deps'
 ];

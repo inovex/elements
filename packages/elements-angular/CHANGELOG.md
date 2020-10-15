@@ -2,6 +2,81 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Features
+
+* **elements:** add ino-carousel component ([#112](https://github.com/inovex/elements/issues/112)) ([e99b5d7](https://github.com/inovex/elements/commit/e99b5d723903a7060e0691b782d686db01480161))
+* **elements|ino-card:** add property to disable hover animation ([#120](https://github.com/inovex/elements/issues/120)) ([0fac301](https://github.com/inovex/elements/commit/0fac301ab4b3fe1b078b5f4d09db97495aa2e779))
+* **elements|ino-snackbar:** add property for warning and error states ([#116](https://github.com/inovex/elements/issues/116)) ([b648415](https://github.com/inovex/elements/commit/b64841571322656433ab8ed2ef1439b5cd40c23e))
+
+
+### Miscellaneous
+
+* hide refactoring commit type in changelog ([#130](https://github.com/inovex/elements/issues/130)) ([00dbf1a](https://github.com/inovex/elements/commit/00dbf1a55828aad4d2c0e29978dc3abe38ab7cbe))
+
+# [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Features
+
+* **elements:** add ino-carousel component ([#112](https://github.com/inovex/elements/issues/112)) ([e99b5d7](https://github.com/inovex/elements/commit/e99b5d723903a7060e0691b782d686db01480161))
+* **elements|ino-card:** add property to disable hover animation ([#120](https://github.com/inovex/elements/issues/120)) ([0fac301](https://github.com/inovex/elements/commit/0fac301ab4b3fe1b078b5f4d09db97495aa2e779))
+* **elements|ino-snackbar:** add property for warning and error states ([#116](https://github.com/inovex/elements/issues/116)) ([b648415](https://github.com/inovex/elements/commit/b64841571322656433ab8ed2ef1439b5cd40c23e))
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Features
+
+* **elements|ino-snackbar:** add property to set custom timeout ([#83](https://github.com/inovex/elements/issues/83)) ([d9608da](https://github.com/inovex/elements/commit/d9608daa9779acad4c1f43945a20382ca03f6d4e))
+
+
+### Miscellaneous
+
+* **deps:** bump acorn from 6.3.0 to 6.4.2 in /packages/elements-angular ([#108](https://github.com/inovex/elements/issues/108)) ([37bdb52](https://github.com/inovex/elements/commit/37bdb5204982d3a75ae16ae3d8c80991f8950444))
+* **deps:** bump elliptic from 6.5.1 to 6.5.3 in /packages/elements-angular ([#104](https://github.com/inovex/elements/issues/104)) ([831b465](https://github.com/inovex/elements/commit/831b46590e96b7acae4db58b1dd41c8ebe64ca68))
+* **deps:** bump handlebars from 4.4.5 to 4.7.6 in /packages/elements-angular ([#103](https://github.com/inovex/elements/issues/103)) ([4b3c815](https://github.com/inovex/elements/commit/4b3c81526eda379ee60a7267cad85a481a832c41))
+* **deps:** bump http-proxy from 1.18.0 to 1.18.1 in /packages/elements-angular ([#102](https://github.com/inovex/elements/issues/102)) ([7e89575](https://github.com/inovex/elements/commit/7e89575227d85b78ac81c31269ebe5061cc5749b))
+* **deps:** bump lodash from 4.17.15 to 4.17.20 in /packages/elements-angular ([#105](https://github.com/inovex/elements/issues/105)) ([df6d2a3](https://github.com/inovex/elements/commit/df6d2a32504ac15d6b6c75f9e1a5c57f8290b4ff))
+* **deps:** bump npm-registry-fetch from 4.0.2 to 4.0.7 in /packages/elements-angular ([#106](https://github.com/inovex/elements/issues/106)) ([3f617b8](https://github.com/inovex/elements/commit/3f617b8b6a060e9b389881ee611d4384007b9880))
+* **deps:** bump websocket-extensions from 0.1.3 to 0.1.4 in /packages/elements-angular ([#107](https://github.com/inovex/elements/issues/107)) ([1690960](https://github.com/inovex/elements/commit/1690960de95c6595775f29e3b3481cffd75fcfd9))
+* **elements:** update stencil to v2.0.3 ([#85](https://github.com/inovex/elements/issues/85)) ([99b593d](https://github.com/inovex/elements/commit/99b593d0ee94b8637444a8aa036ebbd6e336490a))
+
+
+### Refactoring
+
+* **elements:** move from local font files to font package ([#82](https://github.com/inovex/elements/issues/82)) ([c04d903](https://github.com/inovex/elements/commit/c04d903f7f238f950779d9fedf972f56df9647b2))
+
+
+### Documentation
+
+* **elements-angular:** correct link to top-level readme ([#119](https://github.com/inovex/elements/issues/119)) ([4d57647](https://github.com/inovex/elements/commit/4d576471133ace5b2da67fb98bd77319ad3a504b))
+
+# [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Features
+
+* **elements|ino-snackbar:** add property to set custom timeout ([#83](https://github.com/inovex/elements/issues/83)) ([d9608da](https://github.com/inovex/elements/commit/d9608daa9779acad4c1f43945a20382ca03f6d4e))
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ### [1.0.2](https://github.com/inovex/elements/compare/v1.0.1...v1.0.2) (2020-09-22)
 
 ### [1.0.1](https://github.com/inovex/elements/compare/v1.0.0...v1.0.1) (2020-09-22)

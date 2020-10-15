@@ -40,4 +40,4 @@ $ yarn add @inovex.de/elements-react
 As the integration is now completed, you can use the components in your project in the same way you would use
 any other React component.
 
-To help you to get started, we created a [simple todo app](https://stackblitz.com/edit/ino-elements-react-example?embed=1&file=index.js) for you to play around with.
+To help you to get started, we created a [simple todo app](https://codesandbox.io/s/github/inovex/elements-example-react) for you to play around with.

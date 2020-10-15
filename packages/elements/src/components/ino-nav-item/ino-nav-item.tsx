@@ -33,7 +33,7 @@ export class NavItem implements ComponentInterface {
    */
   @Prop() inoDisabled?: boolean = false;
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.el.remove();
   }
 

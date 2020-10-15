@@ -43,6 +43,8 @@ export default [
 	'password',
 	'phone',
 	'print',
+	'question',
+	'refresh',
 	'remove',
 	'report',
 	'search',

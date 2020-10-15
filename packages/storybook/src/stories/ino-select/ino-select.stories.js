@@ -140,11 +140,30 @@ export const Forms = () => /*html*/ `
 `;
 
 export const SelectOptions = () => /*html*/ `
+    <style>
+        ino-option.customizable-option {
+          --ino-option-selected-background-color: ${text('--ino-option-selected-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
+          --ino-option-selected-background-color-hover: ${text('--ino-option-selected-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
+          --ino-option-selected-background-color-focus: ${text('--ino-option-selected-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
+          --ino-option-selected-background-color-active: ${text('--ino-option-selected-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
+          --ino-option-deselected-background-color: ${text('--ino-option-deselected-background-color', '', 'Custom Properties')};
+          --ino-option-deselected-background-color-hover: ${text('--ino-option-deselected-background-color-hover', '', 'Custom Properties')};
+          --ino-option-deselected-background-color-focus: ${text('--ino-option-deselected-background-color-focus', '', 'Custom Properties')};
+          --ino-option-deselected-background-color-active: ${text('--ino-option-deselected-background-color-active', '', 'Custom Properties')};
+        }
+    </style>
     <h4>Customizable option</h4>
     <ino-select ino-label="Customizable option">
         <ino-option
+            class="customizable-option"
             disabled="${boolean('disabled', false)}"
-            selected="${boolean('selected', false)}"
+            value="${text('value', 'Content')}"
+        >
+            Content
+        </ino-option>
+        <ino-option
+            class="customizable-option"
+            disabled="${boolean('disabled', false)}"
             value="${text('value', 'Content')}"
         >
             Content

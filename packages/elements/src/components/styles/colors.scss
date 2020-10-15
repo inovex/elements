@@ -21,6 +21,8 @@ $error: #eb003b;
 $light: #c1c1c1;
 $dark: #777777;
 
+$ino-colors: "primary", "secondary", "success", "warning", "error", "light", "dark";
+
 $ino-color-scheme: (
   primary: (
     base: $primary,

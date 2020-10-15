@@ -12,6 +12,6 @@ During development, the following process should be loosely followed:
     - For an improvement it is always good to describe your thoughts in a user story style. For example: *As a user I want to change the background color of the button so I am able to match the colors of my design.*
   - In the weekly coordination meeting, bring up the issue and discuss the priority of the task.
 - Starting Development
-  - Assign the issue to yourself and change the status to **In Progress** in the project board. Create a new feature branch and follow the instructions in the [Pull Request Section](/?path=/story/docs-contributing--pull-requests) section (see side panel).
+  - Assign the issue to yourself and change the status to **In Progress** in the project board. Create a new feature branch and follow the instructions in the [Pull Request Section](./?path=/story/docs-contributing--pull-requests) section (see side panel).
 - Reviewing Code
   - When the pull request is accepted and merged into master, set the corresponding issue to `Done`.

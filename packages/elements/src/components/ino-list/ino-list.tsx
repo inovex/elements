@@ -40,7 +40,7 @@ export class List implements ComponentInterface {
     this.listInstance = new MDCList(listElement);
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.listInstance.destroy();
   }
 

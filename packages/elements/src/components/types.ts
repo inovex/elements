@@ -18,6 +18,7 @@ export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
 export type Locations = HorizontalLocation | VerticalLocation;
 export type NavDrawerAnchor = 'left' | 'right';
 export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal';
+export type SnackbarType = 'primary' | 'warning' | 'error';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
 export type SurfaceType = 'solid' | 'outline' | 'inverse';
 export type TooltipTrigger =

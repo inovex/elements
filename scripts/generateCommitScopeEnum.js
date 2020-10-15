@@ -82,7 +82,8 @@ function generateNewScopes(componentsInSrc) {
   return cartesian(packages, componentsInSrc)
     .map(subArr => subArr.join('|'))
     .concat(packages)
-    .concat('*');
+    .concat('*')
+    .concat('deps');
 }
 
 /**

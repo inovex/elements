@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -29,11 +29,11 @@
     "url": "https://github.com/inovex/elements/issues"
   },
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "jsnext:main": "dist/esm/index.mjs",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.js",
+  "es2017": "dist/esm/index.js",
+  "jsnext:main": "dist/esm/index.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
@@ -78,27 +78,28 @@
     "@material/tab-scroller": "^5.1.0",
     "@material/textfield": "^5.1.0",
     "@material/typography": "^5.1.0",
-    "@stencil/core": "1.12.6",
+    "@stencil/core": "2.0.3",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
     "flatpickr": "^4.4.6",
     "highlight.js": "^9.18.1",
-    "tippy.js": "^6.2.3"
+    "tippy.js": "^6.2.3",
+    "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
+    "@stencil/angular-output-target": "^0.0.5",
     "@stencil/sass": "^1.1.1",
     "@types/classnames": "^2.2.6",
-    "@types/jest": "24.9.1",
-    "@types/puppeteer": "1.19.1",
+    "@types/jest": "26.0.14",
+    "@types/puppeteer": "^3.0.2",
     "camelcase": "^5.0.0",
     "fs-extra": "^9.0.0",
-    "jest": "24.9.0",
-    "jest-cli": "24.9.0",
-    "puppeteer": "1.19.0",
+    "jest": "26.4.2",
+    "jest-cli": "26.4.2",
+    "puppeteer": "^5.3.1",
     "tslint": "^6.1.1",
     "tslint-ionic-rules": "0.0.21",
-    "tslint-react": "^4.2.0",
-    "typescript": "^3.8.3"
+    "tslint-react": "^4.2.0"
   }
 }

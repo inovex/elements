@@ -1,6 +1,7 @@
 import { MDCSnackbar } from '@material/snackbar';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
+import { SnackbarType } from '../types';
 
 @Component({
   tag: 'ino-snackbar',
@@ -30,6 +31,17 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
 
   /**
+   * Changes the snackbar type
+   */
+  @Prop() inoType?: SnackbarType = 'primary';
+
+  /**
+   * Sets the timeout in ms until the snackbar disappears. The timeout can
+   * be disabled by setting it to a negative value.
+   */
+  @Prop() inoTimeout?: number = 5000;
+
+  /**
    * Event that emits as soon as the action button is clicked.
    */
   @Event() inoActionClick!: EventEmitter;
@@ -45,6 +57,7 @@ export class Snackbar implements ComponentInterface {
     this.snackbarElement.addEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
+    this.configureTimeout();
     this.snackbarInstance.open();
   }
 
@@ -53,6 +66,14 @@ export class Snackbar implements ComponentInterface {
     this.snackbarElement.removeEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
+
+  }
+
+  private configureTimeout() {
+    this.snackbarInstance.timeoutMs = -1;
+    if (this.inoTimeout >= 0) {
+      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+    }
   }
 
   private handleSnackbarHide(e) {

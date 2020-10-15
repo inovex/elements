@@ -96,9 +96,10 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property      | Attribute      | Description                                                        | Type      | Default |
-| ------------- | -------------- | ------------------------------------------------------------------ | --------- | ------- |
-| `inoSelected` | `ino-selected` | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
+| Property              | Attribute               | Description                                                        | Type      | Default |
+| --------------------- | ----------------------- | ------------------------------------------------------------------ | --------- | ------- |
+| `inoDisableElevation` | `ino-disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
+| `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
 
 ## CSS Custom Properties

@@ -28,7 +28,8 @@
     },
     {
       "type": "refactor",
-      "section": "Refactoring"
+      "section": "Refactoring",
+      "hidden": true
     }
   ]
 }
