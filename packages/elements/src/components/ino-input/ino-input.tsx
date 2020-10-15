@@ -424,6 +424,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autoFocus,
+      'mdc-text-field--filled': !this.inoOutline,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,

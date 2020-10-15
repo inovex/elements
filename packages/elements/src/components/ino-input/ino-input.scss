@@ -1,8 +1,9 @@
 @use '@material/textfield/mdc-text-field';
 @use '@material/textfield';
 @use '@material/textfield/icon';
-@use '@material/textfield/helper-text/mdc-text-field-helper-text';
-@use '@material/textfield/icon/mdc-text-field-icon';
+@use "@material/textfield/helper-text";
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/notched-outline/mdc-notched-outline";
 @use 'styles/colors';
 @use 'styles/fonts';
 
@@ -77,7 +78,7 @@ ino-input {
     }
 
     &--disabled {
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     & + .mdc-text-field-helper-line {
@@ -100,9 +101,8 @@ ino-input {
       }
 
       &:not([class*='--with-leading-icon']) {
-        & .mdc-text-field__input {
-          padding-left: 0;
-        }
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .mdc-text-field__icon {
@@ -138,7 +138,10 @@ ino-input {
 
       .mdc-text-field__input {
         padding-bottom: 0;
-        padding-top: 20px;
+        padding-top: 24px;
+      }
+      &.mdc-text-field--no-label .mdc-text-field__input {
+        padding-top: 12px;
       }
     }
 
@@ -165,7 +168,7 @@ ino-input {
       display: flex;
       flex-direction: column;
       right: 5px;
-      top: 50%;
+      top: -25%;
       height: 50%;
 
       .ino-num-arrows {
