@@ -114,10 +114,6 @@ ino-input {
       &[class*='--with-leading-icon'] {
         $padding-to-left: 38px;
 
-        input {
-          padding-left: $padding-to-left;
-        }
-
         .mdc-floating-label,
         .mdc-floating-label--float-above {
           left: $padding-to-left;
