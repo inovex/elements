@@ -7,7 +7,7 @@ import './ino-card.scss';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
+  const eventHandler = function(e) {
     const el = e.target;
     if (el === null) {
       return;
@@ -33,11 +33,11 @@ export default {
 
   decorators: [
     withStencilReadme(componentReadme),
-    (story) => {
+    story => {
       subscribeToComponentEvents();
       return story();
-    },
-  ],
+    }
+  ]
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -45,7 +45,6 @@ export const DefaultUsage = () => /*html*/ `
 
       <h4>Customizable card</h4>
       <ino-card class="customizable-card"
-        ino-color-scheme="${select('ino-color-scheme', ['', 'primary', 'secondary', 'dark'], '')}"
         ino-disable-elevation="${boolean('ino-disable-elevation', false)}"
         ino-selected="${boolean('ino-selected', false)}">
         ${sampleCard}

@@ -19,18 +19,19 @@ const tooltipPlacementOptions = [
   'left',
   'left-start',
   'left-end',
-  'none',
+  'none'
 ];
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
+  const eventHandler = function(e) {
     const el = e.target;
 
     if (el.tagName !== 'INO-FAB-SET') return;
 
-    const newState = el.getAttribute('ino-open-dial') === 'false' ? 'true' : 'false';
+    const newState =
+      el.getAttribute('ino-open-dial') === 'false' ? 'true' : 'false';
     el.setAttribute('ino-open-dial', newState);
   };
 
@@ -52,11 +53,11 @@ export default {
   },
   decorators: [
     withStencilReadme(componentReadme),
-    (story) => {
+    story => {
       subscribeToComponentEvents();
       return story();
-    },
-  ],
+    }
+  ]
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -83,34 +84,16 @@ export const DefaultUsage = () => /*html*/ `
       )}">
 
         <ino-fab
-          ino-color-scheme="${select(
-            'ino-color-scheme-fab-1',
-            ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
-            'primary',
-            'First FAB'
-          )}"
           ino-icon="${select('ino-icon-fab1', ICONS, 'star', 'First FAB')}"
           ino-label="${text('ino-label-fab1', 'Label 1', 'First FAB')}"
           ino-mini="${boolean('ino-mini-fab1', true, 'First FAB')}"
         ></ino-fab>
         <ino-fab
-          ino-color-scheme="${select(
-            'ino-color-scheme-fab-2',
-            ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
-            'primary',
-            'Second FAB'
-          )}"
           ino-icon="${select('ino-icon-fab2', ICONS, 'favorite', 'Second FAB')}"
           ino-label="${text('ino-label-fab2', 'Label 2', 'Second FAB')}"
           ino-mini="${boolean('ino-mini-fab2', true, 'Second FAB')}"
         ></ino-fab>
         <ino-fab
-          ino-color-scheme="${select(
-            'ino-color-scheme-fab-3',
-            ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
-            'primary',
-            'Third FAB'
-          )}"
           ino-icon="${select('ino-icon-fab3', ICONS, 'info', 'Third FAB')}"
           ino-label="${text('ino-label-fab3', 'Label 3', 'Third FAB')}"
           ino-mini="${boolean('ino-mini-fab3', true, 'Third FAB')}"
