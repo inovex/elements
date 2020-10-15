@@ -185,6 +185,7 @@ export class Textarea implements ComponentInterface {
     const classes = classNames({
       'mdc-text-field': true,
       'mdc-text-field--textarea': true,
+      'mdc-text-field--outlined': true,
       'mdc-text-field-fullwidth': !Boolean(this.cols),
       'mdc-text-field--no-label': !this.inoLabel
     });
@@ -207,11 +208,6 @@ export class Textarea implements ComponentInterface {
             value={this.value}
             onInput={this.handleNativeTextareaChange.bind(this)}
           />
-          {this.maxlength && (
-            <div class="mdc-text-field-character-counter">
-              {this.value.length} / {this.maxlength}
-            </div>
-          )}
           <ino-label
             ino-outline
             ino-text={this.inoLabel}
@@ -220,6 +216,11 @@ export class Textarea implements ComponentInterface {
             ino-show-hint={this.inoShowLabelHint}
           />
         </div>
+        {this.maxlength && (
+          <div class="mdc-text-field-helper-line">
+              <div class="mdc-text-field-character-counter">{this.value.length} / {this.maxlength}</div>
+          </div>
+        )}
       </Host>
     );
   }
