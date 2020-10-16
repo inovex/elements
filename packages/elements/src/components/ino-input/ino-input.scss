@@ -144,10 +144,10 @@ ino-input {
         --icon-height: 1em;
         --icon-width: 1em;
       }
+    }
 
-      &.unit {
-        font-size: 16px;
-      }
+    .mdc-text-field__affix.mdc-text-field__affix--suffix {
+      margin-right: 12px;
     }
   }
 
