@@ -4,13 +4,13 @@ A floating action button represents the primary action in an application. [Float
 It appears in front of all screen content, typically as a circular shape with an icon in its center.
 
 FABs come in three types: regular, mini, and extended.
+
 ### Usage
 
 The component can be used as follows:
 
 ```html
 <ino-fab
-  ino-color-scheme="<string>"
   ino-icon="<string>"
   ino-label="<string>"
   ino-extended
@@ -74,12 +74,9 @@ class MyComponent extends Component {
 
 **Content**: Use the `ino-label` attribute to set the text of a fab. To add an icon, use the `ino-icon` attribute.
 
-**Styling**: The fab can be styled in many different ways using the `ino-color-scheme` attribute. See the attribute documentation below for additional information.
-
 ## Demo
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -92,7 +89,6 @@ class MyComponent extends Component {
 | `inoLabel`            | `ino-label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                | `string`                                                                                                                                                                                                               | `undefined` |
 | `inoMini`             | `ino-mini`              | Optional, modifies the FAB to a smaller size                                                                                                   | `boolean`                                                                                                                                                                                                              | `false`     |
 | `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
-
 
 ## CSS Custom Properties
 
@@ -107,12 +103,11 @@ class MyComponent extends Component {
 | `--fab-icon-color-disabled`       | Color of the slotted icon if disabled |
 | `--ino-fab-color`                 | Text color                            |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-fab-set](../ino-fab-set)
+- [ino-fab-set](../ino-fab-set)
 
 ### Depends on
 
@@ -120,6 +115,7 @@ class MyComponent extends Component {
 - [ino-tooltip](../ino-tooltip)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-fab --> ino-icon
@@ -128,6 +124,6 @@ graph TD;
   style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
