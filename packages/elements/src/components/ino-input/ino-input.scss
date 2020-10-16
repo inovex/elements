@@ -162,7 +162,7 @@ ino-input {
       display: flex;
       flex-direction: column;
       right: 5px;
-      top: -25%;
+      top: -15%;
       height: 50%;
 
       .ino-num-arrows {
@@ -174,10 +174,6 @@ ino-input {
           transform: scaleY(-1);
         }
       }
-    }
-
-    .mdc-text-field--outlined .arrow-container {
-      top: 36%;
     }
 
     .mdc-text-field:#{$default-text-field}, .mdc-text-field.mdc-text-field--outlined {
