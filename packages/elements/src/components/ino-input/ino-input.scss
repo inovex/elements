@@ -9,6 +9,7 @@
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
+$padding-top: 24px;
 
 @mixin hideNativeNumberInputArrows() {
   /* Chrome, Safari, Edge, Opera */
@@ -105,12 +106,6 @@ ino-input {
         padding-right: 0;
       }
 
-      .mdc-text-field__icon {
-        cursor: auto;
-        pointer-events: auto;
-        bottom: 2px;
-      }
-
       &[class*='--with-leading-icon'] {
         $padding-to-left: 38px;
 
@@ -121,7 +116,10 @@ ino-input {
       }
 
       .mdc-text-field__icon {
-        top: 61%;
+        cursor: auto;
+        pointer-events: auto;
+        bottom: 2px;
+        padding-top: $padding-top;
 
         &--leading {
           left: 6px;
@@ -134,7 +132,7 @@ ino-input {
 
       .mdc-text-field__input {
         padding-bottom: 0;
-        padding-top: 24px;
+        padding-top: $padding-top;
       }
       &.mdc-text-field--no-label .mdc-text-field__input {
         padding-top: 12px;
