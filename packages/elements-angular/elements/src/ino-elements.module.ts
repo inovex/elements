@@ -10,8 +10,6 @@ import { TextValueAccessorDirective } from './directives/control-value-accesors/
 import { importLatoFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
 import { appInitialize } from './app-initialize';
 
-importLatoFont();
-
 @NgModule({
   declarations: [
     ...DIRECTIVES,
