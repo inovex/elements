@@ -1,3 +1,4 @@
+@use "@material/list";
 @use "@material/list/mdc-list";
 @use 'styles/colors';
 
@@ -26,9 +27,10 @@ ino-option {
 
 ino-option {
 
+  @include list.item-disabled-text-opacity(0.5);
+
   .mdc-list-item--disabled {
     pointer-events: none;
-    opacity: 0.5;
   }
 
   .mdc-list-item {
