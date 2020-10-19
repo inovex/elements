@@ -107,7 +107,7 @@ ino-input {
       }
 
       &[class*='--with-leading-icon'] {
-        $padding-to-left: 38px;
+        $padding-to-left: 32px;
 
         .mdc-floating-label,
         .mdc-floating-label--float-above {
@@ -118,15 +118,15 @@ ino-input {
       .mdc-text-field__icon {
         cursor: auto;
         pointer-events: auto;
-        bottom: 2px;
-        padding-top: $padding-top;
+        padding-top: 12px;
 
         &--leading {
-          left: 6px;
+          margin-left: 6px;
+          margin-right: 12px;
         }
 
         &--trailing {
-          right: 6px;
+          margin-right: 6px;
         }
       }
 
