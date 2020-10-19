@@ -7,7 +7,6 @@ import { FsValueAccessorDirective } from './directives/control-value-accesors/fs
 import { InoRadioValueAccessorDirective } from './directives/control-value-accesors/ino-radio-value-accessor.directive';
 import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
 
-import { importLatoFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
 import { appInitialize } from './app-initialize';
 
 @NgModule({
