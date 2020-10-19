@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h, Listen } from '@stencil/core';
+import { Component, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -41,7 +41,9 @@ export class InoOption {
     return (
       <Host>
         <li class={classSelect} data-value={this.value} aria-selected={this.selected}>
-          <slot/>
+          <span class="mdc-list-item__text">
+            <slot/>
+          </span>
         </li>
       </Host>
     );
