@@ -148,9 +148,8 @@ $color-states: (
     @include button.disabled-container-fill-color(var(--button-background-disabled));
     @include button.disabled-ink-color(var(--button-color-disabled));
     @include button.ink-color(var(--button-color));
-    
-    // TODO Fix for border-radius css variable
-    @include button.shape-radius($edged-border);
+
+    border-radius: var(--button-border-radius);
 
     border-color: var(--button-border-color);
     box-shadow: var(--button-box-shadow);
