@@ -39,6 +39,7 @@ ino-select {
     @include select.focused-label-color(colors.$primary);
     @include select.focused-bottom-line-color(colors.$primary);
     @include select.focused-outline-color(colors.$primary);
+    @include select.disabled-container-fill-color(transparent);
 
     &--focused .mdc-select__anchor {
       @include select.dropdown-icon-color(colors.$primary);
@@ -47,14 +48,6 @@ ino-select {
     .mdc-select__anchor:before {
       display: none;
     }
-
-    &--disabled .mdc-select__anchor {
-      background-color: transparent;
-    }
-
-    .mdc-floating-label {
-      top: 34px;
-    }
   }
 
   .mdc-select.mdc-select--outlined .mdc-select__selected-text {
@@ -62,13 +55,36 @@ ino-select {
   }
 
   .mdc-select__selected-text {
-    padding-left: 0;
-    padding-top: 22px;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .mdc-floating-label.mdc-floating-label--float-above {
-    top: 28px;
+  .mdc-select--filled {
+
+    .mdc-select__anchor {
+      padding-left: 0;
+    }
+
+    .mdc-select__selected-text {
+      margin-top: 24px;
+    }
+
+    .mdc-floating-label {
+      top: 36px;
+    }
+
+    .mdc-floating-label.mdc-floating-label--float-above {
+      top: 25px;
+    }
+  }
+
+  .mdc-select--outlined {
+    .mdc-select__selected-text {
+      margin-top: 16px;
+    }
+
+    .mdc-floating-label.mdc-floating-label--float-above {
+      top: 28px;
+    }
   }
 }

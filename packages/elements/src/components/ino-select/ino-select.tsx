@@ -114,7 +114,7 @@ export class Select implements ComponentInterface {
       this.nativeInputElement.value = value;
     }
     this.mdcSelectInstance.value = value;
-  }
+    }
 
   @Listen('MDCSelect:change')
   handleInput(e) {
@@ -168,9 +168,9 @@ export class Select implements ComponentInterface {
       <Host name={this.name}>
         <div class={classSelect}>
           <div class="mdc-select__anchor">
-            <span class="mdc-select__ripple"></span>
             <div class="mdc-select__selected-text">
               {this.value}
+              {hiddenInput}
             </div>
             {this.renderDropdownIcon()}
             <ino-label
@@ -180,7 +180,6 @@ export class Select implements ComponentInterface {
               ino-disabled={this.disabled}
               ino-show-hint={this.inoShowLabelHint}
             />
-            <span class="mdc-line-ripple"></span>
           </div>
 
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
