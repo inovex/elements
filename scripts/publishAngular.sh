@@ -15,7 +15,7 @@ lerna exec --scope=@inovex.de/elements-angular -- yarn install &&
 lerna exec --scope=@inovex.de/elements-angular-builder -- yarn build
 
 #move local .yalc dependency to dist folder
-lerna exec --scope=@inovex.de/elements-angular -- mv .yalc yalc.lock ../dist &&
+lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist
 
 #explicitly push @inovex.de/elements-angular due to angular library project structure
 yalc publish --no-sig --push ./packages/elements-angular/dist/ &&

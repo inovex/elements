@@ -6,5 +6,8 @@
   },
   "whitelistedNonPeerDependencies": [
     "@inovex.de/elements"
+  ],
+  "assets": [
+    "ngcc.config.js"
   ]
 }
