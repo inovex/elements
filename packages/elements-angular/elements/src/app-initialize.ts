@@ -1,4 +1,4 @@
-import { importFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
+import { importLatoFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
 import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
 
@@ -18,7 +18,7 @@ export const appInitialize = (doc: Document, zone: NgZone) => {
       didInitialize = true;
 
       addIcons(ICON_PATHS);
-      importFont();
+      importLatoFont();
       const aelFn = '__zone_symbol__addEventListener' in (doc.body as any)
         ? '__zone_symbol__addEventListener'
         : 'addEventListener';
