@@ -1,4 +1,33 @@
 # Changelog
+## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements-angular:** In order to use the latest elements-angular package, change the `imports: [..., InoElementsModule]` inside your `app.module.ts` to `imports: [..., InoElementsModule.forRoot()]`.
+The reason for this change is, that we upgraded our internally used Angular dependencies to version 10.1.4 which required us to add some startup capabilities inside the `forRoot` function. We updated our integration guide accordingly.
+
+### Bug Fixes
+
+* **elements-angular:** add compatibility for ivy support ([#147](https://github.com/inovex/elements/issues/147)) ([cb095cb](https://github.com/inovex/elements/commit/cb095cb4b48a0f9bbba1ac0cef4da61248466ca0))
+* **elements|ino-fab:** fix an issue causing the tooltip not to be styled correctly ([#88](https://github.com/inovex/elements/issues/88)) ([ab8f3da](https://github.com/inovex/elements/commit/ab8f3dad2a13486eb45a130988af7a9fccd10966))
+* **elements|ino-list:** only call destroy if mdc instance was created ([#144](https://github.com/inovex/elements/issues/144)) ([fa826a9](https://github.com/inovex/elements/commit/fa826a9a6c13ec9c0ab0d24fe43df0ef2e1c869d))
+
+
+### Documentation
+
+* **elements:** update auto generated docs of ino-card and -fab ([#152](https://github.com/inovex/elements/issues/152)) ([719ebd9](https://github.com/inovex/elements/commit/719ebd95f36bc6a9695b4d08421ee97ee0f2bc9b))
+* **storybook:** update ino-fab and ino-card documentation ([#139](https://github.com/inovex/elements/issues/139)) ([3437cc7](https://github.com/inovex/elements/commit/3437cc71efffe6e7e159cb207db56a577aec984d))
+
+
+### Miscellaneous
+
+* remove duplicated entries in the changelog ([#149](https://github.com/inovex/elements/issues/149)) ([9f1b565](https://github.com/inovex/elements/commit/9f1b565402c80673b9fb6e51f595378e2c0d191e))
+* use node-version 14.x in ci ([#151](https://github.com/inovex/elements/issues/151)) ([6ad0693](https://github.com/inovex/elements/commit/6ad0693c212ec1c23f406983bfadb4cd3582f18c))
+* **deps:** upgrade material components to 7.0 ([#145](https://github.com/inovex/elements/issues/145)) ([dfdc0e4](https://github.com/inovex/elements/commit/dfdc0e4a9f599b1ba87d15de1addf32142639015))
+* **elements:** remove relative css import path ([#150](https://github.com/inovex/elements/issues/150)) ([0efed78](https://github.com/inovex/elements/commit/0efed7893272919e739781fd396081ecc525661d))
+* **elements-angular:** update internal angular version to 10.1.4 ([#138](https://github.com/inovex/elements/issues/138)) ([04a8406](https://github.com/inovex/elements/commit/04a8406aa10eb768deafaf4c94526ffef652e35b))
+
 ## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
 
 

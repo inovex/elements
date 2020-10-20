@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
+
+
+### Bug Fixes
+
+* **elements|ino-fab:** fix an issue causing the tooltip not to be styled correctly ([#88](https://github.com/inovex/elements/issues/88)) ([ab8f3da](https://github.com/inovex/elements/commit/ab8f3dad2a13486eb45a130988af7a9fccd10966))
+* **elements|ino-list:** only call destroy if mdc instance was created ([#144](https://github.com/inovex/elements/issues/144)) ([fa826a9](https://github.com/inovex/elements/commit/fa826a9a6c13ec9c0ab0d24fe43df0ef2e1c869d))
+
+
+### Documentation
+
+* **elements:** update auto generated docs of ino-card and -fab ([#152](https://github.com/inovex/elements/issues/152)) ([719ebd9](https://github.com/inovex/elements/commit/719ebd95f36bc6a9695b4d08421ee97ee0f2bc9b))
+* **storybook:** update ino-fab and ino-card documentation ([#139](https://github.com/inovex/elements/issues/139)) ([3437cc7](https://github.com/inovex/elements/commit/3437cc71efffe6e7e159cb207db56a577aec984d))
+
+
+### Miscellaneous
+
+* remove duplicated entries in the changelog ([#149](https://github.com/inovex/elements/issues/149)) ([9f1b565](https://github.com/inovex/elements/commit/9f1b565402c80673b9fb6e51f595378e2c0d191e))
+* **deps:** upgrade material components to 7.0 ([#145](https://github.com/inovex/elements/issues/145)) ([dfdc0e4](https://github.com/inovex/elements/commit/dfdc0e4a9f599b1ba87d15de1addf32142639015))
+* **elements:** remove relative css import path ([#150](https://github.com/inovex/elements/issues/150)) ([0efed78](https://github.com/inovex/elements/commit/0efed7893272919e739781fd396081ecc525661d))
+
 ## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
 
 
