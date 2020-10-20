@@ -336,7 +336,11 @@ export namespace Components {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition": | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left'
+    | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
@@ -1838,7 +1842,11 @@ declare namespace LocalJSX {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition"?: | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left'
+    | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
