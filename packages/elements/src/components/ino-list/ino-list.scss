@@ -1,4 +1,5 @@
-@use '@material/list/mdc-list';
+@use '@material/list';
+@include list.core-styles;
 
 ino-list {
   display: block;

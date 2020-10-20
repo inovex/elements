@@ -1,13 +1,15 @@
 @use '@material/textfield/mdc-text-field';
 @use '@material/textfield';
 @use '@material/textfield/icon';
-@use '@material/textfield/helper-text/mdc-text-field-helper-text';
-@use '@material/textfield/icon/mdc-text-field-icon';
+@use '@material/textfield/helper-text';
+@use '@material/floating-label/mdc-floating-label';
+@use '@material/notched-outline/mdc-notched-outline';
 @use 'styles/colors';
 @use 'styles/fonts';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
+$padding-top: 24px;
 
 @mixin hideNativeNumberInputArrows() {
   /* Chrome, Safari, Edge, Opera */
@@ -77,7 +79,7 @@ ino-input {
     }
 
     &--disabled {
-      background-color: transparent;
+      background-color: transparent !important;
     }
 
     & + .mdc-text-field-helper-line {
@@ -100,23 +102,12 @@ ino-input {
       }
 
       &:not([class*='--with-leading-icon']) {
-        & .mdc-text-field__input {
-          padding-left: 0;
-        }
-      }
-
-      .mdc-text-field__icon {
-        cursor: auto;
-        pointer-events: auto;
-        bottom: 2px;
+        padding-left: 0;
+        padding-right: 0;
       }
 
       &[class*='--with-leading-icon'] {
-        $padding-to-left: 38px;
-
-        input {
-          padding-left: $padding-to-left;
-        }
+        $padding-to-left: 32px;
 
         .mdc-floating-label,
         .mdc-floating-label--float-above {
@@ -125,20 +116,26 @@ ino-input {
       }
 
       .mdc-text-field__icon {
-        top: 61%;
+        cursor: auto;
+        pointer-events: auto;
+        padding-top: 12px;
 
         &--leading {
-          left: 6px;
+          margin-left: 6px;
+          margin-right: 12px;
         }
 
         &--trailing {
-          right: 6px;
+          margin-right: 6px;
         }
       }
 
       .mdc-text-field__input {
         padding-bottom: 0;
-        padding-top: 20px;
+        padding-top: $padding-top;
+      }
+      &.mdc-text-field--no-label .mdc-text-field__input {
+        padding-top: 12px;
       }
     }
 
@@ -147,10 +144,10 @@ ino-input {
         --icon-height: 1em;
         --icon-width: 1em;
       }
+    }
 
-      &.unit {
-        font-size: 16px;
-      }
+    .mdc-text-field__affix.mdc-text-field__affix--suffix {
+      margin-right: 12px;
     }
   }
 
@@ -165,7 +162,7 @@ ino-input {
       display: flex;
       flex-direction: column;
       right: 5px;
-      top: 50%;
+      top: -15%;
       height: 50%;
 
       .ino-num-arrows {
@@ -177,10 +174,6 @@ ino-input {
           transform: scaleY(-1);
         }
       }
-    }
-
-    .mdc-text-field--outlined .arrow-container {
-      top: 36%;
     }
 
     .mdc-text-field:#{$default-text-field}, .mdc-text-field.mdc-text-field--outlined {

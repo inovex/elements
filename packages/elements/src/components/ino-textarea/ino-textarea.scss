@@ -1,4 +1,5 @@
 @use '@material/textfield/mdc-text-field';
+@use "@material/floating-label/mdc-floating-label";
 @use '@material/textfield';
 @use 'styles/colors';
 
@@ -16,12 +17,9 @@ ino-textarea {
 ino-textarea {
   display: block;
 
-  .mdc-text-field {
-    @include textfield.focused-outline-color(var(--textarea-outline-color));
-
-    &.mdc-text-field--focused:not(.mdc-text-field--invalid) {
+  .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) {
+      @include textfield.focused-outline-color(var(--textarea-outline-color));
       @include textfield.caret-color(var(--textarea-caret-color));
       @include textfield.label-color(var(--textarea-label-color));
     }
-  }
 }

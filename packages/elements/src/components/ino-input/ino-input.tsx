@@ -249,7 +249,7 @@ export class Input implements ComponentInterface {
 
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
-    
+
     if (this.type === 'email') {
       this.textfield.useNativeValidation = false;
     }
@@ -424,6 +424,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autoFocus,
+      'mdc-text-field--filled': !this.inoOutline,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,
@@ -465,7 +466,7 @@ export class Input implements ComponentInterface {
           <slot/>
           {
             this.inoUnit &&
-            <span class={'mdc-text-field__icon unit mdc-text-field__icon--trailing'}>{this.inoUnit}</span>
+            <span class="mdc-text-field__affix mdc-text-field__affix--suffix">{this.inoUnit}</span>
           }
           {
             this.type === 'number' &&
