@@ -77,13 +77,22 @@ export class Fab implements ComponentInterface {
       this.el.shadowRoot.querySelector('.mdc-fab')
     );
 
-    if (this.tooltipRef) {
-      this.tooltipRef.getTippyInstance().then(instance =>
-        instance.setProps({
-          appendTo: this.el.shadowRoot
-        })
-      );
+    if (!this.inoExtended && this.inoTooltipPlacement !== 'none') {
+      this.renderTooltip();
     }
+  }
+
+  private renderTooltip() {
+    const attributes = {
+      'ino-for': this.uniqueHelperId,
+      'ino-label': this.inoLabel,
+      'ino-placement': this.inoTooltipPlacement,
+      'ino-trigger': 'mouseenter focus'
+    };
+
+    const tooltip = document.createElement('ino-tooltip');
+    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
+    this.el.appendChild(tooltip);
   }
 
   componentWillUnload() {
@@ -125,15 +134,6 @@ export class Fab implements ComponentInterface {
             <span class="mdc-fab__label">{this.inoLabel}</span>
           )}
         </button>
-        {!this.inoExtended && this.inoTooltipPlacement !== 'none' && (
-          <ino-tooltip
-            ref={(el: HTMLInoTooltipElement) => (this.tooltipRef = el)}
-            ino-for={this.uniqueHelperId}
-            ino-label={this.inoLabel}
-            ino-placement={this.inoTooltipPlacement}
-            ino-trigger="mouseenter focus"
-          />
-        )}
       </Host>
     );
   }
