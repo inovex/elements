@@ -4,7 +4,7 @@
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
-@use 'styles/colors';
+@use '../styles/colors';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 

@@ -1,8 +1,8 @@
 @use '../styles/mdc-customize';
 @use '@material/fab/mdc-fab';
 @use '@material/fab';
-@use 'styles/colors';
-@use 'styles/mixins';
+@use '../styles/colors';
+@use '../styles/mixins';
 
 $edge-positions: top-left, top-right, bottom-right, bottom-left;
 

@@ -2,7 +2,7 @@
 @use '@material/form-field/mdc-form-field';
 @use '@material/radio/mdc-radio';
 @use '@material/radio';
-@use 'styles/colors';
+@use '../styles/colors';
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
