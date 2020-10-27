@@ -21,9 +21,9 @@ $_error: #eb003b;
 $_light: #c1c1c1;
 $_dark: #777777;
 
-$ino-colors: "primary", "secondary", "success", "warning", "error", "light", "dark";
+$ino-color-schemes: "primary", "secondary", "success", "warning", "error", "light", "dark";
 
-$ino-color-scheme: (
+$_ino-color-map: (
   primary: (
     base: $_primary,
     light: $_primary-light,
@@ -71,5 +71,5 @@ $ino-color-scheme: (
 // Mixin to access inovex color scheme variables
 // Usage: color: colors(primary) or colors(primary, light)
 @function ino-color($color-name, $tone: 'base') {
-  @return map-get(map-get($ino-color-scheme, $color-name), $tone);
+  @return map-get(map-get($_ino-color-map, $color-name), $tone);
 }
