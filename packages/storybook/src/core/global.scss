@@ -1,12 +1,11 @@
-@use '@material/typography';
 @use '../../../../node_modules/highlight.js/styles/github.css';
-@use '../../../elements/src/components/styles/mdc.customize';
+@use '../../../elements/src/components/styles/mdc-customize';
 
 
 body {
   &,
   .markdown-body {
-    @include typography.base;
+    @include mdc-customize.mdc-typo-base;
   }
 }
 
