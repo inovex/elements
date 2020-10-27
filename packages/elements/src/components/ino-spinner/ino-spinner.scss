@@ -1,5 +1,6 @@
-@use 'styles/variables';
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '../styles/variables';
+@use '../styles/colors';
 
 // Import the different spinner styles
 @use './styles/bounce.mixins' as bounce;

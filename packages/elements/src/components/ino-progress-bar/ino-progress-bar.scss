@@ -1,6 +1,7 @@
-@use "@material/linear-progress/mdc-linear-progress";
-@use "@material/linear-progress";
-@use "styles/colors";
+@use '../styles/mdc-customize';
+@use '@material/linear-progress/mdc-linear-progress';
+@use '@material/linear-progress';
+@use '../styles/colors';
 
 :host {
   /**

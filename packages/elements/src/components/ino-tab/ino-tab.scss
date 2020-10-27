@@ -1,8 +1,9 @@
+@use '../styles/mdc-customize';
 @use '@material/tab/mdc-tab';
 @use '@material/tab';
 @use '@material/tab-indicator/mdc-tab-indicator';
-@use 'styles/colors';
-@use 'styles/fonts';
+@use '../styles/colors';
+@use '../styles/fonts';
 
 ino-tab {
   .mdc-tab {

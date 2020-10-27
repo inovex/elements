@@ -1,9 +1,10 @@
-@use "@material/list/mdc-list";
-@use "@material/menu-surface/mdc-menu-surface";
-@use "@material/menu/mdc-menu";
-@use "@material/select/mdc-select";
-@use "@material/select";
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '@material/list/mdc-list';
+@use '@material/menu-surface/mdc-menu-surface';
+@use '@material/menu/mdc-menu';
+@use '@material/select/mdc-select';
+@use '@material/select';
+@use '../styles/colors';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 

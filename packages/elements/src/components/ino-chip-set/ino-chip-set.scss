@@ -1,6 +1,7 @@
+@use '../styles/mdc-customize';
 @use '@material/chips/mdc-chips';
 @use '@material/chips';
-@use 'styles/colors';
+@use '../styles/colors';
 
 ino-chip-set {
   .mdc-chip-set--choice {

@@ -1,6 +1,7 @@
+@use '../styles/mdc-customize';
 @use "@material/list";
 @use "@material/list/mdc-list";
-@use 'styles/colors';
+@use '../styles/colors';
 
 ino-option {
   /**

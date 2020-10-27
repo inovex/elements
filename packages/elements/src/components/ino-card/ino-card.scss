@@ -1,9 +1,7 @@
+@use '../styles/mdc-customize';
 @use '@material/card/mdc-card';
 @use '@material/card';
-@use '@material/typography/mdc-typography';
-@use '@material/typography' as mdc;
-@use '@material/theme';
-@use 'styles/colors';
+@use '../styles/colors';
 
 $small-shadow: 0 4px 8px 0 rgba(colors.$dark, 0.3),
 0 12px 28px 0 rgba(colors.$dark, 0.14);

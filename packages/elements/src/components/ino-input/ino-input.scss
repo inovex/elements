@@ -1,11 +1,12 @@
+@use '../styles/mdc-customize';
 @use '@material/textfield/mdc-text-field';
 @use '@material/textfield';
 @use '@material/textfield/icon';
 @use '@material/textfield/helper-text';
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/notched-outline/mdc-notched-outline';
-@use 'styles/colors';
-@use 'styles/fonts';
+@use '../styles/colors';
+@use '../styles/fonts';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);

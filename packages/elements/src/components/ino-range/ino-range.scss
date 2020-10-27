@@ -1,6 +1,7 @@
+@use '../styles/mdc-customize';
 @use '@material/slider/mdc-slider';
 @use '@material/slider';
-@use 'styles/colors';
+@use '../styles/colors';
 
 ino-range {
   @each $color-name, $map in colors.$ino-color-scheme {

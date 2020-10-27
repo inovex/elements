@@ -1,0 +1,20 @@
+@use 'colors';
+@use 'fonts';
+
+// @material/theme
+@use '@material/theme' with (
+  $primary: colors.ino-color(primary),
+  $secondary: colors.ino-color(secondary),
+  $on-primary: colors.ino-color(primary, contrast),
+  $on-secondary: colors.ino-color(secondary, contrast),
+);
+
+// @material/typography
+@use '@material/typography' with (
+  $font-family: fonts.$font-family-sans-serif
+);
+
+@forward '@material/typography' as mdc-typo-*;
+@forward '@material/theme' as mdc-theme-*;
+
+
