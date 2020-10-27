@@ -3,10 +3,10 @@
 @use '@material/card';
 @use '../styles/colors';
 
-$small-shadow: 0 4px 8px 0 rgba(colors.$dark, 0.3),
-0 12px 28px 0 rgba(colors.$dark, 0.14);
-$big-shadow: 0 8px 16px 0 rgba(colors.$dark, 0.3),
-0 16px 32px 0 rgba(colors.$dark, 0.14);
+$small-shadow: 0 4px 8px 0 rgba(colors.ino-color(dark), 0.3),
+0 12px 28px 0 rgba(colors.ino-color(dark), 0.14);
+$big-shadow: 0 8px 16px 0 rgba(colors.ino-color(dark), 0.3),
+0 16px 32px 0 rgba(colors.ino-color(dark), 0.14);
 
 ino-card {
   /**
@@ -22,7 +22,7 @@ ino-card {
   position: relative;
 
   .mdc-card {
-    @include card.outline(colors.$light, 1px);
+    @include card.outline(colors.ino-color(light), 1px);
     box-shadow: none;
     border-radius: 20px;
   }

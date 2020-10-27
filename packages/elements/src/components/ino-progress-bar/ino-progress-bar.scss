@@ -8,7 +8,7 @@
    * @Prop --progress-bar--bar-color: Color of the progress bar
    * @Prop --progress-bar--buffer-color: Color of the buffer and buffering dots
    */
-  --progress-bar--bar-color: #{colors.$primary};
+  --progress-bar--bar-color: #{colors.ino-color(primary)};
   --progress-bar--buffer-color: #{colors.ino-color(light, light)};
 }
 

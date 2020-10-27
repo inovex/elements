@@ -10,9 +10,9 @@ ino-textarea {
    * @prop --ino-textarea-caret-color: color of the caret
    * @prop --ino-textarea-label-color: color of the label
    */
-  --textarea-outline-color: var(--ino-textarea-outline-color, #{colors.$primary});
-  --textarea-caret-color: var(--ino-textarea-caret-color, #{colors.$primary});
-  --textarea-label-color: var(--ino-textarea-label-color, #{colors.$primary});
+  --textarea-outline-color: var(--ino-textarea-outline-color, #{colors.ino-color(primary)});
+  --textarea-caret-color: var(--ino-textarea-caret-color, #{colors.ino-color(primary)});
+  --textarea-label-color: var(--ino-textarea-label-color, #{colors.ino-color(primary)});
 }
 
 ino-textarea {

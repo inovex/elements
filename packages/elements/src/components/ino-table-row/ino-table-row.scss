@@ -9,10 +9,10 @@ ino-table-row {
   display: table-row;
 
   &.mdc-data-table__row--selected {
-    background-color: rgba(colors.$primary, 0.12);
+    background-color: rgba(colors.ino-color(primary), 0.12);
 
     &:hover {
-      background-color: rgba(colors.$primary-light, 0.08);
+      background-color: rgba(colors.ino-color(primary), 0.08);
     }
   }
 }
