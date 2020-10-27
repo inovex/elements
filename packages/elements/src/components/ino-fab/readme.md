@@ -114,14 +114,14 @@ class MyComponent extends Component {
 
 ### Depends on
 
-- [ino-icon](../ino-icon)
 - [ino-tooltip](../ino-tooltip)
+- [ino-icon](../ino-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-fab --> ino-icon
   ino-fab --> ino-tooltip
+  ino-fab --> ino-icon
   ino-fab-set --> ino-fab
   style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
 ```

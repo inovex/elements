@@ -127,8 +127,8 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 graph TD;
   ino-fab-set --> ino-fab
   ino-fab-set --> ino-icon
-  ino-fab --> ino-icon
   ino-fab --> ino-tooltip
+  ino-fab --> ino-icon
   style ino-fab-set fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
