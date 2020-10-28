@@ -2,7 +2,7 @@
 @use '@material/data-table/data-table';
 @use '../styles/colors';
 
-:host {
+ino-table {
   @include data-table.core-styles;
   @include data-table.theme-baseline;
 
