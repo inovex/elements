@@ -4,8 +4,6 @@ import classNames from 'classnames';
 
 import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 
-import { CSS_CLASSES, SELECTORS } from './constants';
-
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
@@ -110,7 +108,7 @@ export class Button implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.button = new MDCRipple(this.el.shadowRoot.querySelector(SELECTORS.MDC_BUTTON));
+    this.button = new MDCRipple(this.el.shadowRoot.querySelector('.mdc-button'));
   }
 
   componentWillUnload() {
@@ -141,10 +139,10 @@ export class Button implements ComponentInterface {
 
   render() {
     const classButton = classNames({
-      [CSS_CLASSES.MDC_BUTTON]: true,
-      [CSS_CLASSES.UNELEVATED]: this.inoFill === 'solid' || this.inoFill === 'inverse',
-      [CSS_CLASSES.OUTLINED]: this.inoFill === 'outline',
-      [CSS_CLASSES.DENSE]: this.inoDense
+      'mdc-button': true,
+      'mdc-button--unelevated': this.inoFill === 'solid' || this.inoFill === 'inverse',
+      'mdc-button--outlined': this.inoFill === 'outline',
+      'ino-button--dense': this.inoDense
     });
 
     return (
@@ -162,7 +160,7 @@ export class Button implements ComponentInterface {
           form={this.form}
         >
           {this.inoIconLeading && (
-            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
+            <span class="mdc-button__icon">
               <slot name="ino-icon-leading"/>
             </span>
           )}
@@ -174,7 +172,7 @@ export class Button implements ComponentInterface {
             }
           </div>
           {this.inoIconTrailing && (
-            <span class={CSS_CLASSES.MDC_BUTTON_ICON}>
+            <span class="mdc-button__icon">
               <slot name="ino-icon-trailing"/>
             </span>
           )}
