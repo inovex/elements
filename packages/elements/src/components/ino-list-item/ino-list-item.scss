@@ -15,7 +15,7 @@ ino-list-item {
    * @prop --ino-list-item-deselected-background-color-active: Background color of a deselected list item if active
    * @prop --ino-list-item-deselected-background-color-focus: Background color of a deselected list item if focused
    */
-  --list-item-selected-color: var(--ino-list-item-selected-color, #{colors.$primary});
+  --list-item-selected-color: var(--ino-list-item-selected-color, #{colors.ino-color(primary)});
   --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{rgba(colors.ino-color(primary, base), 0.05)});
   --list-item-selected-background-color-hover: var(--ino-list-item-selected-background-color-hover, #{rgba(colors.ino-color(primary, base), 0.1)});
   --list-item-selected-background-color-active: var(--ino-list-item-selected-background-color-active, #{rgba(colors.ino-color(primary, base), 0.3)});

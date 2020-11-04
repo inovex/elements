@@ -4,66 +4,66 @@
 // Use the ino-color() function to access colors.
 $inovex: #003c7e;
 
-$primary: #3d40f5;
-$primary-light: #5d60f7;
-$primary-dark: #0d10f3;
-$primary-contrast: #fff;
+$_primary: #3d40f5;
+$_primary-light: #5d60f7;
+$_primary-dark: #0d10f3;
+$_primary-contrast: #fff;
 
-$secondary: #9ccd00;
-$secondary-light: #bbd962;
-$secondary-dark: #93bf00;
-$secondary-contrast: #fff;
+$_secondary: #9ccd00;
+$_secondary-light: #bbd962;
+$_secondary-dark: #93bf00;
+$_secondary-contrast: #fff;
 
-$success: #9ccd00;
-$warning: #ffde03;
-$error: #eb003b;
+$_success: #9ccd00;
+$_warning: #ffde03;
+$_error: #eb003b;
 
-$light: #c1c1c1;
-$dark: #777777;
+$_light: #c1c1c1;
+$_dark: #777777;
 
-$ino-colors: "primary", "secondary", "success", "warning", "error", "light", "dark";
+$ino-color-schemes: "primary", "secondary", "success", "warning", "error", "light", "dark";
 
-$ino-color-scheme: (
+$_ino-color-map: (
   primary: (
-    base: $primary,
-    light: $primary-light,
-    dark: $primary-dark,
-    contrast: $primary-contrast
+    base: $_primary,
+    light: $_primary-light,
+    dark: $_primary-dark,
+    contrast: $_primary-contrast
   ),
   secondary: (
-    base: $secondary,
-    light: $secondary-light,
-    dark: $secondary-dark,
-    contrast: $secondary-contrast
+    base: $_secondary,
+    light: $_secondary-light,
+    dark: $_secondary-dark,
+    contrast: $_secondary-contrast
   ),
   success: (
-    base: $success,
-    light: lighten($success, 15%),
-    dark: darken($success, 15%),
+    base: $_success,
+    light: lighten($_success, 15%),
+    dark: darken($_success, 15%),
     contrast: #fff
   ),
   warning: (
-    base: $warning,
-    light: lighten($warning, 15%),
-    dark: darken($warning, 15%),
+    base: $_warning,
+    light: lighten($_warning, 15%),
+    dark: darken($_warning, 15%),
     contrast: #fff
   ),
   error: (
-    base: $error,
-    light: lighten($error, 15%),
-    dark: darken($error, 15%),
+    base: $_error,
+    light: lighten($_error, 15%),
+    dark: darken($_error, 15%),
     contrast: #fff
   ),
   light: (
-    base: $light,
-    light: lighten($light, 15%),
-    dark: darken($light, 15%),
+    base: $_light,
+    light: lighten($_light, 15%),
+    dark: darken($_light, 15%),
     contrast: #000
   ),
   dark: (
-    base: $dark,
-    light: lighten($dark, 15%),
-    dark: darken($dark, 15%),
+    base: $_dark,
+    light: lighten($_dark, 15%),
+    dark: darken($_dark, 15%),
     contrast: #ffffff
   )
 );
@@ -71,5 +71,5 @@ $ino-color-scheme: (
 // Mixin to access inovex color scheme variables
 // Usage: color: colors(primary) or colors(primary, light)
 @function ino-color($color-name, $tone: 'base') {
-  @return map-get(map-get($ino-color-scheme, $color-name), $tone);
+  @return map-get(map-get($_ino-color-map, $color-name), $tone);
 }

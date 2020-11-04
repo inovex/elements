@@ -4,7 +4,7 @@
 @use '../styles/colors';
 
 ino-range {
-  @each $color-name, $map in colors.$ino-color-scheme {
+  @each $color-name in colors.$ino-color-schemes {
     // Condition to set default styles for primary
     $selector: '&[ino-color-scheme="#{$color-name}"]';
     @if $color-name == primary {
@@ -12,7 +12,7 @@ ino-range {
     }
 
     #{$selector} .mdc-slider {
-      @include slider.color-accessible(map-get($map, base));
+      @include slider.color-accessible(colors.ino-color($color-name));
     }
   }
 }

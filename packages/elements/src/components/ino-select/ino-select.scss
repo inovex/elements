@@ -37,13 +37,13 @@ ino-select {
 
   .mdc-select {
     @include select.container-fill-color(transparent);
-    @include select.focused-label-color(colors.$primary);
-    @include select.focused-bottom-line-color(colors.$primary);
-    @include select.focused-outline-color(colors.$primary);
+    @include select.focused-label-color(colors.ino-color(primary));
+    @include select.focused-bottom-line-color(colors.ino-color(primary));
+    @include select.focused-outline-color(colors.ino-color(primary));
     @include select.disabled-container-fill-color(transparent);
 
     &--focused .mdc-select__anchor {
-      @include select.dropdown-icon-color(colors.$primary);
+      @include select.dropdown-icon-color(colors.ino-color(primary));
     }
 
     .mdc-select__anchor:before {

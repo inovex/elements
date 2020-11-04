@@ -6,13 +6,13 @@
 ino-icon-button {
 
   ino-icon {
-    --icon-color: #{colors.ino-color(primary, base)};
+    --icon-color: #{colors.ino-color(primary)};
   }
 
   // Generate the different ino-color-schemes buttons
-  @each $color-name, $map in colors.$ino-color-scheme {
+  @each $color-name in colors.$ino-color-schemes {
     &[ino-color-scheme='#{$color-name}'] ino-icon {
-      --icon-color: #{map-get($map, base)};
+      --icon-color: #{colors.ino-color($color-name)};
     }
   }
 

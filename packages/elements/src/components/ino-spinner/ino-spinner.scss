@@ -28,18 +28,18 @@ ino-spinner {
   }
 
   // Generate ino-color-scheme classes
-  @each $color-name, $map in colors.$ino-color-scheme {
+  @each $color-name in colors.$ino-color-schemes {
     &[ino-color-scheme='#{$color-name}'] {
       // Generate for each color class and type the color styles
       &:not([ino-type]) .ino-spinner__composer,
       &[ino-type='tile'] .ino-spinner__composer {
-        @include tile.tile-color(map-get($map, base));
+        @include tile.tile-color(colors.ino-color($color-name));
       }
       &[ino-type='bounce'] .ino-spinner__composer {
-        @include bounce.bounce-color(map-get($map, base));
+        @include bounce.bounce-color(colors.ino-color($color-name));
       }
       &[ino-type='circle'] .ino-spinner__composer {
-        @include circle.circle-color(map-get($map, base));
+        @include circle.circle-color(colors.ino-color($color-name));
       }
     }
   }

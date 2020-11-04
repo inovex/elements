@@ -11,21 +11,21 @@ ino-tooltip {
   }
 
   //default color scheme
-  @include tooltip.tooltip(colors.$primary-light, #fff);
+  @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
 
   &[ino-color-scheme="primary"] {
-    @include tooltip.tooltip(colors.$primary-light, #fff);
+    @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
   }
 
   &[ino-color-scheme="secondary"] {
-    @include tooltip.tooltip(colors.$secondary, #fff);
+    @include tooltip.tooltip(colors.ino-color(secondary), colors.ino-color(secondary, contrast));
   }
 
   &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(colors.ino-color(light, light), #000);
+    @include tooltip.tooltip(colors.ino-color(light, light), colors.ino-color(light, contrast));
   }
 
   &[ino-color-scheme="transparent"] {
-    @include tooltip.tooltip(#ffffff, colors.$dark);
+    @include tooltip.tooltip(#ffffff, colors.ino-color(dark));
   }
 }

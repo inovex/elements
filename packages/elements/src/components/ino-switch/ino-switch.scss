@@ -44,7 +44,7 @@ ino-switch {
   --switch-disabled-track-color: var(--ino-switch-disabled-track-color, #{colors.ino-color(light, base)});
 }
 
-@each $color in colors.$ino-colors {
+@each $color in colors.$ino-color-schemes {
   ino-switch[ino-color-scheme="#{$color}"] {
     --switch-toggled-on-color: #{colors.ino-color($color, base)};
     --switch-toggled-on-thumb-color: #{colors.ino-color($color, base)};
