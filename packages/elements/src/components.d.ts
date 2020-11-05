@@ -864,7 +864,7 @@ export namespace Components {
          */
         "inoMarkers"?: boolean;
         /**
-          * The max value of this element.
+          * The max value of this element (**required**).
          */
         "max"?: number;
         /**
@@ -880,7 +880,7 @@ export namespace Components {
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**)
+          * The value of this element. (**unmanaged**, default=`min`)
          */
         "value"?: number;
     }
@@ -2398,7 +2398,7 @@ declare namespace LocalJSX {
          */
         "inoMarkers"?: boolean;
         /**
-          * The max value of this element.
+          * The max value of this element (**required**).
          */
         "max"?: number;
         /**
@@ -2418,7 +2418,7 @@ declare namespace LocalJSX {
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**)
+          * The value of this element. (**unmanaged**, default=`min`)
          */
         "value"?: number;
     }

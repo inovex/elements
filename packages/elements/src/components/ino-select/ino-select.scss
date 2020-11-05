@@ -36,11 +36,13 @@ ino-select {
   }
 
   .mdc-select {
-    @include select.container-fill-color(transparent);
-    @include select.focused-label-color(colors.ino-color(primary));
-    @include select.focused-bottom-line-color(colors.ino-color(primary));
-    @include select.focused-outline-color(colors.ino-color(primary));
-    @include select.disabled-container-fill-color(transparent);
+    @include select.label-color((focus: colors.$primary));
+    @include select.bottom-line-color((focus: colors.$primary));
+    @include select.outline-color((focus: colors.$primary));
+    @include select.container-fill-color((
+      default: transparent,
+      disabled: transparent
+    ));
 
     &--focused .mdc-select__anchor {
       @include select.dropdown-icon-color(colors.ino-color(primary));
