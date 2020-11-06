@@ -3,8 +3,6 @@ import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 
-import { CSS_CLASSES } from './constants';
-
 @Component({
   tag: 'ino-segment-button',
   styleUrl: 'ino-segment-button.scss',
@@ -96,19 +94,19 @@ export class InoSegmentButton implements ComponentInterface {
   };
 
   render() {
-    const classes = classNames(
-      CSS_CLASSES.MDC_BUTTON,
-      CSS_CLASSES.OUTLINED,
-      this.inoDense && CSS_CLASSES.DENSE,
-      this.checked && CSS_CLASSES.INO_SEGMENT_BUTTON_ACTIVE,
-      this.belongsToGroup && CSS_CLASSES.BELONGS_TO_GROUP,
-    );
+    const classes = classNames({
+      'mdc-button': true,
+      'mdc-button--outlined': true,
+      'ino-segment-button--dense': this.inoDense,
+      'ino-segment-button--active': this.checked,
+      'belongs-to-group': this.belongsToGroup
+    });
 
     return (
       <Host
         checked={this.checked}
         onClick={this.handleClick}
-        class={(this.disabled && CSS_CLASSES.DISABLED)}
+        class={(this.disabled && 'ino-segment-button--disabled')}
       >
         <button
           class={classes}
