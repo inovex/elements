@@ -18,6 +18,9 @@
     "@angular/common": "^10.1.4",
     "@angular/core": "^10.1.4"
   },
+  "scripts": {
+    "prepublishOnly": "cd ../ && yarn build"
+  },
   "publishConfig": {
     "directory": "../dist"
   }
