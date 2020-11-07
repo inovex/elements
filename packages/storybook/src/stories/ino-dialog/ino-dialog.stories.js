@@ -57,7 +57,7 @@ export const DefaultUsage = () => /*html*/ `
      <ino-dialog id="demo-dialog-1">
         <div class="ino-dialog-header" slot="header">
             <div class="ino-dialog-title">
-                <h3>Select your favourite characters:</h3>
+                <h5>Select your favourite characters:</h5>
             </div>
             <ino-icon-button ino-icon="close" id="close-dialog-btn"></ino-icon-button>
         </div>

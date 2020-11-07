@@ -8,6 +8,10 @@ $default-chip-color: lighten(colors.ino-color(primary), 36.5%);
 ino-chip {
   display: inline-block;
 
+  & * {
+    box-sizing: initial;
+  }
+
   .mdc-chip {
     @include chips.fill-color-accessible($default-chip-color);
 
