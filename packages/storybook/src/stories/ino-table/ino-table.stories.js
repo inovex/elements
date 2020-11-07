@@ -122,7 +122,7 @@ export const DefaultUsage = () => /* html */`
     <h4>With checkboxes</h4>
     <ino-table>
         <ino-table-row slot="header" ino-header-row>
-            <ino-table-cell><ino-checkbox id="headerBox"></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox id="headerBox" ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell>Header A</ino-table-cell>
             <ino-table-cell>Header B</ino-table-cell>
             <ino-table-cell>Header C</ino-table-cell>
@@ -130,7 +130,7 @@ export const DefaultUsage = () => /* html */`
             <ino-table-cell>Actions</ino-table-cell>
         </ino-table-row>
         <ino-table-row>
-            <ino-table-cell><ino-checkbox></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell ino-numeric>1</ino-table-cell>
             <ino-table-cell>Cell B1</ino-table-cell>
             <ino-table-cell>Cell C1</ino-table-cell>
@@ -138,7 +138,7 @@ export const DefaultUsage = () => /* html */`
             <ino-table-cell><ino-icon-button ino-icon="download"></ino-icon-button></ino-table-cell>
         </ino-table-row>
         <ino-table-row>
-            <ino-table-cell><ino-checkbox></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell ino-numeric>2</ino-table-cell>
             <ino-table-cell>Cell B2</ino-table-cell>
             <ino-table-cell>Cell C2</ino-table-cell>
@@ -146,7 +146,7 @@ export const DefaultUsage = () => /* html */`
             <ino-table-cell><ino-icon-button ino-icon="download"></ino-icon-button></ino-table-cell>
         </ino-table-row>
         <ino-table-row>
-            <ino-table-cell><ino-checkbox></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell ino-numeric>3</ino-table-cell>
             <ino-table-cell>Cell B3</ino-table-cell>
             <ino-table-cell>Cell C3</ino-table-cell>
@@ -154,7 +154,7 @@ export const DefaultUsage = () => /* html */`
             <ino-table-cell><ino-icon-button ino-icon="download"></ino-icon-button></ino-table-cell>
         </ino-table-row>
         <ino-table-row>
-            <ino-table-cell><ino-checkbox></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell ino-numeric>4</ino-table-cell>
             <ino-table-cell>Cell B4</ino-table-cell>
             <ino-table-cell>Cell C4</ino-table-cell>
@@ -162,7 +162,7 @@ export const DefaultUsage = () => /* html */`
             <ino-table-cell><ino-icon-button ino-icon="download"></ino-icon-button></ino-table-cell>
         </ino-table-row>
         <ino-table-row>
-            <ino-table-cell><ino-checkbox></ino-checkbox></ino-table-cell>
+            <ino-table-cell><ino-checkbox ino-selection></ino-checkbox></ino-table-cell>
             <ino-table-cell ino-numeric>5</ino-table-cell>
             <ino-table-cell>Cell B5</ino-table-cell>
             <ino-table-cell>Cell C5</ino-table-cell>

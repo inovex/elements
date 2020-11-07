@@ -59,9 +59,7 @@ export class Checkbox implements ComponentInterface {
 
   @Watch('indeterminate')
   indeterminateChanged(newValue: boolean) {
-    if (!this.inoSelection) {
-      this.checkboxInstance.indeterminate = newValue;
-    }
+    this.checkboxInstance.indeterminate = newValue;
   }
 
   private checkboxId = `ino-checkbox-id_${generateUniqueId()}`;
@@ -73,7 +71,7 @@ export class Checkbox implements ComponentInterface {
     this.formField = new MDCFormField(this.el.shadowRoot.querySelector('.mdc-form-field'));
     this.formField.input = this.checkboxInstance;
 
-    if (this.indeterminate && !this.inoSelection) {
+    if (this.indeterminate) {
       this.checkboxInstance.indeterminate = true;
     }
   }
@@ -100,7 +98,8 @@ export class Checkbox implements ComponentInterface {
     const checkboxClasses = classNames({
       'mdc-checkbox': true,
       'mdc-checkbox--disabled': disabled,
-      'ino-checkbox-selection': this.inoSelection
+      'ino-checkbox-selection': this.inoSelection,
+      'ino-checkbox--indeterminate': this.indeterminate
     });
 
     renderHiddenInput(el, name, (checked ? value : ''), disabled);
