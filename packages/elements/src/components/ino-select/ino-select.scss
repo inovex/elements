@@ -36,9 +36,9 @@ ino-select {
   }
 
   .mdc-select {
-    @include select.label-color((focus: colors.$primary));
-    @include select.bottom-line-color((focus: colors.$primary));
-    @include select.outline-color((focus: colors.$primary));
+    @include select.label-color((focus: colors.ino-color(primary)));
+    @include select.bottom-line-color((focus: colors.ino-color(primary)));
+    @include select.outline-color((focus: colors.ino-color(primary)));
     @include select.container-fill-color((
       default: transparent,
       disabled: transparent

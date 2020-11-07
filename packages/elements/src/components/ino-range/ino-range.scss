@@ -9,7 +9,7 @@ ino-range {
   display: block;
   min-width: 100px;
 
-  @each $color-name, $map in colors.$ino-color-scheme {
+  @each $color-name in colors.$ino-color-schemes {
     // Condition to set default styles for primary
     $selector: '&[ino-color-scheme="#{$color-name}"]';
     @if $color-name == primary {
@@ -17,10 +17,10 @@ ino-range {
     }
 
     #{$selector} .mdc-slider {
-      @include slider-mixins.track-active-color(map-get($map, base));
-      @include slider-mixins.track-inactive-color(map-get($map, light));
-      @include slider-mixins.thumb-color(map-get($map, base));
-      @include slider-mixins.thumb-ripple-color(map-get($map, base));
+      @include slider-mixins.track-active-color(colors.ino-color($color-name, base));
+      @include slider-mixins.track-inactive-color(colors.ino-color($color-name, light));
+      @include slider-mixins.thumb-color(colors.ino-color($color-name, base));
+      @include slider-mixins.thumb-ripple-color(colors.ino-color($color-name, base));
       @include slider-mixins.tick-mark-inactive-color(#000);
       @include slider-mixins.value-indicator-text-color(#FFF);
     }
