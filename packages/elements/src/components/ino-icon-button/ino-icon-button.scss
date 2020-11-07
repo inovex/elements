@@ -1,21 +1,50 @@
 @use '../styles/mdc-customize';
+@use '../styles/colors';
 @use '@material/icon-button/mdc-icon-button';
 @use '@material/icon-button';
-@use '../styles/colors';
+@use '@material/ripple/ripple-theme';
 
 ino-icon-button {
 
+  /**
+    * @prop --ino-icon-button-color: default color of the icon
+    * @prop --ino-icon-button-active-color: color of the icon and surface on active
+    * @prop --ino-icon-button-size: size of the entire button
+    * @prop --ino-icon-button-icon-size: size of the icon in the button
+  */
+  
+  $button-size:   var(--ino-icon-button-size, 48px);
+  $icon-size:     var(--ino-icon-button-icon-size, 24px);
+  $color:         var(--ino-icon-button-color, theme.color(primary));
+  $active-color:  var(--ino-icon-button-active-color, theme.color(primary));
+
   ino-icon {
-    --icon-color: #{colors.ino-color(primary)};
+    --icon-color:       #{$color};
+    --ino-icon-height:  #{$icon-size};
+    --ino-icon-width:   #{$icon-size};
   }
 
+  .mdc-icon-button {
+    width: $button-size;
+    height: $button-size;
+    padding: calc((#{$button-size} - #{$icon-size}) / 2);
+    font-size: $icon-size;
+
+    &::before, &::after {
+      background-color: $active-color;
+    }
+    &.mdc-ripple-upgraded--background-focused ino-icon {
+      --icon-color: #{$active-color};
+    }
+  }  
+  
   // Generate the different ino-color-schemes buttons
   @each $color-name in colors.$ino-color-schemes {
-    &[ino-color-scheme='#{$color-name}'] ino-icon {
-      --icon-color: #{colors.ino-color($color-name)};
+    &[ino-color-scheme='#{$color-name}'] {
+      --ino-icon-button-color: #{colors.color($color-name)};      
+      --ino-icon-button-active-color: #{colors.color($color-name)};
     }
   }
-
   button:disabled ino-icon {
     --icon-color: #{colors.ino-color(dark, light)};
   }

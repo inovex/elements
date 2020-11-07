@@ -428,6 +428,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation.  Makes the component **managed**.
+         */
+        "inoActivated"?: boolean;
+        /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
         "inoColorScheme"?: ColorScheme;
@@ -1937,6 +1941,10 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation.  Makes the component **managed**.
+         */
+        "inoActivated"?: boolean;
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */

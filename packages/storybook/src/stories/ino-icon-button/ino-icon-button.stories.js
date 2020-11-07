@@ -1,4 +1,4 @@
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import findElementUpwards from '../../core/helpers/findElementUpwards';
@@ -63,6 +63,14 @@ export default {
 
 export const DefaultUsage = () => /*html*/ `
     <div class="story-icon-button">
+        <style>
+        .customizable-icon-button {
+          --ino-icon-button-size: ${text('--ino-icon-button-size', '48px')};
+          --ino-icon-button-icon-size: ${text('--ino-icon-button-icon-size', '24px')};
+          --ino-icon-button-color: ${text('--ino-icon-button-color', '#000000')};
+          --ino-icon-button-active-color: ${text('--ino-icon-button-active-color', '#000000')};
+        }
+      </style>
       <div class="customizable-icon-button">
         <h4>Customizable icon button</h4>
         <ino-icon-button
@@ -73,6 +81,7 @@ export const DefaultUsage = () => /*html*/ `
             ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
             ''
           )}"
+          ino-activated="${boolean('ino-activated', false)}"
           disabled="${boolean('disabled', false)}">
         </ino-icon-button>
       </div>
@@ -98,6 +107,14 @@ export const DefaultUsage = () => /*html*/ `
         <div class="flex-child">
           <h5>Error</h5>
           <ino-icon-button ino-icon="star" ino-color-scheme="error"></ino-icon-button>
+        </div>
+      </div>
+
+      <h4>States</h4>
+      <div class="flex-parent-center">
+        <div class="flex-child">
+          <h5>Activated</h5>
+          <ino-icon-button ino-icon="time" ino-color-scheme="primary" ino-activated></ino-icon-button>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
@@ -20,6 +20,18 @@ export class IconButton implements ComponentInterface {
    * Sets the autofocus for this element.
    */
   @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
+  
+  /**
+   * Marks the icon button as activated.
+   * 
+   * Useful in cases where an external state controls the icon button activation. 
+   * Makes the component **managed**.
+   */
+  @Prop() inoActivated?: boolean;
+  @Watch('inoActivated')
+  inoActivatedChanged(activated: boolean) {
+    activated ? this.maybeCreateRipple() : this.maybeDestroyRipple();
+  }
 
   /**
    * Disables this element.
@@ -52,24 +64,28 @@ export class IconButton implements ComponentInterface {
   }
 
   componentDidLoad() {
-    const nativeElement = this.el.querySelector('.mdc-icon-button');
-    this.mdcInstance = new MDCRipple(nativeElement);
-    this.mdcInstance.unbounded = true;
+    this.maybeCreateRipple();
   }
 
   componentWillUnload() {
-    this.destroyIconButton();
+    this.maybeDestroyRipple();
   }
 
-  private destroyIconButton() {
-    if (this.mdcInstance) {
-      this.mdcInstance.destroy();
+  private maybeCreateRipple() {
+    if (!this.inoActivated) {
+      this.mdcInstance = new MDCRipple(this.el.querySelector('.mdc-icon-button'));
+      this.mdcInstance.unbounded = true;
     }
+  }
+
+  private maybeDestroyRipple() {
+    this.mdcInstance?.destroy();
   }
 
   render() {
     const iconButtonClasses = classNames({
-      'mdc-icon-button': true
+      'mdc-icon-button': true,
+      'mdc-ripple-upgraded--background-focused': this.inoActivated
     });
 
     return (
