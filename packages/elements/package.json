@@ -42,7 +42,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
-    "clean": "rm -rf dist",
+    "clean": "shx rm -rf dist",
     "dev": "stencil build --docs --watch --legacy",
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
@@ -98,6 +98,7 @@
     "jest": "26.4.2",
     "jest-cli": "26.4.2",
     "puppeteer": "^5.3.1",
+    "shx": "^0.3.2",
     "tslint": "^6.1.1",
     "tslint-ionic-rules": "0.0.21",
     "tslint-react": "^4.2.0"
