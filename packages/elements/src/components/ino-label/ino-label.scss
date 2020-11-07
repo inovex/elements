@@ -1,7 +1,7 @@
-@use '../styles/mdc-customize';
+@use 'styles/mdc-customize';
+@use 'styles/colors';
 @use '@material/floating-label/mdc-floating-label';
 
-$label-color: rgba(0, 0, 0, 0.6);
 
 ino-label {
 
@@ -13,7 +13,6 @@ ino-label {
     &:not([ino-required]) .mdc-floating-label:after {
       content: ' - Optional' + '\a0';
       font-style: italic;
-      color: lighten($label-color, 30);
     }
   }
 
@@ -29,9 +28,5 @@ ino-label {
     ino-input &:not(.mdc-floating-label--float-above) {
       top: 70%;
     }
-  }
-
-  &:not([ino-disabled]) .mdc-floating-label:not(.mdc-floating-label--float-above) {
-    color: $label-color;
   }
 }

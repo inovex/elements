@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-label',
@@ -6,6 +7,11 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: false
 })
 export class Label {
+  /**
+   * Marks the label as floated above.
+   */
+  @Prop() inoFloatAbove: boolean;
+
   /**
    * Styles the label in an outlined style
    */
@@ -33,8 +39,13 @@ export class Label {
   @Prop() inoDisabled: boolean;
 
   render() {
+    const classLabel = classNames({
+      'mdc-floating-label': true,
+      'mdc-floating-label--float-above': this.inoFloatAbove
+    });
+
     const label = this.inoText ? (
-      <label class={'mdc-floating-label'}>{this.inoText}</label>
+      <label class={classLabel}>{this.inoText}</label>
     ) : (
       ''
     );

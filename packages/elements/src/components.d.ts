@@ -314,6 +314,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
@@ -598,6 +602,10 @@ export namespace Components {
          */
         "placeholder"?: string;
         /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
@@ -653,6 +661,10 @@ export namespace Components {
           * Colors the label in an light grey to indicate the disabled status for this element
          */
         "inoDisabled": boolean;
+        /**
+          * Marks the label as floated above.
+         */
+        "inoFloatAbove": boolean;
         /**
           * Styles the label in an outlined style
          */
@@ -1816,6 +1828,10 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
@@ -2117,6 +2133,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
@@ -2179,6 +2199,10 @@ declare namespace LocalJSX {
           * Colors the label in an light grey to indicate the disabled status for this element
          */
         "inoDisabled"?: boolean;
+        /**
+          * Marks the label as floated above.
+         */
+        "inoFloatAbove"?: boolean;
         /**
           * Styles the label in an outlined style
          */

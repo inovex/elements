@@ -28,6 +28,7 @@ document
   pattern="<string>"
   placeholder="<string>"
   required
+  readonly
   size="<number>"
   type="<string>"
   value="<string>"
@@ -162,6 +163,7 @@ The component is based on a native input with additional features. Thus, the com
 | `name`                      | `name`                         | The name of this element.                                                                                                                                                                                                                                 | `string`          | `undefined` |
 | `pattern`                   | `pattern`                      | The validation pattern of this element.                                                                                                                                                                                                                   | `string`          | `undefined` |
 | `placeholder`               | `placeholder`                  | The placeholder of this element.                                                                                                                                                                                                                          | `string`          | `undefined` |
+| `readonly`                  | `readonly`                     | Marks this element as readonly.                                                                                                                                                                                                                           | `boolean`         | `undefined` |
 | `required`                  | `required`                     | Marks this element as required.                                                                                                                                                                                                                           | `boolean`         | `undefined` |
 | `size`                      | `size`                         | The size of this element.                                                                                                                                                                                                                                 | `number`          | `undefined` |
 | `step`                      | `step`                         | The step value of this element. Use `any` for decimal numbers                                                                                                                                                                                             | `"any" \| number` | `1`         |
@@ -193,12 +195,13 @@ Type: `Promise<HTMLInputElement>`
 
 ## CSS Custom Properties
 
-| Name                      | Description        |
-| ------------------------- | ------------------ |
-| `--ino-input-caret-color` | color of the caret |
-| `--ino-input-icon-color`  | icon color         |
-| `--ino-input-label-color` | color of the label |
-| `--ino-input-line-color`  | line color         |
+| Name                              | Description        |
+| --------------------------------- | ------------------ |
+| `--ino-input-caret-color`         | color of the caret |
+| `--ino-input-icon-color`          | icon color         |
+| `--ino-input-label-color`         | color of the label |
+| `--ino-input-label-floated-color` | color of the label |
+| `--ino-input-line-color`          | line color         |
 
 
 ## Dependencies

@@ -4,6 +4,7 @@
 @use '@material/textfield/icon';
 @use '@material/textfield/helper-text';
 @use '@material/floating-label/mdc-floating-label';
+@use "@material/floating-label/mixins" as floating-label-mixins;
 @use '@material/notched-outline/mdc-notched-outline';
 @use '../styles/colors';
 @use '../styles/fonts';
@@ -30,11 +31,14 @@ ino-input {
   /**
    * @prop --ino-input-caret-color: color of the caret
    * @prop --ino-input-label-color: color of the label
+   * @prop --ino-input-label-floated-color: color of the label
    * @prop --ino-input-line-color: line color
    * @prop --ino-input-icon-color: icon color
    */
+
   --input-caret-color: var(--ino-input-caret-color, #{colors.ino-color(primary)});
-  --input-label-color: var(--ino-input-label-color, #{colors.ino-color(primary)});
+  --input-label-color: var(--ino-input-label-color, rgba(0,0,0,0.6));
+  --input-label-floated-color: var(--ino-input-floated-label-color, #{colors.ino-color(primary)});
   --input-line-color: var(--ino-input-line-color, #{colors.ino-color(primary)});
   --input-icon-color: var(--ino-input-icon-color, #{colors.ino-color(primary)});
 }
@@ -65,10 +69,12 @@ ino-input {
       --icon-color: #{$placeholder-color};
     }
 
-    &--focused:not(.mdc-text-field--invalid) {
-      @include textfield.label-color(var(--input-label-color));
-      @include textfield.caret-color(var(--input-caret-color));
+    &:not(.mdc-text-field--invalid) {
       @include textfield.line-ripple-color(var(--input-line-color));
+    }
+
+    &--focused:not(.mdc-text-field--invalid) {
+      @include textfield.caret-color(var(--input-caret-color));
 
       ino-icon {
         --icon-color: var(--input-icon-color);
@@ -105,6 +111,21 @@ ino-input {
       &:not([class*='--with-leading-icon']) {
         padding-left: 0;
         padding-right: 0;
+      }
+      
+      // Read-Only Texfield
+      &.ino-input--readonly:not(.mdc-text-field--disabled) {
+        .mdc-line-ripple {
+          &::before, &::after {
+            border-bottom-color: colors.ino-color(light);
+            border-bottom-style: dashed !important;
+          }
+          // After => Active
+          &::after {
+            border-bottom-width: 1px;
+            border-bottom-color: colors.ino-color(dark);
+          }
+        }
       }
 
       &[class*='--with-leading-icon'] {
@@ -149,6 +170,23 @@ ino-input {
 
     .mdc-text-field__affix.mdc-text-field__affix--suffix {
       margin-right: 12px;
+    }
+  }
+
+
+  // Label
+
+  .mdc-text-field:not(.mdc-text-field--disabled) {
+    // Default + Float above State
+    .mdc-floating-label {
+      @include floating-label-mixins.ink-color(var(--input-label-color));
+      &.mdc-floating-label--float-above {
+        @include floating-label-mixins.ink-color(var(--input-label-floated-color));
+      }
+    }
+    // Validation State
+    &.mdc-text-field--invalid .mdc-floating-label {
+      @include floating-label-mixins.ink-color(colors.ino-color(error));
     }
   }
 

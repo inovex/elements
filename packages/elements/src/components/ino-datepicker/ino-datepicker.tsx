@@ -40,6 +40,11 @@ export class Datepicker implements ComponentInterface {
   @Prop() name?: string;
 
   /**
+   * Marks this element as readonly.
+   */
+  @Prop() readonly?: boolean;
+
+  /**
    * Marks this element as required.
    */
   @Prop() required?: boolean;
@@ -214,6 +219,10 @@ export class Datepicker implements ComponentInterface {
     const tagName = target.tagName;
 
     if (!tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+      return;
+    }
+
+    if (this.disabled || this.readonly) {
       return;
     }
 
@@ -397,13 +406,14 @@ export class Datepicker implements ComponentInterface {
           value={this.value}
           ino-helper={this.inoHelper}
           ino-outline={this.inoOutline}
+          readonly={this.readonly}
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
           onValueChange={e => this.valueChange.emit(e.detail)}
         >
           <ino-icon
-            ino-clickable={!this.disabled}
+            ino-clickable={!(this.disabled || this.readonly)}
             slot={'ino-icon-leading'}
             ino-icon={this.isTimePicker() ? 'time' : 'calendar'}
           >
