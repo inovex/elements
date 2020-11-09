@@ -30,7 +30,7 @@ describe('InoRange', () => {
     it('should set the min and max value of the range component', async () => {
       const page = await setupPageWithContent(INO_RANGE);
       const inoRange = await page.find(INO_RANGE_SELECTOR);
-      const mdcSlider = await page.find(MDC_SELECTOR);
+      const mdcSlider = await page.find('.mdc-slider__thumb');
 
       await inoRange.setAttribute('min', 20);
       await inoRange.setAttribute('max', 400);

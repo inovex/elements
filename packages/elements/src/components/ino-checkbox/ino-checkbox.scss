@@ -27,33 +27,19 @@
 }
 
 :host {
+  --mdc-checkbox-unchecked-color: var(--checkbox-container-color-unchecked);
+  --mdc-checkbox-checked-color: var(--checkbox-color);
+  --mdc-checkbox-disabled-color: var(--checkbox-background-color-disabled);
+  --mdc-checkbox-ink-color: var(--checkbox-checkmark-color);
+  
   .mdc-checkbox {
-    @include checkbox.container-colors(var(--checkbox-container-color-unchecked), #fff, var(--checkbox-color), var(--checkbox-color));
-    @include checkbox.ink-color(var(--checkbox-checkmark-color));
-
     &:before, &:after {
       display: none; // Remove ripple effect
     }
   }
 
   .mdc-checkbox--disabled {
-
-    .mdc-checkbox__background .mdc-checkbox__checkmark {
-      color: var(--checkbox-checkmark-color-disabled);
-    }
-
-    .mdc-checkbox__background .mdc-checkbox__mixedmark {
-      border-color: var(--checkbox-checkmark-color-disabled);
-    }
-
-    .mdc-checkbox__native-control[disabled] {
-      &:checked ~ .mdc-checkbox__background,
-      &:indeterminate ~ .mdc-checkbox__background,
-      &:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
-        background-color: var(--checkbox-background-color-disabled);
-        border-color: var(--checkbox-background-color-disabled);
-      }
-    }
+    --mdc-checkbox-ink-color: var(--checkbox-checkmark-color-disabled);
   }
 
   .mdc-checkbox--disabled ~ label {
@@ -64,18 +50,18 @@
 
 :host(:hover) {
   .mdc-checkbox:not(.mdc-checkbox--disabled) {
-    @include checkbox.container-colors(var(--checkbox-color-hover), #fff, var(--checkbox-color-hover), var(--checkbox-color-hover));
+    --mdc-checkbox-unchecked-color: var(--checkbox-color-hover);
+    --mdc-checkbox-checked-color: var(--checkbox-color-hover);
 
     .mdc-checkbox__background {
       box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
-
     }
-
   }
 }
 
 :host(:active) .mdc-checkbox:not(.checked), :host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
-  @include checkbox.container-colors(var(--checkbox-color-active), #fff, var(--checkbox-color-active), var(--checkbox-color-active));
+  --mdc-checkbox-unchecked-color: var(--checkbox-color-active);
+  --mdc-checkbox-checked-color: var(--checkbox-color-active);
 }
 
 // ino-selection

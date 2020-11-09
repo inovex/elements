@@ -1,5 +1,6 @@
 import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
 import { MDCLinearProgress } from '@material/linear-progress/component';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-progress-bar',
@@ -70,17 +71,24 @@ export class InoProgressBar implements ComponentInterface{
   };
 
   render() {
+    const progressBarClasses = classNames({
+      'mdc-linear-progress': true,
+      'mdc-linear-progress--reversed': this.inoReversed
+    });
+
     return (
       <Host>
         <div
           role="progressbar"
-          class="mdc-linear-progress"
+          class={progressBarClasses}
           aria-label={this.inoLabel}
           aria-valuemin="0"
           aria-valuemax="1"
         >
-          <div class="mdc-linear-progress__buffer"></div>
-          <div class="mdc-linear-progress__buffering-dots"></div>
+          <div class="mdc-linear-progress__buffer">
+            <div class="mdc-linear-progress__buffer-bar"></div>
+            <div class="mdc-linear-progress__buffer-dots"></div>
+          </div>
           <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
             <span class="mdc-linear-progress__bar-inner"></span>
           </div>

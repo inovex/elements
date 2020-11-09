@@ -163,6 +163,10 @@ $color-states: (
         0.3s
     );
 
+    .mdc-button__label {
+      line-height: 1rem;
+    }
+    
     .mdc-button__icon {
       display: flex;
     }
