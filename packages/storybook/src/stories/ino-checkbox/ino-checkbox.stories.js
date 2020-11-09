@@ -73,6 +73,8 @@ export const DefaultUsage = () => /*html*/ `
   <div class="story-selection-states">
        <ino-checkbox ino-selection checked>Checked</ino-checkbox>
        <ino-checkbox ino-selection>Unchecked</ino-checkbox>
+       <ino-checkbox ino-selection indeterminate>Indeterminate</ino-checkbox>
+       <ino-checkbox ino-selection indeterminate disabled>Indeterminate Disabled</ino-checkbox>
        <ino-checkbox checked ino-selection disabled>Checked and disabled</ino-checkbox>
        <ino-checkbox ino-selection disabled>Unchecked and disabled</ino-checkbox>
   </div>
