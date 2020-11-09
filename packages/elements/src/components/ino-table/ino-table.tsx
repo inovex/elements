@@ -3,7 +3,7 @@ import { Component, ComponentInterface, Element, Host, h } from '@stencil/core';
 @Component({
   tag: 'ino-table',
   styleUrl: 'ino-table.scss',
-  shadow: true
+  shadow: false
 })
 export class InoTable implements ComponentInterface {
 
