@@ -14,11 +14,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "clean": "rm -rf dist",
+    "clean": "shx rm -rf dist",
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc"
+		"preinstall": "node ./preinstall.js",
+    "postinstall": "ngcc && node ./postinstall.js"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +55,7 @@
     "karma-jasmine-html-reporter": "^1.4.0",
     "ng-packagr": "^10.1.2",
     "protractor": "~5.4.0",
+    "shx": "^0.3.2",
     "ts-node": "~7.0.0",
     "tsickle": "^0.39.1",
     "tslint": "~5.15.0",

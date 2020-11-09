@@ -3,24 +3,23 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "scripts": {
     "build": "lerna run build",
-    "publish:react": "./scripts/publishReact.sh",
-    "publish:angular": "./scripts/publishAngular.sh",
     "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
-    "changelog:pkgs": "lerna exec --concurrency 1 --stream -- 'standard-version'",
+    "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
     "test": "lerna run test",
     "test:update": "lerna run test:update",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
     "clean:packages": "lerna clean --yes",
     "clean:artifacts": "lerna run clean --parallel",
-    "clean:root": "rm -rf node_modules",
+    "clean:root": "shx rm -rf node_modules",
     "update:commit-scopes": "node scripts/generateCommitScopeEnum.js",
     "lint": "lerna run lint",
     "lerna:version": "lerna version --conventional-commits --no-changelog",
     "preversion": "yarn build && yarn test",
     "version": "node scripts/bumprootversion.js && yarn changelog",
-    "postversion": "git add -A"
+    "postversion": "git add -A",
+    "publish:yalc": "node ./scripts/publishYalc.js"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -30,6 +29,9 @@
     "js-yaml": "^3.14.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
+    "prompts": "^2.4.0",
+    "shelljs": "^0.8.4",
+    "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "yalc": "^1.0.0-pre.32"
   },
