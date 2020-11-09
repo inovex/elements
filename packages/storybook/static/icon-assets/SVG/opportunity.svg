@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/opportunity/blue</title>
+    <g id="elements-library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="00.16-icons" transform="translate(-160.000000, -2068.000000)" stroke="#0D10F3" stroke-width="1.5">
+            <g id="Group" transform="translate(158.000000, 2064.000000)">
+                <g id="Group-2" transform="translate(2.000000, 4.000000)">
+                    <polyline id="Path" transform="translate(17.128736, 3.571429) rotate(-270.000000) translate(-17.128736, -3.571429) " points="14.2715934 5.71428571 17.1287363 1.42857143 19.9858791 5.71428571"></polyline>
+                    <polyline id="Path" transform="translate(12.843022, 11.825397) rotate(-270.000000) translate(-12.843022, -11.825397) " points="9.98587913 13.968254 12.843022 9.68253968 15.7001648 13.968254"></polyline>
+                    <line x1="12.7579365" y1="3.57142857" x2="18" y2="3.57142857" id="Path-8"></line>
+                    <line x1="5.02645503" y1="11.8253968" x2="13" y2="11.8253968" id="Path-8"></line>
+                    <line x1="5" y1="3.57142857" x2="9.48689666" y2="3.57142857" id="Path-8"></line>
+                    <line x1="0.714285714" y1="3.57142857" x2="2.14285714" y2="3.57142857" id="Path-8"></line>
+                    <line x1="0.714285714" y1="11.8253968" x2="2.14285714" y2="11.8253968" id="Path-8"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
