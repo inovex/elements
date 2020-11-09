@@ -44,6 +44,10 @@ ino-input {
   display: block;
   @include icon.icon-core-styles;
 
+  & * {
+    box-sizing: initial;
+  }
+
 
   & > .ino-input__composer {
     text-align: left;
