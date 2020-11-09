@@ -2,7 +2,7 @@ import { MDCRipple } from '@material/ripple';
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ColorScheme } from '../types';
+import { ColorScheme, ButtonType } from '../types';
 
 @Component({
   tag: 'ino-icon-button',
@@ -20,8 +20,13 @@ export class IconButton implements ComponentInterface {
    * Sets the autofocus for this element.
    */
   @Prop({ attribute: 'autofocus' }) autoFocus?: boolean;
-  
+
   /**
+   * Disables this element.
+   */
+  @Prop() disabled?: boolean;
+
+    /**
    * Marks the icon button as activated.
    * 
    * Useful in cases where an external state controls the icon button activation. 
@@ -34,9 +39,18 @@ export class IconButton implements ComponentInterface {
   }
 
   /**
-   * Disables this element.
+   * The name of the color scheme which is used
+   * to style the background and outline of this component.
+   * Possible values: `primary` (default),  `secondary`,
+   * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() disabled?: boolean;
+  @Prop() inoColorScheme?: ColorScheme = 'primary';
+
+  /**
+   * Styles this element as filled icon button 
+   * with the `ino-color-scheme` as background color.
+   */
+  @Prop() inoFilled?: boolean;
 
   /**
    * The name of the icon of this element.
@@ -44,12 +58,12 @@ export class IconButton implements ComponentInterface {
   @Prop() inoIcon?: string;
 
   /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
+   * The type of this form.
+   *
+   * Can either be `button`, `submit` or `reset`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() type?: ButtonType = 'button';
+
 
   @Event() clickEl: EventEmitter;
 
@@ -94,6 +108,7 @@ export class IconButton implements ComponentInterface {
           autoFocus={this.autoFocus}
           class={iconButtonClasses}
           disabled={this.disabled}
+          type={this.type}
         >
           <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
         </button>

@@ -436,9 +436,17 @@ export namespace Components {
          */
         "inoColorScheme"?: ColorScheme;
         /**
+          * Styles this element as filled icon button  with the `ino-color-scheme` as background color.
+         */
+        "inoFilled"?: boolean;
+        /**
           * The name of the icon of this element.
          */
         "inoIcon"?: string;
+        /**
+          * The type of this form.  Can either be `button`, `submit` or `reset`.
+         */
+        "type"?: ButtonType;
     }
     interface InoImg {
         /**
@@ -1950,10 +1958,18 @@ declare namespace LocalJSX {
          */
         "inoColorScheme"?: ColorScheme;
         /**
+          * Styles this element as filled icon button  with the `ino-color-scheme` as background color.
+         */
+        "inoFilled"?: boolean;
+        /**
           * The name of the icon of this element.
          */
         "inoIcon"?: string;
         "onClickEl"?: (event: CustomEvent<any>) => void;
+        /**
+          * The type of this form.  Can either be `button`, `submit` or `reset`.
+         */
+        "type"?: ButtonType;
     }
     interface InoImg {
         /**
