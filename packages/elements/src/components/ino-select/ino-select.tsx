@@ -22,7 +22,6 @@ import classNames from 'classnames';
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance: MDCSelect;
-  private mdcMenuSurfaceInstance: MDCMenuSurface;
   private nativeInputElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
@@ -74,47 +73,27 @@ export class Select implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
-    this.mdcSelectInstance = new MDCSelect(this.el.querySelector('.mdc-select'));
+    this.mdcSelectInstance = new MDCSelect(
+      this.el.querySelector('.mdc-select')
+    );
 
     if (this.value) {
       this.setSelectValue(this.value);
     } else if (this.mdcSelectInstance.value) {
       this.value = this.mdcSelectInstance.value;
     }
-
-    this.mdcMenuSurfaceInstance = new MDCMenuSurface(this.el.querySelector('.mdc-menu-surface'));
-    this.mdcMenuSurfaceInstance.listen('MDCMenuSurface:opened', this.positionOpenedMenu);
   }
 
   componentWillUnLoad() {
-    this.mdcMenuSurfaceInstance.unlisten('MDCMenuSurface:opened', this.positionOpenedMenu);
-
     this.mdcSelectInstance.destroy();
-    this.mdcMenuSurfaceInstance.destroy();
   }
-
-  positionOpenedMenu = () => {
-    const { bottom, top, left } = this.el.getBoundingClientRect();
-    const menu = this.el.querySelector('.mdc-menu') as HTMLDivElement;
-    const menuHeight = Number(getComputedStyle(menu).height.slice(0, -2)); // Height of open menu without 'px' suffix
-
-    const shouldMenuOpenUpwards = (menuHeight + bottom) > window.innerHeight; // Check if the opened menu would overflow when aligned downwards
-    const verticalPositionInPx = shouldMenuOpenUpwards ?
-      top - menuHeight // position so that the lowest option intersects the top side of the select field
-      :
-      bottom; // position at the bottom side of the select field
-
-    menu.style.setProperty('--ino-vertical-alignment', `${verticalPositionInPx}px`);
-    menu.style.setProperty('--ino-horizontal-alignment', `${left}px`);
-    menu.style.width = `${this.el.clientWidth}px`;
-  };
 
   private setSelectValue(value: string) {
     if (this.nativeInputElement) {
       this.nativeInputElement.value = value;
     }
     this.mdcSelectInstance.value = value;
-    }
+  }
 
   @Listen('MDCSelect:change')
   handleInput(e) {
@@ -127,24 +106,19 @@ export class Select implements ComponentInterface {
 
   renderDropdownIcon = () => (
     <span class="mdc-select__dropdown-icon">
-      <svg
-        class="mdc-select__dropdown-icon-graphic"
-        viewBox="7 10 10 5"
-      >
+      <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
         <polygon
           class="mdc-select__dropdown-icon-inactive"
           stroke="none"
           fill-rule="evenodd"
           points="7 10 12 15 17 10"
-        >
-        </polygon>
+        ></polygon>
         <polygon
           class="mdc-select__dropdown-icon-active"
           stroke="none"
           fill-rule="evenodd"
           points="7 15 12 10 17 15"
-        >
-        </polygon>
+        ></polygon>
       </svg>
     </span>
   );
@@ -159,7 +133,10 @@ export class Select implements ComponentInterface {
     });
 
     const hiddenInput = this.required ? (
-      <input ref={el => (this.nativeInputElement = el)} required={this.required}></input>
+      <input
+        ref={el => (this.nativeInputElement = el)}
+        required={this.required}
+      ></input>
     ) : (
       ''
     );
@@ -184,7 +161,7 @@ export class Select implements ComponentInterface {
 
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul class="mdc-list">
-              <slot/>
+              <slot />
             </ul>
           </div>
         </div>
