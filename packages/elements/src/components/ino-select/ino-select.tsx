@@ -1,4 +1,3 @@
-import { MDCMenuSurface } from '@material/menu-surface/component';
 import { MDCSelect } from '@material/select';
 import {
   Component,
@@ -112,13 +111,15 @@ export class Select implements ComponentInterface {
           stroke="none"
           fill-rule="evenodd"
           points="7 10 12 15 17 10"
-        ></polygon>
+        >
+        </polygon>
         <polygon
           class="mdc-select__dropdown-icon-active"
           stroke="none"
           fill-rule="evenodd"
           points="7 15 12 10 17 15"
-        ></polygon>
+        >
+        </polygon>
       </svg>
     </span>
   );
@@ -136,7 +137,8 @@ export class Select implements ComponentInterface {
       <input
         ref={el => (this.nativeInputElement = el)}
         required={this.required}
-      ></input>
+      >
+      </input>
     ) : (
       ''
     );
