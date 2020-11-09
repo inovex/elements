@@ -1,16 +1,13 @@
+import { NgModule, ModuleWithProviders, APP_INITIALIZER, NgZone } from '@angular/core';
+import { DOCUMENT, CommonModule } from '@angular/common';
+
 import { DIRECTIVES } from './directives/proxies-list';
-import { NgModule } from '@angular/core';
 import { BooleanValueAccessorDirective } from './directives/control-value-accesors/boolean-value-accessor.directive';
 import { FsValueAccessorDirective } from './directives/control-value-accesors/fs-value-accessor.directive';
 import { InoRadioValueAccessorDirective } from './directives/control-value-accesors/ino-radio-value-accessor.directive';
 import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
 
-import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
-import { defineCustomElements } from '@inovex.de/elements/dist/loader';
-
-defineCustomElements(window);
-addIcons(ICON_PATHS);
+import { appInitialize } from './app-initialize';
 
 @NgModule({
   declarations: [
@@ -21,6 +18,7 @@ addIcons(ICON_PATHS);
     TextValueAccessorDirective
   ],
   imports: [
+    CommonModule
   ],
   exports: [
     ...DIRECTIVES,
@@ -30,4 +28,23 @@ addIcons(ICON_PATHS);
     TextValueAccessorDirective
   ]
 })
-export class InoElementsModule { }
+export class InoElementsModule {
+
+    static forRoot(): ModuleWithProviders<InoElementsModule> {
+        return {
+          ngModule: InoElementsModule,
+          providers: [
+            {
+              provide: APP_INITIALIZER,
+              useFactory: appInitialize,
+              multi: true,
+              deps: [
+                DOCUMENT,
+                NgZone
+              ]
+            }
+          ]
+        };
+      }
+
+ }

@@ -1,10 +1,12 @@
-@use '@material/data-table';
+@use '../styles/mdc-customize';
+@use '@material/data-table/data-table';
+
+@include data-table.core-styles;
+@include data-table.theme-baseline;
 
 ino-table-cell {
   display: table-cell;
   vertical-align: middle;
-
-  @include data-table.core-styles;
 
   &.ino-table__header-cell {
     font-weight: bold;

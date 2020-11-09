@@ -1,7 +1,8 @@
+@use '../styles/mdc-customize';
 @use '@material/fab/mdc-fab';
 @use '@material/fab';
-@use 'styles/colors';
-@use 'styles/mixins';
+@use '../styles/colors';
+@use '../styles/mixins';
 
 $edge-positions: top-left, top-right, bottom-right, bottom-left;
 
@@ -45,13 +46,13 @@ $extended-edged-borders: (
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(--ino-fab-background-color, #{colors.$primary});
-  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{colors.$primary-light});
-  --fab-background-color-active: var(--ino-fab-background-color-active, #{colors.$primary-dark});
-  --fab-icon-color: var(--ino-fab-icon-color, white);
-  --fab-color-disabled: var(--ino-fab-color-disabled, white);
+  --fab-background-color: var(--ino-fab-background-color, #{colors.ino-color(primary)});
+  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{colors.ino-color(primary, light)});
+  --fab-background-color-active: var(--ino-fab-background-color-active, #{colors.ino-color(primary, dark)});
+  --fab-icon-color: var(--ino-fab-icon-color, colors.ino-color(primary, contrast));
+  --fab-color-disabled: var(--ino-fab-color-disabled, colors.ino-color(primary, contrast));
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{colors.ino-color(dark, light)});
-  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, white);
+  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, colors.ino-color(primary, contrast));
 }
 
 // Default Edge

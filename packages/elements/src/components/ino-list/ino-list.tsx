@@ -41,7 +41,7 @@ export class List implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.listInstance.destroy();
+    this.listInstance?.destroy();
   }
 
   render() {

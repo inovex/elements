@@ -1,4 +1,5 @@
-@use '@material/textfield/mdc-text-field';
+@use '../styles/mdc-customize';
+@use '@material/floating-label/mdc-floating-label';
 
 $label-color: rgba(0, 0, 0, 0.6);
 

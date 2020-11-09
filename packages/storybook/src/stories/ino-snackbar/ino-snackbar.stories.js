@@ -46,13 +46,29 @@ export const DefaultUsage = () => /*html*/ `
     <div class="story-message-box">
       <div class="flex-parent-center">
           <h4>Customizable Snackbar</h4>
+          <style>
+            ino-snackbar.customizable-snackbar {
+              --ino-snackbar-warning-border-color: ${text(
+                '--ino-snackbar-warning-border-color',
+                '#ffde03',
+                'Custom Properties'
+              )};
+              --ino-snackbar-error-border-color: ${text(
+                '--ino-snackbar-error-border-color',
+                '#eb003b',
+                'Custom Properties'
+              )};
+            }
+          </style>
           <ino-button id="snackbar-temp">Show Snackbar</ino-button>
           <template id="snackbar-temp">
             <ino-snackbar
+                class="customizable-snackbar"
                 id="custom-snackbar"
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
                 ino-timeout="${number('ino-timeout', 5000)}"
+                ino-type="${select('ino-type', ['primary', 'error', 'warning'], 'primary')}"
                 ino-alignment="${select(
                   'ino-alignment',
                   ['center', 'leading', 'trailing'],
@@ -74,6 +90,23 @@ export const DefaultUsage = () => /*html*/ `
             <ino-snackbar
                 ino-message="${sampleText}"
                 ino-alignment="right" />
+          </template>
+        </div>
+        <h4>Snackbar Types</h4>
+        <div class="snackbar-variants">
+          <ino-button id="snackbar--warning">Show Snackbar (warning)</ino-button>
+          <template id="snackbar--warning">
+            <ino-snackbar
+                ino-message="${sampleText}"
+                ino-action-text="Action"
+                ino-type="warning"/>
+          </template>
+          <ino-button id="snackbar--error">Show Snackbar (error)</ino-button>
+          <template id="snackbar--error">
+            <ino-snackbar
+                ino-message="${sampleText}"
+                ino-action-text="Action"
+                ino-type="error" />
           </template>
         </div>
         <h4>Alignments</h4>

@@ -1,9 +1,10 @@
-@use "@material/list/mdc-list";
-@use "@material/menu-surface/mdc-menu-surface";
-@use "@material/menu/mdc-menu";
-@use "@material/select/mdc-select";
-@use "@material/select";
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '@material/list/mdc-list';
+@use '@material/menu-surface/mdc-menu-surface';
+@use '@material/menu/mdc-menu';
+@use '@material/select/mdc-select';
+@use '@material/select';
+@use '../styles/colors';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 
@@ -33,24 +34,17 @@ ino-select {
 
   .mdc-select {
     @include select.container-fill-color(transparent);
-    @include select.focused-label-color(colors.$primary);
-    @include select.focused-bottom-line-color(colors.$primary);
-    @include select.focused-outline-color(colors.$primary);
+    @include select.focused-label-color(colors.ino-color(primary));
+    @include select.focused-bottom-line-color(colors.ino-color(primary));
+    @include select.focused-outline-color(colors.ino-color(primary));
+    @include select.disabled-container-fill-color(transparent);
 
-    &--focused .mdc-select__dropdown-icon {
-      @include select.dd-arrow-svg-bg_(colors.$primary, 1);
+    &--focused .mdc-select__anchor {
+      @include select.dropdown-icon-color(colors.ino-color(primary));
     }
 
     .mdc-select__anchor:before {
       display: none;
-    }
-
-    &--disabled .mdc-select__anchor {
-      background-color: transparent;
-    }
-
-    .mdc-floating-label {
-      top: 28px;
     }
   }
 
@@ -59,13 +53,36 @@ ino-select {
   }
 
   .mdc-select__selected-text {
-    padding-left: 0;
-    padding-top: 22px;
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
-  .mdc-floating-label.mdc-floating-label--float-above {
-    top: 18px;
+  .mdc-select--filled {
+
+    .mdc-select__anchor {
+      padding-left: 0;
+    }
+
+    .mdc-select__selected-text {
+      margin-top: 24px;
+    }
+
+    .mdc-floating-label {
+      top: 36px;
+    }
+
+    .mdc-floating-label.mdc-floating-label--float-above {
+      top: 25px;
+    }
+  }
+
+  .mdc-select--outlined {
+    .mdc-select__selected-text {
+      margin-top: 16px;
+    }
+
+    .mdc-floating-label.mdc-floating-label--float-above {
+      top: 28px;
+    }
   }
 }

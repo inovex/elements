@@ -22,7 +22,6 @@ document
   ino-image="<string>"
   ino-aspect-ratio="<string>"
   ino-media-title
-  ino-color-scheme
   onClick="handleClick()"
 >
   <div slot="content"><!-- Any content --></div>
@@ -96,9 +95,10 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property      | Attribute      | Description                                                        | Type      | Default |
-| ------------- | -------------- | ------------------------------------------------------------------ | --------- | ------- |
-| `inoSelected` | `ino-selected` | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
+| Property              | Attribute               | Description                                                        | Type      | Default |
+| --------------------- | ----------------------- | ------------------------------------------------------------------ | --------- | ------- |
+| `inoDisableElevation` | `ino-disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
+| `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
 
 ## CSS Custom Properties

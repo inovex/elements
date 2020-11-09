@@ -44,6 +44,7 @@ export default [
 	'phone',
 	'print',
 	'question',
+	'refresh',
 	'remove',
 	'report',
 	'search',

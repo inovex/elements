@@ -89,7 +89,7 @@ export class Range implements ComponentInterface {
   }
 
   handleInput(e) {
-    const value = e.detail.foundation_.value_;
+    const value = e.detail.foundation.value_;
     this.sliderInstance.value = value;
     this.valueChange.emit(value);
     e.stopPropagation();

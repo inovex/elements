@@ -1,7 +1,15 @@
+@use '../styles/mdc-customize';
 @use '@material/snackbar/mdc-snackbar';
-@use 'styles/fonts';
-@use 'styles/colors';
-@use 'styles/mixins';
+@use '../styles/fonts';
+@use '../styles/colors';
+@use '../styles/mixins';
+
+$snackbar-types: "error", "warning";
+
+ino-snackbar {
+  --snackbar-warning-border-color: var(--ino-snackbar-warning-border-color, #{colors.ino-color(warning)});
+  --snackbar-error-border-color: var(--ino-snackbar-error-border-color, #{colors.ino-color(error)});
+}
 
 ino-snackbar {
 
@@ -10,7 +18,7 @@ ino-snackbar {
   }
 
   .mdc-snackbar__surface {
-    background-color: colors.$primary-contrast;
+    background-color: colors.ino-color(primary, contrast);
     padding: 16px;
     display: flex;
     align-items: stretch;
@@ -46,7 +54,7 @@ ino-snackbar {
   &:not([ino-action-text]), &[ino-action-text=""] {
 
     .mdc-snackbar__surface {
-      background-color: lighten(colors.$primary-light, 5%);
+      background-color: lighten(colors.ino-color(primary, light), 5%);
 
       .mdc-snackbar__label {
         color: white;
@@ -57,4 +65,16 @@ ino-snackbar {
       }
     }
   }
+}
+
+@each $type in $snackbar-types {
+  ino-snackbar[ino-type="#{$type}"] {
+    .mdc-snackbar__surface {
+      border: 2px solid var(--snackbar-#{$type}-border-color);
+    }
+  }
+}
+
+ino-snackbar[ino-type="primary"] .mdc-snackbar__surface {
+  border: none;
 }

@@ -1,4 +1,5 @@
-@use "@material/image-list/mdc-image-list";
+@use '../styles/mdc-customize';
+@use '@material/image-list/mdc-image-list';
 
 ino-img {
   &:not(.mdc-image-list__item) {

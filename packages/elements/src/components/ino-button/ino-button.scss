@@ -1,3 +1,4 @@
+@use '../styles/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
 @use '../styles/colors';
@@ -148,7 +149,8 @@ $color-states: (
     @include button.disabled-container-fill-color(var(--button-background-disabled));
     @include button.disabled-ink-color(var(--button-color-disabled));
     @include button.ink-color(var(--button-color));
-    @include button.shape-radius(var(--button-border-radius));
+
+    border-radius: var(--button-border-radius);
 
     border-color: var(--button-border-color);
     box-shadow: var(--button-box-shadow);

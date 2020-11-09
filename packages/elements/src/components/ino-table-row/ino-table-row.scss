@@ -1,16 +1,18 @@
-@use '@material/data-table';
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '@material/data-table/data-table';
+@use '../styles/colors';
+
+@include data-table.core-styles;
+@include data-table.theme-baseline;
 
 ino-table-row {
   display: table-row;
 
-  @include data-table.core-styles;
-
   &.mdc-data-table__row--selected {
-    background-color: rgba(colors.$primary, 0.12);
+    background-color: rgba(colors.ino-color(primary), 0.12);
 
     &:hover {
-      background-color: rgba(colors.$primary-light, 0.08);
+      background-color: rgba(colors.ino-color(primary), 0.08);
     }
   }
 }

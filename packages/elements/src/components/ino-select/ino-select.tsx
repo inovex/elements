@@ -1,3 +1,4 @@
+import { MDCMenuSurface } from '@material/menu-surface/component';
 import { MDCSelect } from '@material/select';
 import {
   Component,
@@ -5,11 +6,11 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Listen,
   Prop,
-  Watch,
-  h
+  Watch
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -103,14 +104,34 @@ export class Select implements ComponentInterface {
     }
   }
 
+  renderDropdownIcon = () => (
+    <span class="mdc-select__dropdown-icon">
+      <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
+        <polygon
+          class="mdc-select__dropdown-icon-inactive"
+          stroke="none"
+          fill-rule="evenodd"
+          points="7 10 12 15 17 10"
+        ></polygon>
+        <polygon
+          class="mdc-select__dropdown-icon-active"
+          stroke="none"
+          fill-rule="evenodd"
+          points="7 15 12 10 17 15"
+        ></polygon>
+      </svg>
+    </span>
+  );
+
   render() {
     const classSelect = classNames({
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.inoOutline,
-      'mdc-select--box': !this.inoOutline,
+      'mdc-select--filled': !this.inoOutline,
       'mdc-select--required': this.required
     });
+
     const hiddenInput = this.required ? (
       <input
         ref={el => (this.nativeInputElement = el)}
@@ -124,16 +145,11 @@ export class Select implements ComponentInterface {
       <Host name={this.name}>
         <div class={classSelect}>
           <div class="mdc-select__anchor">
-            <i class="mdc-select__dropdown-icon" />
-
-            <div
-              class="mdc-select__selected-text"
-              aria-required={this.required}
-              aria-disabled={this.disabled}
-            >
+            <div class="mdc-select__selected-text">
               {this.value}
               {hiddenInput}
             </div>
+            {this.renderDropdownIcon()}
             <ino-label
               ino-outline={this.inoOutline}
               ino-text={this.inoLabel}
@@ -143,7 +159,7 @@ export class Select implements ComponentInterface {
             />
           </div>
 
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface">
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul class="mdc-list">
               <slot />
             </ul>

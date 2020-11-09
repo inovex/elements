@@ -3,8 +3,6 @@ import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 
-import { CSS_CLASSES } from './constants';
-
 @Component({
   tag: 'ino-segment-button',
   styleUrl: 'ino-segment-button.scss',
@@ -59,7 +57,7 @@ export class InoSegmentButton implements ComponentInterface {
     this.successor = this.el.nextElementSibling;
 
     // only adds the event listeners if the button belongs to a group and is not the last child of that particular group
-    if (this.belongsToGroup && this.successor && this.successor.tagName === 'INO-SEGMENT-BUTTON') {
+    if (this.belongsToGroup && this.successor && !this.disabled && this.successor.tagName === 'INO-SEGMENT-BUTTON') {
       this.el.addEventListener('mouseover', this.disableBorder);
       this.el.addEventListener('mouseleave', this.enableBorder);
       if(this.checked) {
@@ -96,18 +94,19 @@ export class InoSegmentButton implements ComponentInterface {
   };
 
   render() {
-    const classes = classNames(
-      CSS_CLASSES.MDC_BUTTON,
-      CSS_CLASSES.OUTLINED,
-      this.inoDense && CSS_CLASSES.DENSE,
-      this.checked && CSS_CLASSES.INO_SEGMENT_BUTTON_ACTIVE,
-      this.belongsToGroup && CSS_CLASSES.BELONGS_TO_GROUP
-    );
+    const classes = classNames({
+      'mdc-button': true,
+      'mdc-button--outlined': true,
+      'ino-segment-button--dense': this.inoDense,
+      'ino-segment-button--active': this.checked,
+      'belongs-to-group': this.belongsToGroup
+    });
 
     return (
       <Host
         checked={this.checked}
         onClick={this.handleClick}
+        class={(this.disabled && 'ino-segment-button--disabled')}
       >
         <button
           class={classes}

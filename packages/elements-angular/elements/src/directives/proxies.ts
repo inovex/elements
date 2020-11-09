@@ -27,15 +27,53 @@ export class InoButton {
 
 export declare interface InoCard extends Components.InoCard {}
 @ProxyCmp({
-  inputs: ['inoSelected']
+  inputs: ['inoDisableElevation', 'inoSelected']
 })
 @Component({
   selector: 'ino-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoSelected']
+  inputs: ['inoDisableElevation', 'inoSelected']
 })
 export class InoCard {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface InoCarousel extends Components.InoCarousel {}
+@ProxyCmp({
+  inputs: ['inoAnimated', 'inoAutoplay', 'inoHideButtons', 'inoInfinite', 'inoIntermission', 'inoReverse', 'value']
+})
+@Component({
+  selector: 'ino-carousel',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['inoAnimated', 'inoAutoplay', 'inoHideButtons', 'inoInfinite', 'inoIntermission', 'inoReverse', 'value']
+})
+export class InoCarousel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface InoCarouselSlide extends Components.InoCarouselSlide {}
+@ProxyCmp({
+  inputs: ['src', 'value']
+})
+@Component({
+  selector: 'ino-carousel-slide',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['src', 'value']
+})
+export class InoCarouselSlide {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -777,13 +815,13 @@ export class InoSidebar {
 import { Snackbar as ISnackbar } from '@inovex.de/elements/dist/types/components/ino-snackbar/ino-snackbar';
 export declare interface InoSnackbar extends Components.InoSnackbar {}
 @ProxyCmp({
-  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout']
+  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout', 'inoType']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout'],
+  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout', 'inoType'],
   outputs: ['inoActionClick', 'hideEl']
 })
 export class InoSnackbar {

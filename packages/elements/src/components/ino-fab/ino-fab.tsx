@@ -1,5 +1,13 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Host, Listen, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Listen,
+  Prop,
+  h
+} from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
 
@@ -12,6 +20,8 @@ export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
 
   @Element() el!: HTMLElement;
+
+  tooltipRef!: HTMLInoTooltipElement;
 
   /**
    * Adds an icon to the Fab.
@@ -31,7 +41,12 @@ export class Fab implements ComponentInterface {
   /**
    * The position of the edge.
    */
-  @Prop() inoEdgePosition: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+  @Prop() inoEdgePosition:
+    | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left'
+    | 'none';
 
   /**
    * Disables the button.
@@ -58,7 +73,26 @@ export class Fab implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.fabRipple = new MDCRipple(this.el.shadowRoot.querySelector('.mdc-fab'));
+    this.fabRipple = new MDCRipple(
+      this.el.shadowRoot.querySelector('.mdc-fab')
+    );
+
+    if (!this.inoExtended && this.inoTooltipPlacement !== 'none') {
+      this.renderTooltip();
+    }
+  }
+
+  private renderTooltip() {
+    const attributes = {
+      'ino-for': this.uniqueHelperId,
+      'ino-label': this.inoLabel,
+      'ino-placement': this.inoTooltipPlacement,
+      'ino-trigger': 'mouseenter focus'
+    };
+
+    const tooltip = document.createElement('ino-tooltip');
+    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
+    this.el.appendChild(tooltip);
   }
 
   componentWillUnload() {
@@ -90,24 +124,16 @@ export class Fab implements ComponentInterface {
       <Host id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.inoDisabled}>
           <span class="material-icons mdc-fab__icon">
-            {this.inoIcon ?
-              <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon}/>
-              :
+            {this.inoIcon ? (
+              <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
+            ) : (
               <slot></slot>
-            }
+            )}
           </span>
           {this.inoExtended && (
             <span class="mdc-fab__label">{this.inoLabel}</span>
           )}
         </button>
-        {!this.inoExtended && this.inoTooltipPlacement !== 'none' && (
-          <ino-tooltip
-            ino-for={this.uniqueHelperId}
-            ino-label={this.inoLabel}
-            ino-placement={this.inoTooltipPlacement}
-            ino-trigger="hover focus"
-          />
-        )}
       </Host>
     );
   }

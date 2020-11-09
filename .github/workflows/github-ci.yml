@@ -22,7 +22,7 @@ jobs:
       - name: setup nodejs
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
       - run: npm config set scripts-prepend-node-path true
       - run: yarn install
       - run: yarn test
@@ -36,7 +36,7 @@ jobs:
       - name: setup nodejs
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
       - run: npm config set scripts-prepend-node-path true
       - run: yarn install
       - run: yarn lint
@@ -56,7 +56,7 @@ jobs:
           name: elements-react
           path:
             packages/elements-react/dist/
-      - if: github.ref == 'refs/heads/master' 
+      - if: github.ref == 'refs/heads/master'
         name: upload elements-angular artifact
         uses: actions/upload-artifact@v2
         with:

@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
+
+
+### Miscellaneous
+
+* remove duplicated entries in the changelog ([#149](https://github.com/inovex/elements/issues/149)) ([9f1b565](https://github.com/inovex/elements/commit/9f1b565402c80673b9fb6e51f595378e2c0d191e))
+
+## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Miscellaneous
+
+* hide refactoring commit type in changelog ([#130](https://github.com/inovex/elements/issues/130)) ([00dbf1a](https://github.com/inovex/elements/commit/00dbf1a55828aad4d2c0e29978dc3abe38ab7cbe))
+
+## [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Miscellaneous
+
+* **deps:** bump elliptic from 6.5.1 to 6.5.3 in /packages/elements-react ([#101](https://github.com/inovex/elements/issues/101)) ([e311586](https://github.com/inovex/elements/commit/e311586d36ab8e64b1183050fece4b570a5b948e))
+* **deps:** bump lodash from 4.17.15 to 4.17.20 in /packages/elements-react ([#100](https://github.com/inovex/elements/issues/100)) ([7bf8779](https://github.com/inovex/elements/commit/7bf8779e001a841f45e1873b5be62cab935f2564))
+* **deps:** bump minimist from 1.2.0 to 1.2.5 in /packages/elements-react ([#99](https://github.com/inovex/elements/issues/99)) ([3c0fbf4](https://github.com/inovex/elements/commit/3c0fbf4da7c4af587a45babb73b9b4f06b5bcfbc))
+* **elements:** update stencil to v2.0.3 ([#85](https://github.com/inovex/elements/issues/85)) ([99b593d](https://github.com/inovex/elements/commit/99b593d0ee94b8637444a8aa036ebbd6e336490a))
+
 ### [1.0.2](https://github.com/inovex/elements/compare/v1.0.1...v1.0.2) (2020-09-22)
 
 ### [1.0.1](https://github.com/inovex/elements/compare/v1.0.0...v1.0.1) (2020-09-22)

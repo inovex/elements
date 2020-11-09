@@ -1,25 +1,26 @@
-@use 'styles/tooltip';
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '../styles/tooltip';
+@use '../styles/colors';
 
 ino-popover {
 
   //default color scheme
-  @include tooltip.tooltip(colors.$primary-light, #fff);
+  @include tooltip.tooltip(colors.ino-color(primary, light), colors.ino-color(primary, contrast));
 
   &[ino-color-scheme="primary"] {
-    @include tooltip.tooltip(colors.$primary-light, #fff);
+    @include tooltip.tooltip(colors.ino-color(primary, light), colors.ino-color(primary, contrast));
   }
 
   &[ino-color-scheme="secondary"] {
-    @include tooltip.tooltip(colors.$secondary, #fff);
+    @include tooltip.tooltip(colors.ino-color(secondary, light), colors.ino-color(secondary, contrast));
   }
 
   &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(#ebebff, #000);
+    @include tooltip.tooltip(colors.ino-color(light), colors.ino-color(light, contrast));
   }
 
   &[ino-color-scheme="transparent"] {
-    @include tooltip.tooltip(#fff, colors.$dark);
+    @include tooltip.tooltip(#fff, colors.ino-color(dark));
   }
 
   .ino-popover__content {

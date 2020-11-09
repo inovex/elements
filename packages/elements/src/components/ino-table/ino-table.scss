@@ -1,7 +1,11 @@
-@use '@material/data-table';
-@use 'styles/colors';
+@use '../styles/mdc-customize';
+@use '@material/data-table/data-table';
+@use '../styles/colors';
 
 :host {
+  @include data-table.core-styles;
+  @include data-table.theme-baseline;
+
   .ino-table__table {
     display: table;
   }
@@ -13,6 +17,4 @@
   .ino-table__body {
     display: table-row-group;
   }
-
-  @include data-table.core-styles;
 }

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoButton {
@@ -64,9 +64,53 @@ export namespace Components {
     }
     interface InoCard {
         /**
+          * Disables the hover effect if true
+         */
+        "inoDisableElevation": boolean;
+        /**
           * Selects the card and displays a check mark icon on top of the card
          */
         "inoSelected": boolean;
+    }
+    interface InoCarousel {
+        /**
+          * Enables the slide animation
+         */
+        "inoAnimated": boolean;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay": boolean;
+        /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons": boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite": boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoIntermission": number;
+        /**
+          * Enables reverse playback of the slides
+         */
+        "inoReverse": boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
+         */
+        "value"?: any;
+    }
+    interface InoCarouselSlide {
+        /**
+          * Link to the image
+         */
+        "src": string;
+        /**
+          * Value of the slide
+         */
+        "value": any;
     }
     interface InoCheckbox {
         /**
@@ -292,7 +336,11 @@ export namespace Components {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition": 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition": | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left'
+    | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
@@ -929,6 +977,10 @@ export namespace Components {
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
+        /**
+          * Changes the snackbar type
+         */
+        "inoType"?: SnackbarType;
     }
     interface InoSpinner {
         /**
@@ -1109,6 +1161,18 @@ declare global {
     var HTMLInoCardElement: {
         prototype: HTMLInoCardElement;
         new (): HTMLInoCardElement;
+    };
+    interface HTMLInoCarouselElement extends Components.InoCarousel, HTMLStencilElement {
+    }
+    var HTMLInoCarouselElement: {
+        prototype: HTMLInoCarouselElement;
+        new (): HTMLInoCarouselElement;
+    };
+    interface HTMLInoCarouselSlideElement extends Components.InoCarouselSlide, HTMLStencilElement {
+    }
+    var HTMLInoCarouselSlideElement: {
+        prototype: HTMLInoCarouselSlideElement;
+        new (): HTMLInoCarouselSlideElement;
     };
     interface HTMLInoCheckboxElement extends Components.InoCheckbox, HTMLStencilElement {
     }
@@ -1377,6 +1441,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
+        "ino-carousel": HTMLInoCarouselElement;
+        "ino-carousel-slide": HTMLInoCarouselSlideElement;
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
         "ino-chip-set": HTMLInoChipSetElement;
@@ -1480,9 +1546,53 @@ declare namespace LocalJSX {
     }
     interface InoCard {
         /**
+          * Disables the hover effect if true
+         */
+        "inoDisableElevation"?: boolean;
+        /**
           * Selects the card and displays a check mark icon on top of the card
          */
         "inoSelected"?: boolean;
+    }
+    interface InoCarousel {
+        /**
+          * Enables the slide animation
+         */
+        "inoAnimated"?: boolean;
+        /**
+          * Enables autoplay which causes slides to be changed automatically
+         */
+        "inoAutoplay"?: boolean;
+        /**
+          * Hides the arrow buttons
+         */
+        "inoHideButtons"?: boolean;
+        /**
+          * Restarts playback from the first slide upon reaching the last slide
+         */
+        "inoInfinite"?: boolean;
+        /**
+          * Sets the intermission between two slides (Unit: ms)
+         */
+        "inoIntermission"?: number;
+        /**
+          * Enables reverse playback of the slides
+         */
+        "inoReverse"?: boolean;
+        /**
+          * Optional group value to manually manage the displayed slide
+         */
+        "value"?: any;
+    }
+    interface InoCarouselSlide {
+        /**
+          * Link to the image
+         */
+        "src"?: string;
+        /**
+          * Value of the slide
+         */
+        "value"?: any;
     }
     interface InoCheckbox {
         /**
@@ -1732,7 +1842,11 @@ declare namespace LocalJSX {
         /**
           * The position of the edge.
          */
-        "inoEdgePosition"?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'none';
+        "inoEdgePosition"?: | 'top-right'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-left'
+    | 'none';
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
@@ -2414,6 +2528,10 @@ declare namespace LocalJSX {
          */
         "inoTimeout"?: number;
         /**
+          * Changes the snackbar type
+         */
+        "inoType"?: SnackbarType;
+        /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
         "onHideEl"?: (event: CustomEvent<any>) => void;
@@ -2603,6 +2721,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "ino-button": InoButton;
         "ino-card": InoCard;
+        "ino-carousel": InoCarousel;
+        "ino-carousel-slide": InoCarouselSlide;
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
         "ino-chip-set": InoChipSet;
@@ -2655,6 +2775,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
+            "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
+            "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;

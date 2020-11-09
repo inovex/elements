@@ -1,4 +1,110 @@
 # Changelog
+## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements-angular:** In order to use the latest elements-angular package, change the `imports: [..., InoElementsModule]` inside your `app.module.ts` to `imports: [..., InoElementsModule.forRoot()]`.
+The reason for this change is, that we upgraded our internally used Angular dependencies to version 10.1.4 which required us to add some startup capabilities inside the `forRoot` function. We updated our integration guide accordingly.
+
+### Bug Fixes
+
+* **elements-angular:** add compatibility for ivy support ([#147](https://github.com/inovex/elements/issues/147)) ([cb095cb](https://github.com/inovex/elements/commit/cb095cb4b48a0f9bbba1ac0cef4da61248466ca0))
+* **elements|ino-fab:** fix an issue causing the tooltip not to be styled correctly ([#88](https://github.com/inovex/elements/issues/88)) ([ab8f3da](https://github.com/inovex/elements/commit/ab8f3dad2a13486eb45a130988af7a9fccd10966))
+* **elements|ino-list:** only call destroy if mdc instance was created ([#144](https://github.com/inovex/elements/issues/144)) ([fa826a9](https://github.com/inovex/elements/commit/fa826a9a6c13ec9c0ab0d24fe43df0ef2e1c869d))
+
+
+### Documentation
+
+* **elements:** update auto generated docs of ino-card and -fab ([#152](https://github.com/inovex/elements/issues/152)) ([719ebd9](https://github.com/inovex/elements/commit/719ebd95f36bc6a9695b4d08421ee97ee0f2bc9b))
+* **storybook:** update ino-fab and ino-card documentation ([#139](https://github.com/inovex/elements/issues/139)) ([3437cc7](https://github.com/inovex/elements/commit/3437cc71efffe6e7e159cb207db56a577aec984d))
+
+
+### Miscellaneous
+
+* remove duplicated entries in the changelog ([#149](https://github.com/inovex/elements/issues/149)) ([9f1b565](https://github.com/inovex/elements/commit/9f1b565402c80673b9fb6e51f595378e2c0d191e))
+* use node-version 14.x in ci ([#151](https://github.com/inovex/elements/issues/151)) ([6ad0693](https://github.com/inovex/elements/commit/6ad0693c212ec1c23f406983bfadb4cd3582f18c))
+* **deps:** upgrade material components to 7.0 ([#145](https://github.com/inovex/elements/issues/145)) ([dfdc0e4](https://github.com/inovex/elements/commit/dfdc0e4a9f599b1ba87d15de1addf32142639015))
+* **elements:** remove relative css import path ([#150](https://github.com/inovex/elements/issues/150)) ([0efed78](https://github.com/inovex/elements/commit/0efed7893272919e739781fd396081ecc525661d))
+* **elements-angular:** update internal angular version to 10.1.4 ([#138](https://github.com/inovex/elements/issues/138)) ([04a8406](https://github.com/inovex/elements/commit/04a8406aa10eb768deafaf4c94526ffef652e35b))
+
+## [1.2.0](https://github.com/inovex/elements/compare/v1.1.0...v1.2.0) (2020-10-14)
+
+
+### Features
+
+* **elements:** add ino-carousel component ([#112](https://github.com/inovex/elements/issues/112)) ([e99b5d7](https://github.com/inovex/elements/commit/e99b5d723903a7060e0691b782d686db01480161))
+* **elements|ino-card:** add property to disable hover animation ([#120](https://github.com/inovex/elements/issues/120)) ([0fac301](https://github.com/inovex/elements/commit/0fac301ab4b3fe1b078b5f4d09db97495aa2e779))
+* **elements|ino-icon:** add refresh icon ([#136](https://github.com/inovex/elements/issues/136)) ([2953f0a](https://github.com/inovex/elements/commit/2953f0a7089fee9a529b0da63e118d4361a68964))
+* **elements|ino-snackbar:** add property for warning and error states ([#116](https://github.com/inovex/elements/issues/116)) ([b648415](https://github.com/inovex/elements/commit/b64841571322656433ab8ed2ef1439b5cd40c23e))
+
+
+### Bug Fixes
+
+* **elements:** fix deprecated integration ([#126](https://github.com/inovex/elements/issues/126)) ([3045c23](https://github.com/inovex/elements/commit/3045c2394312d2efebac47af6e31a7d170ee3760))
+* **storybook|ino-nav-drawer:** fix broken link ([#124](https://github.com/inovex/elements/issues/124)) ([4c6845d](https://github.com/inovex/elements/commit/4c6845de5ddddef053bcfee10c7af8d0f3464c5c))
+
+
+### Documentation
+
+* **storybook:** add links to examples projects in codesandbox ([#129](https://github.com/inovex/elements/issues/129)) ([f51acda](https://github.com/inovex/elements/commit/f51acda25dbba9461a1b521b8e2ca48a3cc47883))
+
+
+### Miscellaneous
+
+* **deps:** bump marked from 0.6.3 to 1.2.0 in /packages/storybook ([#133](https://github.com/inovex/elements/issues/133)) ([323b844](https://github.com/inovex/elements/commit/323b844dff5c2d6dab26ac5d3cd30cb15615950a))
+* hide refactoring commit type in changelog ([#130](https://github.com/inovex/elements/issues/130)) ([00dbf1a](https://github.com/inovex/elements/commit/00dbf1a55828aad4d2c0e29978dc3abe38ab7cbe))
+
+## [1.1.0](https://github.com/inovex/elements/compare/v1.0.2...v1.1.0) (2020-10-07)
+
+
+### Features
+
+* **elements|ino-header:** add css variables ([#89](https://github.com/inovex/elements/issues/89)) ([3ab4e53](https://github.com/inovex/elements/commit/3ab4e534e0eccd6d7103294ac249d16547a65719))
+* **elements|ino-icon:** add question mark icon ([#80](https://github.com/inovex/elements/issues/80)) ([4f06fa9](https://github.com/inovex/elements/commit/4f06fa995f6c63081fc32fe9b424b4908e72a1f2))
+* **elements|ino-list-item:** add css variables ([#44](https://github.com/inovex/elements/issues/44)) ([fbf6fdc](https://github.com/inovex/elements/commit/fbf6fdc451498d6dd7c6ef2101a7964392981270))
+* **elements|ino-option:**  add css variables ([#41](https://github.com/inovex/elements/issues/41)) ([0ed6aec](https://github.com/inovex/elements/commit/0ed6aecb77b5d384e400f5cd06aefbbf99f24e49))
+* **elements|ino-segment-button:** add css variables ([#38](https://github.com/inovex/elements/issues/38)) ([69e84e1](https://github.com/inovex/elements/commit/69e84e121f65e819b308091a732602908564d7b1))
+* **elements|ino-snackbar:** add property to set custom timeout ([#83](https://github.com/inovex/elements/issues/83)) ([d9608da](https://github.com/inovex/elements/commit/d9608daa9779acad4c1f43945a20382ca03f6d4e))
+
+
+### Bug Fixes
+
+* **elements|ino-switch:** fix color-schemes not working correctly ([#118](https://github.com/inovex/elements/issues/118)) ([e02e40a](https://github.com/inovex/elements/commit/e02e40a08181041aadd4b594ea9705bcfddab13d))
+
+
+### Miscellaneous
+
+* add simple pull request template ([#109](https://github.com/inovex/elements/issues/109)) ([2c15cc8](https://github.com/inovex/elements/commit/2c15cc8d44a2191ec4dd356f33e39ed75e7ae35f))
+* **deps:** bump acorn from 6.3.0 to 6.4.2 in /packages/elements-angular ([#108](https://github.com/inovex/elements/issues/108)) ([37bdb52](https://github.com/inovex/elements/commit/37bdb5204982d3a75ae16ae3d8c80991f8950444))
+* **deps:** bump elliptic from 6.5.1 to 6.5.3 in /packages/elements-angular ([#104](https://github.com/inovex/elements/issues/104)) ([831b465](https://github.com/inovex/elements/commit/831b46590e96b7acae4db58b1dd41c8ebe64ca68))
+* **deps:** bump elliptic from 6.5.1 to 6.5.3 in /packages/elements-react ([#101](https://github.com/inovex/elements/issues/101)) ([e311586](https://github.com/inovex/elements/commit/e311586d36ab8e64b1183050fece4b570a5b948e))
+* **deps:** bump handlebars from 4.4.5 to 4.7.6 in /packages/elements-angular ([#103](https://github.com/inovex/elements/issues/103)) ([4b3c815](https://github.com/inovex/elements/commit/4b3c81526eda379ee60a7267cad85a481a832c41))
+* **deps:** bump handlebars from 4.5.1 to 4.7.6 in /packages/storybook ([#92](https://github.com/inovex/elements/issues/92)) ([1804d2c](https://github.com/inovex/elements/commit/1804d2c3dbe7d8c36aebbe88b37502a1a39201d1))
+* **deps:** bump http-proxy from 1.18.0 to 1.18.1 in /packages/elements-angular ([#102](https://github.com/inovex/elements/issues/102)) ([7e89575](https://github.com/inovex/elements/commit/7e89575227d85b78ac81c31269ebe5061cc5749b))
+* **deps:** bump lodash from 4.17.15 to 4.17.20 in /packages/elements ([#98](https://github.com/inovex/elements/issues/98)) ([b9e8a69](https://github.com/inovex/elements/commit/b9e8a69697c800de802a9342a6f4f563a64114db))
+* **deps:** bump lodash from 4.17.15 to 4.17.20 in /packages/elements-angular ([#105](https://github.com/inovex/elements/issues/105)) ([df6d2a3](https://github.com/inovex/elements/commit/df6d2a32504ac15d6b6c75f9e1a5c57f8290b4ff))
+* **deps:** bump lodash from 4.17.15 to 4.17.20 in /packages/elements-react ([#100](https://github.com/inovex/elements/issues/100)) ([7bf8779](https://github.com/inovex/elements/commit/7bf8779e001a841f45e1873b5be62cab935f2564))
+* **deps:** bump minimist from 0.0.8 to 1.2.5 in /packages/elements ([#94](https://github.com/inovex/elements/issues/94)) ([063ddcf](https://github.com/inovex/elements/commit/063ddcf3bd4983c086e0210cff1d0e683752c988))
+* **deps:** bump minimist from 1.2.0 to 1.2.5 in /packages/elements-react ([#99](https://github.com/inovex/elements/issues/99)) ([3c0fbf4](https://github.com/inovex/elements/commit/3c0fbf4da7c4af587a45babb73b9b4f06b5bcfbc))
+* **deps:** bump node-fetch from 1.7.3 to 2.6.1 in /packages/storybook ([#90](https://github.com/inovex/elements/issues/90)) ([58ae792](https://github.com/inovex/elements/commit/58ae7928377e0013e84ba0bc5c14cd90455dcfd9))
+* **deps:** bump npm-registry-fetch from 4.0.2 to 4.0.7 in /packages/elements-angular ([#106](https://github.com/inovex/elements/issues/106)) ([3f617b8](https://github.com/inovex/elements/commit/3f617b8b6a060e9b389881ee611d4384007b9880))
+* **deps:** bump websocket-extensions from 0.1.3 to 0.1.4 in /packages/elements-angular ([#107](https://github.com/inovex/elements/issues/107)) ([1690960](https://github.com/inovex/elements/commit/1690960de95c6595775f29e3b3481cffd75fcfd9))
+* add deps as valid scope for dependabot ([#93](https://github.com/inovex/elements/issues/93)) ([42c527a](https://github.com/inovex/elements/commit/42c527ae2a951884cff88e2689dca118efbc5835))
+* **elements:** update stencil to v2.0.3 ([#85](https://github.com/inovex/elements/issues/85)) ([99b593d](https://github.com/inovex/elements/commit/99b593d0ee94b8637444a8aa036ebbd6e336490a))
+
+
+### Refactoring
+
+* **elements:** move from local font files to font package ([#82](https://github.com/inovex/elements/issues/82)) ([c04d903](https://github.com/inovex/elements/commit/c04d903f7f238f950779d9fedf972f56df9647b2))
+
+
+### Documentation
+
+* **elements-angular:** correct link to top-level readme ([#119](https://github.com/inovex/elements/issues/119)) ([4d57647](https://github.com/inovex/elements/commit/4d576471133ace5b2da67fb98bd77319ad3a504b))
+* improve documentation ([#86](https://github.com/inovex/elements/issues/86)) ([82451d6](https://github.com/inovex/elements/commit/82451d6401750abc520e54f3734f075903ea3396))
+* link to explanation for pull request title ([#117](https://github.com/inovex/elements/issues/117)) ([bce3bb3](https://github.com/inovex/elements/commit/bce3bb346de91269deb8b8c6ccd8ab4ea4bf5e66))
+
 ### [1.0.2](https://github.com/inovex/elements/compare/v1.0.1...v1.0.2) (2020-09-22)
 
 ### [1.0.1](https://github.com/inovex/elements/compare/v1.0.0...v1.0.1) (2020-09-22)

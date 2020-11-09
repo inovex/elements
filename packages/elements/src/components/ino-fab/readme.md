@@ -4,13 +4,13 @@ A floating action button represents the primary action in an application. [Float
 It appears in front of all screen content, typically as a circular shape with an icon in its center.
 
 FABs come in three types: regular, mini, and extended.
+
 ### Usage
 
 The component can be used as follows:
 
 ```html
 <ino-fab
-  ino-color-scheme="<string>"
   ino-icon="<string>"
   ino-label="<string>"
   ino-extended
@@ -74,8 +74,6 @@ class MyComponent extends Component {
 
 **Content**: Use the `ino-label` attribute to set the text of a fab. To add an icon, use the `ino-icon` attribute.
 
-**Styling**: The fab can be styled in many different ways using the `ino-color-scheme` attribute. See the attribute documentation below for additional information.
-
 ## Demo
 
 <!-- Auto Generated Below -->
@@ -116,14 +114,14 @@ class MyComponent extends Component {
 
 ### Depends on
 
-- [ino-icon](../ino-icon)
 - [ino-tooltip](../ino-tooltip)
+- [ino-icon](../ino-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-fab --> ino-icon
   ino-fab --> ino-tooltip
+  ino-fab --> ino-icon
   ino-fab-set --> ino-fab
   style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
 ```

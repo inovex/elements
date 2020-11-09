@@ -66,7 +66,6 @@ export const DefaultUsage = () => /*html*/ `
    <ino-switch
      id="custom-switch"
      class="customizable-switch"
-     ino-color-scheme="${select('ino-color-scheme', INO_COLOR_SCHEMES, 'primary')}"
      checked="${boolean('checked', false)}"
      disabled="${boolean('disabled', false)}"
    >

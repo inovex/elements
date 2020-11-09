@@ -1,6 +1,7 @@
+@use '../styles/mdc-customize';
 @use '@material/drawer/mdc-drawer';
 @use '@material/drawer';
-@use 'styles/colors';
+@use '../styles/colors';
 
 :host {
   /**
@@ -20,7 +21,7 @@
     --ino-nav-drawer-background,
     #{colors.ino-color(primary, contrast)}
   );
-  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, colors.inovex);
+  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, colors.$inovex);
   --nav-drawer-transition-duration: var(
     --ino-nav-drawer-transition-duration,
     0.25s
