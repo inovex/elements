@@ -59,7 +59,8 @@ async function main() {
   // Publish to yalc hub for the respective target
   if(targets.includes('angular')) {
     publishAngular()
-  } else if(targets.includes('react')) {
+  }
+  if(targets.includes('react')) {
     publishReact();
   }
 
