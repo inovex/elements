@@ -19,7 +19,8 @@
     "preversion": "yarn build && yarn test",
     "version": "node scripts/bumprootversion.js && yarn changelog",
     "postversion": "git add -A",
-    "publish:yalc": "node ./scripts/publishYalc.js"
+    "publish:yalc": "node ./scripts/publishYalc.js",
+    "publish:canary": "yarn lerna publish --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
