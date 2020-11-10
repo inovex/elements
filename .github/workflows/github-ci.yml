@@ -99,5 +99,5 @@ jobs:
       - name: Check identiy
         run: npm whoami
       - name: publish
-        run:yarn publish:canary
+        run: yarn publish:canary
 
