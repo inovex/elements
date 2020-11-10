@@ -70,3 +70,21 @@ jobs:
           name: storybook
           path:
             packages/storybook/dist/
+
+
+  canary-release:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn install
+      - run: yarn publish:canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
