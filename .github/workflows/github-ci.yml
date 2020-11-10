@@ -15,6 +15,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: checkout
@@ -29,6 +30,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: checkout
@@ -73,6 +75,7 @@ jobs:
 
 
   canary-release:
+    # TODO: Run after build and test
     runs-on: ubuntu-latest
     # if: github.ref == 'refs/heads/master'
 
