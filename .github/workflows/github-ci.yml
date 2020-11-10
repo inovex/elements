@@ -87,8 +87,8 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm config set scripts-prepend-node-path true
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      # - run: yarn install --frozen-lockfile
+      # - run: yarn build
       - run: |
           echo "@inovex.de:registry=http://registry.npmjs.org/" > .npmrc
           echo "registry=http://registry.npmjs.org/" >> .npmrc
