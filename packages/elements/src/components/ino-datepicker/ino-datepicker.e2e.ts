@@ -151,6 +151,22 @@ describe('InoDatepicker', () => {
 
       expect(datepicker).toHaveAttribute('ino-show-label-hint');
     });
+
+    it('should set invalid state for required inputs', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+    
+      inoDatepickerEl.setAttribute('required', true);
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
+      
+      inoDatepickerEl.setAttribute('value',' ');
+      await page.waitForChanges();
+      
+      expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
+    })
   });
 
   describe('Events', () => {
@@ -214,5 +230,20 @@ describe('InoDatepicker', () => {
 
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
     });
+
+    it('should set invalid state only if value is set', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER_WITH_FORMAT);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+    
+      inoDatepickerEl.setAttribute('ino-date-format', 'd-Y-m');
+      inoDatepickerEl.setAttribute('required',false);
+      inoDatepickerEl.setAttribute('value','');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
+    });
+
+  
   })
 });
