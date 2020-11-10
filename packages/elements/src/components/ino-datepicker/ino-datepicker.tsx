@@ -380,7 +380,6 @@ export class Datepicker implements ComponentInterface {
   }
 
   render() {
-    console.log(this.isInValid);
     return (
       <Host>
         <ino-input
