@@ -41,7 +41,7 @@ jobs:
       - run: yarn install
       - run: yarn lint
       - run: yarn build
-        
+
       - if: github.ref == 'refs/heads/master'
         name: upload elements artifact
         uses: actions/upload-artifact@v2
@@ -64,7 +64,7 @@ jobs:
           path:
             packages/elements-angular/dist/
       - if: github.ref == 'refs/heads/master'
-        name: upload storybook artifact 
+        name: upload storybook artifact
         uses: actions/upload-artifact@v2
         with:
           name: storybook
@@ -74,7 +74,7 @@ jobs:
 
   canary-release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v2
