@@ -98,6 +98,7 @@ export const DefaultUsage = () => /*html*/ `
             ''
           )}"
           ino-activated="${boolean('ino-activated', false)}"
+          ino-filled="${boolean('ino-filled', false)}"
           disabled="${boolean('disabled', false)}">
         </ino-icon-button>
       </div>
