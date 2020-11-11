@@ -1,8 +1,8 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen, Watch } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ColorScheme } from '../types';
+import { ColorScheme, ButtonType } from '../types';
 
 @Component({
   tag: 'ino-icon-button',
@@ -26,10 +26,17 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() disabled?: boolean;
 
-  /**
-   * The name of the icon of this element.
+    /**
+   * Marks the icon button as activated.
+   * 
+   * Useful in cases where an external state controls the icon button activation. 
+   * Makes the component **managed**.
    */
-  @Prop() inoIcon?: string;
+  @Prop() inoActivated?: boolean;
+  @Watch('inoActivated')
+  inoActivatedChanged(activated: boolean) {
+    activated ? this.maybeCreateRipple() : this.maybeDestroyRipple();
+  }
 
   /**
    * The name of the color scheme which is used
@@ -38,6 +45,25 @@ export class IconButton implements ComponentInterface {
    * `success`, `warning`, `error`, `light`, `dark`.
    */
   @Prop() inoColorScheme?: ColorScheme = 'primary';
+
+  /**
+   * Styles this element as filled icon button 
+   * with the `ino-color-scheme` as background color.
+   */
+  @Prop() inoFilled?: boolean;
+
+  /**
+   * The name of the icon of this element.
+   */
+  @Prop() inoIcon?: string;
+
+  /**
+   * The type of this form.
+   *
+   * Can either be `button`, `submit` or `reset`.
+   */
+  @Prop() type?: ButtonType = 'button';
+
 
   @Event() clickEl: EventEmitter;
 
@@ -52,24 +78,28 @@ export class IconButton implements ComponentInterface {
   }
 
   componentDidLoad() {
-    const nativeElement = this.el.querySelector('.mdc-icon-button');
-    this.mdcInstance = new MDCRipple(nativeElement);
-    this.mdcInstance.unbounded = true;
+    this.maybeCreateRipple();
   }
 
   componentWillUnload() {
-    this.destroyIconButton();
+    this.maybeDestroyRipple();
   }
 
-  private destroyIconButton() {
-    if (this.mdcInstance) {
-      this.mdcInstance.destroy();
+  private maybeCreateRipple() {
+    if (!this.inoActivated) {
+      this.mdcInstance = new MDCRipple(this.el.querySelector('.mdc-icon-button'));
+      this.mdcInstance.unbounded = true;
     }
+  }
+
+  private maybeDestroyRipple() {
+    this.mdcInstance?.destroy();
   }
 
   render() {
     const iconButtonClasses = classNames({
-      'mdc-icon-button': true
+      'mdc-icon-button': true,
+      'mdc-ripple-upgraded--background-focused': this.inoActivated
     });
 
     return (
@@ -78,6 +108,7 @@ export class IconButton implements ComponentInterface {
           autoFocus={this.autoFocus}
           class={iconButtonClasses}
           disabled={this.disabled}
+          type={this.type}
         >
           <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
         </button>

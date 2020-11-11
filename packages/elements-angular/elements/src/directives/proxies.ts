@@ -328,13 +328,13 @@ The event only emits if the property `inoClickable` is true. */
 import { IconButton as IIconButton } from '@inovex.de/elements/dist/types/components/ino-icon-button/ino-icon-button';
 export declare interface InoIconButton extends Components.InoIconButton {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'disabled', 'inoColorScheme', 'inoIcon']
+  inputs: ['autoFocus', 'disabled', 'inoActivated', 'inoColorScheme', 'inoFilled', 'inoIcon', 'type']
 })
 @Component({
   selector: 'ino-icon-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'disabled', 'inoColorScheme', 'inoIcon'],
+  inputs: ['autoFocus', 'disabled', 'inoActivated', 'inoColorScheme', 'inoFilled', 'inoIcon', 'type'],
   outputs: ['clickEl']
 })
 export class InoIconButton {
