@@ -15,6 +15,8 @@ addIcons(ICON_PATHS);
 
 export const InoButton = createReactComponent<StencilJSX.IntrinsicElements["ino-button"], HTMLInoButtonElement>('ino-button');
 export const InoCard = createReactComponent<StencilJSX.IntrinsicElements["ino-card"], HTMLInoCardElement>('ino-card');
+export const InoCarousel = createReactComponent<StencilJSX.IntrinsicElements["ino-carousel"], HTMLInoCarouselElement>('ino-carousel');
+export const InoCarouselSlide = createReactComponent<StencilJSX.IntrinsicElements["ino-carousel-slide"], HTMLInoCarouselSlideElement>('ino-carousel-slide');
 export const InoCheckbox = createReactComponent<StencilJSX.IntrinsicElements["ino-checkbox"], HTMLInoCheckboxElement>('ino-checkbox');
 export const InoChip = createReactComponent<StencilJSX.IntrinsicElements["ino-chip"], HTMLInoChipElement>('ino-chip');
 export const InoChipSet = createReactComponent<StencilJSX.IntrinsicElements["ino-chip-set"], HTMLInoChipSetElement>('ino-chip-set');
