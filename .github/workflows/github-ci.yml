@@ -42,8 +42,8 @@ jobs:
       - run: yarn lint
       - run: yarn build
 
-      - if: github.ref == 'refs/heads/master'
-        name: upload elements artifact
+      #- if: github.ref == 'refs/heads/master'
+      - name: upload elements artifact
         uses: actions/upload-artifact@v2
         with:
           name: elements
@@ -74,7 +74,7 @@ jobs:
 
   canary-release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v2
@@ -85,11 +85,21 @@ jobs:
           node-version: '14.x'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
-      - name: Prepare publish
-        run: |
-          yarn install --frozen-lockfile
-          yarn lerna run build --scope=@inovex.de/elements
-      - name: Publish
+      - name: setup cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            */*/*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: elements
+          path: packages/elements/dist/
+      - name: prepare publish
+        run: yarn install --frozen-lockfile
+      - name: publish
         run: yarn publish:canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
