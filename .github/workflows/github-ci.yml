@@ -96,7 +96,7 @@ jobs:
       - name: Prepare publish
         run: |
           yarn install
-          lerna run build --scope=@inovex.de/elements
+          yarn lerna run build --scope=@inovex.de/elements
       - name: publish
         run: yarn publish:canary
 
