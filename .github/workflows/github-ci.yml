@@ -93,8 +93,6 @@ jobs:
         run: npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Check identiy
-        run: npm whoami
       - name: publish
         run: yarn publish:canary
 
