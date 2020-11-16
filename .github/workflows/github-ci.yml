@@ -15,7 +15,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: checkout
@@ -30,7 +29,6 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: checkout
@@ -75,9 +73,8 @@ jobs:
 
 
   canary-release:
-    # TODO: Run after build and test
     runs-on: ubuntu-latest
-    # if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - uses: actions/checkout@v2
@@ -87,7 +84,7 @@ jobs:
           always-auth: true
           node-version: '14.x'
           registry-url: https://registry.npmjs.org
-          scope: '@inovex.de'
+          scope: '@inovex.de' # important for yarn
       - name: Prepare publish
         run: |
           yarn install --frozen-lockfile
