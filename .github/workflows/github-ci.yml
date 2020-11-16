@@ -90,7 +90,9 @@ jobs:
       # - run: yarn install --frozen-lockfile
       # - run: yarn build
       - name: Setup authentication
-        run: npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+        run: |
+          npm set @inovex.de:registry //registry.npmjs.org/
+          npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Prepare publish
