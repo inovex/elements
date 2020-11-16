@@ -83,22 +83,15 @@ jobs:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v1
-        with:
+          always-auth: true
           node-version: '14.x'
-     #     registry-url: 'https://registry.npmjs.org'
-      - run: npm config set scripts-prepend-node-path true
-      # - run: yarn install --frozen-lockfile
-      # - run: yarn build
-      - name: Setup authentication
-        run: |
-          npm set @inovex.de:registry //registry.npmjs.org/
-          npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de'
       - name: Prepare publish
         run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn lerna run build --scope=@inovex.de/elements
-      - name: publish
+      - name: Publish
         run: yarn publish:canary
-
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
