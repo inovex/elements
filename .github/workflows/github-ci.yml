@@ -12,6 +12,26 @@ jobs:
       - uses: actions/checkout@v1
       - uses: zricethezav/gitleaks-action@master
 
+  install-dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            */*/*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn install --frozen-lockfile
 
   test:
     runs-on: ubuntu-latest
