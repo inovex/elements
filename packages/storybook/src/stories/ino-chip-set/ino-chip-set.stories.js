@@ -23,7 +23,9 @@ export const DefaultUsage = () => /*html*/ `
     ino-type="${select('ino-type', ['', 'choice', 'filter'], '')}"
     class="customizable-chip-set"
   >
-    <ino-chip ino-value="1" ino-label="Chip 1" ino-icon="favorite" ino-selected></ino-chip>
+    <ino-chip ino-value="1" ino-label="Chip 1" ino-selected ino-icon-leading>
+        <ino-icon slot="ino-icon-leading" ino-icon="favorite"></ino-icon>
+    </ino-chip>
     <ino-chip ino-value="2" ino-label="Chip 2"></ino-chip>
     <ino-chip ino-value="3" ino-label="Chip 3"></ino-chip>
   </ino-chip-set>
@@ -71,7 +73,6 @@ export const InoChip = () => /*html*/ `
   ''
 )}"
       ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
-      ino-icon="${text('ino-icon', '')}"
       ino-removable="${boolean('ino-removable', true)}"
       ino-selected="${boolean('ino-selected', false)}"
       ino-selectable="${boolean('ino-selectable', false)}"
@@ -91,7 +92,6 @@ export const InoChip = () => /*html*/ `
     <ino-chip ino-color-scheme="dark" ino-label="Dark"></ino-chip>
   </ino-chip-set>
 
-
   <h4>Outline</h4>
   <ino-chip-set>
     <ino-chip ino-fill="outline" ino-label="Outline"></ino-chip>
@@ -99,10 +99,14 @@ export const InoChip = () => /*html*/ `
     <ino-chip ino-fill="outline" ino-label="Secondary" ino-color-scheme="secondary"></ino-chip>
   </ino-chip-set>
 
-  <h4>With Icon</h4>
+  <h4>With icons</h4>
   <ino-chip-set>
-    <ino-chip ino-color-scheme="primary" ino-label="Primary" ino-icon="close"></ino-chip>
-    <ino-chip ino-color-scheme="secondary" ino-label="Secondary" ino-icon="close"></ino-chip>
+    <ino-chip ino-color-scheme="primary" ino-icon-leading ino-label="Info" ino-fill="outline">
+      <ino-icon slot="ino-icon-leading" ino-icon="info"></ino-icon>
+    </ino-chip>
+    <ino-chip ino-color-scheme="error" ino-icon-leading ino-label="Error">
+      <ino-icon slot="ino-icon-leading" ino-icon="warning"></ino-icon>
+    </ino-chip>
   </ino-chip-set>
 
   <h4>Removable and states</h4>

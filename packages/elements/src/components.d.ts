@@ -148,9 +148,9 @@ export namespace Components {
          */
         "inoFill"?: ChipSurface;
         /**
-          * The icon before the label in this chip.
+          * If enabled, prepends the slotted icon to the chip
          */
-        "inoIcon"?: string;
+        "inoIconLeading": boolean;
         /**
           * The label of this chip (**required**).
          */
@@ -1646,9 +1646,9 @@ declare namespace LocalJSX {
          */
         "inoFill"?: ChipSurface;
         /**
-          * The icon before the label in this chip.
+          * If enabled, prepends the slotted icon to the chip
          */
-        "inoIcon"?: string;
+        "inoIconLeading"?: boolean;
         /**
           * The label of this chip (**required**).
          */
