@@ -116,9 +116,12 @@ export class Image implements ComponentInterface {
   }
 
   private computeFixedDimensions() {
-    this.el.style.height =
-      this.height !== undefined ? `${this.height}px` : null;
-    this.el.style.width = this.width !== undefined ? `${this.width}px` : null;
+    if (!isNaN(this.height)) {
+      this.el.style.height = `${this.height}px`;
+    }
+    if (!isNaN(this.width)) {
+      this.el.style.width = `${this.width}px`;
+    }
   }
 
   private computeRatio() {
@@ -150,12 +153,12 @@ export class Image implements ComponentInterface {
             class={imgClasses}
             alt={this.alt}
             decoding={this.decoding}
-            height={this.height}
             sizes={this.sizes}
             src={this.src}
             srcset={this.srcset}
             usemap={this.usemap}
-            width={this.width}
+            height={!isNaN(this.height) ? this.height : undefined}
+            width={!isNaN(this.width) ? this.width : undefined}
           />
         </div>
         {this.inoImgListItem && (
