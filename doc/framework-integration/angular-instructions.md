@@ -1,9 +1,9 @@
 # Integrate with Angular
 
 > We set up a demo project with Angular CLI to show you how to integrate the components into a newly generated Angular
-> project. Scroll down to see the Stackblitz.
+> project. Scroll down to see the CodeSandbox.
 >
-> These instructions are based on `angular@9.1.0` and [`angular-cli@9.1.0`](https://cli.angular.io/).
+> These instructions are based on `angular@10.2.1` and [`angular-cli@10.2.1`](https://cli.angular.io/).
 
 ## 0) Prepare your Project
 
@@ -39,33 +39,60 @@ to work properly.
 To use the inovex elements, you need to integrate the `InoElementsModule` into one of your App's
 modules. The main module is usually called `AppModule`. If you have more than one module, you should
 integrate the `InoElementsModule` into each module that is supposed to use the inovex elements. Alternatively,
- you can also integrate the components into a shared module. This way, you only need to import the components once 
- (recommended).
+you can also integrate the components into a shared module. This way, you only need to import the components once
+(recommended).
 
-You only need two lines of code to import the package and make it available in Angular:
+We need two steps to integrate the components inside angular
+
+- Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components.
+- Call defineCustomElements() from `main.ts` (or some other appropriate place).
+
+1. Edit `app.module.ts`
 
 ```typescript
 // src/app/app.module.ts
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { InoElementsModule } from '@inovex.de/elements-angular'; // <-- a) import our package
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     InoElementsModule.forRoot() // <-- b) make it available in Angular
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // <-- c) Defines a schema that allows an NgModule to contain Non-Angular elements named with dash case (-) details https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+```
+
+2. Edit `main.ts`
+
+```typescript
+// src/main.ts
+
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+import { defineCustomElements } from '@inovex.de/elements/dist/loader';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err => console.log(err));
+defineCustomElements();
 ```
 
 ### 3) Use the Components
