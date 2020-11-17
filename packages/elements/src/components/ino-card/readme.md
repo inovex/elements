@@ -1,6 +1,7 @@
 # ino-card
 
-A card is as flexible and extensible content component. So far, the card is a simple content component with title and subtitle.
+The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to 
+fully customize the appearance of the card.
 
 ## Usage
 
@@ -16,79 +17,39 @@ document
 
 ```html
 <ino-card
-  ino-subtitle="<string>"
-  ino-title="<string>"
-  ino-outline
-  ino-image="<string>"
-  ino-aspect-ratio="<string>"
-  ino-media-title
-  onClick="handleClick()"
+  ino-selected="<boolean>"
+  ino-disable-elevation="<boolean>"
 >
+  <div slot="header"><!-- Any content --></div>
   <div slot="content"><!-- Any content --></div>
-  <ino-button slot="action-buttons" ino-fill="transparent">Read</ino-button>
-  <ino-button slot="action-buttons" ...>Bookmark</ino-button>
-  <ino-icon-button slot="action-icons" ...></ino-icon-button>
-  <ino-icon-button slot="action-icons" ...></ino-icon-button>
-  <ino-icon-button slot="action-icons" ...></ino-icon-button>
+  <div slot="footer"><!-- Any content --></div>
 </ino-card>
 ```
 
 ### React
 
-#### Example #1 - Basic
-
 ```js
 import { Component } from 'react';
-import { InoCard } from '@inovex.de/elements/dist/react';
+import { InoCard, InoButton, InoImg } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
     return (
-      <InoCard inoTitle="The awesome card!">
-        <div slot="content">It's simple to use this component.</div>
-        <InoButton slot="action-buttons" ino-fill="transparent">
-          Accept
-        </InoButton>
-        <InoButton slot="action-buttons">Dismiss</InoButton>
+      <InoCard inoDisableElevation>
+        <div class="my-card__header" slot="header">
+          <h1>My awesome card</h1>
+        <div/>
+        <div class="my-card__content" slot="content">
+          <InoImg src="assets/picture_of_me.png"></InoImg>
+        </div>
+        <div class="my-card__footer" slot="footer">
+          <InoButton>Send Email</InoButton>
+        </div>
       </InoCard>
     );
   }
 }
 ```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import { InoButton, InoCard } from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Card: React.FunctionComponent<Components.InoCardAttributes> = props => {
-  const { inoTitle, inoSubtitle } = props;
-
-  return (
-    <InoCard inoTitle={inoTitle} inoSubtitle={inoSubtitle}>
-      {props.children}
-    </InoCard>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Card inoTitle="Eat apples!" inoSubtitle="They're so healthy">
-        <div slot="content">We should add an apple image here.</div>
-        <InoButton slot="action-buttons" ino-fill="transparent">
-          Accept
-        </InoButton>
-        <InoButton slot="action-buttons">Dismiss</InoButton>
-      </Card>
-    );
-  }
-}
-```
-
-## Demo
 
 <!-- Auto Generated Below -->
 
