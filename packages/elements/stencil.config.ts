@@ -33,7 +33,7 @@ export const config: Config = {
     }),
     angularOutputTargetFix({
       directivesUtilsFile:
-        '../elements-angular/elements/src/directives/proxies-utils.ts'
+        '../elements-angular/elements/src/directives/angular-component-lib/utils.ts'
     })
   ],
   plugins: [
