@@ -66,7 +66,7 @@ import { AppComponent } from './app.component';
     InoElementsModule.forRoot() // <-- b) make it available in Angular
   ],
   providers: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // <-- c) Defines a schema that allows an NgModule to contain Non-Angular elements named with dash case (-) details https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA
   bootstrap: [AppComponent]
 })
 export class AppModule {}
