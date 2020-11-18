@@ -148,7 +148,12 @@ export namespace Components {
          */
         "inoFill"?: ChipSurface;
         /**
-          * If enabled, prepends the slotted icon to the chip
+          * Prepends an icon to the chip label.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+         */
+        "inoIcon"?: string;
+        /**
+          * If enabled, prepends the slotted icon to the chip label
          */
         "inoIconLeading": boolean;
         /**
@@ -1646,7 +1651,12 @@ declare namespace LocalJSX {
          */
         "inoFill"?: ChipSurface;
         /**
-          * If enabled, prepends the slotted icon to the chip
+          * Prepends an icon to the chip label.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+         */
+        "inoIcon"?: string;
+        /**
+          * If enabled, prepends the slotted icon to the chip label
          */
         "inoIconLeading"?: boolean;
         /**

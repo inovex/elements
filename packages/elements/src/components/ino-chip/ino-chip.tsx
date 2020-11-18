@@ -26,7 +26,13 @@ export class Chip implements ComponentInterface {
   @Prop() inoFill?: ChipSurface = 'solid';
 
   /**
-   * If enabled, prepends the slotted icon to the chip
+   * Prepends an icon to the chip label.
+   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+   */
+  @Prop() inoIcon?: string;
+
+  /**
+   * If enabled, prepends the slotted icon to the chip label
    */
   @Prop() inoIconLeading = false;
 
@@ -87,7 +93,12 @@ export class Chip implements ComponentInterface {
       <Host>
         <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
           <div class="mdc-chip__ripple"></div>
-          {this.inoIconLeading && (
+
+          {this.inoIcon && (
+            <ino-icon class={iconClasses} ino-icon={this.inoIcon}/>
+          )}
+
+          {this.inoIconLeading && !this.inoIcon && (
             <span class={iconClasses}>
               <slot name="ino-icon-leading"/>
             </span>
