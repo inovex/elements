@@ -6,7 +6,8 @@ The component is based on the mdc-data-table.
 ## Usage
 
 The component comprises two sub-components: `ìno-table-row` and `ino-table-cell`. The `ino-table-row` can be used to
-add a row to the table. To add a header row, all you have to do is to add the `ino-header-row` property to the component.
+add a row to the table. To add a header row, all you have to do is to add the `ino-header-row` property to the component
+and set `slot=header`.
 Correspondingly, the `ino-table-cell` can be used to add a column to the table. You should always set the `ino-numeric` 
 property to true if the column contains numeric values. 
 The following examples illustrate how the `ino-table` can be used:
