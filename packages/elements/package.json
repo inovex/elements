@@ -102,6 +102,6 @@
     "shx": "^0.3.2",
     "tslint": "^6.1.1",
     "tslint-ionic-rules": "0.0.21",
-    "tslint-react": "^4.2.0"
+    "tslint-react": "^5.0.0"
   }
 }
