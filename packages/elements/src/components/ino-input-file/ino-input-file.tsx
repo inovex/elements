@@ -67,7 +67,6 @@ export class InputFile implements ComponentInterface {
   }>;
 
   componentDidLoad(): void {
-    // TODO: check if browser supports dragAndDrop
     this.configureDragAndDrop();
   }
 
