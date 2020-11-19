@@ -1,7 +1,56 @@
+@use "../styles/colors";
+@use "../styles/fonts";
+
+ino-input-file {
+  /**
+   * @prop --ino-input-file-box-height: Height of the drag and drop window
+   * @prop --ino-input-file-box-width: Width of the drag and drop window
+   */
+  --input-file-box-height: var(--ino-input-file-box-height, 300px);
+  --input-file-box-width: var(--ino-input-file-box-width, 100%);
+}
+
 ino-input-file {
   .ino-input-file__native-element {
     visibility: hidden;
     height: 0;
     width: 0;
+  }
+
+  .ino-input-file__dnd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 2px dashed colors.ino-color(primary);
+    border-radius: 20px;
+    height: var(--input-file-box-height);
+    width: var(--input-file-box-width);
+
+    .ino-input-file__dnd-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-bottom: 15px;
+
+      label {
+        color: colors.ino-color(primary);
+        @include fonts.ino-font($size: l);
+      }
+    }
+
+    &.ino-input-file__dnd-dragover:not(.ino-input-file__dnd-disabled) {
+      background-color: lighten(colors.ino-color(primary), 38%);
+    }
+
+    &.ino-input-file__dnd-disabled {
+      background-color: colors.ino-color(light, light);
+      border: 2px solid colors.ino-color(light, light);
+      label {
+        color: colors.ino-color(dark)
+      }
+    }
   }
 }
