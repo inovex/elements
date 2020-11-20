@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { angularOutputTargetFix } from './angular-target-fix';
 
 export const config: Config = {
   buildEs5: 'prod',
@@ -12,7 +13,7 @@ export const config: Config = {
     scriptDataOpts: true,
     appendChildSlotFix: false,
     cloneNodeFix: false,
-    slotChildNodesFix: true,
+    slotChildNodesFix: true
   },
   globalStyle: './src/components/styles/variables.scss',
   globalScript: './src/util/import-fonts.ts',
@@ -30,6 +31,10 @@ export const config: Config = {
       directivesArrayFile:
         '../elements-angular/elements/src/directives/proxies-list.ts'
     }),
+    angularOutputTargetFix({
+      directivesUtilsFile:
+        '../elements-angular/elements/src/directives/angular-component-lib/utils.ts'
+    })
   ],
   plugins: [
     sass({
