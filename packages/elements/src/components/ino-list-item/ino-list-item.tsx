@@ -81,7 +81,6 @@ export class ListItem implements ComponentInterface {
     return (
       <Host>
         <li class={listItemClasses}>
-          <span class="mdc-list-item__ripple"></span>
           <span class="mdc-list-item__graphic" role="presentation">
             <slot name="ino-leading" />
           </span>
