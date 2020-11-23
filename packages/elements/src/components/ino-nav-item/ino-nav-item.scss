@@ -16,6 +16,11 @@ ino-nav-item {
   --nav-item-background-color-active: var(--ino-nav-item-background-color-active, #{rgba(colors.ino-color(light, contrast), 0.04)});
 
   .mdc-list-item, ino-list-item .mdc-list-item {
+
+    .mdc-list-item__ripple {
+      display: none;
+    }
+
     padding: 0px 24px;
     height: 60px;
     background-color: var(--nav-item-background-color);
