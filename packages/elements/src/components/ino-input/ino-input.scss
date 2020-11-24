@@ -12,6 +12,19 @@ $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textar
 $placeholder-color: rgba(0, 0, 0, 0.6);
 $padding-top: 24px;
 
+$icon-padding-to-text: 12px;
+$icon-padding-to-border: 6px;
+
+@mixin setIconMargins($margin-leading, $margin-trailing: $margin-leading) {
+  .mdc-text-field__icon.mdc-text-field__icon--leading {
+    margin: $margin-leading;
+  }
+
+  .mdc-text-field__icon.mdc-text-field__icon--trailing {
+    margin: $margin-trailing;
+  }
+}
+
 @mixin hideNativeNumberInputArrows() {
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -40,12 +53,14 @@ ino-input {
 }
 
 ino-input {
+
   display: block;
   @include icon.icon-core-styles;
 
   & * {
     box-sizing: initial;
   }
+
 
   & > .ino-input__composer {
     text-align: left;
@@ -60,6 +75,7 @@ ino-input {
   }
 
   .mdc-text-field {
+
     @include textfield.focused-outline-color(var(--input-line-color));
 
     ino-icon {
@@ -95,8 +111,35 @@ ino-input {
       }
     }
 
+    .mdc-text-field__icon {
+      cursor: auto;
+      pointer-events: auto;
+      padding: 0;
+    }
+
+    @include setIconMargins(
+          (0 $icon-padding-to-text 0 $icon-padding-to-border),
+          (0 $icon-padding-to-border 0 $icon-padding-to-text)
+    );
+
+    &.mdc-text-field--outlined {
+
+      .mdc-text-field__icon {
+        height: 16px;
+        width: 16px;
+      }
+
+      @include setIconMargins(
+            (0 $icon-padding-to-text 0 $icon-padding-to-text)
+      );
+    }
+
     &:#{$default-text-field} {
       @include textfield.fill-color(transparent);
+
+      .mdc-text-field__icon {
+        padding: $padding-top 0 0 0;
+      }
 
       // change background von greyish to transparent
       &:before {
@@ -114,21 +157,6 @@ ino-input {
         .mdc-floating-label,
         .mdc-floating-label--float-above {
           left: $padding-to-left;
-        }
-      }
-
-      .mdc-text-field__icon {
-        cursor: auto;
-        pointer-events: auto;
-        padding-top: 12px;
-
-        &--leading {
-          margin-left: 6px;
-          margin-right: 12px;
-        }
-
-        &--trailing {
-          margin-right: 6px;
         }
       }
 
@@ -153,8 +181,10 @@ ino-input {
     }
   }
 
+
   // Custom number arrows
   &[type='number'] {
+
     @include hideNativeNumberInputArrows();
 
     .arrow-container {
@@ -173,13 +203,6 @@ ino-input {
         &.up {
           transform: scaleY(-1);
         }
-      }
-    }
-
-    .mdc-text-field:#{$default-text-field},
-    .mdc-text-field.mdc-text-field--outlined {
-      .mdc-text-field__icon.mdc-text-field__icon--trailing {
-        right: 25px;
       }
     }
   }
