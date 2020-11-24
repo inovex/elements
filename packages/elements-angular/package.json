@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular-builder",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "This is the angular package of the integration layer for  @inovex.de/elements.",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "contributors": [
@@ -18,7 +18,7 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-		"preinstall": "node ./preinstall.js",
+    "preinstall": "node ./preinstall.js",
     "postinstall": "ngcc && node ./postinstall.js"
   },
   "private": true,
@@ -31,7 +31,7 @@
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
-    "@inovex.de/elements": "^2.0.0",
+    "@inovex.de/elements": "^2.1.0",
     "rxjs": "~6.6.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"

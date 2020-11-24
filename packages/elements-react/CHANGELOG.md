@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/inovex/elements/compare/v2.0.0...v2.1.0) (2020-11-24)
+
+
+### Bug Fixes
+
+* **elements-react:** export ino-carousel/-slide components ([#182](https://github.com/inovex/elements/issues/182)) ([4062809](https://github.com/inovex/elements/commit/4062809a08094576b3fac1256f9f884a9ff6cec6))
+
+
+### Miscellaneous
+
+* improve windows integration ([#172](https://github.com/inovex/elements/issues/172)) ([6fee7f4](https://github.com/inovex/elements/commit/6fee7f45eb529af0482987dfa4ce4b2124be3cd0))
+
 ## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
 
 
