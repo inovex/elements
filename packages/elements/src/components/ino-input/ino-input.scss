@@ -18,7 +18,7 @@ $icon-padding-to-border: 6px;
 @mixin setIconColors($color) {
   .mdc-text-field__icon {
     ino-icon {
-      --icon-color: $color;
+      --icon-color: #{$color};
     }
   }
 }
@@ -153,6 +153,10 @@ ino-input .mdc-text-field--outlined {
 
   &.mdc-text-field--invalid {
     @include textfield.focused-outline-color(colors.ino-color(error));
+  }
+
+  &[class*='--with-leading-icon'] .mdc-floating-label:not(.mdc-floating-label--float-above) {
+    left: 24px;
   }
 
   .mdc-text-field__icon {
