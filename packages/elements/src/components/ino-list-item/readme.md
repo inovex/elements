@@ -61,6 +61,22 @@ document
 | `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                                                 | Description                                           |
+| ---------------------------------------------------- | ----------------------------------------------------- |
+| `--ino-list-item-deselected-background-color`        | Background color of a deselected list item            |
+| `--ino-list-item-deselected-background-color-active` | Background color of a deselected list item if active  |
+| `--ino-list-item-deselected-background-color-focus`  | Background color of a deselected list item if focused |
+| `--ino-list-item-deselected-background-color-hover`  | Background color of a deselected list item on hover   |
+| `--ino-list-item-deselected-color`                   | Text color of a deselected list item                  |
+| `--ino-list-item-selected-background-color`          | Background color of a selected list item              |
+| `--ino-list-item-selected-background-color-active`   | Background color of a selected list item if active    |
+| `--ino-list-item-selected-background-color-focus`    | Background color of a selected list item if focused   |
+| `--ino-list-item-selected-background-color-hover`    | Background color of a selected list item on hover     |
+| `--ino-list-item-selected-color`                     | Text color of a selected list item                    |
+
+
 ## Dependencies
 
 ### Used by
