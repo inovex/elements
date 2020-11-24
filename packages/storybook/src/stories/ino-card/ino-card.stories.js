@@ -1,4 +1,4 @@
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 
 import componentReadme from '_local-elements/src/components/ino-card/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
