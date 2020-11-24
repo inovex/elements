@@ -15,6 +15,14 @@ $padding-top: 24px;
 $icon-padding-to-text: 12px;
 $icon-padding-to-border: 6px;
 
+@mixin setIconColors($color) {
+  .mdc-text-field__icon {
+    ino-icon {
+      --icon-color: $color;
+    }
+  }
+}
+
 @mixin setIconMargins($margin-leading, $margin-trailing: $margin-leading) {
   .mdc-text-field__icon.mdc-text-field__icon--leading {
     margin: $margin-leading;
@@ -34,11 +42,12 @@ $icon-padding-to-border: 6px;
   }
 
   /* Firefox */
-  input[type='number'] {
+  input[type=number] {
     -moz-appearance: textfield;
   }
 }
 
+/* Shared Styles */
 ino-input {
   /**
    * @prop --ino-input-caret-color: color of the caret
@@ -50,12 +59,13 @@ ino-input {
   --input-label-color: var(--ino-input-label-color, #{theme.color(primary)});
   --input-line-color: var(--ino-input-line-color, #{theme.color(primary)});
   --input-icon-color: var(--ino-input-icon-color, #{theme.color(primary)});
-}
-
-ino-input {
 
   display: block;
   @include icon.icon-core-styles;
+  @include typography.font(sans-serif, m, regular);
+  @include textfield.label-color(var(--input-label-color));
+  @include textfield.caret-color(var(--input-caret-color));
+  @include textfield.placeholder-color($placeholder-color);
 
   & * {
     box-sizing: initial;
@@ -68,141 +78,121 @@ ino-input {
     box-sizing: border-box;
   }
 
-  @include typography.font(sans-serif, m, regular);
-
-  &:hover {
-    @include textfield.fill-color(transparent);
+  .mdc-text-field__icon {
+    cursor: auto;
+    pointer-events: auto;
+    padding: 0;
   }
 
-  .mdc-text-field {
+  @include setIconColors($placeholder-color);
 
-    @include textfield.focused-outline-color(var(--input-line-color));
+  .mdc-text-field--focused {
+    @include setIconColors(var(--input-icon-color));
+  }
+
+  .mdc-text-field--invalid {
+    @include setIconColors(colors.ino-color(error))
+  }
+
+  .mdc-text-field__affix.mdc-text-field__affix--suffix {
+    margin-right: 12px;
+  }
+}
+
+// Filled textfield specific
+ino-input .mdc-text-field--filled {
+  @include textfield.fill-color(transparent);
+  @include textfield.disabled-fill-color(transparent);
+  @include textfield.line-ripple-color(var(--input-line-color));
+
+  &.mdc-text-field--invalid {
+    @include textfield.line-ripple-color(colors.ino-color(error));
+  }
+
+  &:not([class*='--with-leading-icon']) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &[class*='--with-leading-icon'] {
+    $padding-to-left: 32px;
+
+    .mdc-floating-label,
+    .mdc-floating-label--float-above {
+      left: $padding-to-left;
+    }
+  }
+
+  .mdc-text-field__input {
+    padding-bottom: 0;
+    padding-top: $padding-top;
+  }
+
+  &.mdc-text-field--no-label .mdc-text-field__input {
+    padding-top: 10px;
+  }
+
+  .mdc-text-field__icon {
+    padding: $padding-top 0 0 0;
 
     ino-icon {
-      --icon-color: #{$placeholder-color};
-    }
-
-    &--focused:not(.mdc-text-field--invalid) {
-      @include textfield.label-color(var(--input-label-color));
-      @include textfield.caret-color(var(--input-caret-color));
-      @include textfield.line-ripple-color(var(--input-line-color));
-
-      ino-icon {
-        --icon-color: var(--input-icon-color);
-      }
-    }
-
-    &--invalid ino-icon {
-      --icon-color: var(--mdc-theme-error, #b00020);
-    }
-
-    &--disabled {
-      background-color: transparent !important;
-    }
-
-    & + .mdc-text-field-helper-line {
-      padding: 0;
-    }
-
-    // Placeholder color
-    &:not(.mdc-text-field--disabled) {
-      & input::placeholder {
-        color: $placeholder-color;
-      }
-    }
-
-    .mdc-text-field__icon {
-      cursor: auto;
-      pointer-events: auto;
-      padding: 0;
-    }
-
-    @include setIconMargins(
-          (0 $icon-padding-to-text 0 $icon-padding-to-border),
-          (0 $icon-padding-to-border 0 $icon-padding-to-text)
-    );
-
-    &.mdc-text-field--outlined {
-
-      .mdc-text-field__icon {
-        height: 16px;
-        width: 16px;
-      }
-
-      @include setIconMargins(
-            (0 $icon-padding-to-text 0 $icon-padding-to-text)
-      );
-    }
-
-    &:#{$default-text-field} {
-      @include textfield.fill-color(transparent);
-
-      .mdc-text-field__icon {
-        padding: $padding-top 0 0 0;
-      }
-
-      // change background von greyish to transparent
-      &:before {
-        background-color: transparent;
-      }
-
-      &:not([class*='--with-leading-icon']) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      &[class*='--with-leading-icon'] {
-        $padding-to-left: 32px;
-
-        .mdc-floating-label,
-        .mdc-floating-label--float-above {
-          left: $padding-to-left;
-        }
-      }
-
-      .mdc-text-field__input {
-        padding-bottom: 0;
-        padding-top: $padding-top;
-      }
-      &.mdc-text-field--no-label .mdc-text-field__input {
-        padding-top: 12px;
-      }
-    }
-
-    .mdc-text-field__icon {
-      ino-icon {
-        --icon-height: 1em;
-        --icon-width: 1em;
-      }
-    }
-
-    .mdc-text-field__affix.mdc-text-field__affix--suffix {
-      margin-right: 12px;
+      --icon-height: 1em;
+      --icon-width: 1em;
     }
   }
 
+  @include setIconMargins(
+        (0 $icon-padding-to-text 0 $icon-padding-to-border),
+        (0 $icon-padding-to-border 0 $icon-padding-to-text)
+  );
+}
 
-  // Custom number arrows
-  &[type='number'] {
+// Outlined textfield specific
+ino-input .mdc-text-field--outlined {
+  @include textfield.focused-outline-color(var(--input-line-color));
 
-    @include hideNativeNumberInputArrows();
+  &.mdc-text-field--invalid {
+    @include textfield.focused-outline-color(colors.ino-color(error));
+  }
 
-    .arrow-container {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      right: 5px;
-      top: -15%;
-      height: 50%;
+  .mdc-text-field__icon {
+    height: 16px;
+    width: 16px;
+  }
 
-      .ino-num-arrows {
-        --ino-icon-height: 5px;
-        padding: 2px 0;
-        cursor: pointer;
+  @include setIconMargins(
+        (0 $icon-padding-to-text 0 $icon-padding-to-text)
+  );
+}
 
-        &.up {
-          transform: scaleY(-1);
-        }
+ino-input {
+  .mdc-text-field + .mdc-text-field-helper-line {
+    padding-left: 0;
+  }
+}
+
+// Custom number arrows
+ino-input[type='number'] {
+
+  @include hideNativeNumberInputArrows();
+
+  .arrow-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    right: 5px;
+    top: -15%;
+    height: 50%;
+
+    .ino-num-arrows {
+      --ino-icon-height: 5px;
+      --icon-color: #{$placeholder-color};
+
+      padding: 2px 0;
+      cursor: pointer;
+
+      &.up {
+        transform: scaleY(-1);
       }
     }
   }
