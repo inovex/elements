@@ -98,6 +98,7 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-label="Pattern numbers from 1 - 6" ino-pattern="[1-6]+"></ino-datepicker>
       <ino-datepicker ino-label="Disabled" disabled></ino-datepicker>
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
+      <ino-datepicker ino-label="Readonly" value="${defaultDate}" readonly></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>
   `;

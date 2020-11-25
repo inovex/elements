@@ -21,6 +21,7 @@ document
   autofocus
   disabled
   name="<string>"
+  readonly
   required
   value="<string>"
   min="<string>"
@@ -154,6 +155,7 @@ or as datetime picker
 | `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                                                                                                  | `string`                                    | `undefined` |
 | `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling) Default is 5                                                                                                              | `number`                                    | `5`         |
 | `name`                | `name`                  | The input name of this element.                                                                                                                                                   | `string`                                    | `undefined` |
+| `readonly`            | `readonly`              | Marks this element as readonly.                                                                                                                                                   | `boolean`                                   | `undefined` |
 | `required`            | `required`              | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                | `string`                                    | `''`        |
 

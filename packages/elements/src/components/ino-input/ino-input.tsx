@@ -108,6 +108,11 @@ export class Input implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * Marks this element as readonly.
+   */
+  @Prop() readonly?: boolean;
+
+  /**
    * The size of this element.
    */
   @Prop() size?: number;
@@ -421,6 +426,7 @@ export class Input implements ComponentInterface {
 
     const classTextfield = classNames({
       'ino-input__composer': true,
+      'ino-input--readonly': this.readonly,
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autoFocus,
@@ -429,7 +435,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,
       'mdc-text-field--with-trailing-icon': this.inoIconTrailing || this.inoUnit,
-      'mdc-text-field--no-label': !this.inoLabel
+      'mdc-text-field--no-label': !this.inoLabel,
     });
 
     return (
@@ -452,6 +458,7 @@ export class Input implements ComponentInterface {
             name={this.name}
             pattern={this.pattern}
             placeholder={this.placeholder}
+            readOnly={this.readonly}
             required={this.required}
             size={this.size}
             type={this.type}
@@ -469,7 +476,7 @@ export class Input implements ComponentInterface {
             <span class="mdc-text-field__affix mdc-text-field__affix--suffix">{this.inoUnit}</span>
           }
           {
-            this.type === 'number' &&
+            this.type === 'number' && !this.readonly &&
               <div class={'arrow-container'}>
                 <ino-icon class={'ino-num-arrows up'} onClick={() => this.handleInputNumberArrowClick(true)} ino-icon="_input_number_arrow_down"></ino-icon>
                 <ino-icon class={'ino-num-arrows down'} onClick={() => this.handleInputNumberArrowClick(false)} ino-icon="_input_number_arrow_down"></ino-icon>

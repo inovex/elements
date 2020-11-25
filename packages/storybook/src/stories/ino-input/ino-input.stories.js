@@ -55,6 +55,7 @@ export const DefaultUsage = () => /*html*/ `
     placeholder="${text('placeholder', '', 'STANDARD')}"
     ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
     disabled="${boolean('disabled', false, 'STANDARD')}"
+    readonly="${boolean('readonly', false, 'STANDARD')}"
     required="${boolean('required', false, 'STANDARD')}"
     ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
 
@@ -113,6 +114,9 @@ export const DefaultUsage = () => /*html*/ `
 
   <h4>States</h4>
   <ino-input placeholder="Disabled" disabled></ino-input>
+  <ino-input ino-label="Label" value="Readonly Value" readonly></ino-input>
+  <ino-input ino-label="Readonly wihout value" readonly></ino-input>
+  <ino-input ino-label="Readonly with -" value="-" readonly></ino-input>
   <ino-input ino-label="Optional" ino-show-label-hint></ino-input>
   <ino-input ino-label="Required" required ino-show-label-hint></ino-input>
 

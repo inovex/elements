@@ -181,13 +181,13 @@ export class InoControlItem {
 import { Datepicker as IDatepicker } from '@inovex.de/elements/dist/types/components/ino-datepicker/ino-datepicker';
 export declare interface InoDatepicker extends Components.InoDatepicker {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']
+  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'readonly', 'required', 'value']
 })
 @Component({
   selector: 'ino-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value'],
+  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'readonly', 'required', 'value'],
   outputs: ['valueChange']
 })
 export class InoDatepicker {
@@ -389,14 +389,14 @@ export class InoImgList {
 import { Input as IInput } from '@inovex.de/elements/dist/types/components/ino-input/ino-input';
 export declare interface InoInput extends Components.InoInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'size', 'step', 'type', 'value'],
   methods: ['getInputElement']
 })
 @Component({
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'size', 'step', 'type', 'value'],
   outputs: ['valueChange', 'inoBlur', 'inoFocus']
 })
 export class InoInput {
@@ -441,13 +441,13 @@ export class InoInputFile {
 
 export declare interface InoLabel extends Components.InoLabel {}
 @ProxyCmp({
-  inputs: ['inoDisabled', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText']
+  inputs: ['inoDisabled', 'inoFloatAbove', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText']
 })
 @Component({
   selector: 'ino-label',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoDisabled', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText']
+  inputs: ['inoDisabled', 'inoFloatAbove', 'inoOutline', 'inoRequired', 'inoShowHint', 'inoText']
 })
 export class InoLabel {
   protected el: HTMLElement;
