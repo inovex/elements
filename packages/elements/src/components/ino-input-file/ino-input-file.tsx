@@ -8,6 +8,8 @@ import classNames from 'classnames';
 export class InputFile implements ComponentInterface {
   @Element() el!: HTMLElement;
 
+  private eventListeners: [string, EventListener | EventListenerObject][] = [];
+
   /**
    * The types of files accepted by the server.
    */
@@ -63,11 +65,26 @@ export class InputFile implements ComponentInterface {
    */
   @Event() changeFile!: EventEmitter<{
     e: any;
-    files: object[];
+    files: File[];
   }>;
 
   componentDidLoad(): void {
     this.configureDragAndDrop();
+  }
+
+  disconnectedCallback(): void {
+    this.eventListeners.forEach((tuple) => this.removeEventListeners(this.el, tuple[0], tuple[1]));
+  }
+
+  private addEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+    this.eventListeners.push([events, fn]);
+    events.split(' ').forEach(e => {
+      el.addEventListener(e, fn);
+    });
+  }
+
+  private browserSupportsDragAndDrop(): boolean {
+    return (('draggable' in this.el) || ('ondragstart' in this.el && 'ondrop' in this.el) && 'FormData' in window && 'FileReader' in window);
   }
 
   private configureDragAndDrop(): void {
@@ -94,12 +111,11 @@ export class InputFile implements ComponentInterface {
         'dragend dragleave drop',
         () => box.classList.remove('ino-input-file__dnd-dragover')
       );
-      this.el.addEventListener('drop', (e) => {
+      this.el.addEventListener('drop', (e: DragEvent) => {
         if (this.disabled) {
           return;
         }
-        console.log('Drop');
-        const files = e.dataTransfer.files as FileList;
+        const files = e.dataTransfer.files;
         if (!this.multiple) {
           this.changeFile.emit({ e, files: Array.from(files).slice(0, 1) });
           return;
@@ -109,12 +125,14 @@ export class InputFile implements ComponentInterface {
     }
   }
 
-  private browserSupportsDragAndDrop(): boolean {
-    return (('draggable' in this.el) || ('ondragstart' in this.el && 'ondrop' in this.el) && 'FormData' in window && 'FileReader' in window);
+  private onFileChange(e: Event) {
+    const target = e.target as any;
+    const files = target.files as FileList;
+    this.changeFile.emit({ e, files: Array.from(files) });
   }
 
-  private addEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
-    events.split(' ').forEach(e => el.addEventListener(e, fn));
+  private removeEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+    events.split(' ').forEach(e => el.removeEventListener(e, fn));
   }
 
   private selectFiles() {
@@ -122,12 +140,6 @@ export class InputFile implements ComponentInterface {
       '.ino-input-file__native-element'
     ) as HTMLElement;
     input.click();
-  }
-
-  private onFileChange(e: Event) {
-    const target = e.target as any;
-    const files = target.files as FileList;
-    this.changeFile.emit({ e, files: Array.from(files) });
   }
 
   render() {
