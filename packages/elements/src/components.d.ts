@@ -2215,7 +2215,7 @@ declare namespace LocalJSX {
          */
         "onChangeFile"?: (event: CustomEvent<{
     e: any;
-    files: object[];
+    files: File[];
   }>) => void;
         /**
           * Marks this element as required.
