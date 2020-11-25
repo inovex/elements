@@ -11,7 +11,8 @@ import {
   Listen,
   Prop,
   Watch,
-  h, Method
+  h,
+  Method
 } from '@stencil/core';
 import classNames from 'classnames';
 import currency from 'currency.js';
@@ -259,7 +260,9 @@ export class Input implements ComponentInterface {
       );
     }
     if (this.inoIconLeading || this.inoIconTrailing) {
-      this.icon = new MDCTextFieldIcon(this.el.querySelector('.mdc-text-field__icon'));
+      this.icon = new MDCTextFieldIcon(
+        this.el.querySelector('.mdc-text-field__icon')
+      );
     }
 
     if (this.value && this.textfield) {
@@ -341,18 +344,18 @@ export class Input implements ComponentInterface {
     const stepWithFallback = this.step && this.step !== 'any' ? this.step : 1;
 
     const precisionOfValue = this.value ? getPrecision(Number(this.value)) : 0;
-    const formattedValue = currency(this.value, { precision: precisionOfValue });
+    const formattedValue = currency(this.value, {
+      precision: precisionOfValue
+    });
 
-    const newValue = shouldIncrement ?
-      formattedValue.add(stepWithFallback)
-      :
-      formattedValue.subtract(stepWithFallback);
+    const newValue = shouldIncrement
+      ? formattedValue.add(stepWithFallback)
+      : formattedValue.subtract(stepWithFallback);
 
     this.valueChange.emit(newValue.toString());
   };
 
   private helperTextTemplate() {
-
     const classHelperText = classNames({
       'mdc-text-field-helper-text': true,
       'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
@@ -360,11 +363,7 @@ export class Input implements ComponentInterface {
     });
 
     return (
-      <div
-        class={classHelperText}
-        id={this.uniqueHelperId}
-        aria-hidden="true"
-      >
+      <div class={classHelperText} id={this.uniqueHelperId} aria-hidden="true">
         {this.inoHelper}
       </div>
     );
@@ -376,8 +375,10 @@ export class Input implements ComponentInterface {
    * @return if the val can be formatted, returns the formatted string, else returns the original input val
    */
   private parseInput(val?: string): string {
-
-    const canBeFormatted = Boolean(val) && this.type === 'text' && Boolean(this.inoDecimalPlaces || this.inoThousandsSeparator);
+    const canBeFormatted =
+      Boolean(val) &&
+      this.type === 'text' &&
+      Boolean(this.inoDecimalPlaces || this.inoThousandsSeparator);
 
     if (!canBeFormatted) {
       return val;
@@ -393,7 +394,9 @@ export class Input implements ComponentInterface {
 
     // Compute the new cursor position after . was added
     if (this.inoThousandsSeparator) {
-      const numberOfAddedCharacters: number = Math.abs(val.length - formattedValue.length);
+      const numberOfAddedCharacters: number = Math.abs(
+        val.length - formattedValue.length
+      );
 
       if (numberOfAddedCharacters !== 0) {
         this.nativeInputEl.setSelectionRange(
@@ -415,9 +418,10 @@ export class Input implements ComponentInterface {
   }
 
   render() {
-
     const hasHelperText = Boolean(this.inoHelper);
-    const hasCharacterCounter = Boolean(this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength));
+    const hasCharacterCounter = Boolean(
+      this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength)
+    );
 
     const classTextfield = classNames({
       'ino-input__composer': true,
@@ -428,22 +432,24 @@ export class Input implements ComponentInterface {
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
       'mdc-text-field--with-leading-icon': this.inoIconLeading,
-      'mdc-text-field--with-trailing-icon': this.inoIconTrailing || this.inoUnit,
+      'mdc-text-field--with-trailing-icon':
+        this.inoIconTrailing || this.inoUnit,
       'mdc-text-field--no-label': !this.inoLabel
     });
 
     return (
       <Host>
         <div class={classTextfield}>
-          {this.inoIconLeading &&
-          <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
-            <slot name={'ino-icon-leading'}></slot>
-          </span>
-          }
+          {this.inoIconLeading && (
+            <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
+              <slot name={'ino-icon-leading'}></slot>
+            </span>
+          )}
           <input
             ref={el => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
             autocomplete={this.autocomplete}
+            autofocus={this.autoFocus}
             disabled={this.disabled}
             min={this.min}
             max={this.max}
@@ -463,18 +469,26 @@ export class Input implements ComponentInterface {
             onFocus={this.handleFocus}
             list={this.inoDataList}
           />
-          <slot/>
-          {
-            this.inoUnit &&
-            <span class="mdc-text-field__affix mdc-text-field__affix--suffix">{this.inoUnit}</span>
-          }
-          {
-            this.type === 'number' &&
-              <div class={'arrow-container'}>
-                <ino-icon class={'ino-num-arrows up'} onClick={() => this.handleInputNumberArrowClick(true)} ino-icon="_input_number_arrow_down"></ino-icon>
-                <ino-icon class={'ino-num-arrows down'} onClick={() => this.handleInputNumberArrowClick(false)} ino-icon="_input_number_arrow_down"></ino-icon>
-              </div>
-          }
+          <slot />
+          {this.inoUnit && (
+            <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
+              {this.inoUnit}
+            </span>
+          )}
+          {this.type === 'number' && (
+            <div class={'arrow-container'}>
+              <ino-icon
+                class={'ino-num-arrows up'}
+                onClick={() => this.handleInputNumberArrowClick(true)}
+                ino-icon="_input_number_arrow_down"
+              ></ino-icon>
+              <ino-icon
+                class={'ino-num-arrows down'}
+                onClick={() => this.handleInputNumberArrowClick(false)}
+                ino-icon="_input_number_arrow_down"
+              ></ino-icon>
+            </div>
+          )}
           <ino-label
             ino-outline={this.inoOutline}
             ino-text={this.inoLabel}
@@ -482,11 +496,11 @@ export class Input implements ComponentInterface {
             ino-show-hint={this.inoShowLabelHint}
             ino-disabled={this.disabled}
           />
-          {this.inoIconTrailing &&
-          <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
-            <slot name={'ino-icon-trailing'}></slot>
-          </span>
-          }
+          {this.inoIconTrailing && (
+            <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
+              <slot name={'ino-icon-trailing'}></slot>
+            </span>
+          )}
         </div>
         <div class="mdc-text-field-helper-line">
           {hasHelperText && this.helperTextTemplate()}
