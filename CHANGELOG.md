@@ -1,4 +1,40 @@
 # Changelog
+## [2.1.0](https://github.com/inovex/elements/compare/v2.0.0...v2.1.0) (2020-11-24)
+
+
+### Features
+
+* **elements|ino-checkbox:** add indeterminate state for selection checkbox ([#173](https://github.com/inovex/elements/issues/173)) ([da44ee4](https://github.com/inovex/elements/commit/da44ee48ec39f1527aa64f0d8a463e3765533447))
+* **elements|ino-icon:** add icons opportunity, pin and save ([#179](https://github.com/inovex/elements/issues/179)) ([d50aa37](https://github.com/inovex/elements/commit/d50aa379042f9e1386c93801b4de56b9594b729d))
+* **elements|ino-icon-button:** add managed option and provide customization options ([#176](https://github.com/inovex/elements/issues/176)) ([8aa55b4](https://github.com/inovex/elements/commit/8aa55b4751408be7a8b2d40e1997620693cc84c3))
+
+
+### Bug Fixes
+
+* **elements:** allow setting of box-sizing to border-box ([#174](https://github.com/inovex/elements/issues/174)) ([832ddd6](https://github.com/inovex/elements/commit/832ddd6700f5c4a3b66579cb0d006a0ad9d7451b))
+* **elements-angular:** prevent events from firing twice ([#201](https://github.com/inovex/elements/issues/201)) ([897e78f](https://github.com/inovex/elements/commit/897e78f0e8d2d2268fdaca1e50bae747e5290556))
+* **elements-react:** export ino-carousel/-slide components ([#182](https://github.com/inovex/elements/issues/182)) ([4062809](https://github.com/inovex/elements/commit/4062809a08094576b3fac1256f9f884a9ff6cec6))
+* **elements|ino-card:** render slots only when used ([#207](https://github.com/inovex/elements/issues/207)) ([1c9dfc1](https://github.com/inovex/elements/commit/1c9dfc1f5ea77bab6fab320389b36be1d5ddbec4))
+* **elements|ino-datepicker:** fix validation if no value is provided ([#141](https://github.com/inovex/elements/issues/141)) ([92d0f49](https://github.com/inovex/elements/commit/92d0f49c51d2ac763acef994dae04f5f39de589d))
+* **elements|ino-fab:** ensure creation of tooltip after fab loaded ([#156](https://github.com/inovex/elements/issues/156)) ([27de7b7](https://github.com/inovex/elements/commit/27de7b7c7e87d0cb1c17cb704cda42b68443c505))
+* **elements|ino-img:** fix rendering issue if dimensions are not set ([#191](https://github.com/inovex/elements/issues/191)) ([c7bbc19](https://github.com/inovex/elements/commit/c7bbc19c20feb15fe0c7b4e3e77c66580f4f3f75))
+* **elements|ino-select:** fix positioning while scrolling ([#123](https://github.com/inovex/elements/issues/123)) ([5eaf86a](https://github.com/inovex/elements/commit/5eaf86a83796a7e3969e699fd5e6a71d6c976c89))
+* **elements|ino-table:** disable shadow dom ([#163](https://github.com/inovex/elements/issues/163)) ([a0c5b48](https://github.com/inovex/elements/commit/a0c5b48582ba3953c3d17064b852fe7590caedc5))
+
+
+### Miscellaneous
+
+* build angular repo before publishing ([#168](https://github.com/inovex/elements/issues/168)) ([5caa9d1](https://github.com/inovex/elements/commit/5caa9d1fbebbadb0812bff586cf825b024bbc959))
+* improve windows integration ([#172](https://github.com/inovex/elements/issues/172)) ([6fee7f4](https://github.com/inovex/elements/commit/6fee7f45eb529af0482987dfa4ce4b2124be3cd0))
+* **elements:** bump material-components to 8.0.0 ([#171](https://github.com/inovex/elements/issues/171)) ([82eea25](https://github.com/inovex/elements/commit/82eea25089785029d0d4b02f26224e8121b80bc3))
+
+
+### Documentation
+
+* **elements|ino-card:** update deprecated examples ([#190](https://github.com/inovex/elements/issues/190)) ([17c87cd](https://github.com/inovex/elements/commit/17c87cd4cbde6cbb22e16b4bf1b34f87372563ac))
+* **elements|ino-table:** update outdated readme ([#193](https://github.com/inovex/elements/issues/193)) ([c16db80](https://github.com/inovex/elements/commit/c16db80a503b4be3118dcd022d0f5d705984d3e1))
+* update angular usage docs ([#183](https://github.com/inovex/elements/issues/183)) ([a33d666](https://github.com/inovex/elements/commit/a33d666efb1cedfb67216760d0f20b4bc402a2f6))
+
 ## [2.0.0](https://github.com/inovex/elements/compare/v1.2.0...v2.0.0) (2020-10-20)
 
 
