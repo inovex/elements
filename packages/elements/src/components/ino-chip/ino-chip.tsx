@@ -73,6 +73,12 @@ export class Chip implements ComponentInterface {
    */
   @Event() removeChip!: EventEmitter;
 
+  componentDidLoad(): void {
+    if (this.inoIcon) {
+      console.warn('This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.');
+    }
+  }
+
   private iconClicked(e: Event) {
     e.preventDefault();
     this.removeChip.emit(this);
