@@ -418,13 +418,13 @@ Contains typed input in `event.detail` */
 import { InputFile as IInputFile } from '@inovex.de/elements/dist/types/components/ino-input-file/ino-input-file';
 export declare interface InoInputFile extends Components.InoInputFile {}
 @ProxyCmp({
-  inputs: ['accept', 'autoFocus', 'disabled', 'inoLabel', 'multiple', 'name', 'required']
+  inputs: ['accept', 'autoFocus', 'disabled', 'inoDragAndDrop', 'inoDragAndDropSecondaryText', 'inoDragAndDropText', 'inoLabel', 'multiple', 'name', 'required']
 })
 @Component({
   selector: 'ino-input-file',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['accept', 'autoFocus', 'disabled', 'inoLabel', 'multiple', 'name', 'required'],
+  inputs: ['accept', 'autoFocus', 'disabled', 'inoDragAndDrop', 'inoDragAndDropSecondaryText', 'inoDragAndDropText', 'inoLabel', 'multiple', 'name', 'required'],
   outputs: ['changeFile']
 })
 export class InoInputFile {

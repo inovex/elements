@@ -644,6 +644,18 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Enables drag-and-drop file input
+         */
+        "inoDragAndDrop"?: boolean;
+        /**
+          * Sets the secondary text of the drag and drop window
+         */
+        "inoDragAndDropSecondaryText"?: string;
+        /**
+          * Sets the primary text of the drag and drop window
+         */
+        "inoDragAndDropText"?: string;
+        /**
           * Sets the label of the select files button.
          */
         "inoLabel"?: string;
@@ -2175,6 +2187,18 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Enables drag-and-drop file input
+         */
+        "inoDragAndDrop"?: boolean;
+        /**
+          * Sets the secondary text of the drag and drop window
+         */
+        "inoDragAndDropSecondaryText"?: string;
+        /**
+          * Sets the primary text of the drag and drop window
+         */
+        "inoDragAndDropText"?: string;
+        /**
           * Sets the label of the select files button.
          */
         "inoLabel"?: string;
@@ -2191,7 +2215,7 @@ declare namespace LocalJSX {
          */
         "onChangeFile"?: (event: CustomEvent<{
     e: any;
-    files: object[];
+    files: File[];
   }>) => void;
         /**
           * Marks this element as required.

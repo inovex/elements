@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-input-file',
@@ -6,6 +7,8 @@ import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop
 })
 export class InputFile implements ComponentInterface {
   @Element() el!: HTMLElement;
+
+  private eventListeners: [string, EventListener | EventListenerObject][] = [];
 
   /**
    * The types of files accepted by the server.
@@ -43,18 +46,83 @@ export class InputFile implements ComponentInterface {
   @Prop() inoLabel?: string = 'Select file';
 
   /**
+   * Enables drag-and-drop file input
+   */
+  @Prop() inoDragAndDrop?: boolean = false;
+
+  /**
+   * Sets the primary text of the drag and drop window
+   */
+  @Prop() inoDragAndDropText?: string = 'Drag your files here';
+
+  /**
+   * Sets the secondary text of the drag and drop window
+   */
+  @Prop() inoDragAndDropSecondaryText?: string = 'or';
+
+  /**
    * Emits when the value changes.
    */
   @Event() changeFile!: EventEmitter<{
     e: any;
-    files: object[];
+    files: File[];
   }>;
 
-  private selectFiles() {
-    const input = this.el.querySelector(
-      '.ino-input-file__native-element'
-    ) as HTMLElement;
-    input.click();
+  componentDidLoad(): void {
+    this.configureDragAndDrop();
+  }
+
+  disconnectedCallback(): void {
+    this.eventListeners.forEach((tuple) => this.removeEventListeners(this.el, tuple[0], tuple[1]));
+  }
+
+  private addEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+    this.eventListeners.push([events, fn]);
+    events.split(' ').forEach(e => {
+      el.addEventListener(e, fn);
+    });
+  }
+
+  private browserSupportsDragAndDrop(): boolean {
+    return (('draggable' in this.el) || ('ondragstart' in this.el && 'ondrop' in this.el) && 'FormData' in window && 'FileReader' in window);
+  }
+
+  private configureDragAndDrop(): void {
+    if (this.browserSupportsDragAndDrop()) {
+      const box = this.el.querySelector('.ino-input-file__dnd');
+
+      this.addEventListeners(
+        this.el,
+        'drag dragstart dragend dragover dragenter dragleave drop',
+        (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      );
+      this.addEventListeners(
+        this.el,
+        'dragover dragenter',
+        () => {
+          box.classList.add('ino-input-file__dnd-dragover');
+        }
+      );
+      this.addEventListeners(
+        this.el,
+        'dragend dragleave drop',
+        () => box.classList.remove('ino-input-file__dnd-dragover')
+      );
+      this.el.addEventListener('drop', (e: DragEvent) => {
+        if (this.disabled) {
+          return;
+        }
+        const files = e.dataTransfer.files;
+        if (!this.multiple) {
+          this.changeFile.emit({ e, files: Array.from(files).slice(0, 1) });
+          return;
+        }
+        this.changeFile.emit({ e, files: Array.from(files) });
+      });
+    }
   }
 
   private onFileChange(e: Event) {
@@ -63,10 +131,33 @@ export class InputFile implements ComponentInterface {
     this.changeFile.emit({ e, files: Array.from(files) });
   }
 
+  private removeEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+    events.split(' ').forEach(e => el.removeEventListener(e, fn));
+  }
+
+  private selectFiles() {
+    const input = this.el.querySelector(
+      '.ino-input-file__native-element'
+    ) as HTMLElement;
+    input.click();
+  }
+
   render() {
+    const classes = classNames({
+      'ino-input-file__composer': !this.inoDragAndDrop,
+      'ino-input-file__dnd': this.inoDragAndDrop,
+      'ino-input-file__dnd-disabled': this.inoDragAndDrop && this.disabled
+    });
+
     return (
       <Host>
-        <div class="ino-input-file__composer">
+        <div class={classes}>
+          {this.inoDragAndDrop && (
+            <div class="ino-input-file__dnd-text">
+              <label>{this.inoDragAndDropText}</label>
+              <label>{this.inoDragAndDropSecondaryText}</label>
+            </div>
+          )}
           <ino-button
             class="ino-input-file__button"
             name="file-paths"

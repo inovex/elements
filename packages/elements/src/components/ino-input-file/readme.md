@@ -76,22 +76,33 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property    | Attribute   | Description                                              | Type      | Default         |
-| ----------- | ----------- | -------------------------------------------------------- | --------- | --------------- |
-| `accept`    | `accept`    | The types of files accepted by the server.               | `string`  | `undefined`     |
-| `autoFocus` | `autofocus` | The autofocus of this element.                           | `boolean` | `undefined`     |
-| `disabled`  | `disabled`  | Disables this element.                                   | `boolean` | `undefined`     |
-| `inoLabel`  | `ino-label` | Sets the label of the select files button.               | `string`  | `'Select file'` |
-| `multiple`  | `multiple`  | Indicates whether the user can enter one or more values. | `boolean` | `undefined`     |
-| `name`      | `name`      | The name of this input field.                            | `string`  | `undefined`     |
-| `required`  | `required`  | Marks this element as required.                          | `boolean` | `undefined`     |
+| Property                      | Attribute                          | Description                                              | Type      | Default                  |
+| ----------------------------- | ---------------------------------- | -------------------------------------------------------- | --------- | ------------------------ |
+| `accept`                      | `accept`                           | The types of files accepted by the server.               | `string`  | `undefined`              |
+| `autoFocus`                   | `autofocus`                        | The autofocus of this element.                           | `boolean` | `undefined`              |
+| `disabled`                    | `disabled`                         | Disables this element.                                   | `boolean` | `undefined`              |
+| `inoDragAndDrop`              | `ino-drag-and-drop`                | Enables drag-and-drop file input                         | `boolean` | `false`                  |
+| `inoDragAndDropSecondaryText` | `ino-drag-and-drop-secondary-text` | Sets the secondary text of the drag and drop window      | `string`  | `'or'`                   |
+| `inoDragAndDropText`          | `ino-drag-and-drop-text`           | Sets the primary text of the drag and drop window        | `string`  | `'Drag your files here'` |
+| `inoLabel`                    | `ino-label`                        | Sets the label of the select files button.               | `string`  | `'Select file'`          |
+| `multiple`                    | `multiple`                         | Indicates whether the user can enter one or more values. | `boolean` | `undefined`              |
+| `name`                        | `name`                             | The name of this input field.                            | `string`  | `undefined`              |
+| `required`                    | `required`                         | Marks this element as required.                          | `boolean` | `undefined`              |
 
 
 ## Events
 
-| Event        | Description                   | Type                                        |
-| ------------ | ----------------------------- | ------------------------------------------- |
-| `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: object[]; }>` |
+| Event        | Description                   | Type                                      |
+| ------------ | ----------------------------- | ----------------------------------------- |
+| `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: File[]; }>` |
+
+
+## CSS Custom Properties
+
+| Name                          | Description                        |
+| ----------------------------- | ---------------------------------- |
+| `--ino-input-file-box-height` | Height of the drag and drop window |
+| `--ino-input-file-box-width`  | Width of the drag and drop window  |
 
 
 ## Dependencies
