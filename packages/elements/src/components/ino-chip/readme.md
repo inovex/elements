@@ -21,14 +21,15 @@ document
 ```html
 <ino-chip
   ino-color-scheme="<string>"
-  ino-fill="<string>"
-  ino-icon="<string>"
+  ino-fill="<string>"  
   ino-label="<string>"
+  ino-icon-leading
   ino-removable
   ino-selectable
   ino-selected
   ino-value="<string>"
 >
+    <ino-icon slot="ino-icon-leading" ino-icon="<string>"></ino-icon>
 </ino-chip>
 ```
 

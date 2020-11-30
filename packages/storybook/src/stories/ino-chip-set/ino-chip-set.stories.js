@@ -36,7 +36,9 @@ export const DefaultUsage = () => /*html*/ `
 
   <ino-chip-set ino-type="filter">
     <ino-chip ino-value="1" ino-label="Chip 1"></ino-chip>
-    <ino-chip ino-value="2" ino-label="Chip 2 - with icon" ino-icon="favorite"></ino-chip>
+    <ino-chip ino-value="2" ino-label="Chip 2 - with icon" ino-icon-leading>
+        <ino-icon slot="ino-icon-leading" ino-icon="favorite"></ino-icon>
+    </ino-chip>
     <ino-chip ino-value="3" ino-label="Chip 3"></ino-chip>
   </ino-chip-set>
 
@@ -50,7 +52,7 @@ export const DefaultUsage = () => /*html*/ `
 `;
 
 DefaultUsage.decorators = [
-  withStencilReadme(chipSetReadme),
+  withStencilReadme(chipSetReadme)
 ];
 
 export const InoChip = () => /*html*/ `
