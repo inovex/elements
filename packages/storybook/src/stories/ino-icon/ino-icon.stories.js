@@ -90,9 +90,10 @@ const iconChips = ICON_IDS.map(
               <ino-chip
                 id="icon-${name}"
                 ino-label="${name}"
-                ino-icon="${name}"
                 ino-fill="outline"
+                ino-icon-leading
                >
+                <ino-icon slot="ino-icon-leading" ino-icon="${name}"></ino-icon>
                </ino-chip>
                <ino-tooltip ino-for="icon-${name}" ino-label="Click to copy ${name} to your clipboard" ino-placement="top" ino-trigger="hover focus" />
                </div>
