@@ -117,7 +117,7 @@ export class Range implements ComponentInterface {
           class={sliderClasses}
           aria-label={this.name}
           aria-disabled={this.disabled}
-          data-step={Number(10)}
+          data-step={this.step}
         >
           <div class="mdc-slider__track">
             <div class="mdc-slider__track--active">
