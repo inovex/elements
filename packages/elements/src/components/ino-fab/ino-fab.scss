@@ -49,10 +49,10 @@ $extended-edged-borders: (
   --fab-background-color: var(--ino-fab-background-color, #{colors.ino-color(primary)});
   --fab-background-color-hover: var(--ino-fab-background-color-hover, #{colors.ino-color(primary, light)});
   --fab-background-color-active: var(--ino-fab-background-color-active, #{colors.ino-color(primary, dark)});
-  --fab-icon-color: var(--ino-fab-icon-color, colors.ino-color(primary, contrast));
-  --fab-color-disabled: var(--ino-fab-color-disabled, colors.ino-color(primary, contrast));
+  --fab-icon-color: var(--ino-fab-icon-color, #{colors.ino-color(primary, contrast)});
+  --fab-color-disabled: var(--ino-fab-color-disabled, #{colors.ino-color(primary, contrast)});
   --fab-background-color-disabled: var(--ino-background-color-disabled, #{colors.ino-color(dark, light)});
-  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, colors.ino-color(primary, contrast));
+  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{colors.ino-color(primary, contrast)});
 }
 
 // Default Edge
