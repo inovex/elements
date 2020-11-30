@@ -67,7 +67,8 @@ export class Range implements ComponentInterface {
   @Prop() value?: number;
 
   /**
-   * The step size for this element (default = 1)
+   * The step size for this element.
+   * Only applicable if ino-discrete is true.
    */
   @Prop() step?: number = 1;
 
@@ -97,6 +98,7 @@ export class Range implements ComponentInterface {
   handleInput(e) {
     const value = e.detail.value;
     this.sliderInstance.setValue(value);
+    console.log(value);
     this.valueChange.emit(value);
     e.stopPropagation();
   }
@@ -115,7 +117,7 @@ export class Range implements ComponentInterface {
           class={sliderClasses}
           aria-label={this.name}
           aria-disabled={this.disabled}
-          data-step={this.step}
+          data-step={Number(10)}
         >
           <div class="mdc-slider__track">
             <div class="mdc-slider__track--active">
@@ -123,7 +125,7 @@ export class Range implements ComponentInterface {
             </div>
             <div class="mdc-slider__track--inactive"></div>
           </div>
-          <div 
+          <div
             class="mdc-slider__thumb"
             aria-valuemin={this.min}
             aria-valuemax={this.max}

@@ -905,7 +905,7 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The step size for this element (default = 1)
+          * The step size for this element. Only applicable if ino-discrete is true.
          */
         "step"?: number;
         /**
@@ -2472,7 +2472,7 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<any>) => void;
         /**
-          * The step size for this element (default = 1)
+          * The step size for this element. Only applicable if ino-discrete is true.
          */
         "step"?: number;
         /**
