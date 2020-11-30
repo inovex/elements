@@ -2,7 +2,7 @@
 @use '@material/list/mdc-list';
 @use '../styles/colors';
 
-ino-nav-item {
+ino-nav-item  {
   /**
    * @prop --ino-nav-item-color: Inactive color of icon.
    * @prop --ino-nav-item-color-active: Active color of icon.
@@ -16,10 +16,6 @@ ino-nav-item {
   --nav-item-background-color-active: var(--ino-nav-item-background-color-active, #{rgba(colors.ino-color(light, contrast), 0.04)});
 
   .mdc-list-item, ino-list-item .mdc-list-item {
-
-    .mdc-list-item__ripple {
-      display: none;
-    }
 
     padding: 0px 24px;
     height: 60px;
@@ -45,6 +41,12 @@ ino-nav-item {
       background-color: var(--nav-item-background-color-active);
       border-left: 2px solid var(--nav-item-color-active);
       color: var(--nav-item-color-active);
+
+
+      .mdc-list-item__ripple {
+        display: none;
+      }
+
 
       // icon
       ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
