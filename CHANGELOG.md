@@ -1,4 +1,23 @@
 # Changelog
+## [2.2.0](https://github.com/inovex/elements/compare/v2.1.0...v2.2.0) (2020-12-01)
+
+
+### Features
+
+* **elements|ino-chip:** add slot for icons and mark ino-icon prop as deprecated ([#189](https://github.com/inovex/elements/issues/189)) ([edca6b8](https://github.com/inovex/elements/commit/edca6b8297191db80c2b2dd378b7b931bb035d3a))
+* **elements|ino-input-file:** add drag and drop window ([#199](https://github.com/inovex/elements/issues/199)) ([6ede8b0](https://github.com/inovex/elements/commit/6ede8b0b7cf1e31921d5f5ddf58c3fab91d43407))
+
+
+### Bug Fixes
+
+* **elements|ino-fab:** restore disabled color ([#217](https://github.com/inovex/elements/issues/217)) ([2b07e6a](https://github.com/inovex/elements/commit/2b07e6a362ec9400a5a40b17bf273f04337ab660))
+* **elements|ino-input:** add autofocus prop to input element ([#198](https://github.com/inovex/elements/issues/198)) ([6f5a186](https://github.com/inovex/elements/commit/6f5a186291040ca890994ba0328d7a078cf7b4f7))
+
+
+### Miscellaneous
+
+* add npm release script ([#208](https://github.com/inovex/elements/issues/208)) ([04e5926](https://github.com/inovex/elements/commit/04e5926352917a94c99ddc57cc0e0d283b433b33))
+
 ## [2.1.0](https://github.com/inovex/elements/compare/v2.0.0...v2.1.0) (2020-11-24)
 
 
