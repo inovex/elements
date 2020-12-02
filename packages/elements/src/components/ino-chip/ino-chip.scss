@@ -15,6 +15,18 @@ ino-chip {
   .mdc-chip {
     @include chips.fill-color-accessible($default-chip-color);
 
+    .mdc-chip__icon--trailing {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+    }
+
+    ino-icon {
+      --icon-width: .75em;
+      --icon-height: .75em;
+      --icon-color: currentColor;
+    }
+
     ino-icon {
       --icon-width: 0.75em;
       --icon-height: 0.75em;

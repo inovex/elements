@@ -45,6 +45,11 @@ export class Chip implements ComponentInterface {
   @Prop() inoIcon?: string;
 
   /**
+   * If enabled, appends the slotted icon to the chip label
+   */
+  @Prop() inoIconTrailing = false;
+
+  /**
    * The label of this chip (**required**).
    */
   @Prop() inoLabel?: string;
@@ -102,7 +107,8 @@ export class Chip implements ComponentInterface {
     const iconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
+      'mdc-chip__icon--trailing': this.inoIconTrailing,
+      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
@@ -137,7 +143,13 @@ export class Chip implements ComponentInterface {
 
           <span class="mdc-chip__text">{this.inoLabel}</span>
 
-          {this.inoRemovable && (
+          {this.inoIconTrailing && (
+            <span class="mdc-chip__icon mdc-chip__icon--trailing">
+              <slot name="ino-icon-trailing"/>
+            </span>
+          )}
+
+          {this.inoRemovable && !this.inoIconTrailing && (
             <ino-icon
               class="mdc-chip__icon mdc-chip__icon--trailing"
               ino-icon="close"
