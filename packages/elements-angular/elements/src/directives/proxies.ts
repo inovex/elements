@@ -621,14 +621,14 @@ export class InoOptionGroup {
 
 export declare interface InoPopover extends Components.InoPopover {}
 @ProxyCmp({
-  inputs: ['inoColorScheme', 'inoFor', 'inoPlacement', 'inoTrigger'],
+  inputs: ['inoColorScheme', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoColorScheme', 'inoFor', 'inoPlacement', 'inoTrigger']
+  inputs: ['inoColorScheme', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger']
 })
 export class InoPopover {
   protected el: HTMLElement;
