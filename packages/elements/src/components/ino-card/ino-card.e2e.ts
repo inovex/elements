@@ -5,13 +5,6 @@ const CARD_SELECTOR = 'ino-card';
 const DIV_SELECTOR = 'ino-card div';
 
 describe('InoCard', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_CARD);
-
-    const inoCardEl = await page.find('ino-card');
-    expect(inoCardEl).toBeDefined();
-  });
-
   describe('Properties', () => {
     it('should render with selected set to true', async () => {
       const page = await setupPageWithContent(INO_CARD);

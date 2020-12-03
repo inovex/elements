@@ -36,16 +36,6 @@ describe('InoButton', () => {
     expect(mdcButtonEl).toHaveClass('ino-button--dense');
   });
 
-  it('should render with property disabled', async () => {
-    const page = await setupPageWithContent(INO_BUTTON);
-
-    const inoButtonEl = await page.find('ino-button');
-    inoButtonEl.setAttribute('disabled', true);
-    await page.waitForChanges();
-    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
-    expect(mdcButtonEl).toHaveAttribute('disabled');
-  });
-
   describe('property ino-fill', () => {
     it('should render with solid', async () => {
       const page = await setupPageWithContent(INO_BUTTON);
@@ -124,6 +114,20 @@ describe('InoButton', () => {
 
       const icon = await page.find('ino-icon');
       expect(icon).toBeTruthy();
+    });
+  });
+
+  describe('Events', () => {
+    it('should not fire an event if disabled', async () => {
+      const page = await setupPageWithContent(INO_BUTTON);
+      const clickEvent = await page.spyOnEvent('click');
+
+      const inoButtonEl = await page.find('ino-button');
+      inoButtonEl.setAttribute('disabled', true);
+      await page.waitForChanges();
+      await inoButtonEl.click();
+      await page.waitForChanges();
+      expect(clickEvent).not.toHaveReceivedEvent();
     });
   });
 });
