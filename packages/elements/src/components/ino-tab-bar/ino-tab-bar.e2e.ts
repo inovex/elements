@@ -9,13 +9,6 @@ const TAB_BAR_SELECTOR = 'ino-tab-bar';
 const TAB_SELECTOR = 'ino-tab-bar ino-tab';
 
 describe('InoTabBar', () => {
-
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_TAB_BAR);
-    const tabBar = await page.find('ino-tab-bar');
-    expect(tabBar).toBeDefined();
-  });
-
   describe('Properties', () => {
 
     it('should render with the inoActiveTab property set correctly', async () => {

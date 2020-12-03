@@ -6,17 +6,9 @@ const INO_RANGE_SELECTOR = 'ino-range';
 const MDC_SELECTOR = 'ino-range .mdc-slider';
 
 describe('InoRange', () => {
-
-  it('should render with defaul values', async () => {
-    const page = await setupPageWithContent(INO_RANGE);
-    const inoRange = await page.find(INO_RANGE_SELECTOR);
-
-    expect(inoRange).toBeDefined();
-  });
-
   describe('Properties', () => {
 
-    it('should disabled the range component if disabled property is set to true', async () => {
+    it('should disable the range component if disabled property is set to true', async () => {
       const page = await setupPageWithContent(INO_RANGE);
       const inoRange = await page.find(INO_RANGE_SELECTOR);
       const mdcSlider = await page.find(MDC_SELECTOR);
@@ -55,7 +47,6 @@ describe('InoRange', () => {
 
       expect(step).toBe("5");
     });
-
   });
 
   describe('Events', () => {
@@ -109,7 +100,5 @@ describe('InoRange', () => {
 
       expect(valueChangeEvent).not.toHaveReceivedEvent();
     });
-
   });
-
 });

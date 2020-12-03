@@ -9,14 +9,6 @@ const INO_SELECT_SELECTOR = 'ino-select';
 const INNER_DIV_SELECTOR = 'ino-select > div';
 
 describe('InoSelect', () => {
-
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_SELECT);
-    const inoSelect = await page.find(INO_SELECT_SELECTOR);
-
-    expect(inoSelect).toBeDefined();
-  });
-
   describe('Properties', () => {
 
     it('should render with the disabled property set to true', async () => {

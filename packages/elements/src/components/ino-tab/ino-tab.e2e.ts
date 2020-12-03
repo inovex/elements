@@ -6,13 +6,6 @@ const BTN_SELECTOR = 'ino-tab > button';
 
 describe('InoTab', () => {
 
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_TAB);
-    const inoTab = await page.find(INO_TAB_SELECTOR);
-
-    expect(inoTab).toBeDefined();
-  });
-
   describe('Properties', () => {
 
     it('should render with inoStacked set to true', async () => {

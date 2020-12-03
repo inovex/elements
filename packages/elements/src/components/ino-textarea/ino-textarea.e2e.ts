@@ -14,12 +14,6 @@ const checkSettingOfProp = async (property: string, value: number | string) => {
 };
 
 describe('ino-textarea', () => {
-  it('should render', async () => {
-    const page = await setupPageWithContent(createTextarea());
-    const inoTextArea = await page.find('ino-textarea');
-    expect(inoTextArea).not.toBeNull();
-  });
-
   it('should render with an defined text inside', async () => {
     const page = await setupPageWithContent(createTextarea());
     const inoTextArea = await page.find('ino-textarea');

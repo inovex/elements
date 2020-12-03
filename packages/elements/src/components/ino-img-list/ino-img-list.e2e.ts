@@ -9,13 +9,6 @@ const IMG_LIST = `
 const LIST_SELECTOR = 'ino-img-list';
 
 describe('ino-img-list', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(IMG_LIST);
-    const list = await page.find(LIST_SELECTOR);
-
-    expect(list).toBeDefined();
-  });
-
   describe('Properties', () => {
     it('should render with inoMasonry set to true', async () => {
       const page = await setupPageWithContent(IMG_LIST);

@@ -12,15 +12,7 @@ const INO_DIALOG_SELECTOR = 'ino-dialog';
 const MDC_SELECTOR = '.mdc-dialog';
 
 describe('InoDialog', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_DIALOG);
-    const inoDialog = await page.find(INO_DIALOG_SELECTOR);
-
-    expect(inoDialog).toBeDefined();
-  });
-
   describe('Properties', () => {
-
     it('should close the dialog upon setting inoOpen to false', async () => {
       const page = await setupPageWithContent(INO_OPEN_DIALOG);
       const inoDialog = await page.find(INO_DIALOG_SELECTOR);

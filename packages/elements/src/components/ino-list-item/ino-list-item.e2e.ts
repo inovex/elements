@@ -6,13 +6,6 @@ const LI_SELECTOR = 'ino-list-item li';
 
 describe('InoListItem', () => {
 
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(LIST_ITEM);
-    const inoListItem = await page.find(LIST_ITEM_SELECTOR);
-
-    expect(inoListItem).toBeDefined();
-  });
-
   describe('Properties', () => {
 
     it('should disable the list-item if disabled property is set to true', async () => {
