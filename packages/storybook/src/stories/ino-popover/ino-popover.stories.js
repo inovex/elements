@@ -1,4 +1,4 @@
-import { select, text } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -15,6 +15,7 @@ export const DefaultUsage = () => /*html*/ `
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
         ino-for="${text('ino-for', 'popover-target')}"
+        ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
         ino-color-scheme="${select(
           'ino-color-scheme',
@@ -50,5 +51,20 @@ export const DefaultUsage = () => /*html*/ `
 
       <ino-button id="popover-click">Click</ino-button>
       <ino-popover ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
+
+      <h4>Interactions</h4>
+      <ino-button id="popover-non-interactive">Non-Interactive content</ino-button>
+      <ino-popover ino-interactive="false" ino-for="popover-non-interactive" ino-trigger="click" ino-color-scheme="transparent">
+        <div id="interactive-demo-container">
+            <p>I'm not interactive. I will close on click. I should only be used for non-interactive content like this text.</p>
+        </div>
+      </ino-popover>
+
+      <ino-button id="popover-interactive">Interactive content</ino-button>
+      <ino-popover ino-interactive="true" ino-for="popover-interactive" ino-trigger="click" ino-color-scheme="transparent">
+        <div id="interactive-demo-container">
+            <ino-button>You can click me without closing this popover!</ino-button>
+        </div>
+      </ino-popover>
     </div>
   `;
