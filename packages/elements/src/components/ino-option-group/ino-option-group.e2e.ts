@@ -16,4 +16,5 @@ describe('ino-option-group', () => {
 
     expect(listItem).toHaveClass('mdc-list-item--disabled');
   });
+
 });

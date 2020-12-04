@@ -59,7 +59,9 @@ export class ListItem implements ComponentInterface {
 
   @Listen('click')
   clickHandler() {
-    this.clickEl.emit(this.el);
+    if (!this.inoDisabled) {
+      this.clickEl.emit(this.el);
+    }
   }
 
   disconnectedCallback() {
