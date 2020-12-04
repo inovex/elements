@@ -7,7 +7,6 @@ const LI_SELECTOR = 'ino-list-item li';
 describe('InoListItem', () => {
 
   describe('Properties', () => {
-
     it('should disable the list-item if disabled property is set to true', async () => {
       const page = await setupPageWithContent(LIST_ITEM);
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
@@ -40,11 +39,9 @@ describe('InoListItem', () => {
 
       expect(liElem).toHaveClass('mdc-list-item--activated');
     });
-
   });
 
   describe('Events', () => {
-
     it('should emit a clickEl event upon clicking a list item', async () => {
       const page = await setupPageWithContent(LIST_ITEM);
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
@@ -56,6 +53,19 @@ describe('InoListItem', () => {
       expect(clickElEvent).toHaveReceivedEvent();
     });
 
+    it('should not emit a clickEl event upon clicking a list item if inoDisabled is true', async () => {
+      const page = await setupPageWithContent(LIST_ITEM);
+      const inoListItem = await page.find(LIST_ITEM_SELECTOR);
+      const clickElEvent = await page.spyOnEvent('clickEl');
+
+      await inoListItem.setAttribute('ino-disabled', true);
+      await page.waitForChanges();
+
+      await inoListItem.click();
+      await page.waitForChanges();
+
+      expect(clickElEvent).not.toHaveReceivedEvent();
+    });
   });
 
 });
