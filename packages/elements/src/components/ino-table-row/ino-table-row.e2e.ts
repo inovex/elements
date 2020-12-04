@@ -35,4 +35,5 @@ describe('ino-table', () => {
       expect(row).toHaveClass('mdc-data-table__row--selected');
     });
   });
+
 });

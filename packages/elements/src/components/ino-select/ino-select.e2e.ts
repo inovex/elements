@@ -9,8 +9,8 @@ const INO_SELECT_SELECTOR = 'ino-select';
 const INNER_DIV_SELECTOR = 'ino-select > div';
 
 describe('InoSelect', () => {
-  describe('Properties', () => {
 
+  describe('Properties', () => {
     it('should render with the disabled property set to true', async () => {
       const page = await setupPageWithContent(INO_SELECT);
       const inoSelect = await page.find(INO_SELECT_SELECTOR);
@@ -31,6 +31,23 @@ describe('InoSelect', () => {
       expect(innerDiv).toHaveClass('mdc-select--required');
     });
 
+    it('should render as an outlined element if inoOutlined is true', async () => {
+      const page = await setupPageWithContent(INO_SELECT);
+      const inoSelect = await page.find(INO_SELECT_SELECTOR);
+      await inoSelect.setAttribute('ino-outline', true);
+      await page.waitForChanges();
+
+      const innerDiv = await page.find(INNER_DIV_SELECTOR);
+      expect(innerDiv).toHaveClass('mdc-select--outlined');
+    });
+
+    it('should render as a filled element if inoOutlined is false', async () => {
+      const page = await setupPageWithContent(INO_SELECT);
+
+      const innerDiv = await page.find(INNER_DIV_SELECTOR);
+      expect(innerDiv).not.toHaveClass('mdc-select--outlined');
+      expect(innerDiv).toHaveClass('mdc-select--filled');
+    });
   });
 
   describe('Events', () => {

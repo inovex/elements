@@ -9,8 +9,8 @@ const TAB_BAR_SELECTOR = 'ino-tab-bar';
 const TAB_SELECTOR = 'ino-tab-bar ino-tab';
 
 describe('InoTabBar', () => {
-  describe('Properties', () => {
 
+  describe('Properties', () => {
     it('should render with the inoActiveTab property set correctly', async () => {
       const page = await setupPageWithContent(INO_TAB_BAR);
       const tabBar = await page.find(TAB_BAR_SELECTOR);
@@ -21,11 +21,9 @@ describe('InoTabBar', () => {
       const activeTab = await tabBar.getAttribute('ino-active-tab');
       expect(activeTab).toBe("3");
     });
-
   });
 
   describe('Events', () => {
-
     it('should emit an activeTabChange event upon clicking on ino-tab component', async () => {
       const page = await setupPageWithContent(INO_TAB_BAR);
       const tab = await page.find(TAB_SELECTOR);
@@ -37,7 +35,6 @@ describe('InoTabBar', () => {
       expect(tabChangeEvent).toHaveReceivedEvent();
       expect(tabChangeEvent).toHaveReceivedEventDetail(0);
     });
-
   });
 
 });

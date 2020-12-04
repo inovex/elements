@@ -7,7 +7,6 @@ const BTN_SELECTOR = 'ino-tab > button';
 describe('InoTab', () => {
 
   describe('Properties', () => {
-
     it('should render with inoStacked set to true', async () => {
       const page = await setupPageWithContent(INO_TAB);
       const inoTab = await page.find(INO_TAB_SELECTOR);
@@ -18,11 +17,9 @@ describe('InoTab', () => {
 
       expect(btn).toHaveClass('mdc-tab--stacked');
     });
-
   });
 
   describe('Events', () => {
-
     it('should emit an inoInteracted event upon receiving a MDCTab:interacted event', async () => {
       const page = await setupPageWithContent(INO_TAB);
       const inoTab = await page.find(INO_TAB_SELECTOR);
@@ -44,7 +41,6 @@ describe('InoTab', () => {
 
       expect(mdcInteractedEvent).not.toHaveReceivedEvent();
     });
-
   });
 
 });

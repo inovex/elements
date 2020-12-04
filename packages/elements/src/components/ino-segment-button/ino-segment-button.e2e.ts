@@ -3,8 +3,34 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 const INO_SEGMENT_BUTTON = '<ino-segment-button value="1"></ino-segment-button>'
 const INO_SEGMENT_BUTTON_CHECKED = '<ino-segment-button checked></ino-segment-button>'
 const INO_SEGMENT_BUTTON_DISABLED = '<ino-segment-button disabled></ino-segment-button>'
+const BUTTON_SELECTOR = 'ino-segment-button >>> button';
 
 describe('ino-segment-button', () => {
+
+  describe('Properties', () => {
+    it('should render as a dense button if inoDense is true', async () => {
+      const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
+      const segmentBtn = await page.find('ino-segment-button');
+      const btn = await page.find(BUTTON_SELECTOR);
+
+      await segmentBtn.setAttribute('ino-dense', true);
+      await page.waitForChanges();
+
+      expect(btn).toHaveClass('ino-segment-button--dense');
+    });
+
+    it('should render as checked button if checked is true', async () => {
+      const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
+      const segmentBtn = await page.find('ino-segment-button');
+      const btn = await page.find(BUTTON_SELECTOR);
+
+      await segmentBtn.setAttribute('checked', true);
+      await page.waitForChanges();
+
+      expect(btn).toHaveClass('ino-segment-button--active');
+    });
+  });
+
   describe('Events', () => {
     it('should emit a checkedChange event upon clicking the button', async () => {
       const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
@@ -40,4 +66,5 @@ describe('ino-segment-button', () => {
       expect(clickEl).not.toHaveReceivedEvent();
     });
   });
+
 });
