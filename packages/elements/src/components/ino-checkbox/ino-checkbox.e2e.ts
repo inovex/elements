@@ -4,6 +4,7 @@ const INO_CHECKBOX = `<ino-checkbox></ino-checkbox>`;
 const MDC_SELECTOR = 'ino-checkbox >>> .mdc-checkbox';
 
 describe('InoCheckbox', () => {
+
   describe('Properties', () => {
     it('should render as a disabled checkbox if disabled is set to true', async () => {
       const page = await setupPageWithContent(INO_CHECKBOX);
@@ -95,5 +96,6 @@ describe('InoCheckbox', () => {
 
       expect(checkedChange).not.toHaveReceivedEvent();
     });
+
   });
 });

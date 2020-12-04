@@ -9,6 +9,7 @@ const IMG_LIST = `
 const LIST_SELECTOR = 'ino-img-list';
 
 describe('ino-img-list', () => {
+
   describe('Properties', () => {
     it('should render with inoMasonry set to true', async () => {
       const page = await setupPageWithContent(IMG_LIST);
@@ -32,4 +33,5 @@ describe('ino-img-list', () => {
       expect(ul).toHaveClass('mdc-image-list--with-text-protection');
     });
   });
+
 });

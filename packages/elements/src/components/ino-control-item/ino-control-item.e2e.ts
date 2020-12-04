@@ -71,7 +71,7 @@ describe('InoControlItem', () => {
       expect(clickSpy).toHaveReceivedEventDetail(false);
     });
 
-    it('should emit checkedChange event with true as detail (radio)', async () => {
+    it('should emit a checkedChange event with true as detail (radio)', async () => {
       const page = await setupPageWithContent(INO_RADIO_ITEM_CHECKED);
 
       const clickSpy = await page.spyOnEvent('checkedChange');
@@ -80,7 +80,7 @@ describe('InoControlItem', () => {
       expect(clickSpy).toHaveReceivedEventDetail(true);
     });
 
-    it('should emit no checkedChange event if checkbox is disabled', async () => {
+    it('should not emit a checkedChange event if checkbox is disabled', async () => {
       const page = await setupPageWithContent(INO_CHECKBOX_ITEM_DISABLED);
 
       const clickSpy = await page.spyOnEvent('checkedChange');
@@ -89,7 +89,7 @@ describe('InoControlItem', () => {
       expect(clickSpy).not.toHaveReceivedEvent();
     });
 
-    it('should emit no checkedChange event if radio-button is disabled', async () => {
+    it('should not emit a checkedChange event if radio-button is disabled', async () => {
       const page = await setupPageWithContent(INO_RADIO_ITEM_DISABLED);
 
       const clickSpy = await page.spyOnEvent('checkedChange');

@@ -12,6 +12,7 @@ const INO_DIALOG_SELECTOR = 'ino-dialog';
 const MDC_SELECTOR = '.mdc-dialog';
 
 describe('InoDialog', () => {
+
   describe('Properties', () => {
     it('should close the dialog upon setting inoOpen to false', async () => {
       const page = await setupPageWithContent(INO_OPEN_DIALOG);
@@ -55,4 +56,5 @@ describe('InoDialog', () => {
       expect(inoChangedEvent).toHaveReceivedEventDetail(false);
     });
   });
+
 });

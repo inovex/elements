@@ -6,8 +6,8 @@ const INO_FAB_PRIMARY_SELECTOR = 'ino-fab-set >>> ino-fab >>> #primary-fab';
 const DIAL_SELECTOR = 'ino-fab-set >>> .ino-speed-dial';
 
 describe('InoFabButton', () => {
-  describe('Properties', () => {
 
+  describe('Properties', () => {
     it('should not open the dial by default', async () => {
       const page = await setupPageWithContent(INO_FAB_SET);
 
@@ -54,4 +54,5 @@ describe('InoFabButton', () => {
       expect(dialElStyle.display).toBe('none');
     });
   });
+
 });

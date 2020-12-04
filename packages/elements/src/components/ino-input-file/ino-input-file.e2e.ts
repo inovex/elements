@@ -2,65 +2,40 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_INPUT_FILE = `<ino-input-file></ino-input-file>`;
 const INPUT_FILE_SELECTOR = 'ino-input-file';
-const INPUT_SELECTOR = 'ino-input-file input';
-const BTN_SELECTOR = 'ino-input-file ino-button >>> button';
 
 describe('InoInputFile', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_INPUT_FILE);
-    const inoInput = await page.find(INPUT_FILE_SELECTOR);
-
-    expect(inoInput).toBeDefined();
-  });
 
   describe('Properties', () => {
-
-    it('should disable the element if disabled property is set to true', async () => {
+    it('should render with the correct css classes if inoDragAndDrop is set to false', async () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
-      const inoInput = await page.find(INPUT_FILE_SELECTOR);
-      const btn = await page.find(BTN_SELECTOR);
-      const input = await page.find(INPUT_SELECTOR);
 
-      await inoInput.setAttribute('disabled', true);
-      await page.waitForChanges();
-
-      expect(btn).toHaveAttribute('disabled');
-      expect(input).toHaveAttribute('disabled');
+      const dnd_div = await page.find('.ino-input-file__composer');
+      expect(dnd_div).toBeDefined();
     });
 
-    it('should allow multiple files if multiple property is set to true', async () => {
+    it('should render with the correct css classes if inoDragAndDrop is set to true', async () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
-      const inoInput = await page.find(INPUT_FILE_SELECTOR);
-      const input = await page.find(INPUT_SELECTOR);
+      const inputFile = await page.find(INPUT_FILE_SELECTOR);
 
-      await inoInput.setAttribute('multiple', true);
+      await inputFile.setAttribute('ino-drag-and-drop', true);
       await page.waitForChanges();
 
-      expect(input).toHaveAttribute('multiple');
+      const dnd_div = await page.find('.ino-input-file__dnd');
+      expect(dnd_div).toBeDefined();
     });
 
-    it('should render with the required attribute set to true', async () => {
+    it('should render with the correct css classes if inoDragAndDrop and disabled are set to true', async () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
-      const inoInput = await page.find(INPUT_FILE_SELECTOR);
-      const input = await page.find(INPUT_SELECTOR);
+      const inputFile = await page.find(INPUT_FILE_SELECTOR);
 
-      await inoInput.setAttribute('required', true);
+      await inputFile.setAttribute('ino-drag-and-drop', true);
+      await inputFile.setAttribute('disabled', true);
       await page.waitForChanges();
 
-      expect(input).toHaveAttribute('required');
+      const dnd_div = await page.find('.ino-input-file__dnd');
+      expect(dnd_div).toBeDefined();
+      expect(dnd_div).toHaveClass('ino-input-file__dnd-disabled')
     });
-
-    it('should enable autofocus if autofocus property is set to true', async () => {
-      const page = await setupPageWithContent(INO_INPUT_FILE);
-      const inoInput = await page.find(INPUT_FILE_SELECTOR);
-      const btn = await page.find(BTN_SELECTOR);
-
-      await inoInput.setAttribute('autoFocus', true);
-      await page.waitForChanges();
-
-      expect(btn).toHaveAttribute('autoFocus');
-    });
-
   });
 
 });

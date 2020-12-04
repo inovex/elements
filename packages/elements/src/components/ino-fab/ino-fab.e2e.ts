@@ -5,8 +5,8 @@ const INO_FAB_SELECTOR = 'ino-fab';
 const BUTTON_SELECTOR = 'ino-fab >>> button';
 
 describe('InoFabButton', () => {
-  describe('Properties', () => {
 
+  describe('Properties', () => {
     it('should render with property ino-mini', async () => {
       const page = await setupPageWithContent(INO_FAB_BUTTON);
 
@@ -57,4 +57,5 @@ describe('InoFabButton', () => {
       expect(disabledSpy).not.toHaveReceivedEvent();
     });
   });
+
 });

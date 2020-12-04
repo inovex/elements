@@ -6,7 +6,6 @@ const INO_ICON_BTN_SELECTOR = 'ino-icon-button';
 describe('InoIconButton', () => {
 
   describe('Events', () => {
-
     it('should emit a click event by default', async () => {
       const page = await setupPageWithContent(INO_ICON_BTN);
       const inoIconBtn = await page.find(INO_ICON_BTN_SELECTOR);
@@ -33,4 +32,5 @@ describe('InoIconButton', () => {
       expect(clickEvent).not.toHaveReceivedEvent();
     });
   });
+
 });
