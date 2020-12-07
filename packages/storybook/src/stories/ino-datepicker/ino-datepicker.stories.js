@@ -65,7 +65,7 @@ export const DefaultUsage = () => /*html*/ `
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
         ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
-        ino-date-format="${text('ino-date-format', 'Y-m-d H:i', 'DATE CONFIG')}"
+        ino-date-format="${text('ino-date-format', 'Y-m-d', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text('ino-default-date', defaultDate, 'DATE CONFIG')}"
         ino-twelve-hour-time="${boolean('ino-twelve-hour-time', false, 'DATE CONFIG')}"

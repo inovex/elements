@@ -58,8 +58,8 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
-    this.setValidState(value);
     if (this.flatpickr) {
+      this.setValidState(value);
       this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
   }
@@ -338,15 +338,14 @@ export class Datepicker implements ComponentInterface {
   private setValidState(value: string): void {
     let formattedDate: string;
     let parsedDate: Date;
-
-    try {
+       
+    if (value) {
       parsedDate = this.flatpickr.parseDate(value);
       formattedDate = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
       this.isInValid = formattedDate !== value ?  true : false;
-    } catch(e) {
-      if(value) this.isInValid = true;
     }
-    
+
+    if(!value && !this.required) this.isInValid = false;
   }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
