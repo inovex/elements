@@ -1,6 +1,7 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_DATEPICKER = `<ino-datepicker></ino-datepicker>`;
+const INO_DATEPICKER_WITH_SIBLING = `<ino-datepicker></ino-datepicker><button>Click Me</button>`;
 const INO_DATEPICKER_WITH_MIN_DATE = `<ino-datepicker min='today'></ino-datepicker>`;
 const INO_DATEPICKER_WITH_FORMAT = `<ino-datepicker ino-date-format='m-Y-d'></ino-datepicker>`;
 const DATEPICKER = 'ino-datepicker';
@@ -152,9 +153,10 @@ describe('InoDatepicker', () => {
       expect(datepicker).toHaveAttribute('ino-show-label-hint');
     });
 
-    it('should set invalid state for required inputs', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
+    it.only('should set invalid state for required inputs', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER_WITH_SIBLING);
       const inoDatepickerEl = await page.find(DATEPICKER);
+      const buttonEl = await page.find('button');
       const flatpickrInputEl = await page.find('.flatpickr-input');
     
       inoDatepickerEl.setAttribute('required', true);
@@ -162,9 +164,11 @@ describe('InoDatepicker', () => {
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
       
-      inoDatepickerEl.setAttribute('value',' ');
+      inoDatepickerEl.click();
       await page.waitForChanges();
-      
+      buttonEl.click();
+      await page.waitForChanges();
+
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
     })
   });
