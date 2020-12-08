@@ -15,11 +15,6 @@ export const config: Config = {
     cloneNodeFix: false,
     slotChildNodesFix: true
   },
-  testing: {
-    browserHeadless: false,
-    browserSlowMo: 2000,
-    browserDevtools: true
-  },
   globalStyle: './src/components/styles/variables.scss',
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
