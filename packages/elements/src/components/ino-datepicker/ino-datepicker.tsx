@@ -58,9 +58,13 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    
     try {
       if (this.flatpickr) {
         this.setValidState(value);
+      }
+
+      if (this.flatpickr && this.isValid) {
         this.flatpickr.setDate(value, false, this.inoDateFormat)
       }
     } catch(e) {
@@ -286,7 +290,8 @@ export class Datepicker implements ComponentInterface {
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-  
+  private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
+
   private create() {
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
@@ -342,8 +347,11 @@ export class Datepicker implements ComponentInterface {
 
   private setValidState(value: string): void {
     if(this.inoRange) {
-      let arr = value.match(/(\d[^a-z]+)/g).map(match => this.validateInput(match.trim()));
-      this.isValid = !arr.includes(false);
+      this.isValid =  !value
+        .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
+        .map(match => this.validateInput(match.trim()))
+        .includes(false);
+      
       return;
     };
 
@@ -359,12 +367,10 @@ export class Datepicker implements ComponentInterface {
   }
 
   private validateInput(value: string): boolean {
-    let formattedDate: string;
-    let parsedDate: Date; 
-    parsedDate = this.flatpickr.parseDate(value);
-    formattedDate = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
+    const parsedDate: Date = this.flatpickr.parseDate(value);
+    const formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
     
-    return formattedDate !== value ?  false : true;
+    return formattedDate == value;
   }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {

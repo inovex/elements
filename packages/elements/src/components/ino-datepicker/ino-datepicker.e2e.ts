@@ -153,7 +153,7 @@ describe('InoDatepicker', () => {
       expect(datepicker).toHaveAttribute('ino-show-label-hint');
     });
 
-    it.only('should set invalid state for required inputs', async () => {
+    it('should set invalid state for required inputs', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER_WITH_SIBLING);
       const inoDatepickerEl = await page.find(DATEPICKER);
       const buttonEl = await page.find('button');
