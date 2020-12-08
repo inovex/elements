@@ -61,7 +61,6 @@ export const DefaultUsage = () => /*html*/ `
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         min="${text('min', minDate, 'STANDARD')}"
         max="${text('max', maxDate, 'STANDARD')}"
-        ino-pattern="${text('ino-pattern', '', 'STANDARD')}"
         disabled="${boolean('disabled', false, 'STANDARD')}"
         required="${boolean('required', false, 'STANDARD')}"
         ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
@@ -95,7 +94,6 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelve hour time" ino-twelve-hour-time></ino-datepicker>
 
       <h4>States</h4>
-      <ino-datepicker ino-label="Pattern numbers from 1 - 6" ino-pattern="[1-6]+"></ino-datepicker>
       <ino-datepicker ino-label="Disabled" disabled></ino-datepicker>
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>

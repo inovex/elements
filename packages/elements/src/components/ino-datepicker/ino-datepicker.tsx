@@ -65,7 +65,7 @@ export class Datepicker implements ComponentInterface {
       }
     } catch(e) {
       // Input could not be parsed e.g. empty spaces
-      this.isInValid = true;
+      this.isValid = false;
     }
   }
 
@@ -206,7 +206,7 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() hourStep = 1;
 
-  @State() isInValid: boolean = false;
+  @State() isValid: boolean = true;
   
   @Watch('hourStep')
   hourStepChanged(value: number) {
@@ -341,16 +341,30 @@ export class Datepicker implements ComponentInterface {
   });
 
   private setValidState(value: string): void {
-    let formattedDate: string;
-    let parsedDate: Date;
-    
+    if(this.inoRange) {
+      let arr = value.match(/(\d[^a-z]+)/g).map(match => this.validateInput(match.trim()));
+      this.isValid = !arr.includes(false);
+      return;
+    };
+
     if (value) {
-      parsedDate = this.flatpickr.parseDate(value);
-      formattedDate = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
-      this.isInValid = formattedDate !== value ?  true : false;
+      this.isValid = this.validateInput(value);
+      return;
     }
 
-    if(!value && !this.required) this.isInValid = false;
+    if(!value && !this.required) {
+      this.isValid = true; 
+      return;
+    };
+  }
+
+  private validateInput(value: string): boolean {
+    let formattedDate: string;
+    let parsedDate: Date; 
+    parsedDate = this.flatpickr.parseDate(value);
+    formattedDate = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
+    
+    return formattedDate !== value ?  false : true;
   }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
@@ -394,7 +408,7 @@ export class Datepicker implements ComponentInterface {
           name={this.name}
           required={this.required}
           ino-label={this.inoLabel}
-          ino-error={this.isInValid}
+          ino-error={!this.isValid}
           ino-icon-leading
           value={this.value}
           ino-helper={this.inoHelper}
