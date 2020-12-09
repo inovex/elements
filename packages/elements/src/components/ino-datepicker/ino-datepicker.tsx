@@ -58,7 +58,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
-    
+
     try {
       if (this.flatpickr) {
         this.setValidState(value);
@@ -211,7 +211,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() hourStep = 1;
 
   @State() isValid: boolean = true;
-  
+
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.updateFlatpickr('hourIncrement', value);
@@ -346,30 +346,46 @@ export class Datepicker implements ComponentInterface {
   });
 
   private setValidState(value: string): void {
+
     if(this.inoRange) {
       this.isValid =  !value
         .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
-        .map(match => this.validateInput(match.trim()))
+        .map(match => this.hasCorrectFormat(match.trim()))
         .includes(false);
-      
-      return;
-    };
 
-    if (value) {
-      this.isValid = this.validateInput(value);
       return;
     }
 
-    if(!value && !this.required) {
-      this.isValid = true; 
+    if(value) {
+
+      let isValueValid = true;
+      const parsedValue: Date = this.flatpickr.parseDate(value);
+
+      if(this.min) {
+        const minDate = this.flatpickr.parseDate(this.min);
+        isValueValid = isValueValid && (minDate <= parsedValue);
+      }
+
+      if(this.max) {
+        const maxDate = this.flatpickr.parseDate(this.max);
+        isValueValid = isValueValid && (maxDate >= parsedValue);
+      }
+
+      this.isValid = isValueValid && this.hasCorrectFormat(value);
       return;
-    };
+    }
+
+
+    if(!value && !this.required) {
+      this.isValid = true;
+      return;
+    }
   }
 
-  private validateInput(value: string): boolean {
+  private hasCorrectFormat(value: string): boolean {
     const parsedDate: Date = this.flatpickr.parseDate(value);
     const formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
-    
+
     return formattedDate == value;
   }
 
