@@ -99,30 +99,34 @@ class MyComponent extends Component {
 ```
 
 ## Additional Hints
+### Types
+This datepicker can be used as a picker for ...
+- date
+- time
+- datetime
+- month
 
-### Examples
-
-The correct picker is automatically chosen based on the `ino-date-format`.
-
-The picker can be used as date picker
-
+The type of the picker is selected based on the `ino-type` property. See the examples below.
+ 
+#### Datepicker
 ```html
-<ino-datepicker ino-date-format="d-m-Y" ino-label="Date"></ino-datepicker>
+<ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
 ```
-
-or as time picker
-
+#### Timepicker
 ```html
-<ino-datepicker ino-date-format="H:i" ino-label="Time"></ino-datepicker>
+<ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
 ```
-
-or as datetime picker
-
+#### Date-Time-Picker
 ```html
 <ino-datepicker
-  ino-date-format="d-m-Y H:i"
+  ino-type="datetime"
   ino-label="Datetime"
-></ino-datepicker>
+>
+</ino-datepicker>
+```
+#### Monthpicker
+```html
+<ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 ```
 
 ## Demo
