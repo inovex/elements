@@ -158,12 +158,12 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const buttonEl = await page.find('button');
       const flatpickrInputEl = await page.find('.flatpickr-input');
-    
+
       inoDatepickerEl.setAttribute('required', true);
       await page.waitForChanges();
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
-      
+
       inoDatepickerEl.click();
       await page.waitForChanges();
       buttonEl.click();
@@ -181,10 +181,10 @@ describe('InoDatepicker', () => {
 
       await input.type('1');
       await page.waitForChanges();
-      
+
       expect(valueChangeEvent).toHaveReceivedEvent();
     });
-    
+
     it('should not emit a valueChange event if datepicker is disabled', async () => {
       let page = await setupPageWithContent(INO_DATEPICKER);
       const datepicker = await page.find(DATEPICKER);
@@ -218,29 +218,30 @@ describe('InoDatepicker', () => {
       expect(flatpickrCalEl).not.toHaveClass('hasTime');
       expect(flatpickrCalEl).not.toHaveClass('noCalendar');
     })
+  })
 
-    it('should set invalid state', async () => {
+  describe('Validation', () => {
+    it('should be invalid if wrong date format provided', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER_WITH_FORMAT);
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
-    
+
       inoDatepickerEl.setAttribute('value','01-1970-01');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
-      
+
       inoDatepickerEl.setAttribute('value', '01.03.1970');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
     });
 
-    it('should set invalid state only if value is set', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER_WITH_FORMAT);
+    it('should be valid if not required and empty value', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
-    
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-Y-m');
+
       inoDatepickerEl.setAttribute('required',false);
       inoDatepickerEl.setAttribute('value','');
       await page.waitForChanges();
@@ -248,6 +249,44 @@ describe('InoDatepicker', () => {
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
     });
 
-  
+    it('should be invalid if value is set before min date', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('min', '10-10-2020');
+      inoDatepickerEl.setAttribute('value','09-10-2020');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
+    });
+
+    it('should be invalid if value is set after max date', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('max', '10-10-2020');
+      inoDatepickerEl.setAttribute('value','11-10-2020');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
+    });
+
+    it('should be valid with min and max date set', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('min', '09-10-2020');
+      inoDatepickerEl.setAttribute('max', '11-10-2020');
+      inoDatepickerEl.setAttribute('value','10-10-2020');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
+    });
   })
 });
