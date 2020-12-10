@@ -295,7 +295,7 @@ describe('InoDatepicker', () => {
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
       inoDatepickerEl.setAttribute('ino-date-format', 'd.m.Y');
-      inoDatepickerEl.setAttribute('inio-range', 'true');
+      inoDatepickerEl.setAttribute('ino-range', 'true');
       inoDatepickerEl.setAttribute('value','11-10-2020 to 13.10.2020');
       await page.waitForChanges();
 
