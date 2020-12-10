@@ -58,9 +58,18 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
-    this.setValidState(value);
-    if (this.flatpickr) {
-      this.flatpickr.setDate(value, false, this.inoDateFormat);
+
+    try {
+      if (this.flatpickr) {
+        this.setValidState(value);
+      }
+
+      if (this.flatpickr && this.isValid) {
+        this.flatpickr.setDate(value, false, this.inoDateFormat)
+      }
+    } catch(e) {
+      // Input could not be parsed e.g. empty spaces
+      this.isValid = false;
     }
   }
 
@@ -201,8 +210,8 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() hourStep = 1;
 
-  @State() isInValid: boolean = false;
-  
+  @State() isValid: boolean = true;
+
   @Watch('hourStep')
   hourStepChanged(value: number) {
     this.updateFlatpickr('hourIncrement', value);
@@ -281,7 +290,8 @@ export class Datepicker implements ComponentInterface {
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-  
+  private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
+
   private create() {
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
@@ -336,17 +346,47 @@ export class Datepicker implements ComponentInterface {
   });
 
   private setValidState(value: string): void {
-    let formattedDate: string;
-    let parsedDate: Date;
 
-    try {
-      parsedDate = this.flatpickr.parseDate(value);
-      formattedDate = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
-      this.isInValid = formattedDate !== value ?  true : false;
-    } catch(e) {
-      if(value) this.isInValid = true;
+    if(this.inoRange) {
+      this.isValid =  !value
+        .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
+        .map(match => this.hasCorrectFormat(match.trim()))
+        .includes(false);
+
+      return;
     }
-    
+
+    if(value) {
+
+      let isValueValid = true;
+      const parsedValue: Date = this.flatpickr.parseDate(value);
+
+      if(this.min) {
+        const minDate = this.flatpickr.parseDate(this.min);
+        isValueValid = isValueValid && (minDate <= parsedValue);
+      }
+
+      if(this.max) {
+        const maxDate = this.flatpickr.parseDate(this.max);
+        isValueValid = isValueValid && (maxDate >= parsedValue);
+      }
+
+      this.isValid = isValueValid && this.hasCorrectFormat(value);
+      return;
+    }
+
+
+    if(!value && !this.required) {
+      this.isValid = true;
+      return;
+    }
+  }
+
+  private hasCorrectFormat(value: string): boolean {
+    const parsedDate: Date = this.flatpickr.parseDate(value);
+    const formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
+
+    return formattedDate == value;
   }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
@@ -390,7 +430,7 @@ export class Datepicker implements ComponentInterface {
           name={this.name}
           required={this.required}
           ino-label={this.inoLabel}
-          ino-error={this.isInValid}
+          ino-error={!this.isValid}
           ino-icon-leading
           value={this.value}
           ino-helper={this.inoHelper}
