@@ -288,5 +288,18 @@ describe('InoDatepicker', () => {
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
     });
+
+    it('should be invalid if wrong date format is used inside range', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-date-format', 'd.m.Y');
+      inoDatepickerEl.setAttribute('inio-range', 'true');
+      inoDatepickerEl.setAttribute('value','11-10-2020 to 13.10.2020');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
+    });
   })
 });
