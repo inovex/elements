@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/inovex/elements/compare/v2.2.0...v2.2.1) (2020-12-10)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** use date format to improve validation ([#226](https://github.com/inovex/elements/issues/226)) ([90a990c](https://github.com/inovex/elements/commit/90a990c32c92c0ebd1ad88613aafa99513d54d70))
+
 ## [2.2.0](https://github.com/inovex/elements/compare/v2.1.0...v2.2.0) (2020-12-01)
 
 
