@@ -6,7 +6,7 @@ Make sure you have made all the preparations to be ready to start. You can find 
 
 1. Open a terminal of your choice and switch into a folder where you want to copy the project code in.
 2. Clone the project with `git clone https://github.com/inovex/elements.git`.
-3. Switch into the project root folder with `cd core`.
+3. Switch into the project root folder with `cd elements`.
 4. Get all the dependencies with `yarn install`.
 5. Storybook will open in your browser with `yarn start`.
 6. You have successfully started the project 🎉
