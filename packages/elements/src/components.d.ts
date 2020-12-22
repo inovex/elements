@@ -1115,6 +1115,10 @@ export namespace Components {
          */
         "inoLabel"?: string;
         /**
+          * Styles the input field as outlined element.
+         */
+        "inoOutline"?: boolean;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "inoShowLabelHint"?: boolean;
@@ -2713,6 +2717,10 @@ declare namespace LocalJSX {
           * The optional floating label of this input field.
          */
         "inoLabel"?: string;
+        /**
+          * Styles the input field as outlined element.
+         */
+        "inoOutline"?: boolean;
         /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */

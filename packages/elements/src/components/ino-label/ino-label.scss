@@ -23,14 +23,6 @@ ino-label {
     }
   }
 
-  &:not([ino-outline]) .mdc-floating-label {
-    left: 0;
-
-    ino-input &:not(.mdc-floating-label--float-above) {
-      top: 70%;
-    }
-  }
-
   &:not([ino-disabled]) .mdc-floating-label:not(.mdc-floating-label--float-above) {
     color: $label-color;
   }

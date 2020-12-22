@@ -985,13 +985,13 @@ export class InoTableRow {
 import { Textarea as ITextarea } from '@inovex.de/elements/dist/types/components/ino-textarea/ino-textarea';
 export declare interface InoTextarea extends Components.InoTextarea {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value']
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value']
 })
 @Component({
   selector: 'ino-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'],
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'],
   outputs: ['valueChange']
 })
 export class InoTextarea {
