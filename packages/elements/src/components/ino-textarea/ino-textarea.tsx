@@ -144,6 +144,8 @@ export class Textarea implements ComponentInterface {
     if (this.autoFocus) {
       this.textfield.focus();
     }
+
+    console.warn(`The ino-textarea default type will be changed to 'filled' in the next major release (analogous to the ino-input). In order to use the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`);
   }
 
   componentWillUnLoad() {
