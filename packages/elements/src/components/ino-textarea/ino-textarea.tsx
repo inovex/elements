@@ -98,7 +98,7 @@ export class Textarea implements ComponentInterface {
   /**
    * Styles the input field as outlined element.
    */
-  @Prop() inoOutline?: boolean;
+  @Prop() inoOutline?: boolean = true;
 
   /**
    * An optional flag to allow the textarea adjust its height to display all the content.

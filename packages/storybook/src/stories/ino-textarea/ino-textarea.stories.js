@@ -74,6 +74,9 @@ export const DefaultUsage = () => /*html*/ `
   <ino-textarea ino-label="Floating label" cols="30" rows="3"></ino-textarea>
   <ino-textarea ino-label="Floating label" value="With value" cols="30" rows="3"></ino-textarea>
 
+  <h4>Filled</h4>
+  <ino-textarea ino-label="Filled" cols="30" rows="3" ino-outline="false"></ino-textarea>
+
   <h4>Outline</h4>
   <ino-textarea ino-label="Outline" cols="30" rows="3" ino-outline="true"></ino-textarea>
 
