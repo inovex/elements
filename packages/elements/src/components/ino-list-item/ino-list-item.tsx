@@ -75,8 +75,10 @@ export class ListItem implements ComponentInterface {
       'mdc-list-item--disabled': this.inoDisabled
     });
 
+    const hasSecondarySlotContent = this.el.querySelectorAll("[slot=ino-secondary]").length > 0;
+
     const primaryContent = this.inoText || <slot name="ino-primary" />;
-    const secondaryContent = this.inoSecondaryText || <slot name="ino-secondary" />;
+    const secondaryContent = this.inoSecondaryText || (hasSecondarySlotContent ? <slot name="ino-secondary" /> : null);
 
     return (
       <Host>
