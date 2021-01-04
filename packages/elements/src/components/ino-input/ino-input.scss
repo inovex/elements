@@ -187,14 +187,4 @@ ino-input {
       }
     }
   }
-
-  & ino-label {
-    &:not([ino-outline]) .mdc-floating-label {
-      left: 0;
-
-      &:not(.mdc-floating-label--float-above) {
-        top: 70%;
-      }
-    }
-  }
 }

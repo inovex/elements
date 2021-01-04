@@ -98,7 +98,7 @@ export class Textarea implements ComponentInterface {
   /**
    * Styles the input field as outlined element.
    */
-  @Prop() inoOutline?: boolean = true;
+  @Prop() inoOutline?: boolean;
 
   /**
    * An optional flag to allow the textarea adjust its height to display all the content.
@@ -135,6 +135,14 @@ export class Textarea implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+  connectedCallback() {
+    // Remove as soon as the 'filled' style should be released as new default style
+    if (this.inoOutline === undefined) {
+      console.warn(`The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`);
+      this.inoOutline = true;
+    }
+  }
+
   componentDidLoad() {
     this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
     if (this.autogrow) {
@@ -144,8 +152,6 @@ export class Textarea implements ComponentInterface {
     if (this.autoFocus) {
       this.textfield.focus();
     }
-
-    console.warn(`The ino-textarea default type will be changed to 'filled' in the next major release (analogous to the ino-input). In order to use the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`);
   }
 
   componentWillUnLoad() {

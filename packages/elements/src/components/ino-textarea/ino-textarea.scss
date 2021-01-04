@@ -19,8 +19,14 @@ ino-textarea {
   display: block;
 
   .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) {
-      @include textfield.focused-outline-color(var(--textarea-outline-color));
-      @include textfield.caret-color(var(--textarea-caret-color));
-      @include textfield.label-color(var(--textarea-label-color));
+    @include textfield.focused-outline-color(var(--textarea-outline-color));
+    @include textfield.caret-color(var(--textarea-caret-color));
+    @include textfield.label-color(var(--textarea-label-color));
+  }
+
+  & ino-label {
+    &:not([ino-outline]) .mdc-floating-label {
+      left: 16px;
     }
+  }
 }
