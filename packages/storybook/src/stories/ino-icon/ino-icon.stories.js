@@ -23,11 +23,11 @@ function subscribeToComponentEvents() {
     const chips = Array.from(document.getElementsByTagName('ino-chip'));
 
     chips
-      .filter((chip) => !chip.getAttribute('ino-icon').includes(value))
+      .filter((chip) => !chip.getAttribute('id').includes(value))
       .forEach((chip) => (chip.style.display = 'none'));
 
     chips
-      .filter((chip) => chip.getAttribute('ino-icon').includes(value))
+      .filter((chip) => chip.getAttribute('id').includes(value))
       .forEach((chip) => (chip.style.display = 'block'));
 
     el.value = value;
