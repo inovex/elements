@@ -54,7 +54,7 @@ export class Button implements ComponentInterface {
   /**
    * Styles the button to have the edge on the top-right instead of the top-left
    */
-  @Prop() inoEdgeMirrored? = false;
+  @Prop() inoEdgeMirrored?= false;
 
   /**
    * The fill type of this element.
@@ -65,7 +65,7 @@ export class Button implements ComponentInterface {
   /**
    * Styles the button in 100% width.
    */
-  @Prop() inoFullWidth? = false;
+  @Prop() inoFullWidth?= false;
 
   /**
    * If enabled, prepends the slotted icon to the button label
@@ -85,7 +85,7 @@ export class Button implements ComponentInterface {
   /**
    * Shows an infinite loading spinner and prevents further clicks.
    */
-  @Prop() inoLoading?: boolean;
+  @Prop({ reflect: true }) inoLoading?: boolean;
 
   private buttonSizeBeforeLoad: string;
 
@@ -161,7 +161,7 @@ export class Button implements ComponentInterface {
         >
           {this.inoIconLeading && (
             <span class="mdc-button__icon">
-              <slot name="ino-icon-leading"/>
+              <slot name="ino-icon-leading" />
             </span>
           )}
           <div class="mdc-button__label">
@@ -173,7 +173,7 @@ export class Button implements ComponentInterface {
           </div>
           {this.inoIconTrailing && (
             <span class="mdc-button__icon">
-              <slot name="ino-icon-trailing"/>
+              <slot name="ino-icon-trailing" />
             </span>
           )}
         </button>
