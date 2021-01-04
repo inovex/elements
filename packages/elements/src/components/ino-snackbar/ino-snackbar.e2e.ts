@@ -7,13 +7,6 @@ const INO_ICON_BTN_SELECTOR = 'ino-snackbar ino-icon-button';
 
 describe('InoSnackbar', () => {
 
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_SNACKBAR);
-    const inoSnackbar = await page.find(INO_SNACKBAR_SELECTOR);
-
-    expect(inoSnackbar).toBeDefined();
-  });
-
   describe('Events', () => {
     it('should emit an inoActionClick event upon clicking the button', async () => {
       const page = await setupPageWithContent(INO_SNACKBAR);

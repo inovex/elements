@@ -21,4 +21,5 @@ describe('ino-table', () => {
       expect(cell).toHaveClass('mdc-data-table__cell--numeric');
     });
   });
+
 });

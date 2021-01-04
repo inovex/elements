@@ -4,15 +4,8 @@ const INO_MENU = `<ino-menu></ino-menu>`;
 const INO_MENU_SELECTOR = 'ino-menu';
 
 describe('InoMenu', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_MENU);
-    const inoMenu = await page.find(INO_MENU_SELECTOR);
-
-    expect(inoMenu).toBeDefined();
-  });
 
   describe('Properties', () => {
-
     it('should render opened', async () => {
       const page = await setupPageWithContent(INO_MENU);
       const inoMenu = await page.find(INO_MENU_SELECTOR);
@@ -30,7 +23,6 @@ describe('InoMenu', () => {
 
       expect(innerDiv).not.toHaveClass('mdc-menu-surface--open');
     })
-
   });
 
 });

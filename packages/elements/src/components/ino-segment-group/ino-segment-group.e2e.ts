@@ -24,7 +24,7 @@ describe('ino-segment-group', () => {
     const buttons = await page.findAll('ino-segment-button');
 
     for (const btn of buttons) {
-      var checked = await btn.getProperty('checked');
+      let checked = await btn.getProperty('checked');
       expect(checked).toBeFalsy();
     }
   });

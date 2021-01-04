@@ -5,18 +5,8 @@ const INO_FAB_SELECTOR = 'ino-fab';
 const BUTTON_SELECTOR = 'ino-fab >>> button';
 
 describe('InoFabButton', () => {
-  it('should render with default values', async () => {
-    const page = await setupPageWithContent(INO_FAB_BUTTON);
-
-    const inoFabEl = await page.find(INO_FAB_SELECTOR);
-    expect(inoFabEl).toBeDefined();
-
-    const buttonEl = await page.find(BUTTON_SELECTOR);
-    expect(buttonEl).toBeDefined();
-  });
 
   describe('Properties', () => {
-
     it('should render with property ino-mini', async () => {
       const page = await setupPageWithContent(INO_FAB_BUTTON);
 
@@ -37,23 +27,6 @@ describe('InoFabButton', () => {
 
       const buttonEl = await page.find(BUTTON_SELECTOR);
       expect(buttonEl).toHaveClass('mdc-fab--extended');
-    });
-
-    it('should render in an disabled state', async () => {
-      const page = await setupPageWithContent(INO_FAB_BUTTON);
-
-      const inoFabEl = await page.find(INO_FAB_SELECTOR);
-      inoFabEl.setAttribute('ino-disabled', true);
-      await page.waitForChanges();
-
-      const buttonEl = await page.find(BUTTON_SELECTOR);
-      expect(buttonEl).toHaveAttribute('disabled');
-
-      const disabledSpy = await page.spyOnEvent('click');
-      await buttonEl.click();
-      await page.waitForChanges();
-
-      expect(disabledSpy).not.toHaveReceivedEvent();
     });
   });
 
@@ -84,4 +57,5 @@ describe('InoFabButton', () => {
       expect(disabledSpy).not.toHaveReceivedEvent();
     });
   });
+
 });
