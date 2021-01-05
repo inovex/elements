@@ -64,7 +64,7 @@ export class NavDrawer implements ComponentInterface {
       .addEventListener('click', this.toggleDrawer);
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.drawerInstance.destroy();
   }
 

@@ -53,7 +53,7 @@ export class Menu implements ComponentInterface {
     this.menu.setAnchorElement(target);
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     if (this.menu) {
       this.menu.destroy();
     }

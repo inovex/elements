@@ -43,7 +43,7 @@ When creating a new element, always check for a respective material design imple
 
 - Abstract the features of the material design components to the need of our inovex element.
 - Provide a link to the material component in the documentation.
-- If the element comes with js, instantiate the `MDCFactory` in the `componentDidLoad` method and call the `destroy` method in `componentWillUnLoad`.
+- If the element comes with js, instantiate the `MDCFactory` in the `componentDidLoad` method and call the `destroy` method in `disconnectedCallback`.
 
 ### Angular Integration Layer
 

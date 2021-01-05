@@ -7,7 +7,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-progress-bar.scss',
   shadow: true
 })
-export class InoProgressBar implements ComponentInterface{
+export class InoProgressBar implements ComponentInterface {
   private mdcProgress: MDCLinearProgress;
 
   @Element() el: HTMLElement;
@@ -58,7 +58,7 @@ export class InoProgressBar implements ComponentInterface{
     this.initializeComponent();
   }
 
-  componentWillUnload(): void {
+  disconnectedCallback(): void {
     this.mdcProgress.destroy();
   }
 

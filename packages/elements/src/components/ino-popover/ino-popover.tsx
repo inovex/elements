@@ -67,7 +67,7 @@ export class Popover implements ComponentInterface {
     this.create();
   }
 
-  componentWillUnLoad() {
+  disconnectedCallback() {
     this.dispose();
   }
 

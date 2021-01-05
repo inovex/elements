@@ -83,7 +83,7 @@ export class Select implements ComponentInterface {
     }
   }
 
-  componentWillUnLoad() {
+  disconnectedCallback() {
     this.mdcSelectInstance.destroy();
   }
 
@@ -140,8 +140,8 @@ export class Select implements ComponentInterface {
       >
       </input>
     ) : (
-      ''
-    );
+        ''
+      );
 
     return (
       <Host name={this.name}>

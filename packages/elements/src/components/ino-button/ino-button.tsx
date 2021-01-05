@@ -111,7 +111,7 @@ export class Button implements ComponentInterface {
     this.button = new MDCRipple(this.el.shadowRoot.querySelector('.mdc-button'));
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.button.destroy();
   }
 

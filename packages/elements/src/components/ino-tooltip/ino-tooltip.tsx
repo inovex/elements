@@ -80,7 +80,7 @@ export class Tooltip implements ComponentInterface {
     await this.create();
   }
 
-  async componentWillUnLoad() {
+  async disconnectedCallback() {
     await this.dispose();
   }
 

@@ -44,7 +44,7 @@ export class ChipSet implements ComponentInterface {
     this.create();
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.destroy();
   }
 
@@ -119,7 +119,7 @@ export class ChipSet implements ComponentInterface {
     return (
       <Host>
         <div class={classChipSet}>
-          <slot/>
+          <slot />
         </div>
       </Host>
     );

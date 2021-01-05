@@ -285,7 +285,7 @@ export class Input implements ComponentInterface {
     this.el.setAttribute('tabindex', '-1');
   }
 
-  componentWillUnLoad() {
+  disconnectedCallback() {
     this.textfield.destroy();
     if (this.helperText) {
       this.helperText.destroy();

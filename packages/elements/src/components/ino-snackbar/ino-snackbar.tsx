@@ -61,7 +61,7 @@ export class Snackbar implements ComponentInterface {
     this.snackbarInstance.open();
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.snackbarInstance.destroy();
     this.snackbarElement.removeEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)

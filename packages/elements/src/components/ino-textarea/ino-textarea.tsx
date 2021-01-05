@@ -141,7 +141,7 @@ export class Textarea implements ComponentInterface {
     }
   }
 
-  componentWillUnLoad() {
+  disconnectedCallback() {
     this.textfield.destroy();
     this.destroyAutogrow();
   }
@@ -210,7 +210,7 @@ export class Textarea implements ComponentInterface {
             onInput={this.handleNativeTextareaChange.bind(this)}
           />
           {this.maxlength && (
-              <div class="mdc-text-field-character-counter">{this.value.length} / {this.maxlength}</div>
+            <div class="mdc-text-field-character-counter">{this.value.length} / {this.maxlength}</div>
           )}
           <ino-label
             ino-outline
