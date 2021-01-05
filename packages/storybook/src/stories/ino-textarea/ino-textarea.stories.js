@@ -47,10 +47,10 @@ export const DefaultUsage = () => /*html*/ `
     <style>
       ino-textarea.customizable-textarea {
         --textarea-outline-color: ${text(
-          '--textarea-outline-color',
-          '#3d40f5',
-          'Custom Properties'
-        )};
+  '--textarea-outline-color',
+  '#3d40f5',
+  'Custom Properties'
+)};
         --textarea-caret-color: ${text('--textarea-caret-color', '#3d40f5', 'Custom Properties')};
         --textarea-label-color: ${text('--textarea-label-color', '#3d40f5', 'Custom Properties')};
       }
@@ -61,6 +61,7 @@ export const DefaultUsage = () => /*html*/ `
     placeholder="${text('placeholder', '')}"
     value="${text('value', '')}"
     ino-label="${text('ino-label', 'Customizable textarea')}"
+    ino-outline="${boolean('ino-outline', false)}"
     minlength="${number('minlength', 0)}"
     maxlength="${number('maxlength', 30)}"
     disabled="${boolean('disabled', false)}"
@@ -72,6 +73,12 @@ export const DefaultUsage = () => /*html*/ `
   <h4>Labels</h4>
   <ino-textarea ino-label="Floating label" cols="30" rows="3"></ino-textarea>
   <ino-textarea ino-label="Floating label" value="With value" cols="30" rows="3"></ino-textarea>
+
+  <h4>Filled</h4>
+  <ino-textarea ino-label="Filled" cols="30" rows="3" ino-outline="false"></ino-textarea>
+
+  <h4>Outline</h4>
+  <ino-textarea ino-label="Outline" cols="30" rows="3" ino-outline="true"></ino-textarea>
 
   <h4>States</h4>
   <ino-textarea placeholder="Disabled" disabled cols="30" rows="3"></ino-textarea>
