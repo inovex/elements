@@ -1,7 +1,10 @@
 # ino-menu
 
 A menu component that displays a list of choices on a temporary surface. It functions as a wrapper around the material [menu](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu/) component.
-The anchor element is the parent element.
+
+The anchor element is the parent element or the element found via the selector of the `ino-for` property passed in.
+
+The `ino-list-item` (and `ino-list-divider`) component is used for the rendering of the menu items.
 
 ### Usage
 
