@@ -97,6 +97,13 @@ The menu creates a temporary surface with an empty list composer. The items of t
 | `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
 
 
+## Events
+
+| Event       | Description         | Type                |
+| ----------- | ------------------- | ------------------- |
+| `menuClose` | Emits on any click. | `CustomEvent<void>` |
+
+
 ## Dependencies
 
 ### Depends on

@@ -3,12 +3,19 @@ import { MDCMenu } from '@material/menu';
 export class MDCCustomMenu extends MDCMenu {
 
   // Really hacky
-  // TODO: Test if basic onclick and keydown events still come trough
   constructor(mdcMenu) {
     super(mdcMenu);
-    this.foundation.handleKeydown = (evt) => {};
-    this.foundation.handleClick = (evt) => {};
-    this.menuSurface_.handleBodyClick = (evt) => {};
-    this.menuSurface_.handleKeydown = (evt) => {};
+
+    // Prevent menu from closing
+    this.foundation.handleKeydown = _ => {};
+    this.foundation.handleClick = _ => {};
+    this.menuSurface_.handleKeydown = _ => {};
+    this.foundation.handleMenuSurfaceOpened = _ => {};
+    this.foundation.handleItemAction = _ => {};
+
+    this.menuSurface_.handleBodyClick = _ =>  this.root.dispatchEvent(
+        new CustomEvent('menu:close', {  bubbles: true, }
+      )
+    );
   }
 }
