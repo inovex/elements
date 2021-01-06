@@ -1,13 +1,5 @@
 import { MDCMenu } from '@material/menu';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Host,
-  Prop,
-  Watch,
-  h,
-} from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, Element, Host, Listen, Prop, Watch, h } from '@stencil/core';
 
 import { MDCCustomMenu } from './MDCCustomMenu';
 
@@ -23,6 +15,11 @@ export class Menu implements ComponentInterface {
    * An internal instance of the mdc menu.
    */
   private menu!: MDCMenu;
+
+  /**
+   * Emits on any click.
+   */
+  @Event() menuClose: EventEmitter<void>;
 
   /**
    * Anchor element for the menu
@@ -42,6 +39,12 @@ export class Menu implements ComponentInterface {
   @Watch('inoOpen')
   inoOpenChanged(open: boolean) {
     this.menu.open = open;
+  }
+
+  @Listen('menu:close')
+  onClose(ev: Event) {
+    ev.stopPropagation();
+    this.menuClose.emit();
   }
 
   componentDidLoad() {
