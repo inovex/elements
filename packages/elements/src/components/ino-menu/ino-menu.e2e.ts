@@ -23,4 +23,72 @@ describe('InoMenu', () => {
       expect(innerDiv).not.toHaveClass('mdc-menu-surface--open');
     });
   });
+
+  describe('Events', () => {
+    it('should emit \'menuClose\' event on outside click while menu open', async () => {
+
+      const btnId = 'id-btn';
+
+      const page = await setupPageWithContent(`
+        <div id="container">
+            <button id="${btnId}">Open menu</button>
+            <ino-menu ino-for="id-btn" ino-open="true">
+                <ino-list-item id="item-1" ino-text="item-1"></ino-list-item>
+                <ino-list-item id="item-1" ino-text="item-2"></ino-list-item>
+            </ino-menu>
+        </div>
+      `);
+
+      const menuCloseSpy = await page.spyOnEvent('menuClose');
+
+      await page.click(`#${btnId}`);
+      await page.waitForChanges();
+
+      expect(menuCloseSpy).toHaveReceivedEvent();
+    });
+
+    it('should not emit \'menuClose\' event on outside click while menu closed', async () => {
+
+      const btnId = 'id-btn';
+
+      const page = await setupPageWithContent(`
+        <div id="container">
+            <button id="${btnId}">Open menu</button>
+            <ino-menu ino-for="id-btn" ino-open="false">
+                <ino-list-item id="item-1" ino-text="item-1"></ino-list-item>
+                <ino-list-item id="item-1" ino-text="item-2"></ino-list-item>
+            </ino-menu>
+        </div>
+      `);
+
+      const menuCloseSpy = await page.spyOnEvent('menuClose');
+
+      await page.click(`#${btnId}`);
+      await page.waitForChanges();
+
+      expect(menuCloseSpy).not.toHaveReceivedEvent();
+    });
+
+    it('should emit \'menuClose\' event on inside item click', async () => {
+
+      const listItemId = 'item-1';
+
+      const page = await setupPageWithContent(`
+        <div id="container">
+            <button>Open menu</button>
+            <ino-menu ino-for="id-btn" ino-open="true">
+                <ino-list-item id="${listItemId}" ino-text="item-1"></ino-list-item>
+                <ino-list-item id="item-1" ino-text="item-2"></ino-list-item>
+            </ino-menu>
+        </div>
+      `);
+
+      const menuCloseSpy = await page.spyOnEvent('menuClose');
+
+      await page.click(`#${listItemId}`);
+      await page.waitForChanges();
+
+      expect(menuCloseSpy).toHaveReceivedEvent();
+    });
+  });
 });
