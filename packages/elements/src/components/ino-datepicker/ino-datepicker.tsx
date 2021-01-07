@@ -67,7 +67,7 @@ export class Datepicker implements ComponentInterface {
       if (this.flatpickr && this.isValid) {
         this.flatpickr.setDate(value, false, this.inoDateFormat)
       }
-    } catch(e) {
+    } catch (e) {
       // Input could not be parsed e.g. empty spaces
       this.isValid = false;
     }
@@ -134,7 +134,7 @@ export class Datepicker implements ComponentInterface {
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
    * The default value is `d-m-Y` which accepts values like `01.01.2019`.
    */
-  @Prop() inoDateFormat ? = 'd-m-Y';
+  @Prop() inoDateFormat?= 'd-m-Y';
 
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
@@ -166,7 +166,7 @@ export class Datepicker implements ComponentInterface {
    * A number containing the initial minute in the date-time picker overlay.
    * The default is `0`
    */
-  @Prop() inoDefaultMinute ? = 0;
+  @Prop() inoDefaultMinute?= 0;
 
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
@@ -288,11 +288,19 @@ export class Datepicker implements ComponentInterface {
     this.create();
   }
 
+  disconnectedCallback() {
+    this.dispose();
+  }
+
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
 
   private create() {
+    this.dispose();
+
+    if (this.disabled) return;
+
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -304,7 +312,6 @@ export class Datepicker implements ComponentInterface {
     const typeSpecificOptions: Partial<BaseOptions> = this.getTypeSpecificOptions();
     const options = { ...sharedOptions, ...typeSpecificOptions };
 
-    this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
     this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale["weekdays"]["shorthand"];
@@ -347,8 +354,8 @@ export class Datepicker implements ComponentInterface {
 
   private setValidState(value: string): void {
 
-    if(this.inoRange) {
-      this.isValid =  !value
+    if (this.inoRange) {
+      this.isValid = !value
         .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
         .map(match => this.hasCorrectFormat(match.trim()))
         .includes(false);
@@ -356,17 +363,17 @@ export class Datepicker implements ComponentInterface {
       return;
     }
 
-    if(value) {
+    if (value) {
 
       let isValueValid = true;
       const parsedValue: Date = this.flatpickr.parseDate(value);
 
-      if(this.min) {
+      if (this.min) {
         const minDate = this.flatpickr.parseDate(this.min);
         isValueValid = isValueValid && (minDate <= parsedValue);
       }
 
-      if(this.max) {
+      if (this.max) {
         const maxDate = this.flatpickr.parseDate(this.max);
         isValueValid = isValueValid && (maxDate >= parsedValue);
       }
@@ -376,7 +383,7 @@ export class Datepicker implements ComponentInterface {
     }
 
 
-    if(!value && !this.required) {
+    if (!value && !this.required) {
       this.isValid = true;
       return;
     }
