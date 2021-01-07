@@ -216,6 +216,8 @@ export class Input implements ComponentInterface {
 
   @Watch('inoError')
   inoErrorHandler(value?: boolean) {
+    if (this.disabled) return;
+
     if (value) {
       this.textfield.valid = false;
       this.textfield.useNativeValidation = false;

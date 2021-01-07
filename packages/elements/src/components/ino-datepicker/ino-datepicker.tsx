@@ -58,6 +58,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    if (this.disabled) return;
 
     try {
       if (this.flatpickr) {
@@ -67,7 +68,7 @@ export class Datepicker implements ComponentInterface {
       if (this.flatpickr && this.isValid) {
         this.flatpickr.setDate(value, false, this.inoDateFormat)
       }
-    } catch(e) {
+    } catch (e) {
       // Input could not be parsed e.g. empty spaces
       this.isValid = false;
     }
@@ -129,12 +130,17 @@ export class Datepicker implements ComponentInterface {
     this.create();
   }
 
+  @Watch('disabled')
+  disabledChanged() {
+    this.dispose();
+  }
+
   /**
    * A string to change the date format.
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
    * The default value is `d-m-Y` which accepts values like `01.01.2019`.
    */
-  @Prop() inoDateFormat ? = 'd-m-Y';
+  @Prop() inoDateFormat?= 'd-m-Y';
 
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
@@ -166,7 +172,7 @@ export class Datepicker implements ComponentInterface {
    * A number containing the initial minute in the date-time picker overlay.
    * The default is `0`
    */
-  @Prop() inoDefaultMinute ? = 0;
+  @Prop() inoDefaultMinute?= 0;
 
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
@@ -222,7 +228,7 @@ export class Datepicker implements ComponentInterface {
     const target = e.target;
     const tagName = target.tagName;
 
-    if (!tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+    if (this.disabled || !tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
       return;
     }
 
@@ -293,6 +299,8 @@ export class Datepicker implements ComponentInterface {
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
 
   private create() {
+    if (this.disabled) return;
+
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -347,8 +355,8 @@ export class Datepicker implements ComponentInterface {
 
   private setValidState(value: string): void {
 
-    if(this.inoRange) {
-      this.isValid =  !value
+    if (this.inoRange) {
+      this.isValid = !value
         .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
         .map(match => this.hasCorrectFormat(match.trim()))
         .includes(false);
@@ -356,17 +364,17 @@ export class Datepicker implements ComponentInterface {
       return;
     }
 
-    if(value) {
+    if (value) {
 
       let isValueValid = true;
       const parsedValue: Date = this.flatpickr.parseDate(value);
 
-      if(this.min) {
+      if (this.min) {
         const minDate = this.flatpickr.parseDate(this.min);
         isValueValid = isValueValid && (minDate <= parsedValue);
       }
 
-      if(this.max) {
+      if (this.max) {
         const maxDate = this.flatpickr.parseDate(this.max);
         isValueValid = isValueValid && (maxDate >= parsedValue);
       }
@@ -376,7 +384,7 @@ export class Datepicker implements ComponentInterface {
     }
 
 
-    if(!value && !this.required) {
+    if (!value && !this.required) {
       this.isValid = true;
       return;
     }
