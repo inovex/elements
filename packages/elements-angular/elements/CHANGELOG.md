@@ -87,18 +87,27 @@ All notable changes to this project will be documented in this file. See [standa
 - We changed the scopes of all our packages from `@inovex` to `@inovex.de` in order to match our newly created NPM org. Unfortunately, `@inovex` was already taken. To use the inovex-elements beyond version 0.21.0, you have to change the scope in your dependencies from `@inovex/*` to `@inovex.de/*`. This way you will receive our new versions from the public registry of npmjs.
 - **elements|ino-button:** The API of the `<ino-button>` has changed. We've replaced the `ino-icon` property.
   If you want to use an `ino-icon` inside of a button, use the `ino-icon-leading` or `ino-icon-trailing` property and provide the `<ino-icon>` element as a child of the `<ino-button>` with the slot being either `ino-icon-leading` or `ino-icon-trailing`. See the example below:
-  ```html
+
+  ````html
   <!-- Old -->
   <ino-button ino-icon="info">Button with leading icon</ino-button>
 
-      <!-- New -->
-      <ino-button ino-icon-leading>
-        <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
-        Button with leading icon
-      </ino-button>
-      ```
-
-      While this does seem like more work for the consumer, we implemented this change in order to have a consistent way of using the `<ino-icon>` in combination with our other components. These changes also offer much more flexibility in the use of the `<ino-icon>` as you can now utilize the whole API of the `<ino-icon>` component (e.g. using your own icons, providing your custom click handler, ...).
+  <!-- New -->
+  <ino-button ino-icon-leading>
+    <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
+    Button with leading icon
+  </ino-button>
+  ``` While this does seem like more work for the consumer, we implemented this
+  change in order to have a consistent way of using the `<ino-icon
+    >` in combination with our other components. These changes also offer much
+    more flexibility in the use of the `<ino-icon
+      >` as you can now utilize the whole API of the `<ino-icon
+        >` component (e.g. using your own icons, providing your custom click
+        handler, ...).</ino-icon
+      ></ino-icon
+    ></ino-icon
+  >
+  ````
 
 ### Features
 
