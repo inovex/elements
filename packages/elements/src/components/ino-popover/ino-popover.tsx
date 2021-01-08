@@ -42,6 +42,11 @@ export class Popover implements ComponentInterface {
   @Prop() inoColorScheme?: string = 'primary';
 
   /**
+   * Use this if you want to interact with the popover content (e.g. button clicks)
+   */
+  @Prop() inoInteractive? = false;
+
+  /**
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
@@ -86,7 +91,8 @@ export class Popover implements ComponentInterface {
       content: this.el,
       duration: 100,
       placement: this.inoPlacement,
-      trigger: this.inoTrigger
+      trigger: this.inoTrigger,
+      interactive: this.inoInteractive,
     };
 
     this.tooltipInstance = TippyJS(target, options);

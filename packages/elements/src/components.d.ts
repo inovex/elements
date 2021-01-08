@@ -821,6 +821,10 @@ export namespace Components {
          */
         "inoFor"?: string;
         /**
+          * Use this if you want to interact with the popover content (e.g. button clicks)
+         */
+        "inoInteractive"?: boolean;
+        /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
         "inoPlacement": Placement;
@@ -2383,6 +2387,10 @@ declare namespace LocalJSX {
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
         "inoFor"?: string;
+        /**
+          * Use this if you want to interact with the popover content (e.g. button clicks)
+         */
+        "inoInteractive"?: boolean;
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
