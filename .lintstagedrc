@@ -1,4 +1,4 @@
 {
-  "packages/elements/src/{components,stories,util}/*.{ts,tsx}": ["prettier --write", "tslint --fix", "git add"],
-  "packages/elements/src/{components,stories,util}/*.{scss}": ["prettier --write", "git add"]
+  "packages/elements/src/{components,stories,util}/*.{ts,tsx}": ["prettier --write", "tslint --fix"],
+  "packages/elements/src/{components,stories,util}/*.{scss}": ["prettier --write"]
 }
