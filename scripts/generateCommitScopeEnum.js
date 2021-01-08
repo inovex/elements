@@ -5,21 +5,21 @@ const yaml = require('js-yaml');
 const COMMIT_SCOPE_ENUM_FILE = path.join(__dirname, '../commit-scope-enum.js');
 const SEMANTIC_PULL_REQUEST_YML = path.join(
   __dirname,
-  '../.github/semantic.yml'
+  '../.github/semantic.yml',
 );
 const ELEMENTS_COMPONENTS_DIR = path.join(
   __dirname,
-  '../packages/elements/src/components'
+  '../packages/elements/src/components',
 );
 const SCOPES_IN_JS = require(COMMIT_SCOPE_ENUM_FILE);
 const SCOPES_IN_YAML = yaml.safeLoad(
-  fs.readFileSync(SEMANTIC_PULL_REQUEST_YML, 'utf8')
+  fs.readFileSync(SEMANTIC_PULL_REQUEST_YML, 'utf8'),
 );
 
 console.info('Starting Script to generate Commit Scopes.');
 
 const inoComponentsInSrc = getAllDirNamesInDir(
-  ELEMENTS_COMPONENTS_DIR
+  ELEMENTS_COMPONENTS_DIR,
 ).filter((component) => component.startsWith('ino'));
 
 checkIfGenerationNecessary(inoComponentsInSrc, SCOPES_IN_JS, SCOPES_IN_YAML);
@@ -30,7 +30,7 @@ writeToCommitScopesJsFile(allScopes);
 writeToSemanticPullRequestYaml(allScopes);
 
 console.info(
-  'Successfully generated new commit scopes and wrote them to the files!'
+  'Successfully generated new commit scopes and wrote them to the files!',
 );
 
 /**
@@ -44,7 +44,7 @@ console.info(
 function checkIfGenerationNecessary(
   inoComponentsInSrc,
   elementsInJsFile,
-  elementsInYamlFile
+  elementsInYamlFile,
 ) {
   const SEPARATOR = 'elements|';
   const INDEX_OF_PIPE = 9;

@@ -51,7 +51,7 @@ export class InoSidebar {
 
   componentDidLoad() {
     this.drawer = new MDCCustomDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer')
+      this.el.shadowRoot.querySelector('.mdc-drawer'),
     );
     this.drawer.open = this.inoOpen;
   }

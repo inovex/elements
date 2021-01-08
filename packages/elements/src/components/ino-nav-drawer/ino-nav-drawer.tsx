@@ -52,7 +52,7 @@ export class NavDrawer implements ComponentInterface {
 
   componentDidLoad() {
     this.drawerInstance = new MDCDrawer(
-      this.el.shadowRoot.querySelector('.mdc-drawer')
+      this.el.shadowRoot.querySelector('.mdc-drawer'),
     );
     // set initial value of open state
     if (this.drawerInstance) {

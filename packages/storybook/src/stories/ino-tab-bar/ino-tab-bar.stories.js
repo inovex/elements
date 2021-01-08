@@ -38,31 +38,31 @@ export const DefaultUsage = () => /*html*/ `
     <ino-tab-bar id="tab-bar-1" ino-active-tab="${number('ino-active-tab', 0)}">
       <ino-tab ino-label="Label1" ino-icon="user" ino-stacked="${boolean(
         'ino-stacked',
-        false
+        false,
       )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
-  false
+  false,
 )}"></ino-tab>
       <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean(
         'ino-stacked',
-        false
+        false,
       )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
-  false
+  false,
 )}"></ino-tab>
       <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean(
         'ino-stacked',
-        false
+        false,
       )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
-  false
+  false,
 )}"></ino-tab>
       <ino-tab ino-label="Label4" ino-icon="help" ino-stacked="${boolean(
         'ino-stacked',
-        false
+        false,
       )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
-  false
+  false,
 )}"></ino-tab>
     </ino-tab-bar>
   </div>

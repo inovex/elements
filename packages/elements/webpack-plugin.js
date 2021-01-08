@@ -57,7 +57,7 @@ class StencilPlugin {
     return Promise.all(
       modules.map((m) => {
         return this.addAppAssets(assets, m.resource);
-      })
+      }),
     );
   }
   addAppAssets(assets, filePath) {
@@ -80,7 +80,7 @@ class StencilPlugin {
         assets,
         appNamespace,
         appAssetsDir,
-        appAssetsDir
+        appAssetsDir,
       );
     });
   }
@@ -91,7 +91,7 @@ class StencilPlugin {
         dirItems.map((dirItem) => {
           const filePath = path.join(dir, dirItem);
           return this.addAppAsset(assets, appNamespace, appAssetsDir, filePath);
-        })
+        }),
       );
     });
   }
@@ -103,7 +103,7 @@ class StencilPlugin {
           assets,
           appNamespace,
           appAssetsDir,
-          filePath
+          filePath,
         );
       }
       const data = yield this.readFile(filePath);
@@ -111,8 +111,8 @@ class StencilPlugin {
         path.join(
           this.outputBase,
           appNamespace,
-          path.relative(appAssetsDir, filePath)
-        )
+          path.relative(appAssetsDir, filePath),
+        ),
       );
       assets[assetPath] = {
         source: () => data,

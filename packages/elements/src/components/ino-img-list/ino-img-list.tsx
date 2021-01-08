@@ -30,7 +30,7 @@ export class InoImgList implements ComponentInterface {
   componentDidLoad(): void {
     if (this.inoMasonry) {
       const imgs = this.el.querySelectorAll(
-        '.mdc-image-list__image-aspect-container'
+        '.mdc-image-list__image-aspect-container',
       );
       imgs.forEach((img) => {
         img.classList.remove('mdc-image-list__image-aspect-container');

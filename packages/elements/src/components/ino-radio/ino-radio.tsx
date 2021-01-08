@@ -81,7 +81,7 @@ export class Radio implements ComponentInterface {
   componentDidLoad() {
     this.radio = new MDCRadio(this.el.shadowRoot.querySelector('.mdc-radio'));
     this.formField = new MDCFormField(
-      this.el.shadowRoot.querySelector('.mdc-form-field')
+      this.el.shadowRoot.querySelector('.mdc-form-field'),
     );
     this.formField.input = this.radio;
   }

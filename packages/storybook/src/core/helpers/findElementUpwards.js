@@ -4,7 +4,7 @@ const findElementUpwards = function (currentEl, elTagName, elClassName) {
       return findElementUpwards(
         currentEl.parentElement,
         elTagName,
-        elClassName
+        elClassName,
       );
     }
   } else {

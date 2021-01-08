@@ -29,7 +29,7 @@ export const DefaultUsage = () => {
               --img-list-cols: ${number(
                 '--img-list-cols',
                 3,
-                'Custom Properties'
+                'Custom Properties',
               )};
             }
         </style>

@@ -74,7 +74,7 @@ export class Fab implements ComponentInterface {
 
   componentDidLoad() {
     this.fabRipple = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-fab')
+      this.el.shadowRoot.querySelector('.mdc-fab'),
     );
 
     if (!this.inoExtended && this.inoTooltipPlacement !== 'none') {
@@ -92,7 +92,7 @@ export class Fab implements ComponentInterface {
 
     const tooltip = document.createElement('ino-tooltip');
     Object.keys(attributes).forEach((key) =>
-      tooltip.setAttribute(key, attributes[key])
+      tooltip.setAttribute(key, attributes[key]),
     );
     this.el.appendChild(tooltip);
   }

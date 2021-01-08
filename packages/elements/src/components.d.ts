@@ -2284,7 +2284,7 @@ declare namespace LocalJSX {
       event: CustomEvent<{
         e: any;
         files: File[];
-      }>
+      }>,
     ) => void;
     /**
      * Marks this element as required.

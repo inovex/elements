@@ -73,7 +73,7 @@ export class Select implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcSelectInstance = new MDCSelect(
-      this.el.querySelector('.mdc-select')
+      this.el.querySelector('.mdc-select'),
     );
 
     if (this.value) {

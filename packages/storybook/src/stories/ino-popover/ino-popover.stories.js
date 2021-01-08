@@ -19,12 +19,12 @@ export const DefaultUsage = () => /*html*/ `
         ino-placement="${select(
           'ino-placement',
           ['top', 'right', 'bottom', 'left'],
-          'top'
+          'top',
         )}"
         ino-color-scheme="${select(
           'ino-color-scheme',
           ['primary', 'secondary', 'light', 'transparent'],
-          'transparent'
+          'transparent',
         )}"
         ino-trigger="${select(
           'ino-trigger',
@@ -37,7 +37,7 @@ export const DefaultUsage = () => /*html*/ `
             'focus click',
             'mouseenter focus click',
           ],
-          'mouseenter focus'
+          'mouseenter focus',
         )}">
         <div class="styled-popover"><ino-icon ino-icon="user"></ino-icon> This is a styled popover.</div>
       </ino-popover>

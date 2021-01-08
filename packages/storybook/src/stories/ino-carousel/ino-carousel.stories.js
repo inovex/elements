@@ -53,22 +53,22 @@ export const DefaultUsage = () => /* html */ `
             --ino-carousel-icon-color: ${text(
               '--ino-carousel-icon-color',
               '#ffffff',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --ino-carousel-width: ${text(
               '--ino-carousel-width',
               '700px',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --ino-carousel-height: ${text(
               '--ino-carousel-height',
               '400px',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --ino-carousel-animation-duration: ${text(
               '--ino-carousel-animation-duration',
               '700ms',
-              'Custom Properties'
+              'Custom Properties',
             )};
             }
           </style>
@@ -83,7 +83,7 @@ export const DefaultUsage = () => /* html */ `
               'ino-intermission',
               5000,
               undefined,
-              'General'
+              'General',
             )}"
             ino-reverse="${boolean('ino-reverse', false, 'General')}"
           >

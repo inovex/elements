@@ -68,19 +68,19 @@ export const DefaultUsage = () => /*html*/ `
         'ino-top-bottom-location',
         ['top', 'bottom'],
         'bottom',
-        'FAB-set'
+        'FAB-set',
       )}"
       ino-left-right-location="${select(
         'in-left-right-location',
         ['left', 'right'],
         'left',
-        'FAB-set'
+        'FAB-set',
       )}"
       ino-dial-direction="${select(
         'ino-dial-direction',
         ['top', 'bottom', 'left', 'right'],
         'top',
-        'FAB-set'
+        'FAB-set',
       )}">
 
         <ino-fab

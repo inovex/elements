@@ -40,7 +40,7 @@ export class RadioGroup implements ComponentInterface {
     const radios = await this.getRadios();
     radios.forEach((radio) => {
       radio.removeEventListener('mouseover', () =>
-        this.addHoverAnimation(radio)
+        this.addHoverAnimation(radio),
       );
       radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
     });
@@ -63,7 +63,7 @@ export class RadioGroup implements ComponentInterface {
   private async removeHoverAnimation() {
     const radios = await this.getRadios();
     const checkedRadio = radios.find((radio) =>
-      radio.classList.contains('ino-checked-hover')
+      radio.classList.contains('ino-checked-hover'),
     );
 
     if (!checkedRadio) {

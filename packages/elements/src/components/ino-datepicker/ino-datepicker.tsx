@@ -255,7 +255,7 @@ export class Datepicker implements ComponentInterface {
     const newDate = new Date(newYear, month, day);
     const formattedDate = this.flatpickr.formatDate(
       newDate,
-      this.flatpickr.config.dateFormat
+      this.flatpickr.config.dateFormat,
     );
     this.valueChange.emit(formattedDate);
   }
@@ -336,11 +336,11 @@ export class Datepicker implements ComponentInterface {
     if (this.isMonthPicker()) {
       this.flatpickr.prevMonthNav.addEventListener(
         'click',
-        this.monthChangePrevHandler
+        this.monthChangePrevHandler,
       );
       this.flatpickr.nextMonthNav.addEventListener(
         'click',
-        this.monthChangeNextHandler
+        this.monthChangeNextHandler,
       );
     }
   }
@@ -355,11 +355,11 @@ export class Datepicker implements ComponentInterface {
     onYearChange: () => {
       const newDate = new Date(
         this.flatpickr.currentYear,
-        this.flatpickr.currentMonth
+        this.flatpickr.currentMonth,
       );
       const formattedDate = this.flatpickr.formatDate(
         newDate,
-        this.flatpickr.config.dateFormat
+        this.flatpickr.config.dateFormat,
       );
       this.valueChange.emit(formattedDate);
     },
@@ -420,7 +420,7 @@ export class Datepicker implements ComponentInterface {
     const parsedDate: Date = this.flatpickr.parseDate(value);
     const formattedDate: string = this.flatpickr.formatDate(
       parsedDate,
-      this.flatpickr.config.dateFormat
+      this.flatpickr.config.dateFormat,
     );
 
     return formattedDate == value;
@@ -455,11 +455,11 @@ export class Datepicker implements ComponentInterface {
       if (this.isMonthPicker()) {
         this.flatpickr.prevMonthNav.removeEventListener(
           'click',
-          this.monthChangePrevHandler
+          this.monthChangePrevHandler,
         );
         this.flatpickr.nextMonthNav.removeEventListener(
           'click',
-          this.monthChangeNextHandler
+          this.monthChangeNextHandler,
         );
       }
     }

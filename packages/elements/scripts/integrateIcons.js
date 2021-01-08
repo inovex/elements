@@ -12,7 +12,7 @@ const ICON_JS_DIR = path.join(SRC_INO_ICON_DIR, 'icons.js');
 
 const STORYBOOK_ICON_ASSETS_DIR = path.join(
   STORYBOOK_DIR,
-  'static/icon-assets'
+  'static/icon-assets',
 );
 const STORYBOOK_SVG_DIR = path.join(STORYBOOK_ICON_ASSETS_DIR, 'SVG');
 

@@ -46,7 +46,7 @@ export class Menu implements ComponentInterface {
 
   componentDidLoad() {
     this.menu = new MDCCustomMenu(
-      this.el.querySelector('.mdc-menu') as HTMLElement
+      this.el.querySelector('.mdc-menu') as HTMLElement,
     ); // takes root and foundation, foundation takes adapter
 
     this.menu.open = this.inoOpen;

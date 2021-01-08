@@ -6,7 +6,7 @@ const createTextarea = (attr?: string) =>
 
 const checkSettingOfProp = async (property: string, value: number | string) => {
   const page = await setupPageWithContent(
-    createTextarea(`${property}=\'${value}\'`)
+    createTextarea(`${property}=\'${value}\'`),
   );
   const innerTextArea = await page.find('textarea');
 
@@ -25,7 +25,7 @@ describe('ino-textarea', () => {
     it('should render with a label', async () => {
       const sampleText = 'Some Label';
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'${sampleText}\'`)
+        createTextarea(`ino-label=\'${sampleText}\'`),
       );
       const label = await page.find('label');
       expect(label.textContent).toEqual(sampleText);
@@ -45,7 +45,7 @@ describe('ino-textarea', () => {
 
     it('should NOT have the after pseudo-class within the label', async () => {
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'SomeLabel'`)
+        createTextarea(`ino-label=\'SomeLabel'`),
       );
       const label = await page.find('ino-label');
       const afterElement = await label.getComputedStyle(':after');
@@ -57,7 +57,7 @@ describe('ino-textarea', () => {
   describe('Component Behaviour', () => {
     it('should be focused after render', async () => {
       const page = await setupPageWithContent(
-        '<ino-textarea autofocus></ino-textarea>'
+        '<ino-textarea autofocus></ino-textarea>',
       );
       const focusedElement = await page.$eval(':focus', (el) => el);
 
@@ -76,14 +76,14 @@ describe('ino-textarea', () => {
     it('should render with an above floating label after focus', async () => {
       const sampleText = 'Some Label';
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'${sampleText}\'`)
+        createTextarea(`ino-label=\'${sampleText}\'`),
       );
       const inoTextArea = await page.find('textarea');
       await inoTextArea.click();
       const label = await page.find('label');
       await page.waitForChanges();
       expect(
-        label.classList.contains('mdc-floating-label--float-above')
+        label.classList.contains('mdc-floating-label--float-above'),
       ).toBeTruthy();
     });
 
@@ -123,7 +123,7 @@ describe('ino-textarea', () => {
 
     it('should NOT increase width when input exceeds width and autogrow not set', async () => {
       const page = await setupPageWithContent(
-        createTextarea(`rows="2" cols="2"`)
+        createTextarea(`rows="2" cols="2"`),
       );
       const inoTextarea = await page.find('ino-textarea');
       const stylesBeforeInput = await inoTextarea.getComputedStyle();
@@ -136,7 +136,7 @@ describe('ino-textarea', () => {
 
     it('should increase width when input exceeds width and autogrow set', async () => {
       const page = await setupPageWithContent(
-        createTextarea(`rows="2" cols="2" autogrow`)
+        createTextarea(`rows="2" cols="2" autogrow`),
       );
       const inoTextarea = await page.find('ino-textarea');
       const stylesBeforeInput = await inoTextarea.getComputedStyle();
@@ -145,7 +145,7 @@ describe('ino-textarea', () => {
       await page.waitForChanges();
       const stylesAfterInput = await inoTextarea.getComputedStyle();
       expect(pxToNumber(stylesAfterInput.height)).toBeGreaterThan(
-        pxToNumber(stylesBeforeInput.height)
+        pxToNumber(stylesBeforeInput.height),
       );
     });
   });

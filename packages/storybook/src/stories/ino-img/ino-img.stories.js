@@ -22,7 +22,7 @@ export const DefaultUsage = () => /*html*/ `
           size="${text('size', '')}"
           src="${text(
             'src',
-            'https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png'
+            'https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png',
           )}"
           srcset="${text('srcset', '')}"
           width="${number('width', 100)}"

@@ -18,7 +18,7 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(
         __dirname,
-        '../../../coverage/inovex/elements-angular'
+        '../../../coverage/inovex/elements-angular',
       ),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,

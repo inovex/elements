@@ -63,7 +63,7 @@ export const DefaultUsage = () => /*html*/ `
       <ino-button id="menu-2">Open divided menu</ino-button>
       <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open="${boolean(
         'ino-open',
-        false
+        false,
       )}">
         <ino-list-item ino-text="Home"></ino-list-item>
         <ino-list-item ino-text="Projects"></ino-list-item>

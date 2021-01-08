@@ -48,32 +48,32 @@ export const DefaultUsage = () => /*html*/ `
             --radio-unchecked-color: ${text(
               '--radio-unchecked-color',
               '#c1c1c1',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --radio-checked-color: ${text(
               '--radio-checked-color',
               '#3d40f5',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --radio-hover-color: ${text(
               '--radio-hover-color',
               '#5d60f7',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --radio-active-color: ${text(
               '--radio-active-color',
               '#0d10f3',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --radio-disabled-inner-circle-color: ${text(
               '--radio-disabled-inner-circle-color',
               '#777777',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --radio-disabled-outer-circle-color: ${text(
               '--radio-disabled-outer-circle-color',
               '#c1c1c1',
-              'Custom Properties'
+              'Custom Properties',
             )};
           }
       </style>

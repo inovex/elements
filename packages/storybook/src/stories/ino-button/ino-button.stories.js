@@ -27,62 +27,62 @@ export const DefaultUsage = () => /* html */ `
             --button-color-primary: ${text(
               '--button-color-primary',
               '#3d40f5',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-primary-light: ${text(
               '--button-color-primary-light',
               '#5d60f7',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-primary-dark: ${text(
               '--button-color-primary-dark',
               '#0d10f3',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-primary-contrast: ${text(
               '--button-color-primary-contrast',
               '#fff',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-primary-shadow-light: ${text(
               '--button-color-primary-shadow-light',
               'rgba(61, 214, 245, 0.14)',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-primary-shadow-dark: ${text(
               '--button-color-primary-shadow-light',
               'rgba(61, 64, 245, 0.3)',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary: ${text(
               '--button-color-secondary',
               '#9ccd00',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary-light: ${text(
               '--button-color-secondary-light',
               '#bbe962',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary-dark: ${text(
               '--button-color-secondary-dark',
               '#93bf00',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary-contrast: ${text(
               '--button-color-secondary-contrast',
               '#fff',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary-shadow-light: ${text(
               '--button-color-secondary-shadow-light',
               'rgba(156, 205, 0, 0.14)',
-              'Custom Properties'
+              'Custom Properties',
             )};
             --button-color-secondary-shadow-dark: ${text(
               '--button-color-secondary-shadow-light',
               'rgba(181, 230, 23, 0.30)',
-              'Custom Properties'
+              'Custom Properties',
             )};
           }
       </style>
@@ -92,13 +92,13 @@ export const DefaultUsage = () => /* html */ `
           'ino-color-scheme',
           ['primary', 'secondary', 'white', 'grey'],
           'primary',
-          'General'
+          'General',
         )}"
         ino-fill="${select(
           'ino-fill',
           ['solid', 'outline', 'inverse'],
           'solid',
-          'General'
+          'General',
         )}"
         ino-icon-leading="${boolean('ino-icon-leading', false, 'Icon')}"
         ino-icon-trailing="${boolean('ino-icon-trailing', false, 'Icon')}"
@@ -112,14 +112,14 @@ export const DefaultUsage = () => /* html */ `
           'ino-icon-leading-slot',
           ICONS,
           'Add',
-          'Icon'
+          'Icon',
         )}"></ino-icon>
         ${text('<slot />', 'Customizable button', 'General')}
         <ino-icon slot="ino-icon-trailing" ino-icon="${select(
           'ino-icon-trailing-slot',
           ICONS,
           'Add',
-          'Icon'
+          'Icon',
         )}"></ino-icon>
       </ino-button>
 

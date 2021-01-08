@@ -17,12 +17,12 @@ export const DefaultUsage = () => /*html*/ `
         ino-for="${text('ino-for', 'tooltip-target')}"
         ino-label="${text(
           'ino-label',
-          'This is a customaziable tooltip text.'
+          'This is a customaziable tooltip text.',
         )}"
         ino-placement="${select(
           'ino-placement',
           ['top', 'right', 'bottom', 'left'],
-          'top'
+          'top',
         )}"
         ino-trigger="${select(
           'ino-trigger',
@@ -35,7 +35,7 @@ export const DefaultUsage = () => /*html*/ `
             'focus click',
             'mouseenter focus click',
           ],
-          'mouseenter focus'
+          'mouseenter focus',
         )}">
       </ino-tooltip>
 

@@ -144,42 +144,42 @@ export const SelectOptions = () => /*html*/ `
           --ino-option-selected-background-color: ${text(
             '--ino-option-selected-background-color',
             'rgba(61, 64, 245, 0.05)',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-selected-background-color-hover: ${text(
             '--ino-option-selected-background-color-hover',
             'rgba(61, 64, 245, 0.1)',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-selected-background-color-focus: ${text(
             '--ino-option-selected-background-color-focus',
             'rgba(61, 64, 245, 0.15)',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-selected-background-color-active: ${text(
             '--ino-option-selected-background-color-active',
             'rgba(61, 64, 245, 0.3)',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-deselected-background-color: ${text(
             '--ino-option-deselected-background-color',
             '',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-deselected-background-color-hover: ${text(
             '--ino-option-deselected-background-color-hover',
             '',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-deselected-background-color-focus: ${text(
             '--ino-option-deselected-background-color-focus',
             '',
-            'Custom Properties'
+            'Custom Properties',
           )};
           --ino-option-deselected-background-color-active: ${text(
             '--ino-option-deselected-background-color-active',
             '',
-            'Custom Properties'
+            'Custom Properties',
           )};
         }
     </style>

@@ -21,7 +21,7 @@ describe('InoDialog', () => {
       await page.waitForChanges();
 
       const mdcInstance = await inoDialog.shadowRoot.querySelector(
-        MDC_SELECTOR
+        MDC_SELECTOR,
       );
       expect(mdcInstance).not.toHaveClass('mdc-dialog--open');
     });
@@ -34,7 +34,7 @@ describe('InoDialog', () => {
       await page.waitForChanges();
 
       const mdcInstance = await inoDialog.shadowRoot.querySelector(
-        MDC_SELECTOR
+        MDC_SELECTOR,
       );
       expect(mdcInstance).toHaveClass('mdc-dialog--open');
     });
