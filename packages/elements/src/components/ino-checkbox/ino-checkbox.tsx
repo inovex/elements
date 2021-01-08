@@ -77,8 +77,8 @@ export class Checkbox implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.checkboxInstance.destroy();
-    this.formField.destroy();
+    this.checkboxInstance?.destroy();
+    this.formField?.destroy();
   }
 
   /**

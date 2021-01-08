@@ -85,8 +85,8 @@ export class Radio implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.radio.destroy();
-    this.formField.destroy();
+    this.radio?.destroy();
+    this.formField?.destroy();
   }
 
   render() {

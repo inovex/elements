@@ -112,7 +112,7 @@ export class Button implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.button.destroy();
+    this.button?.destroy();
   }
 
   private handleClick = (e: Event) => {

@@ -62,11 +62,10 @@ export class Snackbar implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.snackbarInstance.destroy();
+    this.snackbarInstance?.destroy();
     this.snackbarElement.removeEventListener('MDCSnackbar:closing', e =>
       this.handleSnackbarHide(e)
     );
-
   }
 
   private configureTimeout() {

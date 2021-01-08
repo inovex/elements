@@ -51,7 +51,7 @@ export class Dialog implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.mdcDialog.destroy();
+    this.mdcDialog?.destroy();
   }
 
   render() {

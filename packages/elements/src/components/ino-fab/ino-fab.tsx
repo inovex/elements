@@ -96,7 +96,7 @@ export class Fab implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.fabRipple.destroy();
+    this.fabRipple?.destroy();
   }
 
   /**

@@ -142,7 +142,7 @@ export class Textarea implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.textfield.destroy();
+    this.textfield?.destroy();
     this.destroyAutogrow();
   }
 

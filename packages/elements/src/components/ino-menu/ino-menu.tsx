@@ -55,7 +55,7 @@ export class Menu implements ComponentInterface {
 
   disconnectedCallback() {
     if (this.menu) {
-      this.menu.destroy();
+      this.menu?.destroy();
     }
   }
 

@@ -286,13 +286,9 @@ export class Input implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.textfield.destroy();
-    if (this.helperText) {
-      this.helperText.destroy();
-    }
-    if (this.icon) {
-      this.icon.destroy();
-    }
+    this.textfield?.destroy();
+    this.helperText?.destroy();
+    this.icon?.destroy();
   }
 
   private handleNativeInputChange(e) {

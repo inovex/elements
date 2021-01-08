@@ -65,7 +65,7 @@ export class NavDrawer implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.drawerInstance.destroy();
+    this.drawerInstance?.destroy();
   }
 
   /**

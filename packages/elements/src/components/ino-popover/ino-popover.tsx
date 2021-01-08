@@ -93,9 +93,7 @@ export class Popover implements ComponentInterface {
   }
 
   private dispose() {
-    if (this.tooltipInstance) {
-      this.tooltipInstance.destroy();
-    }
+    this.tooltipInstance?.destroy();
   }
 
   render() {

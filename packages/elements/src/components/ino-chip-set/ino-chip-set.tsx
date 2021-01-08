@@ -49,9 +49,7 @@ export class ChipSet implements ComponentInterface {
   }
 
   private destroy() {
-    if (this.mdcInstance) {
-      this.mdcInstance.destroy();
-    }
+    this.mdcInstance?.destroy();
 
     if (this.listenerAttached) {
       this.el.removeEventListener('MDCChip:interaction', _ =>

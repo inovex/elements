@@ -63,7 +63,7 @@ export class Switch implements ComponentInterface {
   }
 
   componentDidUnLoad() {
-    this.switch.destroy();
+    this.switch?.destroy();
   }
 
   /**

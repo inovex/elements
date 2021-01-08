@@ -59,7 +59,7 @@ export class InoProgressBar implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    this.mdcProgress.destroy();
+    this.mdcProgress?.destroy();
   }
 
   private initializeComponent = () => {
