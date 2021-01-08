@@ -52,11 +52,11 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker class="customizable-picker"
         value="${text('value', defaultDate, 'DATE CONFIG')}"
         ino-type="${select(
-          'ino-type',
-          ['datetime', 'month', 'date', 'time'],
-          'datetime',
-          'STANDARD'
-        )}"
+  'ino-type',
+  ['datetime', 'month', 'date', 'time'],
+  'datetime',
+  'STANDARD'
+)}"
         ino-label="${text('ino-label', 'Label', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
         min="${text('min', minDate, 'STANDARD')}"
@@ -94,7 +94,7 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelve hour time" ino-twelve-hour-time></ino-datepicker>
 
       <h4>States</h4>
-      <ino-datepicker ino-label="Disabled" disabled></ino-datepicker>
+      <ino-datepicker ino-label="Disabled" value="${defaultDate}" disabled></ino-datepicker>
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>
