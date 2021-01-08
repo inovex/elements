@@ -10,12 +10,11 @@ import { ValueAccessorDirective } from './value-accessor.directive';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: BooleanValueAccessorDirective,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class BooleanValueAccessorDirective extends ValueAccessorDirective {
-
   constructor(el: ElementRef, private renderer: Renderer2) {
     super(el);
   }

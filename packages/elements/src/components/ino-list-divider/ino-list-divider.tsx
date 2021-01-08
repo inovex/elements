@@ -4,7 +4,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-list-divider',
   styleUrl: 'ino-list-divider.scss',
-  shadow: false
+  shadow: false,
 })
 export class ListDivider implements ComponentInterface {
   /**
@@ -32,17 +32,16 @@ export class ListDivider implements ComponentInterface {
     const dividerClasses = classNames({
       'mdc-list-divider': true,
       'mdc-list-divider--padded': !this.inoBetweenLists && this.inoPadded,
-      'mdc-list-divider--inset': !this.inoBetweenLists && this.inoInset
+      'mdc-list-divider--inset': !this.inoBetweenLists && this.inoInset,
     });
 
     return (
       <Host>
-        { this.inoBetweenLists ? (
-            <hr class={dividerClasses} />
-          ) : (
-            <li role="separator" class={dividerClasses} />
-          )
-        }
+        {this.inoBetweenLists ? (
+          <hr class={dividerClasses} />
+        ) : (
+          <li role="separator" class={dividerClasses} />
+        )}
       </Host>
     );
   }

@@ -1,13 +1,19 @@
-import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  h,
+  Host,
+  Prop,
+} from '@stencil/core';
 import classnames from 'classnames';
 
 @Component({
   tag: 'ino-card',
   styleUrl: 'ino-card.scss',
-  shadow: false
+  shadow: false,
 })
 export class Card implements ComponentInterface {
-
   @Element() el: HTMLElement;
 
   /**
@@ -24,7 +30,7 @@ export class Card implements ComponentInterface {
     const classList = classnames({
       'mdc-card': true,
       'mdc-card--outlined': true,
-      'ino-card--selected': this.inoSelected
+      'ino-card--selected': this.inoSelected,
     });
 
     const hasHeader = Boolean(this.el.querySelector('[slot="header"]'));
@@ -36,24 +42,24 @@ export class Card implements ComponentInterface {
         <div class={classList}>
           <div>
             {this.inoSelected && (
-              <div class='ino-card__checkmark'>
+              <div class="ino-card__checkmark">
                 <ino-icon ino-icon="checkmark"></ino-icon>
               </div>
             )}
           </div>
           {hasHeader && (
             <div class="ino-card__header">
-              <slot name="header"/>
+              <slot name="header" />
             </div>
           )}
           {hasContent && (
             <div class="ino-card__content">
-              <slot name="content"/>
+              <slot name="content" />
             </div>
           )}
           {hasFooter && (
             <div class="ino-card__footer">
-              <slot name="footer"/>
+              <slot name="footer" />
             </div>
           )}
         </div>

@@ -6,13 +6,13 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h
+  h,
 } from '@stencil/core';
 
 @Component({
   tag: 'ino-control-item',
   styleUrl: 'ino-control-item.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoControlItem implements ComponentInterface {
   private inputEl: HTMLInputElement;
@@ -132,7 +132,7 @@ export class InoControlItem implements ComponentInterface {
       name: this.name,
       value: this.value,
       onCheckedChange: this.changedHandler,
-      ref: inputEl => (this.inputEl = inputEl)
+      ref: (inputEl) => (this.inputEl = inputEl),
     };
 
     return (
@@ -152,8 +152,8 @@ export class InoControlItem implements ComponentInterface {
               indeterminate={this.indeterminate}
             />
           ) : (
-              <ino-radio {...controlItemProps} />
-            )}
+            <ino-radio {...controlItemProps} />
+          )}
           <span slot={slotPosition}>
             <slot></slot>
           </span>

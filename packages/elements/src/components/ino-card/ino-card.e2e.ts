@@ -42,5 +42,4 @@ describe('InoCard', () => {
       expect(event).toHaveReceivedEvent();
     });
   });
-
 });

@@ -1,4 +1,14 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+  Watch,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -6,7 +16,7 @@ import { generateUniqueId } from '../../util/component-utils';
 @Component({
   tag: 'ino-segment-button',
   styleUrl: 'ino-segment-button.scss',
-  shadow: true
+  shadow: true,
 })
 export class InoSegmentButton implements ComponentInterface {
   private buttonId = `ino-segment-button-id_${generateUniqueId()}`;
@@ -21,7 +31,7 @@ export class InoSegmentButton implements ComponentInterface {
   @Prop() checked: boolean = false;
   @Watch('checked')
   checkedChanged(newVal: boolean) {
-    if(this.belongsToGroup && this.successor && !newVal) {
+    if (this.belongsToGroup && this.successor && !newVal) {
       this.enableBorder();
     }
   }
@@ -57,10 +67,15 @@ export class InoSegmentButton implements ComponentInterface {
     this.successor = this.el.nextElementSibling;
 
     // only adds the event listeners if the button belongs to a group and is not the last child of that particular group
-    if (this.belongsToGroup && this.successor && !this.disabled && this.successor.tagName === 'INO-SEGMENT-BUTTON') {
+    if (
+      this.belongsToGroup &&
+      this.successor &&
+      !this.disabled &&
+      this.successor.tagName === 'INO-SEGMENT-BUTTON'
+    ) {
       this.el.addEventListener('mouseover', this.disableBorder);
       this.el.addEventListener('mouseleave', this.enableBorder);
-      if(this.checked) {
+      if (this.checked) {
         this.disableBorder();
       }
     }
@@ -78,7 +93,7 @@ export class InoSegmentButton implements ComponentInterface {
    * Enables the left border of the succeeding segment-button
    */
   private enableBorder = () => {
-    if(!this.checked) {
+    if (!this.checked) {
       const btn = this.successor.shadowRoot.querySelector('button');
       btn.style.borderLeft = '1px solid';
     }
@@ -99,14 +114,14 @@ export class InoSegmentButton implements ComponentInterface {
       'mdc-button--outlined': true,
       'ino-segment-button--dense': this.inoDense,
       'ino-segment-button--active': this.checked,
-      'belongs-to-group': this.belongsToGroup
+      'belongs-to-group': this.belongsToGroup,
     });
 
     return (
       <Host
         checked={this.checked}
         onClick={this.handleClick}
-        class={(this.disabled && 'ino-segment-button--disabled')}
+        class={this.disabled && 'ino-segment-button--disabled'}
       >
         <button
           class={classes}
@@ -121,5 +136,4 @@ export class InoSegmentButton implements ComponentInterface {
       </Host>
     );
   }
-
 }

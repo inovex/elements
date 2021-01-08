@@ -4,7 +4,6 @@ const INO_SWITCH = `<ino-switch></ino-switch>`;
 const DIV_SELECTOR = 'ino-switch > div';
 
 describe('InoSwitch', () => {
-
   describe('Properties', () => {
     it('should render correctly if disabled is set to true', async () => {
       const page = await setupPageWithContent(INO_SWITCH);
@@ -87,5 +86,4 @@ describe('InoSwitch', () => {
       expect(checkedChange).not.toHaveReceivedEvent();
     });
   });
-
 });

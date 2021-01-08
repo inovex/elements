@@ -10,7 +10,7 @@ import './ino-tab-bar.scss';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
 
     if (!el) return;
@@ -28,42 +28,39 @@ function subscribeToComponentEvents() {
 }
 
 export default {
-  title: 'Structure/<ino-tab-bar>'
+  title: 'Structure/<ino-tab-bar>',
 };
 
 export const DefaultUsage = () => /*html*/ `
 <div class="story-tab">
 <h4>Customizable ino-tab-bar</h4>
   <div>
-    <ino-tab-bar id="tab-bar-1" ino-active-tab="${number(
-  'ino-active-tab',
-  0
-)}">
+    <ino-tab-bar id="tab-bar-1" ino-active-tab="${number('ino-active-tab', 0)}">
       <ino-tab ino-label="Label1" ino-icon="user" ino-stacked="${boolean(
-  'ino-stacked',
-  false
-)}" ino-indicator-content-width="${boolean(
+        'ino-stacked',
+        false
+      )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
   false
 )}"></ino-tab>
       <ino-tab ino-label="Label2" ino-icon="info" ino-stacked="${boolean(
-  'ino-stacked',
-  false
-)}" ino-indicator-content-width="${boolean(
+        'ino-stacked',
+        false
+      )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
   false
 )}"></ino-tab>
       <ino-tab ino-label="Label3" ino-icon="star" ino-stacked="${boolean(
-  'ino-stacked',
-  false
-)}" ino-indicator-content-width="${boolean(
+        'ino-stacked',
+        false
+      )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
   false
 )}"></ino-tab>
       <ino-tab ino-label="Label4" ino-icon="help" ino-stacked="${boolean(
-  'ino-stacked',
-  false
-)}" ino-indicator-content-width="${boolean(
+        'ino-stacked',
+        false
+      )}" ino-indicator-content-width="${boolean(
   'ino-indicator-content-width',
   false
 )}"></ino-tab>
@@ -120,15 +117,15 @@ export const DefaultUsage = () => /*html*/ `
 
 DefaultUsage.parameters = {
   actions: {
-    handles: ['activeTabChange ino-tab-bar']
-  }
+    handles: ['activeTabChange ino-tab-bar'],
+  },
 };
 DefaultUsage.decorators = [
   withStencilReadme(tabBarReadme),
-  story => {
+  (story) => {
     subscribeToComponentEvents();
     return story();
-  }
+  },
 ];
 
 export const Tab = () => /*html*/ `
@@ -172,6 +169,4 @@ export const Tab = () => /*html*/ `
 </div>
 `;
 
-Tab.decorators = [
-  withStencilReadme(tabReadme)
-];
+Tab.decorators = [withStencilReadme(tabReadme)];

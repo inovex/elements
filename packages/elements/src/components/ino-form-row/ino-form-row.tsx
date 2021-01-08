@@ -3,7 +3,7 @@ import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 @Component({
   tag: 'ino-form-row',
   styleUrl: 'ino-form-row.scss',
-  shadow: false
+  shadow: false,
 })
 export class FormRow implements ComponentInterface {
   /**

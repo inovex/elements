@@ -5,8 +5,14 @@ export type IonicReactExternalProps<PropType, ElementType> = PropType & {
   children?: React.ReactNode;
 };
 
-export const createForwardRef = <PropType, ElementType>(ReactComponent: any, displayName: string) => {
-  const forwardRef = (props: IonicReactExternalProps<PropType, ElementType>, ref: React.Ref<ElementType>) => {
+export const createForwardRef = <PropType, ElementType>(
+  ReactComponent: any,
+  displayName: string
+) => {
+  const forwardRef = (
+    props: IonicReactExternalProps<PropType, ElementType>,
+    ref: React.Ref<ElementType>
+  ) => {
     return <ReactComponent {...props} forwardedRef={ref} />;
   };
   forwardRef.displayName = displayName;

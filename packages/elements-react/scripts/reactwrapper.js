@@ -7,20 +7,20 @@ const distBasePath = path.join(projectBasePath, 'dist');
 const reactBasePath = path.join(distBasePath, 'elements-react');
 
 function getComponents() {
-    const componentDir = path.join(distBasePath, 'collection/components');
-    const componentNames = fs
-        .readdirSync(componentDir)
-        .filter((file) => fs.statSync(path.join(componentDir, file)).isDirectory);
-    return componentNames;
-};
+  const componentDir = path.join(distBasePath, 'collection/components');
+  const componentNames = fs
+    .readdirSync(componentDir)
+    .filter((file) => fs.statSync(path.join(componentDir, file)).isDirectory);
+  return componentNames;
+}
 
 function getReactName(componentName) {
-    return camelcase(componentName, { pascalCase: true });
+  return camelcase(componentName, { pascalCase: true });
 }
 
 function getWrapper(componentName) {
-    const reactName = getReactName(componentName);
-    return `
+  const reactName = getReactName(componentName);
+  return `
         "use strict";
         var __rest = (this && this.__rest) || function (s, e) {
             var t = {};
@@ -44,8 +44,8 @@ function getWrapper(componentName) {
 }
 
 function getWrapperTypings(componentName) {
-    const reactName = getReactName(componentName);
-    return `
+  const reactName = getReactName(componentName);
+  return `
         import { Components } from '../types/components';
         export interface ${reactName}Props extends Components.${reactName} {}
         export declare const ${reactName}: React.SFC<${reactName}Props>;
@@ -53,33 +53,31 @@ function getWrapperTypings(componentName) {
 }
 
 function prepareFolder() {
-    if(fs.existsSync(reactBasePath) && fs.statSync(reactBasePath).isDirectory) {
-        fs.removeSync(reactBasePath);
-    }
-    fs.mkdirSync(reactBasePath);
+  if (fs.existsSync(reactBasePath) && fs.statSync(reactBasePath).isDirectory) {
+    fs.removeSync(reactBasePath);
+  }
+  fs.mkdirSync(reactBasePath);
 }
 
 function writeComponent(componentName, componentCode, typingCode) {
-    const componentFileName = `${getReactName(componentName)}.js`;
-    const typingsFileName = `${getReactName(componentName)}.d.ts`;
-    const componentPath = path.join(reactBasePath, componentFileName);
-    const typingsPath = path.join(reactBasePath, typingsFileName);
-    fs.writeFileSync(componentPath, componentCode);
-    fs.writeFileSync(typingsPath, typingCode);
+  const componentFileName = `${getReactName(componentName)}.js`;
+  const typingsFileName = `${getReactName(componentName)}.d.ts`;
+  const componentPath = path.join(reactBasePath, componentFileName);
+  const typingsPath = path.join(reactBasePath, typingsFileName);
+  fs.writeFileSync(componentPath, componentCode);
+  fs.writeFileSync(typingsPath, typingCode);
 }
 
 function createReactWrappers() {
-    prepareFolder();
-    const components = getComponents();
-    components.forEach((component) => {
-        const code = getWrapper(component);
-        const typings = getWrapperTypings(component);
-        writeComponent(component, code, typings);
-    });
+  prepareFolder();
+  const components = getComponents();
+  components.forEach((component) => {
+    const code = getWrapper(component);
+    const typings = getWrapperTypings(component);
+    writeComponent(component, code, typings);
+  });
 
-    console.info(
-    'Created react wrapper components'
-    );
+  console.info('Created react wrapper components');
 }
 
 module.exports = createReactWrappers;

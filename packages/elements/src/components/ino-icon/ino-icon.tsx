@@ -1,4 +1,14 @@
-import { Component, ComponentInterface, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  State,
+  Watch,
+  h,
+} from '@stencil/core';
 import { getSvgContent, inoiconContent } from './request';
 import { getUrl } from './utils';
 import { SvgParser } from '../../util/svg-parser';
@@ -10,7 +20,7 @@ import { SvgParser } from '../../util/svg-parser';
   tag: 'ino-icon',
   styleUrl: 'ino-icon.scss',
   assetsDirs: ['icon-assets/SVG'],
-  shadow: true
+  shadow: true,
 })
 export class Icon implements ComponentInterface {
   /**
@@ -75,7 +85,9 @@ export class Icon implements ComponentInterface {
         this.svgContent = inoiconContent.get(url);
       } else {
         // async if it hasn't been loaded
-        getSvgContent(url).then(() => this.svgContent = inoiconContent.get(url));
+        getSvgContent(url).then(
+          () => (this.svgContent = inoiconContent.get(url))
+        );
       }
     }
   }
@@ -100,10 +112,10 @@ export class Icon implements ComponentInterface {
     let iconProps = {};
     if (this.inoClickable) {
       iconProps = {
-        onClick: e => this.handleClick(e),
-        onKeyPress: e => this.handleKeyPress(e),
+        onClick: (e) => this.handleClick(e),
+        onKeyPress: (e) => this.handleKeyPress(e),
         tabindex: 0,
-        role: 'button'
+        role: 'button',
       };
     }
 

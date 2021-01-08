@@ -8,7 +8,7 @@ import './ino-input-file.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-input-file') {
       return;
@@ -33,16 +33,16 @@ export default {
   title: 'Input/<ino-input-file>',
   parameters: {
     actions: {
-      handles: ['changeFile .customizable-input']
-    }
+      handles: ['changeFile .customizable-input'],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),
     (story) => {
       subscribeToComponentEvents();
       return story();
-    }
-  ]
+    },
+  ],
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -50,14 +50,14 @@ export const DefaultUsage = () => /*html*/ `
   <style>
     ino-input-file.customizable-input {
       --ino-input-file-box-height: ${text(
-  '--ino-input-file-box-height',
-  '300px',
-  'Custom Properties'
+        '--ino-input-file-box-height',
+        '300px',
+        'Custom Properties'
       )};
       --ino-input-file-box-width: ${text(
-  '--ino-input-file-box-width',
-  '100%',
-  'Custom Properties'
+        '--ino-input-file-box-width',
+        '100%',
+        'Custom Properties'
       )};
     }
   </style>
@@ -72,8 +72,14 @@ export const DefaultUsage = () => /*html*/ `
     ino-label="${text('ino-label', 'Select a file to upload')}"
     ino-label-selected="${text('ino-label-selected', 'ausgewählt')}"
     ino-drag-and-drop="${boolean('ino-drag-and-drop', false)}"
-    ino-drag-and-drop-text="${text('ino-drag-and-drop-text', 'Drag your files here')}"
-    ino-drag-and-drop-secondary-text="${text('ino-drag-and-drop-secondary-text', 'or')}"
+    ino-drag-and-drop-text="${text(
+      'ino-drag-and-drop-text',
+      'Drag your files here'
+    )}"
+    ino-drag-and-drop-secondary-text="${text(
+      'ino-drag-and-drop-secondary-text',
+      'or'
+    )}"
     >
   </ino-input-file>
 </div>

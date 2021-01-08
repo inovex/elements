@@ -1,13 +1,19 @@
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-table-cell',
   styleUrl: 'ino-table-cell.scss',
-  shadow: false
+  shadow: false,
 })
-export class InoTableCell implements ComponentInterface{
-
+export class InoTableCell implements ComponentInterface {
   @Element() el: HTMLElement;
 
   /**
@@ -17,14 +23,13 @@ export class InoTableCell implements ComponentInterface{
 
   render() {
     const cellClasses = classNames({
-      "mdc-data-table__cell--numeric": this.inoNumeric
+      'mdc-data-table__cell--numeric': this.inoNumeric,
     });
 
     return (
       <Host class={cellClasses}>
-          <slot/>
+        <slot />
       </Host>
     );
   }
-
 }

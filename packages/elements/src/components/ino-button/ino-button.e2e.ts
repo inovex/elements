@@ -66,7 +66,7 @@ describe('InoButton', () => {
       const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).not.toHaveClasses([
         'mdc-button--outlined',
-        'mdc-button--raised'
+        'mdc-button--raised',
       ]);
     });
   });

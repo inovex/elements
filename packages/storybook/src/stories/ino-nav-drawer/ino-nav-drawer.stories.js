@@ -6,7 +6,7 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-nav-drawer.scss';
 
 // == event block
-const openChangeHandle = function(e) {
+const openChangeHandle = function (e) {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-nav-drawer') {
     return;
@@ -14,7 +14,7 @@ const openChangeHandle = function(e) {
   el.setAttribute('ino-open', !!e.detail);
 };
 
-const clickHandler = function(e) {
+const clickHandler = function (e) {
   e.preventDefault();
   e.stopPropagation();
 
@@ -28,7 +28,10 @@ const clickHandler = function(e) {
   }
   // variant: modal, click on scrim
   if (el.className.includes('nav-drawer-modal')) {
-    el.setAttribute('ino-open', el.getAttribute('ino-open') === 'true' ? 'false' : 'true');
+    el.setAttribute(
+      'ino-open',
+      el.getAttribute('ino-open') === 'true' ? 'false' : 'true'
+    );
     return;
   }
 
@@ -37,9 +40,9 @@ const clickHandler = function(e) {
       el.parentElement.parentElement.parentElement.parentElement;
     const navItemNodes = parentDrawer.querySelectorAll('ino-list-item');
     navItemNodes &&
-    navItemNodes.forEach(link => {
-      link.setAttribute('ino-activated', false);
-    });
+      navItemNodes.forEach((link) => {
+        link.setAttribute('ino-activated', false);
+      });
     el.setAttribute('ino-activated', true);
     return;
   }
@@ -67,15 +70,16 @@ export default {
       handles: [
         'openChange .customizable-drawer',
         'click .toggle-nav',
-        'clickEl ino-nav-item'
-      ]
-    }
+        'clickEl ino-nav-item',
+      ],
+    },
   },
   decorators: [
-   story => {
+    (story) => {
       subscribeToComponentEvents();
       return story();
-    }]
+    },
+  ],
 };
 
 const navContent = /*html*/ `
@@ -124,45 +128,53 @@ export const DefaultUsage = () => /* html */ `
       <style>
         .customizable-drawer {
           --ino-nav-drawer-background: ${text(
-  '--ino-nav-drawer-background',
-  '#ffffff',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-background',
+            '#ffffff',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-text-color: ${text(
-  '--ino-nav-drawer-text-color',
-  '#003c7e',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-text-color',
+            '#003c7e',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-width-open: ${text(
-  '--ino-nav-drawer-width-open',
-  '250px',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-width-open',
+            '250px',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-width-closed: ${text(
-  '--ino-nav-drawer-width-closed',
-  '72px',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-width-closed',
+            '72px',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-height: ${text(
-  '--ino-nav-drawer-height',
-  '100%',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-height',
+            '100%',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-transition-duration: ${text(
-  '--ino-nav-drawer-transition-duration',
-  '0.25s',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-transition-duration',
+            '0.25s',
+            'Custom Properties'
+          )};
           --ino-nav-drawer-timing-function: ${text(
-  '--ino-nav-drawer-timing-function',
-  '(0.4, 0, 0.2, 1)',
-  'Custom Properties'
-)};
+            '--ino-nav-drawer-timing-function',
+            '(0.4, 0, 0.2, 1)',
+            'Custom Properties'
+          )};
         }
 
         ino-nav-item {
-          --ino-nav-item-color: ${text('--ino-nav-item-color', 'gray', 'Custom Properties')};
-          --ino-nav-item-color-active: ${text('--ino-nav-item-color-active', '#3d40f5', 'Custom Properties')};
+          --ino-nav-item-color: ${text(
+            '--ino-nav-item-color',
+            'gray',
+            'Custom Properties'
+          )};
+          --ino-nav-item-color-active: ${text(
+            '--ino-nav-item-color-active',
+            '#3d40f5',
+            'Custom Properties'
+          )};
         }
       </style>
 
@@ -172,36 +184,36 @@ export const DefaultUsage = () => /* html */ `
           <ino-nav-drawer
             ino-open=${boolean('ino-open', false, 'Props')}
             ino-anchor="${select(
-  'ino-anchor',
-  { left: 'left', right: 'right' },
-  'left',
-  'Props'
-)}"
+              'ino-anchor',
+              { left: 'left', right: 'right' },
+              'left',
+              'Props'
+            )}"
             ino-variant="${select(
-  'ino-variant',
-  { docked: 'docked', dismissible: 'dismissible', modal: 'modal' },
-  'docked',
-  'Props'
-)}"
+              'ino-variant',
+              { docked: 'docked', dismissible: 'dismissible', modal: 'modal' },
+              'docked',
+              'Props'
+            )}"
             class="customizable-drawer"
           >
             <div slot="header">
               <ino-img
                 src="${text(
-  'header - image src',
-  'https://app-uat.james.inma.inovex.io/static/media/james-logo.e7e70758.png',
-  'Slots'
-)}"
+                  'header - image src',
+                  'https://app-uat.james.inma.inovex.io/static/media/james-logo.e7e70758.png',
+                  'Slots'
+                )}"
                 width="50"
               ></ino-img>
               <p>inovex</p>
             </div>
             <ino-list slot="content">
               <ino-nav-item ino-text="${text(
-  'default - 1st list item',
-  'Some Link',
-  'Slots'
-)}" ino-activated>
+                'default - 1st list item',
+                'Some Link',
+                'Slots'
+              )}" ino-activated>
                 <ino-icon
                   ino-icon="onboarding"
                 ></ino-icon>
@@ -209,10 +221,10 @@ export const DefaultUsage = () => /* html */ `
             </ino-list>
             <ino-list slot="footer">
               <ino-nav-item ino-text="${text(
-  'footer - 1st list item',
-  'My Profile',
-  'Slots'
-)}">
+                'footer - 1st list item',
+                'My Profile',
+                'Slots'
+              )}">
               <ino-icon ino-icon="employee"></ino-icon>
               </ino-nav-item>
             </ino-list>
@@ -220,11 +232,7 @@ export const DefaultUsage = () => /* html */ `
             <main slot="app" class="main-content">
               <ino-button ino-fill="outline" ino-dense class="toggle-nav">Toggle Navigation</ino-button>
               <br /> <br />
-              ${text(
-  'App Content',
-  `Your App goes here 🤘`,
-  'Slots'
-)}
+              ${text('App Content', `Your App goes here 🤘`, 'Slots')}
               ${mainContent}
               <br/><br />
             </main>

@@ -1,4 +1,11 @@
-import { Component, ComponentInterface, Element, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
@@ -6,7 +13,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',
-  shadow: true
+  shadow: true,
 })
 export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -36,7 +43,7 @@ export class Fab implements ComponentInterface {
 
   render() {
     const speedDialClasses = classNames({
-      'ino-speed-dial': true
+      'ino-speed-dial': true,
     });
 
     const directionClasses = classNames(
@@ -52,7 +59,11 @@ export class Fab implements ComponentInterface {
           <div class={speedDialClasses}>
             <slot></slot>
           </div>
-          <ino-fab id={'primary-fab'} ino-edge-position="none" ino-tooltip-placement="none">
+          <ino-fab
+            id={'primary-fab'}
+            ino-edge-position="none"
+            ino-tooltip-placement="none"
+          >
             <ino-icon ino-icon={'_fab_set_arrow_up'}></ino-icon>
           </ino-fab>
         </div>

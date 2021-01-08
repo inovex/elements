@@ -1,14 +1,21 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-segment-group',
   styleUrl: 'ino-segment-group.scss',
-  shadow: true
+  shadow: true,
 })
 export class InoSegmentGroup implements ComponentInterface {
-
   private groupId: string = `ino-segment-group-id_${generateUniqueId()}`;
 
   @Element() el: HTMLInoSegmentGroupElement;
@@ -53,14 +60,9 @@ export class InoSegmentGroup implements ComponentInterface {
 
   render() {
     return (
-      <Host
-        id={this.groupId}
-        name={this.name}
-        value={this.value}
-      >
+      <Host id={this.groupId} name={this.name} value={this.value}>
         <slot></slot>
       </Host>
     );
   }
-
 }

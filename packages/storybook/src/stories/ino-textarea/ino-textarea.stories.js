@@ -30,8 +30,11 @@ export default {
   title: 'Input/<ino-textarea>',
   parameters: {
     actions: {
-      handles: ['input .customizable-textarea', 'valueChange .customizable-textarea']
-    }
+      handles: [
+        'input .customizable-textarea',
+        'valueChange .customizable-textarea',
+      ],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),
@@ -47,12 +50,20 @@ export const DefaultUsage = () => /*html*/ `
     <style>
       ino-textarea.customizable-textarea {
         --textarea-outline-color: ${text(
-  '--textarea-outline-color',
-  '#3d40f5',
-  'Custom Properties'
-)};
-        --textarea-caret-color: ${text('--textarea-caret-color', '#3d40f5', 'Custom Properties')};
-        --textarea-label-color: ${text('--textarea-label-color', '#3d40f5', 'Custom Properties')};
+          '--textarea-outline-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
+        --textarea-caret-color: ${text(
+          '--textarea-caret-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
+        --textarea-label-color: ${text(
+          '--textarea-label-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
       }
   </style>
   <ino-textarea class="customizable-textarea"

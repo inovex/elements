@@ -4,13 +4,13 @@ import {
   Element,
   Prop,
   Host,
-  h
+  h,
 } from '@stencil/core';
 
 @Component({
   tag: 'ino-nav-item',
   styleUrl: 'ino-nav-item.scss',
-  shadow: false
+  shadow: false,
 })
 export class NavItem implements ComponentInterface {
   @Element() el!: HTMLElement;

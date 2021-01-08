@@ -3,15 +3,24 @@ const path = require('path');
 const yaml = require('js-yaml');
 
 const COMMIT_SCOPE_ENUM_FILE = path.join(__dirname, '../commit-scope-enum.js');
-const SEMANTIC_PULL_REQUEST_YML = path.join(__dirname, '../.github/semantic.yml');
-const ELEMENTS_COMPONENTS_DIR = path.join(__dirname, '../packages/elements/src/components');
+const SEMANTIC_PULL_REQUEST_YML = path.join(
+  __dirname,
+  '../.github/semantic.yml'
+);
+const ELEMENTS_COMPONENTS_DIR = path.join(
+  __dirname,
+  '../packages/elements/src/components'
+);
 const SCOPES_IN_JS = require(COMMIT_SCOPE_ENUM_FILE);
-const SCOPES_IN_YAML = yaml.safeLoad(fs.readFileSync(SEMANTIC_PULL_REQUEST_YML, 'utf8'));
-
+const SCOPES_IN_YAML = yaml.safeLoad(
+  fs.readFileSync(SEMANTIC_PULL_REQUEST_YML, 'utf8')
+);
 
 console.info('Starting Script to generate Commit Scopes.');
 
-const inoComponentsInSrc = getAllDirNamesInDir(ELEMENTS_COMPONENTS_DIR).filter(component => component.startsWith('ino'));
+const inoComponentsInSrc = getAllDirNamesInDir(
+  ELEMENTS_COMPONENTS_DIR
+).filter((component) => component.startsWith('ino'));
 
 checkIfGenerationNecessary(inoComponentsInSrc, SCOPES_IN_JS, SCOPES_IN_YAML);
 
@@ -20,8 +29,9 @@ const allScopes = generateNewScopes(inoComponentsInSrc);
 writeToCommitScopesJsFile(allScopes);
 writeToSemanticPullRequestYaml(allScopes);
 
-console.info('Successfully generated new commit scopes and wrote them to the files!');
-
+console.info(
+  'Successfully generated new commit scopes and wrote them to the files!'
+);
 
 /**
  * Checks weather or not new commit scopes should be generated.
@@ -31,17 +41,20 @@ console.info('Successfully generated new commit scopes and wrote them to the fil
  * @param elementsInJsFile Array of components currently in commit scope js file
  * @param elementsInYamlFile Array of components currently in commit scope yaml file
  */
-function checkIfGenerationNecessary(inoComponentsInSrc, elementsInJsFile, elementsInYamlFile) {
-
+function checkIfGenerationNecessary(
+  inoComponentsInSrc,
+  elementsInJsFile,
+  elementsInYamlFile
+) {
   const SEPARATOR = 'elements|';
   const INDEX_OF_PIPE = 9;
   const filteredJsFile = elementsInJsFile
-    .filter(scope => scope.includes(SEPARATOR))
-    .map(scope => scope.slice(INDEX_OF_PIPE));
+    .filter((scope) => scope.includes(SEPARATOR))
+    .map((scope) => scope.slice(INDEX_OF_PIPE));
 
   const filteredYamlFile = elementsInYamlFile.scopes
-    .filter(scope => scope.includes(SEPARATOR))
-    .map(scope => scope.slice(INDEX_OF_PIPE));
+    .filter((scope) => scope.includes(SEPARATOR))
+    .map((scope) => scope.slice(INDEX_OF_PIPE));
 
   if (
     filteredJsFile.length === inoComponentsInSrc.length &&
@@ -53,9 +66,10 @@ function checkIfGenerationNecessary(inoComponentsInSrc, elementsInJsFile, elemen
 }
 
 function getAllDirNamesInDir(source) {
-  return fs.readdirSync(source, { withFileTypes: true })
-    .filter(file => file.isDirectory())
-    .map(dir => dir.name);
+  return fs
+    .readdirSync(source, { withFileTypes: true })
+    .filter((file) => file.isDirectory())
+    .map((dir) => dir.name);
 }
 
 /**
@@ -63,7 +77,7 @@ function getAllDirNamesInDir(source) {
  */
 function cartesian(a, b) {
   const result = [];
-  a.forEach(aItem => b.forEach(bItem => result.push([aItem, bItem])));
+  a.forEach((aItem) => b.forEach((bItem) => result.push([aItem, bItem])));
   return result;
 }
 
@@ -80,7 +94,7 @@ function generateNewScopes(componentsInSrc) {
   console.info(`Found ${inoComponentsInSrc.length} components.`);
 
   return cartesian(packages, componentsInSrc)
-    .map(subArr => subArr.join('|'))
+    .map((subArr) => subArr.join('|'))
     .concat(packages)
     .concat('*')
     .concat('deps');
@@ -93,7 +107,7 @@ function generateNewScopes(componentsInSrc) {
  */
 function writeToCommitScopesJsFile(allScopes) {
   const formattedComponents = allScopes
-    .map(component => `'${component}'`)
+    .map((component) => `'${component}'`)
     .join(',\n\t');
 
   const data = `module.exports = [\n\t${formattedComponents}\n];`;

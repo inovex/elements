@@ -17,14 +17,46 @@ export const DefaultUsage = () => /*html*/ `
     <h4>Customizable Fab</h4>
      <style>
           ino-fab.customizable-fab {
-            --ino-fab-color: ${text('--ino-fab-color', '#ffffff', 'Custom Properties')};
-            --ino-fab-background-color: ${text('--ino-fab-background-color', '#3d40f5', 'Custom Properties')};
-            --ino-fab-background-color-hover: ${text('--ino-fab-background-color-hover', '#5d60f7', 'Custom Properties')};
-            --ino-fab-background-color-active: ${text('--ino-fab-background-color-active', '#0d10f3', 'Custom Properties')};
-            --ino-fab-icon-color: ${text('--ino-fab-icon-color', '#ffffff', 'Custom Properties')};
-            --ino-fab-color-disabled: ${text('--ino-fab-color-disabled', '#ffffff', 'Custom Properties')};
-            --ino-fab-background-color-disabled: ${text('--ino-fab-background-color-disabled', '#9d9d9d', 'Custom Properties')};
-            --ino-fab-icon-color-disabled: ${text('--ino-fab-icon-color-disabled', '#ffffff', 'Custom Properties')};
+            --ino-fab-color: ${text(
+              '--ino-fab-color',
+              '#ffffff',
+              'Custom Properties'
+            )};
+            --ino-fab-background-color: ${text(
+              '--ino-fab-background-color',
+              '#3d40f5',
+              'Custom Properties'
+            )};
+            --ino-fab-background-color-hover: ${text(
+              '--ino-fab-background-color-hover',
+              '#5d60f7',
+              'Custom Properties'
+            )};
+            --ino-fab-background-color-active: ${text(
+              '--ino-fab-background-color-active',
+              '#0d10f3',
+              'Custom Properties'
+            )};
+            --ino-fab-icon-color: ${text(
+              '--ino-fab-icon-color',
+              '#ffffff',
+              'Custom Properties'
+            )};
+            --ino-fab-color-disabled: ${text(
+              '--ino-fab-color-disabled',
+              '#ffffff',
+              'Custom Properties'
+            )};
+            --ino-fab-background-color-disabled: ${text(
+              '--ino-fab-background-color-disabled',
+              '#9d9d9d',
+              'Custom Properties'
+            )};
+            --ino-fab-icon-color-disabled: ${text(
+              '--ino-fab-icon-color-disabled',
+              '#ffffff',
+              'Custom Properties'
+            )};
           }
       </style>
       <ino-fab

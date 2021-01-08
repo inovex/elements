@@ -9,14 +9,14 @@ import {
   Host,
   Listen,
   Prop,
-  Watch
+  Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-select',
   styleUrl: 'ino-select.scss',
-  shadow: false
+  shadow: false,
 })
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
@@ -111,15 +111,13 @@ export class Select implements ComponentInterface {
           stroke="none"
           fill-rule="evenodd"
           points="7 10 12 15 17 10"
-        >
-        </polygon>
+        ></polygon>
         <polygon
           class="mdc-select__dropdown-icon-active"
           stroke="none"
           fill-rule="evenodd"
           points="7 15 12 10 17 15"
-        >
-        </polygon>
+        ></polygon>
       </svg>
     </span>
   );
@@ -130,15 +128,14 @@ export class Select implements ComponentInterface {
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.inoOutline,
       'mdc-select--filled': !this.inoOutline,
-      'mdc-select--required': this.required
+      'mdc-select--required': this.required,
     });
 
     const hiddenInput = this.required ? (
       <input
-        ref={el => (this.nativeInputElement = el)}
+        ref={(el) => (this.nativeInputElement = el)}
         required={this.required}
-      >
-      </input>
+      ></input>
     ) : (
       ''
     );

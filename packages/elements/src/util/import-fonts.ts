@@ -1,6 +1,6 @@
 try {
   require('typeface-lato');
-}catch (e) {
+} catch (e) {
   // Workaround because of require being undefined in test environment
 }
 
@@ -10,7 +10,7 @@ export function importLatoFont() {
   addCSSToHead(cssFile);
 }
 
-function addCSSToHead(css){
+function addCSSToHead(css) {
   const head = document.getElementsByTagName('head')[0];
   const style = document.createElement('style');
   style.setAttribute('type', 'text/css');

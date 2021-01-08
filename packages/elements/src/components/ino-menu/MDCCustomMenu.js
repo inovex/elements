@@ -1,7 +1,6 @@
 import { MDCMenu } from '@material/menu';
 
 export class MDCCustomMenu extends MDCMenu {
-
   // Really hacky
   // TODO: Test if basic onclick and keydown events still come trough
   constructor(mdcMenu) {

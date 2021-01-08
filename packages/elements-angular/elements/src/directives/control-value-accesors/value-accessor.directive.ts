@@ -2,12 +2,15 @@ import { ElementRef, HostListener } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 export class ValueAccessorDirective implements ControlValueAccessor {
-
-  constructor(protected el: ElementRef) { }
+  constructor(protected el: ElementRef) {}
   protected lastValue: any;
 
-  private onChange: (value: any) => void = () => {/**/ };
-  private onTouched: () => void = () => {/**/ };
+  private onChange: (value: any) => void = () => {
+    /**/
+  };
+  private onTouched: () => void = () => {
+    /**/
+  };
 
   writeValue(value: any) {
     this.el.nativeElement.value = this.lastValue = value == null ? '' : value;

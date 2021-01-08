@@ -33,7 +33,7 @@ describe('ino-segment-group', () => {
     const page = await setupPageWithContent(INO_SEGMENT_GROUP);
     const buttons = await page.findAll('ino-segment-button');
 
-    for(let i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
       const checked = await buttons[i].getProperty('checked');
       const btnId = await buttons[i].getProperty('id');
       if (btnId === 'btn-3') {
@@ -64,7 +64,6 @@ describe('ino-segment-group', () => {
         expect(btnChecked).toBeFalsy();
       }
     }
-    expect(groupVal).toEqual("2");
+    expect(groupVal).toEqual('2');
   });
-
 });

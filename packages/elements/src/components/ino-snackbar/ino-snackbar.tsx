@@ -1,12 +1,21 @@
 import { MDCSnackbar } from '@material/snackbar';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 import { SnackbarType } from '../types';
 
 @Component({
   tag: 'ino-snackbar',
   styleUrl: 'ino-snackbar.scss',
-  shadow: false
+  shadow: false,
 })
 export class Snackbar implements ComponentInterface {
   private snackbarInstance: MDCSnackbar;
@@ -54,7 +63,7 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarElement.addEventListener('MDCSnackbar:closing', e =>
+    this.snackbarElement.addEventListener('MDCSnackbar:closing', (e) =>
       this.handleSnackbarHide(e)
     );
     this.configureTimeout();
@@ -63,10 +72,9 @@ export class Snackbar implements ComponentInterface {
 
   componentWillUnload() {
     this.snackbarInstance.destroy();
-    this.snackbarElement.removeEventListener('MDCSnackbar:closing', e =>
+    this.snackbarElement.removeEventListener('MDCSnackbar:closing', (e) =>
       this.handleSnackbarHide(e)
     );
-
   }
 
   private configureTimeout() {
@@ -84,13 +92,14 @@ export class Snackbar implements ComponentInterface {
   render() {
     const snackbarClasses = classNames({
       'mdc-snackbar': true,
-      'mdc-snackbar--leading': this.inoAlignment === 'left' || this.inoAlignment === 'right'
+      'mdc-snackbar--leading':
+        this.inoAlignment === 'left' || this.inoAlignment === 'right',
     });
 
     return (
       <Host>
         <div
-          ref={el => (this.snackbarElement = el as HTMLDivElement)}
+          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
@@ -101,8 +110,7 @@ export class Snackbar implements ComponentInterface {
                 ino-icon={'close'}
                 class="custom mdc-snackbar__action"
                 ino-small
-              >
-              </ino-icon-button>
+              ></ino-icon-button>
               <div class="mdc-snackbar__label" role="status" aria-live="polite">
                 {this.inoMessage}
               </div>
@@ -111,7 +119,7 @@ export class Snackbar implements ComponentInterface {
                   type="button"
                   ino-color-scheme="primary"
                   class="ino-action-button"
-                  onClick={_ => this.inoActionClick.emit()}
+                  onClick={(_) => this.inoActionClick.emit()}
                   ino-fill="outline"
                 >
                   {this.inoActionText}

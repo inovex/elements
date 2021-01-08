@@ -9,7 +9,6 @@ const INO_TABLE = `
 `;
 
 describe('ino-table', () => {
-
   describe('Properties', () => {
     it('should render with inoNumeric set to true', async () => {
       const page = await setupPageWithContent(INO_TABLE);
@@ -21,5 +20,4 @@ describe('ino-table', () => {
       expect(cell).toHaveClass('mdc-data-table__cell--numeric');
     });
   });
-
 });

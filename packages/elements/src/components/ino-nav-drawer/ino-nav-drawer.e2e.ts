@@ -24,7 +24,7 @@ describe('InoNavDrawer', () => {
       'mdc-drawer',
       'mdc-drawer--docked',
       'mdc-drawer--dismissible',
-      'mdc-drawer--anchor-left'
+      'mdc-drawer--anchor-left',
     ]);
 
     const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
@@ -73,7 +73,7 @@ describe('InoNavDrawer', () => {
       'mdc-drawer',
       'mdc-drawer--docked',
       'mdc-drawer--dismissible',
-      'mdc-drawer--anchor-left'
+      'mdc-drawer--anchor-left',
     ]);
 
     const headerEl = await inoNavDrawerEl.find('.header');
@@ -146,7 +146,7 @@ describe('InoNavDrawer', () => {
         'mdc-drawer',
         'mdc-drawer--docked',
         'mdc-drawer--dismissible',
-        'mdc-drawer--anchor-left'
+        'mdc-drawer--anchor-left',
       ]);
     });
 
@@ -164,14 +164,16 @@ describe('InoNavDrawer', () => {
         'mdc-drawer--docked',
         'mdc-drawer--dismissible',
         'mdc-drawer--anchor-left',
-        'mdc-drawer--open'
+        'mdc-drawer--open',
       ]);
     });
   });
 
   describe('property ino-variant', () => {
     it('should render with docked', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-variant="docked"'));
+      const page = await setupPageWithContent(
+        createDrawer('ino-variant="docked"')
+      );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -183,7 +185,7 @@ describe('InoNavDrawer', () => {
         'mdc-drawer',
         'mdc-drawer--docked',
         'mdc-drawer--dismissible',
-        'mdc-drawer--anchor-left'
+        'mdc-drawer--anchor-left',
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
@@ -211,7 +213,7 @@ describe('InoNavDrawer', () => {
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--dismissible',
-        'mdc-drawer--anchor-left'
+        'mdc-drawer--anchor-left',
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
@@ -226,7 +228,9 @@ describe('InoNavDrawer', () => {
     });
 
     it('should render with modal', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-variant="modal"'));
+      const page = await setupPageWithContent(
+        createDrawer('ino-variant="modal"')
+      );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -237,7 +241,7 @@ describe('InoNavDrawer', () => {
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
         'mdc-drawer--modal',
-        'mdc-drawer--anchor-left'
+        'mdc-drawer--anchor-left',
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
@@ -254,7 +258,9 @@ describe('InoNavDrawer', () => {
 
   describe('property ino-anchor', () => {
     it('should render drawer on the left', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-anchor="left"'));
+      const page = await setupPageWithContent(
+        createDrawer('ino-anchor="left"')
+      );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -266,12 +272,14 @@ describe('InoNavDrawer', () => {
         'mdc-drawer',
         'mdc-drawer--docked',
         'mdc-drawer--dismissible',
-        'mdc-drawer--anchor-left'
+        'mdc-drawer--anchor-left',
       ]);
     });
 
     it('should render drawer on the right', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-anchor="right"'));
+      const page = await setupPageWithContent(
+        createDrawer('ino-anchor="right"')
+      );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -283,7 +291,7 @@ describe('InoNavDrawer', () => {
         'mdc-drawer',
         'mdc-drawer--docked',
         'mdc-drawer--dismissible',
-        'mdc-drawer--anchor-right'
+        'mdc-drawer--anchor-right',
       ]);
     });
   });

@@ -13,7 +13,9 @@ function subscribeToComponentEvents() {
     }
 
     const templates = Array.from(document.getElementsByTagName('template'));
-    const templateWithId = templates.find((template) => template.id === target.id);
+    const templateWithId = templates.find(
+      (template) => template.id === target.id
+    );
 
     document.body.appendChild(templateWithId.content.cloneNode(true));
   };
@@ -68,7 +70,11 @@ export const DefaultUsage = () => /*html*/ `
                 ino-message="${text('ino-message', sampleText)}"
                 ino-action-text="${text('ino-action-text', 'Anlegen')}"
                 ino-timeout="${number('ino-timeout', 5000)}"
-                ino-type="${select('ino-type', ['primary', 'error', 'warning'], 'primary')}"
+                ino-type="${select(
+                  'ino-type',
+                  ['primary', 'error', 'warning'],
+                  'primary'
+                )}"
                 ino-alignment="${select(
                   'ino-alignment',
                   ['center', 'leading', 'trailing'],

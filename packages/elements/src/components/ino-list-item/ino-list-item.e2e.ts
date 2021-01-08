@@ -5,7 +5,6 @@ const LIST_ITEM_SELECTOR = 'ino-list-item';
 const LI_SELECTOR = 'ino-list-item li';
 
 describe('InoListItem', () => {
-
   describe('Properties', () => {
     it('should disable the list-item if disabled property is set to true', async () => {
       const page = await setupPageWithContent(LIST_ITEM);
@@ -67,5 +66,4 @@ describe('InoListItem', () => {
       expect(clickElEvent).not.toHaveReceivedEvent();
     });
   });
-
 });

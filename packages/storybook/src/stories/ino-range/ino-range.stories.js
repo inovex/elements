@@ -29,7 +29,15 @@ export const DefaultUsage = () => /*html*/ `
             step="${number('step', 1)}"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
+              [
+                'primary',
+                'secondary',
+                'success',
+                'warning',
+                'error',
+                'light',
+                'dark',
+              ],
               'primary'
             )}">
           </ino-range>

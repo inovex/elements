@@ -4,7 +4,6 @@ const PROGRESS_BAR = `<ino-progress-bar></ino-progress-bar>`;
 const PB_SELECTOR = 'ino-progress-bar';
 
 describe('ino-progress-bar', () => {
-
   describe('Properties', () => {
     it('should render with inoReversed set to true', async () => {
       const page = await setupPageWithContent(PROGRESS_BAR);
@@ -13,7 +12,9 @@ describe('ino-progress-bar', () => {
       await pb.setAttribute('ino-reversed', true);
       await page.waitForChanges();
 
-      const mdcClass = await pb.shadowRoot.querySelector('.mdc-linear-progress--reversed');
+      const mdcClass = await pb.shadowRoot.querySelector(
+        '.mdc-linear-progress--reversed'
+      );
       expect(mdcClass).toBeDefined();
     });
 
@@ -24,7 +25,9 @@ describe('ino-progress-bar', () => {
       await pb.setAttribute('ino-indeterminate', true);
       await page.waitForChanges();
 
-      const mdcClass = await pb.shadowRoot.querySelector('.mdc-linear-progress--indeterminate');
+      const mdcClass = await pb.shadowRoot.querySelector(
+        '.mdc-linear-progress--indeterminate'
+      );
       expect(mdcClass).toBeDefined();
     });
   });

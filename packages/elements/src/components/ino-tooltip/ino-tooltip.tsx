@@ -1,11 +1,20 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+  Method,
+} from '@stencil/core';
 import TippyJS, { Instance, Placement } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
 @Component({
   tag: 'ino-tooltip',
   styleUrl: 'ino-tooltip.scss',
-  shadow: false
+  shadow: false,
 })
 export class Tooltip implements ComponentInterface {
   private tooltipInstance!: Instance;
@@ -84,10 +93,8 @@ export class Tooltip implements ComponentInterface {
     await this.dispose();
   }
 
-  private retrieveTarget = () => this.inoFor ?
-    document.getElementById(this.inoFor)
-    :
-    this.el.parentElement;
+  private retrieveTarget = () =>
+    this.inoFor ? document.getElementById(this.inoFor) : this.el.parentElement;
 
   private async create() {
     await this.dispose();
@@ -96,13 +103,15 @@ export class Tooltip implements ComponentInterface {
 
     if (!this.target) {
       // Wait 1 sec for the host element to be rendered
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       this.target = this.retrieveTarget();
     }
 
     if (!this.target) {
       // tslint:disable-next-line:no-var-keyword
-      throw new Error(`Target with the ID '${this.inoFor}' could not be found in this document.`);
+      throw new Error(
+        `Target with the ID '${this.inoFor}' could not be found in this document.`
+      );
     }
 
     const options = {
@@ -118,7 +127,10 @@ export class Tooltip implements ComponentInterface {
     this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
 
     if (this.inoTrigger.includes('hover')) {
-      this.target!.addEventListener('mouseleave', this.onLeaveTarget.bind(this));
+      this.target!.addEventListener(
+        'mouseleave',
+        this.onLeaveTarget.bind(this)
+      );
     }
   }
 
@@ -132,7 +144,10 @@ export class Tooltip implements ComponentInterface {
         this.onLeaveTarget.bind(this),
         true
       );
-      this.target!.removeEventListener('mouseleave', this.onLeaveTarget.bind(this));
+      this.target!.removeEventListener(
+        'mouseleave',
+        this.onLeaveTarget.bind(this)
+      );
     }
   }
 
@@ -154,9 +169,7 @@ export class Tooltip implements ComponentInterface {
     return (
       <Host>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">
-            {this.inoLabel}
-          </div>
+          <div class="ino-tooltip__inner">{this.inoLabel}</div>
         </div>
       </Host>
     );

@@ -1,12 +1,20 @@
 import { MDCMenu } from '@material/menu';
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 import { MDCCustomMenu } from './MDCCustomMenu';
 
 @Component({
   tag: 'ino-menu',
   styleUrl: 'ino-menu.scss',
-  shadow: false
+  shadow: false,
 })
 export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -37,9 +45,9 @@ export class Menu implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.menu = new MDCCustomMenu(this.el.querySelector(
-      '.mdc-menu'
-    ) as HTMLElement); // takes root and foundation, foundation takes adapter
+    this.menu = new MDCCustomMenu(
+      this.el.querySelector('.mdc-menu') as HTMLElement
+    ); // takes root and foundation, foundation takes adapter
 
     this.menu.open = this.inoOpen;
     this.setAnchor(this.inoFor);

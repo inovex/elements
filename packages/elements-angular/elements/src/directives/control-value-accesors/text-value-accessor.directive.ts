@@ -10,12 +10,11 @@ import { ValueAccessorDirective } from './value-accessor.directive';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: TextValueAccessorDirective,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class TextValueAccessorDirective extends ValueAccessorDirective {
-
   constructor(el: ElementRef) {
     super(el);
   }

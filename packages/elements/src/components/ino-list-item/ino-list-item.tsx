@@ -7,14 +7,14 @@ import {
   Host,
   Listen,
   Prop,
-  h
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-list-item',
   styleUrl: 'ino-list-item.scss',
-  shadow: false
+  shadow: false,
 })
 export class ListItem implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -68,19 +68,21 @@ export class ListItem implements ComponentInterface {
     this.el.remove();
   }
 
-
   render() {
     const listItemClasses = classNames({
       'mdc-list-item': true,
       'mdc-list-item--selected': this.inoSelected,
       'mdc-list-item--activated': this.inoActivated,
-      'mdc-list-item--disabled': this.inoDisabled
+      'mdc-list-item--disabled': this.inoDisabled,
     });
 
-    const hasSecondarySlotContent = this.el.querySelectorAll("[slot=ino-secondary]").length > 0;
+    const hasSecondarySlotContent =
+      this.el.querySelectorAll('[slot=ino-secondary]').length > 0;
 
     const primaryContent = this.inoText || <slot name="ino-primary" />;
-    const secondaryContent = this.inoSecondaryText || (hasSecondarySlotContent ? <slot name="ino-secondary" /> : null);
+    const secondaryContent =
+      this.inoSecondaryText ||
+      (hasSecondarySlotContent ? <slot name="ino-secondary" /> : null);
 
     return (
       <Host>
@@ -90,13 +92,16 @@ export class ListItem implements ComponentInterface {
             <slot name="ino-leading" />
           </span>
           <span class="mdc-list-item__text">
-            {
-              secondaryContent ?
-                [
-                  <span class="mdc-list-item__primary-text">{primaryContent}</span>,
-                  <span class="mdc-list-item__secondary-text">{secondaryContent}</span>
-                ] : primaryContent
-            }
+            {secondaryContent
+              ? [
+                  <span class="mdc-list-item__primary-text">
+                    {primaryContent}
+                  </span>,
+                  <span class="mdc-list-item__secondary-text">
+                    {secondaryContent}
+                  </span>,
+                ]
+              : primaryContent}
           </span>
           <span class="mdc-list-item__meta">
             <slot name="ino-trailing" />

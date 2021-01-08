@@ -1,10 +1,19 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-tab',
   styleUrl: 'ino-tab.scss',
-  shadow: false
+  shadow: false,
 })
 export class Tab implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -43,20 +52,20 @@ export class Tab implements ComponentInterface {
     this.el.removeEventListener('MDCTab:interacted', this.interactionHandler);
   }
 
-  interactionHandler = e => {
+  interactionHandler = (e) => {
     e.stopPropagation();
     this.inoInteracted.emit(this.el);
-  }
+  };
 
   render() {
     const tabClasses = classNames({
       'mdc-tab': true,
-      'mdc-tab--stacked': this.inoStacked
+      'mdc-tab--stacked': this.inoStacked,
     });
 
     const indicatorWidth = (
       <span class="mdc-tab-indicator">
-        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"/>
+        <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline" />
       </span>
     );
 
@@ -65,7 +74,7 @@ export class Tab implements ComponentInterface {
         <button class={tabClasses} role="tab" aria-selected="false">
           <span class="mdc-tab__content">
             {this.inoIcon && (
-              <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon}/>
+              <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon} />
             )}
             {this.inoLabel && (
               <span class="mdc-tab__text-label">{this.inoLabel}</span>
@@ -73,7 +82,7 @@ export class Tab implements ComponentInterface {
             {this.inoIndicatorContentWidth && indicatorWidth}
           </span>
           {!this.inoIndicatorContentWidth && indicatorWidth}
-          <span class="mdc-tab__ripple"/>
+          <span class="mdc-tab__ripple" />
         </button>
       </Host>
     );

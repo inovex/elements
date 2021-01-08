@@ -71,7 +71,10 @@ function copyToClipboard(text) {
 
   try {
     document.execCommand('copy');
-    snackbar.setAttribute('ino-message', `Successfully copied "${text}" to your clipboard!`);
+    snackbar.setAttribute(
+      'ino-message',
+      `Successfully copied "${text}" to your clipboard!`
+    );
   } catch (err) {
     snackbar.setAttribute(
       'ino-message',
@@ -82,7 +85,9 @@ function copyToClipboard(text) {
   }
 }
 
-const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter((name) => name.length >= 1);
+const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
+  (name) => name.length >= 1
+);
 
 const iconChips = ICON_IDS.map(
   (name) => /*html*/ `
@@ -106,8 +111,11 @@ export default {
   title: 'Graphic/<ino-icon>',
   parameters: {
     actions: {
-      handles: ['clickEl .customizable-icon', 'valueChange .customizable-input']
-    }
+      handles: [
+        'clickEl .customizable-icon',
+        'valueChange .customizable-input',
+      ],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),

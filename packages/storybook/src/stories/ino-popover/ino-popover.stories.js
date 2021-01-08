@@ -16,7 +16,11 @@ export const DefaultUsage = () => /*html*/ `
       <ino-popover
         ino-for="${text('ino-for', 'popover-target')}"
         ino-interactive="${boolean('ino-interactive', false)}"
-        ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
+        ino-placement="${select(
+          'ino-placement',
+          ['top', 'right', 'bottom', 'left'],
+          'top'
+        )}"
         ino-color-scheme="${select(
           'ino-color-scheme',
           ['primary', 'secondary', 'light', 'transparent'],

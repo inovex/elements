@@ -8,7 +8,7 @@ import './ino-sidebar.scss';
 function subscribeToComponentEvents() {
   // == event block
 
-  const handleEvent = function(e) {
+  const handleEvent = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-icon') {
       return;
@@ -29,10 +29,12 @@ function subscribeToComponentEvents() {
 export default {
   title: 'Structure/<ino-sidebar>',
 
-  decorators: [story => {
-    subscribeToComponentEvents();
-    return story();
-  }]
+  decorators: [
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
 };
 
 export const DefaultUsage = () => {
@@ -70,14 +72,16 @@ export const SidebarDifferentWidth = () => {
   return `
     <div class="sidebar-demo">
       ${header}
-      <ino-sidebar style="--ino-sidebar-width:${number('--ino-sidebar-width', 500)}px;">
+      <ino-sidebar style="--ino-sidebar-width:${number(
+        '--ino-sidebar-width',
+        500
+      )}px;">
         ${sidebarContent}
       </ino-sidebar>
       ${mainContent}
     </div>
     `;
 };
-
 
 const header = `
 <div class="header">

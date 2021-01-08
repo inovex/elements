@@ -1,10 +1,20 @@
 import { MDCDialog } from '@material/dialog';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-dialog',
   styleUrl: 'ino-dialog.scss',
-  shadow: true
+  shadow: true,
 })
 export class Dialog implements ComponentInterface {
   private mdcDialog: MDCDialog;
@@ -17,7 +27,7 @@ export class Dialog implements ComponentInterface {
   @Prop() inoOpen: boolean = false;
   @Watch('inoOpen')
   inoOpenChange(newVal: boolean) {
-    if(newVal) {
+    if (newVal) {
       this.mdcDialog.open();
     } else {
       this.mdcDialog.close();
@@ -45,7 +55,7 @@ export class Dialog implements ComponentInterface {
     });
     this.mdcDialog.scrimClickAction = '';
     this.mdcDialog.escapeKeyAction = '';
-    if(this.inoOpen) {
+    if (this.inoOpen) {
       this.mdcDialog.open();
     }
   }
@@ -55,7 +65,6 @@ export class Dialog implements ComponentInterface {
   }
 
   render() {
-
     return (
       <Host>
         <div class="mdc-dialog">
@@ -66,14 +75,14 @@ export class Dialog implements ComponentInterface {
               aria-modal="true"
             >
               <div class="ino-dialog__header">
-                <slot name="header"/>
+                <slot name="header" />
               </div>
               <div class="ino-dialog__content">
-                <div tabindex="0"/>
-                <slot/>
+                <div tabindex="0" />
+                <slot />
               </div>
               <div class="ino-dialog__footer">
-                <slot name="footer"/>
+                <slot name="footer" />
               </div>
             </div>
           </div>

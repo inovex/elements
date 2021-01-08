@@ -1,6 +1,5 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-
 const INO_TAB_BAR = `
     <ino-tab-bar>
         <ino-tab></ino-tab>
@@ -9,7 +8,6 @@ const TAB_BAR_SELECTOR = 'ino-tab-bar';
 const TAB_SELECTOR = 'ino-tab-bar ino-tab';
 
 describe('InoTabBar', () => {
-
   describe('Properties', () => {
     it('should render with the inoActiveTab property set correctly', async () => {
       const page = await setupPageWithContent(INO_TAB_BAR);
@@ -19,7 +17,7 @@ describe('InoTabBar', () => {
       await page.waitForChanges();
 
       const activeTab = await tabBar.getAttribute('ino-active-tab');
-      expect(activeTab).toBe("3");
+      expect(activeTab).toBe('3');
     });
   });
 
@@ -36,5 +34,4 @@ describe('InoTabBar', () => {
       expect(tabChangeEvent).toHaveReceivedEventDetail(0);
     });
   });
-
 });

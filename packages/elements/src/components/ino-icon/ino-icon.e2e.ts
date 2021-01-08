@@ -4,7 +4,6 @@ const INO_ICON = `<ino-icon ino-icon="add"></ino-icon>`;
 const INO_ICON_SELECTOR = 'ino-icon';
 
 describe('InoIcon', () => {
-
   describe('Events', () => {
     it('should emit a clickEl event if a clickable icon has been clicked', async () => {
       const page = await setupPageWithContent(INO_ICON);
@@ -30,5 +29,4 @@ describe('InoIcon', () => {
       expect(clickEvent).not.toHaveReceivedEvent();
     });
   });
-
 });

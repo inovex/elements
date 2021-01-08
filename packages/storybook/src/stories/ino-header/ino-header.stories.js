@@ -26,6 +26,9 @@ export const DefaultUsage = () => /*html*/ `
         }
     </style>
     <div class="story-header">
-      <ino-header class="customizable-header" ino-title="${text('ino-title', 'TEAM')}"></ino-header>
+      <ino-header class="customizable-header" ino-title="${text(
+        'ino-title',
+        'TEAM'
+      )}"></ino-header>
     </div>
   `;

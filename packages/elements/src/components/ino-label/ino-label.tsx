@@ -3,7 +3,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'ino-label',
   styleUrl: 'ino-label.scss',
-  shadow: false
+  shadow: false,
 })
 export class Label {
   /**
@@ -42,13 +42,13 @@ export class Label {
     if (this.inoOutline) {
       return [
         <div class={'mdc-notched-outline'}>
-          <div class="mdc-notched-outline__leading"/>
+          <div class="mdc-notched-outline__leading" />
           <div class="mdc-notched-outline__notch">{label}</div>
-          <div class="mdc-notched-outline__trailing"/>
-        </div>
+          <div class="mdc-notched-outline__trailing" />
+        </div>,
       ];
     }
 
-    return [<div class="mdc-line-ripple"/>, label];
+    return [<div class="mdc-line-ripple" />, label];
   }
 }

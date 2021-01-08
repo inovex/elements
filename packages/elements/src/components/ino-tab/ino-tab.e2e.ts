@@ -5,7 +5,6 @@ const INO_TAB_SELECTOR = 'ino-tab';
 const BTN_SELECTOR = 'ino-tab > button';
 
 describe('InoTab', () => {
-
   describe('Properties', () => {
     it('should render with inoStacked set to true', async () => {
       const page = await setupPageWithContent(INO_TAB);
@@ -42,5 +41,4 @@ describe('InoTab', () => {
       expect(mdcInteractedEvent).not.toHaveReceivedEvent();
     });
   });
-
 });
