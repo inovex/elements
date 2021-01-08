@@ -1,0 +1,9 @@
+# Ignore artifacts TODO from gitignore and eslintignore
+dist/
+www/
+storybook-static/
+
+.stencil/
+.idea/
+.vscode/
+node_modules/
