@@ -222,7 +222,7 @@ export class Datepicker implements ComponentInterface {
     const target = e.target;
     const tagName = target.tagName;
 
-    if (!tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+    if (this.disabled || !tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
       return;
     }
 
