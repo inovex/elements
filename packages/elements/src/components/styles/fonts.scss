@@ -22,7 +22,7 @@ $ino-font-weights: (
   light: $font-weight-light,
   regular: $font-weight-regular,
   semibold: $font-weight-semibold,
-  bold: $font-weight-bold
+  bold: $font-weight-bold,
 );
 
 @mixin ino-font-weight($weight: regular) {
@@ -44,20 +44,20 @@ $line-height-xs: 1.5 !default;
 $ino-font-sizes: (
   xs: (
     font-size: $size-xs,
-    line-height: $line-height-xs
+    line-height: $line-height-xs,
   ),
   s: (
     font-size: $size-s,
-    line-height: $line-height-s
+    line-height: $line-height-s,
   ),
   m: (
     font-size: $size-m,
-    line-height: $line-height-m
+    line-height: $line-height-m,
   ),
   l: (
     font-size: $size-l,
-    line-height: $line-height-l
-  )
+    line-height: $line-height-l,
+  ),
 );
 
 @mixin ino-font-size($type: m) {

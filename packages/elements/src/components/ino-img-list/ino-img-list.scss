@@ -33,7 +33,6 @@ ino-img-list {
 }
 
 ino-img-list {
-
   ul:not(.mdc-image-list--masonry) {
     @include standard-columns(var(--img-list-cols));
   }
@@ -42,4 +41,3 @@ ino-img-list {
     @include image-list.masonry-columns(var(--img-list-cols));
   }
 }
-

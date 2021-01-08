@@ -21,7 +21,7 @@ $padding-top: 24px;
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 }
@@ -33,21 +33,25 @@ ino-input {
    * @prop --ino-input-line-color: line color
    * @prop --ino-input-icon-color: icon color
    */
-  --input-caret-color: var(--ino-input-caret-color, #{colors.ino-color(primary)});
-  --input-label-color: var(--ino-input-label-color, #{colors.ino-color(primary)});
+  --input-caret-color: var(
+    --ino-input-caret-color,
+    #{colors.ino-color(primary)}
+  );
+  --input-label-color: var(
+    --ino-input-label-color,
+    #{colors.ino-color(primary)}
+  );
   --input-line-color: var(--ino-input-line-color, #{colors.ino-color(primary)});
   --input-icon-color: var(--ino-input-icon-color, #{colors.ino-color(primary)});
 }
 
 ino-input {
-
   display: block;
   @include icon.icon-core-styles;
 
   & * {
     box-sizing: initial;
   }
-
 
   & > .ino-input__composer {
     text-align: left;
@@ -62,7 +66,6 @@ ino-input {
   }
 
   .mdc-text-field {
-
     @include textfield.focused-outline-color(var(--input-line-color));
 
     ino-icon {
@@ -156,10 +159,8 @@ ino-input {
     }
   }
 
-
   // Custom number arrows
   &[type='number'] {
-
     @include hideNativeNumberInputArrows();
 
     .arrow-container {
@@ -181,7 +182,8 @@ ino-input {
       }
     }
 
-    .mdc-text-field:#{$default-text-field}, .mdc-text-field.mdc-text-field--outlined {
+    .mdc-text-field:#{$default-text-field},
+    .mdc-text-field.mdc-text-field--outlined {
       .mdc-text-field__icon.mdc-text-field__icon--trailing {
         right: 25px;
       }

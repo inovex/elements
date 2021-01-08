@@ -2,7 +2,7 @@
 
 A Popover is a dialog which is bound to a specific element and appears on top of the current page. It uses [tippy.js](https://atomiks.github.io/tippyjs/) to position the popover correctly.
 
-The Popover and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage) components are very similar. 
+The Popover and [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage) components are very similar.
 However, popovers are complex dialogs consisting of several HTML elements, while tooltips can only display plain text.
 
 ### Usage
@@ -41,7 +41,9 @@ import React, { Component } from 'react';
 import { InoPopover } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Popover: React.FunctionComponent<Components.InoPopoverAttributes> = props => {
+const Popover: React.FunctionComponent<Components.InoPopoverAttributes> = (
+  props,
+) => {
   const { inoPlacement, inoFor } = props;
 
   return (
@@ -66,7 +68,6 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -76,7 +77,6 @@ class MyComponent extends Component {
 | `inoInteractive` | `ino-interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                           | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
 | `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
-
 
 ## Methods
 
@@ -89,9 +89,6 @@ For more informations see: https://atomiks.github.io/tippyjs/
 
 Type: `Promise<any>`
 
+---
 
-
-
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

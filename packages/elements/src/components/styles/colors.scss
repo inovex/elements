@@ -21,51 +21,52 @@ $_error: #eb003b;
 $_light: #c1c1c1;
 $_dark: #777777;
 
-$ino-color-schemes: "primary", "secondary", "success", "warning", "error", "light", "dark";
+$ino-color-schemes: 'primary', 'secondary', 'success', 'warning', 'error',
+  'light', 'dark';
 
 $_ino-color-map: (
   primary: (
     base: $_primary,
     light: $_primary-light,
     dark: $_primary-dark,
-    contrast: $_primary-contrast
+    contrast: $_primary-contrast,
   ),
   secondary: (
     base: $_secondary,
     light: $_secondary-light,
     dark: $_secondary-dark,
-    contrast: $_secondary-contrast
+    contrast: $_secondary-contrast,
   ),
   success: (
     base: $_success,
     light: lighten($_success, 15%),
     dark: darken($_success, 15%),
-    contrast: #fff
+    contrast: #fff,
   ),
   warning: (
     base: $_warning,
     light: lighten($_warning, 15%),
     dark: darken($_warning, 15%),
-    contrast: #fff
+    contrast: #fff,
   ),
   error: (
     base: $_error,
     light: lighten($_error, 15%),
     dark: darken($_error, 15%),
-    contrast: #fff
+    contrast: #fff,
   ),
   light: (
     base: $_light,
     light: lighten($_light, 15%),
     dark: darken($_light, 15%),
-    contrast: #000
+    contrast: #000,
   ),
   dark: (
     base: $_dark,
     light: lighten($_dark, 15%),
     dark: darken($_dark, 15%),
-    contrast: #ffffff
-  )
+    contrast: #ffffff,
+  ),
 );
 
 // Mixin to access inovex color scheme variables

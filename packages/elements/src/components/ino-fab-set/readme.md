@@ -29,29 +29,24 @@ import { Component } from 'react';
 import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
-
   state = {
-    open: false
-  }
+    open: false,
+  };
 
   handleClick = (e: any) => {
     alert(`Fab-Set was clicked`);
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open });
   };
 
   render() {
     return (
-      <FabSet inoOpenDial={this.state.open} inoDialDirection="top" onClick={handleClick}>
-        <InoFab
-          inoMini
-          inoLabel="Profile"
-          inoIcon="person"
-        />
-        <InoFab
-          inoMini
-          inoLabel="Search"
-          inoIcon="search"
-        />
+      <FabSet
+        inoOpenDial={this.state.open}
+        inoDialDirection="top"
+        onClick={handleClick}
+      >
+        <InoFab inoMini inoLabel="Profile" inoIcon="person" />
+        <InoFab inoMini inoLabel="Search" inoIcon="search" />
         <InoFab inoMini inoLabel="Help" inoIcon="help" />
       </FabSet>
     );
@@ -66,7 +61,9 @@ import React, { Component } from 'react';
 import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = props => {
+const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = (
+  props,
+) => {
   const { inoDialDirection } = props;
 
   return (
@@ -104,7 +101,6 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
@@ -114,7 +110,6 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 | `inoOpenDial`          | `ino-open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
 | `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
-
 ## Dependencies
 
 ### Depends on
@@ -123,6 +118,7 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-fab-set --> ino-fab
@@ -132,6 +128,6 @@ graph TD;
   style ino-fab-set fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -63,11 +63,11 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    InoElementsModule.forRoot() // <-- b) make it available in Angular
+    InoElementsModule.forRoot(), // <-- b) make it available in Angular
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // <-- c) Defines a schema that allows an NgModule to contain Non-Angular elements named with dash case (-) details https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
 ```
@@ -91,7 +91,7 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 defineCustomElements();
 ```
 

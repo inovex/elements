@@ -3,11 +3,12 @@
 @import '~flatpickr/dist/flatpickr';
 @import '~flatpickr/dist/plugins/monthSelect/style';
 
-
 ino-datepicker {
   display: block;
 
-  ino-input, .flatpickr-wrapper, .mdc-text-field {
+  ino-input,
+  .flatpickr-wrapper,
+  .mdc-text-field {
     width: 100%;
   }
 
@@ -25,11 +26,12 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
 
 .flatpickr-calendar {
   @include fonts.ino-font($size: xs);
-  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     display: none;
   }
 
@@ -62,19 +64,20 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
 
       &.selected {
         background: colors.ino-color(primary);
-        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
+        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+          0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
         &:hover {
           background: colors.ino-color(primary);
         }
       }
 
-      &.endRange, &.endRange:hover {
+      &.endRange,
+      &.endRange:hover {
         background-color: colors.ino-color(primary);
       }
     }
   }
-
 
   .flatpickr-monthSelect-months {
     display: flex;
@@ -83,7 +86,6 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
     margin-bottom: 10px;
 
     .flatpickr-monthSelect-month {
-
       width: 30%;
       margin: 3px;
       border-radius: 20px;
@@ -91,7 +93,8 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
       &.selected {
         background-color: colors.ino-color(primary);
         color: white;
-        box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.30), 0 8px 24px 0 rgba(61, 214, 245, 0.14);
+        box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.3),
+          0 8px 24px 0 rgba(61, 214, 245, 0.14);
       }
 
       &:hover:not(.selected) {
@@ -104,7 +107,8 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
     margin: 15px 20px 0 20px;
 
     .flatpickr-month {
-      .cur-month, .numInput {
+      .cur-month,
+      .numInput {
         @include fonts.ino-font-weight(regular);
       }
     }
@@ -123,7 +127,8 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
       margin-right: 10px;
     }
 
-    .flatpickr-prev-month, .flatpickr-next-month {
+    .flatpickr-prev-month,
+    .flatpickr-next-month {
       position: relative;
 
       svg {

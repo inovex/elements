@@ -1,7 +1,7 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or 
-notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section 
+The ino-dialog component displays a modal window that can be used to display additional information or
+notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section
 which are fully customizable.
 
 ## Usage
@@ -13,17 +13,16 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-dialog')
-  .addEventListener('openChanged', (e) => alert(`inoOpen has been set to ${e.detail}`));
+  .addEventListener('openChanged', (e) =>
+    alert(`inoOpen has been set to ${e.detail}`),
+  );
 ```
 
 ```html
-<ino-dialog
-    ino-open="true"
-    ino-permanent="false"
->
-    <div class="awesome-header" slot="header"/>
-    <div class="awesome-content"/>
-    <div class="awesome-footer" slot="footer"/>
+<ino-dialog ino-open="true" ino-permanent="false">
+  <div class="awesome-header" slot="header" />
+  <div class="awesome-content" />
+  <div class="awesome-footer" slot="footer" />
 </ino-dialog>
 ```
 
@@ -61,20 +60,17 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property  | Attribute  | Description                     | Type      | Default |
 | --------- | ---------- | ------------------------------- | --------- | ------- |
 | `inoOpen` | `ino-open` | Opens the dialog if set to true | `boolean` | `false` |
 
-
 ## Events
 
 | Event        | Description                                       | Type               |
 | ------------ | ------------------------------------------------- | ------------------ |
 | `openChange` | Emits an event upon opening or closing the dialog | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -87,7 +83,6 @@ class MyComponent extends Component {
 | `--ino-dialog-height`           | height of the dialog           |
 | `--ino-dialog-width`            | width of the dialog            |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

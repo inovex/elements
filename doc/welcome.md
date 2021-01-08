@@ -1,4 +1,4 @@
-![inovex elements Logo](doc/assets/elements.svg "inovex elements Logo")
+![inovex elements Logo](doc/assets/elements.svg 'inovex elements Logo')
 
 # inovex elements {ELEMENTS_VERSION}
 

@@ -22,9 +22,7 @@ import { InoHeader } from '@inovex.de/elements-react/';
 
 class MyComponent extends Component {
   render() {
-    return (
-      <InoCard inoTitle="My awesome header!"></InoCard>
-    );
+    return <InoCard inoTitle="My awesome header!"></InoCard>;
   }
 }
 ```
@@ -33,13 +31,11 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property                | Attribute   | Description             | Type     | Default     |
 | ----------------------- | ----------- | ----------------------- | -------- | ----------- |
 | `inoTitle` _(required)_ | `ino-title` | The text of this header | `string` | `undefined` |
-
 
 ## CSS Custom Properties
 
@@ -48,7 +44,6 @@ class MyComponent extends Component {
 | `--ino-header-box-color` | Color of the header box  |
 | `--ino-header-color`     | Text color of the header |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

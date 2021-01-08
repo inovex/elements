@@ -4,9 +4,9 @@ We maintain a Storybook to demonstrate the usage of our components.
 
 Every time we create a new component, we add at least one story which...
 
-* ...has the name **Default usage**.
-* ...contains a **customizable instance** before any other usage examples (see below).
-* ...contains some specific usage examples integrated into a Stackblitz playground to demonstrate most of the functionality (the more the better).
+- ...has the name **Default usage**.
+- ...contains a **customizable instance** before any other usage examples (see below).
+- ...contains some specific usage examples integrated into a Stackblitz playground to demonstrate most of the functionality (the more the better).
 
 ## Customizable Instances
 
@@ -16,6 +16,6 @@ This allows the consumer (the person who uses the components) to give users the 
 
 When providing Knobs for a component:
 
-* Make sure that you use the most fitting type (text, boolean, number, select, ...).
-* Provide a knob for each available attribute.
-* Name the knob after the attribute, for example `ino-color-scheme`
+- Make sure that you use the most fitting type (text, boolean, number, select, ...).
+- Provide a knob for each available attribute.
+- Name the knob after the attribute, for example `ino-color-scheme`

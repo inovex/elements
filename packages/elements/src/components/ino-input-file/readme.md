@@ -11,7 +11,7 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('changeFile', e => alert(`The new file is: ${e.detail}`));
+  .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));
 ```
 
 ```html
@@ -54,7 +54,7 @@ import React, { Component } from 'react';
 import { InoInputFile } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const FileInput: React.FunctionComponent<Components.InoInputFile> = props => {
+const FileInput: React.FunctionComponent<Components.InoInputFile> = (props) => {
   const onFileChange = (e: any) => {
     alert(`The new file is: ${e.detail}`);
   };
@@ -73,7 +73,6 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property                      | Attribute                          | Description                                              | Type      | Default                  |
@@ -89,13 +88,11 @@ class MyComponent extends Component {
 | `name`                        | `name`                             | The name of this input field.                            | `string`  | `undefined`              |
 | `required`                    | `required`                         | Marks this element as required.                          | `boolean` | `undefined`              |
 
-
 ## Events
 
 | Event        | Description                   | Type                                      |
 | ------------ | ----------------------------- | ----------------------------------------- |
 | `changeFile` | Emits when the value changes. | `CustomEvent<{ e: any; files: File[]; }>` |
-
 
 ## CSS Custom Properties
 
@@ -103,7 +100,6 @@ class MyComponent extends Component {
 | ----------------------------- | ---------------------------------- |
 | `--ino-input-file-box-height` | Height of the drag and drop window |
 | `--ino-input-file-box-width`  | Width of the drag and drop window  |
-
 
 ## Dependencies
 
@@ -113,6 +109,7 @@ class MyComponent extends Component {
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-input-file --> ino-button
@@ -121,6 +118,6 @@ graph TD;
   style ino-input-file fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

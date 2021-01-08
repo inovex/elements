@@ -9,8 +9,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-tab-bar')
-  .addEventListener('activeTabChange', e =>
-    console.log(`The index of the new tab is: ${e.detail}`)
+  .addEventListener('activeTabChange', (e) =>
+    console.log(`The index of the new tab is: ${e.detail}`),
   );
 ```
 
@@ -51,7 +51,9 @@ import React, { Component } from 'react';
 import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = props => {
+const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (
+  props,
+) => {
   const { inoActiveTab } = props;
 
   return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;
@@ -79,12 +81,11 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 ```jsx
 <ino-tab-bar
   ino-active-tab={this.state.index}
-  activeTabChange={e => (this.state.index = e.detail)}
+  activeTabChange={(e) => (this.state.index = e.detail)}
 />
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -92,14 +93,12 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 | -------------- | ---------------- | ----------------------------------------------------- | -------- | ------- |
 | `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
 
-
 ## Events
 
 | Event             | Description                                                                         | Type               |
 | ----------------- | ----------------------------------------------------------------------------------- | ------------------ |
 | `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

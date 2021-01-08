@@ -53,7 +53,7 @@ import React, { Component } from 'react';
 import { InoFab } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Fab: React.FunctionComponent<Components.InoFabAttributes> = props => {
+const Fab: React.FunctionComponent<Components.InoFabAttributes> = (props) => {
   const { inoLabel, inoIcon } = props;
 
   const handleClick = (e: any) => {
@@ -78,7 +78,6 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property              | Attribute               | Description                                                                                                                                    | Type                                                                                                                                                                                                                   | Default     |
@@ -90,7 +89,6 @@ class MyComponent extends Component {
 | `inoLabel`            | `ino-label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                | `string`                                                                                                                                                                                                               | `undefined` |
 | `inoMini`             | `ino-mini`              | Optional, modifies the FAB to a smaller size                                                                                                   | `boolean`                                                                                                                                                                                                              | `false`     |
 | `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
-
 
 ## CSS Custom Properties
 
@@ -105,12 +103,11 @@ class MyComponent extends Component {
 | `--fab-icon-color-disabled`       | Color of the slotted icon if disabled |
 | `--ino-fab-color`                 | Text color                            |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-fab-set](../ino-fab-set)
+- [ino-fab-set](../ino-fab-set)
 
 ### Depends on
 
@@ -118,6 +115,7 @@ class MyComponent extends Component {
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-fab --> ino-tooltip
@@ -126,6 +124,6 @@ graph TD;
   style ino-fab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

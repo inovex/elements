@@ -1,6 +1,6 @@
 # ino-card
 
-The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to 
+The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
 fully customize the appearance of the card.
 
 ## Usage
@@ -12,14 +12,11 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-card')
-  .addEventListener('click', _ => alert('Card was clicked!'));
+  .addEventListener('click', (_) => alert('Card was clicked!'));
 ```
 
 ```html
-<ino-card
-  ino-selected="<boolean>"
-  ino-disable-elevation="<boolean>"
->
+<ino-card ino-selected="<boolean>" ino-disable-elevation="<boolean>">
   <div slot="header"><!-- Any content --></div>
   <div slot="content"><!-- Any content --></div>
   <div slot="footer"><!-- Any content --></div>
@@ -53,14 +50,12 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property              | Attribute               | Description                                                        | Type      | Default |
 | --------------------- | ----------------------- | ------------------------------------------------------------------ | --------- | ------- |
 | `inoDisableElevation` | `ino-disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
 | `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
-
 
 ## CSS Custom Properties
 
@@ -69,7 +64,6 @@ class MyComponent extends Component {
 | `--ino-card-background-color` | background color of the check mark |
 | `--ino-card-color`            | check mark color                   |
 
-
 ## Dependencies
 
 ### Depends on
@@ -77,12 +71,13 @@ class MyComponent extends Component {
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-card --> ino-icon
   style ino-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -17,7 +17,7 @@ ino-tab {
     }
 
     &.mdc-tab--active ino-icon {
-      --icon-color: #{colors.ino-color(primary)}
+      --icon-color: #{colors.ino-color(primary)};
     }
 
     .mdc-tab-indicator__content--underline {

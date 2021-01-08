@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('valueChange', e =>
-    alert(`The new range value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new range value is: ${e.detail}`),
   );
 ```
 
@@ -53,7 +53,9 @@ import React, { Component } from 'react';
 import { InoRange } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Range: React.FunctionComponent<Components.InoRangeAttributes> = props => {
+const Range: React.FunctionComponent<Components.InoRangeAttributes> = (
+  props,
+) => {
   const { inoColorScheme } = props;
 
   return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;
@@ -70,7 +72,6 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                        | Type                                                                                 | Default     |
@@ -85,14 +86,12 @@ class MyComponent extends Component {
 | `step`           | `step`             | The step size for this element. Only applicable if ino-discrete is true.                                                                           | `number`                                                                             | `1`         |
 | `value`          | `value`            | The value of this element. (**unmanaged**, default=`min`)                                                                                          | `number`                                                                             | `undefined` |
 
-
 ## Events
 
 | Event         | Description                                                         | Type               |
 | ------------- | ------------------------------------------------------------------- | ------------------ |
 | `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<any>` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

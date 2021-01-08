@@ -1,6 +1,6 @@
 # High Level Overview
 
-The goal of this high level overview is to provide you with a better understanding of what this mono repository 
+The goal of this high level overview is to provide you with a better understanding of what this mono repository
 contains and how things relate to each other.
 
 ## The Repository Structure
@@ -11,12 +11,12 @@ Each package provides a separate README and is distributed as a self-contained p
 
 > You can follow the link on the package name to directly go to the repository location.
 
-| <div style="width:220px">**Package**</div> | <div style="width:200px">**Description**</div> | **Primary Usage Intention** |
-| --- | --- | --- |
-| [@inovex.de/elements](https://github.com/inovex/elements/tree/master/packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
-| [@inovex.de/elements-angular](https://github.com/inovex/elements/tree/master/packages/elements-angular)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
-| [@inovex.de/elements-react](https://github.com/inovex/elements/tree/master/packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
-| [@inovex.de/elements-storybook](https://github.com/inovex/elements/tree/master/packages/storybook)|Storybook documentation|API reference and guide for developers.|
+| <div style="width:220px">**Package**</div>                                                              | <div style="width:200px">**Description**</div> | **Primary Usage Intention**                                  |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| [@inovex.de/elements](https://github.com/inovex/elements/tree/master/packages/elements)                 | Native Web Components                          | Websites, WebApps and Microfrontends without a framework.    |
+| [@inovex.de/elements-angular](https://github.com/inovex/elements/tree/master/packages/elements-angular) | Angular integration layer                      | WebApps based on [Angular](https://github.com/angular).      |
+| [@inovex.de/elements-react](https://github.com/inovex/elements/tree/master/packages/elements-react)     | React integration layer                        | WebApps based on [React](https://github.com/facebook/react). |
+| [@inovex.de/elements-storybook](https://github.com/inovex/elements/tree/master/packages/storybook)      | Storybook documentation                        | API reference and guide for developers.                      |
 
 ### Elements Core
 

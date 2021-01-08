@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-checkbox')
-  .addEventListener('checkedChange', e =>
-    alert(`The checked state is: ${e.detail}`)
+  .addEventListener('checkedChange', (e) =>
+    alert(`The checked state is: ${e.detail}`),
   );
 ```
 
@@ -40,7 +40,7 @@ import { InoCheckbox } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick() {
@@ -51,7 +51,7 @@ class MyComponent extends Component {
     return (
       <InoCheckbox
         value="Apple"
-        onClick={_ => this.handleCheckboxClick()}
+        onClick={(_) => this.handleCheckboxClick()}
         checked={this.state.checked}
       >
         Apple
@@ -68,7 +68,9 @@ import React, { Component } from 'react';
 import { InoCheckbox } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = props => {
+const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = (
+  props,
+) => {
   const { value, onClick, checked } = props;
 
   return (
@@ -80,7 +82,7 @@ const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = prop
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick() {
@@ -91,7 +93,7 @@ class MyComponent extends Component {
     return (
       <Checkbox
         value="Apple"
-        onClick={_ => this.handleCheckboxClick()}
+        onClick={(_) => this.handleCheckboxClick()}
         checked={this.state.checked}
       >
         Apple
@@ -117,7 +119,6 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property        | Attribute       | Description                                                                                                                                                                                                                      | Type      | Default     |
@@ -129,13 +130,11 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `name`          | `name`          | The name of this element.                                                                                                                                                                                                        | `string`  | `undefined` |
 | `value`         | `value`         | The value of this element.                                                                                                                                                                                                       | `string`  | `undefined` |
 
-
 ## Events
 
 | Event           | Description                                                                                                    | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -150,20 +149,20 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `--ino-checkbox-color-hover`               | color of the checkbox on hover               |
 | `--ino-checkbox-text-color-disabled`       | color of the checkbox text if disabled       |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-control-item](../ino-control-item)
+- [ino-control-item](../ino-control-item)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-control-item --> ino-checkbox
   style ino-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

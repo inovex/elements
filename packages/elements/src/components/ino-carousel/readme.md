@@ -12,59 +12,62 @@ To change the slide that is currently displayed, simply set the value of the `in
 component to the value of the corresponding slide. This is, however, not required if autoplay is
 enabled since the component automatically manages the selection of the next slide.
 
-Please be aware that setting the value of the `ino-carousel` to a non-existent value will result 
+Please be aware that setting the value of the `ino-carousel` to a non-existent value will result
 in the component selecting an existing slide on its own.
 
 The component can be used as follows:
 
 ```html
-<ino-carousel 
-    value="<any value>"
-    ino-autoplay="true"
-    ino-animated="true"
-    ino-hide-buttons="false"
-    ino-infinite="true"
-    ino-intermission="5000"
-    ino-reverse="false"
+<ino-carousel
+  value="<any value>"
+  ino-autoplay="true"
+  ino-animated="true"
+  ino-hide-buttons="false"
+  ino-infinite="true"
+  ino-intermission="5000"
+  ino-reverse="false"
 >
-    <ino-carousel-slide value="0" src="<url>"></ino-carousel-slide>
-    <ino-carousel-slide value="1" src="<url>"></ino-carousel-slide>
-    <ino-carousel-slide value="2" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="0" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="1" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="2" src="<url>"></ino-carousel-slide>
 </ino-carousel>
 ```
 
 ```jsx harmony
 import { Component } from 'react';
-import { InoButton, InoCarousel, InoCarouselSlide } from '@inovex/elements/dist/react';
+import {
+  InoButton,
+  InoCarousel,
+  InoCarouselSlide,
+} from '@inovex/elements/dist/react';
 import React from 'react';
 
 class MyComponent extends Component {
-
   state = {
-    autoplay: false
+    autoplay: false,
   };
 
   handleClick = () => {
     this.setState((state) => ({
-      autoplay: !state.autoplay
+      autoplay: !state.autoplay,
     }));
   };
 
   render() {
     return (
       <InoCarousel inoAutoplay={this.state.autoplay}>
-        <InoButton onClick={() => this.handleClick()}>Start/Stop Slideshow</InoButton>
-        <InoCarouselSlide value={"1"} src={"url"}/>
-        <InoCarouselSlide value={"2"} src={"url"}/>
+        <InoButton onClick={() => this.handleClick()}>
+          Start/Stop Slideshow
+        </InoButton>
+        <InoCarouselSlide value={'1'} src={'url'} />
+        <InoCarouselSlide value={'2'} src={'url'} />
       </InoCarousel>
-    )
+    );
   }
 }
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -78,7 +81,6 @@ class MyComponent extends Component {
 | `inoReverse`      | `ino-reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
 | `value`           | `value`            | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
-
 ## CSS Custom Properties
 
 | Name                                | Description                               |
@@ -88,7 +90,6 @@ class MyComponent extends Component {
 | `--ino-carousel-icon-color`         | sets the color of the navigation buttons  |
 | `--ino-carousel-width`              | sets the width of the carousel component  |
 
-
 ## Dependencies
 
 ### Depends on
@@ -96,6 +97,7 @@ class MyComponent extends Component {
 - [ino-icon-button](../ino-icon-button)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-carousel --> ino-icon-button
@@ -103,6 +105,6 @@ graph TD;
   style ino-carousel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

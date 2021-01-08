@@ -30,6 +30,7 @@ document
 ```
 
 ### React
+
 ```
 import React from 'react';
 import { Component } from 'react';
@@ -66,7 +67,6 @@ https://github.com/material-components/material-components-web/tree/master/packa
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property        | Attribute         | Description                                                 | Type      | Default     |
@@ -75,13 +75,11 @@ https://github.com/material-components/material-components-web/tree/master/packa
 | `inoOpen`       | `ino-open`        | Expands the sidebar                                         | `boolean` | `false`     |
 | `name`          | `name`            | Name of the component                                       | `string`  | `undefined` |
 
-
 ## Events
 
 | Event        | Description                                                 | Type               |
 | ------------ | ----------------------------------------------------------- | ------------------ |
 | `openChange` | Emits an event if the user expands or collapses the sidebar | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -89,7 +87,6 @@ https://github.com/material-components/material-components-web/tree/master/packa
 | ----------------- | ------------------------------ |
 | `--sidebar-width` | The width of the open sidebar. |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

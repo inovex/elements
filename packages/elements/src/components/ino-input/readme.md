@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-input')
-  .addEventListener('valueChange', e =>
-    alert(`The new input value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new input value is: ${e.detail}`),
   );
 ```
 
@@ -42,11 +42,11 @@ document
   ino-helper-validation
   ino-data-list="<string>"
 >
-    <datalist id="<string>">
-        <option>...</option>
-    </datalist>
-    <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
-    <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
+  <datalist id="<string>">
+    <option>...</option>
+  </datalist>
+  <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
+  <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
 </ino-input>
 ```
 
@@ -81,7 +81,9 @@ import React, { Component } from 'react';
 import { InoInput } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Input: React.FunctionComponent<Components.InoInputAttributes> = props => {
+const Input: React.FunctionComponent<Components.InoInputAttributes> = (
+  props,
+) => {
   const { inoPlaceholder } = props;
 
   const onValueChange = (e: any) => {
@@ -114,12 +116,13 @@ class MyComponent extends Component {
 **Icons**: There are currently two options two place an icon: at the start/left (`ino-icon-leading`) or at the end/right (`ino-icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally you have to provide either `slot=ino-icon-leading` or `slot="ino-icon-trailing`to your icon element.
 
 **Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
+
 ### Control flow
 
 The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document.querySelector('ino-input').addEventListener('valueChange', e => {
+document.querySelector('ino-input').addEventListener('valueChange', (e) => {
   // ...
 });
 ```
@@ -133,7 +136,6 @@ document.querySelector('ino-input').addEventListener('valueChange', e => {
 The component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -153,7 +155,7 @@ The component is based on a native input with additional features. Thus, the com
 | `inoIconTrailing`           | `ino-icon-trailing`            | Positions the icon trailing after the input field.                                                                                                                                                                                                        | `boolean`         | `false`     |
 | `inoLabel`                  | `ino-label`                    | The optional floating label of this input field.                                                                                                                                                                                                          | `string`          | `undefined` |
 | `inoOutline`                | `ino-outline`                  | Styles the input field as outlined element.                                                                                                                                                                                                               | `boolean`         | `undefined` |
-| `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                | `boolean`         | `undefined` |
+| `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required                                                                                                                                               | `boolean`         | `undefined` |
 | `inoThousandsSeparator`     | `ino-thousands-separator`      | Shows a dot as a thousands separator. Only works on 'text' type input.                                                                                                                                                                                    | `boolean`         | `undefined` |
 | `inoUnit`                   | `ino-unit`                     | Displays the given unit at the end of the input field.                                                                                                                                                                                                    | `string`          | `undefined` |
 | `max`                       | `max`                          | The max value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
@@ -168,7 +170,6 @@ The component is based on a native input with additional features. Thus, the com
 | `type`                      | `type`                         | The type of this element (default = text).                                                                                                                                                                                                                | `string`          | `'text'`    |
 | `value`                     | `value`                        | The value of this element. (**unmanaged**)                                                                                                                                                                                                                | `string`          | `''`        |
 
-
 ## Events
 
 | Event         | Description                                                                    | Type                  |
@@ -176,7 +177,6 @@ The component is based on a native input with additional features. Thus, the com
 | `inoBlur`     | Emits when the input field is blurred and validates email input                | `CustomEvent<void>`   |
 | `inoFocus`    | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
-
 
 ## Methods
 
@@ -188,9 +188,6 @@ Returns the native input element used under the hood.
 
 Type: `Promise<HTMLInputElement>`
 
-
-
-
 ## CSS Custom Properties
 
 | Name                      | Description        |
@@ -200,12 +197,11 @@ Type: `Promise<HTMLInputElement>`
 | `--ino-input-label-color` | color of the label |
 | `--ino-input-line-color`  | line color         |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-datepicker](../ino-datepicker)
+- [ino-datepicker](../ino-datepicker)
 
 ### Depends on
 
@@ -213,6 +209,7 @@ Type: `Promise<HTMLInputElement>`
 - [ino-label](../ino-label)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-input --> ino-icon
@@ -221,6 +218,6 @@ graph TD;
   style ino-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

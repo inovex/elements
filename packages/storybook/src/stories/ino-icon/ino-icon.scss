@@ -1,10 +1,10 @@
 .story-icon {
-
-  .customizable-icon, .preview-icon {
+  .customizable-icon,
+  .preview-icon {
     margin: 5px;
   }
 
-  ino-icon.customizable-icon  {
+  ino-icon.customizable-icon {
     --icon-height: 3em;
     --icon-width: 3em;
   }
@@ -15,7 +15,7 @@
   }
 
   .customizable-input {
-    margin-top: 0
+    margin-top: 0;
   }
 
   .flex-parent-center {

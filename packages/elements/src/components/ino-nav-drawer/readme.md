@@ -14,7 +14,7 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-nav-drawer')
-  .addEventListener('openChange', _ => alert('Drawer was toggled!')) // watch for toggle change
+  .addEventListener('openChange', (_) => alert('Drawer was toggled!')) // watch for toggle change
   .setAttribute('ino-open', true); // open drawer
 ```
 
@@ -54,7 +54,7 @@ class MyComponent extends Component {
         inoOpen="false"
         inoAnchor="left"
         inoVariant="docked"
-        onOpen={_ => alert('Yeah, you just opened the drawer!')}
+        onOpen={(_) => alert('Yeah, you just opened the drawer!')}
       >
         <ino-list slot="header">
           <ino-img src="https://picsum.photos/50/50" />
@@ -91,33 +91,22 @@ import React, { Component } from 'react';
 import { InoNavDrawer } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = props => {
+const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (
+  props,
+) => {
   const { inoOpen, inoVariant, inoAnchor } = props;
 
   return (
-    <InoNavDrawer
-      inoOpen={inoOpen}
-      inoVariant={inoVariant}
-      onClick={onClick}
-    >
+    <InoNavDrawer inoOpen={inoOpen} inoVariant={inoVariant} onClick={onClick}>
       Drawer Content
-
-      <main slot="app">
-        App Content
-      </main>
+      <main slot="app">App Content</main>
     </InoNavDrawer>
   );
 };
 
 class MyComponent extends Component {
   render() {
-    return (
-      <Drawer
-        inoVariant="dismissible"
-        inoAnchor="left"
-        inoOpen="true"
-      />
-    );
+    return <Drawer inoVariant="dismissible" inoAnchor="left" inoOpen="true" />;
   }
 }
 ```
@@ -125,7 +114,6 @@ class MyComponent extends Component {
 ## Demo
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -135,13 +123,11 @@ class MyComponent extends Component {
 | `inoOpen`    | `ino-open`    | Marks this element as open. (**unmanaged**)                                                    | `boolean`                              | `false`    |
 | `inoVariant` | `ino-variant` | The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`. | `"dismissible" \| "docked" \| "modal"` | `'docked'` |
 
-
 ## Events
 
 | Event        | Description                                                                                                           | Type                   |
 | ------------ | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `openChange` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
-
 
 ## CSS Custom Properties
 
@@ -155,7 +141,6 @@ class MyComponent extends Component {
 | `--ino-nav-drawer-width-closed`        | Docked variant only! The width of the collapsed drawer. |
 | `--ino-nav-drawer-width-open`          | The width of the open drawer.                           |
 
-
 ## Dependencies
 
 ### Depends on
@@ -163,6 +148,7 @@ class MyComponent extends Component {
 - [ino-icon-button](../ino-icon-button)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-nav-drawer --> ino-icon-button
@@ -170,6 +156,6 @@ graph TD;
   style ino-nav-drawer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

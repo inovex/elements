@@ -1,4 +1,5 @@
 # ino-progress-bar
+
 The ino-progress-bar is a linear progress bar based on the mcw-linear-progress component.
 
 ## Usage
@@ -7,11 +8,11 @@ The component can be used as follows:
 
 ```html
 <ino-progress-bar
-    ino-buffer="0.7"
-    ino-progress="0.4"
-    ino-reversed
-    ino-indeterminate
-    ino-label="Progress Bar"
+  ino-buffer="0.7"
+  ino-progress="0.4"
+  ino-reversed
+  ino-indeterminate
+  ino-label="Progress Bar"
 >
 </ino-progress-bar>
 ```
@@ -25,7 +26,7 @@ class MyComponent extends Component {
     state = {
       indeterminate: false
     };
-  
+
     handleClick = () => {
       this.setState((state) => ({
         indeterminate: !state.indeterminate
@@ -41,9 +42,7 @@ class MyComponent extends Component {
 }
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -55,7 +54,6 @@ class MyComponent extends Component {
 | `inoProgress`      | `ino-progress`      | Sets the progress of the progress bar Should always be between 0 and 1 | `number`  | `0`         |
 | `inoReversed`      | `ino-reversed`      | Reverses the progress bar                                              | `boolean` | `false`     |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

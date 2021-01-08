@@ -13,10 +13,10 @@ Some of the important guidelines are:
 
 We decided to use stateless components to provide a top to bottom data flow. This makes sense as most of the frameworks do a DOM diffing and do not see what a component itself is doing. Hence, instead of changing the state directly, we always emit events to denote that something should change. Thus, if the consumer ignores such an event, nothing will happen.
 
-* Only the attributes and children with their attributes describe the current state of the component.
-* The state never changes as long as the input properties are the same.
-* The component never modifies its host attributes.
-* User actions (clicks, key events, ...) only trigger events. The state remains untouched.
+- Only the attributes and children with their attributes describe the current state of the component.
+- The state never changes as long as the input properties are the same.
+- The component never modifies its host attributes.
+- User actions (clicks, key events, ...) only trigger events. The state remains untouched.
 
 For examples and details please refer to the **Events** section below.
 
@@ -38,25 +38,25 @@ Here are some examples to make the naming easier for you:
 
 ### Example 1: The ino-input Component
 
-* Input: `value` (Attribute, @Prop())
-* Output: `valueChange` (Custom Event, @Event())
+- Input: `value` (Attribute, @Prop())
+- Output: `valueChange` (Custom Event, @Event())
 
 #### Description
 
 The name of the input param `value` is contained in the name of the event param `valueChange` to denote the relation between them. In this example, this means that if the `value` should change, the consumer (this is the framework that uses and therefore controls the component) decides if the value should change or not. Speaking for the `ino-input`: If the user types any key into the input field, the component **will not** change the value, but will instead emit an event that says:
 
-*Hey consumer, the value should change. Here is the value. But you decide if you want to change the value. You can set the @Input `value` with the value I gave you, then I will update my value. If you do not update the value, I will not update the value und the old value remains the same*.
+_Hey consumer, the value should change. Here is the value. But you decide if you want to change the value. You can set the @Input `value` with the value I gave you, then I will update my value. If you do not update the value, I will not update the value und the old value remains the same_.
 
 ### Example 2: The ino-chip Component
 
-* Input: `ino-removable` (Attribute, @Prop())
-* Output: `removeChip` (Custom Event, @Event())
+- Input: `ino-removable` (Attribute, @Prop())
+- Output: `removeChip` (Custom Event, @Event())
 
 #### Description
 
 In this case, the chip component has a little x-icon if `ino-removable` is set. If the user clicks the icon, an event is emitted that says:
 
-*Hey consumer, the x-icon has been clicked and the chip component should be removed. But you decide if you want to remove it.*
+_Hey consumer, the x-icon has been clicked and the chip component should be removed. But you decide if you want to remove it._
 
 Here is a list of some example events we use:
 

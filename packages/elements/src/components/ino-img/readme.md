@@ -9,7 +9,7 @@ The component can be used as follows (custom preferences have an `ino`-prefix):
 ```js
 document
   .querySelector('ino-img')
-  .addEventListener('click', _ => alert('The image was clicked'));
+  .addEventListener('click', (_) => alert('The image was clicked'));
 ```
 
 ```html
@@ -57,7 +57,7 @@ import React, { Component } from 'react';
 import { InoImg } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Img: React.FunctionComponent<Components.InoImgAttributes> = props => {
+const Img: React.FunctionComponent<Components.InoImgAttributes> = (props) => {
   const { height, width, src } = props;
 
   return (
@@ -98,7 +98,6 @@ Using this setup, the width of the element extends to 100% (or the value defined
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute           | Description                                                                                                                                                                          | Type                          | Default     |
@@ -117,7 +116,6 @@ Using this setup, the width of the element extends to 100% (or the value defined
 | `usemap`         | `usemap`            | An ID referencing to a defined map element for this image.                                                                                                                           | `string`                      | `undefined` |
 | `width`          | `width`             | The fixed of the image.                                                                                                                                                              | `number`                      | `undefined` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

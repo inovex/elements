@@ -1,6 +1,6 @@
 # ino-switch
 
-Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission. 
+Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.
 
 ## Usage
 
@@ -11,18 +11,13 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-switch')
-  .addEventListener('checkedChange', e =>
-    alert(`The checked state is: ${e.detail}`)
+  .addEventListener('checkedChange', (e) =>
+    alert(`The checked state is: ${e.detail}`),
   );
 ```
 
 ```html
-<ino-switch
-  checked
-  disabled
-  ino-color-scheme="<string>"
-  name="<string>"
->
+<ino-switch checked disabled ino-color-scheme="<string>" name="<string>">
   Label
 </ino-switch>
 ```
@@ -37,7 +32,7 @@ import { InoSwitch } from '@inovex.de/elements-react';
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick(e) {
@@ -64,7 +59,9 @@ import React, { Component } from 'react';
 import { InoSwitch } from '@inovex.de/elements-react';
 import { Components } from '@inovex.de/elements-react/dist/types/components';
 
-const Switch: React.FunctionComponent<Components.InoSwitchAttributes> = props => {
+const Switch: React.FunctionComponent<Components.InoSwitchAttributes> = (
+  props,
+) => {
   const { value, onClick, checked } = props;
 
   return (
@@ -76,17 +73,17 @@ const Switch: React.FunctionComponent<Components.InoSwitchAttributes> = props =>
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick(e) {
-      this.setState({ checked: e.detail });
+    this.setState({ checked: e.detail });
   }
-  
+
   render() {
     return (
       <Switch
-        value={"Apple"}
+        value={'Apple'}
         checked={this.state.checked}
         onClick={handleCheckboxClick}
       />
@@ -99,26 +96,22 @@ class MyComponent extends Component {
 
 The input has a controlled (unmanaged) attribute `checked`. For this reason listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change the value.
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `checked`        | `checked`          | Marks this element as checked. (**unmanaged**)                                                                                                                                                        | `boolean`                                                                            | `false`     |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `name`           | `name`             | The name of this element.                                                                                                                                                                             | `string`                                                                             | `undefined` |
-
+| Property         | Attribute          | Description                                                                                                                                                                                          | Type                                                                                 | Default     |
+| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `checked`        | `checked`          | Marks this element as checked. (**unmanaged**)                                                                                                                                                       | `boolean`                                                                            | `false`     |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                               | `boolean`                                                                            | `undefined` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `name`           | `name`             | The name of this element.                                                                                                                                                                            | `string`                                                                             | `undefined` |
 
 ## Events
 
 | Event           | Description                                                                                                    | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -140,7 +133,6 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 | `--ino-switch-toggled-on-thumb-color`  | thumb color of the switch if toggled on   |
 | `--ino-switch-toggled-on-track-color`  | track color of the switch if toggled on   |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('valueChange', e =>
-    alert(`The new datepicker value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new datepicker value is: ${e.detail}`),
   );
 ```
 
@@ -75,7 +75,9 @@ import React, { Component } from 'react';
 import { InoDatepicker } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = props => {
+const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (
+  props,
+) => {
   const { inoLabel, inoHelper } = props;
 
   const valueChange = (e: any) => {
@@ -99,32 +101,38 @@ class MyComponent extends Component {
 ```
 
 ## Additional Hints
+
 ### Types
+
 This datepicker can be used as a picker for ...
+
 - date
 - time
 - datetime
 - month
 
 The type of the picker is selected based on the `ino-type` property. See the examples below.
- 
+
 #### Datepicker
+
 ```html
 <ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
 ```
+
 #### Timepicker
+
 ```html
 <ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
 ```
+
 #### Date-Time-Picker
+
 ```html
-<ino-datepicker
-  ino-type="datetime"
-  ino-label="Datetime"
->
-</ino-datepicker>
+<ino-datepicker ino-type="datetime" ino-label="Datetime"> </ino-datepicker>
 ```
+
 #### Monthpicker
+
 ```html
 <ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 ```
@@ -132,7 +140,6 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 ## Demo
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -151,7 +158,7 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 | `inoLabel`            | `ino-label`             | Defines the label for this element.                                                                                                                                               | `string`                                    | `undefined` |
 | `inoOutline`          | `ino-outline`           | Styles the datepicker as outlined element.                                                                                                                                        | `boolean`                                   | `undefined` |
 | `inoRange`            | `ino-range`             | If true, enables the user to choose two dates as an interval. Only works with inoType="date"                                                                                      | `boolean`                                   | `undefined` |
-| `inoShowLabelHint`    | `ino-show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                        | `boolean`                                   | `undefined` |
+| `inoShowLabelHint`    | `ino-show-label-hint`   | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required                                                                       | `boolean`                                   | `undefined` |
 | `inoTwelveHourTime`   | `ino-twelve-hour-time`  | If true, displays time picker in 12 hour mode with AM/PM selection.                                                                                                               | `boolean`                                   | `undefined` |
 | `inoType`             | `ino-type`              | Selects the correct picker corresponding to the given type.                                                                                                                       | `"date" \| "datetime" \| "month" \| "time"` | `'date'`    |
 | `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                                                                                                             | `string`                                    | `undefined` |
@@ -161,13 +168,11 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 | `required`            | `required`              | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                | `string`                                    | `''`        |
 
-
 ## Events
 
 | Event         | Description                                                                              | Type                  |
 | ------------- | ---------------------------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
-
 
 ## Dependencies
 
@@ -177,6 +182,7 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 - [ino-icon](../ino-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-datepicker --> ino-input
@@ -186,6 +192,6 @@ graph TD;
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

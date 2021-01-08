@@ -5,9 +5,9 @@
 
 // Shadows
 $small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-0 12px 28px 0 rgba(61, 214, 245, 0.14);
+  0 12px 28px 0 rgba(61, 214, 245, 0.14);
 $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-0 16px 32px 0 rgba(61, 214, 245, 0.14);
+  0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
 ino-switch {
   /**
@@ -27,25 +27,64 @@ ino-switch {
    * @prop --ino-switch-disabled-thumb-color: thumb color of the switch if disabled
    * @prop --ino-switch-disabled-track-color: track color of the switch if disabled
    */
-  --switch-toggled-on-color: var(--ino-switch-toggled-on-color, #{colors.ino-color(primary, base)});
-  --switch-toggled-on-thumb-color: var(--ino-switch-toggled-on-thumb-color, #{colors.ino-color(primary, base)});
-  --switch-toggled-on-track-color: var(--ino-switch-toggled-on-track-color, #{colors.ino-color(primary, light)});
-  --switch-toggled-off-color: var(--ino-switch-toggled-off-color, #{colors.ino-color(light, base)});
-  --switch-toggled-off-thumb-color: var(--ino-switch-toggled-off-thumb-color, #fff);
-  --switch-toggled-off-track-color: var(--ino-switch-toggled-off-track-color, #{colors.ino-color(dark, dark)});
-  --switch-hover-color: var(--ino-switch-hover-color, #{colors.ino-color(primary, light)});
+  --switch-toggled-on-color: var(
+    --ino-switch-toggled-on-color,
+    #{colors.ino-color(primary, base)}
+  );
+  --switch-toggled-on-thumb-color: var(
+    --ino-switch-toggled-on-thumb-color,
+    #{colors.ino-color(primary, base)}
+  );
+  --switch-toggled-on-track-color: var(
+    --ino-switch-toggled-on-track-color,
+    #{colors.ino-color(primary, light)}
+  );
+  --switch-toggled-off-color: var(
+    --ino-switch-toggled-off-color,
+    #{colors.ino-color(light, base)}
+  );
+  --switch-toggled-off-thumb-color: var(
+    --ino-switch-toggled-off-thumb-color,
+    #fff
+  );
+  --switch-toggled-off-track-color: var(
+    --ino-switch-toggled-off-track-color,
+    #{colors.ino-color(dark, dark)}
+  );
+  --switch-hover-color: var(
+    --ino-switch-hover-color,
+    #{colors.ino-color(primary, light)}
+  );
   --switch-hover-thumb-color: var(--ino-switch-hover-thumb-color, #fff);
-  --switch-hover-track-color: var(--ino-switch-hover-track-color, #{colors.ino-color(primary, light)});
-  --switch-active-color: var(--ino-switch-active-color, #{colors.ino-color(primary, dark)});
+  --switch-hover-track-color: var(
+    --ino-switch-hover-track-color,
+    #{colors.ino-color(primary, light)}
+  );
+  --switch-active-color: var(
+    --ino-switch-active-color,
+    #{colors.ino-color(primary, dark)}
+  );
   --switch-active-thumb-color: var(--ino-switch-active-thumb-color, #fff);
-  --switch-active-track-color: var(--ino-switch-active-track-color, #{colors.ino-color(primary, dark)});
-  --switch-disabled-color: var(--ino-switch-disabled-color, #{colors.ino-color(light, base)});
-  --switch-disabled-thumb-color: var(--ino-switch-disabled-thumb-color, #{colors.ino-color(light, base)});
-  --switch-disabled-track-color: var(--ino-switch-disabled-track-color, #{colors.ino-color(light, base)});
+  --switch-active-track-color: var(
+    --ino-switch-active-track-color,
+    #{colors.ino-color(primary, dark)}
+  );
+  --switch-disabled-color: var(
+    --ino-switch-disabled-color,
+    #{colors.ino-color(light, base)}
+  );
+  --switch-disabled-thumb-color: var(
+    --ino-switch-disabled-thumb-color,
+    #{colors.ino-color(light, base)}
+  );
+  --switch-disabled-track-color: var(
+    --ino-switch-disabled-track-color,
+    #{colors.ino-color(light, base)}
+  );
 }
 
 @each $color in colors.$ino-color-schemes {
-  ino-switch[ino-color-scheme="#{$color}"] {
+  ino-switch[ino-color-scheme='#{$color}'] {
     --switch-toggled-on-color: #{colors.ino-color($color, base)};
     --switch-toggled-on-thumb-color: #{colors.ino-color($color, base)};
     --switch-toggled-on-track-color: #{colors.ino-color($color, light)};
@@ -58,7 +97,6 @@ ino-switch {
 
 /** colors **/
 ino-switch .mdc-switch {
-
   &.mdc-switch--checked {
     .mdc-switch__thumb {
       background-color: var(--switch-toggled-on-thumb-color);
@@ -104,10 +142,10 @@ ino-switch .mdc-switch {
   }
 
   &.mdc-switch--disabled {
-   .mdc-switch__thumb {
-     background-color: var(--switch-disabled-thumb-color);
-     border-color: var(--switch-disabled-color);
-   }
+    .mdc-switch__thumb {
+      background-color: var(--switch-disabled-thumb-color);
+      border-color: var(--switch-disabled-color);
+    }
 
     .mdc-switch__track {
       background-color: var(--switch-disabled-track-color);
@@ -127,7 +165,8 @@ ino-switch {
   .mdc-switch__thumb-underlay {
     top: -23px;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       display: none;
     }
   }

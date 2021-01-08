@@ -3,23 +3,34 @@
 @use '../styles/colors';
 
 ino-popover {
-
   //default color scheme
-  @include tooltip.tooltip(colors.ino-color(primary, light), colors.ino-color(primary, contrast));
+  @include tooltip.tooltip(
+    colors.ino-color(primary, light),
+    colors.ino-color(primary, contrast)
+  );
 
-  &[ino-color-scheme="primary"] {
-    @include tooltip.tooltip(colors.ino-color(primary, light), colors.ino-color(primary, contrast));
+  &[ino-color-scheme='primary'] {
+    @include tooltip.tooltip(
+      colors.ino-color(primary, light),
+      colors.ino-color(primary, contrast)
+    );
   }
 
-  &[ino-color-scheme="secondary"] {
-    @include tooltip.tooltip(colors.ino-color(secondary, light), colors.ino-color(secondary, contrast));
+  &[ino-color-scheme='secondary'] {
+    @include tooltip.tooltip(
+      colors.ino-color(secondary, light),
+      colors.ino-color(secondary, contrast)
+    );
   }
 
-  &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(colors.ino-color(light), colors.ino-color(light, contrast));
+  &[ino-color-scheme='light'] {
+    @include tooltip.tooltip(
+      colors.ino-color(light),
+      colors.ino-color(light, contrast)
+    );
   }
 
-  &[ino-color-scheme="transparent"] {
+  &[ino-color-scheme='transparent'] {
     @include tooltip.tooltip(#fff, colors.ino-color(dark));
   }
 

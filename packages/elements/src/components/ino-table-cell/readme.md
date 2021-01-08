@@ -9,17 +9,12 @@ The component can be used as follows:
 
 ```html
 <ino-table-row ino-header-row>
-    <ino-table-cell ino-numeric>
-        1
-    </ino-table-cell>
-    <ino-table-cell>
-        Cell content
-    </ino-table-cell>
+  <ino-table-cell ino-numeric> 1 </ino-table-cell>
+  <ino-table-cell> Cell content </ino-table-cell>
 </ino-table-row>
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -27,7 +22,6 @@ The component can be used as follows:
 | ------------ | ------------- | ----------------------------------------------- | --------- | ------- |
 | `inoNumeric` | `ino-numeric` | Indicates that the cell contains numeric values | `boolean` | `false` |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

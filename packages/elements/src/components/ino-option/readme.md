@@ -7,18 +7,10 @@ An option component that can be used to add options to an ino-select component.
 The component can be used as follows:
 
 ```html
-<ino-option
-    disabled
-    selected
-    value="<string>"
->
-   Content
-</ino-option>
+<ino-option disabled selected value="<string>"> Content </ino-option>
 ```
 
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -27,7 +19,6 @@ The component can be used as follows:
 | `disabled`           | `disabled` | Disables the option | `boolean` | `false`     |
 | `selected`           | `selected` | Selects the option  | `boolean` | `false`     |
 | `value` _(required)_ | `value`    | Value of the option | `string`  | `undefined` |
-
 
 ## CSS Custom Properties
 
@@ -42,20 +33,20 @@ The component can be used as follows:
 | `--ino-option-selected-background-color-focus`    | Background color on focus if selected     |
 | `--ino-option-selected-background-color-hover`    | Background color on hover if selected     |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-option-group](../ino-option-group)
+- [ino-option-group](../ino-option-group)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-option-group --> ino-option
   style ino-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

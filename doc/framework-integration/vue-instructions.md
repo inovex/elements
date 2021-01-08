@@ -41,7 +41,10 @@ Open `src/main.js` and add the following code snippet somewhere on the first lin
 
 ```js
 // src/main.js
-import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
+import {
+  applyPolyfills,
+  defineCustomElements,
+} from '@inovex.de/elements/dist/loader';
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
 import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
 
@@ -49,7 +52,7 @@ addIcons(ICON_PATHS); // 3 (only needed if you want to use our icons)
 
 // 1
 Vue.config.ignoredElements = [
-  /^ino-/ // ignore all web components starting with "ino-"
+  /^ino-/, // ignore all web components starting with "ino-"
 ];
 
 // 2

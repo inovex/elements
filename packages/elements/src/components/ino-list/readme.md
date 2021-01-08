@@ -58,7 +58,7 @@ import React, { Component } from 'react';
 import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const List: React.FunctionComponent<Components.InoListAttributes> = props => {
+const List: React.FunctionComponent<Components.InoListAttributes> = (props) => {
   const { inoAvatar } = props;
 
   return <InoList inoAvatar={inoAvatar}>{props.children}</InoList>;
@@ -96,7 +96,6 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property      | Attribute       | Description                                                                                                                        | Type      | Default     |
@@ -105,20 +104,20 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 | `inoDense`    | `ino-dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
 | `inoTwoLines` | `ino-two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-menu](../ino-menu)
+- [ino-menu](../ino-menu)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-menu --> ino-list
   style ino-list fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

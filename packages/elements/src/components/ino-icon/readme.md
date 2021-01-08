@@ -7,7 +7,7 @@ A light icon component for texts and other components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-icon').addEventListener('clickEl', e => {
+document.querySelector('ino-icon').addEventListener('clickEl', (e) => {
   // ...
 });
 ```
@@ -15,7 +15,7 @@ document.querySelector('ino-icon').addEventListener('clickEl', e => {
 ```js
 document
   .querySelector('ino-icon')
-  .addEventListener('clickEl', _ => alert('The icon was clicked'));
+  .addEventListener('clickEl', (_) => alert('The icon was clicked'));
 ```
 
 ```html
@@ -49,7 +49,7 @@ import React, { Component } from 'react';
 import { InoIcon } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Icon: React.FunctionComponent<Components.InoIconAttributes> = props => {
+const Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {
   const { inoIcon } = props;
 
   const handleClick = (e: any) => {
@@ -77,9 +77,9 @@ The component inherits styles, such as the text size, from the parent element. F
 **Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
 
 ### Add icons
-If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons` 
-command to include the newly added icons in the `icons.js` file.
 
+If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons`
+command to include the newly added icons in the `icons.js` file.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
@@ -89,7 +89,6 @@ command to include the newly added icons in the `icons.js` file.
 Alternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -101,13 +100,11 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `src`               | `src`                 | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
 | `svgTitle`          | `svg-title`           | Sets a meaningful svg title for assistive technologies.               | `string`  | `undefined` |
 
-
 ## Events
 
 | Event     | Description                                                                                                           | Type               |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -118,22 +115,22 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `--ino-icon-height`          | Height of the icon                  |
 | `--ino-icon-width`           | Width of the icon                   |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-card](../ino-card)
- - [ino-chip](../ino-chip)
- - [ino-datepicker](../ino-datepicker)
- - [ino-fab](../ino-fab)
- - [ino-fab-set](../ino-fab-set)
- - [ino-icon-button](../ino-icon-button)
- - [ino-input](../ino-input)
- - [ino-input-file](../ino-input-file)
- - [ino-tab](../ino-tab)
+- [ino-card](../ino-card)
+- [ino-chip](../ino-chip)
+- [ino-datepicker](../ino-datepicker)
+- [ino-fab](../ino-fab)
+- [ino-fab-set](../ino-fab-set)
+- [ino-icon-button](../ino-icon-button)
+- [ino-input](../ino-input)
+- [ino-input-file](../ino-input-file)
+- [ino-tab](../ino-tab)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-card --> ino-icon
@@ -148,6 +145,6 @@ graph TD;
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

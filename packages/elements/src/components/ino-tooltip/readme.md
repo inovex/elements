@@ -64,7 +64,6 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                             | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -74,7 +73,6 @@ class MyComponent extends Component {
 | `inoLabel`       | `ino-label`        | The text shown in the tooltip.                                                                                                          | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
 | `inoPlacement`   | `ino-placement`    | The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
 | `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.             | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
-
 
 ## Methods
 
@@ -87,22 +85,20 @@ For more informations see: https://atomiks.github.io/tippyjs/
 
 Type: `Promise<any>`
 
-
-
-
 ## Dependencies
 
 ### Used by
 
- - [ino-fab](../ino-fab)
+- [ino-fab](../ino-fab)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-fab --> ino-tooltip
   style ino-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

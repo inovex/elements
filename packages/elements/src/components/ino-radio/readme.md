@@ -9,10 +9,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-radio')
-  .addEventListener('checkedChange', _ =>
-    alert(
-      `The radio button should be checked`
-    )
+  .addEventListener('checkedChange', (_) =>
+    alert(`The radio button should be checked`),
   );
 ```
 
@@ -55,7 +53,9 @@ import React, { Component } from 'react';
 import { InoRadio } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Radio: React.FunctionComponent<Components.InoRadioAttributes> = props => {
+const Radio: React.FunctionComponent<Components.InoRadioAttributes> = (
+  props,
+) => {
   const { checked, name } = props;
 
   return (
@@ -93,7 +93,6 @@ Clicking on the radio button triggers an event that contains the boolean value `
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property   | Attribute  | Description                                                                                                                                                | Type      | Default     |
@@ -103,13 +102,11 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | `name`     | `name`     | The name of this element. Use the same name for radio groups                                                                                               | `string`  | `undefined` |
 | `value`    | `value`    | The value of this element.                                                                                                                                 | `string`  | `undefined` |
 
-
 ## Events
 
 | Event           | Description                                                                                                                                                                | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -122,20 +119,20 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | `--ino-radio-hover-color`                 | color of the radio on hover           |
 | `--ino-radio-unchecked-color`             | color of the radio if unchecked       |
 
-
 ## Dependencies
 
 ### Used by
 
- - [ino-control-item](../ino-control-item)
+- [ino-control-item](../ino-control-item)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-control-item --> ino-radio
   style ino-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

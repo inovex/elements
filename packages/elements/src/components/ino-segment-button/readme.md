@@ -10,19 +10,13 @@ The component can be used as follows:
 
 ```js
 document
-    .querySelector('ino-segment-button')
-    .addEventListener('click', () => alert('Button was clicked!'));
+  .querySelector('ino-segment-button')
+  .addEventListener('click', () => alert('Button was clicked!'));
 ```
 
 ```html
-<ino-segment-button
-    checked
-    disabled
-    name="<string>"
-    ino-dense
-    value="<string>"
->
-    Button Content
+<ino-segment-button checked disabled name="<string>" ino-dense value="<string>">
+  Button Content
 </ino-segment-button>
 ```
 
@@ -35,19 +29,15 @@ import { InoSegmentButton } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
   render() {
     return (
-      <InoSegmentButton
-        onClick={_ => alert('Yeah, you clicked the button!')}
-      >
+      <InoSegmentButton onClick={(_) => alert('Yeah, you clicked the button!')}>
         You can click me!
       </InoSegmentButton>
-    )
+    );
   }
 }
-
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -59,13 +49,11 @@ class MyComponent extends Component {
 | `name`     | `name`      | Name of the element                       | `string`  | `undefined` |
 | `value`    | `value`     | Value of the element                      | `string`  | `undefined` |
 
-
 ## Events
 
 | Event           | Description                                                                                                       | Type               |
 | --------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted. | `CustomEvent<any>` |
-
 
 ## CSS Custom Properties
 
@@ -78,7 +66,6 @@ class MyComponent extends Component {
 | `--ino-segment-button-hover-color`    | Color of the segment button on hover     |
 | `--ino-segment-button-hover-shadow`   | Color and shape of the shadow on hover   |
 
+---
 
-----------------------------------------------
-
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

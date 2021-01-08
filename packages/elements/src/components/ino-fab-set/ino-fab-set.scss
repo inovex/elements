@@ -7,7 +7,7 @@ $rotationsByDirection: (
   top: 0deg,
   bottom: 180deg,
   left: 270deg,
-  right: 90deg
+  right: 90deg,
 );
 
 @mixin direction($direction: top) {

@@ -2,7 +2,6 @@
 @use '../styles/colors';
 
 ino-tooltip {
-
   .ino-tooltip__composer {
     font-size: 0.8rem;
     text-align: center;
@@ -11,21 +10,33 @@ ino-tooltip {
   }
 
   //default color scheme
-  @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
+  @include tooltip.tooltip(
+    colors.ino-color(primary),
+    colors.ino-color(primary, contrast)
+  );
 
-  &[ino-color-scheme="primary"] {
-    @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
+  &[ino-color-scheme='primary'] {
+    @include tooltip.tooltip(
+      colors.ino-color(primary),
+      colors.ino-color(primary, contrast)
+    );
   }
 
-  &[ino-color-scheme="secondary"] {
-    @include tooltip.tooltip(colors.ino-color(secondary), colors.ino-color(secondary, contrast));
+  &[ino-color-scheme='secondary'] {
+    @include tooltip.tooltip(
+      colors.ino-color(secondary),
+      colors.ino-color(secondary, contrast)
+    );
   }
 
-  &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(colors.ino-color(light, light), colors.ino-color(light, contrast));
+  &[ino-color-scheme='light'] {
+    @include tooltip.tooltip(
+      colors.ino-color(light, light),
+      colors.ino-color(light, contrast)
+    );
   }
 
-  &[ino-color-scheme="transparent"] {
+  &[ino-color-scheme='transparent'] {
     @include tooltip.tooltip(#ffffff, colors.ino-color(dark));
   }
 }

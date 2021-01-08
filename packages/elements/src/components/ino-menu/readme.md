@@ -24,7 +24,7 @@ import {
   InoButton,
   InoMenu,
   InoListItem,
-  InoDivider
+  InoDivider,
 } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
@@ -50,11 +50,11 @@ import {
   InoButton,
   InoMenu,
   InoListItem,
-  InoDivider
+  InoDivider,
 } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Menu: React.FunctionComponent<Components.InoMenuAttributes> = props => {
+const Menu: React.FunctionComponent<Components.InoMenuAttributes> = (props) => {
   const { inoFor } = props;
 
   return (
@@ -88,14 +88,12 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property  | Attribute  | Description                       | Type      | Default     |
 | --------- | ---------- | --------------------------------- | --------- | ----------- |
 | `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  | `undefined` |
 | `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
-
 
 ## Dependencies
 
@@ -104,12 +102,13 @@ The menu creates a temporary surface with an empty list composer. The items of t
 - [ino-list](../ino-list)
 
 ### Graph
+
 ```mermaid
 graph TD;
   ino-menu --> ino-list
   style ino-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

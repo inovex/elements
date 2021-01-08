@@ -11,12 +11,18 @@ ino-nav-item  {
    */
 
   --nav-item-color: var(--ino-nav-item-color, #{colors.ino-color(dark, dark)});
-  --nav-item-color-active: var(--ino-nav-item-color-active, #{colors.ino-color(primary, base)});
+  --nav-item-color-active: var(
+    --ino-nav-item-color-active,
+    #{colors.ino-color(primary, base)}
+  );
   --nav-item-background-color: var(--ino-nav-item-background-color, white);
-  --nav-item-background-color-active: var(--ino-nav-item-background-color-active, #{rgba(colors.ino-color(light, contrast), 0.04)});
+  --nav-item-background-color-active: var(
+    --ino-nav-item-background-color-active,
+    #{rgba(colors.ino-color(light, contrast), 0.04)}
+  );
 
-  .mdc-list-item, ino-list-item .mdc-list-item {
-
+  .mdc-list-item,
+  ino-list-item .mdc-list-item {
     padding: 0px 24px;
     height: 60px;
     background-color: var(--nav-item-background-color);
@@ -24,7 +30,9 @@ ino-nav-item  {
     font-size: 14px;
 
     // icon
-    ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
+    ::slotted(ino-icon),
+    ino-icon,
+    .ino-list-item__icon {
       --icon-width: 24px;
       --icon-height: 24px;
       --icon-color: var(--nav-item-color);
@@ -42,14 +50,14 @@ ino-nav-item  {
       border-left: 2px solid var(--nav-item-color-active);
       color: var(--nav-item-color-active);
 
-
       .mdc-list-item__ripple {
         display: none;
       }
 
-
       // icon
-      ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
+      ::slotted(ino-icon),
+      ino-icon,
+      .ino-list-item__icon {
         --icon-color: var(--nav-item-color-active);
       }
     }
