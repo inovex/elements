@@ -1,7 +1,6 @@
 # Ignore artifacts TODO from gitignore and eslintignore
 dist/
 www/
-storybook-static/
 vendor/
 
 .stencil/

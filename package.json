@@ -59,8 +59,5 @@
     ]
   },
   "name": "core",
-  "version": "2.2.1",
-  "lint-staged": {
-    "*.{t,j}s{,x}": "prettier --write"
-  }
+  "version": "2.2.1"
 }
