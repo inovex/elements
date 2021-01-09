@@ -69,6 +69,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute          | Description                                                         | Type      | Default     |
@@ -81,6 +82,7 @@ class MyComponent extends Component {
 | `inoReverse`      | `ino-reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
 | `value`           | `value`            | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
+
 ## CSS Custom Properties
 
 | Name                                | Description                               |
@@ -90,6 +92,7 @@ class MyComponent extends Component {
 | `--ino-carousel-icon-color`         | sets the color of the navigation buttons  |
 | `--ino-carousel-width`              | sets the width of the carousel component  |
 
+
 ## Dependencies
 
 ### Depends on
@@ -97,7 +100,6 @@ class MyComponent extends Component {
 - [ino-icon-button](../ino-icon-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-carousel --> ino-icon-button
@@ -105,6 +107,6 @@ graph TD;
   style ino-carousel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

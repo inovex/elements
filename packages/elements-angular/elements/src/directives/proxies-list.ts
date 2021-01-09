@@ -1,7 +1,8 @@
+
 import * as d from './proxies';
 
 export const DIRECTIVES = [
-  d.InoButton,
+d.InoButton,
   d.InoCard,
   d.InoCarousel,
   d.InoCarouselSlide,
@@ -48,5 +49,5 @@ export const DIRECTIVES = [
   d.InoTableCell,
   d.InoTableRow,
   d.InoTextarea,
-  d.InoTooltip,
+  d.InoTooltip
 ];

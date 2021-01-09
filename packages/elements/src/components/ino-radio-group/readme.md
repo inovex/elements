@@ -86,12 +86,14 @@ In order to change the checked element (and uncheck the other ones) listen to th
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                                                                                                                                                | Type  | Default     |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ----------- |
 | `value`  | `value`   | The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked. | `any` | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -137,6 +137,7 @@ The component is based on a native input with additional features. Thus, the com
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                    | Attribute                      | Description                                                                                                                                                                                                                                               | Type              | Default     |
@@ -155,7 +156,7 @@ The component is based on a native input with additional features. Thus, the com
 | `inoIconTrailing`           | `ino-icon-trailing`            | Positions the icon trailing after the input field.                                                                                                                                                                                                        | `boolean`         | `false`     |
 | `inoLabel`                  | `ino-label`                    | The optional floating label of this input field.                                                                                                                                                                                                          | `string`          | `undefined` |
 | `inoOutline`                | `ino-outline`                  | Styles the input field as outlined element.                                                                                                                                                                                                               | `boolean`         | `undefined` |
-| `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required                                                                                                                                               | `boolean`         | `undefined` |
+| `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                | `boolean`         | `undefined` |
 | `inoThousandsSeparator`     | `ino-thousands-separator`      | Shows a dot as a thousands separator. Only works on 'text' type input.                                                                                                                                                                                    | `boolean`         | `undefined` |
 | `inoUnit`                   | `ino-unit`                     | Displays the given unit at the end of the input field.                                                                                                                                                                                                    | `string`          | `undefined` |
 | `max`                       | `max`                          | The max value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
@@ -170,6 +171,7 @@ The component is based on a native input with additional features. Thus, the com
 | `type`                      | `type`                         | The type of this element (default = text).                                                                                                                                                                                                                | `string`          | `'text'`    |
 | `value`                     | `value`                        | The value of this element. (**unmanaged**)                                                                                                                                                                                                                | `string`          | `''`        |
 
+
 ## Events
 
 | Event         | Description                                                                    | Type                  |
@@ -177,6 +179,7 @@ The component is based on a native input with additional features. Thus, the com
 | `inoBlur`     | Emits when the input field is blurred and validates email input                | `CustomEvent<void>`   |
 | `inoFocus`    | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
+
 
 ## Methods
 
@@ -188,6 +191,9 @@ Returns the native input element used under the hood.
 
 Type: `Promise<HTMLInputElement>`
 
+
+
+
 ## CSS Custom Properties
 
 | Name                      | Description        |
@@ -197,11 +203,12 @@ Type: `Promise<HTMLInputElement>`
 | `--ino-input-label-color` | color of the label |
 | `--ino-input-line-color`  | line color         |
 
+
 ## Dependencies
 
 ### Used by
 
-- [ino-datepicker](../ino-datepicker)
+ - [ino-datepicker](../ino-datepicker)
 
 ### Depends on
 
@@ -209,7 +216,6 @@ Type: `Promise<HTMLInputElement>`
 - [ino-label](../ino-label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-input --> ino-icon
@@ -218,6 +224,6 @@ graph TD;
   style ino-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

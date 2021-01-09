@@ -44,6 +44,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property           | Attribute           | Description                                                            | Type      | Default     |
@@ -54,6 +55,7 @@ class MyComponent extends Component {
 | `inoProgress`      | `ino-progress`      | Sets the progress of the progress bar Should always be between 0 and 1 | `number`  | `0`         |
 | `inoReversed`      | `ino-reversed`      | Reverses the progress bar                                              | `boolean` | `false`     |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

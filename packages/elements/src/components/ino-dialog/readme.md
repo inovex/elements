@@ -60,17 +60,20 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute  | Description                     | Type      | Default |
 | --------- | ---------- | ------------------------------- | --------- | ------- |
 | `inoOpen` | `ino-open` | Opens the dialog if set to true | `boolean` | `false` |
 
+
 ## Events
 
 | Event        | Description                                       | Type               |
 | ------------ | ------------------------------------------------- | ------------------ |
 | `openChange` | Emits an event upon opening or closing the dialog | `CustomEvent<any>` |
+
 
 ## CSS Custom Properties
 
@@ -83,6 +86,7 @@ class MyComponent extends Component {
 | `--ino-dialog-height`           | height of the dialog           |
 | `--ino-dialog-width`            | width of the dialog            |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

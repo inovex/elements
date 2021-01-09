@@ -39,6 +39,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description                               | Type      | Default     |
@@ -49,11 +50,13 @@ class MyComponent extends Component {
 | `name`     | `name`      | Name of the element                       | `string`  | `undefined` |
 | `value`    | `value`     | Value of the element                      | `string`  | `undefined` |
 
+
 ## Events
 
 | Event           | Description                                                                                                       | Type               |
 | --------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted. | `CustomEvent<any>` |
+
 
 ## CSS Custom Properties
 
@@ -66,6 +69,7 @@ class MyComponent extends Component {
 | `--ino-segment-button-hover-color`    | Color of the segment button on hover     |
 | `--ino-segment-button-hover-shadow`   | Color and shape of the shadow on hover   |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

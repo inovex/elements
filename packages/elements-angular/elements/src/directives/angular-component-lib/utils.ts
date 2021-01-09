@@ -19,9 +19,7 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
   methods.forEach((methodName) => {
     Prototype[methodName] = function () {
       const args = arguments;
-      return this.z.runOutsideAngular(() =>
-        this.el[methodName].apply(this.el, args),
-      );
+      return this.z.runOutsideAngular(() => this.el[methodName].apply(this.el, args));
     };
   });
 };

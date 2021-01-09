@@ -115,6 +115,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute     | Description                                                                                    | Type                                   | Default    |
@@ -123,11 +124,13 @@ class MyComponent extends Component {
 | `inoOpen`    | `ino-open`    | Marks this element as open. (**unmanaged**)                                                    | `boolean`                              | `false`    |
 | `inoVariant` | `ino-variant` | The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`. | `"dismissible" \| "docked" \| "modal"` | `'docked'` |
 
+
 ## Events
 
 | Event        | Description                                                                                                           | Type                   |
 | ------------ | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `openChange` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
+
 
 ## CSS Custom Properties
 
@@ -141,6 +144,7 @@ class MyComponent extends Component {
 | `--ino-nav-drawer-width-closed`        | Docked variant only! The width of the collapsed drawer. |
 | `--ino-nav-drawer-width-open`          | The width of the open drawer.                           |
 
+
 ## Dependencies
 
 ### Depends on
@@ -148,7 +152,6 @@ class MyComponent extends Component {
 - [ino-icon-button](../ino-icon-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-nav-drawer --> ino-icon-button
@@ -156,6 +159,6 @@ graph TD;
   style ino-nav-drawer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

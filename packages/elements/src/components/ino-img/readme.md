@@ -98,6 +98,7 @@ Using this setup, the width of the element extends to 100% (or the value defined
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute           | Description                                                                                                                                                                          | Type                          | Default     |
@@ -116,6 +117,7 @@ Using this setup, the width of the element extends to 100% (or the value defined
 | `usemap`         | `usemap`            | An ID referencing to a defined map element for this image.                                                                                                                           | `string`                      | `undefined` |
 | `width`          | `width`             | The fixed of the image.                                                                                                                                                              | `number`                      | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

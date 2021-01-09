@@ -76,6 +76,7 @@ to the value of the button that emitted the event.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description                | Type     | Default     |
@@ -83,6 +84,7 @@ to the value of the button that emitted the event.
 | `name`   | `name`    | Name of the segment group  | `string` | `undefined` |
 | `value`  | `value`   | Value of the segment group | `any`    | `undefined` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

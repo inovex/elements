@@ -42,6 +42,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property          | Attribute           | Description                                                                                             | Type      | Default |
@@ -49,12 +50,14 @@ class MyComponent extends Component {
 | `inoEncloseLabel` | `ino-enclose-label` | Encapsulates the label of all img-list-items within the image                                           | `boolean` | `false` |
 | `inoMasonry`      | `ino-masonry`       | Enables the masonry image list variant, which allows the images to be any combination of aspect ratios. | `boolean` | `false` |
 
+
 ## CSS Custom Properties
 
 | Name                  | Description                |
 | --------------------- | -------------------------- |
 | `--ino-img-list-cols` | sets the number of columns |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

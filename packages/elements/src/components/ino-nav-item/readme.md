@@ -31,13 +31,15 @@ document
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                | Type      | Default     |
-| -------------- | --------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActivated` | `ino-activated` | Styles the row in an activated style. Use this for only one item and to mark it as permantently activated. | `boolean` | `false`     |
-| `inoDisabled`  | `ino-disabled`  | Styles the row in a disabled style.                                                                        | `boolean` | `false`     |
-| `inoText`      | `ino-text`      | The text of this list item.                                                                                | `string`  | `undefined` |
+| Property       | Attribute       | Description                                                                                                 | Type      | Default     |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoActivated` | `ino-activated` | Styles the row in an activated style.  Use this for only one item and to mark it as permantently activated. | `boolean` | `false`     |
+| `inoDisabled`  | `ino-disabled`  | Styles the row in a disabled style.                                                                         | `boolean` | `false`     |
+| `inoText`      | `ino-text`      | The text of this list item.                                                                                 | `string`  | `undefined` |
+
 
 ## CSS Custom Properties
 
@@ -48,6 +50,7 @@ document
 | `--ino-nav-item-color`                   | Inactive color of icon.                       |
 | `--ino-nav-item-color-active`            | Active color of icon.                         |
 
+
 ## Dependencies
 
 ### Depends on
@@ -55,13 +58,12 @@ document
 - [ino-list-item](../ino-list-item)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-nav-item --> ino-list-item
   style ino-nav-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

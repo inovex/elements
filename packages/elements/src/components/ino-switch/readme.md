@@ -98,20 +98,23 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                          | Type                                                                                 | Default     |
-| ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `checked`        | `checked`          | Marks this element as checked. (**unmanaged**)                                                                                                                                                       | `boolean`                                                                            | `false`     |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                               | `boolean`                                                                            | `undefined` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `name`           | `name`             | The name of this element.                                                                                                                                                                            | `string`                                                                             | `undefined` |
+| Property         | Attribute          | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
+| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `checked`        | `checked`          | Marks this element as checked. (**unmanaged**)                                                                                                                                                        | `boolean`                                                                            | `false`     |
+| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
+| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `name`           | `name`             | The name of this element.                                                                                                                                                                             | `string`                                                                             | `undefined` |
+
 
 ## Events
 
 | Event           | Description                                                                                                    | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
+
 
 ## CSS Custom Properties
 
@@ -133,6 +136,7 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 | `--ino-switch-toggled-on-thumb-color`  | thumb color of the switch if toggled on   |
 | `--ino-switch-toggled-on-track-color`  | track color of the switch if toggled on   |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

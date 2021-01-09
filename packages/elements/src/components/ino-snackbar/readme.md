@@ -101,6 +101,7 @@ Snackbar is displayed when ino-show is changed to checked.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property        | Attribute         | Description                                                                                                                    | Type                                | Default     |
@@ -111,12 +112,14 @@ Snackbar is displayed when ino-show is changed to checked.
 | `inoTimeout`    | `ino-timeout`     | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
 | `inoType`       | `ino-type`        | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
 
+
 ## Events
 
 | Event            | Description                                                                                           | Type               |
 | ---------------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
 | `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
 | `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -126,7 +129,6 @@ Snackbar is displayed when ino-show is changed to checked.
 - [ino-button](../ino-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-snackbar --> ino-icon-button
@@ -136,6 +138,6 @@ graph TD;
   style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

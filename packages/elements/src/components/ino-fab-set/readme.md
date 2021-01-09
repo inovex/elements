@@ -101,6 +101,7 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
@@ -110,6 +111,7 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 | `inoOpenDial`          | `ino-open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
 | `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -118,7 +120,6 @@ The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this r
 - [ino-icon](../ino-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-fab-set --> ino-fab
@@ -128,6 +129,6 @@ graph TD;
   style ino-fab-set fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

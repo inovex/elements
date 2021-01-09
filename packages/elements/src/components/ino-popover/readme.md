@@ -68,6 +68,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -77,6 +78,7 @@ class MyComponent extends Component {
 | `inoInteractive` | `ino-interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                           | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
 | `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
+
 
 ## Methods
 
@@ -89,6 +91,9 @@ For more informations see: https://atomiks.github.io/tippyjs/
 
 Type: `Promise<any>`
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

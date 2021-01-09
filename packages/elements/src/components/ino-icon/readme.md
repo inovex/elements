@@ -90,6 +90,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute             | Description                                                           | Type      | Default     |
@@ -100,11 +101,13 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `src`               | `src`                 | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
 | `svgTitle`          | `svg-title`           | Sets a meaningful svg title for assistive technologies.               | `string`  | `undefined` |
 
+
 ## Events
 
 | Event     | Description                                                                                                           | Type               |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
+
 
 ## CSS Custom Properties
 
@@ -115,22 +118,22 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `--ino-icon-height`          | Height of the icon                  |
 | `--ino-icon-width`           | Width of the icon                   |
 
+
 ## Dependencies
 
 ### Used by
 
-- [ino-card](../ino-card)
-- [ino-chip](../ino-chip)
-- [ino-datepicker](../ino-datepicker)
-- [ino-fab](../ino-fab)
-- [ino-fab-set](../ino-fab-set)
-- [ino-icon-button](../ino-icon-button)
-- [ino-input](../ino-input)
-- [ino-input-file](../ino-input-file)
-- [ino-tab](../ino-tab)
+ - [ino-card](../ino-card)
+ - [ino-chip](../ino-chip)
+ - [ino-datepicker](../ino-datepicker)
+ - [ino-fab](../ino-fab)
+ - [ino-fab-set](../ino-fab-set)
+ - [ino-icon-button](../ino-icon-button)
+ - [ino-input](../ino-input)
+ - [ino-input-file](../ino-input-file)
+ - [ino-tab](../ino-tab)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-card --> ino-icon
@@ -145,6 +148,6 @@ graph TD;
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

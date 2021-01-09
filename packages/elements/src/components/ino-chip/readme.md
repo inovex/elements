@@ -118,6 +118,7 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                                                                                       | Type                                                                                 | Default     |
@@ -127,16 +128,18 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 | `inoIcon`        | `ino-icon`         | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.<br/><br/>Prepends an icon to the chip label. | `string`                                                                             | `undefined` |
 | `inoIconLeading` | `ino-icon-leading` | If enabled, prepends the slotted icon to the chip label                                                                                                                                                           | `boolean`                                                                            | `false`     |
 | `inoLabel`       | `ino-label`        | The label of this chip (**required**).                                                                                                                                                                            | `string`                                                                             | `undefined` |
-| `inoRemovable`   | `ino-removable`    | Adds a close icon on the right side of this chip. If applied, emits the `removeChip` event.                                                                                                                       | `boolean`                                                                            | `undefined` |
+| `inoRemovable`   | `ino-removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.                                                                                                                      | `boolean`                                                                            | `undefined` |
 | `inoSelectable`  | `ino-selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                                         | `boolean`                                                                            | `undefined` |
 | `inoSelected`    | `ino-selected`     | Marks this element as selected.                                                                                                                                                                                   | `boolean`                                                                            | `undefined` |
-| `inoValue`       | `ino-value`        | The value of this chip. **Required** for chips as part of sets of type `filter` or `choice`.                                                                                                                      | `string`                                                                             | `undefined` |
+| `inoValue`       | `ino-value`        | The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.                                                                                                                     | `string`                                                                             | `undefined` |
+
 
 ## Events
 
-| Event        | Description                                                                                                                                                             | Type               |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `removeChip` | Event that emits as soon as the user removes this chip. Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
+| Event        | Description                                                                                                                                                              | Type               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -145,13 +148,12 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 - [ino-icon](../ino-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-chip --> ino-icon
   style ino-chip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

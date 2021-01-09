@@ -65,11 +65,13 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property   | Attribute   | Description                                                                                                                                                                                                                                                               | Type     | Default     |
 | ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
 | `inoLabel` | `ino-label` | Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259). | `string` | `undefined` |
+
 
 ## Dependencies
 
@@ -78,13 +80,12 @@ class MyComponent extends Component {
 - [ino-option](../ino-option)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-option-group --> ino-option
   style ino-option-group fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

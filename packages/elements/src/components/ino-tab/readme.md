@@ -71,6 +71,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                   | Attribute                     | Description                                                                           | Type      | Default     |
@@ -80,11 +81,13 @@ class MyComponent extends Component {
 | `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
 | `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
+
 ## Events
 
 | Event           | Description                                                                          | Type               |
 | --------------- | ------------------------------------------------------------------------------------ | ------------------ |
 | `inoInteracted` | Emitted when the user interacts with the tab. This event is used by the ino-tab-bar. | `CustomEvent<any>` |
+
 
 ## Dependencies
 
@@ -93,13 +96,12 @@ class MyComponent extends Component {
 - [ino-icon](../ino-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-tab --> ino-icon
   style ino-tab fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

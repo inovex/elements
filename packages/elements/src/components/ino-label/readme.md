@@ -14,26 +14,27 @@ This is an internally used component for various sorts of inputs like `ino-input
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property      | Attribute       | Description                                                                         | Type      | Default     |
-| ------------- | --------------- | ----------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoDisabled` | `ino-disabled`  | Colors the label in an light grey to indicate the disabled status for this element  | `boolean` | `undefined` |
-| `inoOutline`  | `ino-outline`   | Styles the label in an outlined style                                               | `boolean` | `undefined` |
-| `inoRequired` | `ino-required`  | Appends \* to the label to make it appear as an required input in a form            | `boolean` | `undefined` |
-| `inoShowHint` | `ino-show-hint` | Shows a "optional" message, when not inoRequired; Shows a \* mark, when inoRequired | `boolean` | `undefined` |
-| `inoText`     | `ino-text`      | The text of the label itself                                                        | `string`  | `undefined` |
+| Property      | Attribute       | Description                                                                        | Type      | Default     |
+| ------------- | --------------- | ---------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoDisabled` | `ino-disabled`  | Colors the label in an light grey to indicate the disabled status for this element | `boolean` | `undefined` |
+| `inoOutline`  | `ino-outline`   | Styles the label in an outlined style                                              | `boolean` | `undefined` |
+| `inoRequired` | `ino-required`  | Appends * to the label to make it appear as an required input in a form            | `boolean` | `undefined` |
+| `inoShowHint` | `ino-show-hint` | Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired | `boolean` | `undefined` |
+| `inoText`     | `ino-text`      | The text of the label itself                                                       | `string`  | `undefined` |
+
 
 ## Dependencies
 
 ### Used by
 
-- [ino-input](../ino-input)
-- [ino-select](../ino-select)
-- [ino-textarea](../ino-textarea)
+ - [ino-input](../ino-input)
+ - [ino-select](../ino-select)
+ - [ino-textarea](../ino-textarea)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-input --> ino-label
@@ -42,6 +43,6 @@ graph TD;
   style ino-label fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

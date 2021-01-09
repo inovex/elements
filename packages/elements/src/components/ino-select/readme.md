@@ -99,17 +99,19 @@ The component behaves like a native select with additional features. The native 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
-| Property           | Attribute             | Description                                                                                                 | Type      | Default     |
-| ------------------ | --------------------- | ----------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`         | `disabled`            | Disables this element.                                                                                      | `boolean` | `undefined` |
-| `inoLabel`         | `ino-label`           | The label of this element                                                                                   | `string`  | `undefined` |
-| `inoOutline`       | `ino-outline`         | Styles this select box as outlined element.                                                                 | `boolean` | `undefined` |
-| `inoShowLabelHint` | `ino-show-label-hint` | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required | `boolean` | `undefined` |
-| `name`             | `name`                | The name of this element.                                                                                   | `string`  | `undefined` |
-| `required`         | `required`            | Marks this element as required.                                                                             | `boolean` | `undefined` |
-| `value`            | `value`               | The value of this element. (**unmanaged**)                                                                  | `string`  | `''`        |
+| Property           | Attribute             | Description                                                                                                | Type      | Default     |
+| ------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`         | `disabled`            | Disables this element.                                                                                     | `boolean` | `undefined` |
+| `inoLabel`         | `ino-label`           | The label of this element                                                                                  | `string`  | `undefined` |
+| `inoOutline`       | `ino-outline`         | Styles this select box as outlined element.                                                                | `boolean` | `undefined` |
+| `inoShowLabelHint` | `ino-show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required | `boolean` | `undefined` |
+| `name`             | `name`                | The name of this element.                                                                                  | `string`  | `undefined` |
+| `required`         | `required`            | Marks this element as required.                                                                            | `boolean` | `undefined` |
+| `value`            | `value`               | The value of this element. (**unmanaged**)                                                                 | `string`  | `''`        |
+
 
 ## Events
 
@@ -117,11 +119,13 @@ The component behaves like a native select with additional features. The native 
 | ------------- | --------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
 
+
 ## CSS Custom Properties
 
 | Name              | Description                    |
 | ----------------- | ------------------------------ |
 | `--select-height` | Height of the open select menu |
+
 
 ## Dependencies
 
@@ -130,13 +134,12 @@ The component behaves like a native select with additional features. The native 
 - [ino-label](../ino-label)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-select --> ino-label
   style ino-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

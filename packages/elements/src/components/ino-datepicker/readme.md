@@ -141,6 +141,7 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property              | Attribute               | Description                                                                                                                                                                       | Type                                        | Default     |
@@ -158,7 +159,7 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 | `inoLabel`            | `ino-label`             | Defines the label for this element.                                                                                                                                               | `string`                                    | `undefined` |
 | `inoOutline`          | `ino-outline`           | Styles the datepicker as outlined element.                                                                                                                                        | `boolean`                                   | `undefined` |
 | `inoRange`            | `ino-range`             | If true, enables the user to choose two dates as an interval. Only works with inoType="date"                                                                                      | `boolean`                                   | `undefined` |
-| `inoShowLabelHint`    | `ino-show-label-hint`   | If true, an _optional_ message is displayed if not required, otherwise a \* marker is displayed if required                                                                       | `boolean`                                   | `undefined` |
+| `inoShowLabelHint`    | `ino-show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                        | `boolean`                                   | `undefined` |
 | `inoTwelveHourTime`   | `ino-twelve-hour-time`  | If true, displays time picker in 12 hour mode with AM/PM selection.                                                                                                               | `boolean`                                   | `undefined` |
 | `inoType`             | `ino-type`              | Selects the correct picker corresponding to the given type.                                                                                                                       | `"date" \| "datetime" \| "month" \| "time"` | `'date'`    |
 | `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                                                                                                             | `string`                                    | `undefined` |
@@ -168,11 +169,13 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 | `required`            | `required`              | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
 | `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                | `string`                                    | `''`        |
 
+
 ## Events
 
 | Event         | Description                                                                              | Type                  |
 | ------------- | ---------------------------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when the value of the datepicker changes. The value can be found in `event.detail` | `CustomEvent<string>` |
+
 
 ## Dependencies
 
@@ -182,7 +185,6 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 - [ino-icon](../ino-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-datepicker --> ino-input
@@ -192,6 +194,6 @@ graph TD;
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

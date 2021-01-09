@@ -1,4 +1,4 @@
-# Ignore artifacts TODO from gitignore and eslintignore
+# Ignore artifacts
 dist/
 www/
 vendor/
@@ -7,3 +7,10 @@ vendor/
 .idea/
 .vscode/
 node_modules/
+
+# Ignore auto-generated files
+components.d.ts
+readme.md
+proxies-list.ts
+proxies.ts
+utils.ts
