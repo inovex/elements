@@ -33,18 +33,18 @@ export function getName(name: string | undefined) {
   return undefined;
 }
 
-export function getUrl(src: string | undefined, inoIcon: string | undefined) {
+export function getUrl(src: string | undefined, icon: string | undefined) {
   let url = getSrc(src);
 
   if (url) {
     return url;
   }
-  url = getName(inoIcon);
+  url = getName(icon);
   if (url) {
     return getNamedUrl(url);
   }
 
-  url = getSrc(inoIcon);
+  url = getSrc(icon);
   if (url) {
     return url;
   }
@@ -57,7 +57,7 @@ export function getNamedUrl(name: string) {
   if (url) {
     return url;
   }
-  return getAssetPath(`./icon-assets/SVG/${name}.svg`);
+  return getAssetPath(`./ino-icon/${name}.svg`);
 }
 
 export const isSrc = (str: string) => str.length > 0 && /(\/|\.)/.test(str);

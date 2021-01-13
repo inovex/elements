@@ -91,8 +91,8 @@ class MyComponent extends Component {
 ### Manage icons
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
-> `node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected
-> at runtime to be located in `icon-assets/`. Please refer to the Storybook documentation to get detailed instructions
+> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
+> at runtime to be located in `ino-icon/`. Please refer to the Storybook documentation to get detailed instructions
 > on how to integrate the icons with Angular, React or plain JavaScript.
 
 ## Control flow

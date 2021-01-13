@@ -1,7 +1,7 @@
 import { JSX as StencilJSX } from '@stencil/core';
 // @ts-ignore
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';
+import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
 import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 import { createReactComponent } from './createComponent';
