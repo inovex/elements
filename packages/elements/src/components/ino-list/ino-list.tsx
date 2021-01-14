@@ -12,7 +12,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-list',
   styleUrl: 'ino-list.scss',
-  shadow: false
+  shadow: true
 })
 export class List implements ComponentInterface {
   private listInstance!: MDCList;

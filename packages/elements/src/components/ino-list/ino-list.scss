@@ -1,8 +1,9 @@
 @use '../styles/mdc-customize';
 @use '@material/list';
-@include list.core-styles;
 
-ino-list {
+:host {
+  @include list.core-styles;
+
   display: block;
 
   .mdc-list--avatar-list .mdc-list-item__graphic {
