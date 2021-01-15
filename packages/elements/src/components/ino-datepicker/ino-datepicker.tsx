@@ -127,12 +127,12 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoRange')
   inoRangeChanged() {
-    this.create();
+    if (!this.disabled) this.create();
   }
 
   @Watch('disabled')
-  disabledChanged() {
-    this.dispose();
+  disabledChanged(newValue: boolean) {
+    newValue ? this.dispose() : this.create();
   }
 
   /**
@@ -291,7 +291,7 @@ export class Datepicker implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
-    this.create();
+    if (!this.disabled) this.create();
   }
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
@@ -299,8 +299,6 @@ export class Datepicker implements ComponentInterface {
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
 
   private create() {
-    if (this.disabled) return;
-
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
