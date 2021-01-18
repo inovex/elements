@@ -13,7 +13,7 @@ const ID_DIVIDED_MENU = 'divided-menu';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
+  const clickHandler = function (e) {
     const targetId = e.target.id;
 
     if (targetId !== BTN_ID_CUSTOM_MENU && targetId !== BTN_ID_DIVIDED_MENU) {
@@ -38,12 +38,12 @@ function subscribeToComponentEvents() {
     evt.target.setAttribute('ino-open', 'false');
   }
 
-  document.addEventListener('click', eventHandler);
+  document.addEventListener('click', clickHandler);
   document.addEventListener('menuClose', closeHandler)
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('click', eventHandler);
+    document.removeEventListener('click', clickHandler);
     document.removeEventListener('menuClose', closeHandler)
   };
 }
