@@ -58,10 +58,9 @@ class MyComponent extends Component {
 
 ## CSS Custom Properties
 
-| Name                           | Description                            |
-| ------------------------------ | -------------------------------------- |
-| `--progress-bar--bar-color`    | Color of the progress bar              |
-| `--progress-bar--buffer-color` | Color of the buffer and buffering dots |
+| Name                        | Description               |
+| --------------------------- | ------------------------- |
+| `--progress-bar--bar-color` | Color of the progress bar |
 
 
 ----------------------------------------------
