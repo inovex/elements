@@ -60,7 +60,7 @@ export default {
 };
 
 export const DefaultUsage = () => /* html */ `
-    <h4>Customizable ino-progress-bar</h4>
+    <h3>Customizable ino-progress-bar</h3>
     <ino-progress-bar
       ino-progress="${number('ino-progress', 0, {min: 0, max: 1, step: 0.1})}"
       ino-buffer="${number('ino-buffer', 0, {min: 0, max: 1, step: 0.1})}"
@@ -69,6 +69,7 @@ export const DefaultUsage = () => /* html */ `
       ino-reversed="${boolean('ino-reversed', false)}"
     >
     </ino-progress-bar>
+
 
     <h3>Example</h3>
     <div class="progress-bar-example">
