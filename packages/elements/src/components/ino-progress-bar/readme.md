@@ -56,6 +56,14 @@ class MyComponent extends Component {
 | `inoReversed`      | `ino-reversed`      | Reverses the progress bar                                              | `boolean` | `false`     |
 
 
+## CSS Custom Properties
+
+| Name                           | Description                            |
+| ------------------------------ | -------------------------------------- |
+| `--progress-bar--bar-color`    | Color of the progress bar              |
+| `--progress-bar--buffer-color` | Color of the buffer and buffering dots |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

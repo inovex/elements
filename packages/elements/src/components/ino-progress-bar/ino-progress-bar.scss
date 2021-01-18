@@ -5,8 +5,8 @@
 
 :host {
   /**
-   * @Prop --progress-bar--bar-color: Color of the progress bar
-   * @Prop --progress-bar--buffer-color: Color of the buffer and buffering dots
+   * @prop --progress-bar--bar-color: Color of the progress bar
+   * @prop --progress-bar--buffer-color: Color of the buffer and buffering dots
    */
   --progress-bar--bar-color: #{theme.color(primary)};
   --progress-bar--buffer-color: #{theme.color(light, light)};
