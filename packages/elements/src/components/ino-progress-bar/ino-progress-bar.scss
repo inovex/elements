@@ -10,17 +10,7 @@
    */
   --progress-bar--bar-color: #{colors.ino-color(primary)};
   --progress-bar--buffer-color: #{colors.ino-color(light, light)};
-}
 
-:host {
+  @include linear-progress.core-styles;
   @include linear-progress.bar-color(var(--progress-bar--bar-color));
-
-  .mdc-linear-progress {
-    .mdc-linear-progress__buffer {
-      background-color: var(--progress-bar--buffer-color);
-    }
-    .mdc-linear-progress__buffering-dots {
-      color: var(--progress-bar--buffer-color);
-    }
-  }
 }
