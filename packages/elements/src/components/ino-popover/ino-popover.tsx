@@ -67,14 +67,10 @@ export class Popover implements ComponentInterface {
     this.create();
   }
 
-  disconnectedCallback() {
-    this.dispose();
-  }
-
   // Private methods
 
   private create() {
-    this.dispose();
+    this.tooltipInstance?.destroy();
 
     const target = this.inoFor
       ? document.getElementById(this.inoFor)
@@ -90,10 +86,6 @@ export class Popover implements ComponentInterface {
     };
 
     this.tooltipInstance = TippyJS(target, options);
-  }
-
-  private dispose() {
-    this.tooltipInstance?.destroy();
   }
 
   render() {

@@ -80,10 +80,6 @@ export class Tooltip implements ComponentInterface {
     await this.create();
   }
 
-  async disconnectedCallback() {
-    await this.dispose();
-  }
-
   private retrieveTarget = () => this.inoFor ?
     document.getElementById(this.inoFor)
     :
