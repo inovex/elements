@@ -1,8 +1,8 @@
-@import '../styles/fonts.scss';
+@import 'base/typography';
 
 @mixin tooltip($background-color, $font-color) {
   .ino-tooltip__composer {
-    @include ino-font(sans-serif, m, regular);
+    @include font(sans-serif, m, regular);
 
     // position: absolute;
     z-index: 9999;

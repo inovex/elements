@@ -1,5 +1,5 @@
-@use '../styles/tooltip';
-@use '../styles/colors';
+@use './mixins' as tooltip-mixins;
+@use 'base/theme';
 
 ino-tooltip {
 
@@ -11,21 +11,21 @@ ino-tooltip {
   }
 
   //default color scheme
-  @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
+  @include tooltip-mixins.tooltip(theme.color(primary), theme.color(primary, contrast));
 
   &[ino-color-scheme="primary"] {
-    @include tooltip.tooltip(colors.ino-color(primary), colors.ino-color(primary, contrast));
+    @include tooltip-mixins.tooltip(theme.color(primary), theme.color(primary, contrast));
   }
 
   &[ino-color-scheme="secondary"] {
-    @include tooltip.tooltip(colors.ino-color(secondary), colors.ino-color(secondary, contrast));
+    @include tooltip-mixins.tooltip(theme.color(secondary), theme.color(secondary, contrast));
   }
 
   &[ino-color-scheme="light"] {
-    @include tooltip.tooltip(colors.ino-color(light, light), colors.ino-color(light, contrast));
+    @include tooltip-mixins.tooltip(theme.color(light, light), theme.color(light, contrast));
   }
 
   &[ino-color-scheme="transparent"] {
-    @include tooltip.tooltip(#ffffff, colors.ino-color(dark));
+    @include tooltip-mixins.tooltip(#ffffff, theme.color(dark));
   }
 }

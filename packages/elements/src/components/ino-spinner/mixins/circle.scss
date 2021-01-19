@@ -1,5 +1,5 @@
-@import '../../styles/transitions.scss';
-@import '../../styles/colors.scss';
+@use './transitions';
+@use 'base/theme';
 
 @mixin circle-color($color) {
   > div:before {
@@ -8,7 +8,7 @@
 }
 
 @mixin circle() {
-  @include circle-color(ino-color(primary));
+  @include circle-color(theme.color(primary));
 
   > div {
     width: 100%;
@@ -29,70 +29,70 @@
     }
   }
   .ino-spinner__circle-2 {
-    @include rotate(30deg);
+    @include transitions.rotate(30deg);
   }
   .ino-spinner__circle-3 {
-    @include rotate(60deg);
+    @include transitions.rotate(60deg);
   }
   .ino-spinner__circle-4 {
-    @include rotate(90deg);
+    @include transitions.rotate(90deg);
   }
   .ino-spinner__circle-5 {
-    @include rotate(120deg);
+    @include transitions.rotate(120deg);
   }
   .ino-spinner__circle-6 {
-    @include rotate(150deg);
+    @include transitions.rotate(150deg);
   }
   .ino-spinner__circle-7 {
-    @include rotate(180deg);
+    @include transitions.rotate(180deg);
   }
   .ino-spinner__circle-8 {
-    @include rotate(210deg);
+    @include transitions.rotate(210deg);
   }
   .ino-spinner__circle-9 {
-    @include rotate(240deg);
+    @include transitions.rotate(240deg);
   }
   .ino-spinner__circle-10 {
-    @include rotate(270deg);
+    @include transitions.rotate(270deg);
   }
   .ino-spinner__circle-11 {
-    @include rotate(300deg);
+    @include transitions.rotate(300deg);
   }
   .ino-spinner__circle-12 {
-    @include rotate(330deg);
+    @include transitions.rotate(330deg);
   }
   .ino-spinner__circle-2:before {
-    @include animation-delay(-1.1s);
+    @include transitions.animation-delay(-1.1s);
   }
   .ino-spinner__circle-3:before {
-    @include animation-delay(-1s);
+    @include transitions.animation-delay(-1s);
   }
   .ino-spinner__circle-4:before {
-    @include animation-delay(-0.9s);
+    @include transitions.animation-delay(-0.9s);
   }
   .ino-spinner__circle-5:before {
-    @include animation-delay(-0.8s);
+    @include transitions.animation-delay(-0.8s);
   }
   .ino-spinner__circle-6:before {
-    @include animation-delay(-0.7s);
+    @include transitions.animation-delay(-0.7s);
   }
   .ino-spinner__circle-7:before {
-    @include animation-delay(-0.6s);
+    @include transitions.animation-delay(-0.6s);
   }
   .ino-spinner__circle-8:before {
-    @include animation-delay(-0.5s);
+    @include transitions.animation-delay(-0.5s);
   }
   .ino-spinner__circle-9:before {
-    @include animation-delay(-0.4s);
+    @include transitions.animation-delay(-0.4s);
   }
   .ino-spinner__circle-10:before {
-    @include animation-delay(-0.3s);
+    @include transitions.animation-delay(-0.3s);
   }
   .ino-spinner__circle-11:before {
-    @include animation-delay(-0.2s);
+    @include transitions.animation-delay(-0.2s);
   }
   .ino-spinner__circle-12:before {
-    @include animation-delay(-0.1s);
+    @include transitions.animation-delay(-0.1s);
   }
   @keyframes sk-circleFadeDelay {
     0%,

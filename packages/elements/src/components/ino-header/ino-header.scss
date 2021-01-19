@@ -1,4 +1,4 @@
-@use '../styles/fonts';
+@use 'base/typography';
 
 :host {
   /**
@@ -6,7 +6,7 @@
    * @prop --ino-header-box-color: Color of the header box
    */
   --header-color: var(--ino-header-color, #525368);
-  --header-box-color: var(--ino-header-box-color, #{rgba(0, 0, 0, 0.05)})
+  --header-box-color: var(--ino-header-box-color, #{rgba(0, 0, 0, 0.05)});
 }
 
 :host {
@@ -17,7 +17,7 @@
 
   p {
     font-size: 13px;
-    @include fonts.ino-font-weight(semibold);
+    font-weight: typography.font-weight(semibold);
     color: var(--header-color);
     white-space: nowrap;
     display: table-cell;

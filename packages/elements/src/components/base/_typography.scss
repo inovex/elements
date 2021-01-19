@@ -1,0 +1,73 @@
+// ##################################
+// Font and typography
+// ##################################
+
+// => Font Family
+
+$_font-families: (
+  sans-serif: unquote("'Gilroy', Verdana, sans-serif"),
+  monospace: unquote("'Overpass Mono', Courier, monospace")
+);
+@function font-family($mode: sans-serif) {
+  @return map-get($_font-families, $mode);
+}
+
+// => Font weights
+
+$_font-weights: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+);
+@function font-weight($weight: regular) {
+  @return map-get($_font-weights, $weight);
+}
+
+// => Font sizes
+
+// Private variables, use ino-font-size($type) mixin to access them.
+$size-m: 1rem !default; // Browser default (normally 16px)
+$line-height-m: 1.5 !default;
+$size-l: ($size-m * 1.25);
+$line-height-l: 1.5 !default;
+$size-s: ($size-m * 0.875);
+$line-height-s: 1.5 !default;
+$size-xs: ($size-s * 0.875);
+$line-height-xs: 1.5 !default;
+
+$_font-sizes: (
+  xs: (
+    font-size: $size-xs,
+    line-height: $line-height-xs
+  ),
+  s: (
+    font-size: $size-s,
+    line-height: $line-height-s
+  ),
+  m: (
+    font-size: $size-m,
+    line-height: $line-height-m
+  ),
+  l: (
+    font-size: $size-l,
+    line-height: $line-height-l
+  )
+);
+
+@function font-size($type: m) {
+  @return map-get(map-get($_font-sizes, $type), 'font-size');
+}
+
+// Further mixins
+
+@mixin font($family: sans-serif, $size: m, $weight: regular) {
+  font-family: font-family($family);
+  font-size: font-size($size);
+  font-weight: font-weight($weight);
+}
+
+@function pxToRem($px) {
+  @return $px / 16px * 1rem;
+}

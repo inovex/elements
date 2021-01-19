@@ -1,5 +1,5 @@
-@use '../styles/mdc-customize';
-@use '../styles/colors';
+@use 'base/mdc-customize';
+@use 'base/theme';
 @use '@material/icon-button/mdc-icon-button';
 @use '@material/icon-button';
 @use '@material/ripple/ripple-theme';
@@ -17,10 +17,10 @@ ino-icon-button {
   
   $button-size:             var(--ino-icon-button-size, 48px);
   $icon-size:               var(--ino-icon-button-icon-size, 24px);
-  $icon-color:              var(--ino-icon-button-icon-color, colors.ino-color(dark));
+  $icon-color:              var(--ino-icon-button-icon-color, theme.color(dark));
   $background-color:        var(--ino-icon-button-background-color, transparent);
-  $icon-active-color:       var(--ino-icon-button-icon-active-color, colors.ino-color(dark));
-  $background-active-color: var(--ino-icon-button-background-active-color, colors.ino-color(dark));
+  $icon-active-color:       var(--ino-icon-button-icon-active-color, theme.color(dark));
+  $background-active-color: var(--ino-icon-button-background-active-color, theme.color(dark));
 
   ino-icon {
     --icon-color:       #{$icon-color};
@@ -49,21 +49,21 @@ ino-icon-button {
   }
 
   // Generate the different ino-color-schemes buttons
-  @each $color-name in colors.$ino-color-schemes {
+  @each $color-name in theme.$color-schemes {
     &[ino-color-scheme='#{$color-name}']:not([ino-filled]) {
-      --ino-icon-button-icon-color: #{colors.ino-color($color-name)};
-      --ino-icon-button-icon-active-color: #{colors.ino-color($color-name)};
-      --ino-icon-button-background-active-color: #{colors.ino-color($color-name)};
+      --ino-icon-button-icon-color: #{theme.color($color-name)};
+      --ino-icon-button-icon-active-color: #{theme.color($color-name)};
+      --ino-icon-button-background-active-color: #{theme.color($color-name)};
     }
     &[ino-color-scheme='#{$color-name}'][ino-filled] {
-      --ino-icon-button-icon-color: #{colors.ino-color($color-name, contrast)};
-      --ino-icon-button-icon-active-color: #{colors.ino-color($color-name, contrast)};
-      --ino-icon-button-background-color: #{colors.ino-color($color-name)};
-      --ino-icon-button-background-active-color: #{colors.ino-color($color-name, contrast)};
+      --ino-icon-button-icon-color: #{theme.color($color-name, contrast)};
+      --ino-icon-button-icon-active-color: #{theme.color($color-name, contrast)};
+      --ino-icon-button-background-color: #{theme.color($color-name)};
+      --ino-icon-button-background-active-color: #{theme.color($color-name, contrast)};
     }
   }
 
   button:disabled ino-icon {
-    --icon-color: #{colors.ino-color(dark, light)};
+    --icon-color: #{theme.color(dark, light)};
   }
 }

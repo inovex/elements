@@ -1,12 +1,12 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/chips/mdc-chips';
 @use '@material/chips';
-@use '../styles/colors';
+@use 'base/theme';
 
 ino-chip-set {
   .mdc-chip-set--choice {
     .mdc-chip {
-      @include chips.selected-ink-color(colors.ino-color(primary, base));
+      @include chips.selected-ink-color(theme.color(primary, base));
     }
   }
 }

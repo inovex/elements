@@ -1,9 +1,9 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/chips/mdc-chips';
 @use '@material/chips';
-@use '../styles/colors';
+@use 'base/theme';
 
-$default-chip-color: lighten(colors.ino-color(primary), 36.5%);
+$default-chip-color: lighten(theme.color(primary), 36.5%);
 
 ino-chip {
   display: inline-block;
@@ -23,24 +23,24 @@ ino-chip {
   }
 
   // Generate ino-color-scheme classes
-  @each $color-name in colors.$ino-color-schemes {
+  @each $color-name in theme.$color-schemes {
     &[ino-color-scheme='#{$color-name}'] {
       .mdc-chip {
-        @include chips.fill-color-accessible(colors.ino-color($color-name));
-        @include chips.ink-color(colors.ino-color($color-name, contrast));
+        @include chips.fill-color-accessible(theme.color($color-name));
+        @include chips.ink-color(theme.color($color-name, contrast));
 
         ino-icon {
-          --icon-color: #{colors.ino-color($color-name, contrast)};
+          --icon-color: #{theme.color($color-name, contrast)};
         }
       }
 
       // Set outline color
       &[ino-fill='outline'] .mdc-chip {
-        @include chips.outline-color(colors.ino-color($color-name));
-        @include chips.ink-color(colors.ino-color($color-name, dark));
+        @include chips.outline-color(theme.color($color-name));
+        @include chips.ink-color(theme.color($color-name, dark));
 
         ino-icon {
-          --icon-color: #{colors.ino-color($color-name, dark)};
+          --icon-color: #{theme.color($color-name, dark)};
         }
       }
     }

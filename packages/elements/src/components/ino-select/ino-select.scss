@@ -1,10 +1,10 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/list/mdc-list';
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
-@use '../styles/colors';
+@use 'base/theme';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 
@@ -33,16 +33,16 @@ ino-select {
   }
 
   .mdc-select {
-    @include select.label-color((focus: colors.ino-color(primary)));
-    @include select.bottom-line-color((focus: colors.ino-color(primary)));
-    @include select.outline-color((focus: colors.ino-color(primary)));
+    @include select.label-color((focus: theme.color(primary)));
+    @include select.bottom-line-color((focus: theme.color(primary)));
+    @include select.outline-color((focus: theme.color(primary)));
     @include select.container-fill-color((
       default: transparent,
       disabled: transparent
     ));
 
     &--focused .mdc-select__anchor {
-      @include select.dropdown-icon-color(colors.ino-color(primary));
+      @include select.dropdown-icon-color(theme.color(primary));
     }
 
     .mdc-select__anchor:before {

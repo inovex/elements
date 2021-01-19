@@ -1,12 +1,12 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/textfield/mdc-text-field';
 @use '@material/textfield';
 @use '@material/textfield/icon';
 @use '@material/textfield/helper-text';
 @use '@material/floating-label/mdc-floating-label';
 @use '@material/notched-outline/mdc-notched-outline';
-@use '../styles/colors';
-@use '../styles/fonts';
+@use 'base/theme';
+@use 'base/typography';
 
 $default-text-field: 'not(.mdc-text-field--outlined):not(.mdc-text-field--textarea)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
@@ -33,10 +33,10 @@ ino-input {
    * @prop --ino-input-line-color: line color
    * @prop --ino-input-icon-color: icon color
    */
-  --input-caret-color: var(--ino-input-caret-color, #{colors.ino-color(primary)});
-  --input-label-color: var(--ino-input-label-color, #{colors.ino-color(primary)});
-  --input-line-color: var(--ino-input-line-color, #{colors.ino-color(primary)});
-  --input-icon-color: var(--ino-input-icon-color, #{colors.ino-color(primary)});
+  --input-caret-color: var(--ino-input-caret-color, #{theme.color(primary)});
+  --input-label-color: var(--ino-input-label-color, #{theme.color(primary)});
+  --input-line-color: var(--ino-input-line-color, #{theme.color(primary)});
+  --input-icon-color: var(--ino-input-icon-color, #{theme.color(primary)});
 }
 
 ino-input {
@@ -55,7 +55,7 @@ ino-input {
     box-sizing: border-box;
   }
 
-  @include fonts.ino-font(sans-serif, m, regular);
+  @include typography.font(sans-serif, m, regular);
 
   &:hover {
     @include textfield.fill-color(transparent);

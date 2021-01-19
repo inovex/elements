@@ -1,15 +1,15 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/linear-progress/mdc-linear-progress';
 @use '@material/linear-progress';
-@use '../styles/colors';
+@use 'base/theme';
 
 :host {
   /**
    * @Prop --progress-bar--bar-color: Color of the progress bar
    * @Prop --progress-bar--buffer-color: Color of the buffer and buffering dots
    */
-  --progress-bar--bar-color: #{colors.ino-color(primary)};
-  --progress-bar--buffer-color: #{colors.ino-color(light, light)};
+  --progress-bar--bar-color: #{theme.color(primary)};
+  --progress-bar--buffer-color: #{theme.color(light, light)};
 
   @include linear-progress.core-styles;
   @include linear-progress.bar-color(var(--progress-bar--bar-color));

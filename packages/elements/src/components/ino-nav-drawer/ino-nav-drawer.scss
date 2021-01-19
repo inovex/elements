@@ -1,7 +1,7 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/drawer/mdc-drawer';
 @use '@material/drawer';
-@use '../styles/colors';
+@use 'base/theme';
 
 :host {
   /**
@@ -19,9 +19,9 @@
   --nav-drawer-height: var(--ino-nav-drawer-height, 100%);
   --nav-drawer-background: var(
     --ino-nav-drawer-background,
-    #{colors.ino-color(primary, contrast)}
+    #{theme.color(primary, contrast)}
   );
-  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, colors.$inovex);
+  --nav-drawer-text-color: var(--ino-nav-drawer-text-color, theme.$brand);
   --nav-drawer-transition-duration: var(
     --ino-nav-drawer-transition-duration,
     0.25s
