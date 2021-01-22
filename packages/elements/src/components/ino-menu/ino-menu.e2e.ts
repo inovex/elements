@@ -69,7 +69,7 @@ describe('InoMenu', () => {
       expect(menuCloseSpy).not.toHaveReceivedEvent();
     });
 
-    it('should emit \'menuClose\' event on inside item click', async () => {
+    it('should not emit \'menuClose\' event on inside item click', async () => {
 
       const btnId = 'id-btn';
       const listItemId = 'item-1';
@@ -89,7 +89,7 @@ describe('InoMenu', () => {
       await page.click(`#${listItemId}`);
       await page.waitForChanges();
 
-      expect(menuCloseSpy).toHaveReceivedEvent();
+      expect(menuCloseSpy).not.toHaveReceivedEvent();
     });
   });
 });
