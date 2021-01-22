@@ -1,10 +1,10 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use '../styles/colors';
-@use '../styles/fonts';
-@use '../styles/mixins';
-@use '../ino-spinner/styles/circle.mixins.scss' as spinner;
+@use 'base/theme';
+@use 'base/typography';
+@use 'base/animation';
+@use 'ino-spinner/mixins/circle' as spinner;
 
 $color-schemes: "primary", "secondary";
 
@@ -41,17 +41,17 @@ $color-states: (
   */
   --button-border-radius: #{$edged-border};
 
-  --button-color-primary: var(--ino-button-color-primary, var(--ino-global-primary-color, #{colors.ino-color(primary)}));
-  --button-color-primary-light: var(--ino-button-color-primary-light, var(--ino-global-primary-color-light, #{colors.ino-color(primary, light)}));
-  --button-color-primary-dark: var(--ino-button-color-primary-dark, var(--ino-global-primary-color-dark, #{colors.ino-color(primary, dark)}));
-  --button-color-primary-contrast: var(--ino-button-color-primary-contrast, var(--ino-global-primary-color-contrast, #{colors.ino-color(primary, contrast)}));
+  --button-color-primary: var(--ino-button-color-primary, var(--ino-global-primary-color, #{theme.color(primary)}));
+  --button-color-primary-light: var(--ino-button-color-primary-light, var(--ino-global-primary-color-light, #{theme.color(primary, light)}));
+  --button-color-primary-dark: var(--ino-button-color-primary-dark, var(--ino-global-primary-color-dark, #{theme.color(primary, dark)}));
+  --button-color-primary-contrast: var(--ino-button-color-primary-contrast, var(--ino-global-primary-color-contrast, #{theme.color(primary, contrast)}));
   --button-color-primary-shadow-light: var(--ino-button-color-primary-shadow-light, var(--ino-global-primary-color-shadow-light, rgba(61, 214, 245, 0.14)));
   --button-color-primary-shadow-dark: var(--ino-button-color-primary-shadow-dark, var(--ino-global-primary-color-shadow-dark, rgba(61, 64, 245, 0.3)));
 
-  --button-color-secondary: var(--ino-button-color-secondary, var(--ino-global-secondary-color, #{colors.ino-color(secondary)}));
-  --button-color-secondary-light: var(--ino-button-color-secondary-light, var(--ino-global-secondary-color-light, #{colors.ino-color(secondary, light)}));
-  --button-color-secondary-dark: var(--ino-button-color-secondary-dark, var(--ino-global-secondary-color-dark, #{colors.ino-color(secondary, dark)}));
-  --button-color-secondary-contrast: var(--ino-button-color-secondary-contrast, var(--ino-global-secondary-color-contrast, #{colors.ino-color(secondary, contrast)}));
+  --button-color-secondary: var(--ino-button-color-secondary, var(--ino-global-secondary-color, #{theme.color(secondary)}));
+  --button-color-secondary-light: var(--ino-button-color-secondary-light, var(--ino-global-secondary-color-light, #{theme.color(secondary, light)}));
+  --button-color-secondary-dark: var(--ino-button-color-secondary-dark, var(--ino-global-secondary-color-dark, #{theme.color(secondary, dark)}));
+  --button-color-secondary-contrast: var(--ino-button-color-secondary-contrast, var(--ino-global-secondary-color-contrast, #{theme.color(secondary, contrast)}));
   --button-color-secondary-shadow-light: var(--ino-button-color-secondary-shadow-light, var(--ino-global-secondary-color-shadow-light, rgba(156, 205, 0, 0.14)));
   --button-color-secondary-shadow-dark: var(--ino-button-color-secondary-shadow-dark, var(--ino-global-secondary-color-shadow-dark, rgba(181, 230, 23, 0.30)));
 }
@@ -60,19 +60,19 @@ $color-states: (
 
 :host([ino-fill="solid"]) {
   --button-color-disabled: #ffffff;
-  --button-background-disabled: #{colors.ino-color(dark, light)};
+  --button-background-disabled: #{theme.color(dark, light)};
 }
 
 :host([ino-fill="outline"]) {
   --button-background-disabled: transparent;
-  --button-border-color-disabled: #{colors.ino-color(dark, light)};
+  --button-border-color-disabled: #{theme.color(dark, light)};
   --button-box-shadow: none;
-  --button-color-disabled: #{colors.ino-color(dark, light)};
+  --button-color-disabled: #{theme.color(dark, light)};
 }
 
 :host([ino-fill="inverse"]) {
   --button-border-color: transparent;
-  --button-background-disabled: #{colors.ino-color(dark, light)};
+  --button-background-disabled: #{theme.color(dark, light)};
   --button-color-disabled: white;
 }
 
@@ -129,12 +129,12 @@ $color-states: (
 }
 
 :host([ino-color-scheme="grey"][ino-fill="outline"]) {
-  --button-border-color: #{colors.ino-color(dark, base)};
-  --button-border-color-active: #{colors.ino-color(dark, dark)};
-  --button-border-color-hover: #{colors.ino-color(dark, light)};
+  --button-border-color: #{theme.color(dark, base)};
+  --button-border-color-active: #{theme.color(dark, dark)};
+  --button-border-color-hover: #{theme.color(dark, light)};
   --button-color: black;
   --button-color-active: black;
-  --button-color-hover: #{colors.ino-color(dark, light)};
+  --button-color-hover: #{theme.color(dark, light)};
 }
 
 /* ------------------ APPLIED STYLES ------------------ */
@@ -154,9 +154,9 @@ $color-states: (
 
     border-color: var(--button-border-color);
     box-shadow: var(--button-box-shadow);
-    @include fonts.ino-font($size: s, $weight: semibold);
+    @include typography.font($size: s, $weight: semibold);
 
-    @include mixins.animateBorderRadius(
+    @include animation.border-radius(
         ino-button-round-to-edge,
         $round-border,
         var(--button-border-radius),
@@ -181,7 +181,7 @@ $color-states: (
       box-shadow: var(--button-box-shadow-hover);
       @include button.ink-color(var(--button-color-hover));
 
-      @include mixins.animateBorderRadius(
+      @include animation.border-radius(
           ino-button-edged-to-round,
           var(--button-border-radius),
           $round-border,

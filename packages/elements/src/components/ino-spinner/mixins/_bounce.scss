@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/transitions.scss';
+@use 'base/theme';
+@use './transitions';
 
 $tile-margin: 1.5px;
 
@@ -10,7 +10,7 @@ $tile-margin: 1.5px;
 }
 
 @mixin bounce() {
-  @include bounce-color(ino-color(primary));
+  @include bounce-color(theme.color(primary));
 
   .ino-spinner__double-bounce-1,
   .ino-spinner__double-bounce-2 {
@@ -24,7 +24,7 @@ $tile-margin: 1.5px;
     animation: sk-bounce 2s infinite ease-in-out;
   }
   .ino-spinner__double-bounce-2 {
-    @include animation-delay(-1s);
+    @include transitions.animation-delay(-1s);
   }
 
   @keyframes sk-bounce {

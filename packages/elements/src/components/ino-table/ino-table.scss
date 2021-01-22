@@ -1,6 +1,6 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/data-table/data-table';
-@use '../styles/colors';
+@use 'base/theme';
 
 ino-table {
   @include data-table.core-styles;

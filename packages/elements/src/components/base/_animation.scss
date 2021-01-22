@@ -1,10 +1,4 @@
-@mixin ellipsis {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@mixin animateBorderRadius($name, $from, $to, $duration) {
+@mixin border-radius($name, $from, $to, $duration) {
   animation: $name $duration;
 
   @keyframes #{$name} {
@@ -18,8 +12,8 @@
   }
 }
 
-@mixin buttonRoundingAnimation($round-border, $edged-border, $name) {
-  @include animateBorderRadius(
+@mixin button-rounding($round-border, $edged-border, $name) {
+  @include border-radius(
       $name + 'to-edged',
       $round-border,
       $edged-border,
@@ -29,7 +23,7 @@
   &:hover {
     border-radius: $round-border;
 
-    @include animateBorderRadius(
+    @include border-radius(
         $name+ 'to-round',
         $edged-border,
         $round-border,

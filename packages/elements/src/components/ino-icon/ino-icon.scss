@@ -1,6 +1,6 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/textfield/icon';
-@use '../styles/colors';
+@use 'base/theme';
 
 :host {
 
@@ -13,11 +13,11 @@
 
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height:  var(--ino-icon-height, 1em);
-  --icon-color: var(--ino-icon-color-primary, var(--ino-global-primary-color, #{colors.ino-color(primary, base)}));
+  --icon-color: var(--ino-icon-color-primary, var(--ino-global-primary-color, #{theme.color(primary, base)}));
 }
 
 :host([ino-color-secondary]):host(:not([ino-color-secondary="false"])) {
-  --icon-color: var(--ino-icon-color-secondary, var(--ino-global-secondary-color, #{colors.ino-color(secondary, base)}));
+  --icon-color: var(--ino-icon-color-secondary, var(--ino-global-secondary-color, #{theme.color(secondary, base)}));
 }
 
 :host {

@@ -1,5 +1,5 @@
-@import '../../styles/colors.scss';
-@import '../../styles/transitions.scss';
+@use 'base/theme';
+@use './transitions';
 
 $tile-margin: 1px;
 
@@ -10,7 +10,7 @@ $tile-margin: 1px;
 }
 
 @mixin tile() {
-  @include tile-color(ino-color(primary));
+  @include tile-color(theme.color(primary));
 
   > div {
     display: inline-block;
@@ -29,16 +29,16 @@ $tile-margin: 1px;
     }
   }
   .ino-spinner__rect2 {
-    @include animation-delay(-1.1s);
+    @include transitions.animation-delay(-1.1s);
   }
   .ino-spinner__rect3 {
-    @include animation-delay(-1s);
+    @include transitions.animation-delay(-1s);
   }
   .ino-spinner__rect4 {
-    @include animation-delay(-0.9s);
+    @include transitions.animation-delay(-0.9s);
   }
   .ino-spinner__rect5 {
-    @include animation-delay(-0.8s);
+    @include transitions.animation-delay(-0.8s);
   }
 
   @keyframes sk-stretchdelay {

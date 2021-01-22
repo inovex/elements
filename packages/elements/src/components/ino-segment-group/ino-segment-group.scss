@@ -1,5 +1,5 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use '../styles/colors';
-@use '../styles/fonts';
+@use 'base/theme';
+@use 'base/typography';

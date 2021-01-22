@@ -1,15 +1,15 @@
-@use '../../../../elements/src/components/styles/colors';
+@use '../../../../elements/src/components/base/theme';
 
-@each $color-name in colors.$ino-color-schemes {
+@each $color-name in theme.$color-schemes {
   $selector: '.#{$color-name}';
   #{$selector} {
-    --ino-switch-toggled-on-color: #{colors.ino-color($color-name)};
-    --ino-switch-toggled-on-thumb-color: #{colors.ino-color($color-name)};
-    --ino-switch-toggled-on-track-color: #{colors.ino-color($color-name, light)};
-    --ino-switch-hover-color: #{colors.ino-color($color-name, light)};
-    --ino-switch-hover-track-color: #{colors.ino-color($color-name, light)};
-    --ino-switch-active-color: #{colors.ino-color($color-name, dark)};
-    --ino-switch-active-track-color: #{colors.ino-color($color-name, dark)};
+    --ino-switch-toggled-on-color: #{theme.color($color-name)};
+    --ino-switch-toggled-on-thumb-color: #{theme.color($color-name)};
+    --ino-switch-toggled-on-track-color: #{theme.color($color-name, light)};
+    --ino-switch-hover-color: #{theme.color($color-name, light)};
+    --ino-switch-hover-track-color: #{theme.color($color-name, light)};
+    --ino-switch-active-color: #{theme.color($color-name, dark)};
+    --ino-switch-active-track-color: #{theme.color($color-name, dark)};
   }
 }
 
