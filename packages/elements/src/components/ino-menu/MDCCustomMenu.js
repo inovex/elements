@@ -5,16 +5,18 @@ export class MDCCustomMenu extends MDCMenu {
   constructor(mdcMenu) {
     super(mdcMenu);
 
-    // Prevent menu from closing
+    // TODO: wait for https://github.com/material-components/material-components-web/issues/4357 to be resolved
     this.foundation.handleKeydown = _ => {};
     this.foundation.handleClick = _ => {};
     this.menuSurface_.handleKeydown = _ => {};
     this.foundation.handleMenuSurfaceOpened = _ => {};
     this.foundation.handleItemAction = _ => {};
 
-    this.menuSurface_.handleBodyClick = _ =>  this.root.dispatchEvent(
-        new CustomEvent('menu:close', {  bubbles: true, }
-      )
-    );
+    this.menuSurface_.handleBodyClick = (e) =>  {
+
+      if(this.root.contains(e.target)) return;
+
+      this.root.dispatchEvent(new CustomEvent('menu:outside-click', {  bubbles: true, }));
+    }
   }
 }

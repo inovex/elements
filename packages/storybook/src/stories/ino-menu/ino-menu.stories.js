@@ -69,8 +69,8 @@ export const DefaultUsage = () => /*html*/ `
         ino-for="button"
         ino-open="${boolean('ino-open', false)}"
       >
-        <ino-list-item ino-text="Item"></ino-list-item>
-        <ino-list-item ino-text="Item 2"></ino-list-item>
+        <ino-list-item tabindex="0" ino-text="Item"></ino-list-item>
+        <ino-list-item tabindex="0" ino-text="Item 2"></ino-list-item>
       </ino-menu>
 
       <h4>Variation with divider</h4>

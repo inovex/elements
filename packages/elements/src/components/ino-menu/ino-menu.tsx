@@ -41,7 +41,7 @@ export class Menu implements ComponentInterface {
     this.menu.open = open;
   }
 
-  @Listen('menu:close')
+  @Listen('menu:outside-click')
   onClose(ev: Event) {
     ev.stopPropagation();
     this.menuClose.emit();
