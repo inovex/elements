@@ -80,11 +80,11 @@ export class Range implements ComponentInterface {
   componentDidLoad() {
     const sliderElement = this.el.querySelector('.mdc-slider');
     this.sliderInstance = new MDCSlider(sliderElement);
-    this.sliderInstance.listen('MDCSlider:change',this.handleChange.bind(this));
+    this.sliderInstance.listen('MDCSlider:change', this.handleChange.bind(this));
     this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.sliderInstance?.unlisten('MDCSlider:change', this.handleChange.bind(this));
     this.sliderInstance?.unlisten('MDCSlider:input', this.handleInput.bind(this));
     this.sliderInstance?.destroy();

@@ -294,11 +294,19 @@ export class Datepicker implements ComponentInterface {
     if (!this.disabled) this.create();
   }
 
+  disconnectedCallback() {
+    this.dispose();
+  }
+
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
   private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
 
   private create() {
+    this.dispose();
+
+    if (this.disabled) return;
+
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -310,7 +318,6 @@ export class Datepicker implements ComponentInterface {
     const typeSpecificOptions: Partial<BaseOptions> = this.getTypeSpecificOptions();
     const options = { ...sharedOptions, ...typeSpecificOptions };
 
-    this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
     this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale["weekdays"]["shorthand"];

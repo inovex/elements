@@ -84,9 +84,9 @@ export class Radio implements ComponentInterface {
     this.formField.input = this.radio;
   }
 
-  componentWillUnLoad() {
-    this.radio.destroy();
-    this.formField.destroy();
+  disconnectedCallback() {
+    this.radio?.destroy();
+    this.formField?.destroy();
   }
 
   render() {
@@ -118,8 +118,8 @@ export class Radio implements ComponentInterface {
             />
 
             <div class="mdc-radio__background">
-              <div class="mdc-radio__outer-circle"/>
-              <div class="mdc-radio__inner-circle"/>
+              <div class="mdc-radio__outer-circle" />
+              <div class="mdc-radio__inner-circle" />
             </div>
           </div>
           <label htmlFor={this.radioId}>

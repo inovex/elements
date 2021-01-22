@@ -83,8 +83,8 @@ export class Select implements ComponentInterface {
     }
   }
 
-  componentWillUnLoad() {
-    this.mdcSelectInstance.destroy();
+  disconnectedCallback() {
+    this.mdcSelectInstance?.destroy();
   }
 
   private setSelectValue(value: string) {
@@ -140,8 +140,8 @@ export class Select implements ComponentInterface {
       >
       </input>
     ) : (
-      ''
-    );
+        ''
+      );
 
     return (
       <Host name={this.name}>

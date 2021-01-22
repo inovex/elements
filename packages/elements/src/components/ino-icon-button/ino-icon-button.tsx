@@ -26,12 +26,12 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() disabled?: boolean;
 
-    /**
-   * Marks the icon button as activated.
-   * 
-   * Useful in cases where an external state controls the icon button activation. 
-   * Makes the component **managed**.
-   */
+  /**
+ * Marks the icon button as activated.
+ *
+ * Useful in cases where an external state controls the icon button activation.
+ * Makes the component **managed**.
+ */
   @Prop() inoActivated?: boolean;
   @Watch('inoActivated')
   inoActivatedChanged(activated: boolean) {
@@ -47,7 +47,7 @@ export class IconButton implements ComponentInterface {
   @Prop() inoColorScheme?: ColorScheme = 'primary';
 
   /**
-   * Styles this element as filled icon button 
+   * Styles this element as filled icon button
    * with the `ino-color-scheme` as background color.
    */
   @Prop() inoFilled?: boolean;
@@ -81,7 +81,7 @@ export class IconButton implements ComponentInterface {
     this.maybeCreateRipple();
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.maybeDestroyRipple();
   }
 

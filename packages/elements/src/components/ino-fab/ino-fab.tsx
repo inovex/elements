@@ -95,8 +95,8 @@ export class Fab implements ComponentInterface {
     this.el.appendChild(tooltip);
   }
 
-  componentWillUnload() {
-    this.fabRipple.destroy();
+  disconnectedCallback() {
+    this.fabRipple?.destroy();
   }
 
   /**
@@ -127,8 +127,8 @@ export class Fab implements ComponentInterface {
             {this.inoIcon ? (
               <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
             ) : (
-              <slot></slot>
-            )}
+                <slot></slot>
+              )}
           </span>
           {this.inoExtended && (
             <span class="mdc-fab__label">{this.inoLabel}</span>

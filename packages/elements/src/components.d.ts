@@ -433,7 +433,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation.  Makes the component **managed**.
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "inoActivated"?: boolean;
         /**
@@ -441,7 +441,7 @@ export namespace Components {
          */
         "inoColorScheme"?: ColorScheme;
         /**
-          * Styles this element as filled icon button  with the `ino-color-scheme` as background color.
+          * Styles this element as filled icon button with the `ino-color-scheme` as background color.
          */
         "inoFilled"?: boolean;
         /**
@@ -1980,7 +1980,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation.  Makes the component **managed**.
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
          */
         "inoActivated"?: boolean;
         /**
@@ -1988,7 +1988,7 @@ declare namespace LocalJSX {
          */
         "inoColorScheme"?: ColorScheme;
         /**
-          * Styles this element as filled icon button  with the `ino-color-scheme` as background color.
+          * Styles this element as filled icon button with the `ino-color-scheme` as background color.
          */
         "inoFilled"?: boolean;
         /**
