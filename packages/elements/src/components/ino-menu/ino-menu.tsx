@@ -17,7 +17,7 @@ export class Menu implements ComponentInterface {
   private menu!: MDCMenu;
 
   /**
-   * Emits on any click.
+   * Emits on outside menu click and escape press.
    */
   @Event() menuClose: EventEmitter<void>;
 
@@ -45,6 +45,13 @@ export class Menu implements ComponentInterface {
   onClose(ev: Event) {
     ev.stopPropagation();
     this.menuClose.emit();
+  }
+
+  @Listen('keydown')
+  onKeydown({ key }: KeyboardEvent) {
+    if(key === 'Escape') {
+      this.menuClose.emit();
+    }
   }
 
   componentDidLoad() {

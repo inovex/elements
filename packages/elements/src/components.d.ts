@@ -2326,7 +2326,7 @@ declare namespace LocalJSX {
          */
         "inoOpen"?: boolean;
         /**
-          * Emits on any click.
+          * Emits on outside menu click and escape press.
          */
         "onMenuClose"?: (event: CustomEvent<void>) => void;
     }

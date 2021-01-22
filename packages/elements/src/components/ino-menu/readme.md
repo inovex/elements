@@ -102,9 +102,9 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 ## Events
 
-| Event       | Description         | Type                |
-| ----------- | ------------------- | ------------------- |
-| `menuClose` | Emits on any click. | `CustomEvent<void>` |
+| Event       | Description                                   | Type                |
+| ----------- | --------------------------------------------- | ------------------- |
+| `menuClose` | Emits on outside menu click and escape press. | `CustomEvent<void>` |
 
 
 ## Dependencies

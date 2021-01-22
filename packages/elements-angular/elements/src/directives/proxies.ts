@@ -532,7 +532,7 @@ export declare interface InoMenu extends Components.InoMenu {}
   outputs: ['menuClose']
 })
 export class InoMenu {
-  /** Emits on any click. */
+  /** Emits on outside menu click and escape press. */
   menuClose!: IMenu['menuClose'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
