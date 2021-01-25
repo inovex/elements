@@ -299,5 +299,31 @@ describe('InoDatepicker', () => {
 
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
     });
+
+    it('should be invalid if incorrectly formatted value is provided in month-picker', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-type', 'month');
+      inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
+      inoDatepickerEl.setAttribute('value','12.20');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
+    });
+
+    it('should be valid if correctly formatted value is provided in month-picker', async () => {
+      const page = await setupPageWithContent(INO_DATEPICKER);
+      const inoDatepickerEl = await page.find(DATEPICKER);
+      const flatpickrInputEl = await page.find('.flatpickr-input');
+
+      inoDatepickerEl.setAttribute('ino-type', 'month');
+      inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
+      inoDatepickerEl.setAttribute('value','12.2000');
+      await page.waitForChanges();
+
+      expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
+    });
   });
 });
