@@ -197,6 +197,11 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() inoType?: 'date' | 'month' | 'time' | 'datetime' = 'date';
 
+  @Watch('inoType')
+  inoTypeChanged() {
+    if (!this.disabled) this.create();
+  }
+
   isDatePicker = () => this.inoType === 'date';
   isMonthPicker = () => this.inoType === 'month';
   isTimePicker = () => this.inoType === 'time';
@@ -241,35 +246,6 @@ export class Datepicker implements ComponentInterface {
     }
 
     this.flatpickr.toggle();
-  }
-
-  monthChangePrevHandler = () => this.monthChangeHandler(-1);
-  monthChangeNextHandler = () => this.monthChangeHandler(1);
-
-  /**
-   * Handles the functionality of the arrows inside the flatpickers, in case of a month picker.
-   * Usually these are used for changing months but in the month picker they change the year,
-   * so a custom functionality is necessary.
-   * When pressing an arrow a new date with the corresponding year is returned as event
-   * The yearOffset indicates weather the year is decremented (-1) or incremented(1).
-   */
-  monthChangeHandler(yearOffset: -1 | 1) {
-    // No date selected yet
-    if (!this.value || this.flatpickr.selectedDates.length !== 1) {
-      return;
-    }
-
-    const currentDate = this.flatpickr.parseDate(this.value);
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const day = currentDate.getDate();
-    const newYear = year + yearOffset;
-    const newDate = new Date(newYear, month, day);
-    const formattedDate = this.flatpickr.formatDate(
-      newDate,
-      this.flatpickr.config.dateFormat
-    );
-    this.valueChange.emit(formattedDate);
   }
 
   @Listen('clickEl')
@@ -351,17 +327,6 @@ export class Datepicker implements ComponentInterface {
     this.flatpickr = flatpickr(target, options);
     this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale['weekdays']['shorthand'];
     this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale['months']['longhand'];
-
-    if (this.isMonthPicker()) {
-      this.flatpickr.prevMonthNav.addEventListener(
-        'click',
-        this.monthChangePrevHandler
-      );
-      this.flatpickr.nextMonthNav.addEventListener(
-        'click',
-        this.monthChangeNextHandler
-      );
-    }
   }
 
   createMonthPickerOptions = () => ({
@@ -370,18 +335,6 @@ export class Datepicker implements ComponentInterface {
         dateFormat: this.inoDateFormat === 'd-m-Y' ? 'm.Y' : this.inoDateFormat,
       }),
     ],
-    // Handler when changing the year with the input field inside the flatpickr
-    onYearChange: () => {
-      const newDate = new Date(
-        this.flatpickr.currentYear,
-        this.flatpickr.currentMonth
-      );
-      const formattedDate = this.flatpickr.formatDate(
-        newDate,
-        this.flatpickr.config.dateFormat
-      );
-      this.valueChange.emit(formattedDate);
-    },
   });
 
   createTimePickerOptions = () => ({
@@ -470,17 +423,6 @@ export class Datepicker implements ComponentInterface {
   private dispose() {
     if (this.flatpickr) {
       this.flatpickr.destroy();
-
-      if (this.isMonthPicker()) {
-        this.flatpickr.prevMonthNav.removeEventListener(
-          'click',
-          this.monthChangePrevHandler
-        );
-        this.flatpickr.nextMonthNav.removeEventListener(
-          'click',
-          this.monthChangeNextHandler
-        );
-      }
     }
   }
 
