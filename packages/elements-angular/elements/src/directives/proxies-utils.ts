@@ -22,7 +22,7 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
     Prototype[methodName] = function () {
       const args = arguments;
       return this.z.runOutsideAngular(() =>
-        this.el[methodName].apply(this.el, args),
+        this.el[methodName].apply(this.el, args)
       );
     };
   });

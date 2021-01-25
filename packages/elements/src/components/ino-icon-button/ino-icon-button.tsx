@@ -98,7 +98,7 @@ export class IconButton implements ComponentInterface {
   private maybeCreateRipple() {
     if (!this.inoActivated) {
       this.mdcInstance = new MDCRipple(
-        this.el.querySelector('.mdc-icon-button'),
+        this.el.querySelector('.mdc-icon-button')
       );
       this.mdcInstance.unbounded = true;
     }

@@ -31,7 +31,7 @@ export class FsValueAccessorDirective extends ValueAccessorDirective {
       // any attempt to push a non-FileList instance into the input.
       if (console && console.warn && console.log) {
         console.warn(
-          'Ignoring attempt to assign non-FileList to input[type=file].',
+          'Ignoring attempt to assign non-FileList to input[type=file].'
         );
         console.log('Value:', value);
       }

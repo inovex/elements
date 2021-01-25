@@ -4,11 +4,11 @@ var ROOT_DIR = path.join(__dirname, '../');
 var DST_DIR = path.join(ROOT_DIR, 'dist');
 var DST_ESM = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.js',
+  'inovex-elements/icon-assets/SVG/index.esm.js'
 );
 var DST_ESM_D_TS = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.d.ts',
+  'inovex-elements/icon-assets/SVG/index.esm.d.ts'
 );
 var DST_JS = path.join(DST_DIR, 'inovex-elements/icon-assets/SVG/index.js');
 var SRC_DIR = path.join(ROOT_DIR, 'src');

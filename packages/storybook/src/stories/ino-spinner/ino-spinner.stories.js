@@ -28,12 +28,12 @@ export const DefaultUsage = () => /*html*/ `
                 'light',
                 'dark',
               ],
-              'primary',
+              'primary'
             )}"
             ino-type="${select(
               'ino-type',
               ['tile', 'bounce', 'circle'],
-              'tile',
+              'tile'
             )}"
             ino-height="${number('ino-height', 40)}"
             ino-width="${number('ino-width', 40)}"

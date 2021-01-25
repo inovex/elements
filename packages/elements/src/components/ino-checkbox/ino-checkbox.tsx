@@ -76,10 +76,10 @@ export class Checkbox implements ComponentInterface {
 
   componentDidLoad() {
     this.checkboxInstance = new MDCCheckbox(
-      this.el.shadowRoot.querySelector('.mdc-checkbox'),
+      this.el.shadowRoot.querySelector('.mdc-checkbox')
     );
     this.formField = new MDCFormField(
-      this.el.shadowRoot.querySelector('.mdc-form-field'),
+      this.el.shadowRoot.querySelector('.mdc-form-field')
     );
     this.formField.input = this.checkboxInstance;
 

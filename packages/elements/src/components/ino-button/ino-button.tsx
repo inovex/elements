@@ -111,7 +111,7 @@ export class Button implements ComponentInterface {
   componentDidUpdate() {
     if (this.inoLoading && this.buttonSizeBeforeLoad) {
       const mdcLabel = this.el.shadowRoot.querySelector(
-        '.mdc-button__label',
+        '.mdc-button__label'
       ) as HTMLDivElement;
       mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
     }
@@ -119,7 +119,7 @@ export class Button implements ComponentInterface {
 
   componentDidLoad() {
     this.button = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-button'),
+      this.el.shadowRoot.querySelector('.mdc-button')
     );
   }
 

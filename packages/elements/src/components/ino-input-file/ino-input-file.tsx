@@ -83,14 +83,14 @@ export class InputFile implements ComponentInterface {
 
   disconnectedCallback(): void {
     this.eventListeners.forEach((tuple) =>
-      this.removeEventListeners(this.el, tuple[0], tuple[1]),
+      this.removeEventListeners(this.el, tuple[0], tuple[1])
     );
   }
 
   private addEventListeners(
     el: HTMLElement,
     events: string,
-    fn: EventListener | EventListenerObject,
+    fn: EventListener | EventListenerObject
   ): void {
     this.eventListeners.push([events, fn]);
     events.split(' ').forEach((e) => {
@@ -118,13 +118,13 @@ export class InputFile implements ComponentInterface {
         (e) => {
           e.preventDefault();
           e.stopPropagation();
-        },
+        }
       );
       this.addEventListeners(this.el, 'dragover dragenter', () => {
         box.classList.add('ino-input-file__dnd-dragover');
       });
       this.addEventListeners(this.el, 'dragend dragleave drop', () =>
-        box.classList.remove('ino-input-file__dnd-dragover'),
+        box.classList.remove('ino-input-file__dnd-dragover')
       );
       this.el.addEventListener('drop', (e: DragEvent) => {
         if (this.disabled) {
@@ -149,14 +149,14 @@ export class InputFile implements ComponentInterface {
   private removeEventListeners(
     el: HTMLElement,
     events: string,
-    fn: EventListener | EventListenerObject,
+    fn: EventListener | EventListenerObject
   ): void {
     events.split(' ').forEach((e) => el.removeEventListener(e, fn));
   }
 
   private selectFiles() {
     const input = this.el.querySelector(
-      '.ino-input-file__native-element',
+      '.ino-input-file__native-element'
     ) as HTMLElement;
     input.click();
   }

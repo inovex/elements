@@ -149,7 +149,7 @@ export class Input implements ComponentInterface {
       if (this.type !== 'number' && this.type !== 'email') {
         this.nativeInputEl.setSelectionRange(
           this.cursorPosition,
-          this.cursorPosition,
+          this.cursorPosition
         );
       }
     }
@@ -258,12 +258,12 @@ export class Input implements ComponentInterface {
     }
     if (this.inoHelper) {
       this.helperText = new MDCTextFieldHelperText(
-        document.querySelector('.mdc-text-field-helper-text'),
+        document.querySelector('.mdc-text-field-helper-text')
       );
     }
     if (this.inoIconLeading || this.inoIconTrailing) {
       this.icon = new MDCTextFieldIcon(
-        this.el.querySelector('.mdc-text-field__icon'),
+        this.el.querySelector('.mdc-text-field__icon')
       );
     }
 
@@ -390,13 +390,13 @@ export class Input implements ComponentInterface {
     // Compute the new cursor position after . was added
     if (this.inoThousandsSeparator) {
       const numberOfAddedCharacters: number = Math.abs(
-        val.length - formattedValue.length,
+        val.length - formattedValue.length
       );
 
       if (numberOfAddedCharacters !== 0) {
         this.nativeInputEl.setSelectionRange(
           this.cursorPosition + numberOfAddedCharacters,
-          this.cursorPosition + numberOfAddedCharacters,
+          this.cursorPosition + numberOfAddedCharacters
         );
       }
     }
@@ -415,7 +415,7 @@ export class Input implements ComponentInterface {
   render() {
     const hasHelperText = Boolean(this.inoHelper);
     const hasCharacterCounter = Boolean(
-      this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength),
+      this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength)
     );
 
     const classTextfield = classNames({

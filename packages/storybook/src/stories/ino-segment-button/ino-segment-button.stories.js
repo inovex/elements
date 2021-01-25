@@ -15,32 +15,32 @@ export const DefaultUsage = () => /* html */ `
               --ino-segment-button-color: ${text(
                 '--ino-segment-button-color',
                 '#c1c1c1',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-segment-button-checked-color: ${text(
                 '--ino-segment-button-checked-color',
                 '#0d10f3',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-segment-button-hover-color: ${text(
                 '--ino-segment-button-hover-color',
                 '#5d60f7',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-segment-button-disabled-color: ${text(
                 '--ino-segment-button-disabled-color',
                 '#777777',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-segment-button-hover-shadow: ${text(
                 '--ino-segment-button-hover-shadow',
                 '0 4px 8px 0 rgba(61, 64, 245, 0.3), 0 12px 28px 0 rgba(61, 214, 245, 0.14)',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-segment-button-checked-shadow: ${text(
                 '--ino-segment-button-checked-shadow',
                 '0 8px 16px 0 rgba(61, 64, 245, 0.3),0 16px 32px 0 rgba(61, 214, 245, 0.14)',
-                'Custom Properties',
+                'Custom Properties'
               )};
           }
         </style>

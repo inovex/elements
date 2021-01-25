@@ -20,7 +20,7 @@ interface IonicReactInternalProps<ElementType> {
 }
 
 export const createReactComponent = <PropType, ElementType>(
-  tagName: string,
+  tagName: string
 ) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<
@@ -74,6 +74,6 @@ export const createReactComponent = <PropType, ElementType>(
   };
   return createForwardRef<PropType & ReactProps, ElementType>(
     ReactComponent,
-    displayName,
+    displayName
   );
 };

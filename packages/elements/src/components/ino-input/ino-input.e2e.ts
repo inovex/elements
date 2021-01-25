@@ -13,15 +13,15 @@ describe('InoInput', () => {
 
       const pageWithDefaultInput = await setupPageWithContent(INO_INPUT);
       const focusedElementWithoutAutofocus = await pageWithDefaultInput.evaluate(
-        () => document.activeElement,
+        () => document.activeElement
       );
       expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
 
       const pageWithFocusedInput = await setupPageWithContent(
-        `<ino-input auto-focus></ino-input>`,
+        `<ino-input auto-focus></ino-input>`
       );
       const focusedElement = await pageWithFocusedInput.evaluate(
-        () => document.activeElement,
+        () => document.activeElement
       );
       expect(focusedElement).not.toEqual(emptyElement);
     });
@@ -123,7 +123,7 @@ describe('InoInput', () => {
 
     it('should be marked as invalid when provided with ino-error', async () => {
       const page = await setupPageWithContent(
-        `<ino-input ino-error></ino-input>`,
+        `<ino-input ino-error></ino-input>`
       );
       const inputContainer = await page.find('ino-input > div');
       expect(inputContainer).toHaveClass('mdc-text-field--invalid');
@@ -132,7 +132,7 @@ describe('InoInput', () => {
     describe('Pattern', () => {
       it('should be marked as invalid when pattern matches correctly but ino-error is provided', async () => {
         const page = await setupPageWithContent(
-          `<ino-input ino-error pattern="a" value="a"></ino-input>`,
+          `<ino-input ino-error pattern="a" value="a"></ino-input>`
         );
         const inputContainer = await page.find('ino-input > div');
         expect(inputContainer).toHaveClass('mdc-text-field--invalid');
@@ -140,7 +140,7 @@ describe('InoInput', () => {
 
       it('should not be invalid on disabled inputs', async () => {
         const page = await setupPageWithContent(
-          `<ino-input pattern="a" disabled></markant-input>`,
+          `<ino-input pattern="a" disabled></markant-input>`
         );
         await page.evaluate(async () => {
           const nativeInputElement = await document
@@ -157,7 +157,7 @@ describe('InoInput', () => {
     describe('Required', () => {
       it('should not be invalid on required', async () => {
         const page = await setupPageWithContent(
-          `<ino-input required></ino-input>`,
+          `<ino-input required></ino-input>`
         );
         await page.evaluate(async () => {
           const nativeInputElement = await document
@@ -170,7 +170,7 @@ describe('InoInput', () => {
       });
       it('should not be invalid on required disabled inputs', async () => {
         const page = await setupPageWithContent(
-          `<ino-input required disabled></ino-input>`,
+          `<ino-input required disabled></ino-input>`
         );
         await page.evaluate(async () => {
           const nativeInputElement = await document
@@ -292,7 +292,7 @@ describe('InoInput', () => {
       expect(activeElement).toEqual(emptyElement);
 
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
 
       const activeElementProps = await page.evaluate(() => ({
@@ -302,7 +302,7 @@ describe('InoInput', () => {
 
       expect(activeElementProps.tagName).toEqual('INPUT');
       expect(activeElementProps.parentClassName).toContain(
-        'mdc-text-field--focused',
+        'mdc-text-field--focused'
       );
     });
 
@@ -312,7 +312,7 @@ describe('InoInput', () => {
       const page = await setupPageWithContent(INO_INPUT);
 
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -330,7 +330,7 @@ describe('InoInput', () => {
     it('should mark the email as valid if the domain consists of multiple dots separated by at least one character', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -347,7 +347,7 @@ describe('InoInput', () => {
     it('should mark the email as valid if the domain comprises of two single characters separated by a dot', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -364,7 +364,7 @@ describe('InoInput', () => {
     it('should mark the email as invalid if it ends with a dot', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -381,7 +381,7 @@ describe('InoInput', () => {
     it('should mark the email as invalid if it does not contain an @ symbol', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -398,7 +398,7 @@ describe('InoInput', () => {
     it('should mark the email as invalid if it contains multiple @ symbols', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -415,7 +415,7 @@ describe('InoInput', () => {
     it('should mark the email as invalid if the domain contains multiple dots that are not separated by a character', async () => {
       const page = await setupPageWithContent(INO_EMAIL_INPUT);
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
@@ -437,7 +437,7 @@ describe('InoInput', () => {
       await page.waitForChanges();
 
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus(),
+        async () => await document.querySelector('ino-input').focus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document

@@ -8,11 +8,11 @@ import fs from 'fs';
 import path from 'path';
 
 const runAngularOutputTargetFix = async (
-  outputTarget: IAngularOutputTarget,
+  outputTarget: IAngularOutputTarget
 ) => {
   const directivesUtilsPath = path.resolve(
     __dirname,
-    outputTarget.directivesUtilsFile,
+    outputTarget.directivesUtilsFile
   );
 
   let directivesUtilsString = await fs.promises.readFile(directivesUtilsPath, {
@@ -20,11 +20,11 @@ const runAngularOutputTargetFix = async (
   });
   directivesUtilsString = directivesUtilsString.replace(
     "import { fromEvent } from 'rxjs';",
-    "import { EventEmitter } from '@angular/core';",
+    "import { EventEmitter } from '@angular/core';"
   );
   directivesUtilsString = directivesUtilsString.replace(
     'instance[eventName] = fromEvent(el, eventName)',
-    'instance[eventName] = new EventEmitter()',
+    'instance[eventName] = new EventEmitter()'
   );
 
   await fs.promises.writeFile(directivesUtilsPath, directivesUtilsString);
@@ -35,25 +35,25 @@ interface IAngularOutputTarget {
 }
 
 export const angularOutputTargetFix = (
-  outputTarget: IAngularOutputTarget,
+  outputTarget: IAngularOutputTarget
 ): OutputTargetCustom => ({
   type: 'custom',
   name: 'angular-library-fix',
   generator: async (
     _config: Config,
     compilerCtx: CompilerCtx,
-    buildCtx: BuildCtx,
+    buildCtx: BuildCtx
   ) => {
     const timespan = buildCtx.createTimeSpan(
       'generate angular proxy utils fix started',
-      true,
+      true
     );
 
     await new Promise((resolve) => {
       compilerCtx.events.on('buildLog', (log) => {
         if (
           log.messages.findIndex((elm) =>
-            elm.includes('generate angular-library finished'),
+            elm.includes('generate angular-library finished')
           ) !== -1
         ) {
           resolve();
@@ -64,7 +64,7 @@ export const angularOutputTargetFix = (
     compilerCtx.events.on('buildLog', (log) => {
       if (
         log.messages.findIndex((elm) =>
-          elm.includes('build finished, watching for changes...'),
+          elm.includes('build finished, watching for changes...')
         ) !== -1
       ) {
         runAngularOutputTargetFix(outputTarget);

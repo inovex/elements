@@ -74,7 +74,7 @@ export const SidebarDifferentWidth = () => {
       ${header}
       <ino-sidebar style="--ino-sidebar-width:${number(
         '--ino-sidebar-width',
-        500,
+        500
       )}px;">
         ${sidebarContent}
       </ino-sidebar>

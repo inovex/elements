@@ -55,7 +55,7 @@ export const DefaultUsage = () => /*html*/ `
       'type',
       ['text', 'number', 'password', 'email'],
       'text',
-      'STANDARD',
+      'STANDARD'
     )}"
     step="${text('step', '5', 'STANDARD')}"
     maxlength="${number('maxlength', 100, ['maxlength'], 'STANDARD')}"
@@ -72,18 +72,18 @@ export const DefaultUsage = () => /*html*/ `
     ino-helper-persistent="${boolean(
       'ino-helper-persistent',
       false,
-      'HELPER TEXT',
+      'HELPER TEXT'
     )}"
     ino-helper-validation="${boolean(
       'ino-helper-validation',
       false,
-      'HELPER TEXT',
+      'HELPER TEXT'
     )}"
 
     ino-helper-character-counter="${boolean(
       'ino-helper-character-counter',
       false,
-      'HELPER TEXT',
+      'HELPER TEXT'
     )}"
   >
   </ino-input>

@@ -124,7 +124,7 @@ export class Textarea implements ComponentInterface {
       this.textfield.value = value;
       this.nativeTextareaElement.setSelectionRange(
         this.cursorPosition,
-        this.cursorPosition,
+        this.cursorPosition
       );
       this.updateAutogrow();
     }
@@ -139,7 +139,7 @@ export class Textarea implements ComponentInterface {
     // Remove as soon as the 'filled' style should be released as new default style
     if (this.inoOutline === undefined) {
       console.warn(
-        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`,
+        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`
       );
       this.inoOutline = true;
     }

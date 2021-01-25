@@ -106,7 +106,7 @@ export class Tooltip implements ComponentInterface {
     if (!this.target) {
       // tslint:disable-next-line:no-var-keyword
       throw new Error(
-        `Target with the ID '${this.inoFor}' could not be found in this document.`,
+        `Target with the ID '${this.inoFor}' could not be found in this document.`
       );
     }
 
@@ -125,7 +125,7 @@ export class Tooltip implements ComponentInterface {
     if (this.inoTrigger.includes('hover')) {
       this.target!.addEventListener(
         'mouseleave',
-        this.onLeaveTarget.bind(this),
+        this.onLeaveTarget.bind(this)
       );
     }
   }
@@ -138,11 +138,11 @@ export class Tooltip implements ComponentInterface {
       this.target!.removeEventListener(
         'blur',
         this.onLeaveTarget.bind(this),
-        true,
+        true
       );
       this.target!.removeEventListener(
         'mouseleave',
-        this.onLeaveTarget.bind(this),
+        this.onLeaveTarget.bind(this)
       );
     }
   }

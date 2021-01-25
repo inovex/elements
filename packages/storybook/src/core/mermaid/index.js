@@ -20,7 +20,7 @@ export function removeMermaidMarkdown(content) {
   const mermaidStartIndex = content.indexOf(mermaidStart);
   const mermaidEndIndex = content.indexOf(
     mermaidEnd,
-    mermaidStartIndex + mermaidStart.length,
+    mermaidStartIndex + mermaidStart.length
   );
 
   return (

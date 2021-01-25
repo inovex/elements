@@ -21,21 +21,21 @@ const questions = [
 
 function publishReact() {
   shell.exec(
-    'lerna exec --scope=@inovex.de/elements-react -- yalc publish --no-sig --push',
+    'lerna exec --scope=@inovex.de/elements-react -- yalc publish --no-sig --push'
   );
 }
 
 function publishAngular() {
   if (process.platform !== 'win32') {
     shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist',
+      'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist'
     );
   } else {
     shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc',
+      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc'
     );
     shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*',
+      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*'
     );
   }
 
@@ -56,17 +56,17 @@ async function main() {
   // link @inovex.de/elements dependency
   targets.forEach((target) => {
     shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yalc add @inovex.de/elements`,
+      `lerna exec --scope=@inovex.de/elements-${target} -- yalc add @inovex.de/elements`
     );
     shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yarn install`,
+      `lerna exec --scope=@inovex.de/elements-${target} -- yarn install`
     );
 
     // build packages (angular-builder for angular, else target)
     shell.exec(
       `lerna exec --scope=@inovex.de/elements-${
         target == 'angular' ? 'angular-builder' : target
-      } -- yarn build`,
+      } -- yarn build`
     );
   });
 
@@ -81,7 +81,7 @@ async function main() {
   // Clean up
   targets.forEach((target) => {
     shell.exec(
-      `lerna exec --scope=@inovex.de/elements-${target} -- yalc remove @inovex.de/elements`,
+      `lerna exec --scope=@inovex.de/elements-${target} -- yalc remove @inovex.de/elements`
     );
   });
 }

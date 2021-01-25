@@ -56,7 +56,7 @@ export class ChipSet implements ComponentInterface {
 
     if (this.listenerAttached) {
       this.el.removeEventListener('MDCChip:interaction', (_) =>
-        this.notifyChange(),
+        this.notifyChange()
       );
       this.listenerAttached = false;
     }
@@ -75,12 +75,12 @@ export class ChipSet implements ComponentInterface {
         chip.shouldRemoveOnTrailingIconClick = false;
         this.prepareChip(chip.id);
         return chip;
-      },
+      }
     );
 
     if (this.inoType === 'choice' || this.inoType === 'input') {
       this.el.addEventListener('MDCChip:interaction', (_) =>
-        this.notifyChange(),
+        this.notifyChange()
       );
       this.listenerAttached = true;
     }
@@ -93,10 +93,10 @@ export class ChipSet implements ComponentInterface {
       return;
     }
     const chipValues = selectedChipIds.map(
-      (chipId) => this.getInoChip(chipId).inoValue,
+      (chipId) => this.getInoChip(chipId).inoValue
     );
     this.updateChipSet.emit(
-      chipValues.length === 1 ? chipValues[0] : chipValues,
+      chipValues.length === 1 ? chipValues[0] : chipValues
     );
   }
 
@@ -116,7 +116,7 @@ export class ChipSet implements ComponentInterface {
     const classChipSet = classNames(
       'mdc-chip-set',
       { 'mdc-chip-set--choice': this.inoType === 'choice' },
-      { 'mdc-chip-set--filter': this.inoType === 'filter' },
+      { 'mdc-chip-set--filter': this.inoType === 'filter' }
     );
 
     return (

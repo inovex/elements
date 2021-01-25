@@ -28,17 +28,17 @@ describe('InoNavDrawer', () => {
     ]);
 
     const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
-      '.mdc-drawer-app-content',
+      '.mdc-drawer-app-content'
     );
     expect(elWithDrawerClass).not.toBeNull();
 
     const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
-      'mdc-drawer-scrim',
+      'mdc-drawer-scrim'
     );
     expect(elDrawerScrim).toBeNull();
 
     const elToggleDrawerBtn = inoNavDrawerEl.shadowRoot.querySelector(
-      '.mdc-drawer__toggle',
+      '.mdc-drawer__toggle'
     );
     expect(elToggleDrawerBtn).not.toBeNull();
   });
@@ -89,17 +89,17 @@ describe('InoNavDrawer', () => {
     expect(appEl).not.toBeNull();
 
     const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
-      '.mdc-drawer-app-content',
+      '.mdc-drawer-app-content'
     );
     expect(elWithDrawerClass).not.toBeNull();
 
     const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
-      'mdc-drawer-scrim',
+      'mdc-drawer-scrim'
     );
     expect(elDrawerScrim).toBeNull();
 
     const elToggleDrawerBtn = inoNavDrawerEl.shadowRoot.querySelector(
-      '.mdc-drawer__toggle',
+      '.mdc-drawer__toggle'
     );
     expect(elToggleDrawerBtn).not.toBeNull();
   });
@@ -109,7 +109,7 @@ describe('InoNavDrawer', () => {
     const openChange = await page.spyOnEvent('openChange');
 
     const elToggleDrawerBtn = await page.find(
-      'ino-nav-drawer >>> .mdc-drawer__toggle',
+      'ino-nav-drawer >>> .mdc-drawer__toggle'
     );
 
     elToggleDrawerBtn.click();
@@ -140,7 +140,7 @@ describe('InoNavDrawer', () => {
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -157,7 +157,7 @@ describe('InoNavDrawer', () => {
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -172,14 +172,14 @@ describe('InoNavDrawer', () => {
   describe('property ino-variant', () => {
     it('should render with docked', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-variant="docked"'),
+        createDrawer('ino-variant="docked"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -189,26 +189,26 @@ describe('InoNavDrawer', () => {
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-app-content',
+        '.mdc-drawer-app-content'
       );
       expect(elWithDrawerClass).not.toBeNull();
 
       const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-scrim',
+        '.mdc-drawer-scrim'
       );
       expect(elDrawerScrim).toBeNull();
     });
 
     it('should render with dismissible', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-variant="dismissible"'),
+        createDrawer('ino-variant="dismissible"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -217,26 +217,26 @@ describe('InoNavDrawer', () => {
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-app-content',
+        '.mdc-drawer-app-content'
       );
       expect(elWithDrawerClass).not.toBeNull();
 
       const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-scrim',
+        '.mdc-drawer-scrim'
       );
       expect(elDrawerScrim).toBeNull();
     });
 
     it('should render with modal', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-variant="modal"'),
+        createDrawer('ino-variant="modal"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -245,12 +245,12 @@ describe('InoNavDrawer', () => {
       ]);
 
       const elWithDrawerClass = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-app-content',
+        '.mdc-drawer-app-content'
       );
       expect(elWithDrawerClass).toBeNull();
 
       const elDrawerScrim = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer-scrim',
+        '.mdc-drawer-scrim'
       );
       expect(elDrawerScrim).not.toBeNull();
     });
@@ -259,14 +259,14 @@ describe('InoNavDrawer', () => {
   describe('property ino-anchor', () => {
     it('should render drawer on the left', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-anchor="left"'),
+        createDrawer('ino-anchor="left"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',
@@ -278,14 +278,14 @@ describe('InoNavDrawer', () => {
 
     it('should render drawer on the right', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-anchor="right"'),
+        createDrawer('ino-anchor="right"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
 
       const mdcDrawerEl = inoNavDrawerEl.shadowRoot.querySelector(
-        '.mdc-drawer',
+        '.mdc-drawer'
       );
       expect(mdcDrawerEl).toHaveClasses([
         'mdc-drawer',

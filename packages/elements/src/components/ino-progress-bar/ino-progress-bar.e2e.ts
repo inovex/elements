@@ -13,7 +13,7 @@ describe('ino-progress-bar', () => {
       await page.waitForChanges();
 
       const mdcClass = await pb.shadowRoot.querySelector(
-        '.mdc-linear-progress--reversed',
+        '.mdc-linear-progress--reversed'
       );
       expect(mdcClass).toBeDefined();
     });
@@ -26,7 +26,7 @@ describe('ino-progress-bar', () => {
       await page.waitForChanges();
 
       const mdcClass = await pb.shadowRoot.querySelector(
-        '.mdc-linear-progress--indeterminate',
+        '.mdc-linear-progress--indeterminate'
       );
       expect(mdcClass).toBeDefined();
     });

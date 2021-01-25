@@ -5,11 +5,11 @@ const ROOT_DIR = path.join(__dirname, '../');
 const DST_DIR = path.join(ROOT_DIR, 'dist');
 const DST_ESM = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.js',
+  'inovex-elements/icon-assets/SVG/index.esm.js'
 );
 const DST_ESM_D_TS = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.d.ts',
+  'inovex-elements/icon-assets/SVG/index.esm.d.ts'
 );
 const DST_JS = path.join(DST_DIR, 'inovex-elements/icon-assets/SVG/index.js');
 const SRC_DIR = path.join(ROOT_DIR, 'src');
@@ -51,14 +51,14 @@ const finalFile = `
 ${iconData
   .map(
     ({ filename, importName }: { filename: string; importName: string }) =>
-      `import ${importName} from '${BASE_PATH}/${filename}';`,
+      `import ${importName} from '${BASE_PATH}/${filename}';`
   )
   .join('\n')}
 export var ICON_PATHS = {
 ${iconData
   .map(
     ({ name, importName }: { name: string; importName: string }) =>
-      `  '${name}': ${importName}`,
+      `  '${name}': ${importName}`
   )
   .join(',\n')}
 };
@@ -79,7 +79,7 @@ export declare const ICON_PATHS: IconMap;
 ${iconData
   .map(
     ({ importName }: { importName: string }) =>
-      `export declare const ${importName}: string;`,
+      `export declare const ${importName}: string;`
   )
   .join('\n')}
 `;

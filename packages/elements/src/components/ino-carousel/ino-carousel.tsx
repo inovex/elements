@@ -89,7 +89,7 @@ export class InoCarousel implements ComponentInterface {
     if (this.slides.length < 1) return;
     if (!this.selectSlide(this.value))
       this.slides[this.currentSlide].classList.add(
-        'ino-carousel-slide--selected',
+        'ino-carousel-slide--selected'
       );
   };
 
@@ -124,13 +124,13 @@ export class InoCarousel implements ComponentInterface {
     if (this.slides.length < 1)
       throw new Error('There are no slides to display');
     this.slides[this.currentSlide].classList.remove(
-      'ino-carousel-slide--selected',
+      'ino-carousel-slide--selected'
     );
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to current slide
     this.currentSlide = this.getNextSlide();
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
     this.slides[this.currentSlide].classList.add(
-      'ino-carousel-slide--selected',
+      'ino-carousel-slide--selected'
     );
     this.slideCounter++;
 
@@ -143,7 +143,7 @@ export class InoCarousel implements ComponentInterface {
 
   private getSlides() {
     return Array.from(
-      this.el.querySelectorAll('ino-carousel-slide'),
+      this.el.querySelectorAll('ino-carousel-slide')
     ) as HTMLInoCarouselSlideElement[];
   }
 

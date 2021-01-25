@@ -52,17 +52,17 @@ export const DefaultUsage = () => /*html*/ `
         --textarea-outline-color: ${text(
           '--textarea-outline-color',
           '#3d40f5',
-          'Custom Properties',
+          'Custom Properties'
         )};
         --textarea-caret-color: ${text(
           '--textarea-caret-color',
           '#3d40f5',
-          'Custom Properties',
+          'Custom Properties'
         )};
         --textarea-label-color: ${text(
           '--textarea-label-color',
           '#3d40f5',
-          'Custom Properties',
+          'Custom Properties'
         )};
       }
   </style>

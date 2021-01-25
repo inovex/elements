@@ -14,7 +14,7 @@ function subscribeToComponentEvents() {
 
     const templates = Array.from(document.getElementsByTagName('template'));
     const templateWithId = templates.find(
-      (template) => template.id === target.id,
+      (template) => template.id === target.id
     );
 
     document.body.appendChild(templateWithId.content.cloneNode(true));
@@ -53,12 +53,12 @@ export const DefaultUsage = () => /*html*/ `
               --ino-snackbar-warning-border-color: ${text(
                 '--ino-snackbar-warning-border-color',
                 '#ffde03',
-                'Custom Properties',
+                'Custom Properties'
               )};
               --ino-snackbar-error-border-color: ${text(
                 '--ino-snackbar-error-border-color',
                 '#eb003b',
-                'Custom Properties',
+                'Custom Properties'
               )};
             }
           </style>
@@ -73,12 +73,12 @@ export const DefaultUsage = () => /*html*/ `
                 ino-type="${select(
                   'ino-type',
                   ['primary', 'error', 'warning'],
-                  'primary',
+                  'primary'
                 )}"
                 ino-alignment="${select(
                   'ino-alignment',
                   ['center', 'leading', 'trailing'],
-                  'center',
+                  'center'
                 )}" />
           </template>
 

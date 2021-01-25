@@ -16,19 +16,19 @@ export const DefaultUsage = () => /*html*/ `
             --ino-header-color: ${text(
               '--ino-header-color',
               '#525368',
-              'Custom Properties',
+              'Custom Properties'
             )};
             --ino-header-box-color: ${text(
               '--ino-header-box-color',
               'rgba(0, 0, 0, 0.05)',
-              'Custom Properties',
+              'Custom Properties'
             )};
         }
     </style>
     <div class="story-header">
       <ino-header class="customizable-header" ino-title="${text(
         'ino-title',
-        'TEAM',
+        'TEAM'
       )}"></ino-header>
     </div>
   `;

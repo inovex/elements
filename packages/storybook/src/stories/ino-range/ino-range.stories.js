@@ -38,7 +38,7 @@ export const DefaultUsage = () => /*html*/ `
                 'light',
                 'dark',
               ],
-              'primary',
+              'primary'
             )}">
           </ino-range>
         </div>

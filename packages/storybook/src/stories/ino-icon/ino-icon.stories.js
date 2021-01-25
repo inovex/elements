@@ -73,12 +73,12 @@ function copyToClipboard(text) {
     document.execCommand('copy');
     snackbar.setAttribute(
       'ino-message',
-      `Successfully copied "${text}" to your clipboard!`,
+      `Successfully copied "${text}" to your clipboard!`
     );
   } catch (err) {
     snackbar.setAttribute(
       'ino-message',
-      `An error occurred while copying the id to your clipboard!`,
+      `An error occurred while copying the id to your clipboard!`
     );
   } finally {
     document.body.appendChild(snackbar);
@@ -86,7 +86,7 @@ function copyToClipboard(text) {
 }
 
 const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
-  (name) => name.length >= 1,
+  (name) => name.length >= 1
 );
 
 const iconChips = ICON_IDS.map(
@@ -102,7 +102,7 @@ const iconChips = ICON_IDS.map(
                </ino-chip>
                <ino-tooltip ino-for="icon-${name}" ino-label="Click to copy ${name} to your clipboard" ino-placement="top" ino-trigger="hover focus" />
                </div>
-            `,
+            `
 )
   .join()
   .replace(/,/g, ''); // Remove commas

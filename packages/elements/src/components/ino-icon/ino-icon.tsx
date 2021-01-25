@@ -86,7 +86,7 @@ export class Icon implements ComponentInterface {
       } else {
         // async if it hasn't been loaded
         getSvgContent(url).then(
-          () => (this.svgContent = inoiconContent.get(url)),
+          () => (this.svgContent = inoiconContent.get(url))
         );
       }
     }

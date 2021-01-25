@@ -82,7 +82,7 @@ export class Range implements ComponentInterface {
     this.sliderInstance = new MDCSlider(sliderElement);
     this.sliderInstance.listen(
       'MDCSlider:change',
-      this.handleChange.bind(this),
+      this.handleChange.bind(this)
     );
     this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
   }
@@ -90,11 +90,11 @@ export class Range implements ComponentInterface {
   disconnectedCallback() {
     this.sliderInstance?.unlisten(
       'MDCSlider:change',
-      this.handleChange.bind(this),
+      this.handleChange.bind(this)
     );
     this.sliderInstance?.unlisten(
       'MDCSlider:input',
-      this.handleInput.bind(this),
+      this.handleInput.bind(this)
     );
     this.sliderInstance?.destroy();
   }

@@ -52,12 +52,12 @@ export const DefaultUsage = () => /*html*/ `
       --ino-input-file-box-height: ${text(
         '--ino-input-file-box-height',
         '300px',
-        'Custom Properties',
+        'Custom Properties'
       )};
       --ino-input-file-box-width: ${text(
         '--ino-input-file-box-width',
         '100%',
-        'Custom Properties',
+        'Custom Properties'
       )};
     }
   </style>
@@ -74,11 +74,11 @@ export const DefaultUsage = () => /*html*/ `
     ino-drag-and-drop="${boolean('ino-drag-and-drop', false)}"
     ino-drag-and-drop-text="${text(
       'ino-drag-and-drop-text',
-      'Drag your files here',
+      'Drag your files here'
     )}"
     ino-drag-and-drop-secondary-text="${text(
       'ino-drag-and-drop-secondary-text',
-      'or',
+      'or'
     )}"
     >
   </ino-input-file>

@@ -55,7 +55,7 @@ export const DefaultUsage = () => /*html*/ `
           'ino-type',
           ['datetime', 'month', 'date', 'time'],
           'datetime',
-          'STANDARD',
+          'STANDARD'
         )}"
         ino-label="${text('ino-label', 'Label', 'STANDARD')}"
         ino-outline="${boolean('ino-outline', false, 'STANDARD')}"
@@ -66,30 +66,30 @@ export const DefaultUsage = () => /*html*/ `
         ino-show-label-hint="${boolean(
           'ino-show-label-hint',
           false,
-          'STANDARD',
+          'STANDARD'
         )}"
         ino-date-format="${text('ino-date-format', 'Y-m-d', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text(
           'ino-default-date',
           defaultDate,
-          'DATE CONFIG',
+          'DATE CONFIG'
         )}"
         ino-twelve-hour-time="${boolean(
           'ino-twelve-hour-time',
           false,
-          'DATE CONFIG',
+          'DATE CONFIG'
         )}"
         ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
         ino-helper-persistent="${boolean(
           'ino-helper-persistent',
           false,
-          'HELPER TEXT',
+          'HELPER TEXT'
         )}"
         ino-helper-validation="${boolean(
           'ino-helper-validation',
           false,
-          'HELPER TEXT',
+          'HELPER TEXT'
         )}"
        >
       </ino-datepicker>

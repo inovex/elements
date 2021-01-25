@@ -70,7 +70,7 @@ export const InoChip = () => /*html*/ `
           'light',
           'dark',
         ],
-        '',
+        ''
       )}"
       ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
       ino-removable="${boolean('ino-removable', true)}"

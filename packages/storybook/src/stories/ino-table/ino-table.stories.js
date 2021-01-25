@@ -26,7 +26,7 @@ function subscribeToComponentEvents() {
   const setAllBoxes = () => {
     const mainBox = document.getElementById('headerBox');
     const boxes = Array.from(
-      document.querySelectorAll('ino-checkbox:not(#headerBox)'),
+      document.querySelectorAll('ino-checkbox:not(#headerBox)')
     );
     boxes.forEach((i) => {
       i.checked = mainBox.checked;
@@ -37,7 +37,7 @@ function subscribeToComponentEvents() {
   const setHeaderBox = () => {
     const mainBox = document.getElementById('headerBox');
     const boxes = Array.from(
-      document.querySelectorAll('ino-checkbox:not(#headerBox)'),
+      document.querySelectorAll('ino-checkbox:not(#headerBox)')
     );
     if (boxes.every((i) => i.checked)) {
       mainBox.checked = true;

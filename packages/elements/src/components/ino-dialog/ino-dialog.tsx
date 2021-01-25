@@ -41,7 +41,7 @@ export class Dialog implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcDialog = new MDCDialog(
-      this.el.shadowRoot.querySelector('.mdc-dialog'),
+      this.el.shadowRoot.querySelector('.mdc-dialog')
     );
     this.el.addEventListener('MDCDialog:opened', (e) => {
       e.preventDefault();

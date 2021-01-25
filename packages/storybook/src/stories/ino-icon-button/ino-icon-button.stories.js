@@ -81,23 +81,23 @@ export const DefaultUsage = () => /*html*/ `
           --ino-icon-button-size: ${text('--ino-icon-button-size', '48px')};
           --ino-icon-button-icon-size: ${text(
             '--ino-icon-button-icon-size',
-            '24px',
+            '24px'
           )};
           --ino-icon-button-icon-color: ${text(
             '--ino-icon-button-color',
-            '#000000',
+            '#000000'
           )};
           --ino-icon-button-icon-active-color: ${text(
             '--ino-icon-button-active-color',
-            '#000000',
+            '#000000'
           )};
           --ino-icon-button-background-color: ${text(
             '--ino-icon-button-background-color',
-            'transparent',
+            'transparent'
           )};
           --ino-icon-button-background-active-color: ${text(
             '--ino-icon-button-background-active-color',
-            '#000000',
+            '#000000'
           )};
         }
       </style>
@@ -118,7 +118,7 @@ export const DefaultUsage = () => /*html*/ `
               'light',
               'dark',
             ],
-            '',
+            ''
           )}"
           ino-activated="${boolean('ino-activated', false)}"
           ino-filled="${boolean('ino-filled', false)}"

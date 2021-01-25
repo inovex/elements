@@ -50,7 +50,7 @@ export class Fab implements ComponentInterface {
       'ino-top-bottom-location-' + this.inoTopBottomLocation,
       'ino-left-right-location-' + this.inoLeftRightLocation,
       'ino-fab-set-wrapper',
-      'ino-direction-' + this.inoDialDirection,
+      'ino-direction-' + this.inoDialDirection
     );
 
     return (
