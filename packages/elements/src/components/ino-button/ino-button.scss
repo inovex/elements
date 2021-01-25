@@ -41,19 +41,58 @@ $color-states: (
   */
   --button-border-radius: #{$edged-border};
 
-  --button-color-primary: var(--ino-button-color-primary, var(--ino-global-primary-color, #{theme.color(primary)}));
-  --button-color-primary-light: var(--ino-button-color-primary-light, var(--ino-global-primary-color-light, #{theme.color(primary, light)}));
-  --button-color-primary-dark: var(--ino-button-color-primary-dark, var(--ino-global-primary-color-dark, #{theme.color(primary, dark)}));
-  --button-color-primary-contrast: var(--ino-button-color-primary-contrast, var(--ino-global-primary-color-contrast, #{theme.color(primary, contrast)}));
-  --button-color-primary-shadow-light: var(--ino-button-color-primary-shadow-light, var(--ino-global-primary-color-shadow-light, rgba(61, 214, 245, 0.14)));
-  --button-color-primary-shadow-dark: var(--ino-button-color-primary-shadow-dark, var(--ino-global-primary-color-shadow-dark, rgba(61, 64, 245, 0.3)));
+  --button-color-primary: var(
+    --ino-button-color-primary,
+    var(--ino-global-primary-color, #{theme.color(primary)})
+  );
+  --button-color-primary-light: var(
+    --ino-button-color-primary-light,
+    var(--ino-global-primary-color-light, #{theme.color(primary, light)})
+  );
+  --button-color-primary-dark: var(
+    --ino-button-color-primary-dark,
+    var(--ino-global-primary-color-dark, #{theme.color(primary, dark)})
+  );
+  --button-color-primary-contrast: var(
+    --ino-button-color-primary-contrast,
+    var(--ino-global-primary-color-contrast, #{theme.color(primary, contrast)})
+  );
+  --button-color-primary-shadow-light: var(
+    --ino-button-color-primary-shadow-light,
+    var(--ino-global-primary-color-shadow-light, rgba(61, 214, 245, 0.14))
+  );
+  --button-color-primary-shadow-dark: var(
+    --ino-button-color-primary-shadow-dark,
+    var(--ino-global-primary-color-shadow-dark, rgba(61, 64, 245, 0.3))
+  );
 
-  --button-color-secondary: var(--ino-button-color-secondary, var(--ino-global-secondary-color, #{theme.color(secondary)}));
-  --button-color-secondary-light: var(--ino-button-color-secondary-light, var(--ino-global-secondary-color-light, #{theme.color(secondary, light)}));
-  --button-color-secondary-dark: var(--ino-button-color-secondary-dark, var(--ino-global-secondary-color-dark, #{theme.color(secondary, dark)}));
-  --button-color-secondary-contrast: var(--ino-button-color-secondary-contrast, var(--ino-global-secondary-color-contrast, #{theme.color(secondary, contrast)}));
-  --button-color-secondary-shadow-light: var(--ino-button-color-secondary-shadow-light, var(--ino-global-secondary-color-shadow-light, rgba(156, 205, 0, 0.14)));
-  --button-color-secondary-shadow-dark: var(--ino-button-color-secondary-shadow-dark, var(--ino-global-secondary-color-shadow-dark, rgba(181, 230, 23, 0.30)));
+  --button-color-secondary: var(
+    --ino-button-color-secondary,
+    var(--ino-global-secondary-color, #{theme.color(secondary)})
+  );
+  --button-color-secondary-light: var(
+    --ino-button-color-secondary-light,
+    var(--ino-global-secondary-color-light, #{theme.color(secondary, light)})
+  );
+  --button-color-secondary-dark: var(
+    --ino-button-color-secondary-dark,
+    var(--ino-global-secondary-color-dark, #{theme.color(secondary, dark)})
+  );
+  --button-color-secondary-contrast: var(
+    --ino-button-color-secondary-contrast,
+    var(
+      --ino-global-secondary-color-contrast,
+      #{theme.color(secondary, contrast)}
+    )
+  );
+  --button-color-secondary-shadow-light: var(
+    --ino-button-color-secondary-shadow-light,
+    var(--ino-global-secondary-color-shadow-light, rgba(156, 205, 0, 0.14))
+  );
+  --button-color-secondary-shadow-dark: var(
+    --ino-button-color-secondary-shadow-dark,
+    var(--ino-global-secondary-color-shadow-dark, rgba(181, 230, 23, 0.3))
+  );
 }
 
 /* ------------------ FILL STYLES ------------------ */
@@ -155,7 +194,7 @@ $color-states: (
   --button-color-disabled: rgba(255, 255, 255, 0.3);
 }
 
-:host([ino-color-scheme="grey"][ino-fill="outline"]) {
+:host([ino-color-scheme='grey'][ino-fill='outline']) {
   --button-border-color: #{theme.color(dark, base)};
   --button-border-color-active: #{theme.color(dark, dark)};
   --button-border-color-hover: #{theme.color(dark, light)};
@@ -186,10 +225,10 @@ $color-states: (
     @include typography.font($size: s, $weight: semibold);
 
     @include animation.border-radius(
-        ino-button-round-to-edge,
-        $round-border,
-        var(--button-border-radius),
-        0.3s
+      ino-button-round-to-edge,
+      $round-border,
+      var(--button-border-radius),
+      0.3s
     );
 
     .mdc-button__label {
@@ -213,10 +252,10 @@ $color-states: (
       @include button.ink-color(var(--button-color-hover));
 
       @include animation.border-radius(
-          ino-button-edged-to-round,
-          var(--button-border-radius),
-          $round-border,
-          0.15s
+        ino-button-edged-to-round,
+        var(--button-border-radius),
+        $round-border,
+        0.15s
       );
       @include button.shape-radius($round-border);
     }

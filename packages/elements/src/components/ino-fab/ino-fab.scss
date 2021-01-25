@@ -25,12 +25,20 @@ $extended-edged-borders: (
 @mixin setEdgedBorders($position) {
   &:not(.mdc-fab--extended) {
     border-radius: map_get($edged-borders, $position);
-    @include animation.button-rounding(map_get($edged-borders, none), map_get($edged-borders, $position), fab-#{$position}-default);
+    @include animation.button-rounding(
+      map_get($edged-borders, none),
+      map_get($edged-borders, $position),
+      fab-#{$position}-default
+    );
   }
 
   &.mdc-fab--extended {
     border-radius: map_get($extended-edged-borders, $position);
-    @include animation.button-rounding(map_get($extended-edged-borders, none), map_get($extended-edged-borders, $position), fab-#{$position}-extended);
+    @include animation.button-rounding(
+      map_get($extended-edged-borders, none),
+      map_get($extended-edged-borders, $position),
+      fab-#{$position}-extended
+    );
   }
 }
 
@@ -46,13 +54,34 @@ $extended-edged-borders: (
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(--ino-fab-background-color, #{theme.color(primary)});
-  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{theme.color(primary, light)});
-  --fab-background-color-active: var(--ino-fab-background-color-active, #{theme.color(primary, dark)});
-  --fab-icon-color: var(--ino-fab-icon-color, #{theme.color(primary, contrast)});
-  --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.color(primary, contrast)});
-  --fab-background-color-disabled: var(--ino-background-color-disabled, #{theme.color(dark, light)});
-  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{theme.color(primary, contrast)});
+  --fab-background-color: var(
+    --ino-fab-background-color,
+    #{theme.color(primary)}
+  );
+  --fab-background-color-hover: var(
+    --ino-fab-background-color-hover,
+    #{theme.color(primary, light)}
+  );
+  --fab-background-color-active: var(
+    --ino-fab-background-color-active,
+    #{theme.color(primary, dark)}
+  );
+  --fab-icon-color: var(
+    --ino-fab-icon-color,
+    #{theme.color(primary, contrast)}
+  );
+  --fab-color-disabled: var(
+    --ino-fab-color-disabled,
+    #{theme.color(primary, contrast)}
+  );
+  --fab-background-color-disabled: var(
+    --ino-background-color-disabled,
+    #{theme.color(dark, light)}
+  );
+  --fab-icon-color-disabled: var(
+    --ino-fab-icon-color-disabled,
+    #{theme.color(primary, contrast)}
+  );
 }
 
 // Default Edge

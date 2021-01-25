@@ -25,12 +25,30 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
    * @prop --ino-radio-disabled-inner-circle-color: color of the inner circle if disabled
    * @prop --ino-radio-disabled-outer-circle-color: color of the outer circle if disabled
    */
-  --radio-unchecked-color: var(--ino-radio-unchecked-color, #{theme.color(light, dark)});
-  --radio-checked-color: var(--ino-radio-checked-color, #{theme.color(primary)});
-  --radio-hover-color: var(--ino-radio-hover-color, #{theme.color(primary, light)});
-  --radio-active-color: var(--ino-radio-active-color, #{theme.color(primary, dark)});
-  --radio-disabled-inner-circle-color: var(--ino-radio-disabled-inner-circle-color, #{theme.color(dark, light)});
-  --radio-disabled-outer-circle-color: var(--ino-radio-disabled-outer-circle-color, #{theme.color(light, light)})
+  --radio-unchecked-color: var(
+    --ino-radio-unchecked-color,
+    #{theme.color(light, dark)}
+  );
+  --radio-checked-color: var(
+    --ino-radio-checked-color,
+    #{theme.color(primary)}
+  );
+  --radio-hover-color: var(
+    --ino-radio-hover-color,
+    #{theme.color(primary, light)}
+  );
+  --radio-active-color: var(
+    --ino-radio-active-color,
+    #{theme.color(primary, dark)}
+  );
+  --radio-disabled-inner-circle-color: var(
+    --ino-radio-disabled-inner-circle-color,
+    #{theme.color(dark, light)}
+  );
+  --radio-disabled-outer-circle-color: var(
+    --ino-radio-disabled-outer-circle-color,
+    #{theme.color(light, light)}
+  );
 }
 
 :host {

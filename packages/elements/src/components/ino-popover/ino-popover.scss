@@ -4,21 +4,33 @@
 
 ino-popover {
   //default color scheme
-  @include tooltip-mixins.tooltip(theme.color(primary, light), theme.color(primary, contrast));
+  @include tooltip-mixins.tooltip(
+    theme.color(primary, light),
+    theme.color(primary, contrast)
+  );
 
-  &[ino-color-scheme="primary"] {
-    @include tooltip-mixins.tooltip(theme.color(primary, light), theme.color(primary, contrast));
+  &[ino-color-scheme='primary'] {
+    @include tooltip-mixins.tooltip(
+      theme.color(primary, light),
+      theme.color(primary, contrast)
+    );
   }
 
-  &[ino-color-scheme="secondary"] {
-    @include tooltip-mixins.tooltip(theme.color(secondary, light), theme.color(secondary, contrast));
+  &[ino-color-scheme='secondary'] {
+    @include tooltip-mixins.tooltip(
+      theme.color(secondary, light),
+      theme.color(secondary, contrast)
+    );
   }
 
-  &[ino-color-scheme="light"] {
-    @include tooltip-mixins.tooltip(theme.color(light), theme.color(light, contrast));
+  &[ino-color-scheme='light'] {
+    @include tooltip-mixins.tooltip(
+      theme.color(light),
+      theme.color(light, contrast)
+    );
   }
 
-  &[ino-color-scheme="transparent"] {
+  &[ino-color-scheme='transparent'] {
     @include tooltip-mixins.tooltip(#fff, theme.color(dark));
   }
 

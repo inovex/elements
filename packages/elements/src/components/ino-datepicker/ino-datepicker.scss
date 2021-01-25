@@ -26,7 +26,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
 
 .flatpickr-calendar {
   @include typography.font($size: xs);
-  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
 
@@ -64,14 +64,16 @@ $hover-color: lighten(theme.color(primary), 36.5%);
 
       &.selected {
         background: theme.color(primary);
-        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
+        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+          0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
         &:hover {
           background: theme.color(primary);
         }
       }
 
-      &.endRange, &.endRange:hover {
+      &.endRange,
+      &.endRange:hover {
         background-color: theme.color(primary);
       }
     }
@@ -105,7 +107,8 @@ $hover-color: lighten(theme.color(primary), 36.5%);
     margin: 15px 20px 0 20px;
 
     .flatpickr-month {
-      .cur-month, .numInput {
+      .cur-month,
+      .numInput {
         font-weight: typography.font-weight(regular);
       }
     }

@@ -18,7 +18,9 @@ ino-range {
 
     #{$selector} .mdc-slider {
       @include slider-mixins.track-active-color(theme.color($color-name, base));
-      @include slider-mixins.track-inactive-color(theme.color($color-name, light));
+      @include slider-mixins.track-inactive-color(
+        theme.color($color-name, light)
+      );
       @include slider-mixins.thumb-color(theme.color($color-name, base));
       @include slider-mixins.thumb-ripple-color(theme.color($color-name, base));
       @include slider-mixins.tick-mark-inactive-color(#000);

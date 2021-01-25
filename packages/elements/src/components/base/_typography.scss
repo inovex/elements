@@ -5,8 +5,8 @@
 // => Font Family
 
 $_font-families: (
-  sans-serif: unquote("Lato, Verdana, sans-serif"),
-  monospace: unquote("Courier, monospace")
+  sans-serif: unquote('Lato, Verdana, sans-serif'),
+  monospace: unquote('Courier, monospace'),
 );
 @function font-family($mode: sans-serif) {
   @return map-get($_font-families, $mode);
@@ -19,7 +19,7 @@ $_font-weights: (
   regular: 400,
   medium: 500,
   semibold: 600,
-  bold: 700
+  bold: 700,
 );
 @function font-weight($weight: regular) {
   @return map-get($_font-weights, $weight);
@@ -40,20 +40,20 @@ $line-height-xs: 1.5 !default;
 $_font-sizes: (
   xs: (
     font-size: $size-xs,
-    line-height: $line-height-xs
+    line-height: $line-height-xs,
   ),
   s: (
     font-size: $size-s,
-    line-height: $line-height-s
+    line-height: $line-height-s,
   ),
   m: (
     font-size: $size-m,
-    line-height: $line-height-m
+    line-height: $line-height-m,
   ),
   l: (
     font-size: $size-l,
-    line-height: $line-height-l
-  )
+    line-height: $line-height-l,
+  ),
 );
 
 @function font-size($type: m) {

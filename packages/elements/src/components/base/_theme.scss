@@ -21,7 +21,8 @@ $_error: #eb003b;
 $_light: #c1c1c1;
 $_dark: #777777;
 
-$color-schemes: "primary", "secondary", "success", "warning", "error", "light", "dark";
+$color-schemes: 'primary', 'secondary', 'success', 'warning', 'error', 'light',
+  'dark';
 
 $_color-map: (
   primary: (
@@ -73,4 +74,3 @@ $_color-map: (
 @function color($color-name, $tone: 'base') {
   @return map-get(map-get($_color-map, $color-name), $tone);
 }
-

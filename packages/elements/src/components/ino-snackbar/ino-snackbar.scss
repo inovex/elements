@@ -7,8 +7,14 @@
 $snackbar-types: 'error', 'warning';
 
 ino-snackbar {
-  --snackbar-warning-border-color: var(--ino-snackbar-warning-border-color, #{theme.color(warning)});
-  --snackbar-error-border-color: var(--ino-snackbar-error-border-color, #{theme.color(error)});
+  --snackbar-warning-border-color: var(
+    --ino-snackbar-warning-border-color,
+    #{theme.color(warning)}
+  );
+  --snackbar-error-border-color: var(
+    --ino-snackbar-error-border-color,
+    #{theme.color(error)}
+  );
 }
 
 ino-snackbar {
