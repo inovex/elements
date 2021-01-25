@@ -15,7 +15,6 @@ export const config: Config = {
     cloneNodeFix: false,
     slotChildNodesFix: true,
   },
-  globalStyle: './src/components/styles/variables.scss',
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
   namespace: 'inovex-elements',

@@ -97,8 +97,8 @@ export class Fab implements ComponentInterface {
     this.el.appendChild(tooltip);
   }
 
-  componentWillUnload() {
-    this.fabRipple.destroy();
+  disconnectedCallback() {
+    this.fabRipple?.destroy();
   }
 
   /**

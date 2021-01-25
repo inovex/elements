@@ -66,8 +66,8 @@ export class InoProgressBar implements ComponentInterface {
     this.initializeComponent();
   }
 
-  componentWillUnload(): void {
-    this.mdcProgress.destroy();
+  disconnectedCallback(): void {
+    this.mdcProgress?.destroy();
   }
 
   private initializeComponent = () => {

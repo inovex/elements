@@ -1,37 +1,25 @@
-@use '../styles/mdc-customize';
-@use '../styles/tooltip';
-@use '../styles/colors';
+@use 'base/mdc-customize';
+@use 'ino-tooltip/mixins' as tooltip-mixins;
+@use 'base/theme';
 
 ino-popover {
   //default color scheme
-  @include tooltip.tooltip(
-    colors.ino-color(primary, light),
-    colors.ino-color(primary, contrast)
-  );
+  @include tooltip-mixins.tooltip(theme.color(primary, light), theme.color(primary, contrast));
 
-  &[ino-color-scheme='primary'] {
-    @include tooltip.tooltip(
-      colors.ino-color(primary, light),
-      colors.ino-color(primary, contrast)
-    );
+  &[ino-color-scheme="primary"] {
+    @include tooltip-mixins.tooltip(theme.color(primary, light), theme.color(primary, contrast));
   }
 
-  &[ino-color-scheme='secondary'] {
-    @include tooltip.tooltip(
-      colors.ino-color(secondary, light),
-      colors.ino-color(secondary, contrast)
-    );
+  &[ino-color-scheme="secondary"] {
+    @include tooltip-mixins.tooltip(theme.color(secondary, light), theme.color(secondary, contrast));
   }
 
-  &[ino-color-scheme='light'] {
-    @include tooltip.tooltip(
-      colors.ino-color(light),
-      colors.ino-color(light, contrast)
-    );
+  &[ino-color-scheme="light"] {
+    @include tooltip-mixins.tooltip(theme.color(light), theme.color(light, contrast));
   }
 
-  &[ino-color-scheme='transparent'] {
-    @include tooltip.tooltip(#fff, colors.ino-color(dark));
+  &[ino-color-scheme="transparent"] {
+    @include tooltip-mixins.tooltip(#fff, theme.color(dark));
   }
 
   .ino-popover__content {

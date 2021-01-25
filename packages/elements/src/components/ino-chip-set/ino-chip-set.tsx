@@ -47,14 +47,12 @@ export class ChipSet implements ComponentInterface {
     this.create();
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.destroy();
   }
 
   private destroy() {
-    if (this.mdcInstance) {
-      this.mdcInstance.destroy();
-    }
+    this.mdcInstance?.destroy();
 
     if (this.listenerAttached) {
       this.el.removeEventListener('MDCChip:interaction', (_) =>

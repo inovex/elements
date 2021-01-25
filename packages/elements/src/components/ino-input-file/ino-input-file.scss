@@ -1,5 +1,5 @@
-@use "../styles/colors";
-@use "../styles/fonts";
+@use "base/theme";
+@use "base/typography";
 
 ino-input-file {
   /**
@@ -23,7 +23,7 @@ ino-input-file {
     justify-content: center;
     align-items: center;
     background-color: white;
-    border: 2px dashed colors.ino-color(primary);
+    border: 2px dashed theme.color(primary);
     border-radius: 20px;
     height: var(--input-file-box-height);
     width: var(--input-file-box-width);
@@ -36,20 +36,20 @@ ino-input-file {
       margin-bottom: 15px;
 
       label {
-        color: colors.ino-color(primary);
-        @include fonts.ino-font($size: l);
+        color: theme.color(primary);
+        @include typography.font($size: l);
       }
     }
 
     &.ino-input-file__dnd-dragover:not(.ino-input-file__dnd-disabled) {
-      background-color: lighten(colors.ino-color(primary), 38%);
+      background-color: lighten(theme.color(primary), 38%);
     }
 
     &.ino-input-file__dnd-disabled {
-      background-color: colors.ino-color(light, light);
-      border: 2px solid colors.ino-color(light, light);
+      background-color: theme.color(light, light);
+      border: 2px solid theme.color(light, light);
       label {
-        color: colors.ino-color(dark);
+        color: theme.color(dark)
       }
     }
   }

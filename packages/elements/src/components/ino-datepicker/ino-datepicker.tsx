@@ -61,6 +61,8 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value: string) {
+    if (this.disabled) return;
+
     try {
       if (this.flatpickr) {
         this.setValidState(value);
@@ -128,7 +130,12 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoRange')
   inoRangeChanged() {
-    this.create();
+    if (!this.disabled) this.create();
+  }
+
+  @Watch('disabled')
+  disabledChanged(newValue: boolean) {
+    newValue ? this.dispose() : this.create();
   }
 
   /**
@@ -224,7 +231,12 @@ export class Datepicker implements ComponentInterface {
     const target = e.target;
     const tagName = target.tagName;
 
-    if (!tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+    if (
+      this.disabled ||
+      !tagName ||
+      tagName !== 'INPUT' ||
+      this.elementIsInput(target)
+    ) {
       return;
     }
 
@@ -295,7 +307,11 @@ export class Datepicker implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
-    this.create();
+    if (!this.disabled) this.create();
+  }
+
+  disconnectedCallback() {
+    this.dispose();
   }
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
@@ -316,6 +332,10 @@ export class Datepicker implements ComponentInterface {
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
   private create() {
+    this.dispose();
+
+    if (this.disabled) return;
+
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
@@ -327,7 +347,6 @@ export class Datepicker implements ComponentInterface {
     const typeSpecificOptions: Partial<BaseOptions> = this.getTypeSpecificOptions();
     const options = { ...sharedOptions, ...typeSpecificOptions };
 
-    this.dispose();
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
     this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale['weekdays']['shorthand'];

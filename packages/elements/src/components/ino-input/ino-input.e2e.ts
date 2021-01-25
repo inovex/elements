@@ -129,20 +129,58 @@ describe('InoInput', () => {
       expect(inputContainer).toHaveClass('mdc-text-field--invalid');
     });
 
-    it('should be marked as invalid when provided with wrong input according to pattern', async () => {
-      const page = await setupPageWithContent(
-        `<ino-input pattern="a" value="b"></ino-input>`,
-      );
-      const inputContainer = await page.find('ino-input > div');
-      expect(inputContainer).toHaveClass('mdc-text-field--invalid');
+    describe('Pattern', () => {
+      it('should be marked as invalid when pattern matches correctly but ino-error is provided', async () => {
+        const page = await setupPageWithContent(
+          `<ino-input ino-error pattern="a" value="a"></ino-input>`,
+        );
+        const inputContainer = await page.find('ino-input > div');
+        expect(inputContainer).toHaveClass('mdc-text-field--invalid');
+      });
+
+      it('should not be invalid on disabled inputs', async () => {
+        const page = await setupPageWithContent(
+          `<ino-input pattern="a" disabled></markant-input>`,
+        );
+        await page.evaluate(async () => {
+          const nativeInputElement = await document
+            .querySelector('ino-input')
+            .getInputElement();
+          nativeInputElement.value = 'b';
+          nativeInputElement.blur();
+        });
+        const inputContainer = await page.find('ino-input > div');
+        expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
+      });
     });
 
-    it('should be marked as invalid when pattern matches correctly but ino-error is provided', async () => {
-      const page = await setupPageWithContent(
-        `<ino-input ino-error pattern="a" value="a"></ino-input>`,
-      );
-      const inputContainer = await page.find('ino-input > div');
-      expect(inputContainer).toHaveClass('mdc-text-field--invalid');
+    describe('Required', () => {
+      it('should not be invalid on required', async () => {
+        const page = await setupPageWithContent(
+          `<ino-input required></ino-input>`,
+        );
+        await page.evaluate(async () => {
+          const nativeInputElement = await document
+            .querySelector('ino-input')
+            .getInputElement();
+          nativeInputElement.blur();
+        });
+        const inputContainer = await page.find('ino-input > div');
+        expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
+      });
+      it('should not be invalid on required disabled inputs', async () => {
+        const page = await setupPageWithContent(
+          `<ino-input required disabled></ino-input>`,
+        );
+        await page.evaluate(async () => {
+          const nativeInputElement = await document
+            .querySelector('ino-input')
+            .getInputElement();
+          nativeInputElement.blur();
+        });
+        const inputContainer = await page.find('ino-input > div');
+        expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
+      });
     });
   });
 

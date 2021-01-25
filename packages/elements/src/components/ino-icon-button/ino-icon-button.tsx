@@ -91,7 +91,7 @@ export class IconButton implements ComponentInterface {
     this.maybeCreateRipple();
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.maybeDestroyRipple();
   }
 

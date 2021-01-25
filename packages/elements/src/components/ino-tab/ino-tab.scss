@@ -1,27 +1,27 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/tab/mdc-tab';
 @use '@material/tab';
 @use '@material/tab-indicator/mdc-tab-indicator';
-@use '../styles/colors';
-@use '../styles/fonts';
+@use 'base/theme';
+@use 'base/typography';
 
 ino-tab {
   .mdc-tab {
-    @include fonts.ino-font(sans-serif, s, regular);
-    @include tab.active-text-label-color(colors.ino-color(primary));
-    @include tab.active-states-color(colors.ino-color(primary));
-    @include tab.states-color(colors.ino-color(primary));
+    @include typography.font(sans-serif, s, regular);
+    @include tab.active-text-label-color(theme.color(primary));
+    @include tab.active-states-color(theme.color(primary));
+    @include tab.states-color(theme.color(primary));
 
     ino-icon {
       --icon-color: buttontext;
     }
 
     &.mdc-tab--active ino-icon {
-      --icon-color: #{colors.ino-color(primary)};
+      --icon-color: #{theme.color(primary)}
     }
 
     .mdc-tab-indicator__content--underline {
-      border-color: colors.ino-color(primary);
+      border-color: theme.color(primary);
     }
   }
 

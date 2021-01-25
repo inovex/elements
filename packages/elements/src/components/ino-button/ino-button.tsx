@@ -123,8 +123,8 @@ export class Button implements ComponentInterface {
     );
   }
 
-  componentWillUnload() {
-    this.button.destroy();
+  disconnectedCallback() {
+    this.button?.destroy();
   }
 
   private handleClick = (e: Event) => {

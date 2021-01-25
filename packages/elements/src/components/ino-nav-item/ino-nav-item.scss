@@ -1,6 +1,6 @@
-@use '../styles/mdc-customize';
+@use 'base/mdc-customize';
 @use '@material/list/mdc-list';
-@use '../styles/colors';
+@use 'base/theme';
 
 ino-nav-item  {
   /**
@@ -10,16 +10,12 @@ ino-nav-item  {
    * @prop --ino-nav-item-background-color-active: Active color of the background of one item.
    */
 
-  --nav-item-color: var(--ino-nav-item-color, #{colors.ino-color(dark, dark)});
-  --nav-item-color-active: var(
-    --ino-nav-item-color-active,
-    #{colors.ino-color(primary, base)}
-  );
+  --nav-item-color: var(--ino-nav-item-color, #{theme.color(dark, dark)});
+  --nav-item-color-active: var(--ino-nav-item-color-active, #{theme.color(primary, base)});
   --nav-item-background-color: var(--ino-nav-item-background-color, white);
-  --nav-item-background-color-active: var(
-    --ino-nav-item-background-color-active,
-    #{rgba(colors.ino-color(light, contrast), 0.04)}
-  );
+  --nav-item-background-color-active: var(--ino-nav-item-background-color-active, #{rgba(theme.color(light, contrast), 0.04)});
+
+  .mdc-list-item, ino-list-item .mdc-list-item {
 
   .mdc-list-item,
   ino-list-item .mdc-list-item {

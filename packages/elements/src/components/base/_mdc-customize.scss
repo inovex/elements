@@ -1,0 +1,21 @@
+@use './theme' as ino-theme;
+@use './typography' as ino-typo;
+
+// @material/theme
+@use '@material/theme' with (
+  $primary: ino-theme.color(primary),
+  $secondary: ino-theme.color(secondary),
+  $on-primary: ino-theme.color(primary, contrast),
+  $on-secondary: ino-theme.color(secondary, contrast),
+  $error: ino-theme.color(error)
+);
+
+// @material/typography
+@use '@material/typography' with (
+  $font-family: ino-typo.font-family(sans-serif),
+);
+
+@forward '@material/typography' as mdc-typo-*;
+@forward '@material/theme' as mdc-theme-*;
+
+

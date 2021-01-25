@@ -86,9 +86,9 @@ export class Radio implements ComponentInterface {
     this.formField.input = this.radio;
   }
 
-  componentWillUnLoad() {
-    this.radio.destroy();
-    this.formField.destroy();
+  disconnectedCallback() {
+    this.radio?.destroy();
+    this.formField?.destroy();
   }
 
   render() {

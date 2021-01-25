@@ -1,8 +1,8 @@
-// Inovex Colors
+// Theme and colors
 
 // Private variables.
-// Use the ino-color() function to access colors.
-$inovex: #003c7e;
+// Use the color() function to access theme.
+$brand: #003c7e;
 
 $_primary: #3d40f5;
 $_primary-light: #5d60f7;
@@ -21,10 +21,9 @@ $_error: #eb003b;
 $_light: #c1c1c1;
 $_dark: #777777;
 
-$ino-color-schemes: 'primary', 'secondary', 'success', 'warning', 'error',
-  'light', 'dark';
+$color-schemes: "primary", "secondary", "success", "warning", "error", "light", "dark";
 
-$_ino-color-map: (
+$_color-map: (
   primary: (
     base: $_primary,
     light: $_primary-light,
@@ -69,8 +68,9 @@ $_ino-color-map: (
   ),
 );
 
-// Mixin to access inovex color scheme variables
+// Mixin to access color scheme variables
 // Usage: color: colors(primary) or colors(primary, light)
-@function ino-color($color-name, $tone: 'base') {
-  @return map-get(map-get($_ino-color-map, $color-name), $tone);
+@function color($color-name, $tone: 'base') {
+  @return map-get(map-get($_color-map, $color-name), $tone);
 }
+

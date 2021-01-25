@@ -114,7 +114,7 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-type="time" ino-date-format="h:i K" ino-label="Twelve hour time" ino-twelve-hour-time></ino-datepicker>
 
       <h4>States</h4>
-      <ino-datepicker ino-label="Disabled" disabled></ino-datepicker>
+      <ino-datepicker ino-label="Disabled" value="${defaultDate}" disabled></ino-datepicker>
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
     </div>

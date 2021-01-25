@@ -156,8 +156,8 @@ export class Textarea implements ComponentInterface {
     }
   }
 
-  componentWillUnLoad() {
-    this.textfield.destroy();
+  disconnectedCallback() {
+    this.textfield?.destroy();
     this.destroyAutogrow();
   }
 

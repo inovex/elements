@@ -216,6 +216,8 @@ export class Input implements ComponentInterface {
 
   @Watch('inoError')
   inoErrorHandler(value?: boolean) {
+    if (this.disabled) return;
+
     if (value) {
       this.textfield.valid = false;
       this.textfield.useNativeValidation = false;
@@ -278,21 +280,14 @@ export class Input implements ComponentInterface {
       // see https://github.com/ionic-team/stencil/issues/1582
     }
 
-    if (Boolean(this.inoError)) {
-      this.textfield.valid = false;
-    }
-
+    this.inoErrorHandler(this.inoError);
     this.el.setAttribute('tabindex', '-1');
   }
 
-  componentWillUnLoad() {
-    this.textfield.destroy();
-    if (this.helperText) {
-      this.helperText.destroy();
-    }
-    if (this.icon) {
-      this.icon.destroy();
-    }
+  disconnectedCallback() {
+    this.textfield?.destroy();
+    this.helperText?.destroy();
+    this.icon?.destroy();
   }
 
   private handleNativeInputChange(e) {

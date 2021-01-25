@@ -89,10 +89,6 @@ export class Tooltip implements ComponentInterface {
     await this.create();
   }
 
-  async componentWillUnLoad() {
-    await this.dispose();
-  }
-
   private retrieveTarget = () =>
     this.inoFor ? document.getElementById(this.inoFor) : this.el.parentElement;
 

@@ -1,5 +1,5 @@
-@use '../styles/fonts';
-@use '../styles/colors';
+@use 'base/typography';
+@use 'base/theme';
 @import '~flatpickr/dist/flatpickr';
 @import '~flatpickr/dist/plugins/monthSelect/style';
 
@@ -12,7 +12,7 @@ ino-datepicker {
     width: 100%;
   }
 
-  @include fonts.ino-font(sans-serif, m, regular);
+  @include typography.font(sans-serif, m, regular);
 
   .mdc-text-field--with-leading-icon .mdc-text-field__icon,
   .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
@@ -22,11 +22,11 @@ ino-datepicker {
 
 // Customize flatpickr styles
 
-$hover-color: lighten(colors.ino-color(primary), 36.5%);
+$hover-color: lighten(theme.color(primary), 36.5%);
 
 .flatpickr-calendar {
-  @include fonts.ino-font($size: xs);
-  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
+  @include typography.font($size: xs);
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
 
@@ -44,7 +44,7 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
   }
 
   input {
-    @include fonts.ino-font($size: s);
+    @include typography.font($size: s);
   }
 
   .flatpickr-innerContainer {
@@ -58,23 +58,21 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
       }
 
       &.today:not(.selected) {
-        color: colors.ino-color(primary);
-        @include fonts.ino-font-weight(semibold);
+        color: theme.color(primary);
+        font-weight: typography.font-weight(semibold);
       }
 
       &.selected {
-        background: colors.ino-color(primary);
-        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-          0 16px 32px 0 rgba(61, 214, 245, 0.14);
+        background: theme.color(primary);
+        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
 
         &:hover {
-          background: colors.ino-color(primary);
+          background: theme.color(primary);
         }
       }
 
-      &.endRange,
-      &.endRange:hover {
-        background-color: colors.ino-color(primary);
+      &.endRange, &.endRange:hover {
+        background-color: theme.color(primary);
       }
     }
   }
@@ -91,7 +89,7 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
       border-radius: 20px;
 
       &.selected {
-        background-color: colors.ino-color(primary);
+        background-color: theme.color(primary);
         color: white;
         box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.3),
           0 8px 24px 0 rgba(61, 214, 245, 0.14);
@@ -107,9 +105,8 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
     margin: 15px 20px 0 20px;
 
     .flatpickr-month {
-      .cur-month,
-      .numInput {
-        @include fonts.ino-font-weight(regular);
+      .cur-month, .numInput {
+        font-weight: typography.font-weight(regular);
       }
     }
 
@@ -132,18 +129,18 @@ $hover-color: lighten(colors.ino-color(primary), 36.5%);
       position: relative;
 
       svg {
-        fill: colors.ino-color(primary);
+        fill: theme.color(primary);
         height: 11px;
         width: 11px;
 
         path {
-          stroke: colors.ino-color(primary);
+          stroke: theme.color(primary);
           stroke-width: 1px;
         }
       }
 
       &:hover > svg {
-        fill: colors.ino-color(primary);
+        fill: theme.color(primary);
       }
     }
   }

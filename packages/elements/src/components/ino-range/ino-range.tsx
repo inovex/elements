@@ -87,7 +87,7 @@ export class Range implements ComponentInterface {
     this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
   }
 
-  componentWillUnload() {
+  disconnectedCallback() {
     this.sliderInstance?.unlisten(
       'MDCSlider:change',
       this.handleChange.bind(this),

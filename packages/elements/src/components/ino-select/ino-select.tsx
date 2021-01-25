@@ -83,8 +83,8 @@ export class Select implements ComponentInterface {
     }
   }
 
-  componentWillUnLoad() {
-    this.mdcSelectInstance.destroy();
+  disconnectedCallback() {
+    this.mdcSelectInstance?.destroy();
   }
 
   private setSelectValue(value: string) {

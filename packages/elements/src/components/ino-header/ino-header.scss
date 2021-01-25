@@ -1,4 +1,4 @@
-@use '../styles/fonts';
+@use 'base/typography';
 
 :host {
   /**
@@ -16,7 +16,7 @@
 
   p {
     font-size: 13px;
-    @include fonts.ino-font-weight(semibold);
+    font-weight: typography.font-weight(semibold);
     color: var(--header-color);
     white-space: nowrap;
     display: table-cell;
