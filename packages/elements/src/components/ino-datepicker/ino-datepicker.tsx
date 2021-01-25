@@ -197,6 +197,11 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() inoType?: 'date' | 'month' | 'time' | 'datetime' = 'date';
 
+  @Watch('inoType')
+  inoTypeChanged() {
+    if (!this.disabled) this.create();
+  }
+
   isDatePicker = () => this.inoType === 'date';
   isMonthPicker = () => this.inoType === 'month';
   isTimePicker = () => this.inoType === 'time';

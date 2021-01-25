@@ -83,16 +83,6 @@ class MyComponent extends Component {
 | `value`           | `value`            | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
 
-## CSS Custom Properties
-
-| Name                                | Description                               |
-| ----------------------------------- | ----------------------------------------- |
-| `--ino-carousel-animation-duration` | sets the duration of the slide animation  |
-| `--ino-carousel-height`             | sets the height of the carousel component |
-| `--ino-carousel-icon-color`         | sets the color of the navigation buttons  |
-| `--ino-carousel-width`              | sets the width of the carousel component  |
-
-
 ## Dependencies
 
 ### Depends on
