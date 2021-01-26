@@ -64,10 +64,6 @@ export class ListItem implements ComponentInterface {
     }
   }
 
-  disconnectedCallback() {
-    this.el.remove();
-  }
-
   render() {
     const listItemClasses = classNames({
       'mdc-list-item': true,
