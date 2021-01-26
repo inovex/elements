@@ -99,7 +99,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('min')
   minChanged(value: string) {
-    this.updateFlatpickr('minDate', value);
+    this.flatpickr?.set('minDate', value);
   }
 
   /**
@@ -109,7 +109,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('max')
   maxChanged(value: string) {
-    this.updateFlatpickr('maxDate', value);
+    this.flatpickr?.set('maxDate', value);
   }
 
   /**
@@ -164,7 +164,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
-    this.updateFlatpickr('inoDateFormat', dateFormat);
+    this.flatpickr?.set('dateFormat', dateFormat);
   }
 
   /**
@@ -174,7 +174,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoDefaultDate')
   inoDefaultDateChanged(defaultDate: string) {
-    this.updateFlatpickr('inoDefaultDate', defaultDate);
+    this.flatpickr?.set('defaultDate', defaultDate);
   }
 
   /**
@@ -185,7 +185,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoDefaultHour')
   inoDefaultHourChanged(value: string) {
-    this.updateFlatpickr('inoDefaultHour', value);
+    this.flatpickr?.set('defaultHour', value);
   }
 
   /**
@@ -196,7 +196,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
-    this.updateFlatpickr('inoDefaultMinute', value);
+    this.flatpickr?.set('defaultMinute', value);
   }
 
   /**
@@ -205,8 +205,8 @@ export class Datepicker implements ComponentInterface {
   @Prop() inoTwelveHourTime?: boolean;
 
   @Watch('inoTwelveHourTime')
-  inoTwelveHourTimeChanged(value: string) {
-    this.updateFlatpickr('inoTwelveHourTime', value);
+  inoTwelveHourTimeChanged(value: boolean) {
+    this.flatpickr?.set('time_24hr', !value);
   }
 
   /**
@@ -227,7 +227,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('minuteStep')
   minuteStepChanged(value: number) {
-    this.updateFlatpickr('minuteIncrement', value);
+    this.flatpickr?.set('minuteIncrement', value);
   }
 
   /**
@@ -240,7 +240,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('hourStep')
   hourStepChanged(value: number) {
-    this.updateFlatpickr('hourIncrement', value);
+    this.flatpickr?.set('hourIncrement', value);
   }
 
   @Listen('click')
@@ -345,12 +345,6 @@ export class Datepicker implements ComponentInterface {
         this.monthChangeNextHandler
       );
     }}
-
-  private updateFlatpickr(option, value) {
-    if (this.flatpickr) {
-      this.flatpickr.set(option, value);
-    }
-  }
 
   private dispose() {
     if (this.flatpickr) {
