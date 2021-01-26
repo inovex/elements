@@ -4,3 +4,7 @@ export function generateUniqueId() {
   // after the decimal.
   return '_' + Math.random().toString(36).substr(2, 9);
 }
+
+export function hasSlotContent(el: HTMLElement, slotName: string): boolean {
+  return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
+}
