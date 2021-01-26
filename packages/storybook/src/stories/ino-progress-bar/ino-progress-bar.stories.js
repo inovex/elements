@@ -1,6 +1,7 @@
 import componentReadme from '_local-elements/src/components/ino-progress-bar/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-progress-bar.scss';
+import { boolean, color, number, text } from '@storybook/addon-knobs';
 
 function subscribeToComponentEvents() {
   // == event block
@@ -60,13 +61,35 @@ export default {
 
 export const DefaultUsage = () => /* html */ `
 
-    <h4>With custom max and min values</h4>
-    <ino-progress-bar ino-progress="9"></ino-progress-bar>
+    <style>
+      ino-progress-bar.customizable-progress-bar {
+        --progress-bar--bar-color: ${color(
+      '--progress-bar--bar-color',
+      '#3d40f5',
+        )};
+      }
+    </style>
+
+    <h3>Customizable ino-progress-bar</h3>
+    <ino-progress-bar
+      class="customizable-progress-bar"
+      ino-progress="${number('ino-progress', 0.5, {min: 0, max: 1, step: 0.1})}"
+      ino-buffer="${number('ino-buffer', 0.2, {min: 0, max: 1, step: 0.1})}"
+      ino-label="${text('ino-label', 'My Label')}"
+      ino-indeterminate="${boolean('ino-indeterminate', false)}"
+      ino-reversed="${boolean('ino-reversed', false)}"
+    >
+    </ino-progress-bar>
 
 
     <h3>Example</h3>
     <div class="progress-bar-example">
-        <ino-progress-bar ino-progress="0" ino-buffer="1" id="example"></ino-progress-bar>
+        <ino-progress-bar
+          id="example"
+          ino-progress="0"
+          ino-buffer="1"
+        >
+        </ino-progress-bar>
         <ino-input-file ino-label="Upload" multiple></ino-input-file>
     </div>
 
