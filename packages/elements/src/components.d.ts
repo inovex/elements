@@ -42,14 +42,6 @@ export namespace Components {
          */
         "inoFullWidth"?: boolean;
         /**
-          * If enabled, prepends the slotted icon to the button label
-         */
-        "inoIconLeading": boolean;
-        /**
-          * If enabled, appends the slotted icon to the button label
-         */
-        "inoIconTrailing": boolean;
-        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
         "inoLoading"?: boolean;
@@ -152,10 +144,6 @@ export namespace Components {
           * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
         "inoIcon"?: string;
-        /**
-          * If enabled, prepends the slotted icon to the chip label
-         */
-        "inoIconLeading": boolean;
         /**
           * The label of this chip (**required**).
          */
@@ -1561,14 +1549,6 @@ declare namespace LocalJSX {
          */
         "inoFullWidth"?: boolean;
         /**
-          * If enabled, prepends the slotted icon to the button label
-         */
-        "inoIconLeading"?: boolean;
-        /**
-          * If enabled, appends the slotted icon to the button label
-         */
-        "inoIconTrailing"?: boolean;
-        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
         "inoLoading"?: boolean;
@@ -1675,10 +1655,6 @@ declare namespace LocalJSX {
           * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
         "inoIcon"?: string;
-        /**
-          * If enabled, prepends the slotted icon to the chip label
-         */
-        "inoIconLeading"?: boolean;
         /**
           * The label of this chip (**required**).
          */

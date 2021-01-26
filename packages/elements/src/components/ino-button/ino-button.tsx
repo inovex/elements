@@ -3,12 +3,13 @@ import {
   Component,
   ComponentInterface,
   Element,
+  h,
   Host,
   Prop,
   Watch,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 
@@ -74,16 +75,6 @@ export class Button implements ComponentInterface {
    * Styles the button in 100% width.
    */
   @Prop() inoFullWidth? = false;
-
-  /**
-   * If enabled, prepends the slotted icon to the button label
-   */
-  @Prop() inoIconLeading = false;
-
-  /**
-   * If enabled, appends the slotted icon to the button label
-   */
-  @Prop() inoIconTrailing = false;
 
   /**
    * Makes the button text and container slightly smaller.
@@ -158,6 +149,9 @@ export class Button implements ComponentInterface {
       'ino-button--dense': this.inoDense,
     });
 
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+
     return (
       <Host
         onClick={this.handleClick}
@@ -172,7 +166,7 @@ export class Button implements ComponentInterface {
           type={this.type}
           form={this.form}
         >
-          {this.inoIconLeading && (
+          {leadingSlotHasContent && (
             <span class="mdc-button__icon">
               <slot name="ino-icon-leading" />
             </span>
@@ -188,7 +182,7 @@ export class Button implements ComponentInterface {
               <slot></slot>
             )}
           </div>
-          {this.inoIconTrailing && (
+          {trailingSlotHasContent && (
             <span class="mdc-button__icon">
               <slot name="ino-icon-trailing" />
             </span>
