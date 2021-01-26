@@ -9,7 +9,6 @@ const SIDEBAR_SELECTOR = 'ino-sidebar';
 const ASIDE_SELECTOR = 'ino-sidebar >>> aside';
 
 describe('ino-sidebar', () => {
-
   describe('Properties', async () => {
     it('should render on the right side if inoAlignRight is true', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
@@ -23,7 +22,7 @@ describe('ino-sidebar', () => {
     });
   });
 
-  describe('Events',  () => {
+  describe('Events', () => {
     it('should emit an openChange event upon changing the ino-open property', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
       const sidebar = await page.find(SIDEBAR_SELECTOR);
@@ -36,5 +35,4 @@ describe('ino-sidebar', () => {
       expect(event).toHaveReceivedEventDetail(true);
     });
   });
-
 });

@@ -7,15 +7,8 @@ An option component that can be used to add options to an ino-select component.
 The component can be used as follows:
 
 ```html
-<ino-option
-    disabled
-    selected
-    value="<string>"
->
-   Content
-</ino-option>
+<ino-option disabled selected value="<string>"> Content </ino-option>
 ```
-
 
 <!-- Auto Generated Below -->
 

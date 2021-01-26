@@ -10,8 +10,12 @@ export default {
   title: 'Buttons/<ino-button>',
   parameters: {
     actions: {
-      handles: ['click .customizable-button', 'reset .reset-form', 'submit .submit-form']
-    }
+      handles: [
+        'click .customizable-button',
+        'reset .reset-form',
+        'submit .submit-form',
+      ],
+    },
   },
   decorators: [withStencilReadme(componentReadme)],
 };
@@ -90,7 +94,12 @@ export const DefaultUsage = () => /* html */ `
           'primary',
           'General'
         )}"
-        ino-fill="${select('ino-fill', ['solid', 'outline', 'inverse'], 'solid', 'General')}"
+        ino-fill="${select(
+          'ino-fill',
+          ['solid', 'outline', 'inverse'],
+          'solid',
+          'General'
+        )}"
         ino-icon-leading="${boolean('ino-icon-leading', false, 'Icon')}"
         ino-icon-trailing="${boolean('ino-icon-trailing', false, 'Icon')}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
@@ -99,9 +108,19 @@ export const DefaultUsage = () => /* html */ `
         ino-loading="${boolean('ino-loading', false, 'General')}"
         ino-edge-mirrored="${boolean('ino-edge-mirrored', false, 'General')}"
       >
-        <ino-icon slot="ino-icon-leading" ino-icon="${select('ino-icon-leading-slot', ICONS, 'Add', 'Icon')}"></ino-icon>
+        <ino-icon slot="ino-icon-leading" ino-icon="${select(
+          'ino-icon-leading-slot',
+          ICONS,
+          'Add',
+          'Icon'
+        )}"></ino-icon>
         ${text('<slot />', 'Customizable button', 'General')}
-        <ino-icon slot="ino-icon-trailing" ino-icon="${select('ino-icon-trailing-slot', ICONS, 'Add', 'Icon')}"></ino-icon>
+        <ino-icon slot="ino-icon-trailing" ino-icon="${select(
+          'ino-icon-trailing-slot',
+          ICONS,
+          'Add',
+          'Icon'
+        )}"></ino-icon>
       </ino-button>
 
       <h4>Variations</h4>

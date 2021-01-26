@@ -8,7 +8,6 @@ const INO_RADIO_ITEM_CHECKED = `<ino-list><ino-control-item ino-role="radio" ino
 const INO_RADIO_ITEM_DISABLED = `<ino-list><ino-control-item ino-role="radio" ino-text="Some Item" ino-disabled></ino-control-item></ino-list>`;
 
 describe('InoControlItem', () => {
-
   describe('Properties', () => {
     it('should render with an unchecked checkbox', async () => {
       const page = await setupPageWithContent(INO_CHECKBOX_ITEM);

@@ -10,12 +10,11 @@ import { ValueAccessorDirective } from './value-accessor.directive';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: InoRadioValueAccessorDirective,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class InoRadioValueAccessorDirective extends ValueAccessorDirective {
-
   constructor(el: ElementRef) {
     super(el);
   }

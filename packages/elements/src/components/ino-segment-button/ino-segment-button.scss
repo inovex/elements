@@ -19,12 +19,32 @@ $left-right-segment-border: 0 24px 24px 24px;
  * @prop --ino-segment-button-checked-shadow: Color and shape of the shadow if checked
  */
 :host {
-  --segment-button-color: var(--ino-segment-button-color, #{theme.color(light, base)});
-  --segment-button-checked-color: var(--ino-segment-button-checked-color, #{theme.color(primary, dark)});
-  --segment-button-hover-color: var(--ino-segment-button-hover-color, #{theme.color(primary, light)});
-  --segment-button-disabled-color: var(--ino-segment-button-disabled-color, #{theme.color(dark, base)});
-  --segment-button-hover-shadow: var(--ino-segment-button-hover-shadow, #{0 4px 8px 0 rgba(61, 64, 245, 0.3), 0 12px 28px 0 rgba(61, 214, 245, 0.14)});
-  --segment-button-checked-shadow: var(--ino-segment-button-checked-shadow, #{0 8px 16px 0 rgba(61, 64, 245, 0.3),0 16px 32px 0 rgba(61, 214, 245, 0.14)});
+  --segment-button-color: var(
+    --ino-segment-button-color,
+    #{theme.color(light, base)}
+  );
+  --segment-button-checked-color: var(
+    --ino-segment-button-checked-color,
+    #{theme.color(primary, dark)}
+  );
+  --segment-button-hover-color: var(
+    --ino-segment-button-hover-color,
+    #{theme.color(primary, light)}
+  );
+  --segment-button-disabled-color: var(
+    --ino-segment-button-disabled-color,
+    #{theme.color(dark, base)}
+  );
+  --segment-button-hover-shadow: var(
+    --ino-segment-button-hover-shadow,
+    #{0 4px 8px 0 rgba(61, 64, 245, 0.3),
+    0 12px 28px 0 rgba(61, 214, 245, 0.14)}
+  );
+  --segment-button-checked-shadow: var(
+    --ino-segment-button-checked-shadow,
+    #{0 8px 16px 0 rgba(61, 64, 245, 0.3),
+    0 16px 32px 0 rgba(61, 214, 245, 0.14)}
+  );
 }
 
 :host {
@@ -39,7 +59,8 @@ $left-right-segment-border: 0 24px 24px 24px;
     @include button.container-fill-color(#fff);
     margin: 0;
 
-    &:after, &:before {
+    &:after,
+    &:before {
       background-color: #fff;
     }
   }
@@ -54,14 +75,15 @@ $left-right-segment-border: 0 24px 24px 24px;
       @include button.ink-color(var(--segment-button-disabled-color));
     }
 
-    &:hover{
+    &:hover {
       @include button.outline-color(var(--segment-button-hover-color));
       @include button.ink-color(var(--segment-button-hover-color));
       box-shadow: var(--segment-button-hover-shadow);
     }
   }
 
-  .ino-segment-button--active, .ino-segment-button--active:hover {
+  .ino-segment-button--active,
+  .ino-segment-button--active:hover {
     @include button.outline-color(var(--segment-button-checked-color));
     @include button.ink-color(var(--segment-button-checked-color));
     box-shadow: var(--segment-button-checked-shadow);

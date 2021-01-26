@@ -9,11 +9,13 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-snackbar')
-  .addEventListener('inoActionClick', e => alert('Action-Button was clicked!'));
+  .addEventListener('inoActionClick', (e) =>
+    alert('Action-Button was clicked!'),
+  );
 
 document
   .querySelector('ino-snackbar')
-  .addEventListener('hideEl', e => alert('Snackbar hides!'));
+  .addEventListener('hideEl', (e) => alert('Snackbar hides!'));
 ```
 
 ```html

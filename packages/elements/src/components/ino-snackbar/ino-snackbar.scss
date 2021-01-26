@@ -4,16 +4,21 @@
 @use 'base/theme';
 @use 'base/animation';
 
-$snackbar-types: "error", "warning";
+$snackbar-types: 'error', 'warning';
 
 ino-snackbar {
-  --snackbar-warning-border-color: var(--ino-snackbar-warning-border-color, #{theme.color(warning)});
-  --snackbar-error-border-color: var(--ino-snackbar-error-border-color, #{theme.color(error)});
+  --snackbar-warning-border-color: var(
+    --ino-snackbar-warning-border-color,
+    #{theme.color(warning)}
+  );
+  --snackbar-error-border-color: var(
+    --ino-snackbar-error-border-color,
+    #{theme.color(error)}
+  );
 }
 
 ino-snackbar {
-
-  &[ino-alignment="right"] .mdc-snackbar--leading {
+  &[ino-alignment='right'] .mdc-snackbar--leading {
     justify-content: flex-end;
   }
 
@@ -51,8 +56,8 @@ ino-snackbar {
     }
   }
 
-  &:not([ino-action-text]), &[ino-action-text=""] {
-
+  &:not([ino-action-text]),
+  &[ino-action-text=''] {
     .mdc-snackbar__surface {
       background-color: lighten(theme.color(primary, light), 5%);
 
@@ -68,13 +73,13 @@ ino-snackbar {
 }
 
 @each $type in $snackbar-types {
-  ino-snackbar[ino-type="#{$type}"] {
+  ino-snackbar[ino-type='#{$type}'] {
     .mdc-snackbar__surface {
       border: 2px solid var(--snackbar-#{$type}-border-color);
     }
   }
 }
 
-ino-snackbar[ino-type="primary"] .mdc-snackbar__surface {
+ino-snackbar[ino-type='primary'] .mdc-snackbar__surface {
   border: none;
 }

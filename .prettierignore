@@ -1,0 +1,17 @@
+# Ignore artifacts
+dist/
+www/
+vendor/
+
+.stencil/
+.idea/
+.vscode/
+node_modules/
+
+# Ignore auto-generated files
+components.d.ts
+readme.md
+proxies-list.ts
+proxies.ts
+utils.ts
+CHANGELOG.md

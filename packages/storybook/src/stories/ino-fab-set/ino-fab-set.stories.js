@@ -19,13 +19,13 @@ const tooltipPlacementOptions = [
   'left',
   'left-start',
   'left-end',
-  'none'
+  'none',
 ];
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
 
     if (el.tagName !== 'INO-FAB-SET') return;
@@ -48,16 +48,16 @@ export default {
   title: 'Buttons/<ino-fab-set>',
   parameters: {
     actions: {
-      handles: ['click ino-fab']
-    }
+      handles: ['click ino-fab'],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),
-    story => {
+    (story) => {
       subscribeToComponentEvents();
       return story();
-    }
-  ]
+    },
+  ],
 };
 
 export const DefaultUsage = () => /*html*/ `

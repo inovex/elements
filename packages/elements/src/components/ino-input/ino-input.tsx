@@ -12,7 +12,7 @@ import {
   Prop,
   Watch,
   h,
-  Method
+  Method,
 } from '@stencil/core';
 import classNames from 'classnames';
 import currency from 'currency.js';
@@ -21,7 +21,7 @@ import { getPrecision } from '../../util/math-utils';
 @Component({
   tag: 'ino-input',
   styleUrl: 'ino-input.scss',
-  shadow: false
+  shadow: false,
 })
 export class Input implements ComponentInterface {
   /**
@@ -320,7 +320,7 @@ export class Input implements ComponentInterface {
    * Emits when the input field is blurred and validates email input
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
-  private handleBlur = e => {
+  private handleBlur = (e) => {
     if (this.type === 'email') {
       this.textfield.valid = this.nativeInputEl.checkValidity();
     }
@@ -331,7 +331,7 @@ export class Input implements ComponentInterface {
    * Emits when the input field is focused
    */
   @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
-  private handleFocus = e => {
+  private handleFocus = (e) => {
     this.inoFocus.emit(e);
   };
 
@@ -340,7 +340,7 @@ export class Input implements ComponentInterface {
 
     const precisionOfValue = this.value ? getPrecision(Number(this.value)) : 0;
     const formattedValue = currency(this.value, {
-      precision: precisionOfValue
+      precision: precisionOfValue,
     });
 
     const newValue = shouldIncrement
@@ -354,7 +354,7 @@ export class Input implements ComponentInterface {
     const classHelperText = classNames({
       'mdc-text-field-helper-text': true,
       'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
-      'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation
+      'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation,
     });
 
     return (
@@ -382,7 +382,7 @@ export class Input implements ComponentInterface {
     const formatOptions = {
       separator: this.inoThousandsSeparator ? '.' : '',
       decimal: ',',
-      precision: this.inoDecimalPlaces | 0
+      precision: this.inoDecimalPlaces | 0,
     };
 
     const formattedValue: string = currency(val, formatOptions).format();
@@ -429,7 +429,7 @@ export class Input implements ComponentInterface {
       'mdc-text-field--with-leading-icon': this.inoIconLeading,
       'mdc-text-field--with-trailing-icon':
         this.inoIconTrailing || this.inoUnit,
-      'mdc-text-field--no-label': !this.inoLabel
+      'mdc-text-field--no-label': !this.inoLabel,
     });
 
     return (
@@ -441,7 +441,7 @@ export class Input implements ComponentInterface {
             </span>
           )}
           <input
-            ref={el => (this.nativeInputEl = el)}
+            ref={(el) => (this.nativeInputEl = el)}
             class="mdc-text-field__input"
             autocomplete={this.autocomplete}
             autofocus={this.autoFocus}

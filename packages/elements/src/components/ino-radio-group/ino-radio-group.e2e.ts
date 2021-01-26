@@ -7,7 +7,6 @@ const INO_RADIO_GROUP = `<ino-radio-group value="Option 2">
 </ino-radio-group>`;
 
 describe('InoRadioGroup', () => {
-
   it('should render with only Option 2 being checked', async () => {
     const page = await setupPageWithContent(INO_RADIO_GROUP);
 
@@ -23,5 +22,4 @@ describe('InoRadioGroup', () => {
     expect(checkedTwo).toBeTruthy();
     expect(checkedThree).toBeFalsy();
   });
-
 });

@@ -5,6 +5,6 @@
 
 This is the Storybook package containing all the documentation for the following packages:
 
-* [@inovex.de/elements](../elements)
-* [@inovex.de/elements-angular](../elements-angular)
-* [@inovex.de/elements-react](../elements-react)
+- [@inovex.de/elements](../elements)
+- [@inovex.de/elements-angular](../elements-angular)
+- [@inovex.de/elements-react](../elements-react)

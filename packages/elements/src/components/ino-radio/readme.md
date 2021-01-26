@@ -9,10 +9,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-radio')
-  .addEventListener('checkedChange', _ =>
-    alert(
-      `The radio button should be checked`
-    )
+  .addEventListener('checkedChange', (_) =>
+    alert(`The radio button should be checked`),
   );
 ```
 
@@ -55,7 +53,9 @@ import React, { Component } from 'react';
 import { InoRadio } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Radio: React.FunctionComponent<Components.InoRadioAttributes> = props => {
+const Radio: React.FunctionComponent<Components.InoRadioAttributes> = (
+  props,
+) => {
   const { checked, name } = props;
 
   return (

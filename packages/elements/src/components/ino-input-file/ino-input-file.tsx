@@ -1,9 +1,18 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-input-file',
-  styleUrl: 'ino-input-file.scss'
+  styleUrl: 'ino-input-file.scss',
 })
 export class InputFile implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -73,18 +82,30 @@ export class InputFile implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    this.eventListeners.forEach((tuple) => this.removeEventListeners(this.el, tuple[0], tuple[1]));
+    this.eventListeners.forEach((tuple) =>
+      this.removeEventListeners(this.el, tuple[0], tuple[1])
+    );
   }
 
-  private addEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
+  private addEventListeners(
+    el: HTMLElement,
+    events: string,
+    fn: EventListener | EventListenerObject
+  ): void {
     this.eventListeners.push([events, fn]);
-    events.split(' ').forEach(e => {
+    events.split(' ').forEach((e) => {
       el.addEventListener(e, fn);
     });
   }
 
   private browserSupportsDragAndDrop(): boolean {
-    return (('draggable' in this.el) || ('ondragstart' in this.el && 'ondrop' in this.el) && 'FormData' in window && 'FileReader' in window);
+    return (
+      'draggable' in this.el ||
+      ('ondragstart' in this.el &&
+        'ondrop' in this.el &&
+        'FormData' in window &&
+        'FileReader' in window)
+    );
   }
 
   private configureDragAndDrop(): void {
@@ -99,17 +120,11 @@ export class InputFile implements ComponentInterface {
           e.stopPropagation();
         }
       );
-      this.addEventListeners(
-        this.el,
-        'dragover dragenter',
-        () => {
-          box.classList.add('ino-input-file__dnd-dragover');
-        }
-      );
-      this.addEventListeners(
-        this.el,
-        'dragend dragleave drop',
-        () => box.classList.remove('ino-input-file__dnd-dragover')
+      this.addEventListeners(this.el, 'dragover dragenter', () => {
+        box.classList.add('ino-input-file__dnd-dragover');
+      });
+      this.addEventListeners(this.el, 'dragend dragleave drop', () =>
+        box.classList.remove('ino-input-file__dnd-dragover')
       );
       this.el.addEventListener('drop', (e: DragEvent) => {
         if (this.disabled) {
@@ -131,8 +146,12 @@ export class InputFile implements ComponentInterface {
     this.changeFile.emit({ e, files: Array.from(files) });
   }
 
-  private removeEventListeners(el: HTMLElement, events: string, fn: EventListener | EventListenerObject): void {
-    events.split(' ').forEach(e => el.removeEventListener(e, fn));
+  private removeEventListeners(
+    el: HTMLElement,
+    events: string,
+    fn: EventListener | EventListenerObject
+  ): void {
+    events.split(' ').forEach((e) => el.removeEventListener(e, fn));
   }
 
   private selectFiles() {
@@ -146,7 +165,7 @@ export class InputFile implements ComponentInterface {
     const classes = classNames({
       'ino-input-file__composer': !this.inoDragAndDrop,
       'ino-input-file__dnd': this.inoDragAndDrop,
-      'ino-input-file__dnd-disabled': this.inoDragAndDrop && this.disabled
+      'ino-input-file__dnd-disabled': this.inoDragAndDrop && this.disabled,
     });
 
     return (
@@ -163,10 +182,10 @@ export class InputFile implements ComponentInterface {
             name="file-paths"
             autoFocus={this.autoFocus}
             disabled={this.disabled}
-            onClick={_ => this.selectFiles()}
+            onClick={(_) => this.selectFiles()}
             ino-icon-leading
           >
-            <ino-icon ino-icon="upload" slot="ino-icon-leading"/>
+            <ino-icon ino-icon="upload" slot="ino-icon-leading" />
             {this.inoLabel}
           </ino-button>
           <input
@@ -178,7 +197,7 @@ export class InputFile implements ComponentInterface {
             required={this.required}
             type="file"
             aria-hidden="true"
-            onChange={e => this.onFileChange(e)}
+            onChange={(e) => this.onFileChange(e)}
           />
         </div>
       </Host>

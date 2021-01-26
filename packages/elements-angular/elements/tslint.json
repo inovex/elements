@@ -1,5 +1,8 @@
 {
-  "extends": "../tslint.json",
+  "extends": [
+    "../tslint.json",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "directive-selector": [
       true,

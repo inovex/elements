@@ -17,14 +17,14 @@ There are some rules of thumb if you do not know which option better suits your 
 
 Use the `script` tag if...
 
-* ... you just want to play around with our elements.
-* ... you have a small website which does not use any library or framework.
+- ... you just want to play around with our elements.
+- ... you have a small website which does not use any library or framework.
 
 Use the npm package manager if...
 
-* ... you already started building a single page application.
-* ... you plan to migrate a static website to a single page application.
-* ... you plan to start a new project.
+- ... you already started building a single page application.
+- ... you plan to migrate a static website to a single page application.
+- ... you plan to start a new project.
 
 ### a) Install the Package
 
@@ -48,13 +48,18 @@ $ yarn add @inovex.de/elements
 
 To load the components at runtime, you need to insert the following code fragment. Make sure that the script tag is set on each web page the user can visit on your website. For most of the websites it should be sufficient to add the tag to the `index.html` file:
 
-
 ```html
 <!-- Modern Browsers -->
-<script type="module" src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.esm.js"></script>
+<script
+  type="module"
+  src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.esm.js"
+></script>
 
 <!-- Older Browsers -->
-<script nomodule="" src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.js"></script>
+<script
+  nomodule=""
+  src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.js"
+></script>
 ```
 
 #### I do not want to pin to a concrete version, do you provide a link to the latest release?
@@ -66,7 +71,10 @@ Yes, we provide a link to our latest release, but we strongly recommend to not u
 However, for testing purposes, and if you just want to play around with the elements, you can always replace the version number with `latest`:
 
 ```html
-<script type="module" src="https://elements.inovex.de/dist/latest/inovex-elements/inovex-elements.esm.js"></script>
+<script
+  type="module"
+  src="https://elements.inovex.de/dist/latest/inovex-elements/inovex-elements.esm.js"
+></script>
 ```
 
 ### 2) Use the Components

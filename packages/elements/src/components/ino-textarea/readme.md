@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-textarea')
-  .addEventListener('valueChange', e =>
-    alert(`The new textarea value is ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new textarea value is ${e.detail}`),
   );
 ```
 
@@ -60,7 +60,9 @@ import React, { Component } from 'react';
 import { InoTextarea } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = props => {
+const Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = (
+  props,
+) => {
   const { autogrow } = props;
 
   return <InoTextarea autogrow={autogrow}>{props.children}</InoTextarea>;
@@ -86,7 +88,7 @@ class MyComponent extends Component {
 The textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document.querySelector('ino-textarea').addEventListener('valueChanges', e => {
+document.querySelector('ino-textarea').addEventListener('valueChanges', (e) => {
   // ...
 });
 ```

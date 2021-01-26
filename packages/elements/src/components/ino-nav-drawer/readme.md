@@ -14,7 +14,7 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-nav-drawer')
-  .addEventListener('openChange', _ => alert('Drawer was toggled!')) // watch for toggle change
+  .addEventListener('openChange', (_) => alert('Drawer was toggled!')) // watch for toggle change
   .setAttribute('ino-open', true); // open drawer
 ```
 
@@ -54,7 +54,7 @@ class MyComponent extends Component {
         inoOpen="false"
         inoAnchor="left"
         inoVariant="docked"
-        onOpen={_ => alert('Yeah, you just opened the drawer!')}
+        onOpen={(_) => alert('Yeah, you just opened the drawer!')}
       >
         <ino-list slot="header">
           <ino-img src="https://picsum.photos/50/50" />
@@ -91,33 +91,22 @@ import React, { Component } from 'react';
 import { InoNavDrawer } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = props => {
+const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (
+  props,
+) => {
   const { inoOpen, inoVariant, inoAnchor } = props;
 
   return (
-    <InoNavDrawer
-      inoOpen={inoOpen}
-      inoVariant={inoVariant}
-      onClick={onClick}
-    >
+    <InoNavDrawer inoOpen={inoOpen} inoVariant={inoVariant} onClick={onClick}>
       Drawer Content
-
-      <main slot="app">
-        App Content
-      </main>
+      <main slot="app">App Content</main>
     </InoNavDrawer>
   );
 };
 
 class MyComponent extends Component {
   render() {
-    return (
-      <Drawer
-        inoVariant="dismissible"
-        inoAnchor="left"
-        inoOpen="true"
-      />
-    );
+    return <Drawer inoVariant="dismissible" inoAnchor="left" inoOpen="true" />;
   }
 }
 ```

@@ -14,7 +14,6 @@ const checkSettingOfProp = async (property: string, value: number | string) => {
 };
 
 describe('ino-textarea', () => {
-
   describe('Rendering', () => {
     it('should render with an defined text inside', async () => {
       const page = await setupPageWithContent(createTextarea());
@@ -60,7 +59,7 @@ describe('ino-textarea', () => {
       const page = await setupPageWithContent(
         '<ino-textarea autofocus></ino-textarea>'
       );
-      const focusedElement = await page.$eval(':focus', el => el);
+      const focusedElement = await page.$eval(':focus', (el) => el);
 
       expect(focusedElement).toBeDefined();
     });
@@ -68,7 +67,7 @@ describe('ino-textarea', () => {
     it('should not be focused after render', async () => {
       const page = await setupPageWithContent(createTextarea());
       try {
-        await page.$eval(':focus', el => el);
+        await page.$eval(':focus', (el) => el);
       } catch (e) {
         expect(true);
       }
@@ -192,5 +191,4 @@ describe('ino-textarea', () => {
       expect(spyOnChangeEvent).not.toHaveReceivedEvent();
     });
   });
-
 });

@@ -27,20 +27,13 @@ function isInternal(icon: string) {
 }
 
 function camelize(text: string) {
-
   if (isInternal(text)) {
     return '_' + camelize(text.slice(1));
   }
 
   let words = text.split(/[-_]/g); // ok one simple regexp.
 
-  return (
-    words[0].toLowerCase() +
-    words
-      .slice(1)
-      .map(capitalize)
-      .join('')
-  );
+  return words[0].toLowerCase() + words.slice(1).map(capitalize).join('');
 }
 
 const iconData = svgFiles.map((filename: string) => {
@@ -49,7 +42,7 @@ const iconData = svgFiles.map((filename: string) => {
   return {
     filename,
     importName,
-    name
+    name,
   };
 });
 const BASE_PATH = '.';

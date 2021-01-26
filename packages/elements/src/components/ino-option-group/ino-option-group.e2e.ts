@@ -1,9 +1,9 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_OPTION_GROUP = '<ino-option-group ino-label="My Label"><ino-option value="My Option">My Option</ino-option></ino-option-group>';
+const INO_OPTION_GROUP =
+  '<ino-option-group ino-label="My Label"><ino-option value="My Option">My Option</ino-option></ino-option-group>';
 
 describe('ino-option-group', () => {
-
   it('should render with the first item being the header', async () => {
     const page = await setupPageWithContent(INO_OPTION_GROUP);
 
@@ -16,5 +16,4 @@ describe('ino-option-group', () => {
 
     expect(listItem).toHaveClass('mdc-list-item--disabled');
   });
-
 });

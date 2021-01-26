@@ -1,7 +1,5 @@
 # ino-carousel-slide
 
-
-
 <!-- Auto Generated Below -->
 
 

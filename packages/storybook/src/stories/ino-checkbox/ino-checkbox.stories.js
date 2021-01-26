@@ -34,8 +34,8 @@ export default {
   title: 'Input/<ino-checkbox>',
   parameters: {
     actions: {
-      handles: ['checkedChange .customizable-checkbox']
-    }
+      handles: ['checkedChange .customizable-checkbox'],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),

@@ -1,14 +1,20 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
-
 
 @Component({
   tag: 'ino-carousel',
   styleUrl: 'ino-carousel.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoCarousel implements ComponentInterface {
-
   @Element() el: HTMLElement;
   private slides: HTMLInoCarouselSlideElement[];
   private currentSlide: number = 0;
@@ -81,7 +87,10 @@ export class InoCarousel implements ComponentInterface {
 
   private configureSlides = () => {
     if (this.slides.length < 1) return;
-    if (!this.selectSlide(this.value)) this.slides[this.currentSlide].classList.add('ino-carousel-slide--selected');
+    if (!this.selectSlide(this.value))
+      this.slides[this.currentSlide].classList.add(
+        'ino-carousel-slide--selected'
+      );
   };
 
   private selectSlide(value: number): boolean {
@@ -112,12 +121,17 @@ export class InoCarousel implements ComponentInterface {
    * Required for autoplay to work
    */
   private nextSlide = () => {
-    if (this.slides.length < 1) throw new Error('There are no slides to display');
-    this.slides[this.currentSlide].classList.remove('ino-carousel-slide--selected');
+    if (this.slides.length < 1)
+      throw new Error('There are no slides to display');
+    this.slides[this.currentSlide].classList.remove(
+      'ino-carousel-slide--selected'
+    );
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to current slide
     this.currentSlide = this.getNextSlide();
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
-    this.slides[this.currentSlide].classList.add('ino-carousel-slide--selected');
+    this.slides[this.currentSlide].classList.add(
+      'ino-carousel-slide--selected'
+    );
     this.slideCounter++;
 
     // disables the timer after all slides have been shown
@@ -128,41 +142,41 @@ export class InoCarousel implements ComponentInterface {
   };
 
   private getSlides() {
-    return Array.from(this.el.querySelectorAll('ino-carousel-slide')) as HTMLInoCarouselSlideElement[];
-  };
+    return Array.from(
+      this.el.querySelectorAll('ino-carousel-slide')
+    ) as HTMLInoCarouselSlideElement[];
+  }
 
   private mod = (a, b) => ((a % b) + b) % b;
 
   /**
    * determines the index of the next slide
    */
-  private getNextSlide = () => this.inoReverse
-    ? this.mod(this.currentSlide - 1, this.slides.length)
-    : this.mod(this.currentSlide + 1, this.slides.length);
+  private getNextSlide = () =>
+    this.inoReverse
+      ? this.mod(this.currentSlide - 1, this.slides.length)
+      : this.mod(this.currentSlide + 1, this.slides.length);
 
   render() {
     const classes = classNames({
       'ino-carousel': true,
-      'ino-carousel--no-buttons': this.inoHideButtons
+      'ino-carousel--no-buttons': this.inoHideButtons,
     });
 
     return (
-      <Host
-        value={this.value}
-      >
+      <Host value={this.value}>
         <div class={classes}>
           <div class="ino-carousel__container">
-            <slot/>
+            <slot />
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_left"/>
+            <ino-icon-button ino-icon="arrow_left" />
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button ino-icon="arrow_right"/>
+            <ino-icon-button ino-icon="arrow_right" />
           </div>
         </div>
       </Host>
     );
   }
-
 }

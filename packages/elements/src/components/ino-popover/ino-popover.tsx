@@ -1,4 +1,13 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h, Method } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+  Method,
+} from '@stencil/core';
 import TippyJS, { Instance, Placement } from 'tippy.js';
 
 import { TooltipTrigger } from '../types';
@@ -6,7 +15,7 @@ import { TooltipTrigger } from '../types';
 @Component({
   tag: 'ino-popover',
   styleUrl: 'ino-popover.scss',
-  shadow: false
+  shadow: false,
 })
 export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;

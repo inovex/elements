@@ -6,7 +6,7 @@ import {
   Host,
   Listen,
   Prop,
-  h
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
@@ -14,7 +14,7 @@ import { Placement } from 'tippy.js';
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
-  shadow: true
+  shadow: true,
 })
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
@@ -87,11 +87,13 @@ export class Fab implements ComponentInterface {
       'ino-for': this.uniqueHelperId,
       'ino-label': this.inoLabel,
       'ino-placement': this.inoTooltipPlacement,
-      'ino-trigger': 'mouseenter focus'
+      'ino-trigger': 'mouseenter focus',
     };
 
     const tooltip = document.createElement('ino-tooltip');
-    Object.keys(attributes).forEach(key => tooltip.setAttribute(key, attributes[key]));
+    Object.keys(attributes).forEach((key) =>
+      tooltip.setAttribute(key, attributes[key])
+    );
     this.el.appendChild(tooltip);
   }
 
@@ -117,7 +119,7 @@ export class Fab implements ComponentInterface {
     const classFab = classNames({
       'mdc-fab': true,
       'mdc-fab--extended': this.inoExtended,
-      'mdc-fab--mini': this.inoMini
+      'mdc-fab--mini': this.inoMini,
     });
 
     return (
@@ -127,8 +129,8 @@ export class Fab implements ComponentInterface {
             {this.inoIcon ? (
               <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
             ) : (
-                <slot></slot>
-              )}
+              <slot></slot>
+            )}
           </span>
           {this.inoExtended && (
             <span class="mdc-fab__label">{this.inoLabel}</span>

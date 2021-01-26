@@ -41,7 +41,9 @@ import React, { Component } from 'react';
 import { InoSpinner } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = props => {
+const Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (
+  props,
+) => {
   const { inoColorScheme } = props;
 
   return (

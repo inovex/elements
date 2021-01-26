@@ -6,7 +6,10 @@ import {
   EventEmitter,
   Host,
   Listen,
-  Prop, Watch, h, State
+  Prop,
+  Watch,
+  h,
+  State,
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
@@ -17,7 +20,7 @@ import { Locale } from 'flatpickr/dist/types/locale';
 @Component({
   tag: 'ino-datepicker',
   styleUrl: 'ino-datepicker.scss',
-  shadow: false
+  shadow: false,
 })
 export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -66,7 +69,7 @@ export class Datepicker implements ComponentInterface {
       }
 
       if (this.flatpickr && this.isValid) {
-        this.flatpickr.setDate(value, false, this.inoDateFormat)
+        this.flatpickr.setDate(value, false, this.inoDateFormat);
       }
     } catch (e) {
       // Input could not be parsed e.g. empty spaces
@@ -140,7 +143,7 @@ export class Datepicker implements ComponentInterface {
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
    * The default value is `d-m-Y` which accepts values like `01.01.2019`.
    */
-  @Prop() inoDateFormat?= 'd-m-Y';
+  @Prop() inoDateFormat? = 'd-m-Y';
 
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
@@ -172,7 +175,7 @@ export class Datepicker implements ComponentInterface {
    * A number containing the initial minute in the date-time picker overlay.
    * The default is `0`
    */
-  @Prop() inoDefaultMinute?= 0;
+  @Prop() inoDefaultMinute? = 0;
 
   @Watch('inoDefaultMinute')
   inoDefaultMinuteChanged(value: string) {
@@ -228,7 +231,12 @@ export class Datepicker implements ComponentInterface {
     const target = e.target;
     const tagName = target.tagName;
 
-    if (this.disabled || !tagName || tagName !== 'INPUT' || this.elementIsInput(target)) {
+    if (
+      this.disabled ||
+      !tagName ||
+      tagName !== 'INPUT' ||
+      this.elementIsInput(target)
+    ) {
       return;
     }
 
@@ -257,7 +265,10 @@ export class Datepicker implements ComponentInterface {
     const day = currentDate.getDate();
     const newYear = year + yearOffset;
     const newDate = new Date(newYear, month, day);
-    const formattedDate = this.flatpickr.formatDate(newDate, this.flatpickr.config.dateFormat);
+    const formattedDate = this.flatpickr.formatDate(
+      newDate,
+      this.flatpickr.config.dateFormat
+    );
     this.valueChange.emit(formattedDate);
   }
 
@@ -277,11 +288,16 @@ export class Datepicker implements ComponentInterface {
     }
   };
 
-  private static INPUT_CLASSES = ['cur-year', 'flatpickr-hour', 'flatpickr-minute', 'flatpickr-time'];
+  private static INPUT_CLASSES = [
+    'cur-year',
+    'flatpickr-hour',
+    'flatpickr-minute',
+    'flatpickr-time',
+  ];
 
   private elementIsInput(element: Element) {
     const elementClasses = element.className;
-    return Datepicker.INPUT_CLASSES.some(cl => elementClasses.includes(cl));
+    return Datepicker.INPUT_CLASSES.some((cl) => elementClasses.includes(cl));
   }
 
   /**
@@ -299,8 +315,21 @@ export class Datepicker implements ComponentInterface {
   }
 
   private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-  private static MONTHS_LONG = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-  private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g
+  private static MONTHS_LONG = [
+    'Januar',
+    'Februar',
+    'März',
+    'April',
+    'Mai',
+    'Juni',
+    'Juli',
+    'August',
+    'September',
+    'Oktober',
+    'November',
+    'Dezember',
+  ];
+  private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
   private create() {
     this.dispose();
@@ -312,7 +341,7 @@ export class Datepicker implements ComponentInterface {
       clickOpens: false,
       ignoredFocusElements: [],
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
-      onChange: () => this.focusInputField()
+      onChange: () => this.focusInputField(),
     };
 
     const typeSpecificOptions: Partial<BaseOptions> = this.getTypeSpecificOptions();
@@ -320,25 +349,39 @@ export class Datepicker implements ComponentInterface {
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale["weekdays"]["shorthand"];
-    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale["months"]["longhand"];
+    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale['weekdays']['shorthand'];
+    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale['months']['longhand'];
 
     if (this.isMonthPicker()) {
-      this.flatpickr.prevMonthNav.addEventListener('click', this.monthChangePrevHandler);
-      this.flatpickr.nextMonthNav.addEventListener('click', this.monthChangeNextHandler);
+      this.flatpickr.prevMonthNav.addEventListener(
+        'click',
+        this.monthChangePrevHandler
+      );
+      this.flatpickr.nextMonthNav.addEventListener(
+        'click',
+        this.monthChangeNextHandler
+      );
     }
   }
 
   createMonthPickerOptions = () => ({
     plugins: [
-      monthSelectPlugin({ dateFormat: this.inoDateFormat === 'd-m-Y' ? 'm.Y' : this.inoDateFormat })
+      monthSelectPlugin({
+        dateFormat: this.inoDateFormat === 'd-m-Y' ? 'm.Y' : this.inoDateFormat,
+      }),
     ],
     // Handler when changing the year with the input field inside the flatpickr
     onYearChange: () => {
-      const newDate = new Date(this.flatpickr.currentYear, this.flatpickr.currentMonth);
-      const formattedDate = this.flatpickr.formatDate(newDate, this.flatpickr.config.dateFormat);
+      const newDate = new Date(
+        this.flatpickr.currentYear,
+        this.flatpickr.currentMonth
+      );
+      const formattedDate = this.flatpickr.formatDate(
+        newDate,
+        this.flatpickr.config.dateFormat
+      );
       this.valueChange.emit(formattedDate);
-    }
+    },
   });
 
   createTimePickerOptions = () => ({
@@ -348,46 +391,43 @@ export class Datepicker implements ComponentInterface {
     time_24hr: !this.inoTwelveHourTime,
     minuteIncrement: this.minuteStep,
     hourIncrement: this.hourStep,
-    noCalendar: this.isTimePicker()
+    noCalendar: this.isTimePicker(),
   });
 
   createDatePickerOptions = (): Partial<BaseOptions> => ({
     dateFormat: this.inoDateFormat,
     minDate: this.min,
     maxDate: this.max,
-    mode: this.inoRange && this.isDatePicker() ? 'range' : 'single'
+    mode: this.inoRange && this.isDatePicker() ? 'range' : 'single',
   });
 
   private setValidState(value: string): void {
-
     if (this.inoRange) {
       this.isValid = !value
         .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
-        .map(match => this.hasCorrectFormat(match.trim()))
+        .map((match) => this.hasCorrectFormat(match.trim()))
         .includes(false);
 
       return;
     }
 
     if (value) {
-
       let isValueValid = true;
       const parsedValue: Date = this.flatpickr.parseDate(value);
 
       if (this.min) {
         const minDate = this.flatpickr.parseDate(this.min);
-        isValueValid = isValueValid && (minDate <= parsedValue);
+        isValueValid = isValueValid && minDate <= parsedValue;
       }
 
       if (this.max) {
         const maxDate = this.flatpickr.parseDate(this.max);
-        isValueValid = isValueValid && (maxDate >= parsedValue);
+        isValueValid = isValueValid && maxDate >= parsedValue;
       }
 
       this.isValid = isValueValid && this.hasCorrectFormat(value);
       return;
     }
-
 
     if (!value && !this.required) {
       this.isValid = true;
@@ -397,7 +437,10 @@ export class Datepicker implements ComponentInterface {
 
   private hasCorrectFormat(value: string): boolean {
     const parsedDate: Date = this.flatpickr.parseDate(value);
-    const formattedDate: string = this.flatpickr.formatDate(parsedDate, this.flatpickr.config.dateFormat);
+    const formattedDate: string = this.flatpickr.formatDate(
+      parsedDate,
+      this.flatpickr.config.dateFormat
+    );
 
     return formattedDate == value;
   }
@@ -411,7 +454,10 @@ export class Datepicker implements ComponentInterface {
       case 'date':
         return this.createDatePickerOptions();
       case 'datetime':
-        return { ...this.createDatePickerOptions(), ...this.createTimePickerOptions() };
+        return {
+          ...this.createDatePickerOptions(),
+          ...this.createTimePickerOptions(),
+        };
     }
   }
 
@@ -426,8 +472,14 @@ export class Datepicker implements ComponentInterface {
       this.flatpickr.destroy();
 
       if (this.isMonthPicker()) {
-        this.flatpickr.prevMonthNav.removeEventListener('click', this.monthChangePrevHandler);
-        this.flatpickr.nextMonthNav.removeEventListener('click', this.monthChangeNextHandler);
+        this.flatpickr.prevMonthNav.removeEventListener(
+          'click',
+          this.monthChangePrevHandler
+        );
+        this.flatpickr.nextMonthNav.removeEventListener(
+          'click',
+          this.monthChangeNextHandler
+        );
       }
     }
   }
@@ -451,14 +503,13 @@ export class Datepicker implements ComponentInterface {
           ino-helper-persistent={this.inoHelperPersistent}
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
-          onValueChange={e => this.valueChange.emit(e.detail)}
+          onValueChange={(e) => this.valueChange.emit(e.detail)}
         >
           <ino-icon
             ino-clickable={!this.disabled}
             slot={'ino-icon-leading'}
             ino-icon={this.isTimePicker() ? 'time' : 'calendar'}
-          >
-          </ino-icon>
+          ></ino-icon>
         </ino-input>
       </Host>
     );

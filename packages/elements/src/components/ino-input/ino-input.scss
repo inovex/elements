@@ -21,7 +21,7 @@ $padding-top: 24px;
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 }
@@ -40,14 +40,12 @@ ino-input {
 }
 
 ino-input {
-
   display: block;
   @include icon.icon-core-styles;
 
   & * {
     box-sizing: initial;
   }
-
 
   & > .ino-input__composer {
     text-align: left;
@@ -62,7 +60,6 @@ ino-input {
   }
 
   .mdc-text-field {
-
     @include textfield.focused-outline-color(var(--input-line-color));
 
     ino-icon {
@@ -156,10 +153,8 @@ ino-input {
     }
   }
 
-
   // Custom number arrows
   &[type='number'] {
-
     @include hideNativeNumberInputArrows();
 
     .arrow-container {
@@ -181,7 +176,8 @@ ino-input {
       }
     }
 
-    .mdc-text-field:#{$default-text-field}, .mdc-text-field.mdc-text-field--outlined {
+    .mdc-text-field:#{$default-text-field},
+    .mdc-text-field.mdc-text-field--outlined {
       .mdc-text-field__icon.mdc-text-field__icon--trailing {
         right: 25px;
       }

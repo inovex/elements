@@ -10,9 +10,9 @@ export default {
   title: 'Buttons/<ino-chip-set>',
   parameters: {
     actions: {
-      handles: ['removeChip']
-    }
-  }
+      handles: ['removeChip'],
+    },
+  },
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -51,9 +51,7 @@ export const DefaultUsage = () => /*html*/ `
 </div>
 `;
 
-DefaultUsage.decorators = [
-  withStencilReadme(chipSetReadme)
-];
+DefaultUsage.decorators = [withStencilReadme(chipSetReadme)];
 
 export const InoChip = () => /*html*/ `
 <div class="story-chip">
@@ -61,19 +59,19 @@ export const InoChip = () => /*html*/ `
     <ino-chip
       class="customizable-chip"
       ino-color-scheme="${select(
-  'ino-color-scheme',
-  [
-    '',
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'error',
-    'light',
-    'dark'
-  ],
-  ''
-)}"
+        'ino-color-scheme',
+        [
+          '',
+          'primary',
+          'secondary',
+          'success',
+          'warning',
+          'error',
+          'light',
+          'dark',
+        ],
+        ''
+      )}"
       ino-fill="${select('ino-fill', ['solid', 'outline'], 'solid')}"
       ino-removable="${boolean('ino-removable', true)}"
       ino-selected="${boolean('ino-selected', false)}"
@@ -121,6 +119,4 @@ export const InoChip = () => /*html*/ `
 `;
 
 InoChip.storyName = '<ino-chip>';
-InoChip.decorators = [
-  withStencilReadme(chipReadme)
-];
+InoChip.decorators = [withStencilReadme(chipReadme)];

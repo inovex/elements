@@ -7,7 +7,7 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -16,7 +16,7 @@ import { ColorScheme } from '../types';
 @Component({
   tag: 'ino-range',
   styleUrl: 'ino-range.scss',
-  shadow: false
+  shadow: false,
 })
 export class Range implements ComponentInterface {
   private sliderInstance!: MDCSlider;
@@ -80,13 +80,22 @@ export class Range implements ComponentInterface {
   componentDidLoad() {
     const sliderElement = this.el.querySelector('.mdc-slider');
     this.sliderInstance = new MDCSlider(sliderElement);
-    this.sliderInstance.listen('MDCSlider:change', this.handleChange.bind(this));
+    this.sliderInstance.listen(
+      'MDCSlider:change',
+      this.handleChange.bind(this)
+    );
     this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
   }
 
   disconnectedCallback() {
-    this.sliderInstance?.unlisten('MDCSlider:change', this.handleChange.bind(this));
-    this.sliderInstance?.unlisten('MDCSlider:input', this.handleInput.bind(this));
+    this.sliderInstance?.unlisten(
+      'MDCSlider:change',
+      this.handleChange.bind(this)
+    );
+    this.sliderInstance?.unlisten(
+      'MDCSlider:input',
+      this.handleInput.bind(this)
+    );
     this.sliderInstance?.destroy();
   }
 
@@ -107,7 +116,7 @@ export class Range implements ComponentInterface {
       'mdc-slider': true,
       'mdc-slider--discrete': this.inoDiscrete,
       'mdc-slider--tick-marks': this.inoMarkers,
-      'mdc-slider--disabled': this.disabled
+      'mdc-slider--disabled': this.disabled,
     });
 
     return (
@@ -135,7 +144,9 @@ export class Range implements ComponentInterface {
             {this.inoDiscrete && (
               <div class="mdc-slider__value-indicator-container">
                 <div class="mdc-slider__value-indicator">
-                  <span class="mdc-slider__value-indicator-text">{this.value || this.min}</span>
+                  <span class="mdc-slider__value-indicator-text">
+                    {this.value || this.min}
+                  </span>
                 </div>
               </div>
             )}

@@ -9,7 +9,7 @@ import {
   Listen,
   Prop,
   Watch,
-  h
+  h,
 } from '@stencil/core';
 import autosize from 'autosize';
 import classNames from 'classnames';
@@ -17,7 +17,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-textarea',
   styleUrl: 'ino-textarea.scss',
-  shadow: false
+  shadow: false,
 })
 export class Textarea implements ComponentInterface {
   private cursorPosition = 0;
@@ -138,7 +138,9 @@ export class Textarea implements ComponentInterface {
   connectedCallback() {
     // Remove as soon as the 'filled' style should be released as new default style
     if (this.inoOutline === undefined) {
-      console.warn(`The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`);
+      console.warn(
+        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`
+      );
       this.inoOutline = true;
     }
   }
@@ -202,14 +204,14 @@ export class Textarea implements ComponentInterface {
       'mdc-text-field--filled': !this.inoOutline,
       'mdc-text-field-fullwidth': !Boolean(this.cols),
       'mdc-text-field--no-label': !this.inoLabel,
-      'mdc-text-field--with-internal-counter': Boolean(this.maxlength)
+      'mdc-text-field--with-internal-counter': Boolean(this.maxlength),
     });
 
     return (
       <Host>
         <div class={classes}>
           <textarea
-            ref={el => (this.nativeTextareaElement = el)}
+            ref={(el) => (this.nativeTextareaElement = el)}
             class="mdc-text-field__input"
             autofocus={this.autoFocus}
             cols={this.cols}
@@ -224,7 +226,9 @@ export class Textarea implements ComponentInterface {
             onInput={this.handleNativeTextareaChange.bind(this)}
           />
           {this.maxlength && (
-            <div class="mdc-text-field-character-counter">{this.value.length} / {this.maxlength}</div>
+            <div class="mdc-text-field-character-counter">
+              {this.value.length} / {this.maxlength}
+            </div>
           )}
           <ino-label
             ino-outline={this.inoOutline}

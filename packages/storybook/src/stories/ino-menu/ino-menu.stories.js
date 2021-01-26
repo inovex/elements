@@ -14,7 +14,8 @@ function subscribeToComponentEvents() {
       return;
     }
 
-    const clickedMenuId = innerText === 'OPEN MENU' ? 'custom-menu' : 'custom-menu-2';
+    const clickedMenuId =
+      innerText === 'OPEN MENU' ? 'custom-menu' : 'custom-menu-2';
     const el = document.getElementById(clickedMenuId);
 
     if (!el) {
@@ -60,7 +61,10 @@ export const DefaultUsage = () => /*html*/ `
 
       <h4>Variation with divider</h4>
       <ino-button id="menu-2">Open divided menu</ino-button>
-      <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open="${boolean('ino-open', false)}">
+      <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open="${boolean(
+        'ino-open',
+        false
+      )}">
         <ino-list-item ino-text="Home"></ino-list-item>
         <ino-list-item ino-text="Projects"></ino-list-item>
         <ino-list-divider></ino-list-divider>

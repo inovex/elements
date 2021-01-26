@@ -9,12 +9,8 @@ The component can be used as follows:
 
 ```html
 <ino-table-row ino-header-row>
-    <ino-table-cell ino-numeric>
-        1
-    </ino-table-cell>
-    <ino-table-cell>
-        Cell content
-    </ino-table-cell>
+  <ino-table-cell ino-numeric> 1 </ino-table-cell>
+  <ino-table-cell> Cell content </ino-table-cell>
 </ino-table-row>
 ```
 

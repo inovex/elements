@@ -1,3 +1,3 @@
 module.exports = {
-  ignorableDeepImportMatchers: [/@inovex.de\//]
+  ignorableDeepImportMatchers: [/@inovex.de\//],
 };

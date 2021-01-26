@@ -6,10 +6,9 @@ const INO_CAROUSEL = `
     <ino-carousel-slide value="1" id=slide2></ino-carousel-slide>
 </ino-carousel>`;
 const CAROUSEL = 'ino-carousel';
-const DIV_SELECTOR = 'ino-carousel > div'
+const DIV_SELECTOR = 'ino-carousel > div';
 
 describe('ino-carousel', () => {
-
   it('should render with default values', async () => {
     const page = await setupPageWithContent(INO_CAROUSEL);
     const carousel = await page.find(CAROUSEL);

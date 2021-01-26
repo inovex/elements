@@ -58,7 +58,7 @@ import React, { Component } from 'react';
 import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const List: React.FunctionComponent<Components.InoListAttributes> = props => {
+const List: React.FunctionComponent<Components.InoListAttributes> = (props) => {
   const { inoAvatar } = props;
 
   return <InoList inoAvatar={inoAvatar}>{props.children}</InoList>;

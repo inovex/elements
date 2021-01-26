@@ -16,8 +16,8 @@ ino-chip {
     @include chips.fill-color-accessible($default-chip-color);
 
     ino-icon {
-      --icon-width: .75em;
-      --icon-height: .75em;
+      --icon-width: 0.75em;
+      --icon-height: 0.75em;
       --icon-color: currentColor;
     }
   }

@@ -4,10 +4,9 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-option',
   styleUrl: 'ino-option.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoOption {
-
   /**
    * Disables the option
    */
@@ -35,18 +34,21 @@ export class InoOption {
     const classSelect = classNames({
       'mdc-list-item': true,
       'mdc-list-item--disabled': this.disabled,
-      'mdc-list-item--selected': this.selected
+      'mdc-list-item--selected': this.selected,
     });
 
     return (
       <Host>
-        <li class={classSelect} data-value={this.value} aria-selected={this.selected}>
+        <li
+          class={classSelect}
+          data-value={this.value}
+          aria-selected={this.selected}
+        >
           <span class="mdc-list-item__text">
-            <slot/>
+            <slot />
           </span>
         </li>
       </Host>
     );
   }
-
 }

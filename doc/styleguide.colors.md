@@ -64,30 +64,35 @@ These shades will represent the brand in graphical elements, texts, syntax, back
 </div>
 
 ## Success
+
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #9CCD00"></div>
   <div class="color-hex" style="color: #9CCD00">#9CCD00</div>
 </div>
 
 ## Warning
+
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #FFDE03"></div>
   <div class="color-hex" style="color: #FFDE03">#FFDE03</div>
 </div>
 
 ## Error
+
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #E00051"></div>
   <div class="color-hex" style="color: #E00051">#E00051</div>
 </div>
 
 ## Light
+
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #C1C1C1"></div>
   <div class="color-hex" style="color: #C1C1C1">#C1C1C1</div>
 </div>
 
 ## Dark
+
 <div class="color-wrapper">
   <div class="color-rect" style="background-color: #777777"></div>
   <div class="color-hex" style="color: #777777">#777777</div>

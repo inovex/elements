@@ -4,16 +4,20 @@
 @use 'base/theme';
 
 $small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3),
-0 12px 28px 0 rgba(theme.color(dark), 0.14);
+  0 12px 28px 0 rgba(theme.color(dark), 0.14);
 $big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
-0 16px 32px 0 rgba(theme.color(dark), 0.14);
+  0 16px 32px 0 rgba(theme.color(dark), 0.14);
 
 ino-card {
   /**
    * @prop --ino-card-background-color: background color of the check mark
    * @prop --ino-card-color: check mark color
    */
-  --card-background-color: var(--ino-card-background-color, --ino-global-primary-color, #{theme.color(primary, base)});
+  --card-background-color: var(
+    --ino-card-background-color,
+    --ino-global-primary-color,
+    #{theme.color(primary, base)}
+  );
   --card-color: var(--ino-card-color, #fff);
 }
 
@@ -52,11 +56,14 @@ ino-card {
     }
   }
 
-  .ino-card__footer, .ino-card__content, .ino-card__header {
+  .ino-card__footer,
+  .ino-card__content,
+  .ino-card__header {
     padding: 10px;
   }
 
-  &:not([ino-disable-elevation]):hover, &[ino-disable-elevation="false"]:hover {
+  &:not([ino-disable-elevation]):hover,
+  &[ino-disable-elevation='false']:hover {
     .mdc-card {
       @include card.outline(#fff, 1px);
       box-shadow: $small-shadow;

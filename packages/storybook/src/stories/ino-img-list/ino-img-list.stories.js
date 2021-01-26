@@ -15,8 +15,8 @@ export default {
   title: 'Graphic/<ino-img-list>',
   parameters: {
     actions: {
-      handles: ['click .customizable-img-listr', 'submit .form']
-    }
+      handles: ['click .customizable-img-listr', 'submit .form'],
+    },
   },
   decorators: [withStencilReadme(imgListReadme)],
 };
@@ -26,7 +26,11 @@ export const DefaultUsage = () => {
       <h4>Customizable Image List</h4>
           <style>
             ino-img-list.customizable-img-list {
-              --img-list-cols: ${number('--img-list-cols', 3, 'Custom Properties')};
+              --img-list-cols: ${number(
+                '--img-list-cols',
+                3,
+                'Custom Properties'
+              )};
             }
         </style>
         <ino-img-list

@@ -1,4 +1,13 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { ChipSurface, ColorScheme } from '../types';
@@ -6,7 +15,7 @@ import { ChipSurface, ColorScheme } from '../types';
 @Component({
   tag: 'ino-chip',
   styleUrl: 'ino-chip.scss',
-  shadow: false
+  shadow: false,
 })
 export class Chip implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -75,7 +84,9 @@ export class Chip implements ComponentInterface {
 
   componentDidLoad(): void {
     if (this.inoIcon) {
-      console.warn(`Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.`);
+      console.warn(
+        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.`
+      );
     }
   }
 
@@ -86,13 +97,13 @@ export class Chip implements ComponentInterface {
 
   render() {
     const chipClasses = classNames('mdc-chip', {
-      'mdc-chip--selected': this.inoSelected
+      'mdc-chip--selected': this.inoSelected,
     });
 
     const iconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
+      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
     });
 
     return (
@@ -101,26 +112,26 @@ export class Chip implements ComponentInterface {
           <div class="mdc-chip__ripple"></div>
 
           {this.inoIcon && (
-            <ino-icon class={iconClasses} ino-icon={this.inoIcon}/>
+            <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
           )}
 
           {this.inoIconLeading && !this.inoIcon && (
             <span class={iconClasses}>
-              <slot name="ino-icon-leading"/>
+              <slot name="ino-icon-leading" />
             </span>
           )}
 
           {this.inoSelectable && (
             <span class="mdc-chip__checkmark">
-            <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
-              <path
-                class="mdc-chip__checkmark-path"
-                fill="none"
-                stroke="black"
-                d="M1.73,12.91 8.1,19.28 22.79,4.59"
-              />
-            </svg>
-          </span>
+              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
+                <path
+                  class="mdc-chip__checkmark-path"
+                  fill="none"
+                  stroke="black"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                />
+              </svg>
+            </span>
           )}
 
           <span class="mdc-chip__text">{this.inoLabel}</span>
@@ -132,7 +143,7 @@ export class Chip implements ComponentInterface {
               tabindex="0"
               role="button"
               ino-clickable
-              onClick={e => this.iconClicked(e)}
+              onClick={(e) => this.iconClicked(e)}
             />
           )}
         </button>

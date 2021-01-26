@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('valueChange', e =>
-    alert(`The new datepicker value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new datepicker value is: ${e.detail}`),
   );
 ```
 
@@ -75,7 +75,9 @@ import React, { Component } from 'react';
 import { InoDatepicker } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = props => {
+const Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (
+  props,
+) => {
   const { inoLabel, inoHelper } = props;
 
   const valueChange = (e: any) => {
@@ -99,32 +101,38 @@ class MyComponent extends Component {
 ```
 
 ## Additional Hints
+
 ### Types
+
 This datepicker can be used as a picker for ...
+
 - date
 - time
 - datetime
 - month
 
 The type of the picker is selected based on the `ino-type` property. See the examples below.
- 
+
 #### Datepicker
+
 ```html
 <ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
 ```
+
 #### Timepicker
+
 ```html
 <ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
 ```
+
 #### Date-Time-Picker
+
 ```html
-<ino-datepicker
-  ino-type="datetime"
-  ino-label="Datetime"
->
-</ino-datepicker>
+<ino-datepicker ino-type="datetime" ino-label="Datetime"> </ino-datepicker>
 ```
+
 #### Monthpicker
+
 ```html
 <ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 ```

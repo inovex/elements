@@ -11,7 +11,7 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-button')
-  .addEventListener('click', _ => alert('Button was clicked!'));
+  .addEventListener('click', (_) => alert('Button was clicked!'));
 ```
 
 ```html
@@ -28,8 +28,8 @@ document
   ino-dense
   onClick="handleClick()"
 >
-    <ino-icon ino-icon="add"></ino-icon>
-    Button Content
+  <ino-icon ino-icon="add"></ino-icon>
+  Button Content
 </ino-button>
 ```
 
@@ -47,7 +47,7 @@ class MyComponent extends Component {
       <InoButton
         inoColorScheme="dark"
         inoIconLeading
-        onClick={_ => alert("Yeah, you clicked the button!")}
+        onClick={(_) => alert('Yeah, you clicked the button!')}
       >
         <InoIcon inoIcon="add" />
         You can click me!
@@ -64,18 +64,16 @@ import React, { Component } from 'react';
 import { InoButton } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Button: React.FunctionComponent<Components.InoButtonAttributes> = props => {
+const Button: React.FunctionComponent<Components.InoButtonAttributes> = (
+  props,
+) => {
   const { inoColorScheme, onClick } = props;
 
   return (
-    <InoButton
-      inoColorScheme={inoColorScheme}
-      inoIconLeading
-      onClick={onClick}
-    >
-        <InoIcon inoIcon={"add"} />
-        You can click me!
-      </InoButton>
+    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>
+      <InoIcon inoIcon={'add'} />
+      You can click me!
+    </InoButton>
   );
 };
 
@@ -84,7 +82,7 @@ class MyComponent extends Component {
     return (
       <Button
         inoColorScheme="dark"
-        onClick={_ => alert("Yeah, you clicked the button!")}
+        onClick={(_) => alert('Yeah, you clicked the button!')}
       />
     );
   }

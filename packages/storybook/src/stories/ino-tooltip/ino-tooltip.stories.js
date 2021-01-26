@@ -15,8 +15,15 @@ export const DefaultUsage = () => /*html*/ `
       <ino-button id="tooltip-target">Tooltip</ino-button>
       <ino-tooltip
         ino-for="${text('ino-for', 'tooltip-target')}"
-        ino-label="${text('ino-label', 'This is a customaziable tooltip text.')}"
-        ino-placement="${select('ino-placement', ['top', 'right', 'bottom', 'left'], 'top')}"
+        ino-label="${text(
+          'ino-label',
+          'This is a customaziable tooltip text.'
+        )}"
+        ino-placement="${select(
+          'ino-placement',
+          ['top', 'right', 'bottom', 'left'],
+          'top'
+        )}"
         ino-trigger="${select(
           'ino-trigger',
           [

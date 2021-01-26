@@ -12,7 +12,6 @@ const INO_DIALOG_SELECTOR = 'ino-dialog';
 const MDC_SELECTOR = '.mdc-dialog';
 
 describe('InoDialog', () => {
-
   describe('Properties', () => {
     it('should close the dialog upon setting inoOpen to false', async () => {
       const page = await setupPageWithContent(INO_OPEN_DIALOG);
@@ -21,7 +20,9 @@ describe('InoDialog', () => {
       await inoDialog.setAttribute('ino-open', false);
       await page.waitForChanges();
 
-      const mdcInstance = await inoDialog.shadowRoot.querySelector(MDC_SELECTOR);
+      const mdcInstance = await inoDialog.shadowRoot.querySelector(
+        MDC_SELECTOR
+      );
       expect(mdcInstance).not.toHaveClass('mdc-dialog--open');
     });
 
@@ -32,7 +33,9 @@ describe('InoDialog', () => {
       await inoDialog.setAttribute('ino-open', true);
       await page.waitForChanges();
 
-      const mdcInstance = await inoDialog.shadowRoot.querySelector(MDC_SELECTOR);
+      const mdcInstance = await inoDialog.shadowRoot.querySelector(
+        MDC_SELECTOR
+      );
       expect(mdcInstance).toHaveClass('mdc-dialog--open');
     });
   });
@@ -56,5 +59,4 @@ describe('InoDialog', () => {
       expect(inoChangedEvent).toHaveReceivedEventDetail(false);
     });
   });
-
 });

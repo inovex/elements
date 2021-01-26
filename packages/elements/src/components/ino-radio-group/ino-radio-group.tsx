@@ -1,12 +1,19 @@
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-radio-group',
   styleUrl: 'ino-radio-group.scss',
-  shadow: true
+  shadow: true,
 })
 export class RadioGroup implements ComponentInterface {
-
   @Element() el!: HTMLElement;
 
   /**
@@ -23,7 +30,7 @@ export class RadioGroup implements ComponentInterface {
     this.updateRadios(this.value);
 
     const radios = await this.getRadios();
-    radios.forEach(radio => {
+    radios.forEach((radio) => {
       radio.addEventListener('mouseover', () => this.addHoverAnimation(radio));
       radio.addEventListener('mouseout', () => this.removeHoverAnimation());
     });
@@ -31,8 +38,10 @@ export class RadioGroup implements ComponentInterface {
 
   async disconnectedCallback() {
     const radios = await this.getRadios();
-    radios.forEach(radio => {
-      radio.removeEventListener('mouseover', () => this.addHoverAnimation(radio));
+    radios.forEach((radio) => {
+      radio.removeEventListener('mouseover', () =>
+        this.addHoverAnimation(radio)
+      );
       radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
     });
   }
@@ -42,7 +51,7 @@ export class RadioGroup implements ComponentInterface {
    */
   private async addHoverAnimation(hoveredRadio: HTMLInoRadioElement) {
     const radios = await this.getRadios();
-    const checkedRadio = radios.find(radio => Boolean(radio.checked));
+    const checkedRadio = radios.find((radio) => Boolean(radio.checked));
 
     if (!checkedRadio || hoveredRadio === checkedRadio) {
       return;
@@ -53,7 +62,9 @@ export class RadioGroup implements ComponentInterface {
 
   private async removeHoverAnimation() {
     const radios = await this.getRadios();
-    const checkedRadio = radios.find(radio => radio.classList.contains('ino-checked-hover'));
+    const checkedRadio = radios.find((radio) =>
+      radio.classList.contains('ino-checked-hover')
+    );
 
     if (!checkedRadio) {
       return;
@@ -74,7 +85,6 @@ export class RadioGroup implements ComponentInterface {
 
     // Walk the DOM in reverse order, since the last selected one wins!
     for (const radio of radios) {
-
       if (radio.checked) {
         radio.classList.remove('ino-checked-hover');
       }
@@ -103,8 +113,10 @@ export class RadioGroup implements ComponentInterface {
   }
 
   render() {
-    return <Host>
-      <slot></slot>
-    </Host>;
+    return (
+      <Host>
+        <slot></slot>
+      </Host>
+    );
   }
 }

@@ -11,7 +11,7 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('changeFile', e => alert(`The new file is: ${e.detail}`));
+  .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));
 ```
 
 ```html
@@ -54,7 +54,7 @@ import React, { Component } from 'react';
 import { InoInputFile } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const FileInput: React.FunctionComponent<Components.InoInputFile> = props => {
+const FileInput: React.FunctionComponent<Components.InoInputFile> = (props) => {
   const onFileChange = (e: any) => {
     alert(`The new file is: ${e.detail}`);
   };

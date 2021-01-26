@@ -44,7 +44,9 @@ import React, { Component } from 'react';
 import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = props => {
+const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (
+  props,
+) => {
   const { inoActiveTab } = props;
 
   return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;

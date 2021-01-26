@@ -4,7 +4,6 @@
 $label-color: rgba(0, 0, 0, 0.6);
 
 ino-label {
-
   &[ino-show-hint] {
     .mdc-floating-label:after {
       content: '*';
@@ -17,7 +16,8 @@ ino-label {
     }
   }
 
-  &[ino-show-hint="false"], &:not([ino-show-hint]) {
+  &[ino-show-hint='false'],
+  &:not([ino-show-hint]) {
     .mdc-floating-label::after {
       content: none;
     }
@@ -31,7 +31,8 @@ ino-label {
     }
   }
 
-  &:not([ino-disabled]) .mdc-floating-label:not(.mdc-floating-label--float-above) {
+  &:not([ino-disabled])
+    .mdc-floating-label:not(.mdc-floating-label--float-above) {
     color: $label-color;
   }
 }

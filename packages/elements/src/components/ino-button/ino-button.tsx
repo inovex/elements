@@ -1,5 +1,13 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
@@ -7,7 +15,7 @@ import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
-  shadow: true
+  shadow: true,
 })
 export class Button implements ComponentInterface {
   /**
@@ -54,7 +62,7 @@ export class Button implements ComponentInterface {
   /**
    * Styles the button to have the edge on the top-right instead of the top-left
    */
-  @Prop() inoEdgeMirrored?= false;
+  @Prop() inoEdgeMirrored? = false;
 
   /**
    * The fill type of this element.
@@ -65,7 +73,7 @@ export class Button implements ComponentInterface {
   /**
    * Styles the button in 100% width.
    */
-  @Prop() inoFullWidth?= false;
+  @Prop() inoFullWidth? = false;
 
   /**
    * If enabled, prepends the slotted icon to the button label
@@ -102,13 +110,17 @@ export class Button implements ComponentInterface {
 
   componentDidUpdate() {
     if (this.inoLoading && this.buttonSizeBeforeLoad) {
-      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label') as HTMLDivElement;
+      const mdcLabel = this.el.shadowRoot.querySelector(
+        '.mdc-button__label'
+      ) as HTMLDivElement;
       mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
     }
   }
 
   componentDidLoad() {
-    this.button = new MDCRipple(this.el.shadowRoot.querySelector('.mdc-button'));
+    this.button = new MDCRipple(
+      this.el.shadowRoot.querySelector('.mdc-button')
+    );
   }
 
   disconnectedCallback() {
@@ -140,9 +152,10 @@ export class Button implements ComponentInterface {
   render() {
     const classButton = classNames({
       'mdc-button': true,
-      'mdc-button--unelevated': this.inoFill === 'solid' || this.inoFill === 'inverse',
+      'mdc-button--unelevated':
+        this.inoFill === 'solid' || this.inoFill === 'inverse',
       'mdc-button--outlined': this.inoFill === 'outline',
-      'ino-button--dense': this.inoDense
+      'ino-button--dense': this.inoDense,
     });
 
     return (
@@ -165,11 +178,15 @@ export class Button implements ComponentInterface {
             </span>
           )}
           <div class="mdc-button__label">
-            {this.inoLoading ?
-              <ino-spinner ino-height={20} ino-width={20} ino-type="circle"></ino-spinner>
-              :
+            {this.inoLoading ? (
+              <ino-spinner
+                ino-height={20}
+                ino-width={20}
+                ino-type="circle"
+              ></ino-spinner>
+            ) : (
               <slot></slot>
-            }
+            )}
           </div>
           {this.inoIconTrailing && (
             <span class="mdc-button__icon">

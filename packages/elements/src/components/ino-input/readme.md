@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-input')
-  .addEventListener('valueChange', e =>
-    alert(`The new input value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new input value is: ${e.detail}`),
   );
 ```
 
@@ -42,11 +42,11 @@ document
   ino-helper-validation
   ino-data-list="<string>"
 >
-    <datalist id="<string>">
-        <option>...</option>
-    </datalist>
-    <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
-    <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
+  <datalist id="<string>">
+    <option>...</option>
+  </datalist>
+  <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
+  <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
 </ino-input>
 ```
 
@@ -81,7 +81,9 @@ import React, { Component } from 'react';
 import { InoInput } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Input: React.FunctionComponent<Components.InoInputAttributes> = props => {
+const Input: React.FunctionComponent<Components.InoInputAttributes> = (
+  props,
+) => {
   const { inoPlaceholder } = props;
 
   const onValueChange = (e: any) => {
@@ -114,12 +116,13 @@ class MyComponent extends Component {
 **Icons**: There are currently two options two place an icon: at the start/left (`ino-icon-leading`) or at the end/right (`ino-icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally you have to provide either `slot=ino-icon-leading` or `slot="ino-icon-trailing`to your icon element.
 
 **Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
+
 ### Control flow
 
 The input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.
 
 ```js
-document.querySelector('ino-input').addEventListener('valueChange', e => {
+document.querySelector('ino-input').addEventListener('valueChange', (e) => {
   // ...
 });
 ```

@@ -9,8 +9,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-tab-bar')
-  .addEventListener('activeTabChange', e =>
-    console.log(`The index of the new tab is: ${e.detail}`)
+  .addEventListener('activeTabChange', (e) =>
+    console.log(`The index of the new tab is: ${e.detail}`),
   );
 ```
 
@@ -51,7 +51,9 @@ import React, { Component } from 'react';
 import { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = props => {
+const TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (
+  props,
+) => {
   const { inoActiveTab } = props;
 
   return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;
@@ -79,7 +81,7 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 ```jsx
 <ino-tab-bar
   ino-active-tab={this.state.index}
-  activeTabChange={e => (this.state.index = e.detail)}
+  activeTabChange={(e) => (this.state.index = e.detail)}
 />
 ```
 

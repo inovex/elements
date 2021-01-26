@@ -13,25 +13,21 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-nav-item')
-  .addEventListener('clickEl', e =>
+  .addEventListener('clickEl', (e) =>
     console.log(
       'The new nav-item was clicked, the element itself is:',
-      e.detail
-    )
+      e.detail,
+    ),
   );
 ```
 
 ```html
-<ino-nav-item
-  ino-activated
-  ino-text="<string>"
-  onclickel="handleClickEl()"
->
+<ino-nav-item ino-activated ino-text="<string>" onclickel="handleClickEl()">
   <ino-icon ...></ino-icon>
 </ino-nav-item>
 ```
-**Default:** Add an item with the default slot to add a first column in the nav item in LTR languages. Typically an icon or image.
 
+**Default:** Add an item with the default slot to add a first column in the nav item in LTR languages. Typically an icon or image.
 
 <!-- Auto Generated Below -->
 

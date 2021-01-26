@@ -30,8 +30,8 @@ export default {
   title: 'Input/<ino-form-row>',
   parameters: {
     actions: {
-      handles: ['valueChange .customizable-form-row']
-    }
+      handles: ['valueChange .customizable-form-row'],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),

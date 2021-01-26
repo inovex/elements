@@ -10,13 +10,16 @@ import navItemReadme from '_local-elements/src/components/ino-nav-item/readme.md
 
 import './ino-list.scss';
 
-
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     const tagName = el.tagName.toLowerCase();
-    if (tagName !== 'ino-checkbox' && tagName !== 'ino-radio' && tagName !== 'ino-control-item') {
+    if (
+      tagName !== 'ino-checkbox' &&
+      tagName !== 'ino-radio' &&
+      tagName !== 'ino-control-item'
+    ) {
       return;
     }
 
@@ -38,10 +41,12 @@ function subscribeToComponentEvents() {
 
 export default {
   title: 'Structure/<ino-list>',
-  decorators: [story => {
-    subscribeToComponentEvents();
-    return story();
-  }]
+  decorators: [
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
 };
 
 export const DefaultUsage = () => /*html*/ `
@@ -140,16 +145,56 @@ export const ListItem = () => /*html*/ `
   <ino-list ino-two-lines="${boolean('ino-two-lines (on ino-list)', true)}">
     <style>
       ino-list-item.customizable-list-item {
-        --ino-list-item-selected-color: ${text('--ino-list-item-selected-color', '#3d40f5', 'Custom Properties')};
-        --ino-list-item-selected-background-color: ${text('--ino-list-item-selected-background-color', 'rgba(61, 64, 245, 0.05)', 'Custom Properties')};
-        --ino-list-item-selected-background-color-hover: ${text('--ino-list-item-selected-background-color-hover', 'rgba(61, 64, 245, 0.1)', 'Custom Properties')};
-        --ino-list-item-selected-background-color-active: ${text('--ino-list-item-selected-background-color-active', 'rgba(61, 64, 245, 0.3)', 'Custom Properties')};
-        --ino-list-item-selected-background-color-focus: ${text('--ino-list-item-selected-background-color-focus', 'rgba(61, 64, 245, 0.15)', 'Custom Properties')};
-        --ino-list-item-deselected-color: ${text('--ino-list-item-deselected-color', '', 'Custom Properties')};
-        --ino-list-item-deselected-background-color: ${text('--ino-list-item-deselected-background-color', '', 'Custom Properties')};
-        --ino-list-item-deselected-background-color-hover: ${text('--ino-list-item-deselected-background-color-hover', '', 'Custom Properties')};
-        --ino-list-item-deselected-background-color-active: ${text('--ino-list-item-deselected-background-color-active', '', 'Custom Properties')};
-        --ino-list-item-deselected-background-color-focus: ${text('--ino-list-item-deselected-background-color-focus', '', 'Custom Properties')};
+        --ino-list-item-selected-color: ${text(
+          '--ino-list-item-selected-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
+        --ino-list-item-selected-background-color: ${text(
+          '--ino-list-item-selected-background-color',
+          'rgba(61, 64, 245, 0.05)',
+          'Custom Properties'
+        )};
+        --ino-list-item-selected-background-color-hover: ${text(
+          '--ino-list-item-selected-background-color-hover',
+          'rgba(61, 64, 245, 0.1)',
+          'Custom Properties'
+        )};
+        --ino-list-item-selected-background-color-active: ${text(
+          '--ino-list-item-selected-background-color-active',
+          'rgba(61, 64, 245, 0.3)',
+          'Custom Properties'
+        )};
+        --ino-list-item-selected-background-color-focus: ${text(
+          '--ino-list-item-selected-background-color-focus',
+          'rgba(61, 64, 245, 0.15)',
+          'Custom Properties'
+        )};
+        --ino-list-item-deselected-color: ${text(
+          '--ino-list-item-deselected-color',
+          '',
+          'Custom Properties'
+        )};
+        --ino-list-item-deselected-background-color: ${text(
+          '--ino-list-item-deselected-background-color',
+          '',
+          'Custom Properties'
+        )};
+        --ino-list-item-deselected-background-color-hover: ${text(
+          '--ino-list-item-deselected-background-color-hover',
+          '',
+          'Custom Properties'
+        )};
+        --ino-list-item-deselected-background-color-active: ${text(
+          '--ino-list-item-deselected-background-color-active',
+          '',
+          'Custom Properties'
+        )};
+        --ino-list-item-deselected-background-color-focus: ${text(
+          '--ino-list-item-deselected-background-color-focus',
+          '',
+          'Custom Properties'
+        )};
       }
     </style>
     <ino-list-item
@@ -569,25 +614,25 @@ export const NavItem = () => /*html*/ `
 <style>
   .customizable-nav-item {
     --ino-nav-item-color: ${text(
-  '--ino-nav-item-color',
-  'black',
-  'Custom Properties'
-)};
+      '--ino-nav-item-color',
+      'black',
+      'Custom Properties'
+    )};
     --ino-nav-item-color-active: ${text(
-  '--ino-nav-item-color-active',
-  'blue',
-  'Custom Properties'
-)};
+      '--ino-nav-item-color-active',
+      'blue',
+      'Custom Properties'
+    )};
     --ino-nav-item-background-color: ${text(
-  '--ino-nav-item-background-color',
-  '#ffffff',
-  'Custom Properties'
-)};
+      '--ino-nav-item-background-color',
+      '#ffffff',
+      'Custom Properties'
+    )};
     --ino-nav-item-background-color-active: ${text(
-  '--ino-nav-item-background-color-active',
-  '#red',
-  'Custom Properties'
-)};
+      '--ino-nav-item-background-color-active',
+      '#red',
+      'Custom Properties'
+    )};
   }
 </style>
 <div class="story-list">

@@ -1,13 +1,22 @@
 import { MDCTabBar } from '@material/tab-bar/component';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-tab-bar',
   styleUrl: 'ino-tab-bar.scss',
-  shadow: false
+  shadow: false,
 })
 export class TabBar implements ComponentInterface {
-
   private mdcInstance?: MDCTabBar;
 
   @Element() el!: HTMLElement;
@@ -41,12 +50,14 @@ export class TabBar implements ComponentInterface {
     this.el.removeEventListener('inoInteracted', this.interactionHandler);
   }
 
-  interactionHandler = async e => {
+  interactionHandler = async (e) => {
     e.stopPropagation();
-    const allTabs = await Promise.all(Array.from(this.el.querySelectorAll('ino-tab')));
+    const allTabs = await Promise.all(
+      Array.from(this.el.querySelectorAll('ino-tab'))
+    );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
-  }
+  };
 
   render() {
     return (
@@ -55,7 +66,7 @@ export class TabBar implements ComponentInterface {
           <div class="mdc-tab-scroller">
             <div class="mdc-tab-scroller__scroll-area">
               <div class="mdc-tab-scroller__scroll-content">
-                <slot/>
+                <slot />
               </div>
             </div>
           </div>

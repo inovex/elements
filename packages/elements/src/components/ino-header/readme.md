@@ -22,9 +22,7 @@ import { InoHeader } from '@inovex.de/elements-react/';
 
 class MyComponent extends Component {
   render() {
-    return (
-      <InoCard inoTitle="My awesome header!"></InoCard>
-    );
+    return <InoCard inoTitle="My awesome header!"></InoCard>;
   }
 }
 ```

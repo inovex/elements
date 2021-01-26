@@ -15,16 +15,39 @@ ino-list-item {
    * @prop --ino-list-item-deselected-background-color-active: Background color of a deselected list item if active
    * @prop --ino-list-item-deselected-background-color-focus: Background color of a deselected list item if focused
    */
-  --list-item-selected-color: var(--ino-list-item-selected-color, #{theme.color(primary)});
-  --list-item-selected-background-color: var(--ino-list-item-selected-background-color, #{rgba(theme.color(primary, base), 0.05)});
-  --list-item-selected-background-color-hover: var(--ino-list-item-selected-background-color-hover, #{rgba(theme.color(primary, base), 0.1)});
-  --list-item-selected-background-color-active: var(--ino-list-item-selected-background-color-active, #{rgba(theme.color(primary, base), 0.3)});
-  --list-item-selected-background-color-focus: var(--ino-list-item-selected-background-color-focus, #{rgba(theme.color(primary, base), 0.15)});
+  --list-item-selected-color: var(
+    --ino-list-item-selected-color,
+    #{theme.color(primary)}
+  );
+  --list-item-selected-background-color: var(
+    --ino-list-item-selected-background-color,
+    #{rgba(theme.color(primary, base), 0.05)}
+  );
+  --list-item-selected-background-color-hover: var(
+    --ino-list-item-selected-background-color-hover,
+    #{rgba(theme.color(primary, base), 0.1)}
+  );
+  --list-item-selected-background-color-active: var(
+    --ino-list-item-selected-background-color-active,
+    #{rgba(theme.color(primary, base), 0.3)}
+  );
+  --list-item-selected-background-color-focus: var(
+    --ino-list-item-selected-background-color-focus,
+    #{rgba(theme.color(primary, base), 0.15)}
+  );
   --list-item-deselected-color: var(--ino-list-item-deselected-color);
-  --list-item-deselected-background-color: var(--ino-list-item-deselected-background-color);
-  --list-item-deselected-background-color-hover: var(--ino-list-item-deselected-background-color-hover);
-  --list-item-deselected-background-color-active: var(--ino-list-item-deselected-background-color-active);
-  --list-item-deselected-background-color-focus: var(--ino-list-item-deselected-background-color-focus);
+  --list-item-deselected-background-color: var(
+    --ino-list-item-deselected-background-color
+  );
+  --list-item-deselected-background-color-hover: var(
+    --ino-list-item-deselected-background-color-hover
+  );
+  --list-item-deselected-background-color-active: var(
+    --ino-list-item-deselected-background-color-active
+  );
+  --list-item-deselected-background-color-focus: var(
+    --ino-list-item-deselected-background-color-focus
+  );
 }
 
 ino-list-item {
@@ -47,7 +70,8 @@ ino-list-item {
     color: var(--list-item-deselected-color);
     background-color: var(--list-item-deselected-background-color);
 
-    .mdc-list-item__primary-text, .mdc-list-item__secondary-text {
+    .mdc-list-item__primary-text,
+    .mdc-list-item__secondary-text {
       color: var(--list-item-deselected-color);
     }
 
@@ -62,15 +86,18 @@ ino-list-item {
     &:active {
       background-color: var(--list-item-deselected-background-color-active);
     }
-    &.mdc-list-item--selected, &.mdc-list-item--activated {
+    &.mdc-list-item--selected,
+    &.mdc-list-item--activated {
       background-color: var(--list-item-selected-background-color);
       color: var(--list-item-selected-color);
 
-      .mdc-list-item__primary-text, .mdc-list-item__secondary-text {
+      .mdc-list-item__primary-text,
+      .mdc-list-item__secondary-text {
         color: var(--list-item-selected-color);
       }
 
-      &::before, &::after {
+      &::before,
+      &::after {
         display: none;
       }
 
@@ -87,5 +114,4 @@ ino-list-item {
       }
     }
   }
-
 }

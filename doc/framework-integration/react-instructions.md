@@ -2,7 +2,7 @@
 
 We provide an integration layer package for React so that you can integrate the elements just like any other dependency
 into your React project. The name of the package matches the name of the respective inovex element in PascalCase
-(e.g. `InoButton` for `ino-button`). 
+(e.g. `InoButton` for `ino-button`).
 
 > We set up a demo project with React to show you how to integrate the components into a newly generated React
 > project. Scroll down to see the Stackblitz.

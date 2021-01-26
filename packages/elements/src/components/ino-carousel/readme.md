@@ -12,56 +12,60 @@ To change the slide that is currently displayed, simply set the value of the `in
 component to the value of the corresponding slide. This is, however, not required if autoplay is
 enabled since the component automatically manages the selection of the next slide.
 
-Please be aware that setting the value of the `ino-carousel` to a non-existent value will result 
+Please be aware that setting the value of the `ino-carousel` to a non-existent value will result
 in the component selecting an existing slide on its own.
 
 The component can be used as follows:
 
 ```html
-<ino-carousel 
-    value="<any value>"
-    ino-autoplay="true"
-    ino-animated="true"
-    ino-hide-buttons="false"
-    ino-infinite="true"
-    ino-intermission="5000"
-    ino-reverse="false"
+<ino-carousel
+  value="<any value>"
+  ino-autoplay="true"
+  ino-animated="true"
+  ino-hide-buttons="false"
+  ino-infinite="true"
+  ino-intermission="5000"
+  ino-reverse="false"
 >
-    <ino-carousel-slide value="0" src="<url>"></ino-carousel-slide>
-    <ino-carousel-slide value="1" src="<url>"></ino-carousel-slide>
-    <ino-carousel-slide value="2" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="0" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="1" src="<url>"></ino-carousel-slide>
+  <ino-carousel-slide value="2" src="<url>"></ino-carousel-slide>
 </ino-carousel>
 ```
 
 ```jsx harmony
 import { Component } from 'react';
-import { InoButton, InoCarousel, InoCarouselSlide } from '@inovex/elements/dist/react';
+import {
+  InoButton,
+  InoCarousel,
+  InoCarouselSlide,
+} from '@inovex/elements/dist/react';
 import React from 'react';
 
 class MyComponent extends Component {
-
   state = {
-    autoplay: false
+    autoplay: false,
   };
 
   handleClick = () => {
     this.setState((state) => ({
-      autoplay: !state.autoplay
+      autoplay: !state.autoplay,
     }));
   };
 
   render() {
     return (
       <InoCarousel inoAutoplay={this.state.autoplay}>
-        <InoButton onClick={() => this.handleClick()}>Start/Stop Slideshow</InoButton>
-        <InoCarouselSlide value={"1"} src={"url"}/>
-        <InoCarouselSlide value={"2"} src={"url"}/>
+        <InoButton onClick={() => this.handleClick()}>
+          Start/Stop Slideshow
+        </InoButton>
+        <InoCarouselSlide value={'1'} src={'url'} />
+        <InoCarouselSlide value={'2'} src={'url'} />
       </InoCarousel>
-    )
+    );
   }
 }
 ```
-
 
 <!-- Auto Generated Below -->
 

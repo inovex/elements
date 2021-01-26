@@ -4,7 +4,6 @@ const INO_CHIP = `<ino-chip></ino-chip>`;
 const INO_CHIP_REMOVABLE = `<ino-chip ino-removable="true"></ino-chip>`;
 
 describe('InoChip', () => {
-
   describe('Properties', () => {
     it('should not render with icon when ino-removable is not set', async () => {
       const page = await setupPageWithContent(INO_CHIP);
@@ -51,7 +50,7 @@ describe('InoChip', () => {
       const removeChip = await page.spyOnEvent('removeChip');
       await page.click('ino-icon');
       expect(removeChip).toHaveReceivedEventDetail({
-        removeChip: {}
+        removeChip: {},
       });
     });
   });

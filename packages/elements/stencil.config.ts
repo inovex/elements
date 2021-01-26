@@ -13,7 +13,7 @@ export const config: Config = {
     scriptDataOpts: true,
     appendChildSlotFix: false,
     cloneNodeFix: false,
-    slotChildNodesFix: true
+    slotChildNodesFix: true,
   },
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
@@ -28,18 +28,18 @@ export const config: Config = {
       directivesUtilsFile:
         '../elements-angular/elements/src/directives/proxies-utils.ts',
       directivesArrayFile:
-        '../elements-angular/elements/src/directives/proxies-list.ts'
+        '../elements-angular/elements/src/directives/proxies-list.ts',
     }),
     angularOutputTargetFix({
       directivesUtilsFile:
-        '../elements-angular/elements/src/directives/angular-component-lib/utils.ts'
-    })
+        '../elements-angular/elements/src/directives/angular-component-lib/utils.ts',
+    }),
   ],
   plugins: [
     sass({
       injectGlobalPaths: [],
-      includePaths: ['./src/components', '../../node_modules']
-    })
+      includePaths: ['./src/components', '../../node_modules'],
+    }),
   ],
-  preamble: 'Crafted with ❤ by inovex GmbH'
+  preamble: 'Crafted with ❤ by inovex GmbH',
 };

@@ -2,7 +2,7 @@ import {
   BuildCtx,
   CompilerCtx,
   Config,
-  OutputTargetCustom
+  OutputTargetCustom,
 } from '@stencil/core/internal';
 import fs from 'fs';
 import path from 'path';
@@ -16,7 +16,7 @@ const runAngularOutputTargetFix = async (
   );
 
   let directivesUtilsString = await fs.promises.readFile(directivesUtilsPath, {
-    encoding: 'utf-8'
+    encoding: 'utf-8',
   });
   directivesUtilsString = directivesUtilsString.replace(
     "import { fromEvent } from 'rxjs';",
@@ -49,10 +49,10 @@ export const angularOutputTargetFix = (
       true
     );
 
-    await new Promise(resolve => {
-      compilerCtx.events.on('buildLog', log => {
+    await new Promise((resolve) => {
+      compilerCtx.events.on('buildLog', (log) => {
         if (
-          log.messages.findIndex(elm =>
+          log.messages.findIndex((elm) =>
             elm.includes('generate angular-library finished')
           ) !== -1
         ) {
@@ -61,9 +61,9 @@ export const angularOutputTargetFix = (
       });
     });
 
-    compilerCtx.events.on('buildLog', log => {
+    compilerCtx.events.on('buildLog', (log) => {
       if (
-        log.messages.findIndex(elm =>
+        log.messages.findIndex((elm) =>
           elm.includes('build finished, watching for changes...')
         ) !== -1
       ) {
@@ -74,5 +74,5 @@ export const angularOutputTargetFix = (
     await runAngularOutputTargetFix(outputTarget);
 
     timespan.finish('generate angular proxy utiils fix finished');
-  }
+  },
 });

@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-datepicker')
-  .addEventListener('valueChange', e =>
-    alert(`The new range value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new range value is: ${e.detail}`),
   );
 ```
 
@@ -53,7 +53,9 @@ import React, { Component } from 'react';
 import { InoRange } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Range: React.FunctionComponent<Components.InoRangeAttributes> = props => {
+const Range: React.FunctionComponent<Components.InoRangeAttributes> = (
+  props,
+) => {
   const { inoColorScheme } = props;
 
   return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;

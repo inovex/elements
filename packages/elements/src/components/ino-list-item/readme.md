@@ -11,11 +11,11 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-list-item')
-  .addEventListener('clickEl', e =>
+  .addEventListener('clickEl', (e) =>
     console.log(
       'The new list-item was clicked, the element itself is:',
-      e.detail
-    )
+      e.detail,
+    ),
   );
 ```
 
@@ -32,6 +32,7 @@ document
   <ino-icon slot="ino-trailing" ...></ino-icon>
 </ino-list-item>
 ```
+
 **Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `ino-primary` or `ino-secondary` slot. To do so, just set the `slot`-attribute of your custom element to `ino-primary` or `ino-secondary`.
 
 **Two lines:** For items having two lines, provide an `ino-secondary-text` and make sure you set the `ino-two-lines` attribute in the respective parent component (only available for `ino-list`).

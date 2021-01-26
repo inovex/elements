@@ -1,5 +1,6 @@
 # ino-img-list
-The ino-img-list component is used in combination with the ino-img component to display an array of images 
+
+The ino-img-list component is used in combination with the ino-img component to display an array of images
 in a grid-like format. It is based on the mdc-image-list component.
 
 ## Usage
@@ -7,48 +8,37 @@ in a grid-like format. It is based on the mdc-image-list component.
 The component can be used as follows:
 
 ```html
-<ino-img-list
-    ino-enclose-label
-    ino-masonry
->
-    <ino-img
-        src="url/to/image"
-        ino-label="optional label"
-        ino-img-list-item
-    ></ino-img>
+<ino-img-list ino-enclose-label ino-masonry>
+  <ino-img
+    src="url/to/image"
+    ino-label="optional label"
+    ino-img-list-item
+  ></ino-img>
 </ino-img-list>
 ```
 
 ## React
+
 ```jsx harmony
 import React from 'react';
 import { Component } from 'react';
 import { InoImgList, InoImg } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
-
   state = {
-    source: "url/to/img",
-    encloseLabel: true
+    source: 'url/to/img',
+    encloseLabel: true,
   };
 
   render() {
     return (
-      <InoImgList
-        inoEncloseLabel={this.state.encloseLabel}
-      >
-        <InoImg
-          src={this.state.source}
-          ino-img-list-item
-        >
-        </InoImg>
+      <InoImgList inoEncloseLabel={this.state.encloseLabel}>
+        <InoImg src={this.state.source} ino-img-list-item></InoImg>
       </InoImgList>
-    )
+    );
   }
-
 }
 ```
-
 
 <!-- Auto Generated Below -->
 

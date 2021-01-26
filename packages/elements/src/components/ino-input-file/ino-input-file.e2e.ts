@@ -4,7 +4,6 @@ const INO_INPUT_FILE = `<ino-input-file></ino-input-file>`;
 const INPUT_FILE_SELECTOR = 'ino-input-file';
 
 describe('InoInputFile', () => {
-
   describe('Properties', () => {
     it('should render with the correct css classes if inoDragAndDrop is set to false', async () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
@@ -34,8 +33,7 @@ describe('InoInputFile', () => {
 
       const dnd_div = await page.find('.ino-input-file__dnd');
       expect(dnd_div).toBeDefined();
-      expect(dnd_div).toHaveClass('ino-input-file__dnd-disabled')
+      expect(dnd_div).toHaveClass('ino-input-file__dnd-disabled');
     });
   });
-
 });

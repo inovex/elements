@@ -5,14 +5,14 @@ import {
   Element,
   Host,
   Prop,
-  h
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-list',
   styleUrl: 'ino-list.scss',
-  shadow: false
+  shadow: false,
 })
 export class List implements ComponentInterface {
   private listInstance!: MDCList;
@@ -49,7 +49,7 @@ export class List implements ComponentInterface {
       'mdc-list': true,
       'mdc-list--dense': this.inoDense,
       'mdc-list--two-line': this.inoTwoLines,
-      'mdc-list--avatar-list': this.inoAvatar
+      'mdc-list--avatar-list': this.inoAvatar,
     });
 
     return (

@@ -1,10 +1,20 @@
 import { MDCDialog } from '@material/dialog';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-dialog',
   styleUrl: 'ino-dialog.scss',
-  shadow: true
+  shadow: true,
 })
 export class Dialog implements ComponentInterface {
   private mdcDialog: MDCDialog;
@@ -55,7 +65,6 @@ export class Dialog implements ComponentInterface {
   }
 
   render() {
-
     return (
       <Host>
         <div class="mdc-dialog">

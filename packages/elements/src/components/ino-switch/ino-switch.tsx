@@ -8,7 +8,7 @@ import {
   Host,
   Prop,
   Watch,
-  h
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -19,7 +19,7 @@ import { ColorScheme } from '../types';
 @Component({
   tag: 'ino-switch',
   styleUrl: 'ino-switch.scss',
-  shadow: false
+  shadow: false,
 })
 export class Switch implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -75,10 +75,9 @@ export class Switch implements ComponentInterface {
     e.stopPropagation();
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(!this.checked);
-  }
+  };
 
   render() {
-
     const { el, name, disabled } = this;
 
     renderHiddenInput(el, name, '', disabled);
@@ -86,7 +85,7 @@ export class Switch implements ComponentInterface {
     const classesSwitch = classNames({
       'mdc-switch': true,
       'mdc-switch--disabled': this.disabled,
-      'mdc-switch--checked': this.checked
+      'mdc-switch--checked': this.checked,
     });
 
     return (
@@ -103,9 +102,9 @@ export class Switch implements ComponentInterface {
               id={this.switchId}
               class="mdc-switch__native-control"
               role="switch"
-              onChange={e => e.stopPropagation()}
+              onChange={(e) => e.stopPropagation()}
               onInput={this.handleChange}
-              ref={input => (this.nativeInputEl = input as HTMLInputElement)}
+              ref={(input) => (this.nativeInputEl = input as HTMLInputElement)}
             />
           </div>
         </div>

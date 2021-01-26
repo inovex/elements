@@ -12,7 +12,10 @@ function subscribeToComponentEvents() {
   const eventHandler = function (e) {
     const el = e.target;
 
-    if (el.tagName.toLowerCase() !== 'ino-switch' || el.id !== 'custom-switch') {
+    if (
+      el.tagName.toLowerCase() !== 'ino-switch' ||
+      el.id !== 'custom-switch'
+    ) {
       return;
     }
 
@@ -46,21 +49,81 @@ export const DefaultUsage = () => /*html*/ `
 <div>
   <style>
       ino-switch.customizable-switch {
-        --switch-toggled-on-color: ${text('--switch-toggled-on-color', '#3d40f5', 'Custom Properties')};
-        --switch-toggled-on-thumb-color: ${text('--switch-toggled-on-thumb-color', '#3d40f5', 'Custom Properties')};
-        --switch-toggled-on-track-color: ${text('--switch-toggled-on-track-color', '#5d60f7', 'Custom Properties')};
-        --switch-toggled-off-color: ${text('--switch-toggled-off-color', '#c1c1c1', 'Custom Properties')};
-        --switch-toggled-off-thumb-color: ${text('--switch-toggled-off-thumb-color', '#fff', 'Custom Properties')};
-        --switch-toggled-off-track-color: ${text('--switch-toggled-off-track-color', '#777777', 'Custom Properties')};
-        --switch-hover-color: ${text('--switch-hover-color', '#5d60f7', 'Custom Properties')};
-        --switch-hover-thumb-color: ${text('--switch-hover-thumb-color', '#fff', 'Custom Properties')};
-        --switch-hover-track-color: ${text('--switch-hover-track-color', '#5d60f7', 'Custom Properties')};
-        --switch-active-color: ${text('--switch-active-color', '#0d10f3', 'Custom Properties')};
-        --switch-active-thumb-color: ${text('--switch-active-thumb-color', '#fff', 'Custom Properties')};
-        --switch-active-track-color: ${text('--switch-active-track-color', '#0d10f3', 'Custom Properties')};
-        --switch-disabled-color: ${text('--switch-disabled-color', '#c1c1c1', 'Custom Properties')};
-        --switch-disabled-thumb-color: ${text('--switch-disabled-thumb-color', '#c1c1c1', 'Custom Properties')};
-        --switch-disabled-track-color: ${text('--switch-disabled-track-color', '#c1c1c1', 'Custom Properties')};
+        --switch-toggled-on-color: ${text(
+          '--switch-toggled-on-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
+        --switch-toggled-on-thumb-color: ${text(
+          '--switch-toggled-on-thumb-color',
+          '#3d40f5',
+          'Custom Properties'
+        )};
+        --switch-toggled-on-track-color: ${text(
+          '--switch-toggled-on-track-color',
+          '#5d60f7',
+          'Custom Properties'
+        )};
+        --switch-toggled-off-color: ${text(
+          '--switch-toggled-off-color',
+          '#c1c1c1',
+          'Custom Properties'
+        )};
+        --switch-toggled-off-thumb-color: ${text(
+          '--switch-toggled-off-thumb-color',
+          '#fff',
+          'Custom Properties'
+        )};
+        --switch-toggled-off-track-color: ${text(
+          '--switch-toggled-off-track-color',
+          '#777777',
+          'Custom Properties'
+        )};
+        --switch-hover-color: ${text(
+          '--switch-hover-color',
+          '#5d60f7',
+          'Custom Properties'
+        )};
+        --switch-hover-thumb-color: ${text(
+          '--switch-hover-thumb-color',
+          '#fff',
+          'Custom Properties'
+        )};
+        --switch-hover-track-color: ${text(
+          '--switch-hover-track-color',
+          '#5d60f7',
+          'Custom Properties'
+        )};
+        --switch-active-color: ${text(
+          '--switch-active-color',
+          '#0d10f3',
+          'Custom Properties'
+        )};
+        --switch-active-thumb-color: ${text(
+          '--switch-active-thumb-color',
+          '#fff',
+          'Custom Properties'
+        )};
+        --switch-active-track-color: ${text(
+          '--switch-active-track-color',
+          '#0d10f3',
+          'Custom Properties'
+        )};
+        --switch-disabled-color: ${text(
+          '--switch-disabled-color',
+          '#c1c1c1',
+          'Custom Properties'
+        )};
+        --switch-disabled-thumb-color: ${text(
+          '--switch-disabled-thumb-color',
+          '#c1c1c1',
+          'Custom Properties'
+        )};
+        --switch-disabled-track-color: ${text(
+          '--switch-disabled-track-color',
+          '#c1c1c1',
+          'Custom Properties'
+        )};
       }
    </style>
    <ino-switch
@@ -76,7 +139,8 @@ export const DefaultUsage = () => /*html*/ `
  <h4>Color Schemes</h4>
  <div class="ino-switch-colors">
     ${INO_COLOR_SCHEMES.map(
-      (color) => `<ino-switch ino-color-scheme="${color}" checked>${color}</ino-switch>`
+      (color) =>
+        `<ino-switch ino-color-scheme="${color}" checked>${color}</ino-switch>`
     )
       .join()
       .replace(/,/g, '')}

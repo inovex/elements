@@ -1,13 +1,22 @@
-import { Component, Element, Event, EventEmitter, Host, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 import classNames from 'classnames';
 import { MDCDrawer } from '@material/drawer/component';
 
-import {MDCCustomDrawer} from './MDCCustomDrawer';
+import { MDCCustomDrawer } from './MDCCustomDrawer';
 
 @Component({
   tag: 'ino-sidebar',
   styleUrl: 'ino-sidebar.scss',
-  shadow: true
+  shadow: true,
 })
 export class InoSidebar {
   private drawer: MDCDrawer;
@@ -41,31 +50,32 @@ export class InoSidebar {
   @Event() openChange: EventEmitter;
 
   componentDidLoad() {
-    this.drawer = new MDCCustomDrawer(this.el.shadowRoot.querySelector('.mdc-drawer'));
+    this.drawer = new MDCCustomDrawer(
+      this.el.shadowRoot.querySelector('.mdc-drawer')
+    );
     this.drawer.open = this.inoOpen;
   }
 
   render() {
     const classes = classNames({
-      "mdc-drawer": true,
-      "mdc-drawer--modal": true,
-      "ino-sidebar--right": this.inoAlignRight
+      'mdc-drawer': true,
+      'mdc-drawer--modal': true,
+      'ino-sidebar--right': this.inoAlignRight,
     });
 
     return (
       <Host name={this.name} ino-open={this.inoOpen}>
         <aside class={classes}>
           <div class="mdc-drawer__header">
-            <slot name="header"/>
+            <slot name="header" />
           </div>
           <div class="mdc-drawer__content">
-            <div tabindex="0"/>
-            <slot name="content"/>
+            <div tabindex="0" />
+            <slot name="content" />
           </div>
         </aside>
-        <div class="mdc-drawer-scrim"/>
+        <div class="mdc-drawer-scrim" />
       </Host>
     );
   }
-
 }

@@ -29,29 +29,24 @@ import { Component } from 'react';
 import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
-
   state = {
-    open: false
-  }
+    open: false,
+  };
 
   handleClick = (e: any) => {
     alert(`Fab-Set was clicked`);
-    this.setState({open: !this.state.open})
+    this.setState({ open: !this.state.open });
   };
 
   render() {
     return (
-      <FabSet inoOpenDial={this.state.open} inoDialDirection="top" onClick={handleClick}>
-        <InoFab
-          inoMini
-          inoLabel="Profile"
-          inoIcon="person"
-        />
-        <InoFab
-          inoMini
-          inoLabel="Search"
-          inoIcon="search"
-        />
+      <FabSet
+        inoOpenDial={this.state.open}
+        inoDialDirection="top"
+        onClick={handleClick}
+      >
+        <InoFab inoMini inoLabel="Profile" inoIcon="person" />
+        <InoFab inoMini inoLabel="Search" inoIcon="search" />
         <InoFab inoMini inoLabel="Help" inoIcon="help" />
       </FabSet>
     );
@@ -66,7 +61,9 @@ import React, { Component } from 'react';
 import { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = props => {
+const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = (
+  props,
+) => {
   const { inoDialDirection } = props;
 
   return (

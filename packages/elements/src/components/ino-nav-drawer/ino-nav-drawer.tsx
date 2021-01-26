@@ -8,7 +8,7 @@ import {
   Watch,
   Event,
   EventEmitter,
-  h
+  h,
 } from '@stencil/core';
 import { NavDrawerAnchor, NavDrawerVariant } from '../types';
 import classNames from 'classnames';
@@ -16,7 +16,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',
-  shadow: true
+  shadow: true,
 })
 export class NavDrawer implements ComponentInterface {
   /**
@@ -89,12 +89,12 @@ export class NavDrawer implements ComponentInterface {
         inoVariant === 'dismissible' || inoVariant === 'docked', // docked is a modifier of MDC's dismissible inoVariant
       'mdc-drawer--modal': inoVariant === 'modal',
       'mdc-drawer--anchor-left': inoAnchor === 'left',
-      'mdc-drawer--anchor-right': inoAnchor === 'right'
+      'mdc-drawer--anchor-right': inoAnchor === 'right',
     });
 
     const classAppContent = classNames({
       'mdc-drawer-app-content':
-        inoVariant === 'docked' || inoVariant === 'dismissible'
+        inoVariant === 'docked' || inoVariant === 'dismissible',
     });
 
     const nav = (

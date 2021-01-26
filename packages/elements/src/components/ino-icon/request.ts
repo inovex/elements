@@ -9,9 +9,9 @@ export const getSvgContent = (url: string) => {
 
   if (req === undefined) {
     // we don't already have a request
-    req = fetch(url).then(rsp => {
+    req = fetch(url).then((rsp) => {
       if (rsp.ok) {
-        return rsp.text().then(svgContent => {
+        return rsp.text().then((svgContent) => {
           inoiconContent.set(url, validateContent(svgContent));
         });
       }

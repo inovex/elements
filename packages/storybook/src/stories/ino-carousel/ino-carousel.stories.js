@@ -8,14 +8,14 @@ import nidarosImg from '_local-assets/images/nidaros.jpg';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-icon-button') {
       return;
     }
     const carousel = el.closest('ino-carousel');
     const parentDiv = el.closest('div');
-    if(parentDiv.classList.contains('ino-carousel__left-arrow')) {
+    if (parentDiv.classList.contains('ino-carousel__left-arrow')) {
       carousel.value = mod(carousel.value - 1, 3);
     } else {
       carousel.value = mod(carousel.value + 1, 3);
@@ -45,30 +45,30 @@ export default {
   ],
 };
 
-export const DefaultUsage = () => /* html */`
+export const DefaultUsage = () => /* html */ `
       <h3>Customizable carousel</h3>
       <div class="ino-carousel-example">
           <style>
             ino-carousel.customizable-carousel {
             --ino-carousel-icon-color: ${text(
-        '--ino-carousel-icon-color',
-        '#ffffff',
-        'Custom Properties'
+              '--ino-carousel-icon-color',
+              '#ffffff',
+              'Custom Properties'
             )};
             --ino-carousel-width: ${text(
-        '--ino-carousel-width',
-        '700px',
-        'Custom Properties'
+              '--ino-carousel-width',
+              '700px',
+              'Custom Properties'
             )};
             --ino-carousel-height: ${text(
-        '--ino-carousel-height',
-        '400px',
-        'Custom Properties'
+              '--ino-carousel-height',
+              '400px',
+              'Custom Properties'
             )};
             --ino-carousel-animation-duration: ${text(
-        '--ino-carousel-animation-duration',
-        '700ms',
-        'Custom Properties'
+              '--ino-carousel-animation-duration',
+              '700ms',
+              'Custom Properties'
             )};
             }
           </style>
@@ -79,7 +79,12 @@ export const DefaultUsage = () => /* html */`
             ino-animated="${boolean('ino-animated', false, 'General')}"
             ino-hide-buttons="${boolean('ino-hide-buttons', false, 'General')}"
             ino-infinite="${boolean('ino-infinite', false, 'General')}"
-            ino-intermission="${number('ino-intermission', 5000, undefined, 'General')}"
+            ino-intermission="${number(
+              'ino-intermission',
+              5000,
+              undefined,
+              'General'
+            )}"
             ino-reverse="${boolean('ino-reverse', false, 'General')}"
           >
             <ino-carousel-slide src=${lightningImg} value="0" ino-selected>

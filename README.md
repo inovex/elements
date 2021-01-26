@@ -1,4 +1,4 @@
-![inovex elements Logo](doc/assets/elements.svg "inovex elements Logo")
+![inovex elements Logo](doc/assets/elements.svg 'inovex elements Logo')
 
 # inovex elements
 
@@ -27,12 +27,12 @@ This is a mono repository based on Lerna. Lerna is a tool for managing JavaScrip
 
 Each package provides a separate README and is distributed as self contained package through npm. These packages are a thin layer on top of our Web Components to achieve a better framework integration. Please refer to the subfolder of the corresponding package to get more information about the package itself:
 
-| <div style="width:220px">**Package**</div> | <div style="width:200px">**Description**</div> | **Primary Usage Intention** |
-| --- | --- | --- |
-| [@inovex.de/elements](packages/elements)|Native Web Components|Websites, WebApps and Microfrontends without a framework.|
-| [@inovex.de/elements-angular](packages/elements-angular/elements)|Angular integration layer|WebApps based on [Angular](https://github.com/angular).|
-| [@inovex.de/elements-react](packages/elements-react)|React integration layer|WebApps based on [React](https://github.com/facebook/react).|
-| [@inovex.de/elements-storybook](packages/elements-storybook)|Storybook documentation|API reference and guide for developers.|
+| <div style="width:220px">**Package**</div>                        | <div style="width:200px">**Description**</div> | **Primary Usage Intention**                                  |
+| ----------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------ |
+| [@inovex.de/elements](packages/elements)                          | Native Web Components                          | Websites, WebApps and Microfrontends without a framework.    |
+| [@inovex.de/elements-angular](packages/elements-angular/elements) | Angular integration layer                      | WebApps based on [Angular](https://github.com/angular).      |
+| [@inovex.de/elements-react](packages/elements-react)              | React integration layer                        | WebApps based on [React](https://github.com/facebook/react). |
+| [@inovex.de/elements-storybook](packages/elements-storybook)      | Storybook documentation                        | API reference and guide for developers.                      |
 
 ## History and Background
 
@@ -43,7 +43,7 @@ We started this project back in the days of 2018 as a proof of concept. Until th
 
 One of the biggest challenge is if you can't migrate further. That happens when the development of a framework will come to an end. Think back in the days when Angular was released and replaced Angular.js. Your last chance was a total rewrite of all the things or you got stuck in the old world.
 
-We experienced the same and as the buzzwords *Design System* and *Component Libraries* came up, we started the elements as a side project only containing the UI components decoupled from the business logic and also decoupled from a concrete end products framework. We evaluated which library and tools would be the best choice for helping us writing standards based Web Components. We tried a lot and looked into the available libraries Polymer, SkateJS, SlimJS, Switzerland and Stencil. We opposed the features and decided to use Stencil. The Web Component compiler created by the Ionic Team. Stencil is used as the core for the Ionic Framework components and used in many projects. After two years working with Stencil we're very experienced and happy with Stencil as our foundation for the elements UI components. Stencil allows us to create Web Components that work without a framework, Angular, React and Vue and any other framework knowing how to handle events and attributes of HTML elements.
+We experienced the same and as the buzzwords _Design System_ and _Component Libraries_ came up, we started the elements as a side project only containing the UI components decoupled from the business logic and also decoupled from a concrete end products framework. We evaluated which library and tools would be the best choice for helping us writing standards based Web Components. We tried a lot and looked into the available libraries Polymer, SkateJS, SlimJS, Switzerland and Stencil. We opposed the features and decided to use Stencil. The Web Component compiler created by the Ionic Team. Stencil is used as the core for the Ionic Framework components and used in many projects. After two years working with Stencil we're very experienced and happy with Stencil as our foundation for the elements UI components. Stencil allows us to create Web Components that work without a framework, Angular, React and Vue and any other framework knowing how to handle events and attributes of HTML elements.
 
 ## Contributing
 
@@ -56,25 +56,25 @@ To learn more about how you can contribute please refer to our [Contributing Sec
 
 ### Prerequisites
 
-* [Node.js](https://nodejs.org) must be installed. If not, visit the [official Node.js installation instructions](https://nodejs.org/en/download/package-manager/) to learn how to install Node.js.
-* [Yarn](https://yarnpkg.com) package manager must be installed. If not, visit the
-[official Yarn installation instructions](https://yarnpkg.com/getting-started/install) to learn how
-to install Yarn.
+- [Node.js](https://nodejs.org) must be installed. If not, visit the [official Node.js installation instructions](https://nodejs.org/en/download/package-manager/) to learn how to install Node.js.
+- [Yarn](https://yarnpkg.com) package manager must be installed. If not, visit the
+  [official Yarn installation instructions](https://yarnpkg.com/getting-started/install) to learn how
+  to install Yarn.
 
 ### Scripts
 
 These are the available scripts to get started with this mono repository:
 
-| <div style="width:150px">**Command**</div> | **Description** |
-| --- | --- |
-|`yarn start`|Launches [@inovex.de/elements](packages/elements) components in development mode locally, opens Storybook.|
-|`yarn test`|Runs all tests for [@inovex.de/elements](packages/elements).|
-|`yarn build`|Builds [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular), [@inovex.de/elements-react](packages/elements-react), [storybook](packages/storybook).|
-|`yarn linklocal:npm`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for npm projects.|
-|`yarn linklocal:yarn`|Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for yarn projects.|
-|`yarn lint`|Runs TypeScript linting in [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular).|
-|`yarn clean`|Removes `node_modules` and `dist` from root and all packages.|
-|`yarn version`|Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.|
+| <div style="width:150px">**Command**</div> | **Description**                                                                                                                                                                                   |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn start`                               | Launches [@inovex.de/elements](packages/elements) components in development mode locally, opens Storybook.                                                                                        |
+| `yarn test`                                | Runs all tests for [@inovex.de/elements](packages/elements).                                                                                                                                      |
+| `yarn build`                               | Builds [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular), [@inovex.de/elements-react](packages/elements-react), [storybook](packages/storybook). |
+| `yarn linklocal:npm`                       | Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for npm projects.                                                                                   |
+| `yarn linklocal:yarn`                      | Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for yarn projects.                                                                                  |
+| `yarn lint`                                | Runs TypeScript linting in [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular).                                                                    |
+| `yarn clean`                               | Removes `node_modules` and `dist` from root and all packages.                                                                                                                                     |
+| `yarn version`                             | Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.                            |
 
 ## License
 

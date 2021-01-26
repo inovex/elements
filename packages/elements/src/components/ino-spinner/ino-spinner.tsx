@@ -5,7 +5,7 @@ import { ColorScheme, SpinnerType } from '../types';
 @Component({
   tag: 'ino-spinner',
   styleUrl: 'ino-spinner.scss',
-  shadow: false
+  shadow: false,
 })
 export class Spinner implements ComponentInterface {
   /**
@@ -43,14 +43,14 @@ export class Spinner implements ComponentInterface {
       <div class="ino-spinner__rect2" />,
       <div class="ino-spinner__rect3" />,
       <div class="ino-spinner__rect4" />,
-      <div class="ino-spinner__rect5" />
+      <div class="ino-spinner__rect5" />,
     ];
   }
 
   private bounceTemplate() {
     return [
       <div class="ino-spinner__double-bounce-1" />,
-      <div class="ino-spinner__double-bounce-2" />
+      <div class="ino-spinner__double-bounce-2" />,
     ];
   }
 
@@ -67,7 +67,7 @@ export class Spinner implements ComponentInterface {
       <div class="ino-spinner__circle-9" />,
       <div class="ino-spinner__circle-10" />,
       <div class="ino-spinner__circle-11" />,
-      <div class="ino-spinner__circle-12" />
+      <div class="ino-spinner__circle-12" />,
     ];
   }
 

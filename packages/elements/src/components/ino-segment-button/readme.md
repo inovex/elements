@@ -10,19 +10,13 @@ The component can be used as follows:
 
 ```js
 document
-    .querySelector('ino-segment-button')
-    .addEventListener('click', () => alert('Button was clicked!'));
+  .querySelector('ino-segment-button')
+  .addEventListener('click', () => alert('Button was clicked!'));
 ```
 
 ```html
-<ino-segment-button
-    checked
-    disabled
-    name="<string>"
-    ino-dense
-    value="<string>"
->
-    Button Content
+<ino-segment-button checked disabled name="<string>" ino-dense value="<string>">
+  Button Content
 </ino-segment-button>
 ```
 
@@ -35,15 +29,12 @@ import { InoSegmentButton } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
   render() {
     return (
-      <InoSegmentButton
-        onClick={_ => alert('Yeah, you clicked the button!')}
-      >
+      <InoSegmentButton onClick={(_) => alert('Yeah, you clicked the button!')}>
         You can click me!
       </InoSegmentButton>
-    )
+    );
   }
 }
-
 ```
 
 <!-- Auto Generated Below -->

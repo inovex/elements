@@ -14,20 +14,20 @@
 
 @mixin button-rounding($round-border, $edged-border, $name) {
   @include border-radius(
-      $name + 'to-edged',
-      $round-border,
-      $edged-border,
-      0.3s
+    $name + 'to-edged',
+    $round-border,
+    $edged-border,
+    0.3s
   );
 
   &:hover {
     border-radius: $round-border;
 
     @include border-radius(
-        $name+ 'to-round',
-        $edged-border,
-        $round-border,
-        0.15s
+      $name + 'to-round',
+      $edged-border,
+      $round-border,
+      0.15s
     );
   }
 }

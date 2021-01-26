@@ -1,12 +1,10 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-
 const INO_RANGE = `<ino-range max="1" min="0"/>`;
 const INO_RANGE_SELECTOR = 'ino-range';
 const MDC_SELECTOR = 'ino-range .mdc-slider';
 
 describe('InoRange', () => {
-
   describe('Properties', () => {
     it('should disable the range component if disabled property is set to true', async () => {
       const page = await setupPageWithContent(INO_RANGE);
@@ -32,8 +30,8 @@ describe('InoRange', () => {
       const min = await mdcSlider.getAttribute('aria-valuemin');
       const max = await mdcSlider.getAttribute('aria-valuemax');
 
-      expect(min).toBe("20");
-      expect(max).toBe("400");
+      expect(min).toBe('20');
+      expect(max).toBe('400');
     });
 
     it('should set the step value of the range component', async () => {
@@ -46,7 +44,7 @@ describe('InoRange', () => {
 
       const step = await mdcSlider.getAttribute('data-step');
 
-      expect(step).toBe("5");
+      expect(step).toBe('5');
     });
 
     it('should render as a discrete slider if inoDiscrete is true', async () => {
@@ -84,5 +82,4 @@ describe('InoRange', () => {
       expect(valueChangeEvent).not.toHaveReceivedEvent();
     });
   });
-
 });

@@ -6,7 +6,7 @@ import './ino-table.scss';
 
 function subscribeToComponentEvents() {
   // == event block
-  const checkboxHandler = function(e) {
+  const checkboxHandler = function (e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-checkbox') {
       return;
@@ -25,8 +25,10 @@ function subscribeToComponentEvents() {
 
   const setAllBoxes = () => {
     const mainBox = document.getElementById('headerBox');
-    const boxes = Array.from(document.querySelectorAll('ino-checkbox:not(#headerBox)'));
-    boxes.forEach(i => {
+    const boxes = Array.from(
+      document.querySelectorAll('ino-checkbox:not(#headerBox)')
+    );
+    boxes.forEach((i) => {
       i.checked = mainBox.checked;
       i.closest('ino-table-row').inoSelected = mainBox.checked;
     });
@@ -34,11 +36,13 @@ function subscribeToComponentEvents() {
 
   const setHeaderBox = () => {
     const mainBox = document.getElementById('headerBox');
-    const boxes = Array.from(document.querySelectorAll('ino-checkbox:not(#headerBox)'));
-    if (boxes.every(i => i.checked)) {
+    const boxes = Array.from(
+      document.querySelectorAll('ino-checkbox:not(#headerBox)')
+    );
+    if (boxes.every((i) => i.checked)) {
       mainBox.checked = true;
       mainBox.indeterminate = false;
-    } else if (boxes.some(i => i.checked)) {
+    } else if (boxes.some((i) => i.checked)) {
       mainBox.indeterminate = true;
     } else {
       mainBox.checked = false;
@@ -58,13 +62,15 @@ function subscribeToComponentEvents() {
 export default {
   title: 'Structure/<ino-table>',
 
-  decorators: [story => {
-    subscribeToComponentEvents();
-    return story();
-  }]
+  decorators: [
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
 };
 
-export const DefaultUsage = () => /* html */`
+export const DefaultUsage = () => /* html */ `
     <h4>Data table example</h4>
     <ino-table>
         <ino-table-row slot="header" ino-header-row>
@@ -173,7 +179,6 @@ export const DefaultUsage = () => /* html */`
   `;
 
 DefaultUsage.decorators = [withStencilReadme(tableReadme)];
-
 
 export const InoTableRow = () => /*html*/ ``;
 InoTableRow.storyName = '<ino-table-row>';

@@ -7,7 +7,7 @@ A light icon component for texts and other components.
 The component can be used as follows:
 
 ```js
-document.querySelector('ino-icon').addEventListener('clickEl', e => {
+document.querySelector('ino-icon').addEventListener('clickEl', (e) => {
   // ...
 });
 ```
@@ -15,7 +15,7 @@ document.querySelector('ino-icon').addEventListener('clickEl', e => {
 ```js
 document
   .querySelector('ino-icon')
-  .addEventListener('clickEl', _ => alert('The icon was clicked'));
+  .addEventListener('clickEl', (_) => alert('The icon was clicked'));
 ```
 
 ```html
@@ -49,7 +49,7 @@ import React, { Component } from 'react';
 import { InoIcon } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Icon: React.FunctionComponent<Components.InoIconAttributes> = props => {
+const Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {
   const { inoIcon } = props;
 
   const handleClick = (e: any) => {
@@ -77,9 +77,9 @@ The component inherits styles, such as the text size, from the parent element. F
 **Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
 
 ### Add icons
-If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons` 
-command to include the newly added icons in the `icons.js` file.
 
+If you would like to add custom icons, you have to add them to the `icon-assets` folder and execute the `yarn icon:integrate-icons`
+command to include the newly added icons in the `icons.js` file.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets` into your `dist/icon-assets` folder. All icons are expected

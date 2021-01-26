@@ -1,13 +1,19 @@
-import { Component, Element, Host, Prop, h, ComponentInterface } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Host,
+  Prop,
+  h,
+  ComponentInterface,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
   tag: 'ino-img-list',
   styleUrl: 'ino-img-list.scss',
-  shadow: false
+  shadow: false,
 })
 export class InoImgList implements ComponentInterface {
-
   @Element() el: HTMLElement;
 
   /**
@@ -22,9 +28,11 @@ export class InoImgList implements ComponentInterface {
   @Prop() inoEncloseLabel: boolean = false;
 
   componentDidLoad(): void {
-    if(this.inoMasonry) {
-      const imgs = this.el.querySelectorAll('.mdc-image-list__image-aspect-container');
-      imgs.forEach(img => {
+    if (this.inoMasonry) {
+      const imgs = this.el.querySelectorAll(
+        '.mdc-image-list__image-aspect-container'
+      );
+      imgs.forEach((img) => {
         img.classList.remove('mdc-image-list__image-aspect-container');
       });
     }
@@ -32,18 +40,17 @@ export class InoImgList implements ComponentInterface {
 
   render() {
     const classes = classNames({
-      "mdc-image-list": true,
-      "mdc-image-list--masonry": this.inoMasonry,
-      "mdc-image-list--with-text-protection": this.inoEncloseLabel
+      'mdc-image-list': true,
+      'mdc-image-list--masonry': this.inoMasonry,
+      'mdc-image-list--with-text-protection': this.inoEncloseLabel,
     });
 
     return (
       <Host>
         <ul class={classes}>
-          <slot/>
+          <slot />
         </ul>
       </Host>
     );
   }
-
 }

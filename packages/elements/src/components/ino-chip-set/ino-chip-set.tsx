@@ -5,7 +5,10 @@ import {
   Element,
   Event,
   EventEmitter,
-  Host, Prop, Watch, h
+  Host,
+  Prop,
+  Watch,
+  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -14,7 +17,7 @@ import { ChipSetType } from '../types';
 @Component({
   tag: 'ino-chip-set',
   styleUrl: 'ino-chip-set.scss',
-  shadow: false
+  shadow: false,
 })
 export class ChipSet implements ComponentInterface {
   private mdcInstance: MDCChipSet;
@@ -52,7 +55,7 @@ export class ChipSet implements ComponentInterface {
     this.mdcInstance?.destroy();
 
     if (this.listenerAttached) {
-      this.el.removeEventListener('MDCChip:interaction', _ =>
+      this.el.removeEventListener('MDCChip:interaction', (_) =>
         this.notifyChange()
       );
       this.listenerAttached = false;
@@ -76,7 +79,9 @@ export class ChipSet implements ComponentInterface {
     );
 
     if (this.inoType === 'choice' || this.inoType === 'input') {
-      this.el.addEventListener('MDCChip:interaction', _ => this.notifyChange());
+      this.el.addEventListener('MDCChip:interaction', (_) =>
+        this.notifyChange()
+      );
       this.listenerAttached = true;
     }
   }
@@ -88,7 +93,7 @@ export class ChipSet implements ComponentInterface {
       return;
     }
     const chipValues = selectedChipIds.map(
-      chipId => this.getInoChip(chipId).inoValue
+      (chipId) => this.getInoChip(chipId).inoValue
     );
     this.updateChipSet.emit(
       chipValues.length === 1 ? chipValues[0] : chipValues

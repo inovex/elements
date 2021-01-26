@@ -1,4 +1,9 @@
-import { NgModule, ModuleWithProviders, APP_INITIALIZER, NgZone } from '@angular/core';
+import {
+  NgModule,
+  ModuleWithProviders,
+  APP_INITIALIZER,
+  NgZone,
+} from '@angular/core';
 import { DOCUMENT, CommonModule } from '@angular/common';
 
 import { DIRECTIVES } from './directives/proxies-list';
@@ -15,36 +20,29 @@ import { appInitialize } from './app-initialize';
     BooleanValueAccessorDirective,
     FsValueAccessorDirective,
     InoRadioValueAccessorDirective,
-    TextValueAccessorDirective
+    TextValueAccessorDirective,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     ...DIRECTIVES,
     BooleanValueAccessorDirective,
     FsValueAccessorDirective,
     InoRadioValueAccessorDirective,
-    TextValueAccessorDirective
-  ]
+    TextValueAccessorDirective,
+  ],
 })
 export class InoElementsModule {
-
-    static forRoot(): ModuleWithProviders<InoElementsModule> {
-        return {
-          ngModule: InoElementsModule,
-          providers: [
-            {
-              provide: APP_INITIALIZER,
-              useFactory: appInitialize,
-              multi: true,
-              deps: [
-                DOCUMENT,
-                NgZone
-              ]
-            }
-          ]
-        };
-      }
-
- }
+  static forRoot(): ModuleWithProviders<InoElementsModule> {
+    return {
+      ngModule: InoElementsModule,
+      providers: [
+        {
+          provide: APP_INITIALIZER,
+          useFactory: appInitialize,
+          multi: true,
+          deps: [DOCUMENT, NgZone],
+        },
+      ],
+    };
+  }
+}

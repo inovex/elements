@@ -1,5 +1,16 @@
 import { MDCRipple } from '@material/ripple';
-import { Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, h, Listen, Watch } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Host,
+  Prop,
+  h,
+  Listen,
+  Watch,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 import { ColorScheme, ButtonType } from '../types';
@@ -7,7 +18,7 @@ import { ColorScheme, ButtonType } from '../types';
 @Component({
   tag: 'ino-icon-button',
   styleUrl: 'ino-icon-button.scss',
-  shadow: false
+  shadow: false,
 })
 export class IconButton implements ComponentInterface {
   // An internal instance of the icon button. Either the ripple effect
@@ -27,11 +38,11 @@ export class IconButton implements ComponentInterface {
   @Prop() disabled?: boolean;
 
   /**
- * Marks the icon button as activated.
- *
- * Useful in cases where an external state controls the icon button activation.
- * Makes the component **managed**.
- */
+   * Marks the icon button as activated.
+   *
+   * Useful in cases where an external state controls the icon button activation.
+   * Makes the component **managed**.
+   */
   @Prop() inoActivated?: boolean;
   @Watch('inoActivated')
   inoActivatedChanged(activated: boolean) {
@@ -64,7 +75,6 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() type?: ButtonType = 'button';
 
-
   @Event() clickEl: EventEmitter;
 
   @Listen('click')
@@ -87,7 +97,9 @@ export class IconButton implements ComponentInterface {
 
   private maybeCreateRipple() {
     if (!this.inoActivated) {
-      this.mdcInstance = new MDCRipple(this.el.querySelector('.mdc-icon-button'));
+      this.mdcInstance = new MDCRipple(
+        this.el.querySelector('.mdc-icon-button')
+      );
       this.mdcInstance.unbounded = true;
     }
   }
@@ -99,7 +111,7 @@ export class IconButton implements ComponentInterface {
   render() {
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
-      'mdc-ripple-upgraded--background-focused': this.inoActivated
+      'mdc-ripple-upgraded--background-focused': this.inoActivated,
     });
 
     return (

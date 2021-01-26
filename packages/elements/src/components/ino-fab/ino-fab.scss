@@ -11,7 +11,7 @@ $edged-borders: (
   top-left: 0 50% 50% 50%,
   top-right: 50% 0 50% 50%,
   bottom-right: 50% 50% 0 50%,
-  bottom-left: 50% 50% 50% 0
+  bottom-left: 50% 50% 50% 0,
 );
 
 $extended-edged-borders: (
@@ -19,18 +19,26 @@ $extended-edged-borders: (
   top-left: 0 24px 24px 24px,
   top-right: 24px 0 24px 24px,
   bottom-right: 24px 24px 0 24px,
-  bottom-left: 24px 24px 24px 0
+  bottom-left: 24px 24px 24px 0,
 );
 
 @mixin setEdgedBorders($position) {
   &:not(.mdc-fab--extended) {
     border-radius: map_get($edged-borders, $position);
-    @include animation.button-rounding(map_get($edged-borders, none), map_get($edged-borders, $position), fab-#{$position}-default);
+    @include animation.button-rounding(
+      map_get($edged-borders, none),
+      map_get($edged-borders, $position),
+      fab-#{$position}-default
+    );
   }
 
   &.mdc-fab--extended {
     border-radius: map_get($extended-edged-borders, $position);
-    @include animation.button-rounding(map_get($extended-edged-borders, none), map_get($extended-edged-borders, $position), fab-#{$position}-extended);
+    @include animation.button-rounding(
+      map_get($extended-edged-borders, none),
+      map_get($extended-edged-borders, $position),
+      fab-#{$position}-extended
+    );
   }
 }
 
@@ -46,13 +54,34 @@ $extended-edged-borders: (
    * @prop --fab-icon-color-disabled: Color of the slotted icon if disabled
    */
   --fab-color: var(--ino-fab-color, white);
-  --fab-background-color: var(--ino-fab-background-color, #{theme.color(primary)});
-  --fab-background-color-hover: var(--ino-fab-background-color-hover, #{theme.color(primary, light)});
-  --fab-background-color-active: var(--ino-fab-background-color-active, #{theme.color(primary, dark)});
-  --fab-icon-color: var(--ino-fab-icon-color, #{theme.color(primary, contrast)});
-  --fab-color-disabled: var(--ino-fab-color-disabled, #{theme.color(primary, contrast)});
-  --fab-background-color-disabled: var(--ino-background-color-disabled, #{theme.color(dark, light)});
-  --fab-icon-color-disabled: var(--ino-fab-icon-color-disabled, #{theme.color(primary, contrast)});
+  --fab-background-color: var(
+    --ino-fab-background-color,
+    #{theme.color(primary)}
+  );
+  --fab-background-color-hover: var(
+    --ino-fab-background-color-hover,
+    #{theme.color(primary, light)}
+  );
+  --fab-background-color-active: var(
+    --ino-fab-background-color-active,
+    #{theme.color(primary, dark)}
+  );
+  --fab-icon-color: var(
+    --ino-fab-icon-color,
+    #{theme.color(primary, contrast)}
+  );
+  --fab-color-disabled: var(
+    --ino-fab-color-disabled,
+    #{theme.color(primary, contrast)}
+  );
+  --fab-background-color-disabled: var(
+    --ino-background-color-disabled,
+    #{theme.color(dark, light)}
+  );
+  --fab-icon-color-disabled: var(
+    --ino-fab-icon-color-disabled,
+    #{theme.color(primary, contrast)}
+  );
 }
 
 // Default Edge
@@ -62,7 +91,7 @@ $extended-edged-borders: (
 
 // Generate ino-edge-position classes
 @each $position in $edge-positions {
-  :host([ino-edge-position="#{$position}"]) .mdc-fab {
+  :host([ino-edge-position='#{$position}']) .mdc-fab {
     @include setEdgedBorders($position);
   }
 }
@@ -75,7 +104,8 @@ $extended-edged-borders: (
     @include fab.container-color(var(--fab-background-color-hover));
   }
 
-  &:active, &:after {
+  &:active,
+  &:after {
     @include fab.container-color(var(--fab-background-color-active));
   }
 
@@ -84,12 +114,14 @@ $extended-edged-borders: (
     @include fab.container-color(var(--fab-background-color-disabled));
     pointer-events: none;
 
-    ::slotted(ino-icon), ino-icon {
+    ::slotted(ino-icon),
+    ino-icon {
       --icon-color: var(--fab-icon-color-disabled);
     }
   }
 
-  ::slotted(ino-icon), ino-icon {
+  ::slotted(ino-icon),
+  ino-icon {
     --icon-color: var(--fab-icon-color);
   }
 }
@@ -98,23 +130,27 @@ $extended-edged-borders: (
   display: inline-block;
 
   .mdc-fab {
-
-    ::slotted(ino-icon), ino-icon {
+    ::slotted(ino-icon),
+    ino-icon {
       --icon-width: 30px;
       --icon-height: 30px;
     }
 
-    &.mdc-fab--mini ::slotted(ino-icon), &.mdc-fab--mini ino-icon {
+    &.mdc-fab--mini ::slotted(ino-icon),
+    &.mdc-fab--mini ino-icon {
       --icon-width: 25px;
       --icon-height: 25px;
     }
 
-    &:not(.mdc-fab--extended), &.mdc-fab--extended {
-      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
+    &:not(.mdc-fab--extended),
+    &.mdc-fab--extended {
+      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+        0 12px 28px 0 rgba(61, 214, 245, 0.14);
     }
 
     &:active {
-      box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.30), 0 16px 32px 0 rgba(61, 214, 245, 0.14);
+      box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
+        0 16px 32px 0 rgba(61, 214, 245, 0.14);
     }
   }
 }

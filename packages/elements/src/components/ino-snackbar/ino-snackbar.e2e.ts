@@ -6,7 +6,6 @@ const INO_BTN_SELECTOR = 'ino-snackbar ino-button';
 const INO_ICON_BTN_SELECTOR = 'ino-snackbar ino-icon-button';
 
 describe('InoSnackbar', () => {
-
   describe('Events', () => {
     it('should emit an inoActionClick event upon clicking the button', async () => {
       const page = await setupPageWithContent(INO_SNACKBAR);
@@ -35,5 +34,4 @@ describe('InoSnackbar', () => {
       expect(hideEvent).toHaveReceivedEventDetail(true);
     });
   });
-
 });

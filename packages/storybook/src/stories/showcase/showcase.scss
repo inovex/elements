@@ -1,4 +1,5 @@
-h2, h3 {
+h2,
+h3 {
   color: #777777;
 }
 
@@ -34,7 +35,9 @@ h2, h3 {
     color: unset;
   }
 
-  .card-content--vertical, .card-content--horizontal, .card-footer {
+  .card-content--vertical,
+  .card-content--horizontal,
+  .card-footer {
     display: flex;
     align-items: center;
   }

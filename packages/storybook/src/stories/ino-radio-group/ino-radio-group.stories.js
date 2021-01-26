@@ -27,8 +27,8 @@ export default {
   title: 'Input/<ino-radio-group>',
   parameters: {
     actions: {
-      handles: ['checkedChange ino-radio']
-    }
+      handles: ['checkedChange ino-radio'],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),

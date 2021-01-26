@@ -12,16 +12,16 @@ We follow the [Conventional Commits Specification](https://www.conventionalcommi
 
 Must be one of the following:
 
-|Type|Description|Affects&nbsp;Version|
-|---|---|---|
-|**feat**|Introduces a new feature to the codebase.|MINOR|
-|**fix**|Patches a bug in your codebase.|PATCH|
-|**docs**|Documentation only changes.|(no change)|
-|**style**|Do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc), not CSS styles.|(no change)|
-|**refactor**|Neither fixes a bug nor adds a feature.|(no change)|
-|**perf**|A code change that improves performance.|(no change)|
-|**test**|Adding missing tests.|(no change)|
-|**chore**|Changes to the build process or auxiliary tools and libraries such as documentation generation.|(no change)|
+| Type         | Description                                                                                                | Affects&nbsp;Version |
+| ------------ | ---------------------------------------------------------------------------------------------------------- | -------------------- |
+| **feat**     | Introduces a new feature to the codebase.                                                                  | MINOR                |
+| **fix**      | Patches a bug in your codebase.                                                                            | PATCH                |
+| **docs**     | Documentation only changes.                                                                                | (no change)          |
+| **style**    | Do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc), not CSS styles. | (no change)          |
+| **refactor** | Neither fixes a bug nor adds a feature.                                                                    | (no change)          |
+| **perf**     | A code change that improves performance.                                                                   | (no change)          |
+| **test**     | Adding missing tests.                                                                                      | (no change)          |
+| **chore**    | Changes to the build process or auxiliary tools and libraries such as documentation generation.            | (no change)          |
 
 ## Package (optional)
 
@@ -31,12 +31,12 @@ In our mono repo we need to distinct which package is affected by the change. He
 
 You are able to use **one** or **none** of the following packages:
 
-|Package Name|Affected Package|
-|---|---|
-|elements|[@inovex.de/elements](packages/elements)|
-|elements-angular|[@inovex.de/elements-angular](packages/elements-angular)|
-|elements-react|[@inovex.de/elements-react](packages/elements-react)|
-|storybook|[@inovex.de/elements-storybook](packages/storybook)|
+| Package Name     | Affected Package                                         |
+| ---------------- | -------------------------------------------------------- |
+| elements         | [@inovex.de/elements](packages/elements)                 |
+| elements-angular | [@inovex.de/elements-angular](packages/elements-angular) |
+| elements-react   | [@inovex.de/elements-react](packages/elements-react)     |
+| storybook        | [@inovex.de/elements-storybook](packages/storybook)      |
 
 ## Scope
 

@@ -9,8 +9,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-select')
-  .addEventListener('valueChange', e =>
-    alert(`The new select value is: ${e.detail}`)
+  .addEventListener('valueChange', (e) =>
+    alert(`The new select value is: ${e.detail}`),
   );
 ```
 
@@ -24,7 +24,8 @@ document
   ino-label="<string>"
   ino-outline
 >
-  <ino-option value="Option 1">Option 1</ino-option> <ino-option value="Option 2">Option 2</ino-option> ...
+  <ino-option value="Option 1">Option 1</ino-option>
+  <ino-option value="Option 2">Option 2</ino-option> ...
 </ino-select>
 ```
 
@@ -81,13 +82,15 @@ class MyComponent extends Component {
 ## Additional Hints
 
 Use the custom `ino-option` component to add options to the select component. The `ino-label` attribute sets an optional floating label for this element.
+
 ### Control flow
 
 The select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.
 
 ```js
-document.querySelector('ino-select')
-  .addEventListener('valueChange', e => this.state.value = e.detail);
+document
+  .querySelector('ino-select')
+  .addEventListener('valueChange', (e) => (this.state.value = e.detail));
 ```
 
 ### Event Behaviour

@@ -7,7 +7,7 @@ import './ino-card.scss';
 
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function(e) {
+  const eventHandler = function (e) {
     const el = e.target;
     if (el === null) {
       return;
@@ -33,11 +33,11 @@ export default {
 
   decorators: [
     withStencilReadme(componentReadme),
-    story => {
+    (story) => {
       subscribeToComponentEvents();
       return story();
-    }
-  ]
+    },
+  ],
 };
 
 export const DefaultUsage = () => /*html*/ `

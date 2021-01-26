@@ -1,4 +1,13 @@
-import { Component, ComponentInterface, Element, Host, Prop, State, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Host,
+  Prop,
+  State,
+  Watch,
+  h,
+} from '@stencil/core';
 
 import { ImageDecodingTypes } from '../types';
 import classNames from 'classnames';
@@ -6,7 +15,7 @@ import classNames from 'classnames';
 @Component({
   tag: 'ino-img',
   styleUrl: 'ino-img.scss',
-  shadow: false
+  shadow: false,
 })
 export class Image implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -110,7 +119,7 @@ export class Image implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    if(!this.inoImgListItem) {
+    if (!this.inoImgListItem) {
       this.el.querySelector('div').style.paddingTop = this.composedRatioHeight;
     }
   }
@@ -131,24 +140,22 @@ export class Image implements ComponentInterface {
 
   render() {
     const hostClasses = classNames({
-      "mdc-image-list__item": this.inoImgListItem
+      'mdc-image-list__item': this.inoImgListItem,
     });
 
     const divClasses = classNames({
-      "ino-img__composer": !this.inoImgListItem,
-      "mdc-image-list__image-aspect-container": this.inoImgListItem
+      'ino-img__composer': !this.inoImgListItem,
+      'mdc-image-list__image-aspect-container': this.inoImgListItem,
     });
 
     const imgClasses = classNames({
-      "ino-img__image": !this.inoImgListItem,
-      "mdc-image-list__image": this.inoImgListItem
+      'ino-img__image': !this.inoImgListItem,
+      'mdc-image-list__image': this.inoImgListItem,
     });
 
     return (
       <Host class={hostClasses}>
-        <div
-          class={divClasses}
-        >
+        <div class={divClasses}>
           <img
             class={imgClasses}
             alt={this.alt}

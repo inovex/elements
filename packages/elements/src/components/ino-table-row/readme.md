@@ -1,6 +1,6 @@
 # ino-table-row
 
-The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or 
+The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or
 header rows to the table.
 
 ## Usage
@@ -9,7 +9,7 @@ The component can be used as follows:
 
 ```html
 <ino-table-row ino-header-row selected>
-    <ino-table-cell>Cell content</ino-table-cell>
+  <ino-table-cell>Cell content</ino-table-cell>
 </ino-table-row>
 ```
 

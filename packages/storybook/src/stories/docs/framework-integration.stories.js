@@ -5,7 +5,7 @@ import setupVueInstructions from '_local-docs/framework-integration/vue-instruct
 import setupJavaScriptInstructions from '_local-docs/framework-integration/javascript-instructions.md';
 
 export default {
-  title: 'Docs/Framework Integration'
+  title: 'Docs/Framework Integration',
 };
 
 export const Angular = () => markup(setupAngularInstructions);

@@ -11,8 +11,8 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-checkbox')
-  .addEventListener('checkedChange', e =>
-    alert(`The checked state is: ${e.detail}`)
+  .addEventListener('checkedChange', (e) =>
+    alert(`The checked state is: ${e.detail}`),
   );
 ```
 
@@ -40,7 +40,7 @@ import { InoCheckbox } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick() {
@@ -51,7 +51,7 @@ class MyComponent extends Component {
     return (
       <InoCheckbox
         value="Apple"
-        onClick={_ => this.handleCheckboxClick()}
+        onClick={(_) => this.handleCheckboxClick()}
         checked={this.state.checked}
       >
         Apple
@@ -68,7 +68,9 @@ import React, { Component } from 'react';
 import { InoCheckbox } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = props => {
+const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = (
+  props,
+) => {
   const { value, onClick, checked } = props;
 
   return (
@@ -80,7 +82,7 @@ const Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = prop
 
 class MyComponent extends Component {
   state = {
-    checked: false
+    checked: false,
   };
 
   handleCheckboxClick() {
@@ -91,7 +93,7 @@ class MyComponent extends Component {
     return (
       <Checkbox
         value="Apple"
-        onClick={_ => this.handleCheckboxClick()}
+        onClick={(_) => this.handleCheckboxClick()}
         checked={this.state.checked}
       >
         Apple

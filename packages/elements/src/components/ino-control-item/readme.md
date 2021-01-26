@@ -11,11 +11,11 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-control-item')
-  .addEventListener('checkedChange', e =>
+  .addEventListener('checkedChange', (e) =>
     console.log(
       'The element itself or the checkbox was clicked. Its new value is:',
-      e.detail
-    )
+      e.detail,
+    ),
   );
 ```
 

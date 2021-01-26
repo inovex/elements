@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import { ReactProps } from './ReactProps';
-import { attachEventProps, createForwardRef, dashToPascalCase, isCoveredByReact } from './utils';
+import {
+  attachEventProps,
+  createForwardRef,
+  dashToPascalCase,
+  isCoveredByReact,
+} from './utils';
 
 interface IonicReactInternalProps<ElementType> {
   forwardedRef?: React.Ref<ElementType>;
@@ -18,7 +23,9 @@ export const createReactComponent = <PropType, ElementType>(
   tagName: string
 ) => {
   const displayName = dashToPascalCase(tagName);
-  const ReactComponent = class extends React.Component<IonicReactInternalProps<ElementType>> {
+  const ReactComponent = class extends React.Component<
+    IonicReactInternalProps<ElementType>
+  > {
     constructor(props: IonicReactInternalProps<ElementType>) {
       super(props);
     }
@@ -33,7 +40,14 @@ export const createReactComponent = <PropType, ElementType>(
     }
 
     render() {
-      const { children, forwardedRef, style, className, ref, ...cProps } = this.props;
+      const {
+        children,
+        forwardedRef,
+        style,
+        className,
+        ref,
+        ...cProps
+      } = this.props;
 
       const propsToPass = Object.keys(cProps).reduce((acc, name) => {
         if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
@@ -48,19 +62,18 @@ export const createReactComponent = <PropType, ElementType>(
       const newProps: any = {
         ...propsToPass,
         ref: forwardedRef,
-        style
+        style,
       };
 
-      return React.createElement(
-        tagName,
-        newProps,
-        children
-      );
+      return React.createElement(tagName, newProps, children);
     }
 
     static get displayName() {
       return displayName;
     }
   };
-  return createForwardRef<PropType & ReactProps, ElementType>(ReactComponent, displayName);
+  return createForwardRef<PropType & ReactProps, ElementType>(
+    ReactComponent,
+    displayName
+  );
 };

@@ -37,7 +37,6 @@ function subscribeToComponentEvents() {
     el.setAttribute('ino-icon', newIcon);
   };
 
-
   const managedButtonHandler = function (e) {
     const el = findElementUpwards(e.target, 'ino-icon-button', 'managed');
     if (!el) {
@@ -63,8 +62,8 @@ export default {
   title: 'Buttons/<ino-icon-button>',
   parameters: {
     actions: {
-      handles: [`${eventToListen} .customizable-icon-button ino-icon-button`]
-    }
+      handles: [`${eventToListen} .customizable-icon-button ino-icon-button`],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),
@@ -80,11 +79,26 @@ export const DefaultUsage = () => /*html*/ `
         <style>
         .customizable-icon-button {
           --ino-icon-button-size: ${text('--ino-icon-button-size', '48px')};
-          --ino-icon-button-icon-size: ${text('--ino-icon-button-icon-size', '24px')};
-          --ino-icon-button-icon-color: ${text('--ino-icon-button-color', '#000000')};
-          --ino-icon-button-icon-active-color: ${text('--ino-icon-button-active-color', '#000000')};
-          --ino-icon-button-background-color: ${text('--ino-icon-button-background-color', 'transparent')};
-          --ino-icon-button-background-active-color: ${text('--ino-icon-button-background-active-color', '#000000')};
+          --ino-icon-button-icon-size: ${text(
+            '--ino-icon-button-icon-size',
+            '24px'
+          )};
+          --ino-icon-button-icon-color: ${text(
+            '--ino-icon-button-color',
+            '#000000'
+          )};
+          --ino-icon-button-icon-active-color: ${text(
+            '--ino-icon-button-active-color',
+            '#000000'
+          )};
+          --ino-icon-button-background-color: ${text(
+            '--ino-icon-button-background-color',
+            'transparent'
+          )};
+          --ino-icon-button-background-active-color: ${text(
+            '--ino-icon-button-background-active-color',
+            '#000000'
+          )};
         }
       </style>
       <div class="customizable-icon-button">
@@ -94,7 +108,16 @@ export const DefaultUsage = () => /*html*/ `
           ino-icon="${select('ino-icon', ICONS, 'star')}"
           ino-color-scheme="${select(
             'ino-color-scheme',
-            ['', 'primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
+            [
+              '',
+              'primary',
+              'secondary',
+              'success',
+              'warning',
+              'error',
+              'light',
+              'dark',
+            ],
             ''
           )}"
           ino-activated="${boolean('ino-activated', false)}"

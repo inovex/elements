@@ -1,6 +1,6 @@
 # ino-card
 
-The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to 
+The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to
 fully customize the appearance of the card.
 
 ## Usage
@@ -12,14 +12,11 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-card')
-  .addEventListener('click', _ => alert('Card was clicked!'));
+  .addEventListener('click', (_) => alert('Card was clicked!'));
 ```
 
 ```html
-<ino-card
-  ino-selected="<boolean>"
-  ino-disable-elevation="<boolean>"
->
+<ino-card ino-selected="<boolean>" ino-disable-elevation="<boolean>">
   <div slot="header"><!-- Any content --></div>
   <div slot="content"><!-- Any content --></div>
   <div slot="footer"><!-- Any content --></div>

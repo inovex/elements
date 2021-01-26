@@ -1,4 +1,4 @@
-import './showcase.scss'
+import './showcase.scss';
 import fjordImg from '_local-assets/images/fjord.jpg';
 import trondheimImg from '_local-assets/images/trondheim.jpg';
 import libertyImg from '_local-assets/images/liberty.jpg';

@@ -30,8 +30,11 @@ export default {
   title: 'Input/<ino-input>',
   parameters: {
     actions: {
-      handles: ['inoIconClick .customizable-input', 'valueChange .customizable-input']
-    }
+      handles: [
+        'inoIconClick .customizable-input',
+        'valueChange .customizable-input',
+      ],
+    },
   },
   decorators: [
     withStencilReadme(componentReadme),
@@ -48,7 +51,12 @@ export const DefaultUsage = () => /*html*/ `
 
   </style>
   <ino-input class="customizable-input" id="customizable-input" valueChange={action('value-changes')}
-    type="${select('type', ['text', 'number', 'password', 'email'], 'text', 'STANDARD')}"
+    type="${select(
+      'type',
+      ['text', 'number', 'password', 'email'],
+      'text',
+      'STANDARD'
+    )}"
     step="${text('step', '5', 'STANDARD')}"
     maxlength="${number('maxlength', 100, ['maxlength'], 'STANDARD')}"
     ino-label="${text('ino-label', 'Customizable input', 'STANDARD')}"
@@ -61,10 +69,22 @@ export const DefaultUsage = () => /*html*/ `
     pattern="${text('pattern', '', 'STANDARD')}"
     ino-error="${boolean('ino-error', false, 'STANDARD')}"
     ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
-    ino-helper-persistent="${boolean('ino-helper-persistent', false, 'HELPER TEXT')}"
-    ino-helper-validation="${boolean('ino-helper-validation', false, 'HELPER TEXT')}"
+    ino-helper-persistent="${boolean(
+      'ino-helper-persistent',
+      false,
+      'HELPER TEXT'
+    )}"
+    ino-helper-validation="${boolean(
+      'ino-helper-validation',
+      false,
+      'HELPER TEXT'
+    )}"
 
-    ino-helper-character-counter="${boolean('ino-helper-character-counter', false, 'HELPER TEXT')}"
+    ino-helper-character-counter="${boolean(
+      'ino-helper-character-counter',
+      false,
+      'HELPER TEXT'
+    )}"
   >
   </ino-input>
 

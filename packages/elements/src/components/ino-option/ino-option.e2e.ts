@@ -4,7 +4,6 @@ const INO_OPTION_SELECTED = '<ino-option selected></ino-option>';
 const INO_OPTION_DISABLED = '<ino-option disabled></ino-option>';
 
 describe('ino-option', () => {
-
   describe('Properties', () => {
     it('should render selected', async () => {
       const page = await setupPageWithContent(INO_OPTION_SELECTED);
@@ -30,5 +29,4 @@ describe('ino-option', () => {
       expect(isDisabled).toBeTruthy();
     });
   });
-
 });

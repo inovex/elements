@@ -1,7 +1,7 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or 
-notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section 
+The ino-dialog component displays a modal window that can be used to display additional information or
+notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section
 which are fully customizable.
 
 ## Usage
@@ -13,17 +13,16 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-dialog')
-  .addEventListener('openChanged', (e) => alert(`inoOpen has been set to ${e.detail}`));
+  .addEventListener('openChanged', (e) =>
+    alert(`inoOpen has been set to ${e.detail}`),
+  );
 ```
 
 ```html
-<ino-dialog
-    ino-open="true"
-    ino-permanent="false"
->
-    <div class="awesome-header" slot="header"/>
-    <div class="awesome-content"/>
-    <div class="awesome-footer" slot="footer"/>
+<ino-dialog ino-open="true" ino-permanent="false">
+  <div class="awesome-header" slot="header" />
+  <div class="awesome-content" />
+  <div class="awesome-footer" slot="footer" />
 </ino-dialog>
 ```
 

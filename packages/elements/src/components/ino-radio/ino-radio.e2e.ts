@@ -7,7 +7,6 @@ const INO_RADIO_SELECTOR = 'ino-radio';
 const INPUT_SELECTOR = 'ino-radio input';
 
 describe('InoRadio', () => {
-
   describe('Properties', () => {
     it('should render disabled', async () => {
       const page = await setupPageWithContent(INO_RADIO_CHECKED);
@@ -21,7 +20,6 @@ describe('InoRadio', () => {
       expect(input).toHaveAttribute('disabled');
       expect(innerDiv).toHaveClass('mdc-radio--disabled');
     });
-
   });
 
   describe('Events', () => {
@@ -54,5 +52,4 @@ describe('InoRadio', () => {
       expect(checkedChange).not.toHaveReceivedEvent();
     });
   });
-
 });

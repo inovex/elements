@@ -17,13 +17,31 @@
    */
 
   --checkbox-color: var(--ino-checkbox-color, #{theme.color(primary)});
-  --checkbox-color-hover: var(--ino-checkbox-color-hover, #{theme.color(primary, light)});
-  --checkbox-color-active: var(--ino-checkbox-color-active, #{theme.color(primary, dark)});
-  --checkbox-container-color-unchecked: var(--ino-checkbox-container-color-unchecked, #{theme.color(primary, light)});
-  --checkbox-text-color-disabled: var(--ino-checkbox-text-color-disabled, #{theme.color(dark)});
-  --checkbox-background-color-disabled: var(--ino-checkbox-background-color-disabled, #{theme.color(light, light)});
+  --checkbox-color-hover: var(
+    --ino-checkbox-color-hover,
+    #{theme.color(primary, light)}
+  );
+  --checkbox-color-active: var(
+    --ino-checkbox-color-active,
+    #{theme.color(primary, dark)}
+  );
+  --checkbox-container-color-unchecked: var(
+    --ino-checkbox-container-color-unchecked,
+    #{theme.color(primary, light)}
+  );
+  --checkbox-text-color-disabled: var(
+    --ino-checkbox-text-color-disabled,
+    #{theme.color(dark)}
+  );
+  --checkbox-background-color-disabled: var(
+    --ino-checkbox-background-color-disabled,
+    #{theme.color(light, light)}
+  );
   --checkbox-checkmark-color: var(--ino-checkbox-checkmark-color, #fff);
-  --checkbox-checkmark-color-disabled: var(--ino-checkbox-checkmark-color-disabled, #{theme.color(light)});
+  --checkbox-checkmark-color-disabled: var(
+    --ino-checkbox-checkmark-color-disabled,
+    #{theme.color(light)}
+  );
 }
 
 :host {
@@ -31,9 +49,10 @@
   --mdc-checkbox-checked-color: var(--checkbox-color);
   --mdc-checkbox-disabled-color: var(--checkbox-background-color-disabled);
   --mdc-checkbox-ink-color: var(--checkbox-checkmark-color);
-  
+
   .mdc-checkbox {
-    &:before, &:after {
+    &:before,
+    &:after {
       display: none; // Remove ripple effect
     }
   }
@@ -47,19 +66,20 @@
   }
 }
 
-
 :host(:hover) {
   .mdc-checkbox:not(.mdc-checkbox--disabled) {
     --mdc-checkbox-unchecked-color: var(--checkbox-color-hover);
     --mdc-checkbox-checked-color: var(--checkbox-color-hover);
 
     .mdc-checkbox__background {
-      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.30), 0 12px 28px 0 rgba(61, 214, 245, 0.14);
+      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
+        0 12px 28px 0 rgba(61, 214, 245, 0.14);
     }
   }
 }
 
-:host(:active) .mdc-checkbox:not(.checked), :host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
+:host(:active) .mdc-checkbox:not(.checked),
+:host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
   --mdc-checkbox-unchecked-color: var(--checkbox-color-active);
   --mdc-checkbox-checked-color: var(--checkbox-color-active);
 }
@@ -78,7 +98,7 @@
       left: 1px;
     }
     .mdc-checkbox__mixedmark {
-      margin: 0 2px;    
+      margin: 0 2px;
     }
   }
   &:not(:hover):not(.checked).ino-checkbox--indeterminate {

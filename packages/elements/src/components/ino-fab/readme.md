@@ -53,7 +53,7 @@ import React, { Component } from 'react';
 import { InoFab } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const Fab: React.FunctionComponent<Components.InoFabAttributes> = props => {
+const Fab: React.FunctionComponent<Components.InoFabAttributes> = (props) => {
   const { inoLabel, inoIcon } = props;
 
   const handleClick = (e: any) => {

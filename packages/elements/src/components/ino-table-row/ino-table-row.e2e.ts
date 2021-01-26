@@ -16,7 +16,6 @@ const INO_TABLE_W_SELECTED_ROW = `
 `;
 
 describe('ino-table', () => {
-
   describe('Properties', () => {
     it('should render with inoHeaderRow set to true', async () => {
       const page = await setupPageWithContent(INO_TABLE_W_HEADER);
@@ -24,7 +23,10 @@ describe('ino-table', () => {
       const cell = await page.find('ino-table-cell');
 
       expect(row).toHaveClass('mdc-data-table__header-row');
-      expect(cell).toHaveClasses(['mdc-data-table__header-cell', 'ino-table__header-cell']);
+      expect(cell).toHaveClasses([
+        'mdc-data-table__header-cell',
+        'ino-table__header-cell',
+      ]);
       expect(cell).not.toHaveClass('mdc-data-table__cell');
     });
 
@@ -35,5 +37,4 @@ describe('ino-table', () => {
       expect(row).toHaveClass('mdc-data-table__row--selected');
     });
   });
-
 });

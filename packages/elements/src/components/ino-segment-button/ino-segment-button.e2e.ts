@@ -1,12 +1,14 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_SEGMENT_BUTTON = '<ino-segment-button value="1"></ino-segment-button>'
-const INO_SEGMENT_BUTTON_CHECKED = '<ino-segment-button checked></ino-segment-button>'
-const INO_SEGMENT_BUTTON_DISABLED = '<ino-segment-button disabled></ino-segment-button>'
+const INO_SEGMENT_BUTTON =
+  '<ino-segment-button value="1"></ino-segment-button>';
+const INO_SEGMENT_BUTTON_CHECKED =
+  '<ino-segment-button checked></ino-segment-button>';
+const INO_SEGMENT_BUTTON_DISABLED =
+  '<ino-segment-button disabled></ino-segment-button>';
 const BUTTON_SELECTOR = 'ino-segment-button >>> button';
 
 describe('ino-segment-button', () => {
-
   describe('Properties', () => {
     it('should render as a dense button if inoDense is true', async () => {
       const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
@@ -66,5 +68,4 @@ describe('ino-segment-button', () => {
       expect(clickEl).not.toHaveReceivedEvent();
     });
   });
-
 });

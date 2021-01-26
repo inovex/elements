@@ -13,15 +13,15 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-chip')
-  .addEventListener('removeChip', e =>
-    console.log('This chip will be removed', e.detail)
+  .addEventListener('removeChip', (e) =>
+    console.log('This chip will be removed', e.detail),
   );
 ```
 
 ```html
 <ino-chip
   ino-color-scheme="<string>"
-  ino-fill="<string>"  
+  ino-fill="<string>"
   ino-label="<string>"
   ino-icon-leading
   ino-removable
@@ -29,7 +29,7 @@ document
   ino-selected
   ino-value="<string>"
 >
-    <ino-icon slot="ino-icon-leading" ino-icon="<string>"></ino-icon>
+  <ino-icon slot="ino-icon-leading" ino-icon="<string>"></ino-icon>
 </ino-chip>
 ```
 
@@ -46,7 +46,7 @@ class MyComponent extends Component {
     console.log(
       e.detail === true
         ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`
+        : `User clicked: ${e.detail}`,
     );
   }
 
@@ -72,14 +72,16 @@ import React, { Component } from 'react';
 import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = props => {
+const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
+  props,
+) => {
   const { inoType } = props;
 
   const chipsetSelectionChange = (e: any) => {
     console.log(
       e.detail === true
         ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`
+        : `User clicked: ${e.detail}`,
     );
   };
 
@@ -103,8 +105,8 @@ class MyComponent extends Component {
 
 **Content**: Use the `ino-label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the `ino-icon` attribute.
 
-**Styling**: The chip can be styled in many different ways with the help of the `ino-fill` and `ino-color-scheme` attributes. 
-Take a look at the attribute documentation at the bottom of the page for further information. 
+**Styling**: The chip can be styled in many different ways with the help of the `ino-fill` and `ino-color-scheme` attributes.
+Take a look at the attribute documentation at the bottom of the page for further information.
 
 ### Removable chips
 

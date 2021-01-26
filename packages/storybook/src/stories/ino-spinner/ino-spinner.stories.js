@@ -19,10 +19,22 @@ export const DefaultUsage = () => /*html*/ `
             class="customizable-spinner"
             ino-color-scheme="${select(
               'ino-color-scheme',
-              ['primary', 'secondary', 'success', 'warning', 'error', 'light', 'dark'],
+              [
+                'primary',
+                'secondary',
+                'success',
+                'warning',
+                'error',
+                'light',
+                'dark',
+              ],
               'primary'
             )}"
-            ino-type="${select('ino-type', ['tile', 'bounce', 'circle'], 'tile')}"
+            ino-type="${select(
+              'ino-type',
+              ['tile', 'bounce', 'circle'],
+              'tile'
+            )}"
             ino-height="${number('ino-height', 40)}"
             ino-width="${number('ino-width', 40)}"
             ino-modal="${boolean('ino-modal', false)}"

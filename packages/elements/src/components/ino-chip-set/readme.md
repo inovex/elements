@@ -14,12 +14,10 @@ The component can be used as follows:
 ```js
 document
   .querySelector('ino-chip-set')
-  .addEventListener('updateChipSet', e =>
+  .addEventListener('updateChipSet', (e) =>
     alert(
-      `The selected chip values are (only when ino-type='filter' or 'choice'): ${
-        e.detail
-      }`
-    )
+      `The selected chip values are (only when ino-type='filter' or 'choice'): ${e.detail}`,
+    ),
   );
 ```
 
@@ -44,7 +42,7 @@ class MyComponent extends Component {
     console.log(
       e.detail === true
         ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`
+        : `User clicked: ${e.detail}`,
     );
   }
 
@@ -70,14 +68,16 @@ import React, { Component } from 'react';
 import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = props => {
+const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
+  props,
+) => {
   const { inoType } = props;
 
   const chipsetSelectionChange = (e: any) => {
     console.log(
       e.detail === true
         ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`
+        : `User clicked: ${e.detail}`,
     );
   };
 
@@ -122,9 +122,11 @@ There are two complex types of chip sets:
 Both choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the `ino-value` attribute of each `ino-chip`.
 
 ```js
-document.querySelector('ino-chip-set').addEventListener('updateChipSet', e => {
-  // console.log(e.detail)
-});
+document
+  .querySelector('ino-chip-set')
+  .addEventListener('updateChipSet', (e) => {
+    // console.log(e.detail)
+  });
 ```
 
 ```html
