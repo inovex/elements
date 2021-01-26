@@ -62,13 +62,12 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value?: string) {
-
     if (!this.flatpickr || this.disabled) {
       this.isValid = true;
       return;
     }
 
-    if(!value) {
+    if (!value) {
       this.isValid = !this.required;
       return;
     }
@@ -80,15 +79,10 @@ export class Datepicker implements ComponentInterface {
     }
 
     if (!this.inoRange) {
-      this.isValid = validateSingle(
-        value,
-        dateFormat,
-        this.min,
-        this.max
-      );
+      this.isValid = validateSingle(value, dateFormat, this.min, this.max);
     }
 
-    if(this.isValid) {
+    if (this.isValid) {
       this.flatpickr.setDate(value, true);
     }
   }

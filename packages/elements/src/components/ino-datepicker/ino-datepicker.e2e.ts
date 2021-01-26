@@ -267,7 +267,7 @@ describe('InoDatepicker', () => {
 
       inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '10-10-2020');
-      inoDatepickerEl.setAttribute('value','10-10-2020');
+      inoDatepickerEl.setAttribute('value', '10-10-2020');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
@@ -293,7 +293,7 @@ describe('InoDatepicker', () => {
 
       inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('max', '10-10-2020');
-      inoDatepickerEl.setAttribute('value','10-10-2020');
+      inoDatepickerEl.setAttribute('value', '10-10-2020');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
@@ -333,7 +333,7 @@ describe('InoDatepicker', () => {
 
       inoDatepickerEl.setAttribute('ino-type', 'month');
       inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
-      inoDatepickerEl.setAttribute('value','12.20');
+      inoDatepickerEl.setAttribute('value', '12.20');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).toHaveClass('mdc-text-field--invalid');
@@ -346,7 +346,7 @@ describe('InoDatepicker', () => {
 
       inoDatepickerEl.setAttribute('ino-type', 'month');
       inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
-      inoDatepickerEl.setAttribute('value','12.2000');
+      inoDatepickerEl.setAttribute('value', '12.2000');
       await page.waitForChanges();
 
       expect(flatpickrInputEl).not.toHaveClass('mdc-text-field--invalid');
