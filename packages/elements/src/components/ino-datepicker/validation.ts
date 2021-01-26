@@ -1,4 +1,4 @@
-import { isAfter, isBefore } from 'date-fns';
+import { isAfter, isBefore, isEqual } from 'date-fns';
 import flatpickr from 'flatpickr';
 
 const NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
@@ -32,7 +32,7 @@ function validateMin(date: Date, format: string, minDateStr?: string): boolean {
 
   const minDate = flatpickr.parseDate(minDateStr, format);
 
-  return isAfter(date, minDate);
+  return isEqual(date, minDate) || isAfter(date, minDate);
 }
 
 function validateMax(date: Date, format: string, maxDateStr?: string): boolean {
@@ -43,7 +43,7 @@ function validateMax(date: Date, format: string, maxDateStr?: string): boolean {
 
   const maxDate = flatpickr.parseDate(maxDateStr, format);
 
-  return isBefore(date, maxDate);
+  return isEqual(date, maxDate) || isBefore(date, maxDate);
 }
 
 function hasCorrectFormat(value: string, format: string): boolean {
