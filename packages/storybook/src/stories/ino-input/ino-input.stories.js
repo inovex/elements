@@ -65,8 +65,6 @@ export const DefaultUsage = () => /*html*/ `
     disabled="${boolean('disabled', false, 'STANDARD')}"
     required="${boolean('required', false, 'STANDARD')}"
     ino-show-label-hint="${boolean('ino-show-label-hint', false, 'STANDARD')}"
-
-    pattern="${text('pattern', '', 'STANDARD')}"
     ino-error="${boolean('ino-error', false, 'STANDARD')}"
     ino-helper="${text('ino-helper', 'Helper message', 'HELPER TEXT')}"
     ino-helper-persistent="${boolean(
