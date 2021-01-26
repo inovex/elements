@@ -21,10 +21,15 @@ export class NavItem implements ComponentInterface {
   @Prop() inoText?: string;
 
   /**
+   * The secondary text of this list item used in a two-lined list.
+   */
+  @Prop() inoSecondaryText?: string;
+
+  /**
    * Styles the row in an activated style.
    *
    * Use this for only one item
-   * and to mark it as permantently activated.
+   * and to mark it as permanently activated.
    */
   @Prop() inoActivated?: boolean = false;
 
@@ -33,10 +38,6 @@ export class NavItem implements ComponentInterface {
    */
   @Prop() inoDisabled?: boolean = false;
 
-  disconnectedCallback() {
-    this.el.remove();
-  }
-
   render() {
     const slotPosition = this.el.children.length > 0 ? 'ino-leading' : '';
 
@@ -44,6 +45,7 @@ export class NavItem implements ComponentInterface {
       <Host>
         <ino-list-item
           inoText={this.inoText}
+          inoSecondaryText={this.inoSecondaryText}
           inoActivated={this.inoActivated}
           inoDisabled={this.inoDisabled}
         >

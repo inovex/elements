@@ -775,13 +775,17 @@ export namespace Components {
     }
     interface InoNavItem {
         /**
-          * Styles the row in an activated style.  Use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
          */
         "inoActivated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
         "inoDisabled"?: boolean;
+        /**
+          * The secondary text of this list item used in a two-lined list.
+         */
+        "inoSecondaryText"?: string;
         /**
           * The text of this list item.
          */
@@ -2346,13 +2350,17 @@ declare namespace LocalJSX {
     }
     interface InoNavItem {
         /**
-          * Styles the row in an activated style.  Use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
          */
         "inoActivated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
         "inoDisabled"?: boolean;
+        /**
+          * The secondary text of this list item used in a two-lined list.
+         */
+        "inoSecondaryText"?: string;
         /**
           * The text of this list item.
          */

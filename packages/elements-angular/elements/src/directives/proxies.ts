@@ -564,13 +564,13 @@ export class InoNavDrawer {
 
 export declare interface InoNavItem extends Components.InoNavItem {}
 @ProxyCmp({
-  inputs: ['inoActivated', 'inoDisabled', 'inoText']
+  inputs: ['inoActivated', 'inoDisabled', 'inoSecondaryText', 'inoText']
 })
 @Component({
   selector: 'ino-nav-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoActivated', 'inoDisabled', 'inoText']
+  inputs: ['inoActivated', 'inoDisabled', 'inoSecondaryText', 'inoText']
 })
 export class InoNavItem {
   protected el: HTMLElement;

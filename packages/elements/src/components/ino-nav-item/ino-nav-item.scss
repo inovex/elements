@@ -23,6 +23,10 @@ ino-nav-item  {
     color: var(--nav-item-color);
     font-size: 14px;
 
+    .mdc-list-item__secondary-text {
+      font-size: 12px;
+    }
+
     // icon
     ::slotted(ino-icon), ino-icon, .ino-list-item__icon {
       --icon-width: 24px;
