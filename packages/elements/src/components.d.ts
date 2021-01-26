@@ -235,7 +235,7 @@ export namespace Components {
          */
         "hourStep": number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
          */
         "inoDateFormat"?: string;
         /**
@@ -1751,7 +1751,7 @@ declare namespace LocalJSX {
          */
         "hourStep"?: number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
          */
         "inoDateFormat"?: string;
         /**

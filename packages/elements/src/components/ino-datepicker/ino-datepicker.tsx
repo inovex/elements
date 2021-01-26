@@ -16,6 +16,7 @@ import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
 import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
+import { validateRange, validateSingle } from './validation';
 
 @Component({
   tag: 'ino-datepicker',
@@ -60,20 +61,33 @@ export class Datepicker implements ComponentInterface {
   @Prop() value?: string = '';
 
   @Watch('value')
-  valueChanged(value: string) {
-    if (this.disabled) return;
+  valueChanged(value?: string) {
 
-    try {
-      if (this.flatpickr) {
-        this.setValidState(value);
-      }
+    if (!this.flatpickr || this.disabled) {
+      this.isValid = true;
+      return;
+    }
 
-      if (this.flatpickr && this.isValid) {
-        this.flatpickr.setDate(value, false, this.inoDateFormat);
-      }
-    } catch (e) {
-      // Input could not be parsed e.g. empty spaces
-      this.isValid = false;
+    if(!value) {
+      this.isValid = !this.required;
+      return;
+    }
+
+    if (this.inoRange) {
+      this.isValid = validateRange(value, this.inoDateFormat);
+    }
+
+    if (!this.inoRange) {
+      this.isValid = validateSingle(
+        value,
+        this.inoDateFormat,
+        this.min,
+        this.max
+      );
+    }
+
+    if(this.isValid) {
+      this.flatpickr.setDate(value, false, this.inoDateFormat);
     }
   }
 
@@ -130,7 +144,9 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoRange')
   inoRangeChanged() {
-    if (!this.disabled) this.create();
+    if (!this.disabled) {
+      this.create();
+    }
   }
 
   @Watch('disabled')
@@ -141,7 +157,7 @@ export class Datepicker implements ComponentInterface {
   /**
    * A string to change the date format.
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
-   * The default value is `d-m-Y` which accepts values like `01.01.2019`.
+   * The default value is `d-m-Y` which accepts values like `01-01-2019`.
    */
   @Prop() inoDateFormat? = 'd-m-Y';
 
@@ -312,7 +328,9 @@ export class Datepicker implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   componentDidLoad() {
-    if (!this.disabled) this.create();
+    if (!this.disabled) {
+      this.create();
+    }
   }
 
   disconnectedCallback() {
@@ -324,10 +342,12 @@ export class Datepicker implements ComponentInterface {
   private create() {
     this.dispose();
 
-    if (this.disabled) return;
+    if (this.disabled) {
+      return;
+    }
 
     const sharedOptions: Partial<BaseOptions> = {
-      allowInput: true,
+      allowInput: !this.inoRange,
       clickOpens: false,
       ignoredFocusElements: [],
       locale: getDatepickerLocale(this.el),
@@ -389,50 +409,6 @@ export class Datepicker implements ComponentInterface {
     maxDate: this.max,
     mode: this.inoRange && this.isDatePicker() ? 'range' : 'single',
   });
-
-  private setValidState(value: string): void {
-    if (this.inoRange) {
-      this.isValid = !value
-        .match(Datepicker.NUMBERS_WITH_SPECIAL_CHARS)
-        .map((match) => this.hasCorrectFormat(match.trim()))
-        .includes(false);
-
-      return;
-    }
-
-    if (value) {
-      let isValueValid = true;
-      const parsedValue: Date = this.flatpickr.parseDate(value);
-
-      if (this.min) {
-        const minDate = this.flatpickr.parseDate(this.min);
-        isValueValid = isValueValid && minDate <= parsedValue;
-      }
-
-      if (this.max) {
-        const maxDate = this.flatpickr.parseDate(this.max);
-        isValueValid = isValueValid && maxDate >= parsedValue;
-      }
-
-      this.isValid = isValueValid && this.hasCorrectFormat(value);
-      return;
-    }
-
-    if (!value && !this.required) {
-      this.isValid = true;
-      return;
-    }
-  }
-
-  private hasCorrectFormat(value: string): boolean {
-    const parsedDate: Date = this.flatpickr.parseDate(value);
-    const formattedDate: string = this.flatpickr.formatDate(
-      parsedDate,
-      this.flatpickr.config.dateFormat
-    );
-
-    return formattedDate == value;
-  }
 
   private getTypeSpecificOptions(): Partial<BaseOptions> {
     switch (this.inoType) {
