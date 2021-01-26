@@ -6,7 +6,7 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-datepicker/readme.md';
 import './ino-datepicker.scss';
 
-let defaultDate = moment().format('YYYY-MM-DD');
+let defaultDate = moment().format('HH:mm DD.MM.YYYY');
 const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD');
 const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
 
@@ -68,7 +68,7 @@ export const DefaultUsage = () => /*html*/ `
           false,
           'STANDARD'
         )}"
-        ino-date-format="${text('ino-date-format', 'Y-m-d', 'DATE CONFIG')}"
+        ino-date-format="${text('ino-date-format', 'H:i d.m.Y', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text(
           'ino-default-date',
