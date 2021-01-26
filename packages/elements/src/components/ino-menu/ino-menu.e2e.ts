@@ -25,8 +25,7 @@ describe('InoMenu', () => {
   });
 
   describe('Events', () => {
-    it('should emit \'menuClose\' event on outside click while menu open', async () => {
-
+    it("should emit 'menuClose' event on outside click while menu open", async () => {
       const btnId = 'id-btn';
 
       const page = await setupPageWithContent(`
@@ -47,8 +46,7 @@ describe('InoMenu', () => {
       expect(menuCloseSpy).toHaveReceivedEvent();
     });
 
-    it('should not emit \'menuClose\' event on outside click while menu closed', async () => {
-
+    it("should not emit 'menuClose' event on outside click while menu closed", async () => {
       const btnId = 'id-btn';
 
       const page = await setupPageWithContent(`
@@ -69,8 +67,7 @@ describe('InoMenu', () => {
       expect(menuCloseSpy).not.toHaveReceivedEvent();
     });
 
-    it('should not emit \'menuClose\' event on inside item click', async () => {
-
+    it("should not emit 'menuClose' event on inside item click", async () => {
       const btnId = 'id-btn';
       const listItemId = 'item-1';
 

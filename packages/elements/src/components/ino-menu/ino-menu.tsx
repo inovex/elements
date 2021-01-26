@@ -1,5 +1,16 @@
 import { MDCMenu } from '@material/menu';
-import { Component, ComponentInterface, Event, EventEmitter, Element, Host, Listen, Prop, Watch, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  Element,
+  Host,
+  Listen,
+  Prop,
+  Watch,
+  h,
+} from '@stencil/core';
 
 import { MDCCustomMenu } from './MDCCustomMenu';
 
@@ -49,7 +60,7 @@ export class Menu implements ComponentInterface {
 
   @Listen('keydown')
   onKeydown({ key }: KeyboardEvent) {
-    if(key === 'Escape') {
+    if (key === 'Escape') {
       this.menuClose.emit();
     }
   }
