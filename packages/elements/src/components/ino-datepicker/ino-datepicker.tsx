@@ -31,6 +31,8 @@ export class Datepicker implements ComponentInterface {
 
   private flatpickr!: Instance;
 
+  private inputEl: HTMLInoInputElement;
+
   /**
    * Autofocuses this element.
    */
@@ -244,14 +246,8 @@ export class Datepicker implements ComponentInterface {
   @Listen('click')
   inoInputClickedHandler(e) {
     const target = e.target;
-    const tagName = target.tagName;
 
-    if (
-      this.disabled ||
-      !tagName ||
-      tagName !== 'INPUT' ||
-      this.elementIsInput(target)
-    ) {
+    if (this.disabled || !this.inputEl.contains(target)) {
       return;
     }
 
@@ -287,34 +283,6 @@ export class Datepicker implements ComponentInterface {
     this.valueChange.emit(formattedDate);
   }
 
-  @Listen('clickEl')
-  inoIconClickedHandler() {
-    this.focusInputField();
-    this.flatpickr.toggle();
-  }
-
-  focusInputField = () => {
-    const currentFocus: Element = document.activeElement;
-    const input = this.el.querySelector('input') as HTMLInputElement;
-
-    // Don't change focus if current focus is an input field (e.g. time picker)
-    if (currentFocus.tagName !== 'input') {
-      input.focus();
-    }
-  };
-
-  private static INPUT_CLASSES = [
-    'cur-year',
-    'flatpickr-hour',
-    'flatpickr-minute',
-    'flatpickr-time',
-  ];
-
-  private elementIsInput(element: Element) {
-    const elementClasses = element.className;
-    return Datepicker.INPUT_CLASSES.some((cl) => elementClasses.includes(cl));
-  }
-
   /**
    * Emits when the value of the datepicker changes.
    * The value can be found in `event.detail`
@@ -344,7 +312,6 @@ export class Datepicker implements ComponentInterface {
       ignoredFocusElements: [],
       locale: getDatepickerLocale(this.el),
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
-      onChange: () => this.focusInputField(),
     };
 
     const typeSpecificOptions: Partial<BaseOptions> = getTypeSpecificOption(
@@ -362,6 +329,7 @@ export class Datepicker implements ComponentInterface {
         mode: this.inoRange ? 'range' : 'single',
       }
     );
+
     const options = { ...sharedOptions, ...typeSpecificOptions };
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
@@ -394,6 +362,7 @@ export class Datepicker implements ComponentInterface {
     return (
       <Host>
         <ino-input
+          ref={(el) => (this.inputEl = el)}
           type="text"
           autocomplete="off"
           disabled={this.disabled}
