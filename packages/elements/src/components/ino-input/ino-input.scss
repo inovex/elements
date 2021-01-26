@@ -42,7 +42,7 @@ $icon-padding-to-border: 6px;
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 }
@@ -71,7 +71,6 @@ ino-input {
     box-sizing: initial;
   }
 
-
   & > .ino-input__composer {
     text-align: left;
     width: 100%;
@@ -91,7 +90,7 @@ ino-input {
   }
 
   .mdc-text-field--invalid {
-    @include setIconColors(colors.ino-color(error))
+    @include setIconColors(theme.color(error));
   }
 
   .mdc-text-field__affix.mdc-text-field__affix--suffix {
@@ -106,7 +105,7 @@ ino-input .mdc-text-field--filled {
   @include textfield.line-ripple-color(var(--input-line-color));
 
   &.mdc-text-field--invalid {
-    @include textfield.line-ripple-color(colors.ino-color(error));
+    @include textfield.line-ripple-color(theme.color(error));
   }
 
   &:not([class*='--with-leading-icon']) {
@@ -142,8 +141,8 @@ ino-input .mdc-text-field--filled {
   }
 
   @include setIconMargins(
-        (0 $icon-padding-to-text 0 $icon-padding-to-border),
-        (0 $icon-padding-to-border 0 $icon-padding-to-text)
+    (0 $icon-padding-to-text 0 $icon-padding-to-border),
+    (0 $icon-padding-to-border 0 $icon-padding-to-text)
   );
 }
 
@@ -152,10 +151,11 @@ ino-input .mdc-text-field--outlined {
   @include textfield.focused-outline-color(var(--input-line-color));
 
   &.mdc-text-field--invalid {
-    @include textfield.focused-outline-color(colors.ino-color(error));
+    @include textfield.focused-outline-color(theme.color(error));
   }
 
-  &[class*='--with-leading-icon'] .mdc-floating-label:not(.mdc-floating-label--float-above) {
+  &[class*='--with-leading-icon']
+    .mdc-floating-label:not(.mdc-floating-label--float-above) {
     left: 24px;
   }
 
@@ -164,9 +164,7 @@ ino-input .mdc-text-field--outlined {
     width: 16px;
   }
 
-  @include setIconMargins(
-        (0 $icon-padding-to-text 0 $icon-padding-to-text)
-  );
+  @include setIconMargins((0 $icon-padding-to-text 0 $icon-padding-to-text));
 }
 
 ino-input {
@@ -177,7 +175,6 @@ ino-input {
 
 // Custom number arrows
 ino-input[type='number'] {
-
   @include hideNativeNumberInputArrows();
 
   .arrow-container {
