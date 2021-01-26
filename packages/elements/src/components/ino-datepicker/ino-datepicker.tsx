@@ -73,21 +73,23 @@ export class Datepicker implements ComponentInterface {
       return;
     }
 
+    const dateFormat = this.flatpickr.config.dateFormat;
+
     if (this.inoRange) {
-      this.isValid = validateRange(value, this.inoDateFormat);
+      this.isValid = validateRange(value, dateFormat);
     }
 
     if (!this.inoRange) {
       this.isValid = validateSingle(
         value,
-        this.inoDateFormat,
+        dateFormat,
         this.min,
         this.max
       );
     }
 
     if(this.isValid) {
-      this.flatpickr.setDate(value, false, this.inoDateFormat);
+      this.flatpickr.setDate(value, true);
     }
   }
 
