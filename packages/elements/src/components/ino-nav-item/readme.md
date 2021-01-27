@@ -38,12 +38,12 @@ document
 
 ## Properties
 
-| Property           | Attribute            | Description                                                                                                | Type      | Default     |
-| ------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActivated`     | `ino-activated`      | Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated. | `boolean` | `false`     |
-| `inoDisabled`      | `ino-disabled`       | Styles the row in a disabled style.                                                                        | `boolean` | `false`     |
-| `inoSecondaryText` | `ino-secondary-text` | The secondary text of this list item used in a two-lined list.                                             | `string`  | `undefined` |
-| `inoText`          | `ino-text`           | The text of this list item.                                                                                | `string`  | `undefined` |
+| Property       | Attribute       | Description                                                                                                | Type      | Default     |
+| -------------- | --------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoActivated` | `ino-activated` | Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated. | `boolean` | `false`     |
+| `inoDisabled`  | `ino-disabled`  | Styles the row in a disabled style.                                                                        | `boolean` | `false`     |
+| `inoSubText`   | `ino-sub-text`  | The secondary text of this list item used in a two-lined list.                                             | `string`  | `undefined` |
+| `inoText`      | `ino-text`      | The text of this list item.                                                                                | `string`  | `undefined` |
 
 
 ## CSS Custom Properties

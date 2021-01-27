@@ -4,13 +4,13 @@ import {
   Element,
   Prop,
   Host,
-  h
+  h,
 } from '@stencil/core';
 
 @Component({
   tag: 'ino-nav-item',
   styleUrl: 'ino-nav-item.scss',
-  shadow: false
+  shadow: false,
 })
 export class NavItem implements ComponentInterface {
   @Element() el!: HTMLElement;
@@ -23,7 +23,7 @@ export class NavItem implements ComponentInterface {
   /**
    * The secondary text of this list item used in a two-lined list.
    */
-  @Prop() inoSecondaryText?: string;
+  @Prop() inoSubText?: string;
 
   /**
    * Styles the row in an activated style.
@@ -45,7 +45,7 @@ export class NavItem implements ComponentInterface {
       <Host>
         <ino-list-item
           inoText={this.inoText}
-          inoSecondaryText={this.inoSecondaryText}
+          inoSecondaryText={this.inoSubText}
           inoActivated={this.inoActivated}
           inoDisabled={this.inoDisabled}
         >

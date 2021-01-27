@@ -785,7 +785,7 @@ export namespace Components {
         /**
           * The secondary text of this list item used in a two-lined list.
          */
-        "inoSecondaryText"?: string;
+        "inoSubText"?: string;
         /**
           * The text of this list item.
          */
@@ -2360,7 +2360,7 @@ declare namespace LocalJSX {
         /**
           * The secondary text of this list item used in a two-lined list.
          */
-        "inoSecondaryText"?: string;
+        "inoSubText"?: string;
         /**
           * The text of this list item.
          */
