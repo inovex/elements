@@ -5,6 +5,12 @@ export function generateUniqueId() {
   return '_' + Math.random().toString(36).substr(2, 9);
 }
 
+/**
+ * Checks if the given element has at least one child node at the given slot
+ * @param el The element which has a named slot inside
+ * @param slotName The name of the slot to check
+ * @return `true` if a child at the slot exists, otherwise `false`
+ */
 export function hasSlotContent(el: HTMLElement, slotName: string): boolean {
   return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
 }
