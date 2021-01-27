@@ -23,7 +23,7 @@ export const DefaultUsage = () => /*html*/ `
     ino-type="${select('ino-type', ['', 'choice', 'filter'], '')}"
     class="customizable-chip-set"
   >
-    <ino-chip ino-value="1" ino-label="Chip 1" ino-selected ino-icon-leading>
+    <ino-chip ino-value="1" ino-label="Chip 1" ino-selected>
         <ino-icon slot="ino-icon-leading" ino-icon="favorite"></ino-icon>
     </ino-chip>
     <ino-chip ino-value="2" ino-label="Chip 2"></ino-chip>
@@ -36,7 +36,7 @@ export const DefaultUsage = () => /*html*/ `
 
   <ino-chip-set ino-type="filter">
     <ino-chip ino-value="1" ino-label="Chip 1"></ino-chip>
-    <ino-chip ino-value="2" ino-label="Chip 2 - with icon" ino-icon-leading>
+    <ino-chip ino-value="2" ino-label="Chip 2 - with icon">
         <ino-icon slot="ino-icon-leading" ino-icon="favorite"></ino-icon>
     </ino-chip>
     <ino-chip ino-value="3" ino-label="Chip 3"></ino-chip>
@@ -101,10 +101,10 @@ export const InoChip = () => /*html*/ `
 
   <h4>With icons</h4>
   <ino-chip-set>
-    <ino-chip ino-color-scheme="primary" ino-icon-leading ino-label="Info" ino-fill="outline">
+    <ino-chip ino-color-scheme="primary" ino-label="Info" ino-fill="outline">
       <ino-icon slot="ino-icon-leading" ino-icon="info"></ino-icon>
     </ino-chip>
-    <ino-chip ino-color-scheme="error" ino-icon-leading ino-label="Error">
+    <ino-chip ino-color-scheme="error" ino-label="Error">
       <ino-icon slot="ino-icon-leading" ino-icon="warning"></ino-icon>
     </ino-chip>
   </ino-chip-set>
