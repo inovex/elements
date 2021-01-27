@@ -140,6 +140,13 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 | `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot                 | Description                  |
+| -------------------- | ---------------------------- |
+| `"ino-icon-leading"` | For the icon to be prepended |
+
+
 ## Dependencies
 
 ### Depends on

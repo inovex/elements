@@ -62,6 +62,16 @@ document
 | `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot              | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| `"ino-leading"`   | For the element to be prepended                    |
+| `"ino-primary"`   | For the (text) element                             |
+| `"ino-secondary"` | For the secondary text element in a two-lined list |
+| `"ino-trailing"`  | For the element to be appended                     |
+
+
 ## CSS Custom Properties
 
 | Name                                                 | Description                                           |

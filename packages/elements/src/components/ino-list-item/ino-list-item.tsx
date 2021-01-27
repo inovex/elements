@@ -12,6 +12,12 @@ import {
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
+/**
+ * @slot ino-leading - For the element to be prepended
+ * @slot ino-trailing - For the element to be appended
+ * @slot ino-primary - For the (text) element
+ * @slot ino-secondary - For the secondary text element in a two-lined list
+ */
 @Component({
   tag: 'ino-list-item',
   styleUrl: 'ino-list-item.scss',

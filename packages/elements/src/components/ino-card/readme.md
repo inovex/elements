@@ -59,6 +59,15 @@ class MyComponent extends Component {
 | `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
 
+## Slots
+
+| Slot        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `"content"` | For card content                                |
+| `"footer"`  | For the element to be placed in the card footer |
+| `"header"`  | For the element to be placed in the card header |
+
+
 ## CSS Custom Properties
 
 | Name                          | Description                        |

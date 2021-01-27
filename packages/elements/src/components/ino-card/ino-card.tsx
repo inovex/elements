@@ -7,7 +7,13 @@ import {
   Prop,
 } from '@stencil/core';
 import classnames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
+/**
+ * @slot header - For the element to be placed in the card header
+ * @slot content - For card content
+ * @slot footer - For the element to be placed in the card footer
+ */
 @Component({
   tag: 'ino-card',
   styleUrl: 'ino-card.scss',
@@ -33,9 +39,9 @@ export class Card implements ComponentInterface {
       'ino-card--selected': this.inoSelected,
     });
 
-    const hasHeader = Boolean(this.el.querySelector('[slot="header"]'));
-    const hasContent = Boolean(this.el.querySelector('[slot="content"]'));
-    const hasFooter = Boolean(this.el.querySelector('[slot="footer"]'));
+    const hasHeader = hasSlotContent(this.el, 'header');
+    const hasContent = hasSlotContent(this.el, 'content');
+    const hasFooter = hasSlotContent(this.el, 'footer');
 
     return (
       <Host>

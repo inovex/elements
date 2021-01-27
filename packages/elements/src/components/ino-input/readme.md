@@ -189,6 +189,24 @@ Type: `Promise<HTMLInputElement>`
 
 
 
+## Slots
+
+| Slot                  | Description                  |
+| --------------------- | ---------------------------- |
+| `"ino-icon-leading"`  | For the icon to be prepended |
+| `"ino-icon-trailing"` | For the icon to be appended  |
+
+
+## CSS Custom Properties
+
+| Name                      | Description        |
+| ------------------------- | ------------------ |
+| `--ino-input-caret-color` | color of the caret |
+| `--ino-input-icon-color`  | icon color         |
+| `--ino-input-label-color` | color of the label |
+| `--ino-input-line-color`  | line color         |
+
+
 ## Dependencies
 
 ### Used by

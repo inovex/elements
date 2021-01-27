@@ -13,6 +13,14 @@ import {
 import { NavDrawerAnchor, NavDrawerVariant } from '../types';
 import classNames from 'classnames';
 
+/**
+ * @slot header - For a custom header on top of the navigation bar
+ * @slot logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)
+ * @slot subtitle - For the element just below the logo (cannot be used with the `header` slot)
+ * @slot content - For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)
+ * @slot footer - For elements below the content slot
+ * @slot app - For the application located next to this nav-drawer
+ */
 @Component({
   tag: 'ino-nav-drawer',
   styleUrl: 'ino-nav-drawer.scss',

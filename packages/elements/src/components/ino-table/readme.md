@@ -77,6 +77,13 @@ class MyComponent extends Component {
 <!-- Auto Generated Below -->
 
 
+## Slots
+
+| Slot       | Description                  |
+| ---------- | ---------------------------- |
+| `"header"` | For the table header element |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

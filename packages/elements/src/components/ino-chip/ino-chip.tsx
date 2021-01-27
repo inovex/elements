@@ -13,6 +13,9 @@ import { hasSlotContent } from '../../util/component-utils';
 
 import { ChipSurface, ColorScheme } from '../types';
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ */
 @Component({
   tag: 'ino-chip',
   styleUrl: 'ino-chip.scss',

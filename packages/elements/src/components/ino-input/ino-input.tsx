@@ -19,6 +19,10 @@ import currency from 'currency.js';
 import { hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ * @slot ino-icon-trailing - For the icon to be appended
+ */
 @Component({
   tag: 'ino-input',
   styleUrl: 'ino-input.scss',

@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Element, Host, h } from '@stencil/core';
 
+/**
+ * @slot header - For the table header element
+ */
 @Component({
   tag: 'ino-table',
   styleUrl: 'ino-table.scss',
