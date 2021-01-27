@@ -4,12 +4,13 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Listen,
   Prop,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-list-item',
@@ -76,21 +77,24 @@ export class ListItem implements ComponentInterface {
       'mdc-list-item--disabled': this.inoDisabled,
     });
 
-    const hasSecondarySlotContent =
-      this.el.querySelectorAll('[slot=ino-secondary]').length > 0;
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-trailing');
+    const secondarySlotHasContent = hasSlotContent(this.el, 'ino-secondary');
 
     const primaryContent = this.inoText || <slot name="ino-primary" />;
     const secondaryContent =
       this.inoSecondaryText ||
-      (hasSecondarySlotContent ? <slot name="ino-secondary" /> : null);
+      (secondarySlotHasContent ? <slot name="ino-secondary" /> : null);
 
     return (
       <Host>
         <li class={listItemClasses}>
           <span class="mdc-list-item__ripple"></span>
-          <span class="mdc-list-item__graphic" role="presentation">
-            <slot name="ino-leading" />
-          </span>
+          {leadingSlotHasContent && (
+            <span class="mdc-list-item__graphic" role="presentation">
+              <slot name="ino-leading" />
+            </span>
+          )}
           <span class="mdc-list-item__text">
             {secondaryContent
               ? [
@@ -103,9 +107,11 @@ export class ListItem implements ComponentInterface {
                 ]
               : primaryContent}
           </span>
-          <span class="mdc-list-item__meta">
-            <slot name="ino-trailing" />
-          </span>
+          {trailingSlotHasContent && (
+            <span class="mdc-list-item__meta">
+              <slot name="ino-trailing" />
+            </span>
+          )}
         </li>
       </Host>
     );
