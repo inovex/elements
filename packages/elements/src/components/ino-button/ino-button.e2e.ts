@@ -3,13 +3,13 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 const INO_BUTTON = `<ino-button></ino-button>`;
 
 const INO_BTN_WITH_LEADING_ICON = `
-  <ino-button ino-icon-leading>
+  <ino-button>
     <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
   </ino-button>
 `;
 
 const INO_BTN_WITH_TRAILING_ICON = `
-  <ino-button ino-icon-trailing>
+  <ino-button>
     <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
   </ino-button>
 `;
