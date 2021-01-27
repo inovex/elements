@@ -656,6 +656,12 @@ export const NavItem = () => /*html*/ `
     <ino-nav-item ino-disabled ino-text="Disabled item"></ino-nav-item>
   </ino-list>
 
+  <h4>Two Lines</h4>
+  <ino-list ino-two-lines="true">
+    <ino-nav-item ino-text="Simple item" ino-sub-text="Secondary Text"></ino-nav-item>
+    <ino-nav-item ino-text="Simple item 2" ino-sub-text="Secondary Text 2"></ino-nav-item>
+  </ino-list>
+
   <h4>Graphic</h4>
   <ino-list>
     <ino-nav-item ino-text="Lorem ipsum dolor sit">
