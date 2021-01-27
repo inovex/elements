@@ -13,6 +13,10 @@ import { hasSlotContent } from '../../util/component-utils';
 
 import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ * @slot ino-icon-trailing - For the icon to be appended
+ */
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',

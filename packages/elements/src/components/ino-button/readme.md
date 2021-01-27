@@ -111,6 +111,14 @@ class MyComponent extends Component {
 | `type`            | `type`              | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`               | `'button'`  |
 
 
+## Slots
+
+| Slot                  | Description                  |
+| --------------------- | ---------------------------- |
+| `"ino-icon-leading"`  | For the icon to be prepended |
+| `"ino-icon-trailing"` | For the icon to be appended  |
+
+
 ## CSS Custom Properties
 
 | Name                                        | Description                                                             |
