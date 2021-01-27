@@ -82,7 +82,7 @@
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
-    "flatpickr": "^4.4.6",
+    "flatpickr": "^4.6.9",
     "tippy.js": "^6.2.3",
     "typeface-lato": "^0.0.75"
   },
