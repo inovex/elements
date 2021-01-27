@@ -69,7 +69,7 @@ export class Datepicker implements ComponentInterface {
       }
 
       if (this.flatpickr && this.isValid) {
-        this.flatpickr.setDate(value, false, this.inoDateFormat);
+        this.flatpickr.setDate(value, false);
       }
     } catch (e) {
       // Input could not be parsed e.g. empty spaces
