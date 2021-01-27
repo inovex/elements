@@ -34,9 +34,6 @@ document
   ino-error
   ino-outline
   ino-label="<string>"
-  ino-icon-leading
-  ino-icon-trailing
-  ino-icon-clickable
   ino-helper="<string>"
   ino-helper-persistent
   ino-helper-validation
@@ -152,8 +149,6 @@ The component is based on a native input with additional features. Thus, the com
 | `inoHelperCharacterCounter` | `ino-helper-character-counter` | Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.                                                                                                                                   | `boolean`         | `undefined` |
 | `inoHelperPersistent`       | `ino-helper-persistent`        | Displays the helper permanently.                                                                                                                                                                                                                          | `boolean`         | `undefined` |
 | `inoHelperValidation`       | `ino-helper-validation`        | Styles the helper text as a validation message.                                                                                                                                                                                                           | `boolean`         | `undefined` |
-| `inoIconLeading`            | `ino-icon-leading`             | Positions the icon at the beginning of the input field.                                                                                                                                                                                                   | `boolean`         | `false`     |
-| `inoIconTrailing`           | `ino-icon-trailing`            | Positions the icon trailing after the input field.                                                                                                                                                                                                        | `boolean`         | `false`     |
 | `inoLabel`                  | `ino-label`                    | The optional floating label of this input field.                                                                                                                                                                                                          | `string`          | `undefined` |
 | `inoOutline`                | `ino-outline`                  | Styles the input field as outlined element.                                                                                                                                                                                                               | `boolean`         | `undefined` |
 | `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                | `boolean`         | `undefined` |
@@ -192,16 +187,6 @@ Returns the native input element used under the hood.
 Type: `Promise<HTMLInputElement>`
 
 
-
-
-## CSS Custom Properties
-
-| Name                      | Description        |
-| ------------------------- | ------------------ |
-| `--ino-input-caret-color` | color of the caret |
-| `--ino-input-icon-color`  | icon color         |
-| `--ino-input-label-color` | color of the label |
-| `--ino-input-line-color`  | line color         |
 
 
 ## Dependencies

@@ -551,14 +551,6 @@ export namespace Components {
          */
         "inoHelperValidation"?: boolean;
         /**
-          * Positions the icon at the beginning of the input field.
-         */
-        "inoIconLeading": boolean;
-        /**
-          * Positions the icon trailing after the input field.
-         */
-        "inoIconTrailing": boolean;
-        /**
           * The optional floating label of this input field.
          */
         "inoLabel"?: string;
@@ -2082,14 +2074,6 @@ declare namespace LocalJSX {
           * Styles the helper text as a validation message.
          */
         "inoHelperValidation"?: boolean;
-        /**
-          * Positions the icon at the beginning of the input field.
-         */
-        "inoIconLeading"?: boolean;
-        /**
-          * Positions the icon trailing after the input field.
-         */
-        "inoIconTrailing"?: boolean;
         /**
           * The optional floating label of this input field.
          */

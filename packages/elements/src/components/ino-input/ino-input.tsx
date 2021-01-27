@@ -16,6 +16,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import currency from 'currency.js';
+import { hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 
 @Component({
@@ -193,16 +194,6 @@ export class Input implements ComponentInterface {
   @Prop() inoHelperCharacterCounter?: boolean;
 
   /**
-   * Positions the icon at the beginning of the input field.
-   */
-  @Prop() inoIconLeading = false;
-
-  /**
-   * Positions the icon trailing after the input field.
-   */
-  @Prop() inoIconTrailing = false;
-
-  /**
    * The id of the datalist child
    */
   @Prop() inoDataList?: string;
@@ -261,7 +252,11 @@ export class Input implements ComponentInterface {
         document.querySelector('.mdc-text-field-helper-text')
       );
     }
-    if (this.inoIconLeading || this.inoIconTrailing) {
+
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+
+    if (leadingSlotHasContent || trailingSlotHasContent) {
       this.icon = new MDCTextFieldIcon(
         this.el.querySelector('.mdc-text-field__icon')
       );
@@ -418,6 +413,9 @@ export class Input implements ComponentInterface {
       this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength)
     );
 
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+
     const classTextfield = classNames({
       'ino-input__composer': true,
       'mdc-text-field': true,
@@ -426,16 +424,16 @@ export class Input implements ComponentInterface {
       'mdc-text-field--filled': !this.inoOutline,
       'mdc-text-field--outlined': this.inoOutline,
       'mdc-text-field--box': !this.inoOutline,
-      'mdc-text-field--with-leading-icon': this.inoIconLeading,
+      'mdc-text-field--with-leading-icon': leadingSlotHasContent,
       'mdc-text-field--with-trailing-icon':
-        this.inoIconTrailing || this.inoUnit,
+        trailingSlotHasContent || this.inoUnit,
       'mdc-text-field--no-label': !this.inoLabel,
     });
 
     return (
       <Host>
         <div class={classTextfield}>
-          {this.inoIconLeading && (
+          {leadingSlotHasContent && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
               <slot name={'ino-icon-leading'}></slot>
             </span>
@@ -491,7 +489,7 @@ export class Input implements ComponentInterface {
             ino-show-hint={this.inoShowLabelHint}
             ino-disabled={this.disabled}
           />
-          {this.inoIconTrailing && (
+          {trailingSlotHasContent && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
               <slot name={'ino-icon-trailing'}></slot>
             </span>
