@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/inovex/elements/compare/v2.2.1...v2.3.0) (2021-01-27)
+
+
+### Features
+
+* **elements|ino-nav-item:** add prop for sub text ([#273](https://github.com/inovex/elements/issues/273)) ([746a7c3](https://github.com/inovex/elements/commit/746a7c35ce9c56d960c6a84b18d6990c6e62d503))
+* **elements|ino-popover:** add interactive property ([#223](https://github.com/inovex/elements/issues/223)) ([bf6f0e5](https://github.com/inovex/elements/commit/bf6f0e53b5ca85230155d18ec2a21ec57d8ecc54))
+* **elements|ino-textarea:** add filled style option ([#237](https://github.com/inovex/elements/issues/237)) ([81769ef](https://github.com/inovex/elements/commit/81769ef2515b50d7ba6626f2d16245e6cf478226))
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** prevent interaction with disabled datepicker and fix validation ([#245](https://github.com/inovex/elements/issues/245)) ([ba0db4f](https://github.com/inovex/elements/commit/ba0db4f1221ce3ac56e461343809de4d1d2fb8cc))
+* **storybook|ino-icon:** fix icon search ([#238](https://github.com/inovex/elements/issues/238)) ([26aad57](https://github.com/inovex/elements/commit/26aad57f9cd3eb6bba054cfa1d03be9bfd758420))
+
+
+### Miscellaneous
+
+* upgrade vulnerable highlight.js package from 9.18.1 to 10.5.0 ([#269](https://github.com/inovex/elements/issues/269)) ([7a3edd8](https://github.com/inovex/elements/commit/7a3edd8b55af548a5b0bc7f6c5b726cc884a6afb))
+
+
+### Documentation
+
+* **storybook|ino-progress-bar:** add customization options and examples ([#265](https://github.com/inovex/elements/issues/265)) ([16fba26](https://github.com/inovex/elements/commit/16fba264e5b46bf531a37b5c7feb5e72760b0f1d))
+
 ### [2.2.1](https://github.com/inovex/elements/compare/v2.2.0...v2.2.1) (2020-12-10)
 
 

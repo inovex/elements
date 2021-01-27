@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/inovex/elements/compare/v2.2.1...v2.3.0) (2021-01-27)
+
+
+### Features
+
+* **elements|ino-nav-item:** add prop for sub text ([#273](https://github.com/inovex/elements/issues/273)) ([746a7c3](https://github.com/inovex/elements/commit/746a7c35ce9c56d960c6a84b18d6990c6e62d503))
+* **elements|ino-popover:** add interactive property ([#223](https://github.com/inovex/elements/issues/223)) ([bf6f0e5](https://github.com/inovex/elements/commit/bf6f0e53b5ca85230155d18ec2a21ec57d8ecc54))
+* **elements|ino-textarea:** add filled style option ([#237](https://github.com/inovex/elements/issues/237)) ([81769ef](https://github.com/inovex/elements/commit/81769ef2515b50d7ba6626f2d16245e6cf478226))
+
+
+### Bug Fixes
+
+* **elements:** replace deprecated componentWillUnload lifecycle method ([#242](https://github.com/inovex/elements/issues/242)) ([7b266f8](https://github.com/inovex/elements/commit/7b266f8c19b1916ed1ee73d37aa6105652059997))
+* **elements-angular|ino-button:** fix invisible loading spinner ([#240](https://github.com/inovex/elements/issues/240)) ([6f79e68](https://github.com/inovex/elements/commit/6f79e6891417e6e97f1f5ea2c624376b105ee9a4))
+* **elements|ino-datepicker:** prevent interaction with disabled datepicker and fix validation ([#245](https://github.com/inovex/elements/issues/245)) ([ba0db4f](https://github.com/inovex/elements/commit/ba0db4f1221ce3ac56e461343809de4d1d2fb8cc))
+* **elements|ino-list-item:** fix text alignment ([#239](https://github.com/inovex/elements/issues/239)) ([9689530](https://github.com/inovex/elements/commit/96895304c8cf09049e3568f2f92ae1473973354c))
+* **elements|ino-list-item:** prevent destruction on unmount ([#274](https://github.com/inovex/elements/issues/274)) ([13c644d](https://github.com/inovex/elements/commit/13c644db63e1513e397dfec69e20f55b67f14734))
+* **elements|ino-progress-bar:** restore buffer dots ([#258](https://github.com/inovex/elements/issues/258)) ([1ff451a](https://github.com/inovex/elements/commit/1ff451a6496e1e1edabf2aac49dcfda54b9f22d1))
+
+
+### Documentation
+
+* **storybook|ino-progress-bar:** add customization options and examples ([#265](https://github.com/inovex/elements/issues/265)) ([16fba26](https://github.com/inovex/elements/commit/16fba264e5b46bf531a37b5c7feb5e72760b0f1d))
+
 ### [2.2.1](https://github.com/inovex/elements/compare/v2.2.0...v2.2.1) (2020-12-10)
 
 
