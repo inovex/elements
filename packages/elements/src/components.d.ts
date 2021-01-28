@@ -2329,6 +2329,10 @@ declare namespace LocalJSX {
           * Set this option to show the menu.
          */
         "inoOpen"?: boolean;
+        /**
+          * Emits on outside menu click and escape press.
+         */
+        "onMenuClose"?: (event: CustomEvent<void>) => void;
     }
     interface InoNavDrawer {
         /**

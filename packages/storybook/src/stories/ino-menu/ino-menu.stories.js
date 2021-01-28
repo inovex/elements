@@ -5,32 +5,42 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-menu/readme.md';
 import './ino-menu.scss';
 
+const BTN_ID_CUSTOM_MENU = 'btn-custom-menu';
+const BTN_ID_DIVIDED_MENU = 'btn-divided-menu';
+
+const ID_CUSTOM_MENU = 'custom-menu';
+const ID_DIVIDED_MENU = 'divided-menu';
+
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
-    const innerText = e.target.innerText;
+  const clickHandler = function (e) {
+    const targetId = e.target.id;
 
-    if (!innerText.startsWith('OPEN')) {
+    if (targetId !== BTN_ID_CUSTOM_MENU && targetId !== BTN_ID_DIVIDED_MENU) {
       return;
     }
 
-    const clickedMenuId =
-      innerText === 'OPEN MENU' ? 'custom-menu' : 'custom-menu-2';
-    const el = document.getElementById(clickedMenuId);
+    const menuEl = document.getElementById(
+      targetId === BTN_ID_CUSTOM_MENU ? ID_CUSTOM_MENU : ID_DIVIDED_MENU
+    );
 
-    if (!el) {
-      return;
-    }
+    if (!menuEl) return;
 
-    const isMenuOpen = el.getAttribute('ino-open');
-    el.setAttribute('ino-open', isMenuOpen === 'false' ? 'true' : 'false');
+    const isMenuOpen = menuEl.getAttribute('ino-open');
+    menuEl.setAttribute('ino-open', isMenuOpen === 'false' ? 'true' : 'false');
   };
 
-  document.addEventListener('click', eventHandler);
+  function closeHandler(evt) {
+    evt.target.setAttribute('ino-open', 'false');
+  }
+
+  document.addEventListener('click', clickHandler);
+  document.addEventListener('menuClose', closeHandler);
 
   // unsubscribe function will be called by Storybook
   return () => {
-    document.removeEventListener('click', eventHandler);
+    document.removeEventListener('click', clickHandler);
+    document.removeEventListener('menuClose', closeHandler);
   };
 }
 
@@ -49,22 +59,22 @@ export default {
 export const DefaultUsage = () => /*html*/ `
     <div class="story-menu">
       <h4>Customizable Menu</h4>
-      <ino-button id="button-custom-menu">Open menu</ino-button>
+      <ino-button id="${BTN_ID_CUSTOM_MENU}">Open menu</ino-button>
       <ino-menu
-        id="custom-menu"
+        id="${ID_CUSTOM_MENU}"
         ino-for="button"
         ino-open="${boolean('ino-open', false)}"
       >
-        <ino-list-item ino-text="Item"></ino-list-item>
-        <ino-list-item ino-text="Item 2"></ino-list-item>
+        <ino-list-item tabindex="0" ino-text="Item"></ino-list-item>
+        <ino-list-item tabindex="0" ino-text="Item 2"></ino-list-item>
       </ino-menu>
 
       <h4>Variation with divider</h4>
-      <ino-button id="menu-2">Open divided menu</ino-button>
-      <ino-menu id="custom-menu-2" ino-for="menu-2" ino-open="${boolean(
-        'ino-open',
-        false
-      )}">
+      <ino-button id="${BTN_ID_DIVIDED_MENU}">Open divided menu</ino-button>
+      <ino-menu id="${ID_DIVIDED_MENU}" ino-for="menu-2" ino-open="${boolean(
+  'ino-open',
+  false
+)}">
         <ino-list-item ino-text="Home"></ino-list-item>
         <ino-list-item ino-text="Projects"></ino-list-item>
         <ino-list-divider></ino-list-divider>

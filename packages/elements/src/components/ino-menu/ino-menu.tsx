@@ -2,8 +2,11 @@ import { MDCMenu } from '@material/menu';
 import {
   Component,
   ComponentInterface,
+  Event,
+  EventEmitter,
   Element,
   Host,
+  Listen,
   Prop,
   Watch,
   h,
@@ -25,6 +28,11 @@ export class Menu implements ComponentInterface {
   private menu!: MDCMenu;
 
   /**
+   * Emits on outside menu click and escape press.
+   */
+  @Event() menuClose: EventEmitter<void>;
+
+  /**
    * Anchor element for the menu
    */
   @Prop() inoFor?: string;
@@ -42,6 +50,19 @@ export class Menu implements ComponentInterface {
   @Watch('inoOpen')
   inoOpenChanged(open: boolean) {
     this.menu.open = open;
+  }
+
+  @Listen('menu:outside-click')
+  onClose(ev: Event) {
+    ev.stopPropagation();
+    this.menuClose.emit();
+  }
+
+  @Listen('keydown')
+  onKeydown({ key }: KeyboardEvent) {
+    if (key === 'Escape') {
+      this.menuClose.emit();
+    }
   }
 
   componentDidLoad() {
