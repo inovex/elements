@@ -76,11 +76,6 @@ export class Button implements ComponentInterface {
   @Prop() inoFill?: SurfaceType = 'solid';
 
   /**
-   * Styles the button in 100% width.
-   */
-  @Prop() inoFullWidth? = false;
-
-  /**
    * Makes the button text and container slightly smaller.
    */
   @Prop() inoDense?: boolean = false;

@@ -1,6 +1,7 @@
 .story-button {
   ino-button {
     margin: 0 12px 12px 0;
+
     &.customizable-button {
       margin-bottom: 32px;
     }
@@ -20,5 +21,12 @@
       flex: 1;
       margin: 0 12px 12px 0;
     }
+  }
+
+  .white-button {
+    background-color: blue;
+    height: 100%;
+    width: min-content;
+    padding: 5px;
   }
 }

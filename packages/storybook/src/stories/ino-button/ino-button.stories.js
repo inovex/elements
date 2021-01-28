@@ -100,7 +100,6 @@ export const DefaultUsage = () => /* html */ `
           'General'
         )}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
-        ino-full-width="${boolean('ino-full-width', false, 'General')}"
         disabled="${boolean('disabled', false, 'General')}"
         ino-loading="${boolean('ino-loading', false, 'General')}"
         ino-edge-mirrored="${boolean('ino-edge-mirrored', false, 'General')}"
@@ -121,8 +120,8 @@ export const DefaultUsage = () => /* html */ `
       </div>
       <div class="button-row">
         <ino-button ino-fill="outline" ino-color-scheme="grey">Outline Grey</ino-button>
-        <div style="background-color: blue; height: 100%; padding: 5px;">
-            <ino-button style="width: 50%; margin: 0 auto;" ino-fill="outline" ino-color-scheme="white">Outline White</ino-button>
+        <div class="white-button">
+            <ino-button ino-fill="outline" ino-color-scheme="white">Outline White</ino-button>
         </div>
       </div>
 
@@ -145,7 +144,6 @@ export const DefaultUsage = () => /* html */ `
         <ino-button ino-loading="true">Loading button</ino-button>
         <ino-button ino-loading="true" ino-fill="outline">Loading button</ino-button>
        </div>
-       <ino-button ino-full-width>Full Width Button</ino-button>
     </div>
   `;
 
