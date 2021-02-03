@@ -59,14 +59,6 @@ class MyComponent extends Component {
 | `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
 
-## CSS Custom Properties
-
-| Name                          | Description                        |
-| ----------------------------- | ---------------------------------- |
-| `--ino-card-background-color` | background color of the check mark |
-| `--ino-card-color`            | check mark color                   |
-
-
 ## Dependencies
 
 ### Depends on

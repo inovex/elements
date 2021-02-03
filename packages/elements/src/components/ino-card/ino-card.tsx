@@ -40,7 +40,7 @@ export class Card implements ComponentInterface {
     return (
       <Host>
         <div class={classList}>
-          <div>
+          <div style={{"display": "contents"}}>
             {this.inoSelected && (
               <div class="ino-card__checkmark">
                 <ino-icon ino-icon="checkmark"></ino-icon>
