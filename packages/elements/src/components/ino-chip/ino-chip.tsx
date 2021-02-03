@@ -45,7 +45,10 @@ export class Chip implements ComponentInterface {
   @Prop() inoIcon?: string;
 
   /**
-   * If enabled, appends the slotted icon to the chip label
+   * If enabled, appends the slotted icon to the chip label.
+   *
+   * Please be aware that enabling this property will disable the inoRemovable
+   * property.
    */
   @Prop() inoIconTrailing = false;
 
