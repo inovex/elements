@@ -147,7 +147,7 @@ export class Chip implements ComponentInterface {
           <span class="mdc-chip__text">{this.inoLabel}</span>
 
           {this.inoIconTrailing && (
-            <span class="mdc-chip__icon mdc-chip__icon--trailing">
+            <span class="mdc-chip__icon ">
               <slot name="ino-icon-trailing"/>
             </span>
           )}
