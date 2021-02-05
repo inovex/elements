@@ -142,9 +142,10 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Slots
 
-| Slot                 | Description                  |
-| -------------------- | ---------------------------- |
-| `"ino-icon-leading"` | For the icon to be prepended |
+| Slot                  | Description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| `"ino-icon-leading"`  | For the icon to be prepended                                     |
+| `"ino-icon-trailing"` | For the icon to be appended - disables the inoRemovable property |
 
 
 ## Dependencies

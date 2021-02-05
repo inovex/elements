@@ -107,7 +107,7 @@ export const InoChip = () => /*html*/ `
     <ino-chip ino-color-scheme="secondary" ino-label="Trailing">
       <ino-icon slot="ino-icon-trailing" ino-icon="checkmark"></ino-icon>
     </ino-chip>
-    <ino-chip ino-color-scheme="error" ino-icon-leading ino-icon-trailing ino-label="Leading & Trailing">
+    <ino-chip ino-color-scheme="error" ino-label="Leading & Trailing">
         <ino-icon slot="ino-icon-leading" ino-icon="warning"></ino-icon>
         <ino-icon slot="ino-icon-trailing" ino-icon="warning"></ino-icon>
     </ino-chip>

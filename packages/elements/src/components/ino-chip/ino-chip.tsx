@@ -15,6 +15,7 @@ import { ChipSurface, ColorScheme } from '../types';
 
 /**
  * @slot ino-icon-leading - For the icon to be prepended
+ * @slot ino-icon-trailing - For the icon to be appended - disables the inoRemovable property
  */
 @Component({
   tag: 'ino-chip',
@@ -43,14 +44,6 @@ export class Chip implements ComponentInterface {
    * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
    */
   @Prop() inoIcon?: string;
-
-  /**
-   * If enabled, appends the slotted icon to the chip label.
-   *
-   * Please be aware that enabling this property will disable the inoRemovable
-   * property.
-   */
-  @Prop() inoIconTrailing = false;
 
   /**
    * The label of this chip (**required**).
@@ -107,14 +100,19 @@ export class Chip implements ComponentInterface {
       'mdc-chip--selected': this.inoSelected,
     });
 
-    const iconClasses = classNames({
+    const leadingIconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--trailing': this.inoIconTrailing,
       'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
     });
 
+    const trailingIconClasses = classNames({
+      'mdc-chip__icon': true,
+      'mdc-chip__icon--trailing': true,
+    });
+
     const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
 
     return (
       <Host>
@@ -122,11 +120,11 @@ export class Chip implements ComponentInterface {
           <div class="mdc-chip__ripple"></div>
 
           {this.inoIcon && (
-            <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
+            <ino-icon class={leadingIconClasses} ino-icon={this.inoIcon} />
           )}
 
           {leadingSlotHasContent && !this.inoIcon && (
-            <span class={iconClasses}>
+            <span class={leadingIconClasses}>
               <slot name="ino-icon-leading" />
             </span>
           )}
@@ -146,15 +144,15 @@ export class Chip implements ComponentInterface {
 
           <span class="mdc-chip__text">{this.inoLabel}</span>
 
-          {this.inoIconTrailing && (
-            <span class="mdc-chip__icon ">
+          {trailingSlotHasContent && (
+            <span class={trailingIconClasses}>
               <slot name="ino-icon-trailing"/>
             </span>
           )}
 
-          {this.inoRemovable && !this.inoIconTrailing && (
+          {this.inoRemovable && !trailingSlotHasContent && (
             <ino-icon
-              class="mdc-chip__icon mdc-chip__icon--trailing"
+              class={trailingIconClasses}
               ino-icon="close"
               tabindex="0"
               role="button"
