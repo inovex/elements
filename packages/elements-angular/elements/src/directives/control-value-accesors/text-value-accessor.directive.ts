@@ -20,7 +20,7 @@ export class TextValueAccessorDirective extends ValueAccessorDirective {
   }
 
   @HostListener('valueChange', ['$event.detail'])
-  _handleInputEvent(value: string) {
+  _handleInputEvent(value: string): void {
     this.handleChangeEvent(value);
   }
 

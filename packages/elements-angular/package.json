@@ -16,8 +16,8 @@
     "start": "ng serve",
     "clean": "shx rm -rf dist",
     "build": "ng build",
-    "lint": "eslint -c .eslintrc.json ./",
-    "lint.fix": "eslint -c .eslintrc.json ./ --fix",
+    "lint": "eslint -c .eslintrc.json ./elements/src/",
+    "lint.fix": "eslint -c .eslintrc.json ./elements/src/ --fix",
     "e2e": "ng e2e",
     "preinstall": "node ./preinstall.js",
     "postinstall": "ngcc && node ./postinstall.js"
@@ -56,6 +56,7 @@
     "eslint-plugin-jsdoc": "^31.6.0",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-react": "^7.22.0",
+    "eslint-config-prettier": "^7.2.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",

@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  /* tslint:disable-next-line:directive-selector */
   selector: 'ino-checkbox,ino-control-item[ino-role="checkbox"],ino-switch',
   providers: [
     {
@@ -19,12 +18,12 @@ export class BooleanValueAccessorDirective extends ValueAccessorDirective {
     super(el);
   }
 
-  writeValue(value: any) {
-    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
-  }
-
   @HostListener('checkedChange', ['$event.detail'])
   _handleInoChange(value: any) {
     this.handleChangeEvent(value);
+  }
+
+  writeValue(value: any): void {
+    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
   }
 }

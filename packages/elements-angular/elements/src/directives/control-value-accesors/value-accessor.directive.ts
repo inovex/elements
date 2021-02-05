@@ -2,21 +2,14 @@ import { ElementRef, HostListener } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 export class ValueAccessorDirective implements ControlValueAccessor {
-  constructor(protected el: ElementRef) {}
   protected lastValue: any;
+  constructor(protected el: ElementRef) {}
 
-  private onChange: (value: any) => void = () => {
-    /**/
-  };
-  private onTouched: () => void = () => {
-    /**/
-  };
-
-  writeValue(value: any) {
+  writeValue(value: any): void {
     this.el.nativeElement.value = this.lastValue = value == null ? '' : value;
   }
 
-  handleChangeEvent(value: any) {
+  handleChangeEvent(value: any): void {
     if (value !== this.lastValue) {
       this.lastValue = value;
       this.onChange(value);
@@ -24,15 +17,22 @@ export class ValueAccessorDirective implements ControlValueAccessor {
     }
   }
 
-  handleBlurEvent() {
+  handleBlurEvent(): void {
     this.onTouched();
   }
 
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: any) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => void) {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
+
+  private onChange: (value: any) => void = () => {
+    /**/
+  };
+  private onTouched: () => void = () => {
+    /**/
+  };
 }

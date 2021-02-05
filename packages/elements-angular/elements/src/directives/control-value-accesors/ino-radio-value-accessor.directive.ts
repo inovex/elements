@@ -19,12 +19,12 @@ export class InoRadioValueAccessorDirective extends ValueAccessorDirective {
     super(el);
   }
 
-  writeValue(value: any) {
-    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
+  @HostListener('checkedChange', ['$event'])
+  _handleInoChange(event: any): void {
+    this.handleChangeEvent(event.target.value);
   }
 
-  @HostListener('checkedChange', ['$event'])
-  _handleInoChange(event: any) {
-    this.handleChangeEvent(event.target.value);
+  writeValue(value: any): void {
+    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
   }
 }
