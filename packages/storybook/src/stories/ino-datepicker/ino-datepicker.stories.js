@@ -117,6 +117,11 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-label="Disabled" value="${defaultDate}" disabled></ino-datepicker>
       <ino-datepicker ino-label="Required" required ino-show-label-hint></ino-datepicker>
       <ino-datepicker ino-label="Optional" ino-show-label-hint></ino-datepicker>
+
+      <h4>Locale (Using the native <code>lang</code>-Attribute)</h4>
+      <ino-datepicker lang="en" ino-label="English"></ino-datepicker>
+      <ino-datepicker lang="de" ino-date-format="d.m.Y" ino-label="German"></ino-datepicker>
+      <ino-datepicker lang="de" ino-date-format="d.m.Y" ino-range ino-label="German range"></ino-datepicker>
     </div>
   `;
 
