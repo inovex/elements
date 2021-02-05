@@ -33,6 +33,10 @@ export class Card implements ComponentInterface {
   @Prop() inoDisableElevation: boolean = false;
 
   render() {
+    const hostClasses = classnames({
+      'no-elevation': this.inoDisableElevation,
+    });
+
     const classList = classnames({
       'mdc-card': true,
       'mdc-card--outlined': true,
@@ -44,7 +48,7 @@ export class Card implements ComponentInterface {
     const hasFooter = hasSlotContent(this.el, 'footer');
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div class={classList}>
           <div class="ino-card__checkmark-container">
             {this.inoSelected && (
