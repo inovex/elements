@@ -11,13 +11,7 @@
   "ignorePatterns": [
     "**/*.spec.ts",
     "**/*.spec.tsx",
-    "**/*.e2e.ts",
-    "node_modules",
-    "dist",
-    "webpack-plugin.js",
-    "scripts/generateWrappedIcons.js",
-    "scripts/integrateIcons.js"
-
+    "**/*.e2e.ts"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

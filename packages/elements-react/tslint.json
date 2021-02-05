@@ -1,6 +1,6 @@
 {
   "extends": [
-    "tslint-ionic-rules/strict",
+    //"tslint-ionic-rules/strict",
     "tslint-react",
     "tslint-config-prettier"
   ],
@@ -21,7 +21,7 @@
     "no-unbound-method": true,
     "no-floating-promises": false,
     "no-invalid-template-strings": true,
-    "ban-export-const-enum": true,
+    //"ban-export-const-enum": true,
     "only-arrow-functions": true,
     "jsx-key": false,
     "jsx-self-close": false,

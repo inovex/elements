@@ -16,8 +16,8 @@
     "start": "ng serve",
     "clean": "shx rm -rf dist",
     "build": "ng build",
-    "lint": "eslint -c .eslintrc.json ./elements/src/",
-    "lint.fix": "eslint -c .eslintrc.json ./elements/src/ --fix",
+    "lint": "eslint --ext .ts ./elements/src/",
+    "lint:fix": "eslint --ext .ts ./elements/src/ --fix",
     "e2e": "ng e2e",
     "preinstall": "node ./preinstall.js",
     "postinstall": "ngcc && node ./postinstall.js"

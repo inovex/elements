@@ -23,8 +23,6 @@
     "@typescript-eslint"
   ],
   "ignorePatterns": [
-    "dist",
-    "node_modules",
     "**/proxies*.ts",
     "elements/src/directives/angular-component-lib/utils.ts"
   ],
