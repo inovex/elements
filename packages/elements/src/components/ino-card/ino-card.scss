@@ -28,7 +28,7 @@ ino-card {
   .mdc-card {
     @include card.outline(theme.color(light, base), 1px);
     box-shadow: none;
-    border-radius: 20px;
+    border-radius: inherit;
     height: inherit;
     width: inherit;
     display: flex;
