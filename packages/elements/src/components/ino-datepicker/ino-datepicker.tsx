@@ -13,9 +13,9 @@ import {
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
-import { BaseOptions } from 'flatpickr/dist/types/options';
 import { Instance } from 'flatpickr/dist/types/instance';
-import { Locale } from 'flatpickr/dist/types/locale';
+import { BaseOptions } from 'flatpickr/dist/types/options';
+import { getDatepickerLocale } from './local';
 
 @Component({
   tag: 'ino-datepicker',
@@ -314,21 +314,6 @@ export class Datepicker implements ComponentInterface {
     this.dispose();
   }
 
-  private static WEEKDAYS_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-  private static MONTHS_LONG = [
-    'Januar',
-    'Februar',
-    'März',
-    'April',
-    'Mai',
-    'Juni',
-    'Juli',
-    'August',
-    'September',
-    'Oktober',
-    'November',
-    'Dezember',
-  ];
   private static NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
   private create() {
@@ -340,6 +325,7 @@ export class Datepicker implements ComponentInterface {
       allowInput: true,
       clickOpens: false,
       ignoredFocusElements: [],
+      locale: getDatepickerLocale(this.el),
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
       onChange: () => this.focusInputField(),
     };
@@ -349,8 +335,6 @@ export class Datepicker implements ComponentInterface {
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.flatpickr.l10n.weekdays.shorthand = Datepicker.WEEKDAYS_SHORT as Locale['weekdays']['shorthand'];
-    this.flatpickr.l10n.months.longhand = Datepicker.MONTHS_LONG as Locale['months']['longhand'];
 
     if (this.isMonthPicker()) {
       this.flatpickr.prevMonthNav.addEventListener(
