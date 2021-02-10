@@ -19,7 +19,7 @@ export function getSlotContent(
  * @return `true` if a child at the slot exists, otherwise `false`
  */
 export function hasSlotContent(el: HTMLElement, slotName: string): boolean {
-  return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
+	return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
 }
 
 /**
