@@ -3,10 +3,7 @@ const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '../');
 const DST_DIR = path.join(ROOT_DIR, 'dist');
-const DST_ESM = path.join(
-  DST_DIR,
-  'inovex-elements/ino-icon/index.esm.js'
-);
+const DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
 const DST_ESM_D_TS = path.join(
   DST_DIR,
   'inovex-elements/ino-icon/index.esm.d.ts'
@@ -32,7 +29,7 @@ function camelize(text: string) {
   }
 
   let words = text.split(/[-_]/g); // ok one simple regexp.
-  words = words.filter(word => word.length > 0)
+  words = words.filter((word) => word.length > 0);
 
   return words[0].toLowerCase() + words.slice(1).map(capitalize).join('');
 }
