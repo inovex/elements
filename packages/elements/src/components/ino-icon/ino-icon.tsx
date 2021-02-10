@@ -19,7 +19,6 @@ import { SvgParser } from '../../util/svg-parser';
 @Component({
   tag: 'ino-icon',
   styleUrl: 'ino-icon.scss',
-  assetsDirs: ['icon-assets/SVG'],
   shadow: true,
 })
 export class Icon implements ComponentInterface {

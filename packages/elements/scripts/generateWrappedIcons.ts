@@ -3,17 +3,14 @@ const path = require('path');
 
 const ROOT_DIR = path.join(__dirname, '../');
 const DST_DIR = path.join(ROOT_DIR, 'dist');
-const DST_ESM = path.join(
-  DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.js'
-);
+const DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
 const DST_ESM_D_TS = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.d.ts'
+  'inovex-elements/ino-icon/index.esm.d.ts'
 );
-const DST_JS = path.join(DST_DIR, 'inovex-elements/icon-assets/SVG/index.js');
+const DST_JS = path.join(DST_DIR, 'inovex-elements/ino-icon/index.js');
 const SRC_DIR = path.join(ROOT_DIR, 'src');
-const SRC_SVG_DIR = path.join(SRC_DIR, 'components/ino-icon/icon-assets/SVG');
+const SRC_SVG_DIR = path.join(SRC_DIR, 'assets/ino-icon');
 let svgFiles = fs.readdirSync(SRC_SVG_DIR);
 
 svgFiles = svgFiles.filter((f: string) => f.indexOf('.svg') > -1);
@@ -32,6 +29,7 @@ function camelize(text: string) {
   }
 
   let words = text.split(/[-_]/g); // ok one simple regexp.
+  words = words.filter((word) => word.length > 0);
 
   return words[0].toLowerCase() + words.slice(1).map(capitalize).join('');
 }

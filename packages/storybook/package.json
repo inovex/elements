@@ -31,8 +31,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 6006 -c config -s static --quiet --no-version-updates",
-    "build": "build-storybook -c config -s static -o dist"
+    "dev": "start-storybook -p 6006 -c config -s static,../elements/src/assets --quiet --no-version-updates",
+    "build": "build-storybook -c config -s static,../elements/src/assets -o dist"
   },
   "files": [
     "dist/"

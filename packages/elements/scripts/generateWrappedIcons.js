@@ -2,17 +2,14 @@ var fs = require('fs-extra');
 var path = require('path');
 var ROOT_DIR = path.join(__dirname, '../');
 var DST_DIR = path.join(ROOT_DIR, 'dist');
-var DST_ESM = path.join(
-  DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.js'
-);
+var DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
 var DST_ESM_D_TS = path.join(
   DST_DIR,
-  'inovex-elements/icon-assets/SVG/index.esm.d.ts'
+  'inovex-elements/ino-icon/index.esm.d.ts'
 );
-var DST_JS = path.join(DST_DIR, 'inovex-elements/icon-assets/SVG/index.js');
+var DST_JS = path.join(DST_DIR, 'inovex-elements/ino-icon/index.js');
 var SRC_DIR = path.join(ROOT_DIR, 'src');
-var SRC_SVG_DIR = path.join(SRC_DIR, 'components/ino-icon/icon-assets/SVG');
+var SRC_SVG_DIR = path.join(SRC_DIR, 'assets/ino-icon');
 var svgFiles = fs.readdirSync(SRC_SVG_DIR);
 svgFiles = svgFiles.filter(function (f) {
   return f.indexOf('.svg') > -1;
@@ -28,6 +25,9 @@ function camelize(text) {
     return '_' + camelize(text.slice(1));
   }
   var words = text.split(/[-_]/g); // ok one simple regexp.
+  words = words.filter(function (word) {
+    return word.length > 0;
+  });
   return words[0].toLowerCase() + words.slice(1).map(capitalize).join('');
 }
 var iconData = svgFiles.map(function (filename) {

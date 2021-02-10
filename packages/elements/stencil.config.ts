@@ -19,7 +19,10 @@ export const config: Config = {
   enableCache: true,
   namespace: 'inovex-elements',
   outputTargets: [
-    { type: 'dist' },
+    {
+      type: 'dist',
+      copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
+    },
     { type: 'docs-readme' },
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
