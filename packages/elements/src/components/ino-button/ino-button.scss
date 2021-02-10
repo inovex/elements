@@ -207,6 +207,8 @@ $color-states: (
 
 :host {
   .mdc-button {
+    width: inherit;
+
     // MDC mixins
     @include button.horizontal-padding(20px);
     @include button.outline-width(2px);
@@ -309,9 +311,4 @@ $color-states: (
     top: 2px;
     @include spinner.circle-color(var(--button-color));
   }
-}
-
-// Full Width Styles
-:host([ino-full-width]:not([ino-full-width='false'])) .mdc-button {
-  width: 100%;
 }
