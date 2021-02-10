@@ -9,9 +9,13 @@ import {
   h,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 import { ChipSurface, ColorScheme } from '../types';
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ */
 @Component({
   tag: 'ino-chip',
   styleUrl: 'ino-chip.scss',
@@ -39,11 +43,6 @@ export class Chip implements ComponentInterface {
    * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
    */
   @Prop() inoIcon?: string;
-
-  /**
-   * If enabled, prepends the slotted icon to the chip label
-   */
-  @Prop() inoIconLeading = false;
 
   /**
    * The label of this chip (**required**).
@@ -106,6 +105,8 @@ export class Chip implements ComponentInterface {
       'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
     });
 
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+
     return (
       <Host>
         <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
@@ -115,7 +116,7 @@ export class Chip implements ComponentInterface {
             <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
           )}
 
-          {this.inoIconLeading && !this.inoIcon && (
+          {leadingSlotHasContent && !this.inoIcon && (
             <span class={iconClasses}>
               <slot name="ino-icon-leading" />
             </span>

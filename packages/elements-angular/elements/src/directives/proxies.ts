@@ -8,13 +8,13 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoButton extends Components.InoButton {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoIconLeading', 'inoIconTrailing', 'inoLoading', 'name', 'type']
+  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoLoading', 'name', 'type']
 })
 @Component({
   selector: 'ino-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoIconLeading', 'inoIconTrailing', 'inoLoading', 'name', 'type']
+  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoLoading', 'name', 'type']
 })
 export class InoButton {
   protected el: HTMLElement;
@@ -107,13 +107,13 @@ export class InoCheckbox {
 import { Chip as IChip } from '@inovex.de/elements/dist/types/components/ino-chip/ino-chip';
 export declare interface InoChip extends Components.InoChip {}
 @ProxyCmp({
-  inputs: ['inoColorScheme', 'inoFill', 'inoIcon', 'inoIconLeading', 'inoLabel', 'inoRemovable', 'inoSelectable', 'inoSelected', 'inoValue']
+  inputs: ['inoColorScheme', 'inoFill', 'inoIcon', 'inoLabel', 'inoRemovable', 'inoSelectable', 'inoSelected', 'inoValue']
 })
 @Component({
   selector: 'ino-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoColorScheme', 'inoFill', 'inoIcon', 'inoIconLeading', 'inoLabel', 'inoRemovable', 'inoSelectable', 'inoSelected', 'inoValue'],
+  inputs: ['inoColorScheme', 'inoFill', 'inoIcon', 'inoLabel', 'inoRemovable', 'inoSelectable', 'inoSelected', 'inoValue'],
   outputs: ['removeChip']
 })
 export class InoChip {
@@ -389,14 +389,14 @@ export class InoImgList {
 import { Input as IInput } from '@inovex.de/elements/dist/types/components/ino-input/ino-input';
 export declare interface InoInput extends Components.InoInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
   methods: ['getInputElement']
 })
 @Component({
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoIconLeading', 'inoIconTrailing', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
   outputs: ['valueChange', 'inoBlur', 'inoFocus']
 })
 export class InoInput {

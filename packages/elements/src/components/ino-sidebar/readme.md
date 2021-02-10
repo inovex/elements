@@ -84,6 +84,14 @@ https://github.com/material-components/material-components-web/tree/master/packa
 | `openChange` | Emits an event if the user expands or collapses the sidebar | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description            |
+| ----------- | ---------------------- |
+| `"content"` | For the content        |
+| `"header"`  | For the header element |
+
+
 ## CSS Custom Properties
 
 | Name              | Description                    |

@@ -132,6 +132,18 @@ class MyComponent extends Component {
 | `openChange` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
 
 
+## Slots
+
+| Slot         | Description                                                                             |
+| ------------ | --------------------------------------------------------------------------------------- |
+| `"app"`      | For the application located next to this nav-drawer                                     |
+| `"content"`  | For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`) |
+| `"footer"`   | For elements below the content slot                                                     |
+| `"header"`   | For a custom header on top of the navigation bar                                        |
+| `"logo"`     | For the logo on top of the navigation bar (cannot be used with the `header` slot)       |
+| `"subtitle"` | For the element just below the logo (cannot be used with the `header` slot)             |
+
+
 ## CSS Custom Properties
 
 | Name                                   | Description                                             |

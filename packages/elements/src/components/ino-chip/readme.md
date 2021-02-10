@@ -126,7 +126,6 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 | `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.                        | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `undefined` |
 | `inoFill`        | `ino-fill`         | The fill type of this element. Possible values: `solid` (default) or `outline`.                                                                                                                                   | `"outline" \| "solid"`                                                               | `'solid'`   |
 | `inoIcon`        | `ino-icon`         | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.<br/><br/>Prepends an icon to the chip label. | `string`                                                                             | `undefined` |
-| `inoIconLeading` | `ino-icon-leading` | If enabled, prepends the slotted icon to the chip label                                                                                                                                                           | `boolean`                                                                            | `false`     |
 | `inoLabel`       | `ino-label`        | The label of this chip (**required**).                                                                                                                                                                            | `string`                                                                             | `undefined` |
 | `inoRemovable`   | `ino-removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.                                                                                                                      | `boolean`                                                                            | `undefined` |
 | `inoSelectable`  | `ino-selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                                         | `boolean`                                                                            | `undefined` |
@@ -139,6 +138,13 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 | Event        | Description                                                                                                                                                              | Type               |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot                 | Description                  |
+| -------------------- | ---------------------------- |
+| `"ino-icon-leading"` | For the icon to be prepended |
 
 
 ## Dependencies

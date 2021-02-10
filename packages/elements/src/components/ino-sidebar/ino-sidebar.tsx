@@ -13,6 +13,10 @@ import { MDCDrawer } from '@material/drawer/component';
 
 import { MDCCustomDrawer } from './MDCCustomDrawer';
 
+/**
+ * @slot header - For the header element
+ * @slot content - For the content
+ */
 @Component({
   tag: 'ino-sidebar',
   styleUrl: 'ino-sidebar.scss',

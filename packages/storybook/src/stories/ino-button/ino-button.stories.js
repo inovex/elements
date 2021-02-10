@@ -1,8 +1,7 @@
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, color, select, text } from '@storybook/addon-knobs';
 
 import componentReadme from '_local-elements/src/components/ino-button/readme.md';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-import ICONS from '_local-elements/src/components/ino-icon/icons';
 
 import './ino-button.scss';
 
@@ -24,62 +23,62 @@ export const DefaultUsage = () => /* html */ `
     <div class="story-button">
       <style>
           ino-button.customizable-button {
-            --button-color-primary: ${text(
+            --button-color-primary: ${color(
               '--button-color-primary',
               '#3d40f5',
               'Custom Properties'
             )};
-            --button-color-primary-light: ${text(
+            --button-color-primary-light: ${color(
               '--button-color-primary-light',
               '#5d60f7',
               'Custom Properties'
             )};
-            --button-color-primary-dark: ${text(
+            --button-color-primary-dark: ${color(
               '--button-color-primary-dark',
               '#0d10f3',
               'Custom Properties'
             )};
-            --button-color-primary-contrast: ${text(
+            --button-color-primary-contrast: ${color(
               '--button-color-primary-contrast',
               '#fff',
               'Custom Properties'
             )};
-            --button-color-primary-shadow-light: ${text(
+            --button-color-primary-shadow-light: ${color(
               '--button-color-primary-shadow-light',
               'rgba(61, 214, 245, 0.14)',
               'Custom Properties'
             )};
-            --button-color-primary-shadow-dark: ${text(
+            --button-color-primary-shadow-dark: ${color(
               '--button-color-primary-shadow-light',
               'rgba(61, 64, 245, 0.3)',
               'Custom Properties'
             )};
-            --button-color-secondary: ${text(
+            --button-color-secondary: ${color(
               '--button-color-secondary',
               '#9ccd00',
               'Custom Properties'
             )};
-            --button-color-secondary-light: ${text(
+            --button-color-secondary-light: ${color(
               '--button-color-secondary-light',
               '#bbe962',
               'Custom Properties'
             )};
-            --button-color-secondary-dark: ${text(
+            --button-color-secondary-dark: ${color(
               '--button-color-secondary-dark',
               '#93bf00',
               'Custom Properties'
             )};
-            --button-color-secondary-contrast: ${text(
+            --button-color-secondary-contrast: ${color(
               '--button-color-secondary-contrast',
               '#fff',
               'Custom Properties'
             )};
-            --button-color-secondary-shadow-light: ${text(
+            --button-color-secondary-shadow-light: ${color(
               '--button-color-secondary-shadow-light',
               'rgba(156, 205, 0, 0.14)',
               'Custom Properties'
             )};
-            --button-color-secondary-shadow-dark: ${text(
+            --button-color-secondary-shadow-dark: ${color(
               '--button-color-secondary-shadow-light',
               'rgba(181, 230, 23, 0.30)',
               'Custom Properties'
@@ -100,27 +99,13 @@ export const DefaultUsage = () => /* html */ `
           'solid',
           'General'
         )}"
-        ino-icon-leading="${boolean('ino-icon-leading', false, 'Icon')}"
-        ino-icon-trailing="${boolean('ino-icon-trailing', false, 'Icon')}"
         ino-dense="${boolean('ino-dense', false, 'General')}"
         ino-full-width="${boolean('ino-full-width', false, 'General')}"
         disabled="${boolean('disabled', false, 'General')}"
         ino-loading="${boolean('ino-loading', false, 'General')}"
         ino-edge-mirrored="${boolean('ino-edge-mirrored', false, 'General')}"
       >
-        <ino-icon slot="ino-icon-leading" ino-icon="${select(
-          'ino-icon-leading-slot',
-          ICONS,
-          'Add',
-          'Icon'
-        )}"></ino-icon>
         ${text('<slot />', 'Customizable button', 'General')}
-        <ino-icon slot="ino-icon-trailing" ino-icon="${select(
-          'ino-icon-trailing-slot',
-          ICONS,
-          'Add',
-          'Icon'
-        )}"></ino-icon>
       </ino-button>
 
       <h4>Variations</h4>
@@ -142,11 +127,11 @@ export const DefaultUsage = () => /* html */ `
       </div>
 
       <h4>With icons</h4>
-      <ino-button ino-icon-leading>
+      <ino-button>
         <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
         Button Icon left
       </ino-button>
-      <ino-button ino-icon-trailing>
+      <ino-button>
         <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
         Button Icon right
       </ino-button>
