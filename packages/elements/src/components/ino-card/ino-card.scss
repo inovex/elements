@@ -24,11 +24,21 @@ ino-card {
 ino-card {
   display: block;
   position: relative;
+  border-radius: 20px;
 
   .mdc-card {
-    @include card.outline(theme.color(light), 1px);
+    @include card.outline(theme.color(light, base), 1px);
     box-shadow: none;
-    border-radius: 20px;
+    border-radius: inherit;
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &::after {
+      content: unset;
+    }
   }
 
   .ino-card--selected.mdc-card {
@@ -54,6 +64,10 @@ ino-card {
       transform: translate(-50%, -50%);
       --color: var(--card-color);
     }
+  }
+
+  .ino-card__checkmark-container {
+    display: contents;
   }
 
   .ino-card__footer,
