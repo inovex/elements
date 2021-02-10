@@ -24,6 +24,7 @@ ino-card {
 ino-card {
   display: block;
   position: relative;
+  border-radius: 20px;
 
   .mdc-card {
     @include card.outline(theme.color(light, base), 1px);
