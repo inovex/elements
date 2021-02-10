@@ -8,13 +8,13 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoButton extends Components.InoButton {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoLoading', 'name', 'type']
+  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoLoading', 'name', 'type']
 })
 @Component({
   selector: 'ino-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoFullWidth', 'inoLoading', 'name', 'type']
+  inputs: ['autoFocus', 'disabled', 'form', 'inoColorScheme', 'inoDense', 'inoEdgeMirrored', 'inoFill', 'inoLoading', 'name', 'type']
 })
 export class InoButton {
   protected el: HTMLElement;

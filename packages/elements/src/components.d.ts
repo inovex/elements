@@ -38,10 +38,6 @@ export namespace Components {
          */
         "inoFill"?: SurfaceType;
         /**
-          * Styles the button in 100% width.
-         */
-        "inoFullWidth"?: boolean;
-        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
         "inoLoading"?: boolean;
@@ -1540,10 +1536,6 @@ declare namespace LocalJSX {
           * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
          */
         "inoFill"?: SurfaceType;
-        /**
-          * Styles the button in 100% width.
-         */
-        "inoFullWidth"?: boolean;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
