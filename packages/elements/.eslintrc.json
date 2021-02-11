@@ -146,7 +146,7 @@
     "quote-props": "off",
     "quotes": [
       "error",
-      "double"
+      "single"
     ],
     "react/display-name": "error",
     "react/jsx-boolean-value": [

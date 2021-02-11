@@ -1,4 +1,4 @@
-import { validateContent } from "./validate";
+import { validateContent } from './validate';
 
 export const inoiconContent = new Map<string, string>();
 const requests = new Map<string, Promise<any>>();
@@ -15,7 +15,7 @@ export const getSvgContent = (url: string) => {
 					inoiconContent.set(url, validateContent(svgContent));
 				});
 			}
-			inoiconContent.set(url, "");
+			inoiconContent.set(url, '');
 		});
 
 		// cache for the same requests

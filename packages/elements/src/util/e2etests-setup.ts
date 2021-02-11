@@ -1,4 +1,4 @@
-import { newE2EPage } from "@stencil/core/testing";
+import { newE2EPage } from '@stencil/core/testing';
 
 /**
  * Helper function to create a new E2E page with the given content.

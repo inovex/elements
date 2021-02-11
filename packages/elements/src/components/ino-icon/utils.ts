@@ -1,4 +1,4 @@
-import { getAssetPath } from "@stencil/core";
+import { getAssetPath } from '@stencil/core';
 
 let CACHED_MAP: Map<string, string>;
 
@@ -62,6 +62,6 @@ export function getNamedUrl(name: string) {
 
 export const isSrc = (str: string) => str.length > 0 && /(\/|\.)/.test(str);
 
-export const isStr = (val: any): val is string => typeof val === "string";
+export const isStr = (val: any): val is string => typeof val === 'string';
 
 export const toLower = (val: string) => val.toLowerCase();
