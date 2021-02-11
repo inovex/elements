@@ -344,7 +344,8 @@ export class Datepicker implements ComponentInterface {
         'click',
         this.monthChangeNextHandler
       );
-    }}
+    }
+  }
 
   private dispose() {
     if (this.flatpickr) {
