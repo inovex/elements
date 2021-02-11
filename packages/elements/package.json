@@ -78,7 +78,7 @@
     "@material/tab-scroller": "^8.0.0",
     "@material/textfield": "^8.0.0",
     "@material/typography": "^8.0.0",
-    "@stencil/core": "2.0.3",
+    "@stencil/core": "2.4.0",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
@@ -88,7 +88,7 @@
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.5",
-    "@stencil/sass": "^1.1.1",
+    "@stencil/sass": "^1.4.1",
     "@types/classnames": "^2.2.6",
     "@types/jest": "26.0.14",
     "@types/puppeteer": "^3.0.2",
