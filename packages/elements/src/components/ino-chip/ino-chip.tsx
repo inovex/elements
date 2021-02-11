@@ -15,6 +15,7 @@ import { ChipSurface, ColorScheme } from '../types';
 
 /**
  * @slot ino-icon-leading - For the icon to be prepended
+ * @slot ino-icon-trailing - For the icon to be appended - disables the inoRemovable property
  */
 @Component({
   tag: 'ino-chip',
@@ -99,13 +100,19 @@ export class Chip implements ComponentInterface {
       'mdc-chip--selected': this.inoSelected,
     });
 
-    const iconClasses = classNames({
+    const leadingIconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
+      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
+    });
+
+    const trailingIconClasses = classNames({
+      'mdc-chip__icon': true,
+      'mdc-chip__icon--trailing': true,
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
 
     return (
       <Host>
@@ -113,11 +120,11 @@ export class Chip implements ComponentInterface {
           <div class="mdc-chip__ripple"></div>
 
           {this.inoIcon && (
-            <ino-icon class={iconClasses} ino-icon={this.inoIcon} />
+            <ino-icon class={leadingIconClasses} ino-icon={this.inoIcon} />
           )}
 
           {leadingSlotHasContent && !this.inoIcon && (
-            <span class={iconClasses}>
+            <span class={leadingIconClasses}>
               <slot name="ino-icon-leading" />
             </span>
           )}
@@ -137,9 +144,15 @@ export class Chip implements ComponentInterface {
 
           <span class="mdc-chip__text">{this.inoLabel}</span>
 
-          {this.inoRemovable && (
+          {trailingSlotHasContent && (
+            <span class={trailingIconClasses}>
+              <slot name="ino-icon-trailing"/>
+            </span>
+          )}
+
+          {this.inoRemovable && !trailingSlotHasContent && (
             <ino-icon
-              class="mdc-chip__icon mdc-chip__icon--trailing"
+              class={trailingIconClasses}
               ino-icon="close"
               tabindex="0"
               role="button"

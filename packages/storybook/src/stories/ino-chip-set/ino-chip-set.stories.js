@@ -101,11 +101,15 @@ export const InoChip = () => /*html*/ `
 
   <h4>With icons</h4>
   <ino-chip-set>
-    <ino-chip ino-color-scheme="primary" ino-label="Info" ino-fill="outline">
+    <ino-chip ino-color-scheme="primary" ino-label="Leading" ino-fill="outline">
       <ino-icon slot="ino-icon-leading" ino-icon="info"></ino-icon>
     </ino-chip>
-    <ino-chip ino-color-scheme="error" ino-label="Error">
-      <ino-icon slot="ino-icon-leading" ino-icon="warning"></ino-icon>
+    <ino-chip ino-color-scheme="secondary" ino-label="Trailing">
+      <ino-icon slot="ino-icon-trailing" ino-icon="checkmark"></ino-icon>
+    </ino-chip>
+    <ino-chip ino-color-scheme="error" ino-label="Leading & Trailing">
+        <ino-icon slot="ino-icon-leading" ino-icon="warning"></ino-icon>
+        <ino-icon slot="ino-icon-trailing" ino-icon="warning"></ino-icon>
     </ino-chip>
   </ino-chip-set>
 
