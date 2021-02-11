@@ -92,6 +92,20 @@ class MyComponent extends Component {
 | `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.                                                         | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
 
 
+## CSS Custom Properties
+
+| Name                              | Description                           |
+| --------------------------------- | ------------------------------------- |
+| `--fab-background-color`          | Background color                      |
+| `--fab-background-color-active`   | Background color if active            |
+| `--fab-background-color-disabled` | Background color if disabled          |
+| `--fab-background-color-hover`    | Background color on hover             |
+| `--fab-color-disabled`            | Text color if disabled                |
+| `--fab-icon-color`                | Color of the slotted icon             |
+| `--fab-icon-color-disabled`       | Color of the slotted icon if disabled |
+| `--ino-fab-color`                 | Text color                            |
+
+
 ## Dependencies
 
 ### Used by
