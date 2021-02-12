@@ -92,6 +92,13 @@ class MyComponent extends Component {
 | `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.                                                         | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`    |
 
 
+## Slots
+
+| Slot                 | Description                  |
+| -------------------- | ---------------------------- |
+| `"ino-icon-leading"` | For the icon to be prepended |
+
+
 ## CSS Custom Properties
 
 | Name                              | Description                           |

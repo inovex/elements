@@ -12,6 +12,9 @@ import classNames from 'classnames';
 import { Placement } from 'tippy.js';
 import { hasSlotContent } from "../../util/component-utils";
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ */
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
