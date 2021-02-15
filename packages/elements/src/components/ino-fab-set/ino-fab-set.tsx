@@ -64,7 +64,7 @@ export class Fab implements ComponentInterface {
             ino-edge-position="none"
             ino-tooltip-placement="none"
           >
-            <ino-icon ino-icon={'_fab_set_arrow_up'}></ino-icon>
+            <ino-icon slot="ino-icon-leading" ino-icon={'_fab_set_arrow_up'}></ino-icon>
           </ino-fab>
         </div>
       </Host>

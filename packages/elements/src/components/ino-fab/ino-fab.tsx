@@ -10,7 +10,11 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
+import { hasSlotContent } from "../../util/component-utils";
 
+/**
+ * @slot ino-icon-leading - For the icon to be prepended
+ */
 @Component({
   tag: 'ino-fab',
   styleUrl: 'ino-fab.scss',
@@ -25,6 +29,7 @@ export class Fab implements ComponentInterface {
 
   /**
    * Adds an icon to the Fab.
+   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
    */
   @Prop() inoIcon?: string;
 
@@ -69,6 +74,12 @@ export class Fab implements ComponentInterface {
     if (this.inoDisabled) {
       e.preventDefault();
       e.stopPropagation();
+    }
+
+    if (this.inoIcon) {
+      console.warn(
+        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.`
+      );
     }
   }
 
@@ -122,14 +133,17 @@ export class Fab implements ComponentInterface {
       'mdc-fab--mini': this.inoMini,
     });
 
+    const iconSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+
     return (
       <Host id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.inoDisabled}>
           <span class="material-icons mdc-fab__icon">
-            {this.inoIcon ? (
-              <ino-icon class="mdc-button__icon" ino-icon={this.inoIcon} />
-            ) : (
-              <slot></slot>
+            { this.inoIcon && !iconSlotHasContent && (
+              <ino-icon ino-icon={this.inoIcon}/>
+            )}
+            { iconSlotHasContent && (
+              <slot name="ino-icon-leading"/>
             )}
           </span>
           {this.inoExtended && (

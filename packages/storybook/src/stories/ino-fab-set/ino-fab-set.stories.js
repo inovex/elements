@@ -84,20 +84,24 @@ export const DefaultUsage = () => /*html*/ `
       )}">
 
         <ino-fab
-          ino-icon="${select('ino-icon-fab1', ICONS, 'star', 'First FAB')}"
           ino-label="${text('ino-label-fab1', 'Label 1', 'First FAB')}"
           ino-mini="${boolean('ino-mini-fab1', true, 'First FAB')}"
-        ></ino-fab>
+        >
+            <ino-icon slot="ino-icon-leading" ino-icon="${select('ino-icon-fab1', ICONS, 'star', 'First FAB')}"></ino-icon>
+        </ino-fab>
         <ino-fab
-          ino-icon="${select('ino-icon-fab2', ICONS, 'favorite', 'Second FAB')}"
           ino-label="${text('ino-label-fab2', 'Label 2', 'Second FAB')}"
           ino-mini="${boolean('ino-mini-fab2', true, 'Second FAB')}"
-        ></ino-fab>
+        >
+        <ino-icon slot="ino-icon-leading"
+          ino-icon="${select('ino-icon-fab2', ICONS, 'favorite', 'Second FAB')}"></ino-icon>
+        </ino-fab>
         <ino-fab
-          ino-icon="${select('ino-icon-fab3', ICONS, 'info', 'Third FAB')}"
           ino-label="${text('ino-label-fab3', 'Label 3', 'Third FAB')}"
           ino-mini="${boolean('ino-mini-fab3', true, 'Third FAB')}"
-        ></ino-fab>
+        >
+            <ino-icon slot="ino-icon-leading" ino-icon="${select('ino-icon-fab3', ICONS, 'info', 'Third FAB')}"></ino-icon>
+        </ino-fab>
       </ino-fab-set>
     </div>
   `;

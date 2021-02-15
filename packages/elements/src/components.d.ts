@@ -336,6 +336,7 @@ export namespace Components {
         "inoExtended": boolean;
         /**
           * Adds an icon to the Fab.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
         "inoIcon"?: string;
         /**
@@ -1859,6 +1860,7 @@ declare namespace LocalJSX {
         "inoExtended"?: boolean;
         /**
           * Adds an icon to the Fab.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
         "inoIcon"?: string;
         /**
