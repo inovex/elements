@@ -728,7 +728,7 @@ export namespace Components {
     }
     interface InoMenu {
         /**
-          * Anchor element for the menu
+          * The id of the anchor element
          */
         "inoFor"?: string;
         /**
@@ -2284,7 +2284,7 @@ declare namespace LocalJSX {
     }
     interface InoMenu {
         /**
-          * Anchor element for the menu
+          * The id of the anchor element
          */
         "inoFor"?: string;
         /**

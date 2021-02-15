@@ -1,18 +1,15 @@
-import { MDCMenu } from '@material/menu';
 import {
   Component,
   ComponentInterface,
+  Element,
   Event,
   EventEmitter,
-  Element,
+  h,
   Host,
   Listen,
   Prop,
-  Watch,
-  h,
 } from '@stencil/core';
-
-import { MDCCustomMenu } from './MDCCustomMenu';
+import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-menu',
@@ -23,40 +20,19 @@ export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
-   * An internal instance of the mdc menu.
-   */
-  private menu!: MDCMenu;
-
-  /**
    * Emits on outside menu click and escape press.
    */
   @Event() menuClose: EventEmitter<void>;
 
   /**
-   * Anchor element for the menu
+   * The id of the anchor element
    */
   @Prop() inoFor?: string;
-
-  @Watch('inoFor')
-  inoForChanged() {
-    this.setAnchor(this.inoFor);
-  }
 
   /**
    * Set this option to show the menu.
    */
   @Prop() inoOpen?: boolean = false;
-
-  @Watch('inoOpen')
-  inoOpenChanged(open: boolean) {
-    this.menu.open = open;
-  }
-
-  @Listen('menu:outside-click')
-  onClose(ev: Event) {
-    ev.stopPropagation();
-    this.menuClose.emit();
-  }
 
   @Listen('keydown')
   onKeydown({ key }: KeyboardEvent) {
@@ -65,42 +41,41 @@ export class Menu implements ComponentInterface {
     }
   }
 
-  componentDidLoad() {
-    this.menu = new MDCCustomMenu(
-      this.el.querySelector('.mdc-menu') as HTMLElement
-    ); // takes root and foundation, foundation takes adapter
-
-    this.menu.open = this.inoOpen;
-    this.setAnchor(this.inoFor);
+  @Listen('click')
+  onClick(ev: any) {
+    console.log(ev);
   }
 
-  private setAnchor(anchor?: string) {
-    const target = anchor
-      ? document.getElementById(anchor)
-      : this.el.parentElement;
+  connectedCallback() {
+    if (this.inoFor || this.el.parentElement.id) {
+      return;
+    }
 
-    this.menu.setAnchorElement(target);
+    this.generateParentId();
   }
 
-  disconnectedCallback() {
-    this.menu?.destroy();
+  private generateParentId(): void {
+    this.el.parentElement.id = `elements-menu${generateUniqueId()}`;
   }
 
   render() {
     return (
       <Host>
-        <div class="mdc-menu-surface--anchor">
-          <div class="mdc-menu mdc-menu-surface">
-            <ino-list
-              role="menu"
-              aria-hidden="true"
-              aria-orientation="vertical"
-              tabindex="-1"
-            >
-              <slot />
-            </ino-list>
-          </div>
-        </div>
+        <ino-popover
+          ino-color-scheme="transparent"
+          ino-interactive
+          ino-for={this.inoFor || this.el.parentElement.id}
+          ino-trigger={'manual'}
+        >
+          <ino-list
+            role="menu"
+            aria-hidden="true"
+            aria-orientation="vertical"
+            tabindex="-1"
+          >
+            <slot />
+          </ino-list>
+        </ino-popover>
       </Host>
     );
   }

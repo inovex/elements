@@ -96,7 +96,7 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 | Property  | Attribute  | Description                       | Type      | Default     |
 | --------- | ---------- | --------------------------------- | --------- | ----------- |
-| `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  | `undefined` |
+| `inoFor`  | `ino-for`  | The id of the anchor element      | `string`  | `undefined` |
 | `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
 
 
@@ -111,11 +111,13 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 ### Depends on
 
+- [ino-popover](../ino-popover)
 - [ino-list](../ino-list)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-menu --> ino-popover
   ino-menu --> ino-list
   style ino-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
