@@ -58,28 +58,19 @@ export default {
 
 export const DefaultUsage = () => /*html*/ `
     <div class="story-menu">
-      <h4>Customizable Menu</h4>
-      <ino-button id="${BTN_ID_CUSTOM_MENU}">Open menu</ino-button>
-      <ino-menu
-        id="${ID_CUSTOM_MENU}"
-        ino-for="button"
-        ino-open="${boolean('ino-open', false)}"
-      >
+    <h4>As child</h4>
+    <ino-icon-button ino-icon="star">
+      <ino-menu ino-placement="left-end">
         <ino-list-item tabindex="0" ino-text="Item"></ino-list-item>
         <ino-list-item tabindex="0" ino-text="Item 2"></ino-list-item>
       </ino-menu>
+     </ino-icon-button>
 
-      <h4>Variation with divider</h4>
-      <ino-button id="${BTN_ID_DIVIDED_MENU}">Open divided menu</ino-button>
-      <ino-menu id="${ID_DIVIDED_MENU}" ino-for="menu-2" ino-open="${boolean(
-  'ino-open',
-  false
-)}">
-        <ino-list-item ino-text="Home"></ino-list-item>
-        <ino-list-item ino-text="Projects"></ino-list-item>
-        <ino-list-divider></ino-list-divider>
-        <ino-list-item ino-text="User"></ino-list-item>
-        <ino-list-item ino-text="Settings"></ino-list-item>
-      </ino-menu>
+    <h4>With target</h4>
+    <ino-icon-button id="my-target" ino-icon="star"></ino-icon-button>
+    <ino-menu ino-for="my-target" ino-placement="left-end">
+      <ino-list-item tabindex="0" ino-text="Item"></ino-list-item>
+      <ino-list-item tabindex="0" ino-text="Item 2"></ino-list-item>
+    </ino-menu>
     </div>
   `;
