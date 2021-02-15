@@ -23,4 +23,9 @@ export class TextValueAccessorDirective extends ValueAccessorDirective {
   _handleInputEvent(value: string) {
     this.handleChangeEvent(value);
   }
+
+  @HostListener('inoBlur')
+  _handleInoBlur() {
+    this.handleBlurEvent();
+  }
 }

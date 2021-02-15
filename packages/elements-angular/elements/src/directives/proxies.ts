@@ -996,16 +996,18 @@ export declare interface InoTextarea extends Components.InoTextarea {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'],
-  outputs: ['valueChange']
+  outputs: ['inoBlur', 'valueChange']
 })
 export class InoTextarea {
+  /** Emits when the textarea is blurred and validates email input */
+  inoBlur!: ITextarea['inoBlur'];
   /** Emits when the user types something in. Contains typed input in `event.detail` */
   valueChange!: ITextarea['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['valueChange']);
+    proxyOutputs(this, this.el, ['inoBlur', 'valueChange']);
   }
 }
 

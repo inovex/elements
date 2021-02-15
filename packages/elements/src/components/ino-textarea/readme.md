@@ -132,16 +132,8 @@ The component is based on a native input with additional features. Thus, the com
 
 | Event         | Description                                                                    | Type                  |
 | ------------- | ------------------------------------------------------------------------------ | --------------------- |
+| `inoBlur`     | Emits when the textarea is blurred and validates email input                   | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
-
-
-## CSS Custom Properties
-
-| Name                           | Description                   |
-| ------------------------------ | ----------------------------- |
-| `--ino-textarea-caret-color`   | color of the caret            |
-| `--ino-textarea-label-color`   | color of the label            |
-| `--ino-textarea-outline-color` | outline color of the textarea |
 
 
 ## Dependencies

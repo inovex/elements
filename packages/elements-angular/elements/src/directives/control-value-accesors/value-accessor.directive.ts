@@ -24,6 +24,10 @@ export class ValueAccessorDirective implements ControlValueAccessor {
     }
   }
 
+  handleBlurEvent() {
+    this.onTouched();
+  }
+
   registerOnChange(fn: (value: any) => void) {
     this.onChange = fn;
   }
