@@ -6,9 +6,9 @@ import {
   EventEmitter,
   h,
   Host,
-  Listen,
   Prop,
 } from '@stencil/core';
+import { Placement } from 'tippy.js';
 import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
@@ -25,7 +25,8 @@ export class Menu implements ComponentInterface {
   @Event() menuClose: EventEmitter<void>;
 
   /**
-   * The id of the anchor element
+   * The id of the anchor element.
+   * If none is given, the id of the parent element will be used (and generated if none exists).
    */
   @Prop() inoFor?: string;
 
@@ -34,17 +35,12 @@ export class Menu implements ComponentInterface {
    */
   @Prop() inoOpen?: boolean = false;
 
-  @Listen('keydown')
-  onKeydown({ key }: KeyboardEvent) {
-    if (key === 'Escape') {
-      this.menuClose.emit();
-    }
-  }
-
-  @Listen('click')
-  onClick(ev: any) {
-    console.log(ev);
-  }
+  /**
+   * Determines the position of the opened menu.
+   * Usually, the default value (`auto`) will work just fine.
+   * Use this if the positioning is off for some reason.
+   */
+  @Prop() inoPlacement: Placement = 'auto';
 
   connectedCallback() {
     if (this.inoFor || this.el.parentElement.id) {
@@ -65,7 +61,8 @@ export class Menu implements ComponentInterface {
           ino-color-scheme="transparent"
           ino-interactive
           ino-for={this.inoFor || this.el.parentElement.id}
-          ino-trigger={'manual'}
+          ino-placement={this.inoPlacement}
+          ino-trigger={'click'}
         >
           <ino-list
             role="menu"

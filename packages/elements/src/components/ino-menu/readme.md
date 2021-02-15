@@ -94,10 +94,11 @@ The menu creates a temporary surface with an empty list composer. The items of t
 
 ## Properties
 
-| Property  | Attribute  | Description                       | Type      | Default     |
-| --------- | ---------- | --------------------------------- | --------- | ----------- |
-| `inoFor`  | `ino-for`  | The id of the anchor element      | `string`  | `undefined` |
-| `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
+| Property       | Attribute       | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default     |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `inoFor`       | `ino-for`       | The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).                                | `string`                                                                                                                                                                                                     | `undefined` |
+| `inoOpen`      | `ino-open`      | Set this option to show the menu.                                                                                                                        | `boolean`                                                                                                                                                                                                    | `false`     |
+| `inoPlacement` | `ino-placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'`    |
 
 
 ## Events

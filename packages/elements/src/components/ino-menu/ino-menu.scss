@@ -3,14 +3,10 @@
 @use '@material/menu/mdc-menu';
 
 ino-menu {
-  display: block;
-  border-radius: 4px;
+  // TODO: inherit border radius
 
-  .mdc-menu-surface--anchor {
-    border-radius: inherit;
-
-    .mdc-menu.mdc-menu-surface {
-      border-radius: inherit;
-    }
+  .ino-tooltip__inner .ino-popover__content {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

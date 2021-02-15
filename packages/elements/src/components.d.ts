@@ -728,13 +728,17 @@ export namespace Components {
     }
     interface InoMenu {
         /**
-          * The id of the anchor element
+          * The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).
          */
         "inoFor"?: string;
         /**
           * Set this option to show the menu.
          */
         "inoOpen"?: boolean;
+        /**
+          * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
+         */
+        "inoPlacement": Placement;
     }
     interface InoNavDrawer {
         /**
@@ -2284,13 +2288,17 @@ declare namespace LocalJSX {
     }
     interface InoMenu {
         /**
-          * The id of the anchor element
+          * The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).
          */
         "inoFor"?: string;
         /**
           * Set this option to show the menu.
          */
         "inoOpen"?: boolean;
+        /**
+          * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
+         */
+        "inoPlacement"?: Placement;
         /**
           * Emits on outside menu click and escape press.
          */

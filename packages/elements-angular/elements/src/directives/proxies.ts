@@ -522,13 +522,13 @@ Contains the element itself in `event.detail` */
 import { Menu as IMenu } from '@inovex.de/elements/dist/types/components/ino-menu/ino-menu';
 export declare interface InoMenu extends Components.InoMenu {}
 @ProxyCmp({
-  inputs: ['inoFor', 'inoOpen']
+  inputs: ['inoFor', 'inoOpen', 'inoPlacement']
 })
 @Component({
   selector: 'ino-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoFor', 'inoOpen'],
+  inputs: ['inoFor', 'inoOpen', 'inoPlacement'],
   outputs: ['menuClose']
 })
 export class InoMenu {
