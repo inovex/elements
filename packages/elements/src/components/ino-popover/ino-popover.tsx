@@ -61,7 +61,7 @@ export class Popover implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() inoTrigger: TooltipTrigger = 'mouseenter focus';
+  @Prop() inoTrigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
 
   @Watch('inoTrigger')
   inoTriggerChanged() {
@@ -85,6 +85,7 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoShow')
   inoShowChanged(show: boolean) {
+    console.log('Show: ', show);
     show ? this.tippyInstance.show() : this.tippyInstance.hide();
   }
 
@@ -124,7 +125,20 @@ export class Popover implements ComponentInterface {
       interactive: this.inoInteractive,
     };
 
+    if (this.inoShow !== undefined) {
+      console.log('adding handlers');
+      options.onShow = (_) => this.handleVisibility(true);
+      options.onHide = (_) => this.handleVisibility(false);
+      options.showOnCreate = this.inoShow;
+    }
+
     this.tippyInstance = TippyJS(target, options);
+  }
+
+  handleVisibility(show: boolean): false | void {
+    console.log('Visibility: ', show, this);
+    this.visibilityChanged.emit(show);
+    return false;
   }
 
   render() {

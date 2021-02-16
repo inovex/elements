@@ -77,7 +77,15 @@ class MyComponent extends Component {
 | `inoFor`         | `ino-for`          | The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.                                     | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
 | `inoInteractive` | `ino-interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                           | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)` | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
+| `inoShow`        | `ino-show`         | Programmatically show or hide the popover. Using this property disables the functionality of the `inoTrigger` prop.                      | `boolean`                                                                                                                                                                                                                                                                                                                              | `undefined`          |
 | `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
+
+
+## Events
+
+| Event               | Description                                                                     | Type                   |
+| ------------------- | ------------------------------------------------------------------------------- | ---------------------- |
+| `visibilityChanged` | Emits the visibility of the popover on change (true if shown, false if hidden). | `CustomEvent<boolean>` |
 
 
 ## Methods

@@ -810,9 +810,13 @@ export namespace Components {
          */
         "inoPlacement": Placement;
         /**
+          * Programmatically show or hide the popover. Using this property disables the functionality of the `inoTrigger` prop.
+         */
+        "inoShow"?: boolean;
+        /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "inoTrigger": TooltipTrigger;
+        "inoTrigger": Exclude<TooltipTrigger, 'manual'>;
     }
     interface InoProgressBar {
         /**
@@ -2362,9 +2366,17 @@ declare namespace LocalJSX {
          */
         "inoPlacement"?: Placement;
         /**
+          * Programmatically show or hide the popover. Using this property disables the functionality of the `inoTrigger` prop.
+         */
+        "inoShow"?: boolean;
+        /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "inoTrigger"?: TooltipTrigger;
+        "inoTrigger"?: Exclude<TooltipTrigger, 'manual'>;
+        /**
+          * Emits the visibility of the popover on change (true if shown, false if hidden).
+         */
+        "onVisibilityChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface InoProgressBar {
         /**
