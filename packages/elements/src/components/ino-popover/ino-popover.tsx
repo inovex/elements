@@ -2,13 +2,15 @@ import {
   Component,
   ComponentInterface,
   Element,
+  Event,
+  EventEmitter,
+  h,
   Host,
+  Method,
   Prop,
   Watch,
-  h,
-  Method,
 } from '@stencil/core';
-import TippyJS, { Instance, Placement } from 'tippy.js';
+import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
 
 import { TooltipTrigger } from '../types';
 
@@ -19,7 +21,7 @@ import { TooltipTrigger } from '../types';
 })
 export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;
-  private tooltipInstance?: Instance;
+  private tippyInstance?: Tippy;
 
   /**
    * The placement of this popover.
@@ -72,8 +74,24 @@ export class Popover implements ComponentInterface {
    */
   @Method()
   async getTippyInstance(): Promise<any> {
-    return this.tooltipInstance;
+    return this.tippyInstance;
   }
+
+  /**
+   * Programmatically show or hide the popover.
+   * Using this property disables the functionality of the `inoTrigger` prop.
+   */
+  @Prop() inoShow?: boolean;
+
+  @Watch('inoShow')
+  inoShowChanged(show: boolean) {
+    show ? this.tippyInstance.show() : this.tippyInstance.hide();
+  }
+
+  /**
+   * Emits the visibility of the popover on change (true if shown, false if hidden).
+   */
+  @Event() visibilityChanged!: EventEmitter<boolean>;
 
   // Lifecycle
 
@@ -84,13 +102,19 @@ export class Popover implements ComponentInterface {
   // Private methods
 
   private create() {
-    this.tooltipInstance?.destroy();
+    this.tippyInstance?.destroy();
 
     const target = this.inoFor
       ? document.getElementById(this.inoFor)
       : this.el.parentElement;
 
-    const options = {
+    if (!target && this.inoFor) {
+      console.warn(
+        `The element with the id '${this.inoFor}' could not be found.`
+      );
+    }
+
+    const options: Partial<Props> = {
       allowHTML: true,
       appendTo: this.el.parentElement,
       content: this.el,
@@ -100,7 +124,7 @@ export class Popover implements ComponentInterface {
       interactive: this.inoInteractive,
     };
 
-    this.tooltipInstance = TippyJS(target, options);
+    this.tippyInstance = TippyJS(target, options);
   }
 
   render() {
