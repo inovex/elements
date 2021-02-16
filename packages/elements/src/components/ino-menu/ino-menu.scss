@@ -3,10 +3,4 @@
 @use '@material/menu/mdc-menu';
 
 ino-menu {
-  // TODO: inherit border radius
-
-  .ino-tooltip__inner .ino-popover__content {
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
