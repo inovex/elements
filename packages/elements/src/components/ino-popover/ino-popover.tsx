@@ -1,8 +1,8 @@
 import {
   Component,
   ComponentInterface,
-  Element,
   Event,
+  Element,
   EventEmitter,
   h,
   Host,
@@ -85,14 +85,8 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoShow')
   inoShowChanged(show: boolean) {
-    console.log('Show: ', show);
     show ? this.tippyInstance.show() : this.tippyInstance.hide();
   }
-
-  /**
-   * Emits the visibility of the popover on change (true if shown, false if hidden).
-   */
-  @Event() visibilityChanged!: EventEmitter<boolean>;
 
   // Lifecycle
 
@@ -100,7 +94,11 @@ export class Popover implements ComponentInterface {
     this.create();
   }
 
-  // Private methods
+  /**
+   * Emits when an element which is not part of the popover is clicked.
+   * Should be used if you control the state of the popover.
+   */
+  @Event() clickOutside: EventEmitter<void>;
 
   private create() {
     this.tippyInstance?.destroy();
@@ -115,30 +113,22 @@ export class Popover implements ComponentInterface {
       );
     }
 
+    const isControlled = this.inoShow !== undefined;
+
     const options: Partial<Props> = {
       allowHTML: true,
       appendTo: this.el.parentElement,
       content: this.el,
       duration: 100,
+      hideOnClick: !isControlled,
       placement: this.inoPlacement,
-      trigger: this.inoTrigger,
-      interactive: this.inoInteractive,
+      trigger: isControlled ? 'manual' : this.inoTrigger,
+      interactive: isControlled || this.inoInteractive,
+      showOnCreate: isControlled && this.inoShow,
+      onClickOutside: () => this.clickOutside.emit(),
     };
 
-    if (this.inoShow !== undefined) {
-      console.log('adding handlers');
-      options.onShow = (_) => this.handleVisibility(true);
-      options.onHide = (_) => this.handleVisibility(false);
-      options.showOnCreate = this.inoShow;
-    }
-
     this.tippyInstance = TippyJS(target, options);
-  }
-
-  handleVisibility(show: boolean): false | void {
-    console.log('Visibility: ', show, this);
-    this.visibilityChanged.emit(show);
-    return false;
   }
 
   render() {

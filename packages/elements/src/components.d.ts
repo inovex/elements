@@ -2374,9 +2374,9 @@ declare namespace LocalJSX {
          */
         "inoTrigger"?: Exclude<TooltipTrigger, 'manual'>;
         /**
-          * Emits the visibility of the popover on change (true if shown, false if hidden).
+          * Emits when an element which is not part of the popover is clicked. Should be used if you control the state of the popover.
          */
-        "onVisibilityChanged"?: (event: CustomEvent<boolean>) => void;
+        "onClickOutside"?: (event: CustomEvent<void>) => void;
     }
     interface InoProgressBar {
         /**

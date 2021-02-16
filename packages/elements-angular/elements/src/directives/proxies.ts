@@ -633,16 +633,17 @@ export declare interface InoPopover extends Components.InoPopover {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['inoColorScheme', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoShow', 'inoTrigger'],
-  outputs: ['visibilityChanged']
+  outputs: ['clickOutside']
 })
 export class InoPopover {
-  /** Emits the visibility of the popover on change (true if shown, false if hidden). */
-  visibilityChanged!: IPopover['visibilityChanged'];
+  /** Emits when an element which is not part of the popover is clicked.
+Should be used if you control the state of the popover. */
+  clickOutside!: IPopover['clickOutside'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['visibilityChanged']);
+    proxyOutputs(this, this.el, ['clickOutside']);
   }
 }
 
