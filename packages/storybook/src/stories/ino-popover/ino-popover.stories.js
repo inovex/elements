@@ -1,20 +1,50 @@
-import { boolean, select, text } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-popover/readme.md';
 import './ino-popover.scss';
 
+function subscribeToComponentEvents() {
+  let popoverRef;
+
+  const eventHandler = function (e) {
+    if (e.target) {
+      const checkState = e.detail;
+
+      e.target.setAttribute('checked', checkState);
+
+      if (!popoverRef) {
+        popoverRef = document.getElementById('controlled-popover');
+      }
+
+      popoverRef.setAttribute('ino-show', checkState);
+    }
+  };
+
+  document.addEventListener('checkedChange', eventHandler);
+
+  return () => {
+    document.removeEventListener('checkedChange', eventHandler);
+  };
+}
+
 export default {
   title: 'Notification/<ino-popover>',
-  decorators: [withStencilReadme(componentReadme)],
+  decorators: [
+    withStencilReadme(componentReadme),
+    (story) => {
+      subscribeToComponentEvents();
+      return story();
+    },
+  ],
 };
 
 export const DefaultUsage = () => /*html*/ `
     <div class="story-popover">
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
-        ino-for="${text('ino-for', 'popover-target')}"
+        ino-for="popover-target"
         ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select(
           'ino-placement',
@@ -50,13 +80,18 @@ export const DefaultUsage = () => /*html*/ `
       <ino-button class="placement-button" id="popover-positions-target">Popover</ino-button>
 
       <h4>Triggers</h4>
-      <ino-button id="popover-hover-focus">Hover & focus</ino-button>
-      <ino-popover ino-for="popover-hover-focus">This popover occurs on hover and focus.</ino-popover>
+      <div class="row">
+      <ino-button id="popover-hover">Mouseenter</ino-button>
+      <ino-popover ino-placement="left" ino-for="popover-hover" ino-trigger="mouseenter">This popover occurs on mouseenter</ino-popover>
+
+      <ino-button id="popover-focus">Focus</ino-button>
+      <ino-popover ino-placement="top" ino-for="popover-focus" ino-trigger="focus">This popover occurs on focus.</ino-popover>
 
       <ino-button id="popover-click">Click</ino-button>
-      <ino-popover ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
-
+      <ino-popover ino-placement="right" ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
+</div>
       <h4>Interactions</h4>
+            <div class="row">
       <ino-button id="popover-non-interactive">Non-Interactive content</ino-button>
       <ino-popover ino-interactive="false" ino-for="popover-non-interactive" ino-trigger="click" ino-color-scheme="transparent">
         <div id="interactive-demo-container">
@@ -69,6 +104,12 @@ export const DefaultUsage = () => /*html*/ `
         <div id="interactive-demo-container">
             <ino-button>You can click me without closing this popover!</ino-button>
         </div>
+      </ino-popover>
+      </div>
+      <h4>Controlled Popover</h4>
+      <ino-checkbox id="controlled-checkbox" checked="true">Uncheck to hide / check to show</ino-checkbox>
+      <ino-popover id="controlled-popover" ino-placement="bottom" ino-for="controlled-checkbox" ino-show="true">
+        I'm a controlled popover
       </ino-popover>
     </div>
   `;
