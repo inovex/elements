@@ -103,6 +103,10 @@ export class Popover implements ComponentInterface {
   private create() {
     this.tippyInstance?.destroy();
 
+    // Add the display property on creation to avoid jumping content
+    // see https://atomiks.github.io/tippyjs/v6/html-content/#element
+    this.el.style.display = 'block';
+
     const target = this.inoFor
       ? document.getElementById(this.inoFor)
       : this.el.parentElement;

@@ -3,6 +3,8 @@
 @use 'base/theme';
 
 ino-popover {
+  display: none;
+
   //default color scheme
   @include tooltip-mixins.tooltip(
     theme.color(primary, light),
