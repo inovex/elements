@@ -118,48 +118,43 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
-      appendTo: this.el.parentElement,
-      content: this.el,
+      appendTo: this.el.querySelector('.ino-popover'),
+      content: this.el.querySelector('.ino-popover__content'),
       duration: 100,
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
       interactive: this.inoInteractive,
-      onShow: () => this.onShow(),
-      onHide: () => this.onHide(),
+      onShow: () => {
+        if (this.isControlled && !this.inoShow) {
+          this.visibilityChanged.emit(true);
+          return false;
+        }
+      },
+      onHide: () => {
+        if (this.isControlled && this.inoShow) {
+          this.visibilityChanged.emit(false);
+          return false;
+        }
+      } 
     };
 
     this.tippyInstance = TippyJS(target, options);
   }
 
-  internalVisibility: boolean = false;
-
-  onShow(): false | void {
-    console.log('SHOWING');
-
-    if (this.internalVisibility) return;
-
-    console.log('NOT VISIBLE YET');
-    this.visibilityChanged.emit(true);
-    this.internalVisibility = true;
-    return false;
-  }
-
-  onHide(): false | void {
-    if (this.internalVisibility) {
-      this.visibilityChanged.emit(false);
-      return false;
-    } else {
-      this.internalVisibility = false;
-    }
+  get isControlled() {
+    return this.inoShow !== undefined || this.inoShow !== null;
   }
 
   render() {
     return (
       <Host>
-        <div class="ino-tooltip__composer ino-popover__content" role="tooltip">
-          <div class="ino-tooltip__inner">
-            <div class="ino-popover__content">
-              <slot></slot>
+        <slot name="ino-popover-trigger"></slot>
+        <div class="ino-popover">
+          <div class="ino-tooltip__composer ino-popover__content" role="tooltip">
+            <div class="ino-tooltip__inner">
+              <div class="ino-popover__content">
+                <slot></slot>
+              </div>
             </div>
           </div>
         </div>

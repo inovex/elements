@@ -9,18 +9,13 @@ function subscribeToComponentEvents() {
   let popoverRef;
 
   const eventHandler = function (e) {
-    console.log('EVENT: ', e);
-    if (e.target) {
-      const checkState = e.detail;
-
-      e.target.setAttribute('ino-show', checkState);
-    }
+    e.target?.setAttribute('ino-show', e.detail);
+    document.querySelector('#controlled-checkbox').checked = e.detail;
   };
-
   document.addEventListener('visibilityChanged', eventHandler);
 
   return () => {
-    document.removeEventListener('checkedChange', eventHandler);
+    document.addEventListener('visibilityChanged', eventHandler);
   };
 }
 
@@ -40,7 +35,6 @@ export const DefaultUsage = () => /*html*/ `
 
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
-        ino-show="false"
         ino-for="popover-target"
         ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select(
@@ -104,8 +98,8 @@ export const DefaultUsage = () => /*html*/ `
       </ino-popover>
       </div>
       <h4>Controlled Popover</h4>
-      <ino-checkbox id="controlled-checkbox" checked="true">Uncheck to hide / check to show</ino-checkbox>
-      <ino-popover id="controlled-popover" ino-placement="bottom" ino-for="controlled-checkbox" ino-show="true">
+      <ino-popover id="controlled-popover" ino-placement="left" ino-for="controlled-checkbox" ino-show="false" ino-trigger="click">
+        <ino-checkbox id="controlled-checkbox" slot="ino-popover-trigger">Uncheck to hide / check to show</ino-checkbox>
         I'm a controlled popover
       </ino-popover>
     </div>

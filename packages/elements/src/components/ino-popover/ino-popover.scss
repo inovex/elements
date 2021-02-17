@@ -2,7 +2,7 @@
 @use 'ino-tooltip/mixins' as tooltip-mixins;
 @use 'base/theme';
 
-ino-popover {
+ino-popover .ino-popover {
   //default color scheme
   @include tooltip-mixins.tooltip(
     theme.color(primary, light),
