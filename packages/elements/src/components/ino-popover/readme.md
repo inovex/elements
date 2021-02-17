@@ -132,6 +132,7 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                              | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
@@ -143,17 +144,21 @@ class MyComponent extends Component {
 | `inoShow`        | `ino-show`         | Programmatically show or hide the popover. Using this property disables the functionality of the `inoTrigger` prop.                      | `boolean`                                                                                                                                                                                                                                                                                                                              | `undefined`          |
 | `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.          | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
 
+
 ## Events
 
-| Event          | Description                                                                                                           | Type                |
-| -------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `clickOutside` | Emits when an element which is not part of the popover is clicked. Should be used if you use the `ino-show` property. | `CustomEvent<void>` |
+| Event               | Description                                                                                                                | Type                   |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `clickOutside`      | Emits when an element which is not part of the popover is clicked. Should be used if you control the state of the popover. | `CustomEvent<void>`    |
+| `visibilityChanged` |                                                                                                                            | `CustomEvent<boolean>` |
+
 
 ## Methods
 
 ### `getTippyInstance() => Promise<any>`
 
-Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
+Returns the internally used tippy.js instance
+For more informations see: https://atomiks.github.io/tippyjs/
 
 #### Returns
 

@@ -2377,6 +2377,7 @@ declare namespace LocalJSX {
           * Emits when an element which is not part of the popover is clicked. Should be used if you control the state of the popover.
          */
         "onClickOutside"?: (event: CustomEvent<void>) => void;
+        "onVisibilityChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface InoProgressBar {
         /**

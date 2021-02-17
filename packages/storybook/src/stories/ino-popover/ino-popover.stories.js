@@ -9,20 +9,15 @@ function subscribeToComponentEvents() {
   let popoverRef;
 
   const eventHandler = function (e) {
+    console.log('EVENT: ', e);
     if (e.target) {
       const checkState = e.detail;
 
-      e.target.setAttribute('checked', checkState);
-
-      if (!popoverRef) {
-        popoverRef = document.getElementById('controlled-popover');
-      }
-
-      popoverRef.setAttribute('ino-show', checkState);
+      e.target.setAttribute('ino-show', checkState);
     }
   };
 
-  document.addEventListener('checkedChange', eventHandler);
+  document.addEventListener('visibilityChanged', eventHandler);
 
   return () => {
     document.removeEventListener('checkedChange', eventHandler);
@@ -42,8 +37,10 @@ export default {
 
 export const DefaultUsage = () => /*html*/ `
     <div class="story-popover">
+
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
+        ino-show="false"
         ino-for="popover-target"
         ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select(

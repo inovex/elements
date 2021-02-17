@@ -1,8 +1,8 @@
 import {
   Component,
   ComponentInterface,
-  Event,
   Element,
+  Event,
   EventEmitter,
   h,
   Host,
@@ -85,8 +85,11 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoShow')
   inoShowChanged(show: boolean) {
+    console.log('SHOW CHANGED TO', show);
     show ? this.tippyInstance.show() : this.tippyInstance.hide();
   }
+
+  @Event() visibilityChanged: EventEmitter<boolean>;
 
   // Lifecycle
 
@@ -113,22 +116,41 @@ export class Popover implements ComponentInterface {
       );
     }
 
-    const isControlled = this.inoShow !== undefined;
-
     const options: Partial<Props> = {
       allowHTML: true,
       appendTo: this.el.parentElement,
       content: this.el,
       duration: 100,
-      hideOnClick: !isControlled,
       placement: this.inoPlacement,
-      trigger: isControlled ? 'manual' : this.inoTrigger,
-      interactive: isControlled || this.inoInteractive,
-      showOnCreate: isControlled && this.inoShow,
-      onClickOutside: () => this.clickOutside.emit(),
+      trigger: this.inoTrigger,
+      interactive: this.inoInteractive,
+      onShow: () => this.onShow(),
+      onHide: () => this.onHide(),
     };
 
     this.tippyInstance = TippyJS(target, options);
+  }
+
+  internalVisibility: boolean = false;
+
+  onShow(): false | void {
+    console.log('SHOWING');
+
+    if (this.internalVisibility) return;
+
+    console.log('NOT VISIBLE YET');
+    this.visibilityChanged.emit(true);
+    this.internalVisibility = true;
+    return false;
+  }
+
+  onHide(): false | void {
+    if (this.internalVisibility) {
+      this.visibilityChanged.emit(false);
+      return false;
+    } else {
+      this.internalVisibility = false;
+    }
   }
 
   render() {
