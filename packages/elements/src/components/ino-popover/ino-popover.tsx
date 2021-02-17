@@ -117,7 +117,7 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
-      appendTo: this.el.parentElement,
+      appendTo: 'parent',
       content: this.el,
       duration: 100,
       hideOnClick: !isControlled,
