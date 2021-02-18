@@ -6,7 +6,7 @@ const NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 export function validateRange(value: string, format: string): boolean {
   return !value
     .match(NUMBERS_WITH_SPECIAL_CHARS)
-    .map((match) => hasCorrectFormat(match.trim(), format))
+    .map((match) => validateFormat(match.trim(), format))
     .includes(false);
 }
 
@@ -23,7 +23,7 @@ export function validateSingle(
     isValid =
       validateMin(inputDate, format, minDateStr) &&
       validateMax(inputDate, format, maxDateStr) &&
-      hasCorrectFormat(value, format);
+      validateFormat(value, format);
   } catch (e) {
     isValid = false; // Error occurred while parsing
   }
@@ -51,7 +51,7 @@ function validateMax(date: Date, format: string, maxDateStr?: string): boolean {
   return isEqual(date, maxDate) || isBefore(date, maxDate);
 }
 
-function hasCorrectFormat(value: string, format: string): boolean {
+function validateFormat(value: string, format: string): boolean {
   const parsedDate: Date = flatpickr.parseDate(value, format);
   const formattedDate: string = flatpickr.formatDate(parsedDate, format);
 
