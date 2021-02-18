@@ -625,27 +625,30 @@ export class InoOptionGroup {
 import { Popover as IPopover } from '@inovex.de/elements/dist/types/components/ino-popover/ino-popover';
 export declare interface InoPopover extends Components.InoPopover {}
 @ProxyCmp({
-  inputs: ['inoColorScheme', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoShow', 'inoTrigger'],
+  inputs: ['inoColorScheme', 'inoControlled', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoShow', 'inoTrigger'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoColorScheme', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoShow', 'inoTrigger'],
-  outputs: ['visibilityChanged', 'clickOutside']
+  inputs: ['inoColorScheme', 'inoControlled', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoShow', 'inoTrigger'],
+  outputs: ['visibilityChanged']
 })
 export class InoPopover {
-  /**  */
+  /** Emits when the popover wants to show (`true`) or hide (`false`) itself.
+This is depended on the `ino-trigger` property.
+Use this event in controlled-mode (see `ino-controlled`).
+
+e.g.: `ino-trigger = 'click'` - This events emits with `true`
+when the user clicks on the target (slot/`ino-for`/parent-element)
+and emits with `false` when the target or the outside is clicked. */
   visibilityChanged!: IPopover['visibilityChanged'];
-  /** Emits when an element which is not part of the popover is clicked.
-Should be used if you control the state of the popover. */
-  clickOutside!: IPopover['clickOutside'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['visibilityChanged', 'clickOutside']);
+    proxyOutputs(this, this.el, ['visibilityChanged']);
   }
 }
 

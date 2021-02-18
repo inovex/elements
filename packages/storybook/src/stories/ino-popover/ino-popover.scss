@@ -13,9 +13,11 @@
   }
 
   .styled-popover {
+    width: 200px;
     padding: 24px;
     display: flex;
     justify-content: space-between;
+    --ino-icon-color-primary: white;
   }
 
   #interactive-demo-container {

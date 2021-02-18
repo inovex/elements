@@ -91,14 +91,14 @@ export const DefaultUsage = () => /*html*/ `
       </ino-popover>
 
       <ino-button id="popover-interactive">Interactive content</ino-button>
-      <ino-popover ino-interactive="true" ino-for="popover-interactive" ino-trigger="click" ino-color-scheme="transparent">
+      <ino-popover ino-interactive="true" ino-for="popover-interactive" ino-trigger="click">
         <div id="interactive-demo-container">
-            <ino-button>You can click me without closing this popover!</ino-button>
+            <ino-button ino-fill="outline" ino-color-scheme="white">You can click me without closing this popover!</ino-button>
         </div>
       </ino-popover>
       </div>
       <h4>Controlled Popover</h4>
-      <ino-popover id="controlled-popover" ino-placement="left" ino-for="controlled-checkbox" ino-show="false" ino-trigger="click">
+      <ino-popover id="controlled-popover" ino-placement="left" ino-controlled ino-show="false" ino-trigger="click">
         <ino-checkbox id="controlled-checkbox" slot="ino-popover-trigger">Uncheck to hide / check to show</ino-checkbox>
         I'm a controlled popover
       </ino-popover>
