@@ -159,7 +159,7 @@ export class Popover implements ComponentInterface {
     this.tippyInstance = TippyJS(this.target, options);
   }
 
-  get target(): HTMLElement | null {
+  private get target(): HTMLElement | null {
     const slotContent = getSlotContent(this.el, 'ino-popover-trigger');
 
     if (slotContent) return slotContent;
