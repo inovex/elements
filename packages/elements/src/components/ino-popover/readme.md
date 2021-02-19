@@ -14,7 +14,15 @@ The component can be used as follows:
 
 ```html
 
-<ino-popover ino-for="<string>" ino-placement="<string>" ino-trigger="<string>">
+<ino-popover
+  ino-color-scheme="<string>"
+  ino-controlled="<boolean>"
+  ino-for="<string>"
+  ino-interactive="<boolean>"
+  ino-placement="<string>" 
+  ino-show="<boolean>"
+  ino-trigger="<string>"
+>
   Any desired HTML
 </ino-popover>
 ```
@@ -22,7 +30,7 @@ The component can be used as follows:
 #### Targets
 There are currently three ways to attach your popover to a component:
 
-1. Using the slot _(preferred)_:
+1. Using the `ino-popover-trigger` slot _(preferred)_:
 ```html
 <ino-popover ino-trigger="click">
     <ino-button slot="ino-popover-trigger">Click to show/hide</ino-button>
@@ -78,7 +86,7 @@ _Controlled_
 Or you use the `ino-controlled` and `ino-show` property to show/hide the popover by yourself. 
 This is helpful if you want to implement custom logic when the popover should be shown or hidden.
 
-```tsx
+```typescript jsx
 // ...
 
 class MyComponent extends Component {
@@ -116,7 +124,7 @@ class MyComponent extends Component {
 
 #### Example #1 - Basic
 
-```js
+```jsx
 import { Component } from 'react';
 import { InoPopover } from '@inovex.de/elements/dist/react';
 
@@ -133,7 +141,7 @@ class MyComponent extends Component {
 
 #### Example #2 - With Types
 
-```js
+```typescript jsx
 import React, { Component } from 'react';
 import { InoPopover } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
