@@ -107,7 +107,7 @@ export class Popover implements ComponentInterface {
       return;
     }
 
-    show ? this.tippyInstance.show() : this.tippyInstance.hide();
+    show ? this.tippyInstance?.show() : this.tippyInstance?.hide();
   }
 
   /**
