@@ -229,6 +229,19 @@ Type: `Promise<any>`
 | `"ino-popover-trigger"` | The target element to attach the triggers to |
 
 
+## Dependencies
+
+### Used by
+
+ - [ino-menu](../ino-menu)
+
+### Graph
+```mermaid
+graph TD;
+  ino-menu --> ino-popover
+  style ino-popover fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

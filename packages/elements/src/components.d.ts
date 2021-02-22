@@ -732,10 +732,6 @@ export namespace Components {
          */
         "inoFor"?: string;
         /**
-          * Set this option to show the menu.
-         */
-        "inoOpen"?: boolean;
-        /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
         "inoPlacement": Placement;
@@ -2292,17 +2288,9 @@ declare namespace LocalJSX {
          */
         "inoFor"?: string;
         /**
-          * Set this option to show the menu.
-         */
-        "inoOpen"?: boolean;
-        /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
         "inoPlacement"?: Placement;
-        /**
-          * Emits on outside menu click and escape press.
-         */
-        "onMenuClose"?: (event: CustomEvent<void>) => void;
     }
     interface InoNavDrawer {
         /**

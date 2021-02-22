@@ -2,8 +2,6 @@ import {
   Component,
   ComponentInterface,
   Element,
-  Event,
-  EventEmitter,
   h,
   Host,
   Prop,
@@ -20,20 +18,10 @@ export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
-   * Emits on outside menu click and escape press.
-   */
-  @Event() menuClose: EventEmitter<void>;
-
-  /**
    * The id of the anchor element.
    * If none is given, the id of the parent element will be used (and generated if none exists).
    */
   @Prop() inoFor?: string;
-
-  /**
-   * Set this option to show the menu.
-   */
-  @Prop() inoOpen?: boolean = false;
 
   /**
    * Determines the position of the opened menu.
@@ -58,7 +46,7 @@ export class Menu implements ComponentInterface {
     return (
       <Host>
         <ino-popover
-          ino-color-scheme="transparent"
+          inoColorScheme={'transparent'}
           ino-interactive
           ino-for={this.inoFor || this.el.parentElement.id}
           ino-placement={this.inoPlacement}
