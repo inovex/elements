@@ -28,22 +28,32 @@ The component can be used as follows:
 ```
 
 #### Targets
-There are currently three ways to attach your popover to a component:
+There are currently three ways to attach your popover to a component, which results in a slightly different structure:
 
 1. Using the `ino-popover-trigger` slot _(preferred)_:
 ```html
 <ino-popover ino-trigger="click">
     <ino-button slot="ino-popover-trigger">Click to show/hide</ino-button>
-    I'm the content of the popover
+    <custom-html-content></custom-html-content>
 </ino-popover>
+```
+```html
+<ino-popover>
+├── <ino-button>
+└── <custom-html-content>
 ```
 
 2. Using the `ino-for` property:
 ```html
 <ino-button id="my-target" slot="ino-popover-trigger">Click to show/hide</ino-button>
 <ino-popover ino-for="my-target" ino-trigger="click">
-    I'm the content of the popover
+  <custom-html-content></custom-html-content>
 </ino-popover>
+```
+```html
+<ino-button>
+<ino-popover>
+└── <custom-html-content>
 ```
 
 3. Using the parent element:
@@ -51,11 +61,15 @@ There are currently three ways to attach your popover to a component:
 <ino-button>
     Click to show/hide
     <ino-popover ino-trigger="click">
-        I'm the content of the popover
+      <custom-html-content></custom-html-content>
     </ino-popover>
 </ino-button>
 ```
-
+```html
+<ino-button>
+└── <ino-popover>
+    └── <custom-html-content>
+```
 #### Controlled vs. Uncontrolled
 
 There are currently two ways you can manage the state of the popover.
