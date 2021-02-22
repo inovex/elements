@@ -9,33 +9,35 @@ ino-popover .ino-popover {
     theme.color(primary, contrast)
   );
 
-  &[ino-color-scheme='primary'] {
+  .ino-popover__content {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+ino-popover {
+  &[ino-color-scheme='primary'] .ino-popover {
     @include tooltip-mixins.tooltip(
       theme.color(primary, light),
       theme.color(primary, contrast)
     );
   }
 
-  &[ino-color-scheme='secondary'] {
+  &[ino-color-scheme='secondary'] .ino-popover {
     @include tooltip-mixins.tooltip(
       theme.color(secondary, light),
       theme.color(secondary, contrast)
     );
   }
 
-  &[ino-color-scheme='light'] {
+  &[ino-color-scheme='light'] .ino-popover {
     @include tooltip-mixins.tooltip(
       theme.color(light),
       theme.color(light, contrast)
     );
   }
 
-  &[ino-color-scheme='transparent'] {
+  &[ino-color-scheme='transparent'] .ino-popover {
     @include tooltip-mixins.tooltip(#fff, theme.color(dark));
-  }
-
-  .ino-popover__content {
-    padding-right: 5px;
-    padding-left: 5px;
   }
 }
