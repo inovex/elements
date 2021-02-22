@@ -85,7 +85,7 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-show` property (`true`)
+   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
    */
   @Prop() inoControlled: boolean = false;
 
@@ -97,12 +97,12 @@ export class Popover implements ComponentInterface {
   /**
    * Programmatically show or hide the popover.
    * Can only be used in controlled mode (see property `ino-controlled`).
-   * Use the `visibilityChanged` to sync the popovers' visibility state with yours.
+   * Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
    */
-  @Prop() inoShow?: boolean = false;
+  @Prop() inoVisible?: boolean = false;
 
-  @Watch('inoShow')
-  inoShowChanged(show: boolean) {
+  @Watch('inoVisible')
+  inoVisibleChangeHandler(show: boolean) {
     if (!this.inoControlled) {
       return;
     }
@@ -119,7 +119,7 @@ export class Popover implements ComponentInterface {
    * when the user clicks on the target (slot/`ino-for`/parent-element)
    * and emits with `false` when the target or the outside is clicked.
    */
-  @Event() visibilityChanged: EventEmitter<boolean>;
+  @Event() inoVisibleChanged: EventEmitter<boolean>;
 
   componentDidLoad() {
     this.create();
@@ -143,14 +143,14 @@ export class Popover implements ComponentInterface {
       trigger: this.inoTrigger,
       interactive: this.inoInteractive,
       onShow: () => {
-        if (this.inoControlled && !this.inoShow) {
-          this.visibilityChanged.emit(true);
+        if (this.inoControlled && !this.inoVisible) {
+          this.inoVisibleChanged.emit(true);
           return false;
         }
       },
       onHide: () => {
-        if (this.inoControlled && this.inoShow) {
-          this.visibilityChanged.emit(false);
+        if (this.inoControlled && this.inoVisible) {
+          this.inoVisibleChanged.emit(false);
           return false;
         }
       },

@@ -6,16 +6,15 @@ import componentReadme from '_local-elements/src/components/ino-popover/readme.m
 import './ino-popover.scss';
 
 function subscribeToComponentEvents() {
-  let popoverRef;
-
   const eventHandler = function (e) {
-    e.target?.setAttribute('ino-show', e.detail);
+    console.log(e);
+    e.target?.setAttribute('ino-visible', e.detail);
     document.querySelector('#controlled-checkbox').checked = e.detail;
   };
-  document.addEventListener('visibilityChanged', eventHandler);
+  document.addEventListener('inoVisibleChanged', eventHandler);
 
   return () => {
-    document.addEventListener('visibilityChanged', eventHandler);
+    document.addEventListener('inoVisibleChanged', eventHandler);
   };
 }
 
@@ -98,7 +97,7 @@ export const DefaultUsage = () => /*html*/ `
       </ino-popover>
       </div>
       <h4>Controlled Popover</h4>
-      <ino-popover id="controlled-popover" ino-placement="left" ino-controlled ino-show="false" ino-trigger="click">
+      <ino-popover id="controlled-popover" ino-placement="left" ino-controlled ino-visible="false" ino-trigger="click">
         <ino-checkbox id="controlled-checkbox" slot="ino-popover-trigger">Uncheck to hide / check to show</ino-checkbox>
         I'm a controlled popover
       </ino-popover>
