@@ -522,13 +522,13 @@ Contains the element itself in `event.detail` */
 
 export declare interface InoMenu extends Components.InoMenu {}
 @ProxyCmp({
-  inputs: ['inoFor', 'inoPlacement']
+  inputs: ['inoFocusFirstElement', 'inoPlacement']
 })
 @Component({
   selector: 'ino-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoFor', 'inoPlacement']
+  inputs: ['inoFocusFirstElement', 'inoPlacement']
 })
 export class InoMenu {
   protected el: HTMLElement;

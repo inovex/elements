@@ -728,9 +728,9 @@ export namespace Components {
     }
     interface InoMenu {
         /**
-          * The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).
+          * If enabled, focuses the first `<ino-list-item>` on menu opening
          */
-        "inoFor"?: string;
+        "inoFocusFirstElement": boolean;
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
@@ -2284,9 +2284,9 @@ declare namespace LocalJSX {
     }
     interface InoMenu {
         /**
-          * The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).
+          * If enabled, focuses the first `<ino-list-item>` on menu opening
          */
-        "inoFor"?: string;
+        "inoFocusFirstElement"?: boolean;
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */

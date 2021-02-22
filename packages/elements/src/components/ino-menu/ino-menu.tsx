@@ -6,7 +6,7 @@ import {
   Host,
   Prop,
 } from '@stencil/core';
-import { Placement } from 'tippy.js';
+import { Instance, Placement } from 'tippy.js';
 import { generateUniqueId } from '../../util/component-utils';
 
 @Component({
@@ -17,11 +17,7 @@ import { generateUniqueId } from '../../util/component-utils';
 export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
 
-  /**
-   * The id of the anchor element.
-   * If none is given, the id of the parent element will be used (and generated if none exists).
-   */
-  @Prop() inoFor?: string;
+  private popoverEl: HTMLInoPopoverElement;
 
   /**
    * Determines the position of the opened menu.
@@ -30,8 +26,13 @@ export class Menu implements ComponentInterface {
    */
   @Prop() inoPlacement: Placement = 'auto';
 
+  /**
+   * If enabled, focuses the first `<ino-list-item>` on menu opening
+   */
+  @Prop() inoFocusFirstElement: boolean;
+
   connectedCallback() {
-    if (this.inoFor || this.el.parentElement.id) {
+    if (this.el.parentElement.id) {
       return;
     }
 
@@ -42,13 +43,32 @@ export class Menu implements ComponentInterface {
     this.el.parentElement.id = `elements-menu${generateUniqueId()}`;
   }
 
+  componentDidLoad() {
+    if (this.inoFocusFirstElement) {
+      this.popoverEl?.getTippyInstance().then(this.focusOnMount);
+    }
+  }
+
+  private focusOnMount = (tippy?: Instance) => {
+    if (!tippy) {
+      return;
+    }
+
+    tippy.setProps({
+      onMount: () => {
+        this.el.querySelector('ino-list-item')?.focus();
+      },
+    });
+  };
+
   render() {
     return (
       <Host>
         <ino-popover
-          inoColorScheme={'transparent'}
+          ref={(el) => (this.popoverEl = el)}
+          ino-color-scheme="transparent"
           ino-interactive
-          ino-for={this.inoFor || this.el.parentElement.id}
+          ino-for={this.el.parentElement.id}
           ino-placement={this.inoPlacement}
           ino-trigger={'click'}
         >

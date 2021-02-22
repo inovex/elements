@@ -1,27 +1,28 @@
 # ino-menu
 
-A menu component that displays a list of choices on a temporary surface. It functions as a wrapper around the material [menu](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu/) component.
+A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+The anchor element is the parent element.
 
-The anchor element is the parent element or the element found via the selector of the `ino-for` property passed in.
-
-The `ino-list-item` (and `ino-list-divider`) component is used for the rendering of the menu items.
+The menu items consist of different variations of the `ino-list-item` component.
 
 ### Usage
 
 The component can be used as follows:
 
 ```html
-<ino-menu ino-open ino-for="<string>">
-  <ino-list-item ...></ino-list-item>
-  <ino-list-divider></ino-list-divider>
-</ino-menu>
+<ino-button>
+  <ino-menu>
+    <ino-list-item ...></ino-list-item>
+    <ino-list-divider></ino-list-divider>
+  </ino-menu>
+</ino-button>
 ```
 
 ### React
 
 #### Example #1 - Basic
 
-```js
+```jsx
 import { Component } from 'react';
 import {
   InoButton,
@@ -33,53 +34,16 @@ import {
 class MyComponent extends Component {
   render() {
     return (
-      <InoMenu inoFor="menu">
-        <InoListItem inoText="Home" />
-        <InoListItem inoText="Projects" />
-        <InoDivider />
-        <InoListItem inoText="User" />
-        <InoListItem inoText="Settings" />
-      </InoMenu>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import {
-  InoButton,
-  InoMenu,
-  InoListItem,
-  InoDivider,
-} from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Menu: React.FunctionComponent<Components.InoMenuAttributes> = (props) => {
-  const { inoFor } = props;
-
-  return (
-    <div>
-      <InoButton id={inoFor}>Open menu</InoButton>
-      <InoMenu inoFor={inoFor} inoOpen={true}>
-        {props.children}
-      </InoMenu>
-    </div>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Menu inoFor="menu">
-        <InoListItem inoText="Home" />
-        <InoListItem inoText="Projects" />
-        <InoDivider />
-        <InoListItem inoText="User" />
-        <InoListItem inoText="Settings" />
-      </Menu>
+      <InoButton>
+        Show Menu
+        <InoMenu>
+          <InoListItem inoText="Home"/>
+          <InoListItem inoText="Projects"/>
+          <InoDivider/>
+          <InoListItem inoText="User"/>
+          <InoListItem inoText="Settings"/>
+        </InoMenu>
+      </InoButton>
     );
   }
 }
@@ -87,17 +51,19 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-The menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see example above). For more details about the list capabilities itself, check the documentation of `ino-list` and `ino-list-item` component.
+The menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see
+example above). For more details about the list capabilities itself, check the documentation of `ino-list`
+and `ino-list-item` component.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default     |
-| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `inoFor`       | `ino-for`       | The id of the anchor element. If none is given, the id of the parent element will be used (and generated if none exists).                                | `string`                                                                                                                                                                                                     | `undefined` |
-| `inoPlacement` | `ino-placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'`    |
+| Property               | Attribute                 | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default     |
+| ---------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `inoFocusFirstElement` | `ino-focus-first-element` | If enabled, focuses the first `<ino-list-item>` on menu opening                                                                                          | `boolean`                                                                                                                                                                                                    | `undefined` |
+| `inoPlacement`         | `ino-placement`           | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'`    |
 
 
 ## Dependencies
