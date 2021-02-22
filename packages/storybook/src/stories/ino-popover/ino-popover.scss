@@ -1,11 +1,19 @@
 .story-popover {
-  padding-left: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
 
   ino-button {
     margin: 0 12px 12px 0;
   }
 
   .styled-popover {
+    width: 200px;
     padding: 24px;
     display: flex;
     justify-content: space-between;

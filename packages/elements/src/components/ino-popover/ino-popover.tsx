@@ -2,16 +2,22 @@ import {
   Component,
   ComponentInterface,
   Element,
+  Event,
+  EventEmitter,
+  h,
   Host,
+  Method,
   Prop,
   Watch,
-  h,
-  Method,
 } from '@stencil/core';
-import TippyJS, { Instance, Placement } from 'tippy.js';
+import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
+import { getSlotContent } from '../../util/component-utils';
 
 import { TooltipTrigger } from '../types';
 
+/**
+ * @slot ino-popover-trigger - The target element to attach the triggers to
+ */
 @Component({
   tag: 'ino-popover',
   styleUrl: 'ino-popover.scss',
@@ -19,7 +25,9 @@ import { TooltipTrigger } from '../types';
 })
 export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;
-  private tooltipInstance?: Instance;
+  private tippyInstance?: Tippy;
+  private inoPopoverContainer: HTMLDivElement;
+  private inoPopoverContent: HTMLDivElement;
 
   /**
    * The placement of this popover.
@@ -34,8 +42,9 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * The target id the tooltip belongs to.
-   * If not given, the tooltip is attached to the parent component.
+   * The target id the popover belongs to.
+   * If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)
+   * or the parent component if a slot element does not exist.
    */
   @Prop() inoFor?: string;
 
@@ -59,7 +68,7 @@ export class Popover implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() inoTrigger: TooltipTrigger = 'mouseenter focus';
+  @Prop() inoTrigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
 
   @Watch('inoTrigger')
   inoTriggerChanged() {
@@ -72,44 +81,111 @@ export class Popover implements ComponentInterface {
    */
   @Method()
   async getTippyInstance(): Promise<any> {
-    return this.tooltipInstance;
+    return this.tippyInstance;
   }
 
-  // Lifecycle
+  /**
+   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+   */
+  @Prop() inoControlled: boolean = false;
+
+  @Watch('inoControlled')
+  inoControlledChanged() {
+    this.create();
+  }
+
+  /**
+   * Programmatically show or hide the popover.
+   * Can only be used in controlled mode (see property `ino-controlled`).
+   * Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+   */
+  @Prop() inoVisible?: boolean = false;
+
+  @Watch('inoVisible')
+  inoVisibleChangeHandler(show: boolean) {
+    if (!this.inoControlled) {
+      return;
+    }
+
+    show ? this.tippyInstance?.show() : this.tippyInstance?.hide();
+  }
+
+  /**
+   * Emits when the popover wants to show (`true`) or hide (`false`) itself.
+   * This is depended on the `ino-trigger` property.
+   * Use this event in controlled-mode (see `ino-controlled`).
+   *
+   * e.g.: `ino-trigger = 'click'` - This events emits with `true`
+   * when the user clicks on the target (slot/`ino-for`/parent-element)
+   * and emits with `false` when the target or the outside is clicked.
+   */
+  @Event() inoVisibleChanged: EventEmitter<boolean>;
 
   componentDidLoad() {
     this.create();
   }
 
-  // Private methods
-
   private create() {
-    this.tooltipInstance?.destroy();
+    this.tippyInstance?.destroy();
 
-    const target = this.inoFor
-      ? document.getElementById(this.inoFor)
-      : this.el.parentElement;
+    if (!this.target && this.inoFor) {
+      console.warn(
+        `The element with the id '${this.inoFor}' could not be found.`
+      );
+    }
 
-    const options = {
+    const options: Partial<Props> = {
       allowHTML: true,
-      appendTo: this.el.parentElement,
-      content: this.el,
+      appendTo: this.inoPopoverContainer,
+      content: this.inoPopoverContent,
       duration: 100,
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
       interactive: this.inoInteractive,
+      onShow: () => {
+        if (this.inoControlled && !this.inoVisible) {
+          this.inoVisibleChanged.emit(true);
+          return false;
+        }
+      },
+      onHide: () => {
+        if (this.inoControlled && this.inoVisible) {
+          this.inoVisibleChanged.emit(false);
+          return false;
+        }
+      },
     };
 
-    this.tooltipInstance = TippyJS(target, options);
+    this.tippyInstance = TippyJS(this.target, options);
+  }
+
+  private get target(): HTMLElement | null {
+    const slotContent = getSlotContent(this.el, 'ino-popover-trigger');
+
+    if (slotContent) return slotContent;
+
+    if (this.inoFor) return document.getElementById(this.inoFor);
+
+    return this.el.parentElement;
   }
 
   render() {
     return (
       <Host>
-        <div class="ino-tooltip__composer ino-popover__content" role="tooltip">
-          <div class="ino-tooltip__inner">
-            <div class="ino-popover__content">
-              <slot></slot>
+        <slot name="ino-popover-trigger"></slot>
+        <div
+          ref={(ref) => (this.inoPopoverContainer = ref)}
+          class="ino-popover"
+        >
+          <div
+            class="ino-tooltip__composer ino-popover__content"
+            role="tooltip"
+            ref={(ref) => (this.inoPopoverContent = ref)}
+          >
+            <div class="ino-tooltip__inner">
+              <div class="ino-popover__content">
+                <slot></slot>
+              </div>
             </div>
           </div>
         </div>

@@ -798,7 +798,11 @@ export namespace Components {
          */
         "inoColorScheme"?: string;
         /**
-          * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
+          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+         */
+        "inoControlled": boolean;
+        /**
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
          */
         "inoFor"?: string;
         /**
@@ -812,7 +816,11 @@ export namespace Components {
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "inoTrigger": TooltipTrigger;
+        "inoTrigger": Exclude<TooltipTrigger, 'manual'>;
+        /**
+          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+         */
+        "inoVisible"?: boolean;
     }
     interface InoProgressBar {
         /**
@@ -2350,7 +2358,11 @@ declare namespace LocalJSX {
          */
         "inoColorScheme"?: string;
         /**
-          * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
+          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+         */
+        "inoControlled"?: boolean;
+        /**
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
          */
         "inoFor"?: string;
         /**
@@ -2364,7 +2376,15 @@ declare namespace LocalJSX {
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "inoTrigger"?: TooltipTrigger;
+        "inoTrigger"?: Exclude<TooltipTrigger, 'manual'>;
+        /**
+          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+         */
+        "inoVisible"?: boolean;
+        /**
+          * Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `ino-trigger` property. Use this event in controlled-mode (see `ino-controlled`).  e.g.: `ino-trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`ino-for`/parent-element) and emits with `false` when the target or the outside is clicked.
+         */
+        "onInoVisibleChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface InoProgressBar {
         /**
