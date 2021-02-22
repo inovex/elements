@@ -136,6 +136,7 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
+      animation: 'scale',
       appendTo: this.inoPopoverContainer,
       content: this.inoPopoverContent,
       duration: 100,
