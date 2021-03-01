@@ -56,8 +56,8 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Displaces the popper away from, or toward, the reference element in the direction of its placement.
-   * A positive number displaces it further away, while a negative number lets it overlap the reference.
+   * Displaces the popover away from, or toward, the anchor element in the direction of its placement.
+   * A positive number displaces it further away, while a negative number lets it overlap the anchor.
    */
   @Prop() inoDistance?: number = 10;
 
