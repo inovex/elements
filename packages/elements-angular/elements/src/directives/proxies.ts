@@ -625,14 +625,14 @@ export class InoOptionGroup {
 import { Popover as IPopover } from '@inovex.de/elements/dist/types/components/ino-popover/ino-popover';
 export declare interface InoPopover extends Components.InoPopover {}
 @ProxyCmp({
-  inputs: ['inoColorScheme', 'inoControlled', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger', 'inoVisible'],
+  inputs: ['inoColorScheme', 'inoControlled', 'inoDistance', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger', 'inoVisible'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoColorScheme', 'inoControlled', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger', 'inoVisible'],
+  inputs: ['inoColorScheme', 'inoControlled', 'inoDistance', 'inoFor', 'inoInteractive', 'inoPlacement', 'inoTrigger', 'inoVisible'],
   outputs: ['inoVisibleChanged']
 })
 export class InoPopover {

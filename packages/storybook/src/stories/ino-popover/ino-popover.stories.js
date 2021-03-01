@@ -1,4 +1,4 @@
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -34,6 +34,7 @@ export const DefaultUsage = () => /*html*/ `
 
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
+        ino-distance="${number('ino-distance', 10)}"
         ino-for="popover-target"
         ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select(

@@ -54,6 +54,19 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * Displaces the popper away from, or toward, the reference element in the direction of its placement.
+   * A positive number displaces it further away, while a negative number lets it overlap the reference.
+   */
+  @Prop() inoDistance?: number = 10;
+
+  @Watch('inoDistance')
+  inoDistanceChanged() {
+    this.tippyInstance?.setProps({
+      offset: [0, this.inoDistance],
+    });
+  }
+
+  /**
    * Sets the color scheme of the popup
    * Valid options include: 'primary', 'secondary', 'light', 'transparent'
    */
@@ -142,6 +155,7 @@ export class Popover implements ComponentInterface {
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
       interactive: this.inoInteractive,
+      offset: [0, this.inoDistance],
       onShow: () => {
         if (this.inoControlled && !this.inoVisible) {
           this.inoVisibleChanged.emit(true);

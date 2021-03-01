@@ -802,6 +802,10 @@ export namespace Components {
          */
         "inoControlled": boolean;
         /**
+          * Displaces the popper away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+         */
+        "inoDistance"?: number;
+        /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
          */
         "inoFor"?: string;
@@ -2361,6 +2365,10 @@ declare namespace LocalJSX {
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */
         "inoControlled"?: boolean;
+        /**
+          * Displaces the popper away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+         */
+        "inoDistance"?: number;
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
          */
