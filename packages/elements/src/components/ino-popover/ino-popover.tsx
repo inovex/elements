@@ -38,7 +38,9 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoPlacement')
   inoPlacementChanged() {
-    this.create();
+    this.tippyInstance?.setProps({
+      placement: this.inoPlacement,
+    });
   }
 
   /**
@@ -77,6 +79,11 @@ export class Popover implements ComponentInterface {
    */
   @Prop() inoInteractive? = false;
 
+  @Watch('inoInteractive')
+  inoInteractiveChanged() {
+    this.create();
+  }
+
   /**
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
@@ -85,7 +92,9 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoTrigger')
   inoTriggerChanged() {
-    this.create();
+    this.tippyInstance?.setProps({
+      trigger: this.inoTrigger,
+    });
   }
 
   /**
