@@ -1,3 +1,7 @@
 @use 'base/mdc-customize';
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
+
+ino-menu ino-popover {
+  border-radius: inherit;
+}

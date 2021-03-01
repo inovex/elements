@@ -70,6 +70,8 @@ There are currently three ways to attach your popover to a component, which resu
 └── <ino-popover>
     └── <custom-html-content>
 ```
+
+
 #### Controlled vs. Uncontrolled
 
 There are currently two ways you can manage the state of the popover.
@@ -95,6 +97,7 @@ class MyComponent extends Component {
   }
 }
 ```
+
 _Controlled_
 
 Or you use the `ino-controlled` and `ino-visible` property to show/hide the popover by yourself. 
