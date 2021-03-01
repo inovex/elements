@@ -5,6 +5,8 @@ The anchor element is the parent element.
 
 The menu items consist of different variations of the `ino-list-item` component.
 
+If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
+
 ### Usage
 
 The component can be used as follows:
