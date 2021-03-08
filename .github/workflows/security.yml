@@ -1,14 +1,13 @@
 name: Security check
 
 on:
-  push:
-    branches:
-      - master
+  pull_request_review:
+    types: [ submitted ]
 
 jobs:
   gitlecks:
     runs-on: ubuntu-latest
-
+    if: github.event.review.state == 'approved'
     steps:
       - uses: actions/checkout@v1
       - uses: zricethezav/gitleaks-action
