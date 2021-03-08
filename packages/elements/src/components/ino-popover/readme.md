@@ -17,6 +17,7 @@ The component can be used as follows:
 <ino-popover
   ino-color-scheme="<string>"
   ino-controlled="<boolean>"
+  ino-distance="<number>"
   ino-for="<string>"
   ino-interactive="<boolean>"
   ino-placement="<string>" 

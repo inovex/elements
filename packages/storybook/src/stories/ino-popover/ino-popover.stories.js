@@ -7,7 +7,6 @@ import './ino-popover.scss';
 
 function subscribeToComponentEvents() {
   const eventHandler = function (e) {
-    console.log(e);
     e.target?.setAttribute('ino-visible', e.detail);
     document.querySelector('#controlled-checkbox').checked = e.detail;
   };
