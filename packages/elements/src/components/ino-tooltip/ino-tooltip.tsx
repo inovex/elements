@@ -67,13 +67,6 @@ export class Tooltip implements ComponentInterface {
    */
   @Prop() inoLabel?: string;
 
-  @Watch('inoLabel')
-  inoLabelChanged() {
-    if (this.tooltipInstance) {
-      this.tooltipInstance.setContent(this.inoLabel);
-    }
-  }
-
   /**
    * Returns the internally used tippy.js instance
    * For more informations see: https://atomiks.github.io/tippyjs/
