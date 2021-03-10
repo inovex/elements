@@ -1,4 +1,4 @@
-import { ElementRef, HostListener } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
 export class ValueAccessorDirective implements ControlValueAccessor {

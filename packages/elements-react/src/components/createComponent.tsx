@@ -44,8 +44,6 @@ export const createReactComponent = <PropType, ElementType>(
         children,
         forwardedRef,
         style,
-        className,
-        ref,
         ...cProps
       } = this.props;
 
