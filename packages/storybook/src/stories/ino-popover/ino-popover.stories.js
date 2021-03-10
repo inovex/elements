@@ -63,22 +63,22 @@ export const DefaultUsage = () => /*html*/ `
       </ino-popover>
 
       <h4>Placements</h4>
-      <ino-popover ino-placement="left" ino-for="popover-positions-target">This is a simple popover on the left</ino-popover>
-      <ino-popover ino-placement="right" ino-for="popover-positions-target">This is a simple popover on the right</ino-popover>
-      <ino-popover ino-placement="top" ino-for="popover-positions-target">This is a simple popover on the top</ino-popover>
-      <ino-popover ino-placement="bottom" ino-for="popover-positions-target">This is a simple popover on the bottom</ino-popover>
+      <ino-popover ino-placement="left" ino-for="popover-positions-target"><p>This is a simple popover on the left</p></ino-popover>
+      <ino-popover ino-placement="right" ino-for="popover-positions-target"><p>This is a simple popover on the right</p></ino-popover>
+      <ino-popover ino-placement="top" ino-for="popover-positions-target"><p>This is a simple popover on the top</p></ino-popover>
+      <ino-popover ino-placement="bottom" ino-for="popover-positions-target"><p>This is a simple popover on the bottom</p></ino-popover>
       <ino-button class="placement-button" id="popover-positions-target">Popover</ino-button>
 
       <h4>Triggers</h4>
       <div class="row">
       <ino-button id="popover-hover">Mouseenter</ino-button>
-      <ino-popover ino-placement="left" ino-for="popover-hover" ino-trigger="mouseenter">This popover occurs on mouseenter</ino-popover>
+      <ino-popover ino-placement="left" ino-for="popover-hover" ino-trigger="mouseenter"><p>This popover occurs on mouseenter</p></ino-popover>
 
       <ino-button id="popover-focus">Focus</ino-button>
-      <ino-popover ino-placement="top" ino-for="popover-focus" ino-trigger="focus">This popover occurs on focus.</ino-popover>
+      <ino-popover ino-placement="top" ino-for="popover-focus" ino-trigger="focus"><p>This popover occurs on focus.</p></ino-popover>
 
       <ino-button id="popover-click">Click</ino-button>
-      <ino-popover ino-placement="right" ino-for="popover-click" ino-trigger="click">This popover occurs on click.</ino-popover>
+      <ino-popover ino-placement="right" ino-for="popover-click" ino-trigger="click"><p>This popover occurs on click.</p></ino-popover>
 </div>
       <h4>Interactions</h4>
             <div class="row">
