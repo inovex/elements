@@ -35,7 +35,6 @@ export const isValid = (elm: HTMLElement) => {
 			return false;
 		}
 
-		// tslint:disable-next-line:prefer-for-of
 		for (let i = 0; i < elm.attributes.length; i++) {
 			const val = elm.attributes[i].value;
 			if (isStr(val) && val.toLowerCase().indexOf('on') === 0) {
@@ -43,7 +42,6 @@ export const isValid = (elm: HTMLElement) => {
 			}
 		}
 
-		// tslint:disable-next-line:prefer-for-of
 		for (let i = 0; i < elm.childNodes.length; i++) {
 			if (!isValid(elm.childNodes[i] as any)) {
 				return false;

@@ -28,7 +28,6 @@ export const proxyOutputs = (instance: any, el: any, events: string[]) => {
   events.forEach((eventName) => (instance[eventName] = new EventEmitter()));
 };
 
-// tslint:disable-next-line: only-arrow-functions
 export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
   const decorator = function (cls: any) {
     if (opts.inputs) {
