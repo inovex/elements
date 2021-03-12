@@ -1,4 +1,4 @@
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
@@ -7,7 +7,6 @@ import './ino-popover.scss';
 
 function subscribeToComponentEvents() {
   const eventHandler = function (e) {
-    console.log(e);
     e.target?.setAttribute('ino-visible', e.detail);
     document.querySelector('#controlled-checkbox').checked = e.detail;
   };
@@ -34,6 +33,7 @@ export const DefaultUsage = () => /*html*/ `
 
       <ino-button id="popover-target">Popover</ino-button>
       <ino-popover
+        ino-distance="${number('ino-distance', 10)}"
         ino-for="popover-target"
         ino-interactive="${boolean('ino-interactive', false)}"
         ino-placement="${select(

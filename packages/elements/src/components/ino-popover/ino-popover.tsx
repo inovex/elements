@@ -38,7 +38,9 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoPlacement')
   inoPlacementChanged() {
-    this.create();
+    this.tippyInstance?.setProps({
+      placement: this.inoPlacement,
+    });
   }
 
   /**
@@ -54,6 +56,19 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * Displaces the popover away from, or toward, the anchor element in the direction of its placement.
+   * A positive number displaces it further away, while a negative number lets it overlap the anchor.
+   */
+  @Prop() inoDistance?: number = 10;
+
+  @Watch('inoDistance')
+  inoDistanceChanged() {
+    this.tippyInstance?.setProps({
+      offset: [0, this.inoDistance],
+    });
+  }
+
+  /**
    * Sets the color scheme of the popup
    * Valid options include: 'primary', 'secondary', 'light', 'transparent'
    */
@@ -64,6 +79,11 @@ export class Popover implements ComponentInterface {
    */
   @Prop() inoInteractive? = false;
 
+  @Watch('inoInteractive')
+  inoInteractiveChanged() {
+    this.create();
+  }
+
   /**
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
@@ -72,7 +92,9 @@ export class Popover implements ComponentInterface {
 
   @Watch('inoTrigger')
   inoTriggerChanged() {
-    this.create();
+    this.tippyInstance?.setProps({
+      trigger: this.inoTrigger,
+    });
   }
 
   /**
@@ -143,6 +165,7 @@ export class Popover implements ComponentInterface {
       placement: this.inoPlacement,
       trigger: this.inoTrigger,
       interactive: this.inoInteractive,
+      offset: [0, this.inoDistance],
       onShow: () => {
         if (this.inoControlled && !this.inoVisible) {
           this.inoVisibleChanged.emit(true);
@@ -184,9 +207,7 @@ export class Popover implements ComponentInterface {
             ref={(ref) => (this.inoPopoverContent = ref)}
           >
             <div class="ino-tooltip__inner">
-              <div class="ino-popover__content">
-                <slot></slot>
-              </div>
+              <slot></slot>
             </div>
           </div>
         </div>
