@@ -1,3 +1,4 @@
+import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
@@ -73,6 +74,27 @@ const createMonthPickerOptions = ({
   maxDate,
   minDate,
 });
+
+/**
+ * Increments or decrements the given date
+ * @param value The current date
+ * @param format  The format of the date, needed for correct parsing
+ * @param yearOffset Either 1 for incrementing or -1 for decrementing
+ * @return The incremented/decremented date in the given format
+ */
+export const changeYearByOne = (
+  value: string,
+  format: string,
+  yearOffset: -1 | 1
+): string => {
+  const currentDate = flatpickr.parseDate(value, format);
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const day = currentDate.getDate();
+  const newYear = year + yearOffset;
+  const newDate = new Date(newYear, month, day);
+  return flatpickr.formatDate(newDate, format);
+};
 
 const createTimePickerOptions = ({
   defaultHour,

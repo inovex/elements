@@ -16,6 +16,7 @@ import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
 import {
+  changeYearByOne,
   getTypeSpecificOptions,
   PickerTypeKeys,
   PickerTypes,
@@ -266,16 +267,10 @@ export class Datepicker implements ComponentInterface {
     if (!this.value || this.flatpickr.selectedDates.length !== 1) {
       return;
     }
-
-    const currentDate = this.flatpickr.parseDate(this.value);
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const day = currentDate.getDate();
-    const newYear = year + yearOffset;
-    const newDate = new Date(newYear, month, day);
-    const formattedDate = this.flatpickr.formatDate(
-      newDate,
-      this.flatpickr.config.dateFormat
+    const formattedDate = changeYearByOne(
+      this.value,
+      this.flatpickr.config.dateFormat,
+      yearOffset
     );
     this.valueChange.emit(formattedDate);
   }
@@ -332,31 +327,35 @@ export class Datepicker implements ComponentInterface {
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
 
-    if (this.inoType === PickerTypes.Month) {
-      this.flatpickr.prevMonthNav.addEventListener(
-        'click',
-        this.monthChangePrevHandler
-      );
-      this.flatpickr.nextMonthNav.addEventListener(
-        'click',
-        this.monthChangeNextHandler
-      );
-    }
+    this.inoType === PickerTypes.Month && this.initMonthPicker();
+  }
+
+  private initMonthPicker() {
+    this.flatpickr.prevMonthNav.addEventListener(
+      'click',
+      this.monthChangePrevHandler
+    );
+    this.flatpickr.nextMonthNav.addEventListener(
+      'click',
+      this.monthChangeNextHandler
+    );
   }
 
   private dispose() {
-    if (this.inoType === 'month') {
-      this.flatpickr?.prevMonthNav.removeEventListener(
-        'click',
-        this.monthChangePrevHandler
-      );
-      this.flatpickr?.nextMonthNav.removeEventListener(
-        'click',
-        this.monthChangeNextHandler
-      );
-    }
+    this.inoType === PickerTypes.Month && this.terminateMonthPicker();
 
     this.flatpickr?.destroy();
+  }
+
+  private terminateMonthPicker() {
+    this.flatpickr?.prevMonthNav.removeEventListener(
+      'click',
+      this.monthChangePrevHandler
+    );
+    this.flatpickr?.nextMonthNav.removeEventListener(
+      'click',
+      this.monthChangeNextHandler
+    );
   }
 
   render() {
