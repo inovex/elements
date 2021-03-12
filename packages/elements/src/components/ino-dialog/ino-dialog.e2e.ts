@@ -46,13 +46,13 @@ describe('InoDialog', () => {
       const inoDialog = await page.find(INO_DIALOG_SELECTOR);
       const inoChangedEvent = await page.spyOnEvent('openChange');
 
-      await inoDialog.triggerEvent('MDCDialog:opened');
+      await inoDialog.setAttribute('ino-open', true);
       await page.waitForChanges();
 
       expect(inoChangedEvent).toHaveReceivedEvent();
       expect(inoChangedEvent).toHaveReceivedEventDetail(true);
 
-      await inoDialog.triggerEvent('MDCDialog:closed');
+      await inoDialog.setAttribute('ino-open', false);
       await page.waitForChanges();
 
       expect(inoChangedEvent).toHaveReceivedEvent();
