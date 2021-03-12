@@ -118,6 +118,14 @@ export class Textarea implements ComponentInterface {
    */
   @Prop() inoLabel?: string;
 
+  /**
+   * Emits when the textarea is blurred and validates email input
+   */
+  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+  private handleBlur = (e) => {
+    this.inoBlur.emit(e);
+  };
+
   @Watch('value')
   handleChange(value: string) {
     if (this.nativeTextareaElement && this.textfield) {
@@ -224,6 +232,7 @@ export class Textarea implements ComponentInterface {
             rows={this.rows}
             value={this.value}
             onInput={this.handleNativeTextareaChange.bind(this)}
+            onBlur={this.handleBlur}
           />
           {this.maxlength && (
             <div class="mdc-text-field-character-counter">

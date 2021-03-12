@@ -132,6 +132,7 @@ The component is based on a native input with additional features. Thus, the com
 
 | Event         | Description                                                                    | Type                  |
 | ------------- | ------------------------------------------------------------------------------ | --------------------- |
+| `inoBlur`     | Emits when the textarea is blurred and validates email input                   | `CustomEvent<void>`   |
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 

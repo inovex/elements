@@ -2732,6 +2732,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Emits when the textarea is blurred and validates email input
+         */
+        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        /**
           * Emits when the user types something in. Contains typed input in `event.detail`
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
