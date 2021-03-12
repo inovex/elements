@@ -8,8 +8,8 @@ import {
   Host,
   Prop,
   Watch,
-  h,
-} from '@stencil/core';
+  h, Listen
+} from "@stencil/core";
 
 @Component({
   tag: 'ino-tab-bar',
@@ -42,15 +42,14 @@ export class TabBar implements ComponentInterface {
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
     this.mdcInstance.activateTab(this.inoActiveTab);
-    this.el.addEventListener('inoInteracted', this.interactionHandler);
   }
 
   disconnectedCallback() {
     this.mdcInstance?.destroy();
-    this.el.removeEventListener('inoInteracted', this.interactionHandler);
   }
 
-  interactionHandler = async (e) => {
+  @Listen('inoInteracted')
+  async interactionHandler(e) {
     e.stopPropagation();
     const allTabs = await Promise.all(
       Array.from(this.el.querySelectorAll('ino-tab'))
