@@ -136,6 +136,31 @@ The component is based on a native input with additional features. Thus, the com
 | `valueChange` | Emits when the user types something in. Contains typed input in `event.detail` | `CustomEvent<string>` |
 
 
+## Methods
+
+### `setBlur() => Promise<void>`
+
+Sets blur on the native `textarea`. 
+Use this method instead of the global `textarea.blur()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFocus() => Promise<void>`
+
+Sets focus on the native `textarea`. 
+Use this method instead of the global `textarea.focus()`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## CSS Custom Properties
 
 | Name                           | Description                   |

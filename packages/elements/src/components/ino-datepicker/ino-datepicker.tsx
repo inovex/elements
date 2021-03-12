@@ -10,6 +10,7 @@ import {
   Prop,
   State,
   Watch,
+  Method,
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import { Instance } from 'flatpickr/dist/types/instance';
@@ -27,6 +28,7 @@ export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   private flatpickr!: Instance;
+  private inoInputEl?: HTMLInoInputElement;
 
   private inputEl: HTMLInoInputElement;
 
@@ -273,6 +275,25 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+   @Method()
+   async setFocus() {
+     this.inoInputEl?.setFocus();
+   }
+
+   /**
+    * Sets blur on the native `input`.
+    * Use this method instead of the global `input.blur()`.
+    */
+   @Method()
+   async setBlur() {
+     this.inoInputEl?.setBlur();
+   }
+
   connectedCallback() {
     this.validator = new Validator({
       dateFormat: this.dateFormat,
@@ -361,6 +382,7 @@ export class Datepicker implements ComponentInterface {
           helper-validation={this.helperValidation}
           show-label-hint={this.showLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
+          ref={inoInputEl => this.inoInputEl = inoInputEl}
         >
           <ino-icon
             clickable={!this.disabled}
