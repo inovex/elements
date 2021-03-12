@@ -1,7 +1,17 @@
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
-export type PickerTypeOptions = 'date' | 'month' | 'time' | 'datetime';
+export type PickerTypeKeys = typeof PickerTypes[keyof typeof PickerTypes];
+
+// Workaround until Stencil is using TS 4.1, use enum then
+// see => https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum
+export const PickerTypes = {
+  Date: 'date',
+  Month: 'month',
+  Time: 'time',
+  DateTime: 'datetime',
+} as const;
+
 type PartialFlatpickrOptions = Partial<BaseOptions>;
 
 type TimePickerOptions = Pick<
@@ -28,24 +38,24 @@ type PickerOption =
   | (TimePickerOptions & DatePickerOptions)
   | MonthPickerOptions;
 
-export const getTypeSpecificOption = (
-  type: PickerTypeOptions,
+export const getTypeSpecificOptions = (
+  type: PickerTypeKeys,
   options: PartialFlatpickrOptions
 ): PickerOption => {
   switch (type) {
-    case 'date':
+    case PickerTypes.Date:
       return createDatePickerOptions(options);
-    case 'time':
+    case PickerTypes.Time:
       return createTimePickerOptions({
         ...options,
         noCalendar: true,
       });
-    case 'datetime':
+    case PickerTypes.DateTime:
       return {
         ...createDatePickerOptions(options),
         ...createTimePickerOptions(options),
       };
-    case 'month':
+    case PickerTypes.Month:
       return createMonthPickerOptions(options);
   }
 };

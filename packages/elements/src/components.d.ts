@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
-import { PickerTypeOptions } from "./components/ino-datepicker/type-specific-options";
+import { PickerTypeKeys } from "./components/ino-datepicker/type-specific-options";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoButton {
@@ -286,7 +286,7 @@ export namespace Components {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: PickerTypeOptions;
+        "inoType"?: PickerTypeKeys;
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -1802,7 +1802,7 @@ declare namespace LocalJSX {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: PickerTypeOptions;
+        "inoType"?: PickerTypeKeys;
         /**
           * The maximum date that a user can pick to (inclusive).
          */

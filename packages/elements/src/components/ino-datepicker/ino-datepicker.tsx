@@ -16,8 +16,9 @@ import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
 import {
-  getTypeSpecificOption,
-  PickerTypeOptions,
+  getTypeSpecificOptions,
+  PickerTypeKeys,
+  PickerTypes,
 } from './type-specific-options';
 import { validateRange, validateSingle } from './validation';
 
@@ -79,16 +80,12 @@ export class Datepicker implements ComponentInterface {
 
     const dateFormat = this.flatpickr.config.dateFormat;
 
-    if (this.inoRange) {
-      this.isValid = validateRange(value, dateFormat);
-    }
-
-    if (!this.inoRange) {
-      this.isValid = validateSingle(value, dateFormat, this.min, this.max);
-    }
+    this.isValid = this.inoRange
+      ? validateRange(value, dateFormat)
+      : validateSingle(value, dateFormat, this.min, this.max);
 
     if (this.isValid) {
-      this.flatpickr.setDate(value, true);
+      this.flatpickr?.setDate(value, true);
     }
   }
 
@@ -212,7 +209,7 @@ export class Datepicker implements ComponentInterface {
   /**
    * Selects the correct picker corresponding to the given type.
    */
-  @Prop() inoType?: PickerTypeOptions = 'date';
+  @Prop() inoType?: PickerTypeKeys = 'date';
 
   @Watch('inoType')
   inoTypeChanged() {
@@ -314,7 +311,7 @@ export class Datepicker implements ComponentInterface {
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
     };
 
-    const typeSpecificOptions: Partial<BaseOptions> = getTypeSpecificOption(
+    const typeSpecificOptions: Partial<BaseOptions> = getTypeSpecificOptions(
       this.inoType,
       {
         defaultHour: this.inoDefaultHour,
@@ -335,7 +332,7 @@ export class Datepicker implements ComponentInterface {
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
 
-    if (this.inoType === 'month') {
+    if (this.inoType === PickerTypes.Month) {
       this.flatpickr.prevMonthNav.addEventListener(
         'click',
         this.monthChangePrevHandler
@@ -348,9 +345,18 @@ export class Datepicker implements ComponentInterface {
   }
 
   private dispose() {
-    if (this.flatpickr) {
-      this.flatpickr.destroy();
+    if (this.inoType === 'month') {
+      this.flatpickr?.prevMonthNav.removeEventListener(
+        'click',
+        this.monthChangePrevHandler
+      );
+      this.flatpickr?.nextMonthNav.removeEventListener(
+        'click',
+        this.monthChangeNextHandler
+      );
     }
+
+    this.flatpickr?.destroy();
   }
 
   render() {
