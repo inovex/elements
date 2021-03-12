@@ -802,7 +802,7 @@ export namespace Components {
          */
         "inoControlled": boolean;
         /**
-          * Displaces the popper away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+          * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "inoDistance"?: number;
         /**
@@ -2366,7 +2366,7 @@ declare namespace LocalJSX {
          */
         "inoControlled"?: boolean;
         /**
-          * Displaces the popper away from, or toward, the reference element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the reference.
+          * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "inoDistance"?: number;
         /**

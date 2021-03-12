@@ -206,9 +206,7 @@ export class Popover implements ComponentInterface {
             ref={(ref) => (this.inoPopoverContent = ref)}
           >
             <div class="ino-tooltip__inner">
-              <div class="ino-popover__content">
-                <slot></slot>
-              </div>
+              <slot></slot>
             </div>
           </div>
         </div>
