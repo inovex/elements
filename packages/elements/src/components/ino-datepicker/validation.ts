@@ -3,19 +3,18 @@ import flatpickr from 'flatpickr';
 
 const NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
-export function validateRange(value: string, format: string): boolean {
-  return !value
+export const validateRange = (value: string, format: string): boolean =>
+  !value
     .match(NUMBERS_WITH_SPECIAL_CHARS)
     .map((match) => validateFormat(match.trim(), format))
     .includes(false);
-}
 
-export function validateSingle(
+export const validateSingle = (
   value: string,
   format: string,
   minDateStr?: string,
   maxDateStr?: string
-): boolean {
+): boolean => {
   let isValid: boolean;
 
   try {
@@ -29,9 +28,13 @@ export function validateSingle(
   }
 
   return isValid;
-}
+};
 
-function validateMin(date: Date, format: string, minDateStr?: string): boolean {
+const validateMin = (
+  date: Date,
+  format: string,
+  minDateStr?: string
+): boolean => {
   if (!minDateStr) {
     return true;
   }
@@ -39,9 +42,13 @@ function validateMin(date: Date, format: string, minDateStr?: string): boolean {
   const minDate = flatpickr.parseDate(minDateStr, format);
 
   return isEqual(date, minDate) || isAfter(date, minDate);
-}
+};
 
-function validateMax(date: Date, format: string, maxDateStr?: string): boolean {
+const validateMax = (
+  date: Date,
+  format: string,
+  maxDateStr?: string
+): boolean => {
   if (!maxDateStr) {
     return true;
   }
@@ -49,11 +56,11 @@ function validateMax(date: Date, format: string, maxDateStr?: string): boolean {
   const maxDate = flatpickr.parseDate(maxDateStr, format);
 
   return isEqual(date, maxDate) || isBefore(date, maxDate);
-}
+};
 
-function validateFormat(value: string, format: string): boolean {
+const validateFormat = (value: string, format: string): boolean => {
   const parsedDate: Date = flatpickr.parseDate(value, format);
   const formattedDate: string = flatpickr.formatDate(parsedDate, format);
 
   return formattedDate == value;
-}
+};

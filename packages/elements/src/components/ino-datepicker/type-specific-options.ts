@@ -28,10 +28,10 @@ type PickerOption =
   | (TimePickerOptions & DatePickerOptions)
   | MonthPickerOptions;
 
-export function getTypeSpecificOption(
+export const getTypeSpecificOption = (
   type: PickerTypeOptions,
   options: PartialFlatpickrOptions
-): PickerOption {
+): PickerOption => {
   switch (type) {
     case 'date':
       return createDatePickerOptions(options);
@@ -48,25 +48,23 @@ export function getTypeSpecificOption(
     case 'month':
       return createMonthPickerOptions(options);
   }
-}
+};
 
-function createMonthPickerOptions({
+const createMonthPickerOptions = ({
   minDate,
   maxDate,
   dateFormat,
-}: PartialFlatpickrOptions): MonthPickerOptions {
-  return {
-    plugins: [
-      monthSelectPlugin({
-        dateFormat: dateFormat === 'd-m-Y' ? 'm.Y' : dateFormat,
-      }),
-    ],
-    maxDate,
-    minDate,
-  };
-}
+}: PartialFlatpickrOptions): MonthPickerOptions => ({
+  plugins: [
+    monthSelectPlugin({
+      dateFormat: dateFormat === 'd-m-Y' ? 'm.Y' : dateFormat,
+    }),
+  ],
+  maxDate,
+  minDate,
+});
 
-function createTimePickerOptions({
+const createTimePickerOptions = ({
   defaultHour,
   defaultMinute,
   enableTime,
@@ -74,28 +72,24 @@ function createTimePickerOptions({
   minuteIncrement,
   hourIncrement,
   noCalendar,
-}: PartialFlatpickrOptions): TimePickerOptions {
-  return {
-    defaultHour,
-    defaultMinute,
-    enableTime,
-    time_24hr,
-    minuteIncrement,
-    hourIncrement,
-    noCalendar,
-  };
-}
+}: PartialFlatpickrOptions): TimePickerOptions => ({
+  defaultHour,
+  defaultMinute,
+  enableTime,
+  time_24hr,
+  minuteIncrement,
+  hourIncrement,
+  noCalendar,
+});
 
-function createDatePickerOptions({
+const createDatePickerOptions = ({
   dateFormat,
   minDate,
   maxDate,
   mode,
-}: PartialFlatpickrOptions): DatePickerOptions {
-  return {
-    dateFormat,
-    minDate,
-    maxDate,
-    mode,
-  };
-}
+}: PartialFlatpickrOptions): DatePickerOptions => ({
+  dateFormat,
+  minDate,
+  maxDate,
+  mode,
+});
