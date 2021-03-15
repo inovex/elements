@@ -65,7 +65,6 @@ ino-input {
   @include typography.font(sans-serif, m, regular);
   @include textfield.label-color(var(--input-label-color));
   @include textfield.caret-color(var(--input-caret-color));
-  @include textfield.placeholder-color($placeholder-color);
 
   & * {
     box-sizing: initial;
@@ -91,6 +90,10 @@ ino-input {
 
   .mdc-text-field--invalid {
     @include setIconColors(theme.color(error));
+  }
+
+  :not(.mdc-text-field--disabled) {
+    @include textfield.placeholder-color($placeholder-color);
   }
 
   .mdc-text-field__affix.mdc-text-field__affix--suffix {
