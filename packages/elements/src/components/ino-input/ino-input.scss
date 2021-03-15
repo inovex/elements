@@ -63,7 +63,6 @@ ino-input {
   display: block;
   @include icon.icon-core-styles;
   @include typography.font(sans-serif, m, regular);
-  @include textfield.label-color(var(--input-label-color));
   @include textfield.caret-color(var(--input-caret-color));
 
   & * {
@@ -85,10 +84,12 @@ ino-input {
 
   @include setIconColors($placeholder-color);
 
+  @include textfield.label-color(var(--input-label-color));
   .mdc-text-field--focused {
     @include setIconColors(var(--input-icon-color));
   }
 
+  @include textfield.label-color(theme.color(error));
   .mdc-text-field--invalid {
     @include setIconColors(theme.color(error));
   }
