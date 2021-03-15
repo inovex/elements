@@ -76,7 +76,8 @@ ino-input {
     box-sizing: border-box;
   }
 
-  .mdc-text-field__icon {
+  .mdc-text-field__icon,
+  .mdc-text-field__icon:not([tabindex]) {
     cursor: auto;
     pointer-events: auto;
     padding: 0;
