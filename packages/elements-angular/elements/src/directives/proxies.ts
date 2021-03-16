@@ -181,7 +181,8 @@ export class InoControlItem {
 import { Datepicker as IDatepicker } from '@inovex.de/elements/dist/types/components/ino-datepicker/ino-datepicker';
 export declare interface InoDatepicker extends Components.InoDatepicker {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value']
+  inputs: ['autoFocus', 'disabled', 'hourStep', 'inoDateFormat', 'inoDefaultDate', 'inoDefaultHour', 'inoDefaultMinute', 'inoHelper', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoRange', 'inoShowLabelHint', 'inoTwelveHourTime', 'inoType', 'max', 'min', 'minuteStep', 'name', 'required', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-datepicker',
@@ -390,7 +391,7 @@ import { Input as IInput } from '@inovex.de/elements/dist/types/components/ino-i
 export declare interface InoInput extends Components.InoInput {}
 @ProxyCmp({
   inputs: ['autoFocus', 'autocomplete', 'disabled', 'inoDataList', 'inoDecimalPlaces', 'inoError', 'inoHelper', 'inoHelperCharacterCounter', 'inoHelperPersistent', 'inoHelperValidation', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'inoThousandsSeparator', 'inoUnit', 'max', 'maxlength', 'min', 'name', 'pattern', 'placeholder', 'required', 'size', 'step', 'type', 'value'],
-  methods: ['getInputElement']
+  methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-input',
@@ -999,7 +1000,8 @@ export class InoTableRow {
 import { Textarea as ITextarea } from '@inovex.de/elements/dist/types/components/ino-textarea/ino-textarea';
 export declare interface InoTextarea extends Components.InoTextarea {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value']
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'inoLabel', 'inoOutline', 'inoShowLabelHint', 'maxlength', 'minlength', 'name', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'value'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-textarea',

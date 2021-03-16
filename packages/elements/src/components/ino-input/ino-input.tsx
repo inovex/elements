@@ -225,7 +225,7 @@ export class Input implements ComponentInterface {
 
   @Listen('focus')
   focusListener() {
-    this.textfield.focus();
+    this.setFocus();
   }
 
   /**
@@ -235,6 +235,24 @@ export class Input implements ComponentInterface {
   async getInputElement() {
     return this.nativeInputEl;
   }
+
+  /**
+   * Sets focus on the native `input`. 
+   * Use this method instead of the global `input.focus()`.
+   */
+   @Method()
+   async setFocus() {
+     this.textfield?.focus();
+   }
+ 
+   /**
+    * Sets blur on the native `input`. 
+    * Use this method instead of the global `input.blur()`.
+    */
+   @Method()
+   async setBlur() {
+     this.nativeInputEl?.blur();
+   }
 
   /**
    * Simple static construct to generate unique helper text ids.
@@ -271,7 +289,7 @@ export class Input implements ComponentInterface {
     }
 
     if (this.autoFocus) {
-      this.textfield.focus();
+      this.setFocus();
     }
 
     if (this.inoDataList) {

@@ -10,6 +10,7 @@ import {
   Watch,
   h,
   State,
+  Method,
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect';
@@ -26,6 +27,7 @@ export class Datepicker implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   private flatpickr!: Instance;
+  private inoInputEl?: HTMLInoInputElement;
 
   /**
    * Autofocuses this element.
@@ -306,6 +308,25 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+
+  /**
+   * Sets focus on the native `input`. 
+   * Use this method instead of the global `input.focus()`.
+   */
+   @Method()
+   async setFocus() {
+     this.inoInputEl?.setFocus();
+   }
+ 
+   /**
+    * Sets blur on the native `input`. 
+    * Use this method instead of the global `input.blur()`.
+    */
+   @Method()
+   async setBlur() {
+     this.inoInputEl?.setBlur();
+   }
+
   componentDidLoad() {
     if (!this.disabled) this.create();
   }
@@ -488,6 +509,7 @@ export class Datepicker implements ComponentInterface {
           ino-helper-validation={this.inoHelperValidation}
           ino-show-label-hint={this.inoShowLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
+          ref={inoInputEl => this.inoInputEl = inoInputEl}
         >
           <ino-icon
             ino-clickable={!this.disabled}

@@ -307,6 +307,14 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * Sets blur on the native `input`.  Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`.  Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
+        /**
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
          */
         "value"?: string;
@@ -595,6 +603,14 @@ export namespace Components {
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * Sets blur on the native `input`.  Use this method instead of the global `input.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `input`.  Use this method instead of the global `input.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * The size of this element.
          */
@@ -1143,6 +1159,14 @@ export namespace Components {
           * The number of rows of this textarea.
          */
         "rows"?: number;
+        /**
+          * Sets blur on the native `textarea`.  Use this method instead of the global `textarea.blur()`.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the native `textarea`.  Use this method instead of the global `textarea.focus()`.
+         */
+        "setFocus": () => Promise<void>;
         /**
           * Displays the number of characters. The maxlength-property must be set.
          */
