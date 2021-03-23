@@ -140,12 +140,17 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const classButton = classNames({
+    const hostClasses = classNames({
+      'ino-button--loading': this.inoLoading,
+      'ino-button--mirrored-edge': this.inoEdgeMirrored,
+      'ino-button--dense': this.inoDense,
+    });
+
+    const mdcClasses = classNames({
       'mdc-button': true,
       'mdc-button--unelevated':
         this.inoFill === 'solid' || this.inoFill === 'inverse',
       'mdc-button--outlined': this.inoFill === 'outline',
-      'ino-button--dense': this.inoDense,
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
@@ -153,12 +158,13 @@ export class Button implements ComponentInterface {
 
     return (
       <Host
+        class={hostClasses}
         onClick={this.handleClick}
         ino-fill={this.inoFill}
         ino-color-scheme={this.inoColorScheme}
       >
         <button
-          class={classButton}
+          class={mdcClasses}
           autoFocus={this.autoFocus}
           disabled={this.disabled}
           name={this.name}

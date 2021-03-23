@@ -274,14 +274,26 @@ $color-states: (
       border-color: var(--button-border-color-disabled);
     }
   }
-
-  .mdc-button.ino-button--dense {
-    @include button.density(-1);
-  }
 }
 
-:host([ino-edge-mirrored]:not([ino-edge-mirrored='false'])) {
+:host(.ino-button--mirrored-edge) {
   --button-border-radius: #{$edged-border-mirrored};
+}
+
+:host(.ino-button--dense) .mdc-button {
+  @include button.density(-1);
+}
+
+// Loading Styles
+:host(.ino-button--loading) {
+  button {
+    pointer-events: none;
+  }
+
+  .mdc-button__label .ino-spinner__composer {
+    top: 2px;
+    @include spinner.circle-color(var(--button-color));
+  }
 }
 
 // Icon Styles
@@ -299,16 +311,4 @@ $color-states: (
 
 :host(:disabled) ::slotted(ino-icon) {
   --ino-icon-color-primary: var(--button-color-disabled);
-}
-
-// Loading Styles
-:host([ino-loading]:not([ino-loading='false'])) {
-  button {
-    pointer-events: none;
-  }
-
-  .mdc-button__label .ino-spinner__composer {
-    top: 2px;
-    @include spinner.circle-color(var(--button-color));
-  }
 }
