@@ -84,19 +84,10 @@ $extended-edged-borders: (
   );
 }
 
-// Default Edge
-:host(:not([ino-edge-position])) .mdc-fab {
-  @include setEdgedBorders(top-left);
-}
-
-// Generate ino-edge-position classes
-@each $position in $edge-positions {
-  :host([ino-edge-position='#{$position}']) .mdc-fab {
-    @include setEdgedBorders($position);
-  }
-}
 /*** colors ***/
 :host .mdc-fab {
+  @include setEdgedBorders(top-left);
+
   @include fab.ink-color(var(--fab-color));
   @include fab.container-color(var(--fab-background-color));
 
@@ -123,6 +114,13 @@ $extended-edged-borders: (
   ::slotted(ino-icon),
   ino-icon {
     --icon-color: var(--fab-icon-color);
+  }
+}
+
+// Generate ino-edge-position classes
+@each $position in $edge-positions {
+  :host(.ino-fab--edge-position-#{$position}) .mdc-fab {
+    @include setEdgedBorders($position);
   }
 }
 
