@@ -3,10 +3,10 @@ import {
   Component,
   ComponentInterface,
   Element,
+  h,
   Host,
   Listen,
   Prop,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
@@ -127,11 +127,9 @@ export class Fab implements ComponentInterface {
   private uniqueHelperId = Fab.generateHelperTextId();
 
   render() {
-    const edgePositionClass = `ino-fab--edge-position-${this.inoEdgePosition}`;
-
-    const hostClasses = classNames({
-      [edgePositionClass]: this.inoEdgePosition !== 'none',
-    });
+    const hostClasses = classNames(
+      `ino-fab--edge-position-${this.inoEdgePosition}`
+    );
 
     const classFab = classNames({
       'mdc-fab': true,

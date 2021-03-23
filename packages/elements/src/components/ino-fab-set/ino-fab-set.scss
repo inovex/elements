@@ -10,42 +10,31 @@ $rotationsByDirection: (
   right: 90deg,
 );
 
-@mixin direction($direction: top) {
-  // $direction == "top"
-  $wrapperDirection: column;
-  $speedDialDirection: column;
+$animationByDirection: (
+  top: scaleY(-1),
+  bottom: scaleY(1),
+  left: rotate(90deg),
+  right: rotate(270deg),
+);
 
-  @if $direction == 'bottom' {
-    $wrapperDirection: column-reverse;
-  } @else if $direction == 'left' {
-    $wrapperDirection: row;
-    $speedDialDirection: row;
-  } @else if $direction == 'right' {
-    $wrapperDirection: row-reverse;
-    $speedDialDirection: row;
-  }
+$wrapperFlexByDirection: (
+  top: column,
+  bottom: column-reverse,
+  left: row,
+  right: row-reverse,
+);
 
-  :host([ino-dial-direction='#{$direction}']) {
-    .ino-fab-set-wrapper {
-      flex-direction: $wrapperDirection;
-
-      .ino-speed-dial {
-        flex-direction: $speedDialDirection;
-      }
-    }
-
-    #{$primary-fab-icon-selector} {
-      transform: rotate(map_get($rotationsByDirection, $direction));
-    }
-  }
-}
+$dialFlexByDirection: (
+  top: column,
+  bottom: column,
+  left: row,
+  right: row,
+);
 
 :host {
   position: fixed;
   display: flex;
   width: auto;
-  bottom: 20px;
-  right: 20px;
 
   .ino-fab-set-wrapper {
     display: flex;
@@ -65,30 +54,7 @@ $rotationsByDirection: (
   }
 }
 
-:host([ino-top-bottom-location='top']) {
-  top: 20px;
-  bottom: auto;
-}
-
-:host([ino-top-bottom-location='bottom']) {
-  bottom: 20px;
-}
-
-:host([ino-left-right-location='left']) {
-  left: 20px;
-  right: auto;
-}
-
-:host([ino-left-right-location='right']) {
-  right: 20px;
-}
-
-$directions: 'top', 'bottom', 'left', 'right';
-@each $direction in $directions {
-  @include direction($direction);
-}
-
-:host([ino-open-dial='true']) {
+:host(.ino-fab-set--open-dial) {
   .ino-speed-dial {
     display: flex;
   }
@@ -98,22 +64,44 @@ $directions: 'top', 'bottom', 'left', 'right';
   }
 }
 
-:host([ino-open-dial='true'][ino-dial-direction='top'])
-  #{$primary-fab-icon-selector} {
-  transform: scaleY(-1);
+:host(.ino-top-bottom-location-top) {
+  top: 20px;
 }
 
-:host([ino-open-dial='true'][ino-dial-direction='bottom'])
-  #{$primary-fab-icon-selector} {
-  transform: scaleY(1);
+:host(.ino-top-bottom-location-bottom) {
+  bottom: 20px;
 }
 
-:host([ino-open-dial='true'][ino-dial-direction='left'])
-  #{$primary-fab-icon-selector} {
-  transform: rotate(90deg);
+:host(.ino-left-right-location-left) {
+  left: 20px;
 }
 
-:host([ino-open-dial='true'][ino-dial-direction='right'])
-  #{$primary-fab-icon-selector} {
-  transform: rotate(270deg);
+:host(.ino-left-right-location-right) {
+  right: 20px;
+}
+
+$directions: 'top', 'bottom', 'left', 'right';
+
+@each $direction in $directions {
+  :host {
+    .ino-direction-#{$direction} {
+      &.ino-fab-set-wrapper {
+        flex-direction: map_get($wrapperFlexByDirection, $direction);
+
+        .ino-speed-dial {
+          flex-direction: map_get($dialFlexByDirection, $direction);
+        }
+      }
+
+      #{$primary-fab-icon-selector} {
+        transform: rotate(map_get($rotationsByDirection, $direction));
+      }
+    }
+  }
+
+  :host(.ino-fab-set--open-dial) {
+    .ino-direction-#{$direction} #{$primary-fab-icon-selector} {
+      transform: map-get($animationByDirection, $direction);
+    }
+  }
 }

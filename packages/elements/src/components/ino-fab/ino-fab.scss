@@ -4,7 +4,7 @@
 @use 'base/theme';
 @use 'base/animation';
 
-$edge-positions: top-left, top-right, bottom-right, bottom-left;
+$edge-positions: none, top-left, top-right, bottom-right, bottom-left;
 
 $edged-borders: (
   none: 50%,

@@ -2,9 +2,9 @@ import {
   Component,
   ComponentInterface,
   Element,
+  h,
   Host,
   Prop,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -42,19 +42,25 @@ export class Fab implements ComponentInterface {
   @Prop() inoOpenDial = false;
 
   render() {
+    const hostClasses = classNames(
+      {
+        'ino-fab-set--open-dial': this.inoOpenDial,
+      },
+      'ino-top-bottom-location-' + this.inoTopBottomLocation,
+      'ino-left-right-location-' + this.inoLeftRightLocation
+    );
+
     const speedDialClasses = classNames({
       'ino-speed-dial': true,
     });
 
     const directionClasses = classNames(
-      'ino-top-bottom-location-' + this.inoTopBottomLocation,
-      'ino-left-right-location-' + this.inoLeftRightLocation,
       'ino-fab-set-wrapper',
       'ino-direction-' + this.inoDialDirection
     );
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div class={directionClasses}>
           <div class={speedDialClasses}>
             <slot></slot>
@@ -64,7 +70,10 @@ export class Fab implements ComponentInterface {
             ino-edge-position="none"
             ino-tooltip-placement="none"
           >
-            <ino-icon slot="ino-icon-leading" ino-icon={'_fab_set_arrow_up'}></ino-icon>
+            <ino-icon
+              slot="ino-icon-leading"
+              ino-icon={'_fab_set_arrow_up'}
+            ></ino-icon>
           </ino-fab>
         </div>
       </Host>
