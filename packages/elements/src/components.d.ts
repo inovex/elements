@@ -131,7 +131,7 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */
@@ -1643,7 +1643,7 @@ declare namespace LocalJSX {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme"?: ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */

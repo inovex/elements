@@ -31,7 +31,7 @@ export class Chip implements ComponentInterface {
    * Possible values: `primary`, `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme;
+  @Prop() inoColorScheme: ColorScheme | 'default' = 'default';
 
   /**
    * The fill type of this element.
@@ -96,6 +96,13 @@ export class Chip implements ComponentInterface {
   }
 
   render() {
+    const colorSchemeClass = `ino-chip--color-scheme-${this.inoColorScheme}`;
+
+    const hostClasses = classNames({
+      [colorSchemeClass]: this.inoColorScheme !== 'default',
+      'ino-chip--outline': this.inoFill === 'outline',
+    });
+
     const chipClasses = classNames('mdc-chip', {
       'mdc-chip--selected': this.inoSelected,
     });
@@ -103,7 +110,7 @@ export class Chip implements ComponentInterface {
     const leadingIconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable
+      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
     });
 
     const trailingIconClasses = classNames({
@@ -115,7 +122,7 @@ export class Chip implements ComponentInterface {
     const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
           <div class="mdc-chip__ripple"></div>
 
@@ -146,7 +153,7 @@ export class Chip implements ComponentInterface {
 
           {trailingSlotHasContent && (
             <span class={trailingIconClasses}>
-              <slot name="ino-icon-trailing"/>
+              <slot name="ino-icon-trailing" />
             </span>
           )}
 
