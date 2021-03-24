@@ -18,7 +18,7 @@ ino-snackbar {
 }
 
 ino-snackbar {
-  &[ino-alignment='right'] .mdc-snackbar--leading {
+  &.ino-snackbar--align-right .mdc-snackbar--leading {
     justify-content: flex-end;
   }
 
@@ -56,8 +56,7 @@ ino-snackbar {
     }
   }
 
-  &:not([ino-action-text]),
-  &[ino-action-text=''] {
+  &.ino-snackbar--no-action {
     .mdc-snackbar__surface {
       background-color: lighten(theme.color(primary, light), 5%);
 
@@ -73,13 +72,11 @@ ino-snackbar {
 }
 
 @each $type in $snackbar-types {
-  ino-snackbar[ino-type='#{$type}'] {
-    .mdc-snackbar__surface {
-      border: 2px solid var(--snackbar-#{$type}-border-color);
-    }
+  ino-snackbar.ino-snackbar--type-#{$type} .mdc-snackbar__surface {
+    border: 2px solid var(--snackbar-#{$type}-border-color);
   }
 }
 
-ino-snackbar[ino-type='primary'] .mdc-snackbar__surface {
+ino-snackbar.ino-snackbar--type-primary .mdc-snackbar__surface {
   border: none;
 }

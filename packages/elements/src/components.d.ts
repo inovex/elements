@@ -991,7 +991,7 @@ export namespace Components {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment"?: 'left' | 'right' | 'center';
+        "inoAlignment": 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
@@ -1003,7 +1003,7 @@ export namespace Components {
         /**
           * Changes the snackbar type
          */
-        "inoType"?: SnackbarType;
+        "inoType": SnackbarType;
     }
     interface InoSpinner {
         /**

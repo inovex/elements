@@ -5,9 +5,9 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Prop,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { SnackbarType } from '../types';
@@ -37,12 +37,12 @@ export class Snackbar implements ComponentInterface {
   /**
    * Controls if Snackbar is centered or left-aligned or right-aligned.
    */
-  @Prop() inoAlignment?: 'left' | 'right' | 'center' = 'center';
+  @Prop() inoAlignment: 'left' | 'right' | 'center' = 'center';
 
   /**
    * Changes the snackbar type
    */
-  @Prop() inoType?: SnackbarType = 'primary';
+  @Prop() inoType: SnackbarType = 'primary';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
@@ -90,6 +90,14 @@ export class Snackbar implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames(
+      `ino-snackbar--align-${this.inoAlignment}`,
+      `ino-snackbar--type-${this.inoType}`,
+      {
+        'ino-snackbar--no-action': !this.inoActionText,
+      }
+    );
+
     const snackbarClasses = classNames({
       'mdc-snackbar': true,
       'mdc-snackbar--leading':
@@ -97,7 +105,7 @@ export class Snackbar implements ComponentInterface {
     });
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div
           ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
