@@ -12,13 +12,16 @@
 
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height: var(--ino-icon-height, 1em);
+}
+
+:host(.ino-icon--color-scheme-primary) {
   --icon-color: var(
     --ino-icon-color-primary,
     var(--ino-global-primary-color, #{theme.color(primary, base)})
   );
 }
 
-:host([ino-color-secondary]):host(:not([ino-color-secondary='false'])) {
+:host(.ino-icon--color-scheme-secondary) {
   --icon-color: var(
     --ino-icon-color-secondary,
     var(--ino-global-secondary-color, #{theme.color(secondary, base)})
