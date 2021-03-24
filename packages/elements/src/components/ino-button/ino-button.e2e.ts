@@ -30,10 +30,23 @@ describe('InoButton', () => {
     const page = await setupPageWithContent(INO_BUTTON);
 
     const inoButtonEl = await page.find('ino-button');
+
+    const innerButtonEl = await page.find('ino-button >>> button');
+
+    const defaultBtnStyles = await innerButtonEl.getComputedStyle();
+    const defaultHeight = Number(defaultBtnStyles.height.slice(0, -2));
+
     inoButtonEl.setAttribute('ino-dense', true);
     await page.waitForChanges();
-    const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
-    expect(mdcButtonEl).toHaveClass('ino-button--dense');
+
+    const densedButtonEl = await page.find(
+      'ino-button.ino-button--dense >>> button'
+    );
+
+    const densedBtnStyles = await densedButtonEl.getComputedStyle();
+    const densedHeight = Number(densedBtnStyles.height.slice(0, -2));
+
+    expect(defaultHeight).toBeGreaterThan(densedHeight);
   });
 
   describe('property ino-fill', () => {
