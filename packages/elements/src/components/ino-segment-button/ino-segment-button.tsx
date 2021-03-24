@@ -109,7 +109,12 @@ export class InoSegmentButton implements ComponentInterface {
   };
 
   render() {
-    const classes = classNames({
+    const hostClasses = classNames({
+      'ino-segment-button--checked': this.checked,
+      'ino-segment-button--disabled': this.checked,
+    });
+
+    const buttonClasses = classNames({
       'mdc-button': true,
       'mdc-button--outlined': true,
       'ino-segment-button--dense': this.inoDense,
@@ -121,10 +126,10 @@ export class InoSegmentButton implements ComponentInterface {
       <Host
         checked={this.checked}
         onClick={this.handleClick}
-        class={this.disabled && 'ino-segment-button--disabled'}
+        class={hostClasses}
       >
         <button
-          class={classes}
+          class={buttonClasses}
           disabled={this.disabled}
           id={this.buttonId}
           name={this.name}
