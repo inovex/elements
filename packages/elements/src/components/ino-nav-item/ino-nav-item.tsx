@@ -6,6 +6,7 @@ import {
   Host,
   h,
 } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-nav-item',
@@ -41,6 +42,9 @@ export class NavItem implements ComponentInterface {
   render() {
     const slotPosition = this.el.children.length > 0 ? 'ino-leading' : '';
 
+    const slotContainerClasses = classNames({
+      'ino-nav-item--leading-slot': slotPosition === 'ino-leading',
+    });
     return (
       <Host>
         <ino-list-item
@@ -49,7 +53,7 @@ export class NavItem implements ComponentInterface {
           inoActivated={this.inoActivated}
           inoDisabled={this.inoDisabled}
         >
-          <span slot={slotPosition}>
+          <span class={slotContainerClasses} slot={slotPosition}>
             <slot></slot>
           </span>
         </ino-list-item>
