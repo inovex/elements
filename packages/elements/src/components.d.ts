@@ -1009,15 +1009,15 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme;
         /**
           * The height of this spinner (default = 40)
          */
-        "inoHeight"?: number;
+        "inoHeight": number;
         /**
           * If true, the spinner is shown as modal over the current app page.
          */
-        "inoModal"?: boolean;
+        "inoModal": boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
          */
@@ -1025,7 +1025,7 @@ export namespace Components {
         /**
           * The width of this spinner (defaul = 40)
          */
-        "inoWidth"?: number;
+        "inoWidth": number;
     }
     interface InoSwitch {
         /**

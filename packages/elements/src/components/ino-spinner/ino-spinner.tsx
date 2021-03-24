@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
+import classNames from 'classnames';
 
 import { ColorScheme, SpinnerType } from '../types';
 
@@ -20,22 +21,22 @@ export class Spinner implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
-
-  /**
-   * The height of this spinner (default = 40)
-   */
-  @Prop() inoHeight?: number = 40;
+  @Prop() inoColorScheme: ColorScheme = 'primary';
 
   /**
    * If true, the spinner is shown as modal over the current app page.
    */
-  @Prop() inoModal?: boolean;
+  @Prop() inoModal: boolean = false;
+
+  /**
+   * The height of this spinner (default = 40)
+   */
+  @Prop() inoHeight: number = 40;
 
   /**
    * The width of this spinner (defaul = 40)
    */
-  @Prop() inoWidth?: number = 40;
+  @Prop() inoWidth: number = 40;
 
   private tileTemplate() {
     return [
@@ -72,6 +73,14 @@ export class Spinner implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames(
+      `ino-spinner--type-${this.inoType}`,
+      `ino-spinner--color-scheme-${this.inoColorScheme}`,
+      {
+        'ino-spinner--modal': this.inoModal,
+      }
+    );
+
     let spinnerTemplate;
     if (this.inoType === 'tile') {
       spinnerTemplate = this.tileTemplate();
@@ -82,7 +91,7 @@ export class Spinner implements ComponentInterface {
     }
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div
           class="ino-spinner__composer"
           style={{ width: `${this.inoWidth}px`, height: `${this.inoHeight}px` }}
