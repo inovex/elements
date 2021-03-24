@@ -140,6 +140,7 @@ export class Image implements ComponentInterface {
 
   render() {
     const hostClasses = classNames({
+      'ino-img__rounded': this.inoRounded,
       'mdc-image-list__item': this.inoImgListItem,
     });
 

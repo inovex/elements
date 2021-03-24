@@ -21,10 +21,8 @@ ino-img {
     bottom: 0;
   }
 
-  &[ino-rounded] {
-    .ino-img__image {
-      border-radius: 50%;
-    }
+  &.ino-img__rounded .ino-img__image {
+    border-radius: 50%;
   }
 
   &.mdc-image-list__item {
