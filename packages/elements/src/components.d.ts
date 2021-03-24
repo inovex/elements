@@ -877,7 +877,7 @@ export namespace Components {
         /**
           * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme;
         /**
           * Restricts the slider to only allow discrete values.
          */
