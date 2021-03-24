@@ -4,26 +4,23 @@
 $label-color: rgba(0, 0, 0, 0.6);
 
 ino-label {
-  &[ino-show-hint] {
+  .mdc-floating-label::after {
+    content: none;
+  }
+
+  &.ino-label--show-hint {
     .mdc-floating-label:after {
       content: '*';
     }
 
-    &:not([ino-required]) .mdc-floating-label:after {
+    &:not(.ino-label--required) .mdc-floating-label:after {
       content: ' - Optional' + '\a0';
       font-style: italic;
       color: lighten($label-color, 30);
     }
   }
 
-  &[ino-show-hint='false'],
-  &:not([ino-show-hint]) {
-    .mdc-floating-label::after {
-      content: none;
-    }
-  }
-
-  &:not([ino-outline]) .mdc-floating-label {
+  &:not(.ino-label--outlined) .mdc-floating-label {
     left: 0;
 
     ino-input &:not(.mdc-floating-label--float-above) {
@@ -31,7 +28,7 @@ ino-label {
     }
   }
 
-  &:not([ino-disabled])
+  &:not(.ino-label--disabled)
     .mdc-floating-label:not(.mdc-floating-label--float-above) {
     color: $label-color;
   }

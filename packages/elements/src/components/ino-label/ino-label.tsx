@@ -1,4 +1,5 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
+import classNames from 'classnames';
 
 @Component({
   tag: 'ino-label',
@@ -32,23 +33,39 @@ export class Label {
    */
   @Prop() inoDisabled: boolean;
 
+  filledTemplate = (label: HTMLElement) => [
+    <div class="mdc-line-ripple" />,
+    label,
+  ];
+
+  outlineTemplate = (label: HTMLElement) => (
+    <div class={'mdc-notched-outline'}>
+      <div class="mdc-notched-outline__leading" />
+      <div class="mdc-notched-outline__notch">{label}</div>
+      <div class="mdc-notched-outline__trailing" />
+    </div>
+  );
+
   render() {
+    const hostClasses = classNames({
+      'ino-label--show-hint': this.inoShowHint,
+      'ino-label--outlined': this.inoOutline,
+      'ino-label--required': this.inoRequired,
+      'ino-label--disabled': this.inoDisabled,
+    });
+
     const label = this.inoText ? (
       <label class={'mdc-floating-label'}>{this.inoText}</label>
     ) : (
       ''
     );
 
-    if (this.inoOutline) {
-      return [
-        <div class={'mdc-notched-outline'}>
-          <div class="mdc-notched-outline__leading" />
-          <div class="mdc-notched-outline__notch">{label}</div>
-          <div class="mdc-notched-outline__trailing" />
-        </div>,
-      ];
-    }
-
-    return [<div class="mdc-line-ripple" />, label];
+    return (
+      <Host class={hostClasses}>
+        {this.inoOutline
+          ? this.outlineTemplate(label)
+          : this.filledTemplate(label)}
+      </Host>
+    );
   }
 }
