@@ -1157,7 +1157,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */
-        "inoColorScheme": string;
+        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -2761,7 +2761,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
