@@ -205,6 +205,10 @@ export class Textarea implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames({
+      'ino-textarea--outline': this.inoOutline,
+    });
+
     const classes = classNames({
       'mdc-text-field': true,
       'mdc-text-field--textarea': true,
@@ -216,7 +220,7 @@ export class Textarea implements ComponentInterface {
     });
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div class={classes}>
           <textarea
             ref={(el) => (this.nativeTextareaElement = el)}
