@@ -3,41 +3,10 @@
 @use 'base/theme';
 @import '~tippy.js/animations/scale.css';
 
-ino-popover .ino-popover {
-  //default color scheme
-  @include tooltip-mixins.tooltip(
-    theme.color(primary, light),
-    theme.color(primary, contrast)
-  );
-}
+$color-schemes: 'primary', 'secondary', 'light';
 
 ino-popover {
   border-radius: 6px;
-
-  &[ino-color-scheme='primary'] .ino-popover {
-    @include tooltip-mixins.tooltip(
-      theme.color(primary, light),
-      theme.color(primary, contrast)
-    );
-  }
-
-  &[ino-color-scheme='secondary'] .ino-popover {
-    @include tooltip-mixins.tooltip(
-      theme.color(secondary, light),
-      theme.color(secondary, contrast)
-    );
-  }
-
-  &[ino-color-scheme='light'] .ino-popover {
-    @include tooltip-mixins.tooltip(
-      theme.color(light),
-      theme.color(light, contrast)
-    );
-  }
-
-  &[ino-color-scheme='transparent'] .ino-popover {
-    @include tooltip-mixins.tooltip(#fff, theme.color(dark));
-  }
 }
 
 .ino-popover,
@@ -48,4 +17,17 @@ ino-popover {
 .ino-tooltip__inner,
 .ino-popover__content {
   border-radius: inherit;
+}
+
+@each $color in $color-schemes {
+  .ino-popover.ino-popover--color-scheme-#{$color} {
+    @include tooltip-mixins.tooltip(
+      theme.color($color, light),
+      theme.color($color, contrast)
+    );
+  }
+}
+
+.ino-popover.ino-popover--color-scheme-transparent {
+  @include tooltip-mixins.tooltip(#fff, theme.color(dark));
 }

@@ -793,7 +793,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */
@@ -2349,7 +2349,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */

@@ -10,6 +10,7 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
+import classNames from 'classnames';
 import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 
@@ -72,7 +73,8 @@ export class Popover implements ComponentInterface {
    * Sets the color scheme of the popup
    * Valid options include: 'primary', 'secondary', 'light', 'transparent'
    */
-  @Prop() inoColorScheme?: string = 'primary';
+  @Prop() inoColorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
+    'primary';
 
   /**
    * Use this if you want to interact with the popover content (e.g. button clicks)
@@ -194,12 +196,17 @@ export class Popover implements ComponentInterface {
   }
 
   render() {
+    const popoverClasses = classNames(
+      'ino-popover',
+      `ino-popover--color-scheme-${this.inoColorScheme}`
+    );
+
     return (
       <Host>
         <slot name="ino-popover-trigger"></slot>
         <div
           ref={(ref) => (this.inoPopoverContainer = ref)}
-          class="ino-popover"
+          class={popoverClasses}
         >
           <div
             class="ino-tooltip__composer ino-popover__content"
