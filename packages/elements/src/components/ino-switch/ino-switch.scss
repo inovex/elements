@@ -84,7 +84,7 @@ ino-switch {
 }
 
 @each $color in theme.$color-schemes {
-  ino-switch[ino-color-scheme='#{$color}'] {
+  ino-switch.ino-switch--color-scheme-#{$color} {
     --switch-toggled-on-color: #{theme.color($color, base)};
     --switch-toggled-on-thumb-color: #{theme.color($color, base)};
     --switch-toggled-on-track-color: #{theme.color($color, light)};
