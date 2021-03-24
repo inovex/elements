@@ -25,7 +25,7 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
          */
-        "inoColorScheme"?: ButtonColorScheme;
+        "inoColorScheme": ButtonColorScheme;
         /**
           * Makes the button text and container slightly smaller.
          */
@@ -37,7 +37,7 @@ export namespace Components {
         /**
           * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
          */
-        "inoFill"?: SurfaceType;
+        "inoFill": SurfaceType;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */

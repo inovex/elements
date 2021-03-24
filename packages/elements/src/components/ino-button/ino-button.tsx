@@ -62,7 +62,7 @@ export class Button implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`, `grey`, `white`.
    * `white` and `grey` can only be used in combination with the `outline` fill-option!
    */
-  @Prop() inoColorScheme?: ButtonColorScheme = 'primary';
+  @Prop() inoColorScheme: ButtonColorScheme = 'primary';
 
   /**
    * Styles the button to have the edge on the top-right instead of the top-left
@@ -73,7 +73,7 @@ export class Button implements ComponentInterface {
    * The fill type of this element.
    * Possible values: `solid` (default), `outline`, `inverse`.
    */
-  @Prop() inoFill?: SurfaceType = 'solid';
+  @Prop() inoFill: SurfaceType = 'solid';
 
   /**
    * Makes the button text and container slightly smaller.
@@ -140,11 +140,15 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const hostClasses = classNames({
-      'ino-button--loading': this.inoLoading,
-      'ino-button--mirrored-edge': this.inoEdgeMirrored,
-      'ino-button--dense': this.inoDense,
-    });
+    const hostClasses = classNames(
+      {
+        'ino-button--loading': this.inoLoading,
+        'ino-button--mirrored-edge': this.inoEdgeMirrored,
+        'ino-button--dense': this.inoDense,
+      },
+      `ino-button--fill-${this.inoFill}`,
+      `ino-button--color-scheme-${this.inoColorScheme}`
+    );
 
     const mdcClasses = classNames({
       'mdc-button': true,
