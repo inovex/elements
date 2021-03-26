@@ -86,7 +86,6 @@ export class Datepicker implements ComponentInterface {
   minChanged(value: string) {
     this.isValid = this.validateMinValue(this.value);
     this.updateFlatpickr('minDate', value);
-    console.log(this.isValid);
   }
 
   /**
@@ -419,16 +418,8 @@ export class Datepicker implements ComponentInterface {
     }
   }
 
-  private validateMinValue = (value: string): boolean => {
-    console.log(
-      this.flatpickr.parseDate(this.min),
-      this.flatpickr.parseDate(value),
-      this.flatpickr.parseDate(this.min) <= this.flatpickr.parseDate(value)
-    );
-    return (
-      this.flatpickr.parseDate(this.min) <= this.flatpickr.parseDate(value)
-    );
-  };
+  private validateMinValue = (value: string): boolean =>
+    this.flatpickr.parseDate(this.min) <= this.flatpickr.parseDate(value);
 
   private validateMaxValue = (value: string): boolean =>
     this.flatpickr.parseDate(this.max) >= this.flatpickr.parseDate(value);
