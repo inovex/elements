@@ -77,7 +77,7 @@ export const DefaultUsage = () => /*html*/ `
                 )}"
                 ino-alignment="${select(
                   'ino-alignment',
-                  ['center', 'leading', 'trailing'],
+                  ['center', 'left', 'right'],
                   'center'
                 )}" />
           </template>
