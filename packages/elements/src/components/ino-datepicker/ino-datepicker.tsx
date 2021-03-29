@@ -15,12 +15,7 @@ import flatpickr from 'flatpickr';
 import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
-import {
-  changeYearByOne,
-  getTypeSpecificOptions,
-  PickerTypeKeys,
-  PickerTypes,
-} from './type-specific-options';
+import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
 import { validateRange, validateSingle } from './validation';
 
 @Component({
@@ -252,29 +247,6 @@ export class Datepicker implements ComponentInterface {
     this.flatpickr.toggle();
   }
 
-  monthChangePrevHandler = () => this.monthChangeHandler(-1);
-  monthChangeNextHandler = () => this.monthChangeHandler(1);
-
-  /**
-   * Handles the functionality of the arrows inside the flatpickers, in case of a month picker.
-   * Usually these are used for changing months but in the month picker they change the year,
-   * so a custom functionality is necessary.
-   * When pressing an arrow a new date with the corresponding year is returned as event
-   * The yearOffset indicates weather the year is decremented (-1) or incremented(1).
-   */
-  monthChangeHandler(yearOffset: -1 | 1) {
-    // No date selected yet
-    if (!this.value || this.flatpickr.selectedDates.length !== 1) {
-      return;
-    }
-    const formattedDate = changeYearByOne(
-      this.value,
-      this.flatpickr.config.dateFormat,
-      yearOffset
-    );
-    this.valueChange.emit(formattedDate);
-  }
-
   /**
    * Emits when the value of the datepicker changes.
    * The value can be found in `event.detail`
@@ -306,56 +278,28 @@ export class Datepicker implements ComponentInterface {
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
     };
 
-    const typeSpecificOptions: Partial<BaseOptions> = getTypeSpecificOptions(
-      this.inoType,
-      {
-        defaultHour: this.inoDefaultHour,
-        defaultMinute: this.inoDefaultMinute,
-        enableTime: true,
-        time_24hr: !this.inoTwelveHourTime,
-        minuteIncrement: this.minuteStep,
-        hourIncrement: this.hourStep,
-        dateFormat: this.inoDateFormat,
-        minDate: this.min,
-        maxDate: this.max,
-        mode: this.inoRange ? 'range' : 'single',
-      }
-    );
+    const typeSpecificOptions: PickerOption = createPicker(this.inoType, {
+      defaultHour: this.inoDefaultHour,
+      defaultMinute: this.inoDefaultMinute,
+      enableTime: true,
+      time_24hr: !this.inoTwelveHourTime,
+      minuteIncrement: this.minuteStep,
+      hourIncrement: this.hourStep,
+      dateFormat: this.inoDateFormat,
+      minDate: this.min,
+      maxDate: this.max,
+      mode: this.inoRange ? 'range' : 'single',
+      onValueChange: (value: string) => this.valueChange.emit(value),
+    });
 
     const options = { ...sharedOptions, ...typeSpecificOptions };
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-
-    this.inoType === PickerTypes.Month && this.initMonthPicker();
-  }
-
-  private initMonthPicker() {
-    this.flatpickr.prevMonthNav.addEventListener(
-      'click',
-      this.monthChangePrevHandler
-    );
-    this.flatpickr.nextMonthNav.addEventListener(
-      'click',
-      this.monthChangeNextHandler
-    );
   }
 
   private dispose() {
-    this.inoType === PickerTypes.Month && this.terminateMonthPicker();
-
     this.flatpickr?.destroy();
-  }
-
-  private terminateMonthPicker() {
-    this.flatpickr?.prevMonthNav.removeEventListener(
-      'click',
-      this.monthChangePrevHandler
-    );
-    this.flatpickr?.nextMonthNav.removeEventListener(
-      'click',
-      this.monthChangeNextHandler
-    );
   }
 
   render() {

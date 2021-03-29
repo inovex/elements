@@ -6,9 +6,11 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-datepicker/readme.md';
 import './ino-datepicker.scss';
 
-let defaultDate = moment().format('HH:mm DD.MM.YYYY');
-const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD');
-const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
+const dateFormat = 'HH:mm DD.MM.YYYY';
+
+let defaultDate = moment().format(dateFormat);
+const minDate = moment().subtract(5, 'days').format(dateFormat);
+const maxDate = moment().add(5, 'days').format(dateFormat);
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
