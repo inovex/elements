@@ -728,10 +728,6 @@ export namespace Components {
     }
     interface InoMenu {
         /**
-          * If enabled, focuses the first `<ino-list-item>` on menu opening
-         */
-        "inoFocusFirstElement": boolean;
-        /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
         "inoPlacement": Placement;
@@ -2283,10 +2279,6 @@ declare namespace LocalJSX {
         "onClickEl"?: (event: CustomEvent<any>) => void;
     }
     interface InoMenu {
-        /**
-          * If enabled, focuses the first `<ino-list-item>` on menu opening
-         */
-        "inoFocusFirstElement"?: boolean;
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
