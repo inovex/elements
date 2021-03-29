@@ -6,8 +6,8 @@ import {
   Host,
   Prop,
 } from '@stencil/core';
-import { Instance, Placement } from 'tippy.js';
-import { generateUniqueId } from '../../util/component-utils';
+import { Placement } from 'tippy.js';
+import { focusIfExists, generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-menu',
@@ -26,11 +26,6 @@ export class Menu implements ComponentInterface {
    */
   @Prop() inoPlacement: Placement = 'auto';
 
-  /**
-   * If enabled, focuses the first `<ino-list-item>` on menu opening
-   */
-  @Prop() inoFocusFirstElement: boolean;
-
   connectedCallback() {
     if (this.el.parentElement.id) {
       return;
@@ -43,23 +38,17 @@ export class Menu implements ComponentInterface {
     this.el.parentElement.id = `elements-menu${generateUniqueId()}`;
   }
 
-  componentDidLoad() {
-    if (this.inoFocusFirstElement) {
-      this.popoverEl?.getTippyInstance().then(this.focusOnMount);
-    }
-  }
+  async componentDidLoad() {
+    const tippy = await this.popoverEl?.getTippyInstance();
 
-  private focusOnMount = (tippy?: Instance) => {
     if (!tippy) {
       return;
     }
 
     tippy.setProps({
-      onMount: () => {
-        this.el.querySelector('ino-list-item')?.focus();
-      },
+      onMount: () => focusIfExists(this.el),
     });
-  };
+  }
 
   render() {
     return (
