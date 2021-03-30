@@ -27,7 +27,7 @@ document
 
 #### Example #1 - Basic
 
-```jsx harmony
+```jsx
 import { Component } from 'react';
 import { InoIcon } from '@inovex.de/elements/dist/react';
 
@@ -44,7 +44,7 @@ class MyComponent extends Component {
 
 #### Example #2 - With Types
 
-```jsx harmony
+```jsx
 import React, { Component } from 'react';
 import { InoIcon } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';

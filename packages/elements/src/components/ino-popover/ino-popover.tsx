@@ -17,7 +17,8 @@ import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
 
 /**
- * @slot ino-popover-trigger - The target element to attach the triggers to
+ * @slot ino-popover-trigger - The target element to attach the triggers to/**
+ * @slot default - Content of the popover
  */
 @Component({
   tag: 'ino-popover',

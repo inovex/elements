@@ -16,6 +16,9 @@ import classNames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
+/**
+ * @slot default - Label of the checkbox
+ */
 @Component({
   tag: 'ino-checkbox',
   styleUrl: 'ino-checkbox.scss',

@@ -1974,6 +1974,9 @@ declare namespace LocalJSX {
           * The name of the icon of this element.
          */
         "inoIcon"?: string;
+        /**
+          * Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true.
+         */
         "onClickEl"?: (event: CustomEvent<any>) => void;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.

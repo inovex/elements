@@ -337,7 +337,8 @@ export declare interface InoIconButton extends Components.InoIconButton {}
   outputs: ['clickEl']
 })
 export class InoIconButton {
-  /**  */
+  /** Event that emits as soon as the user clicks on the icon.
+The event only emits if the property `clickable` is true. */
   clickEl!: IIconButton['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

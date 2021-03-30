@@ -17,7 +17,7 @@ The component can be used as follows:
 </ino-progress-bar>
 ```
 
-```jsx harmony
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoProgressBar, InoButton } from '@inovex.de/elements/dist/react';

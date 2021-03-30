@@ -11,6 +11,12 @@ import {
   h,
 } from '@stencil/core';
 
+/**
+ * @slot content - content of the dialog
+ * @slot header - header of the dialog
+ * @slot footer - footer of the dialog
+ */
+
 @Component({
   tag: 'ino-dialog',
   styleUrl: 'ino-dialog.scss',

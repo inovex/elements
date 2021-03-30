@@ -36,7 +36,7 @@ The following examples illustrate how the `ino-table` can be used:
 
 ### React
 
-```jsx harmony
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoTable, InoTableRow, InoTableCell, InoButton } from '@inovex.de/elements/dist/react';

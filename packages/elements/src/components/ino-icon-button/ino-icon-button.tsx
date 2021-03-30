@@ -75,6 +75,10 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() type?: ButtonType = 'button';
 
+  /**
+   * Event that emits as soon as the user clicks on the icon.
+   * The event only emits if the property `clickable` is true.
+   */
   @Event() clickEl: EventEmitter;
 
   @Listen('click')

@@ -1,6 +1,6 @@
 import markup from '_local-storybookcore/markup';
-import colors from '_local-docs/styleguide.colors.md';
-import typography from '_local-docs/styleguide.typography.md';
+import colors from './../../doc//styleguide.colors.md';
+import typography from './../../doc//styleguide.typography.md';
 
 export default {
   title: 'Docs/Styleguide',

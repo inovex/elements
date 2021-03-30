@@ -33,7 +33,7 @@ The component can be used as follows:
 </ino-carousel>
 ```
 
-```jsx harmony
+```jsx
 import { Component } from 'react';
 import {
   InoButton,

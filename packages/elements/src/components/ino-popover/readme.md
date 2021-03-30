@@ -229,9 +229,10 @@ Type: `Promise<any>`
 
 ## Slots
 
-| Slot                    | Description                                  |
-| ----------------------- | -------------------------------------------- |
-| `"ino-popover-trigger"` | The target element to attach the triggers to |
+| Slot                    | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `"default"`             | Content of the popover                          |
+| `"ino-popover-trigger"` | The target element to attach the triggers to/** |
 
 
 ## Dependencies

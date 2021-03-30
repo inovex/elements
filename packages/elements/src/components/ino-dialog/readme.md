@@ -28,7 +28,7 @@ document
 
 ### React
 
-```jsx harmony
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
@@ -73,6 +73,15 @@ class MyComponent extends Component {
 | Event        | Description                                       | Type               |
 | ------------ | ------------------------------------------------- | ------------------ |
 | `openChange` | Emits an event upon opening or closing the dialog | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"content"` | content of the dialog |
+| `"footer"`  | footer of the dialog  |
+| `"header"`  | header of the dialog  |
 
 
 ## CSS Custom Properties

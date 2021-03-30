@@ -140,7 +140,7 @@ describe('InoInput', () => {
 
       it('should not be invalid on disabled inputs', async () => {
         const page = await setupPageWithContent(
-          `<ino-input pattern="a" disabled></markant-input>`
+          `<ino-input pattern="a" disabled></ino-input>`
         );
         await page.evaluate(async () => {
           const nativeInputElement = await document

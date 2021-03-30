@@ -139,6 +139,13 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | Label of the checkbox |
+
+
 ## CSS Custom Properties
 
 | Name                                       | Description                                  |

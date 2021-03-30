@@ -1,6 +1,6 @@
 import markup from '_local-storybookcore/markup';
-import welcome from '_local-docs/welcome.md';
-import changelog from '_local-root/CHANGELOG.md';
+import welcome from './../../doc//welcome.md';
+import changelog from './../..//CHANGELOG.md';
 
 const componentVersion = require('_local-elements/package.json').version;
 

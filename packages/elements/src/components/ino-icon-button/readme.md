@@ -119,9 +119,9 @@ The component bubbles the native `click`-Event to the user.
 
 ## Events
 
-| Event     | Description | Type               |
-| --------- | ----------- | ------------------ |
-| `clickEl` |             | `CustomEvent<any>` |
+| Event     | Description                                                                                                        | Type               |
+| --------- | ------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true. | `CustomEvent<any>` |
 
 
 ## CSS Custom Properties
