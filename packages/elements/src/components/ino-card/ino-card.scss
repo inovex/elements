@@ -3,10 +3,8 @@
 @use '@material/card';
 @use 'base/theme';
 
-$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3),
-  0 12px 28px 0 rgba(theme.color(dark), 0.14);
-$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
-  0 16px 32px 0 rgba(theme.color(dark), 0.14);
+$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3), 0 12px 28px 0 rgba(theme.color(dark), 0.14);
+$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3), 0 16px 32px 0 rgba(theme.color(dark), 0.14);
 
 ino-card {
   /**
