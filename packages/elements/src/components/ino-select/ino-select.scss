@@ -7,14 +7,25 @@
 @use 'base/theme';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
+$placeholder-color: rgba(0, 0, 0, 0.6);
+
+@mixin setIconColors($color) {
+  .mdc-select__icon {
+    ino-icon {
+      --icon-color: #{$color};
+    }
+  }
+}
 
 ino-select {
   /**
-  * @prop --select-height: Height of the open select menu
-   */
+  * @prop --ino-select-height: Height of the open select menu
+  * @prop --ino-select-icon-color: Icon color
+  */
+  --select-height: auto;
+  --select-icon-color: var(--ino-select-icon-color, #{theme.color(primary)});
 
   display: block;
-  --select-height: auto;
 
   input {
     opacity: 0;
@@ -30,6 +41,12 @@ ino-select {
   .mdc-select,
   .mdc-select__menu {
     width: 100%;
+  }
+
+  @include setIconColors($placeholder-color);
+
+  .mdc-select--focused {
+    @include setIconColors(var(--select-icon-color));
   }
 
   .mdc-select {
