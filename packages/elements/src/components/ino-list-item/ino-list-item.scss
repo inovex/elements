@@ -61,6 +61,10 @@ ino-list-item {
     display: none;
   }
 
+  .mdc-list-item__graphic {
+    justify-content: flex-start;
+  }
+
   ino-img .ino-img__image {
     width: 100%;
     height: 100%;
