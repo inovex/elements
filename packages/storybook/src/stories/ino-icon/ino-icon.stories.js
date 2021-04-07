@@ -60,29 +60,25 @@ function subscribeToComponentEvents() {
 }
 
 function copyToClipboard(text) {
-  function setData(e) {
-    e.preventDefault();
-    e.clipboardData.setData('text/plain', text);
-    document.removeEventListener('copy', setData);
-  }
-  document.addEventListener('copy', setData);
-
   const snackbar = document.createElement('ino-snackbar');
 
-  try {
-    document.execCommand('copy');
-    snackbar.setAttribute(
-      'ino-message',
-      `Successfully copied "${text}" to your clipboard!`
-    );
-  } catch (err) {
-    snackbar.setAttribute(
-      'ino-message',
-      `An error occurred while copying the id to your clipboard!`
-    );
-  } finally {
-    document.body.appendChild(snackbar);
-  }
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      snackbar.setAttribute(
+        'ino-message',
+        `Successfully copied "${text}" to your clipboard!`
+      );
+    })
+    .catch(() => {
+      snackbar.setAttribute(
+        'ino-message',
+        `An error occurred while copying the id to your clipboard!`
+      );
+    })
+    .finally(() => {
+      document.body.appendChild(snackbar);
+    });
 }
 
 const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
