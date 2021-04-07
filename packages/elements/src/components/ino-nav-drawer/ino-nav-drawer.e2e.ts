@@ -104,9 +104,9 @@ describe('InoNavDrawer', () => {
     expect(elToggleDrawerBtn).not.toBeNull();
   });
 
-  it('emits openChange event on toggle click', async () => {
+  it('emits openChanged event on toggle click', async () => {
     const page = await setupPageWithContent(createDrawer());
-    const openChange = await page.spyOnEvent('openChange');
+    const openChanged = await page.spyOnEvent('openChanged');
 
     const elToggleDrawerBtn = await page.find(
       'ino-nav-drawer >>> .mdc-drawer__toggle'
@@ -116,7 +116,7 @@ describe('InoNavDrawer', () => {
 
     await page.waitForChanges();
 
-    expect(openChange).toHaveReceivedEventDetail(true);
+    expect(openChanged).toHaveReceivedEventDetail(true);
 
     // reverse open state to check the other way around
     await page.$eval('ino-nav-drawer', (elm: any) => {
@@ -129,7 +129,7 @@ describe('InoNavDrawer', () => {
 
     await page.waitForChanges();
 
-    expect(openChange).toHaveReceivedEventDetail(false);
+    expect(openChanged).toHaveReceivedEventDetail(false);
   });
 
   describe('property inoOpen', () => {
