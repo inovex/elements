@@ -6,7 +6,7 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import './ino-nav-drawer.scss';
 
 // == event block
-const openChangeHandle = function (e) {
+const openChangedHandle = function (e) {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-nav-drawer') {
     return;
@@ -49,13 +49,13 @@ const clickHandler = function (e) {
 };
 
 function unsubscribeFromComponentEvents() {
-  document.removeEventListener('openChange', openChangeHandle);
+  document.removeEventListener('openChanged', openChangedHandle);
   document.removeEventListener('click', clickHandler);
   document.removeEventListener('clickEl', clickHandler);
 }
 
 function subscribeToComponentEvents() {
-  document.addEventListener('openChange', openChangeHandle);
+  document.addEventListener('openChanged', openChangedHandle);
   document.addEventListener('click', clickHandler);
   document.addEventListener('clickEl', clickHandler);
 
@@ -68,7 +68,7 @@ export default {
   parameters: {
     actions: {
       handles: [
-        'openChange .customizable-drawer',
+        'openChanged .customizable-drawer',
         'click .toggle-nav',
         'clickEl ino-nav-item',
       ],

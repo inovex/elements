@@ -127,9 +127,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event        | Description                                                                                                           | Type                   |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `openChange` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
+| Event         | Description                                                                                                           | Type                   |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `openChanged` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
 
 
 ## Slots
@@ -142,19 +142,6 @@ class MyComponent extends Component {
 | `"header"`   | For a custom header on top of the navigation bar                                        |
 | `"logo"`     | For the logo on top of the navigation bar (cannot be used with the `header` slot)       |
 | `"subtitle"` | For the element just below the logo (cannot be used with the `header` slot)             |
-
-
-## CSS Custom Properties
-
-| Name                                   | Description                                             |
-| -------------------------------------- | ------------------------------------------------------- |
-| `--ino-nav-drawer-background`          | Background of the drawer.                               |
-| `--ino-nav-drawer-height`              | Height of the drawer.                                   |
-| `--ino-nav-drawer-text-color`          | Color of text inside the drawer.                        |
-| `--ino-nav-drawer-timing-function`     | Timing function of the slide animation of the drawer.   |
-| `--ino-nav-drawer-transition-duration` | Duration of the slide animation of the drawer.          |
-| `--ino-nav-drawer-width-closed`        | Docked variant only! The width of the collapsed drawer. |
-| `--ino-nav-drawer-width-open`          | The width of the open drawer.                           |
 
 
 ## Dependencies

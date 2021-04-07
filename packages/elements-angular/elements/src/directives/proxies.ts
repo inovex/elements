@@ -552,16 +552,16 @@ export declare interface InoNavDrawer extends Components.InoNavDrawer {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['inoAnchor', 'inoOpen', 'inoVariant'],
-  outputs: ['openChange']
+  outputs: ['openChanged']
 })
 export class InoNavDrawer {
   /** Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. */
-  openChange!: INavDrawer['openChange'];
+  openChanged!: INavDrawer['openChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['openChange']);
+    proxyOutputs(this, this.el, ['openChanged']);
   }
 }
 

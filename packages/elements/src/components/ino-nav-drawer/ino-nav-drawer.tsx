@@ -67,6 +67,8 @@ export class NavDrawer implements ComponentInterface {
       this.drawerInstance.open = this.inoOpen || false;
     }
 
+    this.el.shadowRoot.querySelector('.mdc-drawer').addEventListener('MDCDrawer:closed', this.closeDrawer);
+
     this.el.shadowRoot
       .querySelector('.mdc-drawer__toggle')
       .addEventListener('click', this.toggleDrawer);
@@ -79,11 +81,16 @@ export class NavDrawer implements ComponentInterface {
   /**
    * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
    */
-  @Event() openChange!: EventEmitter<boolean>;
+  @Event() openChanged!: EventEmitter<boolean>;
+
+  closeDrawer = (e: Event) => {
+    e.preventDefault();
+    this.openChanged.emit(false);
+  }
 
   toggleDrawer = (e: Event) => {
     const newOpenState = !this.inoOpen;
-    this.openChange.emit(newOpenState);
+    this.openChanged.emit(newOpenState);
     e.stopPropagation();
   };
 

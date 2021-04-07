@@ -2316,7 +2316,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
          */
-        "onOpenChange"?: (event: CustomEvent<boolean>) => void;
+        "onOpenChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface InoNavItem {
         /**
