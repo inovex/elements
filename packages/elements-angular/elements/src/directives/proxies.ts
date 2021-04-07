@@ -460,13 +460,13 @@ export class InoLabel {
 
 export declare interface InoList extends Components.InoList {}
 @ProxyCmp({
-  inputs: ['inoAvatar', 'inoDense', 'inoTwoLines']
+  inputs: ['inoAvatar', 'inoDense', 'inoMixedLines', 'inoTwoLines']
 })
 @Component({
   selector: 'ino-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoAvatar', 'inoDense', 'inoTwoLines']
+  inputs: ['inoAvatar', 'inoDense', 'inoMixedLines', 'inoTwoLines']
 })
 export class InoList {
   protected el: HTMLElement;

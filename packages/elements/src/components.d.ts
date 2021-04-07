@@ -686,6 +686,10 @@ export namespace Components {
          */
         "inoDense"?: boolean;
         /**
+          * Marks this element as a list with items having either one or two lines.
+         */
+        "inoMixedLines"?: boolean;
+        /**
           * Marks this element as list with items having two lines.
          */
         "inoTwoLines"?: boolean;
@@ -2241,6 +2245,10 @@ declare namespace LocalJSX {
           * Styles the list more dense, making it appear more compact.
          */
         "inoDense"?: boolean;
+        /**
+          * Marks this element as a list with items having either one or two lines.
+         */
+        "inoMixedLines"?: boolean;
         /**
           * Marks this element as list with items having two lines.
          */

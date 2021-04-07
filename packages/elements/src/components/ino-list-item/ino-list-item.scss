@@ -75,6 +75,10 @@ ino-list-item {
       color: var(--list-item-deselected-color);
     }
 
+    &.mdc-list-item--two-line .mdc-list-item__text {
+      align-self: flex-start;
+    }
+
     &:hover {
       background-color: var(--list-item-deselected-background-color-hover);
     }

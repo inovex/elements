@@ -8,4 +8,12 @@ ino-list {
   .mdc-list--avatar-list .mdc-list-item__graphic {
     overflow: hidden;
   }
+
+  .mdc-list--mixed-line .mdc-list-item {
+    height: 64px;
+  }
+
+  .mdc-list--mixed-line.mdc-list--dense .mdc-list-item {
+    height: 60px;
+  }
 }

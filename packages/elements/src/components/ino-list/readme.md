@@ -99,11 +99,12 @@ Provide `ino-two-lines` to set propper style attributes for list items having a 
 
 ## Properties
 
-| Property      | Attribute       | Description                                                                                                                        | Type      | Default     |
-| ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoAvatar`   | `ino-avatar`    | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger. | `boolean` | `false`     |
-| `inoDense`    | `ino-dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
-| `inoTwoLines` | `ino-two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
+| Property        | Attribute         | Description                                                                                                                        | Type      | Default     |
+| --------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `inoAvatar`     | `ino-avatar`      | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger. | `boolean` | `false`     |
+| `inoDense`      | `ino-dense`       | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
+| `inoMixedLines` | `ino-mixed-lines` | Marks this element as a list with items having either one or two lines.                                                            | `boolean` | `undefined` |
+| `inoTwoLines`   | `ino-two-lines`   | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
 
 
 ## Dependencies

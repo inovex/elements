@@ -69,7 +69,14 @@ export const DefaultUsage = () => /*html*/ `
     <ino-list-item ino-text="Third text item" ino-secondary-text="Secondary"></ino-list-item>
   </ino-list>
 
-  <h4>Densed</h4>
+  <h4>Mixed</h4>
+  <ino-list ino-mixed-lines>
+    <ino-list-item ino-text="First text item"></ino-list-item>
+    <ino-list-item ino-text="Second text item" ino-secondary-text="Secondary"></ino-list-item>
+    <ino-list-item ino-text="Third text item"></ino-list-item>
+  </ino-list>
+
+  <h4>Dense</h4>
   <ino-list ino-dense class="first-densed-list">
     <ino-list-item ino-text="First text item"></ino-list-item>
     <ino-list-item ino-text="Second text item"></ino-list-item>
@@ -79,6 +86,11 @@ export const DefaultUsage = () => /*html*/ `
     <ino-list-item ino-text="First text item" ino-secondary-text="Secondary"></ino-list-item>
     <ino-list-item ino-text="Second text item" ino-secondary-text="Secondary"></ino-list-item>
     <ino-list-item ino-text="Third text item" ino-secondary-text="Secondary"></ino-list-item>
+  </ino-list>
+  <ino-list ino-mixed-lines ino-dense>
+    <ino-list-item ino-text="First text item"></ino-list-item>
+    <ino-list-item ino-text="First text item" ino-secondary-text="Secondary"></ino-list-item>
+    <ino-list-item ino-text="Third text item"></ino-list-item>
   </ino-list>
 
   <h4>Avatar</h4>

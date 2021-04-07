@@ -30,6 +30,11 @@ export class List implements ComponentInterface {
   @Prop() inoTwoLines?: boolean;
 
   /**
+   * Marks this element as a list with items having either one or two lines.
+   */
+  @Prop() inoMixedLines?: boolean;
+
+  /**
    * Configures the leading tiles of each row to display images instead of icons.
    * This will make the graphics of the list items larger.
    */
@@ -50,6 +55,7 @@ export class List implements ComponentInterface {
       'mdc-list--dense': this.inoDense,
       'mdc-list--two-line': this.inoTwoLines,
       'mdc-list--avatar-list': this.inoAvatar,
+      'mdc-list--mixed-line': this.inoMixedLines
     });
 
     return (
