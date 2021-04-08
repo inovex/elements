@@ -34,7 +34,7 @@ export class Card implements ComponentInterface {
 
   render() {
     const hostClasses = classnames({
-      'no-elevation': this.inoDisableElevation,
+      'ino-elevate': !this.inoDisableElevation,
     });
 
     const classList = classnames({
