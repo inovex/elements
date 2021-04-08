@@ -5,9 +5,9 @@ on:
     types: [ submitted ]
 
 jobs:
-  gitlecks:
+  gitleaks:
     runs-on: ubuntu-latest
     if: github.event.review.state == 'approved'
     steps:
       - uses: actions/checkout@v1
-      - uses: zricethezav/gitleaks-action
+      - uses: zricethezav/gitleaks-action@master
