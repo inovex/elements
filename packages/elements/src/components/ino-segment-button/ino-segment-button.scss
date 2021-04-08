@@ -117,7 +117,7 @@ $left-right-segment-border: 0 24px 24px 24px;
 
 :host(:hover:not(.ino-segment-button--disabled)),
 :host(:active):not(.ino-segment-button--disabled),
-:host(.ino-segment-button--checked):not(.ino-segment-button--disabled) {
+:host(.ino-segment-button--checked:not(.ino-segment-button--disabled)) {
   button.belongs-to-group {
     border-right: 1px solid;
   }
