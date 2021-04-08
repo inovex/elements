@@ -29,6 +29,7 @@ export default [
 	'filter',
 	'folder',
 	'help',
+	'image_not_available',
 	'info',
 	'location',
 	'logout',
@@ -67,5 +68,5 @@ export default [
 	'upload',
 	'user',
 	'warning',
-	'web',
+	'web'
 ];

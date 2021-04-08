@@ -129,6 +129,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
  - [ino-fab](../ino-fab)
  - [ino-fab-set](../ino-fab-set)
  - [ino-icon-button](../ino-icon-button)
+ - [ino-img](../ino-img)
  - [ino-input](../ino-input)
  - [ino-input-file](../ino-input-file)
  - [ino-tab](../ino-tab)
@@ -142,6 +143,7 @@ graph TD;
   ino-fab --> ino-icon
   ino-fab-set --> ino-icon
   ino-icon-button --> ino-icon
+  ino-img --> ino-icon
   ino-input --> ino-icon
   ino-input-file --> ino-icon
   ino-tab --> ino-icon

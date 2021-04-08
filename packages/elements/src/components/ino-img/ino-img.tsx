@@ -71,6 +71,11 @@ export class Image implements ComponentInterface {
   @Prop() usemap?: string;
 
   /**
+   * Icon used for fallback image if image can not be loaded
+   */
+  @Prop() inoFallbackIcon: string = 'image_not_available';
+
+  /**
    * Indicates that the image is a part of an image list component
    */
   @Prop() inoImgListItem: boolean = false;
@@ -122,6 +127,7 @@ export class Image implements ComponentInterface {
     if (!this.inoImgListItem) {
       this.el.querySelector('div').style.paddingTop = this.composedRatioHeight;
     }
+    this.el.querySelector('img').onerror = () => this.handleError();
   }
 
   private computeFixedDimensions() {
@@ -136,6 +142,10 @@ export class Image implements ComponentInterface {
   private computeRatio() {
     const ratio = (this.inoRatioHeight / this.inoRatioWidth) * 100;
     this.composedRatioHeight = `${ratio}%`;
+  }
+
+  private handleError() {
+    this.el.querySelector('.ino-img__fallback-icon').setAttribute("style", "display: block");
   }
 
   render() {
@@ -168,6 +178,9 @@ export class Image implements ComponentInterface {
             height={!isNaN(this.height) ? this.height : undefined}
             width={!isNaN(this.width) ? this.width : undefined}
           />
+          <div class="ino-img__fallback-icon">
+            <ino-icon ino-icon={this.inoFallbackIcon}/>
+          </div>
         </div>
         {this.inoImgListItem && (
           <div class="mdc-image-list__supporting">
