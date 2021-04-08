@@ -1,18 +1,13 @@
-import { MDCMenu } from '@material/menu';
 import {
   Component,
   ComponentInterface,
-  Event,
-  EventEmitter,
   Element,
-  Host,
-  Listen,
-  Prop,
-  Watch,
   h,
+  Host,
+  Prop,
 } from '@stencil/core';
-
-import { MDCCustomMenu } from './MDCCustomMenu';
+import { Placement } from 'tippy.js';
+import { focusIfExists, generateUniqueId } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-menu',
@@ -22,85 +17,59 @@ import { MDCCustomMenu } from './MDCCustomMenu';
 export class Menu implements ComponentInterface {
   @Element() el!: HTMLElement;
 
-  /**
-   * An internal instance of the mdc menu.
-   */
-  private menu!: MDCMenu;
+  private popoverEl: HTMLInoPopoverElement;
 
   /**
-   * Emits on outside menu click and escape press.
+   * Determines the position of the opened menu.
+   * Usually, the default value (`auto`) will work just fine.
+   * Use this if the positioning is off for some reason.
    */
-  @Event() menuClose: EventEmitter<void>;
+  @Prop() inoPlacement: Placement = 'auto';
 
-  /**
-   * Anchor element for the menu
-   */
-  @Prop() inoFor?: string;
-
-  @Watch('inoFor')
-  inoForChanged() {
-    this.setAnchor(this.inoFor);
-  }
-
-  /**
-   * Set this option to show the menu.
-   */
-  @Prop() inoOpen?: boolean = false;
-
-  @Watch('inoOpen')
-  inoOpenChanged(open: boolean) {
-    this.menu.open = open;
-  }
-
-  @Listen('menu:outside-click')
-  onClose(ev: Event) {
-    ev.stopPropagation();
-    this.menuClose.emit();
-  }
-
-  @Listen('keydown')
-  onKeydown({ key }: KeyboardEvent) {
-    if (key === 'Escape') {
-      this.menuClose.emit();
+  connectedCallback() {
+    if (this.el.parentElement.id) {
+      return;
     }
+
+    this.generateParentId();
   }
 
-  componentDidLoad() {
-    this.menu = new MDCCustomMenu(
-      this.el.querySelector('.mdc-menu') as HTMLElement
-    ); // takes root and foundation, foundation takes adapter
-
-    this.menu.open = this.inoOpen;
-    this.setAnchor(this.inoFor);
+  private generateParentId(): void {
+    this.el.parentElement.id = `elements-menu${generateUniqueId()}`;
   }
 
-  private setAnchor(anchor?: string) {
-    const target = anchor
-      ? document.getElementById(anchor)
-      : this.el.parentElement;
+  async componentDidLoad() {
+    const tippy = await this.popoverEl?.getTippyInstance();
 
-    this.menu.setAnchorElement(target);
-  }
+    if (!tippy) {
+      return;
+    }
 
-  disconnectedCallback() {
-    this.menu?.destroy();
+    tippy.setProps({
+      onMount: () => focusIfExists(this.el),
+    });
   }
 
   render() {
     return (
       <Host>
-        <div class="mdc-menu-surface--anchor">
-          <div class="mdc-menu mdc-menu-surface">
-            <ino-list
-              role="menu"
-              aria-hidden="true"
-              aria-orientation="vertical"
-              tabindex="-1"
-            >
-              <slot />
-            </ino-list>
-          </div>
-        </div>
+        <ino-popover
+          ref={(el) => (this.popoverEl = el)}
+          ino-color-scheme="transparent"
+          ino-interactive
+          ino-for={this.el.parentElement.id}
+          ino-placement={this.inoPlacement}
+          ino-trigger={'click'}
+        >
+          <ino-list
+            role="menu"
+            aria-hidden="true"
+            aria-orientation="vertical"
+            tabindex="-1"
+          >
+            <slot />
+          </ino-list>
+        </ino-popover>
       </Host>
     );
   }
