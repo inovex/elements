@@ -281,6 +281,7 @@ export class Datepicker implements ComponentInterface {
     const typeSpecificOptions: PickerOption = createPicker(this.inoType, {
       defaultHour: this.inoDefaultHour,
       defaultMinute: this.inoDefaultMinute,
+      defaultDate: this.inoDefaultDate,
       enableTime: true,
       time_24hr: !this.inoTwelveHourTime,
       minuteIncrement: this.minuteStep,
