@@ -84,13 +84,13 @@ ino-input {
 
   @include setIconColors($placeholder-color);
 
-  @include textfield.label-color(var(--input-label-color));
   .mdc-text-field--focused {
+    @include textfield.label-color(var(--input-label-color));
     @include setIconColors(var(--input-icon-color));
   }
 
-  @include textfield.label-color(theme.color(error));
   .mdc-text-field--invalid {
+    @include textfield.label-color(theme.color(error));
     @include setIconColors(theme.color(error));
   }
 
