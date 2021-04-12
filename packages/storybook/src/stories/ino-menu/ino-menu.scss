@@ -1,6 +1,5 @@
-.story-menu .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.story-menu {
+  h4:not(:first-child) {
+    margin-top: 48px;
+  }
 }

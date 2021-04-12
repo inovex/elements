@@ -2,6 +2,15 @@
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 
-ino-menu ino-popover {
-  border-radius: inherit;
+ino-menu {
+  display: block;
+  border-radius: 4px;
+
+  .mdc-menu-surface--anchor {
+    border-radius: inherit;
+
+    .mdc-menu.mdc-menu-surface {
+      border-radius: inherit;
+    }
+  }
 }
