@@ -80,7 +80,6 @@ export class Datepicker implements ComponentInterface {
     }
 
     const dateFormat = this.flatpickr.config.dateFormat;
-    console.log({ value, dateFormat });
 
     try {
       this.isValid = this.inoRange
