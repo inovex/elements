@@ -21,12 +21,3 @@ export function getSlotContent(
 export function hasSlotContent(el: HTMLElement, slotName: string): boolean {
   return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
 }
-
-/**
- * Focuses the first element that has the `data-ino-focus` attribute.
- *
- * @param el The host element to search in
- */
-export function focusIfExists(el: Element): void {
-  (el.querySelector('[data-ino-focus]') as HTMLElement)?.focus();
-}
