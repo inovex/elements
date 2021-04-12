@@ -27,10 +27,8 @@ export const validateMin = (
   if (!minDateStr) {
     return true;
   }
-  console.log('input min', { value, format });
   const parsedDate: Date = parseDate(value, format);
   const minDate = flatpickr.parseDate(minDateStr, format);
-  console.log('ValidateMin:', { parsedDate, minDate });
   return isEqual(parsedDate, minDate) || isAfter(parsedDate, minDate);
 };
 
@@ -44,14 +42,12 @@ export const validateMax = (
   }
   const parsedDate: Date = parseDate(value, format);
   const maxDate = parseDate(maxDateStr, format);
-  console.log('ValidateMin:', { parsedDate, maxDate });
   return isEqual(parsedDate, maxDate) || isBefore(parsedDate, maxDate);
 };
 
 const validateFormat = (value: string, format: string): boolean => {
   const parsedDate: Date = parseDate(value, format);
   const formattedDate: string = flatpickr.formatDate(parsedDate, format);
-  console.log('ValidateMin:', { parsedDate, formattedDate });
   return formattedDate == value;
 };
 
