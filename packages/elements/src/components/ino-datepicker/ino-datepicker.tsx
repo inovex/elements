@@ -101,12 +101,12 @@ export class Datepicker implements ComponentInterface {
   @Prop() min?: string;
 
   @Watch('min')
-  minChanged(value: string) {
-    const dateFormat = this.flatpickr.config.dateFormat;
+  minChanged(min: string) {
+    const { dateFormat } = this.flatpickr.config;
 
     try {
-      this.isValid = validateMin(this.value, dateFormat);
-      this.flatpickr?.set('minDate', value);
+      this.isValid = validateMin(this.value, dateFormat, min);
+      this.flatpickr?.set('minDate', min);
     } catch (e) {
       this.isValid = false;
     }
@@ -118,12 +118,12 @@ export class Datepicker implements ComponentInterface {
   @Prop() max?: string;
 
   @Watch('max')
-  maxChanged(value: string) {
-    const dateFormat = this.flatpickr.config.dateFormat;
+  maxChanged(max: string) {
+    const { dateFormat } = this.flatpickr.config;
 
     try {
-      this.isValid = validateMax(this.value, dateFormat);
-      this.flatpickr?.set('maxDate', value);
+      this.isValid = validateMax(this.value, dateFormat, max);
+      this.flatpickr?.set('maxDate', max);
     } catch (e) {
       this.isValid = false;
     }
