@@ -12,6 +12,8 @@ ino-popover .ino-popover {
 }
 
 ino-popover {
+  border-radius: 6px;
+
   &[ino-color-scheme='primary'] .ino-popover {
     @include tooltip-mixins.tooltip(
       theme.color(primary, light),
@@ -36,4 +38,14 @@ ino-popover {
   &[ino-color-scheme='transparent'] .ino-popover {
     @include tooltip-mixins.tooltip(#fff, theme.color(dark));
   }
+}
+
+.ino-popover,
+[data-tippy-root],
+.tippy-box,
+.tippy-content,
+.ino-tooltip__composer.ino-popover__content,
+.ino-tooltip__inner,
+.ino-popover__content {
+  border-radius: inherit;
 }
