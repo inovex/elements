@@ -519,26 +519,22 @@ Contains the element itself in `event.detail` */
   }
 }
 
-import { Menu as IMenu } from '@inovex.de/elements/dist/types/components/ino-menu/ino-menu';
+
 export declare interface InoMenu extends Components.InoMenu {}
 @ProxyCmp({
-  inputs: ['inoFor', 'inoOpen']
+  inputs: ['inoPlacement']
 })
 @Component({
   selector: 'ino-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoFor', 'inoOpen'],
-  outputs: ['menuClose']
+  inputs: ['inoPlacement']
 })
 export class InoMenu {
-  /** Emits on outside menu click and escape press. */
-  menuClose!: IMenu['menuClose'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['menuClose']);
   }
 }
 

@@ -6,9 +6,11 @@ import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-datepicker/readme.md';
 import './ino-datepicker.scss';
 
-let defaultDate = moment().format('YYYY-MM-DD');
-const minDate = moment().subtract(5, 'days').format('YYYY-MM-DD');
-const maxDate = moment().add(5, 'days').format('YYYY-MM-DD');
+const dateFormat = 'HH:mm DD.MM.YYYY';
+
+let defaultDate = moment().format(dateFormat);
+const minDate = moment().subtract(5, 'days').format(dateFormat);
+const maxDate = moment().add(5, 'days').format(dateFormat);
 
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
@@ -68,7 +70,7 @@ export const DefaultUsage = () => /*html*/ `
           false,
           'STANDARD'
         )}"
-        ino-date-format="${text('ino-date-format', 'Y-m-d', 'DATE CONFIG')}"
+        ino-date-format="${text('ino-date-format', 'H:i d.m.Y', 'DATE CONFIG')}"
         ino-range="${boolean('ino-range', false, 'DATE CONFIG')}"
         ino-default-date="${text(
           'ino-default-date',
@@ -103,10 +105,10 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 
       <h4>Restrictions</h4>
-      <ino-datepicker ino-label="Custom default date" ino-date-format="Y-m-d" ino-default-date="${defaultDate}" ino-date-format="Y-m-d"></ino-datepicker>
-      <ino-datepicker ino-label="Min date" ino-date-format="Y-m-d" min="${minDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Max date" ino-date-format="Y-m-d" max="${maxDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Min and Max date" ino-date-format="Y-m-d" min="${minDate}" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Custom default date" ino-date-format="H:i d.m.Y" ino-default-date="${defaultDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min date" ino-date-format="H:i d.m.Y" min="${minDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Max date" ino-date-format="H:i d.m.Y" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min and Max date" ino-date-format="H:i d.m.Y" min="${minDate}" max="${maxDate}"></ino-datepicker>
       <ino-datepicker ino-type="time" ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-date-format="H:i"></ino-datepicker>
       <ino-datepicker ino-type="time" ino-label="Default hour and minute" ino-date-format="H:i" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 

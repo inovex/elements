@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoButton {
@@ -235,7 +236,7 @@ export namespace Components {
          */
         "hourStep": number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
          */
         "inoDateFormat"?: string;
         /**
@@ -285,7 +286,7 @@ export namespace Components {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: 'date' | 'month' | 'time' | 'datetime';
+        "inoType"?: PickerTypeKeys;
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -728,13 +729,9 @@ export namespace Components {
     }
     interface InoMenu {
         /**
-          * Anchor element for the menu
+          * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
-        "inoFor"?: string;
-        /**
-          * Set this option to show the menu.
-         */
-        "inoOpen"?: boolean;
+        "inoPlacement": Placement;
     }
     interface InoNavDrawer {
         /**
@@ -1763,7 +1760,7 @@ declare namespace LocalJSX {
          */
         "hourStep"?: number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01.01.2019`.
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
          */
         "inoDateFormat"?: string;
         /**
@@ -1813,7 +1810,7 @@ declare namespace LocalJSX {
         /**
           * Selects the correct picker corresponding to the given type.
          */
-        "inoType"?: 'date' | 'month' | 'time' | 'datetime';
+        "inoType"?: PickerTypeKeys;
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -2288,17 +2285,9 @@ declare namespace LocalJSX {
     }
     interface InoMenu {
         /**
-          * Anchor element for the menu
+          * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
-        "inoFor"?: string;
-        /**
-          * Set this option to show the menu.
-         */
-        "inoOpen"?: boolean;
-        /**
-          * Emits on outside menu click and escape press.
-         */
-        "onMenuClose"?: (event: CustomEvent<void>) => void;
+        "inoPlacement"?: Placement;
     }
     interface InoNavDrawer {
         /**

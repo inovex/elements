@@ -1,27 +1,30 @@
 # ino-menu
 
-A menu component that displays a list of choices on a temporary surface. It functions as a wrapper around the material [menu](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu/) component.
+A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.
+The anchor element is the parent element.
 
-The anchor element is the parent element or the element found via the selector of the `ino-for` property passed in.
+The menu items consist of different variations of the `ino-list-item` component.
 
-The `ino-list-item` (and `ino-list-divider`) component is used for the rendering of the menu items.
+If you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.
 
 ### Usage
 
 The component can be used as follows:
 
 ```html
-<ino-menu ino-open ino-for="<string>">
-  <ino-list-item ...></ino-list-item>
-  <ino-list-divider></ino-list-divider>
-</ino-menu>
+<ino-button>
+  <ino-menu>
+    <ino-list-item ...></ino-list-item>
+    <ino-list-divider></ino-list-divider>
+  </ino-menu>
+</ino-button>
 ```
 
 ### React
 
 #### Example #1 - Basic
 
-```js
+```jsx
 import { Component } from 'react';
 import {
   InoButton,
@@ -33,53 +36,16 @@ import {
 class MyComponent extends Component {
   render() {
     return (
-      <InoMenu inoFor="menu">
-        <InoListItem inoText="Home" />
-        <InoListItem inoText="Projects" />
-        <InoDivider />
-        <InoListItem inoText="User" />
-        <InoListItem inoText="Settings" />
-      </InoMenu>
-    );
-  }
-}
-```
-
-#### Example #2 - With Types
-
-```js
-import React, { Component } from 'react';
-import {
-  InoButton,
-  InoMenu,
-  InoListItem,
-  InoDivider,
-} from '@inovex.de/elements/dist/react';
-import { Components } from '@inovex.de/elements/dist/types/components';
-
-const Menu: React.FunctionComponent<Components.InoMenuAttributes> = (props) => {
-  const { inoFor } = props;
-
-  return (
-    <div>
-      <InoButton id={inoFor}>Open menu</InoButton>
-      <InoMenu inoFor={inoFor} inoOpen={true}>
-        {props.children}
-      </InoMenu>
-    </div>
-  );
-};
-
-class MyComponent extends Component {
-  render() {
-    return (
-      <Menu inoFor="menu">
-        <InoListItem inoText="Home" />
-        <InoListItem inoText="Projects" />
-        <InoDivider />
-        <InoListItem inoText="User" />
-        <InoListItem inoText="Settings" />
-      </Menu>
+      <InoButton>
+        Show Menu
+        <InoMenu>
+          <InoListItem inoText="Home"/>
+          <InoListItem inoText="Projects"/>
+          <InoDivider/>
+          <InoListItem inoText="User"/>
+          <InoListItem inoText="Settings"/>
+        </InoMenu>
+      </InoButton>
     );
   }
 }
@@ -87,35 +53,31 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-The menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see example above). For more details about the list capabilities itself, check the documentation of `ino-list` and `ino-list-item` component.
+The menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see
+example above). For more details about the list capabilities itself, check the documentation of `ino-list`
+and `ino-list-item` component.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property  | Attribute  | Description                       | Type      | Default     |
-| --------- | ---------- | --------------------------------- | --------- | ----------- |
-| `inoFor`  | `ino-for`  | Anchor element for the menu       | `string`  | `undefined` |
-| `inoOpen` | `ino-open` | Set this option to show the menu. | `boolean` | `false`     |
-
-
-## Events
-
-| Event       | Description                                   | Type                |
-| ----------- | --------------------------------------------- | ------------------- |
-| `menuClose` | Emits on outside menu click and escape press. | `CustomEvent<void>` |
+| Property       | Attribute       | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default  |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| `inoPlacement` | `ino-placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'` |
 
 
 ## Dependencies
 
 ### Depends on
 
+- [ino-popover](../ino-popover)
 - [ino-list](../ino-list)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-menu --> ino-popover
   ino-menu --> ino-list
   style ino-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
