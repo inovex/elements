@@ -240,15 +240,15 @@ export namespace Components {
          */
         "inoDateFormat"?: string;
         /**
-          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
+          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
          */
         "inoDefaultDate"?: string | string[];
         /**
-          * A number containing the initial hour in the date-time picker overlay. The default is `12`
+          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
          */
         "inoDefaultHour": number;
         /**
-          * A number containing the initial minute in the date-time picker overlay. The default is `0`
+          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
          */
         "inoDefaultMinute"?: number;
         /**
@@ -1764,15 +1764,15 @@ declare namespace LocalJSX {
          */
         "inoDateFormat"?: string;
         /**
-          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
+          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
          */
         "inoDefaultDate"?: string | string[];
         /**
-          * A number containing the initial hour in the date-time picker overlay. The default is `12`
+          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
          */
         "inoDefaultHour"?: number;
         /**
-          * A number containing the initial minute in the date-time picker overlay. The default is `0`
+          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
          */
         "inoDefaultMinute"?: number;
         /**
