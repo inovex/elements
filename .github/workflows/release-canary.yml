@@ -1,0 +1,50 @@
+name: Canary Release
+
+on:
+  workflow_run:
+    workflows: [ "Test & Build" ]
+    types:
+      - completed
+
+jobs:
+  canary-release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/checkout@v2
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: '14.x'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+            */*/*/node_modules
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-lerna-
+      - name: Download elements artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: elements
+          path: packages/elements/dist/
+      - name: Download elements-react artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: elements-react
+          path: packages/elements-react/dist/
+      - name: Download elements-angular artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: elements-angular
+          path: packages/elements-angular/dist/
+      - run: yarn install --frozen-lockfile
+      - run: yarn publish:canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
