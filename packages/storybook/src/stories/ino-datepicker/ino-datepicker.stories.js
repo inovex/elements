@@ -105,10 +105,10 @@ export const DefaultUsage = () => /*html*/ `
       <ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
 
       <h4>Restrictions</h4>
-      <ino-datepicker ino-label="Custom default date" ino-date-format="Y-m-d" ino-default-date="${defaultDate}" ino-date-format="Y-m-d"></ino-datepicker>
-      <ino-datepicker ino-label="Min date" ino-date-format="Y-m-d" min="${minDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Max date" ino-date-format="Y-m-d" max="${maxDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Min and Max date" ino-date-format="Y-m-d" min="${minDate}" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Custom default date" ino-date-format="H:i d.m.Y" ino-default-date="${defaultDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min date" ino-date-format="H:i d.m.Y" min="${minDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Max date" ino-date-format="H:i d.m.Y" max="${maxDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min and Max date" ino-date-format="H:i d.m.Y" min="${minDate}" max="${maxDate}"></ino-datepicker>
       <ino-datepicker ino-type="time" ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-date-format="H:i"></ino-datepicker>
       <ino-datepicker ino-type="time" ino-label="Default hour and minute" ino-date-format="H:i" ino-default-hour="14" ino-default-minute="49"></ino-datepicker>
 
