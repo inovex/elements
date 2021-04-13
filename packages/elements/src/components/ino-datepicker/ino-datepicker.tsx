@@ -185,6 +185,7 @@ export class Datepicker implements ComponentInterface {
 
   /**
    * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
+   * If a `value` is given, this will be ignored.
    */
   @Prop() inoDefaultDate?: string | string[];
 
@@ -195,7 +196,7 @@ export class Datepicker implements ComponentInterface {
 
   /**
    * A number containing the initial hour in the date-time picker overlay.
-   * The default is `12`
+   * If a `value` is given, this will be ignored.
    */
   @Prop() inoDefaultHour = 12;
 
@@ -206,7 +207,7 @@ export class Datepicker implements ComponentInterface {
 
   /**
    * A number containing the initial minute in the date-time picker overlay.
-   * The default is `0`
+   * If a `value` is given, this will be ignored.
    */
   @Prop() inoDefaultMinute? = 0;
 
@@ -302,9 +303,9 @@ export class Datepicker implements ComponentInterface {
     };
 
     const typeSpecificOptions: PickerOption = createPicker(this.inoType, {
-      defaultHour: this.inoDefaultHour,
-      defaultMinute: this.inoDefaultMinute,
-      defaultDate: this.inoDefaultDate,
+      defaultHour: !this.value && this.inoDefaultHour,
+      defaultMinute: !this.value && this.inoDefaultMinute,
+      defaultDate: !this.value && this.inoDefaultDate,
       enableTime: true,
       time_24hr: !this.inoTwelveHourTime,
       minuteIncrement: this.minuteStep,
@@ -320,6 +321,10 @@ export class Datepicker implements ComponentInterface {
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
+
+    if (this.value) {
+      this.flatpickr?.setDate(this.value);
+    }
   }
 
   private dispose() {
