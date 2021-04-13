@@ -1,4 +1,90 @@
 # Changelog
+## [3.0.0](https://github.com/inovex/elements/compare/v2.3.0...v3.0.0) (2021-04-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-menu:** We have reworked the `ino-menu` so that it is now a composition of the `ino-popover` and `ino-list`. It now acts as a smart component that manages its own state. As a result, fewer properties need to be specified. If more complex functionality is required, one can easily build this using the `ino-popover` and the `ino-list`.
+
+To be specific, the `ino-open`, as well as the `ino-for` property has been removed. The parent node of the `ino-menu` now automatically acts as an anchor element for the menu. Since the state is now managed by the component, the `ino-open` property and the `menuClose` event are obsolete. The menu now opens on anchor click and closes on outside click.
+
+Before:
+```jsx
+<button id="my-anchor" onClick={() => this.setState({ isMenuOpen: true })}>Open Menu</button>
+<InoMenu ino-open={this.state.isMenuOpen} ino-for="my-anchor" onMenuClose={() => this.setState({ isMenuOpen: false })}>
+  <InoListItem>...</InoListItem>
+</InoMenu>
+```
+After:
+```jsx
+<button>
+  Open Menu
+  <InoMenu>
+    <InoListItem>...</InoListItem>
+  </InoMenu>
+</button>
+```
+
+For more information, have a look at the [storybook page of the ino-menu](https://elements.inovex.de/dist/latest/storybook/?path=/story/structure-ino-menu--default-usage).
+* **elements|ino-button:** We have removed the property `ino-full-width` of the `ino-button` as this styling should be achieved by simple css.
+
+e.g.:
+```css
+ino-button {
+  width: 100%;
+}
+```
+* **elements|ino-icon:** We have changed our internal icon handling to make working with them more intuitive.
+If you are currently using the elements with Vue.js, you need to update your icon import like this:
+
+**From**: `import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/icon-assets/SVG/index.esm.js';`
+
+**To**: `import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';`
+* **elements:** Previously, we used certain properties as flags to indicate that a slot was in use. 
+We wrote our own utility to check the contents of the slot at runtime, making these properties obsolete. 
+For this reason, we removed the following properties which can safely be removed:
+- `inoIconLeading`
+- `inoIconTrailing`
+
+These properties occurred in the following components:
+- `ino-button`
+- `ino-chip`
+- `ino-input`
+
+### Features
+
+* **elements-angular|ino-textarea:** handle onTouched in TextValueAccessor ([#287](https://github.com/inovex/elements/issues/287)) ([c020582](https://github.com/inovex/elements/commit/c02058217cce7a96353a7d19ff2cb574b2bdc913))
+* **elements|ino-chip:** add slot for trailing icon ([#221](https://github.com/inovex/elements/issues/221)) ([8b91f4e](https://github.com/inovex/elements/commit/8b91f4e51abf5a920ccf3718ccc54e13802768f1))
+* **elements|ino-datepicker:** add language support ([#272](https://github.com/inovex/elements/issues/272)) ([85e129e](https://github.com/inovex/elements/commit/85e129e95bd1b696d13712611f67bc816d46446a))
+* **elements|ino-fab:** add slot for leading icon ([#286](https://github.com/inovex/elements/issues/286)) ([6762544](https://github.com/inovex/elements/commit/6762544ceb83e2fa93fd60070af56a8e9336ef3c))
+* **elements|ino-menu:** emit new closeMenu event on click ([#244](https://github.com/inovex/elements/issues/244)) ([372b15a](https://github.com/inovex/elements/commit/372b15a037a2aa9a0a676e354096f5c42d6a168b))
+* **elements|ino-popover:** add functionality to control component ([#292](https://github.com/inovex/elements/issues/292)) ([df7757b](https://github.com/inovex/elements/commit/df7757bf2b2ea13a69661ae1d889cd92a29a0b6c))
+* **elements|ino-popover:** add prop `ino-distance` to define offset ([#299](https://github.com/inovex/elements/issues/299)) ([ea03f3d](https://github.com/inovex/elements/commit/ea03f3dc242beb379e70e19406eb2d7e11429086))
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix default date ([#343](https://github.com/inovex/elements/issues/343)) ([16718ac](https://github.com/inovex/elements/commit/16718ac44b5337dcad91559191fcb9388c62c1f2))
+* **elements|ino-datepicker:** select default date according to prop ([#345](https://github.com/inovex/elements/issues/345)) ([38a5824](https://github.com/inovex/elements/commit/38a58245dbcfb3f5abb846eb1c494019b90b7359))
+* **elements|ino-datepicker:** validate on min/max date changes ([#313](https://github.com/inovex/elements/issues/313)) ([f14da32](https://github.com/inovex/elements/commit/f14da32cf4855199c4fc30ea1ce8aea89d333163))
+* **elements|ino-tooltip:** updating `ino-label` leads to non-styled text ([#301](https://github.com/inovex/elements/issues/301)) ([ce8569a](https://github.com/inovex/elements/commit/ce8569a1b5ef384d2dfb803133a7c924766e0c43))
+
+
+* **elements|ino-button:** inherit width ([#278](https://github.com/inovex/elements/issues/278)) ([75aca81](https://github.com/inovex/elements/commit/75aca81b3efe9b3ccf09b5f357d2eece85753125))
+
+
+### Miscellaneous
+
+* **elements:** update stencil/core and stencil/sass ([#285](https://github.com/inovex/elements/issues/285)) ([313a5b1](https://github.com/inovex/elements/commit/313a5b1b72594d0a11c46ca5d52faa7c38f2082f))
+* **storybook:** bump marked from 1.2.0 to 2.0.1 ([#304](https://github.com/inovex/elements/issues/304)) ([c45bebd](https://github.com/inovex/elements/commit/c45bebdc1176dadebe6a5554e3c1857195b43a93))
+
+
+### Refactoring
+
+* **elements:** remove ino-leading/trailing properties ([#277](https://github.com/inovex/elements/issues/277)) ([558d41f](https://github.com/inovex/elements/commit/558d41ff6b85d33976d02fbfb52c78bc9081e6d8))
+* **elements|ino-icon:** avoid duplicate icon files ([#255](https://github.com/inovex/elements/issues/255)) ([cb6da53](https://github.com/inovex/elements/commit/cb6da5315c6a132f4d754d325b0aa19b06f9a6a6))
+* **elements|ino-menu:** replace underlying mdc-menu with ino-popover ([#347](https://github.com/inovex/elements/issues/347)) ([68de0bd](https://github.com/inovex/elements/commit/68de0bd8758da5090e22cf793ad72150a243c33e))
+
 ## [2.3.0](https://github.com/inovex/elements/compare/v2.2.1...v2.3.0) (2021-01-27)
 
 
