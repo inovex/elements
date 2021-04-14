@@ -79,6 +79,14 @@ export class Range implements ComponentInterface {
 
   componentDidLoad() {
     const sliderElement = this.el.querySelector('.mdc-slider');
+    /**
+     * this is required for the MDCSlider to work properly. The value attribute of the input element is hidden, which
+     * prevents the underlying MDCSliderFoundation to be initialised properly as it is trying to acquire the values
+     * of the min, max, and value attributes from the input element.
+     */
+    sliderElement
+      .querySelector('input')
+      .setAttribute('value', `${this.value || this.min}`);
     this.sliderInstance = new MDCSlider(sliderElement);
     this.sliderInstance.listen(
       'MDCSlider:change',
@@ -125,26 +133,25 @@ export class Range implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <div
-          class={sliderClasses}
-          aria-label={this.name}
-          aria-disabled={this.disabled}
-          data-step={this.step}
-        >
+        <div class={sliderClasses}>
+          <input
+            class="mdc-slider__input"
+            type="range"
+            min={this.min}
+            max={this.max}
+            value={this.value}
+            step={this.step}
+            disabled={this.disabled}
+            name={this.name}
+            aria-label={this.name}
+          />
           <div class="mdc-slider__track">
+            <div class="mdc-slider__track--inactive"></div>
             <div class="mdc-slider__track--active">
               <div class="mdc-slider__track--active_fill"></div>
             </div>
-            <div class="mdc-slider__track--inactive"></div>
           </div>
-          <div
-            class="mdc-slider__thumb"
-            aria-valuemin={this.min}
-            aria-valuemax={this.max}
-            aria-valuenow={this.value || this.min}
-            tabindex="0"
-            role="slider"
-          >
+          <div class="mdc-slider__thumb">
             {this.discrete && (
               <div class="mdc-slider__value-indicator-container">
                 <div class="mdc-slider__value-indicator">
