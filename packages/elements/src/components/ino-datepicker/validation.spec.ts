@@ -50,11 +50,6 @@ describe('DateValidator', () => {
     expect(dateValidator.validate('01.01.2020 to 02-01-2020')).toBe(false);
   });
 
-  it('should be valid if range in correct format', () => {
-    dateValidator.isRanged = true;
-    expect(dateValidator.validate('01.01.2020 to 02.01.2020')).toBe(true);
-  });
-
   it('should be valid if value is equal to min date', () => {
     dateValidator.minDate = '01.01.2020';
     expect(dateValidator.validate('01.01.2020')).toBe(true);
