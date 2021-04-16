@@ -84,4 +84,22 @@ describe('DateValidator', () => {
     dateValidator.maxDate = '01.01.2020';
     expect(dateValidator.validate('02.01.2020')).toBe(false);
   });
+
+  it('should throw error if minDate cannot be parsed', () => {
+    expect(() => {
+      dateValidator.minDate = 'ABC';
+    }).toThrow();
+  });
+
+  it('should throw error if maxDate cannot be parsed', () => {
+    expect(() => {
+      dateValidator.maxDate = 'ABC';
+    }).toThrow();
+  });
+
+  it('should throw error if value cannot be parsed', () => {
+    expect(() => {
+      dateValidator.validate('ABC');
+    }).toThrow();
+  });
 });

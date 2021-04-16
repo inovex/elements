@@ -42,8 +42,6 @@ export class DateValidator {
    * @return true if the date is valid, false if the date is invalid
    */
   public validate = (value?: string): boolean => {
-    console.log(flatpickr);
-
     if (this._isDisabled) {
       return true;
     }
@@ -117,7 +115,9 @@ export class DateValidator {
       );
       return formattedDate == value;
     } catch (_) {
-      `Value (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`;
+      throw new Error(
+        `Value (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
+      );
     }
   };
 
@@ -127,8 +127,15 @@ export class DateValidator {
       .includes(false);
   };
 
-  private parseDate = (value: string): Date =>
-    flatpickr.parseDate(value, this._dateFormat);
+  private parseDate = (value: string): Date => {
+    const parsedDate = flatpickr.parseDate(value, this._dateFormat);
+
+    if (!parsedDate) {
+      throw new Error(`Could not parse Date ${value}`);
+    }
+
+    return parsedDate;
+  };
 
   set isDisabled(value: boolean) {
     this._isDisabled = value;
