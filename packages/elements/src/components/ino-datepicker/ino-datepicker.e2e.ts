@@ -105,31 +105,36 @@ describe('InoDatepicker', () => {
       expect(flatpickrCalEl).toBeDefined();
 
       const days = await page.findAll('.flatpickr-day');
-      for (const day of days) {
-        if (day.classList.contains('today')) {
-          expect(day).not.toHaveClass('flatpickr-disabled');
-          break;
-        }
-        expect(day).toHaveClass('flatpickr-disabled');
+      const indexToday = days.findIndex((day) =>
+        day.classList.contains('today')
+      );
+
+      const today = days[indexToday];
+      expect(today).not.toHaveClass('flatpickr-disabled');
+
+      // not first day in calendar
+      if (indexToday !== 0) {
+        const yesterday = days[indexToday - 1];
+        expect(yesterday).toHaveClass('flatpickr-disabled');
+      }
+
+      // not last day in calendar
+      if (indexToday !== days.length - 1) {
+        const tomorrow = days[indexToday + 1];
+        expect(tomorrow).not.toHaveClass('flatpickr-disabled');
       }
     });
 
     it('should render with min and max date', async () => {
-      const page = await setupPageWithContent(INO_DATEPICKER);
-      const datepicker = await page.find(DATEPICKER);
-
-      await datepicker.setAttribute('max', 'today');
-      await datepicker.setAttribute('min', 'today');
+      const page = await setupPageWithContent(`
+       <ino-datepicker min="today" max="today"></ino-datepicker>`);
       await page.waitForChanges();
 
       const days = await page.findAll('.flatpickr-day');
-      for (const day of days) {
-        if (day.classList.contains('today')) {
-          expect(day).not.toHaveClass('flatpickr-disabled');
-          break;
-        }
-        expect(day).toHaveClass('flatpickr-disabled');
-      }
+      const enabledDays = days.filter(
+        (day) => !day.classList.contains('flatpickr-disabled')
+      );
+      expect(enabledDays.length).toBe(1); // today is the only one enabled
     });
 
     it('should render with inoRange set to true', async () => {
