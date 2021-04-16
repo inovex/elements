@@ -3,58 +3,184 @@ import flatpickr from 'flatpickr';
 
 const NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
-export const validateRange = (value: string, format: string): boolean =>
-  !value
-    .match(NUMBERS_WITH_SPECIAL_CHARS)
-    .map((match) => validateFormat(match.trim(), format))
-    .includes(false);
+type Props = {
+  disabled: boolean;
+  required: boolean;
+  dateFormat: string;
+  isRanged: boolean;
+  minDate?: string;
+  maxDate?: string;
+};
 
-export const validateSingle = (
-  value: string,
-  format: string,
-  minDateStr?: string,
-  maxDateStr?: string
-): boolean =>
-  validateMin(value, format, minDateStr) &&
-  validateMax(value, format, maxDateStr) &&
-  validateFormat(value, format);
+export class DateValidator {
+  private _isDisabled: boolean;
+  private _isRequired: boolean;
+  private _dateFormat: string;
+  private _minDate?: Date;
+  private _maxDate?: Date;
+  private _isRanged: boolean;
 
-export const validateMin = (
-  value: string,
-  format: string,
-  minDateStr?: string
-): boolean => {
-  if (!minDateStr) {
+  constructor({
+    disabled,
+    required,
+    dateFormat,
+    isRanged,
+    minDate,
+    maxDate,
+  }: Props) {
+    this._isDisabled = disabled;
+    this._isRequired = required;
+    this._dateFormat = dateFormat;
+    this._isRanged = isRanged;
+    this.minDate = minDate;
+    this.maxDate = maxDate;
+  }
+
+  /**
+   * Validates the date in terms of format, require-state, disabled-state minimum date and maximum date.
+   * @param value The value to be validated
+   * @return true if the date is valid, false if the date is invalid
+   */
+  public validate = (value?: string): boolean => {
+    console.log(flatpickr);
+
+    if (this._isDisabled) {
+      return true;
+    }
+
+    if (!value && this._isRequired) {
+      return false;
+    }
+
+    if (!this.validateFormat(value)) {
+      return false;
+    }
+
+    if (this._minDate && !this.validateMin(value)) {
+      return false;
+    }
+
+    if (this._maxDate && !this.validateMax(value)) {
+      return false;
+    }
+
     return true;
-  }
-  const parsedDate: Date = parseDate(value, format);
-  const minDate = flatpickr.parseDate(minDateStr, format);
-  return isEqual(parsedDate, minDate) || isAfter(parsedDate, minDate);
-};
+  };
 
-export const validateMax = (
-  value: string,
-  format: string,
-  maxDateStr?: string
-): boolean => {
-  if (!maxDateStr) {
-    return true;
-  }
-  const parsedDate: Date = parseDate(value, format);
-  const maxDate = parseDate(maxDateStr, format);
-  return isEqual(parsedDate, maxDate) || isBefore(parsedDate, maxDate);
-};
+  private validateMin = (value: string): boolean =>
+    this._isRanged
+      ? this.validateMinRange(value)
+      : this.validateMinSingle(value);
 
-const validateFormat = (value: string, format: string): boolean => {
-  const parsedDate: Date = parseDate(value, format);
-  const formattedDate: string = flatpickr.formatDate(parsedDate, format);
-  return formattedDate == value;
-};
+  private validateMinSingle = (value: string): boolean => {
+    const parsedDate: Date = this.parseDate(value);
+    return (
+      isEqual(parsedDate, this._minDate) || isAfter(parsedDate, this._minDate)
+    );
+  };
 
-const parseDate = (value: string, format: string): Date => {
-  try {
-    return flatpickr.parseDate(value, format);
-  } catch (e) {
-    throw new Error(`An Error occured while parsing: ${e}`);
+  private validateMinRange = (value: string): boolean => {
+    return !DateValidator.convertToRangeArray(value)
+      .map(this.validateMinSingle)
+      .includes(false);
+  };
+
+  private validateMax = (value: string): boolean =>
+    this._isRanged
+      ? this.validateMaxRange(value)
+      : this.validateMaxSingle(value);
+
+  private validateMaxSingle = (value: string): boolean => {
+    const parsedDate: Date = this.parseDate(value);
+    return (
+      isEqual(parsedDate, this._maxDate) || isBefore(parsedDate, this._maxDate)
+    );
+  };
+
+  private validateMaxRange = (value: string): boolean => {
+    return !DateValidator.convertToRangeArray(value)
+      .map(this.validateMaxRange)
+      .includes(false);
+  };
+
+  private validateFormat = (value: string): boolean =>
+    this._isRanged
+      ? this.validateFormatRange(value)
+      : this.validateFormatSingle(value);
+
+  private validateFormatSingle = (value: string): boolean => {
+    try {
+      const parsedDate: Date = this.parseDate(value);
+      const formattedDate: string = flatpickr.formatDate(
+        parsedDate,
+        this._dateFormat
+      );
+      return formattedDate == value;
+    } catch (_) {
+      `Value (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`;
+    }
+  };
+
+  private validateFormatRange = (value: string): boolean => {
+    return !DateValidator.convertToRangeArray(value)
+      .map(this.validateFormatSingle)
+      .includes(false);
+  };
+
+  private parseDate = (value: string): Date =>
+    flatpickr.parseDate(value, this._dateFormat);
+
+  set isDisabled(value: boolean) {
+    this._isDisabled = value;
   }
-};
+
+  set isRequired(value: boolean) {
+    this._isRequired = value;
+  }
+
+  set dateFormat(value: string) {
+    this._dateFormat = value;
+  }
+
+  set minDate(value: string | undefined) {
+    if (!value) {
+      this._minDate = undefined;
+      return;
+    }
+
+    try {
+      this._minDate = this.parseDate(value);
+    } catch (_) {
+      throw new Error(
+        `Minimum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
+      );
+    }
+  }
+
+  set maxDate(value: string | undefined) {
+    if (!value) {
+      this._maxDate = undefined;
+      return;
+    }
+
+    try {
+      this._maxDate = this.parseDate(value);
+    } catch (_) {
+      throw new Error(
+        `Maximum date (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
+      );
+    }
+  }
+
+  set isRanged(value: boolean) {
+    this._isRanged = value;
+  }
+
+  /**
+   * Converts a range string to an array with these values
+   * @param value The range as a string (e.g., "01.01.2020 to 31.01.2020")
+   * @returns The range as a string array with two items (e.g., ["01.01.2020", "31.01.2020"])
+   */
+  private static convertToRangeArray = (value: string): string[] =>
+    value.match(NUMBERS_WITH_SPECIAL_CHARS).map((match) => match.trim());
+}
