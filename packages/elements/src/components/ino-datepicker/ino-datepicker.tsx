@@ -103,6 +103,11 @@ export class Datepicker implements ComponentInterface {
   minChanged(min: string) {
     const { dateFormat } = this.flatpickr.config;
 
+    if (!this.value) {
+      this.flatpickr?.set('minDate', min);
+      return;
+    }
+
     try {
       this.isValid = validateMin(this.value, dateFormat, min);
       this.flatpickr?.set('minDate', min);
@@ -119,6 +124,11 @@ export class Datepicker implements ComponentInterface {
   @Watch('max')
   maxChanged(max: string) {
     const { dateFormat } = this.flatpickr.config;
+
+    if (!this.value) {
+      this.flatpickr?.set('maxDate', max);
+      return;
+    }
 
     try {
       this.isValid = validateMax(this.value, dateFormat, max);

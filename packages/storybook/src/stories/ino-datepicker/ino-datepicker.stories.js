@@ -106,7 +106,7 @@ export const DefaultUsage = () => /*html*/ `
 
       <h4>Restrictions</h4>
       <ino-datepicker ino-label="Custom default date" ino-date-format="H:i d.m.Y" ino-default-date="${defaultDate}"></ino-datepicker>
-      <ino-datepicker ino-label="Min date" ino-date-format="H:i d.m.Y" min="${minDate}"></ino-datepicker>
+      <ino-datepicker ino-label="Min date" ino-date-format="H:i d.m.Y" required="true" min="${minDate}"></ino-datepicker>
       <ino-datepicker ino-label="Max date" ino-date-format="H:i d.m.Y" max="${maxDate}"></ino-datepicker>
       <ino-datepicker ino-label="Min and Max date" ino-date-format="H:i d.m.Y" min="${minDate}" max="${maxDate}"></ino-datepicker>
       <ino-datepicker ino-type="time" ino-label="hour step and minute step" hour-step="2" minute-step="5" ino-date-format="H:i"></ino-datepicker>
