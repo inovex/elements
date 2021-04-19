@@ -160,6 +160,7 @@ export class Datepicker implements ComponentInterface {
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
     this.validator.dateFormat = dateFormat;
+    this.isValid = this.validator.validate(this.value);
     this.flatpickr?.set('dateFormat', dateFormat);
   }
 
