@@ -12,7 +12,7 @@ type Props = {
   maxDate?: string;
 };
 
-export class DateValidator {
+export class Validator {
   private _isDisabled: boolean;
   private _isRequired: boolean;
   private _dateFormat: string;
@@ -78,7 +78,7 @@ export class DateValidator {
   };
 
   private validateMinRange = (value: string): boolean => {
-    return !DateValidator.convertToRangeArray(value)
+    return !Validator.convertToRangeArray(value)
       .map(this.validateMinSingle)
       .includes(false);
   };
@@ -96,7 +96,7 @@ export class DateValidator {
   };
 
   private validateMaxRange = (value: string): boolean => {
-    return !DateValidator.convertToRangeArray(value)
+    return !Validator.convertToRangeArray(value)
       .map(this.validateMaxRange)
       .includes(false);
   };
@@ -122,7 +122,7 @@ export class DateValidator {
   };
 
   private validateFormatRange = (value: string): boolean => {
-    return !DateValidator.convertToRangeArray(value)
+    return !Validator.convertToRangeArray(value)
       .map(this.validateFormatSingle)
       .includes(false);
   };

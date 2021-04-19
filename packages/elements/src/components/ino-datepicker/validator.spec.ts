@@ -1,10 +1,10 @@
-import { DateValidator } from './validation';
+import { Validator } from './validator';
 
 describe('DateValidator', () => {
-  let dateValidator: DateValidator;
+  let dateValidator: Validator;
 
   beforeEach(() => {
-    dateValidator = new DateValidator({
+    dateValidator = new Validator({
       disabled: false,
       required: false,
       isRanged: false,

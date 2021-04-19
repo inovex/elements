@@ -16,7 +16,7 @@ import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
 import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
-import { DateValidator } from './validation';
+import { Validator } from './validator';
 
 @Component({
   tag: 'ino-datepicker',
@@ -30,7 +30,7 @@ export class Datepicker implements ComponentInterface {
 
   private inputEl: HTMLInoInputElement;
 
-  private validator: DateValidator;
+  private validator: Validator;
 
   /**
    * Autofocuses this element.
@@ -302,7 +302,7 @@ export class Datepicker implements ComponentInterface {
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.validator = new DateValidator({
+    this.validator = new Validator({
       dateFormat: this.inoDateFormat,
       disabled: this.disabled,
       required: this.required,
