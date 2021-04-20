@@ -258,6 +258,17 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+  componentWillLoad() {
+    this.validator = new Validator({
+      dateFormat: this.inoDateFormat,
+      disabled: this.disabled,
+      required: this.required,
+      isRanged: this.inoRange,
+      minDate: this.min,
+      maxDate: this.max,
+    });
+  }
+
   componentDidLoad() {
     if (!this.disabled) {
       this.create();
@@ -302,14 +313,6 @@ export class Datepicker implements ComponentInterface {
 
     const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
-    this.validator = new Validator({
-      dateFormat: this.inoDateFormat,
-      disabled: this.disabled,
-      required: this.required,
-      isRanged: this.inoRange,
-      minDate: this.min,
-      maxDate: this.max,
-    });
 
     if (this.value) {
       this.flatpickr?.setDate(this.value);
