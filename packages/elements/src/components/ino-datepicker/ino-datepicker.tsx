@@ -16,12 +16,7 @@ import { Instance } from 'flatpickr/dist/types/instance';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 import { getDatepickerLocale } from './local';
 import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
-import {
-  validateMax,
-  validateMin,
-  validateRange,
-  validateSingle,
-} from './validation';
+import { Validator } from './validator';
 
 @Component({
   tag: 'ino-datepicker',
@@ -34,6 +29,8 @@ export class Datepicker implements ComponentInterface {
   private flatpickr!: Instance;
 
   private inputEl: HTMLInoInputElement;
+
+  private validator: Validator;
 
   /**
    * Autofocuses this element.
@@ -69,27 +66,9 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('value')
   valueChanged(value?: string) {
-    if (!this.flatpickr || this.disabled) {
-      this.isValid = true;
-      return;
-    }
+    this.validate(value);
 
-    if (!value) {
-      this.isValid = !this.required;
-      return;
-    }
-
-    const dateFormat = this.flatpickr.config.dateFormat;
-
-    try {
-      this.isValid = this.inoRange
-        ? validateRange(value, dateFormat)
-        : validateSingle(value, dateFormat, this.min, this.max);
-    } catch (e) {
-      this.isValid = false;
-    }
-
-    if (this.isValid) {
+    if (!this.disabled && this.isValid) {
       this.flatpickr?.setDate(value, true);
     }
   }
@@ -101,14 +80,9 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('min')
   minChanged(min: string) {
-    const { dateFormat } = this.flatpickr.config;
-
-    try {
-      this.isValid = validateMin(this.value, dateFormat, min);
-      this.flatpickr?.set('minDate', min);
-    } catch (e) {
-      this.isValid = false;
-    }
+    this.validator.minDate = min;
+    this.validate();
+    this.flatpickr?.set('minDate', min);
   }
 
   /**
@@ -118,14 +92,9 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('max')
   maxChanged(max: string) {
-    const { dateFormat } = this.flatpickr.config;
-
-    try {
-      this.isValid = validateMax(this.value, dateFormat, max);
-      this.flatpickr?.set('maxDate', max);
-    } catch (e) {
-      this.isValid = false;
-    }
+    this.validator.maxDate = max;
+    this.validate();
+    this.flatpickr?.set('maxDate', max);
   }
 
   /**
@@ -160,15 +129,17 @@ export class Datepicker implements ComponentInterface {
   @Prop() inoRange?: boolean;
 
   @Watch('inoRange')
-  inoRangeChanged() {
-    if (!this.disabled) {
-      this.create();
-    }
+  inoRangeChanged(val: boolean) {
+    this.create();
+    this.validator.isRanged = val;
+    this.validate();
   }
 
   @Watch('disabled')
   disabledChanged(newValue: boolean) {
-    newValue ? this.dispose() : this.create();
+    this.create();
+    this.validator.isDisabled = newValue;
+    this.validate();
   }
 
   /**
@@ -180,6 +151,8 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoDateFormat')
   inoDateFormatChanged(dateFormat: string) {
+    this.validator.dateFormat = dateFormat;
+    this.validate();
     this.flatpickr?.set('dateFormat', dateFormat);
   }
 
@@ -233,7 +206,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('inoType')
   inoTypeChanged() {
-    if (!this.disabled) this.create();
+    this.create();
   }
 
   /**
@@ -277,14 +250,26 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+  connectedCallback() {
+    this.validator = new Validator({
+      dateFormat: this.inoDateFormat,
+      disabled: this.disabled,
+      isRanged: this.inoRange,
+      minDate: this.min,
+      maxDate: this.max,
+    });
+  }
+
   componentDidLoad() {
-    if (!this.disabled) {
-      this.create();
-    }
+    this.create();
   }
 
   disconnectedCallback() {
     this.dispose();
+  }
+
+  private validate(value: string = this.value) {
+    this.isValid = this.validator.validate(value);
   }
 
   private create() {

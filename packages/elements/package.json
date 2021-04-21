@@ -46,9 +46,12 @@
     "dev": "stencil build --docs --watch --legacy",
     "lint": "tslint --project tsconfig.json",
     "lint.fix": "tslint --project tsconfig.json --fix",
-    "test": "stencil test --e2e --ci",
-    "test.watch": "stencil test --e2e --watch",
-    "test:update": "stencil test --e2e -u ./",
+    "test": "stencil test --e2e --spec --ci --silent",
+    "test:e2e": "stencil test --e2e",
+    "test:e2e-update": "stencil test --e2e -u ./",
+    "test:e2e-watch": "stencil test --e2e --watch",
+    "test:spec": "stencil test --spec",
+    "test:spec-watch": "stencil test --spec --watch",
     "icon:integrate-icons": "node scripts/integrateIcons.js"
   },
   "dependencies": {
