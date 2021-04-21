@@ -5,7 +5,6 @@ const NUMBERS_WITH_SPECIAL_CHARS = /(\d[^a-z]+)/g;
 
 type Props = {
   disabled: boolean;
-  required: boolean;
   dateFormat: string;
   isRanged: boolean;
   minDate?: string;
@@ -14,22 +13,13 @@ type Props = {
 
 export class Validator {
   private _isDisabled: boolean;
-  private _isRequired: boolean;
   private _dateFormat: string;
   private _minDate?: Date;
   private _maxDate?: Date;
   private _isRanged: boolean;
 
-  constructor({
-    disabled,
-    required,
-    dateFormat,
-    isRanged,
-    minDate,
-    maxDate,
-  }: Props) {
+  constructor({ disabled, dateFormat, isRanged, minDate, maxDate }: Props) {
     this._isDisabled = disabled;
-    this._isRequired = required;
     this._dateFormat = dateFormat;
     this._isRanged = isRanged;
     this.minDate = minDate;
@@ -37,7 +27,7 @@ export class Validator {
   }
 
   /**
-   * Validates the date in terms of format, require-state, disabled-state minimum date and maximum date.
+   * Validates the date in terms of format, disabled-state minimum date and maximum date.
    * @param value The value to be validated
    * @return true if the date is valid, false if the date is invalid
    */
@@ -46,8 +36,8 @@ export class Validator {
       return true;
     }
 
-    if (!value && this._isRequired) {
-      return false;
+    if (!value) {
+      return true;
     }
 
     if (!this.validateFormat(value)) {
@@ -139,10 +129,6 @@ export class Validator {
 
   set isDisabled(value: boolean) {
     this._isDisabled = value;
-  }
-
-  set isRequired(value: boolean) {
-    this._isRequired = value;
   }
 
   set dateFormat(value: string) {

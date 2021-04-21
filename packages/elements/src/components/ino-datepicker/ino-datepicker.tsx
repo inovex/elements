@@ -52,12 +52,6 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() required?: boolean;
 
-  @Watch('required')
-  requiredChanged(required: boolean) {
-    this.validator.isRequired = required;
-    this.validate();
-  }
-
   /**
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
@@ -260,7 +254,6 @@ export class Datepicker implements ComponentInterface {
     this.validator = new Validator({
       dateFormat: this.inoDateFormat,
       disabled: this.disabled,
-      required: this.required,
       isRanged: this.inoRange,
       minDate: this.min,
       maxDate: this.max,

@@ -6,7 +6,6 @@ describe('DateValidator', () => {
   beforeEach(() => {
     dateValidator = new Validator({
       disabled: false,
-      required: false,
       isRanged: false,
       dateFormat: 'd.m.Y',
     });
@@ -15,11 +14,6 @@ describe('DateValidator', () => {
   it('should be valid if disabled', () => {
     dateValidator.isDisabled = true;
     expect(dateValidator.validate('ABC')).toBe(true);
-  });
-
-  it('should be invalid if required and empty value', () => {
-    dateValidator.isRequired = true;
-    expect(dateValidator.validate('')).toBe(false);
   });
 
   it('should be valid if in right format', () => {
