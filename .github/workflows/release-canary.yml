@@ -9,7 +9,9 @@ on:
 jobs:
   canary-release:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: |
+      github.ref == 'refs/heads/master' &&
+      github.event.workflow_run.conclusion == 'success'
 
     steps:
       - uses: actions/checkout@v2
