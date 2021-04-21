@@ -10,13 +10,7 @@ ino-range {
   min-width: 100px;
 
   @each $color-name in theme.$color-schemes {
-    // Condition to set default styles for primary
-    $selector: '&[ino-color-scheme="#{$color-name}"]';
-    @if $color-name == primary {
-      $selector: '&';
-    }
-
-    #{$selector} .mdc-slider {
+    &.ino-range--color-scheme-#{$color-name} .mdc-slider {
       @include slider-mixins.track-active-color(theme.color($color-name, base));
       @include slider-mixins.track-inactive-color(
         theme.color($color-name, light)

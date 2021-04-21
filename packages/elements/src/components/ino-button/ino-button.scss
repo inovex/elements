@@ -97,33 +97,33 @@ $color-states: (
 
 /* ------------------ FILL STYLES ------------------ */
 
-:host([ino-fill='solid']) {
+:host(.ino-button--fill-solid) {
   --button-color-disabled: #ffffff;
   --button-background-disabled: #{theme.color(dark, light)};
 }
 
-:host([ino-fill='outline']) {
+:host(.ino-button--fill-outline) {
   --button-background-disabled: transparent;
   --button-border-color-disabled: #{theme.color(dark, light)};
   --button-box-shadow: none;
   --button-color-disabled: #{theme.color(dark, light)};
 }
 
-:host([ino-fill='inverse']) {
+:host(.ino-button--fill-inverse) {
   --button-border-color: transparent;
   --button-background-disabled: #{theme.color(dark, light)};
   --button-color-disabled: white;
 }
 
-:host([ino-fill='inverse']),
-:host([ino-fill='outline']) {
+:host(.ino-button--fill-inverse),
+:host(.ino-button--fill-outline) {
   --button-background: var(--ino-button-color-primary-contrast, transparent);
 }
 
 /* ------------------ COLOR SCHEME STYLES ------------------ */
 
 @each $color-name in $color-schemes {
-  :host([ino-color-scheme='#{$color-name}']) {
+  :host(.ino-button--color-scheme-#{$color-name}) {
     --button-box-shadow-hover: 0
         4px
         8px
@@ -136,55 +136,55 @@ $color-states: (
         0
         var(--button-color-#{$color-name}-shadow-dark),
       0 16px 32px 0 var(--button-color-#{$color-name}-shadow-light);
-  }
 
-  :host([ino-color-scheme='#{$color-name}'][ino-fill='solid']) {
-    --button-background: var(--button-color-#{$color-name});
-    --button-background-active: var(--button-color-#{$color-name}-dark);
-    --button-background-hover: var(--button-color-#{$color-name}-light);
-    --button-box-shadow: 0
-        8px
-        16px
-        0
-        var(--button-color-#{$color-name}-shadow-dark),
-      0 16px 32px 0 var(--button-color-#{$color-name}-shadow-light);
-    --button-color: var(--button-color-#{$color-name}-contrast);
-    --button-color-active: var(--button-color-#{$color-name}-contrast);
-    --button-color-hover: var(--button-color-#{$color-name}-contrast);
-  }
+    &:host(.ino-button--fill-solid) {
+      --button-background: var(--button-color-#{$color-name});
+      --button-background-active: var(--button-color-#{$color-name}-dark);
+      --button-background-hover: var(--button-color-#{$color-name}-light);
+      --button-box-shadow: 0
+          8px
+          16px
+          0
+          var(--button-color-#{$color-name}-shadow-dark),
+        0 16px 32px 0 var(--button-color-#{$color-name}-shadow-light);
+      --button-color: var(--button-color-#{$color-name}-contrast);
+      --button-color-active: var(--button-color-#{$color-name}-contrast);
+      --button-color-hover: var(--button-color-#{$color-name}-contrast);
+    }
 
-  :host([ino-color-scheme='#{$color-name}'][ino-fill='inverse']),
-  :host([ino-color-scheme='#{$color-name}'][ino-fill='outline']) {
-    --button-background-active: #{map_get(
-        map_get($color-states, $color-name),
-        active
-      )};
-    --button-background-hover: #{map_get(
-        map_get($color-states, $color-name),
-        hover
-      )};
-    --button-color: var(--button-color-#{$color-name});
-    --button-color-active: var(--button-color-#{$color-name});
-    --button-color-hover: var(--button-color-#{$color-name});
-  }
+    &:host(.ino-button--fill-inverse),
+    &:host(.ino-button--fill-outline) {
+      --button-background-active: #{map_get(
+          map_get($color-states, $color-name),
+          active
+        )};
+      --button-background-hover: #{map_get(
+          map_get($color-states, $color-name),
+          hover
+        )};
+      --button-color: var(--button-color-#{$color-name});
+      --button-color-active: var(--button-color-#{$color-name});
+      --button-color-hover: var(--button-color-#{$color-name});
+    }
 
-  :host([ino-color-scheme='#{$color-name}'][ino-fill='inverse']) {
-    --button-box-shadow: 0
-        8px
-        16px
-        0
-        var(--button-color-#{$color-name}-shadow-dark),
-      0 16px 32px 0 var(--button-color-#{$color-name}-shadow-light);
-  }
+    &:host(.ino-button--fill-inverse) {
+      --button-box-shadow: 0
+          8px
+          16px
+          0
+          var(--button-color-#{$color-name}-shadow-dark),
+        0 16px 32px 0 var(--button-color-#{$color-name}-shadow-light);
+    }
 
-  :host([ino-color-scheme='#{$color-name}'][ino-fill='outline']) {
-    --button-border-color: var(--button-color-#{$color-name});
-    --button-border-color-active: var(--button-color-#{$color-name});
-    --button-border-color-hover: var(--button-color-#{$color-name});
+    &:host(.ino-button--fill-outline) {
+      --button-border-color: var(--button-color-#{$color-name});
+      --button-border-color-active: var(--button-color-#{$color-name});
+      --button-border-color-hover: var(--button-color-#{$color-name});
+    }
   }
 }
 
-:host([ino-color-scheme='white'][ino-fill='outline']) {
+:host(.ino-button--color-scheme-white.ino-button--fill-outline) {
   --button-border-color-active: rgba(255, 255, 255, 0.7);
   --button-border-color-hover: rgba(255, 255, 255, 0.7);
   --button-border-color-disabled: rgba(255, 255, 255, 0.3);
@@ -194,7 +194,7 @@ $color-states: (
   --button-color-disabled: rgba(255, 255, 255, 0.3);
 }
 
-:host([ino-color-scheme='grey'][ino-fill='outline']) {
+:host(.ino-button--color-scheme-grey.ino-button--fill-outline) {
   --button-border-color: #{theme.color(dark, base)};
   --button-border-color-active: #{theme.color(dark, dark)};
   --button-border-color-hover: #{theme.color(dark, light)};
@@ -274,14 +274,26 @@ $color-states: (
       border-color: var(--button-border-color-disabled);
     }
   }
-
-  .mdc-button.ino-button--dense {
-    @include button.density(-1);
-  }
 }
 
-:host([ino-edge-mirrored]:not([ino-edge-mirrored='false'])) {
+:host(.ino-button--mirrored-edge) {
   --button-border-radius: #{$edged-border-mirrored};
+}
+
+:host(.ino-button--dense) .mdc-button {
+  @include button.density(-1);
+}
+
+// Loading Styles
+:host(.ino-button--loading) {
+  button {
+    pointer-events: none;
+  }
+
+  .mdc-button__label .ino-spinner__composer {
+    top: 2px;
+    @include spinner.circle-color(var(--button-color));
+  }
 }
 
 // Icon Styles
@@ -299,16 +311,4 @@ $color-states: (
 
 :host(:disabled) ::slotted(ino-icon) {
   --ino-icon-color-primary: var(--button-color-disabled);
-}
-
-// Loading Styles
-:host([ino-loading]:not([ino-loading='false'])) {
-  button {
-    pointer-events: none;
-  }
-
-  .mdc-button__label .ino-spinner__composer {
-    top: 2px;
-    @include spinner.circle-color(var(--button-color));
-  }
 }

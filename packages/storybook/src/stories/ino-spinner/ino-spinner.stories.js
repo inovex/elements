@@ -13,7 +13,7 @@ export default {
 export const DefaultUsage = () => /*html*/ `
     <div class="story-spinner">
       <div class="flex-parent-center">
-        <div>
+        <div class="flex-column">
           <h4>Customizable Spinner</h4>
           <ino-spinner
             class="customizable-spinner"

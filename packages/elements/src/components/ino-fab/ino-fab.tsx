@@ -3,14 +3,14 @@ import {
   Component,
   ComponentInterface,
   Element,
+  h,
   Host,
   Listen,
   Prop,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { Placement } from 'tippy.js';
-import { hasSlotContent } from "../../util/component-utils";
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
  * @slot ino-icon-leading - For the icon to be prepended
@@ -51,7 +51,7 @@ export class Fab implements ComponentInterface {
     | 'top-left'
     | 'bottom-right'
     | 'bottom-left'
-    | 'none';
+    | 'none' = 'top-left';
 
   /**
    * Disables the button.
@@ -127,6 +127,10 @@ export class Fab implements ComponentInterface {
   private uniqueHelperId = Fab.generateHelperTextId();
 
   render() {
+    const hostClasses = classNames(
+      `ino-fab--edge-position-${this.inoEdgePosition}`
+    );
+
     const classFab = classNames({
       'mdc-fab': true,
       'mdc-fab--extended': this.inoExtended,
@@ -136,15 +140,13 @@ export class Fab implements ComponentInterface {
     const iconSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
 
     return (
-      <Host id={this.uniqueHelperId}>
+      <Host class={hostClasses} id={this.uniqueHelperId}>
         <button class={classFab} disabled={this.inoDisabled}>
           <span class="material-icons mdc-fab__icon">
-            { this.inoIcon && !iconSlotHasContent && (
-              <ino-icon ino-icon={this.inoIcon}/>
+            {this.inoIcon && !iconSlotHasContent && (
+              <ino-icon ino-icon={this.inoIcon} />
             )}
-            { iconSlotHasContent && (
-              <slot name="ino-icon-leading"/>
-            )}
+            {iconSlotHasContent && <slot name="ino-icon-leading" />}
           </span>
           {this.inoExtended && (
             <span class="mdc-fab__label">{this.inoLabel}</span>

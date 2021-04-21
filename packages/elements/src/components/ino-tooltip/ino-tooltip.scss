@@ -1,43 +1,25 @@
 @use './mixins' as tooltip-mixins;
 @use 'base/theme';
 
-ino-tooltip {
-  .ino-tooltip__composer {
-    font-size: 0.8rem;
-    text-align: center;
-    letter-spacing: 0;
-    padding: 4px 8px;
-    border-radius: 6px;
-  }
+$color-schemes: 'primary', 'secondary', 'light';
 
-  //default color scheme
-  @include tooltip-mixins.tooltip(
-    theme.color(primary),
-    theme.color(primary, contrast)
-  );
+ino-tooltip .ino-tooltip__composer {
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
 
-  &[ino-color-scheme='primary'] {
+@each $color in $color-schemes {
+  ino-tooltip.ino-tooltip--color-scheme-#{$color} {
     @include tooltip-mixins.tooltip(
-      theme.color(primary),
-      theme.color(primary, contrast)
+      theme.color($color, light),
+      theme.color($color, contrast)
     );
   }
+}
 
-  &[ino-color-scheme='secondary'] {
-    @include tooltip-mixins.tooltip(
-      theme.color(secondary),
-      theme.color(secondary, contrast)
-    );
-  }
-
-  &[ino-color-scheme='light'] {
-    @include tooltip-mixins.tooltip(
-      theme.color(light, light),
-      theme.color(light, contrast)
-    );
-  }
-
-  &[ino-color-scheme='transparent'] {
-    @include tooltip-mixins.tooltip(#ffffff, theme.color(dark));
-  }
+ino-tooltip.ino-tooltip--color-scheme-transparent {
+  @include tooltip-mixins.tooltip(#fff, theme.color(dark));
 }

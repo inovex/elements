@@ -33,7 +33,7 @@ export class Range implements ComponentInterface {
    * Possible values: `primary` (default), `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() inoColorScheme: ColorScheme = 'primary';
 
   /**
    * Restricts the slider to only allow discrete values.
@@ -112,6 +112,10 @@ export class Range implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames(
+      `ino-range--color-scheme-${this.inoColorScheme}`
+    );
+
     const sliderClasses = classNames({
       'mdc-slider': true,
       'mdc-slider--discrete': this.inoDiscrete,
@@ -120,7 +124,7 @@ export class Range implements ComponentInterface {
     });
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div
           class={sliderClasses}
           aria-label={this.name}

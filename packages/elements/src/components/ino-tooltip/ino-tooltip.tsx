@@ -8,6 +8,7 @@ import {
   h,
   Method,
 } from '@stencil/core';
+import classNames from 'classnames';
 import TippyJS, { Instance, Placement } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
@@ -26,7 +27,8 @@ export class Tooltip implements ComponentInterface {
    * Sets the color scheme of the tooltip
    * Valid options include: 'primary', 'secondary' 'light', 'transparent'
    */
-  @Prop() inoColorScheme: string = 'primary';
+  @Prop() inoColorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
+    'primary';
 
   /**
    * The placement of the tooltip.
@@ -155,8 +157,12 @@ export class Tooltip implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames(
+      `ino-tooltip--color-scheme-${this.inoColorScheme}`
+    );
+
     return (
-      <Host>
+      <Host class={hostClasses}>
         <div class="ino-tooltip__composer" role="tooltip">
           <div class="ino-tooltip__inner">{this.inoLabel}</div>
         </div>

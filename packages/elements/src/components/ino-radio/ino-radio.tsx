@@ -94,7 +94,11 @@ export class Radio implements ComponentInterface {
   render() {
     const { el, name, checked, value, disabled } = this;
 
-    const classes = classnames({
+    const hostClasses = classnames({
+      'ino-radio--checked': checked,
+    });
+
+    const mdcClasses = classnames({
       'mdc-radio': true,
       'mdc-radio--disabled': disabled,
     });
@@ -102,9 +106,9 @@ export class Radio implements ComponentInterface {
     renderHiddenInput(el, name, checked ? value : '', disabled);
 
     return (
-      <Host checked={checked}>
+      <Host class={hostClasses}>
         <div class="mdc-form-field">
-          <div class={classes}>
+          <div class={mdcClasses}>
             <input
               class="mdc-radio__native-control"
               type="radio"

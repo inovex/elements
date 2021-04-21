@@ -13,37 +13,27 @@ ino-spinner {
     position: relative;
   }
 
-  // Include different styles depending on the ino-type attribute
-  &:not([ino-type]) .ino-spinner__composer,
-  &[ino-type='tile'] .ino-spinner__composer {
-    @include tile.tile();
-  }
-  &[ino-type='bounce'] .ino-spinner__composer {
-    @include bounce.bounce;
-  }
-  &[ino-type='circle'] .ino-spinner__composer {
-    @include circle.circle;
-  }
-
-  // Generate ino-color-scheme classes
   @each $color-name in theme.$color-schemes {
-    &[ino-color-scheme='#{$color-name}'] {
-      // Generate for each color class and type the color styles
-      &:not([ino-type]) .ino-spinner__composer,
-      &[ino-type='tile'] .ino-spinner__composer {
+    &.ino-spinner--color-scheme-#{$color-name} {
+      &.ino-spinner--type-tile .ino-spinner__composer {
+        @include tile.tile;
         @include tile.tile-color(theme.color($color-name));
       }
-      &[ino-type='bounce'] .ino-spinner__composer {
+
+      &.ino-spinner--type-bounce .ino-spinner__composer {
+        @include bounce.bounce;
         @include bounce.bounce-color(theme.color($color-name));
       }
-      &[ino-type='circle'] .ino-spinner__composer {
+
+      &.ino-spinner--type-circle .ino-spinner__composer {
+        @include circle.circle;
         @include circle.circle-color(theme.color($color-name));
       }
     }
   }
 
   // Modal
-  &[ino-modal]:not([ino-modal='false']) {
+  &.ino-spinner--modal {
     position: fixed;
     z-index: 9999;
     left: 0;

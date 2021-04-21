@@ -33,9 +33,7 @@ ino-textarea {
     @include textfield.label-color(var(--textarea-label-color));
   }
 
-  & ino-label {
-    &:not([ino-outline]) .mdc-floating-label {
-      left: 16px;
-    }
+  &:not(.ino-textarea--outline) ino-label .mdc-floating-label {
+    left: 16px;
   }
 }

@@ -106,8 +106,15 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
   }
 }
 
-:host([checked]:not([checked='false'])) .mdc-radio {
-  @include animateInnerCircle(0.6);
+:host(.ino-radio--checked) {
+  .mdc-radio {
+    @include animateInnerCircle(0.6);
+  }
+
+  .mdc-radio__inner-circle {
+    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+  }
 }
 
 :host(.ino-checked-hover) .mdc-form-field .mdc-radio {
@@ -128,12 +135,5 @@ $big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
     .mdc-radio__outer-circle {
       border-color: var(--radio-hover-color);
     }
-  }
-}
-
-:host(ino-radio[checked='true']:not([checked='false'])) {
-  .mdc-radio__inner-circle {
-    transform: scale(0.6);
-    -webkit-transform: scale(0.6);
   }
 }

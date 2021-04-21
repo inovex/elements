@@ -57,22 +57,23 @@ ino-icon-button {
 
   // Generate the different ino-color-schemes buttons
   @each $color-name in theme.$color-schemes {
-    &[ino-color-scheme='#{$color-name}']:not([ino-filled]) {
+    &.ino-icon-button--color-scheme-#{$color-name} {
       --ino-icon-button-icon-color: #{theme.color($color-name)};
       --ino-icon-button-icon-active-color: #{theme.color($color-name)};
       --ino-icon-button-background-active-color: #{theme.color($color-name)};
-    }
-    &[ino-color-scheme='#{$color-name}'][ino-filled] {
-      --ino-icon-button-icon-color: #{theme.color($color-name, contrast)};
-      --ino-icon-button-icon-active-color: #{theme.color(
-          $color-name,
-          contrast
-        )};
-      --ino-icon-button-background-color: #{theme.color($color-name)};
-      --ino-icon-button-background-active-color: #{theme.color(
-          $color-name,
-          contrast
-        )};
+
+      &.ino-icon-button--filled {
+        --ino-icon-button-icon-color: #{theme.color($color-name, contrast)};
+        --ino-icon-button-icon-active-color: #{theme.color(
+            $color-name,
+            contrast
+          )};
+        --ino-icon-button-background-color: #{theme.color($color-name)};
+        --ino-icon-button-background-active-color: #{theme.color(
+            $color-name,
+            contrast
+          )};
+      }
     }
   }
 

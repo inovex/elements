@@ -30,7 +30,7 @@ ino-chip {
 
   // Generate ino-color-scheme classes
   @each $color-name in theme.$color-schemes {
-    &[ino-color-scheme='#{$color-name}'] {
+    &.ino-chip--color-scheme-#{$color-name} {
       .mdc-chip {
         @include chips.fill-color-accessible(theme.color($color-name));
         @include chips.ink-color(theme.color($color-name, contrast));
@@ -41,7 +41,7 @@ ino-chip {
       }
 
       // Set outline color
-      &[ino-fill='outline'] .mdc-chip {
+      &.ino-chip--outline .mdc-chip {
         @include chips.outline-color(theme.color($color-name));
         @include chips.ink-color(theme.color($color-name, dark));
 
@@ -53,7 +53,7 @@ ino-chip {
   }
 
   // Set outline color
-  &[ino-fill='outline'] .mdc-chip {
+  &.ino-chip--outline .mdc-chip {
     @include chips.fill-color-accessible(white);
     @include chips.outline(1px, solid, $default-chip-color);
   }

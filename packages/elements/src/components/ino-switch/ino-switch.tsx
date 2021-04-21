@@ -5,10 +5,10 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Prop,
   Watch,
-  h,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -56,7 +56,7 @@ export class Switch implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() inoColorScheme: ColorScheme = 'primary';
 
   componentDidLoad() {
     this.switch = new MDCSwitch(document.querySelector('.mdc-switch'));
@@ -82,6 +82,10 @@ export class Switch implements ComponentInterface {
 
     renderHiddenInput(el, name, '', disabled);
 
+    const hostClasses = classNames(
+      `ino-switch--color-scheme-${this.inoColorScheme}`
+    );
+
     const classesSwitch = classNames({
       'mdc-switch': true,
       'mdc-switch--disabled': this.disabled,
@@ -89,7 +93,7 @@ export class Switch implements ComponentInterface {
     });
 
     return (
-      <Host checked={this.checked} disabled={this.disabled}>
+      <Host class={hostClasses} checked={this.checked} disabled={this.disabled}>
         <div class={classesSwitch}>
           <div class="mdc-switch__track"></div>
           <div class="mdc-switch__thumb-underlay">

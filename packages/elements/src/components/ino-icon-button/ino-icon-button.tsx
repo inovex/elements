@@ -109,13 +109,20 @@ export class IconButton implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames(
+      `ino-icon-button--color-scheme-${this.inoColorScheme}`,
+      {
+        'ino-icon-button--filled': this.inoFilled,
+      }
+    );
+
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
       'mdc-ripple-upgraded--background-focused': this.inoActivated,
     });
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <button
           autoFocus={this.autoFocus}
           class={iconButtonClasses}

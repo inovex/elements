@@ -25,7 +25,7 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
          */
-        "inoColorScheme"?: ButtonColorScheme;
+        "inoColorScheme": ButtonColorScheme;
         /**
           * Makes the button text and container slightly smaller.
          */
@@ -37,7 +37,7 @@ export namespace Components {
         /**
           * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
          */
-        "inoFill"?: SurfaceType;
+        "inoFill": SurfaceType;
         /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
@@ -131,7 +131,7 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */
@@ -793,7 +793,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */
@@ -877,7 +877,7 @@ export namespace Components {
         /**
           * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme;
         /**
           * Restricts the slider to only allow discrete values.
          */
@@ -991,7 +991,7 @@ export namespace Components {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment"?: 'left' | 'right' | 'center';
+        "inoAlignment": 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
@@ -1003,21 +1003,21 @@ export namespace Components {
         /**
           * Changes the snackbar type
          */
-        "inoType"?: SnackbarType;
+        "inoType": SnackbarType;
     }
     interface InoSpinner {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme;
         /**
           * The height of this spinner (default = 40)
          */
-        "inoHeight"?: number;
+        "inoHeight": number;
         /**
           * If true, the spinner is shown as modal over the current app page.
          */
-        "inoModal"?: boolean;
+        "inoModal": boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
          */
@@ -1025,7 +1025,7 @@ export namespace Components {
         /**
           * The width of this spinner (defaul = 40)
          */
-        "inoWidth"?: number;
+        "inoWidth": number;
     }
     interface InoSwitch {
         /**
@@ -1039,7 +1039,7 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme": ColorScheme;
         /**
           * The name of this element.
          */
@@ -1157,7 +1157,7 @@ export namespace Components {
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */
-        "inoColorScheme": string;
+        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -1643,7 +1643,7 @@ declare namespace LocalJSX {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "inoColorScheme"?: ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */
@@ -2349,7 +2349,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */
@@ -2761,7 +2761,7 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */
-        "inoColorScheme"?: string;
+        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

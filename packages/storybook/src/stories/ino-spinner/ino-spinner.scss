@@ -1,4 +1,10 @@
 .story-spinner {
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .flex-parent {
     display: flex;
     flex-wrap: wrap;

@@ -62,7 +62,7 @@ export class Button implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`, `grey`, `white`.
    * `white` and `grey` can only be used in combination with the `outline` fill-option!
    */
-  @Prop() inoColorScheme?: ButtonColorScheme = 'primary';
+  @Prop() inoColorScheme: ButtonColorScheme = 'primary';
 
   /**
    * Styles the button to have the edge on the top-right instead of the top-left
@@ -73,7 +73,7 @@ export class Button implements ComponentInterface {
    * The fill type of this element.
    * Possible values: `solid` (default), `outline`, `inverse`.
    */
-  @Prop() inoFill?: SurfaceType = 'solid';
+  @Prop() inoFill: SurfaceType = 'solid';
 
   /**
    * Makes the button text and container slightly smaller.
@@ -140,12 +140,21 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const classButton = classNames({
+    const hostClasses = classNames(
+      {
+        'ino-button--loading': this.inoLoading,
+        'ino-button--mirrored-edge': this.inoEdgeMirrored,
+        'ino-button--dense': this.inoDense,
+      },
+      `ino-button--fill-${this.inoFill}`,
+      `ino-button--color-scheme-${this.inoColorScheme}`
+    );
+
+    const mdcClasses = classNames({
       'mdc-button': true,
       'mdc-button--unelevated':
         this.inoFill === 'solid' || this.inoFill === 'inverse',
       'mdc-button--outlined': this.inoFill === 'outline',
-      'ino-button--dense': this.inoDense,
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
@@ -153,12 +162,13 @@ export class Button implements ComponentInterface {
 
     return (
       <Host
+        class={hostClasses}
         onClick={this.handleClick}
         ino-fill={this.inoFill}
         ino-color-scheme={this.inoColorScheme}
       >
         <button
-          class={classButton}
+          class={mdcClasses}
           autoFocus={this.autoFocus}
           disabled={this.disabled}
           name={this.name}
