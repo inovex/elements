@@ -256,7 +256,7 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
-  componentWillLoad() {
+  connectedCallback() {
     this.validator = new Validator({
       dateFormat: this.inoDateFormat,
       disabled: this.disabled,
