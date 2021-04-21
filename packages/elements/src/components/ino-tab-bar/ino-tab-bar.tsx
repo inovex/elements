@@ -9,7 +9,7 @@ import {
   Prop,
   Watch,
   h, Listen
-} from "@stencil/core";
+} from '@stencil/core';
 
 @Component({
   tag: 'ino-tab-bar',
