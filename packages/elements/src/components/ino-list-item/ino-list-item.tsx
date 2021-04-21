@@ -81,7 +81,6 @@ export class ListItem implements ComponentInterface {
       'mdc-list-item--selected': this.inoSelected,
       'mdc-list-item--activated': this.inoActivated,
       'mdc-list-item--disabled': this.inoDisabled,
-      'mdc-list-item--two-line': this.inoSecondaryText,
     });
 
     const primaryContent = this.inoText || <slot name="ino-primary" />;
