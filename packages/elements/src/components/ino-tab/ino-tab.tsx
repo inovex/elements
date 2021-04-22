@@ -6,8 +6,8 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h,
-} from '@stencil/core';
+  h, Listen
+} from "@stencil/core";
 import classNames from 'classnames';
 
 @Component({
@@ -44,15 +44,8 @@ export class Tab implements ComponentInterface {
    */
   @Event() inoInteracted!: EventEmitter;
 
-  componentDidLoad() {
-    this.el.addEventListener('MDCTab:interacted', this.interactionHandler);
-  }
-
-  componentDidUnLoad() {
-    this.el.removeEventListener('MDCTab:interacted', this.interactionHandler);
-  }
-
-  interactionHandler = (e) => {
+  @Listen('MDCTab:interacted')
+  interactionHandler(e) {
     e.stopPropagation();
     this.inoInteracted.emit(this.el);
   };

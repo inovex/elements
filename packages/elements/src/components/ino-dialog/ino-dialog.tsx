@@ -29,8 +29,10 @@ export class Dialog implements ComponentInterface {
   inoOpenChange(newVal: boolean) {
     if (newVal) {
       this.mdcDialog.open();
+      this.openChange.emit(true);
     } else {
       this.mdcDialog.close();
+      this.openChange.emit(false);
     }
   }
 
@@ -43,16 +45,6 @@ export class Dialog implements ComponentInterface {
     this.mdcDialog = new MDCDialog(
       this.el.shadowRoot.querySelector('.mdc-dialog')
     );
-    this.el.addEventListener('MDCDialog:opened', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.openChange.emit(true);
-    });
-    this.el.addEventListener('MDCDialog:closed', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.openChange.emit(false);
-    });
     this.mdcDialog.scrimClickAction = '';
     this.mdcDialog.escapeKeyAction = '';
     if (this.inoOpen) {
