@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/inovex/elements/compare/v3.0.0...v3.0.1) (2021-04-22)
+
+
+### Bug Fixes
+
+* **storybook|ino-snackbar:** fix incorrect knob options ([#312](https://github.com/inovex/elements/issues/312)) ([741cd65](https://github.com/inovex/elements/commit/741cd659ed5004c0309b6ba3f6ffbc4644b7f44c))
+
 ## [3.0.0](https://github.com/inovex/elements/compare/v2.3.0...v3.0.0) (2021-04-13)
 
 

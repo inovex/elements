@@ -1,4 +1,14 @@
 # Changelog
+### [3.0.1](https://github.com/inovex/elements/compare/v3.0.0...v3.0.1) (2021-04-22)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** only validate if value is set ([#357](https://github.com/inovex/elements/issues/357)) ([a518aa1](https://github.com/inovex/elements/commit/a518aa16671804fcd7aad70b7e85dc9e181b8152))
+* run canary release action only in master branch ([#361](https://github.com/inovex/elements/issues/361)) ([e59d273](https://github.com/inovex/elements/commit/e59d273a517502ae2f575ed92024af7340d0066c))
+* **storybook|ino-snackbar:** fix incorrect knob options ([#312](https://github.com/inovex/elements/issues/312)) ([741cd65](https://github.com/inovex/elements/commit/741cd659ed5004c0309b6ba3f6ffbc4644b7f44c))
+* fix canary-releases ([#359](https://github.com/inovex/elements/issues/359)) ([7bdc0b8](https://github.com/inovex/elements/commit/7bdc0b8dadbf5e47471e985ee3d4fd35b454f16c))
+
 ## [3.0.0](https://github.com/inovex/elements/compare/v2.3.0...v3.0.0) (2021-04-13)
 
 
