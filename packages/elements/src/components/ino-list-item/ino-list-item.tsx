@@ -72,16 +72,16 @@ export class ListItem implements ComponentInterface {
   }
 
   render() {
+    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-trailing');
+    const secondarySlotHasContent = hasSlotContent(this.el, 'ino-secondary');
+
     const listItemClasses = classNames({
       'mdc-list-item': true,
       'mdc-list-item--selected': this.inoSelected,
       'mdc-list-item--activated': this.inoActivated,
       'mdc-list-item--disabled': this.inoDisabled,
     });
-
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-trailing');
-    const secondarySlotHasContent = hasSlotContent(this.el, 'ino-secondary');
 
     const primaryContent = this.inoText || <slot name="ino-primary" />;
     const secondaryContent =
