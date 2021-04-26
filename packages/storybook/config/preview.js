@@ -16,6 +16,7 @@ applyPolyfills().then(() => {
 
 // Explicit order for the docs section
 addParameters({
+  viewMode: 'docs',
   controls: {
     hideNoControlsWarning: true
   },
@@ -27,7 +28,7 @@ addParameters({
     storySort: {
       order: [
         'Docs',
-        ['Home', 'Framework Integration', 'Styleguide', 'Contributing'],
+        ['Welcome', 'Changelog', 'Framework Integration', 'Styleguide', 'Contributing'],
       ],
     },
   }

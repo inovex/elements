@@ -1,30 +1,12 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import './style.scss';
+
+<Meta title="Docs/Styleguide/Typography" />
+
+
 # Typography
 
 For typography you should always care about size, spacing and height of the font.
-
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700|Source+Code+Pro:400,500|Source+Sans+Pro:400,600');
-
-  html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .font {
-    font-weight: 400;
-    color: #4B4C5B;
-  }
-
-  .font--lato {
-    font-family: 'Lato', Helvetica, Verdana, sans-serif;
-  }
-
-  .font--lato-example {
-    font-size: 32px;
-    letter-spacing: 4.92px;
-    line-height: 40px;
-  }
-</style>
 
 ## Lato
 
