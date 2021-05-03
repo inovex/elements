@@ -20,6 +20,7 @@ import { SnackbarType } from '../types';
 export class Snackbar implements ComponentInterface {
   private snackbarInstance: MDCSnackbar;
   private snackbarElement!: HTMLElement;
+  private timeout: NodeJS.Timeout;
 
   @Element() el!: HTMLElement;
 
@@ -51,6 +52,11 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoTimeout?: number = 5000;
 
   /**
+   * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+   */
+  @Prop() inoStayVisibleOnHover?: boolean = false;
+
+  /**
    * Event that emits as soon as the action button is clicked.
    */
   @Event() inoActionClick!: EventEmitter;
@@ -67,6 +73,14 @@ export class Snackbar implements ComponentInterface {
       this.handleSnackbarHide(e)
     );
     this.configureTimeout();
+    if (this.inoStayVisibleOnHover) {
+      this.snackbarElement.addEventListener('mouseenter', () => {
+        if (this.timeout) clearTimeout(this.timeout);
+      });
+      this.snackbarElement.addEventListener('mouseleave', () => {
+        this.configureTimeout();
+      });
+    }
     this.snackbarInstance.open();
   }
 
@@ -75,12 +89,21 @@ export class Snackbar implements ComponentInterface {
     this.snackbarElement.removeEventListener('MDCSnackbar:closing', (e) =>
       this.handleSnackbarHide(e)
     );
+    this.snackbarElement.removeEventListener('mouseenter', () => {
+      if (this.timeout) clearTimeout(this.timeout);
+    });
+    this.snackbarElement.removeEventListener('mouseleave', () => {
+      this.configureTimeout();
+    });
   }
 
   private configureTimeout() {
     this.snackbarInstance.timeoutMs = -1;
     if (this.inoTimeout >= 0) {
-      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+      this.timeout = setTimeout(
+        () => this.snackbarInstance.close(),
+        this.inoTimeout
+      );
     }
   }
 

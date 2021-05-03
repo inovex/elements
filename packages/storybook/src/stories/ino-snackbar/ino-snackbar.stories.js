@@ -1,4 +1,4 @@
-import { number, select, text } from '@storybook/addon-knobs';
+import { number, select, text, boolean } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 import componentReadme from '_local-elements/src/components/ino-snackbar/readme.md';
 import './ino-snackbar.scss';
@@ -79,7 +79,11 @@ export const DefaultUsage = () => /*html*/ `
                 'ino-alignment',
                 ['center', 'left', 'right'],
                 'center'
-              )}" />
+              )}"
+              ino-stay-visible-on-hover="${boolean(
+                'ino-stay-visible-on-hover',
+                false
+              )}"/>
         </template>
 
         <h4>Variants</h4>
