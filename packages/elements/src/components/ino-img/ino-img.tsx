@@ -18,6 +18,8 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class Image implements ComponentInterface {
+  private imageEl: HTMLImageElement;
+
   @Element() el!: HTMLElement;
 
   /**
@@ -127,7 +129,7 @@ export class Image implements ComponentInterface {
     if (!this.inoImgListItem) {
       this.el.querySelector('div').style.paddingTop = this.composedRatioHeight;
     }
-    this.el.querySelector('img').onerror = () => this.handleError();
+    this.imageEl.onerror = () => this.handleError();
   }
 
   private computeFixedDimensions() {
@@ -145,7 +147,7 @@ export class Image implements ComponentInterface {
   }
 
   private handleError() {
-    this.el.querySelector('.ino-img__fallback-icon').setAttribute("style", "display: block");
+    this.imageEl.nextElementSibling.classList.add('ino-img__fallback-icon--visible');
   }
 
   render() {
@@ -171,6 +173,7 @@ export class Image implements ComponentInterface {
             class={imgClasses}
             alt={this.alt}
             decoding={this.decoding}
+            ref={(ref) => this.imageEl = ref}
             sizes={this.sizes}
             src={this.src}
             srcset={this.srcset}

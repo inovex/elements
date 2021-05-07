@@ -57,4 +57,8 @@ ino-img {
       --icon-height: 100%;
     }
   }
+
+  .ino-img__fallback-icon--visible {
+    display: block;
+  }
 }
