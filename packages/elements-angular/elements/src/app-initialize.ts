@@ -27,6 +27,7 @@ export const appInitialize = (doc: Document, zone: NgZone) => {
           ? '__zone_symbol__addEventListener'
           : 'addEventListener';
 
+      /* eslint-disable prefer-arrow/prefer-arrow-functions */
       return applyPolyfills().then(() => {
         return defineCustomElements(win, {
           exclude: [],

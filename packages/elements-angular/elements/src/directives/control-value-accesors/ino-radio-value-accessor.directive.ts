@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  /* tslint:disable-next-line:directive-selector */
   selector: 'ino-radio,ino-control-item[ino-role="radio"]',
   providers: [
     {
@@ -19,12 +18,12 @@ export class InoRadioValueAccessorDirective extends ValueAccessorDirective {
     super(el);
   }
 
-  writeValue(value: any) {
-    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
+  @HostListener('checkedChange', ['$event'])
+  _handleInoChange(event: any): void {
+    this.handleChangeEvent(event.target.value);
   }
 
-  @HostListener('checkedChange', ['$event'])
-  _handleInoChange(event: any) {
-    this.handleChangeEvent(event.target.value);
+  writeValue(value: any): void {
+    this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
   }
 }

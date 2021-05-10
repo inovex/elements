@@ -3,21 +3,21 @@ export class SvgParser {
   private static serializer = new XMLSerializer();
 
   public static setSvgTitle(svgContent: string, title: string) {
-    const parsedSVG = this.parser.parseFromString(svgContent, 'image/svg+xml');
-    const titleTag = parsedSVG.querySelector('title');
-    if (titleTag) {
-      titleTag.innerHTML = title;
-    }
-    return this.serializer.serializeToString(parsedSVG);
+  	const parsedSVG = this.parser.parseFromString(svgContent, 'image/svg+xml');
+  	const titleTag = parsedSVG.querySelector('title');
+  	if (titleTag) {
+  		titleTag.innerHTML = title;
+  	}
+  	return this.serializer.serializeToString(parsedSVG);
   }
 
   public static removeSvgTitle(svgContent: string) {
-    const parsedSVG = this.parser.parseFromString(svgContent, 'image/svg+xml');
-    const titleTag = parsedSVG.querySelector('title');
+  	const parsedSVG = this.parser.parseFromString(svgContent, 'image/svg+xml');
+  	const titleTag = parsedSVG.querySelector('title');
 
-    if (titleTag) {
-      titleTag.remove();
-    }
-    return this.serializer.serializeToString(parsedSVG);
+  	if (titleTag) {
+  		titleTag.remove();
+  	}
+  	return this.serializer.serializeToString(parsedSVG);
   }
 }

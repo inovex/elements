@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  /* tslint:disable-next-line:directive-selector */
   selector: 'ino-input-file,input[type=file]',
   providers: [
     {
@@ -19,7 +18,16 @@ export class FsValueAccessorDirective extends ValueAccessorDirective {
     super(el);
   }
 
-  writeValue(value: any) {
+  @HostListener('changeFile', ['$event.detail'])
+  _handleInputEvent(value: any): void {
+    if (this.el.nativeElement.multiple) {
+      this.handleChangeEvent(value.files);
+    } else {
+      this.handleChangeEvent(value.files[0]);
+    }
+  }
+
+  writeValue(value: any): void {
     if (value instanceof FileList) {
       this.el.nativeElement.files = value;
     } else if (Array.isArray(value) && !value.length) {
@@ -35,15 +43,6 @@ export class FsValueAccessorDirective extends ValueAccessorDirective {
         );
         console.log('Value:', value);
       }
-    }
-  }
-
-  @HostListener('changeFile', ['$event.detail'])
-  _handleInputEvent(value: any) {
-    if (this.el.nativeElement.multiple) {
-      this.handleChangeEvent(value.files);
-    } else {
-      this.handleChangeEvent(value.files[0]);
     }
   }
 }

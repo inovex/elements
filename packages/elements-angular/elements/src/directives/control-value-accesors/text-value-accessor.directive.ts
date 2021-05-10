@@ -4,7 +4,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  /* tslint:disable-next-line:directive-selector */
   selector: 'ino-input,ino-textarea,ino-range,ino-select,ino-datepicker',
   providers: [
     {
@@ -20,7 +19,7 @@ export class TextValueAccessorDirective extends ValueAccessorDirective {
   }
 
   @HostListener('valueChange', ['$event.detail'])
-  _handleInputEvent(value: string) {
+  _handleInputEvent(value: string): void {
     this.handleChangeEvent(value);
   }
 
