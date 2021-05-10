@@ -824,13 +824,13 @@ export class InoSidebar {
 import { Snackbar as ISnackbar } from '@inovex.de/elements/dist/types/components/ino-snackbar/ino-snackbar';
 export declare interface InoSnackbar extends Components.InoSnackbar {}
 @ProxyCmp({
-  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout', 'inoType']
+  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoStayVisibleOnHover', 'inoTimeout', 'inoType']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoTimeout', 'inoType'],
+  inputs: ['inoActionText', 'inoAlignment', 'inoMessage', 'inoStayVisibleOnHover', 'inoTimeout', 'inoType'],
   outputs: ['inoActionClick', 'hideEl']
 })
 export class InoSnackbar {

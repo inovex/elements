@@ -104,13 +104,14 @@ Snackbar is displayed when ino-show is changed to checked.
 
 ## Properties
 
-| Property        | Attribute         | Description                                                                                                                    | Type                                | Default     |
-| --------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
-| `inoActionText` | `ino-action-text` | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
-| `inoAlignment`  | `ino-alignment`   | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'center'`  |
-| `inoMessage`    | `ino-message`     | The text message to display.                                                                                                   | `string`                            | `undefined` |
-| `inoTimeout`    | `ino-timeout`     | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
-| `inoType`       | `ino-type`        | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
+| Property                | Attribute                   | Description                                                                                                                    | Type                                | Default     |
+| ----------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
+| `inoActionText`         | `ino-action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
+| `inoAlignment`          | `ino-alignment`             | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'center'`  |
+| `inoMessage`            | `ino-message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
+| `inoStayVisibleOnHover` | `ino-stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
+| `inoTimeout`            | `ino-timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
+| `inoType`               | `ino-type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
 
 
 ## Events

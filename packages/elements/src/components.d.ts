@@ -1001,6 +1001,10 @@ export namespace Components {
          */
         "inoMessage"?: string;
         /**
+          * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+         */
+        "inoStayVisibleOnHover"?: boolean;
+        /**
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
         "inoTimeout"?: number;
@@ -2584,6 +2588,10 @@ declare namespace LocalJSX {
           * The text message to display.
          */
         "inoMessage"?: string;
+        /**
+          * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+         */
+        "inoStayVisibleOnHover"?: boolean;
         /**
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */

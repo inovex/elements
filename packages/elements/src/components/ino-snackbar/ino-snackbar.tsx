@@ -20,6 +20,7 @@ import { SnackbarType } from '../types';
 export class Snackbar implements ComponentInterface {
   private snackbarInstance: MDCSnackbar;
   private snackbarElement!: HTMLElement;
+  private timeout: NodeJS.Timeout;
 
   @Element() el!: HTMLElement;
 
@@ -51,6 +52,11 @@ export class Snackbar implements ComponentInterface {
   @Prop() inoTimeout?: number = 5000;
 
   /**
+   * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
+   */
+  @Prop() inoStayVisibleOnHover?: boolean = false;
+
+  /**
    * Event that emits as soon as the action button is clicked.
    */
   @Event() inoActionClick!: EventEmitter;
@@ -63,31 +69,52 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarElement.addEventListener('MDCSnackbar:closing', (e) =>
-      this.handleSnackbarHide(e)
+    this.snackbarElement.addEventListener(
+      'MDCSnackbar:closing',
+      this.handleSnackbarHide
     );
-    this.configureTimeout();
+    this.setupTimeout();
+    if (this.inoStayVisibleOnHover) {
+      this.snackbarElement.addEventListener(
+        'mouseenter',
+        this.interruptTimeout
+      );
+      this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
+    }
     this.snackbarInstance.open();
   }
 
   disconnectedCallback() {
     this.snackbarInstance?.destroy();
-    this.snackbarElement.removeEventListener('MDCSnackbar:closing', (e) =>
-      this.handleSnackbarHide(e)
+    this.snackbarElement.removeEventListener(
+      'MDCSnackbar:closing',
+      this.handleSnackbarHide
     );
+    this.snackbarElement.removeEventListener(
+      'mouseenter',
+      this.interruptTimeout
+    );
+    this.snackbarElement.removeEventListener('mouseleave', this.setupTimeout);
   }
 
-  private configureTimeout() {
+  private setupTimeout = () => {
     this.snackbarInstance.timeoutMs = -1;
     if (this.inoTimeout >= 0) {
-      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+      this.timeout = setTimeout(
+        () => this.snackbarInstance.close(),
+        this.inoTimeout
+      );
     }
-  }
+  };
 
-  private handleSnackbarHide(e) {
+  private interruptTimeout = () => {
+    if (this.timeout) clearTimeout(this.timeout);
+  };
+
+  private handleSnackbarHide = (e) => {
     this.hideEl!.emit(true);
     e.stopPropagation();
-  }
+  };
 
   render() {
     const hostClasses = classNames(
