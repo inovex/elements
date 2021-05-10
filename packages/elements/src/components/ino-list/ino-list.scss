@@ -4,7 +4,7 @@
 @include list.core-styles;
 
 /**
-  * @prop --border-radius: Border radius
+  * @prop --border-radius: Border radius of the list container
  */
 ino-list {
   --border-radius: (var(--border-radius), 0);
@@ -15,18 +15,22 @@ ino-list {
 
   ino-list-item:first-child,
   ino-list-item:last-child,
+  ino-control-item:first-child,
+  ino-control-item:last-child,
   .mdc-list--avatar-list .mdc-list-item__graphic {
     overflow: hidden;
   }
 
   $half-border-radius: calc(var(--border-radius) * 0.5);
 
-  ino-list-item:first-child {
+  .mdc-list > ino-list-item:first-child,
+  .mdc-list > ino-control-item:first-child {
     border-top-left-radius: $half-border-radius;
     border-top-right-radius: $half-border-radius;
   }
 
-  ino-list-item:last-child {
+  .mdc-list > ino-list-item:last-child,
+  .mdc-list > ino-control-item:last-child {
     border-bottom-left-radius: $half-border-radius;
     border-bottom-right-radius: $half-border-radius;
   }
