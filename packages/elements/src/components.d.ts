@@ -453,6 +453,10 @@ export namespace Components {
          */
         "height"?: number;
         /**
+          * Icon used for fallback image if image can not be loaded
+         */
+        "inoFallbackIcon": string;
+        /**
           * Indicates that the image is a part of an image list component
          */
         "inoImgListItem": boolean;
@@ -1989,6 +1993,10 @@ declare namespace LocalJSX {
           * The fixed height of this image.
          */
         "height"?: number;
+        /**
+          * Icon used for fallback image if image can not be loaded
+         */
+        "inoFallbackIcon"?: string;
         /**
           * Indicates that the image is a part of an image list component
          */

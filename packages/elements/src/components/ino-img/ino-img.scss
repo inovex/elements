@@ -1,5 +1,6 @@
 @use 'base/mdc-customize';
 @use '@material/image-list/mdc-image-list';
+@use 'base/theme';
 
 ino-img {
   &:not(.mdc-image-list__item) {
@@ -17,8 +18,6 @@ ino-img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
   }
 
   &.ino-img__rounded .ino-img__image {
@@ -27,5 +26,39 @@ ino-img {
 
   &.mdc-image-list__item {
     display: list-item;
+  }
+
+  img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #fff;
+  }
+
+  .ino-img__fallback-icon {
+    display: none;
+    position: absolute;
+    background-color: theme.color(light, light);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    ino-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: max(20px, 10%);
+      height: max(20px, 10%);
+      --icon-width: 100%;
+      --icon-height: 100%;
+    }
+  }
+
+  .ino-img__fallback-icon--visible {
+    display: block;
   }
 }

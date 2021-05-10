@@ -350,13 +350,13 @@ export class InoIconButton {
 
 export declare interface InoImg extends Components.InoImg {}
 @ProxyCmp({
-  inputs: ['alt', 'decoding', 'height', 'inoImgListItem', 'inoLabel', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']
+  inputs: ['alt', 'decoding', 'height', 'inoFallbackIcon', 'inoImgListItem', 'inoLabel', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']
 })
 @Component({
   selector: 'ino-img',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['alt', 'decoding', 'height', 'inoImgListItem', 'inoLabel', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']
+  inputs: ['alt', 'decoding', 'height', 'inoFallbackIcon', 'inoImgListItem', 'inoLabel', 'inoRatioHeight', 'inoRatioWidth', 'inoRounded', 'sizes', 'src', 'srcset', 'usemap', 'width']
 })
 export class InoImg {
   protected el: HTMLElement;

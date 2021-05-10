@@ -3,7 +3,13 @@ import { boolean, number, select, text } from '@storybook/addon-knobs';
 import withStencilReadme from '_local-storybookcore/with-stencil-readme';
 
 import componentReadme from '_local-elements/src/components/ino-img/readme.md';
+import ICONS from '_local-elements/src/components/ino-icon/icons';
 import './ino-img.scss';
+
+const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
+const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
+  (name) => name.length >= 1
+);
 
 export default {
   title: 'Graphic/<ino-img>',
@@ -30,6 +36,7 @@ export const DefaultUsage = () => /*html*/ `
           ino-ratio-width="${number('ino-ratio-width', 1)}"
           ino-ratio-height="${number('ino-ratio-height', 1)}"
           ino-rounded="${boolean('ino-rounded', false)}"
+          ino-fallback-icon="${select('ino-fallback-icon', ICON_IDS, 'image_not_available')}"
         >
         </ino-img>
       </div>
