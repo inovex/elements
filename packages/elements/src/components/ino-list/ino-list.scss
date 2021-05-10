@@ -1,11 +1,33 @@
 @use 'base/mdc-customize';
 @use '@material/list';
+
 @include list.core-styles;
 
+/**
+  * @prop --border-radius: Border radius
+ */
 ino-list {
+  --border-radius: (var(--border-radius), 0);
+
   display: block;
 
+  border-radius: var(--border-radius);
+
+  ino-list-item:first-child,
+  ino-list-item:last-child,
   .mdc-list--avatar-list .mdc-list-item__graphic {
     overflow: hidden;
+  }
+
+  $half-border-radius: calc(var(--border-radius) * 0.5);
+
+  ino-list-item:first-child {
+    border-top-left-radius: $half-border-radius;
+    border-top-right-radius: $half-border-radius;
+  }
+
+  ino-list-item:last-child {
+    border-bottom-left-radius: $half-border-radius;
+    border-bottom-right-radius: $half-border-radius;
   }
 }

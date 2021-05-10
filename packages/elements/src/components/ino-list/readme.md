@@ -113,6 +113,13 @@ Provide `two-lines` to set proper style attributes for list items having a prima
 | `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
 
 
+## CSS Custom Properties
+
+| Name              | Description   |
+| ----------------- | ------------- |
+| `--border-radius` | Border radius |
+
+
 ## Dependencies
 
 ### Used by
