@@ -24,7 +24,7 @@ export class Menu implements ComponentInterface {
    * Usually, the default value (`auto`) will work just fine.
    * Use this if the positioning is off for some reason.
    */
-  @Prop() inoPlacement: Placement = 'auto';
+  @Prop() placement: Placement = 'auto';
 
   connectedCallback() {
     if (this.el.parentElement.id) {
@@ -55,11 +55,11 @@ export class Menu implements ComponentInterface {
       <Host>
         <ino-popover
           ref={(el) => (this.popoverEl = el)}
-          ino-color-scheme="transparent"
-          ino-interactive
-          ino-for={this.el.parentElement.id}
-          ino-placement={this.inoPlacement}
-          ino-trigger={'click'}
+          color-scheme="transparent"
+          interactive
+          for={this.el.parentElement.id}
+          placement={this.placement}
+          trigger={'click'}
         >
           <ino-list
             role="menu"

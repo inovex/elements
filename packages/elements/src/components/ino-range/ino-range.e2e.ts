@@ -47,23 +47,23 @@ describe('InoRange', () => {
       expect(step).toBe('5');
     });
 
-    it('should render as a discrete slider if inoDiscrete is true', async () => {
+    it('should render as a discrete slider if discrete is true', async () => {
       const page = await setupPageWithContent(INO_RANGE);
       const inoRange = await page.find(INO_RANGE_SELECTOR);
       const mdcSlider = await page.find(MDC_SELECTOR);
 
-      await inoRange.setAttribute('ino-discrete', true);
+      await inoRange.setAttribute('discrete', true);
       await page.waitForChanges();
 
       expect(mdcSlider).toHaveClass('mdc-slider--discrete');
     });
 
-    it('should render with tick marks if inoMarkers is true', async () => {
+    it('should render with tick marks if markers is true', async () => {
       const page = await setupPageWithContent(INO_RANGE);
       const inoRange = await page.find(INO_RANGE_SELECTOR);
       const mdcSlider = await page.find(MDC_SELECTOR);
 
-      await inoRange.setAttribute('ino-markers', true);
+      await inoRange.setAttribute('markers', true);
       await page.waitForChanges();
 
       expect(mdcSlider).toHaveClass('mdc-slider--tick-marks');

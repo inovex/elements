@@ -19,16 +19,16 @@ export class InoTableRow implements ComponentInterface {
   /**
    * Indicates that the row is a header row
    */
-  @Prop() inoHeaderRow: boolean = false;
+  @Prop() headerRow: boolean = false;
 
   /**
    * Indicates whether the row is selected or not
    */
-  @Prop() inoSelected: boolean = false;
+  @Prop() selected: boolean = false;
 
   componentDidLoad(): void {
     this.el.querySelectorAll('ino-table-cell').forEach((cell) => {
-      if (this.inoHeaderRow) {
+      if (this.headerRow) {
         cell.classList.add('mdc-data-table__header-cell');
         cell.classList.add('ino-table__header-cell');
       } else {
@@ -39,9 +39,9 @@ export class InoTableRow implements ComponentInterface {
 
   render() {
     const rowClasses = classNames({
-      'mdc-data-table__header-row': this.inoHeaderRow,
-      'mdc-data-table__row': !this.inoHeaderRow,
-      'mdc-data-table__row--selected': this.inoSelected && !this.inoHeaderRow,
+      'mdc-data-table__header-row': this.headerRow,
+      'mdc-data-table__row': !this.headerRow,
+      'mdc-data-table__row--selected': this.selected && !this.headerRow,
     });
 
     return (

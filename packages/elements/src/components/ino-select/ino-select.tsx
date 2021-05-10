@@ -44,17 +44,17 @@ export class Select implements ComponentInterface {
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
-  @Prop() inoShowLabelHint?: boolean;
+  @Prop() showLabelHint?: boolean;
 
   /**
    * The label of this element
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Styles this select box as outlined element.
    */
-  @Prop() inoOutline?: boolean;
+  @Prop() outline?: boolean;
 
   /**
    * The value of this element. (**unmanaged**)
@@ -126,8 +126,8 @@ export class Select implements ComponentInterface {
     const classSelect = classNames({
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
-      'mdc-select--outlined': this.inoOutline,
-      'mdc-select--filled': !this.inoOutline,
+      'mdc-select--outlined': this.outline,
+      'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
     });
 
@@ -150,11 +150,11 @@ export class Select implements ComponentInterface {
             </div>
             {this.renderDropdownIcon()}
             <ino-label
-              ino-outline={this.inoOutline}
-              ino-text={this.inoLabel}
+              ino-outline={this.outline}
+              ino-text={this.label}
               ino-required={this.required}
               ino-disabled={this.disabled}
-              ino-show-hint={this.inoShowLabelHint}
+              ino-show-hint={this.showLabelHint}
             />
           </div>
 

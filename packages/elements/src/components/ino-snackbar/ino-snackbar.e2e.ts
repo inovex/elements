@@ -7,10 +7,10 @@ const INO_ICON_BTN_SELECTOR = 'ino-snackbar ino-icon-button';
 
 describe('InoSnackbar', () => {
   describe('Events', () => {
-    it('should emit an inoActionClick event upon clicking the button', async () => {
+    it('should emit an actionClick event upon clicking the button', async () => {
       const page = await setupPageWithContent(INO_SNACKBAR);
       const inoSnackbar = await page.find(INO_SNACKBAR_SELECTOR);
-      await inoSnackbar.setAttribute('ino-action-text', 'test');
+      await inoSnackbar.setAttribute('action-text', 'test');
       await page.waitForChanges();
 
       const inoBtn = await page.find(INO_BTN_SELECTOR);

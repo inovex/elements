@@ -26,34 +26,34 @@ export class Snackbar implements ComponentInterface {
   /**
    * The text message to display.
    */
-  @Prop() inoMessage?: string;
+  @Prop() message?: string;
 
   /**
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
-  @Prop() inoActionText?: string = '';
+  @Prop() actionText?: string = '';
 
   /**
    * Controls if Snackbar is centered or left-aligned or right-aligned.
    */
-  @Prop() inoAlignment: 'left' | 'right' | 'center' = 'center';
+  @Prop() alignment: 'left' | 'right' | 'center' = 'center';
 
   /**
    * Changes the snackbar type
    */
-  @Prop() inoType: SnackbarType = 'primary';
+  @Prop() type: SnackbarType = 'primary';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
    * be disabled by setting it to a negative value.
    */
-  @Prop() inoTimeout?: number = 5000;
+  @Prop() timeout?: number = 5000;
 
   /**
    * Event that emits as soon as the action button is clicked.
    */
-  @Event() inoActionClick!: EventEmitter;
+  @Event() actionClick!: EventEmitter;
 
   /**
    * Event that emits as soon as the snackbar hides.
@@ -79,8 +79,8 @@ export class Snackbar implements ComponentInterface {
 
   private configureTimeout() {
     this.snackbarInstance.timeoutMs = -1;
-    if (this.inoTimeout >= 0) {
-      setTimeout(() => this.snackbarInstance.close(), this.inoTimeout);
+    if (this.timeout >= 0) {
+      setTimeout(() => this.snackbarInstance.close(), this.timeout);
     }
   }
 
@@ -91,17 +91,17 @@ export class Snackbar implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-snackbar--align-${this.inoAlignment}`,
-      `ino-snackbar--type-${this.inoType}`,
+      `ino-snackbar--align-${this.alignment}`,
+      `ino-snackbar--type-${this.type}`,
       {
-        'ino-snackbar--no-action': !this.inoActionText,
+        'ino-snackbar--no-action': !this.actionText,
       }
     );
 
     const snackbarClasses = classNames({
       'mdc-snackbar': true,
       'mdc-snackbar--leading':
-        this.inoAlignment === 'left' || this.inoAlignment === 'right',
+        this.alignment === 'left' || this.alignment === 'right',
     });
 
     return (
@@ -115,22 +115,21 @@ export class Snackbar implements ComponentInterface {
           <div class="mdc-snackbar__surface">
             <div class="mdc-snackbar__actions">
               <ino-icon-button
-                ino-icon={'close'}
+                icon={'close'}
                 class="custom mdc-snackbar__action"
-                ino-small
-              ></ino-icon-button>
+              />
               <div class="mdc-snackbar__label" role="status" aria-live="polite">
-                {this.inoMessage}
+                {this.message}
               </div>
-              {this.inoActionText && (
+              {this.actionText && (
                 <ino-button
                   type="button"
                   ino-color-scheme="primary"
                   class="ino-action-button"
-                  onClick={(_) => this.inoActionClick.emit()}
-                  ino-fill="outline"
+                  onClick={(_) => this.actionClick.emit()}
+                  fill="outline"
                 >
-                  {this.inoActionText}
+                  {this.actionText}
                 </ino-button>
               )}
             </div>

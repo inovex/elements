@@ -19,12 +19,12 @@ export class NavItem implements ComponentInterface {
   /**
    * The text of this list item.
    */
-  @Prop() inoText?: string;
+  @Prop() text?: string;
 
   /**
    * The secondary text of this list item used in a two-lined list.
    */
-  @Prop() inoSubText?: string;
+  @Prop() subText?: string;
 
   /**
    * Styles the row in an activated style.
@@ -32,26 +32,26 @@ export class NavItem implements ComponentInterface {
    * Use this for only one item
    * and to mark it as permanently activated.
    */
-  @Prop() inoActivated?: boolean = false;
+  @Prop() activated?: boolean = false;
 
   /**
    * Styles the row in a disabled style.
    */
-  @Prop() inoDisabled?: boolean = false;
+  @Prop() disabled?: boolean = false;
 
   render() {
-    const slotPosition = this.el.children.length > 0 ? 'ino-leading' : '';
+    const slotPosition = this.el.children.length > 0 ? 'leading' : '';
 
     const slotContainerClasses = classNames({
-      'ino-nav-item--leading-slot': slotPosition === 'ino-leading',
+      'ino-nav-item--leading-slot': slotPosition === 'leading',
     });
     return (
       <Host>
         <ino-list-item
-          inoText={this.inoText}
-          inoSecondaryText={this.inoSubText}
-          inoActivated={this.inoActivated}
-          inoDisabled={this.inoDisabled}
+          inoText={this.text}
+          inoSecondaryText={this.subText}
+          inoActivated={this.activated}
+          inoDisabled={this.disabled}
         >
           <span class={slotContainerClasses} slot={slotPosition}>
             <slot></slot>

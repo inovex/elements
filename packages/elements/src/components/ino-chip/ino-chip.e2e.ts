@@ -1,23 +1,23 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_CHIP = `<ino-chip></ino-chip>`;
-const INO_CHIP_REMOVABLE = `<ino-chip ino-removable="true"></ino-chip>`;
+const INO_CHIP_REMOVABLE = `<ino-chip removable="true"></ino-chip>`;
 
 describe('InoChip', () => {
   describe('Properties', () => {
-    it('should not render with icon when ino-removable is not set', async () => {
+    it('should not render with icon when removable is not set', async () => {
       const page = await setupPageWithContent(INO_CHIP);
 
       const inoIcon = await page.find('ino-icon');
       expect(inoIcon).toBeNull();
     });
 
-    it('should render with icon when ino-removable is set true', async () => {
+    it('should render with icon when removable is set true', async () => {
       const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
 
       const inoIcon = await page.find('ino-icon');
       expect(inoIcon).not.toBeNull();
-      expect(inoIcon.getAttribute('ino-icon')).toEqual('close');
+      expect(inoIcon.getAttribute('icon')).toEqual('close');
       expect(inoIcon.getAttribute('role')).toEqual('button');
     });
 
@@ -25,7 +25,7 @@ describe('InoChip', () => {
       const page = await setupPageWithContent(INO_CHIP);
 
       const inoChipEl = await page.find('ino-chip');
-      inoChipEl.setAttribute('ino-selectable', true);
+      inoChipEl.setAttribute('selectable', true);
       await page.waitForChanges();
       const checkmarkEl = await page.find('.mdc-chip__checkmark');
       expect(checkmarkEl).not.toBeNull();
@@ -33,7 +33,7 @@ describe('InoChip', () => {
   });
 
   describe('Events', () => {
-    it('should fire removeChip event on remove if ino-removable is set true', async () => {
+    it('should fire removeChip event on remove if removable is set true', async () => {
       const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
 
       const removeChip = await page.spyOnEvent('removeChip');

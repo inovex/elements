@@ -134,7 +134,7 @@ describe('InoNavDrawer', () => {
 
   describe('property inoOpen', () => {
     it('should render drawer closed', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-open="false"'));
+      const page = await setupPageWithContent(createDrawer('open="false"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -151,7 +151,7 @@ describe('InoNavDrawer', () => {
     });
 
     it('should render drawer open', async () => {
-      const page = await setupPageWithContent(createDrawer('ino-open="true"'));
+      const page = await setupPageWithContent(createDrawer('open="true"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -169,11 +169,9 @@ describe('InoNavDrawer', () => {
     });
   });
 
-  describe('property ino-variant', () => {
+  describe('property variant', () => {
     it('should render with docked', async () => {
-      const page = await setupPageWithContent(
-        createDrawer('ino-variant="docked"')
-      );
+      const page = await setupPageWithContent(createDrawer('variant="docked"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -201,7 +199,7 @@ describe('InoNavDrawer', () => {
 
     it('should render with dismissible', async () => {
       const page = await setupPageWithContent(
-        createDrawer('ino-variant="dismissible"')
+        createDrawer('variant="dismissible"')
       );
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
@@ -228,9 +226,7 @@ describe('InoNavDrawer', () => {
     });
 
     it('should render with modal', async () => {
-      const page = await setupPageWithContent(
-        createDrawer('ino-variant="modal"')
-      );
+      const page = await setupPageWithContent(createDrawer('variant="modal"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -258,9 +254,7 @@ describe('InoNavDrawer', () => {
 
   describe('property ino-anchor', () => {
     it('should render drawer on the left', async () => {
-      const page = await setupPageWithContent(
-        createDrawer('ino-anchor="left"')
-      );
+      const page = await setupPageWithContent(createDrawer('anchor="left"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();
@@ -277,9 +271,7 @@ describe('InoNavDrawer', () => {
     });
 
     it('should render drawer on the right', async () => {
-      const page = await setupPageWithContent(
-        createDrawer('ino-anchor="right"')
-      );
+      const page = await setupPageWithContent(createDrawer('anchor="right"'));
 
       const inoNavDrawerEl = await page.find('ino-nav-drawer');
       expect(inoNavDrawerEl).not.toBeNull();

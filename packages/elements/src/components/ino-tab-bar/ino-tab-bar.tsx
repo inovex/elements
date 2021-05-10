@@ -24,9 +24,9 @@ export class TabBar implements ComponentInterface {
   /**
    * Activates the tab at the given index (**unmanaged**).
    */
-  @Prop() inoActiveTab?: number = 0;
+  @Prop() activeTab?: number = 0;
 
-  @Watch('inoActiveTab')
+  @Watch('activeTab')
   activeTabChangedWatcher(newTabIndex: number) {
     if (this.mdcInstance) {
       this.mdcInstance.activateTab(newTabIndex);
@@ -41,14 +41,14 @@ export class TabBar implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
-    this.mdcInstance.activateTab(this.inoActiveTab);
+    this.mdcInstance.activateTab(this.activeTab);
   }
 
   disconnectedCallback() {
     this.mdcInstance?.destroy();
   }
 
-  @Listen('inoInteracted')
+  @Listen('interacted')
   async interactionHandler(e) {
     e.stopPropagation();
     const allTabs = await Promise.all(

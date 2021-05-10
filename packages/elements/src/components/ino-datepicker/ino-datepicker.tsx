@@ -56,7 +56,7 @@ export class Datepicker implements ComponentInterface {
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
-  @Prop() inoShowLabelHint?: boolean;
+  @Prop() showLabelHint?: boolean;
 
   /**
    * The currently selected date shown in the input field **unmanaged**. The given value
@@ -100,35 +100,35 @@ export class Datepicker implements ComponentInterface {
   /**
    * Styles the datepicker as outlined element.
    */
-  @Prop() inoOutline?: boolean;
+  @Prop() outline?: boolean;
 
   /**
    * Defines the label for this element.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * The helper text.
    */
-  @Prop() inoHelper?: string;
+  @Prop() helper?: string;
 
   /**
    * Displays the helper permanently.
    */
-  @Prop() inoHelperPersistent?: boolean;
+  @Prop() helperPersistent?: boolean;
 
   /**
    * Styles the helper text as a validation message.
    */
-  @Prop() inoHelperValidation?: boolean;
+  @Prop() helperValidation?: boolean;
 
   /**
    * If true, enables the user to choose two dates as an interval.
    * Only works with inoType="date"
    */
-  @Prop() inoRange?: boolean;
+  @Prop() range?: boolean;
 
-  @Watch('inoRange')
+  @Watch('range')
   inoRangeChanged(val: boolean) {
     this.create();
     this.validator.isRanged = val;
@@ -147,9 +147,9 @@ export class Datepicker implements ComponentInterface {
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
    * The default value is `d-m-Y` which accepts values like `01-01-2019`.
    */
-  @Prop() inoDateFormat? = 'd-m-Y';
+  @Prop() dateFormat? = 'd-m-Y';
 
-  @Watch('inoDateFormat')
+  @Watch('dateFormat')
   inoDateFormatChanged(dateFormat: string) {
     this.validator.dateFormat = dateFormat;
     this.validate();
@@ -160,9 +160,9 @@ export class Datepicker implements ComponentInterface {
    * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.
    * If a `value` is given, this will be ignored.
    */
-  @Prop() inoDefaultDate?: string | string[];
+  @Prop() defaultDate?: string | string[];
 
-  @Watch('inoDefaultDate')
+  @Watch('defaultDate')
   inoDefaultDateChanged(defaultDate: string) {
     this.flatpickr?.set('defaultDate', defaultDate);
   }
@@ -171,9 +171,9 @@ export class Datepicker implements ComponentInterface {
    * A number containing the initial hour in the date-time picker overlay.
    * If a `value` is given, this will be ignored.
    */
-  @Prop() inoDefaultHour = 12;
+  @Prop() defaultHour = 12;
 
-  @Watch('inoDefaultHour')
+  @Watch('defaultHour')
   inoDefaultHourChanged(value: string) {
     this.flatpickr?.set('defaultHour', value);
   }
@@ -182,9 +182,9 @@ export class Datepicker implements ComponentInterface {
    * A number containing the initial minute in the date-time picker overlay.
    * If a `value` is given, this will be ignored.
    */
-  @Prop() inoDefaultMinute? = 0;
+  @Prop() defaultMinute? = 0;
 
-  @Watch('inoDefaultMinute')
+  @Watch('defaultMinute')
   inoDefaultMinuteChanged(value: string) {
     this.flatpickr?.set('defaultMinute', value);
   }
@@ -192,9 +192,9 @@ export class Datepicker implements ComponentInterface {
   /**
    * If true, displays time picker in 12 hour mode with AM/PM selection.
    */
-  @Prop() inoTwelveHourTime?: boolean;
+  @Prop() twelveHourTime?: boolean;
 
-  @Watch('inoTwelveHourTime')
+  @Watch('twelveHourTime')
   inoTwelveHourTimeChanged(value: boolean) {
     this.flatpickr?.set('time_24hr', !value);
   }
@@ -202,9 +202,9 @@ export class Datepicker implements ComponentInterface {
   /**
    * Selects the correct picker corresponding to the given type.
    */
-  @Prop() inoType?: PickerTypeKeys = 'date';
+  @Prop() type?: PickerTypeKeys = 'date';
 
-  @Watch('inoType')
+  @Watch('type')
   inoTypeChanged() {
     this.create();
   }
@@ -252,9 +252,9 @@ export class Datepicker implements ComponentInterface {
 
   connectedCallback() {
     this.validator = new Validator({
-      dateFormat: this.inoDateFormat,
+      dateFormat: this.dateFormat,
       disabled: this.disabled,
-      isRanged: this.inoRange,
+      isRanged: this.range,
       minDate: this.min,
       maxDate: this.max,
     });
@@ -280,25 +280,25 @@ export class Datepicker implements ComponentInterface {
     }
 
     const sharedOptions: Partial<BaseOptions> = {
-      allowInput: !this.inoRange,
+      allowInput: !this.range,
       clickOpens: false,
       ignoredFocusElements: [],
       locale: getDatepickerLocale(this.el),
       onValueUpdate: (_, newValue) => this.valueChange.emit(newValue),
     };
 
-    const typeSpecificOptions: PickerOption = createPicker(this.inoType, {
-      defaultHour: !this.value && this.inoDefaultHour,
-      defaultMinute: !this.value && this.inoDefaultMinute,
-      defaultDate: !this.value && this.inoDefaultDate,
+    const typeSpecificOptions: PickerOption = createPicker(this.type, {
+      defaultHour: !this.value && this.defaultHour,
+      defaultMinute: !this.value && this.defaultMinute,
+      defaultDate: !this.value && this.defaultDate,
       enableTime: true,
-      time_24hr: !this.inoTwelveHourTime,
+      time_24hr: !this.twelveHourTime,
       minuteIncrement: this.minuteStep,
       hourIncrement: this.hourStep,
-      dateFormat: this.inoDateFormat,
+      dateFormat: this.dateFormat,
       minDate: this.min,
       maxDate: this.max,
-      mode: this.inoRange ? 'range' : 'single',
+      mode: this.range ? 'range' : 'single',
       onValueChange: (value: string) => this.valueChange.emit(value),
     });
 
@@ -327,22 +327,22 @@ export class Datepicker implements ComponentInterface {
           autoFocus={this.autoFocus}
           name={this.name}
           required={this.required}
-          ino-label={this.inoLabel}
+          ino-label={this.label}
           ino-error={!this.isValid}
           ino-icon-leading
           value={this.value}
-          ino-helper={this.inoHelper}
-          ino-outline={this.inoOutline}
-          ino-helper-persistent={this.inoHelperPersistent}
-          ino-helper-validation={this.inoHelperValidation}
-          ino-show-label-hint={this.inoShowLabelHint}
+          ino-helper={this.helper}
+          ino-outline={this.outline}
+          ino-helper-persistent={this.helperPersistent}
+          ino-helper-validation={this.helperValidation}
+          ino-show-label-hint={this.showLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
         >
           <ino-icon
             ino-clickable={!this.disabled}
-            slot={'ino-icon-leading'}
-            ino-icon={this.inoType === 'time' ? 'time' : 'calendar'}
-          ></ino-icon>
+            slot={'icon-leading'}
+            ino-icon={this.type === 'time' ? 'time' : 'calendar'}
+          />
         </ino-input>
       </Host>
     );

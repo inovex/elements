@@ -3,7 +3,7 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 const INO_DATEPICKER = `<ino-datepicker></ino-datepicker>`;
 const INO_DATEPICKER_WITH_SIBLING = `<ino-datepicker></ino-datepicker><button>Click Me</button>`;
 const INO_DATEPICKER_WITH_MIN_DATE = `<ino-datepicker min='today'></ino-datepicker>`;
-const INO_DATEPICKER_WITH_FORMAT = `<ino-datepicker ino-date-format='m-Y-d'></ino-datepicker>`;
+const INO_DATEPICKER_WITH_FORMAT = `<ino-datepicker date-format='m-Y-d'></ino-datepicker>`;
 const DATEPICKER = 'ino-datepicker';
 const INPUT = 'input';
 
@@ -85,7 +85,7 @@ describe('InoDatepicker', () => {
       expect(mdcLineRipple).toBeDefined();
       expect(mdcNotchedOutline).toBeNull();
 
-      inoDatepickerEl.setAttribute('ino-outline', 'true');
+      inoDatepickerEl.setAttribute('outline', 'true');
       await page.waitForChanges();
 
       mdcLineRipple = await page.find('.mdc-line-ripple');
@@ -141,20 +141,20 @@ describe('InoDatepicker', () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const datepicker = await page.find(DATEPICKER);
 
-      await datepicker.setAttribute('ino-range', true);
+      await datepicker.setAttribute('range', true);
       await page.waitForChanges();
 
-      expect(datepicker).toHaveAttribute('ino-range');
+      expect(datepicker).toHaveAttribute('range');
     });
 
     it('should render with inoShowLabelHint set to true', async () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const datepicker = await page.find(DATEPICKER);
 
-      await datepicker.setAttribute('ino-show-label-hint', true);
+      await datepicker.setAttribute('show-label-hint', true);
       await page.waitForChanges();
 
-      expect(datepicker).toHaveAttribute('ino-show-label-hint');
+      expect(datepicker).toHaveAttribute('show-label-hint');
     });
 
     it('should set invalid state for required inputs', async () => {
@@ -210,10 +210,10 @@ describe('InoDatepicker', () => {
       const page = await setupPageWithContent(INO_DATEPICKER);
       const inoDatepickerEl = await page.find(DATEPICKER);
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-Y-m');
+      inoDatepickerEl.setAttribute('date-format', 'd-Y-m');
       await page.waitForChanges();
 
-      expect(inoDatepickerEl.getAttribute('ino-date-format')).toEqual('d-Y-m');
+      expect(inoDatepickerEl.getAttribute('date-format')).toEqual('d-Y-m');
 
       const flatpickrCalEl = await page.find('.flatpickr-calendar');
       expect(flatpickrCalEl).toBeDefined();
@@ -257,7 +257,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '10-10-2020');
       inoDatepickerEl.setAttribute('value', '09-10-2020');
       await page.waitForChanges();
@@ -270,7 +270,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '10-10-2020');
       inoDatepickerEl.setAttribute('value', '10-10-2020');
       await page.waitForChanges();
@@ -283,7 +283,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('value', '09-10-2020');
       await page.waitForChanges();
       inoDatepickerEl.setAttribute('min', '10-10-2020');
@@ -296,7 +296,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('max', '10-10-2020');
       inoDatepickerEl.setAttribute('value', '11-10-2020');
       await page.waitForChanges();
@@ -309,7 +309,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('max', '10-10-2020');
       inoDatepickerEl.setAttribute('value', '10-10-2020');
       await page.waitForChanges();
@@ -322,7 +322,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('value', '11-10-2020');
       await page.waitForChanges();
       inoDatepickerEl.setAttribute('max', '10-10-2020');
@@ -335,7 +335,7 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd-m-Y');
+      inoDatepickerEl.setAttribute('date-format', 'd-m-Y');
       inoDatepickerEl.setAttribute('min', '09-10-2020');
       inoDatepickerEl.setAttribute('max', '11-10-2020');
       inoDatepickerEl.setAttribute('value', '10-10-2020');
@@ -349,8 +349,8 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-date-format', 'd.m.Y');
-      inoDatepickerEl.setAttribute('ino-range', 'true');
+      inoDatepickerEl.setAttribute('date-format', 'd.m.Y');
+      inoDatepickerEl.setAttribute('range', 'true');
       inoDatepickerEl.setAttribute('value', '11-10-2020 to 13.10.2020');
       await page.waitForChanges();
 
@@ -362,8 +362,8 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-type', 'month');
-      inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
+      inoDatepickerEl.setAttribute('type', 'month');
+      inoDatepickerEl.setAttribute('date-format', 'm.Y');
       inoDatepickerEl.setAttribute('value', '12.20');
       await page.waitForChanges();
 
@@ -375,8 +375,8 @@ describe('InoDatepicker', () => {
       const inoDatepickerEl = await page.find(DATEPICKER);
       const flatpickrInputEl = await page.find('.flatpickr-input');
 
-      inoDatepickerEl.setAttribute('ino-type', 'month');
-      inoDatepickerEl.setAttribute('ino-date-format', 'm.Y');
+      inoDatepickerEl.setAttribute('type', 'month');
+      inoDatepickerEl.setAttribute('date-format', 'm.Y');
       inoDatepickerEl.setAttribute('value', '12.2000');
       await page.waitForChanges();
 

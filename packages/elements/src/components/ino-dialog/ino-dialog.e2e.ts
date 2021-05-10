@@ -5,7 +5,7 @@ const INO_DIALOG = `
   </ino-dialog>
 `;
 const INO_OPEN_DIALOG = `
-  <ino-dialog ino-open>
+  <ino-dialog open>
   </ino-dialog>
 `;
 const INO_DIALOG_SELECTOR = 'ino-dialog';
@@ -17,7 +17,7 @@ describe('InoDialog', () => {
       const page = await setupPageWithContent(INO_OPEN_DIALOG);
       const inoDialog = await page.find(INO_DIALOG_SELECTOR);
 
-      await inoDialog.setAttribute('ino-open', false);
+      await inoDialog.setAttribute('open', false);
       await page.waitForChanges();
 
       const mdcInstance = await inoDialog.shadowRoot.querySelector(
@@ -30,7 +30,7 @@ describe('InoDialog', () => {
       const page = await setupPageWithContent(INO_DIALOG);
       const inoDialog = await page.find(INO_DIALOG_SELECTOR);
 
-      await inoDialog.setAttribute('ino-open', true);
+      await inoDialog.setAttribute('open', true);
       await page.waitForChanges();
 
       const mdcInstance = await inoDialog.shadowRoot.querySelector(
@@ -46,13 +46,13 @@ describe('InoDialog', () => {
       const inoDialog = await page.find(INO_DIALOG_SELECTOR);
       const inoChangedEvent = await page.spyOnEvent('openChange');
 
-      await inoDialog.setAttribute('ino-open', true);
+      await inoDialog.setAttribute('open', true);
       await page.waitForChanges();
 
       expect(inoChangedEvent).toHaveReceivedEvent();
       expect(inoChangedEvent).toHaveReceivedEventDetail(true);
 
-      await inoDialog.setAttribute('ino-open', false);
+      await inoDialog.setAttribute('open', false);
       await page.waitForChanges();
 
       expect(inoChangedEvent).toHaveReceivedEvent();

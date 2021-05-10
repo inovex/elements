@@ -21,39 +21,39 @@ export class Tab implements ComponentInterface {
   /**
    * Indicates a leading icon in the tab.
    */
-  @Prop() inoIcon?: string;
+  @Prop() icon?: string;
 
   /**
    * Indicates a label text in the tab.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Indicates that the tab icon and label should flow vertically instead of horizontally.
    */
-  @Prop() inoStacked: boolean = false;
+  @Prop() stacked: boolean = false;
 
   /**
    * Indicates that the tab only expands to the width of its content.
    */
-  @Prop() inoIndicatorContentWidth: boolean = false;
+  @Prop() indicatorContentWidth: boolean = false;
 
   /**
    * Emitted when the user interacts with the tab.
    * This event is used by the ino-tab-bar.
    */
-  @Event() inoInteracted!: EventEmitter;
+  @Event() interacted!: EventEmitter;
 
   @Listen('MDCTab:interacted')
   interactionHandler(e) {
     e.stopPropagation();
-    this.inoInteracted.emit(this.el);
+    this.interacted.emit(this.el);
   };
 
   render() {
     const tabClasses = classNames({
       'mdc-tab': true,
-      'mdc-tab--stacked': this.inoStacked,
+      'mdc-tab--stacked': this.stacked,
     });
 
     const indicatorWidth = (
@@ -66,15 +66,15 @@ export class Tab implements ComponentInterface {
       <Host>
         <button class={tabClasses} role="tab" aria-selected="false">
           <span class="mdc-tab__content">
-            {this.inoIcon && (
-              <ino-icon class="mdc-tab__icon" ino-icon={this.inoIcon} />
+            {this.icon && (
+              <ino-icon class="mdc-tab__icon" icon={this.icon} />
             )}
-            {this.inoLabel && (
-              <span class="mdc-tab__text-label">{this.inoLabel}</span>
+            {this.label && (
+              <span class="mdc-tab__text-label">{this.label}</span>
             )}
-            {this.inoIndicatorContentWidth && indicatorWidth}
+            {this.indicatorContentWidth && indicatorWidth}
           </span>
-          {!this.inoIndicatorContentWidth && indicatorWidth}
+          {!this.indicatorContentWidth && indicatorWidth}
           <span class="mdc-tab__ripple" />
         </button>
       </Host>

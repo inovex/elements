@@ -26,7 +26,7 @@ describe('ino-carousel', () => {
       const page = await setupPageWithContent(INO_CAROUSEL);
       const carousel = await page.find(CAROUSEL);
 
-      await carousel.setAttribute('ino-hide-buttons', true);
+      await carousel.setAttribute('hide-buttons', true);
       await page.waitForChanges();
 
       const div = await page.find(DIV_SELECTOR);

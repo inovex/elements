@@ -33,7 +33,7 @@ describe('InoSelect', () => {
     it('should render as an outlined element if inoOutlined is true', async () => {
       const page = await setupPageWithContent(INO_SELECT);
       const inoSelect = await page.find(INO_SELECT_SELECTOR);
-      await inoSelect.setAttribute('ino-outline', true);
+      await inoSelect.setAttribute('outline', true);
       await page.waitForChanges();
 
       const innerDiv = await page.find(INNER_DIV_SELECTOR);

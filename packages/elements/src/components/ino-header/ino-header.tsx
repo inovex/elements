@@ -9,13 +9,13 @@ export class Header implements ComponentInterface {
   /**
    * The text of this header
    */
-  @Prop() inoTitle!: string;
+  @Prop() title!: string;
 
   render() {
     return (
       <Host>
         <div class="header-container">
-          <p>{this.inoTitle}</p>
+          <p>{this.title}</p>
           <div class="header-separator">
             <div class="header-inner-box"></div>
           </div>

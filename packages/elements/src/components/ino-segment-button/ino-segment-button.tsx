@@ -44,7 +44,7 @@ export class InoSegmentButton implements ComponentInterface {
   /**
    * Slightly decreases the size of the button
    */
-  @Prop() inoDense: boolean = false;
+  @Prop() dense: boolean = false;
 
   /**
    * Name of the element
@@ -117,7 +117,7 @@ export class InoSegmentButton implements ComponentInterface {
     const buttonClasses = classNames({
       'mdc-button': true,
       'mdc-button--outlined': true,
-      'ino-segment-button--dense': this.inoDense,
+      'ino-segment-button--dense': this.dense,
       'ino-segment-button--active': this.checked,
       'belongs-to-group': this.belongsToGroup,
     });

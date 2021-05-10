@@ -22,18 +22,18 @@ export class List implements ComponentInterface {
   /**
    * Styles the list more dense, making it appear more compact.
    */
-  @Prop() inoDense?: boolean;
+  @Prop() dense?: boolean;
 
   /**
    * Marks this element as list with items having two lines.
    */
-  @Prop() inoTwoLines?: boolean;
+  @Prop() twoLines?: boolean;
 
   /**
    * Configures the leading tiles of each row to display images instead of icons.
    * This will make the graphics of the list items larger.
    */
-  @Prop() inoAvatar?: boolean = false;
+  @Prop() avatar?: boolean = false;
 
   componentDidLoad() {
     const listElement = this.el.querySelector('.mdc-list');
@@ -47,9 +47,9 @@ export class List implements ComponentInterface {
   render() {
     const listClasses = classNames({
       'mdc-list': true,
-      'mdc-list--dense': this.inoDense,
-      'mdc-list--two-line': this.inoTwoLines,
-      'mdc-list--avatar-list': this.inoAvatar,
+      'mdc-list--dense': this.dense,
+      'mdc-list--two-line': this.twoLines,
+      'mdc-list--avatar-list': this.avatar,
     });
 
     return (

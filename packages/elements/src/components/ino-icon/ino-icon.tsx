@@ -26,9 +26,9 @@ export class Icon implements ComponentInterface {
   /**
    * The name of the icon of this element or an URL.
    */
-  @Prop() inoIcon?: string;
+  @Prop() icon?: string;
 
-  @Watch('inoIcon')
+  @Watch('icon')
   inoIconChanged() {
     this.loadIcon();
   }
@@ -36,12 +36,12 @@ export class Icon implements ComponentInterface {
   /**
    * Colors the icon in the global secondary color
    */
-  @Prop() inoColorSecondary?: boolean;
+  @Prop() colorSecondary?: boolean;
 
   /**
    * Makes the icon clickable and allows to listen to the `clickEl` event.
    */
-  @Prop() inoClickable?: boolean;
+  @Prop() clickable?: boolean;
 
   /**
    * Specifies the exact `src` of an SVG file to use.
@@ -78,7 +78,7 @@ export class Icon implements ComponentInterface {
   }
 
   private loadIcon() {
-    const url = getUrl(this.src, this.inoIcon);
+    const url = getUrl(this.src, this.icon);
     if (url) {
       if (inoiconContent.has(url)) {
         // sync if it's already loaded
@@ -110,12 +110,12 @@ export class Icon implements ComponentInterface {
     }
 
     const hostClasses = classNames({
-      'ino-icon--color-scheme-primary': !this.inoColorSecondary,
-      'ino-icon--color-scheme-secondary': this.inoColorSecondary,
+      'ino-icon--color-scheme-primary': !this.colorSecondary,
+      'ino-icon--color-scheme-secondary': this.colorSecondary,
     });
 
     let iconProps = {};
-    if (this.inoClickable) {
+    if (this.clickable) {
       iconProps = {
         onClick: (e) => this.handleClick(e),
         onKeyPress: (e) => this.handleKeyPress(e),

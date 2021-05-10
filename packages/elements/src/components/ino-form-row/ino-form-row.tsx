@@ -9,21 +9,21 @@ export class FormRow implements ComponentInterface {
   /**
    * The label for this form row which describes the form element.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * An indicator which marks the contents of the form row as mandatory.
    * If you use this make sure you also check for the values in your application logic.
    */
-  @Prop() inoMandatory?: boolean;
+  @Prop() mandatory?: boolean;
 
   render() {
     return (
       <Host>
         <div class="ino-form-row__composer">
           <div class="ino-form-row__label">
-            {this.inoLabel}
-            {this.inoMandatory && <span>*</span>}
+            {this.label}
+            {this.mandatory && <span>*</span>}
           </div>
           <div class="ino-form-row__element">
             <slot />

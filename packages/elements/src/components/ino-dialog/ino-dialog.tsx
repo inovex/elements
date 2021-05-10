@@ -30,8 +30,8 @@ export class Dialog implements ComponentInterface {
   /**
    * Opens the dialog if set to true
    */
-  @Prop() inoOpen: boolean = false;
-  @Watch('inoOpen')
+  @Prop() open: boolean = false;
+  @Watch('open')
   inoOpenChange(newVal: boolean) {
     if (newVal) {
       this.mdcDialog.open();
@@ -53,7 +53,7 @@ export class Dialog implements ComponentInterface {
     );
     this.mdcDialog.scrimClickAction = '';
     this.mdcDialog.escapeKeyAction = '';
-    if (this.inoOpen) {
+    if (this.open) {
       this.mdcDialog.open();
     }
   }
@@ -84,7 +84,7 @@ export class Dialog implements ComponentInterface {
               </div>
             </div>
           </div>
-          <div class="mdc-dialog__scrim"></div>
+          <div class="mdc-dialog__scrim"/>
         </div>
       </Host>
     );

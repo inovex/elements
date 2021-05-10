@@ -14,8 +14,8 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 
 /**
- * @slot ino-icon-leading - For the icon to be prepended
- * @slot ino-icon-trailing - For the icon to be appended
+ * @slot icon-leading - For the icon to be prepended
+ * @slot icon-trailing - For the icon to be appended
  */
 @Component({
   tag: 'ino-button',
@@ -62,32 +62,32 @@ export class Button implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`, `grey`, `white`.
    * `white` and `grey` can only be used in combination with the `outline` fill-option!
    */
-  @Prop() inoColorScheme: ButtonColorScheme = 'primary';
+  @Prop() colorScheme?: ButtonColorScheme = 'primary';
 
   /**
    * Styles the button to have the edge on the top-right instead of the top-left
    */
-  @Prop() inoEdgeMirrored? = false;
+  @Prop() edgeMirrored? = false;
 
   /**
    * The fill type of this element.
    * Possible values: `solid` (default), `outline`, `inverse`.
    */
-  @Prop() inoFill: SurfaceType = 'solid';
+  @Prop() fill?: SurfaceType = 'solid';
 
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() inoDense?: boolean = false;
+  @Prop() dense?: boolean = false;
 
   /**
    * Shows an infinite loading spinner and prevents further clicks.
    */
-  @Prop({ reflect: true }) inoLoading?: boolean;
+  @Prop({ reflect: true }) loading?: boolean;
 
   private buttonSizeBeforeLoad: string;
 
-  @Watch('inoLoading')
+  @Watch('loading')
   inoLoadingChanged(isLoading: boolean) {
     if (isLoading) {
       const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
@@ -99,7 +99,7 @@ export class Button implements ComponentInterface {
   }
 
   componentDidUpdate() {
-    if (this.inoLoading && this.buttonSizeBeforeLoad) {
+    if (this.loading && this.buttonSizeBeforeLoad) {
       const mdcLabel = this.el.shadowRoot.querySelector(
         '.mdc-button__label'
       ) as HTMLDivElement;
@@ -142,30 +142,31 @@ export class Button implements ComponentInterface {
   render() {
     const hostClasses = classNames(
       {
-        'ino-button--loading': this.inoLoading,
-        'ino-button--mirrored-edge': this.inoEdgeMirrored,
-        'ino-button--dense': this.inoDense,
+        'ino-button--loading': this.loading,
+        'ino-button--mirrored-edge': this.edgeMirrored,
+        'ino-button--dense': this.dense,
       },
-      `ino-button--fill-${this.inoFill}`,
-      `ino-button--color-scheme-${this.inoColorScheme}`
+      `ino-button--fill-${this.fill}`,
+      `ino-button--color-scheme-${this.colorScheme}`
     );
 
     const mdcClasses = classNames({
       'mdc-button': true,
       'mdc-button--unelevated':
-        this.inoFill === 'solid' || this.inoFill === 'inverse',
-      'mdc-button--outlined': this.inoFill === 'outline',
+        this.fill === 'solid' || this.fill === 'inverse',
+      'mdc-button--outlined': this.fill === 'outline',
+      'ino-button--dense': this.dense,
     });
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     return (
       <Host
         class={hostClasses}
         onClick={this.handleClick}
-        ino-fill={this.inoFill}
-        ino-color-scheme={this.inoColorScheme}
+        ino-fill={this.fill}
+        ino-color-scheme={this.colorScheme}
       >
         <button
           class={mdcClasses}
@@ -177,11 +178,11 @@ export class Button implements ComponentInterface {
         >
           {leadingSlotHasContent && (
             <span class="mdc-button__icon">
-              <slot name="ino-icon-leading" />
+              <slot name="icon-leading" />
             </span>
           )}
           <div class="mdc-button__label">
-            {this.inoLoading ? (
+            {this.loading ? (
               <ino-spinner
                 ino-height={20}
                 ino-width={20}
@@ -193,7 +194,7 @@ export class Button implements ComponentInterface {
           </div>
           {trailingSlotHasContent && (
             <span class="mdc-button__icon">
-              <slot name="ino-icon-trailing" />
+              <slot name="icon-trailing" />
             </span>
           )}
         </button>

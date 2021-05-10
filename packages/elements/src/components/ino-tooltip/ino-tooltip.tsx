@@ -27,7 +27,7 @@ export class Tooltip implements ComponentInterface {
    * Sets the color scheme of the tooltip
    * Valid options include: 'primary', 'secondary' 'light', 'transparent'
    */
-  @Prop() inoColorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
+  @Prop() colorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
     'primary';
 
   /**
@@ -35,9 +35,9 @@ export class Tooltip implements ComponentInterface {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() inoPlacement: Placement = 'auto';
+  @Prop() placement: Placement = 'auto';
 
-  @Watch('inoPlacement')
+  @Watch('placement')
   async inoPlacementChanged() {
     await this.create();
   }
@@ -46,9 +46,9 @@ export class Tooltip implements ComponentInterface {
    * The target id the tooltip belongs to.
    * If not given, the tooltip is attached to the parent component.
    */
-  @Prop() inoFor?: string;
+  @Prop() for?: string;
 
-  @Watch('inoFor')
+  @Watch('for')
   async inoForChanged() {
     await this.create();
   }
@@ -57,9 +57,9 @@ export class Tooltip implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers possible by separating them with a space.
    */
-  @Prop() inoTrigger: TooltipTrigger = 'mouseenter focus';
+  @Prop() trigger: TooltipTrigger = 'mouseenter focus';
 
-  @Watch('inoTrigger')
+  @Watch('trigger')
   async inoTriggerChanged() {
     await this.create();
   }
@@ -67,7 +67,7 @@ export class Tooltip implements ComponentInterface {
   /**
    * The text shown in the tooltip.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Returns the internally used tippy.js instance
@@ -85,7 +85,7 @@ export class Tooltip implements ComponentInterface {
   }
 
   private retrieveTarget = () =>
-    this.inoFor ? document.getElementById(this.inoFor) : this.el.parentElement;
+    this.for ? document.getElementById(this.for) : this.el.parentElement;
 
   private async create() {
     await this.dispose();
@@ -100,15 +100,15 @@ export class Tooltip implements ComponentInterface {
 
     if (!this.target) {
       throw new Error(
-        `Target with the ID '${this.inoFor}' could not be found in this document.`
+        `Target with the ID '${this.for}' could not be found in this document.`
       );
     }
 
     const options = {
       content: this.el,
       duration: 100,
-      placement: this.inoPlacement,
-      trigger: this.inoTrigger,
+      placement: this.placement,
+      trigger: this.trigger,
     };
 
     this.tooltipInstance = TippyJS(this.target, options);
@@ -116,7 +116,7 @@ export class Tooltip implements ComponentInterface {
     this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
     this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
 
-    if (this.inoTrigger.includes('hover')) {
+    if (this.trigger.includes('hover')) {
       this.target!.addEventListener(
         'mouseleave',
         this.onLeaveTarget.bind(this)
@@ -142,7 +142,7 @@ export class Tooltip implements ComponentInterface {
   }
 
   private onEnterTarget(e: KeyboardEvent) {
-    if (e.code === 'Tab' && !this.inoTrigger.includes('click')) {
+    if (e.code === 'Tab' && !this.trigger.includes('click')) {
       this.tooltipInstance.show();
     }
 
@@ -157,13 +157,13 @@ export class Tooltip implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-tooltip--color-scheme-${this.inoColorScheme}`
+      `ino-tooltip--color-scheme-${this.colorScheme}`
     );
 
     return (
       <Host class={hostClasses}>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.inoLabel}</div>
+          <div class="ino-tooltip__inner">{this.label}</div>
         </div>
       </Host>
     );

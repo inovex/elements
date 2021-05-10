@@ -13,7 +13,7 @@ import { Placement } from 'tippy.js';
 import { hasSlotContent } from '../../util/component-utils';
 
 /**
- * @slot ino-icon-leading - For the icon to be prepended
+ * @slot icon-leading - For the icon to be prepended
  */
 @Component({
   tag: 'ino-fab',
@@ -31,22 +31,22 @@ export class Fab implements ComponentInterface {
    * Adds an icon to the Fab.
    * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
    */
-  @Prop() inoIcon?: string;
+  @Prop() icon?: string;
 
   /**
    * Optional, for the text label. Applicable only for Extended FAB.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Optional, modifies the FAB to wider size which includes a text label.
    */
-  @Prop() inoExtended = false;
+  @Prop() extended = false;
 
   /**
    * The position of the edge.
    */
-  @Prop() inoEdgePosition:
+  @Prop() edgePosition:
     | 'top-right'
     | 'top-left'
     | 'bottom-right'
@@ -56,29 +56,29 @@ export class Fab implements ComponentInterface {
   /**
    * Disables the button.
    */
-  @Prop() inoDisabled = false;
+  @Prop() disabled = false;
 
   /**
    * Optional, modifies the FAB to a smaller size
    */
-  @Prop() inoMini = false;
+  @Prop() mini = false;
 
   /**
    * The placement of the tooltip which will be displayed when the button is not extended.
    * Use `none`, if you don't want a tooltip to be displayed.
    */
-  @Prop() inoTooltipPlacement: Placement | 'none' = 'left';
+  @Prop() tooltipPlacement: Placement | 'none' = 'left';
 
   @Listen('click')
   clickHandler(e) {
-    if (this.inoDisabled) {
+    if (this.disabled) {
       e.preventDefault();
       e.stopPropagation();
     }
 
-    if (this.inoIcon) {
+    if (this.icon) {
       console.warn(
-        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.`
+        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
       );
     }
   }
@@ -88,7 +88,7 @@ export class Fab implements ComponentInterface {
       this.el.shadowRoot.querySelector('.mdc-fab')
     );
 
-    if (!this.inoExtended && this.inoTooltipPlacement !== 'none') {
+    if (!this.extended && this.tooltipPlacement !== 'none') {
       this.renderTooltip();
     }
   }
@@ -96,8 +96,8 @@ export class Fab implements ComponentInterface {
   private renderTooltip() {
     const attributes = {
       'ino-for': this.uniqueHelperId,
-      'ino-label': this.inoLabel,
-      'ino-placement': this.inoTooltipPlacement,
+      'ino-label': this.label,
+      'ino-placement': this.tooltipPlacement,
       'ino-trigger': 'mouseenter focus',
     };
 
@@ -128,28 +128,28 @@ export class Fab implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-fab--edge-position-${this.inoEdgePosition}`
+      `ino-fab--edge-position-${this.edgePosition}`
     );
 
     const classFab = classNames({
       'mdc-fab': true,
-      'mdc-fab--extended': this.inoExtended,
-      'mdc-fab--mini': this.inoMini,
+      'mdc-fab--extended': this.extended,
+      'mdc-fab--mini': this.mini,
     });
 
-    const iconSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const iconSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     return (
       <Host class={hostClasses} id={this.uniqueHelperId}>
-        <button class={classFab} disabled={this.inoDisabled}>
+        <button class={classFab} disabled={this.disabled}>
           <span class="material-icons mdc-fab__icon">
-            {this.inoIcon && !iconSlotHasContent && (
-              <ino-icon ino-icon={this.inoIcon} />
+            {this.icon && !iconSlotHasContent && (
+              <ino-icon ino-icon={this.icon} />
             )}
-            {iconSlotHasContent && <slot name="ino-icon-leading" />}
+            {iconSlotHasContent && <slot name="icon-leading" />}
           </span>
-          {this.inoExtended && (
-            <span class="mdc-fab__label">{this.inoLabel}</span>
+          {this.extended && (
+            <span class="mdc-fab__label">{this.label}</span>
           )}
         </button>
       </Host>

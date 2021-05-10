@@ -30,14 +30,14 @@ export class InoSidebar {
   /**
    * Aligns the sidebar to the right (true) or left (false) side
    */
-  @Prop() inoAlignRight: boolean = false;
+  @Prop() alignRight: boolean = false;
 
   /**
    * Expands the sidebar
    */
-  @Prop() inoOpen: boolean = false;
+  @Prop() open: boolean = false;
 
-  @Watch('inoOpen')
+  @Watch('open')
   openChanged(newValue: boolean) {
     this.drawer.open = newValue;
     this.openChange.emit(newValue);
@@ -57,18 +57,18 @@ export class InoSidebar {
     this.drawer = new MDCCustomDrawer(
       this.el.shadowRoot.querySelector('.mdc-drawer')
     );
-    this.drawer.open = this.inoOpen;
+    this.drawer.open = this.open;
   }
 
   render() {
     const classes = classNames({
       'mdc-drawer': true,
       'mdc-drawer--modal': true,
-      'ino-sidebar--right': this.inoAlignRight,
+      'ino-sidebar--right': this.alignRight,
     });
 
     return (
-      <Host name={this.name} ino-open={this.inoOpen}>
+      <Host name={this.name} ino-open={this.open}>
         <aside class={classes}>
           <div class="mdc-drawer__header">
             <slot name="header" />

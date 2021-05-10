@@ -10,12 +10,12 @@ const ASIDE_SELECTOR = 'ino-sidebar >>> aside';
 
 describe('ino-sidebar', () => {
   describe('Properties', async () => {
-    it('should render on the right side if inoAlignRight is true', async () => {
+    it('should render on the right side if alignRight is true', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
       const sidebar = await page.find(SIDEBAR_SELECTOR);
       const asideEl = await page.find(ASIDE_SELECTOR);
 
-      await sidebar.setAttribute('ino-align-right', true);
+      await sidebar.setAttribute('align-right', true);
       await page.waitForChanges();
 
       expect(asideEl).toHaveClass('ino-sidebar--right');
@@ -23,12 +23,12 @@ describe('ino-sidebar', () => {
   });
 
   describe('Events', () => {
-    it('should emit an openChange event upon changing the ino-open property', async () => {
+    it('should emit an openChange event upon changing the open property', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
       const sidebar = await page.find(SIDEBAR_SELECTOR);
       const event = await page.spyOnEvent('openChange');
 
-      await sidebar.setAttribute('ino-open', true);
+      await sidebar.setAttribute('open', true);
       await page.waitForChanges();
 
       expect(event).toHaveReceivedEvent();

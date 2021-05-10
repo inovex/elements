@@ -23,8 +23,8 @@ export class InoProgressBar implements ComponentInterface {
   /**
    * Sets the buffer progress
    */
-  @Prop() inoBuffer?: number = 0;
-  @Watch('inoBuffer')
+  @Prop() buffer?: number = 0;
+  @Watch('buffer')
   bufferChanged(newVal: number) {
     this.mdcProgress.buffer = newVal;
   }
@@ -32,8 +32,8 @@ export class InoProgressBar implements ComponentInterface {
   /**
    * Indicates whether the state of the progress bar is indeterminate
    */
-  @Prop() inoIndeterminate?: boolean = false;
-  @Watch('inoIndeterminate')
+  @Prop() indeterminate?: boolean = false;
+  @Watch('indeterminate')
   indeterminateChanged(newVal: boolean) {
     this.mdcProgress.determinate = !newVal;
   }
@@ -41,13 +41,13 @@ export class InoProgressBar implements ComponentInterface {
   /**
    * Sets the label of the progress bar
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Reverses the progress bar
    */
-  @Prop() inoReversed?: boolean = false;
-  @Watch('inoReversed')
+  @Prop() reversed?: boolean = false;
+  @Watch('reversed')
   reverseChanged(newVal: boolean) {
     this.mdcProgress.reverse = newVal;
   }
@@ -56,8 +56,8 @@ export class InoProgressBar implements ComponentInterface {
    * Sets the progress of the progress bar
    * Should always be between 0 and 1
    */
-  @Prop() inoProgress?: number = 0;
-  @Watch('inoProgress')
+  @Prop() progress?: number = 0;
+  @Watch('progress')
   progressChanged(newVal: number) {
     this.mdcProgress.progress = newVal;
   }
@@ -74,16 +74,16 @@ export class InoProgressBar implements ComponentInterface {
     this.mdcProgress = new MDCLinearProgress(
       this.el.shadowRoot.querySelector('.mdc-linear-progress')
     );
-    this.mdcProgress.determinate = !this.inoIndeterminate;
-    this.mdcProgress.progress = this.inoProgress;
-    this.mdcProgress.buffer = this.inoBuffer;
-    this.mdcProgress.reverse = this.inoReversed;
+    this.mdcProgress.determinate = !this.indeterminate;
+    this.mdcProgress.progress = this.progress;
+    this.mdcProgress.buffer = this.buffer;
+    this.mdcProgress.reverse = this.reversed;
   };
 
   render() {
     const progressBarClasses = classNames({
       'mdc-linear-progress': true,
-      'mdc-linear-progress--reversed': this.inoReversed,
+      'mdc-linear-progress--reversed': this.reversed,
     });
 
     return (
@@ -91,7 +91,7 @@ export class InoProgressBar implements ComponentInterface {
         <div
           role="progressbar"
           class={progressBarClasses}
-          aria-label={this.inoLabel}
+          aria-label={this.label}
           aria-valuemin="0"
           aria-valuemax="1"
         >

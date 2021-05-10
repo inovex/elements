@@ -20,7 +20,7 @@ describe('InoFabButton', () => {
       const page = await setupPageWithContent(INO_FAB_SET);
       const inoFabSetEl = await page.find(INO_FAB_SET_SELECTOR);
 
-      inoFabSetEl.setAttribute('ino-open-dial', true);
+      inoFabSetEl.setAttribute('open-dial', true);
       await page.waitForChanges();
 
       const dialEl = await page.find(DIAL_SELECTOR);

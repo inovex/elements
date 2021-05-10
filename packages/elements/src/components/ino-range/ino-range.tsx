@@ -33,18 +33,18 @@ export class Range implements ComponentInterface {
    * Possible values: `primary` (default), `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme: ColorScheme = 'primary';
+  @Prop() colorScheme: ColorScheme = 'primary';
 
   /**
    * Restricts the slider to only allow discrete values.
    */
-  @Prop() inoDiscrete?: boolean;
+  @Prop() discrete?: boolean;
 
   /**
    * Mark this slider to show the steps of the range.
    * Only applicable if ino-discrete is true
    */
-  @Prop() inoMarkers?: boolean;
+  @Prop() markers?: boolean;
 
   /**
    * The name of this element.
@@ -113,13 +113,13 @@ export class Range implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-range--color-scheme-${this.inoColorScheme}`
+      `ino-range--color-scheme-${this.colorScheme}`
     );
 
     const sliderClasses = classNames({
       'mdc-slider': true,
-      'mdc-slider--discrete': this.inoDiscrete,
-      'mdc-slider--tick-marks': this.inoMarkers,
+      'mdc-slider--discrete': this.discrete,
+      'mdc-slider--tick-marks': this.markers,
       'mdc-slider--disabled': this.disabled,
     });
 
@@ -145,7 +145,7 @@ export class Range implements ComponentInterface {
             tabindex="0"
             role="slider"
           >
-            {this.inoDiscrete && (
+            {this.discrete && (
               <div class="mdc-slider__value-indicator-container">
                 <div class="mdc-slider__value-indicator">
                   <span class="mdc-slider__value-indicator-text">

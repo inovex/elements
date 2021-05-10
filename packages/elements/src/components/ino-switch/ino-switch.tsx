@@ -56,7 +56,7 @@ export class Switch implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme: ColorScheme = 'primary';
+  @Prop() colorScheme: ColorScheme = 'primary';
 
   componentDidLoad() {
     this.switch = new MDCSwitch(document.querySelector('.mdc-switch'));
@@ -83,7 +83,7 @@ export class Switch implements ComponentInterface {
     renderHiddenInput(el, name, '', disabled);
 
     const hostClasses = classNames(
-      `ino-switch--color-scheme-${this.inoColorScheme}`
+      `ino-switch--color-scheme-${this.colorScheme}`
     );
 
     const classesSwitch = classNames({

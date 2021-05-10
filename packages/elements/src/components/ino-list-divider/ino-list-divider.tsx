@@ -11,7 +11,7 @@ export class ListDivider implements ComponentInterface {
    * Marks the divider as a separator between two `ino-list`
    * instead of `ino-list-item` elements.
    */
-  @Prop() inoBetweenLists?: boolean;
+  @Prop() betweenLists?: boolean;
 
   /**
    * Increases margin on each side of the divider to match meta content
@@ -19,25 +19,25 @@ export class ListDivider implements ComponentInterface {
    *
    * Only applicable if `inoBetweenList` is `false`.
    */
-  @Prop() inoPadded?: boolean;
+  @Prop() padded?: boolean;
 
   /**
    * Increases leading margin to match leading column in `ino-list-item`.
    *
    * Only applicable if `inoBetweenList` is `false`.
    */
-  @Prop() inoInset?: boolean;
+  @Prop() inset?: boolean;
 
   render() {
     const dividerClasses = classNames({
       'mdc-list-divider': true,
-      'mdc-list-divider--padded': !this.inoBetweenLists && this.inoPadded,
-      'mdc-list-divider--inset': !this.inoBetweenLists && this.inoInset,
+      'mdc-list-divider--padded': !this.betweenLists && this.padded,
+      'mdc-list-divider--inset': !this.betweenLists && this.inset,
     });
 
     return (
       <Host>
-        {this.inoBetweenLists ? (
+        {this.betweenLists ? (
           <hr class={dividerClasses} />
         ) : (
           <li role="separator" class={dividerClasses} />

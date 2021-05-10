@@ -2,7 +2,7 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const IMG_LIST = `
 <ino-img-list>
-    <ino-img src="test" label="test" ino-img-list-item></ino-img>
+    <ino-img src="test" label="test" img-list-item></ino-img>
 </ino-img-list>
 `;
 
@@ -14,7 +14,7 @@ describe('ino-img-list', () => {
       const page = await setupPageWithContent(IMG_LIST);
       const list = await page.find(LIST_SELECTOR);
 
-      await list.setAttribute('ino-masonry', true);
+      await list.setAttribute('masonry', true);
       await page.waitForChanges();
 
       const ul = await page.find('ul');
@@ -25,7 +25,7 @@ describe('ino-img-list', () => {
       const page = await setupPageWithContent(IMG_LIST);
       const list = await page.find(LIST_SELECTOR);
 
-      await list.setAttribute('ino-enclose-label', true);
+      await list.setAttribute('enclose-label', true);
       await page.waitForChanges();
 
       const ul = await page.find('ul');

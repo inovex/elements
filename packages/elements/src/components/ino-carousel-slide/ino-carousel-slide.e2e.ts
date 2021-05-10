@@ -8,7 +8,7 @@ describe('ino-carousel-slide', () => {
       const page = await setupPageWithContent(INO_CAROUSEL);
       const slide = await page.find('ino-carousel-slide');
 
-      await slide.setAttribute('ino-selected', true);
+      await slide.setAttribute('selected', true);
       await page.waitForChanges();
 
       expect(slide).toHaveClass('ino-carousel-slide--selected');

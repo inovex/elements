@@ -2,14 +2,14 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_TABLE_W_HEADER = `
 <ino-table>
-    <ino-table-row ino-header-row>
+    <ino-table-row header-row>
         <ino-table-cell>Test</ino-table-cell>
     </ino-table-row>
 </ino-table>
 `;
 const INO_TABLE_W_SELECTED_ROW = `
 <ino-table>
-    <ino-table-row ino-selected>
+    <ino-table-row selected>
         <ino-table-cell>Test</ino-table-cell>
     </ino-table-row>
 </ino-table>
