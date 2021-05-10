@@ -69,35 +69,35 @@ export class Snackbar implements ComponentInterface {
 
   componentDidLoad() {
     this.snackbarInstance = new MDCSnackbar(this.snackbarElement);
-    this.snackbarElement.addEventListener('MDCSnackbar:closing', (e) =>
-      this.handleSnackbarHide(e)
+    this.snackbarElement.addEventListener(
+      'MDCSnackbar:closing',
+      this.handleSnackbarHide
     );
-    this.configureTimeout();
+    this.setupTimeout();
     if (this.inoStayVisibleOnHover) {
-      this.snackbarElement.addEventListener('mouseenter', () => {
-        if (this.timeout) clearTimeout(this.timeout);
-      });
-      this.snackbarElement.addEventListener('mouseleave', () => {
-        this.configureTimeout();
-      });
+      this.snackbarElement.addEventListener(
+        'mouseenter',
+        this.interruptTimeout
+      );
+      this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
     }
     this.snackbarInstance.open();
   }
 
   disconnectedCallback() {
     this.snackbarInstance?.destroy();
-    this.snackbarElement.removeEventListener('MDCSnackbar:closing', (e) =>
-      this.handleSnackbarHide(e)
+    this.snackbarElement.removeEventListener(
+      'MDCSnackbar:closing',
+      this.handleSnackbarHide
     );
-    this.snackbarElement.removeEventListener('mouseenter', () => {
-      if (this.timeout) clearTimeout(this.timeout);
-    });
-    this.snackbarElement.removeEventListener('mouseleave', () => {
-      this.configureTimeout();
-    });
+    this.snackbarElement.removeEventListener(
+      'mouseenter',
+      this.interruptTimeout
+    );
+    this.snackbarElement.removeEventListener('mouseleave', this.setupTimeout);
   }
 
-  private configureTimeout() {
+  private setupTimeout = () => {
     this.snackbarInstance.timeoutMs = -1;
     if (this.inoTimeout >= 0) {
       this.timeout = setTimeout(
@@ -105,12 +105,16 @@ export class Snackbar implements ComponentInterface {
         this.inoTimeout
       );
     }
-  }
+  };
 
-  private handleSnackbarHide(e) {
+  private interruptTimeout = () => {
+    if (this.timeout) clearTimeout(this.timeout);
+  };
+
+  private handleSnackbarHide = (e) => {
     this.hideEl!.emit(true);
     e.stopPropagation();
-  }
+  };
 
   render() {
     const snackbarClasses = classNames({
