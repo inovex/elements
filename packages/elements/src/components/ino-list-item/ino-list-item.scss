@@ -61,8 +61,14 @@ ino-list-item {
     display: none;
   }
 
-  .mdc-list-item__graphic ino-checkbox {
-    width: 100%;
+  .mdc-list-item__graphic {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+
+    ino-checkbox {
+      width: 100%;
+    }
   }
 
   ino-img .ino-img__image {
