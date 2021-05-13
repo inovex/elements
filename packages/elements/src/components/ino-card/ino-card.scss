@@ -21,7 +21,7 @@ ino-card {
   --card-background-color--active: var(--ino-card-background-color--active, #fff);
   --card-background-color--focus: var(--ino-card-background-color--focus, #fff);
   --card-background-color--hover: var(--ino-card-background-color--hover, #fff);
-  --card-border-color: var(--card-border-color, #{theme.color(light, base)});
+  --card-border-color: var(--ino-card-border-color, #{theme.color(light, base)});
   --card-border-thickness: var(--ino-card-border-thickness, 1px);
   --card-checkmark-background-color: var(
       --ino-card-checkmark-background-color,
@@ -38,7 +38,7 @@ ino-card {
 
   .mdc-card {
     @include card.fill-color(var(--card-background-color));
-    @include card.outline(var(--card-border-color), var(--card-border-thickness));
+    @include card.outline(#{var(--card-border-color)}, #{var(--card-border-thickness)});
     box-shadow: none;
     border-radius: inherit;
     height: inherit;
