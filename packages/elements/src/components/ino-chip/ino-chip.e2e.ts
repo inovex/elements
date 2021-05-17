@@ -17,7 +17,6 @@ describe('InoChip', () => {
 
       const inoIcon = await page.find('ino-icon');
       expect(inoIcon).not.toBeNull();
-      expect(inoIcon.getAttribute('icon')).toEqual('close');
       expect(inoIcon.getAttribute('role')).toEqual('button');
     });
 

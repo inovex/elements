@@ -4,13 +4,13 @@ const INO_BUTTON = `<ino-button></ino-button>`;
 
 const INO_BTN_WITH_LEADING_ICON = `
   <ino-button>
-    <ino-icon ino-icon="info" slot="icon-leading"></ino-icon>
+    <ino-icon icon="info" slot="icon-leading"></ino-icon>
   </ino-button>
 `;
 
 const INO_BTN_WITH_TRAILING_ICON = `
   <ino-button>
-    <ino-icon ino-icon="info" slot="icon-trailing"></ino-icon>
+    <ino-icon icon="info" slot="icon-trailing"></ino-icon>
   </ino-button>
 `;
 

@@ -163,7 +163,7 @@ export class Chip implements ComponentInterface {
               icon="close"
               tabindex="0"
               role="button"
-              clickable
+              clickable={true}
               onClick={(e) => this.iconClicked(e)}
             />
           )}

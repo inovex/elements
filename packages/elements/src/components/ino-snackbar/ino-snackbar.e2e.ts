@@ -14,7 +14,7 @@ describe('InoSnackbar', () => {
       await page.waitForChanges();
 
       const inoBtn = await page.find(INO_BTN_SELECTOR);
-      const actionEvent = await page.spyOnEvent('inoActionClick');
+      const actionEvent = await page.spyOnEvent('actionClick');
 
       await inoBtn.click();
       await page.waitForChanges();

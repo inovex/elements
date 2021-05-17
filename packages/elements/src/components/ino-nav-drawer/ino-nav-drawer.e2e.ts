@@ -112,20 +112,20 @@ describe('InoNavDrawer', () => {
       'ino-nav-drawer >>> .mdc-drawer__toggle'
     );
 
-    elToggleDrawerBtn.click();
+    await elToggleDrawerBtn.click();
 
     await page.waitForChanges();
 
     expect(openChange).toHaveReceivedEventDetail(true);
 
     // reverse open state to check the other way around
-    page.$eval('ino-nav-drawer', (elm: any) => {
-      elm.inoOpen = true;
+    await page.$eval('ino-nav-drawer', (elm: any) => {
+      elm.open = true;
     });
 
     await page.waitForChanges();
 
-    elToggleDrawerBtn.click();
+    await elToggleDrawerBtn.click();
 
     await page.waitForChanges();
 
