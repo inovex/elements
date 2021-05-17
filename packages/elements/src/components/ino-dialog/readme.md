@@ -19,7 +19,7 @@ document
 ```
 
 ```html
-<ino-dialog ino-open="true" ino-permanent="false">
+<ino-dialog open="true" permanent="false">
   <div class="awesome-header" slot="header" />
   <div class="awesome-content" />
   <div class="awesome-footer" slot="footer" />
@@ -63,9 +63,9 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property  | Attribute  | Description                     | Type      | Default |
-| --------- | ---------- | ------------------------------- | --------- | ------- |
-| `inoOpen` | `ino-open` | Opens the dialog if set to true | `boolean` | `false` |
+| Property | Attribute | Description                     | Type      | Default |
+| -------- | --------- | ------------------------------- | --------- | ------- |
+| `open`   | `open`    | Opens the dialog if set to true | `boolean` | `false` |
 
 
 ## Events

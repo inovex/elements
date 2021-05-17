@@ -7,7 +7,7 @@ A component that styles a form element as a row with a leading label.
 The component can be used as follows:
 
 ```html
-<ino-form-row ino-label="<string>" ino-mandatory>
+<ino-form-row label="<string>" mandatory>
   Any desired form element
 </ino-form-row>
 ```
@@ -70,10 +70,10 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                            | Type      | Default     |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `inoLabel`     | `ino-label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
-| `inoMandatory` | `ino-mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
+| Property    | Attribute   | Description                                                                                                                                            | Type      | Default     |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `label`     | `label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
+| `mandatory` | `mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
 
 
 ----------------------------------------------

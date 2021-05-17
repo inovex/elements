@@ -13,9 +13,37 @@
           "required": false
         },
         {
+          "name": "color-scheme",
+          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
+          "defaultValue": "'primary'",
+          "required": false
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "description": "Makes the button text and container slightly smaller.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "edge-mirrored",
+          "type": "boolean",
+          "description": "Styles the button to have the edge on the top-right instead of the top-left",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "fill",
+          "type": "\"inverse\" | \"outline\" | \"solid\"",
+          "description": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
+          "defaultValue": "'solid'",
           "required": false
         },
         {
@@ -25,35 +53,7 @@
           "required": false
         },
         {
-          "name": "ino-color-scheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "ino-dense",
-          "type": "boolean",
-          "description": "Makes the button text and container slightly smaller.",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "ino-edge-mirrored",
-          "type": "boolean",
-          "description": "Styles the button to have the edge on the top-right instead of the top-left",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "ino-fill",
-          "type": "\"inverse\" | \"outline\" | \"solid\"",
-          "description": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
-          "defaultValue": "'solid'",
-          "required": false
-        },
-        {
-          "name": "ino-loading",
+          "name": "loading",
           "type": "boolean",
           "description": "Shows an infinite loading spinner and prevents further clicks.",
           "required": false
@@ -80,9 +80,37 @@
           "required": false
         },
         {
+          "name": "colorScheme",
+          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
+          "defaultValue": "'primary'",
+          "required": false
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "description": "Makes the button text and container slightly smaller.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "edgeMirrored",
+          "type": "boolean",
+          "description": "Styles the button to have the edge on the top-right instead of the top-left",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
+          "name": "fill",
+          "type": "\"inverse\" | \"outline\" | \"solid\"",
+          "description": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
+          "defaultValue": "'solid'",
           "required": false
         },
         {
@@ -92,35 +120,7 @@
           "required": false
         },
         {
-          "name": "inoColorScheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "inoDense",
-          "type": "boolean",
-          "description": "Makes the button text and container slightly smaller.",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "inoEdgeMirrored",
-          "type": "boolean",
-          "description": "Styles the button to have the edge on the top-right instead of the top-left",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "inoFill",
-          "type": "\"inverse\" | \"outline\" | \"solid\"",
-          "description": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
-          "defaultValue": "'solid'",
-          "required": false
-        },
-        {
-          "name": "inoLoading",
+          "name": "loading",
           "type": "boolean",
           "description": "Shows an infinite loading spinner and prevents further clicks.",
           "required": false
@@ -143,11 +143,11 @@
       "methods": [],
       "slots": [
         {
-          "name": "ino-icon-leading",
+          "name": "icon-leading",
           "description": "For the icon to be prepended"
         },
         {
-          "name": "ino-icon-trailing",
+          "name": "icon-trailing",
           "description": "For the icon to be appended"
         }
       ],
@@ -209,14 +209,14 @@
       "description": "The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to\nfully customize the appearance of the card.",
       "attributes": [
         {
-          "name": "ino-disable-elevation",
+          "name": "disable-elevation",
           "type": "boolean",
           "description": "Disables the hover effect if true",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-selected",
+          "name": "selected",
           "type": "boolean",
           "description": "Selects the card and displays a check mark icon on top of the card",
           "defaultValue": "false",
@@ -225,14 +225,14 @@
       ],
       "properties": [
         {
-          "name": "inoDisableElevation",
+          "name": "disableElevation",
           "type": "boolean",
           "description": "Disables the hover effect if true",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoSelected",
+          "name": "selected",
           "type": "boolean",
           "description": "Selects the card and displays a check mark icon on top of the card",
           "defaultValue": "false",
@@ -273,42 +273,42 @@
       "description": "The `ino-carousel` component works in combination with the `ino-carousel-slide` component\nand can be used to display an array of images as a slide show. What is more,\nit also features an autoplay property that allows the slides to be changed automatically.\nLastly, using the css variables described at the bottom of the page, you can easily customize\nthe dimensions of the component as well as the duration of the slide transition.",
       "attributes": [
         {
-          "name": "ino-animated",
+          "name": "animated",
           "type": "boolean",
           "description": "Enables the slide animation",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-autoplay",
+          "name": "autoplay",
           "type": "boolean",
           "description": "Enables autoplay which causes slides to be changed automatically",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-hide-buttons",
+          "name": "hide-buttons",
           "type": "boolean",
           "description": "Hides the arrow buttons",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-infinite",
+          "name": "infinite",
           "type": "boolean",
           "description": "Restarts playback from the first slide upon reaching the last slide",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-intermission",
+          "name": "intermission",
           "type": "number",
           "description": "Sets the intermission between two slides (Unit: ms)",
           "defaultValue": "5000",
           "required": false
         },
         {
-          "name": "ino-reverse",
+          "name": "reverse",
           "type": "boolean",
           "description": "Enables reverse playback of the slides",
           "defaultValue": "false",
@@ -323,42 +323,42 @@
       ],
       "properties": [
         {
-          "name": "inoAnimated",
+          "name": "animated",
           "type": "boolean",
           "description": "Enables the slide animation",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoAutoplay",
+          "name": "autoplay",
           "type": "boolean",
           "description": "Enables autoplay which causes slides to be changed automatically",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoHideButtons",
+          "name": "hideButtons",
           "type": "boolean",
           "description": "Hides the arrow buttons",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoInfinite",
+          "name": "infinite",
           "type": "boolean",
           "description": "Restarts playback from the first slide upon reaching the last slide",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoIntermission",
+          "name": "intermission",
           "type": "number",
           "description": "Sets the intermission between two slides (Unit: ms)",
           "defaultValue": "5000",
           "required": false
         },
         {
-          "name": "inoReverse",
+          "name": "reverse",
           "type": "boolean",
           "description": "Enables reverse playback of the slides",
           "defaultValue": "false",
@@ -457,15 +457,15 @@
           "required": false
         },
         {
-          "name": "ino-selection",
-          "type": "boolean",
-          "description": "Styles the checkbox as a selection variant that has a larger radius.\nWhile checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.\nThe indeterminate state is not supported here.",
-          "required": false
-        },
-        {
           "name": "name",
           "type": "string",
           "description": "The name of this element.",
+          "required": false
+        },
+        {
+          "name": "selection",
+          "type": "boolean",
+          "description": "Styles the checkbox as a selection variant that has a larger radius.\nWhile checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.\nThe indeterminate state is not supported here.",
           "required": false
         },
         {
@@ -496,15 +496,15 @@
           "required": false
         },
         {
-          "name": "inoSelection",
-          "type": "boolean",
-          "description": "Styles the checkbox as a selection variant that has a larger radius.\nWhile checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.\nThe indeterminate state is not supported here.",
-          "required": false
-        },
-        {
           "name": "name",
           "type": "string",
           "description": "The name of this element.",
+          "required": false
+        },
+        {
+          "name": "selection",
+          "type": "boolean",
+          "description": "Styles the checkbox as a selection variant that has a larger radius.\nWhile checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.\nThe indeterminate state is not supported here.",
           "required": false
         },
         {
@@ -569,50 +569,51 @@
       "description": "The ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.",
       "attributes": [
         {
-          "name": "ino-color-scheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "name": "color-scheme",
+          "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary`, `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "defaultValue": "'default'",
           "required": false
         },
         {
-          "name": "ino-fill",
+          "name": "fill",
           "type": "\"outline\" | \"solid\"",
           "description": "The fill type of this element.\nPossible values: `solid` (default) or `outline`.",
           "defaultValue": "'solid'",
           "required": false
         },
         {
-          "name": "ino-icon",
+          "name": "icon",
           "type": "string",
           "description": "Prepends an icon to the chip label.",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The label of this chip (**required**).",
           "required": false
         },
         {
-          "name": "ino-removable",
+          "name": "removable",
           "type": "boolean",
           "description": "Adds a close icon on the right side of this chip.\n\nIf applied, emits the `removeChip` event.",
           "required": false
         },
         {
-          "name": "ino-selectable",
+          "name": "selectable",
           "type": "boolean",
           "description": "Adds a checkmark if the icon is selected.",
           "required": false
         },
         {
-          "name": "ino-selected",
+          "name": "selected",
           "type": "boolean",
           "description": "Marks this element as selected.",
           "required": false
         },
         {
-          "name": "ino-value",
+          "name": "value",
           "type": "string",
           "description": "The value of this chip.\n\n**Required** for chips as part of sets of type `filter` or `choice`.",
           "required": false
@@ -620,50 +621,51 @@
       ],
       "properties": [
         {
-          "name": "inoColorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "name": "colorScheme",
+          "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary`, `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "defaultValue": "'default'",
           "required": false
         },
         {
-          "name": "inoFill",
+          "name": "fill",
           "type": "\"outline\" | \"solid\"",
           "description": "The fill type of this element.\nPossible values: `solid` (default) or `outline`.",
           "defaultValue": "'solid'",
           "required": false
         },
         {
-          "name": "inoIcon",
+          "name": "icon",
           "type": "string",
           "description": "Prepends an icon to the chip label.",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The label of this chip (**required**).",
           "required": false
         },
         {
-          "name": "inoRemovable",
+          "name": "removable",
           "type": "boolean",
           "description": "Adds a close icon on the right side of this chip.\n\nIf applied, emits the `removeChip` event.",
           "required": false
         },
         {
-          "name": "inoSelectable",
+          "name": "selectable",
           "type": "boolean",
           "description": "Adds a checkmark if the icon is selected.",
           "required": false
         },
         {
-          "name": "inoSelected",
+          "name": "selected",
           "type": "boolean",
           "description": "Marks this element as selected.",
           "required": false
         },
         {
-          "name": "inoValue",
+          "name": "value",
           "type": "string",
           "description": "The value of this chip.\n\n**Required** for chips as part of sets of type `filter` or `choice`.",
           "required": false
@@ -678,11 +680,11 @@
       "methods": [],
       "slots": [
         {
-          "name": "ino-icon-leading",
+          "name": "icon-leading",
           "description": "For the icon to be prepended"
         },
         {
-          "name": "ino-icon-trailing",
+          "name": "icon-trailing",
           "description": "For the icon to be appended - disables the inoRemovable property"
         }
       ],
@@ -695,7 +697,7 @@
       "description": "The ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.",
       "attributes": [
         {
-          "name": "ino-type",
+          "name": "type",
           "type": "\"\" | \"choice\" | \"filter\" | \"input\"",
           "description": "The type of this chip set that indicates its behavior.\nPossible values are: `''` (default), `choice`, `filter`, `input`",
           "defaultValue": "''",
@@ -704,7 +706,7 @@
       ],
       "properties": [
         {
-          "name": "inoType",
+          "name": "type",
           "type": "\"\" | \"choice\" | \"filter\" | \"input\"",
           "description": "The type of this chip set that indicates its behavior.\nPossible values are: `''` (default), `choice`, `filter`, `input`",
           "defaultValue": "''",
@@ -911,9 +913,54 @@
           "required": false
         },
         {
+          "name": "date-format",
+          "type": "string",
+          "description": "A string to change the date format.\nPossible values are listed [here](https://flatpickr.js.org/formatting/).\nThe default value is `d-m-Y` which accepts values like `01-01-2019`.",
+          "defaultValue": "'d-m-Y'",
+          "required": false
+        },
+        {
+          "name": "default-date",
+          "type": "string | string[]",
+          "description": "A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.\nIf a `value` is given, this will be ignored.",
+          "required": false
+        },
+        {
+          "name": "default-hour",
+          "type": "number",
+          "description": "A number containing the initial hour in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
+          "defaultValue": "12",
+          "required": false
+        },
+        {
+          "name": "default-minute",
+          "type": "number",
+          "description": "A number containing the initial minute in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
+          "defaultValue": "0",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "description": "The helper text.",
+          "required": false
+        },
+        {
+          "name": "helper-persistent",
+          "type": "boolean",
+          "description": "Displays the helper permanently.",
+          "required": false
+        },
+        {
+          "name": "helper-validation",
+          "type": "boolean",
+          "description": "Styles the helper text as a validation message.",
           "required": false
         },
         {
@@ -924,85 +971,9 @@
           "required": false
         },
         {
-          "name": "ino-date-format",
-          "type": "string",
-          "description": "A string to change the date format.\nPossible values are listed [here](https://flatpickr.js.org/formatting/).\nThe default value is `d-m-Y` which accepts values like `01.01.2019`.",
-          "defaultValue": "'d-m-Y'",
-          "required": false
-        },
-        {
-          "name": "ino-default-date",
-          "type": "string | string[]",
-          "description": "A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.",
-          "required": false
-        },
-        {
-          "name": "ino-default-hour",
-          "type": "number",
-          "description": "A number containing the initial hour in the date-time picker overlay.\nThe default is `12`",
-          "defaultValue": "12",
-          "required": false
-        },
-        {
-          "name": "ino-default-minute",
-          "type": "number",
-          "description": "A number containing the initial minute in the date-time picker overlay.\nThe default is `0`",
-          "defaultValue": "0",
-          "required": false
-        },
-        {
-          "name": "ino-helper",
-          "type": "string",
-          "description": "The helper text.",
-          "required": false
-        },
-        {
-          "name": "ino-helper-persistent",
-          "type": "boolean",
-          "description": "Displays the helper permanently.",
-          "required": false
-        },
-        {
-          "name": "ino-helper-validation",
-          "type": "boolean",
-          "description": "Styles the helper text as a validation message.",
-          "required": false
-        },
-        {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Defines the label for this element.",
-          "required": false
-        },
-        {
-          "name": "ino-outline",
-          "type": "boolean",
-          "description": "Styles the datepicker as outlined element.",
-          "required": false
-        },
-        {
-          "name": "ino-range",
-          "type": "boolean",
-          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
-          "required": false
-        },
-        {
-          "name": "ino-show-label-hint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
-          "required": false
-        },
-        {
-          "name": "ino-twelve-hour-time",
-          "type": "boolean",
-          "description": "If true, displays time picker in 12 hour mode with AM/PM selection.",
-          "required": false
-        },
-        {
-          "name": "ino-type",
-          "type": "\"date\" | \"datetime\" | \"month\" | \"time\"",
-          "description": "Selects the correct picker corresponding to the given type.",
-          "defaultValue": "'date'",
           "required": false
         },
         {
@@ -1031,9 +1002,40 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the datepicker as outlined element.",
+          "required": false
+        },
+        {
+          "name": "range",
+          "type": "boolean",
+          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "description": "Marks this element as required.",
+          "required": false
+        },
+        {
+          "name": "show-label-hint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "required": false
+        },
+        {
+          "name": "twelve-hour-time",
+          "type": "boolean",
+          "description": "If true, displays time picker in 12 hour mode with AM/PM selection.",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"date\" | \"datetime\" | \"month\" | \"time\"",
+          "description": "Selects the correct picker corresponding to the given type.",
+          "defaultValue": "'date'",
           "required": false
         },
         {
@@ -1052,9 +1054,54 @@
           "required": false
         },
         {
+          "name": "dateFormat",
+          "type": "string",
+          "description": "A string to change the date format.\nPossible values are listed [here](https://flatpickr.js.org/formatting/).\nThe default value is `d-m-Y` which accepts values like `01-01-2019`.",
+          "defaultValue": "'d-m-Y'",
+          "required": false
+        },
+        {
+          "name": "defaultDate",
+          "type": "string | string[]",
+          "description": "A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.\nIf a `value` is given, this will be ignored.",
+          "required": false
+        },
+        {
+          "name": "defaultHour",
+          "type": "number",
+          "description": "A number containing the initial hour in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
+          "defaultValue": "12",
+          "required": false
+        },
+        {
+          "name": "defaultMinute",
+          "type": "number",
+          "description": "A number containing the initial minute in the date-time picker overlay.\nIf a `value` is given, this will be ignored.",
+          "defaultValue": "0",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "description": "The helper text.",
+          "required": false
+        },
+        {
+          "name": "helperPersistent",
+          "type": "boolean",
+          "description": "Displays the helper permanently.",
+          "required": false
+        },
+        {
+          "name": "helperValidation",
+          "type": "boolean",
+          "description": "Styles the helper text as a validation message.",
           "required": false
         },
         {
@@ -1065,85 +1112,9 @@
           "required": false
         },
         {
-          "name": "inoDateFormat",
-          "type": "string",
-          "description": "A string to change the date format.\nPossible values are listed [here](https://flatpickr.js.org/formatting/).\nThe default value is `d-m-Y` which accepts values like `01.01.2019`.",
-          "defaultValue": "'d-m-Y'",
-          "required": false
-        },
-        {
-          "name": "inoDefaultDate",
-          "type": "string | string[]",
-          "description": "A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array.",
-          "required": false
-        },
-        {
-          "name": "inoDefaultHour",
-          "type": "number",
-          "description": "A number containing the initial hour in the date-time picker overlay.\nThe default is `12`",
-          "defaultValue": "12",
-          "required": false
-        },
-        {
-          "name": "inoDefaultMinute",
-          "type": "number",
-          "description": "A number containing the initial minute in the date-time picker overlay.\nThe default is `0`",
-          "defaultValue": "0",
-          "required": false
-        },
-        {
-          "name": "inoHelper",
-          "type": "string",
-          "description": "The helper text.",
-          "required": false
-        },
-        {
-          "name": "inoHelperPersistent",
-          "type": "boolean",
-          "description": "Displays the helper permanently.",
-          "required": false
-        },
-        {
-          "name": "inoHelperValidation",
-          "type": "boolean",
-          "description": "Styles the helper text as a validation message.",
-          "required": false
-        },
-        {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Defines the label for this element.",
-          "required": false
-        },
-        {
-          "name": "inoOutline",
-          "type": "boolean",
-          "description": "Styles the datepicker as outlined element.",
-          "required": false
-        },
-        {
-          "name": "inoRange",
-          "type": "boolean",
-          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
-          "required": false
-        },
-        {
-          "name": "inoShowLabelHint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
-          "required": false
-        },
-        {
-          "name": "inoTwelveHourTime",
-          "type": "boolean",
-          "description": "If true, displays time picker in 12 hour mode with AM/PM selection.",
-          "required": false
-        },
-        {
-          "name": "inoType",
-          "type": "\"date\" | \"datetime\" | \"month\" | \"time\"",
-          "description": "Selects the correct picker corresponding to the given type.",
-          "defaultValue": "'date'",
           "required": false
         },
         {
@@ -1172,9 +1143,40 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the datepicker as outlined element.",
+          "required": false
+        },
+        {
+          "name": "range",
+          "type": "boolean",
+          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "description": "Marks this element as required.",
+          "required": false
+        },
+        {
+          "name": "showLabelHint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "required": false
+        },
+        {
+          "name": "twelveHourTime",
+          "type": "boolean",
+          "description": "If true, displays time picker in 12 hour mode with AM/PM selection.",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"date\" | \"datetime\" | \"month\" | \"time\"",
+          "description": "Selects the correct picker corresponding to the given type.",
+          "defaultValue": "'date'",
           "required": false
         },
         {
@@ -1202,7 +1204,7 @@
       "description": "The ino-dialog component displays a modal window that can be used to display additional information or\nnotify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section\nwhich are fully customizable.",
       "attributes": [
         {
-          "name": "ino-open",
+          "name": "open",
           "type": "boolean",
           "description": "Opens the dialog if set to true",
           "defaultValue": "false",
@@ -1211,7 +1213,7 @@
       ],
       "properties": [
         {
-          "name": "inoOpen",
+          "name": "open",
           "type": "boolean",
           "description": "Opens the dialog if set to true",
           "defaultValue": "false",
@@ -1273,46 +1275,47 @@
       "description": "A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.\nIt appears in front of all screen content, typically as a circular shape with an icon in its center.\n\nFABs come in three types: regular, mini, and extended.",
       "attributes": [
         {
-          "name": "ino-disabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Disables the button.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-edge-position",
+          "name": "edge-position",
           "type": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
           "description": "The position of the edge.",
+          "defaultValue": "'top-left'",
           "required": false
         },
         {
-          "name": "ino-extended",
+          "name": "extended",
           "type": "boolean",
           "description": "Optional, modifies the FAB to wider size which includes a text label.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-icon",
+          "name": "icon",
           "type": "string",
           "description": "Adds an icon to the Fab.",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Optional, for the text label. Applicable only for Extended FAB.",
           "required": false
         },
         {
-          "name": "ino-mini",
+          "name": "mini",
           "type": "boolean",
           "description": "Optional, modifies the FAB to a smaller size",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-tooltip-placement",
+          "name": "tooltip-placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"none\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of the tooltip which will be displayed when the button is not extended.\nUse `none`, if you don't want a tooltip to be displayed.",
           "defaultValue": "'left'",
@@ -1321,46 +1324,47 @@
       ],
       "properties": [
         {
-          "name": "inoDisabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Disables the button.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoEdgePosition",
+          "name": "edgePosition",
           "type": "\"bottom-left\" | \"bottom-right\" | \"none\" | \"top-left\" | \"top-right\"",
           "description": "The position of the edge.",
+          "defaultValue": "'top-left'",
           "required": false
         },
         {
-          "name": "inoExtended",
+          "name": "extended",
           "type": "boolean",
           "description": "Optional, modifies the FAB to wider size which includes a text label.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoIcon",
+          "name": "icon",
           "type": "string",
           "description": "Adds an icon to the Fab.",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Optional, for the text label. Applicable only for Extended FAB.",
           "required": false
         },
         {
-          "name": "inoMini",
+          "name": "mini",
           "type": "boolean",
           "description": "Optional, modifies the FAB to a smaller size",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoTooltipPlacement",
+          "name": "tooltipPlacement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"none\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of the tooltip which will be displayed when the button is not extended.\nUse `none`, if you don't want a tooltip to be displayed.",
           "defaultValue": "'left'",
@@ -1371,7 +1375,7 @@
       "methods": [],
       "slots": [
         {
-          "name": "ino-icon-leading",
+          "name": "icon-leading",
           "description": "For the icon to be prepended"
         }
       ],
@@ -1417,28 +1421,28 @@
       "description": "The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab button.\nUpon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed dial.",
       "attributes": [
         {
-          "name": "ino-dial-direction",
+          "name": "dial-direction",
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "description": "The direction of the speed dial.\nPossible values: `top` (default), `bottom`, `right`, `left`.",
           "defaultValue": "'top'",
           "required": false
         },
         {
-          "name": "ino-left-right-location",
+          "name": "left-right-location",
           "type": "\"left\" | \"right\"",
           "description": "The side where the Fab is displayed.\nPossible values: `right`, `left` (default).",
           "defaultValue": "'left'",
           "required": false
         },
         {
-          "name": "ino-open-dial",
+          "name": "open-dial",
           "type": "boolean",
           "description": "Opens the dial (**uncontrolled**)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-top-bottom-location",
+          "name": "top-bottom-location",
           "type": "\"bottom\" | \"top\"",
           "description": "The side where the Fab is displayed.\nPossible values: `top`, `bottom` (default).",
           "defaultValue": "'bottom'",
@@ -1447,28 +1451,28 @@
       ],
       "properties": [
         {
-          "name": "inoDialDirection",
+          "name": "dialDirection",
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "description": "The direction of the speed dial.\nPossible values: `top` (default), `bottom`, `right`, `left`.",
           "defaultValue": "'top'",
           "required": false
         },
         {
-          "name": "inoLeftRightLocation",
+          "name": "leftRightLocation",
           "type": "\"left\" | \"right\"",
           "description": "The side where the Fab is displayed.\nPossible values: `right`, `left` (default).",
           "defaultValue": "'left'",
           "required": false
         },
         {
-          "name": "inoOpenDial",
+          "name": "openDial",
           "type": "boolean",
           "description": "Opens the dial (**uncontrolled**)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoTopBottomLocation",
+          "name": "topBottomLocation",
           "type": "\"bottom\" | \"top\"",
           "description": "The side where the Fab is displayed.\nPossible values: `top`, `bottom` (default).",
           "defaultValue": "'bottom'",
@@ -1487,13 +1491,13 @@
       "description": "A component that styles a form element as a row with a leading label.",
       "attributes": [
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The label for this form row which describes the form element.",
           "required": false
         },
         {
-          "name": "ino-mandatory",
+          "name": "mandatory",
           "type": "boolean",
           "description": "An indicator which marks the contents of the form row as mandatory.\nIf you use this make sure you also check for the values in your application logic.",
           "required": false
@@ -1501,13 +1505,13 @@
       ],
       "properties": [
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The label for this form row which describes the form element.",
           "required": false
         },
         {
-          "name": "inoMandatory",
+          "name": "mandatory",
           "type": "boolean",
           "description": "An indicator which marks the contents of the form row as mandatory.\nIf you use this make sure you also check for the values in your application logic.",
           "required": false
@@ -1525,7 +1529,7 @@
       "description": "A header component with a separator.",
       "attributes": [
         {
-          "name": "ino-title",
+          "name": "text",
           "type": "string",
           "description": "The text of this header",
           "required": true
@@ -1533,7 +1537,7 @@
       ],
       "properties": [
         {
-          "name": "inoTitle",
+          "name": "text",
           "type": "string",
           "description": "The text of this header",
           "required": true
@@ -1560,19 +1564,19 @@
       "description": "This component is based on the ionicons (https://github.com/ionic-team/ionicons)",
       "attributes": [
         {
-          "name": "ino-clickable",
+          "name": "clickable",
           "type": "boolean",
           "description": "Makes the icon clickable and allows to listen to the `clickEl` event.",
           "required": false
         },
         {
-          "name": "ino-color-secondary",
+          "name": "color-secondary",
           "type": "boolean",
           "description": "Colors the icon in the global secondary color",
           "required": false
         },
         {
-          "name": "ino-icon",
+          "name": "icon",
           "type": "string",
           "description": "The name of the icon of this element or an URL.",
           "required": false
@@ -1592,19 +1596,19 @@
       ],
       "properties": [
         {
-          "name": "inoClickable",
+          "name": "clickable",
           "type": "boolean",
           "description": "Makes the icon clickable and allows to listen to the `clickEl` event.",
           "required": false
         },
         {
-          "name": "inoColorSecondary",
+          "name": "colorSecondary",
           "type": "boolean",
           "description": "Colors the icon in the global secondary color",
           "required": false
         },
         {
-          "name": "inoIcon",
+          "name": "icon",
           "type": "string",
           "description": "The name of the icon of this element or an URL.",
           "required": false
@@ -1656,9 +1660,22 @@
       "description": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
       "attributes": [
         {
+          "name": "activated",
+          "type": "boolean",
+          "description": "Marks the icon button as activated.\n\nUseful in cases where an external state controls the icon button activation.\nMakes the component **managed**.",
+          "required": false
+        },
+        {
           "name": "autofocus",
           "type": "boolean",
           "description": "Sets the autofocus for this element.",
+          "required": false
+        },
+        {
+          "name": "color-scheme",
+          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "defaultValue": "'primary'",
           "required": false
         },
         {
@@ -1668,26 +1685,13 @@
           "required": false
         },
         {
-          "name": "ino-activated",
-          "type": "boolean",
-          "description": "Marks the icon button as activated.\n\nUseful in cases where an external state controls the icon button activation.\nMakes the component **managed**.",
-          "required": false
-        },
-        {
-          "name": "ino-color-scheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "ino-filled",
+          "name": "filled",
           "type": "boolean",
           "description": "Styles this element as filled icon button\nwith the `ino-color-scheme` as background color.",
           "required": false
         },
         {
-          "name": "ino-icon",
+          "name": "icon",
           "type": "string",
           "description": "The name of the icon of this element.",
           "required": false
@@ -1702,9 +1706,22 @@
       ],
       "properties": [
         {
+          "name": "activated",
+          "type": "boolean",
+          "description": "Marks the icon button as activated.\n\nUseful in cases where an external state controls the icon button activation.\nMakes the component **managed**.",
+          "required": false
+        },
+        {
           "name": "autoFocus",
           "type": "boolean",
           "description": "Sets the autofocus for this element.",
+          "required": false
+        },
+        {
+          "name": "colorScheme",
+          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "defaultValue": "'primary'",
           "required": false
         },
         {
@@ -1714,26 +1731,13 @@
           "required": false
         },
         {
-          "name": "inoActivated",
-          "type": "boolean",
-          "description": "Marks the icon button as activated.\n\nUseful in cases where an external state controls the icon button activation.\nMakes the component **managed**.",
-          "required": false
-        },
-        {
-          "name": "inoColorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "inoFilled",
+          "name": "filled",
           "type": "boolean",
           "description": "Styles this element as filled icon button\nwith the `ino-color-scheme` as background color.",
           "required": false
         },
         {
-          "name": "inoIcon",
+          "name": "icon",
           "type": "string",
           "description": "The name of the icon of this element.",
           "required": false
@@ -1800,40 +1804,47 @@
           "required": false
         },
         {
+          "name": "fallback-icon",
+          "type": "string",
+          "description": "Icon used for fallback image if image can not be loaded",
+          "defaultValue": "'image_not_available'",
+          "required": false
+        },
+        {
           "name": "height",
           "type": "number",
           "description": "The fixed height of this image.",
           "required": false
         },
         {
-          "name": "ino-img-list-item",
+          "name": "img-list-item",
           "type": "boolean",
           "description": "Indicates that the image is a part of an image list component",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the image. Note: Only works if image is part of\nan ino-img-list component.",
           "required": false
         },
         {
-          "name": "ino-ratio-height",
+          "name": "ratio-height",
           "type": "number",
           "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ino-ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
-          "name": "ino-ratio-width",
+          "name": "ratio-width",
           "type": "number",
           "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ino-ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
-          "name": "ino-rounded",
+          "name": "rounded",
           "type": "boolean",
           "description": "If true, styles the image with rounded borders.",
           "required": false
@@ -1883,40 +1894,47 @@
           "required": false
         },
         {
+          "name": "fallbackIcon",
+          "type": "string",
+          "description": "Icon used for fallback image if image can not be loaded",
+          "defaultValue": "'image_not_available'",
+          "required": false
+        },
+        {
           "name": "height",
           "type": "number",
           "description": "The fixed height of this image.",
           "required": false
         },
         {
-          "name": "inoImgListItem",
+          "name": "imgListItem",
           "type": "boolean",
           "description": "Indicates that the image is a part of an image list component",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the image. Note: Only works if image is part of\nan ino-img-list component.",
           "required": false
         },
         {
-          "name": "inoRatioHeight",
+          "name": "ratioHeight",
           "type": "number",
           "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ino-ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
-          "name": "inoRatioWidth",
+          "name": "ratioWidth",
           "type": "number",
           "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ino-ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
-          "name": "inoRounded",
+          "name": "rounded",
           "type": "boolean",
           "description": "If true, styles the image with rounded borders.",
           "required": false
@@ -1964,14 +1982,14 @@
       "description": "The ino-img-list component is used in combination with the ino-img component to display an array of images\nin a grid-like format. It is based on the mdc-image-list component.",
       "attributes": [
         {
-          "name": "ino-enclose-label",
+          "name": "enclose-label",
           "type": "boolean",
           "description": "Encapsulates the label of all img-list-items within the image",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-masonry",
+          "name": "masonry",
           "type": "boolean",
           "description": "Enables the masonry image list variant, which allows the images to\nbe any combination of aspect ratios.",
           "defaultValue": "false",
@@ -1980,14 +1998,14 @@
       ],
       "properties": [
         {
-          "name": "inoEncloseLabel",
+          "name": "encloseLabel",
           "type": "boolean",
           "description": "Encapsulates the label of all img-list-items within the image",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoMasonry",
+          "name": "masonry",
           "type": "boolean",
           "description": "Enables the masonry image list variant, which allows the images to\nbe any combination of aspect ratios.",
           "defaultValue": "false",
@@ -2023,81 +2041,57 @@
           "required": false
         },
         {
+          "name": "data-list",
+          "type": "string",
+          "description": "The id of the datalist child",
+          "required": false
+        },
+        {
+          "name": "decimal-places",
+          "type": "number",
+          "description": "The number of decimal places. Only works on 'text' type input.",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
           "required": false
         },
         {
-          "name": "ino-data-list",
-          "type": "string",
-          "description": "The id of the datalist child",
-          "required": false
-        },
-        {
-          "name": "ino-decimal-places",
-          "type": "number",
-          "description": "The number of decimal places. Only works on 'text' type input.",
-          "required": false
-        },
-        {
-          "name": "ino-error",
+          "name": "error",
           "type": "boolean",
           "description": "Displays the input field as invalid if set to true.\nIf the property is not set or set to false, the validation is handled by the `pattern` property.\nThis functionality might be useful if the input validation is (additionally) handled by the backend.",
           "required": false
         },
         {
-          "name": "ino-helper",
+          "name": "helper",
           "type": "string",
           "description": "The optional helper text.",
           "required": false
         },
         {
-          "name": "ino-helper-character-counter",
+          "name": "helper-character-counter",
           "type": "boolean",
           "description": "Displays the number of characters. The maxlength-property must be set.\nThis helper text will be displayed persistently.",
           "required": false
         },
         {
-          "name": "ino-helper-persistent",
+          "name": "helper-persistent",
           "type": "boolean",
           "description": "Displays the helper permanently.",
           "required": false
         },
         {
-          "name": "ino-helper-validation",
+          "name": "helper-validation",
           "type": "boolean",
           "description": "Styles the helper text as a validation message.",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The optional floating label of this input field.",
-          "required": false
-        },
-        {
-          "name": "ino-outline",
-          "type": "boolean",
-          "description": "Styles the input field as outlined element.",
-          "required": false
-        },
-        {
-          "name": "ino-show-label-hint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
-          "required": false
-        },
-        {
-          "name": "ino-thousands-separator",
-          "type": "boolean",
-          "description": "Shows a dot as a thousands separator. Only works on 'text' type input.",
-          "required": false
-        },
-        {
-          "name": "ino-unit",
-          "type": "string",
-          "description": "Displays the given unit at the end of the input field.",
           "required": false
         },
         {
@@ -2125,6 +2119,12 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the input field as outlined element.",
+          "required": false
+        },
+        {
           "name": "pattern",
           "type": "string",
           "description": "The validation pattern of this element.",
@@ -2143,6 +2143,12 @@
           "required": false
         },
         {
+          "name": "show-label-hint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "required": false
+        },
+        {
           "name": "size",
           "type": "number",
           "description": "The size of this element.",
@@ -2156,10 +2162,22 @@
           "required": false
         },
         {
+          "name": "thousands-separator",
+          "type": "boolean",
+          "description": "Shows a dot as a thousands separator. Only works on 'text' type input.",
+          "required": false
+        },
+        {
           "name": "type",
           "type": "string",
           "description": "The type of this element (default = text).",
           "defaultValue": "'text'",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Displays the given unit at the end of the input field.",
           "required": false
         },
         {
@@ -2184,81 +2202,57 @@
           "required": false
         },
         {
+          "name": "dataList",
+          "type": "string",
+          "description": "The id of the datalist child",
+          "required": false
+        },
+        {
+          "name": "decimalPlaces",
+          "type": "number",
+          "description": "The number of decimal places. Only works on 'text' type input.",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
           "required": false
         },
         {
-          "name": "inoDataList",
-          "type": "string",
-          "description": "The id of the datalist child",
-          "required": false
-        },
-        {
-          "name": "inoDecimalPlaces",
-          "type": "number",
-          "description": "The number of decimal places. Only works on 'text' type input.",
-          "required": false
-        },
-        {
-          "name": "inoError",
+          "name": "error",
           "type": "boolean",
           "description": "Displays the input field as invalid if set to true.\nIf the property is not set or set to false, the validation is handled by the `pattern` property.\nThis functionality might be useful if the input validation is (additionally) handled by the backend.",
           "required": false
         },
         {
-          "name": "inoHelper",
+          "name": "helper",
           "type": "string",
           "description": "The optional helper text.",
           "required": false
         },
         {
-          "name": "inoHelperCharacterCounter",
+          "name": "helperCharacterCounter",
           "type": "boolean",
           "description": "Displays the number of characters. The maxlength-property must be set.\nThis helper text will be displayed persistently.",
           "required": false
         },
         {
-          "name": "inoHelperPersistent",
+          "name": "helperPersistent",
           "type": "boolean",
           "description": "Displays the helper permanently.",
           "required": false
         },
         {
-          "name": "inoHelperValidation",
+          "name": "helperValidation",
           "type": "boolean",
           "description": "Styles the helper text as a validation message.",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The optional floating label of this input field.",
-          "required": false
-        },
-        {
-          "name": "inoOutline",
-          "type": "boolean",
-          "description": "Styles the input field as outlined element.",
-          "required": false
-        },
-        {
-          "name": "inoShowLabelHint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
-          "required": false
-        },
-        {
-          "name": "inoThousandsSeparator",
-          "type": "boolean",
-          "description": "Shows a dot as a thousands separator. Only works on 'text' type input.",
-          "required": false
-        },
-        {
-          "name": "inoUnit",
-          "type": "string",
-          "description": "Displays the given unit at the end of the input field.",
           "required": false
         },
         {
@@ -2286,6 +2280,12 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the input field as outlined element.",
+          "required": false
+        },
+        {
           "name": "pattern",
           "type": "string",
           "description": "The validation pattern of this element.",
@@ -2304,6 +2304,12 @@
           "required": false
         },
         {
+          "name": "showLabelHint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "required": false
+        },
+        {
           "name": "size",
           "type": "number",
           "description": "The size of this element.",
@@ -2317,10 +2323,22 @@
           "required": false
         },
         {
+          "name": "thousandsSeparator",
+          "type": "boolean",
+          "description": "Shows a dot as a thousands separator. Only works on 'text' type input.",
+          "required": false
+        },
+        {
           "name": "type",
           "type": "string",
           "description": "The type of this element (default = text).",
           "defaultValue": "'text'",
+          "required": false
+        },
+        {
+          "name": "unit",
+          "type": "string",
+          "description": "Displays the given unit at the end of the input field.",
           "required": false
         },
         {
@@ -2354,11 +2372,11 @@
       ],
       "slots": [
         {
-          "name": "ino-icon-leading",
+          "name": "icon-leading",
           "description": "For the icon to be prepended"
         },
         {
-          "name": "ino-icon-trailing",
+          "name": "icon-trailing",
           "description": "For the icon to be appended"
         }
       ],
@@ -2544,31 +2562,31 @@
       "description": "This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.\n\n```html\n<ino-label\n  ino-outline=\"<boolean>\"\n  ino-label=\"<string>\"\n  ino-required=\"<boolean>\"\n  ino-disabled=\"<boolean>\"\n>\n</ino-label>\n```",
       "attributes": [
         {
-          "name": "ino-disabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Colors the label in an light grey to indicate the disabled status for this element",
           "required": false
         },
         {
-          "name": "ino-outline",
+          "name": "outline",
           "type": "boolean",
           "description": "Styles the label in an outlined style",
           "required": false
         },
         {
-          "name": "ino-required",
+          "name": "required",
           "type": "boolean",
           "description": "Appends * to the label to make it appear as an required input in a form",
           "required": false
         },
         {
-          "name": "ino-show-hint",
+          "name": "show-hint",
           "type": "boolean",
           "description": "Shows a \"optional\" message, when not inoRequired;\nShows a * mark, when inoRequired",
           "required": false
         },
         {
-          "name": "ino-text",
+          "name": "text",
           "type": "string",
           "description": "The text of the label itself",
           "required": false
@@ -2576,31 +2594,31 @@
       ],
       "properties": [
         {
-          "name": "inoDisabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Colors the label in an light grey to indicate the disabled status for this element",
           "required": false
         },
         {
-          "name": "inoOutline",
+          "name": "outline",
           "type": "boolean",
           "description": "Styles the label in an outlined style",
           "required": false
         },
         {
-          "name": "inoRequired",
+          "name": "required",
           "type": "boolean",
           "description": "Appends * to the label to make it appear as an required input in a form",
           "required": false
         },
         {
-          "name": "inoShowHint",
+          "name": "showHint",
           "type": "boolean",
           "description": "Shows a \"optional\" message, when not inoRequired;\nShows a * mark, when inoRequired",
           "required": false
         },
         {
-          "name": "inoText",
+          "name": "text",
           "type": "string",
           "description": "The text of the label itself",
           "required": false
@@ -2618,20 +2636,20 @@
       "description": "A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.\n\nThis component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.",
       "attributes": [
         {
-          "name": "ino-avatar",
+          "name": "avatar",
           "type": "boolean",
           "description": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-dense",
+          "name": "dense",
           "type": "boolean",
           "description": "Styles the list more dense, making it appear more compact.",
           "required": false
         },
         {
-          "name": "ino-two-lines",
+          "name": "two-lines",
           "type": "boolean",
           "description": "Marks this element as list with items having two lines.",
           "required": false
@@ -2639,20 +2657,20 @@
       ],
       "properties": [
         {
-          "name": "inoAvatar",
+          "name": "avatar",
           "type": "boolean",
           "description": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoDense",
+          "name": "dense",
           "type": "boolean",
           "description": "Styles the list more dense, making it appear more compact.",
           "required": false
         },
         {
-          "name": "inoTwoLines",
+          "name": "twoLines",
           "type": "boolean",
           "description": "Marks this element as list with items having two lines.",
           "required": false
@@ -2670,19 +2688,19 @@
       "description": "A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "attributes": [
         {
-          "name": "ino-between-lists",
+          "name": "between-lists",
           "type": "boolean",
           "description": "Marks the divider as a separator between two `ino-list`\ninstead of `ino-list-item` elements.",
           "required": false
         },
         {
-          "name": "ino-inset",
+          "name": "inset",
           "type": "boolean",
           "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
           "required": false
         },
         {
-          "name": "ino-padded",
+          "name": "padded",
           "type": "boolean",
           "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
           "required": false
@@ -2690,19 +2708,19 @@
       ],
       "properties": [
         {
-          "name": "inoBetweenLists",
+          "name": "betweenLists",
           "type": "boolean",
           "description": "Marks the divider as a separator between two `ino-list`\ninstead of `ino-list-item` elements.",
           "required": false
         },
         {
-          "name": "inoInset",
+          "name": "inset",
           "type": "boolean",
           "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
           "required": false
         },
         {
-          "name": "inoPadded",
+          "name": "padded",
           "type": "boolean",
           "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
           "required": false
@@ -2720,31 +2738,31 @@
       "description": "A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "attributes": [
         {
-          "name": "ino-activated",
+          "name": "activated",
           "type": "boolean",
           "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
           "required": false
         },
         {
-          "name": "ino-disabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Styles the row in a disabled style.",
           "required": false
         },
         {
-          "name": "ino-secondary-text",
+          "name": "secondary-text",
           "type": "string",
           "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
-          "name": "ino-selected",
+          "name": "selected",
           "type": "boolean",
           "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
-          "name": "ino-text",
+          "name": "text",
           "type": "string",
           "description": "The primary text of this list item.",
           "required": false
@@ -2752,31 +2770,31 @@
       ],
       "properties": [
         {
-          "name": "inoActivated",
+          "name": "activated",
           "type": "boolean",
           "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
           "required": false
         },
         {
-          "name": "inoDisabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Styles the row in a disabled style.",
           "required": false
         },
         {
-          "name": "inoSecondaryText",
+          "name": "secondaryText",
           "type": "string",
           "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
-          "name": "inoSelected",
+          "name": "selected",
           "type": "boolean",
           "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
-          "name": "inoText",
+          "name": "text",
           "type": "string",
           "description": "The primary text of this list item.",
           "required": false
@@ -2791,19 +2809,19 @@
       "methods": [],
       "slots": [
         {
-          "name": "ino-leading",
+          "name": "leading",
           "description": "For the element to be prepended"
         },
         {
-          "name": "ino-primary",
+          "name": "primary",
           "description": "For the (text) element"
         },
         {
-          "name": "ino-secondary",
+          "name": "secondary",
           "description": "For the secondary text element in a two-lined list"
         },
         {
-          "name": "ino-trailing",
+          "name": "trailing",
           "description": "For the element to be appended"
         }
       ],
@@ -2854,43 +2872,26 @@
     {
       "name": "ino-menu",
       "path": "./src/components/ino-menu/ino-menu.tsx",
-      "description": "A menu component that displays a list of choices on a temporary surface. It functions as a wrapper around the material [menu](https://github.com/material-components/material-components-web/blob/master/packages/mdc-menu/) component.\n\nThe anchor element is the parent element or the element found via the selector of the `ino-for` property passed in.\n\nThe `ino-list-item` (and `ino-list-divider`) component is used for the rendering of the menu items.",
+      "description": "A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.\nThe anchor element is the parent element.\n\nThe menu items consist of different variations of the `ino-list-item` component.\n\nIf you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.",
       "attributes": [
         {
-          "name": "ino-for",
-          "type": "string",
-          "description": "Anchor element for the menu",
-          "required": false
-        },
-        {
-          "name": "ino-open",
-          "type": "boolean",
-          "description": "Set this option to show the menu.",
-          "defaultValue": "false",
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "description": "Determines the position of the opened menu.\nUsually, the default value (`auto`) will work just fine.\nUse this if the positioning is off for some reason.",
+          "defaultValue": "'auto'",
           "required": false
         }
       ],
       "properties": [
         {
-          "name": "inoFor",
-          "type": "string",
-          "description": "Anchor element for the menu",
-          "required": false
-        },
-        {
-          "name": "inoOpen",
-          "type": "boolean",
-          "description": "Set this option to show the menu.",
-          "defaultValue": "false",
+          "name": "placement",
+          "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "description": "Determines the position of the opened menu.\nUsually, the default value (`auto`) will work just fine.\nUse this if the positioning is off for some reason.",
+          "defaultValue": "'auto'",
           "required": false
         }
       ],
-      "events": [
-        {
-          "name": "menuClose",
-          "description": "Emits on outside menu click and escape press."
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [],
       "cssProperties": [],
@@ -2902,21 +2903,21 @@
       "description": "A navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.",
       "attributes": [
         {
-          "name": "ino-anchor",
+          "name": "anchor",
           "type": "\"left\" | \"right\"",
           "description": "Side from which the drawer will appear.\nPossible values: `left` (default), `right`.",
           "defaultValue": "'left'",
           "required": false
         },
         {
-          "name": "ino-open",
+          "name": "open",
           "type": "boolean",
           "description": "Marks this element as open. (**unmanaged**)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-variant",
+          "name": "variant",
           "type": "\"dismissible\" | \"docked\" | \"modal\"",
           "description": "The variant to use for the drawer\nPossible values: `docked` (default), `dismissible`, `modal`.",
           "defaultValue": "'docked'",
@@ -2925,21 +2926,21 @@
       ],
       "properties": [
         {
-          "name": "inoAnchor",
+          "name": "anchor",
           "type": "\"left\" | \"right\"",
           "description": "Side from which the drawer will appear.\nPossible values: `left` (default), `right`.",
           "defaultValue": "'left'",
           "required": false
         },
         {
-          "name": "inoOpen",
+          "name": "open",
           "type": "boolean",
           "description": "Marks this element as open. (**unmanaged**)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoVariant",
+          "name": "variant",
           "type": "\"dismissible\" | \"docked\" | \"modal\"",
           "description": "The variant to use for the drawer\nPossible values: `docked` (default), `dismissible`, `modal`.",
           "defaultValue": "'docked'",
@@ -3017,27 +3018,27 @@
       "description": "A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n> Note: This component's main use case is within the `ino-nav-drawer`.",
       "attributes": [
         {
-          "name": "ino-activated",
+          "name": "activated",
           "type": "boolean",
           "description": "Styles the row in an activated style.\n\nUse this for only one item\nand to mark it as permanently activated.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-disabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Styles the row in a disabled style.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-sub-text",
+          "name": "sub-text",
           "type": "string",
           "description": "The secondary text of this list item used in a two-lined list.",
           "required": false
         },
         {
-          "name": "ino-text",
+          "name": "text",
           "type": "string",
           "description": "The text of this list item.",
           "required": false
@@ -3045,27 +3046,27 @@
       ],
       "properties": [
         {
-          "name": "inoActivated",
+          "name": "activated",
           "type": "boolean",
           "description": "Styles the row in an activated style.\n\nUse this for only one item\nand to mark it as permanently activated.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoDisabled",
+          "name": "disabled",
           "type": "boolean",
           "description": "Styles the row in a disabled style.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoSubText",
+          "name": "subText",
           "type": "string",
           "description": "The secondary text of this list item used in a two-lined list.",
           "required": false
         },
         {
-          "name": "inoText",
+          "name": "text",
           "type": "string",
           "description": "The text of this list item.",
           "required": false
@@ -3187,7 +3188,7 @@
       "description": "A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.\n\nBeyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).",
       "attributes": [
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`.\nWhen using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).",
           "required": false
@@ -3195,7 +3196,7 @@
       ],
       "properties": [
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`.\nWhen using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).",
           "required": false
@@ -3213,55 +3214,55 @@
       "description": "A Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.",
       "attributes": [
         {
-          "name": "ino-color-scheme",
-          "type": "string",
+          "name": "color-scheme",
+          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
           "description": "Sets the color scheme of the popup\nValid options include: 'primary', 'secondary', 'light', 'transparent'",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "ino-controlled",
+          "name": "controlled",
           "type": "boolean",
           "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-distance",
+          "name": "distance",
           "type": "number",
           "description": "Displaces the popover away from, or toward, the anchor element in the direction of its placement.\nA positive number displaces it further away, while a negative number lets it overlap the anchor.",
           "defaultValue": "10",
           "required": false
         },
         {
-          "name": "ino-for",
+          "name": "for",
           "type": "string",
           "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)\nor the parent component if a slot element does not exist.",
           "required": false
         },
         {
-          "name": "ino-interactive",
+          "name": "interactive",
           "type": "boolean",
           "description": "Use this if you want to interact with the popover content (e.g. button clicks)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-placement",
+          "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of this popover.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
           "defaultValue": "'auto'",
           "required": false
         },
         {
-          "name": "ino-trigger",
+          "name": "trigger",
           "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers are possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",
           "required": false
         },
         {
-          "name": "ino-visible",
+          "name": "visible",
           "type": "boolean",
           "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `ino-controlled`).\nUse the `inoVisibleChanged` to sync the popovers' visibility state with yours.",
           "defaultValue": "false",
@@ -3270,55 +3271,55 @@
       ],
       "properties": [
         {
-          "name": "inoColorScheme",
-          "type": "string",
+          "name": "colorScheme",
+          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
           "description": "Sets the color scheme of the popup\nValid options include: 'primary', 'secondary', 'light', 'transparent'",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "inoControlled",
+          "name": "controlled",
           "type": "boolean",
           "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoDistance",
+          "name": "distance",
           "type": "number",
           "description": "Displaces the popover away from, or toward, the anchor element in the direction of its placement.\nA positive number displaces it further away, while a negative number lets it overlap the anchor.",
           "defaultValue": "10",
           "required": false
         },
         {
-          "name": "inoFor",
+          "name": "for",
           "type": "string",
           "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)\nor the parent component if a slot element does not exist.",
           "required": false
         },
         {
-          "name": "inoInteractive",
+          "name": "interactive",
           "type": "boolean",
           "description": "Use this if you want to interact with the popover content (e.g. button clicks)",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoPlacement",
+          "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of this popover.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
           "defaultValue": "'auto'",
           "required": false
         },
         {
-          "name": "inoTrigger",
+          "name": "trigger",
           "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers are possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",
           "required": false
         },
         {
-          "name": "inoVisible",
+          "name": "visible",
           "type": "boolean",
           "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `ino-controlled`).\nUse the `inoVisibleChanged` to sync the popovers' visibility state with yours.",
           "defaultValue": "false",
@@ -3327,7 +3328,7 @@
       ],
       "events": [
         {
-          "name": "inoVisibleChanged",
+          "name": "visibleChanged",
           "description": "Emits when the popover wants to show (`true`) or hide (`false`) itself.\nThis is depended on the `ino-trigger` property.\nUse this event in controlled-mode (see `ino-controlled`).\n\ne.g.: `ino-trigger = 'click'` - This events emits with `true`\nwhen the user clicks on the target (slot/`ino-for`/parent-element)\nand emits with `false` when the target or the outside is clicked."
         }
       ],
@@ -3357,34 +3358,34 @@
       "description": "The ino-progress-bar is a linear progress bar based on the mcw-linear-progress component.",
       "attributes": [
         {
-          "name": "ino-buffer",
+          "name": "buffer",
           "type": "number",
           "description": "Sets the buffer progress",
           "defaultValue": "0",
           "required": false
         },
         {
-          "name": "ino-indeterminate",
+          "name": "indeterminate",
           "type": "boolean",
           "description": "Indicates whether the state of the progress bar is indeterminate",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the progress bar",
           "required": false
         },
         {
-          "name": "ino-progress",
+          "name": "progress",
           "type": "number",
           "description": "Sets the progress of the progress bar\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
         },
         {
-          "name": "ino-reversed",
+          "name": "reversed",
           "type": "boolean",
           "description": "Reverses the progress bar",
           "defaultValue": "false",
@@ -3393,34 +3394,34 @@
       ],
       "properties": [
         {
-          "name": "inoBuffer",
+          "name": "buffer",
           "type": "number",
           "description": "Sets the buffer progress",
           "defaultValue": "0",
           "required": false
         },
         {
-          "name": "inoIndeterminate",
+          "name": "indeterminate",
           "type": "boolean",
           "description": "Indicates whether the state of the progress bar is indeterminate",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the progress bar",
           "required": false
         },
         {
-          "name": "inoProgress",
+          "name": "progress",
           "type": "number",
           "description": "Sets the progress of the progress bar\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
         },
         {
-          "name": "inoReversed",
+          "name": "reversed",
           "type": "boolean",
           "description": "Reverses the progress bar",
           "defaultValue": "false",
@@ -3564,26 +3565,26 @@
       "description": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
       "attributes": [
         {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Disables this element.",
-          "required": false
-        },
-        {
-          "name": "ino-color-scheme",
+          "name": "color-scheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "ino-discrete",
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "discrete",
           "type": "boolean",
           "description": "Restricts the slider to only allow discrete values.",
           "required": false
         },
         {
-          "name": "ino-markers",
+          "name": "markers",
           "type": "boolean",
           "description": "Mark this slider to show the steps of the range.\nOnly applicable if ino-discrete is true",
           "required": false
@@ -3623,26 +3624,26 @@
       ],
       "properties": [
         {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Disables this element.",
-          "required": false
-        },
-        {
-          "name": "inoColorScheme",
+          "name": "colorScheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "inoDiscrete",
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "discrete",
           "type": "boolean",
           "description": "Restricts the slider to only allow discrete values.",
           "required": false
         },
         {
-          "name": "inoMarkers",
+          "name": "markers",
           "type": "boolean",
           "description": "Mark this slider to show the steps of the range.\nOnly applicable if ino-discrete is true",
           "required": false
@@ -3704,16 +3705,16 @@
           "required": false
         },
         {
-          "name": "disabled",
+          "name": "dense",
           "type": "boolean",
-          "description": "Disables the button",
+          "description": "Slightly decreases the size of the button",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-dense",
+          "name": "disabled",
           "type": "boolean",
-          "description": "Slightly decreases the size of the button",
+          "description": "Disables the button",
           "defaultValue": "false",
           "required": false
         },
@@ -3739,16 +3740,16 @@
           "required": false
         },
         {
-          "name": "disabled",
+          "name": "dense",
           "type": "boolean",
-          "description": "Disables the button",
+          "description": "Slightly decreases the size of the button",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoDense",
+          "name": "disabled",
           "type": "boolean",
-          "description": "Slightly decreases the size of the button",
+          "description": "Disables the button",
           "defaultValue": "false",
           "required": false
         },
@@ -3851,21 +3852,9 @@
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The label of this element",
-          "required": false
-        },
-        {
-          "name": "ino-outline",
-          "type": "boolean",
-          "description": "Styles this select box as outlined element.",
-          "required": false
-        },
-        {
-          "name": "ino-show-label-hint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -3875,9 +3864,21 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles this select box as outlined element.",
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "description": "Marks this element as required.",
+          "required": false
+        },
+        {
+          "name": "show-label-hint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -3896,21 +3897,9 @@
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The label of this element",
-          "required": false
-        },
-        {
-          "name": "inoOutline",
-          "type": "boolean",
-          "description": "Styles this select box as outlined element.",
-          "required": false
-        },
-        {
-          "name": "inoShowLabelHint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -3920,9 +3909,21 @@
           "required": false
         },
         {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles this select box as outlined element.",
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "description": "Marks this element as required.",
+          "required": false
+        },
+        {
+          "name": "showLabelHint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -3955,16 +3956,9 @@
       "description": "The ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.",
       "attributes": [
         {
-          "name": "ino-align-right",
+          "name": "align-right",
           "type": "boolean",
           "description": "Aligns the sidebar to the right (true) or left (false) side",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "ino-open",
-          "type": "boolean",
-          "description": "Expands the sidebar",
           "defaultValue": "false",
           "required": false
         },
@@ -3972,21 +3966,21 @@
           "name": "name",
           "type": "string",
           "description": "Name of the component",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Expands the sidebar",
+          "defaultValue": "false",
           "required": false
         }
       ],
       "properties": [
         {
-          "name": "inoAlignRight",
+          "name": "alignRight",
           "type": "boolean",
           "description": "Aligns the sidebar to the right (true) or left (false) side",
-          "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "inoOpen",
-          "type": "boolean",
-          "description": "Expands the sidebar",
           "defaultValue": "false",
           "required": false
         },
@@ -3994,6 +3988,13 @@
           "name": "name",
           "type": "string",
           "description": "Name of the component",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "Expands the sidebar",
+          "defaultValue": "false",
           "required": false
         }
       ],
@@ -4028,34 +4029,34 @@
       "description": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
       "attributes": [
         {
-          "name": "ino-action-text",
+          "name": "action-text",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
           "defaultValue": "''",
           "required": false
         },
         {
-          "name": "ino-alignment",
+          "name": "alignment",
           "type": "\"center\" | \"left\" | \"right\"",
           "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
           "defaultValue": "'center'",
           "required": false
         },
         {
-          "name": "ino-message",
+          "name": "message",
           "type": "string",
           "description": "The text message to display.",
           "required": false
         },
         {
-          "name": "ino-timeout",
+          "name": "timeout",
           "type": "number",
           "description": "Sets the timeout in ms until the snackbar disappears. The timeout can\nbe disabled by setting it to a negative value.",
           "defaultValue": "5000",
           "required": false
         },
         {
-          "name": "ino-type",
+          "name": "type",
           "type": "\"error\" | \"primary\" | \"warning\"",
           "description": "Changes the snackbar type",
           "defaultValue": "'primary'",
@@ -4064,34 +4065,34 @@
       ],
       "properties": [
         {
-          "name": "inoActionText",
+          "name": "actionText",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
           "defaultValue": "''",
           "required": false
         },
         {
-          "name": "inoAlignment",
+          "name": "alignment",
           "type": "\"center\" | \"left\" | \"right\"",
           "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
           "defaultValue": "'center'",
           "required": false
         },
         {
-          "name": "inoMessage",
+          "name": "message",
           "type": "string",
           "description": "The text message to display.",
           "required": false
         },
         {
-          "name": "inoTimeout",
+          "name": "timeout",
           "type": "number",
           "description": "Sets the timeout in ms until the snackbar disappears. The timeout can\nbe disabled by setting it to a negative value.",
           "defaultValue": "5000",
           "required": false
         },
         {
-          "name": "inoType",
+          "name": "type",
           "type": "\"error\" | \"primary\" | \"warning\"",
           "description": "Changes the snackbar type",
           "defaultValue": "'primary'",
@@ -4100,12 +4101,12 @@
       ],
       "events": [
         {
-          "name": "hideEl",
-          "description": "Event that emits as soon as the snackbar hides.\nListen to this event to hide or destroy this element."
+          "name": "actionClick",
+          "description": "Event that emits as soon as the action button is clicked."
         },
         {
-          "name": "inoActionClick",
-          "description": "Event that emits as soon as the action button is clicked."
+          "name": "hideEl",
+          "description": "Event that emits as soon as the snackbar hides.\nListen to this event to hide or destroy this element."
         }
       ],
       "methods": [],
@@ -4119,34 +4120,35 @@
       "description": "A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.",
       "attributes": [
         {
-          "name": "ino-color-scheme",
+          "name": "color-scheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "ino-height",
+          "name": "height",
           "type": "number",
           "description": "The height of this spinner (default = 40)",
           "defaultValue": "40",
           "required": false
         },
         {
-          "name": "ino-modal",
+          "name": "modal",
           "type": "boolean",
           "description": "If true, the spinner is shown as modal over the current app page.",
+          "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-type",
+          "name": "type",
           "type": "\"bounce\" | \"circle\" | \"tile\"",
           "description": "The type of this spinner.\nPossible values: `tile` (default), `bounce` or `circle`",
           "defaultValue": "'tile'",
           "required": false
         },
         {
-          "name": "ino-width",
+          "name": "width",
           "type": "number",
           "description": "The width of this spinner (defaul = 40)",
           "defaultValue": "40",
@@ -4155,34 +4157,35 @@
       ],
       "properties": [
         {
-          "name": "inoColorScheme",
+          "name": "colorScheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "inoHeight",
+          "name": "height",
           "type": "number",
           "description": "The height of this spinner (default = 40)",
           "defaultValue": "40",
           "required": false
         },
         {
-          "name": "inoModal",
+          "name": "modal",
           "type": "boolean",
           "description": "If true, the spinner is shown as modal over the current app page.",
+          "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoType",
+          "name": "type",
           "type": "\"bounce\" | \"circle\" | \"tile\"",
           "description": "The type of this spinner.\nPossible values: `tile` (default), `bounce` or `circle`",
           "defaultValue": "'tile'",
           "required": false
         },
         {
-          "name": "inoWidth",
+          "name": "width",
           "type": "number",
           "description": "The width of this spinner (defaul = 40)",
           "defaultValue": "40",
@@ -4208,16 +4211,16 @@
           "required": false
         },
         {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Disables this element.",
-          "required": false
-        },
-        {
-          "name": "ino-color-scheme",
+          "name": "color-scheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disables this element.",
           "required": false
         },
         {
@@ -4236,16 +4239,16 @@
           "required": false
         },
         {
-          "name": "disabled",
-          "type": "boolean",
-          "description": "Disables this element.",
-          "required": false
-        },
-        {
-          "name": "inoColorScheme",
+          "name": "colorScheme",
           "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
           "defaultValue": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disables this element.",
           "required": false
         },
         {
@@ -4333,26 +4336,26 @@
       "description": "Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.",
       "attributes": [
         {
-          "name": "ino-icon",
+          "name": "icon",
           "type": "string",
           "description": "Indicates a leading icon in the tab.",
           "required": false
         },
         {
-          "name": "ino-indicator-content-width",
+          "name": "indicator-content-width",
           "type": "boolean",
           "description": "Indicates that the tab only expands to the width of its content.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Indicates a label text in the tab.",
           "required": false
         },
         {
-          "name": "ino-stacked",
+          "name": "stacked",
           "type": "boolean",
           "description": "Indicates that the tab icon and label should flow vertically instead of horizontally.",
           "defaultValue": "false",
@@ -4361,26 +4364,26 @@
       ],
       "properties": [
         {
-          "name": "inoIcon",
+          "name": "icon",
           "type": "string",
           "description": "Indicates a leading icon in the tab.",
           "required": false
         },
         {
-          "name": "inoIndicatorContentWidth",
+          "name": "indicatorContentWidth",
           "type": "boolean",
           "description": "Indicates that the tab only expands to the width of its content.",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Indicates a label text in the tab.",
           "required": false
         },
         {
-          "name": "inoStacked",
+          "name": "stacked",
           "type": "boolean",
           "description": "Indicates that the tab icon and label should flow vertically instead of horizontally.",
           "defaultValue": "false",
@@ -4389,7 +4392,7 @@
       ],
       "events": [
         {
-          "name": "inoInteracted",
+          "name": "interacted",
           "description": "Emitted when the user interacts with the tab.\nThis event is used by the ino-tab-bar."
         }
       ],
@@ -4404,7 +4407,7 @@
       "description": "Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.",
       "attributes": [
         {
-          "name": "ino-active-tab",
+          "name": "active-tab",
           "type": "number",
           "description": "Activates the tab at the given index (**unmanaged**).",
           "defaultValue": "0",
@@ -4413,7 +4416,7 @@
       ],
       "properties": [
         {
-          "name": "inoActiveTab",
+          "name": "activeTab",
           "type": "number",
           "description": "Activates the tab at the given index (**unmanaged**).",
           "defaultValue": "0",
@@ -4454,7 +4457,7 @@
       "description": "The ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.",
       "attributes": [
         {
-          "name": "ino-numeric",
+          "name": "numeric",
           "type": "boolean",
           "description": "Indicates that the cell contains numeric values",
           "defaultValue": "false",
@@ -4463,7 +4466,7 @@
       ],
       "properties": [
         {
-          "name": "inoNumeric",
+          "name": "numeric",
           "type": "boolean",
           "description": "Indicates that the cell contains numeric values",
           "defaultValue": "false",
@@ -4482,14 +4485,14 @@
       "description": "The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.",
       "attributes": [
         {
-          "name": "ino-header-row",
+          "name": "header-row",
           "type": "boolean",
           "description": "Indicates that the row is a header row",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-selected",
+          "name": "selected",
           "type": "boolean",
           "description": "Indicates whether the row is selected or not",
           "defaultValue": "false",
@@ -4498,14 +4501,14 @@
       ],
       "properties": [
         {
-          "name": "inoHeaderRow",
+          "name": "headerRow",
           "type": "boolean",
           "description": "Indicates that the row is a header row",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoSelected",
+          "name": "selected",
           "type": "boolean",
           "description": "Indicates whether the row is selected or not",
           "defaultValue": "false",
@@ -4549,21 +4552,9 @@
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The optional floating label of this input field.",
-          "required": false
-        },
-        {
-          "name": "ino-outline",
-          "type": "boolean",
-          "description": "Styles the input field as outlined element.",
-          "required": false
-        },
-        {
-          "name": "ino-show-label-hint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -4582,6 +4573,12 @@
           "name": "name",
           "type": "string",
           "description": "The name of this element.",
+          "required": false
+        },
+        {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the input field as outlined element.",
           "required": false
         },
         {
@@ -4606,6 +4603,12 @@
           "name": "show-character-counter",
           "type": "boolean",
           "description": "Displays the number of characters. The maxlength-property must be set.",
+          "required": false
+        },
+        {
+          "name": "show-label-hint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -4643,21 +4646,9 @@
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The optional floating label of this input field.",
-          "required": false
-        },
-        {
-          "name": "inoOutline",
-          "type": "boolean",
-          "description": "Styles the input field as outlined element.",
-          "required": false
-        },
-        {
-          "name": "inoShowLabelHint",
-          "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -4676,6 +4667,12 @@
           "name": "name",
           "type": "string",
           "description": "The name of this element.",
+          "required": false
+        },
+        {
+          "name": "outline",
+          "type": "boolean",
+          "description": "Styles the input field as outlined element.",
           "required": false
         },
         {
@@ -4700,6 +4697,12 @@
           "name": "showCharacterCounter",
           "type": "boolean",
           "description": "Displays the number of characters. The maxlength-property must be set.",
+          "required": false
+        },
+        {
+          "name": "showLabelHint",
+          "type": "boolean",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "required": false
         },
         {
@@ -4744,33 +4747,33 @@
       "description": "A tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.",
       "attributes": [
         {
-          "name": "ino-color-scheme",
-          "type": "string",
+          "name": "color-scheme",
+          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
           "description": "Sets the color scheme of the tooltip\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "ino-for",
+          "name": "for",
           "type": "string",
           "description": "The target id the tooltip belongs to.\nIf not given, the tooltip is attached to the parent component.",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "The text shown in the tooltip.",
           "required": false
         },
         {
-          "name": "ino-placement",
+          "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of the tooltip.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
           "defaultValue": "'auto'",
           "required": false
         },
         {
-          "name": "ino-trigger",
+          "name": "trigger",
           "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",
@@ -4779,33 +4782,33 @@
       ],
       "properties": [
         {
-          "name": "inoColorScheme",
-          "type": "string",
+          "name": "colorScheme",
+          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
           "description": "Sets the color scheme of the tooltip\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
           "defaultValue": "'primary'",
           "required": false
         },
         {
-          "name": "inoFor",
+          "name": "for",
           "type": "string",
           "description": "The target id the tooltip belongs to.\nIf not given, the tooltip is attached to the parent component.",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "The text shown in the tooltip.",
           "required": false
         },
         {
-          "name": "inoPlacement",
+          "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
           "description": "The placement of the tooltip.\nAccepted values: `top(-start, -end)`, `right(-start, -end)`,\n`bottom(-start, -end)`, `left(-start, -end)`",
           "defaultValue": "'auto'",
           "required": false
         },
         {
-          "name": "inoTrigger",
+          "name": "trigger",
           "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",

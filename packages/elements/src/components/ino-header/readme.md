@@ -9,7 +9,7 @@ The component can be used as follows:
 ### Web Component
 
 ```html
-<ino-header ino-title="<string>"></ino-header>
+<ino-header text="<string>"></ino-header>
 ```
 
 ### React
@@ -22,7 +22,7 @@ import { InoHeader } from '@inovex.de/elements-react/';
 
 class MyComponent extends Component {
   render() {
-    return <InoCard inoTitle="My awesome header!"></InoCard>;
+    return <InoCard text="My awesome header!"></InoCard>;
   }
 }
 ```
@@ -34,9 +34,9 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property                | Attribute   | Description             | Type     | Default     |
-| ----------------------- | ----------- | ----------------------- | -------- | ----------- |
-| `inoTitle` _(required)_ | `ino-title` | The text of this header | `string` | `undefined` |
+| Property            | Attribute | Description             | Type     | Default     |
+| ------------------- | --------- | ----------------------- | -------- | ----------- |
+| `text` _(required)_ | `text`    | The text of this header | `string` | `undefined` |
 
 
 ## CSS Custom Properties

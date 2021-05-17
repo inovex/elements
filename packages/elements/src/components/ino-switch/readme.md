@@ -17,7 +17,7 @@ document
 ```
 
 ```html
-<ino-switch checked disabled ino-color-scheme="<string>" name="<string>">
+<ino-switch checked disabled color-scheme="<string>" name="<string>">
   Label
 </ino-switch>
 ```
@@ -101,12 +101,12 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `checked`        | `checked`          | Marks this element as checked. (**unmanaged**)                                                                                                                                                        | `boolean`                                                                            | `false`     |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `name`           | `name`             | The name of this element.                                                                                                                                                                             | `string`                                                                             | `undefined` |
+| Property      | Attribute      | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `checked`     | `checked`      | Marks this element as checked. (**unmanaged**)                                                                                                                                                        | `boolean`                                                                            | `false`     |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `disabled`    | `disabled`     | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
+| `name`        | `name`         | The name of this element.                                                                                                                                                                             | `string`                                                                             | `undefined` |
 
 
 ## Events

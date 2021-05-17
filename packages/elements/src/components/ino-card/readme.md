@@ -16,7 +16,7 @@ document
 ```
 
 ```html
-<ino-card ino-selected="<boolean>" ino-disable-elevation="<boolean>">
+<ino-card selected="<boolean>" disable-elevation="<boolean>">
   <div slot="header"><!-- Any content --></div>
   <div slot="content"><!-- Any content --></div>
   <div slot="footer"><!-- Any content --></div>
@@ -53,10 +53,10 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property              | Attribute               | Description                                                        | Type      | Default |
-| --------------------- | ----------------------- | ------------------------------------------------------------------ | --------- | ------- |
-| `inoDisableElevation` | `ino-disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
-| `inoSelected`         | `ino-selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
+| Property           | Attribute           | Description                                                        | Type      | Default |
+| ------------------ | ------------------- | ------------------------------------------------------------------ | --------- | ------- |
+| `disableElevation` | `disable-elevation` | Disables the hover effect if true                                  | `boolean` | `false` |
+| `selected`         | `selected`          | Selects the card and displays a check mark icon on top of the card | `boolean` | `false` |
 
 
 ## Slots

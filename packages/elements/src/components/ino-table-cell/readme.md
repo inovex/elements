@@ -8,8 +8,8 @@ of the ino-table. Its main purpose is to add data or header cells to a correspon
 The component can be used as follows:
 
 ```html
-<ino-table-row ino-header-row>
-  <ino-table-cell ino-numeric> 1 </ino-table-cell>
+<ino-table-row header-row>
+  <ino-table-cell numeric> 1 </ino-table-cell>
   <ino-table-cell> Cell content </ino-table-cell>
 </ino-table-row>
 ```
@@ -19,9 +19,9 @@ The component can be used as follows:
 
 ## Properties
 
-| Property     | Attribute     | Description                                     | Type      | Default |
-| ------------ | ------------- | ----------------------------------------------- | --------- | ------- |
-| `inoNumeric` | `ino-numeric` | Indicates that the cell contains numeric values | `boolean` | `false` |
+| Property  | Attribute | Description                                     | Type      | Default |
+| --------- | --------- | ----------------------------------------------- | --------- | ------- |
+| `numeric` | `numeric` | Indicates that the cell contains numeric values | `boolean` | `false` |
 
 
 ----------------------------------------------

@@ -19,7 +19,7 @@ document
 ```
 
 ```html
-<ino-icon ino-icon="<string>" ino-clickable onclickel="handleClickEl()">
+<ino-icon icon="<string>" clickable onclickel="handleClickEl()">
 </ino-icon>
 ```
 
@@ -74,7 +74,7 @@ class MyComponent extends Component {
 
 The component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.
 
-**Clickable icon:** Make an icon interactive with the optional attribute `ino-clickable`. Clickable icons emit a `clickEl` event.
+**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.
 
 ### Add icons
 
@@ -93,13 +93,13 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 
 ## Properties
 
-| Property            | Attribute             | Description                                                           | Type      | Default     |
-| ------------------- | --------------------- | --------------------------------------------------------------------- | --------- | ----------- |
-| `inoClickable`      | `ino-clickable`       | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
-| `inoColorSecondary` | `ino-color-secondary` | Colors the icon in the global secondary color                         | `boolean` | `undefined` |
-| `inoIcon`           | `ino-icon`            | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
-| `src`               | `src`                 | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
-| `svgTitle`          | `svg-title`           | Sets a meaningful svg title for assistive technologies.               | `string`  | `undefined` |
+| Property         | Attribute         | Description                                                           | Type      | Default     |
+| ---------------- | ----------------- | --------------------------------------------------------------------- | --------- | ----------- |
+| `clickable`      | `clickable`       | Makes the icon clickable and allows to listen to the `clickEl` event. | `boolean` | `undefined` |
+| `colorSecondary` | `color-secondary` | Colors the icon in the global secondary color                         | `boolean` | `undefined` |
+| `icon`           | `icon`            | The name of the icon of this element or an URL.                       | `string`  | `undefined` |
+| `src`            | `src`             | Specifies the exact `src` of an SVG file to use.                      | `string`  | `undefined` |
+| `svgTitle`       | `svg-title`       | Sets a meaningful svg title for assistive technologies.               | `string`  | `undefined` |
 
 
 ## Events

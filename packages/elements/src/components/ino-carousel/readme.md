@@ -20,12 +20,12 @@ The component can be used as follows:
 ```html
 <ino-carousel
   value="<any value>"
-  ino-autoplay="true"
-  ino-animated="true"
-  ino-hide-buttons="false"
-  ino-infinite="true"
-  ino-intermission="5000"
-  ino-reverse="false"
+  autoplay="true"
+  animated="true"
+  hide-buttons="false"
+  infinite="true"
+  intermission="5000"
+  reverse="false"
 >
   <ino-carousel-slide value="0" src="<url>"></ino-carousel-slide>
   <ino-carousel-slide value="1" src="<url>"></ino-carousel-slide>
@@ -72,15 +72,15 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property          | Attribute          | Description                                                         | Type      | Default     |
-| ----------------- | ------------------ | ------------------------------------------------------------------- | --------- | ----------- |
-| `inoAnimated`     | `ino-animated`     | Enables the slide animation                                         | `boolean` | `false`     |
-| `inoAutoplay`     | `ino-autoplay`     | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
-| `inoHideButtons`  | `ino-hide-buttons` | Hides the arrow buttons                                             | `boolean` | `false`     |
-| `inoInfinite`     | `ino-infinite`     | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
-| `inoIntermission` | `ino-intermission` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
-| `inoReverse`      | `ino-reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
-| `value`           | `value`            | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
+| Property       | Attribute      | Description                                                         | Type      | Default     |
+| -------------- | -------------- | ------------------------------------------------------------------- | --------- | ----------- |
+| `animated`     | `animated`     | Enables the slide animation                                         | `boolean` | `false`     |
+| `autoplay`     | `autoplay`     | Enables autoplay which causes slides to be changed automatically    | `boolean` | `false`     |
+| `hideButtons`  | `hide-buttons` | Hides the arrow buttons                                             | `boolean` | `false`     |
+| `infinite`     | `infinite`     | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
+| `intermission` | `intermission` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
+| `reverse`      | `reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
+| `value`        | `value`        | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
 
 ## CSS Custom Properties

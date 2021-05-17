@@ -9,10 +9,10 @@ The component can be used as follows:
 
 ```html
 <ino-fab-set
-  ino-top-bottom-location="<string>"
-  ino-left-right-location="<string>"
-  ino-dial-direction="<string>"
-  ino-open-dial
+  top-bottom-location="<string>"
+  left-right-location="<string>"
+  dial-direction="<string>"
+  open-dial
 >
   <ino-fab ...></ino-fab>
   <ino-fab ...></ino-fab>
@@ -97,19 +97,19 @@ class MyComponent extends Component {
 
 ## Control flow
 
-The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this reason, listen to `click` events, sync to your local state and pass the state to the component again to open/close the fab-set.
+The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to your local state and pass the state to the component again to open/close the fab-set.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
-| ---------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
-| `inoDialDirection`     | `ino-dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
-| `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
-| `inoOpenDial`          | `ino-open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
-| `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
+| Property            | Attribute             | Description                                                                                   | Type                                     | Default    |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
+| `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
+| `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
+| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
+| `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
 
 ## Dependencies

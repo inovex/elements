@@ -31,19 +31,19 @@ document
   size="<number>"
   type="<string>"
   value="<string>"
-  ino-error
-  ino-outline
-  ino-label="<string>"
-  ino-helper="<string>"
-  ino-helper-persistent
-  ino-helper-validation
-  ino-data-list="<string>"
+  error
+  outline
+  label="<string>"
+  helper="<string>"
+  helper-persistent
+  helper-validation
+  data-list="<string>"
 >
   <datalist id="<string>">
     <option>...</option>
   </datalist>
-  <ino-icon slot="ino-icon-leading" ino-icon="..."></ino-icon>
-  <ino-icon slot="ino-icon-trailing" ino-icon="..."></ino-icon>
+  <ino-icon slot="icon-leading" icon="..."></ino-icon>
+  <ino-icon slot="icon-trailing" icon="..."></ino-icon>
 </ino-input>
 ```
 
@@ -104,13 +104,13 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Outlined**: The component is by default a box component with ripple underline. Provide `ino-outline` to use the material outline design.
+**Outlined**: The component is by default a box component with ripple underline. Provide `outline` to use the material outline design.
 
-**Labels**: The component shows a floating label containing the value of `ino-label`.
+**Labels**: The component shows a floating label containing the value of `label`.
 
-**Helper Text**: The component shows an optional helper text underneath the input field (`ino-helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `ino-helper-persistent` to show it all the time. Furthermore, use `ino-helper-validation` to style the helper text as validation message.
+**Helper Text**: The component shows an optional helper text underneath the input field (`helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `helper-persistent` to show it all the time. Furthermore, use `helper-validation` to style the helper text as validation message.
 
-**Icons**: There are currently two options two place an icon: at the start/left (`ino-icon-leading`) or at the end/right (`ino-icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally you have to provide either `slot=ino-icon-leading` or `slot="ino-icon-trailing`to your icon element.
+**Icons**: There are currently two options two place an icon: at the start/left (`icon-leading`) or at the end/right (`icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally, you have to provide either `slot=icon-leading` or `slot="icon-trailing`to your icon element.
 
 **Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
 
@@ -137,34 +137,34 @@ The component is based on a native input with additional features. Thus, the com
 
 ## Properties
 
-| Property                    | Attribute                      | Description                                                                                                                                                                                                                                               | Type              | Default     |
-| --------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- |
-| `autoFocus`                 | `auto-focus`                   | The autofocus of this element.                                                                                                                                                                                                                            | `boolean`         | `undefined` |
-| `autocomplete`              | `autocomplete`                 | The autocomplete property of this element.                                                                                                                                                                                                                | `string`          | `undefined` |
-| `disabled`                  | `disabled`                     | Disables this element.                                                                                                                                                                                                                                    | `boolean`         | `undefined` |
-| `inoDataList`               | `ino-data-list`                | The id of the datalist child                                                                                                                                                                                                                              | `string`          | `undefined` |
-| `inoDecimalPlaces`          | `ino-decimal-places`           | The number of decimal places. Only works on 'text' type input.                                                                                                                                                                                            | `number`          | `undefined` |
-| `inoError`                  | `ino-error`                    | Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend. | `boolean`         | `undefined` |
-| `inoHelper`                 | `ino-helper`                   | The optional helper text.                                                                                                                                                                                                                                 | `string`          | `undefined` |
-| `inoHelperCharacterCounter` | `ino-helper-character-counter` | Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.                                                                                                                                   | `boolean`         | `undefined` |
-| `inoHelperPersistent`       | `ino-helper-persistent`        | Displays the helper permanently.                                                                                                                                                                                                                          | `boolean`         | `undefined` |
-| `inoHelperValidation`       | `ino-helper-validation`        | Styles the helper text as a validation message.                                                                                                                                                                                                           | `boolean`         | `undefined` |
-| `inoLabel`                  | `ino-label`                    | The optional floating label of this input field.                                                                                                                                                                                                          | `string`          | `undefined` |
-| `inoOutline`                | `ino-outline`                  | Styles the input field as outlined element.                                                                                                                                                                                                               | `boolean`         | `undefined` |
-| `inoShowLabelHint`          | `ino-show-label-hint`          | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                | `boolean`         | `undefined` |
-| `inoThousandsSeparator`     | `ino-thousands-separator`      | Shows a dot as a thousands separator. Only works on 'text' type input.                                                                                                                                                                                    | `boolean`         | `undefined` |
-| `inoUnit`                   | `ino-unit`                     | Displays the given unit at the end of the input field.                                                                                                                                                                                                    | `string`          | `undefined` |
-| `max`                       | `max`                          | The max value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
-| `maxlength`                 | `maxlength`                    | Limits the number of possible characters to the given number                                                                                                                                                                                              | `number`          | `undefined` |
-| `min`                       | `min`                          | The min value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
-| `name`                      | `name`                         | The name of this element.                                                                                                                                                                                                                                 | `string`          | `undefined` |
-| `pattern`                   | `pattern`                      | The validation pattern of this element.                                                                                                                                                                                                                   | `string`          | `undefined` |
-| `placeholder`               | `placeholder`                  | The placeholder of this element.                                                                                                                                                                                                                          | `string`          | `undefined` |
-| `required`                  | `required`                     | Marks this element as required.                                                                                                                                                                                                                           | `boolean`         | `undefined` |
-| `size`                      | `size`                         | The size of this element.                                                                                                                                                                                                                                 | `number`          | `undefined` |
-| `step`                      | `step`                         | The step value of this element. Use `any` for decimal numbers                                                                                                                                                                                             | `"any" \| number` | `1`         |
-| `type`                      | `type`                         | The type of this element (default = text).                                                                                                                                                                                                                | `string`          | `'text'`    |
-| `value`                     | `value`                        | The value of this element. (**unmanaged**)                                                                                                                                                                                                                | `string`          | `''`        |
+| Property                 | Attribute                  | Description                                                                                                                                                                                                                                               | Type              | Default     |
+| ------------------------ | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- |
+| `autoFocus`              | `auto-focus`               | The autofocus of this element.                                                                                                                                                                                                                            | `boolean`         | `undefined` |
+| `autocomplete`           | `autocomplete`             | The autocomplete property of this element.                                                                                                                                                                                                                | `string`          | `undefined` |
+| `dataList`               | `data-list`                | The id of the datalist child                                                                                                                                                                                                                              | `string`          | `undefined` |
+| `decimalPlaces`          | `decimal-places`           | The number of decimal places. Only works on 'text' type input.                                                                                                                                                                                            | `number`          | `undefined` |
+| `disabled`               | `disabled`                 | Disables this element.                                                                                                                                                                                                                                    | `boolean`         | `undefined` |
+| `error`                  | `error`                    | Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend. | `boolean`         | `undefined` |
+| `helper`                 | `helper`                   | The optional helper text.                                                                                                                                                                                                                                 | `string`          | `undefined` |
+| `helperCharacterCounter` | `helper-character-counter` | Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.                                                                                                                                   | `boolean`         | `undefined` |
+| `helperPersistent`       | `helper-persistent`        | Displays the helper permanently.                                                                                                                                                                                                                          | `boolean`         | `undefined` |
+| `helperValidation`       | `helper-validation`        | Styles the helper text as a validation message.                                                                                                                                                                                                           | `boolean`         | `undefined` |
+| `label`                  | `label`                    | The optional floating label of this input field.                                                                                                                                                                                                          | `string`          | `undefined` |
+| `max`                    | `max`                      | The max value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
+| `maxlength`              | `maxlength`                | Limits the number of possible characters to the given number                                                                                                                                                                                              | `number`          | `undefined` |
+| `min`                    | `min`                      | The min value of this element.                                                                                                                                                                                                                            | `string`          | `undefined` |
+| `name`                   | `name`                     | The name of this element.                                                                                                                                                                                                                                 | `string`          | `undefined` |
+| `outline`                | `outline`                  | Styles the input field as outlined element.                                                                                                                                                                                                               | `boolean`         | `undefined` |
+| `pattern`                | `pattern`                  | The validation pattern of this element.                                                                                                                                                                                                                   | `string`          | `undefined` |
+| `placeholder`            | `placeholder`              | The placeholder of this element.                                                                                                                                                                                                                          | `string`          | `undefined` |
+| `required`               | `required`                 | Marks this element as required.                                                                                                                                                                                                                           | `boolean`         | `undefined` |
+| `showLabelHint`          | `show-label-hint`          | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                | `boolean`         | `undefined` |
+| `size`                   | `size`                     | The size of this element.                                                                                                                                                                                                                                 | `number`          | `undefined` |
+| `step`                   | `step`                     | The step value of this element. Use `any` for decimal numbers                                                                                                                                                                                             | `"any" \| number` | `1`         |
+| `thousandsSeparator`     | `thousands-separator`      | Shows a dot as a thousands separator. Only works on 'text' type input.                                                                                                                                                                                    | `boolean`         | `undefined` |
+| `type`                   | `type`                     | The type of this element (default = text).                                                                                                                                                                                                                | `string`          | `'text'`    |
+| `unit`                   | `unit`                     | Displays the given unit at the end of the input field.                                                                                                                                                                                                    | `string`          | `undefined` |
+| `value`                  | `value`                    | The value of this element. (**unmanaged**)                                                                                                                                                                                                                | `string`          | `''`        |
 
 
 ## Events
@@ -191,10 +191,10 @@ Type: `Promise<HTMLInputElement>`
 
 ## Slots
 
-| Slot                  | Description                  |
-| --------------------- | ---------------------------- |
-| `"ino-icon-leading"`  | For the icon to be prepended |
-| `"ino-icon-trailing"` | For the icon to be appended  |
+| Slot              | Description                  |
+| ----------------- | ---------------------------- |
+| `"icon-leading"`  | For the icon to be prepended |
+| `"icon-trailing"` | For the icon to be appended  |
 
 
 ## CSS Custom Properties

@@ -20,16 +20,16 @@ document
 
 ```html
 <ino-nav-drawer
-  ino-open="<boolean>"
-  ino-anchor="left|right"
-  ino-variant="docked|dismissible|modal"
+  open="<boolean>"
+  anchor="left|right"
+  variant="docked|dismissible|modal"
 >
   <ino-list slot="content">
-    <ino-nav-item ino-text="View1">
-      <ino-icon ino-icon="user">
+    <ino-nav-item text="View1">
+      <ino-icon icon="user">
     </ino-nav-item>
-    <ino-nav-item ino-text="View2">
-      <ino-icon ino-icon="settings">
+    <ino-nav-item text="View2">
+      <ino-icon icon="settings">
     </ino-nav-item>
   </ino-list>
 
@@ -60,17 +60,17 @@ class MyComponent extends Component {
           <ino-img src="https://picsum.photos/50/50" />
         </ino-list>
         <ino-list slot="content">
-          <ino-nav-item ino-text="Some Link">
-            <ino-icon ino-icon="onboarding"></ino-icon>
+          <ino-nav-item text="Some Link">
+            <ino-icon icon="onboarding"></ino-icon>
           </ino-nav-item>
         </ino-list>
         <ino-list slot="footer">
-          <ino-nav-item ino-text="My Profile">
+          <ino-nav-item text="My Profile">
             <ino-img
               src="https://picsum.photos/id/1027/250/250.jpg"
               style="border-radius: 50%"
-              ino-ratio-width="1"
-              ino-ratio-height="1"
+              ratio-width="1"
+              ratio-height="1"
             ></ino-img>
           </ino-nav-item>
         </ino-list>
@@ -118,11 +118,11 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property     | Attribute     | Description                                                                                    | Type                                   | Default    |
-| ------------ | ------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------- | ---------- |
-| `inoAnchor`  | `ino-anchor`  | Side from which the drawer will appear. Possible values: `left` (default), `right`.            | `"left" \| "right"`                    | `'left'`   |
-| `inoOpen`    | `ino-open`    | Marks this element as open. (**unmanaged**)                                                    | `boolean`                              | `false`    |
-| `inoVariant` | `ino-variant` | The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`. | `"dismissible" \| "docked" \| "modal"` | `'docked'` |
+| Property  | Attribute | Description                                                                                    | Type                                   | Default    |
+| --------- | --------- | ---------------------------------------------------------------------------------------------- | -------------------------------------- | ---------- |
+| `anchor`  | `anchor`  | Side from which the drawer will appear. Possible values: `left` (default), `right`.            | `"left" \| "right"`                    | `'left'`   |
+| `open`    | `open`    | Marks this element as open. (**unmanaged**)                                                    | `boolean`                              | `false`    |
+| `variant` | `variant` | The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`. | `"dismissible" \| "docked" \| "modal"` | `'docked'` |
 
 
 ## Events

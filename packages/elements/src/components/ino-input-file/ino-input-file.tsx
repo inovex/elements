@@ -52,22 +52,22 @@ export class InputFile implements ComponentInterface {
   /**
    * Sets the label of the select files button.
    */
-  @Prop() inoLabel?: string = 'Select file';
+  @Prop() label?: string = 'Select file';
 
   /**
    * Enables drag-and-drop file input
    */
-  @Prop() inoDragAndDrop?: boolean = false;
+  @Prop() dragAndDrop?: boolean = false;
 
   /**
    * Sets the primary text of the drag and drop window
    */
-  @Prop() inoDragAndDropText?: string = 'Drag your files here';
+  @Prop() dragAndDropText?: string = 'Drag your files here';
 
   /**
    * Sets the secondary text of the drag and drop window
    */
-  @Prop() inoDragAndDropSecondaryText?: string = 'or';
+  @Prop() dragAndDropSecondaryText?: string = 'or';
 
   /**
    * Emits when the value changes.
@@ -163,18 +163,18 @@ export class InputFile implements ComponentInterface {
 
   render() {
     const classes = classNames({
-      'ino-input-file__composer': !this.inoDragAndDrop,
-      'ino-input-file__dnd': this.inoDragAndDrop,
-      'ino-input-file__dnd-disabled': this.inoDragAndDrop && this.disabled,
+      'ino-input-file__composer': !this.dragAndDrop,
+      'ino-input-file__dnd': this.dragAndDrop,
+      'ino-input-file__dnd-disabled': this.dragAndDrop && this.disabled,
     });
 
     return (
       <Host>
         <div class={classes}>
-          {this.inoDragAndDrop && (
+          {this.dragAndDrop && (
             <div class="ino-input-file__dnd-text">
-              <label>{this.inoDragAndDropText}</label>
-              <label>{this.inoDragAndDropSecondaryText}</label>
+              <label>{this.dragAndDropText}</label>
+              <label>{this.dragAndDropSecondaryText}</label>
             </div>
           )}
           <ino-button
@@ -186,7 +186,7 @@ export class InputFile implements ComponentInterface {
             ino-icon-leading
           >
             <ino-icon ino-icon="upload" slot="ino-icon-leading" />
-            {this.inoLabel}
+            {this.label}
           </ino-button>
           <input
             class="ino-input-file__native-element"

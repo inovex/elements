@@ -20,7 +20,7 @@ document
   disabled="<boolean>"
   name="<string>"
   value="<string>"
-  ino-id="<string>"
+  id="<string>"
   oncheckedChange="handleCheckedChange()"
 >
   Label

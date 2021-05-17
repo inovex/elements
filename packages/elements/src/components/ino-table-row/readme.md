@@ -8,7 +8,7 @@ header rows to the table.
 The component can be used as follows:
 
 ```html
-<ino-table-row ino-header-row selected>
+<ino-table-row header-row selected>
   <ino-table-cell>Cell content</ino-table-cell>
 </ino-table-row>
 ```
@@ -18,10 +18,10 @@ The component can be used as follows:
 
 ## Properties
 
-| Property       | Attribute        | Description                                  | Type      | Default |
-| -------------- | ---------------- | -------------------------------------------- | --------- | ------- |
-| `inoHeaderRow` | `ino-header-row` | Indicates that the row is a header row       | `boolean` | `false` |
-| `inoSelected`  | `ino-selected`   | Indicates whether the row is selected or not | `boolean` | `false` |
+| Property    | Attribute    | Description                                  | Type      | Default |
+| ----------- | ------------ | -------------------------------------------- | --------- | ------- |
+| `headerRow` | `header-row` | Indicates that the row is a header row       | `boolean` | `false` |
+| `selected`  | `selected`   | Indicates whether the row is selected or not | `boolean` | `false` |
 
 
 ----------------------------------------------

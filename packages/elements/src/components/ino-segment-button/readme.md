@@ -15,7 +15,7 @@ document
 ```
 
 ```html
-<ino-segment-button checked disabled name="<string>" ino-dense value="<string>">
+<ino-segment-button checked disabled name="<string>" dense value="<string>">
   Button Content
 </ino-segment-button>
 ```
@@ -42,13 +42,13 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property   | Attribute   | Description                               | Type      | Default     |
-| ---------- | ----------- | ----------------------------------------- | --------- | ----------- |
-| `checked`  | `checked`   | Activates the button                      | `boolean` | `false`     |
-| `disabled` | `disabled`  | Disables the button                       | `boolean` | `false`     |
-| `inoDense` | `ino-dense` | Slightly decreases the size of the button | `boolean` | `false`     |
-| `name`     | `name`      | Name of the element                       | `string`  | `undefined` |
-| `value`    | `value`     | Value of the element                      | `string`  | `undefined` |
+| Property   | Attribute  | Description                               | Type      | Default     |
+| ---------- | ---------- | ----------------------------------------- | --------- | ----------- |
+| `checked`  | `checked`  | Activates the button                      | `boolean` | `false`     |
+| `dense`    | `dense`    | Slightly decreases the size of the button | `boolean` | `false`     |
+| `disabled` | `disabled` | Disables the button                       | `boolean` | `false`     |
+| `name`     | `name`     | Name of the element                       | `string`  | `undefined` |
+| `value`    | `value`    | Value of the element                      | `string`  | `undefined` |
 
 
 ## Events

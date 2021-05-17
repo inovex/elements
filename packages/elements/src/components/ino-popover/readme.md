@@ -15,14 +15,14 @@ The component can be used as follows:
 ```html
 
 <ino-popover
-  ino-color-scheme="<string>"
-  ino-controlled="<boolean>"
-  ino-distance="<number>"
-  ino-for="<string>"
-  ino-interactive="<boolean>"
-  ino-placement="<string>" 
-  ino-trigger="<string>"
-  ino-visible="<boolean>"
+  color-scheme="<string>"
+  controlled="<boolean>"
+  distance="<number>"
+  for="<string>"
+  interactive="<boolean>"
+  placement="<string>" 
+  trigger="<string>"
+  visible="<boolean>"
 >
   Any desired HTML
 </ino-popover>
@@ -31,10 +31,10 @@ The component can be used as follows:
 #### Targets
 There are currently three ways to attach your popover to a component, which results in a slightly different structure:
 
-1. Using the `ino-popover-trigger` slot _(preferred)_:
+1. Using the `popover-trigger` slot _(preferred)_:
 ```html
-<ino-popover ino-trigger="click">
-    <ino-button slot="ino-popover-trigger">Click to show/hide</ino-button>
+<ino-popover trigger="click">
+    <ino-button slot="popover-trigger">Click to show/hide</ino-button>
     <custom-html-content></custom-html-content>
 </ino-popover>
 ```
@@ -44,10 +44,10 @@ There are currently three ways to attach your popover to a component, which resu
 └── <custom-html-content>
 ```
 
-2. Using the `ino-for` property:
+2. Using the `for` property:
 ```html
-<ino-button id="my-target" slot="ino-popover-trigger">Click to show/hide</ino-button>
-<ino-popover ino-for="my-target" ino-trigger="click">
+<ino-button id="my-target" slot="popover-trigger">Click to show/hide</ino-button>
+<ino-popover for="my-target" trigger="click">
   <custom-html-content></custom-html-content>
 </ino-popover>
 ```
@@ -61,7 +61,7 @@ There are currently three ways to attach your popover to a component, which resu
 ```html
 <ino-button>
     Click to show/hide
-    <ino-popover ino-trigger="click">
+    <ino-popover trigger="click">
       <custom-html-content></custom-html-content>
     </ino-popover>
 </ino-button>
@@ -79,7 +79,7 @@ There are currently two ways you can manage the state of the popover.
 
 _Uncontrolled_
 
-Either you use the `ino-trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover). 
+Either you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover). 
 This is the easiest way as you don't have to worry about managing this state yourself.
 
 ```jsx
@@ -90,7 +90,7 @@ class MyComponent extends Component {
     return (
       <div>
         <InoPopover inoTrigger="mouseenter">
-          <InoButton slot="ino-popover-trigger">Open Popover</InoButton>
+          <InoButton slot="popover-trigger">Open Popover</InoButton>
           This popover will show as soon as the user hovers the button above
         </InoPopover>
       </div>
@@ -101,7 +101,7 @@ class MyComponent extends Component {
 
 _Controlled_
 
-Or you use the `ino-controlled` and `ino-visible` property to show/hide the popover by yourself. 
+Or you use the `controlled` and `visible` property to show/hide the popover by yourself. 
 This is helpful if you want to implement custom logic when the popover should be shown or hidden.
 
 ```typescript jsx
@@ -127,7 +127,7 @@ class MyComponent extends Component {
           inoVisible={this.state.showPopover}
           onInoVisibleChanged={(e) => setPopoverState(e.detail)}
         >
-          <InoButton slot="ino-popover-trigger">
+          <InoButton slot="popover-trigger">
             Open Popover
           </InoButton>
           This popover will show as soon as the user clicks the button above
@@ -194,23 +194,23 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                             | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `inoColorScheme` | `ino-color-scheme` | Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'                                                                                                | `"light" \| "primary" \| "secondary" \| "transparent"`                                                                                                                                                                                                                                                                                 | `'primary'`          |
-| `inoControlled`  | `ino-controlled`   | Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)                                                                             | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
-| `inoDistance`    | `ino-distance`     | Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.      | `number`                                                                                                                                                                                                                                                                                                                               | `10`                 |
-| `inoFor`         | `ino-for`          | The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist. | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
-| `inoInteractive` | `ino-interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                                                                                          | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
-| `inoPlacement`   | `ino-placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
-| `inoTrigger`     | `ino-trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.                                                                         | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
-| `inoVisible`     | `ino-visible`      | Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.          | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
+| Property      | Attribute      | Description                                                                                                                                                                                             | Type                                                                                                                                                                                                                                                                                                                                   | Default              |
+| ------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| `colorScheme` | `color-scheme` | Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'                                                                                                | `"light" \| "primary" \| "secondary" \| "transparent"`                                                                                                                                                                                                                                                                                 | `'primary'`          |
+| `controlled`  | `controlled`   | Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)                                                                             | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
+| `distance`    | `distance`     | Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.      | `number`                                                                                                                                                                                                                                                                                                                               | `10`                 |
+| `for`         | `for`          | The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist. | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
+| `interactive` | `interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                                                                                          | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
+| `placement`   | `placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
+| `trigger`     | `trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.                                                                         | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
+| `visible`     | `visible`      | Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.          | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 
 
 ## Events
 
-| Event               | Description                                                                                                                                                                                                                                                                                                                                                                           | Type                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `inoVisibleChanged` | Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `ino-trigger` property. Use this event in controlled-mode (see `ino-controlled`).  e.g.: `ino-trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`ino-for`/parent-element) and emits with `false` when the target or the outside is clicked. | `CustomEvent<boolean>` |
+| Event            | Description                                                                                                                                                                                                                                                                                                                                                                           | Type                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `visibleChanged` | Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `ino-trigger` property. Use this event in controlled-mode (see `ino-controlled`).  e.g.: `ino-trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`ino-for`/parent-element) and emits with `false` when the target or the outside is clicked. | `CustomEvent<boolean>` |
 
 
 ## Methods

@@ -15,33 +15,33 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
+         */
+        "colorScheme"?: ButtonColorScheme;
+        /**
+          * Makes the button text and container slightly smaller.
+         */
+        "dense"?: boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Styles the button to have the edge on the top-right instead of the top-left
+         */
+        "edgeMirrored"?: boolean;
+        /**
+          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
+         */
+        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
         "form"?: string;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "inoColorScheme": ButtonColorScheme;
-        /**
-          * Makes the button text and container slightly smaller.
-         */
-        "inoDense"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "inoEdgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "inoFill": SurfaceType;
-        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
-        "inoLoading"?: boolean;
+        "loading"?: boolean;
         /**
           * The name of the element.
          */
@@ -55,37 +55,37 @@ export namespace Components {
         /**
           * Disables the hover effect if true
          */
-        "inoDisableElevation": boolean;
+        "disableElevation": boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
          */
-        "inoSelected": boolean;
+        "selected": boolean;
     }
     interface InoCarousel {
         /**
           * Enables the slide animation
          */
-        "inoAnimated": boolean;
+        "animated": boolean;
         /**
           * Enables autoplay which causes slides to be changed automatically
          */
-        "inoAutoplay": boolean;
+        "autoplay": boolean;
         /**
           * Hides the arrow buttons
          */
-        "inoHideButtons": boolean;
+        "hideButtons": boolean;
         /**
           * Restarts playback from the first slide upon reaching the last slide
          */
-        "inoInfinite": boolean;
+        "infinite": boolean;
         /**
           * Sets the intermission between two slides (Unit: ms)
          */
-        "inoIntermission": number;
+        "intermission": number;
         /**
           * Enables reverse playback of the slides
          */
-        "inoReverse": boolean;
+        "reverse": boolean;
         /**
           * Optional group value to manually manage the displayed slide
          */
@@ -115,13 +115,13 @@ export namespace Components {
          */
         "indeterminate"?: boolean;
         /**
-          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
-         */
-        "inoSelection"?: boolean;
-        /**
           * The name of this element.
          */
         "name"?: string;
+        /**
+          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
+         */
+        "selection"?: boolean;
         /**
           * The value of this element.
          */
@@ -131,42 +131,42 @@ export namespace Components {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme": ColorScheme | 'default';
+        "colorScheme": ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */
-        "inoFill"?: ChipSurface;
+        "fill"?: ChipSurface;
         /**
           * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * The label of this chip (**required**).
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
          */
-        "inoRemovable"?: boolean;
+        "removable"?: boolean;
         /**
           * Adds a checkmark if the icon is selected.
          */
-        "inoSelectable"?: boolean;
+        "selectable"?: boolean;
         /**
           * Marks this element as selected.
          */
-        "inoSelected"?: boolean;
+        "selected"?: boolean;
         /**
           * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
          */
-        "inoValue"?: string;
+        "value"?: string;
     }
     interface InoChipSet {
         /**
           * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
          */
-        "inoType"?: ChipSetType;
+        "type"?: ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -228,65 +228,45 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
+         */
+        "dateFormat"?: string;
+        /**
+          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
+         */
+        "defaultDate"?: string | string[];
+        /**
+          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+         */
+        "defaultHour": number;
+        /**
+          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+         */
+        "defaultMinute"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * The helper text.
+         */
+        "helper"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperValidation"?: boolean;
         /**
           * Adjusts the step for the hour input (incl. scrolling) Default is 1
          */
         "hourStep": number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
-         */
-        "inoDateFormat"?: string;
-        /**
-          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultDate"?: string | string[];
-        /**
-          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultHour": number;
-        /**
-          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultMinute"?: number;
-        /**
-          * The helper text.
-         */
-        "inoHelper"?: string;
-        /**
-          * Displays the helper permanently.
-         */
-        "inoHelperPersistent"?: boolean;
-        /**
-          * Styles the helper text as a validation message.
-         */
-        "inoHelperValidation"?: boolean;
-        /**
           * Defines the label for this element.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the datepicker as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
-         */
-        "inoRange"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
-        /**
-          * If true, displays time picker in 12 hour mode with AM/PM selection.
-         */
-        "inoTwelveHourTime"?: boolean;
-        /**
-          * Selects the correct picker corresponding to the given type.
-         */
-        "inoType"?: PickerTypeKeys;
+        "label"?: string;
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -304,9 +284,29 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Styles the datepicker as outlined element.
+         */
+        "outline"?: boolean;
+        /**
+          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
+         */
+        "range"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
+          * If true, displays time picker in 12 hour mode with AM/PM selection.
+         */
+        "twelveHourTime"?: boolean;
+        /**
+          * Selects the correct picker corresponding to the given type.
+         */
+        "type"?: PickerTypeKeys;
         /**
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
          */
@@ -316,17 +316,17 @@ export namespace Components {
         /**
           * Opens the dialog if set to true
          */
-        "inoOpen": boolean;
+        "open": boolean;
     }
     interface InoFab {
         /**
           * Disables the button.
          */
-        "inoDisabled": boolean;
+        "disabled": boolean;
         /**
           * The position of the edge.
          */
-        "inoEdgePosition": | 'top-right'
+        "edgePosition": | 'top-right'
     | 'top-left'
     | 'bottom-right'
     | 'bottom-left'
@@ -334,72 +334,72 @@ export namespace Components {
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
-        "inoExtended": boolean;
+        "extended": boolean;
         /**
           * Adds an icon to the Fab.
           * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Optional, modifies the FAB to a smaller size
          */
-        "inoMini": boolean;
+        "mini": boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
-        "inoTooltipPlacement": Placement | 'none';
+        "tooltipPlacement": Placement | 'none';
     }
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
          */
-        "inoDialDirection": Locations;
+        "dialDirection": Locations;
         /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
-        "inoLeftRightLocation": HorizontalLocation;
+        "leftRightLocation": HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
          */
-        "inoOpenDial": boolean;
+        "openDial": boolean;
         /**
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
-        "inoTopBottomLocation": VerticalLocation;
+        "topBottomLocation": VerticalLocation;
     }
     interface InoFormRow {
         /**
           * The label for this form row which describes the form element.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
          */
-        "inoMandatory"?: boolean;
+        "mandatory"?: boolean;
     }
     interface InoHeader {
         /**
           * The text of this header
          */
-        "inoTitle": string;
+        "text": string;
     }
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
          */
-        "inoClickable"?: boolean;
+        "clickable"?: boolean;
         /**
           * Colors the icon in the global secondary color
          */
-        "inoColorSecondary"?: boolean;
+        "colorSecondary"?: boolean;
         /**
           * The name of the icon of this element or an URL.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Specifies the exact `src` of an SVG file to use.
          */
@@ -411,29 +411,29 @@ export namespace Components {
     }
     interface InoIconButton {
         /**
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
+         */
+        "activated"?: boolean;
+        /**
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
+        /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
-         */
-        "inoActivated"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
           * Styles this element as filled icon button with the `ino-color-scheme` as background color.
          */
-        "inoFilled"?: boolean;
+        "filled"?: boolean;
         /**
           * The name of the icon of this element.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
@@ -449,33 +449,33 @@ export namespace Components {
          */
         "decoding"?: ImageDecodingTypes;
         /**
+          * Icon used for fallback image if image can not be loaded
+         */
+        "fallbackIcon": string;
+        /**
           * The fixed height of this image.
          */
         "height"?: number;
         /**
-          * Icon used for fallback image if image can not be loaded
-         */
-        "inoFallbackIcon": string;
-        /**
           * Indicates that the image is a part of an image list component
          */
-        "inoImgListItem": boolean;
+        "imgListItem": boolean;
         /**
           * Sets the label of the image. Note: Only works if image is part of an ino-img-list component.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
-        "inoRatioHeight"?: number;
+        "ratioHeight"?: number;
         /**
           * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
          */
-        "inoRatioWidth"?: number;
+        "ratioWidth"?: number;
         /**
           * If true, styles the image with rounded borders.
          */
-        "inoRounded"?: boolean;
+        "rounded"?: boolean;
         /**
           * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
          */
@@ -501,11 +501,11 @@ export namespace Components {
         /**
           * Encapsulates the label of all img-list-items within the image
          */
-        "inoEncloseLabel": boolean;
+        "encloseLabel": boolean;
         /**
           * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
          */
-        "inoMasonry": boolean;
+        "masonry": boolean;
     }
     interface InoInput {
         /**
@@ -517,61 +517,45 @@ export namespace Components {
          */
         "autocomplete"?: string;
         /**
+          * The id of the datalist child
+         */
+        "dataList"?: string;
+        /**
+          * The number of decimal places. Only works on 'text' type input.
+         */
+        "decimalPlaces"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend.
+         */
+        "error"?: boolean;
         /**
           * Returns the native input element used under the hood.
          */
         "getInputElement": () => Promise<HTMLInputElement>;
         /**
-          * The id of the datalist child
-         */
-        "inoDataList"?: string;
-        /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "inoDecimalPlaces"?: number;
-        /**
-          * Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend.
-         */
-        "inoError"?: boolean;
-        /**
           * The optional helper text.
          */
-        "inoHelper"?: string;
+        "helper"?: string;
         /**
           * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
          */
-        "inoHelperCharacterCounter"?: boolean;
+        "helperCharacterCounter"?: boolean;
         /**
           * Displays the helper permanently.
          */
-        "inoHelperPersistent"?: boolean;
+        "helperPersistent"?: boolean;
         /**
           * Styles the helper text as a validation message.
          */
-        "inoHelperValidation"?: boolean;
+        "helperValidation"?: boolean;
         /**
           * The optional floating label of this input field.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the input field as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
-        /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "inoThousandsSeparator"?: boolean;
-        /**
-          * Displays the given unit at the end of the input field.
-         */
-        "inoUnit": string;
+        "label"?: string;
         /**
           * The max value of this element.
          */
@@ -589,6 +573,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Styles the input field as outlined element.
+         */
+        "outline"?: boolean;
+        /**
           * The validation pattern of this element.
          */
         "pattern"?: string;
@@ -601,6 +589,10 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
           * The size of this element.
          */
         "size"?: number;
@@ -609,9 +601,17 @@ export namespace Components {
          */
         "step"?: number | 'any';
         /**
+          * Shows a dot as a thousands separator. Only works on 'text' type input.
+         */
+        "thousandsSeparator"?: boolean;
+        /**
           * The type of this element (default = text).
          */
         "type"?: string;
+        /**
+          * Displays the given unit at the end of the input field.
+         */
+        "unit": string;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -663,111 +663,111 @@ export namespace Components {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
          */
-        "inoDisabled": boolean;
+        "disabled": boolean;
         /**
           * Styles the label in an outlined style
          */
-        "inoOutline": boolean;
+        "outline": boolean;
         /**
           * Appends * to the label to make it appear as an required input in a form
          */
-        "inoRequired"?: boolean;
+        "required"?: boolean;
         /**
           * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
          */
-        "inoShowHint"?: boolean;
+        "showHint"?: boolean;
         /**
           * The text of the label itself
          */
-        "inoText": string;
+        "text": string;
     }
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
          */
-        "inoAvatar"?: boolean;
+        "avatar"?: boolean;
         /**
           * Styles the list more dense, making it appear more compact.
          */
-        "inoDense"?: boolean;
+        "dense"?: boolean;
         /**
           * Marks this element as list with items having two lines.
          */
-        "inoTwoLines"?: boolean;
+        "twoLines"?: boolean;
     }
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
          */
-        "inoBetweenLists"?: boolean;
+        "betweenLists"?: boolean;
         /**
           * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
          */
-        "inoInset"?: boolean;
+        "inset"?: boolean;
         /**
           * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
          */
-        "inoPadded"?: boolean;
+        "padded"?: boolean;
     }
     interface InoListItem {
         /**
           * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
          */
-        "inoActivated"?: boolean;
+        "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
-        "inoDisabled"?: boolean;
+        "disabled"?: boolean;
         /**
           * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
          */
-        "inoSecondaryText"?: string;
+        "secondaryText"?: string;
         /**
           * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
          */
-        "inoSelected"?: boolean;
+        "selected"?: boolean;
         /**
           * The primary text of this list item.
          */
-        "inoText"?: string;
+        "text"?: string;
     }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
-        "inoPlacement": Placement;
+        "placement": Placement;
     }
     interface InoNavDrawer {
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
-        "inoAnchor"?: NavDrawerAnchor;
+        "anchor"?: NavDrawerAnchor;
         /**
           * Marks this element as open. (**unmanaged**)
          */
-        "inoOpen"?: boolean;
+        "open"?: boolean;
         /**
           * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
          */
-        "inoVariant"?: NavDrawerVariant;
+        "variant"?: NavDrawerVariant;
     }
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
          */
-        "inoActivated"?: boolean;
+        "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
-        "inoDisabled"?: boolean;
+        "disabled"?: boolean;
         /**
           * The secondary text of this list item used in a two-lined list.
          */
-        "inoSubText"?: string;
+        "subText"?: string;
         /**
           * The text of this list item.
          */
-        "inoText"?: string;
+        "text"?: string;
     }
     interface InoOption {
         /**
@@ -787,67 +787,67 @@ export namespace Components {
         /**
           * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
-        "inoLabel"?: string;
+        "label"?: string;
     }
     interface InoPopover {
+        /**
+          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+         */
+        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        /**
+          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+         */
+        "controlled": boolean;
+        /**
+          * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
+         */
+        "distance"?: number;
+        /**
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
+         */
+        "for"?: string;
         /**
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
-         */
-        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
-        /**
-          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
-         */
-        "inoControlled": boolean;
-        /**
-          * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
-         */
-        "inoDistance"?: number;
-        /**
-          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
-         */
-        "inoFor"?: string;
-        /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
-        "inoInteractive"?: boolean;
+        "interactive"?: boolean;
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
-        "inoPlacement": Placement;
+        "placement": Placement;
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "inoTrigger": Exclude<TooltipTrigger, 'manual'>;
+        "trigger": Exclude<TooltipTrigger, 'manual'>;
         /**
           * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
          */
-        "inoVisible"?: boolean;
+        "visible"?: boolean;
     }
     interface InoProgressBar {
         /**
           * Sets the buffer progress
          */
-        "inoBuffer"?: number;
+        "buffer"?: number;
         /**
           * Indicates whether the state of the progress bar is indeterminate
          */
-        "inoIndeterminate"?: boolean;
+        "indeterminate"?: boolean;
         /**
           * Sets the label of the progress bar
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Sets the progress of the progress bar Should always be between 0 and 1
          */
-        "inoProgress"?: number;
+        "progress"?: number;
         /**
           * Reverses the progress bar
          */
-        "inoReversed"?: boolean;
+        "reversed"?: boolean;
     }
     interface InoRadio {
         /**
@@ -875,21 +875,21 @@ export namespace Components {
     }
     interface InoRange {
         /**
+          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme": ColorScheme;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme": ColorScheme;
-        /**
           * Restricts the slider to only allow discrete values.
          */
-        "inoDiscrete"?: boolean;
+        "discrete"?: boolean;
         /**
           * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
          */
-        "inoMarkers"?: boolean;
+        "markers"?: boolean;
         /**
           * The max value of this element (**required**).
          */
@@ -917,13 +917,13 @@ export namespace Components {
          */
         "checked": boolean;
         /**
+          * Slightly decreases the size of the button
+         */
+        "dense": boolean;
+        /**
           * Disables the button
          */
         "disabled": boolean;
-        /**
-          * Slightly decreases the size of the button
-         */
-        "inoDense": boolean;
         /**
           * Name of the element
          */
@@ -951,23 +951,23 @@ export namespace Components {
         /**
           * The label of this element
          */
-        "inoLabel"?: string;
-        /**
-          * Styles this select box as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
+        "label"?: string;
         /**
           * The name of this element.
          */
         "name"?: string;
         /**
+          * Styles this select box as outlined element.
+         */
+        "outline"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -977,59 +977,59 @@ export namespace Components {
         /**
           * Aligns the sidebar to the right (true) or left (false) side
          */
-        "inoAlignRight": boolean;
-        /**
-          * Expands the sidebar
-         */
-        "inoOpen": boolean;
+        "alignRight": boolean;
         /**
           * Name of the component
          */
         "name"?: string;
+        /**
+          * Expands the sidebar
+         */
+        "open": boolean;
     }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
-        "inoActionText"?: string;
+        "actionText"?: string;
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment": 'left' | 'right' | 'center';
+        "alignment": 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
-        "inoMessage"?: string;
+        "message"?: string;
         /**
           * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
-        "inoTimeout"?: number;
+        "timeout"?: number;
         /**
           * Changes the snackbar type
          */
-        "inoType": SnackbarType;
+        "type": SnackbarType;
     }
     interface InoSpinner {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme": ColorScheme;
+        "colorScheme": ColorScheme;
         /**
           * The height of this spinner (default = 40)
          */
-        "inoHeight": number;
+        "height": number;
         /**
           * If true, the spinner is shown as modal over the current app page.
          */
-        "inoModal": boolean;
+        "modal": boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
          */
-        "inoType": SpinnerType;
+        "type": SpinnerType;
         /**
           * The width of this spinner (defaul = 40)
          */
-        "inoWidth": number;
+        "width": number;
     }
     interface InoSwitch {
         /**
@@ -1037,13 +1037,13 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme": ColorScheme;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme": ColorScheme;
         /**
           * The name of this element.
          */
@@ -1053,25 +1053,25 @@ export namespace Components {
         /**
           * Indicates a leading icon in the tab.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Indicates that the tab only expands to the width of its content.
          */
-        "inoIndicatorContentWidth": boolean;
+        "indicatorContentWidth": boolean;
         /**
           * Indicates a label text in the tab.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */
-        "inoStacked": boolean;
+        "stacked": boolean;
     }
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
          */
-        "inoActiveTab"?: number;
+        "activeTab"?: number;
     }
     interface InoTable {
     }
@@ -1079,17 +1079,17 @@ export namespace Components {
         /**
           * Indicates that the cell contains numeric values
          */
-        "inoNumeric": boolean;
+        "numeric": boolean;
     }
     interface InoTableRow {
         /**
           * Indicates that the row is a header row
          */
-        "inoHeaderRow": boolean;
+        "headerRow": boolean;
         /**
           * Indicates whether the row is selected or not
          */
-        "inoSelected": boolean;
+        "selected": boolean;
     }
     interface InoTextarea {
         /**
@@ -1111,15 +1111,7 @@ export namespace Components {
         /**
           * The optional floating label of this input field.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the input field as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
+        "label"?: string;
         /**
           * The max length of this element.
          */
@@ -1132,6 +1124,10 @@ export namespace Components {
           * The name of this element.
          */
         "name"?: string;
+        /**
+          * Styles the input field as outlined element.
+         */
+        "outline"?: boolean;
         /**
           * The placeholder of this element.
          */
@@ -1149,35 +1145,39 @@ export namespace Components {
          */
         "showCharacterCounter"?: boolean;
         /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
           * The value of this element. (**unmanaged**)
          */
         "value"?: string;
     }
     interface InoTooltip {
         /**
+          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+         */
+        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        /**
+          * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
+         */
+        "for"?: string;
+        /**
           * Returns the internally used tippy.js instance For more informations see: https://atomiks.github.io/tippyjs/
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
-         */
-        "inoColorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
-        /**
-          * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
-         */
-        "inoFor"?: string;
-        /**
           * The text shown in the tooltip.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
-        "inoPlacement": Placement;
+        "placement": Placement;
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
          */
-        "inoTrigger": TooltipTrigger;
+        "trigger": TooltipTrigger;
     }
 }
 declare global {
@@ -1527,33 +1527,33 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
+         */
+        "colorScheme"?: ButtonColorScheme;
+        /**
+          * Makes the button text and container slightly smaller.
+         */
+        "dense"?: boolean;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Styles the button to have the edge on the top-right instead of the top-left
+         */
+        "edgeMirrored"?: boolean;
+        /**
+          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
+         */
+        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
         "form"?: string;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "inoColorScheme"?: ButtonColorScheme;
-        /**
-          * Makes the button text and container slightly smaller.
-         */
-        "inoDense"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "inoEdgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "inoFill"?: SurfaceType;
-        /**
           * Shows an infinite loading spinner and prevents further clicks.
          */
-        "inoLoading"?: boolean;
+        "loading"?: boolean;
         /**
           * The name of the element.
          */
@@ -1567,37 +1567,37 @@ declare namespace LocalJSX {
         /**
           * Disables the hover effect if true
          */
-        "inoDisableElevation"?: boolean;
+        "disableElevation"?: boolean;
         /**
           * Selects the card and displays a check mark icon on top of the card
          */
-        "inoSelected"?: boolean;
+        "selected"?: boolean;
     }
     interface InoCarousel {
         /**
           * Enables the slide animation
          */
-        "inoAnimated"?: boolean;
+        "animated"?: boolean;
         /**
           * Enables autoplay which causes slides to be changed automatically
          */
-        "inoAutoplay"?: boolean;
+        "autoplay"?: boolean;
         /**
           * Hides the arrow buttons
          */
-        "inoHideButtons"?: boolean;
+        "hideButtons"?: boolean;
         /**
           * Restarts playback from the first slide upon reaching the last slide
          */
-        "inoInfinite"?: boolean;
+        "infinite"?: boolean;
         /**
           * Sets the intermission between two slides (Unit: ms)
          */
-        "inoIntermission"?: number;
+        "intermission"?: number;
         /**
           * Enables reverse playback of the slides
          */
-        "inoReverse"?: boolean;
+        "reverse"?: boolean;
         /**
           * Optional group value to manually manage the displayed slide
          */
@@ -1627,10 +1627,6 @@ declare namespace LocalJSX {
          */
         "indeterminate"?: boolean;
         /**
-          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
-         */
-        "inoSelection"?: boolean;
-        /**
           * The name of this element.
          */
         "name"?: string;
@@ -1638,6 +1634,10 @@ declare namespace LocalJSX {
           * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
          */
         "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
+         */
+        "selection"?: boolean;
         /**
           * The value of this element.
          */
@@ -1647,50 +1647,50 @@ declare namespace LocalJSX {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme | 'default';
+        "colorScheme"?: ColorScheme | 'default';
         /**
           * The fill type of this element. Possible values: `solid` (default) or `outline`.
          */
-        "inoFill"?: ChipSurface;
+        "fill"?: ChipSurface;
         /**
           * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * The label of this chip (**required**).
          */
-        "inoLabel"?: string;
-        /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
-         */
-        "inoRemovable"?: boolean;
-        /**
-          * Adds a checkmark if the icon is selected.
-         */
-        "inoSelectable"?: boolean;
-        /**
-          * Marks this element as selected.
-         */
-        "inoSelected"?: boolean;
-        /**
-          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
-         */
-        "inoValue"?: string;
+        "label"?: string;
         /**
           * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
          */
         "onRemoveChip"?: (event: CustomEvent<any>) => void;
+        /**
+          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+         */
+        "removable"?: boolean;
+        /**
+          * Adds a checkmark if the icon is selected.
+         */
+        "selectable"?: boolean;
+        /**
+          * Marks this element as selected.
+         */
+        "selected"?: boolean;
+        /**
+          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+         */
+        "value"?: string;
     }
     interface InoChipSet {
-        /**
-          * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
-         */
-        "inoType"?: ChipSetType;
         /**
           * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
          */
         "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
+        /**
+          * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
+         */
+        "type"?: ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -1756,65 +1756,45 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
+          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
+         */
+        "dateFormat"?: string;
+        /**
+          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
+         */
+        "defaultDate"?: string | string[];
+        /**
+          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+         */
+        "defaultHour"?: number;
+        /**
+          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+         */
+        "defaultMinute"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * The helper text.
+         */
+        "helper"?: string;
+        /**
+          * Displays the helper permanently.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperValidation"?: boolean;
         /**
           * Adjusts the step for the hour input (incl. scrolling) Default is 1
          */
         "hourStep"?: number;
         /**
-          * A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`.
-         */
-        "inoDateFormat"?: string;
-        /**
-          * A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultDate"?: string | string[];
-        /**
-          * A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultHour"?: number;
-        /**
-          * A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
-         */
-        "inoDefaultMinute"?: number;
-        /**
-          * The helper text.
-         */
-        "inoHelper"?: string;
-        /**
-          * Displays the helper permanently.
-         */
-        "inoHelperPersistent"?: boolean;
-        /**
-          * Styles the helper text as a validation message.
-         */
-        "inoHelperValidation"?: boolean;
-        /**
           * Defines the label for this element.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the datepicker as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
-         */
-        "inoRange"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
-        /**
-          * If true, displays time picker in 12 hour mode with AM/PM selection.
-         */
-        "inoTwelveHourTime"?: boolean;
-        /**
-          * Selects the correct picker corresponding to the given type.
-         */
-        "inoType"?: PickerTypeKeys;
+        "label"?: string;
         /**
           * The maximum date that a user can pick to (inclusive).
          */
@@ -1836,9 +1816,29 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Styles the datepicker as outlined element.
+         */
+        "outline"?: boolean;
+        /**
+          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
+         */
+        "range"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
+          * If true, displays time picker in 12 hour mode with AM/PM selection.
+         */
+        "twelveHourTime"?: boolean;
+        /**
+          * Selects the correct picker corresponding to the given type.
+         */
+        "type"?: PickerTypeKeys;
         /**
           * The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
          */
@@ -1846,23 +1846,23 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
-          * Opens the dialog if set to true
-         */
-        "inoOpen"?: boolean;
-        /**
           * Emits an event upon opening or closing the dialog
          */
         "onOpenChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Opens the dialog if set to true
+         */
+        "open"?: boolean;
     }
     interface InoFab {
         /**
           * Disables the button.
          */
-        "inoDisabled"?: boolean;
+        "disabled"?: boolean;
         /**
           * The position of the edge.
          */
-        "inoEdgePosition"?: | 'top-right'
+        "edgePosition"?: | 'top-right'
     | 'top-left'
     | 'bottom-right'
     | 'bottom-left'
@@ -1870,72 +1870,72 @@ declare namespace LocalJSX {
         /**
           * Optional, modifies the FAB to wider size which includes a text label.
          */
-        "inoExtended"?: boolean;
+        "extended"?: boolean;
         /**
           * Adds an icon to the Fab.
           * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Optional, for the text label. Applicable only for Extended FAB.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Optional, modifies the FAB to a smaller size
          */
-        "inoMini"?: boolean;
+        "mini"?: boolean;
         /**
           * The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.
          */
-        "inoTooltipPlacement"?: Placement | 'none';
+        "tooltipPlacement"?: Placement | 'none';
     }
     interface InoFabSet {
         /**
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
          */
-        "inoDialDirection"?: Locations;
+        "dialDirection"?: Locations;
         /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
-        "inoLeftRightLocation"?: HorizontalLocation;
+        "leftRightLocation"?: HorizontalLocation;
         /**
           * Opens the dial (**uncontrolled**)
          */
-        "inoOpenDial"?: boolean;
+        "openDial"?: boolean;
         /**
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
-        "inoTopBottomLocation"?: VerticalLocation;
+        "topBottomLocation"?: VerticalLocation;
     }
     interface InoFormRow {
         /**
           * The label for this form row which describes the form element.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
          */
-        "inoMandatory"?: boolean;
+        "mandatory"?: boolean;
     }
     interface InoHeader {
         /**
           * The text of this header
          */
-        "inoTitle": string;
+        "text": string;
     }
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
          */
-        "inoClickable"?: boolean;
+        "clickable"?: boolean;
         /**
           * Colors the icon in the global secondary color
          */
-        "inoColorSecondary"?: boolean;
+        "colorSecondary"?: boolean;
         /**
           * The name of the icon of this element or an URL.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
          */
@@ -1951,29 +1951,29 @@ declare namespace LocalJSX {
     }
     interface InoIconButton {
         /**
+          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
+         */
+        "activated"?: boolean;
+        /**
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
+        /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.
-         */
-        "inoActivated"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
           * Styles this element as filled icon button with the `ino-color-scheme` as background color.
          */
-        "inoFilled"?: boolean;
+        "filled"?: boolean;
         /**
           * The name of the icon of this element.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true.
          */
@@ -1993,33 +1993,33 @@ declare namespace LocalJSX {
          */
         "decoding"?: ImageDecodingTypes;
         /**
+          * Icon used for fallback image if image can not be loaded
+         */
+        "fallbackIcon"?: string;
+        /**
           * The fixed height of this image.
          */
         "height"?: number;
         /**
-          * Icon used for fallback image if image can not be loaded
-         */
-        "inoFallbackIcon"?: string;
-        /**
           * Indicates that the image is a part of an image list component
          */
-        "inoImgListItem"?: boolean;
+        "imgListItem"?: boolean;
         /**
           * Sets the label of the image. Note: Only works if image is part of an ino-img-list component.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
-        "inoRatioHeight"?: number;
+        "ratioHeight"?: number;
         /**
           * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
          */
-        "inoRatioWidth"?: number;
+        "ratioWidth"?: number;
         /**
           * If true, styles the image with rounded borders.
          */
-        "inoRounded"?: boolean;
+        "rounded"?: boolean;
         /**
           * A set of rules to specify the usage of images sources that are defined in the `srcset` attribute.
          */
@@ -2045,11 +2045,11 @@ declare namespace LocalJSX {
         /**
           * Encapsulates the label of all img-list-items within the image
          */
-        "inoEncloseLabel"?: boolean;
+        "encloseLabel"?: boolean;
         /**
           * Enables the masonry image list variant, which allows the images to be any combination of aspect ratios.
          */
-        "inoMasonry"?: boolean;
+        "masonry"?: boolean;
     }
     interface InoInput {
         /**
@@ -2061,57 +2061,41 @@ declare namespace LocalJSX {
          */
         "autocomplete"?: string;
         /**
+          * The id of the datalist child
+         */
+        "dataList"?: string;
+        /**
+          * The number of decimal places. Only works on 'text' type input.
+         */
+        "decimalPlaces"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * The id of the datalist child
-         */
-        "inoDataList"?: string;
-        /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "inoDecimalPlaces"?: number;
-        /**
           * Displays the input field as invalid if set to true. If the property is not set or set to false, the validation is handled by the `pattern` property. This functionality might be useful if the input validation is (additionally) handled by the backend.
          */
-        "inoError"?: boolean;
+        "error"?: boolean;
         /**
           * The optional helper text.
          */
-        "inoHelper"?: string;
+        "helper"?: string;
         /**
           * Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
          */
-        "inoHelperCharacterCounter"?: boolean;
+        "helperCharacterCounter"?: boolean;
         /**
           * Displays the helper permanently.
          */
-        "inoHelperPersistent"?: boolean;
+        "helperPersistent"?: boolean;
         /**
           * Styles the helper text as a validation message.
          */
-        "inoHelperValidation"?: boolean;
+        "helperValidation"?: boolean;
         /**
           * The optional floating label of this input field.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the input field as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
-        /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "inoThousandsSeparator"?: boolean;
-        /**
-          * Displays the given unit at the end of the input field.
-         */
-        "inoUnit"?: string;
+        "label"?: string;
         /**
           * The max value of this element.
          */
@@ -2141,6 +2125,10 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Styles the input field as outlined element.
+         */
+        "outline"?: boolean;
+        /**
           * The validation pattern of this element.
          */
         "pattern"?: string;
@@ -2153,6 +2141,10 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
           * The size of this element.
          */
         "size"?: number;
@@ -2161,9 +2153,17 @@ declare namespace LocalJSX {
          */
         "step"?: number | 'any';
         /**
+          * Shows a dot as a thousands separator. Only works on 'text' type input.
+         */
+        "thousandsSeparator"?: boolean;
+        /**
           * The type of this element (default = text).
          */
         "type"?: string;
+        /**
+          * Displays the given unit at the end of the input field.
+         */
+        "unit"?: string;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -2222,119 +2222,119 @@ declare namespace LocalJSX {
         /**
           * Colors the label in an light grey to indicate the disabled status for this element
          */
-        "inoDisabled"?: boolean;
+        "disabled"?: boolean;
         /**
           * Styles the label in an outlined style
          */
-        "inoOutline"?: boolean;
+        "outline"?: boolean;
         /**
           * Appends * to the label to make it appear as an required input in a form
          */
-        "inoRequired"?: boolean;
+        "required"?: boolean;
         /**
           * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
          */
-        "inoShowHint"?: boolean;
+        "showHint"?: boolean;
         /**
           * The text of the label itself
          */
-        "inoText"?: string;
+        "text"?: string;
     }
     interface InoList {
         /**
           * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
          */
-        "inoAvatar"?: boolean;
+        "avatar"?: boolean;
         /**
           * Styles the list more dense, making it appear more compact.
          */
-        "inoDense"?: boolean;
+        "dense"?: boolean;
         /**
           * Marks this element as list with items having two lines.
          */
-        "inoTwoLines"?: boolean;
+        "twoLines"?: boolean;
     }
     interface InoListDivider {
         /**
           * Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.
          */
-        "inoBetweenLists"?: boolean;
+        "betweenLists"?: boolean;
         /**
           * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
          */
-        "inoInset"?: boolean;
+        "inset"?: boolean;
         /**
           * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
          */
-        "inoPadded"?: boolean;
+        "padded"?: boolean;
     }
     interface InoListItem {
         /**
           * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
          */
-        "inoActivated"?: boolean;
+        "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
-        "inoDisabled"?: boolean;
-        /**
-          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
-         */
-        "inoSecondaryText"?: string;
-        /**
-          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
-         */
-        "inoSelected"?: boolean;
-        /**
-          * The primary text of this list item.
-         */
-        "inoText"?: string;
+        "disabled"?: boolean;
         /**
           * Emits when the list item is clicked. Contains the element itself in `event.detail`
          */
         "onClickEl"?: (event: CustomEvent<any>) => void;
+        /**
+          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+         */
+        "secondaryText"?: string;
+        /**
+          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+         */
+        "selected"?: boolean;
+        /**
+          * The primary text of this list item.
+         */
+        "text"?: string;
     }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
          */
-        "inoPlacement"?: Placement;
+        "placement"?: Placement;
     }
     interface InoNavDrawer {
         /**
           * Side from which the drawer will appear. Possible values: `left` (default), `right`.
          */
-        "inoAnchor"?: NavDrawerAnchor;
-        /**
-          * Marks this element as open. (**unmanaged**)
-         */
-        "inoOpen"?: boolean;
-        /**
-          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
-         */
-        "inoVariant"?: NavDrawerVariant;
+        "anchor"?: NavDrawerAnchor;
         /**
           * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
          */
         "onOpenChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Marks this element as open. (**unmanaged**)
+         */
+        "open"?: boolean;
+        /**
+          * The variant to use for the drawer Possible values: `docked` (default), `dismissible`, `modal`.
+         */
+        "variant"?: NavDrawerVariant;
     }
     interface InoNavItem {
         /**
           * Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated.
          */
-        "inoActivated"?: boolean;
+        "activated"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
-        "inoDisabled"?: boolean;
+        "disabled"?: boolean;
         /**
           * The secondary text of this list item used in a two-lined list.
          */
-        "inoSubText"?: string;
+        "subText"?: string;
         /**
           * The text of this list item.
          */
-        "inoText"?: string;
+        "text"?: string;
     }
     interface InoOption {
         /**
@@ -2354,67 +2354,67 @@ declare namespace LocalJSX {
         /**
           * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
          */
-        "inoLabel"?: string;
+        "label"?: string;
     }
     interface InoPopover {
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
          */
-        "inoControlled"?: boolean;
+        "controlled"?: boolean;
         /**
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
-        "inoDistance"?: number;
+        "distance"?: number;
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
          */
-        "inoFor"?: string;
+        "for"?: string;
         /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
-        "inoInteractive"?: boolean;
-        /**
-          * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
-         */
-        "inoPlacement"?: Placement;
-        /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
-         */
-        "inoTrigger"?: Exclude<TooltipTrigger, 'manual'>;
-        /**
-          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
-         */
-        "inoVisible"?: boolean;
+        "interactive"?: boolean;
         /**
           * Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `ino-trigger` property. Use this event in controlled-mode (see `ino-controlled`).  e.g.: `ino-trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`ino-for`/parent-element) and emits with `false` when the target or the outside is clicked.
          */
-        "onInoVisibleChanged"?: (event: CustomEvent<boolean>) => void;
+        "onVisibleChanged"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
+         */
+        "placement"?: Placement;
+        /**
+          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
+         */
+        "trigger"?: Exclude<TooltipTrigger, 'manual'>;
+        /**
+          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+         */
+        "visible"?: boolean;
     }
     interface InoProgressBar {
         /**
           * Sets the buffer progress
          */
-        "inoBuffer"?: number;
+        "buffer"?: number;
         /**
           * Indicates whether the state of the progress bar is indeterminate
          */
-        "inoIndeterminate"?: boolean;
+        "indeterminate"?: boolean;
         /**
           * Sets the label of the progress bar
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Sets the progress of the progress bar Should always be between 0 and 1
          */
-        "inoProgress"?: number;
+        "progress"?: number;
         /**
           * Reverses the progress bar
          */
-        "inoReversed"?: boolean;
+        "reversed"?: boolean;
     }
     interface InoRadio {
         /**
@@ -2446,21 +2446,21 @@ declare namespace LocalJSX {
     }
     interface InoRange {
         /**
+          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
-        /**
           * Restricts the slider to only allow discrete values.
          */
-        "inoDiscrete"?: boolean;
+        "discrete"?: boolean;
         /**
           * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
          */
-        "inoMarkers"?: boolean;
+        "markers"?: boolean;
         /**
           * The max value of this element (**required**).
          */
@@ -2492,13 +2492,13 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
+          * Slightly decreases the size of the button
+         */
+        "dense"?: boolean;
+        /**
           * Disables the button
          */
         "disabled"?: boolean;
-        /**
-          * Slightly decreases the size of the button
-         */
-        "inoDense"?: boolean;
         /**
           * Name of the element
          */
@@ -2530,15 +2530,7 @@ declare namespace LocalJSX {
         /**
           * The label of this element
          */
-        "inoLabel"?: string;
-        /**
-          * Styles this select box as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
+        "label"?: string;
         /**
           * The name of this element.
          */
@@ -2548,9 +2540,17 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Styles this select box as outlined element.
+         */
+        "outline"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -2560,11 +2560,7 @@ declare namespace LocalJSX {
         /**
           * Aligns the sidebar to the right (true) or left (false) side
          */
-        "inoAlignRight"?: boolean;
-        /**
-          * Expands the sidebar
-         */
-        "inoOpen"?: boolean;
+        "alignRight"?: boolean;
         /**
           * Name of the component
          */
@@ -2573,58 +2569,62 @@ declare namespace LocalJSX {
           * Emits an event if the user expands or collapses the sidebar
          */
         "onOpenChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Expands the sidebar
+         */
+        "open"?: boolean;
     }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
-        "inoActionText"?: string;
+        "actionText"?: string;
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "inoAlignment"?: 'left' | 'right' | 'center';
+        "alignment"?: 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
-        "inoMessage"?: string;
+        "message"?: string;
         /**
-          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
+          * Event that emits as soon as the action button is clicked.
          */
-        "inoTimeout"?: number;
-        /**
-          * Changes the snackbar type
-         */
-        "inoType"?: SnackbarType;
+        "onActionClick"?: (event: CustomEvent<any>) => void;
         /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
         "onHideEl"?: (event: CustomEvent<any>) => void;
         /**
-          * Event that emits as soon as the action button is clicked.
+          * Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.
          */
-        "onInoActionClick"?: (event: CustomEvent<any>) => void;
+        "timeout"?: number;
+        /**
+          * Changes the snackbar type
+         */
+        "type"?: SnackbarType;
     }
     interface InoSpinner {
         /**
           * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "inoColorScheme"?: ColorScheme;
+        "colorScheme"?: ColorScheme;
         /**
           * The height of this spinner (default = 40)
          */
-        "inoHeight"?: number;
+        "height"?: number;
         /**
           * If true, the spinner is shown as modal over the current app page.
          */
-        "inoModal"?: boolean;
+        "modal"?: boolean;
         /**
           * The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`
          */
-        "inoType"?: SpinnerType;
+        "type"?: SpinnerType;
         /**
           * The width of this spinner (defaul = 40)
          */
-        "inoWidth"?: number;
+        "width"?: number;
     }
     interface InoSwitch {
         /**
@@ -2632,13 +2632,13 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "inoColorScheme"?: ColorScheme;
         /**
           * The name of this element.
          */
@@ -2652,29 +2652,29 @@ declare namespace LocalJSX {
         /**
           * Indicates a leading icon in the tab.
          */
-        "inoIcon"?: string;
+        "icon"?: string;
         /**
           * Indicates that the tab only expands to the width of its content.
          */
-        "inoIndicatorContentWidth"?: boolean;
+        "indicatorContentWidth"?: boolean;
         /**
           * Indicates a label text in the tab.
          */
-        "inoLabel"?: string;
-        /**
-          * Indicates that the tab icon and label should flow vertically instead of horizontally.
-         */
-        "inoStacked"?: boolean;
+        "label"?: string;
         /**
           * Emitted when the user interacts with the tab. This event is used by the ino-tab-bar.
          */
-        "onInoInteracted"?: (event: CustomEvent<any>) => void;
+        "onInteracted"?: (event: CustomEvent<any>) => void;
+        /**
+          * Indicates that the tab icon and label should flow vertically instead of horizontally.
+         */
+        "stacked"?: boolean;
     }
     interface InoTabBar {
         /**
           * Activates the tab at the given index (**unmanaged**).
          */
-        "inoActiveTab"?: number;
+        "activeTab"?: number;
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
@@ -2686,17 +2686,17 @@ declare namespace LocalJSX {
         /**
           * Indicates that the cell contains numeric values
          */
-        "inoNumeric"?: boolean;
+        "numeric"?: boolean;
     }
     interface InoTableRow {
         /**
           * Indicates that the row is a header row
          */
-        "inoHeaderRow"?: boolean;
+        "headerRow"?: boolean;
         /**
           * Indicates whether the row is selected or not
          */
-        "inoSelected"?: boolean;
+        "selected"?: boolean;
     }
     interface InoTextarea {
         /**
@@ -2718,15 +2718,7 @@ declare namespace LocalJSX {
         /**
           * The optional floating label of this input field.
          */
-        "inoLabel"?: string;
-        /**
-          * Styles the input field as outlined element.
-         */
-        "inoOutline"?: boolean;
-        /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
-         */
-        "inoShowLabelHint"?: boolean;
+        "label"?: string;
         /**
           * The max length of this element.
          */
@@ -2748,6 +2740,10 @@ declare namespace LocalJSX {
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Styles the input field as outlined element.
+         */
+        "outline"?: boolean;
+        /**
           * The placeholder of this element.
          */
         "placeholder"?: string;
@@ -2764,6 +2760,10 @@ declare namespace LocalJSX {
          */
         "showCharacterCounter"?: boolean;
         /**
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+         */
+        "showLabelHint"?: boolean;
+        /**
           * The value of this element. (**unmanaged**)
          */
         "value"?: string;
@@ -2772,23 +2772,23 @@ declare namespace LocalJSX {
         /**
           * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
          */
-        "inoColorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
-        "inoFor"?: string;
+        "for"?: string;
         /**
           * The text shown in the tooltip.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * The placement of the tooltip. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
-        "inoPlacement"?: Placement;
+        "placement"?: Placement;
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
          */
-        "inoTrigger"?: TooltipTrigger;
+        "trigger"?: TooltipTrigger;
     }
     interface IntrinsicElements {
         "ino-button": InoButton;

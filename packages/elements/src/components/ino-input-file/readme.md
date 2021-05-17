@@ -23,7 +23,7 @@ document
   name="<string>"
   required
 
-  ino-label="<string>"
+  label="<string>"
 >
 </ino-input>
 ```
