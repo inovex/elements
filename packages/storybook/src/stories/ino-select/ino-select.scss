@@ -1,12 +1,9 @@
 .story-select {
-  h4 {
-    margin: 36px 0 12px;
-  }
+
+  // Ensure that the select can collapse within the story borders.
+  min-height: 200px;
+  
   ino-select {
     margin-bottom: 12px;
-  }
-
-  .customizable-select {
-    margin-bottom: 48px;
   }
 }

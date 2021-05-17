@@ -1,51 +1,57 @@
+import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { useEffect } from '@storybook/client-api';
 import { defaultDecorator } from '../utils';
 import './ino-radio.scss';
+import { Story } from '@storybook/web-components';
 
 export default {
-  title: 'Components (WIP)/ino-radio',
+  title: 'Input/ino-radio',
   component: 'ino-radio',
   parameters: {
     actions: {
       handles: ['checkedChange ino-radio']
     }
   },
-  decorators: [defaultDecorator, story => {
-    useEffect(() => {
-      const eventHandler = e => e.target.setAttribute('checked', e.detail);
-      const radios = document.querySelectorAll('ino-radio');
-      radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
-      return () => radios.forEach(r => r.removeEventListener('checkedChange', eventHandler));
-    });
-    return story();
-  }],
+  decorators: [
+    story => defaultDecorator(story, 'story-radio'), 
+    story => {
+      useEffect(() => {
+        const eventHandler = e => e.target.setAttribute('checked', e.detail);
+        const radios = document.querySelectorAll('ino-radio');
+        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
+        return () => radios.forEach(r => r.removeEventListener('checkedChange', eventHandler));
+      });
+      return story();
+    }
+  ],
 };
 
-export const Playground = (args) => html`
+export const Playground: Story<Components.InoRadio> = args => html`
   <ino-radio
-    class="customizable-radio"
     checked="${args.checked}"
     disabled="${args.disabled}"
-    name="radio-custom"
+    name="${args.name}"
+    value="${args.value}"
   >
-    Customizable Radio Button
+    Radio Button Label
   </ino-radio>
 `;
 Playground.args = {
   checked: false,
   disabled: false,
-}
+  name: 'radio-custom',
+  value: 'radio-1'
+};
 
 export const States = () => html`
-  <div class="story-radio">
-    <ino-radio>Unchecked</ino-radio>
-    <ino-radio checked>Checked</ino-radio>
-    <ino-radio disabled>Disabled</ino-radio>
-    <ino-radio checked disabled>Checked and Disabled</ino-radio>
-  </div>
+  <ino-radio>Unchecked</ino-radio>
+  <ino-radio checked>Checked</ino-radio>
+  <ino-radio disabled>Disabled</ino-radio>
+  <ino-radio checked disabled>Checked and Disabled</ino-radio>
 `;
 
+// TODO: CSS Variables
 //   <style>
 //     ino-radio.customizable-radio {
 //       --ino-radio-unchecked-color: ${text('--ino-radio-unchecked-color', '#D4DDEA', 'Custom Properties')};
