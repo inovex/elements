@@ -88,7 +88,7 @@ export class Button implements ComponentInterface {
   private buttonSizeBeforeLoad: string;
 
   @Watch('loading')
-  inoLoadingChanged(isLoading: boolean) {
+  loadingChanged(isLoading: boolean) {
     if (isLoading) {
       const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
       const labelStyles = window.getComputedStyle(mdcLabel);
@@ -162,12 +162,7 @@ export class Button implements ComponentInterface {
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     return (
-      <Host
-        class={hostClasses}
-        onClick={this.handleClick}
-        ino-fill={this.fill}
-        ino-color-scheme={this.colorScheme}
-      >
+      <Host class={hostClasses} onClick={this.handleClick}>
         <button
           class={mdcClasses}
           autoFocus={this.autoFocus}
@@ -183,11 +178,7 @@ export class Button implements ComponentInterface {
           )}
           <div class="mdc-button__label">
             {this.loading ? (
-              <ino-spinner
-                ino-height={20}
-                ino-width={20}
-                ino-type="circle"
-              ></ino-spinner>
+              <ino-spinner height={20} width={20} type="circle" />
             ) : (
               <slot></slot>
             )}

@@ -120,7 +120,7 @@ export class InoChip {
   /** Event that emits as soon as the user removes this chip.
 
 Listen to this event to hide or destroy this chip.
-The event only emits if the property `inoRemovable` is true. */
+The event only emits if the property `removable` is true. */
   removeChip!: IChip['removeChip'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -158,13 +158,13 @@ Only applicable if `inoType` is `choice` or `filter`. */
 import { InoControlItem as IInoControlItem } from '@inovex.de/elements/dist/types/components/ino-control-item/ino-control-item';
 export declare interface InoControlItem extends Components.InoControlItem {}
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'indeterminate', 'inoActivated', 'inoDisabled', 'inoId', 'inoRole', 'inoSecondaryText', 'inoSelected', 'inoText', 'inoTrailing', 'name', 'value']
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value']
 })
 @Component({
   selector: 'ino-control-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'indeterminate', 'inoActivated', 'inoDisabled', 'inoId', 'inoRole', 'inoSecondaryText', 'inoSelected', 'inoText', 'inoTrailing', 'name', 'value'],
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value'],
   outputs: ['checkedChange']
 })
 export class InoControlItem {
@@ -419,13 +419,13 @@ Contains typed input in `event.detail` */
 import { InputFile as IInputFile } from '@inovex.de/elements/dist/types/components/ino-input-file/ino-input-file';
 export declare interface InoInputFile extends Components.InoInputFile {}
 @ProxyCmp({
-  inputs: ['accept', 'autoFocus', 'disabled', 'inoDragAndDrop', 'inoDragAndDropSecondaryText', 'inoDragAndDropText', 'inoLabel', 'multiple', 'name', 'required']
+  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required']
 })
 @Component({
   selector: 'ino-input-file',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['accept', 'autoFocus', 'disabled', 'inoDragAndDrop', 'inoDragAndDropSecondaryText', 'inoDragAndDropText', 'inoLabel', 'multiple', 'name', 'required'],
+  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required'],
   outputs: ['changeFile']
 })
 export class InoInputFile {
@@ -634,11 +634,11 @@ export declare interface InoPopover extends Components.InoPopover {}
 })
 export class InoPopover {
   /** Emits when the popover wants to show (`true`) or hide (`false`) itself.
-This is depended on the `ino-trigger` property.
-Use this event in controlled-mode (see `ino-controlled`).
+This is depended on the `trigger` property.
+Use this event in controlled-mode (see `controlled`).
 
-e.g.: `ino-trigger = 'click'` - This events emits with `true`
-when the user clicks on the target (slot/`ino-for`/parent-element)
+e.g.: `trigger = 'click'` - This events emits with `true`
+when the user clicks on the target (slot/`for`/parent-element)
 and emits with `false` when the target or the outside is clicked. */
   visibleChanged!: IPopover['visibleChanged'];
   protected el: HTMLElement;

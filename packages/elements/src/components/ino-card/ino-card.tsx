@@ -53,7 +53,7 @@ export class Card implements ComponentInterface {
           <div class="ino-card__checkmark-container">
             {this.selected && (
               <div class="ino-card__checkmark">
-                <ino-icon ino-icon="checkmark"></ino-icon>
+                <ino-icon icon="checkmark" />
               </div>
             )}
           </div>

@@ -68,7 +68,7 @@ export class InoSidebar {
     });
 
     return (
-      <Host name={this.name} ino-open={this.open}>
+      <Host name={this.name} open={this.open}>
         <aside class={classes}>
           <div class="mdc-drawer__header">
             <slot name="header" />

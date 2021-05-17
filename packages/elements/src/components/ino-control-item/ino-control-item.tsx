@@ -25,11 +25,6 @@ export class InoControlItem implements ComponentInterface {
   @Prop() role!: 'checkbox' | 'radio';
 
   /**
-   * The id of this element.
-   */
-  @Prop() id?: string;
-
-  /**
    * The primary text of this list item (required).
    */
   @Prop() text!: string;
@@ -110,12 +105,12 @@ export class InoControlItem implements ComponentInterface {
   };
 
   render() {
-    const controlItemPosition = this.trailing ? 'ino-trailing' : 'ino-leading';
+    const controlItemPosition = this.trailing ? 'trailing' : 'leading';
     const slotPosition =
       this.el.children.length > 0
         ? this.trailing
-          ? 'ino-leading'
-          : 'ino-trailing'
+          ? 'leading'
+          : 'trailing'
         : '';
 
     const controlItemProps = {
@@ -131,7 +126,6 @@ export class InoControlItem implements ComponentInterface {
     return (
       <Host>
         <ino-list-item
-          id={this.id}
           text={this.text}
           secondaryText={this.secondaryText}
           activated={this.activated}

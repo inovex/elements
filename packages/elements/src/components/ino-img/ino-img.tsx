@@ -90,7 +90,7 @@ export class Image implements ComponentInterface {
 
   /**
    * The ratio width of this image (default = 1).
-   * Use this attribute together with `ino-ratio-height` to reserve a
+   * Use this attribute together with `ratio-height` to reserve a
    * space for the image during rendering and to prevent jumping contents.
    */
   @Prop() ratioWidth?: number = 1;
@@ -101,7 +101,7 @@ export class Image implements ComponentInterface {
 
   /**
    * The ratio height for this image (default = 1).
-   * Use this attribute together with `ino-ratio-width` to reserve a
+   * Use this attribute together with `ratio-width` to reserve a
    * space for the image during rendering and to prevent jumping contents.
    */
   @Prop() ratioHeight?: number = 1;

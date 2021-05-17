@@ -45,7 +45,7 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() activated?: boolean;
   @Watch('activated')
-  inoActivatedChanged(activated: boolean) {
+  activatedChanged(activated: boolean) {
     activated ? this.maybeCreateRipple() : this.maybeDestroyRipple();
   }
 
@@ -133,7 +133,7 @@ export class IconButton implements ComponentInterface {
           disabled={this.disabled}
           type={this.type}
         >
-          <ino-icon ino-icon={this.icon} class="mdc-icon-button__icon" />
+          <ino-icon icon={this.icon} class="mdc-icon-button__icon" />
         </button>
       </Host>
     );

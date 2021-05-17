@@ -29,7 +29,7 @@ export class Fab implements ComponentInterface {
 
   /**
    * Adds an icon to the Fab.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
    */
   @Prop() icon?: string;
 
@@ -94,11 +94,12 @@ export class Fab implements ComponentInterface {
   }
 
   private renderTooltip() {
-    const attributes = {
-      'ino-for': this.uniqueHelperId,
-      'ino-label': this.label,
-      'ino-placement': this.tooltipPlacement,
-      'ino-trigger': 'mouseenter focus',
+    const attributes: Partial<HTMLInoTooltipElement> = {
+      for: this.uniqueHelperId,
+      label: this.label,
+      placement:
+        this.tooltipPlacement === 'none' ? undefined : this.tooltipPlacement,
+      trigger: 'mouseenter focus',
     };
 
     const tooltip = document.createElement('ino-tooltip');
@@ -148,9 +149,7 @@ export class Fab implements ComponentInterface {
             )}
             {iconSlotHasContent && <slot name="icon-leading" />}
           </span>
-          {this.extended && (
-            <span class="mdc-fab__label">{this.label}</span>
-          )}
+          {this.extended && <span class="mdc-fab__label">{this.label}</span>}
         </button>
       </Host>
     );

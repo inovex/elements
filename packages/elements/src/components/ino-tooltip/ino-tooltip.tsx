@@ -38,7 +38,7 @@ export class Tooltip implements ComponentInterface {
   @Prop() placement: Placement = 'auto';
 
   @Watch('placement')
-  async inoPlacementChanged() {
+  async placementChanged() {
     await this.create();
   }
 
@@ -60,7 +60,7 @@ export class Tooltip implements ComponentInterface {
   @Prop() trigger: TooltipTrigger = 'mouseenter focus';
 
   @Watch('trigger')
-  async inoTriggerChanged() {
+  async triggerChanged() {
     await this.create();
   }
 

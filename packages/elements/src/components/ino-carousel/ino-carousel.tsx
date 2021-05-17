@@ -38,7 +38,7 @@ export class InoCarousel implements ComponentInterface {
    */
   @Prop() autoplay: boolean = false;
   @Watch('autoplay')
-  inoAutoplayChanged() {
+  autoplayChanged() {
     this.configureAutoplay();
   }
 
@@ -170,10 +170,10 @@ export class InoCarousel implements ComponentInterface {
             <slot />
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_left" />
+            <ino-icon-button icon="arrow_left" />
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button ino-icon="arrow_right" />
+            <ino-icon-button icon="arrow_right" />
           </div>
         </div>
       </Host>

@@ -22,7 +22,7 @@ This is an internally used component for various sorts of inputs like `ino-input
 | `disabled` | `disabled`  | Colors the label in an light grey to indicate the disabled status for this element | `boolean` | `undefined` |
 | `outline`  | `outline`   | Styles the label in an outlined style                                              | `boolean` | `undefined` |
 | `required` | `required`  | Appends * to the label to make it appear as an required input in a form            | `boolean` | `undefined` |
-| `showHint` | `show-hint` | Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired | `boolean` | `undefined` |
+| `showHint` | `show-hint` | Shows a "optional" message, when not `required`; Shows a * mark, when `required`   | `boolean` | `undefined` |
 | `text`     | `text`      | The text of the label itself                                                       | `string`  | `undefined` |
 
 

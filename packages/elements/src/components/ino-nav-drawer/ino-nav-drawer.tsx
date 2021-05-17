@@ -40,7 +40,7 @@ export class NavDrawer implements ComponentInterface {
   @Prop() open?: boolean = false;
 
   @Watch('open')
-  inoOpenChanged(newOpen: boolean) {
+  openChanged(newOpen: boolean) {
     if (this.drawerInstance) {
       this.drawerInstance.open = newOpen;
     }
@@ -124,7 +124,7 @@ export class NavDrawer implements ComponentInterface {
 
         <div class="mdc-drawer__footer">
           <slot name="footer"></slot>
-          <ino-icon-button class="mdc-drawer__toggle" ino-icon="arrow_right" />
+          <ino-icon-button class="mdc-drawer__toggle" icon="arrow_right" />
         </div>
       </aside>
     );

@@ -32,7 +32,7 @@ export class Dialog implements ComponentInterface {
    */
   @Prop() open: boolean = false;
   @Watch('open')
-  inoOpenChange(newVal: boolean) {
+  openChanged(newVal: boolean) {
     if (newVal) {
       this.mdcDialog.open();
       this.openChange.emit(true);

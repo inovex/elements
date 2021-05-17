@@ -124,7 +124,7 @@ export class Datepicker implements ComponentInterface {
 
   /**
    * If true, enables the user to choose two dates as an interval.
-   * Only works with inoType="date"
+   * Only works with `type="date"`
    */
   @Prop() range?: boolean;
 
@@ -150,7 +150,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() dateFormat? = 'd-m-Y';
 
   @Watch('dateFormat')
-  inoDateFormatChanged(dateFormat: string) {
+  dateFormatChanged(dateFormat: string) {
     this.validator.dateFormat = dateFormat;
     this.validate();
     this.flatpickr?.set('dateFormat', dateFormat);
@@ -163,7 +163,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() defaultDate?: string | string[];
 
   @Watch('defaultDate')
-  inoDefaultDateChanged(defaultDate: string) {
+  defaultDateChanged(defaultDate: string) {
     this.flatpickr?.set('defaultDate', defaultDate);
   }
 
@@ -185,7 +185,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() defaultMinute? = 0;
 
   @Watch('defaultMinute')
-  inoDefaultMinuteChanged(value: string) {
+  defaultMinuteChanged(value: string) {
     this.flatpickr?.set('defaultMinute', value);
   }
 
@@ -205,7 +205,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() type?: PickerTypeKeys = 'date';
 
   @Watch('type')
-  inoTypeChanged() {
+  tpeChanged() {
     this.create();
   }
 
@@ -327,21 +327,21 @@ export class Datepicker implements ComponentInterface {
           autoFocus={this.autoFocus}
           name={this.name}
           required={this.required}
-          ino-label={this.label}
-          ino-error={!this.isValid}
-          ino-icon-leading
+          label={this.label}
+          error={!this.isValid}
+          icon-leading
           value={this.value}
-          ino-helper={this.helper}
-          ino-outline={this.outline}
-          ino-helper-persistent={this.helperPersistent}
-          ino-helper-validation={this.helperValidation}
-          ino-show-label-hint={this.showLabelHint}
+          helper={this.helper}
+          outline={this.outline}
+          helper-persistent={this.helperPersistent}
+          helper-validation={this.helperValidation}
+          show-label-hint={this.showLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
         >
           <ino-icon
-            ino-clickable={!this.disabled}
+            clickable={!this.disabled}
             slot={'icon-leading'}
-            ino-icon={this.type === 'time' ? 'time' : 'calendar'}
+            icon={this.type === 'time' ? 'time' : 'calendar'}
           />
         </ino-input>
       </Host>

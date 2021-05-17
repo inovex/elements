@@ -2,9 +2,9 @@ import {
   Component,
   ComponentInterface,
   Element,
-  Prop,
-  Host,
   h,
+  Host,
+  Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -48,10 +48,10 @@ export class NavItem implements ComponentInterface {
     return (
       <Host>
         <ino-list-item
-          inoText={this.text}
-          inoSecondaryText={this.subText}
-          inoActivated={this.activated}
-          inoDisabled={this.disabled}
+          text={this.text}
+          secondaryText={this.subText}
+          activated={this.activated}
+          disabled={this.disabled}
         >
           <span class={slotContainerClasses} slot={slotPosition}>
             <slot></slot>

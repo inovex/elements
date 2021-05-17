@@ -135,17 +135,17 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Events
 
-| Event        | Description                                                                                                                                                              | Type               |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true. | `CustomEvent<any>` |
+| Event        | Description                                                                                                                                                           | Type               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true. | `CustomEvent<any>` |
 
 
 ## Slots
 
-| Slot              | Description                                                      |
-| ----------------- | ---------------------------------------------------------------- |
-| `"icon-leading"`  | For the icon to be prepended                                     |
-| `"icon-trailing"` | For the icon to be appended - disables the inoRemovable property |
+| Slot              | Description                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| `"icon-leading"`  | For the icon to be prepended                                    |
+| `"icon-trailing"` | For the icon to be appended - disables the `removable` property |
 
 
 ## Dependencies

@@ -33,14 +33,14 @@ export class ListItem implements ComponentInterface {
   /**
    * Sets the secondary text of this list item.
    *
-   * Requires `ino-two-lines` on the parent `ino-list` element.
+   * Requires `two-lines` on the parent `ino-list` element.
    */
   @Prop() secondaryText?: string;
 
   /**
    * Styles the row in a selected style.
    *
-   * In contrast to `inoActivated`, use this option to select one
+   * In contrast to `activated`, use this option to select one
    * or multiple items that are likely to change soon.
    */
   @Prop() selected?: boolean;

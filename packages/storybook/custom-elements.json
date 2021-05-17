@@ -674,7 +674,7 @@
       "events": [
         {
           "name": "removeChip",
-          "description": "Event that emits as soon as the user removes this chip.\n\nListen to this event to hide or destroy this chip.\nThe event only emits if the property `inoRemovable` is true."
+          "description": "Event that emits as soon as the user removes this chip.\n\nListen to this event to hide or destroy this chip.\nThe event only emits if the property `removable` is true."
         }
       ],
       "methods": [],
@@ -685,7 +685,7 @@
         },
         {
           "name": "icon-trailing",
-          "description": "For the icon to be appended - disables the inoRemovable property"
+          "description": "For the icon to be appended - disables the `removable` property"
         }
       ],
       "cssProperties": [],
@@ -730,6 +730,12 @@
       "description": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "attributes": [
         {
+          "name": "activated",
+          "type": "boolean",
+          "description": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permanently activated.",
+          "required": false
+        },
+        {
           "name": "checked",
           "type": "boolean",
           "description": "Marks this element as checked. (**unmanaged**)",
@@ -749,57 +755,39 @@
           "required": false
         },
         {
-          "name": "ino-activated",
-          "type": "boolean",
-          "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
-          "required": false
-        },
-        {
-          "name": "ino-disabled",
-          "type": "boolean",
-          "description": "Styles the row in a disabled style.",
-          "required": false
-        },
-        {
-          "name": "ino-id",
+          "name": "name",
           "type": "string",
-          "description": "The id of this element.",
+          "description": "The name of this element.",
           "required": false
         },
         {
-          "name": "ino-role",
+          "name": "role",
           "type": "\"checkbox\" | \"radio\"",
           "description": "The type of control element",
           "required": true
         },
         {
-          "name": "ino-secondary-text",
+          "name": "secondary-text",
           "type": "string",
-          "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
+          "description": "Sets the secondary text of this list item.\n\nRequires `two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
-          "name": "ino-selected",
+          "name": "selected",
           "type": "boolean",
-          "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
+          "description": "Styles the row in a selected style.\n\nIn contrast to `activated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
-          "name": "ino-text",
+          "name": "text",
           "type": "string",
           "description": "The primary text of this list item (required).",
           "required": true
         },
         {
-          "name": "ino-trailing",
+          "name": "trailing",
           "type": "boolean",
           "description": "Places the checkbox at the end of the item",
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "The name of this element.",
           "required": false
         },
         {
@@ -811,6 +799,12 @@
       ],
       "properties": [
         {
+          "name": "activated",
+          "type": "boolean",
+          "description": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permanently activated.",
+          "required": false
+        },
+        {
           "name": "checked",
           "type": "boolean",
           "description": "Marks this element as checked. (**unmanaged**)",
@@ -830,57 +824,39 @@
           "required": false
         },
         {
-          "name": "inoActivated",
-          "type": "boolean",
-          "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
-          "required": false
-        },
-        {
-          "name": "inoDisabled",
-          "type": "boolean",
-          "description": "Styles the row in a disabled style.",
-          "required": false
-        },
-        {
-          "name": "inoId",
+          "name": "name",
           "type": "string",
-          "description": "The id of this element.",
+          "description": "The name of this element.",
           "required": false
         },
         {
-          "name": "inoRole",
+          "name": "role",
           "type": "\"checkbox\" | \"radio\"",
           "description": "The type of control element",
           "required": true
         },
         {
-          "name": "inoSecondaryText",
+          "name": "secondaryText",
           "type": "string",
-          "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
+          "description": "Sets the secondary text of this list item.\n\nRequires `two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
-          "name": "inoSelected",
+          "name": "selected",
           "type": "boolean",
-          "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
+          "description": "Styles the row in a selected style.\n\nIn contrast to `activated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
-          "name": "inoText",
+          "name": "text",
           "type": "string",
           "description": "The primary text of this list item (required).",
           "required": true
         },
         {
-          "name": "inoTrailing",
+          "name": "trailing",
           "type": "boolean",
           "description": "Places the checkbox at the end of the item",
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "description": "The name of this element.",
           "required": false
         },
         {
@@ -1010,7 +986,7 @@
         {
           "name": "range",
           "type": "boolean",
-          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
+          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with `type=\"date\"`",
           "required": false
         },
         {
@@ -1151,7 +1127,7 @@
         {
           "name": "range",
           "type": "boolean",
-          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with inoType=\"date\"",
+          "description": "If true, enables the user to choose two dates as an interval.\nOnly works with `type=\"date\"`",
           "required": false
         },
         {
@@ -1832,14 +1808,14 @@
         {
           "name": "ratio-height",
           "type": "number",
-          "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ino-ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
+          "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
           "name": "ratio-width",
           "type": "number",
-          "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ino-ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
+          "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
@@ -1922,14 +1898,14 @@
         {
           "name": "ratioHeight",
           "type": "number",
-          "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ino-ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
+          "description": "The ratio height for this image (default = 1).\nUse this attribute together with `ratio-width` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
         {
           "name": "ratioWidth",
           "type": "number",
-          "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ino-ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
+          "description": "The ratio width of this image (default = 1).\nUse this attribute together with `ratio-height` to reserve a\nspace for the image during rendering and to prevent jumping contents.",
           "defaultValue": "1",
           "required": false
         },
@@ -2424,28 +2400,28 @@
           "required": false
         },
         {
-          "name": "ino-drag-and-drop",
+          "name": "drag-and-drop",
           "type": "boolean",
           "description": "Enables drag-and-drop file input",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "ino-drag-and-drop-secondary-text",
+          "name": "drag-and-drop-secondary-text",
           "type": "string",
           "description": "Sets the secondary text of the drag and drop window",
           "defaultValue": "'or'",
           "required": false
         },
         {
-          "name": "ino-drag-and-drop-text",
+          "name": "drag-and-drop-text",
           "type": "string",
           "description": "Sets the primary text of the drag and drop window",
           "defaultValue": "'Drag your files here'",
           "required": false
         },
         {
-          "name": "ino-label",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the select files button.",
           "defaultValue": "'Select file'",
@@ -2490,28 +2466,28 @@
           "required": false
         },
         {
-          "name": "inoDragAndDrop",
+          "name": "dragAndDrop",
           "type": "boolean",
           "description": "Enables drag-and-drop file input",
           "defaultValue": "false",
           "required": false
         },
         {
-          "name": "inoDragAndDropSecondaryText",
+          "name": "dragAndDropSecondaryText",
           "type": "string",
           "description": "Sets the secondary text of the drag and drop window",
           "defaultValue": "'or'",
           "required": false
         },
         {
-          "name": "inoDragAndDropText",
+          "name": "dragAndDropText",
           "type": "string",
           "description": "Sets the primary text of the drag and drop window",
           "defaultValue": "'Drag your files here'",
           "required": false
         },
         {
-          "name": "inoLabel",
+          "name": "label",
           "type": "string",
           "description": "Sets the label of the select files button.",
           "defaultValue": "'Select file'",
@@ -2559,7 +2535,7 @@
     {
       "name": "ino-label",
       "path": "./src/components/ino-label/ino-label.tsx",
-      "description": "This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.\n\n```html\n<ino-label\n  ino-outline=\"<boolean>\"\n  ino-label=\"<string>\"\n  ino-required=\"<boolean>\"\n  ino-disabled=\"<boolean>\"\n>\n</ino-label>\n```",
+      "description": "This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.\n\n```html\n<ino-label\n  outline=\"<boolean>\"\n  label=\"<string>\"\n  required=\"<boolean>\"\n  disabled=\"<boolean>\"\n>\n</ino-label>\n```",
       "attributes": [
         {
           "name": "disabled",
@@ -2582,7 +2558,7 @@
         {
           "name": "show-hint",
           "type": "boolean",
-          "description": "Shows a \"optional\" message, when not inoRequired;\nShows a * mark, when inoRequired",
+          "description": "Shows a \"optional\" message, when not `required`;\nShows a * mark, when `required`",
           "required": false
         },
         {
@@ -2614,7 +2590,7 @@
         {
           "name": "showHint",
           "type": "boolean",
-          "description": "Shows a \"optional\" message, when not inoRequired;\nShows a * mark, when inoRequired",
+          "description": "Shows a \"optional\" message, when not `required`;\nShows a * mark, when `required`",
           "required": false
         },
         {
@@ -2696,13 +2672,13 @@
         {
           "name": "inset",
           "type": "boolean",
-          "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
+          "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `betweenList` is `false`.",
           "required": false
         },
         {
           "name": "padded",
           "type": "boolean",
-          "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
+          "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `betweenList` is `false`.",
           "required": false
         }
       ],
@@ -2716,13 +2692,13 @@
         {
           "name": "inset",
           "type": "boolean",
-          "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
+          "description": "Increases leading margin to match leading column in `ino-list-item`.\n\nOnly applicable if `betweenList` is `false`.",
           "required": false
         },
         {
           "name": "padded",
           "type": "boolean",
-          "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `inoBetweenList` is `false`.",
+          "description": "Increases margin on each side of the divider to match meta content\nin `ino-list-item`.\n\nOnly applicable if `betweenList` is `false`.",
           "required": false
         }
       ],
@@ -2752,13 +2728,13 @@
         {
           "name": "secondary-text",
           "type": "string",
-          "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
+          "description": "Sets the secondary text of this list item.\n\nRequires `two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
           "name": "selected",
           "type": "boolean",
-          "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
+          "description": "Styles the row in a selected style.\n\nIn contrast to `activated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
@@ -2784,13 +2760,13 @@
         {
           "name": "secondaryText",
           "type": "string",
-          "description": "Sets the secondary text of this list item.\n\nRequires `ino-two-lines` on the parent `ino-list` element.",
+          "description": "Sets the secondary text of this list item.\n\nRequires `two-lines` on the parent `ino-list` element.",
           "required": false
         },
         {
           "name": "selected",
           "type": "boolean",
-          "description": "Styles the row in a selected style.\n\nIn contrast to `inoActivated`, use this option to select one\nor multiple items that are likely to change soon.",
+          "description": "Styles the row in a selected style.\n\nIn contrast to `activated`, use this option to select one\nor multiple items that are likely to change soon.",
           "required": false
         },
         {
@@ -3264,7 +3240,7 @@
         {
           "name": "visible",
           "type": "boolean",
-          "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `ino-controlled`).\nUse the `inoVisibleChanged` to sync the popovers' visibility state with yours.",
+          "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `controlled`).\nUse the `visibleChanged` to sync the popovers' visibility state with yours.",
           "defaultValue": "false",
           "required": false
         }
@@ -3321,7 +3297,7 @@
         {
           "name": "visible",
           "type": "boolean",
-          "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `ino-controlled`).\nUse the `inoVisibleChanged` to sync the popovers' visibility state with yours.",
+          "description": "Programmatically show or hide the popover.\nCan only be used in controlled mode (see property `controlled`).\nUse the `visibleChanged` to sync the popovers' visibility state with yours.",
           "defaultValue": "false",
           "required": false
         }
@@ -3329,7 +3305,7 @@
       "events": [
         {
           "name": "visibleChanged",
-          "description": "Emits when the popover wants to show (`true`) or hide (`false`) itself.\nThis is depended on the `ino-trigger` property.\nUse this event in controlled-mode (see `ino-controlled`).\n\ne.g.: `ino-trigger = 'click'` - This events emits with `true`\nwhen the user clicks on the target (slot/`ino-for`/parent-element)\nand emits with `false` when the target or the outside is clicked."
+          "description": "Emits when the popover wants to show (`true`) or hide (`false`) itself.\nThis is depended on the `trigger` property.\nUse this event in controlled-mode (see `controlled`).\n\ne.g.: `trigger = 'click'` - This events emits with `true`\nwhen the user clicks on the target (slot/`for`/parent-element)\nand emits with `false` when the target or the outside is clicked."
         }
       ],
       "methods": [
@@ -3345,8 +3321,8 @@
           "description": "Content of the popover"
         },
         {
-          "name": "ino-popover-trigger",
-          "description": "The target element to attach the triggers to/**"
+          "name": "popover-trigger",
+          "description": "The target element to attach the triggers to"
         }
       ],
       "cssProperties": [],
@@ -3355,7 +3331,7 @@
     {
       "name": "ino-progress-bar",
       "path": "./src/components/ino-progress-bar/ino-progress-bar.tsx",
-      "description": "The ino-progress-bar is a linear progress bar based on the mcw-linear-progress component.",
+      "description": "The ino-progress-bar is a linear progress bar based on the mdc-linear-progress component.",
       "attributes": [
         {
           "name": "buffer",
@@ -3586,7 +3562,7 @@
         {
           "name": "markers",
           "type": "boolean",
-          "description": "Mark this slider to show the steps of the range.\nOnly applicable if ino-discrete is true",
+          "description": "Mark this slider to show the steps of the range.\nOnly applicable if `discrete=true`",
           "required": false
         },
         {
@@ -3645,7 +3621,7 @@
         {
           "name": "markers",
           "type": "boolean",
-          "description": "Mark this slider to show the steps of the range.\nOnly applicable if ino-discrete is true",
+          "description": "Mark this slider to show the steps of the range.\nOnly applicable if `discrete=true`",
           "required": false
         },
         {

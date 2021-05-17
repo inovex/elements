@@ -150,11 +150,11 @@ export class Select implements ComponentInterface {
             </div>
             {this.renderDropdownIcon()}
             <ino-label
-              ino-outline={this.outline}
-              ino-text={this.label}
-              ino-required={this.required}
-              ino-disabled={this.disabled}
-              ino-show-hint={this.showLabelHint}
+              outline={this.outline}
+              text={this.label}
+              required={this.required}
+              disabled={this.disabled}
+              show-hint={this.showLabelHint}
             />
           </div>
 

@@ -183,9 +183,9 @@ export class InputFile implements ComponentInterface {
             autoFocus={this.autoFocus}
             disabled={this.disabled}
             onClick={(_) => this.selectFiles()}
-            ino-icon-leading
+            icon-leading
           >
-            <ino-icon ino-icon="upload" slot="ino-icon-leading" />
+            <ino-icon icon="upload" slot="icon-leading" />
             {this.label}
           </ino-button>
           <input

@@ -23,8 +23,8 @@ export class Label {
   @Prop() required?: boolean;
 
   /**
-   * Shows a "optional" message, when not inoRequired;
-   * Shows a * mark, when inoRequired
+   * Shows a "optional" message, when not `required`;
+   * Shows a * mark, when `required`
    */
   @Prop() showHint?: boolean;
 

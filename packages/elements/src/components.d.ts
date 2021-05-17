@@ -170,6 +170,10 @@ export namespace Components {
     }
     interface InoControlItem {
         /**
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
+         */
+        "activated"?: boolean;
+        /**
           * Marks this element as checked. (**unmanaged**)
          */
         "checked"?: boolean;
@@ -182,41 +186,29 @@ export namespace Components {
          */
         "indeterminate"?: boolean;
         /**
-          * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
-         */
-        "inoActivated"?: boolean;
-        /**
-          * Styles the row in a disabled style.
-         */
-        "inoDisabled"?: boolean;
-        /**
-          * The id of this element.
-         */
-        "inoId"?: string;
-        /**
-          * The type of control element
-         */
-        "inoRole": 'checkbox' | 'radio';
-        /**
-          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
-         */
-        "inoSecondaryText"?: string;
-        /**
-          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
-         */
-        "inoSelected"?: boolean;
-        /**
-          * The primary text of this list item (required).
-         */
-        "inoText": string;
-        /**
-          * Places the checkbox at the end of the item
-         */
-        "inoTrailing"?: boolean;
-        /**
           * The name of this element.
          */
         "name"?: string;
+        /**
+          * The type of control element
+         */
+        "role": 'checkbox' | 'radio';
+        /**
+          * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
+         */
+        "secondaryText"?: string;
+        /**
+          * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
+         */
+        "selected"?: boolean;
+        /**
+          * The primary text of this list item (required).
+         */
+        "text": string;
+        /**
+          * Places the checkbox at the end of the item
+         */
+        "trailing"?: boolean;
         /**
           * The value of this element.
          */
@@ -288,7 +280,7 @@ export namespace Components {
          */
         "outline"?: boolean;
         /**
-          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
+          * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
         "range"?: boolean;
         /**
@@ -337,7 +329,7 @@ export namespace Components {
         "extended": boolean;
         /**
           * Adds an icon to the Fab.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
          */
         "icon"?: string;
         /**
@@ -465,11 +457,11 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+          * The ratio height for this image (default = 1). Use this attribute together with `ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "ratioHeight"?: number;
         /**
-          * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+          * The ratio width of this image (default = 1). Use this attribute together with `ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "ratioWidth"?: number;
         /**
@@ -633,19 +625,19 @@ export namespace Components {
         /**
           * Enables drag-and-drop file input
          */
-        "inoDragAndDrop"?: boolean;
+        "dragAndDrop"?: boolean;
         /**
           * Sets the secondary text of the drag and drop window
          */
-        "inoDragAndDropSecondaryText"?: string;
+        "dragAndDropSecondaryText"?: string;
         /**
           * Sets the primary text of the drag and drop window
          */
-        "inoDragAndDropText"?: string;
+        "dragAndDropText"?: string;
         /**
           * Sets the label of the select files button.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Indicates whether the user can enter one or more values.
          */
@@ -673,7 +665,7 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
+          * Shows a "optional" message, when not `required`; Shows a * mark, when `required`
          */
         "showHint"?: boolean;
         /**
@@ -701,11 +693,11 @@ export namespace Components {
          */
         "betweenLists"?: boolean;
         /**
-          * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+          * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `betweenList` is `false`.
          */
         "inset"?: boolean;
         /**
-          * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+          * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `betweenList` is `false`.
          */
         "padded"?: boolean;
     }
@@ -719,11 +711,11 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+          * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
         /**
-          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+          * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
          */
         "selected"?: boolean;
         /**
@@ -823,7 +815,7 @@ export namespace Components {
          */
         "trigger": Exclude<TooltipTrigger, 'manual'>;
         /**
-          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
          */
         "visible"?: boolean;
     }
@@ -887,7 +879,7 @@ export namespace Components {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
+          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
          */
         "markers"?: boolean;
         /**
@@ -1662,7 +1654,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `inoRemovable` is true.
+          * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true.
          */
         "onRemoveChip"?: (event: CustomEvent<any>) => void;
         /**
@@ -1694,6 +1686,10 @@ declare namespace LocalJSX {
     }
     interface InoControlItem {
         /**
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
+         */
+        "activated"?: boolean;
+        /**
           * Marks this element as checked. (**unmanaged**)
          */
         "checked"?: boolean;
@@ -1706,38 +1702,6 @@ declare namespace LocalJSX {
          */
         "indeterminate"?: boolean;
         /**
-          * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
-         */
-        "inoActivated"?: boolean;
-        /**
-          * Styles the row in a disabled style.
-         */
-        "inoDisabled"?: boolean;
-        /**
-          * The id of this element.
-         */
-        "inoId"?: string;
-        /**
-          * The type of control element
-         */
-        "inoRole": 'checkbox' | 'radio';
-        /**
-          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
-         */
-        "inoSecondaryText"?: string;
-        /**
-          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
-         */
-        "inoSelected"?: boolean;
-        /**
-          * The primary text of this list item (required).
-         */
-        "inoText": string;
-        /**
-          * Places the checkbox at the end of the item
-         */
-        "inoTrailing"?: boolean;
-        /**
           * The name of this element.
          */
         "name"?: string;
@@ -1745,6 +1709,26 @@ declare namespace LocalJSX {
           * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
          */
         "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * The type of control element
+         */
+        "role": 'checkbox' | 'radio';
+        /**
+          * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
+         */
+        "secondaryText"?: string;
+        /**
+          * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
+         */
+        "selected"?: boolean;
+        /**
+          * The primary text of this list item (required).
+         */
+        "text": string;
+        /**
+          * Places the checkbox at the end of the item
+         */
+        "trailing"?: boolean;
         /**
           * The value of this element.
          */
@@ -1820,7 +1804,7 @@ declare namespace LocalJSX {
          */
         "outline"?: boolean;
         /**
-          * If true, enables the user to choose two dates as an interval. Only works with inoType="date"
+          * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
         "range"?: boolean;
         /**
@@ -1873,7 +1857,7 @@ declare namespace LocalJSX {
         "extended"?: boolean;
         /**
           * Adds an icon to the Fab.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
          */
         "icon"?: string;
         /**
@@ -2009,11 +1993,11 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * The ratio height for this image (default = 1). Use this attribute together with `ino-ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
+          * The ratio height for this image (default = 1). Use this attribute together with `ratio-width` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "ratioHeight"?: number;
         /**
-          * The ratio width of this image (default = 1). Use this attribute together with `ino-ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
+          * The ratio width of this image (default = 1). Use this attribute together with `ratio-height` to reserve a space for the image during rendering and to prevent jumping contents.
          */
         "ratioWidth"?: number;
         /**
@@ -2185,19 +2169,19 @@ declare namespace LocalJSX {
         /**
           * Enables drag-and-drop file input
          */
-        "inoDragAndDrop"?: boolean;
+        "dragAndDrop"?: boolean;
         /**
           * Sets the secondary text of the drag and drop window
          */
-        "inoDragAndDropSecondaryText"?: string;
+        "dragAndDropSecondaryText"?: string;
         /**
           * Sets the primary text of the drag and drop window
          */
-        "inoDragAndDropText"?: string;
+        "dragAndDropText"?: string;
         /**
           * Sets the label of the select files button.
          */
-        "inoLabel"?: string;
+        "label"?: string;
         /**
           * Indicates whether the user can enter one or more values.
          */
@@ -2232,7 +2216,7 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Shows a "optional" message, when not inoRequired; Shows a * mark, when inoRequired
+          * Shows a "optional" message, when not `required`; Shows a * mark, when `required`
          */
         "showHint"?: boolean;
         /**
@@ -2260,11 +2244,11 @@ declare namespace LocalJSX {
          */
         "betweenLists"?: boolean;
         /**
-          * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+          * Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `betweenList` is `false`.
          */
         "inset"?: boolean;
         /**
-          * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.
+          * Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `betweenList` is `false`.
          */
         "padded"?: boolean;
     }
@@ -2282,11 +2266,11 @@ declare namespace LocalJSX {
          */
         "onClickEl"?: (event: CustomEvent<any>) => void;
         /**
-          * Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.
+          * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
         "secondaryText"?: string;
         /**
-          * Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon.
+          * Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon.
          */
         "selected"?: boolean;
         /**
@@ -2378,7 +2362,7 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         /**
-          * Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `ino-trigger` property. Use this event in controlled-mode (see `ino-controlled`).  e.g.: `ino-trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`ino-for`/parent-element) and emits with `false` when the target or the outside is clicked.
+          * Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `trigger` property. Use this event in controlled-mode (see `controlled`).  e.g.: `trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`for`/parent-element) and emits with `false` when the target or the outside is clicked.
          */
         "onVisibleChanged"?: (event: CustomEvent<boolean>) => void;
         /**
@@ -2390,7 +2374,7 @@ declare namespace LocalJSX {
          */
         "trigger"?: Exclude<TooltipTrigger, 'manual'>;
         /**
-          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `ino-controlled`). Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+          * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
          */
         "visible"?: boolean;
     }
@@ -2458,7 +2442,7 @@ declare namespace LocalJSX {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if ino-discrete is true
+          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
          */
         "markers"?: boolean;
         /**

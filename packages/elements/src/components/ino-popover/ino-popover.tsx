@@ -17,7 +17,7 @@ import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
 
 /**
- * @slot ino-popover-trigger - The target element to attach the triggers to/**
+ * @slot popover-trigger - The target element to attach the triggers to
  * @slot default - Content of the popover
  */
 @Component({
@@ -39,7 +39,7 @@ export class Popover implements ComponentInterface {
   @Prop() placement: Placement = 'auto';
 
   @Watch('placement')
-  inoPlacementChanged() {
+  placementChanged() {
     this.tippyInstance?.setProps({
       placement: this.placement,
     });
@@ -53,7 +53,7 @@ export class Popover implements ComponentInterface {
   @Prop() for?: string;
 
   @Watch('for')
-  inoForChanged() {
+  forChanged() {
     this.create();
   }
 
@@ -83,7 +83,7 @@ export class Popover implements ComponentInterface {
   @Prop() interactive? = false;
 
   @Watch('interactive')
-  inoInteractiveChanged() {
+  interactiveChanged() {
     this.create();
   }
 
@@ -94,7 +94,7 @@ export class Popover implements ComponentInterface {
   @Prop() trigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
 
   @Watch('trigger')
-  inoTriggerChanged() {
+  triggerChanged() {
     this.tippyInstance?.setProps({
       trigger: this.trigger,
     });
@@ -115,14 +115,14 @@ export class Popover implements ComponentInterface {
   @Prop() controlled: boolean = false;
 
   @Watch('controlled')
-  inoControlledChanged() {
+  controlledChanged() {
     this.create();
   }
 
   /**
    * Programmatically show or hide the popover.
-   * Can only be used in controlled mode (see property `ino-controlled`).
-   * Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+   * Can only be used in controlled mode (see property `controlled`).
+   * Use the `visibleChanged` to sync the popovers' visibility state with yours.
    */
   @Prop() visible?: boolean = false;
 
@@ -137,11 +137,11 @@ export class Popover implements ComponentInterface {
 
   /**
    * Emits when the popover wants to show (`true`) or hide (`false`) itself.
-   * This is depended on the `ino-trigger` property.
-   * Use this event in controlled-mode (see `ino-controlled`).
+   * This is depended on the `trigger` property.
+   * Use this event in controlled-mode (see `controlled`).
    *
-   * e.g.: `ino-trigger = 'click'` - This events emits with `true`
-   * when the user clicks on the target (slot/`ino-for`/parent-element)
+   * e.g.: `trigger = 'click'` - This events emits with `true`
+   * when the user clicks on the target (slot/`for`/parent-element)
    * and emits with `false` when the target or the outside is clicked.
    */
   @Event() visibleChanged: EventEmitter<boolean>;
@@ -202,7 +202,7 @@ export class Popover implements ComponentInterface {
 
     return (
       <Host>
-        <slot name="ino-popover-trigger"></slot>
+        <slot name="popover-trigger"/>
         <div
           ref={(ref) => (this.inoPopoverContainer = ref)}
           class={popoverClasses}

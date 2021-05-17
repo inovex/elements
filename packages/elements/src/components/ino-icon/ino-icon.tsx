@@ -29,7 +29,7 @@ export class Icon implements ComponentInterface {
   @Prop() icon?: string;
 
   @Watch('icon')
-  inoIconChanged() {
+  iconChanged() {
     this.loadIcon();
   }
 

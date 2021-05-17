@@ -17,14 +17,14 @@ export class ListDivider implements ComponentInterface {
    * Increases margin on each side of the divider to match meta content
    * in `ino-list-item`.
    *
-   * Only applicable if `inoBetweenList` is `false`.
+   * Only applicable if `betweenList` is `false`.
    */
   @Prop() padded?: boolean;
 
   /**
    * Increases leading margin to match leading column in `ino-list-item`.
    *
-   * Only applicable if `inoBetweenList` is `false`.
+   * Only applicable if `betweenList` is `false`.
    */
   @Prop() inset?: boolean;
 

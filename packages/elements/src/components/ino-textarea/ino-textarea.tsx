@@ -147,7 +147,7 @@ export class Textarea implements ComponentInterface {
     // Remove as soon as the 'filled' style should be released as new default style
     if (this.outline === undefined) {
       console.warn(
-        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`
+        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'outline' property explicitly to true, please.`
       );
       this.outline = true;
     }
@@ -244,11 +244,11 @@ export class Textarea implements ComponentInterface {
             </div>
           )}
           <ino-label
-            ino-outline={this.outline}
-            ino-text={this.label}
-            ino-required={this.required}
-            ino-disabled={this.disabled}
-            ino-show-hint={this.showLabelHint}
+            outline={this.outline}
+            text={this.label}
+            required={this.required}
+            disabled={this.disabled}
+            show-hint={this.showLabelHint}
           />
         </div>
       </Host>

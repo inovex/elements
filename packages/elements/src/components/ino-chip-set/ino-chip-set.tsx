@@ -32,7 +32,7 @@ export class ChipSet implements ComponentInterface {
   @Prop() type?: ChipSetType = '';
 
   @Watch('type')
-  inoTypeChanged() {
+  typeChanged() {
     this.create();
   }
 
@@ -93,7 +93,7 @@ export class ChipSet implements ComponentInterface {
       return;
     }
     const chipValues = selectedChipIds.map(
-      (chipId) => this.getInoChip(chipId).inoValue
+      (chipId) => this.getInoChip(chipId).value
     );
     this.updateChipSet.emit(
       chipValues.length === 1 ? chipValues[0] : chipValues
@@ -103,7 +103,7 @@ export class ChipSet implements ComponentInterface {
   private prepareChip(chipId: string) {
     if (this.type === 'filter') {
       const chip = this.getInoChip(chipId);
-      chip.inoSelectable = this.type === 'filter';
+      chip.selectable = this.type === 'filter';
     }
   }
 

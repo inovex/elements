@@ -42,7 +42,7 @@ export class Range implements ComponentInterface {
 
   /**
    * Mark this slider to show the steps of the range.
-   * Only applicable if ino-discrete is true
+   * Only applicable if `discrete=true`
    */
   @Prop() markers?: boolean;
 

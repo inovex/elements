@@ -15,7 +15,7 @@ import { ChipSurface, ColorScheme } from '../types';
 
 /**
  * @slot icon-leading - For the icon to be prepended
- * @slot icon-trailing - For the icon to be appended - disables the inoRemovable property
+ * @slot icon-trailing - For the icon to be appended - disables the `removable` property
  */
 @Component({
   tag: 'ino-chip',
@@ -78,7 +78,7 @@ export class Chip implements ComponentInterface {
    * Event that emits as soon as the user removes this chip.
    *
    * Listen to this event to hide or destroy this chip.
-   * The event only emits if the property `inoRemovable` is true.
+   * The event only emits if the property `removable` is true.
    */
   @Event() removeChip!: EventEmitter;
 
@@ -123,11 +123,11 @@ export class Chip implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <button class={chipClasses} tabindex="0" data-ino-value={this.value}>
-          <div class="mdc-chip__ripple"></div>
+        <button class={chipClasses} tabindex="0" data-value={this.value}>
+          <div class="mdc-chip__ripple" />
 
           {this.icon && (
-            <ino-icon class={leadingIconClasses} ino-icon={this.icon} />
+            <ino-icon class={leadingIconClasses} icon={this.icon} />
           )}
 
           {leadingSlotHasContent && !this.icon && (
@@ -160,10 +160,10 @@ export class Chip implements ComponentInterface {
           {this.removable && !trailingSlotHasContent && (
             <ino-icon
               class={trailingIconClasses}
-              ino-icon="close"
+              icon="close"
               tabindex="0"
               role="button"
-              ino-clickable
+              clickable
               onClick={(e) => this.iconClicked(e)}
             />
           )}

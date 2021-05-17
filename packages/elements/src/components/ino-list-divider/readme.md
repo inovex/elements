@@ -24,11 +24,11 @@ The component can be used as follows:
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                             | Type      | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `betweenLists` | `between-lists` | Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.                                            | `boolean` | `undefined` |
-| `inset`        | `inset`         | Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`.                   | `boolean` | `undefined` |
-| `padded`       | `padded`        | Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `inoBetweenList` is `false`. | `boolean` | `undefined` |
+| Property       | Attribute       | Description                                                                                                                          | Type      | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `betweenLists` | `between-lists` | Marks the divider as a separator between two `ino-list` instead of `ino-list-item` elements.                                         | `boolean` | `undefined` |
+| `inset`        | `inset`         | Increases leading margin to match leading column in `ino-list-item`.  Only applicable if `betweenList` is `false`.                   | `boolean` | `undefined` |
+| `padded`       | `padded`        | Increases margin on each side of the divider to match meta content in `ino-list-item`.  Only applicable if `betweenList` is `false`. | `boolean` | `undefined` |
 
 
 ----------------------------------------------
