@@ -1,8 +1,7 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or
-notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section
-which are fully customizable.
+The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+It is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.
 
 ## Usage
 
@@ -19,10 +18,11 @@ document
 ```
 
 ```html
-<ino-dialog open="true" permanent="false">
-  <div class="awesome-header" slot="header" />
-  <div class="awesome-content" />
-  <div class="awesome-footer" slot="footer" />
+
+<ino-dialog open="true">
+  <div class="awesome-header" slot="header"/>
+  <div class="awesome-content"/>
+  <div class="awesome-footer" slot="footer"/>
 </ino-dialog>
 ```
 
@@ -36,22 +36,24 @@ import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
 
   state = {
-    inoOpen: false
+    open: false
   };
 
   handleEvent = () => {
-    this.setState((inoOpen) => ({
-      inoOpen: !inoOpen;
+    this.setState((open) => ({
+      open: !open
     }))
   };
 
   render() {
-      return (
+    return (
+      <>
         <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>
-        <InoDialog inoOpen={this.state.inoOpen}>
+        <InoDialog open={this.state.open}>
           <div class="awesome-content"/>
         </InoDialog>
-      );
+      </>
+    );
   }
 }
 ```

@@ -1183,7 +1183,7 @@
     {
       "name": "ino-dialog",
       "path": "./src/components/ino-dialog/ino-dialog.tsx",
-      "description": "The ino-dialog component displays a modal window that can be used to display additional information or\nnotify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section\nwhich are fully customizable.",
+      "description": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.",
       "attributes": [
         {
           "name": "open",
