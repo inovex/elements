@@ -53,12 +53,12 @@ class MyComponent extends Component {
   render() {
     return (
       <InoChipSet
-        inoType="choice"
+        type="choice"
         onUpdateChipSet={this.chipsetSelectionChange}
       >
-        <InoChip inoValue="apple" inoLabel="Apple" />
-        <InoChip inoValue="banana" inoLabel="Banana" />
-        <InoChip inoValue="cherry" inoLabel="Cherry" />
+        <InoChip value="apple" label="Apple" />
+        <InoChip value="banana" label="Banana" />
+        <InoChip value="cherry" label="Cherry" />
       </InoChipSet>
     );
   }
@@ -75,7 +75,7 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
   props,
 ) => {
-  const { inoType } = props;
+  const { type } = props;
 
   const chipsetSelectionChange = (e: any) => {
     console.log(
@@ -86,17 +86,17 @@ const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
   };
 
   return (
-    <InoChipSet inoType={inoType} onUpdateChipSet={chipsetSelectionChange}>
-      <InoChip inoValue="apple" inoLabel="Apple" />
-      <InoChip inoValue="banana" inoLabel="Banana" />
-      <InoChip inoValue="cherry" inoLabel="Cherry" />
+    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>
+      <InoChip value="apple" label="Apple" />
+      <InoChip value="banana" label="Banana" />
+      <InoChip value="cherry" label="Cherry" />
     </InoChipSet>
   );
 };
 
 class MyComponent extends Component {
   render() {
-    return <ChipSet inoType="choice" />;
+    return <ChipSet type="choice" />;
   }
 }
 ```
@@ -105,12 +105,12 @@ class MyComponent extends Component {
 
 **Content**: Use the  label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.
 
-**Styling**: The chip can be styled in many different ways with the help of the  fill` and `ino-color-scheme` attributes.
+**Styling**: The chip can be styled in many ways with the help of the `fill` and `color-scheme` attributes.
 Take a look at the attribute documentation at the bottom of the page for further information.
 
 ### Removable chips
 
-If `ino-removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.
+If `removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.
 
 However, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.
 
@@ -123,13 +123,13 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 | Property      | Attribute      | Description                                                                                                                                                                                                   | Type                                                                                              | Default     |
 | ------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.                    | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
-| `fill`        | `fill`         | The fill type of this element. Possible values: `solid` (default) or `outline`.                                                                                                                               | `"outline" \| "solid"`                                                                            | `'solid'`   |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component.                                                                                                             | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
+| `fill`        | `fill`         | The fill type of this element.                                                                                                                                                                                | `"outline" \| "solid"`                                                                            | `'solid'`   |
 | `icon`        | `icon`         | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.<br/><br/>Prepends an icon to the chip label. | `string`                                                                                          | `undefined` |
 | `label`       | `label`        | The label of this chip (**required**).                                                                                                                                                                        | `string`                                                                                          | `undefined` |
-| `removable`   | `removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.                                                                                                                  | `boolean`                                                                                         | `undefined` |
-| `selectable`  | `selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                                     | `boolean`                                                                                         | `undefined` |
-| `selected`    | `selected`     | Marks this element as selected.                                                                                                                                                                               | `boolean`                                                                                         | `undefined` |
+| `removable`   | `removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.                                                                                                                  | `boolean`                                                                                         | `false`     |
+| `selectable`  | `selectable`   | Adds a checkmark if the icon is selected.                                                                                                                                                                     | `boolean`                                                                                         | `false`     |
+| `selected`    | `selected`     | Marks this element as selected.                                                                                                                                                                               | `boolean`                                                                                         | `false`     |
 | `value`       | `value`        | The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.                                                                                                                 | `string`                                                                                          | `undefined` |
 
 

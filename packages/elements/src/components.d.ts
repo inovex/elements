@@ -129,13 +129,13 @@ export namespace Components {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme": ColorScheme | 'default';
         /**
-          * The fill type of this element. Possible values: `solid` (default) or `outline`.
+          * The fill type of this element.
          */
-        "fill"?: ChipSurface;
+        "fill": ChipSurface;
         /**
           * Prepends an icon to the chip label.
           * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
@@ -148,15 +148,15 @@ export namespace Components {
         /**
           * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
          */
-        "removable"?: boolean;
+        "removable": boolean;
         /**
           * Adds a checkmark if the icon is selected.
          */
-        "selectable"?: boolean;
+        "selectable": boolean;
         /**
           * Marks this element as selected.
          */
-        "selected"?: boolean;
+        "selected": boolean;
         /**
           * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
          */
@@ -1637,11 +1637,11 @@ declare namespace LocalJSX {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary`, `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme"?: ColorScheme | 'default';
         /**
-          * The fill type of this element. Possible values: `solid` (default) or `outline`.
+          * The fill type of this element.
          */
         "fill"?: ChipSurface;
         /**
@@ -1680,7 +1680,7 @@ declare namespace LocalJSX {
          */
         "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
         /**
-          * The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input`
+          * The type of this chip set that indicates its behavior.
          */
         "type"?: ChipSetType;
     }

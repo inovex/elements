@@ -571,14 +571,14 @@
         {
           "name": "color-scheme",
           "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary`, `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.",
           "defaultValue": "'default'",
           "required": false
         },
         {
           "name": "fill",
           "type": "\"outline\" | \"solid\"",
-          "description": "The fill type of this element.\nPossible values: `solid` (default) or `outline`.",
+          "description": "The fill type of this element.",
           "defaultValue": "'solid'",
           "required": false
         },
@@ -598,18 +598,21 @@
           "name": "removable",
           "type": "boolean",
           "description": "Adds a close icon on the right side of this chip.\n\nIf applied, emits the `removeChip` event.",
+          "defaultValue": "false",
           "required": false
         },
         {
           "name": "selectable",
           "type": "boolean",
           "description": "Adds a checkmark if the icon is selected.",
+          "defaultValue": "false",
           "required": false
         },
         {
           "name": "selected",
           "type": "boolean",
           "description": "Marks this element as selected.",
+          "defaultValue": "false",
           "required": false
         },
         {
@@ -623,14 +626,14 @@
         {
           "name": "colorScheme",
           "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary`, `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
+          "description": "The name of the color scheme which is used\nto style the background and outline of this component.",
           "defaultValue": "'default'",
           "required": false
         },
         {
           "name": "fill",
           "type": "\"outline\" | \"solid\"",
-          "description": "The fill type of this element.\nPossible values: `solid` (default) or `outline`.",
+          "description": "The fill type of this element.",
           "defaultValue": "'solid'",
           "required": false
         },
@@ -650,18 +653,21 @@
           "name": "removable",
           "type": "boolean",
           "description": "Adds a close icon on the right side of this chip.\n\nIf applied, emits the `removeChip` event.",
+          "defaultValue": "false",
           "required": false
         },
         {
           "name": "selectable",
           "type": "boolean",
           "description": "Adds a checkmark if the icon is selected.",
+          "defaultValue": "false",
           "required": false
         },
         {
           "name": "selected",
           "type": "boolean",
           "description": "Marks this element as selected.",
+          "defaultValue": "false",
           "required": false
         },
         {

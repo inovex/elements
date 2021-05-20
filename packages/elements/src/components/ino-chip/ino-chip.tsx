@@ -28,16 +28,13 @@ export class Chip implements ComponentInterface {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary`, `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
    */
   @Prop() colorScheme: ColorScheme | 'default' = 'default';
 
   /**
    * The fill type of this element.
-   * Possible values: `solid` (default) or `outline`.
    */
-  @Prop() fill?: ChipSurface = 'solid';
+  @Prop() fill: ChipSurface = 'solid';
 
   /**
    * Prepends an icon to the chip label.
@@ -62,17 +59,17 @@ export class Chip implements ComponentInterface {
    *
    * If applied, emits the `removeChip` event.
    */
-  @Prop() removable?: boolean;
+  @Prop() removable: boolean = false;
 
   /**
    * Adds a checkmark if the icon is selected.
    */
-  @Prop() selectable?: boolean;
+  @Prop() selectable: boolean = false;
 
   /**
    * Marks this element as selected.
    */
-  @Prop() selected?: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Event that emits as soon as the user removes this chip.
