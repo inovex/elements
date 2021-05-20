@@ -49,12 +49,12 @@ class MyComponent extends Component {
   render() {
     return (
       <InoChipSet
-        inoType="choice"
+        type="choice"
         onUpdateChipSet={this.chipsetSelectionChange}
       >
-        <InoChip inoValue="apple" inoLabel="Apple" />
-        <InoChip inoValue="banana" inoLabel="Banana" />
-        <InoChip inoValue="cherry" inoLabel="Cherry" />
+        <InoChip value="apple" label="Apple" />
+        <InoChip value="banana" label="Banana" />
+        <InoChip value="cherry" label="Cherry" />
       </InoChipSet>
     );
   }
@@ -71,7 +71,7 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
   props,
 ) => {
-  const { inoType } = props;
+  const { type } = props;
 
   const chipsetSelectionChange = (e: any) => {
     console.log(
@@ -82,17 +82,17 @@ const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
   };
 
   return (
-    <InoChipSet inoType={inoType} onUpdateChipSet={chipsetSelectionChange}>
-      <InoChip inoValue="apple" inoLabel="Apple" />
-      <InoChip inoValue="banana" inoLabel="Banana" />
-      <InoChip inoValue="cherry" inoLabel="Cherry" />
+    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>
+      <InoChip value="apple" label="Apple" />
+      <InoChip value="banana" label="Banana" />
+      <InoChip value="cherry" label="Cherry" />
     </InoChipSet>
   );
 };
 
 class MyComponent extends Component {
   render() {
-    return <ChipSet inoType="choice" />;
+    return <ChipSet type="choice" />;
   }
 }
 ```
@@ -119,7 +119,7 @@ There are two complex types of chip sets:
 - ** type="choice"`**: Choice chips mimic the behaviour of a radio button and allow the selection of a single option from a set of options.
 - ** type="filter"`**: Filter chips mimic the behaviour of a checkbox and allow multiple options to be selected from a set of options.
 
-Both choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the  value` attribute of each `ino-chip`.
+Both choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the `value` attribute of each `ino-chip`.
 
 ```js
 document
@@ -143,9 +143,9 @@ document
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                             | Type                                    | Default |
-| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
-| `type`   | `type`    | The type of this chip set that indicates its behavior. Possible values are: `''` (default), `choice`, `filter`, `input` | `"" \| "choice" \| "filter" \| "input"` | `''`    |
+| Property | Attribute | Description                                            | Type                                    | Default |
+| -------- | --------- | ------------------------------------------------------ | --------------------------------------- | ------- |
+| `type`   | `type`    | The type of this chip set that indicates its behavior. | `"" \| "choice" \| "filter" \| "input"` | `''`    |
 
 
 ## Events

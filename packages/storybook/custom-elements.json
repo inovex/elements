@@ -705,7 +705,7 @@
         {
           "name": "type",
           "type": "\"\" | \"choice\" | \"filter\" | \"input\"",
-          "description": "The type of this chip set that indicates its behavior.\nPossible values are: `''` (default), `choice`, `filter`, `input`",
+          "description": "The type of this chip set that indicates its behavior.",
           "defaultValue": "''",
           "required": false
         }
@@ -714,7 +714,7 @@
         {
           "name": "type",
           "type": "\"\" | \"choice\" | \"filter\" | \"input\"",
-          "description": "The type of this chip set that indicates its behavior.\nPossible values are: `''` (default), `choice`, `filter`, `input`",
+          "description": "The type of this chip set that indicates its behavior.",
           "defaultValue": "''",
           "required": false
         }

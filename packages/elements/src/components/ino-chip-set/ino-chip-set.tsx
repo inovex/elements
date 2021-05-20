@@ -27,7 +27,6 @@ export class ChipSet implements ComponentInterface {
 
   /**
    * The type of this chip set that indicates its behavior.
-   * Possible values are: `''` (default), `choice`, `filter`, `input`
    */
   @Prop() type?: ChipSetType = '';
 
