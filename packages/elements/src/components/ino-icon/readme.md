@@ -37,7 +37,7 @@ class MyComponent extends Component {
   };
 
   render() {
-    return <InoIcon inoIcon="search" inoClickable onClickEl={handleClick} />;
+    return <InoIcon icon="search" clickable onClickEl={handleClick} />;
   }
 }
 ```
@@ -50,14 +50,14 @@ import { InoIcon } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {
-  const { inoIcon } = props;
+  const { icon } = props;
 
   const handleClick = (e: any) => {
     alert(`Icon was clicked`);
   };
 
   return (
-    <InoIcon inoIcon={inoIcon} onClickEl={handleClick}>
+    <InoIcon icon={icon} onClickEl={handleClick}>
       {props.children}
     </InoIcon>
   );
@@ -65,7 +65,7 @@ const Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {
 
 class MyComponent extends Component {
   render() {
-    return <Icon inoIcon="search" />;
+    return <Icon icon="search" />;
   }
 }
 ```
