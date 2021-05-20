@@ -7,7 +7,7 @@ import { defaultDecorator } from '../utils';
 import './ino-checkbox.scss';
 
 export default {
-  title: 'Components (WIP)/ino-checkbox',
+  title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
   decorators: [
     defaultDecorator,
