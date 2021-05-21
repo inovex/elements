@@ -36,7 +36,7 @@ class MyComponent extends Component {
   };
 
   render() {
-    return <InoIconButton inoIcon="search" onClick={handleClick} />;
+    return <InoIconButton icon="search" onClick={handleClick} />;
   }
 }
 ```
@@ -58,7 +58,7 @@ const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = 
   };
 
   return (
-    <InoIconButton inoIcon={inoIcon} onClick={handleClick}>
+    <InoIconButton icon={inoIcon} onClick={handleClick}>
       {props.children}
     </InoIconButton>
   );
@@ -66,7 +66,7 @@ const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = 
 
 class MyComponent extends Component {
   render() {
-    return <IconButton inoIcon="search" />;
+    return <IconButton icon="search" />;
   }
 }
 ```
@@ -78,12 +78,12 @@ Buttons, and icon buttons as well, are unmanaged components which swap their sta
 This can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_
 
 ```js
-inoActivated = false;
+activated = false;
 
 document.querySelector('ino-icon-button').addEventListener('click', (e) => {
   const el = e.target;
-  inoActivated = !inoActivated;
-  inoActivated
+  activated = !activated;
+  activated
     ? el.addAttribute('activated')
     : el.removeAttribute('activated');
 });
