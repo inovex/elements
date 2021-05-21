@@ -1,19 +1,20 @@
-{
-  "env": {
-    "browser": true,
-    "es6": true
+module.exports = {
+  env: {
+    browser: true,
+    es6: true
   },
-  "extends": [
+  extends: [
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/@typescript-eslint"
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "tsconfig.json",
-    "sourceType": "module"
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "tsconfig.json",
+    tsconfigRootDir: __dirname,
+    sourceType: "module"
   },
-  "plugins": [
+  plugins: [
     "eslint-plugin-import",
     "eslint-plugin-jsdoc",
     "@angular-eslint/eslint-plugin",
@@ -22,11 +23,11 @@
     "eslint-plugin-react",
     "@typescript-eslint"
   ],
-  "ignorePatterns": [
+  ignorePatterns: [
     "**/proxies*.ts",
     "elements/src/directives/angular-component-lib/utils.ts"
   ],
-  "rules": {
+  rules: {
     "@angular-eslint/component-class-suffix": "error",
     "@angular-eslint/directive-class-suffix": "error",
     "@angular-eslint/no-conflicting-lifecycle": "error",
