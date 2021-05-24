@@ -10,6 +10,7 @@ import {
   Listen,
   Prop,
   Watch,
+  State,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -21,7 +22,8 @@ import classNames from 'classnames';
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance: MDCSelect;
-  private nativeInputElement?: HTMLInputElement;
+  private nativeSelectElement?: HTMLSelectElement;
+  private mdcSelectMenuWrapper?: HTMLDivElement;
 
   @Element() el!: HTMLElement;
 
@@ -71,10 +73,34 @@ export class Select implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+  /**
+   * Option Values to display inside hidden <select></select>
+   *
+   * @type {Array<string>}
+   * @memberof Select
+   */
+  @State() mdcSelectMenuListOptionValues: Array<{
+    value: string;
+    selected: boolean;
+    disabled: boolean;
+  }> = [];
+
+  componentWillLoad() {}
+
   componentDidLoad() {
     this.mdcSelectInstance = new MDCSelect(
       this.el.querySelector('.mdc-select')
     );
+
+    // extract ino-options to create hidden a11y select element <select><option></option>/select>
+    const mdcSelectMenuList = this.mdcSelectMenuWrapper.querySelector('ul');
+    this.mdcSelectMenuListOptionValues = [
+      ...mdcSelectMenuList.getElementsByTagName('ino-option'),
+    ].map((listOption: HTMLInoOptionElement) => ({
+      value: listOption.value,
+      selected: listOption.selected,
+      disabled: listOption.disabled,
+    }));
 
     if (this.value) {
       this.setSelectValue(this.value);
@@ -88,8 +114,8 @@ export class Select implements ComponentInterface {
   }
 
   private setSelectValue(value: string) {
-    if (this.nativeInputElement) {
-      this.nativeInputElement.value = value;
+    if (this.nativeSelectElement) {
+      this.nativeSelectElement.value = value;
     }
     this.mdcSelectInstance.value = value;
   }
@@ -131,23 +157,32 @@ export class Select implements ComponentInterface {
       'mdc-select--required': this.required,
     });
 
-    const hiddenInput = this.required ? (
-      <input
-        ref={(el) => (this.nativeInputElement = el)}
-        required={this.required}
-      ></input>
-    ) : (
-      ''
-    );
-
     return (
       <Host name={this.name}>
         <div class={classSelect}>
           <div class="mdc-select__anchor">
-            <div class="mdc-select__selected-text">
-              {this.value}
-              {hiddenInput}
-            </div>
+            <div class="mdc-select__selected-text">{this.value}</div>
+            <select
+              style={{ left: '50px', top: '50px' }}
+              class="ino-visually-hidden"
+              ref={(el) => (this.nativeSelectElement = el)}
+              required={this.required}
+              disabled={this.disabled}
+              name={this.inoLabel}
+            >
+              {this.required && <option value="">None</option>}
+              {this.mdcSelectMenuListOptionValues.map((value) => {
+                return (
+                  <option
+                    value={value.value}
+                    disabled={value.disabled}
+                    selected={value.selected}
+                  >
+                    {value}
+                  </option>
+                );
+              })}
+            </select>
             {this.renderDropdownIcon()}
             <ino-label
               ino-outline={this.inoOutline}
@@ -158,7 +193,12 @@ export class Select implements ComponentInterface {
             />
           </div>
 
-          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <div
+            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth"
+            ref={(el) => {
+              this.mdcSelectMenuWrapper = el;
+            }}
+          >
             <ul class="mdc-list">
               <slot />
             </ul>

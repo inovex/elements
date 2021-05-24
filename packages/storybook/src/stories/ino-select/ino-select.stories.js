@@ -11,7 +11,7 @@ import './ino-select.scss';
 // https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
 function subscribeToComponentEvents() {
   // == event block
-  const eventHandler = function (e) {
+  const eventHandler = function(e) {
     const el = e.target;
     if (el.tagName.toLowerCase() !== 'ino-select') {
       return;
@@ -37,7 +37,7 @@ export default {
     },
   },
   decorators: [
-    (story) => {
+    story => {
       subscribeToComponentEvents();
       return story();
     },
