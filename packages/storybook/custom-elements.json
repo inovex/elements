@@ -741,6 +741,23 @@
       "cssParts": []
     },
     {
+      "name": "ino-combo-box",
+      "path": "./src/components/ino-combobox/ino-combo-box.tsx",
+      "description": "A component that styles a form element as a row with a leading label.",
+      "attributes": [],
+      "properties": [],
+      "events": [
+        {
+          "name": "myEv",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
       "name": "ino-control-item",
       "path": "./src/components/ino-control-item/ino-control-item.tsx",
       "description": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",

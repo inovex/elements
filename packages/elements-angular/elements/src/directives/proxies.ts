@@ -155,6 +155,26 @@ Only applicable if `inoType` is `choice` or `filter`. */
   }
 }
 
+import { ComboBox as IComboBox } from '@inovex.de/elements/dist/types/components/ino-combobox/ino-combo-box';
+export declare interface InoComboBox extends Components.InoComboBox {}
+
+@Component({
+  selector: 'ino-combo-box',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  outputs: ['myEv']
+})
+export class InoComboBox {
+  /**  */
+  myEv!: IComboBox['myEv'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['myEv']);
+  }
+}
+
 import { InoControlItem as IInoControlItem } from '@inovex.de/elements/dist/types/components/ino-control-item/ino-control-item';
 export declare interface InoControlItem extends Components.InoControlItem {}
 @ProxyCmp({
