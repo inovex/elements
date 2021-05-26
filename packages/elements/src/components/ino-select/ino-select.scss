@@ -79,6 +79,15 @@ ino-select {
     .mdc-select__anchor:before {
       display: none;
     }
+
+    .mdc-select__icon {
+      width: 16px;
+      height: 16px;
+      ino-icon {
+        --icon-width: 16px;
+        --icon-height: 16px;
+      }
+    }
   }
 
   .mdc-select.mdc-select--outlined .mdc-select__selected-text {
