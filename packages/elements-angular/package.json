@@ -34,7 +34,7 @@
     "@angular/router": "~12.0.1",
     "@inovex.de/elements": "^3.0.1",
     "rxjs": "~6.6.3",
-    "tslib": "^2.0.0",
+    "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
