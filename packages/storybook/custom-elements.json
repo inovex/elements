@@ -1400,7 +1400,7 @@
     {
       "name": "ino-fab-set",
       "path": "./src/components/ino-fab-set/ino-fab-set.tsx",
-      "description": "The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab button.\nUpon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed dial.",
+      "description": "The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab\nbutton. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed\ndial.",
       "attributes": [
         {
           "name": "dial-direction",
@@ -3362,7 +3362,7 @@
         {
           "name": "progress",
           "type": "number",
-          "description": "Sets the progress of the progress bar\nShould always be between 0 and 1",
+          "description": "Sets the progress of the progress bar.\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
         },
@@ -3398,7 +3398,7 @@
         {
           "name": "progress",
           "type": "number",
-          "description": "Sets the progress of the progress bar\nShould always be between 0 and 1",
+          "description": "Sets the progress of the progress bar.\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
         },

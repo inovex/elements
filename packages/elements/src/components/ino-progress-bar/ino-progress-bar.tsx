@@ -53,7 +53,7 @@ export class InoProgressBar implements ComponentInterface {
   }
 
   /**
-   * Sets the progress of the progress bar
+   * Sets the progress of the progress bar.
    * Should always be between 0 and 1
    */
   @Prop() progress?: number = 0;

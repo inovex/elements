@@ -1,15 +1,17 @@
-.progress-bar-example {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
+.story-ino-progress-bar {
+  .progress-bar-example {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
 
-  ino-progress-bar {
-    width: 80%;
-  }
+    ino-progress-bar {
+      width: 80%;
+    }
 
-  ino-input-file {
-    width: 10%;
+    ino-input-file {
+      width: 10%;
+    }
   }
 }

@@ -833,7 +833,7 @@ export namespace Components {
          */
         "label"?: string;
         /**
-          * Sets the progress of the progress bar Should always be between 0 and 1
+          * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
         /**
@@ -2392,7 +2392,7 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Sets the progress of the progress bar Should always be between 0 and 1
+          * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
         /**
