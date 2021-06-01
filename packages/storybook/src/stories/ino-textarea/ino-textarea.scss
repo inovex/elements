@@ -1,11 +1,9 @@
 .story-textarea {
-  .customizable-textarea {
-    margin-bottom: 32px;
+  display: flex;
+  justify-content: space-around;
+  ino-textarea {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 
-ino-textarea {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  width: 100%;
-}
