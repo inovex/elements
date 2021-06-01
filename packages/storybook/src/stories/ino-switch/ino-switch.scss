@@ -1,19 +1,6 @@
 @use '../../../../elements/src/components/base/theme';
 
-@each $color-name in theme.$color-schemes {
-  $selector: '.#{$color-name}';
-  #{$selector} {
-    --ino-switch-toggled-on-color: #{theme.color($color-name)};
-    --ino-switch-toggled-on-thumb-color: #{theme.color($color-name)};
-    --ino-switch-toggled-on-track-color: #{theme.color($color-name, light)};
-    --ino-switch-hover-color: #{theme.color($color-name, light)};
-    --ino-switch-hover-track-color: #{theme.color($color-name, light)};
-    --ino-switch-active-color: #{theme.color($color-name, dark)};
-    --ino-switch-active-track-color: #{theme.color($color-name, dark)};
-  }
-}
-
-.story-switch-states {
+.story-switch {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -25,12 +12,6 @@
   margin-right: auto;
   margin-bottom: 40px;
   align-self: center;
-}
-
-.ino-switch-colors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 ino-switch {
