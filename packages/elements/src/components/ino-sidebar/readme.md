@@ -31,7 +31,7 @@ document
 
 ### React
 
-```
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';

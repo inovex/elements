@@ -1,115 +1,94 @@
-import { number } from '@storybook/addon-knobs';
-
-import withStencilReadme from '_local-storybookcore/with-stencil-readme';
-
-import componentReadme from '_local-elements/src/components/ino-sidebar/readme.md';
+import { useEffect } from '@storybook/client-api';
+import { html } from 'lit-html';
+import { defaultDecorator } from '../utils';
 import './ino-sidebar.scss';
 
-function subscribeToComponentEvents() {
-  // == event block
-
-  const handleEvent = function (e) {
-    const el = e.target;
-    if (el.tagName.toLowerCase() !== 'ino-icon') {
-      return;
-    }
-    const sidebar = document.querySelector('ino-sidebar');
-    sidebar.inoOpen = !sidebar.inoOpen;
-  };
-
-  document.addEventListener('clickEl', handleEvent);
-  // == event block
-
-  // unsubscribe function will be called by Storybook
-  return () => {
-    document.removeEventListener('clickEl', handleEvent);
-  };
-}
+const eventHandler = e => {
+  const el = e.target;
+  if (el.tagName.toLowerCase() !== 'ino-icon') {
+    return;
+  }
+  const sidebar = el.closest('.sidebar-demo').querySelector('ino-sidebar');
+  sidebar.open = !sidebar.open;
+};
 
 export default {
-  title: 'Structure/<ino-sidebar>',
-
+  title: 'Structure/ino-sidebar',
+  component: 'ino-sidebar',
   decorators: [
-    (story) => {
-      subscribeToComponentEvents();
+    story => defaultDecorator(story, 'story-sidebar'),
+    story => {
+      useEffect(() => {
+        document.addEventListener('clickEl', eventHandler);
+        return () => document.removeEventListener('clickEl', eventHandler);
+      });
       return story();
-    },
+    }
   ],
 };
 
-export const DefaultUsage = () => {
-  return /*html*/ `
-    `;
-};
-
-DefaultUsage.decorators = [withStencilReadme(componentReadme)];
-
-export const SidebarLeft = () => {
-  return `
-    <div class="sidebar-demo">
-      ${header}
-      <ino-sidebar>
-        ${sidebarContent}
-      </ino-sidebar>
-      ${mainContent}
-    </div>
-    `;
-};
-
-export const SidebarRight = () => {
-  return `
-    <div class="sidebar-demo">
-      ${header}
-      <ino-sidebar ino-align-right>
-        ${sidebarContent}
-      </ino-sidebar>
-      ${mainContent}
-    </div>
-    `;
-};
-
-export const SidebarDifferentWidth = () => {
-  return `
-    <div class="sidebar-demo">
-      ${header}
-      <ino-sidebar style="--ino-sidebar-width:${number(
-        '--ino-sidebar-width',
-        500
-      )}px;">
-        ${sidebarContent}
-      </ino-sidebar>
-      ${mainContent}
-    </div>
-    `;
-};
-
-const header = `
-<div class="header">
-    <div class="header--section">
-        <ino-icon ino-clickable ino-icon="menu"></ino-icon>
-        <p>Sidebar</p>
-    </div>
-</div>
+export const SidebarLeft = () => html`
+  <div class="sidebar-demo">
+    ${header}
+    <ino-sidebar>
+      ${sidebarContent}
+    </ino-sidebar>
+    ${mainContent}
+  </div>
 `;
 
-const sidebarContent = `
+export const SidebarRight = () => html`
+  <div class="sidebar-demo">
+    ${header}
+    <ino-sidebar align-right>
+      ${sidebarContent}
+    </ino-sidebar>
+    ${mainContent}
+  </div>
+`;
 
-<div class="sidebar-header" slot="header">
+export const SidebarDifferentWidth = (args) => html`
+  <div class="sidebar-demo">
+    ${header}
+    <ino-sidebar style="--ino-sidebar-width:${args.inoSidebarWidth}">
+      ${sidebarContent}
+    </ino-sidebar>
+    ${mainContent}
+  </div>
+`;
+SidebarDifferentWidth.args = {
+  inoSidebarWidth: '500px'
+}
+SidebarDifferentWidth.argTypes = {
+  markantSelectLabelColor: { control: 'string' },
+}
+
+const header = html`
+  <div class="header">
+    <div class="header--section">
+      <ino-icon clickable icon="menu"></ino-icon>
+      <p>Sidebar</p>
+    </div>
+  </div>
+`;
+
+const sidebarContent = html`
+  <div class="sidebar-header" slot="header">
     <ino-icon ino-clickable ino-icon="close"/>
-</div>
-<div class="sidebar-content" slot="content">
-  <ino-list>
-    <ino-list-item ino-text="List item"></ino-list-item>
-    <ino-list-item ino-text="List item"></ino-list-item>
-    <ino-list-item ino-text="List item"></ino-list-item>
-    <ino-list-item ino-text="List item"></ino-list-item>
-    <ino-list-item ino-text="List item"></ino-list-item>
-    <ino-list-item ino-text="List item"></ino-list-item>
-  </ino-list>
-</div>`;
+  </div>
+  <div class="sidebar-content" slot="content">
+    <ino-list>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+    </ino-list>
+  </div>`;
 
-const mainContent = `
-<div class="content">
+const mainContent = html`
+  <div class="content">
     <p>Cras magna diam, dictum a pretium non, elementum at nibh. Etiam
     laoreet suscipit dui et feugiat. Vivamus id consectetur dolor. Morbi eget nunc vel felis gravida scelerisque.
     Proin libero erat, suscipit pretium venenatis vitae, fringilla sed enim. Maecenas elit est, finibus in tellus
