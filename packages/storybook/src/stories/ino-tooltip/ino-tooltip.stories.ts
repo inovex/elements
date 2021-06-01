@@ -1,14 +1,17 @@
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme, withIconControl } from '../utils';
+import { defaultDecorator, withColorScheme } from '../utils';
+import { Story } from '@storybook/web-components';
+import { Components } from '@inovex.de/elements';
+import './ino-tooltip.scss';
 
 export default {
-  title: `Components (WIP)/ino-tooltip`,
+  title: `Notification/ino-tooltip`,
   component: 'ino-tooltip',
-  decorators: [defaultDecorator],
+  decorators: [story => defaultDecorator(story, 'story-tooltip')],
 };
 
-export const Playground = (args) => html`
-  <button id="tooltip-target">Tooltip</button>
+export const Playground: Story<Components.InoTooltip> = args => html`
+  <ino-button id="tooltip-target">Tooltip</ino-button>
   <ino-tooltip
     for="${args.for}"
     label="${args.label}"
@@ -19,7 +22,7 @@ export const Playground = (args) => html`
 `;
 Playground.args = {
   for: 'tooltip-target',
-  label: 'This is a customaziable tooltip text.',
+  label: 'This is a tooltip text.',
   placement: 'bottom',
   trigger: 'mouseenter focus'
 };
@@ -37,38 +40,37 @@ Playground.argTypes = {
     }
   }
 }
-
 withColorScheme(Playground, 'colorScheme', 'transparent');
 
-export const Placements = args => html`
+export const Placements = () => html`
   <ino-tooltip label="This is a tooltip left" placement="left" for="tooltip-positions-target"></ino-tooltip>
   <ino-tooltip label="This is a tooltip right" placement="right" for="tooltip-positions-target"></ino-tooltip>
   <ino-tooltip label="This is a tooltip top" placement="top" for="tooltip-positions-target"></ino-tooltip>
   <ino-tooltip label="This is a tooltip bottom" placement="bottom" for="tooltip-positions-target"></ino-tooltip>
-  <button class="placement-button" id="tooltip-positions-target">Tooltip</button>
+  <ino-button class="placement-button" id="tooltip-positions-target">Tooltip</ino-button>
 `;
 
-export const Triggers = args => html`
-  <button id="tooltip-mouseenter">Mouseenter</button>
+export const Triggers = () => html`
+  <ino-button id="tooltip-mouseenter">Mouseenter</ino-button>
   <ino-tooltip placement="top" for="tooltip-mouseenter" label="This tooltip occurs on hover"></ino-tooltip>
 
-  <button id="tooltip-focus">Focus</button>
+  <ino-button id="tooltip-focus">Focus</ino-button>
   <ino-tooltip placement="top" for="tooltip-focus" label="This tooltip occurs on focus" trigger="focus"></ino-tooltip>
 
-  <button id="tooltip-click">Click</button>
+  <ino-button id="tooltip-click">Click</ino-button>
   <ino-tooltip placement="right" for="tooltip-click" label="This tooltip occurs on click" trigger="click"></ino-tooltip>
 `;
 
-export const Colors = args => html`
-  <button id="primary-tooltip" color-scheme="primary">Primary</button>
+export const Colors = () => html`
+  <ino-button id="primary-tooltip" color-scheme="primary">Primary</ino-button>
   <ino-tooltip for="primary-tooltip" label="Primary color scheme" color-scheme="primary" placement="top"></ino-tooltip>
 
-  <button id="secondary-tooltip" color-scheme="secondary">Secondary</button>
+  <ino-button id="secondary-tooltip" color-scheme="secondary">Secondary</ino-button>
   <ino-tooltip for="secondary-tooltip" label="Secondary color scheme" color-scheme="secondary" placement="top"></ino-tooltip>
 
-  <button id="light-tooltip" color-scheme="grey">Light</button>
+  <ino-button id="light-tooltip" color-scheme="grey">Light</ino-button>
   <ino-tooltip for="light-tooltip" label="Light color scheme" color-scheme="light" placement="top"></ino-tooltip>
 
-  <button id="transparent-tooltip" color-scheme="grey">Transparent</button>
+  <ino-button id="transparent-tooltip" color-scheme="grey">Transparent</ino-button>
   <ino-tooltip for="transparent-tooltip" label="Transparent color scheme" color-scheme="transparent" placement="top"></ino-tooltip>
 `;
