@@ -26,7 +26,7 @@ A clear and concise description of what the problem is. Ex. I'm always frustrate
 
 <!-- If you have a solution in mind, please describe it. -->
 
-### Describe of considered alternatives
+### Description of the considered alternatives
 
 <!-- Have you considered any alternative solutions or workarounds? -->
 
