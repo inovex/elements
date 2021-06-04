@@ -59,9 +59,9 @@ Steps to reproduce the behavior:
 
 | Software            | Version |
 | ------------------- | ------- |
-| @inovex.de/elements |
-| Browser             |
-| Operating System    |
+| @inovex.de/elements |         |
+| Browser             |         |
+| Operating System    |         |
 
 ### Additional context
 
