@@ -4,7 +4,6 @@ about: Suggest a feature or an idea for this project.
 title: ''
 labels: discussion, feature, new
 assignees: ''
-
 ---
 
 <!--

@@ -4,7 +4,6 @@ about: Report a bug in any elements package.
 title: ''
 labels: bug, new
 assignees: ''
-
 ---
 
 <!--
@@ -30,11 +29,11 @@ Did this behavior use to work in the previous version?
 
 ### Minimal Reproduction
 
-<!-- 
+<!--
 If CodeSandbox or Stackblitz is better suitable for reproduction of your issue, here are some links to get up fast:
 
 * Web Components: https://stackblitz.com/edit/ino-elements-js-example
-* Angular: https://codesandbox.io/s/github/inovex/elements-example-angular 
+* Angular: https://codesandbox.io/s/github/inovex/elements-example-angular
 * React: https://codesandbox.io/s/github/inovex/elements-example-react
 * Vue: https://codesandbox.io/s/github/inovex/elements-example-vue
 -->
