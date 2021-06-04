@@ -57,7 +57,7 @@ export function getNamedUrl(name: string) {
 	if (url) {
 		return url;
 	}
-	return getAssetPath(`./ino-icon/${name}.svg`);
+	return getAssetPath(`../../assets/ino-icon/${name}.svg`);
 }
 
 export const isSrc = (str: string) => str.length > 0 && /(\/|\.)/.test(str);
