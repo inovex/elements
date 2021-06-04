@@ -39,8 +39,10 @@ export class InoSidebar {
 
   @Watch('open')
   openChanged(newValue: boolean) {
-    this.drawer.open = newValue;
-    this.openChange.emit(newValue);
+    if (this.drawer) {
+      this.drawer.open = newValue;
+      this.openChange.emit(newValue);
+    }
   }
 
   /**
@@ -57,7 +59,9 @@ export class InoSidebar {
     this.drawer = new MDCCustomDrawer(
       this.el.shadowRoot.querySelector('.mdc-drawer')
     );
-    this.drawer.open = this.open;
+    if (this.drawer) {
+      this.drawer.open = this.open;
+    }
   }
 
   render() {
