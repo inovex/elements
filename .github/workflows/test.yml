@@ -71,7 +71,7 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-lerna-
       - run: npm config set scripts-prepend-node-path true
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn build
 
       - if: github.ref == 'refs/heads/master'
