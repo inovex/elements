@@ -47,9 +47,7 @@ integrate the `InoElementsModule` into each module that is supposed to use the i
 you can also integrate the components into a shared module. This way, you only need to import the components once
 (recommended).
 
-Because `@inovex.de/elements-angular` makes use of [stencil's angular output target binding](https://stenciljs.com/docs/angular#bindings) no `CUSTOM_ELEMENTS_SCHEMA` must be included into your Angular setup. The only step needed is to integrate the `InoElementsModule` as described above and call its `forRoot` Method.
-
-1. Edit `app.module.ts`
+Because `@inovex.de/elements-angular` makes use of [stencil's angular output target binding](https://stenciljs.com/docs/angular#bindings) no `CUSTOM_ELEMENTS_SCHEMA` must be included into your Angular setup. The only step needed is to integrate the `InoElementsModule` as shown below and call its `forRoot` Method.
 
 ```typescript
 // src/app/app.module.ts
@@ -73,7 +71,26 @@ import { AppComponent } from './app.component';
 export class AppModule {}
 ```
 
-### 2) Use the Components
+### 3) Use the Components
+
+### 4) (optional) Import the `ino-icon`s
+
+In order to use our icons, you need to add them to your build.
+To do so, add the following to the `assets` array under `projects.<your-project-name>.architect.build.options.assets` in your `angular.json` file:
+
+```json
+{
+  // ...
+  "assets": [
+    // ...
+    {
+      "glob": "**/*.svg",
+      "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+      "output": "ino-icon"
+    }
+  ]
+}
+```
 
 As the integration is completed, you can now use the components in your project in the same way you would use
 any other Angular directive.
