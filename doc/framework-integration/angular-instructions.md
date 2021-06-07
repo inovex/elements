@@ -3,7 +3,7 @@
 > We set up a demo project with Angular CLI to show you how to integrate the components into a newly generated Angular
 > project. Scroll down to see the CodeSandbox.
 >
-> These instructions are based on `angular@10.2.1` and [`angular-cli@10.2.1`](https://cli.angular.io/).
+> These instructions are based on `angular@12.0.0` and [`angular-cli@12.0.0`](https://cli.angular.io/).
 
 ## 0) Prepare your Project
 
@@ -42,10 +42,7 @@ integrate the `InoElementsModule` into each module that is supposed to use the i
 you can also integrate the components into a shared module. This way, you only need to import the components once
 (recommended).
 
-We need two steps to integrate the components inside angular
-
-- Include the CUSTOM_ELEMENTS_SCHEMA in the modules that use the components.
-- Call defineCustomElements() from `main.ts` (or some other appropriate place).
+Because `@inovex.de/elements-angular` makes use of [stencil's angular output target binding](https://stenciljs.com/docs/angular#bindings) no `CUSTOM_ELEMENTS_SCHEMA` must be included into your Angular setup. The only step needed is to integrate the `InoElementsModule` as described above and call its `forRoot` Method.
 
 1. Edit `app.module.ts`
 
@@ -66,36 +63,12 @@ import { AppComponent } from './app.component';
     InoElementsModule.forRoot(), // <-- b) make it available in Angular
   ],
   providers: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA], // <-- c) Defines a schema that allows an NgModule to contain Non-Angular elements named with dash case (-) details https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA
   bootstrap: [AppComponent],
 })
 export class AppModule {}
 ```
 
-2. Edit `main.ts`
-
-```typescript
-// src/main.ts
-
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-import { defineCustomElements } from '@inovex.de/elements/dist/loader';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.log(err));
-defineCustomElements();
-```
-
-### 3) Use the Components
+### 2) Use the Components
 
 As the integration is completed, you can now use the components in your project in the same way you would use
 any other Angular directive.
