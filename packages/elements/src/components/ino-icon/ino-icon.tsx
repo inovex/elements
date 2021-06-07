@@ -21,7 +21,6 @@ import { getUrl } from './utils';
   tag: 'ino-icon',
   styleUrl: 'ino-icon.scss',
   shadow: true,
-  assetsDirs: ['assets/ino-icon'],
 })
 export class Icon implements ComponentInterface {
   /**
