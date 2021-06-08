@@ -20,7 +20,7 @@
     "lint:fix": "eslint --ext .ts,.tsx ./elements/src/ --fix",
     "e2e": "ng e2e",
     "preinstall": "node ./preinstall.js",
-    "postinstall": "ngcc && node ./postinstall.js"
+    "postinstall": "node ./postinstall.js"
   },
   "private": true,
   "dependencies": {
