@@ -15,7 +15,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "rootDir": "schematics",
-    "outDir": "../out-tsc/lib",
+    "outDir": "../dist/schematics/",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
