@@ -5,7 +5,7 @@ import './ino-option.scss';
 export default {
   title: 'Components (WIP)/ino-option',
   component: 'ino-option',
-  decorators: [defaultDecorator],
+  decorators: [(story) => defaultDecorator(story, 'story-ino-option')],
 };
 
 export const Playground = (args) => html`
