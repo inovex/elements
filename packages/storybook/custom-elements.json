@@ -3205,7 +3205,7 @@
         {
           "name": "controlled",
           "type": "boolean",
-          "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)",
+          "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)",
           "defaultValue": "false",
           "required": false
         },
@@ -3219,7 +3219,7 @@
         {
           "name": "for",
           "type": "string",
-          "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)\nor the parent component if a slot element does not exist.",
+          "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`popover-trigger`)\nor the parent component if a slot element does not exist.",
           "required": false
         },
         {
@@ -3262,7 +3262,7 @@
         {
           "name": "controlled",
           "type": "boolean",
-          "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)",
+          "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)",
           "defaultValue": "false",
           "required": false
         },
@@ -3276,7 +3276,7 @@
         {
           "name": "for",
           "type": "string",
-          "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)\nor the parent component if a slot element does not exist.",
+          "description": "The target id the popover belongs to.\nIf not given, the popover is attached to the element provided in the named slot (`popover-trigger`)\nor the parent component if a slot element does not exist.",
           "required": false
         },
         {

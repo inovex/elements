@@ -787,7 +787,7 @@ export namespace Components {
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
-          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled": boolean;
         /**
@@ -795,7 +795,7 @@ export namespace Components {
          */
         "distance"?: number;
         /**
-          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
         /**
@@ -2346,7 +2346,7 @@ declare namespace LocalJSX {
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
-          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+          * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
         "controlled"?: boolean;
         /**
@@ -2354,7 +2354,7 @@ declare namespace LocalJSX {
          */
         "distance"?: number;
         /**
-          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`) or the parent component if a slot element does not exist.
+          * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
         /**

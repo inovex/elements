@@ -47,7 +47,7 @@ export class Popover implements ComponentInterface {
 
   /**
    * The target id the popover belongs to.
-   * If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)
+   * If not given, the popover is attached to the element provided in the named slot (`popover-trigger`)
    * or the parent component if a slot element does not exist.
    */
   @Prop() for?: string;
@@ -110,7 +110,7 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
    */
   @Prop() controlled: boolean = false;
 
@@ -185,7 +185,7 @@ export class Popover implements ComponentInterface {
   }
 
   private get target(): HTMLElement | null {
-    const slotContent = getSlotContent(this.el, 'ino-popover-trigger');
+    const slotContent = getSlotContent(this.el, 'popover-trigger');
 
     if (slotContent) return slotContent;
 
