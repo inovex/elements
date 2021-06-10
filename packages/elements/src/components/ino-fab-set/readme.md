@@ -104,15 +104,16 @@ your local state and pass the state to the component again to open/close the fab
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property            | Attribute             | Description                                                                                   | Type                                     | Default    |
 | ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
 | `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
 | `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
-| `openDial`          | `open-dial`           | Opens the dial (**
-uncontrolled**)                                                             | `boolean`                                | `false`    |
+| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
 | `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
+
 
 ## Dependencies
 
@@ -122,7 +123,6 @@ uncontrolled**)                                                             | `b
 - [ino-icon](../ino-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ino-fab-set --> ino-fab

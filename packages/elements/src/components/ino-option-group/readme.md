@@ -45,15 +45,15 @@ class MyComponent extends Component {
   render() {
     return (
       <InoSelect
-        inoLabel="My Select"
+        label="My Select"
         value={this.state.selected}
         onValueChange={() => this.changeHandler(e.detail)}
       >
-        <InoOptionGroup inoLabel={'Option Group 1'}>
+        <InoOptionGroup label={'Option Group 1'}>
           <InoOption value="Option 1">Option 1</InoOption>
           <InoOption value="Option 2">Option 2</InoOption>
         </InoOptionGroup>
-        <InoOptionGroup inoLabel={'Option Group 2'}>
+        <InoOptionGroup label={'Option Group 2'}>
           <InoOption value="Option 3">Option 3</InoOption>
           <InoOption value="Option 4">Option 4</InoOption>
         </InoOptionGroup>

@@ -74,12 +74,14 @@ class MyComponent extends Component {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                                                                                                                                            | Type      | Default     |
 | ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
 | `label`     | `label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
 | `mandatory` | `mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
+
 
 ----------------------------------------------
 

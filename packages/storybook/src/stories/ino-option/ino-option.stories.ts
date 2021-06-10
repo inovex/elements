@@ -3,7 +3,7 @@ import { defaultDecorator } from '../utils';
 import './ino-option.scss';
 
 export default {
-  title: 'Components (WIP)/ino-option',
+  title: 'Input/ino-option',
   component: 'ino-option',
   decorators: [(story) => defaultDecorator(story, 'story-ino-option')],
 };
