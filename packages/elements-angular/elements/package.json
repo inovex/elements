@@ -19,9 +19,18 @@
     "@angular/core": "^12.0.1"
   },
   "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../out-tsc/lib",
+    "copy:files": "cp --parents -p schematics/*/files/** ../out-tsc/lib",
+    "copy:collection": "cp schematics/collection.json ../out-tsc/lib/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection",
     "prepublishOnly": "cd ../ && yarn build"
   },
   "publishConfig": {
     "directory": "../dist"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   }
 }
