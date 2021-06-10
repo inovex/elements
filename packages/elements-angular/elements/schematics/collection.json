@@ -3,7 +3,7 @@
   "schematics": {
     "ng-add": {
       "description": "Add the inovex-elements to the project.",
-      "factory": "./ng-add/index#ngAdd"
+      "factory": "./ng-add/index#ngAdd",
     }
   }
 }
