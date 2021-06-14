@@ -12,15 +12,14 @@ Please refer to the top level [README](../../../README.md) to see the available 
 
 ### Adding or Removing Components
 
-Everytime a new component ist added or removed from the `@inovex.de/elements` package you must ensure that
-the following files are written after running the `build` command:
+Everytime a new component ist added or removed from the `@inovex.de/elements` package you must ensure that the following files are written after running the `build` command:
 
 - `src/directives/proxies-list.ts`
 - `src/directives/proxies.ts`
 
-These files are updated automatically. This ensures that the component is available for the consumer in
-the Angular world. If the component needs a custom value accessor to support the `ngModel` directive,
-please update the following files also:
+These files are updated automatically. 
+This ensures that the component is available for the consumer in the Angular world. 
+If the component needs a custom value accessor to support the `ngModel` directive, please update the following files also:
 
 - `src/public-api` (modify)
 - `src/ino-elements.module.ts` (modify)
@@ -40,9 +39,8 @@ In order to test the functionality of the schematics, we make use of our linking
 
 ### Updating the Angular Integration Layer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
-as an Angular library project. So you can update this project as you would do any other Angular
-library project.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0 as an Angular library project. 
+So you can update this project as you would do any other Angular library project.
 
 ## License
 
