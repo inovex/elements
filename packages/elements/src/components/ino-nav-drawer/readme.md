@@ -15,7 +15,7 @@ The component can be used as follows:
 document
   .querySelector('ino-nav-drawer')
   .addEventListener('openChange', (_) => alert('Drawer was toggled!')) // watch for toggle change
-  .setAttribute('ino-open', true); // open drawer
+  .setAttribute('open', true); // open drawer
 ```
 
 ```html
@@ -51,9 +51,9 @@ class MyComponent extends Component {
   render() {
     return (
       <InoNavDrawer
-        inoOpen="false"
-        inoAnchor="left"
-        inoVariant="docked"
+        open="false"
+        anchor="left"
+        variant="docked"
         onOpen={(_) => alert('Yeah, you just opened the drawer!')}
       >
         <ino-list slot="header">
@@ -92,12 +92,12 @@ import { InoNavDrawer } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
 const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (
-  props,
+  props
 ) => {
-  const { inoOpen, inoVariant, inoAnchor } = props;
+  const { open, variant, anchor } = props;
 
   return (
-    <InoNavDrawer inoOpen={inoOpen} inoVariant={inoVariant} onClick={onClick}>
+    <InoNavDrawer open={open} variant={variant} onClick={onClick}>
       Drawer Content
       <main slot="app">App Content</main>
     </InoNavDrawer>
@@ -106,7 +106,7 @@ const Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (
 
 class MyComponent extends Component {
   render() {
-    return <Drawer inoVariant="dismissible" inoAnchor="left" inoOpen="true" />;
+    return <Drawer variant="dismissible" anchor="left" open="true" />;
   }
 }
 ```
