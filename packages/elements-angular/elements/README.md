@@ -26,6 +26,18 @@ please update the following files also:
 - `src/ino-elements.module.ts` (modify)
 - `src/directives/control-value-accesors/ino-COMPONENT-NAME-value-accessor.directive.ts` (create)
 
+### Schematics
+For a detailed explanation of schematics in Angular, see [this guide](https://angular.io/guide/schematics).
+
+At this moment, `ng-add` is the only schematic this library provides.
+All the related files are located under `/schematics`.
+
+In order to test the functionality of the schematics, we make use of our linking tool `yalc`:
+1. Add a new schematic or make changes to the existing one
+2. Run `publish:yalc` at the root of this project and select angular
+3. In your consuming project, install [yalc](https://github.com/wclr/yalc) and run `yalc link @inovex.de/elements-angular`
+4. Run `ng add @inovex.de/elements-angular`
+
 ### Updating the Angular Integration Layer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.

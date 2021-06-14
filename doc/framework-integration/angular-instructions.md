@@ -17,19 +17,15 @@ into your Angular project.
 
 Add the package `@inovex.de/elements-angular` to your project using `yarn` or `npm`:
 
-### Instructions for npm:
+Add the package `@inovex.de/elements-angular` to your project using `ng add`:
 
 ```sh
-$ npm install @inovex.de/elements-angular --save
+$ ng add @inovex.de/elements-angular
 ```
 
-### Instructions for Yarn:
+This should add the dependency as well as our `ino-icons` to your project.
 
-```sh
-$ yarn add @inovex.de/elements-angular
-```
-
-### 2) Import the Module `InoElementsModule`
+## 2) Import the Module `InoElementsModule`
 
 The components we provide in the Angular project are wrapped in Angular directives within an Angular library.
 All the `@Input` properties and `@Output` events of our components are included. This allows your IDE
@@ -69,25 +65,5 @@ export class AppModule {}
 ### 3) Use the Components
 
 ### 4) (optional) Import the `ino-icon`s
-
-In order to use our icons, you need to add them to your build.
-To do so, add the following to the `assets` array under `projects.<your-project-name>.architect.build.options.assets` in your `angular.json` file:
-
-```json
-{
-  // ...
-  "assets": [
-    // ...
-    {
-      "glob": "**/*.svg",
-      "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
-      "output": "ino-icon"
-    }
-  ]
-}
-```
-
-As the integration is completed, you can now use the components in your project in the same way you would use
-any other Angular directive.
 
 To help you to get started, we created a [simple todo app](https://codesandbox.io/s/github/inovex/elements-example-angular) for you to play around with.
