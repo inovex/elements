@@ -81,8 +81,6 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const Input: React.FunctionComponent<Components.InoInputAttributes> = (
   props,
 ) => {
-  const { inoPlaceholder } = props;
-
   const onValueChange = (e: any) => {
     alert(`The new value is ${e.detail}`);
   };
@@ -97,7 +95,7 @@ const Input: React.FunctionComponent<Components.InoInputAttributes> = (
 
 class MyComponent extends Component {
   render() {
-    return <Input inoPlaceholder="You can insert some text..." />;
+    return <Input placeholder="You can insert some text..." />;
   }
 }
 ```
@@ -110,7 +108,7 @@ class MyComponent extends Component {
 
 **Helper Text**: The component shows an optional helper text underneath the input field (`helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `helper-persistent` to show it all the time. Furthermore, use `helper-validation` to style the helper text as validation message.
 
-**Icons**: There are currently two options two place an icon: at the start/left (`icon-leading`) or at the end/right (`icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally, you have to provide either `slot=icon-leading` or `slot="icon-trailing`to your icon element.
+**Icons**: There are currently two options two place an icon: at the start/left (`icon-leading`) or at the end/right (`icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally, you have to provide either `slot="icon-leading"` or `slot="icon-trailing"`to your icon element.
 
 **Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.
 

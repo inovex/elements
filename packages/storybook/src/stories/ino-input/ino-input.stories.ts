@@ -4,10 +4,10 @@ import { defaultDecorator } from '../utils';
 import './ino-input.scss';
 
 export default {
-  title: `Components (WIP)/ino-input`,
+  title: 'Input/ino-input',
   component: 'ino-input',
   decorators: [
-    story => defaultDecorator(story, 'story-ino-input'), 
+    story => defaultDecorator(story, 'story-ino-input'),
     story => {
       useEffect(() => {
         const eventHandler = e => e.target.setAttribute('value', e.detail);
@@ -48,7 +48,7 @@ export const Playground = (args) => html`
     max="${args.max}"
     maxlength="${args.maxlength}"
     name="${args.name}"
-    outlined="${args.outlined}"
+    outline="${args.outline}"
     pattern="${args.pattern}"
     placeholder="${args.placeholder}"
     readonly="${args.readonly}"
@@ -78,7 +78,7 @@ Playground.args = {
   min: '',
   max: '',
   maxlength: 100,
-  outlined: false,
+  outline: false,
   name: '',
   pattern: '*',
   placeholder: '',
@@ -112,23 +112,20 @@ export const Types = () => html`
 
 export const States = () => html`
   <ino-input placeholder="Disabled" disabled></ino-input>
-  <ino-input label="Label" value="Readonly Value" readonly></ino-input>
-  <ino-input label="Readonly wihout value" readonly></ino-input>
-  <ino-input label="Readonly with -" value="-" readonly></ino-input>
   <ino-input label="Optional" show-label-hint></ino-input>
   <ino-input label="Required" required show-label-hint></ino-input>
 
-  <ino-input placeholder="Outline disabled" outlined disabled></ino-input>
-  <ino-input label="Outline optional" outlined show-label-hint></ino-input>
-  <ino-input label="Outline required" outlined show-label-hint required></ino-input>
+  <ino-input placeholder="Outline disabled" outline disabled></ino-input>
+  <ino-input label="Outline optional" outline show-label-hint></ino-input>
+  <ino-input label="Outline required" outline show-label-hint required></ino-input>
 `;
 
 export const Labels = () => html`
   <ino-input label="Floating label"></ino-input>
   <ino-input label="Floating label" value="With value"></ino-input>
 
-  <ino-input label="Outlined floating label" outlined></ino-input>
-  <ino-input label="Outlined floating label" value="With value" outlined></ino-input>
+  <ino-input label="Outlined floating label" outline></ino-input>
+  <ino-input label="Outlined floating label" value="With value" outline></ino-input>
 `;
 
 export const HelperTexts = () => html`
@@ -139,22 +136,22 @@ export const HelperTexts = () => html`
 `;
 
 export const Outlined = () => html`
-  <ino-input placeholder="Outlined" outlined></ino-input>
+  <ino-input placeholder="Outlined" outline></ino-input>
 `;
 
 export const Icons = () => html`
   <ino-input icon-leading label="Leading icon">
-    <ino-icon slot="ino-icon-leading" icon="search"></ino-icon>
+    <ino-icon slot="icon-leading" icon="search"></ino-icon>
   </ino-input>
   <ino-input icon-trailing label="Trailing icon">
-    <ino-icon slot="ino-icon-trailing" icon="search"></ino-icon>
+    <ino-icon slot="icon-trailing" icon="search"></ino-icon>
   </ino-input>
   <ino-input icon-leading icon-trailing label="Leading and Trailing icon">
-   <ino-icon slot="ino-icon-leading" icon="search"></ino-icon>
-   <ino-icon slot="ino-icon-trailing" icon="add"></ino-icon>
+   <ino-icon slot="icon-leading" icon="search"></ino-icon>
+   <ino-icon slot="icon-trailing" icon="add"></ino-icon>
   </ino-input>
   <ino-input icon-trailing label="Clickable Icon">
-    <ino-icon clickable slot="ino-icon-trailing" icon="search"></ino-icon>
+    <ino-icon clickable slot="icon-trailing" icon="search"></ino-icon>
   </ino-input>
  </div>
 `;
