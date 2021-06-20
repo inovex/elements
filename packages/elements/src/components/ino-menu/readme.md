@@ -39,11 +39,11 @@ class MyComponent extends Component {
       <InoButton>
         Show Menu
         <InoMenu>
-          <InoListItem inoText="Home"/>
-          <InoListItem inoText="Projects"/>
+          <InoListItem text="Home"/>
+          <InoListItem text="Projects"/>
           <InoDivider/>
-          <InoListItem inoText="User"/>
-          <InoListItem inoText="Settings"/>
+          <InoListItem text="User"/>
+          <InoListItem text="Settings"/>
         </InoMenu>
       </InoButton>
     );
