@@ -32,7 +32,7 @@ class MyComponent extends Component {
 
   render() {
     return (
-      <InoImgList inoEncloseLabel={this.state.encloseLabel}>
+      <InoImgList encloseLabel={this.state.encloseLabel}>
         <InoImg src={this.state.source} img-list-item></InoImg>
       </InoImgList>
     );
