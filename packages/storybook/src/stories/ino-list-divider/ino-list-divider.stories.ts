@@ -3,43 +3,37 @@ import { defaultDecorator } from '../utils';
 import '../ino-list/ino-list.scss';
 
 export default {
-  title: 'Components (WIP)/ino-list-divider',
+  title: 'Structure/ino-list-divider',
   component: 'ino-list-divider',
   decorators: [defaultDecorator],
 };
 
 export const Playground = (args) => html`
-  <ino-list inset="${args.inset}">
+  <ino-list>
     <ino-list-item text="Item 1"></ino-list-item>
     <ino-list-item text="Item 2"></ino-list-item>
-    <ino-list-divider></ino-list-divider>
+    <ino-list-divider
+      inset="${args.inset}"
+      between-lists="${args.betweenLists}"
+      padded="${args.padded}"
+    ></ino-list-divider>
     <ino-list-item text="Item 3"></ino-list-item>
   </ino-list>
 `;
 Playground.args = {
-  inset: false
+  inset: false,
+  betweenLists: false,
+  padded: false
 }
 
 export const Inset = () => html`
   <ino-list>
-    <ino-list-item text="Save">
-      <ino-icon slot="ino-list-item-leading" icon="save"></ino-icon>
+    <ino-list-item text="Add to favorites">
+      <ino-icon slot="leading" icon="favorite"></ino-icon>
     </ino-list-item>
     <ino-list-divider inset></ino-list-divider>
     <ino-list-item text="Star it!">
-      <ino-icon slot="ino-list-item-leading" icon="flag"></ino-icon>
-    </ino-list-item>
-  </ino-list>
-`;
-
-export const InsetDense = () => html`
-  <ino-list dense>
-    <ino-list-item text="Save">
-      <ino-icon slot="ino-list-item-leading" icon="save"></ino-icon>
-    </ino-list-item>
-    <ino-list-divider inset></ino-list-divider>
-    <ino-list-item text="Star it!">
-      <ino-icon slot="ino-list-item-leading" icon="flag"></ino-icon>
+      <ino-icon slot="leading" icon="star"></ino-icon>
     </ino-list-item>
   </ino-list>
 `;
