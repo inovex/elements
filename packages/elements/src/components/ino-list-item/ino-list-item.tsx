@@ -48,7 +48,7 @@ export class ListItem implements ComponentInterface {
   /**
    * Styles the row in an activated style.
    *
-   * In contrast to `inoSelected`, use this for only one item
+   * In contrast to `selected`, use this for only one item
    * and to mark it as permantently activated.
    */
   @Prop() activated?: boolean;

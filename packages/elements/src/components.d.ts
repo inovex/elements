@@ -703,7 +703,7 @@ export namespace Components {
     }
     interface InoListItem {
         /**
-          * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
         /**
@@ -2254,7 +2254,7 @@ declare namespace LocalJSX {
     }
     interface InoListItem {
         /**
-          * Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
          */
         "activated"?: boolean;
         /**
