@@ -1,33 +1,16 @@
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
 import { useEffect } from '@storybook/client-api';
-import './ino-list.scss';
 
 export default {
-  title: 'Components (WIP)/ino-list ',
+  title: 'Structure/ino-list ',
   component: 'ino-list',
-  decorators: [defaultDecorator, story => {
-    useEffect(() => {
-      const eventHandler = e => {
-        const el = e.target;
-        el.setAttribute('checked', e.detail);
-        if (el.getAttribute('indeterminate') === 'true') {
-          el.setAttribute('indeterminate', 'false');
-        }
-      };
-      const selections = document.querySelectorAll('ino-checkbox, ino-radio');
-      selections.forEach(s => s.addEventListener('checkedChange', eventHandler));
-      return () => selections.forEach(s => s.removeEventListener('checkedChange', eventHandler));
-    });
-    return story();
-  }],
 };
 
 export const Playground = (args) => html`
   <ino-list
     dense="${args.dense}"
     two-lines="${args.twoLines}"
-    leading-avatar="${args.leadingAvatar}"
+    avatar="${args.avatar}"
     >
       <ino-list-item text="First text item"></ino-list-item>
       <ino-list-item text="Second text item"></ino-list-item>
@@ -37,8 +20,17 @@ export const Playground = (args) => html`
 Playground.args = {
   dense: false,
   twoLines: false,
-  leadingAvatar: false,
+  avatar: false,
 }
+
+const exampleImg = html`
+  <ino-img
+    slot="leading"
+    src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+    ratio-width="1"
+    ratio-height="1"
+  ></ino-img>
+`;
 
 export const TwoLines = () => html`
   <ino-list two-lines>
@@ -49,14 +41,14 @@ export const TwoLines = () => html`
 `;
 
 export const Dense = () => html`
+  <h4>Default</h4>
   <ino-list dense class="first-list">
     <ino-list-item text="First text item"></ino-list-item>
     <ino-list-item text="Second text item"></ino-list-item>
     <ino-list-item text="Third text item"></ino-list-item>
   </ino-list>
-`;
 
-export const TwoLinesDense = () => html`
+  <h4>Dense and Two Lines</h4>
   <ino-list dense two-lines>
     <ino-list-item text="First text item" secondary-text="Secondary"></ino-list-item>
     <ino-list-item text="Second text item" secondary-text="Secondary"></ino-list-item>
@@ -64,35 +56,34 @@ export const TwoLinesDense = () => html`
   </ino-list>
 `;
 
-export const LeadingAvatar = () => html`
-  <ino-list leading-avatar>
+export const Avatar = () => html`
+  <h4>Default</h4>
+  <ino-list avatar>
     <ino-list-item text="First text item">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
     <ino-list-item text="Second text item">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
   </ino-list>
-`;
 
-export const LeadingAvatarDense = () => html`
-  <ino-list leading-avatar dense>
+  <h4>Avatar and Dense</h4>
+  <ino-list avatar dense>
     <ino-list-item text="First text item">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
     <ino-list-item text="Second text item">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
   </ino-list>
-`;
 
-export const LeadingAvatarTwoLines = () => html`
-  <ino-list leading-avatar two-lines>
+  <h4>Avatar and Two Lines</h4>
+  <ino-list avatar two-lines>
     <ino-list-item text="First text item" secondary-text="Secondary">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
     <ino-list-item text="Second text item" secondary-text="Secondary">
-      <img slot="ino-list-item-leading" src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"/>
+      ${exampleImg}
     </ino-list-item>
   </ino-list>
 `;

@@ -48,7 +48,7 @@ document
 
 | Property        | Attribute        | Description                                                                                                                                      | Type      | Default     |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `activated`     | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
+| `activated`     | `activated`      | Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.        | `boolean` | `undefined` |
 | `disabled`      | `disabled`       | Styles the row in a disabled style.                                                                                                              | `boolean` | `undefined` |
 | `secondaryText` | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`  | `undefined` |
 | `selected`      | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |

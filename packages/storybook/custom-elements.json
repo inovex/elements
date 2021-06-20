@@ -2722,7 +2722,7 @@
         {
           "name": "activated",
           "type": "boolean",
-          "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
+          "description": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permantently activated.",
           "required": false
         },
         {
@@ -2754,7 +2754,7 @@
         {
           "name": "activated",
           "type": "boolean",
-          "description": "Styles the row in an activated style.\n\nIn contrast to `inoSelected`, use this for only one item\nand to mark it as permantently activated.",
+          "description": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permantently activated.",
           "required": false
         },
         {

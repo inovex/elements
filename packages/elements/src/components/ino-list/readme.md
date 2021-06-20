@@ -28,8 +28,8 @@ import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
   render() {
     return (
-      <InoList inoAvatar>
-        <InoListItem inoText="First text item">
+      <InoList avatar>
+        <InoListItem text="First text item">
           <InoImg
             slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
@@ -37,7 +37,7 @@ class MyComponent extends Component {
             ratio-height="1"
           />
         </InoListItem>
-        <InoListItem inoText="Second text item">
+        <InoListItem text="Second text item">
           <InoImg
             slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
@@ -59,16 +59,16 @@ import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
 const List: React.FunctionComponent<Components.InoListAttributes> = (props) => {
-  const { inoAvatar } = props;
+  const { avatar } = props;
 
-  return <InoList inoAvatar={inoAvatar}>{props.children}</InoList>;
+  return <InoList avatar={avatar}>{props.children}</InoList>;
 };
 
 class MyComponent extends Component {
   render() {
     return (
-      <List inoAvatar>
-        <InoListItem inoText="First text item">
+      <List avatar>
+        <InoListItem text="First text item">
           <InoImg
             slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
@@ -76,7 +76,7 @@ class MyComponent extends Component {
             ratio-height="1"
           />
         </InoListItem>
-        <InoListItem inoText="Second text item">
+        <InoListItem text="Second text item">
           <InoImg
             slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"

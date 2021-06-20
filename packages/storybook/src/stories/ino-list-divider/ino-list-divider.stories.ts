@@ -1,11 +1,8 @@
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
-import '../ino-list/ino-list.scss';
 
 export default {
   title: 'Structure/ino-list-divider',
   component: 'ino-list-divider',
-  decorators: [defaultDecorator],
 };
 
 export const Playground = (args) => html`
@@ -39,13 +36,13 @@ export const Inset = () => html`
 `;
 
 export const BetweenLists = () => html`
-  <ino-list class="divider-two-lists">
+  <ino-list>
     <ino-list-item text="List 1 - item 1"></ino-list-item>
     <ino-list-item text="List 1 - item 2"></ino-list-item>
     <ino-list-item text="List 1 - item 3"></ino-list-item>
   </ino-list>
   <ino-list-divider between-lists></ino-list-divider>
-  <ino-list class="divider-two-lists">
+  <ino-list>
     <ino-list-item text="List 2 - item 1"></ino-list-item>
     <ino-list-item text="List 2 - item 2"></ino-list-item>
     <ino-list-item text="List 2 - item 3"></ino-list-item>

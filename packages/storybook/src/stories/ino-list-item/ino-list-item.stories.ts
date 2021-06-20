@@ -17,7 +17,7 @@ export default {
             el.setAttribute('indeterminate', 'false');
           }
         };
-        const selections = document.querySelectorAll('ino-checkbox');
+        const selections = document.querySelectorAll('ino-checkbox, ino-radio');
         selections.forEach(s => s.addEventListener('checkedChange', eventHandler));
         return () => selections.forEach(s => s.removeEventListener('checkedChange', eventHandler));
       });
@@ -29,7 +29,6 @@ export default {
 export const Playground = (args) => html`
   <ino-list two-lines="${args.twoLines}">
     <ino-list-item
-      class="customizable-list-item"
       secondary-text="${args.secondaryText}"
       selected="${args.selected}"
       activated="${args.activated}"
@@ -119,6 +118,40 @@ export const Checkbox = () => html`
   </ino-list>
 `;
 
+export const Radio = () => html`
+  <h4>Leading radio button</h4>
+  <ino-list>
+    <ino-list-item text="First text item">
+      <ino-radio slot="leading" name="group-1"></ino-radio>
+    </ino-list-item>
+    <ino-list-item text="Second text item">
+      <ino-radio slot="leading" name="group-1"></ino-radio>
+    </ino-list-item>
+  </ino-list>
+
+  <h4>Trailing radio button</h4>
+  <ino-list>
+    <ino-list-item text="Lorem ipsum dolor sit">
+      <ino-radio slot="trailing" name="group-5"></ino-radio>
+    </ino-list-item>
+    <ino-list-item text="Lorem ipsum dolor sit">
+      <ino-radio slot="trailing" name="group-5"></ino-radio>
+    </ino-list-item>
+  </ino-list>
+
+  <h4>Leading radio button and trailing metadata</h4>
+  <ino-list>
+    <ino-list-item text="Lorem ipsum dolor sit">
+    <ino-radio slot="leading" name="group-6"></ino-radio>
+      <p slot="trailing">Some Metadata</p>
+    </ino-list-item>
+    <ino-list-item text="Lorem ipsum dolor sit">
+    <ino-radio slot="leading" name="group-6"></ino-radio>
+      <p slot="trailing">Some Metadata</p>
+    </ino-list-item>
+  </ino-list>
+`;
+
 export const Slots = () => html`
   <h4>Primary Slot</h4>
   <ino-list>
@@ -140,14 +173,14 @@ export const Slots = () => html`
 `;
 
 export const TwoLines = () => html`
-  <ino-list two-lines leading-avatar>
+  <ino-list two-lines avatar>
     <ino-list-item text="Lorem ipsum dolor sit" secondary-text="Secondary Lorem ipsum dolor sit">
       ${exampleImg}
-      <ino-icon slot="trailing" class="ino-list-item__icon" icon="info"></ino-icon>
+      <ino-icon slot="trailing" icon="info"></ino-icon>
     </ino-list-item>
     <ino-list-item text="Lorem ipsum dolor sit" secondary-text="Secondary Lorem ipsum dolor sit">
       ${exampleImg}
-      <ino-icon slot="trailing" class="ino-list-item__icon" icon="info"></ino-icon>
+      <ino-icon slot="trailing" icon="info"></ino-icon>
     </ino-list-item>
   </ino-list>
 `;
