@@ -164,7 +164,7 @@ export namespace Components {
     }
     interface InoChipSet {
         /**
-          * The type of this chip set that indicates its behavior.
+          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
          */
         "type"?: ChipSetType;
     }
@@ -1680,7 +1680,7 @@ declare namespace LocalJSX {
          */
         "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
         /**
-          * The type of this chip set that indicates its behavior.
+          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
          */
         "type"?: ChipSetType;
     }

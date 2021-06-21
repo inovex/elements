@@ -143,9 +143,9 @@ document
 
 ## Properties
 
-| Property | Attribute | Description                                            | Type                                    | Default |
-| -------- | --------- | ------------------------------------------------------ | --------------------------------------- | ------- |
-| `type`   | `type`    | The type of this chip set that indicates its behavior. | `"" \| "choice" \| "filter" \| "input"` | `''`    |
+| Property | Attribute | Description                                                                                                                                                                                                          | Type                                    | Default |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------- |
+| `type`   | `type`    | The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips | `"" \| "choice" \| "filter" \| "input"` | `''`    |
 
 
 ## Events
