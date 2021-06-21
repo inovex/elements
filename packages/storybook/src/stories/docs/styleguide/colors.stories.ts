@@ -2,11 +2,12 @@ import { html } from 'lit-html';
 import './styles.scss';
 
 export default {
-  title: 'Docs/Styleguide',
+  title: 'Docs/Styleguide/Colors',
 };
 
 export const Colors = () => html`
-  These shades will represent the brand in graphical elements, texts, syntax, backgrounds and ui elements.
+  These shades will represent the brand in graphical elements, texts, syntax,
+  backgrounds and ui elements.
   <h2>Inovex</h2>
   <div class="color-wrapper">
     <div class="color-rect" style="background-color: #003C7E"></div>
