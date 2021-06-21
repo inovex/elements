@@ -5,34 +5,32 @@ import { html } from 'lit-html';
 import { defaultDecorator, withColorScheme } from '../utils';
 import './ino-switch.scss';
 
-const eventHandler = e => {
+const eventHandler = (e) => {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-switch') {
     return;
   }
   el.setAttribute('checked', e.detail);
-}
+};
 
 export default {
   title: 'Input/ino-switch',
   component: 'ino-switch',
   decorators: [
-    story => defaultDecorator(story, 'story-switch'),
-    story => {
+    (story) => defaultDecorator(story, 'story-switch'),
+    (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', eventHandler);
-        return () => document.removeEventListener('checkedChange', eventHandler);
+        return () =>
+          document.removeEventListener('checkedChange', eventHandler);
       });
       return story();
-    }
+    },
   ],
 };
 
-export const Playground: Story<Components.InoSwitch> = (
-  args
-) => html`
-  <ino-switch 
-    class="css-variables" 
+export const Playground: Story<Components.InoSwitch> = (args) => html`
+  <ino-switch
     checked="${args.checked}"
     color-scheme="${args.colorScheme}"
     disabled="${args.disabled}"
@@ -44,9 +42,9 @@ export const Playground: Story<Components.InoSwitch> = (
 Playground.args = {
   checked: false,
   disabled: false,
-  name: ''
-}
-withColorScheme(Playground, 'colorScheme');
+  name: '',
+};
+withColorScheme(Playground, 'colorScheme', 'primary');
 
 export const ColorScheme = () => html`
   <ino-switch color-scheme="primary" checked>Primary</ino-switch>
@@ -65,7 +63,7 @@ export const States = () => html`
   <ino-switch disabled>Disabled</ino-switch>
 `;
 
-export const CSSProperties = args => html`
+export const CSSProperties = (args) => html`
   <style>
     ino-switch.css-variables {
       --switch-toggled-on-color: ${args.switchToggledOnColor};
@@ -85,8 +83,8 @@ export const CSSProperties = args => html`
       --switch-disabled-track-color: ${args.switchDisabledTrackColor};
     }
   </style>
-  <ino-switch 
-    class="css-variables" 
+  <ino-switch
+    class="css-variables"
     checked="${args.checked}"
     disabled="${args.disabled}"
   >
@@ -110,7 +108,7 @@ CSSProperties.args = {
   switchActiveTrackColor: '#0d10f3',
   switchDisabledColor: '#c1c1c1',
   switchDisabledThumbColor: '#c1c1c1',
-  switchDisabledTrackColor: '#c1c1c1'
+  switchDisabledTrackColor: '#c1c1c1',
 };
 CSSProperties.argTypes = {
   switchToggledOnColor: { control: 'color' },
@@ -127,5 +125,5 @@ CSSProperties.argTypes = {
   switchActiveTrackColor: { control: 'color' },
   switchDisabledColor: { control: 'color' },
   switchDisabledThumbColor: { control: 'color' },
-  switchDisabledTrackColor: { control: 'color' }
+  switchDisabledTrackColor: { control: 'color' },
 };
