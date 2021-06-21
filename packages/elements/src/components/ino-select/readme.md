@@ -120,6 +120,13 @@ The component behaves like a native select with additional features. The native 
 | `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
 
 
+## Slots
+
+| Slot        | Description                      |
+| ----------- | -------------------------------- |
+| `"default"` | One or more `ino-option(-group)` |
+
+
 ## CSS Custom Properties
 
 | Name              | Description                    |

@@ -8,9 +8,13 @@ import {
   Host,
   Prop,
   Watch,
-  h, Listen
+  h,
+  Listen,
 } from '@stencil/core';
 
+/**
+ * @slot default - One or more `ino-tab`
+ */
 @Component({
   tag: 'ino-tab-bar',
   styleUrl: 'ino-tab-bar.scss',
@@ -56,7 +60,7 @@ export class TabBar implements ComponentInterface {
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
-  };
+  }
 
   render() {
     return (

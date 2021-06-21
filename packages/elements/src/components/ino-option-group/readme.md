@@ -73,6 +73,13 @@ class MyComponent extends Component {
 | `label`  | `label`   | Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259). | `string` | `undefined` |
 
 
+## Slots
+
+| Slot        | Description              |
+| ----------- | ------------------------ |
+| `"default"` | One or more `ino-option` |
+
+
 ## Dependencies
 
 ### Depends on

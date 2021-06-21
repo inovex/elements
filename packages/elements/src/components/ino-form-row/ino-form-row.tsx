@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 
+/**
+ * @slot default - Any element
+ */
 @Component({
   tag: 'ino-form-row',
   styleUrl: 'ino-form-row.scss',

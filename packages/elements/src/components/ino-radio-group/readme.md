@@ -94,6 +94,13 @@ In order to change the checked element (and uncheck the other ones) listen to th
 | `value`  | `value`   | The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked. | `any` | `undefined` |
 
 
+## Slots
+
+| Slot        | Description             |
+| ----------- | ----------------------- |
+| `"default"` | One or more `ino-radio` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

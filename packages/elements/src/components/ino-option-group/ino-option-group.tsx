@@ -1,5 +1,8 @@
 import { Component, Host, Prop, h } from '@stencil/core';
 
+/**
+ * @slot default - One or more `ino-option`
+ */
 @Component({
   tag: 'ino-option-group',
   styleUrl: 'ino-option-group.scss',

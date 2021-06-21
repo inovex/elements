@@ -16,6 +16,9 @@ import classnames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
+/**
+ * @slot default - Label of the checkbox
+ */
 @Component({
   tag: 'ino-radio',
   styleUrl: 'ino-radio.scss',

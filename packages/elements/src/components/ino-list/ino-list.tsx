@@ -9,6 +9,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
+ */
 @Component({
   tag: 'ino-list',
   styleUrl: 'ino-list.scss',

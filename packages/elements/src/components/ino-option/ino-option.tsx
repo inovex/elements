@@ -1,6 +1,9 @@
 import { Component, h, Host, Listen, Prop } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - The text of the option
+ */
 @Component({
   tag: 'ino-option',
   styleUrl: 'ino-option.scss',

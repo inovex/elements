@@ -51,6 +51,13 @@ class MyComponent extends Component {
 | `masonry`      | `masonry`       | Enables the masonry image list variant, which allows the images to be any combination of aspect ratios. | `boolean` | `false` |
 
 
+## Slots
+
+| Slot        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `"default"` | One or more `ino-img` with `imgListItem="true"` |
+
+
 ## CSS Custom Properties
 
 | Name                  | Description                |

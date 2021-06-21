@@ -115,6 +115,13 @@ your local state and pass the state to the component again to open/close the fab
 | `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
 
 
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | One or more `ino-fab` |
+
+
 ## Dependencies
 
 ### Depends on

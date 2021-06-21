@@ -9,6 +9,9 @@ import {
 import { Placement } from 'tippy.js';
 import { focusIfExists, generateUniqueId } from '../../util/component-utils';
 
+/**
+ * @slot default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`
+ */
 @Component({
   tag: 'ino-menu',
   styleUrl: 'ino-menu.scss',

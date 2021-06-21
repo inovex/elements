@@ -13,6 +13,9 @@ import classNames from 'classnames';
 
 import { generateUniqueId } from '../../util/component-utils';
 
+/**
+ * @slot default - Label of the button
+ */
 @Component({
   tag: 'ino-segment-button',
   styleUrl: 'ino-segment-button.scss',

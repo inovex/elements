@@ -106,6 +106,13 @@ Provide `two-lines` to set proper style attributes for list items having a prima
 | `twoLines` | `two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
 
 
+## Slots
+
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
+
+
 ## Dependencies
 
 ### Used by

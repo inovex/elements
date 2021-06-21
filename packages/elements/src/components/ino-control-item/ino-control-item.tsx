@@ -9,6 +9,9 @@ import {
   h,
 } from '@stencil/core';
 
+/**
+ * @slot default - Any element
+ */
 @Component({
   tag: 'ino-control-item',
   styleUrl: 'ino-control-item.scss',

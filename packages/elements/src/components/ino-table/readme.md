@@ -79,9 +79,10 @@ class MyComponent extends Component {
 
 ## Slots
 
-| Slot       | Description                  |
-| ---------- | ---------------------------- |
-| `"header"` | For the table header element |
+| Slot        | Description                  |
+| ----------- | ---------------------------- |
+| `"default"` | One or more `ino-row`        |
+| `"header"`  | For the table header element |
 
 
 ----------------------------------------------

@@ -155,6 +155,13 @@ document
 | `updateChipSet` | Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description            |
+| ----------- | ---------------------- |
+| `"default"` | One or more `ino-chip` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -2,6 +2,7 @@ import { Component, ComponentInterface, Element, Host, h } from '@stencil/core';
 
 /**
  * @slot header - For the table header element
+ * @slot default - One or more `ino-row`
  */
 @Component({
   tag: 'ino-table',

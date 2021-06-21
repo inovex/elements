@@ -10,6 +10,9 @@ import classNames from 'classnames';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
+/**
+ * @slot default - One or more `ino-fab`
+ */
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',

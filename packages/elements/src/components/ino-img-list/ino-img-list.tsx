@@ -8,6 +8,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-img` with `imgListItem="true"`
+ */
 @Component({
   tag: 'ino-img-list',
   styleUrl: 'ino-img-list.scss',

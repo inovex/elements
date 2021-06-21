@@ -58,6 +58,13 @@ class MyComponent extends Component {
 | `checkedChange` | Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description         |
+| ----------- | ------------------- |
+| `"default"` | Label of the button |
+
+
 ## CSS Custom Properties
 
 | Name                                  | Description                              |

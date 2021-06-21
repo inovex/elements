@@ -85,6 +85,13 @@ to the value of the button that emitted the event.
 | `value`  | `value`   | Value of the segment group | `any`    | `undefined` |
 
 
+## Slots
+
+| Slot        | Description                      |
+| ----------- | -------------------------------- |
+| `"default"` | One or more `ino-segment-button` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -24,6 +24,13 @@ The component can be used as follows:
 | `selected`  | `selected`   | Indicates whether the row is selected or not | `boolean` | `false` |
 
 
+## Slots
+
+| Slot        | Description                  |
+| ----------- | ---------------------------- |
+| `"default"` | One or more `ino-table-cell` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

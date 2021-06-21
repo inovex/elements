@@ -373,7 +373,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-carousel-slide`"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-carousel-animation-duration",
@@ -726,7 +731,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-chip`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -879,7 +889,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Any element"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -1463,7 +1478,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-fab`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -1501,7 +1521,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Any element"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -1996,7 +2021,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-img` with `imgListItem=\"true\"`"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-img-list-cols",
@@ -2660,7 +2690,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-(control|list|nav)-item` and `ino-list-divider`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -2875,7 +2910,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-(control|list|nav)-item` and `ino-list-divider`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -3056,7 +3096,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Any element"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-nav-item-background-color",
@@ -3127,7 +3172,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The text of the option"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-option-deselected-background-color",
@@ -3186,7 +3236,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-option`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -3486,7 +3541,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Label of the checkbox"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-radio-active-color",
@@ -3537,7 +3597,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-radio`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -3755,7 +3820,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Label of the button"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-segment-button-checked-color",
@@ -3818,7 +3888,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-segment-button`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -3923,7 +3998,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-option(-group)`"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--select-height",
@@ -4247,7 +4327,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "Label of the switch"
+        }
+      ],
       "cssProperties": [
         {
           "name": "--ino-switch-active-color",
@@ -4412,7 +4497,12 @@
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-tab`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -4425,6 +4515,10 @@
       "events": [],
       "methods": [],
       "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-row`"
+        },
         {
           "name": "header",
           "description": "For the table header element"
@@ -4457,7 +4551,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The cell value"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },
@@ -4499,7 +4598,12 @@
       ],
       "events": [],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "One or more `ino-table-cell`"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },

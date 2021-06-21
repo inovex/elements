@@ -102,6 +102,13 @@ The tab bar has a controlled (unmanaged) attribute `active-tab`. For this reason
 | `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | One or more `ino-tab` |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -24,6 +24,13 @@ The component can be used as follows:
 | `numeric` | `numeric` | Indicates that the cell contains numeric values | `boolean` | `false` |
 
 
+## Slots
+
+| Slot        | Description    |
+| ----------- | -------------- |
+| `"default"` | The cell value |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

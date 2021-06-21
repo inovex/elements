@@ -94,6 +94,13 @@ Please note that only text is supported as a trailing element. However, your ico
 | `checkedChange` | Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description |
+| ----------- | ----------- |
+| `"default"` | Any element |
+
+
 ## Dependencies
 
 ### Depends on

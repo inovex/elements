@@ -42,6 +42,13 @@ document
 | `text`      | `text`      | The text of this list item.                                                                                | `string`  | `undefined` |
 
 
+## Slots
+
+| Slot        | Description |
+| ----------- | ----------- |
+| `"default"` | Any element |
+
+
 ## CSS Custom Properties
 
 | Name                                     | Description                                   |

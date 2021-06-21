@@ -14,6 +14,9 @@ import classNames from 'classnames';
 
 import { ChipSetType } from '../types';
 
+/**
+ * @slot default - One or more `ino-chip`
+ */
 @Component({
   tag: 'ino-chip-set',
   styleUrl: 'ino-chip-set.scss',

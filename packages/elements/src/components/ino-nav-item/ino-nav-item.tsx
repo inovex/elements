@@ -8,6 +8,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - Any element
+ */
 @Component({
   tag: 'ino-nav-item',
   styleUrl: 'ino-nav-item.scss',

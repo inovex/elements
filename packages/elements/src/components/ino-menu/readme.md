@@ -67,6 +67,13 @@ and `ino-list-item` component.
 | `placement` | `placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'` |
 
 
+## Slots
+
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
+
+
 ## Dependencies
 
 ### Depends on

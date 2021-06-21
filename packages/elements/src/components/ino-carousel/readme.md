@@ -83,6 +83,13 @@ class MyComponent extends Component {
 | `value`        | `value`        | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
 
 
+## Slots
+
+| Slot        | Description                      |
+| ----------- | -------------------------------- |
+| `"default"` | One or more `ino-carousel-slide` |
+
+
 ## CSS Custom Properties
 
 | Name                                | Description                               |

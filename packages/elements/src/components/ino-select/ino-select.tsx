@@ -13,6 +13,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-option(-group)`
+ */
 @Component({
   tag: 'ino-select',
   styleUrl: 'ino-select.scss',

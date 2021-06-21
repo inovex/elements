@@ -8,6 +8,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-table-cell`
+ */
 @Component({
   tag: 'ino-table-row',
   styleUrl: 'ino-table-row.scss',

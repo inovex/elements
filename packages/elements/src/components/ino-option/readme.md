@@ -22,6 +22,13 @@ The component can be used as follows:
 | `value` _(required)_ | `value`    | Value of the option | `string`  | `undefined` |
 
 
+## Slots
+
+| Slot        | Description            |
+| ----------- | ---------------------- |
+| `"default"` | The text of the option |
+
+
 ## CSS Custom Properties
 
 | Name                                              | Description                               |

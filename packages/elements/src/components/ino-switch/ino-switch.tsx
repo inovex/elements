@@ -16,6 +16,9 @@ import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 import { ColorScheme } from '../types';
 
+/**
+ * @slot default - Label of the switch
+ */
 @Component({
   tag: 'ino-switch',
   styleUrl: 'ino-switch.scss',

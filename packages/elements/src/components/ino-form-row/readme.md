@@ -83,6 +83,13 @@ class MyComponent extends Component {
 | `mandatory` | `mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
 
 
+## Slots
+
+| Slot        | Description |
+| ----------- | ----------- |
+| `"default"` | Any element |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

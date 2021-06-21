@@ -9,6 +9,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-carousel-slide`
+ */
 @Component({
   tag: 'ino-carousel',
   styleUrl: 'ino-carousel.scss',
