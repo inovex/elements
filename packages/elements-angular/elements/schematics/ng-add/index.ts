@@ -20,8 +20,22 @@ function addAsset(
 ) {
   const config = readConfig(host);
   const appConfig = getAngularAppConfig(config, projectName);
-  appConfig.architect[architect].options.assets.push(asset);
+
+  const targetConfig = appConfig.architect[architect];
+
+  // use process.stdout in order to write in the same line
+  process.stdout.write(
+    `Adding the ino-icons to ${projectName}/architect/${architect} in your angular.json ... `
+  );
+
+  if (!targetConfig) {
+    process.stdout.write('Not found. Skipping.\n');
+    return;
+  }
+
+  targetConfig.options.assets.push(asset);
   writeConfig(host, config);
+  process.stdout.write('Done.\n');
 }
 
 function installNodeDeps() {
