@@ -89,7 +89,7 @@ export const Formats = () => html`
   <ino-datepicker type="date" date-format="d.m.Y" label="Date"></ino-datepicker>
   <ino-datepicker type="time" date-format="H:i" label="Time"></ino-datepicker>
   <ino-datepicker date-format="d.m.Y" range label="Range"></ino-datepicker>
-  <ino-datepicker type="month" label="Month"></ino-datepicker>
+  <ino-datepicker date-format="m.Y" type="month" label="Month"></ino-datepicker>
 `;
 
 export const Restrictions = () => html`
