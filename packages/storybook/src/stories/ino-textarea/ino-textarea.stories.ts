@@ -10,25 +10,34 @@ export default {
   component: 'ino-textarea',
   parameters: {
     actions: {
-      handles: ['input .customizable-textarea', 'valueChange .customizable-textarea']
-    }
+      handles: [
+        'input .customizable-textarea',
+        'valueChange .customizable-textarea',
+      ],
+    },
   },
   decorators: [
-    story => defaultDecorator(story, 'story-textarea'), 
-    story => {
+    (story) => defaultDecorator(story, 'story-textarea'),
+    (story) => {
       useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('value', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
         const textareas = document.querySelectorAll('ino-textarea');
-        textareas.forEach(t => t.addEventListener('valueChange', eventHandler));
-        return () => textareas.forEach(t => t.removeEventListener('valueChange', eventHandler));
+        textareas.forEach((t) =>
+          t.addEventListener('valueChange', eventHandler)
+        );
+        return () =>
+          textareas.forEach((t) =>
+            t.removeEventListener('valueChange', eventHandler)
+          );
       });
       return story();
-    }
+    },
   ],
 };
 
-export const Playground: Story<Components.InoTextarea> = args => html`
-  <ino-textarea class="customizable-textarea"
+export const Playground: Story<Components.InoTextarea> = (args) => html`
+  <ino-textarea
+    class="customizable-textarea"
     cols="${args.cols}"
     rows="${args.rows}"
     placeholder="${args.placeholder}"
@@ -58,15 +67,25 @@ Playground.args = {
   showLabelHint: false,
   autogrow: false,
   showCharacterCounter: true,
-}
+};
 
 export const Labels = () => html`
   <ino-textarea label="Floating label" cols="30" rows="3"></ino-textarea>
-  <ino-textarea label="Floating label" value="With value" cols="30" rows="3"></ino-textarea>
+  <ino-textarea
+    label="Floating label"
+    value="With value"
+    cols="30"
+    rows="3"
+  ></ino-textarea>
 `;
 
 export const Filled = () => html`
-  <ino-textarea label="Filled" cols="50" rows="3" outline="false"></ino-textarea>
+  <ino-textarea
+    label="Filled"
+    cols="50"
+    rows="3"
+    outline="false"
+  ></ino-textarea>
 `;
 
 export const Outline = () => html`
@@ -74,16 +93,49 @@ export const Outline = () => html`
 `;
 
 export const States = () => html`
-  <ino-textarea placeholder="Disabled" disabled cols="30" rows="3"></ino-textarea>
-  <ino-textarea label="Required" required show-label-hint cols="30" rows="3"></ino-textarea>
-  <ino-textarea label="Optional" cols="30" show-label-hint rows="3"></ino-textarea>
+  <ino-textarea
+    placeholder="Disabled"
+    disabled
+    cols="30"
+    rows="3"
+  ></ino-textarea>
+  <ino-textarea
+    label="Required"
+    required
+    show-label-hint
+    cols="30"
+    rows="3"
+  ></ino-textarea>
+  <ino-textarea
+    label="Optional"
+    cols="30"
+    show-label-hint
+    rows="3"
+  ></ino-textarea>
 `;
 
 export const Autogrow = () => html`
-  <ino-textarea label="Autogrowing textarea" autogrow class="autogrow-textarea" rows="1" cols="50" outlined="false"></ino-textarea>
-  <ino-textarea label="Autogrowing textarea" autogrow class="autogrow-textarea" rows="1" cols="50" outlined="false" maxlength="200" show-character-counter="true"></ino-textarea>
+  <ino-textarea
+    label="Autogrowing textarea"
+    autogrow
+    class="autogrow-textarea"
+    rows="1"
+    cols="50"
+    outlined="false"
+  ></ino-textarea>
 `;
 
+export const CharacterCount = () => html`
+  <ino-textarea
+    label="Character count"
+    autogrow
+    rows="1"
+    cols="50"
+    outlined="false"
+    maxlength="200"
+    show-character-counter="true"
+  ></ino-textarea>
+`;
 
 //     <style>
 //       ino-textarea.customizable-textarea {
