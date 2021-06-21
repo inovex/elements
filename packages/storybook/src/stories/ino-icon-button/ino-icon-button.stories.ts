@@ -34,6 +34,13 @@ Playground.args = {
   autofocus: false,
 };
 
+Playground.argTypes = {
+  type: {
+    type: 'select',
+    options: ['button', 'reset', 'submit'],
+  },
+};
+
 withIconControl(Playground, 'icon', 'add');
 withColorScheme(Playground, 'colorScheme', 'primary');
 

@@ -71,14 +71,11 @@ Playground.argTypes = {
 
 export const Roles = () => html`
   <ino-list>
-    <ino-control-item checked role="checkbox" text="First Item">
+    <ino-control-item checked role="checkbox" text="Checkbox">
     </ino-control-item>
-    <ino-control-item role="checkbox" text="Second Item"></ino-control-item>
   </ino-list>
   <ino-list>
-    <ino-control-item checked role="radio" text="First Item">
-    </ino-control-item>
-    <ino-control-item role="radio" text="Second Item"></ino-control-item>
+    <ino-control-item role="radio" text="Radio"></ino-control-item>
   </ino-list>
 `;
 
