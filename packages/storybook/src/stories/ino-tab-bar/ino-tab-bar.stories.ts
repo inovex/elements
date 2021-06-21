@@ -5,40 +5,48 @@ import './ino-tab-bar.scss';
 import { Story } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
 
-const eventHandler = e => e.target.setAttribute('active-tab', e.detail);
-      
+const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
+
 export default {
   title: `Structure/ino-tab-bar`,
   component: 'ino-tab-bar',
-  decorators: [defaultDecorator, story => {
-    useEffect(() => {
-      const tabBars = document.querySelectorAll('ino-tab-bar');
-      tabBars.forEach(t => t.addEventListener('activeTabChange', eventHandler));
-      return () => tabBars.forEach(t => t.removeEventListener('activeTabChange', eventHandler));
-    });
-    return story();
-  }],
+  decorators: [
+    defaultDecorator,
+    (story) => {
+      useEffect(() => {
+        const tabBars = document.querySelectorAll('ino-tab-bar');
+        tabBars.forEach((t) =>
+          t.addEventListener('activeTabChange', eventHandler)
+        );
+        return () =>
+          tabBars.forEach((t) =>
+            t.removeEventListener('activeTabChange', eventHandler)
+          );
+      });
+      return story();
+    },
+  ],
 };
 
-export const Playground: Story<Components.InoTabBar> = args => html`
+export const Playground: Story<Components.InoTabBar> = (args) => html`
   <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}">
     <ino-tab label="User" icon="user"></ino-tab>
-    <ino-tab label="Delivery" icon="delivery"></ino-tab>
+    <ino-tab label="Messages" icon="message"></ino-tab>
     <ino-tab label="Settings" icon="settings"></ino-tab>
     <ino-tab label="Download" icon="download"></ino-tab>
   </ino-tab-bar>
 `;
 Playground.args = {
-  activeTab: 0
-}
+  activeTab: 0,
+};
 Playground.argTypes = {
   activeTab: {
     control: {
       type: 'select',
-      options: [0,1,2,3]
-    }
-  }
-}
+      options: [0, 1, 2, 3],
+    },
+  },
+};
 
 export const Stacked = () => html`
   <ino-tab-bar>
