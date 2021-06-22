@@ -15,12 +15,15 @@
     "ng": "ng",
     "start": "ng serve",
     "clean": "shx rm -rf dist",
-    "build": "ng build",
+    "build": "ng build && tsc -p elements/tsconfig.schematics.json",
     "lint": "eslint --ext .ts,.tsx elements/src/",
     "lint:fix": "eslint --ext .ts,.tsx ./elements/src/ --fix",
     "e2e": "ng e2e",
     "preinstall": "node ./preinstall.js",
-    "postinstall": "node ./postinstall.js"
+    "postinstall": "node ./postinstall.js",
+    "copy:prepare": "shx mkdir -p dist/schematics",
+    "copy:collection": "shx cp elements/schematics/collection.json dist/schematics/collection.json",
+    "postbuild": "npm run copy:prepare && npm run copy:collection"
   },
   "private": true,
   "dependencies": {

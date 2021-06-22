@@ -23,5 +23,9 @@
   },
   "publishConfig": {
     "directory": "../dist"
+  },
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "dependencies"
   }
 }
