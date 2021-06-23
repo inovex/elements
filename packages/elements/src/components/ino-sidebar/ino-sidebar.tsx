@@ -23,7 +23,7 @@ import { MDCCustomDrawer } from './MDCCustomDrawer';
   shadow: true,
 })
 export class InoSidebar {
-  private drawer: MDCDrawer;
+  private drawer?: MDCDrawer;
 
   @Element() el!: HTMLElement;
 
