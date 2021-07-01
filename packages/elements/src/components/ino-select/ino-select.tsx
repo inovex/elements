@@ -23,7 +23,7 @@ import classNames from 'classnames';
 })
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
-  private mdcSelectInstance: MDCSelect;
+  private mdcSelectInstance?: MDCSelect;
   private nativeInputElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
@@ -81,7 +81,7 @@ export class Select implements ComponentInterface {
 
     if (this.value) {
       this.setSelectValue(this.value);
-    } else if (this.mdcSelectInstance.value) {
+    } else if (this.mdcSelectInstance?.value) {
       this.value = this.mdcSelectInstance.value;
     }
   }
@@ -94,7 +94,9 @@ export class Select implements ComponentInterface {
     if (this.nativeInputElement) {
       this.nativeInputElement.value = value;
     }
-    this.mdcSelectInstance.value = value;
+    if (this.mdcSelectInstance) {
+      this.mdcSelectInstance.value = value;
+    }
   }
 
   @Listen('MDCSelect:change')

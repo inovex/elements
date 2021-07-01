@@ -4111,6 +4111,13 @@
           "required": false
         },
         {
+          "name": "stay-visible-on-hover",
+          "type": "boolean",
+          "description": "If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.",
+          "defaultValue": "false",
+          "required": false
+        },
+        {
           "name": "timeout",
           "type": "number",
           "description": "Sets the timeout in ms until the snackbar disappears. The timeout can\nbe disabled by setting it to a negative value.",
@@ -4144,6 +4151,13 @@
           "name": "message",
           "type": "string",
           "description": "The text message to display.",
+          "required": false
+        },
+        {
+          "name": "stayVisibleOnHover",
+          "type": "boolean",
+          "description": "If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.",
+          "defaultValue": "false",
           "required": false
         },
         {
