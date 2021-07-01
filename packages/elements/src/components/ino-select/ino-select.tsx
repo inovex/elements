@@ -13,10 +13,10 @@ import {
   State,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { hasSlotContent } from "../../util/component-utils";
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
- * @slot ino-icon-leading - For the icon to be prepended
+ * @slot icon-leading - For the icon to be prepended
  * @slot default - One or more `ino-option(-group)`
  */
 @Component({
@@ -154,7 +154,7 @@ export class Select implements ComponentInterface {
   );
 
   render() {
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
     const classSelect = classNames({
       'mdc-select': true,
@@ -162,7 +162,7 @@ export class Select implements ComponentInterface {
       'mdc-select--outlined': this.outline,
       'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
-      'mdc-select--with-leading-icon': leadingSlotHasContent
+      'mdc-select--with-leading-icon': leadingSlotHasContent,
     });
 
     return (
@@ -171,8 +171,8 @@ export class Select implements ComponentInterface {
           <div class="mdc-select__anchor">
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
-                <slot name="ino-icon-leading"></slot>
-            </span>
+                <slot name="icon-leading"></slot>
+              </span>
             )}
 
             <div class="mdc-select__selected-text">{this.value}</div>
