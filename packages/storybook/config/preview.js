@@ -2,7 +2,7 @@
 import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
 
 // Global sass file
-import '../src/core/global.scss';
+import './global.scss';
 
 import { addParameters, setCustomElements } from '@storybook/web-components';
 import theme from './theme';

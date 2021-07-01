@@ -5,11 +5,28 @@ import { html } from 'lit-html';
 
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
 
-import findElementUpwards from '../../core/helpers/findElementUpwards';
 import { defaultDecorator, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
+
+
+const findElementUpwards = function (currentEl, elTagName, elClassName) {
+  if (currentEl.tagName.toLowerCase() !== elTagName) {
+    if (currentEl.parentElement !== null) {
+      return findElementUpwards(
+        currentEl.parentElement,
+        elTagName,
+        elClassName
+      );
+    }
+  } else {
+    if (currentEl.classList.contains(elClassName)) {
+      return currentEl;
+    }
+  }
+};
+
 
 function copyToClipboard(text) {
   const snackbar: HTMLInoSnackbarElement = document.createElement(
