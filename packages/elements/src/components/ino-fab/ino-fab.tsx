@@ -145,7 +145,7 @@ export class Fab implements ComponentInterface {
         <button class={classFab} disabled={this.disabled}>
           <span class="material-icons mdc-fab__icon">
             {this.icon && !iconSlotHasContent && (
-              <ino-icon ino-icon={this.icon} />
+              <ino-icon icon={this.icon} />
             )}
             {iconSlotHasContent && <slot name="icon-leading" />}
           </span>

@@ -4,7 +4,7 @@ const INO_MENU = `
     <button>
       Open
       <ino-menu>
-        <ino-list-item tabindex="0" ino-text="Item"></ino-list-item>
+        <ino-list-item tabindex="0" text="Item"></ino-list-item>
       </ino-menu>
     </button>
 `;

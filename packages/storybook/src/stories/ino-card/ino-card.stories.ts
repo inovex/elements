@@ -38,8 +38,8 @@ export default {
 export const Playground: Story<Components.InoCard> = (args) => html`
   <ino-card
     class="customizable-card"
-    ino-disable-elevation="${args.disableElevation}"
-    ino-selected="${args.selected}"
+    disable-elevation="${args.disableElevation}"
+    selected="${args.selected}"
   >
     <div slot="header" class="card-header">
       <ino-icon icon="info" clickable></ino-icon>
