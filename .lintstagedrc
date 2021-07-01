@@ -1,4 +1,4 @@
 {
-  "!(*eslintrc)!{packages/landingpage/**}.{t,j}s{,x}": ["prettier --write", "eslint --fix"],
+  "!(*eslintrc|*stories)!{packages/landingpage/**}.{t,j}s{,x}": ["prettier --write", "eslint --fix"],
   "*.{md,html,css,scss}": "prettier --write"
 }
