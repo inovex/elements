@@ -258,10 +258,34 @@
       "cssProperties": [
         {
           "name": "--ino-card-background-color",
+          "description": "background color of the card"
+        },
+        {
+          "name": "--ino-card-background-color--active",
+          "description": "background color of the card if active"
+        },
+        {
+          "name": "--ino-card-background-color--focus",
+          "description": "background color of the card on focus"
+        },
+        {
+          "name": "--ino-card-background-color--hover",
+          "description": "background color of the card on hover"
+        },
+        {
+          "name": "--ino-card-border-color",
+          "description": "border color of the card"
+        },
+        {
+          "name": "--ino-card-border-thickness",
+          "description": "thickness of the border"
+        },
+        {
+          "name": "--ino-card-checkmark-background-color",
           "description": "background color of the check mark"
         },
         {
-          "name": "--ino-card-color",
+          "name": "--ino-card-checkmark-color",
           "description": "check mark color"
         }
       ],
