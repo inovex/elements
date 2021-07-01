@@ -127,9 +127,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event         | Description                                                                                                           | Type                   |
-| ------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `openChanged` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
+| Event        | Description                                                                                                           | Type                   |
+| ------------ | --------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `openChange` | Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
 
 
 ## Slots
