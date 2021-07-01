@@ -95,7 +95,7 @@ export class Image implements ComponentInterface {
    */
   @Prop() ratioWidth?: number = 1;
   @Watch('ratioWidth')
-  inoRatioWidthChanged() {
+  ratioWidthChanged() {
     this.computeRatio();
   }
 
@@ -106,7 +106,7 @@ export class Image implements ComponentInterface {
    */
   @Prop() ratioHeight?: number = 1;
   @Watch('ratioHeight')
-  inoRatioHeightChanged() {
+  ratioHeightChanged() {
     this.computeRatio();
   }
 

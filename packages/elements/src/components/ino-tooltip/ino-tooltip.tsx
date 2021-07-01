@@ -49,7 +49,7 @@ export class Tooltip implements ComponentInterface {
   @Prop() for?: string;
 
   @Watch('for')
-  async inoForChanged() {
+  async forChanged() {
     await this.create();
   }
 

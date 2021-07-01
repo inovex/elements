@@ -129,7 +129,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() range?: boolean;
 
   @Watch('range')
-  inoRangeChanged(val: boolean) {
+  rangeChanged(val: boolean) {
     this.create();
     this.validator.isRanged = val;
     this.validate();
@@ -174,7 +174,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() defaultHour = 12;
 
   @Watch('defaultHour')
-  inoDefaultHourChanged(value: string) {
+  defaultHourChanged(value: string) {
     this.flatpickr?.set('defaultHour', value);
   }
 
@@ -195,7 +195,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() twelveHourTime?: boolean;
 
   @Watch('twelveHourTime')
-  inoTwelveHourTimeChanged(value: boolean) {
+  twelveHourTimeChanged(value: boolean) {
     this.flatpickr?.set('time_24hr', !value);
   }
 
@@ -205,7 +205,7 @@ export class Datepicker implements ComponentInterface {
   @Prop() type?: PickerTypeKeys = 'date';
 
   @Watch('type')
-  tpeChanged() {
+  typeChanged() {
     this.create();
   }
 

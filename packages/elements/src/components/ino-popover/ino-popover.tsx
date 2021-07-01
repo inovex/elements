@@ -64,7 +64,7 @@ export class Popover implements ComponentInterface {
   @Prop() distance?: number = 10;
 
   @Watch('distance')
-  inoDistanceChanged() {
+  distanceChanged() {
     this.tippyInstance?.setProps({
       offset: [0, this.distance],
     });
@@ -127,7 +127,7 @@ export class Popover implements ComponentInterface {
   @Prop() visible?: boolean = false;
 
   @Watch('visible')
-  inoVisibleChangeHandler(show: boolean) {
+  visibleChangeHandler(show: boolean) {
     if (!this.controlled) {
       return;
     }
@@ -202,7 +202,7 @@ export class Popover implements ComponentInterface {
 
     return (
       <Host>
-        <slot name="popover-trigger"/>
+        <slot name="popover-trigger" />
         <div
           ref={(ref) => (this.inoPopoverContainer = ref)}
           class={popoverClasses}
