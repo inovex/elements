@@ -20,10 +20,10 @@ document
 
 ```html
 <ino-snackbar
-  ino-message="<string>"
-  ino-action-text="<string>"
-  ino-action-on-bottom
-  ino-align-start
+  message="<string>"
+  action-text="<string>"
+  action-on-bottom
+  align-start
   oninoactionclick="handleClickEl()"
   onhideel="handleHideEl()"
 >
@@ -97,29 +97,29 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-Snackbar is displayed when ino-show is changed to checked.
+Snackbar is displayed when `show` is changed to checked.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property                | Attribute                   | Description                                                                                                                    | Type                                | Default     |
-| ----------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
-| `inoActionText`         | `ino-action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
-| `inoAlignment`          | `ino-alignment`             | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'center'`  |
-| `inoMessage`            | `ino-message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
-| `inoStayVisibleOnHover` | `ino-stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
-| `inoTimeout`            | `ino-timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
-| `inoType`               | `ino-type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
+| Property             | Attribute               | Description                                                                                                                    | Type                                | Default     |
+| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
+| `actionText`         | `action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
+| `alignment`          | `alignment`             | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'center'`  |
+| `message`            | `message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
+| `stayVisibleOnHover` | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
+| `timeout`            | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
+| `type`               | `type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
 
 
 ## Events
 
-| Event            | Description                                                                                           | Type               |
-| ---------------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
-| `hideEl`         | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
-| `inoActionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
+| Event         | Description                                                                                           | Type               |
+| ------------- | ----------------------------------------------------------------------------------------------------- | ------------------ |
+| `actionClick` | Event that emits as soon as the action button is clicked.                                             | `CustomEvent<any>` |
+| `hideEl`      | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
 
 
 ## Dependencies

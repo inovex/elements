@@ -7,7 +7,8 @@ A component that styles a form element as a row with a leading label.
 The component can be used as follows:
 
 ```html
-<ino-form-row ino-label="<string>" ino-mandatory>
+
+<ino-form-row label="<string>" mandatory>
   Any desired form element
 </ino-form-row>
 ```
@@ -16,22 +17,24 @@ The component can be used as follows:
 
 #### Example #1 - Basic
 
-```jsx harmony
+```jsx
 import { Component } from 'react';
 import { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
     return (
-      <InoFormRow inoLabel="This is a form row" inoMandatory>
-        <InoInput></InoInput>
-      </InoFormRow>
-      <InoFormRow inoLabel="This is another form row" inoMandatory>
-        <InoInput></InoInput>
-      </InoFormRow>
-      <InoFormRow inoLabel="This is one more form row without mandatory field">
-        <InoInput></InoInput>
-      </InoFormRow>
+      <>
+        <InoFormRow label="This is a form row" mandatory>
+          <InoInput></InoInput>
+        </InoFormRow>
+        <InoFormRow label="This is another form row" mandatory>
+          <InoInput></InoInput>
+        </InoFormRow>
+        <InoFormRow label="This is one more form row without mandatory field">
+          <InoInput></InoInput>
+        </InoFormRow>
+      </>
     );
   }
 }
@@ -39,28 +42,32 @@ class MyComponent extends Component {
 
 #### Example #2 - With Types
 
-```jsx harmony
+```jsx
 import React, { Component } from 'react';
 import { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
 const FormRow: React.FunctionComponent<Components.InoFormRowAttributes> = props => {
-  const { inoLabel, inoMandatory } = props;
+  const { label, mandatory } = props;
 
-  return <InoFormRow inoLabel={inoLabel} inoMandatory={inoMandatory}>{props.children}</InoFormRow>
+  return <InoFormRow label={label} mandatory={mandatory}>{props.children}</InoFormRow>
 };
 
 class MyComponent extends Component {
   render() {
-    return (<FormRow inoLabel="This is a form row" inoMandatory>
-      <InoInput></InoInput>
-    </FormRow>
-    <FormRow inoLabel="This is another form row" inoMandatory>
-      <InoInput></InoInput>
-    </FormRow>
-    <FormRow inoLabel="This is one more form row without mandatory field">
-      <InoInput></InoInput>
-    </FormRow>);
+    return (
+      <>
+        <FormRow label="This is a form row" mandatory>
+          <InoInput></InoInput>
+        </FormRow>
+        <FormRow label="This is another form row" mandatory>
+          <InoInput></InoInput>
+        </FormRow>
+        <FormRow label="This is one more form row without mandatory field">
+          <InoInput></InoInput>
+        </FormRow>
+      </>
+    )
   }
 }
 ```
@@ -70,10 +77,17 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                            | Type      | Default     |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `inoLabel`     | `ino-label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
-| `inoMandatory` | `ino-mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
+| Property    | Attribute   | Description                                                                                                                                            | Type      | Default     |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `label`     | `label`     | The label for this form row which describes the form element.                                                                                          | `string`  | `undefined` |
+| `mandatory` | `mandatory` | An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic. | `boolean` | `undefined` |
+
+
+## Slots
+
+| Slot        | Description |
+| ----------- | ----------- |
+| `"default"` | Any element |
 
 
 ----------------------------------------------

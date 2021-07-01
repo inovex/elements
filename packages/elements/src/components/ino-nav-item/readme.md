@@ -22,7 +22,7 @@ document
 ```
 
 ```html
-<ino-nav-item ino-activated ino-text="<string>" onclickel="handleClickEl()">
+<ino-nav-item activated text="<string>" onclickel="handleClickEl()">
   <ino-icon ...></ino-icon>
 </ino-nav-item>
 ```
@@ -34,12 +34,19 @@ document
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                | Type      | Default     |
-| -------------- | --------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActivated` | `ino-activated` | Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated. | `boolean` | `false`     |
-| `inoDisabled`  | `ino-disabled`  | Styles the row in a disabled style.                                                                        | `boolean` | `false`     |
-| `inoSubText`   | `ino-sub-text`  | The secondary text of this list item used in a two-lined list.                                             | `string`  | `undefined` |
-| `inoText`      | `ino-text`      | The text of this list item.                                                                                | `string`  | `undefined` |
+| Property    | Attribute   | Description                                                                                                | Type      | Default     |
+| ----------- | ----------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `activated` | `activated` | Styles the row in an activated style.  Use this for only one item and to mark it as permanently activated. | `boolean` | `false`     |
+| `disabled`  | `disabled`  | Styles the row in a disabled style.                                                                        | `boolean` | `false`     |
+| `subText`   | `sub-text`  | The secondary text of this list item used in a two-lined list.                                             | `string`  | `undefined` |
+| `text`      | `text`      | The text of this list item.                                                                                | `string`  | `undefined` |
+
+
+## Slots
+
+| Slot        | Description |
+| ----------- | ----------- |
+| `"default"` | Any element |
 
 
 ## CSS Custom Properties

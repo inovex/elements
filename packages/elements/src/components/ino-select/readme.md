@@ -21,8 +21,8 @@ document
   name="<string>"
   required
   value="<string>"
-  ino-label="<string>"
-  ino-outline
+  label="<string>"
+  outline
 >
   <ino-option value="Option 1">Option 1</ino-option>
   <ino-option value="Option 2">Option 2</ino-option> ...
@@ -81,7 +81,7 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-Use the custom `ino-option` component to add options to the select component. The `ino-label` attribute sets an optional floating label for this element.
+Use the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.
 
 ### Control flow
 
@@ -102,15 +102,15 @@ The component behaves like a native select with additional features. The native 
 
 ## Properties
 
-| Property           | Attribute             | Description                                                                                                | Type      | Default     |
-| ------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`         | `disabled`            | Disables this element.                                                                                     | `boolean` | `undefined` |
-| `inoLabel`         | `ino-label`           | The label of this element                                                                                  | `string`  | `undefined` |
-| `inoOutline`       | `ino-outline`         | Styles this select box as outlined element.                                                                | `boolean` | `undefined` |
-| `inoShowLabelHint` | `ino-show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required | `boolean` | `undefined` |
-| `name`             | `name`                | The name of this element.                                                                                  | `string`  | `undefined` |
-| `required`         | `required`            | Marks this element as required.                                                                            | `boolean` | `undefined` |
-| `value`            | `value`               | The value of this element. (**unmanaged**)                                                                 | `string`  | `''`        |
+| Property        | Attribute         | Description                                                                                                | Type      | Default     |
+| --------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`      | `disabled`        | Disables this element.                                                                                     | `boolean` | `undefined` |
+| `label`         | `label`           | The label of this element                                                                                  | `string`  | `undefined` |
+| `name`          | `name`            | The name of this element.                                                                                  | `string`  | `undefined` |
+| `outline`       | `outline`         | Styles this select box as outlined element.                                                                | `boolean` | `undefined` |
+| `required`      | `required`        | Marks this element as required.                                                                            | `boolean` | `undefined` |
+| `showLabelHint` | `show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required | `boolean` | `undefined` |
+| `value`         | `value`           | The value of this element. (**unmanaged**)                                                                 | `string`  | `''`        |
 
 
 ## Events
@@ -118,6 +118,13 @@ The component behaves like a native select with additional features. The native 
 | Event         | Description                                                           | Type                  |
 | ------------- | --------------------------------------------------------------------- | --------------------- |
 | `valueChange` | Emits when a selection changes. Contains new value in `event.detail`. | `CustomEvent<string>` |
+
+
+## Slots
+
+| Slot        | Description                      |
+| ----------- | -------------------------------- |
+| `"default"` | One or more `ino-option(-group)` |
 
 
 ## CSS Custom Properties

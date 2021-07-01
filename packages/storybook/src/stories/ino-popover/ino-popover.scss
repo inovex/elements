@@ -1,12 +1,8 @@
-.story-popover {
+.story-ino-popover {
   display: flex;
-  flex-direction: column;
   align-items: center;
-
-  .row {
-    display: flex;
-    justify-content: space-between;
-  }
+  justify-content: center;
+  padding: 80px;
 
   ino-button {
     margin: 0 12px 12px 0;
@@ -17,14 +13,24 @@
     padding-right: 8px;
   }
 
+  .popover-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+
   .styled-popover {
-    width: 200px;
     padding: 24px;
     display: flex;
     justify-content: space-between;
+    column-gap: 10px;
   }
 
-  #interactive-demo-container {
-    padding: 15px 10px;
+  .interactive-popover {
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
   }
 }

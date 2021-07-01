@@ -31,7 +31,7 @@ describe('InoCheckbox', () => {
       const page = await setupPageWithContent(INO_CHECKBOX);
       const inoCheckBoxEl = await page.find('ino-checkbox');
 
-      inoCheckBoxEl.setAttribute('ino-selection', true);
+      inoCheckBoxEl.setAttribute('selection', true);
       await page.waitForChanges();
 
       const mdcCheckbox = await page.find(MDC_SELECTOR);

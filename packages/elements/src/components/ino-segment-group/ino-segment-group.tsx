@@ -10,6 +10,9 @@ import {
 
 import { generateUniqueId } from '../../util/component-utils';
 
+/**
+ * @slot default - One or more `ino-segment-button`
+ */
 @Component({
   tag: 'ino-segment-group',
   styleUrl: 'ino-segment-group.scss',

@@ -21,12 +21,12 @@ document
   name="<string>"
   form="<string>"
   type="<string>"
-  ino-color-scheme="<string>"
-  ino-fill="<string>"
-  ino-dense
+  color-scheme="<string>"
+  fill="<string>"
+  dense
   onClick="handleClick()"
 >
-  <ino-icon ino-icon="add"></ino-icon>
+  <ino-icon icon="add"></ino-icon>
   Button Content
 </ino-button>
 ```
@@ -94,26 +94,26 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                                                                                                                                                                               | Type                                            | Default     |
-| ----------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
-| `autoFocus`       | `autofocus`         | Sets the autofocus for this element.                                                                                                                                                                                                                      | `boolean`                                       | `undefined` |
-| `disabled`        | `disabled`          | Disables this element.                                                                                                                                                                                                                                    | `boolean`                                       | `undefined` |
-| `form`            | `form`              | The form id this element origins to.                                                                                                                                                                                                                      | `string`                                        | `undefined` |
-| `inoColorScheme`  | `ino-color-scheme`  | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option! | `"grey" \| "primary" \| "secondary" \| "white"` | `'primary'` |
-| `inoDense`        | `ino-dense`         | Makes the button text and container slightly smaller.                                                                                                                                                                                                     | `boolean`                                       | `false`     |
-| `inoEdgeMirrored` | `ino-edge-mirrored` | Styles the button to have the edge on the top-right instead of the top-left                                                                                                                                                                               | `boolean`                                       | `false`     |
-| `inoFill`         | `ino-fill`          | The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.                                                                                                                                                                  | `"inverse" \| "outline" \| "solid"`             | `'solid'`   |
-| `inoLoading`      | `ino-loading`       | Shows an infinite loading spinner and prevents further clicks.                                                                                                                                                                                            | `boolean`                                       | `undefined` |
-| `name`            | `name`              | The name of the element.                                                                                                                                                                                                                                  | `string`                                        | `undefined` |
-| `type`            | `type`              | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`               | `'button'`  |
+| Property       | Attribute       | Description                                                                                                                                                                                                                                               | Type                                            | Default     |
+| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
+| `autoFocus`    | `autofocus`     | Sets the autofocus for this element.                                                                                                                                                                                                                      | `boolean`                                       | `undefined` |
+| `colorScheme`  | `color-scheme`  | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option! | `"grey" \| "primary" \| "secondary" \| "white"` | `'primary'` |
+| `dense`        | `dense`         | Makes the button text and container slightly smaller.                                                                                                                                                                                                     | `boolean`                                       | `false`     |
+| `disabled`     | `disabled`      | Disables this element.                                                                                                                                                                                                                                    | `boolean`                                       | `undefined` |
+| `edgeMirrored` | `edge-mirrored` | Styles the button to have the edge on the top-right instead of the top-left                                                                                                                                                                               | `boolean`                                       | `false`     |
+| `fill`         | `fill`          | The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.                                                                                                                                                                  | `"inverse" \| "outline" \| "solid"`             | `'solid'`   |
+| `form`         | `form`          | The form id this element origins to.                                                                                                                                                                                                                      | `string`                                        | `undefined` |
+| `loading`      | `loading`       | Shows an infinite loading spinner and prevents further clicks.                                                                                                                                                                                            | `boolean`                                       | `undefined` |
+| `name`         | `name`          | The name of the element.                                                                                                                                                                                                                                  | `string`                                        | `undefined` |
+| `type`         | `type`          | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`               | `'button'`  |
 
 
 ## Slots
 
-| Slot                  | Description                  |
-| --------------------- | ---------------------------- |
-| `"ino-icon-leading"`  | For the icon to be prepended |
-| `"ino-icon-trailing"` | For the icon to be appended  |
+| Slot              | Description                  |
+| ----------------- | ---------------------------- |
+| `"icon-leading"`  | For the icon to be prepended |
+| `"icon-trailing"` | For the icon to be appended  |
 
 
 ## CSS Custom Properties

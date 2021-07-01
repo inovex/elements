@@ -10,6 +10,9 @@ import classNames from 'classnames';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
+/**
+ * @slot default - One or more `ino-fab`
+ */
 @Component({
   tag: 'ino-fab-set',
   styleUrl: 'ino-fab-set.scss',
@@ -22,32 +25,32 @@ export class Fab implements ComponentInterface {
    * The direction of the speed dial.
    * Possible values: `top` (default), `bottom`, `right`, `left`.
    */
-  @Prop() inoDialDirection: Locations = 'top';
+  @Prop() dialDirection: Locations = 'top';
 
   /**
    * The side where the Fab is displayed.
    * Possible values: `top`, `bottom` (default).
    */
-  @Prop() inoTopBottomLocation: VerticalLocation = 'bottom';
+  @Prop() topBottomLocation: VerticalLocation = 'bottom';
 
   /**
    * The side where the Fab is displayed.
    * Possible values: `right`, `left` (default).
    */
-  @Prop() inoLeftRightLocation: HorizontalLocation = 'left';
+  @Prop() leftRightLocation: HorizontalLocation = 'left';
 
   /**
    * Opens the dial (**uncontrolled**)
    */
-  @Prop() inoOpenDial = false;
+  @Prop() openDial = false;
 
   render() {
     const hostClasses = classNames(
       {
-        'ino-fab-set--open-dial': this.inoOpenDial,
+        'ino-fab-set--open-dial': this.openDial,
       },
-      'ino-top-bottom-location-' + this.inoTopBottomLocation,
-      'ino-left-right-location-' + this.inoLeftRightLocation
+      'ino-top-bottom-location-' + this.topBottomLocation,
+      'ino-left-right-location-' + this.leftRightLocation
     );
 
     const speedDialClasses = classNames({
@@ -56,7 +59,7 @@ export class Fab implements ComponentInterface {
 
     const directionClasses = classNames(
       'ino-fab-set-wrapper',
-      'ino-direction-' + this.inoDialDirection
+      'ino-direction-' + this.dialDirection
     );
 
     return (
@@ -67,13 +70,10 @@ export class Fab implements ComponentInterface {
           </div>
           <ino-fab
             id={'primary-fab'}
-            ino-edge-position="none"
-            ino-tooltip-placement="none"
+            edge-position="none"
+            tooltip-placement="none"
           >
-            <ino-icon
-              slot="ino-icon-leading"
-              ino-icon={'_fab_set_arrow_up'}
-            ></ino-icon>
+            <ino-icon slot="icon-leading" icon={'_fab_set_arrow_up'} />
           </ino-fab>
         </div>
       </Host>

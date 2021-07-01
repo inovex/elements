@@ -39,11 +39,11 @@ class MyComponent extends Component {
       <InoButton>
         Show Menu
         <InoMenu>
-          <InoListItem inoText="Home"/>
-          <InoListItem inoText="Projects"/>
+          <InoListItem text="Home"/>
+          <InoListItem text="Projects"/>
           <InoDivider/>
-          <InoListItem inoText="User"/>
-          <InoListItem inoText="Settings"/>
+          <InoListItem text="User"/>
+          <InoListItem text="Settings"/>
         </InoMenu>
       </InoButton>
     );
@@ -62,9 +62,16 @@ and `ino-list-item` component.
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default  |
-| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| `inoPlacement` | `ino-placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'` |
+| Property    | Attribute   | Description                                                                                                                                              | Type                                                                                                                                                                                                         | Default  |
+| ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| `placement` | `placement` | Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason. | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'auto'` |
+
+
+## Slots
+
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
 
 
 ## Dependencies

@@ -16,6 +16,9 @@ import classNames from 'classnames';
 import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 
+/**
+ * @slot default - Label of the checkbox
+ */
 @Component({
   tag: 'ino-checkbox',
   styleUrl: 'ino-checkbox.scss',
@@ -60,7 +63,7 @@ export class Checkbox implements ComponentInterface {
    * While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.
    * The indeterminate state is not supported here.
    */
-  @Prop() inoSelection?: boolean;
+  @Prop() selection?: boolean;
 
   /**
    * Marks this element as indeterminate (**unmanaged**)
@@ -110,7 +113,7 @@ export class Checkbox implements ComponentInterface {
     const checkboxClasses = classNames({
       'mdc-checkbox': true,
       'mdc-checkbox--disabled': disabled,
-      'ino-checkbox-selection': this.inoSelection,
+      'ino-checkbox-selection': this.selection,
       'ino-checkbox--indeterminate': this.indeterminate,
     });
 

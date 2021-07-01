@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  selector: 'ino-radio,ino-control-item[ino-role="radio"]',
+  selector: 'ino-radio,ino-control-item[role="radio"]',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

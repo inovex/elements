@@ -15,7 +15,7 @@ describe('ino-segment-button', () => {
       const segmentBtn = await page.find('ino-segment-button');
       const btn = await page.find(BUTTON_SELECTOR);
 
-      await segmentBtn.setAttribute('ino-dense', true);
+      await segmentBtn.setAttribute('dense', true);
       await page.waitForChanges();
 
       expect(btn).toHaveClass('ino-segment-button--dense');

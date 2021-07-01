@@ -4,7 +4,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
-  selector: 'ino-checkbox,ino-control-item[ino-role="checkbox"],ino-switch',
+  selector: 'ino-checkbox,ino-control-item[role="checkbox"],ino-switch',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

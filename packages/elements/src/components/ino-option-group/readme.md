@@ -8,12 +8,12 @@ Beyond that, if you encounter problems using React or Vue in conjunction with th
 
 ```html
 <ino-select>
-  <ino-option-group ino-label="My First Option Group">
+  <ino-option-group label="My First Option Group">
     <ino-option value="Option 1">Option 1</ino-option>
     <ino-option value="Option 2">Option 2</ino-option>
     <ino-option value="Option 3">Option 3</ino-option>
   </ino-option-group>
-  <ino-option-group ino-label="My Second Option Group">
+  <ino-option-group label="My Second Option Group">
     <ino-option value="Option 4">Option 4</ino-option>
     <ino-option value="Option 5">Option 5</ino-option>
     <ino-option value="Option 6">Option 6</ino-option>
@@ -45,15 +45,15 @@ class MyComponent extends Component {
   render() {
     return (
       <InoSelect
-        inoLabel="My Select"
+        label="My Select"
         value={this.state.selected}
         onValueChange={() => this.changeHandler(e.detail)}
       >
-        <InoOptionGroup inoLabel={'Option Group 1'}>
+        <InoOptionGroup label={'Option Group 1'}>
           <InoOption value="Option 1">Option 1</InoOption>
           <InoOption value="Option 2">Option 2</InoOption>
         </InoOptionGroup>
-        <InoOptionGroup inoLabel={'Option Group 2'}>
+        <InoOptionGroup label={'Option Group 2'}>
           <InoOption value="Option 3">Option 3</InoOption>
           <InoOption value="Option 4">Option 4</InoOption>
         </InoOptionGroup>
@@ -68,9 +68,16 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                                                                                                                                                                                                               | Type     | Default     |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `inoLabel` | `ino-label` | Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259). | `string` | `undefined` |
+| Property | Attribute | Description                                                                                                                                                                                                                                                               | Type     | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `label`  | `label`   | Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`. When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259). | `string` | `undefined` |
+
+
+## Slots
+
+| Slot        | Description              |
+| ----------- | ------------------------ |
+| `"default"` | One or more `ino-option` |
 
 
 ## Dependencies

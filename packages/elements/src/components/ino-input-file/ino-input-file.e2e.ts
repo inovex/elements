@@ -16,7 +16,7 @@ describe('InoInputFile', () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
       const inputFile = await page.find(INPUT_FILE_SELECTOR);
 
-      await inputFile.setAttribute('ino-drag-and-drop', true);
+      await inputFile.setAttribute('drag-and-drop', true);
       await page.waitForChanges();
 
       const dnd_div = await page.find('.ino-input-file__dnd');
@@ -27,7 +27,7 @@ describe('InoInputFile', () => {
       const page = await setupPageWithContent(INO_INPUT_FILE);
       const inputFile = await page.find(INPUT_FILE_SELECTOR);
 
-      await inputFile.setAttribute('ino-drag-and-drop', true);
+      await inputFile.setAttribute('drag-and-drop', true);
       await inputFile.setAttribute('disabled', true);
       await page.waitForChanges();
 

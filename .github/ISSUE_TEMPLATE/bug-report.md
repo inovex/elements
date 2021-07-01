@@ -23,9 +23,10 @@ PS: All the things within the comments section will not be rendered when submitt
 <!-- Please check one of the checkboxes below. -->
 
 Did this behavior use to work in the previous version?
-* [ ] I don't know
-* [ ] Yes, the previous version in which this bug was not present was: `vX.Y.Z`
-* [ ] No
+
+- [ ] I don't know
+- [ ] Yes, the previous version in which this bug was not present was: `vX.Y.Z`
+- [ ] No
 
 ### Minimal Reproduction
 

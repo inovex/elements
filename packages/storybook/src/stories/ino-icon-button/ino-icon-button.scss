@@ -1,19 +1,13 @@
 .story-icon-button {
-  .customizable-icon-button {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-
   .flex-parent-center {
     display: flex;
     justify-content: space-between;
     max-width: 620px;
     margin: 0 auto;
+  }
 
-    > div {
-      text-align: center;
-      margin-bottom: 32px;
-    }
+  .flex-child {
+    text-align: center;
   }
 
   h4,

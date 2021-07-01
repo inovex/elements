@@ -11,6 +11,12 @@ import {
   h,
 } from '@stencil/core';
 
+/**
+ * @slot content - content of the dialog
+ * @slot header - header of the dialog
+ * @slot footer - footer of the dialog
+ */
+
 @Component({
   tag: 'ino-dialog',
   styleUrl: 'ino-dialog.scss',
@@ -24,9 +30,9 @@ export class Dialog implements ComponentInterface {
   /**
    * Opens the dialog if set to true
    */
-  @Prop() inoOpen: boolean = false;
-  @Watch('inoOpen')
-  inoOpenChange(newVal: boolean) {
+  @Prop() open: boolean = false;
+  @Watch('open')
+  openChanged(newVal: boolean) {
     if (newVal) {
       this.mdcDialog.open();
       this.openChange.emit(true);
@@ -47,7 +53,7 @@ export class Dialog implements ComponentInterface {
     );
     this.mdcDialog.scrimClickAction = '';
     this.mdcDialog.escapeKeyAction = '';
-    if (this.inoOpen) {
+    if (this.open) {
       this.mdcDialog.open();
     }
   }
@@ -78,7 +84,7 @@ export class Dialog implements ComponentInterface {
               </div>
             </div>
           </div>
-          <div class="mdc-dialog__scrim"></div>
+          <div class="mdc-dialog__scrim"/>
         </div>
       </Host>
     );

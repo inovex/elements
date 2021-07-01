@@ -18,12 +18,12 @@ document
 ```html
 <ino-sidebar>
   <div class="sidebar-header" slot="header">
-    <ino-icon ino-clickable ino-icon="close-s"></ino-icon>
+    <ino-icon clickable icon="close-s"></ino-icon>
   </div>
   <div class="sidebar-content" slot="content">
     <ino-list>
-      <ino-list-item ino-text="List item"></ino-list-item>
-      <ino-list-item ino-text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
+      <ino-list-item text="List item"></ino-list-item>
     </ino-list>
   </div>
 </ino-sidebar>
@@ -31,7 +31,7 @@ document
 
 ### React
 
-```
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';
@@ -70,11 +70,11 @@ https://github.com/material-components/material-components-web/tree/master/packa
 
 ## Properties
 
-| Property        | Attribute         | Description                                                 | Type      | Default     |
-| --------------- | ----------------- | ----------------------------------------------------------- | --------- | ----------- |
-| `inoAlignRight` | `ino-align-right` | Aligns the sidebar to the right (true) or left (false) side | `boolean` | `false`     |
-| `inoOpen`       | `ino-open`        | Expands the sidebar                                         | `boolean` | `false`     |
-| `name`          | `name`            | Name of the component                                       | `string`  | `undefined` |
+| Property     | Attribute     | Description                                                 | Type      | Default     |
+| ------------ | ------------- | ----------------------------------------------------------- | --------- | ----------- |
+| `alignRight` | `align-right` | Aligns the sidebar to the right (true) or left (false) side | `boolean` | `false`     |
+| `name`       | `name`        | Name of the component                                       | `string`  | `undefined` |
+| `open`       | `open`        | Expands the sidebar                                         | `boolean` | `false`     |
 
 
 ## Events

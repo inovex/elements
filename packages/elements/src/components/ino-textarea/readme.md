@@ -29,7 +29,7 @@ document
   rows="<number>"
   value="<string>"
   autogrow
-  ino-label="<string>"
+  label="<string>"
 >
 </ino-textarea>
 ```
@@ -81,7 +81,7 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Labels**: The component shows a floating label containing the value of `ino-label`.
+**Labels**: The component shows a floating label containing the value of `label`.
 
 ### Control flow
 
@@ -115,16 +115,16 @@ The component is based on a native input with additional features. Thus, the com
 | `autogrow`             | `autogrow`               | An optional flag to allow the textarea adjust its height to display all the content. The `rows` attribute can also be used to specify a minimum height. Use CSS to specify a max-height for the textarea element. Once the height exceeds the max-height, autogrow will re-enable the vertical scrollbar. | `boolean` | `false`     |
 | `cols`                 | `cols`                   | The number of cols of this textarea.                                                                                                                                                                                                                                                                      | `number`  | `undefined` |
 | `disabled`             | `disabled`               | Disables this element.                                                                                                                                                                                                                                                                                    | `boolean` | `undefined` |
-| `inoLabel`             | `ino-label`              | The optional floating label of this input field.                                                                                                                                                                                                                                                          | `string`  | `undefined` |
-| `inoOutline`           | `ino-outline`            | Styles the input field as outlined element.                                                                                                                                                                                                                                                               | `boolean` | `undefined` |
-| `inoShowLabelHint`     | `ino-show-label-hint`    | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                                                                | `boolean` | `undefined` |
+| `label`                | `label`                  | The optional floating label of this input field.                                                                                                                                                                                                                                                          | `string`  | `undefined` |
 | `maxlength`            | `maxlength`              | The max length of this element.                                                                                                                                                                                                                                                                           | `number`  | `undefined` |
 | `minlength`            | `minlength`              | The min length of this element.                                                                                                                                                                                                                                                                           | `number`  | `undefined` |
 | `name`                 | `name`                   | The name of this element.                                                                                                                                                                                                                                                                                 | `string`  | `undefined` |
+| `outline`              | `outline`                | Styles the input field as outlined element.                                                                                                                                                                                                                                                               | `boolean` | `undefined` |
 | `placeholder`          | `placeholder`            | The placeholder of this element.                                                                                                                                                                                                                                                                          | `string`  | `undefined` |
 | `required`             | `required`               | Marks this element as required.                                                                                                                                                                                                                                                                           | `boolean` | `undefined` |
 | `rows`                 | `rows`                   | The number of rows of this textarea.                                                                                                                                                                                                                                                                      | `number`  | `undefined` |
 | `showCharacterCounter` | `show-character-counter` | Displays the number of characters. The maxlength-property must be set.                                                                                                                                                                                                                                    | `boolean` | `undefined` |
+| `showLabelHint`        | `show-label-hint`        | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                                                                                                                                                | `boolean` | `undefined` |
 | `value`                | `value`                  | The value of this element. (**unmanaged**)                                                                                                                                                                                                                                                                | `string`  | `''`        |
 
 

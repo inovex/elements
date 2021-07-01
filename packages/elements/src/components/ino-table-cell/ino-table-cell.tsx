@@ -8,6 +8,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - The cell value
+ */
 @Component({
   tag: 'ino-table-cell',
   styleUrl: 'ino-table-cell.scss',
@@ -19,11 +22,11 @@ export class InoTableCell implements ComponentInterface {
   /**
    * Indicates that the cell contains numeric values
    */
-  @Prop() inoNumeric: boolean = false;
+  @Prop() numeric: boolean = false;
 
   render() {
     const cellClasses = classNames({
-      'mdc-data-table__cell--numeric': this.inoNumeric,
+      'mdc-data-table__cell--numeric': this.numeric,
     });
 
     return (

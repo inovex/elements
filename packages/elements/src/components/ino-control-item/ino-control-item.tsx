@@ -9,6 +9,9 @@ import {
   h,
 } from '@stencil/core';
 
+/**
+ * @slot default - Any element
+ */
 @Component({
   tag: 'ino-control-item',
   styleUrl: 'ino-control-item.scss',
@@ -22,45 +25,35 @@ export class InoControlItem implements ComponentInterface {
   /**
    * The type of control element
    */
-  @Prop() inoRole!: 'checkbox' | 'radio';
-
-  /**
-   * The id of this element.
-   */
-  @Prop() inoId?: string;
+  @Prop() role!: 'checkbox' | 'radio';
 
   /**
    * The primary text of this list item (required).
    */
-  @Prop() inoText!: string;
+  @Prop() text!: string;
 
   /**
    * Sets the secondary text of this list item.
    *
-   * Requires `ino-two-lines` on the parent `ino-list` element.
+   * Requires `two-lines` on the parent `ino-list` element.
    */
-  @Prop() inoSecondaryText?: string;
+  @Prop() secondaryText?: string;
 
   /**
    * Styles the row in a selected style.
    *
-   * In contrast to `inoActivated`, use this option to select one
+   * In contrast to `activated`, use this option to select one
    * or multiple items that are likely to change soon.
    */
-  @Prop() inoSelected?: boolean;
+  @Prop() selected?: boolean;
 
   /**
    * Styles the row in an activated style.
    *
-   * In contrast to `inoSelected`, use this for only one item
-   * and to mark it as permantently activated.
+   * In contrast to `selected`, use this for only one item
+   * and to mark it as permanently activated.
    */
-  @Prop() inoActivated?: boolean;
-
-  /**
-   * Styles the row in a disabled style.
-   */
-  @Prop() inoDisabled?: boolean;
+  @Prop() activated?: boolean;
 
   /**
    * Marks this element as checked. (**unmanaged**)
@@ -91,7 +84,7 @@ export class InoControlItem implements ComponentInterface {
   /**
    * Places the checkbox at the end of the item
    */
-  @Prop() inoTrailing?: boolean;
+  @Prop() trailing?: boolean;
 
   /**
    * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
@@ -105,7 +98,7 @@ export class InoControlItem implements ComponentInterface {
 
   clickHandler = (e: MouseEvent) => {
     e.stopPropagation();
-    if (this.inoDisabled || e.target['tagName'] === 'INO-CHECKBOX') {
+    if (this.disabled || e.target['tagName'] === 'INO-CHECKBOX') {
       return;
     }
 
@@ -115,20 +108,18 @@ export class InoControlItem implements ComponentInterface {
   };
 
   render() {
-    const controlItemPosition = this.inoTrailing
-      ? 'ino-trailing'
-      : 'ino-leading';
+    const controlItemPosition = this.trailing ? 'trailing' : 'leading';
     const slotPosition =
       this.el.children.length > 0
-        ? this.inoTrailing
-          ? 'ino-leading'
-          : 'ino-trailing'
+        ? this.trailing
+          ? 'leading'
+          : 'trailing'
         : '';
 
     const controlItemProps = {
       slot: controlItemPosition,
       checked: this.checked,
-      disabled: this.inoDisabled,
+      disabled: this.disabled,
       name: this.name,
       value: this.value,
       onCheckedChange: this.changedHandler,
@@ -138,15 +129,14 @@ export class InoControlItem implements ComponentInterface {
     return (
       <Host>
         <ino-list-item
-          id={this.inoId}
-          inoText={this.inoText}
-          inoSecondaryText={this.inoSecondaryText}
-          inoActivated={this.inoActivated}
-          inoSelected={this.inoSelected}
-          inoDisabled={this.inoDisabled}
+          text={this.text}
+          secondaryText={this.secondaryText}
+          activated={this.activated}
+          selected={this.selected}
+          disabled={this.disabled}
           onClick={this.clickHandler}
         >
-          {this.inoRole === 'checkbox' ? (
+          {this.role === 'checkbox' ? (
             <ino-checkbox
               {...controlItemProps}
               indeterminate={this.indeterminate}

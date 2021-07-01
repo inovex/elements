@@ -43,9 +43,9 @@ export class IconButton implements ComponentInterface {
    * Useful in cases where an external state controls the icon button activation.
    * Makes the component **managed**.
    */
-  @Prop() inoActivated?: boolean;
-  @Watch('inoActivated')
-  inoActivatedChanged(activated: boolean) {
+  @Prop() activated?: boolean;
+  @Watch('activated')
+  activatedChanged(activated: boolean) {
     activated ? this.maybeCreateRipple() : this.maybeDestroyRipple();
   }
 
@@ -55,18 +55,18 @@ export class IconButton implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme?: ColorScheme = 'primary';
+  @Prop() colorScheme?: ColorScheme = 'primary';
 
   /**
    * Styles this element as filled icon button
    * with the `ino-color-scheme` as background color.
    */
-  @Prop() inoFilled?: boolean;
+  @Prop() filled?: boolean;
 
   /**
    * The name of the icon of this element.
    */
-  @Prop() inoIcon?: string;
+  @Prop() icon?: string;
 
   /**
    * The type of this form.
@@ -75,6 +75,10 @@ export class IconButton implements ComponentInterface {
    */
   @Prop() type?: ButtonType = 'button';
 
+  /**
+   * Event that emits as soon as the user clicks on the icon.
+   * The event only emits if the property `clickable` is true.
+   */
   @Event() clickEl: EventEmitter;
 
   @Listen('click')
@@ -96,7 +100,7 @@ export class IconButton implements ComponentInterface {
   }
 
   private maybeCreateRipple() {
-    if (!this.inoActivated) {
+    if (!this.activated) {
       this.mdcInstance = new MDCRipple(
         this.el.querySelector('.mdc-icon-button')
       );
@@ -110,15 +114,15 @@ export class IconButton implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-icon-button--color-scheme-${this.inoColorScheme}`,
+      `ino-icon-button--color-scheme-${this.colorScheme}`,
       {
-        'ino-icon-button--filled': this.inoFilled,
+        'ino-icon-button--filled': this.filled,
       }
     );
 
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
-      'mdc-ripple-upgraded--background-focused': this.inoActivated,
+      'mdc-ripple-upgraded--background-focused': this.activated,
     });
 
     return (
@@ -129,7 +133,7 @@ export class IconButton implements ComponentInterface {
           disabled={this.disabled}
           type={this.type}
         >
-          <ino-icon ino-icon={this.inoIcon} class="mdc-icon-button__icon" />
+          <ino-icon icon={this.icon} class="mdc-icon-button__icon" />
         </button>
       </Host>
     );

@@ -21,38 +21,38 @@ document
 
 ```html
 <ino-list-item
-  ino-activated
-  ino-text="<string>"
-  ino-secondary-text="<string>"
-  ino-selected
+  activated
+  text="<string>"
+  secondary-text="<string>"
+  selected
   onclickel="handleClickEl()"
 >
-  <ino-icon slot="ino-leading" ...></ino-icon>
-  <a slot="ino-primary" href="www.inovex.de">...</a>
-  <ino-icon slot="ino-trailing" ...></ino-icon>
+  <ino-icon slot="leading" ...></ino-icon>
+  <a slot="primary" href="www.inovex.de">...</a>
+  <ino-icon slot="trailing" ...></ino-icon>
 </ino-list-item>
 ```
 
-**Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `ino-primary` or `ino-secondary` slot. To do so, just set the `slot`-attribute of your custom element to `ino-primary` or `ino-secondary`.
+**Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `primary` or `secondary` slot. To do so, just set the `slot`-attribute of your custom element to `primary` or `secondary`.
 
-**Two lines:** For items having two lines, provide an `ino-secondary-text` and make sure you set the `ino-two-lines` attribute in the respective parent component (only available for `ino-list`).
+**Two lines:** For items having two lines, provide an `secondary-text` and make sure you set the `two-lines` attribute in the respective parent component (only available for `ino-list`).
 
-**Leading items:** Add an item with the slot-attribute `ino-leading` to add a leading column to the list item in LTR languages. Typically an icon or image.
+**Leading items:** Add an item with the slot-attribute `leading` to add a leading column to the list item in LTR languages. Typically, an icon or image.
 
-**Trailing items:** Add an item with the slot-attribute `ino-trailing` to add a trailing column to the list item in LTR languages. Typically small text, icon or image.
+**Trailing items:** Add an item with the slot-attribute `trailing` to add a trailing column to the list item in LTR languages. Typically, small text, icon or image.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property           | Attribute            | Description                                                                                                                                         | Type      | Default     |
-| ------------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoActivated`     | `ino-activated`      | Styles the row in an activated style.  In contrast to `inoSelected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
-| `inoDisabled`      | `ino-disabled`       | Styles the row in a disabled style.                                                                                                                 | `boolean` | `undefined` |
-| `inoSecondaryText` | `ino-secondary-text` | Sets the secondary text of this list item.  Requires `ino-two-lines` on the parent `ino-list` element.                                              | `string`  | `undefined` |
-| `inoSelected`      | `ino-selected`       | Styles the row in a selected style.  In contrast to `inoActivated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
-| `inoText`          | `ino-text`           | The primary text of this list item.                                                                                                                 | `string`  | `undefined` |
+| Property        | Attribute        | Description                                                                                                                                      | Type      | Default     |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
+| `activated`     | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
+| `disabled`      | `disabled`       | Styles the row in a disabled style.                                                                                                              | `boolean` | `undefined` |
+| `secondaryText` | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`  | `undefined` |
+| `selected`      | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
+| `text`          | `text`           | The primary text of this list item.                                                                                                              | `string`  | `undefined` |
 
 
 ## Events
@@ -64,12 +64,12 @@ document
 
 ## Slots
 
-| Slot              | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| `"ino-leading"`   | For the element to be prepended                    |
-| `"ino-primary"`   | For the (text) element                             |
-| `"ino-secondary"` | For the secondary text element in a two-lined list |
-| `"ino-trailing"`  | For the element to be appended                     |
+| Slot          | Description                                        |
+| ------------- | -------------------------------------------------- |
+| `"leading"`   | For the element to be prepended                    |
+| `"primary"`   | For the (text) element                             |
+| `"secondary"` | For the secondary text element in a two-lined list |
+| `"trailing"`  | For the element to be appended                     |
 
 
 ## CSS Custom Properties

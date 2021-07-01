@@ -25,22 +25,22 @@ export class Card implements ComponentInterface {
   /**
    * Selects the card and displays a check mark icon on top of the card
    */
-  @Prop() inoSelected: boolean = false;
+  @Prop() selected: boolean = false;
 
   /**
    * Disables the hover effect if true
    */
-  @Prop() inoDisableElevation: boolean = false;
+  @Prop() disableElevation: boolean = false;
 
   render() {
     const hostClasses = classnames({
-      'ino-elevate': !this.inoDisableElevation,
+      'ino-elevate': !this.disableElevation,
     });
 
     const classList = classnames({
       'mdc-card': true,
       'mdc-card--outlined': true,
-      'ino-card--selected': this.inoSelected,
+      'ino-card--selected': this.selected,
     });
 
     const hasHeader = hasSlotContent(this.el, 'header');
@@ -51,9 +51,9 @@ export class Card implements ComponentInterface {
       <Host class={hostClasses}>
         <div class={classList}>
           <div class="ino-card__checkmark-container">
-            {this.inoSelected && (
+            {this.selected && (
               <div class="ino-card__checkmark">
-                <ino-icon ino-icon="checkmark"></ino-icon>
+                <ino-icon icon="checkmark" />
               </div>
             )}
           </div>

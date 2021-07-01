@@ -10,28 +10,28 @@ export class Label {
   /**
    * Styles the label in an outlined style
    */
-  @Prop() inoOutline: boolean;
+  @Prop() outline: boolean;
 
   /**
    * The text of the label itself
    */
-  @Prop() inoText: string;
+  @Prop() text: string;
 
   /**
    * Appends * to the label to make it appear as an required input in a form
    */
-  @Prop() inoRequired?: boolean;
+  @Prop() required?: boolean;
 
   /**
-   * Shows a "optional" message, when not inoRequired;
-   * Shows a * mark, when inoRequired
+   * Shows a "optional" message, when not `required`;
+   * Shows a * mark, when `required`
    */
-  @Prop() inoShowHint?: boolean;
+  @Prop() showHint?: boolean;
 
   /**
    * Colors the label in an light grey to indicate the disabled status for this element
    */
-  @Prop() inoDisabled: boolean;
+  @Prop() disabled: boolean;
 
   filledTemplate = (label: HTMLElement) => [
     <div class="mdc-line-ripple" />,
@@ -48,21 +48,21 @@ export class Label {
 
   render() {
     const hostClasses = classNames({
-      'ino-label--show-hint': this.inoShowHint,
-      'ino-label--outlined': this.inoOutline,
-      'ino-label--required': this.inoRequired,
-      'ino-label--disabled': this.inoDisabled,
+      'ino-label--show-hint': this.showHint,
+      'ino-label--outlined': this.outline,
+      'ino-label--required': this.required,
+      'ino-label--disabled': this.disabled,
     });
 
-    const label = this.inoText ? (
-      <label class={'mdc-floating-label'}>{this.inoText}</label>
+    const label = this.text ? (
+      <label class={'mdc-floating-label'}>{this.text}</label>
     ) : (
       ''
     );
 
     return (
       <Host class={hostClasses}>
-        {this.inoOutline
+        {this.outline
           ? this.outlineTemplate(label)
           : this.filledTemplate(label)}
       </Host>

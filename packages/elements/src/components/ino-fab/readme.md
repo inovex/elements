@@ -11,12 +11,12 @@ The component can be used as follows:
 
 ```html
 <ino-fab
-  ino-icon="<string>"
-  ino-label="<string>"
-  ino-extended
-  ino-mini
-  ino-tooltip-placement="<string>"
-  ino-disabled
+  icon="<string>"
+  label="<string>"
+  extended
+  mini
+  tooltip-placement="<string>"
+  disabled
 >
 </ino-fab>
 ```
@@ -72,7 +72,7 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Content**: Use the `ino-label` attribute to set the text of a fab. To add an icon, use the `ino-icon` attribute.
+**Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.
 
 ## Demo
 
@@ -81,22 +81,22 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                                                                                            | Type                                                                                                                                                                                                                   | Default      |
-| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| `inoDisabled`         | `ino-disabled`          | Disables the button.                                                                                                                                                                                   | `boolean`                                                                                                                                                                                                              | `false`      |
-| `inoEdgePosition`     | `ino-edge-position`     | The position of the edge.                                                                                                                                                                              | `"bottom-left" \| "bottom-right" \| "none" \| "top-left" \| "top-right"`                                                                                                                                               | `'top-left'` |
-| `inoExtended`         | `ino-extended`          | Optional, modifies the FAB to wider size which includes a text label.                                                                                                                                  | `boolean`                                                                                                                                                                                                              | `false`      |
-| `inoIcon`             | `ino-icon`              | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.<br/><br/>Adds an icon to the Fab. | `string`                                                                                                                                                                                                               | `undefined`  |
-| `inoLabel`            | `ino-label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                                                                        | `string`                                                                                                                                                                                                               | `undefined`  |
-| `inoMini`             | `ino-mini`              | Optional, modifies the FAB to a smaller size                                                                                                                                                           | `boolean`                                                                                                                                                                                                              | `false`      |
-| `inoTooltipPlacement` | `ino-tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.                                                         | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`     |
+| Property           | Attribute           | Description                                                                                                                                                                                          | Type                                                                                                                                                                                                                   | Default      |
+| ------------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `disabled`         | `disabled`          | Disables the button.                                                                                                                                                                                 | `boolean`                                                                                                                                                                                                              | `false`      |
+| `edgePosition`     | `edge-position`     | The position of the edge.                                                                                                                                                                            | `"bottom-left" \| "bottom-right" \| "none" \| "top-left" \| "top-right"`                                                                                                                                               | `'top-left'` |
+| `extended`         | `extended`          | Optional, modifies the FAB to wider size which includes a text label.                                                                                                                                | `boolean`                                                                                                                                                                                                              | `false`      |
+| `icon`             | `icon`              | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.<br/><br/>Adds an icon to the Fab. | `string`                                                                                                                                                                                                               | `undefined`  |
+| `label`            | `label`             | Optional, for the text label. Applicable only for Extended FAB.                                                                                                                                      | `string`                                                                                                                                                                                                               | `undefined`  |
+| `mini`             | `mini`              | Optional, modifies the FAB to a smaller size                                                                                                                                                         | `boolean`                                                                                                                                                                                                              | `false`      |
+| `tooltipPlacement` | `tooltip-placement` | The placement of the tooltip which will be displayed when the button is not extended. Use `none`, if you don't want a tooltip to be displayed.                                                       | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "none" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'left'`     |
 
 
 ## Slots
 
-| Slot                 | Description                  |
-| -------------------- | ---------------------------- |
-| `"ino-icon-leading"` | For the icon to be prepended |
+| Slot             | Description                  |
+| ---------------- | ---------------------------- |
+| `"icon-leading"` | For the icon to be prepended |
 
 
 ## CSS Custom Properties

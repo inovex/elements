@@ -9,7 +9,7 @@ This component is a composer to configure and wrap `list-item`s, `list-divider`s
 The component can be used as follows:
 
 ```html
-<ino-list ino-dense ino-two-lines>
+<ino-list dense two-lines>
   <ino-list-item ...></ino-list-item>
   <ino-list-divider></ino-list-divider>
   <ino-control-item ...></ino-control-item>
@@ -28,21 +28,21 @@ import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
   render() {
     return (
-      <InoList inoAvatar>
-        <InoListItem inoText="First text item">
+      <InoList avatar>
+        <InoListItem text="First text item">
           <InoImg
-            slot="ino-leading"
+            slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-            ino-ratio-width="1"
-            ino-ratio-height="1"
+            ratio-width="1"
+            ratio-height="1"
           />
         </InoListItem>
-        <InoListItem inoText="Second text item">
+        <InoListItem text="Second text item">
           <InoImg
-            slot="ino-leading"
+            slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-            ino-ratio-width="1"
-            ino-ratio-height="1"
+            ratio-width="1"
+            ratio-height="1"
           />
         </InoListItem>
       </InoList>
@@ -59,29 +59,29 @@ import { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
 const List: React.FunctionComponent<Components.InoListAttributes> = (props) => {
-  const { inoAvatar } = props;
+  const { avatar } = props;
 
-  return <InoList inoAvatar={inoAvatar}>{props.children}</InoList>;
+  return <InoList avatar={avatar}>{props.children}</InoList>;
 };
 
 class MyComponent extends Component {
   render() {
     return (
-      <List inoAvatar>
-        <InoListItem inoText="First text item">
+      <List avatar>
+        <InoListItem text="First text item">
           <InoImg
-            slot="ino-leading"
+            slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-            ino-ratio-width="1"
-            ino-ratio-height="1"
+            ratio-width="1"
+            ratio-height="1"
           />
         </InoListItem>
-        <InoListItem inoText="Second text item">
+        <InoListItem text="Second text item">
           <InoImg
-            slot="ino-leading"
+            slot="leading"
             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-            ino-ratio-width="1"
-            ino-ratio-height="1"
+            ratio-width="1"
+            ratio-height="1"
           />
         </InoListItem>
       </List>
@@ -92,18 +92,25 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-Provide `ino-two-lines` to set propper style attributes for list items having a primary and secondary line.
+Provide `two-lines` to set proper style attributes for list items having a primary and secondary line.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property      | Attribute       | Description                                                                                                                        | Type      | Default     |
-| ------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoAvatar`   | `ino-avatar`    | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger. | `boolean` | `false`     |
-| `inoDense`    | `ino-dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
-| `inoTwoLines` | `ino-two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
+| Property   | Attribute   | Description                                                                                                                        | Type      | Default     |
+| ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `avatar`   | `avatar`    | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger. | `boolean` | `false`     |
+| `dense`    | `dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
+| `twoLines` | `two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
+
+
+## Slots
+
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
 
 
 ## Dependencies

@@ -83,7 +83,7 @@ export class Textarea implements ComponentInterface {
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
-  @Prop() inoShowLabelHint?: boolean;
+  @Prop() showLabelHint?: boolean;
 
   /**
    * The number of rows of this textarea.
@@ -98,7 +98,7 @@ export class Textarea implements ComponentInterface {
   /**
    * Styles the input field as outlined element.
    */
-  @Prop() inoOutline?: boolean;
+  @Prop() outline?: boolean;
 
   /**
    * An optional flag to allow the textarea adjust its height to display all the content.
@@ -116,7 +116,7 @@ export class Textarea implements ComponentInterface {
   /**
    * The optional floating label of this input field.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * Emits when the textarea is blurred and validates email input
@@ -145,11 +145,11 @@ export class Textarea implements ComponentInterface {
 
   connectedCallback() {
     // Remove as soon as the 'filled' style should be released as new default style
-    if (this.inoOutline === undefined) {
+    if (this.outline === undefined) {
       console.warn(
-        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'inoOutline' property explicitly to true, please.`
+        `The ino-textarea default style will be changed to 'filled' in the next major release (analogous to the ino-input). In order to keep the 'outline' style, set the new 'outline' property explicitly to true, please.`
       );
-      this.inoOutline = true;
+      this.outline = true;
     }
   }
 
@@ -206,16 +206,16 @@ export class Textarea implements ComponentInterface {
 
   render() {
     const hostClasses = classNames({
-      'ino-textarea--outline': this.inoOutline,
+      'ino-textarea--outline': this.outline,
     });
 
     const classes = classNames({
       'mdc-text-field': true,
       'mdc-text-field--textarea': true,
-      'mdc-text-field--outlined': this.inoOutline,
-      'mdc-text-field--filled': !this.inoOutline,
+      'mdc-text-field--outlined': this.outline,
+      'mdc-text-field--filled': !this.outline,
       'mdc-text-field-fullwidth': !Boolean(this.cols),
-      'mdc-text-field--no-label': !this.inoLabel,
+      'mdc-text-field--no-label': !this.label,
       'mdc-text-field--with-internal-counter': Boolean(this.maxlength),
     });
 
@@ -244,11 +244,11 @@ export class Textarea implements ComponentInterface {
             </div>
           )}
           <ino-label
-            ino-outline={this.inoOutline}
-            ino-text={this.inoLabel}
-            ino-required={this.required}
-            ino-disabled={this.disabled}
-            ino-show-hint={this.inoShowLabelHint}
+            outline={this.outline}
+            text={this.label}
+            required={this.required}
+            disabled={this.disabled}
+            show-hint={this.showLabelHint}
           />
         </div>
       </Host>

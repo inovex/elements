@@ -16,8 +16,8 @@ document
 <ino-icon-button
   autofocus
   disabled
-  ino-activated="<boolean>"
-  ino-icon="<string>"
+  activated="<boolean>"
+  icon="<string>"
 >
 </ino-icon-button>
 ```
@@ -36,7 +36,7 @@ class MyComponent extends Component {
   };
 
   render() {
-    return <InoIconButton inoIcon="search" onClick={handleClick} />;
+    return <InoIconButton icon="search" onClick={handleClick} />;
   }
 }
 ```
@@ -58,7 +58,7 @@ const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = 
   };
 
   return (
-    <InoIconButton inoIcon={inoIcon} onClick={handleClick}>
+    <InoIconButton icon={inoIcon} onClick={handleClick}>
       {props.children}
     </InoIconButton>
   );
@@ -66,7 +66,7 @@ const IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = 
 
 class MyComponent extends Component {
   render() {
-    return <IconButton inoIcon="search" />;
+    return <IconButton icon="search" />;
   }
 }
 ```
@@ -75,27 +75,27 @@ class MyComponent extends Component {
 
 Buttons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.
 
-This can be done by using the `ino-activated` flag and further listing to the `click` event to change the state. _Example:_
+This can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_
 
 ```js
-inoActivated = false;
+activated = false;
 
 document.querySelector('ino-icon-button').addEventListener('click', (e) => {
   const el = e.target;
-  inoActivated = !inoActivated;
-  inoActivated
-    ? el.addAttribute('ino-activated')
-    : el.removeAttribute('ino-activated');
+  activated = !activated;
+  activated
+    ? el.addAttribute('activated')
+    : el.removeAttribute('activated');
 });
 ```
 
 ```html
-<ino-icon-button ino-icon="info"></ino-icon-button>
+<ino-icon-button icon="info"></ino-icon-button>
 ```
 
 ## Additional Hints
 
-**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in `ino-icon`-Attribute.
+**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.
 
 ### Native Events
 
@@ -106,22 +106,22 @@ The component bubbles the native `click`-Event to the user.
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `autoFocus`      | `autofocus`        | Sets the autofocus for this element.                                                                                                                                                                  | `boolean`                                                                            | `undefined` |
-| `disabled`       | `disabled`         | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
-| `inoActivated`   | `ino-activated`    | Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.                                                    | `boolean`                                                                            | `undefined` |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `inoFilled`      | `ino-filled`       | Styles this element as filled icon button with the `ino-color-scheme` as background color.                                                                                                            | `boolean`                                                                            | `undefined` |
-| `inoIcon`        | `ino-icon`         | The name of the icon of this element.                                                                                                                                                                 | `string`                                                                             | `undefined` |
-| `type`           | `type`             | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                  | `"button" \| "reset" \| "submit"`                                                    | `'button'`  |
+| Property      | Attribute      | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `activated`   | `activated`    | Marks the icon button as activated.  Useful in cases where an external state controls the icon button activation. Makes the component **managed**.                                                    | `boolean`                                                                            | `undefined` |
+| `autoFocus`   | `autofocus`    | Sets the autofocus for this element.                                                                                                                                                                  | `boolean`                                                                            | `undefined` |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `disabled`    | `disabled`     | Disables this element.                                                                                                                                                                                | `boolean`                                                                            | `undefined` |
+| `filled`      | `filled`       | Styles this element as filled icon button with the `ino-color-scheme` as background color.                                                                                                            | `boolean`                                                                            | `undefined` |
+| `icon`        | `icon`         | The name of the icon of this element.                                                                                                                                                                 | `string`                                                                             | `undefined` |
+| `type`        | `type`         | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                  | `"button" \| "reset" \| "submit"`                                                    | `'button'`  |
 
 
 ## Events
 
-| Event     | Description | Type               |
-| --------- | ----------- | ------------------ |
-| `clickEl` |             | `CustomEvent<any>` |
+| Event     | Description                                                                                                        | Type               |
+| --------- | ------------------------------------------------------------------------------------------------------------------ | ------------------ |
+| `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true. | `CustomEvent<any>` |
 
 
 ## CSS Custom Properties

@@ -20,7 +20,7 @@ document
   disabled="<boolean>"
   name="<string>"
   value="<string>"
-  ino-id="<string>"
+  id="<string>"
   oncheckedChange="handleCheckedChange()"
 >
   Label
@@ -109,6 +109,13 @@ Clicking on the radio button triggers an event that contains the boolean value `
 | Event           | Description                                                                                                                                                                | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | Label of the checkbox |
 
 
 ## CSS Custom Properties

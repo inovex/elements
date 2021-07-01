@@ -10,11 +10,11 @@ The component can be used as follows:
 
 ```html
 <ino-spinner
-  ino-type="<string>"
-  ino-color-scheme="<string>"
-  ino-height="<number>"
-  ino-modal
-  ino-width="<number>"
+  type="<string>"
+  color-scheme="<string>"
+  height="<number>"
+  modal
+  width="<number>"
 >
 </ino-spinner>
 ```
@@ -60,22 +60,22 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-Use one of the provided types in `ino-type` to give the spinner the shape. Adjust the size of the spinner by changing the `ino-height` and `ino-width` attributes. Finally, colorize the spinner using `ino-color-scheme` (see the attribute docs below).
+Use one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).
 
-**Modal:** If operations have to block the entire page, the spinner can be marked with `ino-modal` to spread over the entire screen and overlay the current page.
+**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `inoColorScheme` | `ino-color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `inoHeight`      | `ino-height`       | The height of this spinner (default = 40)                                                                                                                                                             | `number`                                                                             | `40`        |
-| `inoModal`       | `ino-modal`        | If true, the spinner is shown as modal over the current app page.                                                                                                                                     | `boolean`                                                                            | `false`     |
-| `inoType`        | `ino-type`         | The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`                                                                                                                     | `"bounce" \| "circle" \| "tile"`                                                     | `'tile'`    |
-| `inoWidth`       | `ino-width`        | The width of this spinner (defaul = 40)                                                                                                                                                               | `number`                                                                             | `40`        |
+| Property      | Attribute      | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `height`      | `height`       | The height of this spinner (default = 40)                                                                                                                                                             | `number`                                                                             | `40`        |
+| `modal`       | `modal`        | If true, the spinner is shown as modal over the current app page.                                                                                                                                     | `boolean`                                                                            | `false`     |
+| `type`        | `type`         | The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`                                                                                                                     | `"bounce" \| "circle" \| "tile"`                                                     | `'tile'`    |
+| `width`       | `width`        | The width of this spinner (defaul = 40)                                                                                                                                                               | `number`                                                                             | `40`        |
 
 
 ## Dependencies

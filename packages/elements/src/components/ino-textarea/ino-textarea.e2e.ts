@@ -25,7 +25,7 @@ describe('ino-textarea', () => {
     it('should render with a label', async () => {
       const sampleText = 'Some Label';
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'${sampleText}\'`)
+        createTextarea(`label=\'${sampleText}\'`)
       );
       const label = await page.find('label');
       expect(label.textContent).toEqual(sampleText);
@@ -45,7 +45,7 @@ describe('ino-textarea', () => {
 
     it('should NOT have the after pseudo-class within the label', async () => {
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'SomeLabel'`)
+        createTextarea(`label=\'SomeLabel'`)
       );
       const label = await page.find('ino-label');
       const afterElement = await label.getComputedStyle(':after');
@@ -76,7 +76,7 @@ describe('ino-textarea', () => {
     it('should render with an above floating label after focus', async () => {
       const sampleText = 'Some Label';
       const page = await setupPageWithContent(
-        createTextarea(`ino-label=\'${sampleText}\'`)
+        createTextarea(`label=\'${sampleText}\'`)
       );
       const inoTextArea = await page.find('textarea');
       await inoTextArea.click();

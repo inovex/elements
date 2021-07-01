@@ -8,18 +8,18 @@ in a grid-like format. It is based on the mdc-image-list component.
 The component can be used as follows:
 
 ```html
-<ino-img-list ino-enclose-label ino-masonry>
+<ino-img-list enclose-label masonry>
   <ino-img
     src="url/to/image"
-    ino-label="optional label"
-    ino-img-list-item
+    label="optional label"
+    img-list-item
   ></ino-img>
 </ino-img-list>
 ```
 
 ## React
 
-```jsx harmony
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoImgList, InoImg } from '@inovex.de/elements/dist/react';
@@ -32,8 +32,8 @@ class MyComponent extends Component {
 
   render() {
     return (
-      <InoImgList inoEncloseLabel={this.state.encloseLabel}>
-        <InoImg src={this.state.source} ino-img-list-item></InoImg>
+      <InoImgList encloseLabel={this.state.encloseLabel}>
+        <InoImg src={this.state.source} img-list-item></InoImg>
       </InoImgList>
     );
   }
@@ -45,10 +45,17 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                             | Type      | Default |
-| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `inoEncloseLabel` | `ino-enclose-label` | Encapsulates the label of all img-list-items within the image                                           | `boolean` | `false` |
-| `inoMasonry`      | `ino-masonry`       | Enables the masonry image list variant, which allows the images to be any combination of aspect ratios. | `boolean` | `false` |
+| Property       | Attribute       | Description                                                                                             | Type      | Default |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `encloseLabel` | `enclose-label` | Encapsulates the label of all img-list-items within the image                                           | `boolean` | `false` |
+| `masonry`      | `masonry`       | Enables the masonry image list variant, which allows the images to be any combination of aspect ratios. | `boolean` | `false` |
+
+
+## Slots
+
+| Slot        | Description                                     |
+| ----------- | ----------------------------------------------- |
+| `"default"` | One or more `ino-img` with `imgListItem="true"` |
 
 
 ## CSS Custom Properties

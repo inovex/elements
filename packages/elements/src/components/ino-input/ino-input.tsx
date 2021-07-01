@@ -20,8 +20,8 @@ import { hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
 
 /**
- * @slot ino-icon-leading - For the icon to be prepended
- * @slot ino-icon-trailing - For the icon to be appended
+ * @slot icon-leading - For the icon to be prepended
+ * @slot icon-trailing - For the icon to be appended
  */
 @Component({
   tag: 'ino-input',
@@ -131,17 +131,17 @@ export class Input implements ComponentInterface {
   /**
    * Shows a dot as a thousands separator. Only works on 'text' type input.
    */
-  @Prop() inoThousandsSeparator?: boolean;
+  @Prop() thousandsSeparator?: boolean;
 
   /**
    * The number of decimal places. Only works on 'text' type input.
    */
-  @Prop() inoDecimalPlaces?: number;
+  @Prop() decimalPlaces?: number;
 
   /**
    * Displays the given unit at the end of the input field.
    */
-  @Prop() inoUnit: string;
+  @Prop() unit: string;
 
   @Watch('value')
   valueChanged(newValue: string) {
@@ -164,53 +164,53 @@ export class Input implements ComponentInterface {
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
-  @Prop() inoShowLabelHint?: boolean;
+  @Prop() showLabelHint?: boolean;
 
   /**
    * Styles the input field as outlined element.
    */
-  @Prop() inoOutline?: boolean;
+  @Prop() outline?: boolean;
 
   /**
    * The optional floating label of this input field.
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * The optional helper text.
    */
-  @Prop() inoHelper?: string;
+  @Prop() helper?: string;
 
   /**
    * Displays the helper permanently.
    */
-  @Prop() inoHelperPersistent?: boolean;
+  @Prop() helperPersistent?: boolean;
 
   /**
    * Styles the helper text as a validation message.
    */
-  @Prop() inoHelperValidation?: boolean;
+  @Prop() helperValidation?: boolean;
 
   /**
    * Displays the number of characters. The maxlength-property must be set.
    * This helper text will be displayed persistently.
    */
-  @Prop() inoHelperCharacterCounter?: boolean;
+  @Prop() helperCharacterCounter?: boolean;
 
   /**
    * The id of the datalist child
    */
-  @Prop() inoDataList?: string;
+  @Prop() dataList?: string;
 
   /**
    * Displays the input field as invalid if set to true.
    * If the property is not set or set to false, the validation is handled by the `pattern` property.
    * This functionality might be useful if the input validation is (additionally) handled by the backend.
    */
-  @Prop() inoError?: boolean;
+  @Prop() error?: boolean;
 
-  @Watch('inoError')
-  inoErrorHandler(value?: boolean) {
+  @Watch('error')
+  errorHandler(value?: boolean) {
     if (this.disabled) return;
 
     if (value) {
@@ -251,14 +251,14 @@ export class Input implements ComponentInterface {
     if (this.type === 'email') {
       this.textfield.useNativeValidation = false;
     }
-    if (this.inoHelper) {
+    if (this.helper) {
       this.helperText = new MDCTextFieldHelperText(
         document.querySelector('.mdc-text-field-helper-text')
       );
     }
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     if (leadingSlotHasContent || trailingSlotHasContent) {
       this.icon = new MDCTextFieldIcon(
@@ -274,12 +274,12 @@ export class Input implements ComponentInterface {
       this.textfield.focus();
     }
 
-    if (this.inoDataList) {
-      this.nativeInputEl.setAttribute('list', this.inoDataList);
+    if (this.dataList) {
+      this.nativeInputEl.setAttribute('list', this.dataList);
       // see https://github.com/ionic-team/stencil/issues/1582
     }
 
-    this.inoErrorHandler(this.inoError);
+    this.errorHandler(this.error);
     this.el.setAttribute('tabindex', '-1');
   }
 
@@ -352,19 +352,19 @@ export class Input implements ComponentInterface {
   private helperTextTemplate() {
     const classHelperText = classNames({
       'mdc-text-field-helper-text': true,
-      'mdc-text-field-helper-text--persistent': this.inoHelperPersistent,
-      'mdc-text-field-helper-text--validation-msg': !!this.inoHelperValidation,
+      'mdc-text-field-helper-text--persistent': this.helperPersistent,
+      'mdc-text-field-helper-text--validation-msg': !!this.helperValidation,
     });
 
     return (
       <div class={classHelperText} id={this.uniqueHelperId} aria-hidden="true">
-        {this.inoHelper}
+        {this.helper}
       </div>
     );
   }
 
   /**
-   * Formats the given input according to the Props inoDecimalPlaces or inoThousandsSeparator
+   * Formats the given input according to the Props decimalPlaces or thousandsSeparator
    * @param val The value which should be formatted
    * @return if the val can be formatted, returns the formatted string, else returns the original input val
    */
@@ -372,22 +372,22 @@ export class Input implements ComponentInterface {
     const canBeFormatted =
       Boolean(val) &&
       this.type === 'text' &&
-      Boolean(this.inoDecimalPlaces || this.inoThousandsSeparator);
+      Boolean(this.decimalPlaces || this.thousandsSeparator);
 
     if (!canBeFormatted) {
       return val;
     }
 
     const formatOptions = {
-      separator: this.inoThousandsSeparator ? '.' : '',
+      separator: this.thousandsSeparator ? '.' : '',
       decimal: ',',
-      precision: this.inoDecimalPlaces | 0,
+      precision: this.decimalPlaces | 0,
     };
 
     const formattedValue: string = currency(val, formatOptions).format();
 
     // Compute the new cursor position after . was added
-    if (this.inoThousandsSeparator) {
+    if (this.thousandsSeparator) {
       const numberOfAddedCharacters: number = Math.abs(
         val.length - formattedValue.length
       );
@@ -412,26 +412,25 @@ export class Input implements ComponentInterface {
   }
 
   render() {
-    const hasHelperText = Boolean(this.inoHelper);
+    const hasHelperText = Boolean(this.helper);
     const hasCharacterCounter = Boolean(
-      this.inoHelperCharacterCounter && !Number.isNaN(this.maxlength)
+      this.helperCharacterCounter && !Number.isNaN(this.maxlength)
     );
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     const classTextfield = classNames({
       'ino-input__composer': true,
       'mdc-text-field': true,
       'mdc-text-field--disabled': this.disabled,
       'mdc-text-field--focused': this.autoFocus,
-      'mdc-text-field--filled': !this.inoOutline,
-      'mdc-text-field--outlined': this.inoOutline,
-      'mdc-text-field--box': !this.inoOutline,
+      'mdc-text-field--filled': !this.outline,
+      'mdc-text-field--outlined': this.outline,
+      'mdc-text-field--box': !this.outline,
       'mdc-text-field--with-leading-icon': leadingSlotHasContent,
-      'mdc-text-field--with-trailing-icon':
-        trailingSlotHasContent || this.inoUnit,
-      'mdc-text-field--no-label': !this.inoLabel,
+      'mdc-text-field--with-trailing-icon': trailingSlotHasContent || this.unit,
+      'mdc-text-field--no-label': !this.label,
     });
 
     return (
@@ -439,7 +438,7 @@ export class Input implements ComponentInterface {
         <div class={classTextfield}>
           {leadingSlotHasContent && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
-              <slot name={'ino-icon-leading'}></slot>
+              <slot name={'icon-leading'}></slot>
             </span>
           )}
           <input
@@ -459,17 +458,17 @@ export class Input implements ComponentInterface {
             size={this.size}
             type={this.type}
             value={this.parseInput(this.value)}
-            aria-controls={this.inoHelper && this.uniqueHelperId}
-            aria-describedby={this.inoHelper && this.uniqueHelperId}
+            aria-controls={this.helper && this.uniqueHelperId}
+            aria-describedby={this.helper && this.uniqueHelperId}
             onInput={this.handleNativeInputChange.bind(this)}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            list={this.inoDataList}
+            list={this.dataList}
           />
           <slot />
-          {this.inoUnit && (
+          {this.unit && (
             <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
-              {this.inoUnit}
+              {this.unit}
             </span>
           )}
           {this.type === 'number' && (
@@ -477,25 +476,25 @@ export class Input implements ComponentInterface {
               <ino-icon
                 class={'ino-num-arrows up'}
                 onClick={() => this.handleInputNumberArrowClick(true)}
-                ino-icon="_input_number_arrow_down"
-              ></ino-icon>
+                icon="_input_number_arrow_down"
+              />
               <ino-icon
                 class={'ino-num-arrows down'}
                 onClick={() => this.handleInputNumberArrowClick(false)}
-                ino-icon="_input_number_arrow_down"
-              ></ino-icon>
+                icon="_input_number_arrow_down"
+              />
             </div>
           )}
           <ino-label
-            ino-outline={this.inoOutline}
-            ino-text={this.inoLabel}
-            ino-required={this.required}
-            ino-show-hint={this.inoShowLabelHint}
-            ino-disabled={this.disabled}
+            outline={this.outline}
+            text={this.label}
+            required={this.required}
+            show-hint={this.showLabelHint}
+            disabled={this.disabled}
           />
           {trailingSlotHasContent && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
-              <slot name={'ino-icon-trailing'}></slot>
+              <slot name={'icon-trailing'}/>
             </span>
           )}
         </div>

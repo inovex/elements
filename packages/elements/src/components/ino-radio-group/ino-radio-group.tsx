@@ -8,6 +8,9 @@ import {
   h,
 } from '@stencil/core';
 
+/**
+ * @slot default - One or more `ino-radio`
+ */
 @Component({
   tag: 'ino-radio-group',
   styleUrl: 'ino-radio-group.scss',

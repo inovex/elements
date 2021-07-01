@@ -1,4 +1,10 @@
-.snackbar-variants {
+.story-ino-snackbar {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+
+  ino-button:not(:last-of-type) {
+    margin-bottom: 32px;
+  }
 }

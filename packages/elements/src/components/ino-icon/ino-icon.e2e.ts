@@ -1,6 +1,6 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_ICON = `<ino-icon ino-icon="add"></ino-icon>`;
+const INO_ICON = `<ino-icon icon="add"></ino-icon>`;
 const INO_ICON_SELECTOR = 'ino-icon';
 
 describe('InoIcon', () => {
@@ -9,7 +9,7 @@ describe('InoIcon', () => {
       const page = await setupPageWithContent(INO_ICON);
       const inoIcon = await page.find(INO_ICON_SELECTOR);
       const clickEvent = await page.spyOnEvent('clickEl');
-      await inoIcon.setAttribute('ino-clickable', true);
+      await inoIcon.setAttribute('clickable', true);
       await page.waitForChanges();
 
       await inoIcon.click();

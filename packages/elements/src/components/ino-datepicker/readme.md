@@ -27,18 +27,18 @@ document
   max="<string>"
   minute-step="<number>"
   hour-step="<number>"
-  ino-range
-  ino-outline
-  ino-label="<string>"
-  ino-pattern="<string>"
-  ino-date-format="<string>"
-  ino-default-date="<string>"
-  ino-default-hour="<number>"
-  ino-default-minute="<number>"
-  ino-twelf-hour-time
-  ino-helper="<string>"
-  ino-helper-persistent
-  ino-helper-validation
+  range
+  outline
+  label="<string>"
+  pattern="<string>"
+  date-format="<string>"
+  default-date="<string>"
+  default-hour="<number>"
+  default-minute="<number>"
+  twelve-hour-time
+  helper="<string>"
+  helper-persistent
+  helper-validation
 >
 </ino-datepicker>
 ```
@@ -111,30 +111,30 @@ This datepicker can be used as a picker for ...
 - datetime
 - month
 
-The type of the picker is selected based on the `ino-type` property. See the examples below.
+The type of the picker is selected based on the  type` property. See the examples below.
 
 #### Datepicker
 
 ```html
-<ino-datepicker ino-type="date" ino-label="Date"></ino-datepicker>
+<ino-datepicker type="date" label="Date"></ino-datepicker>
 ```
 
 #### Timepicker
 
 ```html
-<ino-datepicker ino-type="time" ino-label="Time"></ino-datepicker>
+<ino-datepicker type="time" label="Time"></ino-datepicker>
 ```
 
 #### Date-Time-Picker
 
 ```html
-<ino-datepicker ino-type="datetime" ino-label="Datetime"> </ino-datepicker>
+<ino-datepicker type="datetime" label="Datetime"> </ino-datepicker>
 ```
 
 #### Monthpicker
 
 ```html
-<ino-datepicker ino-type="month" ino-label="Month"></ino-datepicker>
+<ino-datepicker type="month" label="Month"></ino-datepicker>
 ```
 
 ## Demo
@@ -144,30 +144,30 @@ The type of the picker is selected based on the `ino-type` property. See the exa
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                                                                       | Type                                        | Default     |
-| --------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
-| `autoFocus`           | `autofocus`             | Autofocuses this element.                                                                                                                                                         | `boolean`                                   | `undefined` |
-| `disabled`            | `disabled`              | Disables this element.                                                                                                                                                            | `boolean`                                   | `undefined` |
-| `hourStep`            | `hour-step`             | Adjusts the step for the hour input (incl. scrolling) Default is 1                                                                                                                | `number`                                    | `1`         |
-| `inoDateFormat`       | `ino-date-format`       | A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`. | `string`                                    | `'d-m-Y'`   |
-| `inoDefaultDate`      | `ino-default-date`      | A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.            | `string \| string[]`                        | `undefined` |
-| `inoDefaultHour`      | `ino-default-hour`      | A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.                                                                | `number`                                    | `12`        |
-| `inoDefaultMinute`    | `ino-default-minute`    | A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.                                                              | `number`                                    | `0`         |
-| `inoHelper`           | `ino-helper`            | The helper text.                                                                                                                                                                  | `string`                                    | `undefined` |
-| `inoHelperPersistent` | `ino-helper-persistent` | Displays the helper permanently.                                                                                                                                                  | `boolean`                                   | `undefined` |
-| `inoHelperValidation` | `ino-helper-validation` | Styles the helper text as a validation message.                                                                                                                                   | `boolean`                                   | `undefined` |
-| `inoLabel`            | `ino-label`             | Defines the label for this element.                                                                                                                                               | `string`                                    | `undefined` |
-| `inoOutline`          | `ino-outline`           | Styles the datepicker as outlined element.                                                                                                                                        | `boolean`                                   | `undefined` |
-| `inoRange`            | `ino-range`             | If true, enables the user to choose two dates as an interval. Only works with inoType="date"                                                                                      | `boolean`                                   | `undefined` |
-| `inoShowLabelHint`    | `ino-show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                        | `boolean`                                   | `undefined` |
-| `inoTwelveHourTime`   | `ino-twelve-hour-time`  | If true, displays time picker in 12 hour mode with AM/PM selection.                                                                                                               | `boolean`                                   | `undefined` |
-| `inoType`             | `ino-type`              | Selects the correct picker corresponding to the given type.                                                                                                                       | `"date" \| "datetime" \| "month" \| "time"` | `'date'`    |
-| `max`                 | `max`                   | The maximum date that a user can pick to (inclusive).                                                                                                                             | `string`                                    | `undefined` |
-| `min`                 | `min`                   | The minimum date that a user can start picking from (inclusive).                                                                                                                  | `string`                                    | `undefined` |
-| `minuteStep`          | `minute-step`           | Adjusts the step for the minute input (incl. scrolling) Default is 5                                                                                                              | `number`                                    | `5`         |
-| `name`                | `name`                  | The input name of this element.                                                                                                                                                   | `string`                                    | `undefined` |
-| `required`            | `required`              | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
-| `value`               | `value`                 | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                | `string`                                    | `''`        |
+| Property           | Attribute           | Description                                                                                                                                                                       | Type                                        | Default     |
+| ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
+| `autoFocus`        | `autofocus`         | Autofocuses this element.                                                                                                                                                         | `boolean`                                   | `undefined` |
+| `dateFormat`       | `date-format`       | A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`. | `string`                                    | `'d-m-Y'`   |
+| `defaultDate`      | `default-date`      | A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.            | `string \| string[]`                        | `undefined` |
+| `defaultHour`      | `default-hour`      | A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.                                                                | `number`                                    | `12`        |
+| `defaultMinute`    | `default-minute`    | A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.                                                              | `number`                                    | `0`         |
+| `disabled`         | `disabled`          | Disables this element.                                                                                                                                                            | `boolean`                                   | `undefined` |
+| `helper`           | `helper`            | The helper text.                                                                                                                                                                  | `string`                                    | `undefined` |
+| `helperPersistent` | `helper-persistent` | Displays the helper permanently.                                                                                                                                                  | `boolean`                                   | `undefined` |
+| `helperValidation` | `helper-validation` | Styles the helper text as a validation message.                                                                                                                                   | `boolean`                                   | `undefined` |
+| `hourStep`         | `hour-step`         | Adjusts the step for the hour input (incl. scrolling) Default is 1                                                                                                                | `number`                                    | `1`         |
+| `label`            | `label`             | Defines the label for this element.                                                                                                                                               | `string`                                    | `undefined` |
+| `max`              | `max`               | The maximum date that a user can pick to (inclusive).                                                                                                                             | `string`                                    | `undefined` |
+| `min`              | `min`               | The minimum date that a user can start picking from (inclusive).                                                                                                                  | `string`                                    | `undefined` |
+| `minuteStep`       | `minute-step`       | Adjusts the step for the minute input (incl. scrolling) Default is 5                                                                                                              | `number`                                    | `5`         |
+| `name`             | `name`              | The input name of this element.                                                                                                                                                   | `string`                                    | `undefined` |
+| `outline`          | `outline`           | Styles the datepicker as outlined element.                                                                                                                                        | `boolean`                                   | `undefined` |
+| `range`            | `range`             | If true, enables the user to choose two dates as an interval. Only works with `type="date"`                                                                                       | `boolean`                                   | `undefined` |
+| `required`         | `required`          | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
+| `showLabelHint`    | `show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                        | `boolean`                                   | `undefined` |
+| `twelveHourTime`   | `twelve-hour-time`  | If true, displays time picker in 12 hour mode with AM/PM selection.                                                                                                               | `boolean`                                   | `undefined` |
+| `type`             | `type`              | Selects the correct picker corresponding to the given type.                                                                                                                       | `"date" \| "datetime" \| "month" \| "time"` | `'date'`    |
+| `value`            | `value`             | The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.                                                                | `string`                                    | `''`        |
 
 
 ## Events

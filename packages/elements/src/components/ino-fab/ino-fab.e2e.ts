@@ -6,22 +6,22 @@ const BUTTON_SELECTOR = 'ino-fab >>> button';
 
 describe('InoFabButton', () => {
   describe('Properties', () => {
-    it('should render with property ino-mini', async () => {
+    it('should render with property mini', async () => {
       const page = await setupPageWithContent(INO_FAB_BUTTON);
 
       const inoFabEl = await page.find(INO_FAB_SELECTOR);
-      inoFabEl.setAttribute('ino-mini', true);
+      inoFabEl.setAttribute('mini', true);
       await page.waitForChanges();
 
       const buttonEl = await page.find(BUTTON_SELECTOR);
       expect(buttonEl).toHaveClass('mdc-fab--mini');
     });
 
-    it('should render with property ino-extended', async () => {
+    it('should render with property extended', async () => {
       const page = await setupPageWithContent(INO_FAB_BUTTON);
 
       const inoFabEl = await page.find(INO_FAB_SELECTOR);
-      inoFabEl.setAttribute('ino-extended', true);
+      inoFabEl.setAttribute('extended', true);
       await page.waitForChanges();
 
       const buttonEl = await page.find(BUTTON_SELECTOR);
@@ -45,7 +45,7 @@ describe('InoFabButton', () => {
       const page = await setupPageWithContent(INO_FAB_BUTTON);
 
       const inoFabEl = await page.find(INO_FAB_SELECTOR);
-      inoFabEl.setAttribute('ino-disabled', true);
+      inoFabEl.setAttribute('disabled', true);
       await page.waitForChanges();
 
       const buttonEl = await page.find(BUTTON_SELECTOR);

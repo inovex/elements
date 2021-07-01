@@ -1,11 +1,12 @@
 .story-tooltip {
-  padding-left: 20%;
+  display: flex;
+  justify-content: center;
 
   h4 {
     margin-top: 48px;
   }
 
   ino-button {
-    margin: 0 12px 12px 0;
+    margin: 12px 24px;
   }
 }

@@ -16,7 +16,7 @@ document
 
 ```jsx
 <ino-tab-bar
-  ino-active-tab="<number>"
+  active-tab="<number>"
   onactivetabchange="handleActiveTabChange()"
 >
   <ino-tab ...></ino-tab>
@@ -76,11 +76,11 @@ class MyComponent extends Component {
 
 ### Control flow
 
-The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `ino-active-tab`. Listen to `activeTabChange`, sync it with your local state and pass the new index to the component again to activate the tab.
+The tab bar has a controlled (unmanaged) attribute `active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `active-tab`. Listen to `activeTabChange`, sync it with your local state and pass the new index to the component again to activate the tab.
 
 ```jsx
 <ino-tab-bar
-  ino-active-tab={this.state.index}
+  active-tab={this.state.index}
   activeTabChange={(e) => (this.state.index = e.detail)}
 />
 ```
@@ -90,9 +90,9 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 
 ## Properties
 
-| Property       | Attribute        | Description                                           | Type     | Default |
-| -------------- | ---------------- | ----------------------------------------------------- | -------- | ------- |
-| `inoActiveTab` | `ino-active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
+| Property    | Attribute    | Description                                           | Type     | Default |
+| ----------- | ------------ | ----------------------------------------------------- | -------- | ------- |
+| `activeTab` | `active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
 
 
 ## Events
@@ -100,6 +100,13 @@ The tab bar has a controlled (unmanaged) attribute `ino-active-tab`. For this re
 | Event             | Description                                                                         | Type               |
 | ----------------- | ----------------------------------------------------------------------------------- | ------------------ |
 | `activeTabChange` | Emits when a tab changes. Contains the index of the activated tab in `event.detail` | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | One or more `ino-tab` |
 
 
 ----------------------------------------------

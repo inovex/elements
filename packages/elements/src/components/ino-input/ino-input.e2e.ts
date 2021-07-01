@@ -65,7 +65,7 @@ describe('InoInput', () => {
     it('should be formatted to a decimal with two decimal places', async () => {
       const page = await setupPageWithContent(`
       <ino-input
-        ino-decimal-places="2"
+        decimal-places="2"
       >
       </ino-input>
     `);
@@ -82,7 +82,7 @@ describe('InoInput', () => {
     it('should be formatted to have a dot as a thousand separator', async () => {
       const page = await setupPageWithContent(`
       <ino-input
-        ino-thousands-separator
+        thousands-separator
       >
       </ino-input>
     `);
@@ -99,7 +99,7 @@ describe('InoInput', () => {
     it('should be formatted to have two dots as a thousand separator', async () => {
       const page = await setupPageWithContent(`
       <ino-input
-        ino-thousands-separator
+        thousands-separator
       >
       </ino-input>
     `);
@@ -122,17 +122,15 @@ describe('InoInput', () => {
     });
 
     it('should be marked as invalid when provided with ino-error', async () => {
-      const page = await setupPageWithContent(
-        `<ino-input ino-error></ino-input>`
-      );
+      const page = await setupPageWithContent(`<ino-input error></ino-input>`);
       const inputContainer = await page.find('ino-input > div');
       expect(inputContainer).toHaveClass('mdc-text-field--invalid');
     });
 
     describe('Pattern', () => {
-      it('should be marked as invalid when pattern matches correctly but ino-error is provided', async () => {
+      it('should be marked as invalid when pattern matches correctly but error is provided', async () => {
         const page = await setupPageWithContent(
-          `<ino-input ino-error pattern="a" value="a"></ino-input>`
+          `<ino-input error pattern="a" value="a"></ino-input>`
         );
         const inputContainer = await page.find('ino-input > div');
         expect(inputContainer).toHaveClass('mdc-text-field--invalid');
@@ -140,7 +138,7 @@ describe('InoInput', () => {
 
       it('should not be invalid on disabled inputs', async () => {
         const page = await setupPageWithContent(
-          `<ino-input pattern="a" disabled></markant-input>`
+          `<ino-input pattern="a" disabled></ino-input>`
         );
         await page.evaluate(async () => {
           const nativeInputElement = await document

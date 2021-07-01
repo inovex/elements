@@ -13,7 +13,7 @@ export class Spinner implements ComponentInterface {
    * The type of this spinner.
    * Possible values: `tile` (default), `bounce` or `circle`
    */
-  @Prop() inoType: SpinnerType = 'tile';
+  @Prop() type: SpinnerType = 'tile';
 
   /**
    * The name of the color scheme which is used
@@ -21,22 +21,22 @@ export class Spinner implements ComponentInterface {
    * Possible values: `primary` (default),  `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme: ColorScheme = 'primary';
+  @Prop() colorScheme: ColorScheme = 'primary';
 
   /**
    * If true, the spinner is shown as modal over the current app page.
    */
-  @Prop() inoModal: boolean = false;
+  @Prop() modal: boolean = false;
 
   /**
    * The height of this spinner (default = 40)
    */
-  @Prop() inoHeight: number = 40;
+  @Prop() height: number = 40;
 
   /**
    * The width of this spinner (defaul = 40)
    */
-  @Prop() inoWidth: number = 40;
+  @Prop() width: number = 40;
 
   private tileTemplate() {
     return [
@@ -74,19 +74,19 @@ export class Spinner implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-spinner--type-${this.inoType}`,
-      `ino-spinner--color-scheme-${this.inoColorScheme}`,
+      `ino-spinner--type-${this.type}`,
+      `ino-spinner--color-scheme-${this.colorScheme}`,
       {
-        'ino-spinner--modal': this.inoModal,
+        'ino-spinner--modal': this.modal,
       }
     );
 
     let spinnerTemplate;
-    if (this.inoType === 'tile') {
+    if (this.type === 'tile') {
       spinnerTemplate = this.tileTemplate();
-    } else if (this.inoType === 'bounce') {
+    } else if (this.type === 'bounce') {
       spinnerTemplate = this.bounceTemplate();
-    } else if (this.inoType === 'circle') {
+    } else if (this.type === 'circle') {
       spinnerTemplate = this.circleTemplate();
     }
 
@@ -94,7 +94,7 @@ export class Spinner implements ComponentInterface {
       <Host class={hostClasses}>
         <div
           class="ino-spinner__composer"
-          style={{ width: `${this.inoWidth}px`, height: `${this.inoHeight}px` }}
+          style={{ width: `${this.width}px`, height: `${this.height}px` }}
         >
           {spinnerTemplate}
         </div>

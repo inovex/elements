@@ -8,10 +8,10 @@ The component can be used as follows:
 
 ```html
 <ino-tab
-  ino-label="<string>"
-  ino-icon="<string>"
-  ino-indicator-content-width
-  ino-stacked
+  label="<string>"
+  icon="<string>"
+  indicator-content-width
+  stacked
 >
 </ino-tab>
 ```
@@ -67,26 +67,26 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Content**: Provide the text of a Tab and, if desired, an icon of the tab in `ino-icon`.
+**Content**: Provide the text of a Tab and, if desired, an icon of the tab in `icon`.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property                   | Attribute                     | Description                                                                           | Type      | Default     |
-| -------------------------- | ----------------------------- | ------------------------------------------------------------------------------------- | --------- | ----------- |
-| `inoIcon`                  | `ino-icon`                    | Indicates a leading icon in the tab.                                                  | `string`  | `undefined` |
-| `inoIndicatorContentWidth` | `ino-indicator-content-width` | Indicates that the tab only expands to the width of its content.                      | `boolean` | `false`     |
-| `inoLabel`                 | `ino-label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
-| `inoStacked`               | `ino-stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
+| Property                | Attribute                 | Description                                                                           | Type      | Default     |
+| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------- | --------- | ----------- |
+| `icon`                  | `icon`                    | Indicates a leading icon in the tab.                                                  | `string`  | `undefined` |
+| `indicatorContentWidth` | `indicator-content-width` | Indicates that the tab only expands to the width of its content.                      | `boolean` | `false`     |
+| `label`                 | `label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
+| `stacked`               | `stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
 
 
 ## Events
 
-| Event           | Description                                                                          | Type               |
-| --------------- | ------------------------------------------------------------------------------------ | ------------------ |
-| `inoInteracted` | Emitted when the user interacts with the tab. This event is used by the ino-tab-bar. | `CustomEvent<any>` |
+| Event        | Description                                                                          | Type               |
+| ------------ | ------------------------------------------------------------------------------------ | ------------------ |
+| `interacted` | Emitted when the user interacts with the tab. This event is used by the ino-tab-bar. | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -17,7 +17,8 @@ import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
 
 /**
- * @slot ino-popover-trigger - The target element to attach the triggers to
+ * @slot popover-trigger - The target element to attach the triggers to
+ * @slot default - Content of the popover
  */
 @Component({
   tag: 'ino-popover',
@@ -35,24 +36,24 @@ export class Popover implements ComponentInterface {
    * Accepted values: `top(-start, -end)`, `right(-start, -end)`,
    * `bottom(-start, -end)`, `left(-start, -end)`
    */
-  @Prop() inoPlacement: Placement = 'auto';
+  @Prop() placement: Placement = 'auto';
 
-  @Watch('inoPlacement')
-  inoPlacementChanged() {
+  @Watch('placement')
+  placementChanged() {
     this.tippyInstance?.setProps({
-      placement: this.inoPlacement,
+      placement: this.placement,
     });
   }
 
   /**
    * The target id the popover belongs to.
-   * If not given, the popover is attached to the element provided in the named slot (`ino-popover-trigger`)
+   * If not given, the popover is attached to the element provided in the named slot (`popover-trigger`)
    * or the parent component if a slot element does not exist.
    */
-  @Prop() inoFor?: string;
+  @Prop() for?: string;
 
-  @Watch('inoFor')
-  inoForChanged() {
+  @Watch('for')
+  forChanged() {
     this.create();
   }
 
@@ -60,12 +61,12 @@ export class Popover implements ComponentInterface {
    * Displaces the popover away from, or toward, the anchor element in the direction of its placement.
    * A positive number displaces it further away, while a negative number lets it overlap the anchor.
    */
-  @Prop() inoDistance?: number = 10;
+  @Prop() distance?: number = 10;
 
-  @Watch('inoDistance')
-  inoDistanceChanged() {
+  @Watch('distance')
+  distanceChanged() {
     this.tippyInstance?.setProps({
-      offset: [0, this.inoDistance],
+      offset: [0, this.distance],
     });
   }
 
@@ -73,16 +74,16 @@ export class Popover implements ComponentInterface {
    * Sets the color scheme of the popup
    * Valid options include: 'primary', 'secondary', 'light', 'transparent'
    */
-  @Prop() inoColorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
+  @Prop() colorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
     'primary';
 
   /**
    * Use this if you want to interact with the popover content (e.g. button clicks)
    */
-  @Prop() inoInteractive? = false;
+  @Prop() interactive? = false;
 
-  @Watch('inoInteractive')
-  inoInteractiveChanged() {
+  @Watch('interactive')
+  interactiveChanged() {
     this.create();
   }
 
@@ -90,12 +91,12 @@ export class Popover implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() inoTrigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
+  @Prop() trigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
 
-  @Watch('inoTrigger')
-  inoTriggerChanged() {
+  @Watch('trigger')
+  triggerChanged() {
     this.tippyInstance?.setProps({
-      trigger: this.inoTrigger,
+      trigger: this.trigger,
     });
   }
 
@@ -109,25 +110,25 @@ export class Popover implements ComponentInterface {
   }
 
   /**
-   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `ino-visible` property (`true`)
+   * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
    */
-  @Prop() inoControlled: boolean = false;
+  @Prop() controlled: boolean = false;
 
-  @Watch('inoControlled')
-  inoControlledChanged() {
+  @Watch('controlled')
+  controlledChanged() {
     this.create();
   }
 
   /**
    * Programmatically show or hide the popover.
-   * Can only be used in controlled mode (see property `ino-controlled`).
-   * Use the `inoVisibleChanged` to sync the popovers' visibility state with yours.
+   * Can only be used in controlled mode (see property `controlled`).
+   * Use the `visibleChanged` to sync the popovers' visibility state with yours.
    */
-  @Prop() inoVisible?: boolean = false;
+  @Prop() visible?: boolean = false;
 
-  @Watch('inoVisible')
-  inoVisibleChangeHandler(show: boolean) {
-    if (!this.inoControlled) {
+  @Watch('visible')
+  visibleChangeHandler(show: boolean) {
+    if (!this.controlled) {
       return;
     }
 
@@ -136,14 +137,14 @@ export class Popover implements ComponentInterface {
 
   /**
    * Emits when the popover wants to show (`true`) or hide (`false`) itself.
-   * This is depended on the `ino-trigger` property.
-   * Use this event in controlled-mode (see `ino-controlled`).
+   * This is depended on the `trigger` property.
+   * Use this event in controlled-mode (see `controlled`).
    *
-   * e.g.: `ino-trigger = 'click'` - This events emits with `true`
-   * when the user clicks on the target (slot/`ino-for`/parent-element)
+   * e.g.: `trigger = 'click'` - This events emits with `true`
+   * when the user clicks on the target (slot/`for`/parent-element)
    * and emits with `false` when the target or the outside is clicked.
    */
-  @Event() inoVisibleChanged: EventEmitter<boolean>;
+  @Event() visibleChanged: EventEmitter<boolean>;
 
   componentDidLoad() {
     this.create();
@@ -152,10 +153,8 @@ export class Popover implements ComponentInterface {
   private create() {
     this.tippyInstance?.destroy();
 
-    if (!this.target && this.inoFor) {
-      console.warn(
-        `The element with the id '${this.inoFor}' could not be found.`
-      );
+    if (!this.target && this.for) {
+      console.warn(`The element with the id '${this.for}' could not be found.`);
     }
 
     const options: Partial<Props> = {
@@ -164,19 +163,19 @@ export class Popover implements ComponentInterface {
       appendTo: this.inoPopoverContainer,
       content: this.inoPopoverContent,
       duration: 100,
-      placement: this.inoPlacement,
-      trigger: this.inoTrigger,
-      interactive: this.inoInteractive,
-      offset: [0, this.inoDistance],
+      placement: this.placement,
+      trigger: this.trigger,
+      interactive: this.interactive,
+      offset: [0, this.distance],
       onShow: () => {
-        if (this.inoControlled && !this.inoVisible) {
-          this.inoVisibleChanged.emit(true);
+        if (this.controlled && !this.visible) {
+          this.visibleChanged.emit(true);
           return false;
         }
       },
       onHide: () => {
-        if (this.inoControlled && this.inoVisible) {
-          this.inoVisibleChanged.emit(false);
+        if (this.controlled && this.visible) {
+          this.visibleChanged.emit(false);
           return false;
         }
       },
@@ -186,11 +185,11 @@ export class Popover implements ComponentInterface {
   }
 
   private get target(): HTMLElement | null {
-    const slotContent = getSlotContent(this.el, 'ino-popover-trigger');
+    const slotContent = getSlotContent(this.el, 'popover-trigger');
 
     if (slotContent) return slotContent;
 
-    if (this.inoFor) return document.getElementById(this.inoFor);
+    if (this.for) return document.getElementById(this.for);
 
     return this.el.parentElement;
   }
@@ -198,12 +197,12 @@ export class Popover implements ComponentInterface {
   render() {
     const popoverClasses = classNames(
       'ino-popover',
-      `ino-popover--color-scheme-${this.inoColorScheme}`
+      `ino-popover--color-scheme-${this.colorScheme}`
     );
 
     return (
       <Host>
-        <slot name="ino-popover-trigger"></slot>
+        <slot name="popover-trigger" />
         <div
           ref={(ref) => (this.inoPopoverContainer = ref)}
           class={popoverClasses}

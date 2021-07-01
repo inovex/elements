@@ -14,6 +14,9 @@ import classNames from 'classnames';
 
 import { ChipSetType } from '../types';
 
+/**
+ * @slot default - One or more `ino-chip`
+ */
 @Component({
   tag: 'ino-chip-set',
   styleUrl: 'ino-chip-set.scss',
@@ -27,12 +30,15 @@ export class ChipSet implements ComponentInterface {
 
   /**
    * The type of this chip set that indicates its behavior.
-   * Possible values are: `''` (default), `choice`, `filter`, `input`
+   *
+   * `choice`: Single selection from a set of options
+   * `filter`: Multiple selection from a set of options
+   * `input`: Enable user input by converting text into chips
    */
-  @Prop() inoType?: ChipSetType = '';
+  @Prop() type?: ChipSetType = '';
 
-  @Watch('inoType')
-  inoTypeChanged() {
+  @Watch('type')
+  typeChanged() {
     this.create();
   }
 
@@ -78,7 +84,7 @@ export class ChipSet implements ComponentInterface {
       }
     );
 
-    if (this.inoType === 'choice' || this.inoType === 'input') {
+    if (this.type === 'choice' || this.type === 'input') {
       this.el.addEventListener('MDCChip:interaction', (_) =>
         this.notifyChange()
       );
@@ -93,7 +99,7 @@ export class ChipSet implements ComponentInterface {
       return;
     }
     const chipValues = selectedChipIds.map(
-      (chipId) => this.getInoChip(chipId).inoValue
+      (chipId) => this.getInoChip(chipId).value
     );
     this.updateChipSet.emit(
       chipValues.length === 1 ? chipValues[0] : chipValues
@@ -101,9 +107,9 @@ export class ChipSet implements ComponentInterface {
   }
 
   private prepareChip(chipId: string) {
-    if (this.inoType === 'filter') {
+    if (this.type === 'filter') {
       const chip = this.getInoChip(chipId);
-      chip.inoSelectable = this.inoType === 'filter';
+      chip.selectable = this.type === 'filter';
     }
   }
 
@@ -115,8 +121,8 @@ export class ChipSet implements ComponentInterface {
   render() {
     const classChipSet = classNames(
       'mdc-chip-set',
-      { 'mdc-chip-set--choice': this.inoType === 'choice' },
-      { 'mdc-chip-set--filter': this.inoType === 'filter' }
+      { 'mdc-chip-set--choice': this.type === 'choice' },
+      { 'mdc-chip-set--filter': this.type === 'filter' }
     );
 
     return (

@@ -1,8 +1,7 @@
 # ino-dialog
 
-The ino-dialog component displays a modal window that can be used to display additional information or
-notify the user. It is based on the mdc-drawer and is composed of a header, content, and footer section
-which are fully customizable.
+The ino-dialog component displays a modal window that can be used to display additional information or notify the user.
+It is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.
 
 ## Usage
 
@@ -19,16 +18,17 @@ document
 ```
 
 ```html
-<ino-dialog ino-open="true" ino-permanent="false">
-  <div class="awesome-header" slot="header" />
-  <div class="awesome-content" />
-  <div class="awesome-footer" slot="footer" />
+
+<ino-dialog open="true">
+  <div class="awesome-header" slot="header"/>
+  <div class="awesome-content"/>
+  <div class="awesome-footer" slot="footer"/>
 </ino-dialog>
 ```
 
 ### React
 
-```jsx harmony
+```jsx
 import React from 'react';
 import { Component } from 'react';
 import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
@@ -36,22 +36,24 @@ import { InoButton, InoDialog } from '@inovex.de/elements/dist/react';
 class MyComponent extends Component {
 
   state = {
-    inoOpen: false
+    open: false
   };
 
   handleEvent = () => {
-    this.setState((inoOpen) => ({
-      inoOpen: !inoOpen;
+    this.setState((open) => ({
+      open: !open
     }))
   };
 
   render() {
-      return (
+    return (
+      <>
         <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>
-        <InoDialog inoOpen={this.state.inoOpen}>
+        <InoDialog open={this.state.open}>
           <div class="awesome-content"/>
         </InoDialog>
-      );
+      </>
+    );
   }
 }
 ```
@@ -63,9 +65,9 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property  | Attribute  | Description                     | Type      | Default |
-| --------- | ---------- | ------------------------------- | --------- | ------- |
-| `inoOpen` | `ino-open` | Opens the dialog if set to true | `boolean` | `false` |
+| Property | Attribute | Description                     | Type      | Default |
+| -------- | --------- | ------------------------------- | --------- | ------- |
+| `open`   | `open`    | Opens the dialog if set to true | `boolean` | `false` |
 
 
 ## Events
@@ -73,6 +75,15 @@ class MyComponent extends Component {
 | Event        | Description                                       | Type               |
 | ------------ | ------------------------------------------------- | ------------------ |
 | `openChange` | Emits an event upon opening or closing the dialog | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"content"` | content of the dialog |
+| `"footer"`  | footer of the dialog  |
+| `"header"`  | header of the dialog  |
 
 
 ## CSS Custom Properties

@@ -8,9 +8,13 @@ import {
   Host,
   Prop,
   Watch,
-  h, Listen
+  h,
+  Listen,
 } from '@stencil/core';
 
+/**
+ * @slot default - One or more `ino-tab`
+ */
 @Component({
   tag: 'ino-tab-bar',
   styleUrl: 'ino-tab-bar.scss',
@@ -24,9 +28,9 @@ export class TabBar implements ComponentInterface {
   /**
    * Activates the tab at the given index (**unmanaged**).
    */
-  @Prop() inoActiveTab?: number = 0;
+  @Prop() activeTab?: number = 0;
 
-  @Watch('inoActiveTab')
+  @Watch('activeTab')
   activeTabChangedWatcher(newTabIndex: number) {
     if (this.mdcInstance) {
       this.mdcInstance.activateTab(newTabIndex);
@@ -41,14 +45,14 @@ export class TabBar implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
-    this.mdcInstance.activateTab(this.inoActiveTab);
+    this.mdcInstance.activateTab(this.activeTab);
   }
 
   disconnectedCallback() {
     this.mdcInstance?.destroy();
   }
 
-  @Listen('inoInteracted')
+  @Listen('interacted')
   async interactionHandler(e) {
     e.stopPropagation();
     const allTabs = await Promise.all(
@@ -56,7 +60,7 @@ export class TabBar implements ComponentInterface {
     );
     const indexOfActivatedTab = allTabs.indexOf(e.detail as HTMLInoTabElement);
     this.activeTabChange.emit(indexOfActivatedTab);
-  };
+  }
 
   render() {
     return (

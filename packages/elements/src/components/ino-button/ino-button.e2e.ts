@@ -4,13 +4,13 @@ const INO_BUTTON = `<ino-button></ino-button>`;
 
 const INO_BTN_WITH_LEADING_ICON = `
   <ino-button>
-    <ino-icon ino-icon="info" slot="ino-icon-leading"></ino-icon>
+    <ino-icon icon="info" slot="icon-leading"></ino-icon>
   </ino-button>
 `;
 
 const INO_BTN_WITH_TRAILING_ICON = `
   <ino-button>
-    <ino-icon ino-icon="info" slot="ino-icon-trailing"></ino-icon>
+    <ino-icon icon="info" slot="icon-trailing"></ino-icon>
   </ino-button>
 `;
 
@@ -26,7 +26,7 @@ describe('InoButton', () => {
     expect(mdcButtonEl).toHaveClasses(['mdc-button', 'mdc-button--unelevated']);
   });
 
-  it('should render with property ino-dense', async () => {
+  it('should render with property dense', async () => {
     const page = await setupPageWithContent(INO_BUTTON);
 
     const inoButtonEl = await page.find('ino-button');
@@ -36,7 +36,7 @@ describe('InoButton', () => {
     const defaultBtnStyles = await innerButtonEl.getComputedStyle();
     const defaultHeight = Number(defaultBtnStyles.height.slice(0, -2));
 
-    inoButtonEl.setAttribute('ino-dense', true);
+    inoButtonEl.setAttribute('dense', true);
     await page.waitForChanges();
 
     const densedButtonEl = await page.find(
@@ -49,12 +49,12 @@ describe('InoButton', () => {
     expect(defaultHeight).toBeGreaterThan(densedHeight);
   });
 
-  describe('property ino-fill', () => {
+  describe('property fill', () => {
     it('should render with solid', async () => {
       const page = await setupPageWithContent(INO_BUTTON);
 
       const inoButtonEl = await page.find('ino-button');
-      inoButtonEl.setAttribute('ino-fill', 'solid');
+      inoButtonEl.setAttribute('fill', 'solid');
       await page.waitForChanges();
       const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--unelevated');
@@ -64,7 +64,7 @@ describe('InoButton', () => {
       const page = await setupPageWithContent(INO_BUTTON);
 
       const inoButtonEl = await page.find('ino-button');
-      inoButtonEl.setAttribute('ino-fill', 'outline');
+      inoButtonEl.setAttribute('fill', 'outline');
       await page.waitForChanges();
       const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).toHaveClass('mdc-button--outlined');
@@ -74,7 +74,7 @@ describe('InoButton', () => {
       const page = await setupPageWithContent(INO_BUTTON);
 
       const inoButtonEl = await page.find('ino-button');
-      inoButtonEl.setAttribute('ino-fill', 'inverse');
+      inoButtonEl.setAttribute('fill', 'inverse');
       await page.waitForChanges();
       const mdcButtonEl = await inoButtonEl.shadowRoot.querySelector('button');
       expect(mdcButtonEl).not.toHaveClasses([

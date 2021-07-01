@@ -10,19 +10,19 @@ describe('InoCard', () => {
       const page = await setupPageWithContent(INO_CARD);
       const card = await page.find(CARD_SELECTOR);
 
-      await card.setAttribute('ino-selected', true);
+      await card.setAttribute('selected', true);
       await page.waitForChanges();
 
       const div = await page.find(DIV_SELECTOR);
       expect(div).toHaveClass('ino-card--selected');
-      expect(card).toHaveAttribute('ino-selected');
+      expect(card).toHaveAttribute('selected');
     });
 
     it('should render with check mark if selected', async () => {
       const page = await setupPageWithContent(INO_CARD);
       const card = await page.find(CARD_SELECTOR);
 
-      await card.setAttribute('ino-selected', true);
+      await card.setAttribute('selected', true);
       await page.waitForChanges();
 
       const check_mark = await page.find('.ino-card__checkmark');

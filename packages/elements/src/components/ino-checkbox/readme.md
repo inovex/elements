@@ -23,8 +23,8 @@ document
   name="<string>"
   value="<string>"
   indeterminate
-  ino-id="<string>"
-  ino-tab-index="<number>"
+  id="<string>"
+  tab-index="<number>"
 >
   Label
 </ino-checkbox>
@@ -127,8 +127,8 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | `checked`       | `checked`       | Marks this element as checked. (**unmanaged**)                                                                                                                                                                                   | `boolean` | `false`     |
 | `disabled`      | `disabled`      | Disables this element.                                                                                                                                                                                                           | `boolean` | `undefined` |
 | `indeterminate` | `indeterminate` | Marks this element as indeterminate (**unmanaged**)                                                                                                                                                                              | `boolean` | `undefined` |
-| `inoSelection`  | `ino-selection` | Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here. | `boolean` | `undefined` |
 | `name`          | `name`          | The name of this element.                                                                                                                                                                                                        | `string`  | `undefined` |
+| `selection`     | `selection`     | Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here. | `boolean` | `undefined` |
 | `value`         | `value`         | The value of this element.                                                                                                                                                                                                       | `string`  | `undefined` |
 
 
@@ -137,6 +137,13 @@ The input has a controlled (unmanaged) attribute `checked` and `indeterminate`. 
 | Event           | Description                                                                                                    | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | Label of the checkbox |
 
 
 ## CSS Custom Properties

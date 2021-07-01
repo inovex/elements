@@ -9,6 +9,9 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - One or more `ino-carousel-slide`
+ */
 @Component({
   tag: 'ino-carousel',
   styleUrl: 'ino-carousel.scss',
@@ -36,36 +39,36 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Enables autoplay which causes slides to be changed automatically
    */
-  @Prop() inoAutoplay: boolean = false;
-  @Watch('inoAutoplay')
-  inoAutoplayChanged() {
+  @Prop() autoplay: boolean = false;
+  @Watch('autoplay')
+  autoplayChanged() {
     this.configureAutoplay();
   }
 
   /**
    * Enables the slide animation
    */
-  @Prop() inoAnimated: boolean = false;
+  @Prop() animated: boolean = false;
 
   /**
    * Hides the arrow buttons
    */
-  @Prop() inoHideButtons: boolean = false;
+  @Prop() hideButtons: boolean = false;
 
   /**
    * Restarts playback from the first slide upon reaching the last slide
    */
-  @Prop() inoInfinite: boolean = false;
+  @Prop() infinite: boolean = false;
 
   /**
    * Sets the intermission between two slides (Unit: ms)
    */
-  @Prop() inoIntermission: number = 5000;
+  @Prop() intermission: number = 5000;
 
   /**
    * Enables reverse playback of the slides
    */
-  @Prop() inoReverse: boolean = false;
+  @Prop() reverse: boolean = false;
 
   componentDidLoad(): void {
     this.slides = this.getSlides();
@@ -79,7 +82,7 @@ export class InoCarousel implements ComponentInterface {
    * @param slide carousel slide
    */
   private addAnimationToSlide = (slide: HTMLInoCarouselSlideElement) => {
-    if (!this.inoAnimated) return;
+    if (!this.animated) return;
     if (!slide.classList.contains('ino-carousel--animated')) {
       slide.classList.add('ino-carousel--animated');
     }
@@ -109,8 +112,8 @@ export class InoCarousel implements ComponentInterface {
 
   private configureAutoplay = () => {
     if (this.slides.length < 1) return;
-    if (this.inoAutoplay) {
-      this.timer = setInterval(this.nextSlide, this.inoIntermission);
+    if (this.autoplay) {
+      this.timer = setInterval(this.nextSlide, this.intermission);
       return;
     }
     clearInterval(this.timer);
@@ -135,7 +138,7 @@ export class InoCarousel implements ComponentInterface {
     this.slideCounter++;
 
     // disables the timer after all slides have been shown
-    if (!this.inoInfinite && this.slideCounter >= this.slides.length) {
+    if (!this.infinite && this.slideCounter >= this.slides.length) {
       this.slideCounter = 1;
       clearInterval(this.timer);
     }
@@ -153,14 +156,14 @@ export class InoCarousel implements ComponentInterface {
    * determines the index of the next slide
    */
   private getNextSlide = () =>
-    this.inoReverse
+    this.reverse
       ? this.mod(this.currentSlide - 1, this.slides.length)
       : this.mod(this.currentSlide + 1, this.slides.length);
 
   render() {
     const classes = classNames({
       'ino-carousel': true,
-      'ino-carousel--no-buttons': this.inoHideButtons,
+      'ino-carousel--no-buttons': this.hideButtons,
     });
 
     return (
@@ -170,10 +173,10 @@ export class InoCarousel implements ComponentInterface {
             <slot />
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button ino-icon="arrow_left" />
+            <ino-icon-button icon="arrow_left" />
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button ino-icon="arrow_right" />
+            <ino-icon-button icon="arrow_right" />
           </div>
         </div>
       </Host>

@@ -14,8 +14,8 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ChipSurface, ColorScheme } from '../types';
 
 /**
- * @slot ino-icon-leading - For the icon to be prepended
- * @slot ino-icon-trailing - For the icon to be appended - disables the inoRemovable property
+ * @slot icon-leading - For the icon to be prepended
+ * @slot icon-trailing - For the icon to be appended - disables the `removable` property
  */
 @Component({
   tag: 'ino-chip',
@@ -28,64 +28,61 @@ export class Chip implements ComponentInterface {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary`, `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() inoColorScheme: ColorScheme | 'default' = 'default';
+  @Prop() colorScheme: ColorScheme | 'default' = 'default';
 
   /**
    * The fill type of this element.
-   * Possible values: `solid` (default) or `outline`.
    */
-  @Prop() inoFill?: ChipSurface = 'solid';
+  @Prop() fill: ChipSurface = 'solid';
 
   /**
    * Prepends an icon to the chip label.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.
+   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
    */
-  @Prop() inoIcon?: string;
+  @Prop() icon?: string;
 
   /**
    * The label of this chip (**required**).
    */
-  @Prop() inoLabel?: string;
+  @Prop() label?: string;
 
   /**
    * The value of this chip.
    *
    * **Required** for chips as part of sets of type `filter` or `choice`.
    */
-  @Prop() inoValue?: string;
+  @Prop() value?: string;
 
   /**
    * Adds a close icon on the right side of this chip.
    *
    * If applied, emits the `removeChip` event.
    */
-  @Prop() inoRemovable?: boolean;
+  @Prop() removable: boolean = false;
 
   /**
    * Adds a checkmark if the icon is selected.
    */
-  @Prop() inoSelectable?: boolean;
+  @Prop() selectable: boolean = false;
 
   /**
    * Marks this element as selected.
    */
-  @Prop() inoSelected?: boolean;
+  @Prop() selected: boolean = false;
 
   /**
    * Event that emits as soon as the user removes this chip.
    *
    * Listen to this event to hide or destroy this chip.
-   * The event only emits if the property `inoRemovable` is true.
+   * The event only emits if the property `removable` is true.
    */
   @Event() removeChip!: EventEmitter;
 
   componentDidLoad(): void {
-    if (this.inoIcon) {
+    if (this.icon) {
       console.warn(
-        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the ino-icon-leading slot.`
+        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
       );
     }
   }
@@ -96,21 +93,21 @@ export class Chip implements ComponentInterface {
   }
 
   render() {
-    const colorSchemeClass = `ino-chip--color-scheme-${this.inoColorScheme}`;
+    const colorSchemeClass = `ino-chip--color-scheme-${this.colorScheme}`;
 
     const hostClasses = classNames({
-      [colorSchemeClass]: this.inoColorScheme !== 'default',
-      'ino-chip--outline': this.inoFill === 'outline',
+      [colorSchemeClass]: this.colorScheme !== 'default',
+      'ino-chip--outline': this.fill === 'outline',
     });
 
     const chipClasses = classNames('mdc-chip', {
-      'mdc-chip--selected': this.inoSelected,
+      'mdc-chip--selected': this.selected,
     });
 
     const leadingIconClasses = classNames({
       'mdc-chip__icon': true,
       'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.inoSelected && this.inoSelectable,
+      'mdc-chip__icon--leading-hidden': this.selected && this.selectable,
     });
 
     const trailingIconClasses = classNames({
@@ -118,25 +115,25 @@ export class Chip implements ComponentInterface {
       'mdc-chip__icon--trailing': true,
     });
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-icon-trailing');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     return (
       <Host class={hostClasses}>
-        <button class={chipClasses} tabindex="0" data-ino-value={this.inoValue}>
-          <div class="mdc-chip__ripple"></div>
+        <button class={chipClasses} tabindex="0" data-value={this.value}>
+          <div class="mdc-chip__ripple" />
 
-          {this.inoIcon && (
-            <ino-icon class={leadingIconClasses} ino-icon={this.inoIcon} />
+          {this.icon && (
+            <ino-icon class={leadingIconClasses} icon={this.icon} />
           )}
 
-          {leadingSlotHasContent && !this.inoIcon && (
+          {leadingSlotHasContent && !this.icon && (
             <span class={leadingIconClasses}>
-              <slot name="ino-icon-leading" />
+              <slot name="icon-leading" />
             </span>
           )}
 
-          {this.inoSelectable && (
+          {this.selectable && (
             <span class="mdc-chip__checkmark">
               <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
                 <path
@@ -149,21 +146,21 @@ export class Chip implements ComponentInterface {
             </span>
           )}
 
-          <span class="mdc-chip__text">{this.inoLabel}</span>
+          <span class="mdc-chip__text">{this.label}</span>
 
           {trailingSlotHasContent && (
             <span class={trailingIconClasses}>
-              <slot name="ino-icon-trailing" />
+              <slot name="icon-trailing" />
             </span>
           )}
 
-          {this.inoRemovable && !trailingSlotHasContent && (
+          {this.removable && !trailingSlotHasContent && (
             <ino-icon
               class={trailingIconClasses}
-              ino-icon="close"
+              icon="close"
               tabindex="0"
               role="button"
-              ino-clickable
+              clickable={true}
               onClick={(e) => this.iconClicked(e)}
             />
           )}

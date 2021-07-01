@@ -13,10 +13,10 @@ describe('InoTabBar', () => {
       const page = await setupPageWithContent(INO_TAB_BAR);
       const tabBar = await page.find(TAB_BAR_SELECTOR);
 
-      await tabBar.setAttribute('ino-active-tab', 3);
+      await tabBar.setAttribute('active-tab', 3);
       await page.waitForChanges();
 
-      const activeTab = await tabBar.getAttribute('ino-active-tab');
+      const activeTab = await tabBar.getAttribute('active-tab');
       expect(activeTab).toBe('3');
     });
   });

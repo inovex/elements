@@ -1,11 +1,11 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_CHECKBOX_ITEM = `<ino-list><ino-control-item ino-role="checkbox" ino-text="Some Item"></ino-control-item></ino-list>`;
-const INO_CHECKBOX_ITEM_CHECKED = `<ino-list><ino-control-item ino-role="checkbox" ino-text="Some Item" checked></ino-control-item></ino-list>`;
-const INO_CHECKBOX_ITEM_DISABLED = `<ino-list><ino-control-item ino-role="checkbox" ino-text="Some Item" ino-disabled></ino-control-item></ino-list>`;
-const INO_RADIO_ITEM = `<ino-list><ino-control-item ino-role="radio" ino-text="Some Item"></ino-checkbox-item></ino-list>`;
-const INO_RADIO_ITEM_CHECKED = `<ino-list><ino-control-item ino-role="radio" ino-text="Some Item" checked></ino-control-item></ino-list>`;
-const INO_RADIO_ITEM_DISABLED = `<ino-list><ino-control-item ino-role="radio" ino-text="Some Item" ino-disabled></ino-control-item></ino-list>`;
+const INO_CHECKBOX_ITEM = `<ino-list><ino-control-item role="checkbox" text="Some Item"></ino-control-item></ino-list>`;
+const INO_CHECKBOX_ITEM_CHECKED = `<ino-list><ino-control-item role="checkbox" text="Some Item" checked></ino-control-item></ino-list>`;
+const INO_CHECKBOX_ITEM_DISABLED = `<ino-list><ino-control-item role="checkbox" text="Some Item" disabled></ino-control-item></ino-list>`;
+const INO_RADIO_ITEM = `<ino-list><ino-control-item role="radio" text="Some Item"></ino-checkbox-item></ino-list>`;
+const INO_RADIO_ITEM_CHECKED = `<ino-list><ino-control-item role="radio" text="Some Item" checked></ino-control-item></ino-list>`;
+const INO_RADIO_ITEM_DISABLED = `<ino-list><ino-control-item role="radio" text="Some Item" disabled></ino-control-item></ino-list>`;
 
 describe('InoControlItem', () => {
   describe('Properties', () => {

@@ -11,7 +11,7 @@ describe('InoListItem', () => {
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
       const liElem = await page.find(LI_SELECTOR);
 
-      await inoListItem.setAttribute('ino-disabled', true);
+      await inoListItem.setAttribute('disabled', true);
       await page.waitForChanges();
 
       expect(liElem).toHaveClass('mdc-list-item--disabled');
@@ -22,7 +22,7 @@ describe('InoListItem', () => {
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
       const liElem = await page.find(LI_SELECTOR);
 
-      await inoListItem.setAttribute('ino-selected', true);
+      await inoListItem.setAttribute('selected', true);
       await page.waitForChanges();
 
       expect(liElem).toHaveClass('mdc-list-item--selected');
@@ -33,7 +33,7 @@ describe('InoListItem', () => {
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
       const liElem = await page.find(LI_SELECTOR);
 
-      await inoListItem.setAttribute('ino-activated', true);
+      await inoListItem.setAttribute('activated', true);
       await page.waitForChanges();
 
       expect(liElem).toHaveClass('mdc-list-item--activated');
@@ -57,7 +57,7 @@ describe('InoListItem', () => {
       const inoListItem = await page.find(LIST_ITEM_SELECTOR);
       const clickElEvent = await page.spyOnEvent('clickEl');
 
-      await inoListItem.setAttribute('ino-disabled', true);
+      await inoListItem.setAttribute('disabled', true);
       await page.waitForChanges();
 
       await inoListItem.click();

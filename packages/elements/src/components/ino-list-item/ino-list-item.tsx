@@ -13,10 +13,10 @@ import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
 /**
- * @slot ino-leading - For the element to be prepended
- * @slot ino-trailing - For the element to be appended
- * @slot ino-primary - For the (text) element
- * @slot ino-secondary - For the secondary text element in a two-lined list
+ * @slot leading - For the element to be prepended
+ * @slot trailing - For the element to be appended
+ * @slot primary - For the (text) element
+ * @slot secondary - For the secondary text element in a two-lined list
  */
 @Component({
   tag: 'ino-list-item',
@@ -28,35 +28,35 @@ export class ListItem implements ComponentInterface {
   /**
    * The primary text of this list item.
    */
-  @Prop() inoText?: string;
+  @Prop() text?: string;
 
   /**
    * Sets the secondary text of this list item.
    *
-   * Requires `ino-two-lines` on the parent `ino-list` element.
+   * Requires `two-lines` on the parent `ino-list` element.
    */
-  @Prop() inoSecondaryText?: string;
+  @Prop() secondaryText?: string;
 
   /**
    * Styles the row in a selected style.
    *
-   * In contrast to `inoActivated`, use this option to select one
+   * In contrast to `activated`, use this option to select one
    * or multiple items that are likely to change soon.
    */
-  @Prop() inoSelected?: boolean;
+  @Prop() selected?: boolean;
 
   /**
    * Styles the row in an activated style.
    *
-   * In contrast to `inoSelected`, use this for only one item
+   * In contrast to `selected`, use this for only one item
    * and to mark it as permantently activated.
    */
-  @Prop() inoActivated?: boolean;
+  @Prop() activated?: boolean;
 
   /**
    * Styles the row in a disabled style.
    */
-  @Prop() inoDisabled?: boolean;
+  @Prop() disabled?: boolean;
 
   /**
    * Emits when the list item is clicked.
@@ -66,27 +66,27 @@ export class ListItem implements ComponentInterface {
 
   @Listen('click')
   clickHandler() {
-    if (!this.inoDisabled) {
+    if (!this.disabled) {
       this.clickEl.emit(this.el);
     }
   }
 
   render() {
-    const leadingSlotHasContent = hasSlotContent(this.el, 'ino-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'ino-trailing');
-    const secondarySlotHasContent = hasSlotContent(this.el, 'ino-secondary');
+    const leadingSlotHasContent = hasSlotContent(this.el, 'leading');
+    const trailingSlotHasContent = hasSlotContent(this.el, 'trailing');
+    const secondarySlotHasContent = hasSlotContent(this.el, 'secondary');
 
     const listItemClasses = classNames({
       'mdc-list-item': true,
-      'mdc-list-item--selected': this.inoSelected,
-      'mdc-list-item--activated': this.inoActivated,
-      'mdc-list-item--disabled': this.inoDisabled,
+      'mdc-list-item--selected': this.selected,
+      'mdc-list-item--activated': this.activated,
+      'mdc-list-item--disabled': this.disabled,
     });
 
-    const primaryContent = this.inoText || <slot name="ino-primary" />;
+    const primaryContent = this.text || <slot name="primary" />;
     const secondaryContent =
-      this.inoSecondaryText ||
-      (secondarySlotHasContent ? <slot name="ino-secondary" /> : null);
+      this.secondaryText ||
+      (secondarySlotHasContent ? <slot name="secondary" /> : null);
 
     return (
       <Host>
@@ -94,7 +94,7 @@ export class ListItem implements ComponentInterface {
           <span class="mdc-list-item__ripple"></span>
           {leadingSlotHasContent && (
             <span class="mdc-list-item__graphic" role="presentation">
-              <slot name="ino-leading" />
+              <slot name="leading" />
             </span>
           )}
           <span class="mdc-list-item__text">
@@ -111,7 +111,7 @@ export class ListItem implements ComponentInterface {
           </span>
           {trailingSlotHasContent && (
             <span class="mdc-list-item__meta">
-              <slot name="ino-trailing" />
+              <slot name="trailing" />
             </span>
           )}
         </li>

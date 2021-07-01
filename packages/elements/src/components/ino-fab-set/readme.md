@@ -1,18 +1,20 @@
 # ino-fab-set
 
-The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab button.
-Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed dial.
+The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab
+button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed
+dial.
 
 ### Usage
 
 The component can be used as follows:
 
 ```html
+
 <ino-fab-set
-  ino-top-bottom-location="<string>"
-  ino-left-right-location="<string>"
-  ino-dial-direction="<string>"
-  ino-open-dial
+  top-bottom-location="<string>"
+  left-right-location="<string>"
+  dial-direction="<string>"
+  open-dial
 >
   <ino-fab ...></ino-fab>
   <ino-fab ...></ino-fab>
@@ -41,13 +43,13 @@ class MyComponent extends Component {
   render() {
     return (
       <FabSet
-        inoOpenDial={this.state.open}
-        inoDialDirection="top"
+        openDial={this.state.open}
+        dialDirection="top"
         onClick={handleClick}
       >
-        <InoFab inoMini inoLabel="Profile" inoIcon="person" />
-        <InoFab inoMini inoLabel="Search" inoIcon="search" />
-        <InoFab inoMini inoLabel="Help" inoIcon="help" />
+        <InoFab mini label="Profile" icon="person"/>
+        <InoFab mini label="Search" icon="search"/>
+        <InoFab mini label="Help" icon="help"/>
       </FabSet>
     );
   }
@@ -64,20 +66,20 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = (
   props,
 ) => {
-  const { inoDialDirection } = props;
+  const { dialDirection } = props;
 
   return (
-    <InoFabSet inoDialDirection={inoDialDirection}>{props.children}</InoFabSet>
+    <InoFabSet dialDirection={dialDirection}>{props.children}</InoFabSet>
   );
 };
 
 class MyComponent extends Component {
   render() {
     return (
-      <FabSet inoDialDirection="top">
-        <InoFab inoMini inoLabel="Profile" inoIcon="person" />
-        <InoFab inoMini inoLabel="Search" inoIcon="search" />
-        <InoFab inoMini inoLabel="Help" inoIcon="help" />
+      <FabSet dialDirection="top">
+        <InoFab mini label="Profile" icon="person"/>
+        <InoFab mini label="Search" icon="search"/>
+        <InoFab mini label="Help" icon="help"/>
       </FabSet>
     );
   }
@@ -86,7 +88,7 @@ class MyComponent extends Component {
 
 ## Additional Hints
 
-**Content**: Put the the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
+**Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.
 
 ### Manage icons
 
@@ -97,19 +99,27 @@ class MyComponent extends Component {
 
 ## Control flow
 
-The ino-fab-set has a controlled (unmanaged) attribute `inoOpenDial`. For this reason, listen to `click` events, sync to your local state and pass the state to the component again to open/close the fab-set.
+The ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to
+your local state and pass the state to the component again to open/close the fab-set.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property               | Attribute                 | Description                                                                                   | Type                                     | Default    |
-| ---------------------- | ------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
-| `inoDialDirection`     | `ino-dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
-| `inoLeftRightLocation` | `ino-left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
-| `inoOpenDial`          | `ino-open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
-| `inoTopBottomLocation` | `ino-top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
+| Property            | Attribute             | Description                                                                                   | Type                                     | Default    |
+| ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- |
+| `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`    |
+| `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`   |
+| `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`    |
+| `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'` |
+
+
+## Slots
+
+| Slot        | Description           |
+| ----------- | --------------------- |
+| `"default"` | One or more `ino-fab` |
 
 
 ## Dependencies

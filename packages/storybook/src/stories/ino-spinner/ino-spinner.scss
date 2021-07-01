@@ -1,21 +1,8 @@
-.story-spinner {
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.flex-parent {
+  display: flex;
+  flex-wrap: wrap;
 
-  .flex-parent {
-    display: flex;
-    flex-wrap: wrap;
-
-    > .flex-child {
-      margin: 0 20px;
-    }
-  }
-
-  .flex-parent-center {
-    display: flex;
-    justify-content: center;
+  > .flex-child {
+    margin: 0 20px;
   }
 }
