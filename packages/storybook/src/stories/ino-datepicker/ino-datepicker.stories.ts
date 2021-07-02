@@ -75,8 +75,8 @@ Playground.argTypes = {
   type: {
     control: {
       type: 'select',
-      options: ['datetime', 'month', 'date', 'time'],
     },
+    options: ['datetime', 'month', 'date', 'time'],
   },
 };
 

@@ -31,8 +31,8 @@ Playground.args = {
 Playground.argTypes = {
   type: {
     type: 'select',
-    options: ['', 'choice', 'filter', 'input'],
   },
+  options: ['', 'choice', 'filter', 'input'],
 };
 
 export const Filter = () => html`

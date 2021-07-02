@@ -39,32 +39,32 @@ withIconControl(Playground, 'icon', 'add');
 Playground.argTypes.edgePosition = {
   control: {
     type: 'select',
-    options: ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
   },
+  options: ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
 };
 
 Playground.argTypes.tooltipPlacement = {
   control: {
     type: 'select',
-    options: [
-      'auto',
-      'auto-end',
-      'auto-start',
-      'bottom',
-      'bottom-end',
-      'bottom-start',
-      'left',
-      'left-end',
-      'left-start',
-      'none',
-      'right',
-      'right-end',
-      'right-start',
-      'top',
-      'top-end',
-      'top-start',
-    ],
   },
+  options: [
+    'auto',
+    'auto-end',
+    'auto-start',
+    'bottom',
+    'bottom-end',
+    'bottom-start',
+    'left',
+    'left-end',
+    'left-start',
+    'none',
+    'right',
+    'right-end',
+    'right-start',
+    'top',
+    'top-end',
+    'top-start',
+  ],
 };
 
 export const Variants = () => html`

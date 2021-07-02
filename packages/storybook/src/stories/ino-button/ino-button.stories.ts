@@ -1,5 +1,5 @@
 import { Components } from '@inovex.de/elements';
-import { ArgTypes, Story } from '@storybook/web-components';
+import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
 
@@ -47,14 +47,14 @@ Playground.argTypes = {
   colorScheme: {
     control: {
       type: 'select',
-      options: ['primary', 'secondary', 'grey', 'white'],
     },
+    options: ['primary', 'secondary', 'grey', 'white'],
   },
   fill: {
     control: {
       type: 'select',
-      options: ['solid', 'outline', 'inverse'],
     },
+    options: ['solid', 'outline', 'inverse'],
   },
 };
 
