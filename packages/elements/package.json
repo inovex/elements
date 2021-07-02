@@ -34,7 +34,7 @@
   "es2015": "dist/esm/index.js",
   "es2017": "dist/esm/index.js",
   "jsnext:main": "dist/esm/index.js",
-  "types": "dist/types/components.d.ts",
+  "types": "dist/types/interface.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/",
