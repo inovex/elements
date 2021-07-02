@@ -24,27 +24,7 @@ describe('DateValidator', () => {
     expect(dateValidator.validate('01-01-2020')).toBe(false);
   });
 
-  it('should be valid if range in correct format', () => {
-    dateValidator.isRanged = true;
-    expect(dateValidator.validate('01.01.2020 to 02.01.2020')).toBe(true);
-  });
-
-  it('should be invalid if range in incorrect format', () => {
-    dateValidator.isRanged = true;
-    expect(dateValidator.validate('01-01-2020 to 02-01-2020')).toBe(false);
-  });
-
-  it('should be invalid if first date in range is in wrong format', () => {
-    dateValidator.isRanged = true;
-    expect(dateValidator.validate('01-01-2020 to 02.01.2020')).toBe(false);
-  });
-
-  it('should be invalid if second date in range is in wrong format', () => {
-    dateValidator.isRanged = true;
-    expect(dateValidator.validate('01.01.2020 to 02-01-2020')).toBe(false);
-  });
-
-  it('should be valid if value is equal to min date', () => {
+  it('should be valid if value is equal - min date', () => {
     dateValidator.minDate = '01.01.2020';
     expect(dateValidator.validate('01.01.2020')).toBe(true);
   });
@@ -59,7 +39,7 @@ describe('DateValidator', () => {
     expect(dateValidator.validate('31.12.2019')).toBe(false);
   });
 
-  it('should be valid if value is equal to max date', () => {
+  it('should be valid if value is equal - max date', () => {
     dateValidator.maxDate = '01.01.2020';
     expect(dateValidator.validate('01.01.2020')).toBe(true);
   });
@@ -86,9 +66,60 @@ describe('DateValidator', () => {
     }).toThrow();
   });
 
-  it('should throw error if value cannot be parsed', () => {
-    expect(() => {
-      dateValidator.validate('ABC');
-    }).toThrow();
+  it('should return false if value cannot be parsed', () => {
+    expect(dateValidator.validate('ABC')).toBeFalsy();
+  });
+
+  describe('Range', () => {
+    beforeEach(() => {
+      dateValidator.isRanged = true;
+    });
+
+    it('should be valid if range in correct format', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01.01.2020 to 02.01.2020')).toBe(true);
+    });
+
+    it('should be invalid if range in incorrect format', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01-01-2020 to 02-01-2020')).toBe(false);
+    });
+
+    it('should be invalid if first date in range is in wrong format', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01-01-2020 to 02.01.2020')).toBe(false);
+    });
+
+    it('should be invalid if second date in range is in wrong format', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01.01.2020 to 02-01-2020')).toBe(false);
+    });
+
+    it('should be invalid if date is less than min date', () => {
+      dateValidator.isRanged = true;
+      dateValidator.minDate = '02.01.2020';
+      expect(dateValidator.validate('01.01.2020 to 02.10.2020')).toBe(false);
+    });
+
+    it('should be invalid if date is greater than max date', () => {
+      dateValidator.isRanged = true;
+      dateValidator.maxDate = '01.10.2020';
+      expect(dateValidator.validate('01.01.2020 to 02.10.2020')).toBe(false);
+    });
+
+    it('should be invalid if second date is less than first date', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01.01.2020 to 01.01.2019')).toBe(false);
+    });
+
+    it('should be invalid if second date is less than first date', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01.01.2020 to 01.01.2019')).toBe(false);
+    });
+
+    it('should be invalid if second date is less than first date', () => {
+      dateValidator.isRanged = true;
+      expect(dateValidator.validate('01.01.2020 to 01.01.2019')).toBe(false);
+    });
   });
 });
