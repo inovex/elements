@@ -87,7 +87,7 @@ export class Validator {
 
   private validateMaxRange = (value: string): boolean => {
     return !Validator.convertToRangeArray(value)
-      .map(this.validateMaxRange)
+      .map(this.validateMaxSingle)
       .includes(false);
   };
 
