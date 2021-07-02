@@ -94,19 +94,19 @@ Playground.argTypes = {
   topBottomLocation: {
     control: {
       type: 'select',
-      options: VERTICAL_POSITION_OPTIONS,
     },
+    options: VERTICAL_POSITION_OPTIONS,
   },
   leftRightLocation: {
     control: {
       type: 'select',
-      options: HORIZONTAL_POSITION_OPTIONS,
     },
+    options: HORIZONTAL_POSITION_OPTIONS,
   },
   dialDirection: {
     control: {
       type: 'select',
-      options: [...VERTICAL_POSITION_OPTIONS, ...HORIZONTAL_POSITION_OPTIONS],
     },
+    options: [...VERTICAL_POSITION_OPTIONS, ...HORIZONTAL_POSITION_OPTIONS],
   },
 };

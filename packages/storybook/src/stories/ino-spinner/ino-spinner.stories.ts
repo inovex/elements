@@ -7,10 +7,10 @@ import { Story } from '@storybook/web-components';
 export default {
   title: 'Notification/ino-spinner',
   component: 'ino-spinner',
-  decorators: [defaultDecorator]
+  decorators: [defaultDecorator],
 };
 
-export const Playground: Story<Components.InoSpinner> = args => html`
+export const Playground: Story<Components.InoSpinner> = (args) => html`
   <ino-spinner
     color-scheme="${args.colorScheme}"
     height="${args.height}"
@@ -24,16 +24,16 @@ Playground.args = {
   modal: false,
   type: 'tile',
   height: 40,
-  width: 40
-}
+  width: 40,
+};
 Playground.argTypes = {
   type: {
     control: {
       type: 'select',
-      options: ['circle', 'tile', 'bounce'],
     },
-  }
-}
+    options: ['circle', 'tile', 'bounce'],
+  },
+};
 withColorScheme(Playground, 'colorScheme', 'primary');
 
 export const Colors = () => html`

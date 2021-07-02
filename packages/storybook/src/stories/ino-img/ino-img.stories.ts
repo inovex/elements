@@ -47,8 +47,8 @@ Playground.argTypes = {
   decoding: {
     control: {
       type: 'select',
-      options: ['async', 'auto', 'sync'],
     },
+    options: ['async', 'auto', 'sync'],
   },
 };
 

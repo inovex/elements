@@ -64,8 +64,8 @@ Playground.argTypes = {
   role: {
     control: {
       type: 'select',
-      options: ['checkbox', 'radio'],
     },
+    options: ['checkbox', 'radio'],
   },
 };
 

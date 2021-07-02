@@ -37,8 +37,8 @@ Playground.args = {
 Playground.argTypes = {
   type: {
     type: 'select',
-    options: ['button', 'reset', 'submit'],
   },
+  options: ['button', 'reset', 'submit'],
 };
 
 withIconControl(Playground, 'icon', 'add');

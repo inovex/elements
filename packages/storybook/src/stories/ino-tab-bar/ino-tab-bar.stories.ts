@@ -43,8 +43,8 @@ Playground.argTypes = {
   activeTab: {
     control: {
       type: 'select',
-      options: [0, 1, 2, 3],
     },
+    options: [0, 1, 2, 3],
   },
 };
 

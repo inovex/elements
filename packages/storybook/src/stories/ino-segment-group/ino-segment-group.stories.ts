@@ -18,31 +18,24 @@ export default {
   title: 'Buttons/ino-segment-group',
   component: 'ino-segment-group',
   decorators: [
-    story => defaultDecorator(story, 'story-segment-group'),
-    story => {
+    (story) => defaultDecorator(story, 'story-segment-group'),
+    (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', eventHandler);
-        return () => document.removeEventListener('checkedChange', eventHandler);
+        return () =>
+          document.removeEventListener('checkedChange', eventHandler);
       });
       return story();
-    }
+    },
   ],
   parameters: {
     actions: {
-      handles: [
-        'checkedChange',
-      ],
+      handles: ['checkedChange'],
     },
   },
 };
-export const Playground: Story<Components.InoSegmentGroup> = (
-  args
-) => html`
-  <ino-segment-group 
-    id="segment-grp" 
-    name="${args.name}" 
-    value="${args.value}"
-  >
+export const Playground: Story<Components.InoSegmentGroup> = (args) => html`
+  <ino-segment-group id="segment-grp" name="${args.name}" value="${args.value}">
     <ino-segment-button value="opt-1">Option 1</ino-segment-button>
     <ino-segment-button value="opt-2">Option 2</ino-segment-button>
     <ino-segment-button value="opt-3">Option 3</ino-segment-button>
@@ -51,15 +44,15 @@ export const Playground: Story<Components.InoSegmentGroup> = (
 `;
 Playground.args = {
   name: '',
-  value: 'opt-2'
-}
+  value: 'opt-2',
+};
 Playground.argTypes = {
   value: {
     control: {
       type: 'select',
-      options: ['opt-1', 'opt-2', 'opt-3', 'opt-4'],
-    }
-  }
+    },
+    options: ['opt-1', 'opt-2', 'opt-3', 'opt-4'],
+  },
 };
 
 export const DenseGroupWithCheckedOption = () => html`
@@ -82,7 +75,7 @@ export const GroupWithNoCheckedOption = () => html`
 
 export const SingleButtonGroup = () => html`
   <ino-segment-group id="single-segment-grp">
-      <ino-segment-button value="1">Option 1</ino-segment-button>
+    <ino-segment-button value="1">Option 1</ino-segment-button>
   </ino-segment-group>
 `;
 

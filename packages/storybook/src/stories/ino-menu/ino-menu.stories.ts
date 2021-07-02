@@ -5,10 +5,10 @@ import { defaultDecorator } from '../utils';
 export default {
   title: `Structure/ino-menu`,
   component: 'ino-menu',
-  decorators: [story => defaultDecorator(story, 'story-ino-menu')],
+  decorators: [(story) => defaultDecorator(story, 'story-ino-menu')],
 };
 
-export const Playground = args => html`
+export const Playground = (args) => html`
   <ino-card ino-disable-elevation>
     <div class="row" slot="header">
       <p>Open Menu</p>
@@ -27,6 +27,6 @@ Playground.args = {
 Playground.argTypes = {
   placement: {
     type: 'select',
-    options: ['auto', 'top', 'right', 'bottom', 'left'],
-  }
-}
+  },
+  options: ['auto', 'top', 'right', 'bottom', 'left'],
+};
