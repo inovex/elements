@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme } from '../utils';
+import { defaultDecorator, withColorScheme, withIconControl } from '../utils';
 
 import './ino-chip.scss';
 
@@ -25,6 +25,7 @@ export const Playground: Story<Components.InoChip> = (args) => html`
     removable="${args.removable}"
     selectable="${args.selectable}"
     selected="${args.selected}"
+    value="${args.value}"
   </ino-chip>
 `;
 
@@ -35,6 +36,7 @@ Playground.args = {
   removable: false,
   selectable: false,
   selected: false,
+  value: '',
 };
 
 withColorScheme(Playground, 'colorScheme', 'primary');
@@ -42,8 +44,8 @@ withColorScheme(Playground, 'colorScheme', 'primary');
 Playground.argTypes.fill = {
   control: {
     type: 'select',
-    options: ['solid', 'outline'],
   },
+  options: ['solid', 'outline'],
 };
 
 export const ColorsAndFill = () => html`

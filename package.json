@@ -52,6 +52,9 @@
     "nohoist": [
       "**/@types/jasmine",
       "**/@types/jasminewd2",
+      "**/@types/eslint",
+      "**/@types/estree",
+      "**/@types/eslint-scope",
       "**/flatpickr"
     ]
   },

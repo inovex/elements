@@ -4,10 +4,7 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "@inovex.de/elements"
-  ],
-  "assets": [
-    "ngcc.config.js"
   ]
 }

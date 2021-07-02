@@ -3,15 +3,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  stories: [
-    '../src/**/*.stories.ts',
-    '../src/**/*.stories.mdx',
-  ],
-  addons: [
-    '@storybook/addon-essentials',
-  ],
+  core: {
+    builder: 'webpack5',
+  },
+  stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
+  addons: ['@storybook/addon-essentials'],
   webpackFinal: (config) => {
-
     config.devServer = {
       watchContentBase: true,
       contentBase: path.join(__dirname, 'src'),
@@ -22,19 +19,19 @@ module.exports = {
     config.module.rules.push({
       test: /\.scss$/,
       use: [
-        "style-loader", 
-        "css-loader",
+        'style-loader',
+        'css-loader',
         {
-          loader: "sass-loader",
+          loader: 'sass-loader',
           options: {
             implementation: require('sass'),
             includePaths: [
-              path.resolve(__dirname, "../src/stories"),
-              path.resolve(__dirname, "../../elements/src/components"),
-              path.resolve(__dirname, "../../../node_modules")
-            ]
-          }
-        }
+              path.resolve(__dirname, '../src/stories'),
+              path.resolve(__dirname, '../../elements/src/components'),
+              path.resolve(__dirname, '../../../node_modules'),
+            ],
+          },
+        },
       ],
     });
 
@@ -44,11 +41,10 @@ module.exports = {
         patterns: [
           {
             from: './src/**/*.svg',
-            to: 'assets',
-            flatten: true,
+            to: 'assets/[name][ext]',
           },
         ],
-      }),
+      })
     );
     return config;
   },

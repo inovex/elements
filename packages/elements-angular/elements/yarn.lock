@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@inovex.de/elements@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-3.0.0.tgz#554262e80af7575519d80ce38d9dbca0fece2b7e"
-  integrity sha512-KmqJxlZfaHugqhnL0uxPjFahBn5QyxfpTxzGhx967fDdREhiYmg0us+OT/0xz22/myzIAZqZzGyhlU6NYqUZnw==
+"@inovex.de/elements@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-3.0.1.tgz#1bb2b85b5a6961580b54d3d74aab597dcccd279c"
+  integrity sha512-IUkBhrNUzGb1oggvSqiA1H2w0/5ZIn6vuPs30G8SVujloaF3aMB25jJyjV2nldzpSVogQjsMvzdH0fPR1NBjmg==
   dependencies:
     "@material/button" "^8.0.0"
     "@material/card" "^8.0.0"
