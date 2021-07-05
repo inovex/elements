@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/inovex/elements/compare/v3.0.0...v4.0.0) (2021-07-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **storybook:** We decided to remove the `ino` prefixes of all component properties. Originally, they were a convenience to distinguish between native and custom properties. Nowadays the prefixes just make for unnecessarily longer code.
+
+So to upgrade to the latest version it is necessary to remove these prefixes. As an example: `ino-loading` or `inoLoading` becomes `loading`.
+To assist with this, here is a regex that can be used to search and replace these properties: `(?:\s)(ino)`.
+
+### Features
+
+* **elements:** allow lists with both single and double lines ([#338](https://github.com/inovex/elements/issues/338)) ([07609e4](https://github.com/inovex/elements/commit/07609e46e1c15d919eee57e130975b36401e2c5b))
+* **elements|ino-datepicker:** validate if first < second date ([#396](https://github.com/inovex/elements/issues/396)) ([37673b2](https://github.com/inovex/elements/commit/37673b2b02670fdc8c84b92c5b6f505c9c5450dd))
+* **elements|ino-img:** add fallback img ([#339](https://github.com/inovex/elements/issues/339)) ([6caec70](https://github.com/inovex/elements/commit/6caec708d4f61a64cd34dbebc119c9f70c9cd135))
+* **elements|ino-snackbar:** add property to make snackbar stay visible on hover ([#365](https://github.com/inovex/elements/issues/365)) ([bf6b702](https://github.com/inovex/elements/commit/bf6b7023cd9fe9caf4761f6eb57b4f2cc63bc577))
+* **storybook:** upgrade storybook to v6 ([#316](https://github.com/inovex/elements/issues/316)) ([dcd7260](https://github.com/inovex/elements/commit/dcd7260fd105339afbc8fd64c1557e9cc5fd723e))
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** max validation leads to recursion ([#395](https://github.com/inovex/elements/issues/395)) ([41d8b63](https://github.com/inovex/elements/commit/41d8b63171e0af76fb7f6dd1000b36f6ef2dcba9))
+* **elements|ino-datepicker:** only validate if value is set ([#357](https://github.com/inovex/elements/issues/357)) ([a518aa1](https://github.com/inovex/elements/commit/a518aa16671804fcd7aad70b7e85dc9e181b8152))
+* **elements|ino-select:** fix initialization error ([#385](https://github.com/inovex/elements/issues/385)) ([0b4b2fb](https://github.com/inovex/elements/commit/0b4b2fbc355fe7b0b6a08a2ebaf71fedb5d94111))
+* **elements|ino-sidebar:** fix initialization error ([#383](https://github.com/inovex/elements/issues/383)) ([70c25b6](https://github.com/inovex/elements/commit/70c25b6edcb937fc24482212aac081319264e69a))
+* fix git hook error message ([#372](https://github.com/inovex/elements/issues/372)) ([4716c32](https://github.com/inovex/elements/commit/4716c32974eee4ab38a12e6743de005b9666a203))
+
+
+### Miscellaneous
+
+* **elements:** expose custom types ([#397](https://github.com/inovex/elements/issues/397)) ([bf6381e](https://github.com/inovex/elements/commit/bf6381e521cd1545a3622359cb317acf11ff323d))
+* migrate from tslint to eslint ([#283](https://github.com/inovex/elements/issues/283)) ([19a4bf6](https://github.com/inovex/elements/commit/19a4bf65fe02649ef4b701f61b329c48b90f3b06))
+* publish v3.0.1 ([ca7a24d](https://github.com/inovex/elements/commit/ca7a24d68944c06c78d88f58ec5151966c0210a6))
+
 ### [3.0.1](https://github.com/inovex/elements/compare/v3.0.0...v3.0.1) (2021-04-22)
 
 
