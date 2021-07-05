@@ -36,14 +36,16 @@ export default {
 };
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
-  <ino-autocomplete style="margin: 50px">
-    <ino-input slot="input" />
-    <ino-list slot="list">
-      <ino-list-item text="Item A" />
-      <ino-list-item text="Item B" />
-      <ino-list-item text="Item C" />
-    </ino-list>
-  </ino-autocomplete>
+  <div style="height: 300px;">
+    <ino-autocomplete style="margin: 50px">
+      <ino-input slot="input" />
+      <ino-list slot="list">
+        <ino-list-item text="Item A"></ino-list-item>
+        <ino-list-item text="Item B"></ino-list-item>
+        <ino-list-item text="Item C"></ino-list-item>
+      </ino-list>
+    </ino-autocomplete>
+  </div>
 `;
 
 Playground.args = {};
