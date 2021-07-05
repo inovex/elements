@@ -2,6 +2,23 @@
   "version": 1.2,
   "tags": [
     {
+      "name": "ino-autocomplete",
+      "path": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
+      "description": "A component that styles a form element as a row with a leading label.",
+      "attributes": [],
+      "properties": [],
+      "events": [
+        {
+          "name": "myEv",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
       "name": "ino-button",
       "path": "./src/components/ino-button/ino-button.tsx",
       "description": "A button component with different styles and icon capability.",
@@ -742,7 +759,7 @@
     },
     {
       "name": "ino-combo-box",
-      "path": "./src/components/ino-combobox/ino-combo-box.tsx",
+      "path": "./src/components/ino-autocomplete/ino-combo-box.tsx",
       "description": "A component that styles a form element as a row with a leading label.",
       "attributes": [],
       "properties": [],

@@ -4,11 +4,11 @@ import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
 
-import './ino-combo-box.scss';
+import './ino-autocomplete.scss';
 
 export default {
-  title: 'Any/ino-combo-box',
-  component: 'ino-combo-box',
+  title: 'Input/ino-autocomplete',
+  component: 'ino-autocomplete',
   parameters: {
     actions: {
       handles: ['valueChange'],
@@ -35,15 +35,15 @@ export default {
   ],
 };
 
-export const Playground: Story<Components.InoComboBox> = (args) => html`
-  <ino-combo-box style="margin: 50px">
+export const Playground: Story<Components.InoAutocomplete> = (args) => html`
+  <ino-autocomplete style="margin: 50px">
     <ino-input slot="input" />
     <ino-list slot="list">
       <ino-list-item text="Item A" />
       <ino-list-item text="Item B" />
       <ino-list-item text="Item C" />
     </ino-list>
-  </ino-combo-box>
+  </ino-autocomplete>
 `;
 
 Playground.args = {};

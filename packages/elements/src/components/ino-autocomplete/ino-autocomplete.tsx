@@ -18,11 +18,11 @@ enum Slots {
 }
 
 @Component({
-  tag: 'ino-combo-box',
-  styleUrl: 'ino-combo-box.scss',
+  tag: 'ino-autocomplete',
+  styleUrl: 'ino-autocomplete.scss',
   shadow: false,
 })
-export class ComboBox implements ComponentInterface {
+export class Autocomplete implements ComponentInterface {
   private static COMBOX_BOX_COUNTER = 1;
 
   private list: HTMLInoListElement;
@@ -85,7 +85,7 @@ export class ComboBox implements ComponentInterface {
     }
 
     this.input = getSlotContent(this.el, Slots.INPUT) as HTMLInoInputElement;
-    this.input.id = `combo-box-input-${ComboBox.COMBOX_BOX_COUNTER++}`;
+    this.input.id = `combo-box-input-${Autocomplete.COMBOX_BOX_COUNTER++}`;
   }
 
   setupList() {

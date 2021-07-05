@@ -5,6 +5,26 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@inovex.de/elements';
 
+import { Autocomplete as IAutocomplete } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-autocomplete';
+export declare interface InoAutocomplete extends Components.InoAutocomplete {}
+
+@Component({
+  selector: 'ino-autocomplete',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  outputs: ['myEv']
+})
+export class InoAutocomplete {
+  /**  */
+  myEv!: IAutocomplete['myEv'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['myEv']);
+  }
+}
+
 
 export declare interface InoButton extends Components.InoButton {}
 @ProxyCmp({
@@ -155,7 +175,7 @@ Only applicable if `inoType` is `choice` or `filter`. */
   }
 }
 
-import { ComboBox as IComboBox } from '@inovex.de/elements/dist/types/components/ino-combobox/ino-combo-box';
+import { ComboBox as IComboBox } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-combo-box';
 export declare interface InoComboBox extends Components.InoComboBox {}
 
 @Component({
