@@ -52,6 +52,10 @@ export class Validator {
       return false;
     }
 
+    if (this._isRanged && !this.validateRange(value)) {
+      return false;
+    }
+
     return true;
   };
 
@@ -105,9 +109,7 @@ export class Validator {
       );
       return formattedDate == value;
     } catch (_) {
-      throw new Error(
-        `Value (${value}) could not be parsed. Make sure to provide a date in the following format: ${this._dateFormat}`
-      );
+      // Silence the expection. This may not be a problem if the user is typing.
     }
   };
 
@@ -125,6 +127,16 @@ export class Validator {
     }
 
     return parsedDate;
+  };
+
+  private validateRange = (value: string): boolean => {
+    const dates = Validator.convertToRangeArray(value).map((date) =>
+      this.parseDate(date)
+    );
+    if (dates.length <= 1) {
+      return true;
+    }
+    return dates[1] >= dates[0];
   };
 
   set isDisabled(value: boolean) {
