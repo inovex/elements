@@ -1,16 +1,9 @@
+import { Component, ComponentInterface, Element, h, Host } from '@stencil/core';
 import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  State,
-  Watch,
-} from '@stencil/core';
-import { getSlotContent, hasSlotContent } from '../../util/component-utils';
+  getSlotContent,
+  hasSlotContent,
+  setAttributes,
+} from '../../util/component-utils';
 
 enum Slots {
   INPUT = 'input',
@@ -23,54 +16,12 @@ enum Slots {
   shadow: false,
 })
 export class Autocomplete implements ComponentInterface {
+  @Element() el: HTMLInoAutocompleteElement;
+
   private static COMBOX_BOX_COUNTER = 1;
 
   private list: HTMLInoListElement;
-  private listItems: HTMLInoListItemElement[];
   private input: HTMLInoInputElement;
-
-  choices: string[];
-
-  @Element() el;
-
-  @State() value: string;
-
-  @Watch('value')
-  valueWatcher(newValue: string) {
-    this.input.value = newValue;
-  }
-
-  @Event() myEv: EventEmitter<string>;
-
-  @Listen('valueChange')
-  onValueChange(ev: CustomEvent<string>) {
-    this.value = ev.detail;
-
-    const matchingItems = this.listItems.filter((item) =>
-      item.text.includes(this.value)
-    );
-    const nonMatchingItems = this.listItems.filter(
-      (item) => !item.text.includes(this.value)
-    );
-    console.log(matchingItems, nonMatchingItems);
-    matchingItems.forEach((item) => (item.style.display = 'block'));
-    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
-
-    ev.stopPropagation();
-  }
-
-  @Listen('clickEl')
-  onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
-    const { text } = ev.detail;
-    this.value = text;
-  }
-
-  onInputBlur = (choices: string[]) => {
-    if (!choices.includes(this.value)) {
-      this.value = '';
-    }
-    this.myEv.emit(this.value);
-  };
 
   componentWillLoad() {
     this.setupInput();
@@ -96,43 +47,42 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.list = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
+    this.list.remove();
   }
 
-  componentDidLoad() {
-    const listItems: NodeListOf<HTMLInoListItemElement> = this.list.querySelectorAll(
-      'ino-list-item'
+  async componentDidLoad() {
+    const inoPopover: HTMLInoPopoverElement = document.createElement(
+      'ino-popover'
+    );
+    const popoverProps: Partial<HTMLInoPopoverElement> = {
+      colorScheme: 'transparent',
+      interactive: true,
+      placement: 'bottom',
+      for: this.input.id,
+      trigger: 'focus click',
+    };
+
+    setAttributes(inoPopover, popoverProps);
+
+    inoPopover.getTippyInstance().then((tippy) =>
+      tippy.setProps({
+        onShow: this.onTippyShow,
+      })
     );
 
-    this.listItems = Array.from(listItems);
-    this.choices = this.listItems.map((item) => item.text);
-
-    this.input.addEventListener('inoBlur', (e) => {
-      console.log(e);
-      this.onInputBlur(this.choices);
-    });
+    this.el.appendChild(inoPopover);
   }
 
-  disconnectedCallback() {
-    this.input.removeEventListener('inoBlur', () =>
-      this.onInputBlur(this.choices)
-    );
-  }
+  private onTippyShow = (instance) => {
+    const innerTippy = instance.popper.querySelector('.ino-tooltip__inner');
+    innerTippy.appendChild(this.list);
+  };
 
   render() {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <ino-popover
-          colorScheme="transparent"
-          controlled
-          visible
-          interactive
-          placement="bottom"
-          for={this.input.id}
-          trigger="click"
-        >
-          <slot name={Slots.LIST} />
-        </ino-popover>
+        <slot name={Slots.LIST} />
       </Host>
     );
   }

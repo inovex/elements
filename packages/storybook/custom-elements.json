@@ -7,12 +7,7 @@
       "description": "A component that styles a form element as a row with a leading label.",
       "attributes": [],
       "properties": [],
-      "events": [
-        {
-          "name": "myEv",
-          "description": ""
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [],
       "cssProperties": [],

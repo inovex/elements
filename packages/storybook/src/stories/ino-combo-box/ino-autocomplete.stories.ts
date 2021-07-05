@@ -20,7 +20,7 @@ export default {
       useEffect(() => {
         const eventHandler = function (e: any) {
           console.log(e);
-          alert(e.detail);
+          // alert(e.detail);
         };
 
         document.addEventListener('myEv', eventHandler);

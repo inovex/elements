@@ -1536,7 +1536,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface InoAutocomplete {
-        "onMyEv"?: (event: CustomEvent<string>) => void;
     }
     interface InoButton {
         /**
