@@ -116,6 +116,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `--ino-icon-color-primary`   | Primary (default) color of the icon |
 | `--ino-icon-color-secondary` | Secondary color of the icon         |
 | `--ino-icon-height`          | Height of the icon                  |
+| `--ino-icon-rotation`        | Rotation of the icon in degrees     |
 | `--ino-icon-width`           | Width of the icon                   |
 
 

@@ -8,10 +8,12 @@
     * @prop --ino-icon-height: Height of the icon
     * @prop --ino-icon-color-primary: Primary (default) color of the icon
     * @prop --ino-icon-color-secondary: Secondary color of the icon
+    * @prop --ino-icon-rotation: Rotation of the icon in degrees
    */
 
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height: var(--ino-icon-height, 1em);
+  --icon-rotation: var(--ino-icon-rotation, 0deg);
 }
 
 :host(.ino-icon--color-scheme-primary) {
@@ -48,5 +50,6 @@
     color: var(--icon-color);
     height: var(--icon-height);
     width: var(--icon-width);
+    transform: rotate(var(--icon-rotation));
   }
 }
