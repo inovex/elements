@@ -151,56 +151,7 @@
           "description": "For the icon to be appended"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-button-color-primary",
-          "description": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-primary-contrast",
-          "description": "Contrast color of the primary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-primary-dark",
-          "description": "Dark color of the primary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-primary-light",
-          "description": "Light color of the primary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-dark",
-          "description": "Shadow color of the primary button used on active"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-light",
-          "description": "Shadow color of the primary button used on hover"
-        },
-        {
-          "name": "--ino-button-color-secondary",
-          "description": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-secondary-contrast",
-          "description": "Contrast color of the secondary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-secondary-dark",
-          "description": "Dark color of the secondary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-light",
-          "description": "Light color of the secondary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-dark",
-          "description": "Shadow color of the secondary button used on active"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-light",
-          "description": "Shadow color of the secondary button used on hover"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -1376,40 +1327,7 @@
           "description": "For the icon to be prepended"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--fab-background-color",
-          "description": "Background color"
-        },
-        {
-          "name": "--fab-background-color-active",
-          "description": "Background color if active"
-        },
-        {
-          "name": "--fab-background-color-disabled",
-          "description": "Background color if disabled"
-        },
-        {
-          "name": "--fab-background-color-hover",
-          "description": "Background color on hover"
-        },
-        {
-          "name": "--fab-color-disabled",
-          "description": "Text color if disabled"
-        },
-        {
-          "name": "--fab-icon-color",
-          "description": "Color of the slotted icon"
-        },
-        {
-          "name": "--fab-icon-color-disabled",
-          "description": "Color of the slotted icon if disabled"
-        },
-        {
-          "name": "--ino-fab-color",
-          "description": "Text color"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -1553,16 +1471,7 @@
       "events": [],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--ino-header-box-color",
-          "description": "Color of the header box"
-        },
-        {
-          "name": "--ino-header-color",
-          "description": "Text color of the header"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -1641,24 +1550,7 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--ino-icon-color-primary",
-          "description": "Primary (default) color of the icon"
-        },
-        {
-          "name": "--ino-icon-color-secondary",
-          "description": "Secondary color of the icon"
-        },
-        {
-          "name": "--ino-icon-height",
-          "description": "Height of the icon"
-        },
-        {
-          "name": "--ino-icon-width",
-          "description": "Width of the icon"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -1765,32 +1657,7 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--ino-icon-button-background-active-color",
-          "description": "base color of the active background"
-        },
-        {
-          "name": "--ino-icon-button-background-color",
-          "description": "default color of the background"
-        },
-        {
-          "name": "--ino-icon-button-icon-active-color",
-          "description": "color of the active icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-color",
-          "description": "default color of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-size",
-          "description": "size of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-size",
-          "description": "size of the entire button"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -2392,24 +2259,7 @@
           "description": "For the icon to be appended"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-input-caret-color",
-          "description": "color of the caret"
-        },
-        {
-          "name": "--ino-input-icon-color",
-          "description": "icon color"
-        },
-        {
-          "name": "--ino-input-label-color",
-          "description": "color of the label"
-        },
-        {
-          "name": "--ino-input-line-color",
-          "description": "line color"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -2842,48 +2692,7 @@
           "description": "For the element to be appended"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-list-item-deselected-background-color",
-          "description": "Background color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-active",
-          "description": "Background color of a deselected list item if active"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-focus",
-          "description": "Background color of a deselected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-hover",
-          "description": "Background color of a deselected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-deselected-color",
-          "description": "Text color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color",
-          "description": "Background color of a selected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-active",
-          "description": "Background color of a selected list item if active"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-focus",
-          "description": "Background color of a selected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-hover",
-          "description": "Background color of a selected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-selected-color",
-          "description": "Text color of a selected list item"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3002,36 +2811,7 @@
           "description": "For the element just below the logo (cannot be used with the `header` slot)"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "description": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "description": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "description": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "description": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "description": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "description": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "description": "The width of the open drawer."
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3102,24 +2882,7 @@
           "description": "Any element"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-nav-item-background-color",
-          "description": "Inactive color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-background-color-active",
-          "description": "Active color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-color",
-          "description": "Inactive color of icon."
-        },
-        {
-          "name": "--ino-nav-item-color-active",
-          "description": "Active color of icon."
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3178,40 +2941,7 @@
           "description": "The text of the option"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-option-deselected-background-color",
-          "description": "Background color if deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-active",
-          "description": "Background color if active and deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-focus",
-          "description": "Background color on focus if deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-hover",
-          "description": "Background color on hover if deselected"
-        },
-        {
-          "name": "--ino-option-selected-background-color",
-          "description": "Background color if selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-active",
-          "description": "Background color if active and selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-focus",
-          "description": "Background color on focus if selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-hover",
-          "description": "Background color on hover if selected"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3420,13 +3150,6 @@
           "description": "Sets the progress of the progress bar.\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
-        },
-        {
-          "name": "reversed",
-          "type": "boolean",
-          "description": "Reverses the progress bar",
-          "defaultValue": "false",
-          "required": false
         }
       ],
       "properties": [
@@ -3456,24 +3179,12 @@
           "description": "Sets the progress of the progress bar.\nShould always be between 0 and 1",
           "defaultValue": "0",
           "required": false
-        },
-        {
-          "name": "reversed",
-          "type": "boolean",
-          "description": "Reverses the progress bar",
-          "defaultValue": "false",
-          "required": false
         }
       ],
       "events": [],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--progress-bar--bar-color",
-          "description": "Color of the progress bar"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3547,32 +3258,7 @@
           "description": "Label of the checkbox"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-radio-active-color",
-          "description": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "description": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "description": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "description": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "description": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "description": "color of the radio if unchecked"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -3826,32 +3512,7 @@
           "description": "Label of the button"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "description": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-checked-shadow",
-          "description": "Color and shape of the shadow if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "description": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "description": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "description": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-hover-shadow",
-          "description": "Color and shape of the shadow on hover"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -4004,12 +3665,7 @@
           "description": "One or more `ino-option(-group)`"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--select-height",
-          "description": "Height of the open select menu"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -4347,68 +4003,7 @@
           "description": "Label of the switch"
         }
       ],
-      "cssProperties": [
-        {
-          "name": "--ino-switch-active-color",
-          "description": "border color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-active-thumb-color",
-          "description": "thumb color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-active-track-color",
-          "description": "track color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-disabled-color",
-          "description": "border color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-disabled-thumb-color",
-          "description": "thumb color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-disabled-track-color",
-          "description": "track color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-hover-color",
-          "description": "border color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-hover-thumb-color",
-          "description": "thumb color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-hover-track-color",
-          "description": "track color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-toggled-off-color",
-          "description": "border color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-off-thumb-color",
-          "description": "thumb color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-off-track-color",
-          "description": "track color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-on-color",
-          "description": "border color of the switch if toggled on"
-        },
-        {
-          "name": "--ino-switch-toggled-on-thumb-color",
-          "description": "thumb color of the switch if toggled on"
-        },
-        {
-          "name": "--ino-switch-toggled-on-track-color",
-          "description": "track color of the switch if toggled on"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {
@@ -4825,20 +4420,7 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--ino-textarea-caret-color",
-          "description": "color of the caret"
-        },
-        {
-          "name": "--ino-textarea-label-color",
-          "description": "color of the label"
-        },
-        {
-          "name": "--ino-textarea-outline-color",
-          "description": "outline color of the textarea"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {

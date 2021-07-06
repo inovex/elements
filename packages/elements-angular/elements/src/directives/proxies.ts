@@ -652,13 +652,13 @@ and emits with `false` when the target or the outside is clicked. */
 
 export declare interface InoProgressBar extends Components.InoProgressBar {}
 @ProxyCmp({
-  inputs: ['buffer', 'indeterminate', 'label', 'progress', 'reversed']
+  inputs: ['buffer', 'indeterminate', 'label', 'progress']
 })
 @Component({
   selector: 'ino-progress-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['buffer', 'indeterminate', 'label', 'progress', 'reversed']
+  inputs: ['buffer', 'indeterminate', 'label', 'progress']
 })
 export class InoProgressBar {
   protected el: HTMLElement;

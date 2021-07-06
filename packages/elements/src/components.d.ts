@@ -836,10 +836,6 @@ export namespace Components {
           * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "reversed"?: boolean;
     }
     interface InoRadio {
         /**
@@ -2399,10 +2395,6 @@ declare namespace LocalJSX {
           * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "reversed"?: boolean;
     }
     interface InoRadio {
         /**

@@ -59,7 +59,6 @@ export const Playground: Story<Components.InoProgressBar>= (args) => {
     <ino-progress-bar
       buffer="${args.buffer}"
       progress="${args.progress}"
-      reversed="${args.reversed}"
       indeterminate="${args.indeterminate}"
       label="${args.label}"
     >
@@ -69,7 +68,6 @@ export const Playground: Story<Components.InoProgressBar>= (args) => {
 Playground.args = {
   buffer: 0.9,
   progress: 0.4,
-  reversed: false,
   indeterminate: false,
   label: 'Progress Bar',
 }
@@ -91,9 +89,6 @@ export const Variants = () => html`
 
   <h5>Indeterminate progress bar</h5>
   <ino-progress-bar indeterminate></ino-progress-bar>
-
-  <h5>Reversed progress bar</h5>
-  <ino-progress-bar reversed progress="0.6" buffer="0.8"></ino-progress-bar>
 `;
 
 export const UploadExample = () => html`
