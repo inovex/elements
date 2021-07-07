@@ -525,7 +525,8 @@ export declare interface InoListItem extends Components.InoListItem {}
   outputs: ['clickEl']
 })
 export class InoListItem {
-  /** Emits when the list item is clicked.
+  /** Emits when the list item is clicked or
+the enter/space key if pressed while the item is in focus.
 Contains the element itself in `event.detail` */
   clickEl!: IListItem['clickEl'];
   protected el: HTMLElement;

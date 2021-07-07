@@ -2832,7 +2832,7 @@
       "events": [
         {
           "name": "clickEl",
-          "description": "Emits when the list item is clicked.\nContains the element itself in `event.detail`"
+          "description": "Emits when the list item is clicked or\nthe enter/space key if pressed while the item is in focus.\nContains the element itself in `event.detail`"
         }
       ],
       "methods": [],
