@@ -170,8 +170,6 @@ export namespace Components {
          */
         "type"?: ChipSetType;
     }
-    interface InoComboBox {
-    }
     interface InoControlItem {
         /**
           * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
@@ -1229,12 +1227,6 @@ declare global {
         prototype: HTMLInoChipSetElement;
         new (): HTMLInoChipSetElement;
     };
-    interface HTMLInoComboBoxElement extends Components.InoComboBox, HTMLStencilElement {
-    }
-    var HTMLInoComboBoxElement: {
-        prototype: HTMLInoComboBoxElement;
-        new (): HTMLInoComboBoxElement;
-    };
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
     }
     var HTMLInoControlItemElement: {
@@ -1490,7 +1482,6 @@ declare global {
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
         "ino-chip-set": HTMLInoChipSetElement;
-        "ino-combo-box": HTMLInoComboBoxElement;
         "ino-control-item": HTMLInoControlItemElement;
         "ino-datepicker": HTMLInoDatepickerElement;
         "ino-dialog": HTMLInoDialogElement;
@@ -1707,9 +1698,6 @@ declare namespace LocalJSX {
           * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
          */
         "type"?: ChipSetType;
-    }
-    interface InoComboBox {
-        "onMyEv"?: (event: CustomEvent<string>) => void;
     }
     interface InoControlItem {
         /**
@@ -2814,7 +2802,6 @@ declare namespace LocalJSX {
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
         "ino-chip-set": InoChipSet;
-        "ino-combo-box": InoComboBox;
         "ino-control-item": InoControlItem;
         "ino-datepicker": InoDatepicker;
         "ino-dialog": InoDialog;
@@ -2870,7 +2857,6 @@ declare module "@stencil/core" {
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;
-            "ino-combo-box": LocalJSX.InoComboBox & JSXBase.HTMLAttributes<HTMLInoComboBoxElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
