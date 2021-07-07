@@ -5,19 +5,23 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@inovex.de/elements';
 
-
+import { Autocomplete as IAutocomplete } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-autocomplete';
 export declare interface InoAutocomplete extends Components.InoAutocomplete {}
 
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  outputs: ['itemSelected']
 })
 export class InoAutocomplete {
+  /**  */
+  itemSelected!: IAutocomplete['itemSelected'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['itemSelected']);
   }
 }
 

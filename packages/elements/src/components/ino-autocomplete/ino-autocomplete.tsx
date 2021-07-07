@@ -1,18 +1,18 @@
+import { MDCList } from '@material/list';
 import {
   Component,
   ComponentInterface,
   Element,
+  Event,
+  EventEmitter,
   h,
   Host,
   Listen,
   State,
   Watch,
 } from '@stencil/core';
-import {
-  getSlotContent,
-  hasSlotContent,
-  setAttributes,
-} from '../../util/component-utils';
+import classNames from 'classnames';
+import { getSlotContent, hasSlotContent } from '../../util/component-utils';
 
 enum Slots {
   INPUT = 'input',
@@ -25,6 +25,14 @@ enum Slots {
   shadow: false,
 })
 export class Autocomplete implements ComponentInterface {
+  private inputEl: HTMLInoInputElement;
+  private mdcList: MDCList;
+  private listEl: HTMLInoListElement;
+  private listItemsEl: HTMLInoListItemElement[];
+  private listItemTexts: string[];
+  private container: HTMLDivElement;
+  //private selectedItem?: HTMLInoListItemElement;
+
   @Element() el: HTMLInoAutocompleteElement;
 
   @State() input: string = '';
@@ -35,30 +43,107 @@ export class Autocomplete implements ComponentInterface {
     this.filterListItems(newVal);
   }
 
-  private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter((item) =>
-      item.text.includes(newVal)
-    );
-    const nonMatchingItems = this.listItemsEl.filter(
-      (item) => !item.text.includes(newVal)
-    );
-    console.log(matchingItems, nonMatchingItems);
+  @State() filteredListItems: HTMLInoListItemElement[];
 
-    //matchingItems.forEach((item) => (item.style.backgroundColor = 'green'));
-    //nonMatchingItems.forEach((item) => (item.style.backgroundColor = 'red'));
+  @Watch('filteredListItems')
+  onFilterListChange(
+    newList: HTMLInoListItemElement[],
+    oldList?: HTMLInoListItemElement[]
+  ) {
+    if (oldList?.length > 0) {
+      // oldList[0].tabIndex = -1;
+    }
+    if (newList.length > 0) {
+      // newList[0].tabIndex = 0;
+    }
+    this.mdcList.selectedIndex = -1;
   }
 
-  private static COMBOX_BOX_COUNTER = 1;
+  @State() menuIsVisible = false;
 
-  private inputEl: HTMLInoInputElement;
-  private popoverEl: HTMLInoPopoverElement;
-  private listEl: HTMLInoListElement;
-  private listItemsEl: HTMLInoListItemElement[];
+  @Event() itemSelected: EventEmitter<string>;
 
   componentWillLoad() {
     this.setupInput();
     this.setupList();
   }
+
+  componentDidLoad() {
+    this.container.appendChild(this.listEl);
+  }
+
+  disconnectedCallback() {
+    this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
+    this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
+  }
+
+  @Listen('valueChange')
+  onValueChange(ev: CustomEvent<string>) {
+    this.input = ev.detail;
+  }
+
+  @Listen('clickEl')
+  onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
+    this.input = ev.detail.text;
+    this.closeMenu();
+  }
+
+  @Listen('keydown')
+  onArrowDownKey(ev: KeyboardEvent) {
+    switch (ev.code) {
+      case 'ArrowDown': {
+        // this.listEl.focus();
+        // this.filteredListItems[0].focus();
+        break;
+      }
+      case 'Enter': {
+        if (this.input.length === 0) {
+          this.inputEl.blur();
+        } else {
+          const activeListItem: HTMLInoListItemElement = document.activeElement as HTMLInoListElement;
+          this.input = activeListItem.text;
+        }
+        break;
+      }
+    }
+  }
+
+  onInputKeydown = (ev: KeyboardEvent) => {
+    if (ev.code !== 'ArrowDown') {
+      return;
+    }
+
+    // focus first item in list
+    this.mdcList.selectedIndex = 0;
+  };
+
+  onListKeydown = (ev: KeyboardEvent) => {
+    if (ev.code !== 'ArrowDown' && ev.code !== 'ArrowUp') {
+      return;
+    }
+
+    console.group('List Keydown');
+
+    const currentIndex: number = Array.isArray(this.mdcList.selectedIndex)
+      ? this.mdcList.selectedIndex[0]
+      : this.mdcList.selectedIndex;
+
+    console.log('Current index: ', currentIndex);
+    console.log(this.mdcList.listElements);
+
+    switch (ev.code) {
+      case 'ArrowUp':
+        this.mdcList.selectedIndex = currentIndex - 1;
+        break;
+      case 'ArrowDown':
+        this.mdcList.selectedIndex = currentIndex + 1;
+        break;
+    }
+
+    console.log('After index: ', this.mdcList.selectedIndex);
+    console.log(this.mdcList.listElements);
+    console.groupEnd();
+  };
 
   setupInput() {
     if (!hasSlotContent(this.el, Slots.INPUT)) {
@@ -68,21 +153,12 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.inputEl = getSlotContent(this.el, Slots.INPUT) as HTMLInoInputElement;
-    this.inputEl.id = `combo-box-input-${Autocomplete.COMBOX_BOX_COUNTER++}`;
 
     // Workaround because input does not throw native focus/blur events
     this.inputEl.addEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
+    this.inputEl.addEventListener('keydown', this.onInputKeydown);
   }
-
-  @Listen('valueChange')
-  onValueChange(ev: CustomEvent<string>) {
-    this.input = ev.detail;
-  }
-
-  onInputElFocus = () => (this.popoverEl.visible = true);
-
-  onInputElBlur = () => (this.popoverEl.visible = false);
 
   setupList() {
     if (!hasSlotContent(this.el, Slots.LIST)) {
@@ -92,55 +168,67 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.listEl = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
+    this.mdcList = new MDCList(this.listEl);
+    this.mdcList.singleSelection = true;
+    this.listEl.addEventListener('keydown', this.onListKeydown);
+
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
+    this.filteredListItems = this.listItemsEl;
+    this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.listEl.remove();
   }
 
-  async componentDidLoad() {
-    this.setupPopover();
-  }
-
-  private setupPopover() {
-    this.popoverEl = document.createElement('ino-popover');
-    const popoverProps: Partial<HTMLInoPopoverElement> = {
-      colorScheme: 'transparent',
-      controlled: true,
-      interactive: true,
-      placement: 'bottom',
-      for: this.inputEl.id,
-      trigger: 'manual',
-      visible: false,
-    };
-
-    setAttributes(this.popoverEl, popoverProps);
-
-    this.popoverEl.getTippyInstance().then((tippy) =>
-      tippy.setProps({
-        onHide: () => console.log('hiding'),
-        onShow: this.onTippyShow,
-      })
-    );
-
-    this.el.appendChild(this.popoverEl);
-  }
-
-  private onTippyShow = (instance) => {
-    const innerTippy = instance.popper.querySelector('.ino-tooltip__inner');
-    innerTippy.appendChild(this.listEl);
+  onInputElFocus = () => {
+    // TODO: check if value is in items
+    this.openMenu();
   };
 
-  disconnectedCallback() {
-    this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
-    this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
+  onInputElBlur = () => {
+    this.inputEl.error = !this.listItemTexts.includes(this.input);
+  };
+
+  // this.menuIsVisible = false
+
+  private filterListItems(newVal: string) {
+    // reset selection
+    this.listItemsEl.forEach((item) => (item.selected = false));
+
+    const matchingItems = this.listItemsEl.filter((item) =>
+      item.text.includes(newVal)
+    );
+    const nonMatchingItems = this.listItemsEl.filter(
+      (item) => !item.text.includes(newVal)
+    );
+
+    this.filteredListItems = matchingItems;
+
+    console.log(this.mdcList);
+    matchingItems.forEach(
+      (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
+    );
+    nonMatchingItems.forEach(
+      (item) => item.remove() // (item.style.display = 'none')
+    );
   }
 
+  private openMenu = () => (this.menuIsVisible = true);
+  private closeMenu = () => (this.menuIsVisible = false);
+
   render() {
+    const menuClasses = classNames({
+      menu: true,
+      'menu-hidden': !this.menuIsVisible,
+      'menu-show': this.menuIsVisible,
+    });
+
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <slot name={Slots.LIST} />
+        <div class={menuClasses} ref={(el) => (this.container = el)}>
+          <slot name={Slots.LIST} />
+        </div>
       </Host>
     );
   }

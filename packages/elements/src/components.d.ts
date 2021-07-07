@@ -1527,6 +1527,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface InoAutocomplete {
+        "onItemSelected"?: (event: CustomEvent<string>) => void;
     }
     interface InoButton {
         /**

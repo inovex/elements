@@ -245,13 +245,11 @@ Type: `Promise<any>`
 
 ### Used by
 
- - [ino-autocomplete](../ino-autocomplete)
  - [ino-menu](../ino-menu)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-autocomplete --> ino-popover
   ino-menu --> ino-popover
   style ino-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -75,18 +75,12 @@ class MyComponent extends Component {
 <!-- Auto Generated Below -->
 
 
-## Dependencies
+## Events
 
-### Depends on
+| Event          | Description | Type                  |
+| -------------- | ----------- | --------------------- |
+| `itemSelected` |             | `CustomEvent<string>` |
 
-- [ino-popover](../ino-popover)
-
-### Graph
-```mermaid
-graph TD;
-  ino-autocomplete --> ino-popover
-  style ino-autocomplete fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 
