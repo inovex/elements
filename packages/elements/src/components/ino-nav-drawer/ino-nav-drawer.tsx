@@ -31,6 +31,7 @@ export class NavDrawer implements ComponentInterface {
    * An internal instance of the material design drawer.
    */
   private drawerInstance: MDCDrawer;
+  private drawerEl: HTMLElement;
 
   @Element() el!: HTMLElement;
 
@@ -67,16 +68,11 @@ export class NavDrawer implements ComponentInterface {
       this.drawerInstance.open = this.open || false;
     }
 
-    this.el.shadowRoot
-      .querySelector('.mdc-drawer')
-      .addEventListener('MDCDrawer:closed', this.closeDrawer);
-
-    this.el.shadowRoot
-      .querySelector('.mdc-drawer__toggle')
-      .addEventListener('click', this.toggleDrawer);
+    this.drawerEl.addEventListener('MDCDrawer:closed', this.closeDrawer);
   }
 
   disconnectedCallback() {
+    this.drawerEl.removeEventListener('MDCDrawer:closed', this.closeDrawer);
     this.drawerInstance?.destroy();
   }
 
@@ -115,7 +111,7 @@ export class NavDrawer implements ComponentInterface {
     });
 
     const nav = (
-      <aside class={classDrawer}>
+      <aside class={classDrawer} ref={(el) => (this.drawerEl = el)}>
         <div class="mdc-drawer__header">
           <slot name="header">
             <div class="mdc-drawer__logo">
@@ -133,7 +129,11 @@ export class NavDrawer implements ComponentInterface {
 
         <div class="mdc-drawer__footer">
           <slot name="footer"></slot>
-          <ino-icon-button class="mdc-drawer__toggle" icon="arrow_right" />
+          <ino-icon-button
+            class="mdc-drawer__toggle"
+            icon="arrow_right"
+            onClick={this.toggleDrawer}
+          />
         </div>
       </aside>
     );
