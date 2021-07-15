@@ -4,14 +4,14 @@
 @include list.core-styles;
 
 /**
-  * @prop --border-radius: Border radius of the list container
+  * @prop --ino-list-item-border-radius: Border radius of the list container, also effects the first and last list item
  */
 ino-list {
-  --border-radius: (var(--border-radius), 0);
+  --list-item-border-radius: (var(--ino-list-item-border-radius), 0);
 
   display: block;
 
-  border-radius: var(--border-radius);
+  border-radius: var(--list-item-border-radius);
 
   ino-list-item:first-child,
   ino-list-item:last-child,
@@ -21,7 +21,7 @@ ino-list {
     overflow: hidden;
   }
 
-  $half-border-radius: calc(var(--border-radius) * 0.5);
+  $half-border-radius: calc(var(--list-item-border-radius) * 0.5);
 
   .mdc-list > ino-list-item:first-child,
   .mdc-list > ino-control-item:first-child {

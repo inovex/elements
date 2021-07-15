@@ -2720,7 +2720,12 @@
           "description": "One or more `ino-(control|list|nav)-item` and `ino-list-divider`"
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-list-item-border-radius",
+          "description": "Border radius of the list container, also effects the first and last list item"
+        }
+      ],
       "cssParts": []
     },
     {
