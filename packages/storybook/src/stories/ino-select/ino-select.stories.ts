@@ -77,6 +77,14 @@ export const OutlineFloatingLabel = () => html`
   </ino-select>
 `;
 
+export const WithIcon = () => html`
+  <ino-select label="Select with leading icon">
+    <ino-icon slot="icon-leading" icon="user"></ino-icon>
+    <ino-option value="Selected Option" selected>Selected Option</ino-option>
+    ${optionsTemplate}
+  </ino-select>
+`;
+
 export const Disabled = () => html`
   <ino-select disabled label="Disabled select">
     <ino-option value="Selected Option" selected>Selected Option</ino-option>

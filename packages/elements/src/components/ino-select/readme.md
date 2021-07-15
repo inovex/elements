@@ -122,16 +122,18 @@ The component behaves like a native select with additional features. The native 
 
 ## Slots
 
-| Slot        | Description                      |
-| ----------- | -------------------------------- |
-| `"default"` | One or more `ino-option(-group)` |
+| Slot             | Description                      |
+| ---------------- | -------------------------------- |
+| `"default"`      | One or more `ino-option(-group)` |
+| `"icon-leading"` | For the icon to be prepended     |
 
 
 ## CSS Custom Properties
 
-| Name              | Description                    |
-| ----------------- | ------------------------------ |
-| `--select-height` | Height of the open select menu |
+| Name                      | Description                    |
+| ------------------------- | ------------------------------ |
+| `--ino-select-height`     | Height of the open select menu |
+| `--ino-select-icon-color` | Icon color                     |
 
 
 ## Dependencies
