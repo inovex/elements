@@ -3,22 +3,32 @@
 @use '@material/card';
 @use 'base/theme';
 
-$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3),
-  0 12px 28px 0 rgba(theme.color(dark), 0.14);
-$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
-  0 16px 32px 0 rgba(theme.color(dark), 0.14);
+$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3), 0 12px 28px 0 rgba(theme.color(dark), 0.14);
+$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3), 0 16px 32px 0 rgba(theme.color(dark), 0.14);
 
 ino-card {
   /**
-   * @prop --ino-card-background-color: background color of the check mark
-   * @prop --ino-card-color: check mark color
+   * @prop --ino-card-background-color: background color of the card
+   * @prop --ino-card-background-color--active: background color of the card if active
+   * @prop --ino-card-background-color--focus: background color of the card on focus
+   * @prop --ino-card-background-color--hover: background color of the card on hover
+   * @prop --ino-card-border-color: border color of the card
+   * @prop --ino-card-border-thickness: thickness of the border
+   * @prop --ino-card-checkmark-background-color: background color of the check mark
+   * @prop --ino-card-checkmark-color: check mark color
    */
-  --card-background-color: var(
-    --ino-card-background-color,
-    --ino-global-primary-color,
-    #{theme.color(primary, base)}
+  --card-background-color: var(--ino-card-background-color, #fff);
+  --card-background-color--active: var(--ino-card-background-color--active, #fff);
+  --card-background-color--focus: var(--ino-card-background-color--focus, #fff);
+  --card-background-color--hover: var(--ino-card-background-color--hover, #fff);
+  --card-border-color: var(--ino-card-border-color, #{theme.color(light, base)});
+  --card-border-thickness: var(--ino-card-border-thickness, 1px);
+  --card-checkmark-background-color: var(
+      --ino-card-checkmark-background-color,
+      --ino-global-primary-color,
+      #{theme.color(primary, base)}
   );
-  --card-color: var(--ino-card-color, #fff);
+  --card-checkmark-color: var(--ino-card-checkmark-color, #fff);
 }
 
 ino-card {
@@ -27,7 +37,8 @@ ino-card {
   border-radius: 20px;
 
   .mdc-card {
-    @include card.outline(theme.color(light, base), 1px);
+    @include card.fill-color(var(--card-background-color));
+    @include card.outline(#{var(--card-border-color)}, #{var(--card-border-thickness)});
     box-shadow: none;
     border-radius: inherit;
     height: inherit;
@@ -39,6 +50,18 @@ ino-card {
     &::after {
       content: unset;
     }
+
+    &:active {
+      @include card.fill-color(var(--card-background-color--active));
+    }
+
+    &:focus {
+      @include card.fill-color(var(--card-background-color--focus));
+    }
+
+    &:hover {
+      @include card.fill-color(var(--card-background-color--hover));
+    }
   }
 
   .ino-card--selected.mdc-card {
@@ -49,7 +72,7 @@ ino-card {
   .ino-card__checkmark {
     position: absolute;
     border-radius: 50%;
-    background-color: var(--card-background-color);
+    background-color: var(--card-checkmark-background-color);
     width: 40px;
     height: 40px;
     left: 50%;
@@ -62,7 +85,7 @@ ino-card {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      --color: var(--card-color);
+      --icon-color: var(--card-checkmark-color);
     }
   }
 
