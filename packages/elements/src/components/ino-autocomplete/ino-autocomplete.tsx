@@ -166,14 +166,11 @@ export class Autocomplete implements ComponentInterface {
   // this.menuIsVisible = false
 
   private filterListItems(newVal: string) {
-    // reset selection
-    this.listItemsEl.forEach((item) => (item.selected = false));
-
     const matchingItems = this.listItemsEl.filter((item) =>
-      item.text.includes(newVal)
+      item.text.toLowerCase().includes(newVal.toLowerCase())
     );
     const nonMatchingItems = this.listItemsEl.filter(
-      (item) => !item.text.includes(newVal)
+      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
     );
 
     this.filteredListItems = matchingItems;
