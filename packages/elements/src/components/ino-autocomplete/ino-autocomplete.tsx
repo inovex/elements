@@ -77,22 +77,18 @@ export class Autocomplete implements ComponentInterface {
 
   @Listen('keydown')
   onArrowDownKey(ev: KeyboardEvent) {
-    switch (ev.code) {
-      case 'Enter': {
-        if (this.input.length === 0 || this.selectedItem === NO_ITEM_SELECTED) {
-          this.inputEl.blur();
-        } else {
-          this.input = this.getSelectedItem().text;
-          this.inputEl.querySelector('input').blur();
-        }
-        break;
-      }
-    }
-  }
-
-  onInputKeydown = (ev: KeyboardEvent) => {
-    if (ev.code !== 'ArrowDown' && ev.code !== 'ArrowUp') {
+    if (!['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.code)) {
       return;
+    }
+
+    if (ev.code === 'Enter') {
+      // FIXME: Gleicher String wie ein Item aber nicht selected
+      if (this.input.length === 0 || this.selectedItem === NO_ITEM_SELECTED) {
+        this.inputEl.blur();
+      } else {
+        this.input = this.getSelectedItem().text;
+        this.inputEl.querySelector('input').blur();
+      }
     }
 
     if (this.selectedItem !== NO_ITEM_SELECTED) {
@@ -112,7 +108,7 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.filteredListItems[this.selectedItem].selected = true;
-  };
+  }
 
   setupInput() {
     if (!hasSlotContent(this.el, Slots.INPUT)) {
@@ -126,7 +122,6 @@ export class Autocomplete implements ComponentInterface {
     // Workaround because input does not throw native focus/blur events
     this.inputEl.addEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
-    this.inputEl.addEventListener('keydown', this.onInputKeydown);
   }
 
   setupList() {
@@ -149,12 +144,12 @@ export class Autocomplete implements ComponentInterface {
   }
 
   onInputElFocus = () => {
-    // TODO: check if value is in items
     this.openMenu();
   };
 
   onInputElBlur = () => {
     this.closeMenu();
+
     if (!this.listItemTexts.includes(this.input)) {
       this.input = '';
       return;
@@ -162,8 +157,6 @@ export class Autocomplete implements ComponentInterface {
 
     this.itemSelected.emit(this.input);
   };
-
-  // this.menuIsVisible = false
 
   private filterListItems(newVal: string) {
     const matchingItems = this.listItemsEl.filter((item) =>
