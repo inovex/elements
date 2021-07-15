@@ -2,3 +2,7 @@
 @use '@material/list/mdc-list';
 @use '@material/form-field/mdc-form-field';
 @use '@material/checkbox/mdc-checkbox';
+
+ino-control-item > ino-list-item {
+  border-radius: inherit;
+}
