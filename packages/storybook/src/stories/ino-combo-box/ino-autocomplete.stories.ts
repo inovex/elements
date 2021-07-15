@@ -11,7 +11,7 @@ export default {
   component: 'ino-autocomplete',
   parameters: {
     actions: {
-      handles: ['valueChange'],
+      handles: ['itemSelected'],
     },
   },
   decorators: [

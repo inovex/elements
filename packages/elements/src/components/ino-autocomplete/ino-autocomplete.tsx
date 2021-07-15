@@ -19,6 +19,8 @@ enum Slots {
   LIST = 'list',
 }
 
+const NO_ITEM_SELECTED = -1;
+
 @Component({
   tag: 'ino-autocomplete',
   styleUrl: 'ino-autocomplete.scss',
@@ -31,7 +33,7 @@ export class Autocomplete implements ComponentInterface {
   private listItemsEl: HTMLInoListItemElement[];
   private listItemTexts: string[];
   private container: HTMLDivElement;
-  //private selectedItem?: HTMLInoListItemElement;
+  private selectedItem?: number = NO_ITEM_SELECTED;
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -43,6 +45,7 @@ export class Autocomplete implements ComponentInterface {
     this.filterListItems(newVal);
   }
 
+  // replace with js observer?
   @State() filteredListItems: HTMLInoListItemElement[];
 
   @Watch('filteredListItems')
@@ -56,7 +59,7 @@ export class Autocomplete implements ComponentInterface {
     if (newList.length > 0) {
       // newList[0].tabIndex = 0;
     }
-    this.mdcList.selectedIndex = -1;
+    this.selectedItem = NO_ITEM_SELECTED;
   }
 
   @State() menuIsVisible = false;
@@ -91,17 +94,12 @@ export class Autocomplete implements ComponentInterface {
   @Listen('keydown')
   onArrowDownKey(ev: KeyboardEvent) {
     switch (ev.code) {
-      case 'ArrowDown': {
-        // this.listEl.focus();
-        // this.filteredListItems[0].focus();
-        break;
-      }
       case 'Enter': {
-        if (this.input.length === 0) {
+        if (this.input.length === 0 || this.selectedItem === NO_ITEM_SELECTED) {
           this.inputEl.blur();
         } else {
-          const activeListItem: HTMLInoListItemElement = document.activeElement as HTMLInoListElement;
-          this.input = activeListItem.text;
+          this.input = this.filteredListItems[this.selectedItem].text;
+          this.inputEl.querySelector('input').blur();
         }
         break;
       }
@@ -109,12 +107,38 @@ export class Autocomplete implements ComponentInterface {
   }
 
   onInputKeydown = (ev: KeyboardEvent) => {
-    if (ev.code !== 'ArrowDown') {
+    if (ev.code !== 'ArrowDown' && ev.code !== 'ArrowUp') {
       return;
     }
 
-    // focus first item in list
-    this.mdcList.selectedIndex = 0;
+    console.group('Input key down');
+    console.log('Filter Item: ', this.filteredListItems);
+    console.log('Selected Item index: ', this.selectedItem);
+
+    if (this.selectedItem !== NO_ITEM_SELECTED) {
+      this.filteredListItems[this.selectedItem].selected = false;
+    }
+
+    // TODO: overflow behandeln
+    if (ev.code === 'ArrowDown') {
+      this.selectedItem = Math.min(
+        this.selectedItem + 1,
+        this.filteredListItems.length - 1
+      );
+    }
+
+    if (ev.code === 'ArrowUp') {
+      this.selectedItem = Math.max(this.selectedItem - 1, NO_ITEM_SELECTED);
+    }
+
+    if (this.selectedItem === NO_ITEM_SELECTED) {
+      return;
+    }
+
+    console.log('Selected Item index (after)', this.selectedItem);
+
+    this.filteredListItems[this.selectedItem].selected = true;
+    console.groupEnd();
   };
 
   onListKeydown = (ev: KeyboardEvent) => {
@@ -122,6 +146,7 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
+    /*
     console.group('List Keydown');
 
     const currentIndex: number = Array.isArray(this.mdcList.selectedIndex)
@@ -143,6 +168,7 @@ export class Autocomplete implements ComponentInterface {
     console.log('After index: ', this.mdcList.selectedIndex);
     console.log(this.mdcList.listElements);
     console.groupEnd();
+     */
   };
 
   setupInput() {
@@ -186,7 +212,14 @@ export class Autocomplete implements ComponentInterface {
   };
 
   onInputElBlur = () => {
-    this.inputEl.error = !this.listItemTexts.includes(this.input);
+    this.closeMenu();
+    if (!this.listItemTexts.includes(this.input)) {
+      this.inputEl.error = true;
+      return;
+    }
+
+    this.inputEl.error = false;
+    this.itemSelected.emit(this.input);
   };
 
   // this.menuIsVisible = false
@@ -204,7 +237,6 @@ export class Autocomplete implements ComponentInterface {
 
     this.filteredListItems = matchingItems;
 
-    console.log(this.mdcList);
     matchingItems.forEach(
       (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
     );
