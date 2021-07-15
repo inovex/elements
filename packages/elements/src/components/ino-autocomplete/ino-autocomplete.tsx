@@ -33,6 +33,7 @@ export class Autocomplete implements ComponentInterface {
   private listItemsEl: HTMLInoListItemElement[];
   private listItemTexts: string[];
   private container: HTMLDivElement;
+  private filteredListItems: HTMLInoListItemElement[];
   private selectedItem?: number = NO_ITEM_SELECTED;
 
   @Element() el: HTMLInoAutocompleteElement;
@@ -43,23 +44,6 @@ export class Autocomplete implements ComponentInterface {
   onInputChange(newVal: string) {
     this.inputEl.value = newVal;
     this.filterListItems(newVal);
-  }
-
-  // replace with js observer?
-  @State() filteredListItems: HTMLInoListItemElement[];
-
-  @Watch('filteredListItems')
-  onFilterListChange(
-    newList: HTMLInoListItemElement[],
-    oldList?: HTMLInoListItemElement[]
-  ) {
-    if (oldList?.length > 0) {
-      // oldList[0].tabIndex = -1;
-    }
-    if (newList.length > 0) {
-      // newList[0].tabIndex = 0;
-    }
-    this.selectedItem = NO_ITEM_SELECTED;
   }
 
   @State() menuIsVisible = false;
@@ -98,7 +82,7 @@ export class Autocomplete implements ComponentInterface {
         if (this.input.length === 0 || this.selectedItem === NO_ITEM_SELECTED) {
           this.inputEl.blur();
         } else {
-          this.input = this.filteredListItems[this.selectedItem].text;
+          this.input = this.getSelectedItem().text;
           this.inputEl.querySelector('input').blur();
         }
         break;
@@ -111,64 +95,23 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    console.group('Input key down');
-    console.log('Filter Item: ', this.filteredListItems);
-    console.log('Selected Item index: ', this.selectedItem);
-
     if (this.selectedItem !== NO_ITEM_SELECTED) {
-      this.filteredListItems[this.selectedItem].selected = false;
+      this.getSelectedItem().selected = false;
     }
 
-    // TODO: overflow behandeln
     if (ev.code === 'ArrowDown') {
-      this.selectedItem = Math.min(
-        this.selectedItem + 1,
-        this.filteredListItems.length - 1
-      );
+      const nextIndex = this.selectedItem + 1;
+      this.selectedItem =
+        nextIndex >= this.filteredListItems.length ? 0 : nextIndex;
     }
 
     if (ev.code === 'ArrowUp') {
-      this.selectedItem = Math.max(this.selectedItem - 1, NO_ITEM_SELECTED);
+      const nextIndex = this.selectedItem - 1;
+      this.selectedItem =
+        nextIndex < 0 ? this.filteredListItems.length - 1 : nextIndex;
     }
-
-    if (this.selectedItem === NO_ITEM_SELECTED) {
-      return;
-    }
-
-    console.log('Selected Item index (after)', this.selectedItem);
 
     this.filteredListItems[this.selectedItem].selected = true;
-    console.groupEnd();
-  };
-
-  onListKeydown = (ev: KeyboardEvent) => {
-    if (ev.code !== 'ArrowDown' && ev.code !== 'ArrowUp') {
-      return;
-    }
-
-    /*
-    console.group('List Keydown');
-
-    const currentIndex: number = Array.isArray(this.mdcList.selectedIndex)
-      ? this.mdcList.selectedIndex[0]
-      : this.mdcList.selectedIndex;
-
-    console.log('Current index: ', currentIndex);
-    console.log(this.mdcList.listElements);
-
-    switch (ev.code) {
-      case 'ArrowUp':
-        this.mdcList.selectedIndex = currentIndex - 1;
-        break;
-      case 'ArrowDown':
-        this.mdcList.selectedIndex = currentIndex + 1;
-        break;
-    }
-
-    console.log('After index: ', this.mdcList.selectedIndex);
-    console.log(this.mdcList.listElements);
-    console.groupEnd();
-     */
   };
 
   setupInput() {
@@ -196,7 +139,6 @@ export class Autocomplete implements ComponentInterface {
     this.listEl = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
     this.mdcList = new MDCList(this.listEl);
     this.mdcList.singleSelection = true;
-    this.listEl.addEventListener('keydown', this.onListKeydown);
 
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
@@ -214,11 +156,10 @@ export class Autocomplete implements ComponentInterface {
   onInputElBlur = () => {
     this.closeMenu();
     if (!this.listItemTexts.includes(this.input)) {
-      this.inputEl.error = true;
+      this.input = '';
       return;
     }
 
-    this.inputEl.error = false;
     this.itemSelected.emit(this.input);
   };
 
@@ -236,6 +177,7 @@ export class Autocomplete implements ComponentInterface {
     );
 
     this.filteredListItems = matchingItems;
+    this.selectedItem = NO_ITEM_SELECTED;
 
     matchingItems.forEach(
       (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
@@ -244,6 +186,11 @@ export class Autocomplete implements ComponentInterface {
       (item) => item.remove() // (item.style.display = 'none')
     );
   }
+
+  private getSelectedItem = (): HTMLInoListItemElement | undefined =>
+    this.selectedItem === NO_ITEM_SELECTED
+      ? undefined
+      : this.filteredListItems[this.selectedItem];
 
   private openMenu = () => (this.menuIsVisible = true);
   private closeMenu = () => (this.menuIsVisible = false);
