@@ -1,4 +1,3 @@
-import { MDCList } from '@material/list';
 import {
   Component,
   ComponentInterface,
@@ -28,13 +27,12 @@ const NO_ITEM_SELECTED = -1;
 })
 export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
-  private mdcList: MDCList;
   private listEl: HTMLInoListElement;
   private listItemsEl: HTMLInoListItemElement[];
   private listItemTexts: string[];
-  private container: HTMLDivElement;
+  private menuContainer: HTMLDivElement;
   private filteredListItems: HTMLInoListItemElement[];
-  private selectedItem?: number = NO_ITEM_SELECTED;
+  private _selectedItemIndex?: number = NO_ITEM_SELECTED;
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -56,7 +54,7 @@ export class Autocomplete implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.container.appendChild(this.listEl);
+    this.menuContainer.appendChild(this.listEl);
   }
 
   disconnectedCallback() {
@@ -64,46 +62,58 @@ export class Autocomplete implements ComponentInterface {
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
   }
 
+  // FIXME: debounce einbauen
   @Listen('valueChange')
   onValueChange(ev: CustomEvent<string>) {
     this.input = ev.detail;
   }
 
+  // FIXME: Event only triggering on the second item click
   @Listen('clickEl')
   onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
-    this.input = ev.detail.text;
-    this.closeMenu();
+    this.selectedItemIndex = this.filteredListItems.indexOf(ev.detail);
+    this.onEnterPress();
   }
 
   @Listen('keydown')
   onArrowDownKey(ev: KeyboardEvent) {
-    if (!['Enter', 'ArrowDown', 'ArrowUp'].includes(ev.code)) {
+    if (!this.menuIsVisible) {
       return;
     }
 
-    if (ev.code === 'Enter' && this.isAnyItemSelected()) {
-      this.input = this.getSelectedItem().text;
-      this.inputEl.querySelector('input').blur();
+    switch (ev.code) {
+      case 'Enter':
+        this.onEnterPress();
+        break;
+      case 'ArrowDown':
+        this.onArrowDownPress();
+        break;
+      case 'ArrowUp':
+        this.onArrowUpPress();
+        break;
+    }
+  }
+
+  private onEnterPress() {
+    if (!this.isAnyItemSelected()) {
       return;
     }
 
-    if (this.isAnyItemSelected()) {
-      this.deselectItem();
-    }
+    this.input = this.getSelectedItem().text;
+    this.inputEl.querySelector('input').blur();
+    this.closeMenu();
+  }
 
-    if (ev.code === 'ArrowDown') {
-      const nextIndex = this.selectedItem + 1;
-      this.selectedItem =
-        nextIndex >= this.filteredListItems.length ? 0 : nextIndex;
-      this.selectItem();
-    }
+  private onArrowDownPress() {
+    const nextIndex = this.selectedItemIndex + 1;
+    this.selectedItemIndex =
+      nextIndex >= this.filteredListItems.length ? 0 : nextIndex;
+  }
 
-    if (ev.code === 'ArrowUp') {
-      const nextIndex = this.selectedItem - 1;
-      this.selectedItem =
-        nextIndex < 0 ? this.filteredListItems.length - 1 : nextIndex;
-      this.selectItem();
-    }
+  private onArrowUpPress() {
+    const nextIndex = this.selectedItemIndex - 1;
+    this.selectedItemIndex =
+      nextIndex < 0 ? this.filteredListItems.length - 1 : nextIndex;
   }
 
   setupInput() {
@@ -120,6 +130,7 @@ export class Autocomplete implements ComponentInterface {
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
   }
 
+  // TODO: observe slot and update
   setupList() {
     if (!hasSlotContent(this.el, Slots.LIST)) {
       throw new Error(
@@ -128,8 +139,6 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.listEl = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
-    this.mdcList = new MDCList(this.listEl);
-    this.mdcList.singleSelection = true;
 
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
@@ -140,12 +149,14 @@ export class Autocomplete implements ComponentInterface {
   }
 
   onInputElFocus = () => {
+    if (this.inputEl.disabled) {
+      return;
+    }
+
     this.openMenu();
   };
 
   onInputElBlur = () => {
-    this.closeMenu();
-
     if (!this.listItemTexts.includes(this.input)) {
       this.input = '';
       return;
@@ -155,8 +166,6 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private filterListItems(newVal: string) {
-    this.deselectItem();
-
     const matchingItems = this.listItemsEl.filter((item) =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
     );
@@ -164,8 +173,8 @@ export class Autocomplete implements ComponentInterface {
       (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
     );
 
+    this.selectedItemIndex = NO_ITEM_SELECTED;
     this.filteredListItems = matchingItems;
-    this.selectedItem = NO_ITEM_SELECTED;
 
     matchingItems.forEach(
       (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
@@ -176,30 +185,31 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private isAnyItemSelected = (): boolean =>
-    this.selectedItem !== NO_ITEM_SELECTED;
+    this.selectedItemIndex !== NO_ITEM_SELECTED;
+
+  set selectedItemIndex(index: number) {
+    if (this.isAnyItemSelected()) {
+      this.getSelectedItem().selected = false;
+    }
+
+    this._selectedItemIndex = index;
+
+    if (this.isAnyItemSelected()) {
+      this.getSelectedItem().selected = true;
+    }
+  }
+
+  get selectedItemIndex(): number {
+    return this._selectedItemIndex;
+  }
 
   private getSelectedItem = (): HTMLInoListItemElement | undefined =>
     this.isAnyItemSelected()
-      ? this.filteredListItems[this.selectedItem]
+      ? this.filteredListItems[this.selectedItemIndex]
       : undefined;
 
   private openMenu = () => (this.menuIsVisible = true);
   private closeMenu = () => (this.menuIsVisible = false);
-  private selectItem = (): void => {
-    if (!this.isAnyItemSelected()) {
-      return;
-    }
-
-    this.getSelectedItem().selected = true;
-  };
-
-  private deselectItem = (): void => {
-    if (!this.isAnyItemSelected()) {
-      return;
-    }
-
-    this.getSelectedItem().selected = false;
-  };
 
   render() {
     const menuClasses = classNames({
@@ -211,7 +221,7 @@ export class Autocomplete implements ComponentInterface {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <div class={menuClasses} ref={(el) => (this.container = el)}>
+        <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
           <slot name={Slots.LIST} />
         </div>
       </Host>
