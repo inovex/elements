@@ -81,33 +81,29 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    if (ev.code === 'Enter') {
-      // FIXME: Gleicher String wie ein Item aber nicht selected
-      if (this.input.length === 0 || this.selectedItem === NO_ITEM_SELECTED) {
-        this.inputEl.blur();
-      } else {
-        this.input = this.getSelectedItem().text;
-        this.inputEl.querySelector('input').blur();
-      }
+    if (ev.code === 'Enter' && this.isAnyItemSelected()) {
+      this.input = this.getSelectedItem().text;
+      this.inputEl.querySelector('input').blur();
+      return;
     }
 
-    if (this.selectedItem !== NO_ITEM_SELECTED) {
-      this.getSelectedItem().selected = false;
+    if (this.isAnyItemSelected()) {
+      this.deselectItem();
     }
 
     if (ev.code === 'ArrowDown') {
       const nextIndex = this.selectedItem + 1;
       this.selectedItem =
         nextIndex >= this.filteredListItems.length ? 0 : nextIndex;
+      this.selectItem();
     }
 
     if (ev.code === 'ArrowUp') {
       const nextIndex = this.selectedItem - 1;
       this.selectedItem =
         nextIndex < 0 ? this.filteredListItems.length - 1 : nextIndex;
+      this.selectItem();
     }
-
-    this.filteredListItems[this.selectedItem].selected = true;
   }
 
   setupInput() {
@@ -159,6 +155,8 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private filterListItems(newVal: string) {
+    this.deselectItem();
+
     const matchingItems = this.listItemsEl.filter((item) =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
     );
@@ -177,13 +175,31 @@ export class Autocomplete implements ComponentInterface {
     );
   }
 
+  private isAnyItemSelected = (): boolean =>
+    this.selectedItem !== NO_ITEM_SELECTED;
+
   private getSelectedItem = (): HTMLInoListItemElement | undefined =>
-    this.selectedItem === NO_ITEM_SELECTED
-      ? undefined
-      : this.filteredListItems[this.selectedItem];
+    this.isAnyItemSelected()
+      ? this.filteredListItems[this.selectedItem]
+      : undefined;
 
   private openMenu = () => (this.menuIsVisible = true);
   private closeMenu = () => (this.menuIsVisible = false);
+  private selectItem = (): void => {
+    if (!this.isAnyItemSelected()) {
+      return;
+    }
+
+    this.getSelectedItem().selected = true;
+  };
+
+  private deselectItem = (): void => {
+    if (!this.isAnyItemSelected()) {
+      return;
+    }
+
+    this.getSelectedItem().selected = false;
+  };
 
   render() {
     const menuClasses = classNames({
