@@ -12,6 +12,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import { getSlotContent, hasSlotContent } from '../../util/component-utils';
+import { Debouncer } from '../../util/debouncer';
 
 enum Slots {
   INPUT = 'input',
@@ -33,6 +34,7 @@ export class Autocomplete implements ComponentInterface {
   private menuContainer: HTMLDivElement;
   private filteredListItems: HTMLInoListItemElement[];
   private _selectedItemIndex?: number = NO_ITEM_SELECTED;
+  private debouncer: Debouncer = new Debouncer();
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -41,7 +43,7 @@ export class Autocomplete implements ComponentInterface {
   @Watch('input')
   onInputChange(newVal: string) {
     this.inputEl.value = newVal;
-    this.filterListItems(newVal);
+    this.debouncer.debounce(() => this.filterListItems(newVal), 500);
   }
 
   @State() menuIsVisible = false;
@@ -62,7 +64,6 @@ export class Autocomplete implements ComponentInterface {
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
   }
 
-  // FIXME: debounce einbauen
   @Listen('valueChange')
   onValueChange(ev: CustomEvent<string>) {
     this.input = ev.detail;
@@ -150,9 +151,9 @@ export class Autocomplete implements ComponentInterface {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
-    this.listItemsEl.forEach((listItem) => (listItem.tabIndex = -1));
+    this.listItemsEl.forEach(listItem => (listItem.tabIndex = -1));
     this.filteredListItems = this.listItemsEl;
-    this.listItemTexts = this.listItemsEl.map((item) => item.text);
+    this.listItemTexts = this.listItemsEl.map(item => item.text);
     this.listEl.remove();
   }
 
@@ -188,21 +189,21 @@ export class Autocomplete implements ComponentInterface {
     (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
 
   private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter((item) =>
+    const matchingItems = this.listItemsEl.filter(item =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
     );
     const nonMatchingItems = this.listItemsEl.filter(
-      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
+      item => !item.text.toLowerCase().includes(newVal.toLowerCase())
     );
 
     this.selectedItemIndex = NO_ITEM_SELECTED;
     this.filteredListItems = matchingItems;
 
     matchingItems.forEach(
-      (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
+      item => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
     );
     nonMatchingItems.forEach(
-      (item) => item.remove() // (item.style.display = 'none')
+      item => item.remove() // (item.style.display = 'none')
     );
   }
 
@@ -243,7 +244,7 @@ export class Autocomplete implements ComponentInterface {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
+        <div class={menuClasses} ref={el => (this.menuContainer = el)}>
           <slot name={Slots.LIST} />
         </div>
       </Host>
