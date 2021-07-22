@@ -1,0 +1,17 @@
+ino-autocomplete {
+  .menu {
+    height: max-content;
+    width: max-content;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+  }
+
+  .menu-hidden {
+    display: none;
+  }
+
+  .menu-shown {
+    display: block;
+  }
+}
