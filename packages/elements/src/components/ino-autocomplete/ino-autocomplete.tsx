@@ -169,6 +169,12 @@ export class Autocomplete implements ComponentInterface {
 
     this.inputEl = getSlotContent(this.el, Slots.INPUT) as HTMLInoInputElement;
 
+    if (this.inputEl.value) {
+      console.warn(
+        'The value property of the <ino-input> is managed by the <ino-autocomplete> and therefore should not be set manually.'
+      );
+    }
+
     // Workaround because input does not throw native focus/blur events
     this.inputEl.addEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
