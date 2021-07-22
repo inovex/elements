@@ -15,7 +15,7 @@ export declare interface InoAutocomplete extends Components.InoAutocomplete {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['timeout'],
-  outputs: ['itemSelected']
+  outputs: ['optionSelected']
 })
 export class InoAutocomplete {
   /** Emits in three ways:
@@ -25,12 +25,12 @@ export class InoAutocomplete {
 3. Entering a valid value and blurring the input element
 
 Contains a valid value. */
-  itemSelected!: IAutocomplete['itemSelected'];
+  optionSelected!: IAutocomplete['optionSelected'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['itemSelected']);
+    proxyOutputs(this, this.el, ['optionSelected']);
   }
 }
 

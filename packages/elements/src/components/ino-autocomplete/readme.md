@@ -84,9 +84,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event          | Description                                                                                                                                                                          | Type                  |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `itemSelected` | Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains a valid value. | `CustomEvent<string>` |
+| Event            | Description                                                                                                                                                                          | Type                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
+| `optionSelected` | Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains a valid value. | `CustomEvent<string>` |
 
 
 ## Slots

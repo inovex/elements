@@ -25,7 +25,7 @@
       ],
       "events": [
         {
-          "name": "itemSelected",
+          "name": "optionSelected",
           "description": "Emits in three ways:\n\n1. Clicking on a list item\n2. Pressing `Enter` while a list item is selected\n3. Entering a valid value and blurring the input element\n\nContains a valid value."
         }
       ],

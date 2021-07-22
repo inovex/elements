@@ -73,7 +73,7 @@ export class Autocomplete implements ComponentInterface {
    *
    * Contains a valid value.
    */
-  @Event() itemSelected: EventEmitter<string>;
+  @Event() optionSelected: EventEmitter<string>;
 
   componentWillLoad() {
     this.setupInput();
@@ -137,7 +137,7 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.input = this.getSelectedItem().text;
-    this.itemSelected.emit(this.input);
+    this.optionSelected.emit(this.input);
     this.closeMenu();
   }
 
@@ -222,7 +222,7 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    this.itemSelected.emit(this.input);
+    this.optionSelected.emit(this.input);
   };
 
   private filterListItems(newVal: string) {
