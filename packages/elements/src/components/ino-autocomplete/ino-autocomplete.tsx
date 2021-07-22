@@ -41,7 +41,7 @@ export class Autocomplete implements ComponentInterface {
   private listItemsEl: HTMLInoListItemElement[];
   private listItemTexts: string[];
   private menuContainer: HTMLDivElement;
-  private filteredListItems: HTMLInoListItemElement[];
+  private filteredListItemsEl: HTMLInoListItemElement[];
   private _selectedItemIndex?: number = NO_ITEM_SELECTED;
   private debouncer: Debouncer = new Debouncer();
   private listItemObserver: MutationObserver;
@@ -106,7 +106,7 @@ export class Autocomplete implements ComponentInterface {
 
   @Listen('clickEl')
   onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
-    this.selectedItemIndex = this.filteredListItems.indexOf(ev.detail);
+    this.selectedItemIndex = this.filteredListItemsEl.indexOf(ev.detail);
     this.onItemSelect();
   }
 
@@ -148,7 +148,7 @@ export class Autocomplete implements ComponentInterface {
 
   private onArrowDownPress() {
     const nextIndex = this.selectedItemIndex + 1;
-    const isIndexOutOfBound = nextIndex >= this.filteredListItems.length;
+    const isIndexOutOfBound = nextIndex >= this.filteredListItemsEl.length;
     this.selectedItemIndex = isIndexOutOfBound ? 0 : nextIndex;
   }
 
@@ -156,7 +156,7 @@ export class Autocomplete implements ComponentInterface {
     const nextIndex = this.selectedItemIndex - 1;
     const isIndexOutOfBound = nextIndex < 0;
     this.selectedItemIndex = isIndexOutOfBound
-      ? this.filteredListItems.length - 1
+      ? this.filteredListItemsEl.length - 1
       : nextIndex;
   }
 
@@ -223,7 +223,7 @@ export class Autocomplete implements ComponentInterface {
       // workaround as the above has no effect on the underlying <li> element
       listItem.querySelector('li').tabIndex = -1;
     });
-    this.filteredListItems = this.listItemsEl;
+    this.filteredListItemsEl = this.listItemsEl;
     this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.selectedItemIndex = NO_ITEM_SELECTED;
   };
@@ -244,7 +244,7 @@ export class Autocomplete implements ComponentInterface {
     );
 
     this.selectedItemIndex = NO_ITEM_SELECTED;
-    this.filteredListItems = matchingItems;
+    this.filteredListItemsEl = matchingItems;
 
     matchingItems.forEach((item) => (item.style.display = 'block'));
     nonMatchingItems.forEach((item) => (item.style.display = 'none'));
@@ -280,7 +280,7 @@ export class Autocomplete implements ComponentInterface {
 
   private getSelectedItem = (): HTMLInoListItemElement | undefined =>
     this.isAnyItemSelected()
-      ? this.filteredListItems[this.selectedItemIndex]
+      ? this.filteredListItemsEl[this.selectedItemIndex]
       : undefined;
 
   private openMenu = () => (this.menuIsVisible = true);
