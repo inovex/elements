@@ -40,6 +40,7 @@ export class Autocomplete implements ComponentInterface {
   private filteredListItems: HTMLInoListItemElement[];
   private _selectedItemIndex?: number = NO_ITEM_SELECTED;
   private debouncer: Debouncer = new Debouncer();
+  private listItemObserver: MutationObserver;
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -64,15 +65,18 @@ export class Autocomplete implements ComponentInterface {
   componentWillLoad() {
     this.setupInput();
     this.setupList();
+    this.setupListItems();
   }
 
   componentDidLoad() {
     this.menuContainer.appendChild(this.listEl);
+    this.setupObserver();
   }
 
   disconnectedCallback() {
     this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
+    this.listItemObserver.disconnect();
   }
 
   @Listen('valueChange')
@@ -157,7 +161,6 @@ export class Autocomplete implements ComponentInterface {
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
   }
 
-  // TODO: observe slot and update
   setupList() {
     if (!hasSlotContent(this.el, Slots.LIST)) {
       throw new Error(
@@ -166,14 +169,24 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.listEl = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
+    this.listEl.remove();
+  }
 
+  setupListItems = () => {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
     this.listItemsEl.forEach((listItem) => (listItem.tabIndex = -1));
     this.filteredListItems = this.listItemsEl;
     this.listItemTexts = this.listItemsEl.map((item) => item.text);
-    this.listEl.remove();
+    this.selectedItemIndex = NO_ITEM_SELECTED;
+  };
+
+  setupObserver() {
+    this.listItemObserver = new MutationObserver(this.setupListItems);
+    this.listItemObserver.observe(this.listEl.querySelector('ul'), {
+      childList: true,
+    });
   }
 
   onInputElFocus = () => {
@@ -210,12 +223,8 @@ export class Autocomplete implements ComponentInterface {
     this.selectedItemIndex = NO_ITEM_SELECTED;
     this.filteredListItems = matchingItems;
 
-    matchingItems.forEach(
-      (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
-    );
-    nonMatchingItems.forEach(
-      (item) => item.remove() // (item.style.display = 'none')
-    );
+    matchingItems.forEach((item) => (item.style.display = 'block'));
+    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
   }
 
   private isAnyItemSelected = (): boolean =>
@@ -227,7 +236,8 @@ export class Autocomplete implements ComponentInterface {
    */
   private isListItemClicked = (ev: FocusEvent): boolean =>
     ev.relatedTarget &&
-    (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
+    ((ev.relatedTarget as HTMLElement).matches('.mdc-list-item') ||
+      (ev.relatedTarget as HTMLElement).matches('ino-list-item'));
 
   set selectedItemIndex(index: number) {
     if (this.isAnyItemSelected()) {
