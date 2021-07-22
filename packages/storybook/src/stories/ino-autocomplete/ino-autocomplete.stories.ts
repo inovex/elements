@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { defaultDecorator, showSnackbar } from '../utils';
 
 import './ino-autocomplete.scss';
 
@@ -11,7 +11,7 @@ export default {
   component: 'ino-autocomplete',
   parameters: {
     actions: {
-      handles: ['itemSelected'],
+      handles: ['optionSelected'],
     },
   },
   decorators: [
@@ -19,14 +19,13 @@ export default {
     (story) => {
       useEffect(() => {
         const eventHandler = function (e: any) {
-          console.log(e);
-          // alert(e.detail);
+          showSnackbar(`"${e.detail}" was selected.`);
         };
 
-        document.addEventListener('itemSelected', eventHandler);
+        document.addEventListener('optionSelected', eventHandler);
 
         return () => {
-          document.removeEventListener('itemSelected', eventHandler);
+          document.removeEventListener('optionSelected', eventHandler);
         };
       });
 
@@ -37,7 +36,7 @@ export default {
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">
-    <ino-autocomplete style="margin: 50px">
+    <ino-autocomplete style="margin: 50px" timeout="${args.timeout}">
       <ino-input slot="input" />
       <ino-list slot="list">
         <ino-list-item text="Item A"></ino-list-item>
@@ -45,11 +44,9 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
         <ino-list-item text="Item C"></ino-list-item>
       </ino-list>
     </ino-autocomplete>
-    <ino-input></ino-input>
-    <ino-input></ino-input>
-
-    <ino-input></ino-input>
   </div>
 `;
 
-Playground.args = {};
+Playground.args = {
+  timeout: 300,
+};

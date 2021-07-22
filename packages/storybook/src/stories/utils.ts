@@ -68,3 +68,12 @@ export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 export const defaultDecorator = (story, className?: string) => {
   return html` <div class="${className ?? ''}">${story()}</div> `;
 };
+
+export const showSnackbar = (message: string) => {
+  const snackbar: HTMLInoSnackbarElement = document.createElement(
+    'ino-snackbar'
+  );
+  snackbar.message = message;
+  document.body.appendChild(snackbar);
+  snackbar.addEventListener('hideEl', () => snackbar.remove());
+};
