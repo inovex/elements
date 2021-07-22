@@ -43,11 +43,11 @@ export class Autocomplete implements ComponentInterface {
 
   @Element() el: HTMLInoAutocompleteElement;
 
-  @State()
-  input: string = '';
+  @State() input: string = '';
 
   @Watch('input')
   onInputChange(newVal: string) {
+    this.openMenu();
     this.inputEl.value = newVal;
     this.debouncer.debounce(() => this.filterListItems(newVal), this.timeout);
   }
@@ -59,8 +59,7 @@ export class Autocomplete implements ComponentInterface {
    */
   @Prop() timeout = 300;
 
-  @Event()
-  itemSelected: EventEmitter<string>;
+  @Event() itemSelected: EventEmitter<string>;
 
   componentWillLoad() {
     this.setupInput();
@@ -81,6 +80,13 @@ export class Autocomplete implements ComponentInterface {
     this.input = ev.detail;
   }
 
+  @Listen('click')
+  onInputClick(ev: PointerEvent) {
+    if (ev.target && this.inputEl.contains(ev.target as HTMLElement)) {
+      this.openMenu();
+    }
+  }
+
   @Listen('clickEl')
   onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
     this.selectedItemIndex = this.filteredListItems.indexOf(ev.detail);
@@ -99,16 +105,12 @@ export class Autocomplete implements ComponentInterface {
         break;
       case 'ArrowDown':
         this.onArrowDownPress();
+        ev.preventDefault();
         break;
       case 'ArrowUp':
         this.onArrowUpPress();
+        ev.preventDefault();
         break;
-      default:
-        foundCase = false;
-    }
-
-    if (foundCase) {
-      ev.preventDefault();
     }
   }
 
@@ -129,20 +131,22 @@ export class Autocomplete implements ComponentInterface {
 
   private onArrowDownPress() {
     const nextIndex = this.selectedItemIndex + 1;
-    this.selectedItemIndex =
-      nextIndex >= this.filteredListItems.length ? 0 : nextIndex;
+    const isIndexOutOfBound = nextIndex >= this.filteredListItems.length;
+    this.selectedItemIndex = isIndexOutOfBound ? 0 : nextIndex;
   }
 
   private onArrowUpPress() {
     const nextIndex = this.selectedItemIndex - 1;
-    this.selectedItemIndex =
-      nextIndex < 0 ? this.filteredListItems.length - 1 : nextIndex;
+    const isIndexOutOfBound = nextIndex < 0;
+    this.selectedItemIndex = isIndexOutOfBound
+      ? this.filteredListItems.length - 1
+      : nextIndex;
   }
 
   setupInput() {
     if (!hasSlotContent(this.el, Slots.INPUT)) {
       throw new Error(
-        `The slot "${Slots.INPUT}" is empty. Please provide an input element to that slot.`
+        `The slot "${Slots.INPUT}" is empty. Please provide an ino-input element to that slot.`
       );
     }
 
@@ -157,7 +161,7 @@ export class Autocomplete implements ComponentInterface {
   setupList() {
     if (!hasSlotContent(this.el, Slots.LIST)) {
       throw new Error(
-        `The slot "${Slots.LIST}" is empty. Please provide a list element to that slot.`
+        `The slot "${Slots.LIST}" is empty. Please provide an ino-list element to that slot.`
       );
     }
 
@@ -195,14 +199,6 @@ export class Autocomplete implements ComponentInterface {
     this.itemSelected.emit(this.input);
   };
 
-  /**
-   * Checks if the newly focused element is a list item.
-   * This happen e.g. on a list item click.
-   */
-  private isListItemClicked = (ev: FocusEvent): boolean =>
-    ev.relatedTarget &&
-    (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
-
   private filterListItems(newVal: string) {
     const matchingItems = this.listItemsEl.filter((item) =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
@@ -224,6 +220,14 @@ export class Autocomplete implements ComponentInterface {
 
   private isAnyItemSelected = (): boolean =>
     this.selectedItemIndex !== NO_ITEM_SELECTED;
+
+  /**
+   * Checks if the newly focused element is a list item.
+   * This happen e.g. on a list item click.
+   */
+  private isListItemClicked = (ev: FocusEvent): boolean =>
+    ev.relatedTarget &&
+    (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
 
   set selectedItemIndex(index: number) {
     if (this.isAnyItemSelected()) {
@@ -253,7 +257,7 @@ export class Autocomplete implements ComponentInterface {
     const menuClasses = classNames({
       menu: true,
       'menu-hidden': !this.menuIsVisible,
-      'menu-show': this.menuIsVisible,
+      'menu-shown': this.menuIsVisible,
     });
 
     return (

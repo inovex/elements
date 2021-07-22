@@ -23,10 +23,10 @@ export default {
           // alert(e.detail);
         };
 
-        document.addEventListener('myEv', eventHandler);
+        document.addEventListener('itemSelected', eventHandler);
 
         return () => {
-          document.removeEventListener('myEv', eventHandler);
+          document.removeEventListener('itemSelected', eventHandler);
         };
       });
 
