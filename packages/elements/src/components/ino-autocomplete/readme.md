@@ -84,9 +84,17 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event          | Description | Type                  |
-| -------------- | ----------- | --------------------- |
-| `itemSelected` |             | `CustomEvent<string>` |
+| Event          | Description                                                                                                                                                                          | Type                  |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
+| `itemSelected` | Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains a valid value. | `CustomEvent<string>` |
+
+
+## Slots
+
+| Slot      | Description                                                      |
+| --------- | ---------------------------------------------------------------- |
+| `"input"` | An `ino-input` element that will be controlled by this component |
+| `"list"`  | An `ino-list` element with `ino-list-item` as options            |
 
 
 ----------------------------------------------

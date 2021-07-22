@@ -26,11 +26,20 @@
       "events": [
         {
           "name": "itemSelected",
-          "description": ""
+          "description": "Emits in three ways:\n\n1. Clicking on a list item\n2. Pressing `Enter` while a list item is selected\n3. Entering a valid value and blurring the input element\n\nContains a valid value."
         }
       ],
       "methods": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "input",
+          "description": "An `ino-input` element that will be controlled by this component"
+        },
+        {
+          "name": "list",
+          "description": "An `ino-list` element with `ino-list-item` as options"
+        }
+      ],
       "cssProperties": [],
       "cssParts": []
     },

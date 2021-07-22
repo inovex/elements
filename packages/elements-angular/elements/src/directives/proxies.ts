@@ -18,7 +18,13 @@ export declare interface InoAutocomplete extends Components.InoAutocomplete {}
   outputs: ['itemSelected']
 })
 export class InoAutocomplete {
-  /**  */
+  /** Emits in three ways:
+
+1. Clicking on a list item
+2. Pressing `Enter` while a list item is selected
+3. Entering a valid value and blurring the input element
+
+Contains a valid value. */
   itemSelected!: IAutocomplete['itemSelected'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

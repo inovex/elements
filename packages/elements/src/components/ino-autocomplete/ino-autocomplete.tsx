@@ -26,6 +26,10 @@ enum Slots {
 
 const NO_ITEM_SELECTED = -1;
 
+/**
+ * @slot input - An `ino-input` element that will be controlled by this component
+ * @slot list - An `ino-list` element with `ino-list-item` as options
+ */
 @Component({
   tag: 'ino-autocomplete',
   styleUrl: 'ino-autocomplete.scss',
@@ -60,6 +64,15 @@ export class Autocomplete implements ComponentInterface {
    */
   @Prop() timeout = 300;
 
+  /**
+   * Emits in three ways:
+   *
+   * 1. Clicking on a list item
+   * 2. Pressing `Enter` while a list item is selected
+   * 3. Entering a valid value and blurring the input element
+   *
+   * Contains a valid value.
+   */
   @Event() itemSelected: EventEmitter<string>;
 
   componentWillLoad() {
