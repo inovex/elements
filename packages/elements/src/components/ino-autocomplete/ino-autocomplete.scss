@@ -1,17 +1,21 @@
 ino-autocomplete {
   .menu {
     height: max-content;
-    width: max-content;
+    width: var(--input-width, max-content);
     position: absolute;
     z-index: 10;
     background-color: white;
-  }
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
-  .menu-hidden {
-    display: none;
-  }
+.menu-hidden {
+  display: none;
+}
 
-  .menu-shown {
-    display: block;
-  }
+.menu-shown {
+  display: block;
+}
+
 }
