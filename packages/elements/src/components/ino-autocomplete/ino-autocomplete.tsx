@@ -165,10 +165,11 @@ export class Autocomplete implements ComponentInterface {
   };
 
   onInputElBlur = (event: CustomEvent<FocusEvent>) => {
-    console.log('blur event', event.detail);
     if (this.isListItemClicked(event.detail)) {
       return;
     }
+
+    this.closeMenu();
 
     if (!this.listItemTexts.includes(this.input)) {
       this.input = '';
