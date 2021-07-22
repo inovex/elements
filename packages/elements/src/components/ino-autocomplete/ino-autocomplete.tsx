@@ -12,7 +12,11 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { getSlotContent, hasSlotContent } from '../../util/component-utils';
+import {
+  getSlotContent,
+  hasSlotContent,
+  moveCursorToEnd,
+} from '../../util/component-utils';
 import { Debouncer } from '../../util/debouncer';
 
 enum Slots {
@@ -89,11 +93,9 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    let foundCase = true;
-
     switch (ev.code) {
       case 'Enter':
-        this.onItemSelect();
+        this.onEnterPress();
         break;
       case 'ArrowDown':
         this.onArrowDownPress();
@@ -118,6 +120,11 @@ export class Autocomplete implements ComponentInterface {
     this.input = this.getSelectedItem().text;
     this.itemSelected.emit(this.input);
     this.closeMenu();
+  }
+
+  private onEnterPress() {
+    this.onItemSelect();
+    this.inputEl.getInputElement().then(moveCursorToEnd);
   }
 
   private onArrowDownPress() {

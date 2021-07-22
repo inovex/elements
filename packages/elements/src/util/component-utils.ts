@@ -47,3 +47,12 @@ export function setAttributes<T extends HTMLElement>(
     el.setAttribute(camelToDashCase(key), attributes[key]);
   });
 }
+
+export function moveCursorToEnd(el: HTMLInputElement) {
+  const len = el.value.length;
+
+  if (el.setSelectionRange) {
+    el.focus();
+    el.setSelectionRange(len, len);
+  }
+}
