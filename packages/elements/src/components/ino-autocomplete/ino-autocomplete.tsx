@@ -68,11 +68,10 @@ export class Autocomplete implements ComponentInterface {
     this.input = ev.detail;
   }
 
-  // FIXME: Event only triggering on the second item click
   @Listen('clickEl')
   onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
     this.selectedItemIndex = this.filteredListItems.indexOf(ev.detail);
-    this.onEnterPress();
+    this.onItemSelect();
   }
 
   @Listen('keydown')
@@ -81,9 +80,11 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
+    let foundCase = true;
+
     switch (ev.code) {
       case 'Enter':
-        this.onEnterPress();
+        this.onItemSelect();
         break;
       case 'ArrowDown':
         this.onArrowDownPress();
@@ -91,16 +92,22 @@ export class Autocomplete implements ComponentInterface {
       case 'ArrowUp':
         this.onArrowUpPress();
         break;
+      default:
+        foundCase = false;
+    }
+
+    if (foundCase) {
+      ev.preventDefault();
     }
   }
 
-  private onEnterPress() {
+  private onItemSelect() {
     if (!this.isAnyItemSelected()) {
       return;
     }
 
     this.input = this.getSelectedItem().text;
-    this.inputEl.querySelector('input').blur();
+    this.itemSelected.emit(this.input);
     this.closeMenu();
   }
 
@@ -143,6 +150,7 @@ export class Autocomplete implements ComponentInterface {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
+    this.listItemsEl.forEach((listItem) => (listItem.tabIndex = -1));
     this.filteredListItems = this.listItemsEl;
     this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.listEl.remove();
@@ -156,7 +164,12 @@ export class Autocomplete implements ComponentInterface {
     this.openMenu();
   };
 
-  onInputElBlur = () => {
+  onInputElBlur = (event: CustomEvent<FocusEvent>) => {
+    console.log('blur event', event.detail);
+    if (this.isListItemClicked(event.detail)) {
+      return;
+    }
+
     if (!this.listItemTexts.includes(this.input)) {
       this.input = '';
       return;
@@ -164,6 +177,14 @@ export class Autocomplete implements ComponentInterface {
 
     this.itemSelected.emit(this.input);
   };
+
+  /**
+   * Checks if the newly focused element is a list item.
+   * This happen e.g. on a list item click.
+   */
+  private isListItemClicked = (ev: FocusEvent): boolean =>
+    ev.relatedTarget &&
+    (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
 
   private filterListItems(newVal: string) {
     const matchingItems = this.listItemsEl.filter((item) =>
