@@ -24,7 +24,7 @@ export class InoAutocomplete {
 2. Pressing `Enter` while a list item is selected
 3. Entering a valid value and blurring the input element
 
-Contains a valid value. */
+Contains one of the texts provided by the <ino-list-item>s. */
   optionSelected!: IAutocomplete['optionSelected'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

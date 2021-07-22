@@ -71,17 +71,17 @@ export class Autocomplete implements ComponentInterface {
    * 2. Pressing `Enter` while a list item is selected
    * 3. Entering a valid value and blurring the input element
    *
-   * Contains a valid value.
+   * Contains one of the texts provided by the <ino-list-item>s.
    */
   @Event() optionSelected: EventEmitter<string>;
 
   componentWillLoad() {
     this.setupInput();
     this.setupList();
-    this.setupListItems();
   }
 
   componentDidLoad() {
+    this.setupListItems();
     this.menuContainer.appendChild(this.listEl);
     this.setupObserver();
   }
@@ -160,6 +160,29 @@ export class Autocomplete implements ComponentInterface {
       : nextIndex;
   }
 
+  private onInputElFocus = () => {
+    if (this.inputEl.disabled) {
+      return;
+    }
+
+    this.openMenu();
+  };
+
+  private onInputElBlur = (event: CustomEvent<FocusEvent>) => {
+    if (this.isListItemClicked(event.detail)) {
+      return;
+    }
+
+    this.closeMenu();
+
+    if (!this.listItemTexts.includes(this.input)) {
+      this.input = '';
+      return;
+    }
+
+    this.optionSelected.emit(this.input);
+  };
+
   setupInput() {
     if (!hasSlotContent(this.el, Slots.INPUT)) {
       throw new Error(
@@ -195,7 +218,11 @@ export class Autocomplete implements ComponentInterface {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
-    this.listItemsEl.forEach((listItem) => (listItem.tabIndex = -1));
+    this.listItemsEl.forEach((listItem) => {
+      listItem.tabIndex = -1;
+      // workaround as the above has no effect on the underlying <li> element
+      listItem.querySelector('li').tabIndex = -1;
+    });
     this.filteredListItems = this.listItemsEl;
     this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.selectedItemIndex = NO_ITEM_SELECTED;
@@ -207,29 +234,6 @@ export class Autocomplete implements ComponentInterface {
       childList: true,
     });
   }
-
-  onInputElFocus = () => {
-    if (this.inputEl.disabled) {
-      return;
-    }
-
-    this.openMenu();
-  };
-
-  onInputElBlur = (event: CustomEvent<FocusEvent>) => {
-    if (this.isListItemClicked(event.detail)) {
-      return;
-    }
-
-    this.closeMenu();
-
-    if (!this.listItemTexts.includes(this.input)) {
-      this.input = '';
-      return;
-    }
-
-    this.optionSelected.emit(this.input);
-  };
 
   private filterListItems(newVal: string) {
     const matchingItems = this.listItemsEl.filter((item) =>
