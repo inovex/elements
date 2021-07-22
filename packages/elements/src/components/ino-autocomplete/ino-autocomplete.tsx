@@ -7,6 +7,7 @@ import {
   h,
   Host,
   Listen,
+  Prop,
   State,
   Watch,
 } from '@stencil/core';
@@ -38,17 +39,24 @@ export class Autocomplete implements ComponentInterface {
 
   @Element() el: HTMLInoAutocompleteElement;
 
-  @State() input: string = '';
+  @State()
+  input: string = '';
 
   @Watch('input')
   onInputChange(newVal: string) {
     this.inputEl.value = newVal;
-    this.debouncer.debounce(() => this.filterListItems(newVal), 500);
+    this.debouncer.debounce(() => this.filterListItems(newVal), this.timeout);
   }
 
   @State() menuIsVisible = false;
 
-  @Event() itemSelected: EventEmitter<string>;
+  /**
+   * Timeout of the debouncing mechanism used when filtering the options.
+   */
+  @Prop() timeout = 300;
+
+  @Event()
+  itemSelected: EventEmitter<string>;
 
   componentWillLoad() {
     this.setupInput();
@@ -151,9 +159,9 @@ export class Autocomplete implements ComponentInterface {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
-    this.listItemsEl.forEach(listItem => (listItem.tabIndex = -1));
+    this.listItemsEl.forEach((listItem) => (listItem.tabIndex = -1));
     this.filteredListItems = this.listItemsEl;
-    this.listItemTexts = this.listItemsEl.map(item => item.text);
+    this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.listEl.remove();
   }
 
@@ -189,21 +197,21 @@ export class Autocomplete implements ComponentInterface {
     (ev.relatedTarget as HTMLElement).matches('.mdc-list-item');
 
   private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter(item =>
+    const matchingItems = this.listItemsEl.filter((item) =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
     );
     const nonMatchingItems = this.listItemsEl.filter(
-      item => !item.text.toLowerCase().includes(newVal.toLowerCase())
+      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
     );
 
     this.selectedItemIndex = NO_ITEM_SELECTED;
     this.filteredListItems = matchingItems;
 
     matchingItems.forEach(
-      item => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
+      (item) => this.listEl.firstElementChild?.appendChild(item) //(item.style.display = 'block')
     );
     nonMatchingItems.forEach(
-      item => item.remove() // (item.style.display = 'none')
+      (item) => item.remove() // (item.style.display = 'none')
     );
   }
 
@@ -244,7 +252,7 @@ export class Autocomplete implements ComponentInterface {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <div class={menuClasses} ref={el => (this.menuContainer = el)}>
+        <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
           <slot name={Slots.LIST} />
         </div>
       </Host>

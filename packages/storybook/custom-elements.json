@@ -5,8 +5,24 @@
       "name": "ino-autocomplete",
       "path": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
       "description": "A component that styles a form element as a row with a leading label.",
-      "attributes": [],
-      "properties": [],
+      "attributes": [
+        {
+          "name": "timeout",
+          "type": "number",
+          "description": "Timeout of the debouncing mechanism used when filtering the options.",
+          "defaultValue": "300",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "timeout",
+          "type": "number",
+          "description": "Timeout of the debouncing mechanism used when filtering the options.",
+          "defaultValue": "300",
+          "required": false
+        }
+      ],
       "events": [
         {
           "name": "itemSelected",

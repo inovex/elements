@@ -75,6 +75,13 @@ class MyComponent extends Component {
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property  | Attribute | Description                                                          | Type     | Default |
+| --------- | --------- | -------------------------------------------------------------------- | -------- | ------- |
+| `timeout` | `timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`   |
+
+
 ## Events
 
 | Event          | Description | Type                  |

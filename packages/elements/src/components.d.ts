@@ -10,6 +10,10 @@ import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
     interface InoAutocomplete {
+        /**
+          * Timeout of the debouncing mechanism used when filtering the options.
+         */
+        "timeout": number;
     }
     interface InoButton {
         /**
@@ -1528,6 +1532,10 @@ declare global {
 declare namespace LocalJSX {
     interface InoAutocomplete {
         "onItemSelected"?: (event: CustomEvent<string>) => void;
+        /**
+          * Timeout of the debouncing mechanism used when filtering the options.
+         */
+        "timeout"?: number;
     }
     interface InoButton {
         /**
