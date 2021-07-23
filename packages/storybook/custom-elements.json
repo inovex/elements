@@ -3335,7 +3335,7 @@
         },
         {
           "name": "trigger",
-          "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"manual\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
+          "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers are possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",
           "required": false
@@ -3392,7 +3392,7 @@
         },
         {
           "name": "trigger",
-          "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"manual\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
+          "type": "\"click focus mouseenter\" | \"click focus\" | \"click mouseenter focus\" | \"click mouseenter\" | \"click\" | \"focus click mouseenter\" | \"focus click\" | \"focus mouseenter click\" | \"focus mouseenter\" | \"focus\" | \"mouseenter click focus\" | \"mouseenter click\" | \"mouseenter focus click\" | \"mouseenter focus\" | \"mouseenter\"",
           "description": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers are possible by separating them with a space.",
           "defaultValue": "'mouseenter focus'",
           "required": false

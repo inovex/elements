@@ -91,7 +91,7 @@ export class Popover implements ComponentInterface {
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
    */
-  @Prop() trigger: TooltipTrigger | 'manual' = 'mouseenter focus';
+  @Prop() trigger: Exclude<TooltipTrigger, 'manual'> = 'mouseenter focus';
 
   @Watch('trigger')
   triggerChanged() {

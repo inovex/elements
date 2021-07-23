@@ -819,7 +819,7 @@ export namespace Components {
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "trigger": TooltipTrigger | 'manual';
+        "trigger": Exclude<TooltipTrigger, 'manual'>;
         /**
           * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
          */
@@ -2399,7 +2399,7 @@ declare namespace LocalJSX {
         /**
           * The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.
          */
-        "trigger"?: TooltipTrigger | 'manual';
+        "trigger"?: Exclude<TooltipTrigger, 'manual'>;
         /**
           * Programmatically show or hide the popover. Can only be used in controlled mode (see property `controlled`). Use the `visibleChanged` to sync the popovers' visibility state with yours.
          */
