@@ -54,7 +54,10 @@ export class Autocomplete implements ComponentInterface {
   onInputChange(newVal: string) {
     this.openMenu();
     this.inputEl.value = newVal;
-    this.debouncer.debounce(() => this.filterListItems(newVal), this.timeout);
+    this.debouncer.debounce(
+      () => this.filterListItems(newVal),
+      this.debounceTimeout
+    );
   }
 
   @State() menuIsVisible = false;
@@ -62,7 +65,7 @@ export class Autocomplete implements ComponentInterface {
   /**
    * Timeout of the debouncing mechanism used when filtering the options.
    */
-  @Prop() timeout = 300;
+  @Prop() debounceTimeout = 300;
 
   /**
    * Emits in three ways:

@@ -7,7 +7,7 @@
       "description": "A component that styles a form element as a row with a leading label.",
       "attributes": [
         {
-          "name": "timeout",
+          "name": "debounce-timeout",
           "type": "number",
           "description": "Timeout of the debouncing mechanism used when filtering the options.",
           "defaultValue": "300",
@@ -16,7 +16,7 @@
       ],
       "properties": [
         {
-          "name": "timeout",
+          "name": "debounceTimeout",
           "type": "number",
           "description": "Timeout of the debouncing mechanism used when filtering the options.",
           "defaultValue": "300",

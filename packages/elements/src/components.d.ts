@@ -13,7 +13,7 @@ export namespace Components {
         /**
           * Timeout of the debouncing mechanism used when filtering the options.
          */
-        "timeout": number;
+        "debounceTimeout": number;
     }
     interface InoButton {
         /**
@@ -1532,13 +1532,13 @@ declare global {
 declare namespace LocalJSX {
     interface InoAutocomplete {
         /**
+          * Timeout of the debouncing mechanism used when filtering the options.
+         */
+        "debounceTimeout"?: number;
+        /**
           * Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the <ino-list-item>s.
          */
         "onOptionSelected"?: (event: CustomEvent<string>) => void;
-        /**
-          * Timeout of the debouncing mechanism used when filtering the options.
-         */
-        "timeout"?: number;
     }
     interface InoButton {
         /**

@@ -36,7 +36,10 @@ export default {
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">
-    <ino-autocomplete style="margin: 50px" timeout="${args.timeout}">
+    <ino-autocomplete
+      style="margin: 50px"
+      debounceTimeout="${args.debounceTimeout}"
+    >
       <ino-input slot="input" />
       <ino-list slot="list">
         <ino-list-item text="Item A"></ino-list-item>
@@ -48,5 +51,5 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
 `;
 
 Playground.args = {
-  timeout: 300,
+  debounceTimeout: 300,
 };

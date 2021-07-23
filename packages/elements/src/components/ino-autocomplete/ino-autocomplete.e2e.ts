@@ -8,7 +8,7 @@ const LIST_ITEMS = OPTIONS.map(
 );
 
 const INO_AUTOCOMPLETE = `
-    <ino-autocomplete timeout="0">
+    <ino-autocomplete debounce-timeout="0">
       <ino-input id="my-input" slot="input" />
       <ino-list id="my-list" slot="list">
         ${LIST_ITEMS.join('\n')}

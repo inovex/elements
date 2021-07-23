@@ -8,13 +8,13 @@ import { Components } from '@inovex.de/elements';
 import { Autocomplete as IAutocomplete } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-autocomplete';
 export declare interface InoAutocomplete extends Components.InoAutocomplete {}
 @ProxyCmp({
-  inputs: ['timeout']
+  inputs: ['debounceTimeout']
 })
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['timeout'],
+  inputs: ['debounceTimeout'],
   outputs: ['optionSelected']
 })
 export class InoAutocomplete {
