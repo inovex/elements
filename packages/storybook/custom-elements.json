@@ -4,7 +4,7 @@
     {
       "name": "ino-autocomplete",
       "path": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
-      "description": "A component that styles a form element as a row with a leading label.",
+      "description": "A component that acts similar to the native `datalist` feature of the `<input>` element.\n\nIn contrast to other components, this one is stateful, which means that it contains its own state and is therefore less\nflexible to some extent.\n\nThis component handles the following tasks:\n\n* Management of the `value` property of the `<ino-input>` element\n* management of showing and hiding the different options filtered on the basis of the input\n* Keyboard navigation on the options\n\nThe options are filtered by `.includes(...)`, ignoring upper and lower case.",
       "attributes": [
         {
           "name": "debounce-timeout",
