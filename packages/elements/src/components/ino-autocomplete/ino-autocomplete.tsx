@@ -210,6 +210,8 @@ export class Autocomplete implements ComponentInterface {
     // Workaround because input does not throw native focus/blur events
     this.inputEl.addEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
+
+    // ensure same width as the input
     this.menuContainer.style.setProperty(
       '--input-width',
       window.getComputedStyle(this.inputEl).width
@@ -233,15 +235,15 @@ export class Autocomplete implements ComponentInterface {
     );
 
     // prevent tabbing
-    this.listItemsEl.forEach(listItem => {
-      listItem.componentOnReady().then(hydratedListItem => {
+    this.listItemsEl.forEach((listItem) => {
+      listItem.componentOnReady().then((hydratedListItem) => {
         hydratedListItem.tabIndex = -1;
         // workaround as the above has no effect on the underlying <li> element
         hydratedListItem.querySelector('li').tabIndex = -1;
       });
     });
     this.filteredListItemsEl = this.listItemsEl;
-    this.listItemTexts = this.listItemsEl.map(item => item.text);
+    this.listItemTexts = this.listItemsEl.map((item) => item.text);
     this.selectedItemIndex = NO_ITEM_SELECTED;
   };
 
@@ -253,18 +255,18 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter(item =>
+    const matchingItems = this.listItemsEl.filter((item) =>
       item.text.toLowerCase().includes(newVal.toLowerCase())
     );
     const nonMatchingItems = this.listItemsEl.filter(
-      item => !item.text.toLowerCase().includes(newVal.toLowerCase())
+      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
     );
 
     this.selectedItemIndex = NO_ITEM_SELECTED;
     this.filteredListItemsEl = matchingItems;
 
-    matchingItems.forEach(item => (item.style.display = 'block'));
-    nonMatchingItems.forEach(item => (item.style.display = 'none'));
+    matchingItems.forEach((item) => (item.style.display = 'block'));
+    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
   }
 
   private isAnyItemSelected = (): boolean =>
@@ -313,7 +315,7 @@ export class Autocomplete implements ComponentInterface {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <div class={menuClasses} ref={el => (this.menuContainer = el)}>
+        <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
           <slot name={Slots.LIST} />
         </div>
       </Host>

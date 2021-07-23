@@ -38,7 +38,7 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">
     <ino-autocomplete
       style="margin: 50px"
-      debounceTimeout="${args.debounceTimeout}"
+      debounce-timeout="${args.debounceTimeout}"
     >
       <ino-input slot="input" />
       <ino-list slot="list">
