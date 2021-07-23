@@ -75,15 +75,12 @@ export class Autocomplete implements ComponentInterface {
    */
   @Event() optionSelected: EventEmitter<string>;
 
-  componentWillLoad() {
+  componentDidLoad() {
     this.setupInput();
     this.setupList();
-  }
-
-  componentDidLoad() {
     this.setupListItems();
-    this.menuContainer.appendChild(this.listEl);
     this.setupObserver();
+    this.menuContainer.appendChild(this.listEl);
   }
 
   disconnectedCallback() {
@@ -218,10 +215,14 @@ export class Autocomplete implements ComponentInterface {
     this.listItemsEl = Array.from(
       this.listEl.getElementsByTagName('ino-list-item')
     );
+
+    // prevent tabbing
     this.listItemsEl.forEach((listItem) => {
-      listItem.tabIndex = -1;
-      // workaround as the above has no effect on the underlying <li> element
-      listItem.querySelector('li').tabIndex = -1;
+      listItem.componentOnReady().then((hydratedListItem) => {
+        hydratedListItem.tabIndex = -1;
+        // workaround as the above has no effect on the underlying <li> element
+        hydratedListItem.querySelector('li').tabIndex = -1;
+      });
     });
     this.filteredListItemsEl = this.listItemsEl;
     this.listItemTexts = this.listItemsEl.map((item) => item.text);
