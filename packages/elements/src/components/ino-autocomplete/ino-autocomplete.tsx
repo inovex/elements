@@ -113,18 +113,13 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    switch (ev.code) {
-      case 'Enter':
-        this.onEnterPress();
-        break;
-      case 'ArrowDown':
-        this.onArrowDownPress();
-        ev.preventDefault();
-        break;
-      case 'ArrowUp':
-        this.onArrowUpPress();
-        ev.preventDefault();
-        break;
+    if (ev.code === 'Enter') {
+      this.onEnterPress();
+    }
+
+    if (ev.code === 'ArrowDown' || ev.code === 'ArrowUp') {
+      this.onArrowPress(ev.code);
+      ev.preventDefault();
     }
   }
 
@@ -141,6 +136,20 @@ export class Autocomplete implements ComponentInterface {
   private onEnterPress() {
     this.onItemSelect();
     this.inputEl.getInputElement().then(moveCursorToEnd);
+  }
+
+  private onArrowPress(arrowCode: 'ArrowDown' | 'ArrowUp') {
+    if (this.filteredListItemsEl.length === 0) {
+      this.selectedItemIndex = NO_ITEM_SELECTED;
+      return;
+    }
+
+    if (arrowCode === 'ArrowDown') {
+      this.onArrowDownPress();
+    }
+    if (arrowCode === 'ArrowUp') {
+      this.onArrowUpPress();
+    }
   }
 
   private onArrowDownPress() {
