@@ -16,7 +16,7 @@
         {
           "name": "no-options-text",
           "type": "string",
-          "description": "Text to display when there are no options.",
+          "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
           "required": false
         }
@@ -32,7 +32,7 @@
         {
           "name": "noOptionsText",
           "type": "string",
-          "description": "Text to display when there are no options.",
+          "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
           "required": false
         }
@@ -40,18 +40,18 @@
       "events": [
         {
           "name": "optionSelected",
-          "description": "Emits in three ways:\n\n1. Clicking on a list item\n2. Pressing `Enter` while a list item is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the <ino-list-item>s."
+          "description": "Emits in three ways:\n\n1. Clicking on an option\n2. Pressing `Enter` while an option is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the `<ino-options>`s."
         }
       ],
       "methods": [],
       "slots": [
         {
           "name": "input",
-          "description": "An `ino-input` element that will be controlled by this component"
+          "description": "An `<ino-input>` element that will be controlled by this component"
         },
         {
           "name": "list",
-          "description": "An `ino-list` element with `ino-list-item` as options"
+          "description": "An `<ino-list>` element with `<ino-option>` elements as options"
         }
       ],
       "cssProperties": [],
@@ -3226,7 +3226,12 @@
           "required": true
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "name": "clickEl",
+          "description": ""
+        }
+      ],
       "methods": [],
       "slots": [
         {

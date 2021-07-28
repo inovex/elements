@@ -20,11 +20,11 @@ export declare interface InoAutocomplete extends Components.InoAutocomplete {}
 export class InoAutocomplete {
   /** Emits in three ways:
 
-1. Clicking on a list item
-2. Pressing `Enter` while a list item is selected
+1. Clicking on an option
+2. Pressing `Enter` while an option is selected
 3. Entering a valid value and blurring the input element
 
-Contains one of the texts provided by the <ino-list-item>s. */
+Contains one of the texts provided by the `<ino-options>`s. */
   optionSelected!: IAutocomplete['optionSelected'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
@@ -611,7 +611,7 @@ export class InoNavItem {
   }
 }
 
-
+import { InoOption as IInoOption } from '@inovex.de/elements/dist/types/components/ino-option/ino-option';
 export declare interface InoOption extends Components.InoOption {}
 @ProxyCmp({
   inputs: ['disabled', 'selected', 'value']
@@ -620,13 +620,17 @@ export declare interface InoOption extends Components.InoOption {}
   selector: 'ino-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'selected', 'value']
+  inputs: ['disabled', 'selected', 'value'],
+  outputs: ['clickEl']
 })
 export class InoOption {
+  /**  */
+  clickEl!: IInoOption['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['clickEl']);
   }
 }
 

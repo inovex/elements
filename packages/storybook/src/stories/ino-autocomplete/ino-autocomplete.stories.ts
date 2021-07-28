@@ -43,9 +43,9 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
     >
       <ino-input slot="input" />
       <ino-list slot="list">
-        <ino-list-item text="Item A"></ino-list-item>
-        <ino-list-item text="Item B"></ino-list-item>
-        <ino-list-item text="Item C"></ino-list-item>
+        <ino-option value="value of Option A">Option A</ino-option>
+        <ino-option value="value of Option B">Option B</ino-option>
+        <ino-option value="value of Option C">Option C</ino-option>
       </ino-list>
     </ino-autocomplete>
   </div>

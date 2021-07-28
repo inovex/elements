@@ -24,11 +24,11 @@ enum Slots {
   LIST = 'list',
 }
 
-const NO_ITEM_SELECTED = -1;
+const NO_OPTION_SELECTED = -1;
 
 /**
- * @slot input - An `ino-input` element that will be controlled by this component
- * @slot list - An `ino-list` element with `ino-list-item` as options
+ * @slot input - An `<ino-input>` element that will be controlled by this component
+ * @slot list - An `<ino-list>` element with `<ino-option>` elements as options
  */
 @Component({
   tag: 'ino-autocomplete',
@@ -38,12 +38,12 @@ const NO_ITEM_SELECTED = -1;
 export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
   private listEl: HTMLInoListElement;
-  private listItemsEl: HTMLInoListItemElement[];
-  private listItemTexts: string[];
+  private optionEls: HTMLInoOptionElement[];
+  private optionTexts: string[];
   private menuContainer: HTMLDivElement;
-  private _selectedItemIndex?: number = NO_ITEM_SELECTED;
+  private _selectedOptionIndex?: number = NO_OPTION_SELECTED;
   private debouncer: Debouncer = new Debouncer();
-  private listItemObserver: MutationObserver;
+  private optionsObserver: MutationObserver;
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -54,32 +54,32 @@ export class Autocomplete implements ComponentInterface {
     this.openMenu();
     this.inputEl.value = newVal;
     this.debouncer.debounce(
-      () => this.filterListItems(newVal),
+      () => this.filterOptions(newVal),
       this.debounceTimeout
     );
   }
 
-  private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter((item) =>
-      item.text.toLowerCase().includes(newVal.toLowerCase())
+  private filterOptions(newVal: string) {
+    const matchingOptions = this.optionEls.filter((option) =>
+      option.innerText.toLowerCase().includes(newVal.toLowerCase())
     );
-    const nonMatchingItems = this.listItemsEl.filter(
-      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
+    const nonMatchingOptions = this.optionEls.filter(
+      (option) => !option.innerText.toLowerCase().includes(newVal.toLowerCase())
     );
 
-    this.filteredListItemsEl = matchingItems;
+    this.selectedOptionIndex = NO_OPTION_SELECTED;
+    this.filteredOptionEls = matchingOptions;
 
-    matchingItems.forEach((item) => (item.style.display = 'block'));
-    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
+    matchingOptions.forEach((option) => (option.style.display = 'block'));
+    nonMatchingOptions.forEach((option) => (option.style.display = 'none'));
   }
 
   @State() menuIsVisible = false;
 
-  @State() filteredListItemsEl: HTMLInoListItemElement[];
+  @State() filteredOptionEls: HTMLInoOptionElement[];
 
-  @Watch('filteredListItemsEl')
-  onFilteredListItemsChanged(newVal: HTMLInoListItemElement[]) {
-    this.selectedItemIndex = NO_ITEM_SELECTED;
+  @Watch('filteredOptionEls')
+  onFilteredOptionsChange(newVal: HTMLInoOptionElement[]) {
     this.listEl.style.display = newVal?.length === 0 ? 'none' : 'block';
   }
 
@@ -89,25 +89,28 @@ export class Autocomplete implements ComponentInterface {
   @Prop() debounceTimeout = 300;
 
   /**
-   * Text to display when there are no options.
+   * Text to display when there are no options found.
    */
   @Prop() noOptionsText = 'No Option';
 
   /**
    * Emits in three ways:
    *
-   * 1. Clicking on a list item
-   * 2. Pressing `Enter` while a list item is selected
+   * 1. Clicking on an option
+   * 2. Pressing `Enter` while an option is selected
    * 3. Entering a valid value and blurring the input element
    *
-   * Contains one of the texts provided by the <ino-list-item>s.
+   * Contains one of the texts provided by the `<ino-options>`s.
    */
   @Event() optionSelected: EventEmitter<string>;
+
+  emitValueOfSelectedOption = () =>
+    this.optionSelected.emit(this.getSelectedOption().value);
 
   componentDidLoad() {
     this.setupInput();
     this.setupList();
-    this.setupListItems();
+    this.setupOptions();
     this.setupObserver();
     this.menuContainer.appendChild(this.listEl);
   }
@@ -115,7 +118,7 @@ export class Autocomplete implements ComponentInterface {
   disconnectedCallback() {
     this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
-    this.listItemObserver.disconnect();
+    this.optionsObserver.disconnect();
   }
 
   @Listen('valueChange')
@@ -131,17 +134,17 @@ export class Autocomplete implements ComponentInterface {
   }
 
   @Listen('clickEl')
-  onListItemClick(ev: CustomEvent<HTMLInoListItemElement>) {
-    this.selectedItemIndex = this.filteredListItemsEl.indexOf(ev.detail);
-    this.onItemSelect();
+  onListItemClick(ev: CustomEvent<HTMLInoOptionElement>) {
+    this.selectedOptionIndex = this.filteredOptionEls.indexOf(ev.detail);
+    this.onOptionSelect();
   }
 
   @Listen('keydown')
   onArrowDownKey(ev: KeyboardEvent) {
     if (
       !this.menuIsVisible ||
-      !this.filteredListItemsEl ||
-      this.filteredListItemsEl.length === 0
+      !this.filteredOptionEls ||
+      this.filteredOptionEls.length === 0
     ) {
       return;
     }
@@ -156,24 +159,24 @@ export class Autocomplete implements ComponentInterface {
     }
   }
 
-  private onItemSelect() {
-    if (!this.isAnyItemSelected()) {
+  private onOptionSelect() {
+    if (!this.isAnyOptionSelected()) {
       return;
     }
 
-    this.input = this.getSelectedItem().text;
-    this.optionSelected.emit(this.input);
+    this.input = this.getSelectedOption().innerText;
+    this.emitValueOfSelectedOption();
     this.closeMenu();
   }
 
   private onEnterPress() {
-    this.onItemSelect();
+    this.onOptionSelect();
     this.inputEl.getInputElement().then(moveCursorToEnd);
   }
 
   private onArrowPress(arrowCode: 'ArrowDown' | 'ArrowUp') {
-    if (this.filteredListItemsEl.length === 0) {
-      this.selectedItemIndex = NO_ITEM_SELECTED;
+    if (this.filteredOptionEls.length === 0) {
+      this.selectedOptionIndex = NO_OPTION_SELECTED;
       return;
     }
 
@@ -186,16 +189,16 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private onArrowDownPress() {
-    const nextIndex = this.selectedItemIndex + 1;
-    const isIndexOutOfBound = nextIndex >= this.filteredListItemsEl.length;
-    this.selectedItemIndex = isIndexOutOfBound ? 0 : nextIndex;
+    const nextIndex = this.selectedOptionIndex + 1;
+    const isIndexOutOfBound = nextIndex >= this.filteredOptionEls.length;
+    this.selectedOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
   }
 
   private onArrowUpPress() {
-    const nextIndex = this.selectedItemIndex - 1;
+    const nextIndex = this.selectedOptionIndex - 1;
     const isIndexOutOfBound = nextIndex < 0;
-    this.selectedItemIndex = isIndexOutOfBound
-      ? this.filteredListItemsEl.length - 1
+    this.selectedOptionIndex = isIndexOutOfBound
+      ? this.filteredOptionEls.length - 1
       : nextIndex;
   }
 
@@ -208,18 +211,22 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private onInputElBlur = (event: CustomEvent<FocusEvent>) => {
-    if (this.isListItemClicked(event.detail)) {
+    if (this.isOptionClick(event.detail)) {
       return;
     }
 
     this.closeMenu();
 
-    if (!this.listItemTexts.includes(this.input)) {
+    if (!this.optionTexts.includes(this.input)) {
       this.input = '';
       return;
     }
 
-    this.optionSelected.emit(this.input);
+    this.selectedOptionIndex = this.filteredOptionEls.findIndex(
+      (option) => option.innerText === this.input
+    );
+
+    this.emitValueOfSelectedOption();
   };
 
   setupInput() {
@@ -259,62 +266,52 @@ export class Autocomplete implements ComponentInterface {
     this.listEl.remove();
   }
 
-  setupListItems = () => {
-    this.listItemsEl = Array.from(
-      this.listEl.getElementsByTagName('ino-list-item')
-    );
-
-    // prevent tabbing
-    this.listItemsEl.forEach((listItem) => {
-      listItem.componentOnReady().then((hydratedListItem) => {
-        hydratedListItem.tabIndex = -1;
-        // workaround as the above has no effect on the underlying <li> element
-        hydratedListItem.querySelector('li').tabIndex = -1;
-      });
-    });
-    this.filteredListItemsEl = this.listItemsEl;
-    this.listItemTexts = this.listItemsEl.map((item) => item.text);
-    this.selectedItemIndex = NO_ITEM_SELECTED;
+  setupOptions = () => {
+    this.optionEls = Array.from(this.listEl.getElementsByTagName('ino-option'));
+    this.filteredOptionEls = this.optionEls;
+    this.optionTexts = this.optionEls.map((item) => item.innerText);
+    this.selectedOptionIndex = NO_OPTION_SELECTED;
   };
 
   setupObserver() {
-    this.listItemObserver = new MutationObserver(this.setupListItems);
-    this.listItemObserver.observe(this.listEl.querySelector('ul'), {
+    this.optionsObserver = new MutationObserver(this.setupOptions);
+    this.optionsObserver.observe(this.listEl.querySelector('ul'), {
       childList: true,
     });
   }
 
-  private isAnyItemSelected = (): boolean =>
-    this.selectedItemIndex !== NO_ITEM_SELECTED;
+  private isAnyOptionSelected = (): boolean =>
+    this.selectedOptionIndex !== NO_OPTION_SELECTED &&
+    this.selectedOptionIndex < this.filteredOptionEls.length;
 
   /**
    * Checks if the newly focused element is a list item.
    * This happen e.g. on a list item click.
    */
-  private isListItemClicked = (ev: FocusEvent): boolean =>
+  private isOptionClick = (ev: FocusEvent): boolean =>
     ev.relatedTarget &&
     ((ev.relatedTarget as HTMLElement).matches('.mdc-list-item') ||
-      (ev.relatedTarget as HTMLElement).matches('ino-list-item'));
+      (ev.relatedTarget as HTMLElement).matches('ino-option'));
 
-  set selectedItemIndex(index: number) {
-    if (this.isAnyItemSelected()) {
-      this.getSelectedItem().selected = false;
+  set selectedOptionIndex(index: number) {
+    if (this.isAnyOptionSelected()) {
+      this.getSelectedOption().selected = false;
     }
 
-    this._selectedItemIndex = index;
+    this._selectedOptionIndex = index;
 
-    if (this.isAnyItemSelected()) {
-      this.getSelectedItem().selected = true;
+    if (this.isAnyOptionSelected()) {
+      this.getSelectedOption().selected = true;
     }
   }
 
-  get selectedItemIndex(): number {
-    return this._selectedItemIndex;
+  get selectedOptionIndex(): number {
+    return this._selectedOptionIndex;
   }
 
-  private getSelectedItem = (): HTMLInoListItemElement | undefined =>
-    this.isAnyItemSelected()
-      ? this.filteredListItemsEl[this.selectedItemIndex]
+  private getSelectedOption = (): HTMLInoOptionElement | undefined =>
+    this.isAnyOptionSelected()
+      ? this.filteredOptionEls[this.selectedOptionIndex]
       : undefined;
 
   private openMenu = () => (this.menuIsVisible = true);
@@ -331,7 +328,7 @@ export class Autocomplete implements ComponentInterface {
       <Host>
         <slot name={Slots.INPUT} />
         <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
-          {this.filteredListItemsEl?.length === 0 && (
+          {this.filteredOptionEls?.length === 0 && (
             <p class="no-options-text">{this.noOptionsText}</p>
           )}
           <slot name={Slots.LIST} />

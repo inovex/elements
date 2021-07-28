@@ -19,12 +19,12 @@ The component can be used as follows:
 
 ```html
 
-<ino-autocomplete timeout="<number>">
+<ino-autocomplete timeout="<number>" no-options-text="<string>">
   <ino-input slot="input" .../>
   <ino-list slot="list" ...>
-    <ino-list-item text="Option A"></ino-list-item>
-    <ino-list-item text="Option B"></ino-list-item>
-    <ino-list-item text="Option C"></ino-list-item>
+    <ino-option value="Value of Option A">Option A</ino-option>
+    <ino-option value="Value of Option B">Option B</ino-option>
+    <ino-option value="Value of Option C">Option C</ino-option>
   </ino-list>
 </ino-autocomplete>
 ```
@@ -39,12 +39,12 @@ class MyComponent extends Component {
   render() {
     return (
       <>
-        <InoAutocomplete debounceTimeout="<number>">
+        <InoAutocomplete debounceTimeout={150} noOptionsText={"No option found!"}>
           <InoInput slot="input"/>
           <InoList slot="list">
-            <InoListItem text="Option A"></InoListItem>
-            <InoListItem text="Option B"></InoListItem>
-            <InoListItem text="Option C"></InoListItem>
+            <InoOption value="Value of Option A">Option A</InoOption>
+            <InoOption value="Value of Option B">Option B</InoOption>
+            <InoOption value="Value of Option C">Option C</InoOption>
           </InoList>
         </InoAutocomplete>
       </>
@@ -61,22 +61,22 @@ class MyComponent extends Component {
 | Property          | Attribute          | Description                                                          | Type     | Default       |
 | ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------------- |
 | `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`         |
-| `noOptionsText`   | `no-options-text`  | Text to display when there are no options.                           | `string` | `'No Option'` |
+| `noOptionsText`   | `no-options-text`  | Text to display when there are no options found.                     | `string` | `'No Option'` |
 
 
 ## Events
 
-| Event            | Description                                                                                                                                                                                                              | Type                  |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `optionSelected` | Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the <ino-list-item>s. | `CustomEvent<string>` |
+| Event            | Description                                                                                                                                                                                                          | Type                  |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `optionSelected` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
 
 
 ## Slots
 
-| Slot      | Description                                                      |
-| --------- | ---------------------------------------------------------------- |
-| `"input"` | An `ino-input` element that will be controlled by this component |
-| `"list"`  | An `ino-list` element with `ino-list-item` as options            |
+| Slot      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+| `"input"` | An `<ino-input>` element that will be controlled by this component |
+| `"list"`  | An `<ino-list>` element with `<ino-option>` elements as options    |
 
 
 ----------------------------------------------

@@ -1,4 +1,13 @@
-import { Component, h, Host, Listen, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Prop,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 /**
@@ -10,6 +19,8 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class InoOption {
+  @Element() el: HTMLInoOptionElement;
+
   /**
    * Disables the option
    */
@@ -24,6 +35,15 @@ export class InoOption {
    * Value of the option
    */
   @Prop() value!: string;
+
+  @Event() clickEl: EventEmitter<HTMLInoOptionElement>;
+
+  @Listen('click')
+  clickHandler() {
+    if (!this.disabled) {
+      this.clickEl.emit(this.el);
+    }
+  }
 
   @Listen('keydown')
   keydownHandler(e) {

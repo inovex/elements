@@ -15,7 +15,7 @@ export namespace Components {
          */
         "debounceTimeout": number;
         /**
-          * Text to display when there are no options.
+          * Text to display when there are no options found.
          */
         "noOptionsText": string;
     }
@@ -1540,11 +1540,11 @@ declare namespace LocalJSX {
          */
         "debounceTimeout"?: number;
         /**
-          * Text to display when there are no options.
+          * Text to display when there are no options found.
          */
         "noOptionsText"?: string;
         /**
-          * Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the <ino-list-item>s.
+          * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
          */
         "onOptionSelected"?: (event: CustomEvent<string>) => void;
     }
@@ -2360,6 +2360,7 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
          */
