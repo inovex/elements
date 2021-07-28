@@ -12,6 +12,13 @@
           "description": "Timeout of the debouncing mechanism used when filtering the options.",
           "defaultValue": "300",
           "required": false
+        },
+        {
+          "name": "no-options-text",
+          "type": "string",
+          "description": "Text to display when there are no options.",
+          "defaultValue": "'No Option'",
+          "required": false
         }
       ],
       "properties": [
@@ -20,6 +27,13 @@
           "type": "number",
           "description": "Timeout of the debouncing mechanism used when filtering the options.",
           "defaultValue": "300",
+          "required": false
+        },
+        {
+          "name": "noOptionsText",
+          "type": "string",
+          "description": "Text to display when there are no options.",
+          "defaultValue": "'No Option'",
           "required": false
         }
       ],

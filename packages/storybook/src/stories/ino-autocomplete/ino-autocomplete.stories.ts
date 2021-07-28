@@ -39,6 +39,7 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
     <ino-autocomplete
       style="margin: 50px"
       debounce-timeout="${args.debounceTimeout}"
+      no-options-text="${args.noOptionsText}"
     >
       <ino-input slot="input" />
       <ino-list slot="list">
@@ -52,4 +53,5 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
 
 Playground.args = {
   debounceTimeout: 300,
+  noOptionsText: 'No option found',
 };

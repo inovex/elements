@@ -7,8 +7,10 @@ const LIST_ITEMS = OPTIONS.map(
   (option) => `<ino-list-item text="${option}"></ino-list-item>`
 );
 
+const NO_OPTIONS_TEXT = 'NO_OPTIONS_FOUND';
+
 const INO_AUTOCOMPLETE = `
-    <ino-autocomplete debounce-timeout="0">
+    <ino-autocomplete debounce-timeout="0" no-options-text="${NO_OPTIONS_TEXT}">
       <ino-input id="my-input" slot="input" />
       <ino-list id="my-list" slot="list">
         ${LIST_ITEMS.join('\n')}
@@ -87,6 +89,21 @@ describe('InoAutocomplete', () => {
     await page.waitForChanges();
     const visibleListItems = await findVisibleListItems();
     expect(visibleListItems.length).toBe(LIST_ITEMS.length);
+  });
+
+  it('should show the noOptionText if no options was found', async () => {
+    await openMenu();
+    let noOptionsText = await page.find('p');
+    expect(noOptionsText).toBeFalsy();
+
+    await inputEl.type('no match');
+    await page.waitForChanges();
+
+    const visibleListItems = await findVisibleListItems();
+    expect(visibleListItems.length).toBe(0);
+
+    noOptionsText = await page.find('p');
+    expect(noOptionsText).toEqualText(NO_OPTIONS_TEXT);
   });
 
   it('should show only one input when typing "Item A"', async () => {

@@ -58,9 +58,10 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property          | Attribute          | Description                                                          | Type     | Default |
-| ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------- |
-| `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`   |
+| Property          | Attribute          | Description                                                          | Type     | Default       |
+| ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------------- |
+| `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`         |
+| `noOptionsText`   | `no-options-text`  | Text to display when there are no options.                           | `string` | `'No Option'` |
 
 
 ## Events

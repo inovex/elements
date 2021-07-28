@@ -41,7 +41,6 @@ export class Autocomplete implements ComponentInterface {
   private listItemsEl: HTMLInoListItemElement[];
   private listItemTexts: string[];
   private menuContainer: HTMLDivElement;
-  private filteredListItemsEl: HTMLInoListItemElement[];
   private _selectedItemIndex?: number = NO_ITEM_SELECTED;
   private debouncer: Debouncer = new Debouncer();
   private listItemObserver: MutationObserver;
@@ -60,12 +59,39 @@ export class Autocomplete implements ComponentInterface {
     );
   }
 
+  private filterListItems(newVal: string) {
+    const matchingItems = this.listItemsEl.filter((item) =>
+      item.text.toLowerCase().includes(newVal.toLowerCase())
+    );
+    const nonMatchingItems = this.listItemsEl.filter(
+      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
+    );
+
+    this.filteredListItemsEl = matchingItems;
+
+    matchingItems.forEach((item) => (item.style.display = 'block'));
+    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
+  }
+
   @State() menuIsVisible = false;
+
+  @State() filteredListItemsEl: HTMLInoListItemElement[];
+
+  @Watch('filteredListItemsEl')
+  onFilteredListItemsChanged(newVal: HTMLInoListItemElement[]) {
+    this.selectedItemIndex = NO_ITEM_SELECTED;
+    this.listEl.style.display = newVal?.length === 0 ? 'none' : 'block';
+  }
 
   /**
    * Timeout of the debouncing mechanism used when filtering the options.
    */
   @Prop() debounceTimeout = 300;
+
+  /**
+   * Text to display when there are no options.
+   */
+  @Prop() noOptionsText = 'No Option';
 
   /**
    * Emits in three ways:
@@ -112,7 +138,11 @@ export class Autocomplete implements ComponentInterface {
 
   @Listen('keydown')
   onArrowDownKey(ev: KeyboardEvent) {
-    if (!this.menuIsVisible) {
+    if (
+      !this.menuIsVisible ||
+      !this.filteredListItemsEl ||
+      this.filteredListItemsEl.length === 0
+    ) {
       return;
     }
 
@@ -254,21 +284,6 @@ export class Autocomplete implements ComponentInterface {
     });
   }
 
-  private filterListItems(newVal: string) {
-    const matchingItems = this.listItemsEl.filter((item) =>
-      item.text.toLowerCase().includes(newVal.toLowerCase())
-    );
-    const nonMatchingItems = this.listItemsEl.filter(
-      (item) => !item.text.toLowerCase().includes(newVal.toLowerCase())
-    );
-
-    this.selectedItemIndex = NO_ITEM_SELECTED;
-    this.filteredListItemsEl = matchingItems;
-
-    matchingItems.forEach((item) => (item.style.display = 'block'));
-    nonMatchingItems.forEach((item) => (item.style.display = 'none'));
-  }
-
   private isAnyItemSelected = (): boolean =>
     this.selectedItemIndex !== NO_ITEM_SELECTED;
 
@@ -316,6 +331,9 @@ export class Autocomplete implements ComponentInterface {
       <Host>
         <slot name={Slots.INPUT} />
         <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
+          {this.filteredListItemsEl?.length === 0 && (
+            <p class="no-options-text">{this.noOptionsText}</p>
+          )}
           <slot name={Slots.LIST} />
         </div>
       </Host>

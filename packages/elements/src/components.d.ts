@@ -14,6 +14,10 @@ export namespace Components {
           * Timeout of the debouncing mechanism used when filtering the options.
          */
         "debounceTimeout": number;
+        /**
+          * Text to display when there are no options.
+         */
+        "noOptionsText": string;
     }
     interface InoButton {
         /**
@@ -1535,6 +1539,10 @@ declare namespace LocalJSX {
           * Timeout of the debouncing mechanism used when filtering the options.
          */
         "debounceTimeout"?: number;
+        /**
+          * Text to display when there are no options.
+         */
+        "noOptionsText"?: string;
         /**
           * Emits in three ways:  1. Clicking on a list item 2. Pressing `Enter` while a list item is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the <ino-list-item>s.
          */

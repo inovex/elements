@@ -1,3 +1,5 @@
+@use 'base/theme';
+
 ino-autocomplete {
   .menu {
     height: max-content;
@@ -17,5 +19,11 @@ ino-autocomplete {
 
   .menu-shown {
     display: block;
+  }
+
+  .no-options-text {
+    padding-left: 16px;
+    padding-right: 16px;
+    color: theme.color(light, dark);
   }
 }
