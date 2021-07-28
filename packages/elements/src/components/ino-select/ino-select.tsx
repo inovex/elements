@@ -88,8 +88,6 @@ export class Select implements ComponentInterface {
     disabled: boolean;
   }> = [];
 
-  componentWillLoad() {}
-
   componentDidLoad() {
     this.mdcSelectInstance = new MDCSelect(
       this.el.querySelector('.mdc-select')
@@ -168,7 +166,6 @@ export class Select implements ComponentInterface {
           <div class="mdc-select__anchor">
             <div class="mdc-select__selected-text">{this.value}</div>
             <select
-              style={{ left: '50px', top: '50px' }}
               class="ino-visually-hidden"
               ref={(el) => (this.nativeSelectElement = el)}
               required={this.required}
@@ -197,7 +194,6 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-
           <div
             class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth"
             ref={(el) => {
