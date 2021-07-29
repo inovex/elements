@@ -5,6 +5,35 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@inovex.de/elements';
 
+import { Autocomplete as IAutocomplete } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-autocomplete';
+export declare interface InoAutocomplete extends Components.InoAutocomplete {}
+@ProxyCmp({
+  inputs: ['debounceTimeout', 'noOptionsText']
+})
+@Component({
+  selector: 'ino-autocomplete',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['debounceTimeout', 'noOptionsText'],
+  outputs: ['optionSelected']
+})
+export class InoAutocomplete {
+  /** Emits in three ways:
+
+1. Clicking on an option
+2. Pressing `Enter` while an option is selected
+3. Entering a valid value and blurring the input element
+
+Contains one of the texts provided by the `<ino-options>`s. */
+  optionSelected!: IAutocomplete['optionSelected'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['optionSelected']);
+  }
+}
+
 
 export declare interface InoButton extends Components.InoButton {}
 @ProxyCmp({
@@ -509,7 +538,8 @@ export declare interface InoListItem extends Components.InoListItem {}
   outputs: ['clickEl']
 })
 export class InoListItem {
-  /** Emits when the list item is clicked.
+  /** Emits when the list item is clicked or
+the enter/space key if pressed while the item is in focus.
 Contains the element itself in `event.detail` */
   clickEl!: IListItem['clickEl'];
   protected el: HTMLElement;
@@ -581,7 +611,7 @@ export class InoNavItem {
   }
 }
 
-
+import { InoOption as IInoOption } from '@inovex.de/elements/dist/types/components/ino-option/ino-option';
 export declare interface InoOption extends Components.InoOption {}
 @ProxyCmp({
   inputs: ['disabled', 'selected', 'value']
@@ -590,13 +620,17 @@ export declare interface InoOption extends Components.InoOption {}
   selector: 'ino-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'selected', 'value']
+  inputs: ['disabled', 'selected', 'value'],
+  outputs: ['clickEl']
 })
 export class InoOption {
+  /**  */
+  clickEl!: IInoOption['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['clickEl']);
   }
 }
 

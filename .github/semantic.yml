@@ -13,6 +13,7 @@ types:
   - chore
   - revert
 scopes:
+  - elements|ino-autocomplete
   - elements|ino-button
   - elements|ino-card
   - elements|ino-carousel
@@ -61,6 +62,7 @@ scopes:
   - elements|ino-table-row
   - elements|ino-textarea
   - elements|ino-tooltip
+  - elements-angular|ino-autocomplete
   - elements-angular|ino-button
   - elements-angular|ino-card
   - elements-angular|ino-carousel
@@ -109,6 +111,7 @@ scopes:
   - elements-angular|ino-table-row
   - elements-angular|ino-textarea
   - elements-angular|ino-tooltip
+  - elements-react|ino-autocomplete
   - elements-react|ino-button
   - elements-react|ino-card
   - elements-react|ino-carousel
@@ -157,6 +160,7 @@ scopes:
   - elements-react|ino-table-row
   - elements-react|ino-textarea
   - elements-react|ino-tooltip
+  - storybook|ino-autocomplete
   - storybook|ino-button
   - storybook|ino-card
   - storybook|ino-carousel

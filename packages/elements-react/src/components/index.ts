@@ -14,6 +14,11 @@ addIcons(ICON_PATHS);
 // Export all the elements we have. This is THE react wrapper.
 //
 
+export const InoAutocomplete = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-autocomplete'],
+  HTMLInoAutocompleteElement
+>('ino-autocomplete');
+
 export const InoButton = createReactComponent<
   StencilJSX.IntrinsicElements['ino-button'],
   HTMLInoButtonElement

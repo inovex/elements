@@ -22,6 +22,13 @@ The component can be used as follows:
 | `value` _(required)_ | `value`    | Value of the option | `string`  | `undefined` |
 
 
+## Events
+
+| Event     | Description | Type                                |
+| --------- | ----------- | ----------------------------------- |
+| `clickEl` |             | `CustomEvent<HTMLInoOptionElement>` |
+
+
 ## Slots
 
 | Slot        | Description            |

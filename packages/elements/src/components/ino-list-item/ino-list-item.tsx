@@ -59,10 +59,18 @@ export class ListItem implements ComponentInterface {
   @Prop() disabled?: boolean;
 
   /**
-   * Emits when the list item is clicked.
+   * Emits when the list item is clicked or
+   * the enter/space key if pressed while the item is in focus.
    * Contains the element itself in `event.detail`
    */
   @Event() clickEl!: EventEmitter;
+
+  @Listen('keydown')
+  handleKeyDown(ev: KeyboardEvent) {
+    if (!this.disabled && (ev.code === 'Enter' || ev.code === 'Space')) {
+      this.clickEl.emit(this.el);
+    }
+  }
 
   @Listen('click')
   clickHandler() {

@@ -57,9 +57,9 @@ document
 
 ## Events
 
-| Event     | Description                                                                        | Type               |
-| --------- | ---------------------------------------------------------------------------------- | ------------------ |
-| `clickEl` | Emits when the list item is clicked. Contains the element itself in `event.detail` | `CustomEvent<any>` |
+| Event     | Description                                                                                                                                     | Type               |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `clickEl` | Emits when the list item is clicked or the enter/space key if pressed while the item is in focus. Contains the element itself in `event.detail` | `CustomEvent<any>` |
 
 
 ## Slots

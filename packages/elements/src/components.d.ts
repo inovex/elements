@@ -9,6 +9,16 @@ import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, H
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
+    interface InoAutocomplete {
+        /**
+          * Timeout of the debouncing mechanism used when filtering the options.
+         */
+        "debounceTimeout": number;
+        /**
+          * Text to display when there are no options found.
+         */
+        "noOptionsText": string;
+    }
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -1177,6 +1187,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
+    }
+    var HTMLInoAutocompleteElement: {
+        prototype: HTMLInoAutocompleteElement;
+        new (): HTMLInoAutocompleteElement;
+    };
     interface HTMLInoButtonElement extends Components.InoButton, HTMLStencilElement {
     }
     var HTMLInoButtonElement: {
@@ -1466,6 +1482,7 @@ declare global {
         new (): HTMLInoTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "ino-autocomplete": HTMLInoAutocompleteElement;
         "ino-button": HTMLInoButtonElement;
         "ino-card": HTMLInoCardElement;
         "ino-carousel": HTMLInoCarouselElement;
@@ -1517,6 +1534,20 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface InoAutocomplete {
+        /**
+          * Timeout of the debouncing mechanism used when filtering the options.
+         */
+        "debounceTimeout"?: number;
+        /**
+          * Text to display when there are no options found.
+         */
+        "noOptionsText"?: string;
+        /**
+          * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
+         */
+        "onOptionSelected"?: (event: CustomEvent<string>) => void;
+    }
     interface InoButton {
         /**
           * Sets the autofocus for this element.
@@ -2266,7 +2297,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Emits when the list item is clicked. Contains the element itself in `event.detail`
+          * Emits when the list item is clicked or the enter/space key if pressed while the item is in focus. Contains the element itself in `event.detail`
          */
         "onClickEl"?: (event: CustomEvent<any>) => void;
         /**
@@ -2329,6 +2360,7 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
          */
@@ -2783,6 +2815,7 @@ declare namespace LocalJSX {
         "trigger"?: TooltipTrigger;
     }
     interface IntrinsicElements {
+        "ino-autocomplete": InoAutocomplete;
         "ino-button": InoButton;
         "ino-card": InoCard;
         "ino-carousel": InoCarousel;
@@ -2837,6 +2870,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ino-autocomplete": LocalJSX.InoAutocomplete & JSXBase.HTMLAttributes<HTMLInoAutocompleteElement>;
             "ino-button": LocalJSX.InoButton & JSXBase.HTMLAttributes<HTMLInoButtonElement>;
             "ino-card": LocalJSX.InoCard & JSXBase.HTMLAttributes<HTMLInoCardElement>;
             "ino-carousel": LocalJSX.InoCarousel & JSXBase.HTMLAttributes<HTMLInoCarouselElement>;
