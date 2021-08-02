@@ -13,8 +13,8 @@ describe('ino-carousel', () => {
     const page = await setupPageWithContent(INO_CAROUSEL);
     const carousel = await page.find(CAROUSEL);
 
-    let slide_one = await page.find('#slide1');
-    let slide_two = await page.find('#slide2');
+    const slide_one = await page.find('#slide1');
+    const slide_two = await page.find('#slide2');
 
     expect(slide_one).toHaveClass('ino-carousel-slide--selected');
     expect(slide_two).not.toHaveClass('ino-carousel-slide--selected');

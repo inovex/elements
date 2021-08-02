@@ -179,7 +179,7 @@ describe('InoDatepicker', () => {
 
   describe('Events', () => {
     it('should emit a valueChange event upon changing the input', async () => {
-      let page = await setupPageWithContent(INO_DATEPICKER);
+      const page = await setupPageWithContent(INO_DATEPICKER);
       const input = await page.find(INPUT);
       const valueChangeEvent = await page.spyOnEvent('valueChange');
 
@@ -190,7 +190,7 @@ describe('InoDatepicker', () => {
     });
 
     it('should not emit a valueChange event if datepicker is disabled', async () => {
-      let page = await setupPageWithContent(INO_DATEPICKER);
+      const page = await setupPageWithContent(INO_DATEPICKER);
       const datepicker = await page.find(DATEPICKER);
       const input = await page.find(INPUT);
       const valueChangeEvent = await page.spyOnEvent('valueChange');
