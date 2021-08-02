@@ -35,4 +35,5 @@ module.exports = {
     'react/self-closing-comp': 'off',
     'template-curly-spacing': 'off',
   },
+  ignorePatterns: ['stencil.config.ts'],
 };

@@ -3,8 +3,10 @@
 @use '@material/card';
 @use 'base/theme';
 
-$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3), 0 12px 28px 0 rgba(theme.color(dark), 0.14);
-$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3), 0 16px 32px 0 rgba(theme.color(dark), 0.14);
+$small-shadow: 0 4px 8px 0 rgba(theme.color(dark), 0.3),
+  0 12px 28px 0 rgba(theme.color(dark), 0.14);
+$big-shadow: 0 8px 16px 0 rgba(theme.color(dark), 0.3),
+  0 16px 32px 0 rgba(theme.color(dark), 0.14);
 
 ino-card {
   /**
@@ -18,15 +20,21 @@ ino-card {
    * @prop --ino-card-checkmark-color: check mark color
    */
   --card-background-color: var(--ino-card-background-color, #fff);
-  --card-background-color--active: var(--ino-card-background-color--active, #fff);
+  --card-background-color--active: var(
+    --ino-card-background-color--active,
+    #fff
+  );
   --card-background-color--focus: var(--ino-card-background-color--focus, #fff);
   --card-background-color--hover: var(--ino-card-background-color--hover, #fff);
-  --card-border-color: var(--ino-card-border-color, #{theme.color(light, base)});
+  --card-border-color: var(
+    --ino-card-border-color,
+    #{theme.color(light, base)}
+  );
   --card-border-thickness: var(--ino-card-border-thickness, 1px);
   --card-checkmark-background-color: var(
-      --ino-card-checkmark-background-color,
-      --ino-global-primary-color,
-      #{theme.color(primary, base)}
+    --ino-card-checkmark-background-color,
+    --ino-global-primary-color,
+    #{theme.color(primary, base)}
   );
   --card-checkmark-color: var(--ino-card-checkmark-color, #fff);
 }
@@ -38,7 +46,10 @@ ino-card {
 
   .mdc-card {
     @include card.fill-color(var(--card-background-color));
-    @include card.outline(#{var(--card-border-color)}, #{var(--card-border-thickness)});
+    @include card.outline(
+      #{var(--card-border-color)},
+      #{var(--card-border-thickness)}
+    );
     box-shadow: none;
     border-radius: inherit;
     height: inherit;

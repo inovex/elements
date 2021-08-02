@@ -84,7 +84,7 @@ export class Dialog implements ComponentInterface {
               </div>
             </div>
           </div>
-          <div class="mdc-dialog__scrim"/>
+          <div class="mdc-dialog__scrim" />
         </div>
       </Host>
     );

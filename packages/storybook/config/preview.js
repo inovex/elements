@@ -1,5 +1,8 @@
 // configures the "preview" iframe that renders your components
-import { applyPolyfills, defineCustomElements } from '@inovex.de/elements/dist/loader';
+import {
+  applyPolyfills,
+  defineCustomElements,
+} from '@inovex.de/elements/dist/loader';
 
 // Global sass file
 import './global.scss';
@@ -18,18 +21,24 @@ applyPolyfills().then(() => {
 addParameters({
   viewMode: 'docs',
   controls: {
-    hideNoControlsWarning: true
+    hideNoControlsWarning: true,
   },
   docs: {
-    theme
+    theme,
   },
   options: {
     panelPosition: 'bottom',
     storySort: {
       order: [
         'Docs',
-        ['Welcome', 'Changelog', 'Framework Integration', 'Styleguide', 'Contributing'],
+        [
+          'Welcome',
+          'Changelog',
+          'Framework Integration',
+          'Styleguide',
+          'Contributing',
+        ],
       ],
     },
-  }
+  },
 });

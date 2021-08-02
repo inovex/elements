@@ -1,17 +1,25 @@
 .typo-docs {
-  .p, h1, h2, a, b, em, i, small, abbr {
+  .p,
+  h1,
+  h2,
+  a,
+  b,
+  em,
+  i,
+  small,
+  abbr {
     font-family: 'Lato', Helvetica, Verdana, sans-serif;
   }
 
   .flex-row {
     margin: 20px 0 20px 0;
     border-top: 1px dotted;
-    border-top-color: #4B4C5B;
+    border-top-color: #4b4c5b;
   }
 
   .font {
     font-weight: 400;
-    color: #4B4C5B;
+    color: #4b4c5b;
   }
 
   .font--lato-example {
@@ -23,7 +31,7 @@
   h1 {
     font-weight: 400;
     font-size: 36px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.35px;
     line-height: 36px;
   }
@@ -31,7 +39,7 @@
   h2 {
     font-weight: 500;
     font-size: 28px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.35px;
     line-height: 36px;
   }
@@ -39,14 +47,14 @@
   a {
     font-weight: 400;
     font-size: 16px;
-    color: #3D40F5;
+    color: #3d40f5;
     letter-spacing: 0;
   }
 
   b {
     font-weight: 700;
     text-align: left;
-    color: #4B4C5B;
+    color: #4b4c5b;
     font-size: 16px;
     letter-spacing: 0.25px;
   }
@@ -54,28 +62,28 @@
   em {
     font-weight: 400;
     font-size: 16px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.25px;
   }
 
   i {
     font-weight: 400;
     font-size: 16px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.25px;
   }
 
   small {
     font-weight: 400;
     font-size: 13px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.25px;
   }
 
   abbr {
     font-weight: 400;
     font-size: 16px;
-    color: #4B4C5B;
+    color: #4b4c5b;
     letter-spacing: 0.25px;
   }
 
