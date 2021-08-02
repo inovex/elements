@@ -30,6 +30,8 @@
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@commitlint/config-lerna-scopes": "^8.2.0",
+    "camelcase": "^6.2.0",
+    "chalk": "^4.1.2",
     "husky": "^6.0.0",
     "js-yaml": "^3.14.0",
     "lint-staged": "^10.5.3",
