@@ -115,6 +115,13 @@ ino-select {
     .mdc-floating-label.mdc-floating-label--float-above {
       top: 25px;
     }
+
+    &[class*='--with-leading-icon'] {
+      .mdc-floating-label,
+      .mdc-floating-label--float-above {
+        left: 40px;
+      }
+    }
   }
 
   .mdc-select--outlined {
