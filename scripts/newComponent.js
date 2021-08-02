@@ -32,7 +32,7 @@ if (!CUSTOM_ELEMENTS_JSON) {
 }
 
 function printTask(action, infos) {
-  console.log(chalk.green`{bold ${action} ${infos}.`);
+  console.log(chalk`{green.bold ${action}} ${infos}.`);
 }
 
 function createAndNotify(path) {
