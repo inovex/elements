@@ -5,7 +5,10 @@ const path = require('path');
 const fs = require('fs');
 const camelCase = require('camelcase');
 
-const customElementsJson = require('packages/storybook/custom-elements.json');
+const customElementsJson = require(path.join(
+  __dirname,
+  '../packages/storybook/custom-elements.json'
+));
 const ELEMENTS_COMPONENTS_DIR = path.join(
   __dirname,
   '../packages/elements/src/components'
@@ -53,6 +56,12 @@ const questions = [
 async function main() {
   const { name } = await prompts(questions);
 
+  if (!name.startsWith('ino')) {
+    console.log(chalk.yellow(`Component name should start with "ino-".`));
+    main();
+    return;
+  }
+
   if (customElementsJson.tags.find((component) => component.name === name)) {
     console.log(
       chalk.yellow(
@@ -62,6 +71,8 @@ async function main() {
     main();
     return;
   }
+
+  const newFiles = [];
 
   const componentDir = path.join(ELEMENTS_COMPONENTS_DIR, name);
   const elementsPaths = {
@@ -73,8 +84,10 @@ async function main() {
 
   fs.mkdirSync(componentDir);
   Object.keys(elementsPaths).forEach((path) => {
-    console.log(chalk.green(`Creating ${elementsPaths[path]}`));
-    fs.openSync(elementsPaths[path], 'w');
+    const newFile = elementsPaths[path];
+    console.log(chalk.green(`Creating ${newFile}`));
+    fs.openSync(newFile, 'w');
+    newFiles.push(newFile);
   });
 
   const storybookComponentDir = path.join(STORYBOOK_COMPONENTS_DIR, name);
@@ -86,8 +99,10 @@ async function main() {
 
   fs.mkdirSync(storybookComponentDir);
   Object.keys(storybookPaths).forEach((path) => {
-    console.log(chalk.green(`Creating ${elementsPaths[path]}`));
-    fs.openSync(elementsPaths[path], 'w');
+    const newFile = storybookPaths[path];
+    console.log(chalk.green(`Creating ${newFile}`));
+    fs.openSync(newFile, 'w');
+    newFiles.push(newFile);
   });
 
   console.log(
@@ -103,6 +118,9 @@ async function main() {
   HTML${nameInPascalCase}Element
 >('${name}');`
   );
+
+  console.log(chalk.green(`Adding new files to git ...`));
+  shell.exec(`git add ${newFiles.join(' ')}`);
 }
 
 main();
