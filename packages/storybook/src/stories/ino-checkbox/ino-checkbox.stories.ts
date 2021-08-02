@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { Meta, Story } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
 
 import { defaultDecorator } from '../utils';
 import './ino-checkbox.scss';
@@ -33,7 +33,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoCheckbox> = (args) => html`
   <ino-checkbox
@@ -58,7 +58,7 @@ Playground.args = {
   value: '',
 };
 
-export const Variations = () => html`
+export const Variations = (): TemplateResult => html`
   <div class="story-states">
     <ino-checkbox checked>Checked</ino-checkbox>
     <ino-checkbox>Unchecked</ino-checkbox>
@@ -73,7 +73,7 @@ export const Variations = () => html`
   </div>
 `;
 
-export const Selection = () => html`
+export const Selection = (): TemplateResult => html`
   <div class="story-states">
     <ino-checkbox selection checked>Checked</ino-checkbox>
     <ino-checkbox selection>Unchecked</ino-checkbox>

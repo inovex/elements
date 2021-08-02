@@ -1,26 +1,30 @@
 import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
+import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
 import './ino-progress-bar.scss';
-import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
 
 export default {
   title: 'Notification/ino-progress-bar',
   component: 'ino-progress-bar',
   decorators: [
-    s => defaultDecorator(s, 'story-ino-progress-bar'),
-    story => {
+    (s) => defaultDecorator(s, 'story-ino-progress-bar'),
+    (story) => {
       const clickHandler = (e) => {
         if (e.target.tagName.toLowerCase() === 'ino-button') {
-          const bar = document.querySelector('#example') as HTMLInoProgressBarElement;
+          const bar = document.querySelector(
+            '#example'
+          ) as HTMLInoProgressBarElement;
           bar.progress = 0;
         }
       };
 
-      const changeFileHandler = e => {
-        console.log("changeFileHandler");
-        const bar = document.querySelector('#example') as HTMLInoProgressBarElement;
+      const changeFileHandler = (e) => {
+        console.log('changeFileHandler');
+        const bar = document.querySelector(
+          '#example'
+        ) as HTMLInoProgressBarElement;
         let totalFileSize = 0;
         let loaded = 0;
         const files = e.detail.files;
@@ -30,7 +34,7 @@ export default {
             totalFileSize += files[i].size;
           }
           for (let i = 0; i < files.length; i++) {
-            let reader = new FileReader();
+            const reader = new FileReader();
             reader.onloadend = (e) => {
               loaded += e.total;
             };
@@ -48,13 +52,14 @@ export default {
         return () => {
           document.removeEventListener('click', clickHandler);
           document.removeEventListener('changeFile', changeFileHandler);
-        }
+        };
       });
       return story();
-    }],
+    },
+  ],
 };
 
-export const Playground: Story<Components.InoProgressBar>= (args) => {
+export const Playground: Story<Components.InoProgressBar> = (args) => {
   return html`
     <ino-progress-bar
       buffer="${args.buffer}"
@@ -65,22 +70,22 @@ export const Playground: Story<Components.InoProgressBar>= (args) => {
     >
     </ino-progress-bar>
   `;
-}
+};
 Playground.args = {
   buffer: 0.9,
   progress: 0.4,
   reversed: false,
   indeterminate: false,
   label: 'Progress Bar',
-}
+};
 Playground.argTypes = {
   buffer: {
-    control: { min: 0, max: 1, step: 0.1 }
+    control: { min: 0, max: 1, step: 0.1 },
   },
   progress: {
-    control: { min: 0, max: 1, step: 0.1 }
-  }
-}
+    control: { min: 0, max: 1, step: 0.1 },
+  },
+};
 
 export const Variants = () => html`
   <h5>With buffering dots</h5>
@@ -98,12 +103,7 @@ export const Variants = () => html`
 
 export const UploadExample = () => html`
   <div class="progress-bar-example">
-    <ino-progress-bar
-      id="example"
-      progress="0"
-      buffer="1"
-    >
-    </ino-progress-bar>
+    <ino-progress-bar id="example" progress="0" buffer="1"> </ino-progress-bar>
     <ino-input-file label="Upload" multiple></ino-input-file>
   </div>
 `;

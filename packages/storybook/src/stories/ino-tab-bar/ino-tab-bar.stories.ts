@@ -1,9 +1,9 @@
+import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
+import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
-import { useEffect } from '@storybook/client-api';
 import './ino-tab-bar.scss';
-import { Story } from '@storybook/web-components';
-import { Components } from '@inovex.de/elements';
 
 const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
 

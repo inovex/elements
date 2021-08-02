@@ -1,7 +1,7 @@
+import { Components } from '@inovex.de/elements';
+import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator, withIconControl } from '../utils';
-import { Story } from '@storybook/web-components';
-import { Components } from '@inovex.de/elements';
 
 export default {
   title: `Structure/ino-tab`,
@@ -9,19 +9,20 @@ export default {
   decorators: [defaultDecorator],
 };
 
-export const Playground: Story<Components.InoTab> = args => html`
+export const Playground: Story<Components.InoTab> = (args) => html`
   <ino-tab
     icon="${args.icon}"
     indicator-content-width="${args.indicatorContentWidth}"
     label="${args.label}"
-    stacked="${args.stacked}">
+    stacked="${args.stacked}"
+  >
   </ino-tab>
 `;
 Playground.args = {
   indicatorContentWidth: false,
   label: 'Customizable Tab',
   stacked: false,
-}
+};
 withIconControl(Playground, 'icon', 'info');
 
 export const Variants = () => html`

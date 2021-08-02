@@ -8,18 +8,14 @@ import './ino-segment-button.scss';
 export default {
   title: 'Buttons/ino-segment-button',
   component: 'ino-segment-button',
-  decorators: [story => defaultDecorator(story, 'story-segment-button')],
+  decorators: [(story) => defaultDecorator(story, 'story-segment-button')],
   parameters: {
     actions: {
-      handles: [
-        'checkedChange',
-      ],
+      handles: ['checkedChange'],
     },
   },
 };
-export const Playground: Story<Components.InoSegmentButton> = (
-  args
-) => html`
+export const Playground: Story<Components.InoSegmentButton> = (args) => html`
   <ino-segment-button
     value="1"
     class="customizable-segment-btn"
@@ -37,8 +33,8 @@ Playground.args = {
   dense: false,
   disabled: false,
   name: '',
-  value: ''
-}
+  value: '',
+};
 
 export const EnableUnchecked = () => html`
   <ino-segment-button>Content</ino-segment-button>
@@ -53,7 +49,7 @@ export const Dense = () => html`
   <ino-segment-button dense>Content</ino-segment-button>
 `;
 
-  /*
+/*
   <style>
   ino-segment-button.customizable-segment-btn {
       --ino-segment-button-color: ${text(

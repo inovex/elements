@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 // @ts-ignore
@@ -21,7 +21,7 @@ export default {
     defaultDecorator,
     (story) => {
       useEffect(() => {
-        const eventHandler = function (e: any) {
+        const eventHandler = function (e) {
           if (e.target.tagName.toLowerCase() !== 'ino-icon-button') {
             return;
           }
@@ -45,7 +45,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoCarousel> = (args) => html`
   <h3>Customizable carousel</h3>

@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import * as moment from 'moment';
 import { defaultDecorator } from '../utils';
@@ -30,7 +30,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoDatepicker> = (args) => html`
   <ino-datepicker

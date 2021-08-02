@@ -5,7 +5,7 @@ export default {
   title: 'Input/ino-input-file',
   component: 'ino-input-file',
   decorators: [
-    story => {
+    (story) => {
       useEffect(() => {
         const eventHandler = function (e) {
           const el = e.target;
@@ -23,7 +23,7 @@ export default {
         return () => document.removeEventListener('changeFile', eventHandler);
       });
       return story();
-    }
+    },
   ],
   parameters: {
     actions: {
@@ -58,12 +58,9 @@ Playground.args = {
   labelSelected: 'selected',
   dragAndDrop: false,
   dragAndDropText: 'Drag your files here',
-  dragAndDropSecondaryText: 'or'
+  dragAndDropSecondaryText: 'or',
 };
 
 export const DragAndDrop = () => html`
-  <ino-input-file
-    multiple
-    drag-and-drop
-  ></ino-input-file>
+  <ino-input-file multiple drag-and-drop></ino-input-file>
 `;

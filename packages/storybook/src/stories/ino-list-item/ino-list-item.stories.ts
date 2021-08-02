@@ -1,16 +1,16 @@
+import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
-import { useEffect } from '@storybook/client-api';
 import './ino-list-item.scss';
 
 export default {
   title: 'Structure/ino-list-item',
   component: 'ino-list-item',
   decorators: [
-    story => defaultDecorator(story, 'story-ino-list-item'),
-    story => {
+    (story) => defaultDecorator(story, 'story-ino-list-item'),
+    (story) => {
       useEffect(() => {
-        const eventHandler = e => {
+        const eventHandler = (e) => {
           const el = e.target;
           el.setAttribute('checked', e.detail);
           if (el.getAttribute('indeterminate') === 'true') {
@@ -18,11 +18,16 @@ export default {
           }
         };
         const selections = document.querySelectorAll('ino-checkbox, ino-radio');
-        selections.forEach(s => s.addEventListener('checkedChange', eventHandler));
-        return () => selections.forEach(s => s.removeEventListener('checkedChange', eventHandler));
+        selections.forEach((s) =>
+          s.addEventListener('checkedChange', eventHandler)
+        );
+        return () =>
+          selections.forEach((s) =>
+            s.removeEventListener('checkedChange', eventHandler)
+          );
       });
       return story();
-    }
+    },
   ],
 };
 
@@ -33,7 +38,8 @@ export const Playground = (args) => html`
       selected="${args.selected}"
       activated="${args.activated}"
       disabled="${args.disabled}"
-      text="${args.text}">
+      text="${args.text}"
+    >
     </ino-list-item>
   </ino-list>
 `;
@@ -44,12 +50,12 @@ Playground.args = {
   activated: false,
   disabled: false,
   text: 'List item',
-}
+};
 Playground.argTypes = {
   twoLines: {
-    description: 'Two Lines option of the parent list element'
-  }
-}
+    description: 'Two Lines option of the parent list element',
+  },
+};
 
 const exampleImg = html`
   <ino-img
@@ -142,11 +148,11 @@ export const Radio = () => html`
   <h4>Leading radio button and trailing metadata</h4>
   <ino-list>
     <ino-list-item text="Lorem ipsum dolor sit">
-    <ino-radio slot="leading" name="group-6"></ino-radio>
+      <ino-radio slot="leading" name="group-6"></ino-radio>
       <p slot="trailing">Some Metadata</p>
     </ino-list-item>
     <ino-list-item text="Lorem ipsum dolor sit">
-    <ino-radio slot="leading" name="group-6"></ino-radio>
+      <ino-radio slot="leading" name="group-6"></ino-radio>
       <p slot="trailing">Some Metadata</p>
     </ino-list-item>
   </ino-list>
@@ -174,11 +180,17 @@ export const Slots = () => html`
 
 export const TwoLines = () => html`
   <ino-list two-lines avatar>
-    <ino-list-item text="Lorem ipsum dolor sit" secondary-text="Secondary Lorem ipsum dolor sit">
+    <ino-list-item
+      text="Lorem ipsum dolor sit"
+      secondary-text="Secondary Lorem ipsum dolor sit"
+    >
       ${exampleImg}
       <ino-icon slot="trailing" icon="info"></ino-icon>
     </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit" secondary-text="Secondary Lorem ipsum dolor sit">
+    <ino-list-item
+      text="Lorem ipsum dolor sit"
+      secondary-text="Secondary Lorem ipsum dolor sit"
+    >
       ${exampleImg}
       <ino-icon slot="trailing" icon="info"></ino-icon>
     </ino-list-item>

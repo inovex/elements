@@ -32,7 +32,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "start-storybook -p 6006 -c config -s static,../elements/src/assets --quiet --no-version-updates",
-    "build": "build-storybook -c config -s static,../elements/src/assets -o dist"
+    "build": "build-storybook -c config -s static,../elements/src/assets -o dist",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "files": [
     "dist/"

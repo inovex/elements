@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
-import { html } from 'lit-html';
-import './ino-spinner.scss';
-import { defaultDecorator, withColorScheme } from '../utils';
 import { Story } from '@storybook/web-components';
+import { html } from 'lit-html';
+import { defaultDecorator, withColorScheme } from '../utils';
+import './ino-spinner.scss';
 
 export default {
   title: 'Notification/ino-spinner',

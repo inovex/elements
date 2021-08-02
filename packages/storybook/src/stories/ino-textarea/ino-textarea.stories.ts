@@ -1,8 +1,8 @@
-import { html } from 'lit-html';
-import { useEffect } from '@storybook/client-api';
-import { defaultDecorator } from '../utils';
-import { Story } from '@storybook/web-components';
 import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
+import { Story } from '@storybook/web-components';
+import { html } from 'lit-html';
+import { defaultDecorator } from '../utils';
 import './ino-textarea.scss';
 
 export default {

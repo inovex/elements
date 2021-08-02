@@ -19,9 +19,9 @@ export const Playground = (args) => html`
         Content
       </ino-option>
       <ino-option
-          class="customizable-option"
-          disabled="${args.disabled}"
-          value="${args.value}"
+        class="customizable-option"
+        disabled="${args.disabled}"
+        value="${args.value}"
       >
         Content
       </ino-option>
@@ -31,7 +31,7 @@ export const Playground = (args) => html`
 Playground.args = {
   disabled: false,
   value: 'Content',
-}
+};
 
 export const States = () => html`
   <div class="story-option">

@@ -20,8 +20,8 @@ export const Playground = (args) => html`
 Playground.args = {
   inset: false,
   betweenLists: false,
-  padded: false
-}
+  padded: false,
+};
 
 export const Inset = () => html`
   <ino-list>
