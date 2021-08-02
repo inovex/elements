@@ -1,9 +1,9 @@
-import { StoryContext } from '@storybook/web-components';
+import { Story, StoryContext } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = (story: StoryContext) => {
+export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
   if (!story.args) {
     story.args = {};
   }
@@ -12,8 +12,8 @@ export const maybeCreateStoryArgs = (story: StoryContext) => {
   }
 };
 
-export const withIconControl = (
-  story: StoryContext,
+export const withIconControl = <T>(
+  story: Story<T>,
   propertyName: string,
   defaultValue?: string
 ) => {
@@ -27,8 +27,8 @@ export const withIconControl = (
   };
 };
 
-export const withColorScheme = (
-  story: StoryContext,
+export const withColorScheme = <T>(
+  story: Story<T>,
   propertyName: string,
   defaultValue?: string
 ) => {
