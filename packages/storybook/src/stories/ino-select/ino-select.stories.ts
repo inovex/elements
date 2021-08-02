@@ -1,9 +1,9 @@
 import { Components } from '@inovex.de/elements';
-import { html } from 'lit-html';
 import { useEffect } from '@storybook/client-api';
+import { Story } from '@storybook/web-components';
+import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
 import './ino-select.scss';
-import { Story } from '@storybook/web-components';
 
 export default {
   title: 'Input/ino-select',
@@ -14,16 +14,19 @@ export default {
     },
   },
   decorators: [
-    story => defaultDecorator(story, 'story-select'), 
-    story => {
+    (story) => defaultDecorator(story, 'story-select'),
+    (story) => {
       useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('value', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
         const selects = document.querySelectorAll('ino-select');
-        selects.forEach(s => s.addEventListener('valueChange', eventHandler));
-        return () => selects.forEach(s => s.removeEventListener('valueChange', eventHandler));
+        selects.forEach((s) => s.addEventListener('valueChange', eventHandler));
+        return () =>
+          selects.forEach((s) =>
+            s.removeEventListener('valueChange', eventHandler)
+          );
       });
       return story();
-    }
+    },
   ],
 };
 
@@ -33,7 +36,7 @@ const optionsTemplate = html`
   <ino-option value="Option 3">Option 3</ino-option>
 `;
 
-export const Playground: Story<Components.InoSelect> = args => html`
+export const Playground: Story<Components.InoSelect> = (args) => html`
   <ino-select
     disabled="${args.disabled}"
     name="${args.name}"
@@ -54,7 +57,7 @@ Playground.args = {
   required: false,
   showLabelHint: false,
   value: 'Option 1',
-}
+};
 
 export const NoLabel = () => html`
   <ino-select>
@@ -78,11 +81,22 @@ export const OutlineFloatingLabel = () => html`
 `;
 
 export const WithIcon = () => html`
-  <ino-select label="Select with leading icon">
-    <ino-icon slot="icon-leading" icon="user"></ino-icon>
-    <ino-option value="Selected Option" selected>Selected Option</ino-option>
-    ${optionsTemplate}
-  </ino-select>
+  <div style="height: 400px;">
+    <ino-select label="Select with leading icon">
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+    <ino-select
+      style="margin-top: 150px;"
+      outline
+      label="Select with leading icon"
+    >
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+  </div>
 `;
 
 export const Disabled = () => html`
@@ -90,10 +104,10 @@ export const Disabled = () => html`
     <ino-option value="Selected Option" selected>Selected Option</ino-option>
     ${optionsTemplate}
   </ino-select>
-`; 
+`;
 
 export const DisabledOption = () => html`
-   <ino-select label="Select with disabled option">
+  <ino-select label="Select with disabled option">
     ${optionsTemplate}
     <ino-option value="Disabled Option" disabled>Disabled Option</ino-option>
   </ino-select>

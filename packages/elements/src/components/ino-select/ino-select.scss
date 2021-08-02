@@ -51,25 +51,25 @@ ino-select {
 
   .mdc-select {
     @include select.label-color(
-      (
-        focus: theme.color(primary),
-      )
+        (
+          focus: theme.color(primary),
+        )
     );
     @include select.bottom-line-color(
-      (
-        focus: theme.color(primary),
-      )
+        (
+          focus: theme.color(primary),
+        )
     );
     @include select.outline-color(
-      (
-        focus: theme.color(primary),
-      )
+        (
+          focus: theme.color(primary),
+        )
     );
     @include select.container-fill-color(
-      (
-        default: transparent,
-        disabled: transparent,
-      )
+        (
+          default: transparent,
+          disabled: transparent,
+        )
     );
 
     &--focused .mdc-select__anchor {
@@ -83,6 +83,7 @@ ino-select {
     .mdc-select__icon {
       width: 16px;
       height: 16px;
+
       ino-icon {
         --icon-width: 16px;
         --icon-height: 16px;
@@ -131,6 +132,10 @@ ino-select {
 
     .mdc-floating-label.mdc-floating-label--float-above {
       top: 28px;
+    }
+
+    &[class*='--with-leading-icon'] ino-icon {
+      display: unset; // center icon vertically
     }
   }
 }
