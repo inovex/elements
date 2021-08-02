@@ -45,6 +45,7 @@ export class TabBar implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
+    this.mdcInstance.focusOnActivate = false;
     this.mdcInstance.activateTab(this.activeTab);
   }
 
