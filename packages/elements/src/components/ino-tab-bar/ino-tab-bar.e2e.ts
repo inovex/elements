@@ -19,6 +19,17 @@ describe('InoTabBar', () => {
       const activeTab = await tabBar.getAttribute('active-tab');
       expect(activeTab).toBe('3');
     });
+
+    it('should render with the autofocus property set correctly', async () => {
+      const page = await setupPageWithContent(INO_TAB_BAR);
+      const tabBar = await page.find(TAB_BAR_SELECTOR);
+
+      await tabBar.setAttribute('autoFocus', true);
+      await page.waitForChanges();
+
+      const autofocus = await tabBar.getAttribute('autoFocus');
+      expect(autofocus).toBe('true');
+    });
   });
 
   describe('Events', () => {

@@ -38,6 +38,11 @@ export class TabBar implements ComponentInterface {
   }
 
   /**
+   * Autofocus of tab on activation.
+   */
+  @Prop() autoFocus?: boolean = false;
+
+  /**
    * Emits when a tab changes.
    * Contains the index of the activated tab in `event.detail`
    */
@@ -45,7 +50,7 @@ export class TabBar implements ComponentInterface {
 
   componentDidLoad() {
     this.mdcInstance = new MDCTabBar(this.el.querySelector('.mdc-tab-bar'));
-    this.mdcInstance.focusOnActivate = false;
+    this.mdcInstance.focusOnActivate = this.autoFocus;
     this.mdcInstance.activateTab(this.activeTab);
   }
 

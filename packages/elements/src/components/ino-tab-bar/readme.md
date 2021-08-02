@@ -90,9 +90,10 @@ The tab bar has a controlled (unmanaged) attribute `active-tab`. For this reason
 
 ## Properties
 
-| Property    | Attribute    | Description                                           | Type     | Default |
-| ----------- | ------------ | ----------------------------------------------------- | -------- | ------- |
-| `activeTab` | `active-tab` | Activates the tab at the given index (**unmanaged**). | `number` | `0`     |
+| Property    | Attribute    | Description                                           | Type      | Default |
+| ----------- | ------------ | ----------------------------------------------------- | --------- | ------- |
+| `activeTab` | `active-tab` | Activates the tab at the given index (**unmanaged**). | `number`  | `0`     |
+| `autoFocus` | `auto-focus` | Autofocus of tab on activation.                       | `boolean` | `false` |
 
 
 ## Events
