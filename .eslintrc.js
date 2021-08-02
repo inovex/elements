@@ -9,4 +9,7 @@ module.exports = {
     'prettier/@typescript-eslint',
   ],
   plugins: ['@typescript-eslint'],
+  rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+  },
 };
