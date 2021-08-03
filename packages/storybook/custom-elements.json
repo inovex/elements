@@ -4092,12 +4092,20 @@
         {
           "name": "default",
           "description": "One or more `ino-option(-group)`"
+        },
+        {
+          "name": "icon-leading",
+          "description": "For the icon to be prepended"
         }
       ],
       "cssProperties": [
         {
-          "name": "--select-height",
+          "name": "--ino-select-height",
           "description": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "description": "Icon color"
         }
       ],
       "cssParts": []

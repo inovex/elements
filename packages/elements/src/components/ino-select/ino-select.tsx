@@ -13,8 +13,10 @@ import {
   State,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
+ * @slot icon-leading - For the icon to be prepended
  * @slot default - One or more `ino-option(-group)`
  */
 @Component({
@@ -152,18 +154,27 @@ export class Select implements ComponentInterface {
   );
 
   render() {
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+
     const classSelect = classNames({
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.outline,
       'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
+      'mdc-select--with-leading-icon': leadingSlotHasContent,
     });
 
     return (
       <Host name={this.name}>
         <div class={classSelect}>
           <div class="mdc-select__anchor">
+            {leadingSlotHasContent && (
+              <span class="mdc-select__icon">
+                <slot name="icon-leading"></slot>
+              </span>
+            )}
+
             <div class="mdc-select__selected-text">{this.value}</div>
             <select
               class="ino-visually-hidden"
