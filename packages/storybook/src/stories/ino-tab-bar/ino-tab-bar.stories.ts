@@ -47,12 +47,6 @@ Playground.argTypes = {
     },
     options: [0, 1, 2, 3],
   },
-  autoFocus: {
-    control: {
-      type: 'select',
-    },
-    options: [false, true],
-  }
 };
 
 export const Stacked = () => html`
