@@ -952,13 +952,13 @@ This event is used by the ino-tab-bar. */
 import { TabBar as ITabBar } from '@inovex.de/elements/dist/types/components/ino-tab-bar/ino-tab-bar';
 export declare interface InoTabBar extends Components.InoTabBar {}
 @ProxyCmp({
-  inputs: ['activeTab']
+  inputs: ['activeTab', 'autoFocus']
 })
 @Component({
   selector: 'ino-tab-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeTab'],
+  inputs: ['activeTab', 'autoFocus'],
   outputs: ['activeTabChange']
 })
 export class InoTabBar {

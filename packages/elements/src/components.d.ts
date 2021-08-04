@@ -1078,6 +1078,10 @@ export namespace Components {
           * Activates the tab at the given index (**unmanaged**).
          */
         "activeTab"?: number;
+        /**
+          * Autofocus of tab on activation.
+         */
+        "autoFocus"?: boolean;
     }
     interface InoTable {
     }
@@ -2699,6 +2703,10 @@ declare namespace LocalJSX {
           * Activates the tab at the given index (**unmanaged**).
          */
         "activeTab"?: number;
+        /**
+          * Autofocus of tab on activation.
+         */
+        "autoFocus"?: boolean;
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
