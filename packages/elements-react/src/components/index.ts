@@ -18,7 +18,6 @@ export const InoAutocomplete = createReactComponent<
   StencilJSX.IntrinsicElements['ino-autocomplete'],
   HTMLInoAutocompleteElement
 >('ino-autocomplete');
-
 export const InoButton = createReactComponent<
   StencilJSX.IntrinsicElements['ino-button'],
   HTMLInoButtonElement
@@ -123,10 +122,6 @@ export const InoNavItem = createReactComponent<
   StencilJSX.IntrinsicElements['ino-nav-item'],
   HTMLInoNavItemElement
 >('ino-nav-item');
-export const InoPopover = createReactComponent<
-  StencilJSX.IntrinsicElements['ino-popover'],
-  HTMLInoPopoverElement
->('ino-popover');
 export const InoOption = createReactComponent<
   StencilJSX.IntrinsicElements['ino-option'],
   HTMLInoOptionElement
@@ -135,6 +130,14 @@ export const InoOptionGroup = createReactComponent<
   StencilJSX.IntrinsicElements['ino-option-group'],
   HTMLInoOptionGroupElement
 >('ino-option-group');
+export const InoPopover = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-popover'],
+  HTMLInoPopoverElement
+>('ino-popover');
+export const InoProgressBar = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-progress-bar'],
+  HTMLInoProgressBarElement
+>('ino-progress-bar');
 export const InoRadio = createReactComponent<
   StencilJSX.IntrinsicElements['ino-radio'],
   HTMLInoRadioElement
@@ -147,6 +150,14 @@ export const InoRange = createReactComponent<
   StencilJSX.IntrinsicElements['ino-range'],
   HTMLInoRangeElement
 >('ino-range');
+export const InoSegmentButton = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-segment-button'],
+  HTMLInoSegmentButtonElement
+>('ino-segment-button');
+export const InoSegmentGroup = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-segment-group'],
+  HTMLInoSegmentGroupElement
+>('ino-segment-group');
 export const InoSelect = createReactComponent<
   StencilJSX.IntrinsicElements['ino-select'],
   HTMLInoSelectElement
