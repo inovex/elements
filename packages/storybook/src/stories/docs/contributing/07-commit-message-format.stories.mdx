@@ -6,11 +6,11 @@ import { Meta, Description } from "@storybook/addon-docs";
 
 > We use this format to make the automatic generation of the changelog for all packages easy.
 
-We follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) message pattern that leads to human and machine readable commit messages. They are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits and merge requests:
+We follow the [Conventional Commits Specification](https://www.conventionalcommits.org/en/v1.0.0/) message pattern that leads to human and machine-readable commit messages. They are easy to follow when looking through the project history. Thus, please ensure that you follow the rules for commits and merge requests:
 
 `<type>([<package>]<scope>): <subject>`
 
-> Don't worry, to make it easy for all of us, we added a pre-commit script hook that ensures we only use allowed syntax. So you can only commit a message that follows the above format.
+> Don't worry, to make it easy for all of us, we added an action to our Github Repo which validates the given commit message
 
 ## Type
 
@@ -64,7 +64,7 @@ Here are some of the allowed scopes:
 - `storybook|ino-card`
 - `*`
 
-> You can always check which package/scope combinations are allowed by checking the [commit-scope-enum.js](https://github.com/inovex/elements/blob/master/commit-scope-enum.js) file.
+> You can always check which package/scope combinations are allowed by checking the [scopes in the semantic.yml](https://github.com/inovex/elements/blob/666fd2132f42e91dd0a5b81a37c4d7a0d039a5b5/.github/semantic.yml#L15-L217) file.
 
 ## Subject
 
