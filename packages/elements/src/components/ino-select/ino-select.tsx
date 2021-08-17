@@ -155,13 +155,13 @@ export class Select implements ComponentInterface {
     return (
       <Host name={this.name}>
         <div class={classSelect}>
+          {hiddenInput}
           <div class="mdc-select__anchor">
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
                 <slot name="icon-leading"></slot>
               </span>
             )}
-            {hiddenInput}
             <div class="mdc-select__selected-text">{this.value}</div>
             {this.renderDropdownIcon()}
             <ino-label
