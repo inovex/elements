@@ -2,8 +2,15 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { defaultDecorator, showSnackbar } from '../utils';
 import './ino-select.scss';
+
+const handleFormSubmission = (e) => {
+  e.preventDefault();
+  showSnackbar('Form submitted.');
+};
+
+const handleSelect = (e) => e.target.setAttribute('value', e.detail);
 
 export default {
   title: 'Input/ino-select',
@@ -17,14 +24,18 @@ export default {
     (story) => defaultDecorator(story, 'story-select'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const formElement = document.querySelector('form');
+        formElement?.addEventListener('submit', handleFormSubmission);
+
         const selects = document.querySelectorAll('ino-select');
-        selects.forEach((s) => s.addEventListener('valueChange', eventHandler));
-        return () =>
+        selects.forEach((s) => s.addEventListener('valueChange', handleSelect));
+        return () => {
           selects.forEach((s) =>
-            s.removeEventListener('valueChange', eventHandler)
+            s.removeEventListener('valueChange', handleSelect)
           );
-      });
+          formElement?.removeEventListener('submit', handleFormSubmission);
+        };
+      }, []);
       return story();
     },
   ],
@@ -117,6 +128,14 @@ export const Required = () => html`
   <ino-select required label="Required select" show-label-hint>
     ${optionsTemplate}
   </ino-select>
+`;
+
+export const Form = () => html`
+  <form>
+    <p>Form should not be submittable if no value is selected</p>
+    <ino-select required> ${optionsTemplate}</ino-select>
+    <button disabled type="submit">Submit</button>
+  </form>
 `;
 
 export const Option = () => html`
