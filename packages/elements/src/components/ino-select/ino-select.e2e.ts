@@ -82,7 +82,9 @@ describe('InoSelect', () => {
       `);
 
       const submitEventSpy = await page.spyOnEvent('submit');
-      await page.$eval(`#${formId}`, (form: HTMLFormElement) => form.submit());
+      await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
+        form.requestSubmit()
+      );
       expect(submitEventSpy).not.toHaveReceivedEvent();
     });
   });
