@@ -54,5 +54,36 @@ describe('InoSelect', () => {
 
       expect(valueChangeEvent).toHaveReceivedEvent();
     });
+
+    it('should receive submit event if select is required and value is set', async () => {
+      const formId = 'my-submit-form';
+      page = await setupPageWithContent(`
+        <form id="${formId}">
+           <ino-select required value="1">
+               <ino-option value="1" id="opt1">1</ino-option>
+            </ino-select>
+        </form>
+      `);
+      const submitEventSpy = await page.spyOnEvent('submit');
+      await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
+        form.requestSubmit()
+      );
+      expect(submitEventSpy).toHaveReceivedEvent();
+    });
+
+    it('should not receive submit event if select is required and no value is set', async () => {
+      const formId = 'my-submit-form';
+      page = await setupPageWithContent(`
+        <form id="${formId}">
+           <ino-select required>
+               <ino-option value="1" id="opt1">1</ino-option>
+            </ino-select>
+        </form>
+      `);
+
+      const submitEventSpy = await page.spyOnEvent('submit');
+      await page.$eval(`#${formId}`, (form: HTMLFormElement) => form.submit());
+      expect(submitEventSpy).not.toHaveReceivedEvent();
+    });
   });
 });
