@@ -102,15 +102,17 @@ The component behaves like a native select with additional features. The native 
 
 ## Properties
 
-| Property        | Attribute         | Description                                                                                                | Type      | Default     |
-| --------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`      | `disabled`        | Disables this element.                                                                                     | `boolean` | `undefined` |
-| `label`         | `label`           | The label of this element                                                                                  | `string`  | `undefined` |
-| `name`          | `name`            | The name of this element.                                                                                  | `string`  | `undefined` |
-| `outline`       | `outline`         | Styles this select box as outlined element.                                                                | `boolean` | `undefined` |
-| `required`      | `required`        | Marks this element as required.                                                                            | `boolean` | `undefined` |
-| `showLabelHint` | `show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required | `boolean` | `undefined` |
-| `value`         | `value`           | The value of this element. (**unmanaged**)                                                                 | `string`  | `''`        |
+| Property                        | Attribute                           | Description                                                                                                                                     | Type      | Default     |
+| ------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`                      | `disabled`                          | Disables this element.                                                                                                                          | `boolean` | `undefined` |
+| `error`                         | `error`                             | Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation. | `boolean` | `undefined` |
+| `label`                         | `label`                             | The label of this element.                                                                                                                      | `string`  | `undefined` |
+| `name`                          | `name`                              | The name of this element.                                                                                                                       | `string`  | `undefined` |
+| `outline`                       | `outline`                           | Styles this select box as outlined element.                                                                                                     | `boolean` | `undefined` |
+| `required`                      | `required`                          | Marks this element as required.                                                                                                                 | `boolean` | `undefined` |
+| `showLabelHint`                 | `show-label-hint`                   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.                                     | `boolean` | `undefined` |
+| `slotContentChangeDebounceTime` | `slot-content-change-debounce-time` | Sets debounce time for slotContentChange event.                                                                                                 | `number`  | `300`       |
+| `value`                         | `value`                             | The value of this element. (**unmanaged**)                                                                                                      | `string`  | `''`        |
 
 
 ## Events
@@ -130,10 +132,16 @@ The component behaves like a native select with additional features. The native 
 
 ## CSS Custom Properties
 
-| Name                      | Description                    |
-| ------------------------- | ------------------------------ |
-| `--ino-select-height`     | Height of the open select menu |
-| `--ino-select-icon-color` | Icon color                     |
+| Name                                | Description                                           |
+| ----------------------------------- | ----------------------------------------------------- |
+| `--ino-select-border-color`         | color of the border (bottom-line and outline)         |
+| `--ino-select-border-focused-color` | color of the focused border (bottom-line and outline) |
+| `--ino-select-caret-color`          | color of the caret                                    |
+| `--ino-select-caret-focused-color`  | color of the caret when select is focused             |
+| `--ino-select-fill-color`           | color of the container when outlined                  |
+| `--ino-select-label-color`          | color of the label                                    |
+| `--ino-select-label-floated-color`  | color of the label floated                            |
+| `--ino-select-menu-height`          | height of the menu                                    |
 
 
 ## Dependencies

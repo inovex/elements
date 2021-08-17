@@ -13,18 +13,18 @@ export class InoOptionGroup {
    * Label of the group. If not set, this component serves as a wrapper component for dynamically added `ino-options`.
    * When using react and vue, an issue exists with slots and the virtual DOM. Read more about it [here](https://github.com/ionic-team/stencil/issues/2259).
    */
-  @Prop() label?: string;
+   @Prop() label?: string;
 
-  render() {
-    return (
-      <Host>
-        {this.label && (
-          <ino-option id={'ino-opt-group-header'} value={this.label} disabled>
-            {this.label}
-          </ino-option>
-        )}
-        <slot></slot>
-      </Host>
-    );
-  }
+   render() {
+     return (
+       <Host>
+         {this.label && (
+           <ino-select-option id={'ino-opt-group-header'} value={this.label} disabled >
+             {this.label}
+           </ino-select-option>
+         )}
+         <slot></slot>
+       </Host>
+     );
+   }
 }

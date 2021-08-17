@@ -80,19 +80,6 @@ class MyComponent extends Component {
 | `"default"` | One or more `ino-option` |
 
 
-## Dependencies
-
-### Depends on
-
-- [ino-option](../ino-option)
-
-### Graph
-```mermaid
-graph TD;
-  ino-option-group --> ino-option
-  style ino-option-group fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

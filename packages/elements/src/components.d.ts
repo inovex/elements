@@ -951,7 +951,11 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * The label of this element
+          * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
+        /**
+          * The label of this element.
          */
         "label"?: string;
         /**
@@ -967,9 +971,13 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
          */
         "showLabelHint"?: boolean;
+        /**
+          * Sets debounce time for slotContentChange event.
+         */
+        "slotContentChangeDebounceTime"?: number;
         /**
           * The value of this element. (**unmanaged**)
          */
@@ -2364,7 +2372,10 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
-        "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
+        /**
+          * Slots content has been changed
+         */
+        "onSlotContentChange"?: (event: CustomEvent<MutationRecord[]>) => void;
         /**
           * Selects the option
          */
@@ -2552,7 +2563,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * The label of this element
+          * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
+        /**
+          * The label of this element.
          */
         "label"?: string;
         /**
@@ -2572,9 +2587,13 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+          * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
          */
         "showLabelHint"?: boolean;
+        /**
+          * Sets debounce time for slotContentChange event.
+         */
+        "slotContentChangeDebounceTime"?: number;
         /**
           * The value of this element. (**unmanaged**)
          */

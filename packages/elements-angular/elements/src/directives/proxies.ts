@@ -621,16 +621,16 @@ export declare interface InoOption extends Components.InoOption {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'selected', 'value'],
-  outputs: ['clickEl']
+  outputs: ['slotContentChange']
 })
 export class InoOption {
-  /**  */
-  clickEl!: IInoOption['clickEl'];
+  /** Slots content has been changed */
+  slotContentChange!: IInoOption['slotContentChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['clickEl']);
+    proxyOutputs(this, this.el, ['slotContentChange']);
   }
 }
 
@@ -814,13 +814,13 @@ export class InoSegmentGroup {
 import { Select as ISelect } from '@inovex.de/elements/dist/types/components/ino-select/ino-select';
 export declare interface InoSelect extends Components.InoSelect {}
 @ProxyCmp({
-  inputs: ['disabled', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'slotContentChangeDebounceTime', 'value']
 })
 @Component({
   selector: 'ino-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
+  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'slotContentChangeDebounceTime', 'value'],
   outputs: ['valueChange']
 })
 export class InoSelect {

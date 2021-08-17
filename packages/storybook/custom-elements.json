@@ -3257,8 +3257,8 @@
       ],
       "events": [
         {
-          "name": "clickEl",
-          "description": ""
+          "name": "slotContentChange",
+          "description": "Slots content has been changed"
         }
       ],
       "methods": [],
@@ -3999,9 +3999,15 @@
           "required": false
         },
         {
+          "name": "error",
+          "type": "boolean",
+          "description": "Displays the select as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
-          "description": "The label of this element",
+          "description": "The label of this element.",
           "required": false
         },
         {
@@ -4025,7 +4031,14 @@
         {
           "name": "show-label-hint",
           "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required.",
+          "required": false
+        },
+        {
+          "name": "slot-content-change-debounce-time",
+          "type": "number",
+          "description": "Sets debounce time for slotContentChange event.",
+          "defaultValue": "300",
           "required": false
         },
         {
@@ -4044,9 +4057,15 @@
           "required": false
         },
         {
+          "name": "error",
+          "type": "boolean",
+          "description": "Displays the select as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
-          "description": "The label of this element",
+          "description": "The label of this element.",
           "required": false
         },
         {
@@ -4070,7 +4089,14 @@
         {
           "name": "showLabelHint",
           "type": "boolean",
-          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
+          "description": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required.",
+          "required": false
+        },
+        {
+          "name": "slotContentChangeDebounceTime",
+          "type": "number",
+          "description": "Sets debounce time for slotContentChange event.",
+          "defaultValue": "300",
           "required": false
         },
         {
@@ -4100,12 +4126,36 @@
       ],
       "cssProperties": [
         {
-          "name": "--ino-select-height",
-          "description": "Height of the open select menu"
+          "name": "--ino-select-border-color",
+          "description": "color of the border (bottom-line and outline)"
         },
         {
-          "name": "--ino-select-icon-color",
-          "description": "Icon color"
+          "name": "--ino-select-border-focused-color",
+          "description": "color of the focused border (bottom-line and outline)"
+        },
+        {
+          "name": "--ino-select-caret-color",
+          "description": "color of the caret"
+        },
+        {
+          "name": "--ino-select-caret-focused-color",
+          "description": "color of the caret when select is focused"
+        },
+        {
+          "name": "--ino-select-fill-color",
+          "description": "color of the container when outlined"
+        },
+        {
+          "name": "--ino-select-label-color",
+          "description": "color of the label"
+        },
+        {
+          "name": "--ino-select-label-floated-color",
+          "description": "color of the label floated"
+        },
+        {
+          "name": "--ino-select-menu-height",
+          "description": "height of the menu"
         }
       ],
       "cssParts": []

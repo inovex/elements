@@ -3,38 +3,45 @@
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
+@use "@material/floating-label/mixins" as floating-label-mixins;
 @use '@material/select';
 @use 'base/theme';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
-$placeholder-color: rgba(0, 0, 0, 0.6);
-
-@mixin setIconColors($color) {
-  .mdc-select__icon {
-    ino-icon {
-      --icon-color: #{$color};
-    }
-  }
-}
 
 ino-select {
   /**
-  * @prop --ino-select-height: Height of the open select menu
-  * @prop --ino-select-icon-color: Icon color
-  */
-  --select-height: auto;
-  --select-icon-color: var(--ino-select-icon-color, #{theme.color(primary)});
+   * @prop --ino-select-label-color: color of the label
+   * @prop --ino-select-label-floated-color: color of the label floated
+   * @prop --ino-select-caret-color: color of the caret
+   * @prop --ino-select-caret-focused-color: color of the caret when select is focused
+   * @prop --ino-select-border-color: color of the border (bottom-line and outline)
+   * @prop --ino-select-border-focused-color: color of the focused border (bottom-line and outline)
+   * @prop --ino-select-fill-color: color of the container when outlined
+   * @prop --ino-select-menu-height: height of the menu
+   */
+
+  $select-label-color: var(--ino-select-label-color, rgba(0, 0, 0, 0.6));
+  $select-label-floated-color: var(--ino-select-floated-label-color, #{theme.color(primary)});
+
+  $select-caret-color: var(--ino-select-caret-color, rgba(0, 0, 0, 0.54));
+  $select-caret-focused-color: var(--ino-select-caret-focused-color, rgba(0, 0, 0, 0.54));
+  $select-border-color: var(--ino-select-border-color, rgba(0, 0, 0, 0.42));
+  $select-border-focused-color: var(--ino-i-border-focused-color, #{theme.color(primary)});
+
+  $select-fill-color: var(--ino-select-fill-color, #FFF);
+  $select-menu-height: var(--ino-select-menu-height, auto);
+
+  $select-outline-border-radius: var(--ino-select-outline-border-radius, 4px);
 
   display: block;
 
-  input {
-    opacity: 0;
-    width: 95%; // 100% shows ellipsis in Chrome
-    cursor: pointer;
+  .mdc-select__menu {
+    height: $select-menu-height;
   }
 
-  .mdc-select__menu {
-    height: var(--select-height);
+  .mdc-menu-surface {
+    box-shadow: 0 25px 50px -12px rgba(30, 33, 37, 0.25); // TODO: Define elevations
   }
 
   .mdc-select__anchor,
@@ -43,51 +50,26 @@ ino-select {
     width: 100%;
   }
 
-  @include setIconColors($placeholder-color);
-
-  .mdc-select--focused {
-    @include setIconColors(var(--select-icon-color));
+  .mdc-select .mdc-select__anchor:before {
+    display: none;
   }
 
-  .mdc-select {
-    @include select.label-color(
-        (
-          focus: theme.color(primary),
-        )
-    );
-    @include select.bottom-line-color(
-        (
-          focus: theme.color(primary),
-        )
-    );
-    @include select.outline-color(
-        (
-          focus: theme.color(primary),
-        )
-    );
-    @include select.container-fill-color(
-        (
-          default: transparent,
-          disabled: transparent,
-        )
-    );
+  .mdc-select:not(.mdc-select--invalid) {
+    @include select.label-color((focus: theme.color(primary)));
 
-    &--focused .mdc-select__anchor {
-      @include select.dropdown-icon-color(theme.color(primary));
-    }
+    @include select.outline-color((
+      default: $select-border-color,
+      focus: $select-border-focused-color
+    ));
+    @include select.bottom-line-color((
+      default: $select-border-color,
+      focus: $select-border-focused-color
+    ));
+    @include select.dropdown-icon-color($select-caret-color);
+    @include select.container-fill-color($select-fill-color);
 
-    .mdc-select__anchor:before {
-      display: none;
-    }
-
-    .mdc-select__icon {
-      width: 16px;
-      height: 16px;
-
-      ino-icon {
-        --icon-width: 16px;
-        --icon-height: 16px;
-      }
+    &.mdc-select--focused .mdc-select__anchor {
+      @include select.dropdown-icon-color($select-caret-focused-color);
     }
   }
 
@@ -100,13 +82,23 @@ ino-select {
     overflow: hidden;
   }
 
+  .mdc-select--invalid .mdc-select__selected-text {
+    color: theme.color(error);
+  }
+
   .mdc-select--filled {
     .mdc-select__anchor {
+      background-color: transparent !important;
       padding-left: 0;
+
+      &::before {
+        height: 38px;
+      }
     }
 
     .mdc-select__selected-text {
-      margin-top: 24px;
+      align-self: flex-end;
+      margin-bottom: 6px;
     }
 
     .mdc-floating-label {
@@ -125,7 +117,14 @@ ino-select {
     }
   }
 
+
   .mdc-select--outlined {
+
+    .mdc-select__anchor {
+      --mdc-shape-small: var(--ino-select-outline-border-radius, 4px);
+      border-radius: $select-outline-border-radius;
+    }
+
     .mdc-select__selected-text {
       margin-top: 16px;
     }
@@ -133,9 +132,17 @@ ino-select {
     .mdc-floating-label.mdc-floating-label--float-above {
       top: 28px;
     }
+  }
 
-    &[class*='--with-leading-icon'] ino-icon {
-      display: unset; // center icon vertically
-    }
+  .mdc-select:not(.mdc-select--outlined) .mdc-select__dropdown-icon {
+    margin-right: 6px;
+    margin-bottom: 3px;
+    align-items: flex-end;
+  }
+
+  .mdc-list {
+    margin-top: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }

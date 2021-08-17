@@ -19,7 +19,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class InoOption {
-  @Element() el: HTMLInoOptionElement;
+   @Element() el!: HTMLElement;
 
   /**
    * Disables the option
@@ -36,20 +36,31 @@ export class InoOption {
    */
   @Prop() value!: string;
 
-  @Event() clickEl: EventEmitter<HTMLInoOptionElement>;
-
-  @Listen('click')
-  clickHandler() {
-    if (!this.disabled) {
-      this.clickEl.emit(this.el);
-    }
-  }
+  /**
+   * Slots content has been changed
+   */
+  @Event() slotContentChange!: EventEmitter<MutationRecord[]>;
 
   @Listen('keydown')
   keydownHandler(e) {
     if (this.disabled && (e.key === 'Enter' || e.key === ' ')) {
       e.stopPropagation();
       e.preventDefault();
+    }
+  }
+
+  componentDidLoad() {
+    this.observeSlotContent();
+  }
+
+  private observeSlotContent() {
+    let mdcListItemContent: HTMLCollectionOf<Element> = this.el.getElementsByClassName('mdc-list-item__text');
+    if (mdcListItemContent && mdcListItemContent.item(0)) {
+      let elementToWatch: Element = mdcListItemContent.item(0);
+      let observer = new MutationObserver((mutations, _) => {
+        this.slotContentChange.emit(mutations);
+      });
+      observer.observe(elementToWatch, { characterData: true, subtree: true });
     }
   }
 
@@ -67,7 +78,7 @@ export class InoOption {
           data-value={this.value}
           aria-selected={this.selected}
         >
-          <span class="mdc-list-item__text">
+          <span class='mdc-list-item__text'>
             <slot />
           </span>
         </li>

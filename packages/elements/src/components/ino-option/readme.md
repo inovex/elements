@@ -24,9 +24,9 @@ The component can be used as follows:
 
 ## Events
 
-| Event     | Description | Type                                |
-| --------- | ----------- | ----------------------------------- |
-| `clickEl` |             | `CustomEvent<HTMLInoOptionElement>` |
+| Event               | Description                    | Type                            |
+| ------------------- | ------------------------------ | ------------------------------- |
+| `slotContentChange` | Slots content has been changed | `CustomEvent<MutationRecord[]>` |
 
 
 ## Slots
@@ -49,19 +49,6 @@ The component can be used as follows:
 | `--ino-option-selected-background-color-focus`    | Background color on focus if selected     |
 | `--ino-option-selected-background-color-hover`    | Background color on hover if selected     |
 
-
-## Dependencies
-
-### Used by
-
- - [ino-option-group](../ino-option-group)
-
-### Graph
-```mermaid
-graph TD;
-  ino-option-group --> ino-option
-  style ino-option fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 
