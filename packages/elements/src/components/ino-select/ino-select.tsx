@@ -144,6 +144,7 @@ export class Select implements ComponentInterface {
     const hiddenInput = this.required ? (
       <input
         class="ino-hidden-input"
+        aria-hidden
         ref={(el) => (this.nativeSelectElement = el)}
         required={this.required}
       ></input>
