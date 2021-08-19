@@ -134,7 +134,7 @@ export const Form = () => html`
   <form>
     <p>Form should submit if no value is selected</p>
     <ino-select required> ${optionsTemplate}</ino-select>
-    <button type="submit">Submit</button>
+    <ino-button type="submit">Submit</ino-button>
   </form>
 `;
 
