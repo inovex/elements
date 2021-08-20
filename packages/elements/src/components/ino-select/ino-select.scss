@@ -27,10 +27,12 @@ ino-select {
 
   display: block;
 
-  input {
-    opacity: 0;
-    width: 95%; // 100% shows ellipsis in Chrome
-    cursor: pointer;
+  .ino-hidden-input {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
   }
 
   .mdc-select__menu {
@@ -51,25 +53,25 @@ ino-select {
 
   .mdc-select {
     @include select.label-color(
-        (
-          focus: theme.color(primary),
-        )
+      (
+        focus: theme.color(primary),
+      )
     );
     @include select.bottom-line-color(
-        (
-          focus: theme.color(primary),
-        )
+      (
+        focus: theme.color(primary),
+      )
     );
     @include select.outline-color(
-        (
-          focus: theme.color(primary),
-        )
+      (
+        focus: theme.color(primary),
+      )
     );
     @include select.container-fill-color(
-        (
-          default: transparent,
-          disabled: transparent,
-        )
+      (
+        default: transparent,
+        disabled: transparent,
+      )
     );
 
     &--focused .mdc-select__anchor {
@@ -80,13 +82,13 @@ ino-select {
       display: none;
     }
 
-    .mdc-select__icon {
-      width: 16px;
-      height: 16px;
+    .mdc-select__dropdown-icon {
+      width: 24px;
+      height: 24px;
 
       ino-icon {
-        --icon-width: 16px;
-        --icon-height: 16px;
+        --icon-width: 24px;
+        --icon-height: 24px;
       }
     }
   }
@@ -107,6 +109,10 @@ ino-select {
 
     .mdc-select__selected-text {
       margin-top: 24px;
+    }
+
+    .mdc-select__dropdown-icon {
+      margin-top: 18px;
     }
 
     .mdc-floating-label {
