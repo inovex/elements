@@ -109,7 +109,7 @@ export class InputFile implements ComponentInterface {
   }
 
   private configureDragAndDrop(): void {
-    if (this.browserSupportsDragAndDrop()) {
+    if (this.dragAndDrop && this.browserSupportsDragAndDrop()) {
       const box = this.el.querySelector('.ino-input-file__dnd');
 
       this.addEventListeners(
