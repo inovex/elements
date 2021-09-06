@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
 
 const sampleText = 'User successfully updated!';
@@ -11,7 +11,7 @@ export default {
   title: 'Notification/ino-snackbar',
   component: 'ino-snackbar',
   decorators: [
-    (s) => defaultDecorator(s, 'story-ino-snackbar'),
+    (s) => decorateStoryWithClass(s, 'story-ino-snackbar'),
     (story) => {
       const btnClickHandler = (e) => {
         if (!e.target.classList.contains('snackbar-trigger')) {
@@ -30,7 +30,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoSnackbar> = (args) => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-default"

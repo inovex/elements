@@ -1,15 +1,15 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withIconControl } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab.scss';
 
 export default {
   title: 'Buttons/<ino-fab>',
   component: 'ino-fab',
-  decorators: [defaultDecorator],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-fab')],
+} as Meta;
 
 export const Playground: Story<Components.InoFab> = (args) => html`
   <ino-fab

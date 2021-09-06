@@ -1,4 +1,4 @@
-import { Story, StoryContext } from '@storybook/web-components';
+import { Story } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
@@ -52,12 +52,11 @@ export const withColorScheme = <T>(
 
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 
-export const defaultDecorator = (
+export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
-  context: StoryContext,
   className?: string
 ): StoryFnHtmlReturnType => {
-  return html` <div class="${className ?? ''}">${story()}</div> `;
+  return html`<div class="${className ?? ''}">${story()}</div>`;
 };
 
 export const showSnackbar = (message: string) => {

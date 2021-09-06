@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme } from '../utils';
+import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-switch.scss';
 
 const eventHandler = (e) => {
@@ -17,7 +17,7 @@ export default {
   title: 'Input/ino-switch',
   component: 'ino-switch',
   decorators: [
-    (story) => defaultDecorator(story, 'story-switch'),
+    (story) => decorateStoryWithClass(story, 'story-switch'),
     (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', eventHandler);
@@ -27,7 +27,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoSwitch> = (args) => html`
   <ino-switch

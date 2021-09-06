@@ -1,42 +1,44 @@
-ino-dialog {
-  --ino-dialog-width: 650px;
-  --ino-dialog-height: 250px;
-}
+.story-dialog {
+  ino-dialog {
+    --ino-dialog-width: 650px;
+    --ino-dialog-height: 250px;
+  }
 
-.ino-dialog-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-
-  .ino-dialog-title {
+  .ino-dialog-header {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
 
-    h3 {
-      padding: 0 10px 0 10px;
+    .ino-dialog-title {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      h3 {
+        padding: 0 10px 0 10px;
+      }
     }
   }
-}
 
-.ino-dialog-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+  .ino-dialog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 
-.ino-dialog-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
+  .ino-dialog-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
 
-  ino-button {
-    margin-right: 10px;
+    ino-button {
+      margin-right: 10px;
+    }
   }
 }

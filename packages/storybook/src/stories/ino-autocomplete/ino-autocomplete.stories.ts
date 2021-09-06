@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, showSnackbar } from '../utils';
+import { decorateStoryWithClass, showSnackbar } from '../utils';
 
 import './ino-autocomplete.scss';
 
@@ -15,7 +15,7 @@ export default {
     },
   },
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         const eventHandler = function (e: CustomEvent<string>) {

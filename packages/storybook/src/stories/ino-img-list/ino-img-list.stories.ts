@@ -1,3 +1,4 @@
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 import beachImg from '../../assets/images/beach.jpg';
@@ -10,7 +11,7 @@ import waterfallImg from '../../assets/images/waterfall.jpg';
 export default {
   title: 'Graphic/ino-img-list',
   component: 'ino-img-list',
-};
+} as Meta;
 
 export const Playground = (args) => html`
   <ino-img-list enclose-label="${args.encloseLabel}" masonry="${args.masonry}">

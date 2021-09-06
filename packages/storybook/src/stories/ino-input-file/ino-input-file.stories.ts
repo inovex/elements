@@ -1,4 +1,5 @@
 import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
 export default {
@@ -31,7 +32,7 @@ export default {
       handles: ['changeFile .customizable-input'],
     },
   },
-};
+} as Meta;
 
 export const Playground = (args): TemplateResult => html`
   <ino-input-file

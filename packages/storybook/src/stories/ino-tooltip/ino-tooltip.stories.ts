@@ -1,14 +1,14 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme } from '../utils';
+import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-tooltip.scss';
 
 export default {
   title: `Notification/ino-tooltip`,
   component: 'ino-tooltip',
-  decorators: [(story) => defaultDecorator(story, 'story-tooltip')],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-tooltip')],
+} as Meta;
 
 export const Playground: Story<Components.InoTooltip> = (args) => html`
   <ino-button id="tooltip-target">Tooltip</ino-button>

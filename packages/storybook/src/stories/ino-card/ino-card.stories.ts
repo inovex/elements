@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-card.scss';
 
@@ -10,7 +10,7 @@ export default {
   title: 'Structure/<ino-card>',
   component: 'ino-card',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-card'),
     (story) => {
       useEffect(() => {
         const handleClick = function (e) {

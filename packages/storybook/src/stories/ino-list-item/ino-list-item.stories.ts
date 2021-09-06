@@ -1,13 +1,14 @@
 import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-list-item.scss';
 
 export default {
   title: 'Structure/ino-list-item',
   component: 'ino-list-item',
   decorators: [
-    (story) => defaultDecorator(story, 'story-ino-list-item'),
+    (story) => decorateStoryWithClass(story, 'story-ino-list-item'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => {
@@ -29,7 +30,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground = (args) => html`
   <ino-list two-lines="${args.twoLines}">

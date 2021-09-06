@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-sidebar.scss';
 
 const eventHandler = (e) => {
@@ -25,7 +25,7 @@ export default {
   title: 'Structure/ino-sidebar',
   component: 'ino-sidebar',
   decorators: [
-    (story) => defaultDecorator(story, 'story-sidebar'),
+    (story) => decorateStoryWithClass(story, 'story-sidebar'),
     (story) => {
       useEffect(() => {
         document.addEventListener('click', eventHandler);
@@ -36,7 +36,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoSidebar> = (args) => html`
   <div class="sidebar-demo">

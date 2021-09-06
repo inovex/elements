@@ -1,15 +1,15 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withIconControl } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-img.scss';
 
 export default {
   title: 'Graphic/<ino-img>',
   component: 'ino-img',
-  decorators: [defaultDecorator],
-};
+  decorators: [(story) => decorateStoryWithClass(story)],
+} as Meta;
 
 export const Playground: Story<Components.InoImg> = (args) => html`
   <ino-img

@@ -1,15 +1,15 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-progress-bar.scss';
 
 export default {
   title: 'Notification/ino-progress-bar',
   component: 'ino-progress-bar',
   decorators: [
-    (s) => defaultDecorator(s, 'story-ino-progress-bar'),
+    (s) => decorateStoryWithClass(s, 'story-ino-progress-bar'),
     (story) => {
       const clickHandler = (e) => {
         if (e.target.tagName.toLowerCase() === 'ino-button') {
@@ -57,7 +57,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoProgressBar> = (args) => {
   return html`

@@ -1,9 +1,10 @@
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 export default {
   title: `Structure/ino-nav-item`,
   component: 'ino-nav-item',
-};
+} as Meta;
 
 export const Playground = (args) => html`
   <div class="story-list">

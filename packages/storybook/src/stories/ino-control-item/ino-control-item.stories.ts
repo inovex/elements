@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-control-item.scss';
 
@@ -10,7 +10,7 @@ export default {
   title: 'Structure/ino-control-item',
   component: 'ino-control-item',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         const checkedChangeHandler = (e: CustomEvent<boolean>) => {

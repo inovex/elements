@@ -1,13 +1,13 @@
 import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-input.scss';
 
 export default {
   title: 'Input/ino-input',
   component: 'ino-input',
   decorators: [
-    (story) => defaultDecorator(story, 'story-ino-input'),
+    (story) => decorateStoryWithClass(story, 'story-ino-input'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);

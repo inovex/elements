@@ -1,14 +1,14 @@
 import { Components } from '@inovex.de/elements';
 import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-button.scss';
 
 export default {
   title: 'Buttons/<ino-button>',
   component: 'ino-button',
-  decorators: [defaultDecorator],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-button')],
   parameters: {
     actions: {
       handles: [
@@ -68,21 +68,21 @@ export const Others = (): TemplateResult => html`
     </div>
     <div class="button-row">
       <ino-button fill="solid" color-scheme="secondary"
-        >Solid Secondary</ino-button
-      >
+        >Solid Secondary
+      </ino-button>
       <ino-button fill="outline" color-scheme="secondary"
-        >Outline Secondary</ino-button
-      >
+        >Outline Secondary
+      </ino-button>
       <ino-button fill="inverse" color-scheme="secondary"
-        >Inverse Secondary</ino-button
-      >
+        >Inverse Secondary
+      </ino-button>
     </div>
     <div class="button-row">
       <ino-button fill="outline" color-scheme="grey">Outline Grey</ino-button>
       <div class="white-button">
         <ino-button fill="outline" color-scheme="white"
-          >Outline White</ino-button
-        >
+          >Outline White
+        </ino-button>
       </div>
     </div>
 

@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 // == event block
 const checkboxHandler = (e) => {
@@ -57,7 +57,7 @@ export default {
   title: `Structure/ino-table`,
   component: 'ino-table',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', checkboxHandler);
@@ -67,7 +67,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoTable> = () => html`
   <ino-table>

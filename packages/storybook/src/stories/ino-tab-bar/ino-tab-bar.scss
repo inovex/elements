@@ -1,13 +1,15 @@
-.customizable-tab {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
-  align-self: center;
-}
+.story-tab-bar {
+  .customizable-tab {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    align-self: center;
+  }
 
-.story-tab-variants {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  .story-tab-variants {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }
