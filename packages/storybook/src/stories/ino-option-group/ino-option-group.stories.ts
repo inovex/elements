@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { defaultDecorator } from '../utils';
 import './ino-option-group.scss';
 
@@ -8,7 +8,7 @@ export default {
   decorators: [defaultDecorator],
 };
 
-export const Playground = (args) => html`
+export const Playground = (args): TemplateResult => html`
   <div class="story-option-group-customizable">
     <ino-select label="Select with Group">
       <ino-option-group label="${args.label}">
@@ -23,7 +23,7 @@ Playground.args = {
   label: 'Group Label',
 };
 
-export const MultipleGroups = () => html`
+export const MultipleGroups = (): TemplateResult => html`
   <div class="story-option-group">
     <ino-select label="Select with Groups">
       <ino-option-group label="My First Group">

@@ -1,5 +1,5 @@
 import { useEffect } from '@storybook/client-api';
-import { html } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 
 export default {
   title: 'Input/ino-input-file',
@@ -32,7 +32,7 @@ export default {
   },
 };
 
-export const Playground = (args) => html`
+export const Playground = (args): TemplateResult => html`
   <ino-input-file
     class="customizable-input"
     accept="${args.accept}"
@@ -61,6 +61,6 @@ Playground.args = {
   dragAndDropSecondaryText: 'or',
 };
 
-export const DragAndDrop = () => html`
+export const DragAndDrop = (): TemplateResult => html`
   <ino-input-file multiple drag-and-drop></ino-input-file>
 `;
