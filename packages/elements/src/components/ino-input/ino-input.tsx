@@ -494,7 +494,7 @@ export class Input implements ComponentInterface {
           />
           {trailingSlotHasContent && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
-              <slot name={'icon-trailing'}/>
+              <slot name={'icon-trailing'} />
             </span>
           )}
         </div>

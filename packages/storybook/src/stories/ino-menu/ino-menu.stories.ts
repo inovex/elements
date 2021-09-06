@@ -1,6 +1,6 @@
 import { html } from 'lit-html';
-import './ino-menu.scss';
 import { defaultDecorator } from '../utils';
+import './ino-menu.scss';
 
 export default {
   title: `Structure/ino-menu`,

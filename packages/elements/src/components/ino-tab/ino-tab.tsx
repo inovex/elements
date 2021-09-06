@@ -6,8 +6,9 @@ import {
   EventEmitter,
   Host,
   Prop,
-  h, Listen
-} from "@stencil/core";
+  h,
+  Listen,
+} from '@stencil/core';
 import classNames from 'classnames';
 
 @Component({
@@ -48,7 +49,7 @@ export class Tab implements ComponentInterface {
   interactionHandler(e) {
     e.stopPropagation();
     this.interacted.emit(this.el);
-  };
+  }
 
   render() {
     const tabClasses = classNames({
@@ -66,9 +67,7 @@ export class Tab implements ComponentInterface {
       <Host>
         <button class={tabClasses} role="tab" aria-selected="false">
           <span class="mdc-tab__content">
-            {this.icon && (
-              <ino-icon class="mdc-tab__icon" icon={this.icon} />
-            )}
+            {this.icon && <ino-icon class="mdc-tab__icon" icon={this.icon} />}
             {this.label && (
               <span class="mdc-tab__text-label">{this.label}</span>
             )}

@@ -1,33 +1,38 @@
 import { Components } from '@inovex.de/elements';
-import { html } from 'lit-html';
 import { useEffect } from '@storybook/client-api';
+import { Story } from '@storybook/web-components';
+import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';
 import './ino-radio.scss';
-import { Story } from '@storybook/web-components';
 
 export default {
   title: 'Input/ino-radio',
   component: 'ino-radio',
   parameters: {
     actions: {
-      handles: ['checkedChange ino-radio']
-    }
+      handles: ['checkedChange ino-radio'],
+    },
   },
   decorators: [
-    story => defaultDecorator(story, 'story-radio'), 
-    story => {
+    (story) => defaultDecorator(story, 'story-radio'),
+    (story) => {
       useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('checked', e.detail);
+        const eventHandler = (e) => e.target.setAttribute('checked', e.detail);
         const radios = document.querySelectorAll('ino-radio');
-        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
-        return () => radios.forEach(r => r.removeEventListener('checkedChange', eventHandler));
+        radios.forEach((r) =>
+          r.addEventListener('checkedChange', eventHandler)
+        );
+        return () =>
+          radios.forEach((r) =>
+            r.removeEventListener('checkedChange', eventHandler)
+          );
       });
       return story();
-    }
+    },
   ],
 };
 
-export const Playground: Story<Components.InoRadio> = args => html`
+export const Playground: Story<Components.InoRadio> = (args) => html`
   <ino-radio
     checked="${args.checked}"
     disabled="${args.disabled}"
@@ -41,7 +46,7 @@ Playground.args = {
   checked: false,
   disabled: false,
   name: 'radio-custom',
-  value: 'radio-1'
+  value: 'radio-1',
 };
 
 export const States = () => html`

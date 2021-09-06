@@ -1,6 +1,6 @@
 import { useEffect } from '@storybook/client-api';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme, withIconControl } from '../utils';
+import { defaultDecorator } from '../utils';
 import './ino-popover.scss';
 
 export default {

@@ -13,15 +13,8 @@ export default {
 };
 
 export const Playground = (args) => html`
-  <ino-img-list
-    enclose-label="${args.encloseLabel}"
-    masonry="${args.masonry}"
-  >
-    ${sampleImg}
-    ${sampleImg2}
-    ${sampleImg3}
-    ${sampleImg4}
-    ${sampleImg5}
+  <ino-img-list enclose-label="${args.encloseLabel}" masonry="${args.masonry}">
+    ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5}
   </ino-img-list>
 `;
 Playground.args = {
@@ -30,41 +23,20 @@ Playground.args = {
 };
 
 export const EnclosedLabels = () => html`
-  <ino-img-list
-    enclose-label="true"
-  >
-    ${sampleImg}
-    ${sampleImg2}
-    ${sampleImg3}
-    ${sampleImg4}
-    ${sampleImg5}
+  <ino-img-list enclose-label="true">
+    ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5}
   </ino-img-list>
 `;
 
 export const Masonry = () => html`
-  <ino-img-list
-    masonry
-  >
-    ${sampleImg}
-    ${sampleImg6}
-    ${sampleImg3}
-    ${sampleImg4}
-    ${sampleImg5}
-    ${sampleImg4}
-    ${sampleImg2}
-    ${sampleImg3}
-    ${sampleImg6}
-    ${sampleImg5}
+  <ino-img-list masonry>
+    ${sampleImg} ${sampleImg6} ${sampleImg3} ${sampleImg4} ${sampleImg5}
+    ${sampleImg4} ${sampleImg2} ${sampleImg3} ${sampleImg6} ${sampleImg5}
   </ino-img-list>
 `;
 
 const sampleImg = html`
-  <ino-img
-    src=${beachImg}
-    alt="beach"
-    label="Label"
-    img-list-item
-  ></ino-img>
+  <ino-img src=${beachImg} alt="beach" label="Label" img-list-item></ino-img>
 `;
 
 const sampleImg2 = html`

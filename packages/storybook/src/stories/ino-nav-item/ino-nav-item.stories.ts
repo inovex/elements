@@ -5,7 +5,7 @@ export default {
   component: 'ino-nav-item',
 };
 
-export const Playground = args => html`
+export const Playground = (args) => html`
   <div class="story-list">
     <h4>Customizable nav item</h4>
     <ino-list>
@@ -19,12 +19,13 @@ export const Playground = args => html`
         <ino-icon icon="onboarding"></ino-icon>
       </ino-nav-item>
     </ino-list>
+  </div>
 `;
 Playground.args = {
   text: 'Nav item',
   subText: 'Nav item sub text',
   activated: false,
-  disabled: false
+  disabled: false,
 };
 
 export const States = () => html`
@@ -39,7 +40,10 @@ export const States = () => html`
 export const TwoLines = () => html`
   <ino-list two-lines="true">
     <ino-nav-item text="Simple item" sub-text="Secondary Text"></ino-nav-item>
-    <ino-nav-item text="Simple item 2" sub-text="Secondary Text 2"></ino-nav-item>
+    <ino-nav-item
+      text="Simple item 2"
+      sub-text="Secondary Text 2"
+    ></ino-nav-item>
   </ino-list>
 `;
 

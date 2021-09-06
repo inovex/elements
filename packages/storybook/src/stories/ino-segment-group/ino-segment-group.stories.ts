@@ -1,5 +1,5 @@
-import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
+import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator } from '../utils';

@@ -61,7 +61,7 @@ export class ChipSet implements ComponentInterface {
     this.mdcInstance?.destroy();
 
     if (this.listenerAttached) {
-      this.el.removeEventListener('MDCChip:interaction', (_) =>
+      this.el.removeEventListener('MDCChip:interaction', () =>
         this.notifyChange()
       );
       this.listenerAttached = false;
@@ -85,7 +85,7 @@ export class ChipSet implements ComponentInterface {
     );
 
     if (this.type === 'choice' || this.type === 'input') {
-      this.el.addEventListener('MDCChip:interaction', (_) =>
+      this.el.addEventListener('MDCChip:interaction', () =>
         this.notifyChange()
       );
       this.listenerAttached = true;

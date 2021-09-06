@@ -10,7 +10,6 @@ import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
 
-
 const findElementUpwards = function (currentEl, elTagName, elClassName) {
   if (currentEl.tagName.toLowerCase() !== elTagName) {
     if (currentEl.parentElement !== null) {
@@ -26,7 +25,6 @@ const findElementUpwards = function (currentEl, elTagName, elClassName) {
     }
   }
 };
-
 
 function copyToClipboard(text) {
   const snackbar: HTMLInoSnackbarElement = document.createElement(

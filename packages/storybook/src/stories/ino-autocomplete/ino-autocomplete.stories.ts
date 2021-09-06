@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator, showSnackbar } from '../utils';
 
@@ -18,7 +18,7 @@ export default {
     defaultDecorator,
     (story) => {
       useEffect(() => {
-        const eventHandler = function (e: any) {
+        const eventHandler = function (e: CustomEvent<string>) {
           showSnackbar(`"${e.detail}" was selected.`);
         };
 
@@ -32,7 +32,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">

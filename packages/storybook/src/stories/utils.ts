@@ -1,7 +1,9 @@
+import { Story, StoryContext } from '@storybook/web-components';
+import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
 
-export const maybeCreateStoryArgs = (story: any) => {
+export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
   if (!story.args) {
     story.args = {};
   }
@@ -10,8 +12,8 @@ export const maybeCreateStoryArgs = (story: any) => {
   }
 };
 
-export const withIconControl = (
-  story: any,
+export const withIconControl = <T>(
+  story: Story<T>,
   propertyName: string,
   defaultValue?: string
 ) => {
@@ -25,8 +27,8 @@ export const withIconControl = (
   };
 };
 
-export const withColorScheme = (
-  story: any,
+export const withColorScheme = <T>(
+  story: Story<T>,
   propertyName: string,
   defaultValue?: string
 ) => {
@@ -48,24 +50,13 @@ export const withColorScheme = (
   };
 };
 
-export const withSortDirection = (
-  story: any,
-  propertyName: string,
-  defaultValue?: string
-) => {
-  maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    options: ['desc', 'asc'],
-    control: {
-      type: 'select',
-    },
-  };
-};
-
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 
-export const defaultDecorator = (story, className?: string) => {
+export const defaultDecorator = (
+  story: () => StoryFnHtmlReturnType,
+  context: StoryContext,
+  className?: string
+): StoryFnHtmlReturnType => {
   return html` <div class="${className ?? ''}">${story()}</div> `;
 };
 

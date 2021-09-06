@@ -1,11 +1,11 @@
-import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
-import { Components } from '@inovex.de/elements';
+import { html } from 'lit-html';
+import { defaultDecorator } from '../utils';
 
-  // == event block
-const checkboxHandler = e => {
+// == event block
+const checkboxHandler = (e) => {
   const el = e.target;
   if (el.tagName.toLowerCase() !== 'ino-checkbox') {
     return;
@@ -23,18 +23,22 @@ const checkboxHandler = e => {
 };
 
 const setAllBoxes = () => {
-  const mainBox = document.getElementById('headerBox') as HTMLInoCheckboxElement;
+  const mainBox = document.getElementById(
+    'headerBox'
+  ) as HTMLInoCheckboxElement;
   const boxes = Array.from(
     document.querySelectorAll('ino-checkbox:not(#headerBox)')
   ) as HTMLInoCheckboxElement[];
-  boxes.forEach(checkbox => {
+  boxes.forEach((checkbox) => {
     checkbox.checked = mainBox.checked;
     checkbox.closest('ino-table-row').selected = mainBox.checked;
   });
 };
 
 const setHeaderBox = () => {
-  const mainBox = document.getElementById('headerBox') as HTMLInoCheckboxElement;
+  const mainBox = document.getElementById(
+    'headerBox'
+  ) as HTMLInoCheckboxElement;
   const boxes = Array.from(
     document.querySelectorAll('ino-checkbox:not(#headerBox)')
   ) as HTMLInoCheckboxElement[];
@@ -53,18 +57,19 @@ export default {
   title: `Structure/ino-table`,
   component: 'ino-table',
   decorators: [
-    defaultDecorator, 
-    story => {
+    defaultDecorator,
+    (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', checkboxHandler);
-        return () =>  document.removeEventListener('checkedChange', checkboxHandler);;
+        return () =>
+          document.removeEventListener('checkedChange', checkboxHandler);
       });
       return story();
-    }
+    },
   ],
 };
 
-export const Playground: Story<Components.InoTable> = args => html`
+export const Playground: Story<Components.InoTable> = () => html`
   <ino-table>
     <ino-table-row slot="header" header-row>
       <ino-table-cell>ID</ino-table-cell>
@@ -122,7 +127,9 @@ export const Playground: Story<Components.InoTable> = args => html`
 export const WithCheckboxes = () => html`
   <ino-table>
     <ino-table-row slot="header" header-row>
-      <ino-table-cell><ino-checkbox id="headerBox" selection></ino-checkbox></ino-table-cell>
+      <ino-table-cell
+        ><ino-checkbox id="headerBox" selection></ino-checkbox
+      ></ino-table-cell>
       <ino-table-cell>Header A</ino-table-cell>
       <ino-table-cell>Header B</ino-table-cell>
       <ino-table-cell>Header C</ino-table-cell>
@@ -135,7 +142,9 @@ export const WithCheckboxes = () => html`
       <ino-table-cell>Cell B1</ino-table-cell>
       <ino-table-cell>Cell C1</ino-table-cell>
       <ino-table-cell>Cell D1</ino-table-cell>
-      <ino-table-cell><ino-icon-button icon="download"></ino-icon-button></ino-table-cell>
+      <ino-table-cell
+        ><ino-icon-button icon="download"></ino-icon-button
+      ></ino-table-cell>
     </ino-table-row>
     <ino-table-row>
       <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
@@ -143,7 +152,9 @@ export const WithCheckboxes = () => html`
       <ino-table-cell>Cell B2</ino-table-cell>
       <ino-table-cell>Cell C2</ino-table-cell>
       <ino-table-cell>Cell D2</ino-table-cell>
-      <ino-table-cell><ino-icon-button icon="download"></ino-icon-button></ino-table-cell>
+      <ino-table-cell
+        ><ino-icon-button icon="download"></ino-icon-button
+      ></ino-table-cell>
     </ino-table-row>
     <ino-table-row>
       <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
@@ -151,7 +162,9 @@ export const WithCheckboxes = () => html`
       <ino-table-cell>Cell B3</ino-table-cell>
       <ino-table-cell>Cell C3</ino-table-cell>
       <ino-table-cell>Cell D3</ino-table-cell>
-      <ino-table-cell><ino-icon-button icon="download"></ino-icon-button></ino-table-cell>
+      <ino-table-cell
+        ><ino-icon-button icon="download"></ino-icon-button
+      ></ino-table-cell>
     </ino-table-row>
     <ino-table-row>
       <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
@@ -159,7 +172,9 @@ export const WithCheckboxes = () => html`
       <ino-table-cell>Cell B4</ino-table-cell>
       <ino-table-cell>Cell C4</ino-table-cell>
       <ino-table-cell>Cell D4</ino-table-cell>
-      <ino-table-cell><ino-icon-button icon="download"></ino-icon-button></ino-table-cell>
+      <ino-table-cell
+        ><ino-icon-button icon="download"></ino-icon-button
+      ></ino-table-cell>
     </ino-table-row>
     <ino-table-row>
       <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
@@ -167,7 +182,9 @@ export const WithCheckboxes = () => html`
       <ino-table-cell>Cell B5</ino-table-cell>
       <ino-table-cell>Cell C5</ino-table-cell>
       <ino-table-cell>Cell D5</ino-table-cell>
-      <ino-table-cell><ino-icon-button icon="download"></ino-icon-button></ino-table-cell>
+      <ino-table-cell
+        ><ino-icon-button icon="download"></ino-icon-button
+      ></ino-table-cell>
     </ino-table-row>
   </ino-table>
 `;

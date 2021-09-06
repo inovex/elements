@@ -6,30 +6,6 @@ import { defaultDecorator } from '../utils';
 
 import './ino-fab-set.scss';
 
-// https://github.com/storybooks/storybook/issues/4337#issuecomment-428495664
-function subscribeToComponentEvents() {
-  // == event block
-  const eventHandler = function (e) {
-    const el = e.target;
-
-    if (el.tagName !== 'INO-FAB-SET') {
-      return;
-    }
-
-    const newState =
-      el.getAttribute('ino-open-dial') === 'false' ? 'true' : 'false';
-    el.setAttribute('ino-open-dial', newState);
-  };
-
-  document.addEventListener('click', eventHandler);
-  // == event block
-
-  // unsubscribe function will be called by Storybook
-  return () => {
-    document.removeEventListener('click', eventHandler);
-  };
-}
-
 export default {
   title: 'Buttons/<ino-fab-set>',
   component: 'ino-fab-set',

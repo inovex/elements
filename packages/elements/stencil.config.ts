@@ -5,8 +5,6 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { promises as fs } from 'fs';
 import { angularOutputTargetFix } from './angular-target-fix';
 
-
-
 async function generateCustomElementsJson(docsData: JsonDocs) {
   const jsonData = {
     version: 1.2,
@@ -64,10 +62,9 @@ async function generateCustomElementsJson(docsData: JsonDocs) {
   };
   await fs.writeFile(
     '../storybook/custom-elements.json',
-    JSON.stringify(jsonData, null, 2),
+    JSON.stringify(jsonData, null, 2)
   );
 }
-
 
 export const config: Config = {
   buildEs5: 'prod',
@@ -87,9 +84,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      copy: [
-        { src: 'assets/ino-icon', dest: 'ino-icon' }
-      ]
+      copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
     { type: 'docs-readme' },
     {

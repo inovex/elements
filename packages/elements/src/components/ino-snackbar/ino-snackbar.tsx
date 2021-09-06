@@ -153,7 +153,7 @@ export class Snackbar implements ComponentInterface {
                   type="button"
                   color-scheme="primary"
                   class="ino-action-button"
-                  onClick={(_) => this.actionClick.emit()}
+                  onClick={() => this.actionClick.emit()}
                   fill="outline"
                 >
                   {this.actionText}

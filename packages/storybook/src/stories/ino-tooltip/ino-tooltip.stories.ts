@@ -1,7 +1,7 @@
+import { Components } from '@inovex.de/elements';
+import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { defaultDecorator, withColorScheme } from '../utils';
-import { Story } from '@storybook/web-components';
-import { Components } from '@inovex.de/elements';
 import './ino-tooltip.scss';
 
 export default {

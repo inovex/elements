@@ -1,11 +1,11 @@
 import { useEffect } from '@storybook/client-api';
-import { html } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 
 export default {
   title: 'Input/ino-input-file',
   component: 'ino-input-file',
   decorators: [
-    story => {
+    (story) => {
       useEffect(() => {
         const eventHandler = function (e) {
           e.stopImmediatePropagation();
@@ -24,7 +24,7 @@ export default {
         return () => document.removeEventListener('changeFile', eventHandler);
       });
       return story();
-    }
+    },
   ],
   parameters: {
     actions: {
@@ -33,7 +33,7 @@ export default {
   },
 };
 
-export const Playground = (args) => html`
+export const Playground = (args): TemplateResult => html`
   <ino-input-file
     class="customizable-input"
     accept="${args.accept}"
@@ -59,12 +59,9 @@ Playground.args = {
   labelSelected: 'selected',
   dragAndDrop: false,
   dragAndDropText: 'Drag your files here',
-  dragAndDropSecondaryText: 'or'
+  dragAndDropSecondaryText: 'or',
 };
 
-export const DragAndDrop = () => html`
-  <ino-input-file
-    multiple
-    drag-and-drop
-  ></ino-input-file>
+export const DragAndDrop = (): TemplateResult => html`
+  <ino-input-file multiple drag-and-drop></ino-input-file>
 `;

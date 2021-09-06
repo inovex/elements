@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { Meta, Story } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
 import { defaultDecorator } from '../utils';
 
 import './ino-button.scss';
@@ -18,7 +18,7 @@ export default {
       ],
     },
   },
-};
+} as Meta;
 
 export const Playground: Story<Components.InoButton> = (
   args
@@ -58,7 +58,7 @@ Playground.argTypes = {
   },
 };
 
-export const Others = () => html`
+export const Others = (): TemplateResult => html`
   <div class="story-button">
     <h4>Variations</h4>
     <div class="button-row">

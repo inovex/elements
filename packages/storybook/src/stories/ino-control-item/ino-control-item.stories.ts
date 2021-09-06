@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
-import { html } from 'lit-html';
+import { Meta, Story } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
 import { defaultDecorator } from '../utils';
 
 import './ino-control-item.scss';
@@ -29,7 +29,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoControlItem> = (args) => html`
   <ino-list>
@@ -69,7 +69,7 @@ Playground.argTypes = {
   },
 };
 
-export const Roles = () => html`
+export const Roles = (): TemplateResult => html`
   <ino-list>
     <ino-control-item checked role="checkbox" text="Checkbox">
     </ino-control-item>
@@ -79,7 +79,7 @@ export const Roles = () => html`
   </ino-list>
 `;
 
-export const States = () => html`
+export const States = (): TemplateResult => html`
   <ino-list>
     <ino-control-item role="checkbox" text="Checked" checked>
     </ino-control-item>
@@ -94,7 +94,7 @@ export const States = () => html`
   </ino-list>
 `;
 
-export const Position = () => html`
+export const Position = (): TemplateResult => html`
   <ino-list>
     <ino-control-item role="checkbox" text="Leading"> </ino-control-item>
     <ino-control-item trailing role="checkbox" text="Trailing">

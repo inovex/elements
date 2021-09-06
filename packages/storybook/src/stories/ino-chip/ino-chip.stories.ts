@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme, withIconControl } from '../utils';
+import { Meta, Story } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
+import { defaultDecorator, withColorScheme } from '../utils';
 
 import './ino-chip.scss';
 
@@ -14,7 +14,7 @@ export default {
       handles: ['removeChip'],
     },
   },
-};
+} as Meta;
 
 export const Playground: Story<Components.InoChip> = (args) => html`
   <ino-chip
@@ -48,7 +48,7 @@ Playground.argTypes.fill = {
   options: ['solid', 'outline'],
 };
 
-export const ColorsAndFill = () => html`
+export const ColorsAndFill = (): TemplateResult => html`
   <ino-chip-set>
     <ino-chip label="Default"></ino-chip>
     <ino-chip color-scheme="primary" label="Primary"></ino-chip>
@@ -75,7 +75,7 @@ export const ColorsAndFill = () => html`
   </ino-chip-set>
 `;
 
-export const Icons = () => html`
+export const Icons = (): TemplateResult => html`
   <ino-chip-set>
     <ino-chip color-scheme="primary" label="Leading">
       <ino-icon slot="icon-leading" icon="checkmark"></ino-icon>
@@ -90,7 +90,7 @@ export const Icons = () => html`
   </ino-chip-set>
 `;
 
-export const States = () => html`
+export const States = (): TemplateResult => html`
   <h4>Removable and states</h4>
   <ino-chip-set>
     <ino-chip color-scheme="primary" removable label="Removable"></ino-chip>
