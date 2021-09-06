@@ -8,6 +8,7 @@ export default {
     story => {
       useEffect(() => {
         const eventHandler = function (e) {
+          e.stopImmediatePropagation();
           const el = e.target;
           if (el.tagName.toLowerCase() !== 'ino-input-file') {
             return;

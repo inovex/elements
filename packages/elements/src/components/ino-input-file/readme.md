@@ -10,7 +10,7 @@ The component can be used as follows:
 
 ```js
 document
-  .querySelector('ino-datepicker')
+  .querySelector('ino-input-file')
   .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));
 ```
 
@@ -37,12 +37,15 @@ import { Component } from 'react';
 import { InoInputFile } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
-  onChangeFile(e: any) {
-    alert(`The new file is: ${e.detail}`);
+  onChangeFile(e) {
+    const fileNames = e.detail.files
+      .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
+      .join('\n');
+    alert(fileNames);
   }
 
   render() {
-    return <InoInputFile onChangeFile={onChangeFile} />;
+    return <InoInputFile onChangeFile={this.onChangeFile} />;
   }
 }
 ```
