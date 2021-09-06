@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/inovex/elements/compare/v4.1.0...v4.1.1) (2021-09-06)
+
+
+### Bug Fixes
+
+* **elements|ino-input-file:** prevent drag and drop when set to false ([#420](https://github.com/inovex/elements/issues/420)) ([06ca871](https://github.com/inovex/elements/commit/06ca87194ebc16511295fbac1784ff6d695ba6fb))
+* **elements|ino-select:** hide input used for form validation ([#416](https://github.com/inovex/elements/issues/416)) ([0b02c3b](https://github.com/inovex/elements/commit/0b02c3b7e9653569952e708bce4a02e1a387d201))
+* **storybook:** scope all story styles ([#422](https://github.com/inovex/elements/issues/422)) ([62ce093](https://github.com/inovex/elements/commit/62ce093788928af472685bc8493987e6a2db02e4))
+
+
+### Miscellaneous
+
+* replace local commit linting with new component script ([#412](https://github.com/inovex/elements/issues/412)) ([81aa33d](https://github.com/inovex/elements/commit/81aa33d37c4417f64e216fab397e02280a52c5a7))
+
 ## [4.1.0](https://github.com/inovex/elements/compare/v4.0.0...v4.1.0) (2021-08-11)
 
 
