@@ -1,11 +1,11 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
 
-import { defaultDecorator, withIconControl } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
@@ -74,7 +74,7 @@ export default {
     },
   },
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-icon'),
     (story) => {
       useEffect(() => {
         const searchIconHandler = function (e) {
@@ -132,7 +132,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoIcon> = (args) => html`
   <ino-icon

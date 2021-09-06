@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-tab-bar.scss';
 
 const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
@@ -11,7 +11,7 @@ export default {
   title: `Structure/ino-tab-bar`,
   component: 'ino-tab-bar',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-tab-bar'),
     (story) => {
       useEffect(() => {
         const tabBars = document.querySelectorAll('ino-tab-bar');
@@ -26,7 +26,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoTabBar> = (args) => html`
   <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}" auto-focus="${args.autoFocus}">

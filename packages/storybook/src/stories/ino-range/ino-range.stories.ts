@@ -1,14 +1,14 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme } from '../utils';
+import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-range.scss';
 
 export default {
   title: 'Input/<ino-range>',
   component: 'ino-range',
-  decorators: [(story) => defaultDecorator(story, 'story-range')],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-range')],
+} as Meta;
 
 export const Playground: Story<Components.InoRange> = (args) => html`
   <ino-range

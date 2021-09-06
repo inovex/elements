@@ -1,31 +1,33 @@
-ino-checkbox {
-  width: 33%;
-}
+.story-checkbox {
+  ino-checkbox {
+    width: 33%;
+  }
 
-.story-checkbox-states {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: auto;
-  text-align: center;
-}
+  .story-checkbox-states {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+  }
 
-.story-selection-states {
-  display: flex;
-  justify-content: space-around;
-  align-self: center;
-  text-align: center;
-}
+  .story-selection-states {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    text-align: center;
+  }
 
-.story-selection-states ino-checkbox {
-  width: 25%;
-}
+  .story-selection-states ino-checkbox {
+    width: 25%;
+  }
 
-.customizable-checkbox {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
-  align-self: center;
+  .customizable-checkbox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    align-self: center;
+  }
 }

@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-dialog.scss';
 
@@ -10,7 +10,7 @@ export default {
   title: 'Structure/<ino-dialog>',
   component: 'ino-dialog',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-dialog'),
     (story) => {
       useEffect(() => {
         const openDialogHandler = function (e) {
@@ -56,7 +56,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoDialog> = (args) => html`
   <ino-button id="open-dialog-btn">Open Dialog</ino-button>

@@ -1,4 +1,5 @@
 import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import './ino-nav-drawer.scss';
 
@@ -69,7 +70,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 const navContent = html`
   <ino-img

@@ -3,14 +3,14 @@ import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-checkbox.scss';
 
 export default {
   title: 'Input/ino-checkbox',
   component: 'ino-checkbox',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-checkbox'),
     (story) => {
       useEffect(() => {
         const handleCheckedChange = (e) => {

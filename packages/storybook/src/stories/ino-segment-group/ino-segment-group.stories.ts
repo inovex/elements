@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-segment-group.scss';
 
 const eventHandler = (e: Event) => {
@@ -18,7 +18,7 @@ export default {
   title: 'Buttons/ino-segment-group',
   component: 'ino-segment-group',
   decorators: [
-    (story) => defaultDecorator(story, 'story-segment-group'),
+    (story) => decorateStoryWithClass(story, 'story-segment-group'),
     (story) => {
       useEffect(() => {
         document.addEventListener('checkedChange', eventHandler);
@@ -33,7 +33,7 @@ export default {
       handles: ['checkedChange'],
     },
   },
-};
+} as Meta;
 export const Playground: Story<Components.InoSegmentGroup> = (args) => html`
   <ino-segment-group id="segment-grp" name="${args.name}" value="${args.value}">
     <ino-segment-button value="opt-1">Option 1</ino-segment-button>

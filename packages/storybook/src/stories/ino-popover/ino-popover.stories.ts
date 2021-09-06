@@ -1,6 +1,7 @@
 import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-popover.scss';
 
 export default {
@@ -11,8 +12,8 @@ export default {
       handles: ['visibleChange ino-popover'],
     },
   },
-  decorators: [(story) => defaultDecorator(story, 'story-ino-popover')],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-popover')],
+} as Meta;
 
 export const Playground = (args) => html`
   <ino-button id="popover-target">Popover</ino-button>

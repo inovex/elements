@@ -1,12 +1,13 @@
+import { Meta } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-option-group.scss';
 
 export default {
   title: 'Input/ino-option-group',
   component: 'ino-option-group',
-  decorators: [defaultDecorator],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-option-group')],
+} as Meta;
 
 export const Playground = (args): TemplateResult => html`
   <div class="story-option-group-customizable">

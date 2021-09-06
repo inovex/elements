@@ -1,20 +1,23 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-segment-button.scss';
 
 export default {
   title: 'Buttons/ino-segment-button',
   component: 'ino-segment-button',
-  decorators: [(story) => defaultDecorator(story, 'story-segment-button')],
+  decorators: [
+    (story) => decorateStoryWithClass(story, 'story-segment-button'),
+  ],
   parameters: {
     actions: {
       handles: ['checkedChange'],
     },
   },
-};
+} as Meta;
+
 export const Playground: Story<Components.InoSegmentButton> = (args) => html`
   <ino-segment-button
     value="1"

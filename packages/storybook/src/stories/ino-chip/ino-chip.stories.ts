@@ -1,14 +1,14 @@
 import { Components } from '@inovex.de/elements';
 import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { defaultDecorator, withColorScheme } from '../utils';
+import { decorateStoryWithClass, withColorScheme } from '../utils';
 
 import './ino-chip.scss';
 
 export default {
   title: 'Buttons/<ino-chip>',
   component: 'ino-chip',
-  decorators: [defaultDecorator],
+  decorators: [(story) => decorateStoryWithClass(story)],
   parameters: {
     actions: {
       handles: ['removeChip'],

@@ -10,7 +10,7 @@ import mountainsImg from '../../assets/images/mountains.jpg';
 // @ts-ignore
 import nidarosImg from '../../assets/images/nidaros.jpg';
 
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-carousel.scss';
 
@@ -18,7 +18,7 @@ export default {
   title: 'Graphic/<ino-carousel>',
   component: 'ino-carousel',
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-carousel'),
     (story) => {
       useEffect(() => {
         const eventHandler = function (e) {

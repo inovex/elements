@@ -3,7 +3,7 @@ import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import * as moment from 'moment';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-datepicker.scss';
 
 const days = 5;
@@ -20,7 +20,7 @@ export default {
     },
   },
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story, 'story-datepicker'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);

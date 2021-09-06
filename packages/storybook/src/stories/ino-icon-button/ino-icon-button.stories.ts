@@ -1,17 +1,22 @@
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withColorScheme, withIconControl } from '../utils';
+import {
+  decorateStoryWithClass,
+  withColorScheme,
+  withIconControl,
+} from '../utils';
 import './ino-icon-button.scss';
 
 export default {
   title: 'Buttons/ino-icon-button',
   component: 'ino-icon-button',
-  decorators: [defaultDecorator],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-icon-button')],
   parameters: {
     actions: {
       handles: ['click ino-icon-button'],
     },
   },
-};
+} as Meta;
 
 export const Playground = (args) => {
   return html`

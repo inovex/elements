@@ -1,9 +1,10 @@
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 export default {
   title: 'Structure/ino-list ',
   component: 'ino-list',
-};
+} as Meta;
 
 export const Playground = (args) => html`
   <ino-list

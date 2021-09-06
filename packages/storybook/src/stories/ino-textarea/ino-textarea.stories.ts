@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-textarea.scss';
 
 export default {
@@ -17,7 +17,7 @@ export default {
     },
   },
   decorators: [
-    (story) => defaultDecorator(story, 'story-textarea'),
+    (story) => decorateStoryWithClass(story, 'story-textarea'),
     (story) => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);
@@ -33,7 +33,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoTextarea> = (args) => html`
   <ino-textarea

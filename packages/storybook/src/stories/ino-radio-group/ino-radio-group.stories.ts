@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 export default {
   title: 'Input/ino-radio-group',
@@ -13,7 +13,7 @@ export default {
     },
   },
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         const radioGrp = document.querySelector('#radio-grp');
@@ -26,7 +26,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoRadioGroup> = (args) => html`
   <ino-radio-group id="radio-grp" value="${args.value}">

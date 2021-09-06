@@ -1,12 +1,13 @@
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-menu.scss';
 
 export default {
   title: `Structure/ino-menu`,
   component: 'ino-menu',
-  decorators: [(story) => defaultDecorator(story, 'story-ino-menu')],
-};
+  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-menu')],
+} as Meta;
 
 export const Playground = (args) => html`
   <ino-card ino-disable-elevation>

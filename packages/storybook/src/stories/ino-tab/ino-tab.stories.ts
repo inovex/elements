@@ -1,13 +1,13 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, withIconControl } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 export default {
   title: `Structure/ino-tab`,
   component: 'ino-tab',
-  decorators: [defaultDecorator],
-};
+  decorators: [(story) => decorateStoryWithClass(story)],
+} as Meta;
 
 export const Playground: Story<Components.InoTab> = (args) => html`
   <ino-tab

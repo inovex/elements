@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator, showSnackbar } from '../utils';
+import { decorateStoryWithClass, showSnackbar } from '../utils';
 import './ino-select.scss';
 
 const handleFormSubmission = (e) => {
@@ -21,7 +21,7 @@ export default {
     },
   },
   decorators: [
-    (story) => defaultDecorator(story, 'story-select'),
+    (story) => decorateStoryWithClass(story, 'story-select'),
     (story) => {
       useEffect(() => {
         const formElement = document.querySelector('form');

@@ -1,8 +1,10 @@
-.flex-parent {
-  display: flex;
-  flex-wrap: wrap;
+.story-spinner {
+  .flex-parent {
+    display: flex;
+    flex-wrap: wrap;
 
-  > .flex-child {
-    margin: 0 20px;
+    > .flex-child {
+      margin: 0 20px;
+    }
   }
 }

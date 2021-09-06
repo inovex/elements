@@ -1,8 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-fab-set.scss';
 
@@ -15,7 +15,7 @@ export default {
     },
   },
   decorators: [
-    defaultDecorator,
+    (story) => decorateStoryWithClass(story),
     (story) => {
       useEffect(() => {
         const clickHandler = function (e) {
@@ -35,7 +35,7 @@ export default {
       return story();
     },
   ],
-};
+} as Meta;
 
 export const Playground: Story<Components.InoFabSet> = (args) => html`
   <ino-fab-set

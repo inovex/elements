@@ -1,20 +1,20 @@
 import { Components } from '@inovex.de/elements';
-import { Story } from '@storybook/web-components';
+import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-chip-set.scss';
 
 export default {
   title: 'Buttons/<ino-chip-set>',
   component: 'ino-chip-set',
-  decorators: [defaultDecorator],
+  decorators: [(story) => decorateStoryWithClass(story)],
   parameters: {
     actions: {
       handles: ['removeChip'],
     },
   },
-};
+} as Meta;
 
 export const Playground: Story<Components.InoChipSet> = (args) => html`
   <ino-chip-set class="customizable-chip-set" type="${args.type}">
