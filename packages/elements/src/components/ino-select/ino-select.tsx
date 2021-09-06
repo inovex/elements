@@ -10,11 +10,12 @@ import {
   Listen,
   Prop,
   Watch,
-  State,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 /**
+ * @slot icon-leading - For the icon to be prepended
  * @slot default - One or more `ino-option(-group)`
  */
 @Component({
@@ -25,8 +26,7 @@ import classNames from 'classnames';
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance?: MDCSelect;
-  private nativeSelectElement?: HTMLSelectElement;
-  private mdcSelectMenuWrapper?: HTMLDivElement;
+  private nativeSelectElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
 
@@ -76,32 +76,10 @@ export class Select implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
-  /**
-   * Option Values to display inside hidden <select></select>
-   *
-   * @type {Array<string>}
-   * @memberof Select
-   */
-  @State() mdcSelectMenuListOptionValues: Array<{
-    value: string;
-    selected: boolean;
-    disabled: boolean;
-  }> = [];
-
   componentDidLoad() {
     this.mdcSelectInstance = new MDCSelect(
       this.el.querySelector('.mdc-select')
     );
-
-    // extract ino-options to create hidden a11y select element <select><option></option>/select>
-    const mdcSelectMenuList = this.mdcSelectMenuWrapper.querySelector('ul');
-    this.mdcSelectMenuListOptionValues = [
-      ...mdcSelectMenuList.getElementsByTagName('ino-option'),
-    ].map((listOption: HTMLInoOptionElement) => ({
-      value: listOption.value,
-      selected: listOption.selected,
-      disabled: listOption.disabled,
-    }));
 
     if (this.value) {
       this.setSelectValue(this.value);
@@ -152,39 +130,39 @@ export class Select implements ComponentInterface {
   );
 
   render() {
+    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+
     const classSelect = classNames({
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
       'mdc-select--outlined': this.outline,
       'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
+      'mdc-select--with-leading-icon': leadingSlotHasContent,
     });
+
+    const hiddenInput = this.required ? (
+      <input
+        class="ino-hidden-input"
+        aria-hidden
+        ref={(el) => (this.nativeSelectElement = el)}
+        required={this.required}
+      ></input>
+    ) : (
+      ''
+    );
 
     return (
       <Host name={this.name}>
         <div class={classSelect}>
+          {hiddenInput}
           <div class="mdc-select__anchor">
+            {leadingSlotHasContent && (
+              <span class="mdc-select__icon">
+                <slot name="icon-leading"></slot>
+              </span>
+            )}
             <div class="mdc-select__selected-text">{this.value}</div>
-            <select
-              class="ino-visually-hidden"
-              ref={(el) => (this.nativeSelectElement = el)}
-              required={this.required}
-              disabled={this.disabled}
-              name={this.label}
-            >
-              {this.required && <option value="">None</option>}
-              {this.mdcSelectMenuListOptionValues.map((value) => {
-                return (
-                  <option
-                    value={value.value}
-                    disabled={value.disabled}
-                    selected={value.selected}
-                  >
-                    {value}
-                  </option>
-                );
-              })}
-            </select>
             {this.renderDropdownIcon()}
             <ino-label
               outline={this.outline}
@@ -194,12 +172,7 @@ export class Select implements ComponentInterface {
               show-hint={this.showLabelHint}
             />
           </div>
-          <div
-            class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth"
-            ref={(el) => {
-              this.mdcSelectMenuWrapper = el;
-            }}
-          >
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
             <ul class="mdc-list">
               <slot />
             </ul>

@@ -2,8 +2,15 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { defaultDecorator } from '../utils';
+import { defaultDecorator, showSnackbar } from '../utils';
 import './ino-select.scss';
+
+const handleFormSubmission = (e) => {
+  e.preventDefault();
+  showSnackbar('Form submitted.');
+};
+
+const handleSelect = (e) => e.target.setAttribute('value', e.detail);
 
 export default {
   title: 'Input/ino-select',
@@ -17,14 +24,18 @@ export default {
     (story) => defaultDecorator(story, 'story-select'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const formElement = document.querySelector('form');
+        formElement?.addEventListener('submit', handleFormSubmission);
+
         const selects = document.querySelectorAll('ino-select');
-        selects.forEach((s) => s.addEventListener('valueChange', eventHandler));
-        return () =>
+        selects.forEach((s) => s.addEventListener('valueChange', handleSelect));
+        return () => {
           selects.forEach((s) =>
-            s.removeEventListener('valueChange', eventHandler)
+            s.removeEventListener('valueChange', handleSelect)
           );
-      });
+          formElement?.removeEventListener('submit', handleFormSubmission);
+        };
+      }, []);
       return story();
     },
   ],
@@ -80,6 +91,25 @@ export const OutlineFloatingLabel = () => html`
   </ino-select>
 `;
 
+export const WithIcon = () => html`
+  <div style="height: 400px;">
+    <ino-select label="Select with leading icon">
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+    <ino-select
+      style="margin-top: 150px;"
+      outline
+      label="Select with leading icon"
+    >
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+  </div>
+`;
+
 export const Disabled = () => html`
   <ino-select disabled label="Disabled select">
     <ino-option value="Selected Option" selected>Selected Option</ino-option>
@@ -98,6 +128,14 @@ export const Required = () => html`
   <ino-select required label="Required select" show-label-hint>
     ${optionsTemplate}
   </ino-select>
+`;
+
+export const Form = () => html`
+  <form>
+    <p>Form should submit if no value is selected</p>
+    <ino-select required> ${optionsTemplate}</ino-select>
+    <ino-button type="submit">Submit</ino-button>
+  </form>
 `;
 
 export const Option = () => html`

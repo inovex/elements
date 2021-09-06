@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",

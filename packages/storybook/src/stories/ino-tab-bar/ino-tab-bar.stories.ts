@@ -29,7 +29,7 @@ export default {
 };
 
 export const Playground: Story<Components.InoTabBar> = (args) => html`
-  <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}">
+  <ino-tab-bar id="customizable-tabbar" active-tab="${args.activeTab}" auto-focus="${args.autoFocus}">
     <ino-tab label="User" icon="user"></ino-tab>
     <ino-tab label="Messages" icon="message"></ino-tab>
     <ino-tab label="Settings" icon="settings"></ino-tab>
@@ -38,6 +38,7 @@ export const Playground: Story<Components.InoTabBar> = (args) => html`
 `;
 Playground.args = {
   activeTab: 0,
+  autoFocus: false,
 };
 Playground.argTypes = {
   activeTab: {

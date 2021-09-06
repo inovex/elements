@@ -4,6 +4,10 @@ const INO_TAB_BAR = `
     <ino-tab-bar>
         <ino-tab></ino-tab>
     </ino-tab-bar>`;
+const INO_TAB_BAR_AUTO_FOCUS = `
+    <ino-tab-bar auto-focus>
+        <ino-tab></ino-tab>
+    </ino-tab-bar>`;
 const TAB_BAR_SELECTOR = 'ino-tab-bar';
 const TAB_SELECTOR = 'ino-tab-bar ino-tab';
 
@@ -18,6 +22,24 @@ describe('InoTabBar', () => {
 
       const activeTab = await tabBar.getAttribute('active-tab');
       expect(activeTab).toBe('3');
+    });
+
+    it('should be focused automatically with the autoFocus property', async () => {
+      const emptyElement = {};
+
+      const pageWithDefaultTabBar = await setupPageWithContent(INO_TAB_BAR);
+      const focusedElementWithoutAutofocus = await pageWithDefaultTabBar.evaluate(
+        () => document.activeElement
+      );
+      expect(focusedElementWithoutAutofocus).toEqual(emptyElement);
+
+      const pageWithFocusedTabBar = await setupPageWithContent(
+        INO_TAB_BAR_AUTO_FOCUS
+      );
+      const focusedElement = await pageWithFocusedTabBar.evaluate(
+        () => document.activeElement
+      );
+      expect(focusedElement).not.toEqual(emptyElement);
     });
   });
 

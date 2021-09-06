@@ -7,19 +7,32 @@
 @use 'base/theme';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
+$placeholder-color: rgba(0, 0, 0, 0.6);
+
+@mixin setIconColors($color) {
+  .mdc-select__icon {
+    ino-icon {
+      --icon-color: #{$color};
+    }
+  }
+}
 
 ino-select {
   /**
-  * @prop --select-height: Height of the open select menu
-   */
+  * @prop --ino-select-height: Height of the open select menu
+  * @prop --ino-select-icon-color: Icon color
+  */
+  --select-height: auto;
+  --select-icon-color: var(--ino-select-icon-color, #{theme.color(primary)});
 
   display: block;
-  --select-height: auto;
 
-  input {
-    opacity: 0;
-    width: 95%; // 100% shows ellipsis in Chrome
-    cursor: pointer;
+  .ino-hidden-input {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
   }
 
   .mdc-select__menu {
@@ -30,6 +43,12 @@ ino-select {
   .mdc-select,
   .mdc-select__menu {
     width: 100%;
+  }
+
+  @include setIconColors($placeholder-color);
+
+  .mdc-select--focused {
+    @include setIconColors(var(--select-icon-color));
   }
 
   .mdc-select {
@@ -62,6 +81,16 @@ ino-select {
     .mdc-select__anchor:before {
       display: none;
     }
+
+    .mdc-select__dropdown-icon {
+      width: 24px;
+      height: 24px;
+
+      ino-icon {
+        --icon-width: 24px;
+        --icon-height: 24px;
+      }
+    }
   }
 
   .mdc-select.mdc-select--outlined .mdc-select__selected-text {
@@ -82,12 +111,23 @@ ino-select {
       margin-top: 24px;
     }
 
+    .mdc-select__dropdown-icon {
+      margin-top: 18px;
+    }
+
     .mdc-floating-label {
       top: 36px;
     }
 
     .mdc-floating-label.mdc-floating-label--float-above {
       top: 25px;
+    }
+
+    &[class*='--with-leading-icon'] {
+      .mdc-floating-label,
+      .mdc-floating-label--float-above {
+        left: 40px;
+      }
     }
   }
 
@@ -98,6 +138,10 @@ ino-select {
 
     .mdc-floating-label.mdc-floating-label--float-above {
       top: 28px;
+    }
+
+    &[class*='--with-leading-icon'] ino-icon {
+      display: unset; // center icon vertically
     }
   }
 }

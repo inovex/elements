@@ -1,3 +1,4 @@
+import { E2EElement, E2EPage } from '@stencil/core/testing';
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_SELECT = `
@@ -9,56 +10,82 @@ const INO_SELECT_SELECTOR = 'ino-select';
 const INNER_DIV_SELECTOR = 'ino-select > div';
 
 describe('InoSelect', () => {
+  let page: E2EPage;
+  let inoSelectEl: E2EElement;
+  let mdcSelectEl: E2EElement;
+
+  beforeEach(async () => {
+    page = await setupPageWithContent(INO_SELECT);
+    inoSelectEl = await page.find(INO_SELECT_SELECTOR);
+    mdcSelectEl = await page.find(INNER_DIV_SELECTOR);
+  });
+
   describe('Properties', () => {
     it('should render with the disabled property set to true', async () => {
-      const page = await setupPageWithContent(INO_SELECT);
-      const inoSelect = await page.find(INO_SELECT_SELECTOR);
-      await inoSelect.setAttribute('disabled', true);
+      await inoSelectEl.setAttribute('disabled', true);
       await page.waitForChanges();
-
-      const innerDiv = await page.find(INNER_DIV_SELECTOR);
-      expect(innerDiv).toHaveClass('mdc-select--disabled');
+      expect(mdcSelectEl).toHaveClass('mdc-select--disabled');
     });
 
     it('should render with the required property set to true', async () => {
-      const page = await setupPageWithContent(INO_SELECT);
-      const inoSelect = await page.find(INO_SELECT_SELECTOR);
-      await inoSelect.setAttribute('required', true);
+      await inoSelectEl.setAttribute('required', true);
       await page.waitForChanges();
-
-      const innerDiv = await page.find(INNER_DIV_SELECTOR);
-      expect(innerDiv).toHaveClass('mdc-select--required');
+      expect(mdcSelectEl).toHaveClass('mdc-select--required');
     });
 
     it('should render as an outlined element if inoOutlined is true', async () => {
-      const page = await setupPageWithContent(INO_SELECT);
-      const inoSelect = await page.find(INO_SELECT_SELECTOR);
-      await inoSelect.setAttribute('outline', true);
+      await inoSelectEl.setAttribute('outline', true);
       await page.waitForChanges();
-
-      const innerDiv = await page.find(INNER_DIV_SELECTOR);
-      expect(innerDiv).toHaveClass('mdc-select--outlined');
+      expect(mdcSelectEl).toHaveClass('mdc-select--outlined');
     });
 
     it('should render as a filled element if inoOutlined is false', async () => {
-      const page = await setupPageWithContent(INO_SELECT);
-
-      const innerDiv = await page.find(INNER_DIV_SELECTOR);
-      expect(innerDiv).not.toHaveClass('mdc-select--outlined');
-      expect(innerDiv).toHaveClass('mdc-select--filled');
+      expect(mdcSelectEl).not.toHaveClass('mdc-select--outlined');
+      expect(mdcSelectEl).toHaveClass('mdc-select--filled');
     });
   });
 
   describe('Events', () => {
     it('should emit a valueChange event upon receiving a MDCSelect:change event', async () => {
-      const page = await setupPageWithContent(INO_SELECT);
-      const inoSelect = await page.find(INO_SELECT_SELECTOR);
       const valueChangeEvent = await page.spyOnEvent('valueChange');
 
-      await inoSelect.triggerEvent('MDCSelect:change');
+      await inoSelectEl.triggerEvent('MDCSelect:change');
       await page.waitForChanges();
 
       expect(valueChangeEvent).toHaveReceivedEvent();
+    });
+
+    it('should receive submit event if select is required and value is set', async () => {
+      const formId = 'my-submit-form';
+      page = await setupPageWithContent(`
+        <form id="${formId}">
+           <ino-select required value="1">
+               <ino-option value="1" id="opt1">1</ino-option>
+            </ino-select>
+        </form>
+      `);
+      const submitEventSpy = await page.spyOnEvent('submit');
+      await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
+        form.requestSubmit()
+      );
+      expect(submitEventSpy).toHaveReceivedEvent();
+    });
+
+    it('should not receive submit event if select is required and no value is set', async () => {
+      const formId = 'my-submit-form';
+      page = await setupPageWithContent(`
+        <form id="${formId}">
+           <ino-select required>
+               <ino-option value="1" id="opt1">1</ino-option>
+            </ino-select>
+        </form>
+      `);
+
+      const submitEventSpy = await page.spyOnEvent('submit');
+      await page.$eval(`#${formId}`, (form: HTMLFormElement) =>
+        form.requestSubmit()
+      );
+      expect(submitEventSpy).not.toHaveReceivedEvent();
     });
   });
 });

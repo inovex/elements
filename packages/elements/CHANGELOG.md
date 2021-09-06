@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/inovex/elements/compare/v4.0.0...v4.1.0) (2021-08-11)
+
+
+### Features
+
+* **elements:** add new component `<ino-autocomplete>` ([#402](https://github.com/inovex/elements/issues/402)) ([e93b20f](https://github.com/inovex/elements/commit/e93b20f7ac05500a11dbbeefbbcd382da6146ef3))
+* **elements|ino-select:** add slot for leading icon ([#317](https://github.com/inovex/elements/issues/317)) ([2a656e6](https://github.com/inovex/elements/commit/2a656e646bd5ee8c52d217d07d9e0c59eba199a4))
+* **elements|ino-tab-bar:** add autoFocus property ([#408](https://github.com/inovex/elements/issues/408)) ([03dc76a](https://github.com/inovex/elements/commit/03dc76ac8d45f15ad33441802c93d3854237566b))
+
+
+### Bug Fixes
+
+* **elements|ino-list-item:** fix checkbox positioning ([#335](https://github.com/inovex/elements/issues/335)) ([4c642d4](https://github.com/inovex/elements/commit/4c642d44c88d3b00c735ab4b777bd5925d8e722a))
+* **elements|ino-nav-drawer:** emit `openChange` event on `esc` press ([#336](https://github.com/inovex/elements/issues/336)) ([5f558cf](https://github.com/inovex/elements/commit/5f558cfbfdcf22925fdf857ca55badec85af457f))
+* **elements|ino-select:** fix form validation ([#355](https://github.com/inovex/elements/issues/355)) ([8eba403](https://github.com/inovex/elements/commit/8eba403f3aff575c1e73110a5cfba18159226d98))
+* **elements|ino-tab-bar:** prevent autofocus on creation ([#406](https://github.com/inovex/elements/issues/406)) ([5167724](https://github.com/inovex/elements/commit/5167724116b44e8d384852b56a42177878dab59c))
+
 ## [4.0.0](https://github.com/inovex/elements/compare/v3.0.0...v4.0.0) (2021-07-05)
 
 

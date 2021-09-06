@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/inovex/elements/compare/v4.0.0...v4.1.0) (2021-08-11)
+
+
+### Features
+
+* **elements:** add new component `<ino-autocomplete>` ([#402](https://github.com/inovex/elements/issues/402)) ([e93b20f](https://github.com/inovex/elements/commit/e93b20f7ac05500a11dbbeefbbcd382da6146ef3))
+
+
+### Bug Fixes
+
+* **elements-react:** add missing components ([#407](https://github.com/inovex/elements/issues/407)) ([d886c2a](https://github.com/inovex/elements/commit/d886c2a5c5aced430fdc533c052a83cd5f202369))
+
 ## [4.0.0](https://github.com/inovex/elements/compare/v3.0.0...v4.0.0) (2021-07-05)
 
 

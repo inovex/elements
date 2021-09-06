@@ -13,13 +13,13 @@
     "clean:packages": "lerna clean --yes",
     "clean:artifacts": "lerna run clean --parallel",
     "clean:root": "shx rm -rf node_modules",
-    "update:commit-scopes": "node scripts/generateCommitScopeEnum.js",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "format": "yarn prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,scss}'",
     "lerna:version": "lerna version --conventional-commits --no-changelog",
     "preversion": "yarn build && yarn test",
     "version": "node scripts/bumprootversion.js && yarn changelog",
+    "new:component": "node scripts/newComponent.js",
     "postversion": "git add -A",
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
@@ -27,9 +27,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@commitlint/config-lerna-scopes": "^8.2.0",
+    "camelcase": "^6.2.0",
+    "chalk": "^4.1.2",
     "husky": "^6.0.0",
     "js-yaml": "^3.14.0",
     "lint-staged": "^10.5.3",
@@ -59,5 +58,5 @@
     ]
   },
   "name": "core",
-  "version": "4.0.0"
+  "version": "4.1.0"
 }
