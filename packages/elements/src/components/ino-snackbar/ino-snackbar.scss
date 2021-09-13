@@ -4,18 +4,7 @@
 @use 'base/theme';
 @use 'base/animation';
 
-$snackbar-types: 'error', 'warning';
-
-ino-snackbar {
-  --snackbar-warning-border-color: var(
-    --ino-snackbar-warning-border-color,
-    #{theme.color(warning)}
-  );
-  --snackbar-error-border-color: var(
-    --ino-snackbar-error-border-color,
-    #{theme.color(error)}
-  );
-}
+$snackbar-types: 'info', 'error', 'warning';
 
 ino-snackbar {
   &.ino-snackbar--vertical-align-top .mdc-snackbar {
@@ -32,61 +21,43 @@ ino-snackbar {
     justify-content: flex-end;
   }
 
-  .mdc-snackbar__surface {
-    background-color: theme.color(primary, contrast);
-    padding: 16px;
+  .ino-snackbar-container {
+    background-color: white;
+    border: 0.3px solid theme.color(primary, light);
+    border-radius: 15px;
+    box-shadow: 0px 3px 6px #2d5dff29;
+    justify-content: space-between;
+    min-width: auto;
+    max-width: 350px;
+    padding: 16px 45px 16px 25px;
+  }
+
+  .ino-snackbar-icon-container {
+    ino-icon {
+      --ino-icon-width: 30px;
+      --ino-icon-height: 30px;
+    }
+  }
+
+  .ino-snackbar-message-container {
     display: flex;
-    align-items: stretch;
-    align-content: stretch;
-    flex-flow: row wrap;
+    flex-direction: column;
+    column-gap: 7px;
+    padding: 0 0 0 20px;
 
-    border-radius: 4px;
-
-    .mdc-snackbar__actions {
-      flex-grow: 1;
+    .ino-snackbar-text-container {
+      color: theme.color(dark, dark);
     }
 
-    .mdc-snackbar__label {
-      display: inline;
-      color: theme.color(dark);
-      font-size: typography.font-size(s);
-      word-break: break-all;
-      flex-grow: 3;
-      max-width: 400px;
-      min-width: 150px;
-    }
-
-    .ino-button {
-      flex-grow: 1;
-    }
-
-    ino-icon-button .mdc-icon-button::before {
-      top: 12px;
-      left: 12px;
+    .ino-snackbar-action-btn {
+      border: none;
+      background-color: transparent;
+      color: theme.color(primary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding-left: 0;
+      padding-top: 5px;
     }
   }
-
-  &.ino-snackbar--no-action {
-    .mdc-snackbar__surface {
-      background-color: lighten(theme.color(primary, light), 5%);
-
-      .mdc-snackbar__label {
-        color: white;
-      }
-
-      ino-icon-button ino-icon {
-        --icon-color: white;
-      }
-    }
-  }
-}
-
-@each $type in $snackbar-types {
-  ino-snackbar.ino-snackbar--type-#{$type} .mdc-snackbar__surface {
-    border: 2px solid var(--snackbar-#{$type}-border-color);
-  }
-}
-
-ino-snackbar.ino-snackbar--type-primary .mdc-snackbar__surface {
-  border: none;
 }

@@ -4192,7 +4192,6 @@
           "name": "action-text",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
-          "defaultValue": "''",
           "required": false
         },
         {
@@ -4224,9 +4223,9 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"primary\" | \"warning\"",
+          "type": "\"error\" | \"info\" | \"success\"",
           "description": "Changes the snackbar type",
-          "defaultValue": "'primary'",
+          "defaultValue": "'info'",
           "required": false
         },
         {
@@ -4242,7 +4241,6 @@
           "name": "actionText",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
-          "defaultValue": "''",
           "required": false
         },
         {
@@ -4274,9 +4272,9 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"primary\" | \"warning\"",
+          "type": "\"error\" | \"info\" | \"success\"",
           "description": "Changes the snackbar type",
-          "defaultValue": "'primary'",
+          "defaultValue": "'info'",
           "required": false
         },
         {

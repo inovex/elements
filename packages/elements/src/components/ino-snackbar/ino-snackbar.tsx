@@ -33,7 +33,7 @@ export class Snackbar implements ComponentInterface {
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
-  @Prop() actionText?: string = '';
+  @Prop() actionText?: string;
 
   /**
    * Controls if Snackbar will appear at the top or at the bottom of the screen
@@ -48,7 +48,7 @@ export class Snackbar implements ComponentInterface {
   /**
    * Changes the snackbar type
    */
-  @Prop() type: SnackbarType = 'primary';
+  @Prop() type: SnackbarType = 'info';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
@@ -113,7 +113,9 @@ export class Snackbar implements ComponentInterface {
   };
 
   private interruptTimeout = () => {
-    if (this.nodeTimeout) clearTimeout(this.nodeTimeout);
+    if (this.nodeTimeout) {
+      clearTimeout(this.nodeTimeout);
+    }
   };
 
   private handleSnackbarHide = (e) => {
@@ -122,13 +124,12 @@ export class Snackbar implements ComponentInterface {
   };
 
   render() {
+    const hasActionText = Boolean(this.actionText);
+
     const hostClasses = classNames(
       `ino-snackbar--vertical-align-${this.verticalAlignment}`,
       `ino-snackbar--horizontal-align-${this.horizontalAlignment}`,
-      `ino-snackbar--type-${this.type}`,
-      {
-        'ino-snackbar--no-action': !this.actionText,
-      }
+      `ino-snackbar--type-${this.type}`
     );
 
     const snackbarClasses = classNames({
@@ -146,25 +147,23 @@ export class Snackbar implements ComponentInterface {
           aria-live="assertive"
           aria-atomic="true"
         >
-          <div class="mdc-snackbar__surface">
-            <div class="mdc-snackbar__actions">
-              <ino-icon-button
-                icon={'close'}
-                class="custom mdc-snackbar__action"
-              />
-              <div class="mdc-snackbar__label" role="status" aria-live="polite">
-                {this.message}
-              </div>
-              {this.actionText && (
-                <ino-button
-                  type="button"
-                  color-scheme="primary"
-                  class="ino-action-button"
-                  onClick={() => this.actionClick.emit()}
-                  fill="outline"
-                >
-                  {this.actionText}
-                </ino-button>
+          <div class="mdc-snackbar__surface ino-snackbar-container">
+            <div class="mdc-snackbar__actions ino-snackbar-icon-container">
+              {this.type === 'info' && <ino-icon icon="info" />}
+              {this.type === 'error' && <ino-icon icon="warning" />}
+              {this.type === 'success' && <ino-icon icon="checkmark" />}
+            </div>
+            <div
+              class="mdc-snackbar__label ino-snackbar-message-container"
+              aria-atomic="false"
+            >
+              <div class="ino-snackbar-text-container">{this.message}</div>
+              {hasActionText && (
+                <div>
+                  <button class="ino-snackbar-action-btn">
+                    {this.actionText}
+                  </button>
+                </div>
               )}
             </div>
           </div>

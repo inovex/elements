@@ -32,6 +32,44 @@ export default {
   ],
 } as Meta;
 
+export const Test = () => html`
+  <ino-button class="snackbar-trigger" data-template-id="snackbar-with-action"
+    >Show Default
+  </ino-button>
+  <template id="snackbar-with-action">
+    <ino-snackbar
+      alignment="left"
+      message="${sampleText}"
+      timeout="-1"
+      type="info"
+      action-text="Anlegen"
+    ></ino-snackbar>
+  </template>
+
+  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-action"
+    >Show long text
+  </ino-button>
+  <template id="snackbar-no-action">
+    <ino-snackbar
+      alignment="center"
+      action-text="Anlegen"
+      timeout="-1"
+      message="This is a really long text with no real content but it could happen that there is some more text."
+    ></ino-snackbar>
+  </template>
+
+  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-timeout"
+    >Show no action
+  </ino-button>
+  <template id="snackbar-no-timeout">
+    <ino-snackbar
+      alignment="right"
+      message="${sampleText}"
+      timeout="-1"
+    ></ino-snackbar>
+  </template>
+`;
+
 export const Playground: Story<Components.InoSnackbar> = (args) => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-default"
     >Show Snackbar
@@ -53,7 +91,7 @@ Playground.args = {
   horizontalAlignment: 'right',
   message: sampleText,
   timeout: -1,
-  type: 'primary',
+  type: 'info',
   verticalAlignment: 'top',
 };
 
@@ -71,7 +109,7 @@ Playground.argTypes = {
     control: {
       type: 'select',
     },
-    options: ['primary', 'warning', 'error'],
+    options: ['info', 'warning', 'error'],
   },
   verticalAlignment: {
     control: {
@@ -129,8 +167,8 @@ export const Alignments = () =>
             class="snackbar-trigger"
             data-template-id="snackbar-${vAlign}-${hAlign}"
             >${vAlign} ${hAlign}
-          </ino-button>
-          <template id="snackbar-${vAlign}-${hAlign}">
+  </ino-button>
+  <template id="snackbar-${vAlign}-${hAlign}">
             <ino-snackbar
               message="${sampleText}"
               action-text="Anlegen"
