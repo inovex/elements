@@ -169,6 +169,11 @@ export class Snackbar implements ComponentInterface {
                 </div>
               )}
             </div>
+            <ino-icon
+              clickable={true}
+              icon="close"
+              class="ino-snackbar-close-btn"
+            ></ino-icon>
           </div>
         </div>
       </Host>
