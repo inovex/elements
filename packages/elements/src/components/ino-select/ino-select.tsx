@@ -191,7 +191,6 @@ export class Select implements ComponentInterface {
         ref={(el) => (this.nativeInputElement = el)}
         required={this.required}
         disabled={this.disabled}
-        type="hidden"
       ></input>
     ) : (
       ''
