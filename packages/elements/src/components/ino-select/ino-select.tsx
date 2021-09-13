@@ -26,7 +26,7 @@ import { hasSlotContent } from '../../util/component-utils';
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance?: MDCSelect;
-  private nativeSelectElement?: HTMLInputElement;
+  private nativeInputElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
 
@@ -47,12 +47,12 @@ export class Select implements ComponentInterface {
 
   /**
    * If true, an *optional* message is displayed if not required,
-   * otherwise a * marker is displayed if required
+   * otherwise a * marker is displayed if required.
    */
   @Prop() showLabelHint?: boolean;
 
   /**
-   * The label of this element
+   * The label of this element.
    */
   @Prop() label?: string;
 
@@ -72,29 +72,72 @@ export class Select implements ComponentInterface {
   }
 
   /**
+   * Displays the select as invalid if set to true.
+   * If the property is not set or set to false,
+   * the validation is handled by the default validation.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  errorHandler(value?: boolean) {
+    // The error property is necessary, because the default validation on form submit does not seem to work in angular projects.
+    if (this.disabled || !this.mdcSelectInstance) {
+      return;
+    }
+
+    if (value) {
+      this.mdcSelectInstance.valid = false;
+      this.mdcSelectInstance.useDefaultValidation = false;
+    } else {
+      this.mdcSelectInstance.valid = true;
+      this.mdcSelectInstance.useDefaultValidation = true;
+      this.nativeInputElement?.checkValidity();
+    }
+  }
+
+  /**
    * Emits when a selection changes. Contains new value in `event.detail`.
    */
   @Event() valueChange!: EventEmitter<string>;
 
-  componentDidLoad() {
-    this.mdcSelectInstance = new MDCSelect(
-      this.el.querySelector('.mdc-select')
-    );
+  connectedCallback() {
+    this.create();
+  }
 
-    if (this.value) {
-      this.setSelectValue(this.value);
-    } else if (this.mdcSelectInstance?.value) {
-      this.value = this.mdcSelectInstance.value;
-    }
+  componentDidLoad() {
+    this.create();
+  }
+
+  componentDidUpdate() {
+    // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language
+    this.mdcSelectInstance?.layout();
   }
 
   disconnectedCallback() {
     this.mdcSelectInstance?.destroy();
   }
 
+  private create = () => {
+    const mdcSelect = this.el.querySelector('.mdc-select');
+    if (!mdcSelect) {
+      return;
+    }
+
+    this.mdcSelectInstance = new MDCSelect(mdcSelect);
+
+    if (this.value) {
+      this.setSelectValue(this.value);
+    } else if (this.mdcSelectInstance?.value) {
+      this.value = this.mdcSelectInstance.value;
+    }
+
+    this.errorHandler(this.error);
+    this.mdcSelectInstance.layout();
+  };
+
   private setSelectValue(value: string) {
-    if (this.nativeSelectElement) {
-      this.nativeSelectElement.value = value;
+    if (this.nativeInputElement) {
+      this.nativeInputElement.value = value;
     }
     if (this.mdcSelectInstance) {
       this.mdcSelectInstance.value = value;
@@ -145,8 +188,10 @@ export class Select implements ComponentInterface {
       <input
         class="ino-hidden-input"
         aria-hidden
-        ref={(el) => (this.nativeSelectElement = el)}
+        ref={(el) => (this.nativeInputElement = el)}
         required={this.required}
+        disabled={this.disabled}
+        type="hidden"
       ></input>
     ) : (
       ''
@@ -156,13 +201,13 @@ export class Select implements ComponentInterface {
       <Host name={this.name}>
         <div class={classSelect}>
           {hiddenInput}
-          <div class="mdc-select__anchor">
+          <div class="mdc-select__anchor" aria-required={this.required}>
             {leadingSlotHasContent && (
               <span class="mdc-select__icon">
                 <slot name="icon-leading"></slot>
               </span>
             )}
-            <div class="mdc-select__selected-text">{this.value}</div>
+            <div class="mdc-select__selected-text"></div>
             {this.renderDropdownIcon()}
             <ino-label
               outline={this.outline}

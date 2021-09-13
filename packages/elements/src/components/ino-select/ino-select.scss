@@ -102,6 +102,10 @@ ino-select {
     overflow: hidden;
   }
 
+  .mdc-select--invalid .mdc-select__selected-text {
+    color: theme.color(error);
+  }
+
   .mdc-select--filled {
     .mdc-select__anchor {
       padding-left: 0;

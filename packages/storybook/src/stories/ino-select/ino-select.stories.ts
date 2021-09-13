@@ -56,6 +56,7 @@ export const Playground: Story<Components.InoSelect> = (args) => html`
     required="${args.required}"
     show-label-hint="${args.showLabelHint}"
     value="${args.value}"
+    error="${args.error}"
   >
     ${optionsTemplate}
   </ino-select>
@@ -68,6 +69,7 @@ Playground.args = {
   required: false,
   showLabelHint: false,
   value: 'Option 1',
+  error: false,
 };
 
 export const NoLabel = () => html`
