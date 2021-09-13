@@ -1,6 +1,6 @@
 # ino-snackbar
 
-Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
+Snackbars provide brief messages about app processes. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
 
 ### Usage
 
@@ -22,8 +22,8 @@ document
 <ino-snackbar
   message="<string>"
   action-text="<string>"
-  action-on-bottom
-  align-start
+  horizontal-alignment="<string>"
+  vertical-alignment="<string>"
   oninoactionclick="handleClickEl()"
   onhideel="handleHideEl()"
 >
@@ -44,8 +44,6 @@ class MyComponent extends Component {
       <InoSnackbar
         inoMessage="Message deleted"
         inoActionText="Undo"
-        inoActionOnBottom={false}
-        inoAlignStart={false}
       />
     );
   }
@@ -63,16 +61,12 @@ const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = prop
   const {
     inoMessage,
     inoActionText,
-    inoActionOnBottom,
-    inoAlignStart
   } = props;
 
   return (
     <InoSnackbar
       inoMessage={inoMessage}
       inoActionText={inoActionText}
-      inoActionOnBottom={inoActionOnBottom}
-      inoAlignStart={inoAlignStart}
     >
       {props.children}
     </InoSnackbar>
@@ -87,31 +81,26 @@ class MyComponent extends Component {
       <Snackbar
         inoMessage="Message deleted"
         inoActionText="Undo"
-        inoActionOnBottom={false}
-        inoAlignStart={false}
       />
     );
   }
 }
 ```
 
-## Additional Hints
-
-Snackbar is displayed when `show` is changed to checked.
-
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property             | Attribute               | Description                                                                                                                    | Type                                | Default     |
-| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
-| `actionText`         | `action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
-| `alignment`          | `alignment`             | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'center'`  |
-| `message`            | `message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
-| `stayVisibleOnHover` | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
-| `timeout`            | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
-| `type`               | `type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
+| Property              | Attribute               | Description                                                                                                                    | Type                                | Default     |
+| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
+| `actionText`          | `action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
+| `horizontalAlignment` | `horizontal-alignment`  | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'right'`   |
+| `message`             | `message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
+| `stayVisibleOnHover`  | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
+| `timeout`             | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
+| `type`                | `type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
+| `verticalAlignment`   | `vertical-alignment`    | Controls if Snackbar will appear at the top or at the bottom of the screen                                                     | `"bottom" \| "top"`                 | `'top'`     |
 
 
 ## Events
