@@ -7,6 +7,21 @@ import './ino-snackbar.scss';
 
 const sampleText = 'User successfully updated!';
 
+const snackbarTypes: Components.InoSnackbar['type'][] = [
+  'info',
+  'success',
+  'error',
+];
+const horizontalAlignments: Components.InoSnackbar['horizontalAlignment'][] = [
+  'left',
+  'right',
+  'center',
+];
+const verticalAlignments: Components.InoSnackbar['verticalAlignment'][] = [
+  'top',
+  'bottom',
+];
+
 export default {
   title: 'Notification/ino-snackbar',
   component: 'ino-snackbar',
@@ -32,7 +47,7 @@ export default {
   ],
 } as Meta;
 
-export const Test = () => html`
+export const TextSizes = () => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-with-action"
     >Show Default
   </ino-button>
@@ -95,9 +110,6 @@ Playground.args = {
   verticalAlignment: 'top',
 };
 
-const horizontalAlignments = ['left', 'right', 'center'];
-const verticalAlignments = ['top', 'bottom'];
-
 Playground.argTypes = {
   horizontalAlignment: {
     control: {
@@ -142,21 +154,21 @@ export const Variants = () => html`
   </template>
 `;
 
-export const Types = () => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-warning"
-    >Show Snackbar (warning)
-  </ino-button>
-  <template id="snackbar-warning">
-    <ino-snackbar message="${sampleText}" type="warning"></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-error"
-    >Show Snackbar (error)
-  </ino-button>
-  <template id="snackbar-error">
-    <ino-snackbar message="${sampleText}" type="error"></ino-snackbar>
-  </template>
-`;
+export const Types = () =>
+  snackbarTypes.map(
+    (type) => html`
+      <ino-button class="snackbar-trigger" data-template-id="snackbar-${type}"
+        >Show Snackbar (${type})
+      </ino-button>
+      <template id="snackbar-${type}">
+        <ino-snackbar
+          message="${sampleText}"
+          type="${type}"
+          action-text="My Action"
+        ></ino-snackbar>
+      </template>
+    `
+  );
 
 export const Alignments = () =>
   verticalAlignments.map((vAlign) =>
@@ -167,8 +179,8 @@ export const Alignments = () =>
             class="snackbar-trigger"
             data-template-id="snackbar-${vAlign}-${hAlign}"
             >${vAlign} ${hAlign}
-  </ino-button>
-  <template id="snackbar-${vAlign}-${hAlign}">
+          </ino-button>
+          <template id="snackbar-${vAlign}-${hAlign}">
             <ino-snackbar
               message="${sampleText}"
               action-text="Anlegen"

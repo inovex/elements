@@ -21,11 +21,32 @@ ino-snackbar {
     justify-content: flex-end;
   }
 
+  &.ino-snackbar--type-info {
+    --snackbar-border-color: #{theme.color(primary, light)};
+    --snackbar-box-shadow: #2d5dff29;
+    --snackbar-icon-color: #{theme.color(primary)};
+    --snackbar-font-color: #{theme.color(primary)};
+  }
+
+  &.ino-snackbar--type-success {
+    --snackbar-border-color: #{theme.color(success, light)};
+    --snackbar-box-shadow: #2d5dff29; // FIXME
+    --snackbar-icon-color: #{theme.color(success)};
+    --snackbar-font-color: #{theme.color(success)};
+  }
+
+  &.ino-snackbar--type-error {
+    --snackbar-border-color: #{theme.color(error, light)};
+    --snackbar-box-shadow: #2d5dff29; // FIXME
+    --snackbar-icon-color: #{theme.color(error)};
+    --snackbar-font-color: #{theme.color(error)};
+  }
+
   .ino-snackbar-container {
     background-color: white;
-    border: 0.3px solid theme.color(primary, light);
+    border: 0.3px solid var(--snackbar-border-color);
     border-radius: 15px;
-    box-shadow: 0px 3px 6px #2d5dff29;
+    box-shadow: 0px 3px 6px var(--snackbar-box-shadow);
     justify-content: space-between;
     min-width: auto;
     max-width: 350px;
@@ -36,6 +57,7 @@ ino-snackbar {
     ino-icon {
       --ino-icon-width: 30px;
       --ino-icon-height: 30px;
+      --ino-icon-color-primary: var(--snackbar-icon-color);
     }
   }
 
@@ -52,7 +74,7 @@ ino-snackbar {
     .ino-snackbar-action-btn {
       border: none;
       background-color: transparent;
-      color: theme.color(primary);
+      color: var(--snackbar-font-color);
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;

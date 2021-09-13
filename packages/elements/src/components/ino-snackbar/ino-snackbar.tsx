@@ -160,7 +160,10 @@ export class Snackbar implements ComponentInterface {
               <div class="ino-snackbar-text-container">{this.message}</div>
               {hasActionText && (
                 <div>
-                  <button class="ino-snackbar-action-btn">
+                  <button
+                    onClick={this.actionClick.emit}
+                    class="ino-snackbar-action-btn"
+                  >
                     {this.actionText}
                   </button>
                 </div>
