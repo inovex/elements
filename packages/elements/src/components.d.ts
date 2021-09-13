@@ -997,7 +997,7 @@ export namespace Components {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "alignment": 'left' | 'right' | 'center';
+        "horizontalAlignment": 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
@@ -1014,6 +1014,10 @@ export namespace Components {
           * Changes the snackbar type
          */
         "type": SnackbarType;
+        /**
+          * Controls if Snackbar will appear at the top or at the bottom of the screen
+         */
+        "verticalAlignment"?: 'top' | 'bottom';
     }
     interface InoSpinner {
         /**
@@ -2606,7 +2610,7 @@ declare namespace LocalJSX {
         /**
           * Controls if Snackbar is centered or left-aligned or right-aligned.
          */
-        "alignment"?: 'left' | 'right' | 'center';
+        "horizontalAlignment"?: 'left' | 'right' | 'center';
         /**
           * The text message to display.
          */
@@ -2631,6 +2635,10 @@ declare namespace LocalJSX {
           * Changes the snackbar type
          */
         "type"?: SnackbarType;
+        /**
+          * Controls if Snackbar will appear at the top or at the bottom of the screen
+         */
+        "verticalAlignment"?: 'top' | 'bottom';
     }
     interface InoSpinner {
         /**

@@ -34,32 +34,38 @@ export default {
 
 export const Playground: Story<Components.InoSnackbar> = (args) => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-default"
-    >Show Snackbar</ino-button
-  >
+    >Show Snackbar
+  </ino-button>
   <template id="snackbar-default">
     <ino-snackbar
       action-text="${args.actionText}"
-      alignment="${args.alignment}"
+      horizontal-alignment="${args.horizontalAlignment}"
       message="${args.message}"
       timeout="${args.timeout}"
       type="${args.type}"
+      vertical-alignment="${args.verticalAlignment}"
     >
     </ino-snackbar>
   </template>
 `;
 Playground.args = {
   actionText: 'Anlegen',
-  alignment: 'center',
+  horizontalAlignment: 'right',
   message: sampleText,
   timeout: -1,
   type: 'primary',
+  verticalAlignment: 'top',
 };
+
+const horizontalAlignments = ['left', 'right', 'center'];
+const verticalAlignments = ['top', 'bottom'];
+
 Playground.argTypes = {
-  alignment: {
+  horizontalAlignment: {
     control: {
       type: 'select',
     },
-    options: ['left', 'top', 'center'],
+    options: horizontalAlignments,
   },
   type: {
     control: {
@@ -67,26 +73,32 @@ Playground.argTypes = {
     },
     options: ['primary', 'warning', 'error'],
   },
+  verticalAlignment: {
+    control: {
+      type: 'select',
+    },
+    options: verticalAlignments,
+  },
 };
 
 export const Variants = () => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-with-action"
-    >Show Snackbar (With Action)</ino-button
-  >
+    >Show Snackbar (With Action)
+  </ino-button>
   <template id="snackbar-with-action">
     <ino-snackbar message="${sampleText}" action-text="Anlegen"></ino-snackbar>
   </template>
 
   <ino-button class="snackbar-trigger" data-template-id="snackbar-no-action"
-    >Show Snackbar (No Action)</ino-button
-  >
+    >Show Snackbar (No Action)
+  </ino-button>
   <template id="snackbar-no-action">
     <ino-snackbar message="${sampleText}"></ino-snackbar>
   </template>
 
   <ino-button class="snackbar-trigger" data-template-id="snackbar-no-timeout"
-    >Show Snackbar (Without timeout)</ino-button
-  >
+    >Show Snackbar (Without timeout)
+  </ino-button>
   <template id="snackbar-no-timeout">
     <ino-snackbar message="${sampleText}" timeout="-1"></ino-snackbar>
   </template>
@@ -94,50 +106,41 @@ export const Variants = () => html`
 
 export const Types = () => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-warning"
-    >Show Snackbar (warning)</ino-button
-  >
+    >Show Snackbar (warning)
+  </ino-button>
   <template id="snackbar-warning">
     <ino-snackbar message="${sampleText}" type="warning"></ino-snackbar>
   </template>
 
   <ino-button class="snackbar-trigger" data-template-id="snackbar-error"
-    >Show Snackbar (error)</ino-button
-  >
+    >Show Snackbar (error)
+  </ino-button>
   <template id="snackbar-error">
     <ino-snackbar message="${sampleText}" type="error"></ino-snackbar>
   </template>
 `;
 
-export const Alignments = () => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-left-align"
-    >Left</ino-button
-  >
-  <template id="snackbar-left-align">
-    <ino-snackbar
-      message="${sampleText}"
-      action-text="Anlegen"
-      alignment="left"
-    ></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-center-align"
-    >Center</ino-button
-  >
-  <template id="snackbar-center-align">
-    <ino-snackbar message="${sampleText}" action-text="Anlegen"></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-right-align"
-    >Right</ino-button
-  >
-  <template id="snackbar-right-align">
-    <ino-snackbar
-      message="${sampleText}"
-      action-text="Anlegen"
-      alignment="right"
-    ></ino-snackbar>
-  </template>
-`;
+export const Alignments = () =>
+  verticalAlignments.map((vAlign) =>
+    horizontalAlignments.map(
+      (hAlign) =>
+        html`
+          <ino-button
+            class="snackbar-trigger"
+            data-template-id="snackbar-${vAlign}-${hAlign}"
+            >${vAlign} ${hAlign}
+          </ino-button>
+          <template id="snackbar-${vAlign}-${hAlign}">
+            <ino-snackbar
+              message="${sampleText}"
+              action-text="Anlegen"
+              horizontal-alignment="${hAlign}"
+              vertical-alignment="${vAlign}"
+            ></ino-snackbar>
+          </template>
+        `
+    )
+  );
 
 // TODO CSS Variable
 /*

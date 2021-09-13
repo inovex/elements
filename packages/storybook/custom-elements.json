@@ -4196,10 +4196,10 @@
           "required": false
         },
         {
-          "name": "alignment",
+          "name": "horizontal-alignment",
           "type": "\"center\" | \"left\" | \"right\"",
           "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
-          "defaultValue": "'center'",
+          "defaultValue": "'right'",
           "required": false
         },
         {
@@ -4228,6 +4228,13 @@
           "description": "Changes the snackbar type",
           "defaultValue": "'primary'",
           "required": false
+        },
+        {
+          "name": "vertical-alignment",
+          "type": "\"bottom\" | \"top\"",
+          "description": "Controls if Snackbar will appear at the top or at the bottom of the screen",
+          "defaultValue": "'top'",
+          "required": false
         }
       ],
       "properties": [
@@ -4239,10 +4246,10 @@
           "required": false
         },
         {
-          "name": "alignment",
+          "name": "horizontalAlignment",
           "type": "\"center\" | \"left\" | \"right\"",
           "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
-          "defaultValue": "'center'",
+          "defaultValue": "'right'",
           "required": false
         },
         {
@@ -4270,6 +4277,13 @@
           "type": "\"error\" | \"primary\" | \"warning\"",
           "description": "Changes the snackbar type",
           "defaultValue": "'primary'",
+          "required": false
+        },
+        {
+          "name": "verticalAlignment",
+          "type": "\"bottom\" | \"top\"",
+          "description": "Controls if Snackbar will appear at the top or at the bottom of the screen",
+          "defaultValue": "'top'",
           "required": false
         }
       ],

@@ -18,7 +18,17 @@ ino-snackbar {
 }
 
 ino-snackbar {
-  &.ino-snackbar--align-right .mdc-snackbar--leading {
+  &.ino-snackbar--vertical-align-top .mdc-snackbar {
+    top: 0;
+    bottom: unset;
+  }
+
+  &.ino-snackbar--vertical-align-bottom .mdc-snackbar {
+    bottom: 0;
+    top: unset;
+  }
+
+  &.ino-snackbar--horizontal-align-right .mdc-snackbar--leading {
     justify-content: flex-end;
   }
 
