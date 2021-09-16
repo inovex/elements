@@ -46,6 +46,7 @@ export const Playground: Story<Components.InoDatepicker> = (args) => html`
     outline="${args.outline}"
     range="${args.range}"
     required="${args.required}"
+    error="${args.error}"
     show-label-hint="${args.showLabelHint}"
     twelve-hour-time="${args.twelveHourTime}"
     type="${args.type}"
@@ -65,6 +66,7 @@ Playground.args = {
   outline: false,
   range: false,
   required: false,
+  error: false,
   showLabelHint: false,
   twelveHourTime: false,
   type: 'date',

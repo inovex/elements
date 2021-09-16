@@ -245,6 +245,26 @@ export class Datepicker implements ComponentInterface {
   }
 
   /**
+   * Displays the datepicker as invalid if set to true.
+   * If the property is not set or set to false,
+   * the validation is handled by the default validation.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  errorHandler(value?: boolean) {
+    if (this.disabled || !this.flatpickr) {
+      return;
+    }
+
+    if (value) {
+      this.isValid = false;
+    } else {
+      this.validate();
+    }
+  }
+
+  /**
    * Emits when the value of the datepicker changes.
    * The value can be found in `event.detail`
    */
@@ -269,7 +289,7 @@ export class Datepicker implements ComponentInterface {
   }
 
   private validate(value: string = this.value) {
-    this.isValid = this.validator.validate(value);
+    this.isValid = !this.error && this.validator.validate(value);
   }
 
   private create() {
@@ -310,6 +330,7 @@ export class Datepicker implements ComponentInterface {
     if (this.value) {
       this.flatpickr?.setDate(this.value);
     }
+    this.errorHandler(this.error);
   }
 
   private dispose() {
