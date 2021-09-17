@@ -2,6 +2,8 @@
 @use 'base/animation';
 
 $primary-fab-icon-selector: 'ino-fab';
+$fab-set-wrapper-height: 66px;
+$fab-set-padding: 5px;
 
 $rotationsByDirection: (
   top: 0deg,
@@ -40,7 +42,7 @@ $dialFlexByDirection: (
     display: flex;
 
     ::slotted(*) {
-      padding: 5px;
+      padding: $fab-set-padding;
 
       .mdc-fab .mdc-fab__icon {
         font-size: 25px;
@@ -50,6 +52,11 @@ $dialFlexByDirection: (
     .ino-speed-dial {
       display: none;
       align-items: center;
+    }
+
+    .ino-fab-set-button {
+      padding: $fab-set-padding;
+      align-self: center;
     }
   }
 }
@@ -101,7 +108,10 @@ $directions: 'top', 'bottom', 'left', 'right';
 
   :host(.ino-fab-set--open-dial) {
     .ino-direction-#{$direction} #{$primary-fab-icon-selector} {
-      transform: map-get($animationByDirection, $direction);
+      transform: var(
+        --ino-fab-set-transform,
+        #{map-get($animationByDirection, $direction)}
+      );
     }
   }
 }

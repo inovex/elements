@@ -276,13 +276,13 @@ export class InoFab {
 
 export declare interface InoFabSet extends Components.InoFabSet {}
 @ProxyCmp({
-  inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation']
+  inputs: ['dialDirection', 'icon', 'leftRightLocation', 'openDial', 'topBottomLocation']
 })
 @Component({
   selector: 'ino-fab-set',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation']
+  inputs: ['dialDirection', 'icon', 'leftRightLocation', 'openDial', 'topBottomLocation']
 })
 export class InoFabSet {
   protected el: HTMLElement;
