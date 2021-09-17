@@ -22,6 +22,11 @@ export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
+   * Adds an icon to the Fab-set.
+   */
+  @Prop() icon: string = '_fab_set_arrow_up';
+
+  /**
    * The direction of the speed dial.
    * Possible values: `top` (default), `bottom`, `right`, `left`.
    */
@@ -70,10 +75,11 @@ export class Fab implements ComponentInterface {
           </div>
           <ino-fab
             id={'primary-fab'}
+            class="ino-fab-set-button"
             edge-position="none"
             tooltip-placement="none"
           >
-            <ino-icon slot="icon-leading" icon={'_fab_set_arrow_up'} />
+            {this.icon && <ino-icon slot="icon-leading" icon={this.icon} />}
           </ino-fab>
         </div>
       </Host>

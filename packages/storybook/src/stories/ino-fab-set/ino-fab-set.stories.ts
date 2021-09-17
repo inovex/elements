@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab-set.scss';
 
@@ -43,6 +43,7 @@ export const Playground: Story<Components.InoFabSet> = (args) => html`
     top-bottom-location="${args.topBottomLocation}"
     left-right-location="${args.leftRightLocation}"
     dial-direction="${args.dialDirection}"
+    icon="${args.icon}"
   >
     <ino-fab label="First FAB">
       <ino-icon slot="icon-leading" icon="star"></ino-icon>
@@ -62,6 +63,8 @@ Playground.args = {
   leftRightLocation: 'left',
   topBottomLocation: 'bottom',
 };
+
+withIconControl(Playground, 'icon', '_fab_set_arrow_up');
 
 const VERTICAL_POSITION_OPTIONS = ['top', 'bottom'];
 const HORIZONTAL_POSITION_OPTIONS = ['left', 'right'];

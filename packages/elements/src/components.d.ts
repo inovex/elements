@@ -361,6 +361,10 @@ export namespace Components {
          */
         "dialDirection": Locations;
         /**
+          * Adds an icon to the Fab-set.
+         */
+        "icon": string;
+        /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
         "leftRightLocation": HorizontalLocation;
@@ -1921,6 +1925,10 @@ declare namespace LocalJSX {
           * The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`.
          */
         "dialDirection"?: Locations;
+        /**
+          * Adds an icon to the Fab-set.
+         */
+        "icon"?: string;
         /**
           * The side where the Fab is displayed. Possible values: `right`, `left` (default).
          */
