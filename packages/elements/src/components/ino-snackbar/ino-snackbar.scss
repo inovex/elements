@@ -30,9 +30,24 @@ $snackbar-color-map-by-type: (
 }
 
 ino-snackbar {
-  &.ino-snackbar--vertical-align-top .mdc-snackbar {
-    top: 0;
-    bottom: unset;
+  /**
+  * @prop --ino-snackbar-top: size of the entire button
+  * @prop --ino-snackbar-right: size of the entire button
+  * @prop --ino-snackbar-bottom: size of the entire button
+  * @prop --ino-snackbar-left: size of the entire button
+*/
+
+  $top: var(--ino-snackbar-top, 0);
+  $right: var(--ino-snackbar-right, 0);
+  $bottom: var(--ino-snackbar-bottom, auto);
+  $left: var(--ino-snackbar-left, auto);
+
+  .ino-snackbar-layout-container {
+    display: block;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
   }
 
   @each $type in $snackbar-types {

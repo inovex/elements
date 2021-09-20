@@ -37,16 +37,6 @@ export class Snackbar implements ComponentInterface {
   @Prop() actionText?: string;
 
   /**
-   * Controls if Snackbar will appear at the top or at the bottom of the screen
-   */
-  @Prop() verticalAlignment?: 'top' | 'bottom' = 'top';
-
-  /**
-   * Controls if Snackbar is centered or left-aligned or right-aligned.
-   */
-  @Prop() horizontalAlignment: 'left' | 'right' | 'center' = 'right';
-
-  /**
    * Changes the snackbar type
    */
   @Prop() type: SnackbarType = 'info';
@@ -129,18 +119,12 @@ export class Snackbar implements ComponentInterface {
   render() {
     const hasActionText = Boolean(this.actionText);
 
-    const hostClasses = classNames(
-      `ino-snackbar--vertical-align-${this.verticalAlignment}`,
-      `ino-snackbar--horizontal-align-${this.horizontalAlignment}`,
-      `ino-snackbar--type-${this.type}`
-    );
+    const hostClasses = classNames(`ino-snackbar--type-${this.type}`);
 
-    const snackbarClasses = classNames({
-      'mdc-snackbar': true,
-      'mdc-snackbar--leading':
-        this.horizontalAlignment === 'left' ||
-        this.horizontalAlignment === 'right',
-    });
+    const snackbarClasses = classNames(
+      'mdc-snackbar',
+      'ino-snackbar-layout-container'
+    );
 
     return (
       <Host class={hostClasses}>
