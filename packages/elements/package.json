@@ -87,8 +87,7 @@
     "currency.js": "^1.2.2",
     "date-fns": "^2.16.1",
     "flatpickr": "^4.4.6",
-    "tippy.js": "^6.2.3",
-    "typeface-lato": "^0.0.75"
+    "tippy.js": "^6.2.3"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.5",

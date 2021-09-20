@@ -3,13 +3,12 @@
 // ##################################
 
 // => Font Family
-
 $_font-families: (
   sans-serif: unquote('Lato, Verdana, sans-serif'),
   monospace: unquote('Courier, monospace'),
 );
 @function font-family($mode: sans-serif) {
-  @return map-get($_font-families, $mode);
+  @return var(--ino-font-family, map-get($_font-families, $mode));
 }
 
 // => Font weights
