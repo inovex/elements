@@ -1,14 +1,23 @@
-function checkFont(strFamily) {
-  return (document as any)?.fonts?.check(`12px ${strFamily}`) || false;
+/// <reference types="css-font-loading-module" />
+
+enum HostedFonts {
+  LATO = 'Lato',
+}
+
+function checkFont(strFamily: HostedFonts): boolean {
+  return document.fonts?.check(`12px ${strFamily}`);
 }
 
 function addCSSToHead() {
-  const fontFamily = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue('--ino-font-family');
-  console.log(checkFont('Lato'));
-  if (!fontFamily && !checkFont('Lato')) {
-    const head = document.getElementsByTagName('head')[0];
+  const isCSSVarLoaded = Boolean(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--ino-font-family'
+    )
+  );
+
+  const isLatoLoaded = checkFont(HostedFonts.LATO);
+
+  if (!isCSSVarLoaded && !isLatoLoaded) {
     const style = document.createElement('style');
     style.setAttribute('type', 'text/css');
     style.appendChild(
@@ -16,10 +25,8 @@ function addCSSToHead() {
         "@import url('https://static.inovex.de/css/lato.css');"
       )
     );
-    head.appendChild(style);
+    document.head.appendChild(style);
   }
 }
 
-export default function () {
-  addCSSToHead();
-}
+export default addCSSToHead;
