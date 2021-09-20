@@ -63,7 +63,7 @@ ino-snackbar {
     background-color: white;
     border: 0.3px solid var(--snackbar-color);
     border-radius: 15px;
-    box-shadow: 0px 3px 6px var(--snackbar-box-shadow);
+    box-shadow: 0 3px 6px var(--snackbar-box-shadow);
     justify-content: space-between;
     min-width: auto;
     max-width: 350px;
@@ -84,11 +84,8 @@ ino-snackbar {
     border-radius: 30px;
     padding: 0;
     background-color: white;
-    box-shadow: 0px 3px 6px #00000029;
+    box-shadow: 0 3px 6px #00000029;
     pointer-events: auto;
-
-    z-index: 10;
-    border: 0;
 
     --ino-icon-button-icon-color: black !important;
     --ino-icon-button-size: 22px;
