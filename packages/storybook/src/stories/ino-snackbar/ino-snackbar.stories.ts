@@ -71,44 +71,6 @@ export default {
   ],
 } as Meta;
 
-export const TextSizes = () => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-with-action"
-    >Show Default
-  </ino-button>
-  <template id="snackbar-with-action">
-    <ino-snackbar
-      alignment="left"
-      message="${sampleText}"
-      timeout="-1"
-      type="info"
-      action-text="Anlegen"
-    ></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-action"
-    >Show long text
-  </ino-button>
-  <template id="snackbar-no-action">
-    <ino-snackbar
-      alignment="center"
-      action-text="Anlegen"
-      timeout="-1"
-      message="This is a really long text with no real content but it could happen that there is some more text."
-    ></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-timeout"
-    >Show no action
-  </ino-button>
-  <template id="snackbar-no-timeout">
-    <ino-snackbar
-      alignment="right"
-      message="${sampleText}"
-      timeout="-1"
-    ></ino-snackbar>
-  </template>
-`;
-
 export const Playground: Story<Components.InoSnackbar> = (args) => html`
   <ino-button class="snackbar-trigger" data-template-id="snackbar-default"
     >Show Snackbar
@@ -159,15 +121,18 @@ Playground.argTypes = {
 export const Types = () =>
   snackbarTypes.map(
     (type) => html`
-      <ino-button class="snackbar-trigger" data-template-id="snackbar-${type}"
+      <ino-button
+        class="snackbar-trigger"
+        data-template-id="snackbar-type-${type}"
         >Show Snackbar (${type})
       </ino-button>
-      <template id="snackbar-${type}">
+      <template id="snackbar-type-${type}">
         <ino-snackbar
-          id="snackbar-${type}"
+          id="snackbar-type-${type}"
           message="${sampleText}"
+          action-text="Anlegen"
           type="${type}"
-          action-text="My Action"
+          timeout="-1"
         ></ino-snackbar>
       </template>
     `
