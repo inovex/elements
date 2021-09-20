@@ -6,6 +6,10 @@
 
 $snackbar-types: 'info', 'error', 'warning';
 
+@mixin showCloseButton() {
+  display: inline-flex;
+}
+
 ino-snackbar {
   &.ino-snackbar--vertical-align-top .mdc-snackbar {
     top: 0;
@@ -54,8 +58,8 @@ ino-snackbar {
     max-width: 350px;
     padding: 16px 45px 16px 25px;
 
-    &:hover > .ino-snackbar-close-btn {
-      display: inline-flex;
+    &:hover ~ .ino-snackbar-close-btn {
+      @include showCloseButton;
     }
   }
 
@@ -70,16 +74,18 @@ ino-snackbar {
     padding: 0;
     background-color: white;
     box-shadow: 0px 3px 6px #00000029;
+    pointer-events: auto;
 
     z-index: 10;
     border: 0;
 
+    --ino-icon-button-icon-color: black !important;
     --ino-icon-button-size: 22px;
     --ino-icon-button-icon-size: 8px;
 
-    --ino-icon-color-primary: #777777;
-    --ino-icon-width: 8px;
-    --ino-icon-height: 8px;
+    &:hover {
+      @include showCloseButton;
+    }
   }
 
   .ino-snackbar-icon-container {

@@ -116,11 +116,14 @@ class MyComponent extends Component {
 ### Depends on
 
 - [ino-icon](../ino-icon)
+- [ino-icon-button](../ino-icon-button)
 
 ### Graph
 ```mermaid
 graph TD;
   ino-snackbar --> ino-icon
+  ino-snackbar --> ino-icon-button
+  ino-icon-button --> ino-icon
   style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
