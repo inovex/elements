@@ -4,7 +4,26 @@
 @use 'base/theme';
 @use 'base/animation';
 
-$snackbar-types: 'info', 'error', 'warning';
+$snackbar-types: 'info', 'error', 'success';
+
+$snackbar-color-map-by-type: (
+  info: (
+    color: #2d5dff,
+    box-shadow-color: #2d5dff29,
+  ),
+  error: (
+    color: #7df481,
+    box-shadow-color: #7df48129,
+  ),
+  success: (
+    color: #f29191,
+    box-shadow-color: #f2919129,
+  ),
+);
+
+@function color($type: 'info', $color: 'color') {
+  @return map-get(map-get($snackbar-color-map-by-type, $type), $color);
+}
 
 @mixin showCloseButton() {
   display: inline-flex;
@@ -16,28 +35,11 @@ ino-snackbar {
     bottom: unset;
   }
 
-  &.ino-snackbar--vertical-align-bottom .mdc-snackbar {
-    bottom: 0;
-    top: unset;
-  }
-
-  &.ino-snackbar--horizontal-align-right .mdc-snackbar--leading {
-    justify-content: flex-end;
-  }
-
-  &.ino-snackbar--type-info {
-    --snackbar-color: #2d5dff;
-    --snackbar-box-shadow: #2d5dff29;
-  }
-
-  &.ino-snackbar--type-success {
-    --snackbar-color: #7df481;
-    --snackbar-box-shadow: #7df48129;
-  }
-
-  &.ino-snackbar--type-error {
-    --snackbar-color: #f29191;
-    --snackbar-box-shadow: #f2919129;
+  @each $type in $snackbar-types {
+    &.ino-snackbar--type-#{$type} {
+      --snackbar-color: #{color($type, color)};
+      --snackbar-box-shadow: #{color($type, box-shadow-color)};
+    }
   }
 
   .ino-snackbar-container {
