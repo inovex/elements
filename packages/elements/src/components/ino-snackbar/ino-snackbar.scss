@@ -10,15 +10,15 @@ $snackbar-types: 'info', 'error', 'success';
 $snackbar-color-map-by-type: (
   info: (
     color: theme.color(primary),
-    box-shadow-color: theme.color(primary, light),
+    color-light: theme.color(primary, light),
   ),
   error: (
     color: theme.color(error),
-    box-shadow-color: theme.color(error, light),
+    color-light: theme.color(error, light),
   ),
   success: (
     color: theme.color(success),
-    box-shadow-color: theme.color(success, light),
+    color-light: theme.color(success, light),
   ),
 );
 
@@ -54,7 +54,10 @@ ino-snackbar {
   @each $type in $snackbar-types {
     &.ino-snackbar--type-#{$type} {
       --snackbar-color: #{color($type, color)};
-      --snackbar-box-shadow: #{color($type, box-shadow-color)};
+      --snackbar-color-light: #{sass-color.adjust(
+          color($type, color-light),
+          $lightness: 30%
+        )}; // FIXME use light color of new color pallet
     }
   }
 
@@ -64,7 +67,7 @@ ino-snackbar {
     background-color: white;
     border: 0.3px solid var(--snackbar-color);
     border-radius: 15px;
-    box-shadow: 0 1px 2px var(--snackbar-box-shadow);
+    box-shadow: 0 1px 2px var(--snackbar-color-light);
     justify-content: space-between;
     min-width: auto;
     max-width: 350px;
@@ -98,6 +101,9 @@ ino-snackbar {
   }
 
   .ino-snackbar-icon-container {
+    background-color: var(--snackbar-color-light);
+    border-radius: 50%;
+
     ino-icon {
       --ino-icon-width: 30px;
       --ino-icon-height: 30px;
