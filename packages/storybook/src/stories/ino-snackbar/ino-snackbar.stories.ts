@@ -32,15 +32,39 @@ export default {
         if (!e.target.classList.contains('snackbar-trigger')) {
           return;
         }
+
+        const triggerId = e.target.dataset.templateId;
+
         const templates = Array.from(document.getElementsByTagName('template'));
         const templateWithId = templates.find(
-          (template) => template.id === e.target.dataset.templateId
+          (template) => template.id === triggerId
         );
+
+        const currentSnackbars = document.body.getElementsByTagName(
+          'ino-snackbar'
+        );
+
+        const snackbarWithIdExists = Array.from(currentSnackbars).some(
+          (snackbar) => snackbar.id === triggerId
+        );
+
+        if (snackbarWithIdExists) {
+          return;
+        }
+
         document.body.appendChild(templateWithId.content.cloneNode(true));
       };
+
+      const snackbarHideHandler = (e) =>
+        (e.target as HTMLInoSnackbarElement).remove();
+
       useEffect(() => {
         document.addEventListener('click', btnClickHandler);
-        return () => document.removeEventListener('click', btnClickHandler);
+        document.addEventListener('hideEl', snackbarHideHandler);
+        return () => {
+          document.removeEventListener('click', btnClickHandler);
+          document.addEventListener('hideEl', snackbarHideHandler);
+        };
       });
       return story();
     },
@@ -91,6 +115,7 @@ export const Playground: Story<Components.InoSnackbar> = (args) => html`
   </ino-button>
   <template id="snackbar-default">
     <ino-snackbar
+      id="snackbar-default"
       action-text="${args.actionText}"
       horizontal-alignment="${args.horizontalAlignment}"
       message="${args.message}"
@@ -131,29 +156,6 @@ Playground.argTypes = {
   },
 };
 
-export const Variants = () => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-with-action"
-    >Show Snackbar (With Action)
-  </ino-button>
-  <template id="snackbar-with-action">
-    <ino-snackbar message="${sampleText}" action-text="Anlegen"></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-action"
-    >Show Snackbar (No Action)
-  </ino-button>
-  <template id="snackbar-no-action">
-    <ino-snackbar message="${sampleText}"></ino-snackbar>
-  </template>
-
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-no-timeout"
-    >Show Snackbar (Without timeout)
-  </ino-button>
-  <template id="snackbar-no-timeout">
-    <ino-snackbar message="${sampleText}" timeout="-1"></ino-snackbar>
-  </template>
-`;
-
 export const Types = () =>
   snackbarTypes.map(
     (type) => html`
@@ -162,6 +164,7 @@ export const Types = () =>
       </ino-button>
       <template id="snackbar-${type}">
         <ino-snackbar
+          id="snackbar-${type}"
           message="${sampleText}"
           type="${type}"
           action-text="My Action"
@@ -182,6 +185,7 @@ export const Alignments = () =>
           </ino-button>
           <template id="snackbar-${vAlign}-${hAlign}">
             <ino-snackbar
+              id="snackbar-${vAlign}-${hAlign}"
               message="${sampleText}"
               action-text="Anlegen"
               horizontal-alignment="${hAlign}"
