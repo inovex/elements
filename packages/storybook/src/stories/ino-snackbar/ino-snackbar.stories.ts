@@ -5,7 +5,20 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
 
-const sampleText = 'User successfully updated!';
+const Texts = {
+  info: {
+    msg: 'You received a new message.',
+    action: 'Show',
+  },
+  success: {
+    msg: 'User successfully updated!',
+    action: 'Undo',
+  },
+  error: {
+    msg: 'Could not fetch data!',
+    action: 'Retry',
+  },
+};
 
 const snackbarTypes: Components.InoSnackbar['type'][] = [
   'info',
@@ -78,8 +91,8 @@ export const Playground: Story<Components.InoSnackbar> = (args) => html`
   </template>
 `;
 Playground.args = {
-  actionText: 'Anlegen',
-  message: sampleText,
+  actionText: Texts.info.action,
+  message: Texts.info.msg,
   timeout: -1,
   type: 'info',
 };
@@ -100,8 +113,8 @@ export const ActionText = () => html`
   <template id="snackbar-action-text">
     <ino-snackbar
       id="snackbar-action-text"
-      message="${sampleText}"
-      action-text="My action"
+      message="${Texts.info.msg}"
+      action-text="${Texts.info.action}"
     ></ino-snackbar>
   </template>
   <ino-button
@@ -112,7 +125,7 @@ export const ActionText = () => html`
   <template id="snackbar-wo-action-text">
     <ino-snackbar
       id="snackbar-wo-action-text"
-      message="${sampleText}"
+      message="${Texts.info.msg}"
     ></ino-snackbar>
   </template>
 `;
@@ -128,8 +141,8 @@ export const Types = () =>
       <template id="snackbar-type-${type}">
         <ino-snackbar
           id="snackbar-type-${type}"
-          message="${sampleText}"
-          action-text="Anlegen"
+          message="${Texts[type].msg}"
+          action-text="${Texts[type].action}"
           type="${type}"
           timeout="-1"
         ></ino-snackbar>
@@ -146,7 +159,7 @@ export const CustomPositions: Story<Components.InoSnackbar> = () => html`
   <template id="snackbar-position-top-left">
     <ino-snackbar
       id="snackbar-position-top-left"
-      message="${sampleText}"
+      message="${Texts.info.msg}"
       style="--ino-snackbar-left: 0; --ino-snackbar-right: auto;"
     >
     </ino-snackbar>
@@ -159,7 +172,7 @@ export const CustomPositions: Story<Components.InoSnackbar> = () => html`
   <template id="snackbar-position-bottom-left">
     <ino-snackbar
       id="snackbar-position-bottom-left"
-      message="${sampleText}"
+      message="${Texts.info.msg}"
       style="--ino-snackbar-left: 0; --ino-snackbar-bottom: 0; --ino-snackbar-top: auto; --ino-snackbar-right: auto;"
     >
     </ino-snackbar>
@@ -172,7 +185,7 @@ export const CustomPositions: Story<Components.InoSnackbar> = () => html`
   <template id="snackbar-position-bottom-right">
     <ino-snackbar
       id="snackbar-position-bottom-right"
-      message="${sampleText}"
+      message="${Texts.info.msg}"
       style="--ino-snackbar-bottom: 0; --ino-snackbar-top: auto;"
     >
     </ino-snackbar>
