@@ -1,4 +1,4 @@
-import type {} from 'css-font-loading-module';
+/// <reference types="css-font-loading-module" />
 
 enum HostedFonts {
   LATO = 'Lato',
