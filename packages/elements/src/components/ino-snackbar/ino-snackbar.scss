@@ -31,10 +31,10 @@ $snackbar-color-map-by-type: (
 
 ino-snackbar {
   /**
-  * @prop --ino-snackbar-top: size of the entire button
-  * @prop --ino-snackbar-right: size of the entire button
-  * @prop --ino-snackbar-bottom: size of the entire button
-  * @prop --ino-snackbar-left: size of the entire button
+  * @prop --ino-snackbar-top: Distance to the top edge
+  * @prop --ino-snackbar-right: Distance to the right edge
+  * @prop --ino-snackbar-bottom: Distance to the bottom edge
+  * @prop --ino-snackbar-left: Distance to the left edge
 */
 
   $top: var(--ino-snackbar-top, 0);

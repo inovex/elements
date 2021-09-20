@@ -4269,7 +4269,24 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-snackbar-bottom",
+          "description": "Distance to the bottom edge"
+        },
+        {
+          "name": "--ino-snackbar-left",
+          "description": "Distance to the left edge"
+        },
+        {
+          "name": "--ino-snackbar-right",
+          "description": "Distance to the right edge"
+        },
+        {
+          "name": "--ino-snackbar-top",
+          "description": "Distance to the top edge"
+        }
+      ],
       "cssParts": []
     },
     {

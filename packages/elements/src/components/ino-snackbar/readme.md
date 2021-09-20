@@ -111,12 +111,12 @@ class MyComponent extends Component {
 
 ## CSS Custom Properties
 
-| Name                    | Description               |
-| ----------------------- | ------------------------- |
-| `--ino-snackbar-bottom` | size of the entire button |
-| `--ino-snackbar-left`   | size of the entire button |
-| `--ino-snackbar-right`  | size of the entire button |
-| `--ino-snackbar-top`    | size of the entire button |
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `--ino-snackbar-bottom` | Distance to the bottom edge |
+| `--ino-snackbar-left`   | Distance to the left edge   |
+| `--ino-snackbar-right`  | Distance to the right edge  |
+| `--ino-snackbar-top`    | Distance to the top edge    |
 
 
 ## Dependencies
