@@ -361,7 +361,7 @@ export namespace Components {
          */
         "dialDirection": Locations;
         /**
-          * Adds an icon to the Fab-set.
+          * The icon of the fab-set
          */
         "icon": string;
         /**
@@ -1926,7 +1926,7 @@ declare namespace LocalJSX {
          */
         "dialDirection"?: Locations;
         /**
-          * Adds an icon to the Fab-set.
+          * The icon of the fab-set
          */
         "icon"?: string;
         /**

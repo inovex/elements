@@ -22,7 +22,7 @@ export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
-   * Adds an icon to the Fab-set.
+   * The icon of the fab-set
    */
   @Prop() icon: string = '_fab_set_arrow_up';
 

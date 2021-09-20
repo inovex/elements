@@ -1507,7 +1507,7 @@
         {
           "name": "icon",
           "type": "string",
-          "description": "Adds an icon to the Fab-set.",
+          "description": "The icon of the fab-set",
           "defaultValue": "'_fab_set_arrow_up'",
           "required": false
         },
@@ -1544,7 +1544,7 @@
         {
           "name": "icon",
           "type": "string",
-          "description": "Adds an icon to the Fab-set.",
+          "description": "The icon of the fab-set",
           "defaultValue": "'_fab_set_arrow_up'",
           "required": false
         },
