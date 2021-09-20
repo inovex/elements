@@ -20,7 +20,6 @@ import { SnackbarType } from '../types';
 export class Snackbar implements ComponentInterface {
   private snackbarInstance: MDCSnackbar;
   private snackbarElement!: HTMLElement;
-  private closeBtnEl: HTMLInoIconButtonElement;
   private nodeTimeout: NodeJS.Timeout;
 
   @Element() el!: HTMLElement;
@@ -69,7 +68,6 @@ export class Snackbar implements ComponentInterface {
       'MDCSnackbar:closing',
       this.handleSnackbarHide
     );
-    this.closeBtnEl.addEventListener('click', this.handleSnackbarHide);
     this.setupTimeout();
     if (this.stayVisibleOnHover) {
       this.snackbarElement.addEventListener(
@@ -87,7 +85,6 @@ export class Snackbar implements ComponentInterface {
       'MDCSnackbar:closing',
       this.handleSnackbarHide
     );
-    this.closeBtnEl.removeEventListener('click', this.handleSnackbarHide);
     this.snackbarElement.removeEventListener(
       'mouseenter',
       this.interruptTimeout
@@ -112,7 +109,7 @@ export class Snackbar implements ComponentInterface {
   };
 
   private handleSnackbarHide = (e) => {
-    this.hideEl!.emit(true);
+    this.hideEl!.emit();
     e.stopPropagation();
   };
 
@@ -158,7 +155,7 @@ export class Snackbar implements ComponentInterface {
             </div>
           </div>
           <ino-icon-button
-            ref={(el) => (this.closeBtnEl = el)}
+            onClick={this.handleSnackbarHide}
             icon="close"
             class="ino-snackbar-close-btn"
             color-scheme="dark"
