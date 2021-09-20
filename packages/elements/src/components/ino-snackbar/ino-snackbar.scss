@@ -1,3 +1,4 @@
+@use "sass:color" as sass-color;
 @use 'base/mdc-customize';
 @use '@material/snackbar/mdc-snackbar';
 @use 'base/typography';
@@ -8,16 +9,16 @@ $snackbar-types: 'info', 'error', 'success';
 
 $snackbar-color-map-by-type: (
   info: (
-    color: #2d5dff,
-    box-shadow-color: #2d5dff29,
+    color: theme.color(primary),
+    box-shadow-color: theme.color(primary, light),
   ),
   error: (
-    color: #7df481,
-    box-shadow-color: #7df48129,
+    color: theme.color(error),
+    box-shadow-color: theme.color(error, light),
   ),
   success: (
-    color: #f29191,
-    box-shadow-color: #f2919129,
+    color: theme.color(success),
+    box-shadow-color: theme.color(success, light),
   ),
 );
 
@@ -63,7 +64,7 @@ ino-snackbar {
     background-color: white;
     border: 0.3px solid var(--snackbar-color);
     border-radius: 15px;
-    box-shadow: 0 3px 6px var(--snackbar-box-shadow);
+    box-shadow: 0 1px 2px var(--snackbar-box-shadow);
     justify-content: space-between;
     min-width: auto;
     max-width: 350px;
