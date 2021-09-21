@@ -69,6 +69,12 @@ ino-list-item {
     ino-checkbox {
       width: 100%;
     }
+
+    .ino-nav-item--leading-slot {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
   }
 
   ino-img .ino-img__image {
