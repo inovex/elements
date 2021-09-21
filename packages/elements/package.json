@@ -87,13 +87,13 @@
     "currency.js": "^1.2.2",
     "date-fns": "^2.16.1",
     "flatpickr": "^4.4.6",
-    "tippy.js": "^6.2.3",
-    "typeface-lato": "^0.0.75"
+    "tippy.js": "^6.2.3"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.5",
     "@stencil/sass": "^1.4.1",
     "@types/classnames": "^2.2.6",
+    "@types/css-font-loading-module": "^0.0.6",
     "@types/jest": "26.0.14",
     "@types/puppeteer": "^3.0.2",
     "@types/resize-observer-browser": "^0.1.4",

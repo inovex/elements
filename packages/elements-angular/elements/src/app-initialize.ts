@@ -1,5 +1,3 @@
-import { importLatoFont } from '@inovex.de/elements/dist/collection/util/import-fonts';
-
 import { NgZone } from '@angular/core';
 import {
   applyPolyfills,
@@ -18,7 +16,6 @@ export const appInitialize = (doc: Document, zone: NgZone) => {
       }
       didInitialize = true;
 
-      importLatoFont();
       const aelFn =
         '__zone_symbol__addEventListener' in (doc.body as any)
           ? '__zone_symbol__addEventListener'

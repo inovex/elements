@@ -1,20 +1,32 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-try {
-  require('typeface-lato');
-} catch (e) {
-  // Workaround because of require being undefined in test environment
+/// <reference types="css-font-loading-module" />
+
+enum HostedFonts {
+  LATO = 'Lato',
 }
 
-// For the angular wrapper
-export function importLatoFont() {
-  const cssFile = require('typeface-lato').default;
-  addCSSToHead(cssFile);
+function checkFont(strFamily: HostedFonts): boolean {
+  return document.fonts?.check(`12px ${strFamily}`);
 }
 
-function addCSSToHead(css) {
-  const head = document.getElementsByTagName('head')[0];
-  const style = document.createElement('style');
-  style.setAttribute('type', 'text/css');
-  style.appendChild(document.createTextNode(css));
-  head.appendChild(style);
+function addCSSToHead() {
+  const isCSSVarLoaded = Boolean(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--ino-font-family'
+    )
+  );
+
+  const isLatoLoaded = checkFont(HostedFonts.LATO);
+
+  if (!isCSSVarLoaded && !isLatoLoaded) {
+    const style = document.createElement('style');
+    style.setAttribute('type', 'text/css');
+    style.appendChild(
+      document.createTextNode(
+        "@import url('https://static.inovex.de/css/lato.css');"
+      )
+    );
+    document.head.appendChild(style);
+  }
 }
+
+export default addCSSToHead;
