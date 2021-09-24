@@ -37,7 +37,6 @@ const NO_OPTION_SELECTED = -1;
 })
 export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
-  private listEl: HTMLInoListElement;
   private optionEls: HTMLInoOptionElement[];
   private optionTexts: string[];
   private menuContainer: HTMLDivElement;
@@ -60,28 +59,25 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private filterOptions(newVal: string) {
-    const matchingOptions = this.optionEls.filter((option) =>
-      option.innerText.toLowerCase().includes(newVal.toLowerCase())
-    );
-    const nonMatchingOptions = this.optionEls.filter(
-      (option) => !option.innerText.toLowerCase().includes(newVal.toLowerCase())
-    );
-
+    const matchingOptions = [];
     this.selectedOptionIndex = NO_OPTION_SELECTED;
-    this.filteredOptionEls = matchingOptions;
 
-    matchingOptions.forEach((option) => (option.style.display = 'block'));
-    nonMatchingOptions.forEach((option) => (option.style.display = 'none'));
+    this.optionEls.forEach((option) => {
+      const matched = option.innerText
+        .toLowerCase()
+        .includes(newVal.toLowerCase());
+      if (matched) {
+        matchingOptions.push(option);
+      }
+      option.style.display = matched ? 'block' : 'none';
+    });
+
+    this.filteredOptionEls = matchingOptions;
   }
 
   @State() menuIsVisible = false;
 
   @State() filteredOptionEls: HTMLInoOptionElement[];
-
-  @Watch('filteredOptionEls')
-  onFilteredOptionsChange(newVal: HTMLInoOptionElement[]) {
-    this.listEl.style.display = newVal?.length === 0 ? 'none' : 'block';
-  }
 
   /**
    * Timeout of the debouncing mechanism used when filtering the options.
@@ -105,20 +101,26 @@ export class Autocomplete implements ComponentInterface {
   @Event() optionSelected: EventEmitter<string>;
 
   emitValueOfSelectedOption = () =>
-    this.optionSelected.emit(this.getSelectedOption().value);
+    this.optionSelected.emit(this.getSelectedOption()?.value);
+
+  connectedCallback() {
+    this.setupOptions();
+    this.setupObserver();
+  }
 
   componentDidLoad() {
     this.setupInput();
     this.setupList();
-    this.setupOptions();
-    this.setupObserver();
-    this.menuContainer.appendChild(this.listEl);
   }
 
   disconnectedCallback() {
     this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
-    this.optionsObserver.disconnect();
+
+    if (this.optionsObserver) {
+      this.optionsObserver.disconnect();
+      this.optionsObserver = undefined;
+    }
   }
 
   @Listen('valueChange')
@@ -210,8 +212,8 @@ export class Autocomplete implements ComponentInterface {
     this.openMenu();
   };
 
-  private onInputElBlur = (event: CustomEvent<FocusEvent>) => {
-    if (this.isOptionClick(event.detail)) {
+  private onInputElBlur = (event: CustomEvent<FocusEvent>, force = false) => {
+    if (!force && this.isOptionClick(event.detail)) {
       return;
     }
 
@@ -219,12 +221,12 @@ export class Autocomplete implements ComponentInterface {
 
     if (!this.optionTexts.includes(this.input)) {
       this.input = '';
-      return;
+      this.selectedOptionIndex = NO_OPTION_SELECTED;
+    } else {
+      this.selectedOptionIndex = this.filteredOptionEls.findIndex(
+        (option) => option.innerText === this.input
+      );
     }
-
-    this.selectedOptionIndex = this.filteredOptionEls.findIndex(
-      (option) => option.innerText === this.input
-    );
 
     this.emitValueOfSelectedOption();
   };
@@ -261,13 +263,10 @@ export class Autocomplete implements ComponentInterface {
         `The slot "${Slots.LIST}" is empty. Please provide an ino-list element to that slot.`
       );
     }
-
-    this.listEl = getSlotContent(this.el, Slots.LIST) as HTMLInoListElement;
-    this.listEl.remove();
   }
 
   setupOptions = () => {
-    this.optionEls = Array.from(this.listEl.getElementsByTagName('ino-option'));
+    this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
     this.filteredOptionEls = this.optionEls;
     this.optionTexts = this.optionEls.map((item) => item.innerText);
     this.selectedOptionIndex = NO_OPTION_SELECTED;
@@ -275,8 +274,9 @@ export class Autocomplete implements ComponentInterface {
 
   setupObserver() {
     this.optionsObserver = new MutationObserver(this.setupOptions);
-    this.optionsObserver.observe(this.listEl.querySelector('ul'), {
+    this.optionsObserver.observe(this.el, {
       childList: true,
+      subtree: true,
     });
   }
 
