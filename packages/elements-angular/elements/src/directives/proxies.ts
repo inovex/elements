@@ -814,13 +814,13 @@ export class InoSegmentGroup {
 import { Select as ISelect } from '@inovex.de/elements/dist/types/components/ino-select/ino-select';
 export declare interface InoSelect extends Components.InoSelect {}
 @ProxyCmp({
-  inputs: ['disabled', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 @Component({
   selector: 'ino-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
+  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
   outputs: ['valueChange']
 })
 export class InoSelect {

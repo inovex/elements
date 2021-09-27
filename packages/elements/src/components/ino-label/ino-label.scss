@@ -3,6 +3,14 @@
 
 $label-color: rgba(0, 0, 0, 0.6);
 
+@mixin outline-border-color($color) {
+  ino-label:not(.ino-label--disabled).ino-label--outlined
+    .mdc-notched-outline
+    > div {
+    border-color: $color;
+  }
+}
+
 ino-label {
   .mdc-floating-label::after {
     content: none;
