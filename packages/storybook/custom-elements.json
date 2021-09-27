@@ -4204,14 +4204,6 @@
           "name": "action-text",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
-          "defaultValue": "''",
-          "required": false
-        },
-        {
-          "name": "horizontal-alignment",
-          "type": "\"center\" | \"left\" | \"right\"",
-          "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
-          "defaultValue": "'right'",
           "required": false
         },
         {
@@ -4236,16 +4228,9 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"primary\" | \"warning\"",
+          "type": "\"error\" | \"info\" | \"success\"",
           "description": "Changes the snackbar type",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "vertical-alignment",
-          "type": "\"bottom\" | \"top\"",
-          "description": "Controls if Snackbar will appear at the top or at the bottom of the screen",
-          "defaultValue": "'top'",
+          "defaultValue": "'info'",
           "required": false
         }
       ],
@@ -4254,14 +4239,6 @@
           "name": "actionText",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
-          "defaultValue": "''",
-          "required": false
-        },
-        {
-          "name": "horizontalAlignment",
-          "type": "\"center\" | \"left\" | \"right\"",
-          "description": "Controls if Snackbar is centered or left-aligned or right-aligned.",
-          "defaultValue": "'right'",
           "required": false
         },
         {
@@ -4286,16 +4263,9 @@
         },
         {
           "name": "type",
-          "type": "\"error\" | \"primary\" | \"warning\"",
+          "type": "\"error\" | \"info\" | \"success\"",
           "description": "Changes the snackbar type",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
-          "name": "verticalAlignment",
-          "type": "\"bottom\" | \"top\"",
-          "description": "Controls if Snackbar will appear at the top or at the bottom of the screen",
-          "defaultValue": "'top'",
+          "defaultValue": "'info'",
           "required": false
         }
       ],
@@ -4311,7 +4281,24 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-snackbar-bottom",
+          "description": "Distance to the bottom edge"
+        },
+        {
+          "name": "--ino-snackbar-left",
+          "description": "Distance to the left edge"
+        },
+        {
+          "name": "--ino-snackbar-right",
+          "description": "Distance to the right edge"
+        },
+        {
+          "name": "--ino-snackbar-top",
+          "description": "Distance to the top edge"
+        }
+      ],
       "cssParts": []
     },
     {

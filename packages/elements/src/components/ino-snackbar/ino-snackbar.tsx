@@ -33,22 +33,12 @@ export class Snackbar implements ComponentInterface {
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
-  @Prop() actionText?: string = '';
-
-  /**
-   * Controls if Snackbar will appear at the top or at the bottom of the screen
-   */
-  @Prop() verticalAlignment?: 'top' | 'bottom' = 'top';
-
-  /**
-   * Controls if Snackbar is centered or left-aligned or right-aligned.
-   */
-  @Prop() horizontalAlignment: 'left' | 'right' | 'center' = 'right';
+  @Prop() actionText?: string;
 
   /**
    * Changes the snackbar type
    */
-  @Prop() type: SnackbarType = 'primary';
+  @Prop() type: SnackbarType = 'info';
 
   /**
    * Sets the timeout in ms until the snackbar disappears. The timeout can
@@ -113,61 +103,76 @@ export class Snackbar implements ComponentInterface {
   };
 
   private interruptTimeout = () => {
-    if (this.nodeTimeout) clearTimeout(this.nodeTimeout);
+    if (this.nodeTimeout) {
+      clearTimeout(this.nodeTimeout);
+    }
   };
 
-  private handleSnackbarHide = (e) => {
-    this.hideEl!.emit(true);
+  private handleSnackbarHide = e => {
+    this.hideEl!.emit();
     e.stopPropagation();
   };
 
-  render() {
-    const hostClasses = classNames(
-      `ino-snackbar--vertical-align-${this.verticalAlignment}`,
-      `ino-snackbar--horizontal-align-${this.horizontalAlignment}`,
-      `ino-snackbar--type-${this.type}`,
-      {
-        'ino-snackbar--no-action': !this.actionText,
-      }
-    );
+  private mapTypeToIconName = (type: SnackbarType) => {
+    switch (type) {
+      case 'success':
+        return 'snackbar-checkmark';
+      case 'error':
+        return 'snackbar-error';
+      case 'info':
+      default:
+        return 'snackbar-information';
+    }
+  };
 
-    const snackbarClasses = classNames({
-      'mdc-snackbar': true,
-      'mdc-snackbar--leading':
-        this.horizontalAlignment === 'left' ||
-        this.horizontalAlignment === 'right',
-    });
+  render() {
+    const hasActionText = Boolean(this.actionText);
+
+    const hostClasses = classNames(`ino-snackbar--type-${this.type}`);
+
+    const snackbarClasses = classNames(
+      'mdc-snackbar',
+      'ino-snackbar-layout-container'
+    );
 
     return (
       <Host class={hostClasses}>
         <div
-          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
+          ref={el => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
         >
-          <div class="mdc-snackbar__surface">
-            <div class="mdc-snackbar__actions">
-              <ino-icon-button
-                icon={'close'}
-                class="custom mdc-snackbar__action"
+          <div class="mdc-snackbar__surface ino-snackbar-container">
+            <div class="mdc-snackbar__actions ino-snackbar-icon-container">
+              <ino-icon
+                class="ino-snackbar-icon"
+                icon={this.mapTypeToIconName(this.type)}
               />
-              <div class="mdc-snackbar__label" role="status" aria-live="polite">
-                {this.message}
-              </div>
-              {this.actionText && (
-                <ino-button
-                  type="button"
-                  color-scheme="primary"
-                  class="ino-action-button"
-                  onClick={() => this.actionClick.emit()}
-                  fill="outline"
-                >
-                  {this.actionText}
-                </ino-button>
+            </div>
+            <div
+              class="mdc-snackbar__label ino-snackbar-message-container"
+              aria-atomic="false"
+            >
+              <div class="ino-snackbar-text-container">{this.message}</div>
+              {hasActionText && (
+                <div>
+                  <button
+                    onClick={this.actionClick.emit}
+                    class="ino-snackbar-action-btn"
+                  >
+                    {this.actionText}
+                  </button>
+                </div>
               )}
             </div>
           </div>
+          <ino-icon-button
+            onClick={this.handleSnackbarHide}
+            icon="close"
+            class="ino-snackbar-close-btn"
+            color-scheme="dark"
+          />
         </div>
       </Host>
     );

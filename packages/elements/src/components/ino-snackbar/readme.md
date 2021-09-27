@@ -92,15 +92,13 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property              | Attribute               | Description                                                                                                                    | Type                                | Default     |
-| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ----------- |
-| `actionText`          | `action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                            | `''`        |
-| `horizontalAlignment` | `horizontal-alignment`  | Controls if Snackbar is centered or left-aligned or right-aligned.                                                             | `"center" \| "left" \| "right"`     | `'right'`   |
-| `message`             | `message`               | The text message to display.                                                                                                   | `string`                            | `undefined` |
-| `stayVisibleOnHover`  | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                           | `false`     |
-| `timeout`             | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                            | `5000`      |
-| `type`                | `type`                  | Changes the snackbar type                                                                                                      | `"error" \| "primary" \| "warning"` | `'primary'` |
-| `verticalAlignment`   | `vertical-alignment`    | Controls if Snackbar will appear at the top or at the bottom of the screen                                                     | `"bottom" \| "top"`                 | `'top'`     |
+| Property             | Attribute               | Description                                                                                                                    | Type                             | Default     |
+| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- | ----------- |
+| `actionText`         | `action-text`           | The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style. | `string`                         | `undefined` |
+| `message`            | `message`               | The text message to display.                                                                                                   | `string`                         | `undefined` |
+| `stayVisibleOnHover` | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                         | `boolean`                        | `false`     |
+| `timeout`            | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.           | `number`                         | `5000`      |
+| `type`               | `type`                  | Changes the snackbar type                                                                                                      | `"error" \| "info" \| "success"` | `'info'`    |
 
 
 ## Events
@@ -111,20 +109,29 @@ class MyComponent extends Component {
 | `hideEl`      | Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element. | `CustomEvent<any>` |
 
 
+## CSS Custom Properties
+
+| Name                    | Description                 |
+| ----------------------- | --------------------------- |
+| `--ino-snackbar-bottom` | Distance to the bottom edge |
+| `--ino-snackbar-left`   | Distance to the left edge   |
+| `--ino-snackbar-right`  | Distance to the right edge  |
+| `--ino-snackbar-top`    | Distance to the top edge    |
+
+
 ## Dependencies
 
 ### Depends on
 
+- [ino-icon](../ino-icon)
 - [ino-icon-button](../ino-icon-button)
-- [ino-button](../ino-button)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-snackbar --> ino-icon
   ino-snackbar --> ino-icon-button
-  ino-snackbar --> ino-button
   ino-icon-button --> ino-icon
-  ino-button --> ino-spinner
   style ino-snackbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

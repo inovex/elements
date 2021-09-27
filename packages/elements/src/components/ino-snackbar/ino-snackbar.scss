@@ -1,92 +1,150 @@
+@use "sass:color" as sass-color;
 @use 'base/mdc-customize';
 @use '@material/snackbar/mdc-snackbar';
 @use 'base/typography';
 @use 'base/theme';
 @use 'base/animation';
 
-$snackbar-types: 'error', 'warning';
+$snackbar-types: 'info', 'error', 'success';
 
-ino-snackbar {
-  --snackbar-warning-border-color: var(
-    --ino-snackbar-warning-border-color,
-    #{theme.color(warning)}
-  );
-  --snackbar-error-border-color: var(
-    --ino-snackbar-error-border-color,
-    #{theme.color(error)}
-  );
+$snackbar-color-map-by-type: (
+  info: (
+    color: theme.color(primary),
+    color-light: theme.color(primary, light),
+  ),
+  error: (
+    color: theme.color(error),
+    color-light: theme.color(error, light),
+  ),
+  success: (
+    color: theme.color(success),
+    color-light: theme.color(success, light),
+  ),
+);
+
+@function color($type: 'info', $color: 'color') {
+  @return map-get(map-get($snackbar-color-map-by-type, $type), $color);
+}
+
+@mixin setIconSizeByType($type, $size) {
+  &.ino-snackbar--type-#{$type}
+    .ino-snackbar-icon-container
+    ino-icon.ino-snackbar-icon {
+    --ino-icon-width: $size;
+    --ino-icon-height: $size;
+  }
+}
+
+@mixin showCloseButton() {
+  display: inline-flex;
 }
 
 ino-snackbar {
-  &.ino-snackbar--vertical-align-top .mdc-snackbar {
+  /**
+  * @prop --ino-snackbar-top: Distance to the top edge
+  * @prop --ino-snackbar-right: Distance to the right edge
+  * @prop --ino-snackbar-bottom: Distance to the bottom edge
+  * @prop --ino-snackbar-left: Distance to the left edge
+*/
+
+  $top: var(--ino-snackbar-top, 0);
+  $right: var(--ino-snackbar-right, 0);
+  $bottom: var(--ino-snackbar-bottom, auto);
+  $left: var(--ino-snackbar-left, auto);
+
+  .ino-snackbar-layout-container {
+    display: block;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+  }
+
+  @each $type in $snackbar-types {
+    &.ino-snackbar--type-#{$type} {
+      --snackbar-color: #{color($type, color)};
+      --snackbar-color-light: #{sass-color.adjust(
+          color($type, color-light),
+          $lightness: 30%
+        )}; // FIXME use light color of new color pallet
+    }
+  }
+
+  .ino-snackbar-container {
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: white;
+    border: 0.3px solid var(--snackbar-color);
+    border-radius: 15px;
+    box-shadow: 0 1px 2px var(--snackbar-color-light);
+    justify-content: space-between;
+    min-width: auto;
+    max-width: 350px;
+    padding: 16px 45px 16px 25px;
+
+    &:hover ~ .ino-snackbar-close-btn {
+      @include showCloseButton;
+    }
+  }
+
+  .ino-snackbar-close-btn {
+    display: none;
+    position: absolute;
     top: 0;
-    bottom: unset;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 30px;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 3px 6px #00000029;
+    pointer-events: auto;
+
+    --ino-icon-button-icon-color: black !important;
+    --ino-icon-button-size: 22px;
+    --ino-icon-button-icon-size: 8px;
+
+    &:hover {
+      @include showCloseButton;
+    }
   }
 
-  &.ino-snackbar--vertical-align-bottom .mdc-snackbar {
-    bottom: 0;
-    top: unset;
+  .ino-snackbar-icon-container {
+    background-color: var(--snackbar-color-light);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+
+    ino-icon.ino-snackbar-icon {
+      --ino-icon-color-primary: var(--snackbar-color);
+    }
   }
 
-  &.ino-snackbar--horizontal-align-right .mdc-snackbar--leading {
-    justify-content: flex-end;
-  }
+  @include setIconSizeByType(info, 20px);
+  @include setIconSizeByType(error, 15px);
+  @include setIconSizeByType(success, 15px);
 
-  .mdc-snackbar__surface {
-    background-color: theme.color(primary, contrast);
-    padding: 16px;
+  .ino-snackbar-message-container {
     display: flex;
-    align-items: stretch;
-    align-content: stretch;
-    flex-flow: row wrap;
+    flex-direction: column;
+    column-gap: 7px;
+    padding: 0 0 0 20px;
 
-    border-radius: 4px;
-
-    .mdc-snackbar__actions {
-      flex-grow: 1;
+    .ino-snackbar-text-container {
+      color: #74758b;
     }
 
-    .mdc-snackbar__label {
-      display: inline;
-      color: theme.color(dark);
-      font-size: typography.font-size(s);
-      word-break: break-all;
-      flex-grow: 3;
-      max-width: 400px;
-      min-width: 150px;
-    }
-
-    .ino-button {
-      flex-grow: 1;
-    }
-
-    ino-icon-button .mdc-icon-button::before {
-      top: 12px;
-      left: 12px;
+    .ino-snackbar-action-btn {
+      border: none;
+      background-color: transparent;
+      color: var(--snackbar-color);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding-left: 0;
+      padding-top: 5px;
     }
   }
-
-  &.ino-snackbar--no-action {
-    .mdc-snackbar__surface {
-      background-color: lighten(theme.color(primary, light), 5%);
-
-      .mdc-snackbar__label {
-        color: white;
-      }
-
-      ino-icon-button ino-icon {
-        --icon-color: white;
-      }
-    }
-  }
-}
-
-@each $type in $snackbar-types {
-  ino-snackbar.ino-snackbar--type-#{$type} .mdc-snackbar__surface {
-    border: 2px solid var(--snackbar-#{$type}-border-color);
-  }
-}
-
-ino-snackbar.ino-snackbar--type-primary .mdc-snackbar__surface {
-  border: none;
 }

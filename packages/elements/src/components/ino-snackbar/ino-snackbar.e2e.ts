@@ -1,37 +1,36 @@
+import { E2EElement, E2EPage } from '@stencil/core/testing';
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_SNACKBAR = `<ino-snackbar></ino-snackbar>`;
-const INO_SNACKBAR_SELECTOR = 'ino-snackbar';
-const INO_BTN_SELECTOR = 'ino-snackbar ino-button';
-const INO_ICON_BTN_SELECTOR = 'ino-snackbar ino-icon-button';
-
 describe('InoSnackbar', () => {
+  let page: E2EPage;
+  let inoSnackbar: E2EElement;
+
+  beforeEach(async () => {
+    page = await setupPageWithContent(`<ino-snackbar></ino-snackbar>`);
+    inoSnackbar = await page.find('ino-snackbar');
+  });
+
   describe('Events', () => {
     it('should emit an actionClick event upon clicking the button', async () => {
-      const page = await setupPageWithContent(INO_SNACKBAR);
-      const inoSnackbar = await page.find(INO_SNACKBAR_SELECTOR);
-      await inoSnackbar.setAttribute('action-text', 'test');
-      await page.waitForChanges();
-
-      const inoBtn = await page.find(INO_BTN_SELECTOR);
       const actionEvent = await page.spyOnEvent('actionClick');
-
-      await inoBtn.click();
+      await inoSnackbar.setAttribute('action-text', 'my action');
+      await page.waitForChanges();
+      const actionButton = await page.find('.ino-snackbar-action-btn');
+      await actionButton.click();
       await page.waitForChanges();
 
       expect(actionEvent).toHaveReceivedEvent();
     });
 
     it('should emit a hideEl event upon closing the snackbar', async () => {
-      const page = await setupPageWithContent(INO_SNACKBAR);
-      const inoBtn = await page.find(INO_ICON_BTN_SELECTOR);
       const hideEvent = await page.spyOnEvent('hideEl');
-
-      await inoBtn.click();
+      const closeButton = await page.find('.ino-snackbar-close-btn');
+      await inoSnackbar.hover();
       await page.waitForChanges();
+      await closeButton.hover();
+      await closeButton.click();
 
       expect(hideEvent).toHaveReceivedEvent();
-      expect(hideEvent).toHaveReceivedEventDetail(true);
     });
   });
 });
