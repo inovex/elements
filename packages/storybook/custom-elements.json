@@ -4110,7 +4110,16 @@
           "description": "For the icon to be prepended"
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-select-height",
+          "description": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "description": "Icon color"
+        }
+      ],
       "cssParts": []
     },
     {

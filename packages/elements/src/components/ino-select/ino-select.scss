@@ -5,6 +5,7 @@
 @use '@material/select/mdc-select';
 @use '@material/select';
 @use 'base/theme';
+@use '../ino-label/ino-label';
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
@@ -49,6 +50,10 @@ ino-select {
 
   .mdc-select--focused {
     @include setIconColors(var(--select-icon-color));
+
+    .mdc-select__anchor {
+      @include select.dropdown-icon-color(theme.color(primary));
+    }
   }
 
   .mdc-select {
@@ -74,10 +79,6 @@ ino-select {
       )
     );
 
-    &--focused .mdc-select__anchor {
-      @include select.dropdown-icon-color(theme.color(primary));
-    }
-
     .mdc-select__anchor:before {
       display: none;
     }
@@ -100,10 +101,6 @@ ino-select {
   .mdc-select__selected-text {
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-
-  .mdc-select--invalid .mdc-select__selected-text {
-    color: theme.color(error);
   }
 
   .mdc-select--filled {
@@ -133,6 +130,11 @@ ino-select {
         left: 40px;
       }
     }
+  }
+
+  // make sure the border-color is the default if focused and invalid
+  .mdc-select.mdc-select--outlined.mdc-select--invalid.mdc-select--focused {
+    @include ino-label.outline-border-color(theme.color(primary));
   }
 
   .mdc-select--outlined {

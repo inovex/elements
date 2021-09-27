@@ -39,7 +39,7 @@ export class Label {
   ];
 
   outlineTemplate = (label: HTMLElement) => (
-    <div class={'mdc-notched-outline'}>
+    <div class="mdc-notched-outline">
       <div class="mdc-notched-outline__leading" />
       <div class="mdc-notched-outline__notch">{label}</div>
       <div class="mdc-notched-outline__trailing" />
