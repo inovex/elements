@@ -98,10 +98,10 @@ export class Autocomplete implements ComponentInterface {
    *
    * Contains one of the texts provided by the `<ino-options>`s.
    */
-  @Event() optionSelected: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<string>;
 
   emitValueOfSelectedOption = () =>
-    this.optionSelected.emit(this.getSelectedOption()?.value);
+    this.valueChange.emit(this.getSelectedOption()?.value);
 
   connectedCallback() {
     this.setupOptions();
@@ -125,7 +125,9 @@ export class Autocomplete implements ComponentInterface {
 
   @Listen('valueChange')
   onValueChange(ev: CustomEvent<string>) {
-    this.input = ev.detail;
+    if ((ev.target as HTMLElement).tagName.toLowerCase() === 'ino-input') {
+      this.input = ev.detail;
+    }
   }
 
   @Listen('click')

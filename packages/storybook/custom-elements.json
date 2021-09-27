@@ -39,7 +39,7 @@
       ],
       "events": [
         {
-          "name": "optionSelected",
+          "name": "valueChange",
           "description": "Emits in three ways:\n\n1. Clicking on an option\n2. Pressing `Enter` while an option is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the `<ino-options>`s."
         }
       ],
@@ -54,7 +54,12 @@
           "description": "An `<ino-list>` element with `<ino-option>` elements as options"
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-autocomplete-list-max-height",
+          "description": "max height of option list"
+        }
+      ],
       "cssParts": []
     },
     {
