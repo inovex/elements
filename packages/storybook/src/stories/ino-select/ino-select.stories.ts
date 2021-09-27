@@ -5,12 +5,12 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass, showSnackbar } from '../utils';
 import './ino-select.scss';
 
-const handleFormSubmission = (e) => {
+const handleFormSubmission = e => {
   e.preventDefault();
   showSnackbar('Form submitted.');
 };
 
-const handleSelect = (e) => e.target.setAttribute('value', e.detail);
+const handleSelect = e => e.target.setAttribute('value', e.detail);
 
 export default {
   title: 'Input/ino-select',
@@ -21,16 +21,16 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-select'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-select'),
+    story => {
       useEffect(() => {
         const formElement = document.querySelector('form');
         formElement?.addEventListener('submit', handleFormSubmission);
 
         const selects = document.querySelectorAll('ino-select');
-        selects.forEach((s) => s.addEventListener('valueChange', handleSelect));
+        selects.forEach(s => s.addEventListener('valueChange', handleSelect));
         return () => {
-          selects.forEach((s) =>
+          selects.forEach(s =>
             s.removeEventListener('valueChange', handleSelect)
           );
           formElement?.removeEventListener('submit', handleFormSubmission);
@@ -47,7 +47,7 @@ const optionsTemplate = html`
   <ino-option value="Option 3">Option 3</ino-option>
 `;
 
-export const Playground: Story<Components.InoSelect> = (args) => html`
+export const Playground: Story<Components.InoSelect> = args => html`
   <ino-select
     disabled="${args.disabled}"
     name="${args.name}"
@@ -132,9 +132,18 @@ export const Required = () => html`
   </ino-select>
 `;
 
+export const ErrorState = () => html`
+  <ino-select error label="Select in error state">
+    ${optionsTemplate}
+  </ino-select>
+  <ino-select error outline label="Outlined select in error state">
+    ${optionsTemplate}
+  </ino-select>
+`;
+
 export const Form = () => html`
   <form>
-    <p>Form should submit if no value is selected</p>
+    <p>Form should not submit if no value is selected</p>
     <ino-select required> ${optionsTemplate}</ino-select>
     <ino-button type="submit">Submit</ino-button>
   </form>
