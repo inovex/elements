@@ -21,7 +21,6 @@ import { Debouncer } from '../../util/debouncer';
 
 enum Slots {
   INPUT = 'input',
-  LIST = 'list',
 }
 
 const NO_OPTION_SELECTED = -1;
@@ -103,14 +102,12 @@ export class Autocomplete implements ComponentInterface {
   emitValueOfSelectedOption = () =>
     this.valueChange.emit(this.getSelectedOption()?.value);
 
-  connectedCallback() {
-    this.setupOptions();
+  componentWillLoad() {
     this.setupObserver();
   }
 
   componentDidLoad() {
     this.setupInput();
-    this.setupList();
   }
 
   disconnectedCallback() {
@@ -259,15 +256,14 @@ export class Autocomplete implements ComponentInterface {
     );
   }
 
-  setupList() {
-    if (!hasSlotContent(this.el, Slots.LIST)) {
-      throw new Error(
-        `The slot "${Slots.LIST}" is empty. Please provide an ino-list element to that slot.`
-      );
+  setupOptions = (mutations: MutationRecord[]) => {
+    const records = mutations.filter(
+      (m) => m.target.nodeName.toLowerCase() === 'ino-option'
+    );
+    if (records.length < 1) {
+      return;
     }
-  }
 
-  setupOptions = () => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
     this.filteredOptionEls = this.optionEls;
     this.optionTexts = this.optionEls.map((item) => item.innerText);
@@ -333,7 +329,7 @@ export class Autocomplete implements ComponentInterface {
           {this.filteredOptionEls?.length === 0 && (
             <p class="no-options-text">{this.noOptionsText}</p>
           )}
-          <slot name={Slots.LIST} />
+          <slot />
         </div>
       </Host>
     );

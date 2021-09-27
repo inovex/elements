@@ -42,16 +42,14 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
       no-options-text="${args.noOptionsText}"
     >
       <ino-input slot="input"></ino-input>
-      <ino-list slot="list">
-        <ino-option value="value of Option A">Option A</ino-option>
-        <ino-option value="value of Option B">Option B</ino-option>
-        <ino-option value="value of Option C">Option C</ino-option>
-        <ino-option value="value of Option D">Option D</ino-option>
-        <ino-option value="value of Option E">Option E</ino-option>
-        <ino-option value="value of Option F">Option F</ino-option>
-        <ino-option value="value of Option G">Option G</ino-option>
-        <ino-option value="value of Option H">Option H</ino-option>
-      </ino-list>
+      <ino-option value="value of Option A">Option A</ino-option>
+      <ino-option value="value of Option B">Option B</ino-option>
+      <ino-option value="value of Option C">Option C</ino-option>
+      <ino-option value="value of Option D">Option D</ino-option>
+      <ino-option value="value of Option E">Option E</ino-option>
+      <ino-option value="value of Option F">Option F</ino-option>
+      <ino-option value="value of Option G">Option G</ino-option>
+      <ino-option value="value of Option H">Option H</ino-option>
     </ino-autocomplete>
   </div>
 `;
