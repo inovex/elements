@@ -32,7 +32,7 @@ const NO_OPTION_SELECTED = -1;
 @Component({
   tag: 'ino-autocomplete',
   styleUrl: 'ino-autocomplete.scss',
-  shadow: false,
+  shadow: true,
 })
 export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
@@ -41,7 +41,6 @@ export class Autocomplete implements ComponentInterface {
   private menuContainer: HTMLDivElement;
   private _selectedOptionIndex?: number = NO_OPTION_SELECTED;
   private debouncer: Debouncer = new Debouncer();
-  private optionsObserver: MutationObserver;
 
   @Element() el: HTMLInoAutocompleteElement;
 
@@ -61,7 +60,7 @@ export class Autocomplete implements ComponentInterface {
     const matchingOptions = [];
     this.selectedOptionIndex = NO_OPTION_SELECTED;
 
-    this.optionEls.forEach((option) => {
+    this.optionEls.forEach(option => {
       const matched = option.innerText
         .toLowerCase()
         .includes(newVal.toLowerCase());
@@ -102,10 +101,6 @@ export class Autocomplete implements ComponentInterface {
   emitValueOfSelectedOption = () =>
     this.valueChange.emit(this.getSelectedOption()?.value);
 
-  componentWillLoad() {
-    this.setupObserver();
-  }
-
   componentDidLoad() {
     this.setupInput();
   }
@@ -113,11 +108,11 @@ export class Autocomplete implements ComponentInterface {
   disconnectedCallback() {
     this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
     this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
+  }
 
-    if (this.optionsObserver) {
-      this.optionsObserver.disconnect();
-      this.optionsObserver = undefined;
-    }
+  @Listen('slotchange')
+  onSlotChange() {
+    this.setupOptions();
   }
 
   @Listen('valueChange')
@@ -134,9 +129,17 @@ export class Autocomplete implements ComponentInterface {
     }
   }
 
-  @Listen('clickEl')
-  onListItemClick(ev: CustomEvent<HTMLInoOptionElement>) {
-    this.selectedOptionIndex = this.filteredOptionEls.indexOf(ev.detail);
+  // necessary because the input's blur will trigger BEFORE click but AFTER mousedown
+  onListItemClick(ev: MouseEvent) {
+    const eventTarget = ev.target;
+
+    if (!(eventTarget instanceof HTMLLIElement)) {
+      return;
+    }
+
+    this.selectedOptionIndex = this.filteredOptionEls.indexOf(
+      eventTarget.parentElement as HTMLInoOptionElement
+    );
     this.onOptionSelect();
   }
 
@@ -223,7 +226,7 @@ export class Autocomplete implements ComponentInterface {
       this.selectedOptionIndex = NO_OPTION_SELECTED;
     } else {
       this.selectedOptionIndex = this.filteredOptionEls.findIndex(
-        (option) => option.innerText === this.input
+        option => option.innerText === this.input
       );
     }
 
@@ -256,27 +259,12 @@ export class Autocomplete implements ComponentInterface {
     );
   }
 
-  setupOptions = (mutations: MutationRecord[]) => {
-    const records = mutations.filter(
-      (m) => m.target.nodeName.toLowerCase() === 'ino-option'
-    );
-    if (records.length < 1) {
-      return;
-    }
-
+  setupOptions = () => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
     this.filteredOptionEls = this.optionEls;
-    this.optionTexts = this.optionEls.map((item) => item.innerText);
+    this.optionTexts = this.optionEls.map(item => item.innerText);
     this.selectedOptionIndex = NO_OPTION_SELECTED;
   };
-
-  setupObserver() {
-    this.optionsObserver = new MutationObserver(this.setupOptions);
-    this.optionsObserver.observe(this.el, {
-      childList: true,
-      subtree: true,
-    });
-  }
 
   private isAnyOptionSelected = (): boolean =>
     this.selectedOptionIndex !== NO_OPTION_SELECTED &&
@@ -325,11 +313,15 @@ export class Autocomplete implements ComponentInterface {
     return (
       <Host>
         <slot name={Slots.INPUT} />
-        <div class={menuClasses} ref={(el) => (this.menuContainer = el)}>
+        <div
+          class={menuClasses}
+          ref={el => (this.menuContainer = el)}
+          onMouseDown={ev => this.onListItemClick(ev)}
+        >
           {this.filteredOptionEls?.length === 0 && (
             <p class="no-options-text">{this.noOptionsText}</p>
           )}
-          <slot />
+          <slot onSlotchange={() => this.onSlotChange()} />
         </div>
       </Host>
     );
