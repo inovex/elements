@@ -108,9 +108,21 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private handleSnackbarHide = (e) => {
+  private handleSnackbarHide = e => {
     this.hideEl!.emit();
     e.stopPropagation();
+  };
+
+  private mapTypeToIconName = (type: SnackbarType) => {
+    switch (type) {
+      case 'success':
+        return 'snackbar-checkmark';
+      case 'error':
+        return 'snackbar-error';
+      case 'info':
+      default:
+        return 'snackbar-information';
+    }
   };
 
   render() {
@@ -126,16 +138,17 @@ export class Snackbar implements ComponentInterface {
     return (
       <Host class={hostClasses}>
         <div
-          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
+          ref={el => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
         >
           <div class="mdc-snackbar__surface ino-snackbar-container">
             <div class="mdc-snackbar__actions ino-snackbar-icon-container">
-              {this.type === 'info' && <ino-icon icon="info" />}
-              {this.type === 'error' && <ino-icon icon="warning" />}
-              {this.type === 'success' && <ino-icon icon="checkmark" />}
+              <ino-icon
+                class="ino-snackbar-icon"
+                icon={this.mapTypeToIconName(this.type)}
+              />
             </div>
             <div
               class="mdc-snackbar__label ino-snackbar-message-container"

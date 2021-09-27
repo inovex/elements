@@ -26,6 +26,15 @@ $snackbar-color-map-by-type: (
   @return map-get(map-get($snackbar-color-map-by-type, $type), $color);
 }
 
+@mixin setIconSizeByType($type, $size) {
+  &.ino-snackbar--type-#{$type}
+    .ino-snackbar-icon-container
+    ino-icon.ino-snackbar-icon {
+    --ino-icon-width: $size;
+    --ino-icon-height: $size;
+  }
+}
+
 @mixin showCloseButton() {
   display: inline-flex;
 }
@@ -103,13 +112,19 @@ ino-snackbar {
   .ino-snackbar-icon-container {
     background-color: var(--snackbar-color-light);
     border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
 
-    ino-icon {
-      --ino-icon-width: 30px;
-      --ino-icon-height: 30px;
+    ino-icon.ino-snackbar-icon {
       --ino-icon-color-primary: var(--snackbar-color);
     }
   }
+
+  @include setIconSizeByType(info, 20px);
+  @include setIconSizeByType(error, 15px);
+  @include setIconSizeByType(success, 15px);
 
   .ino-snackbar-message-container {
     display: flex;
