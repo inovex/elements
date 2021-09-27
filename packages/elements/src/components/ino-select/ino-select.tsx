@@ -26,6 +26,7 @@ import { hasSlotContent } from '../../util/component-utils';
 export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance?: MDCSelect;
+  private mdcSelectContainerEl?: HTMLDivElement;
   private nativeInputElement?: HTMLInputElement;
 
   @Element() el!: HTMLElement;
@@ -101,6 +102,7 @@ export class Select implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   connectedCallback() {
+    // in case of usage e.g. in a popover this is necessary
     this.create();
   }
 
@@ -118,12 +120,11 @@ export class Select implements ComponentInterface {
   }
 
   private create = () => {
-    const mdcSelect = this.el.querySelector('.mdc-select');
-    if (!mdcSelect) {
+    if (!this.mdcSelectContainerEl) {
       return;
     }
 
-    this.mdcSelectInstance = new MDCSelect(mdcSelect);
+    this.mdcSelectInstance = new MDCSelect(this.mdcSelectContainerEl);
 
     if (this.value) {
       this.setSelectValue(this.value);
@@ -188,7 +189,7 @@ export class Select implements ComponentInterface {
       <input
         class="ino-hidden-input"
         aria-hidden
-        ref={(el) => (this.nativeInputElement = el)}
+        ref={el => (this.nativeInputElement = el)}
         required={this.required}
         disabled={this.disabled}
       ></input>
@@ -198,7 +199,7 @@ export class Select implements ComponentInterface {
 
     return (
       <Host name={this.name}>
-        <div class={classSelect}>
+        <div class={classSelect} ref={el => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
           <div class="mdc-select__anchor" aria-required={this.required}>
             {leadingSlotHasContent && (
