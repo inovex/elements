@@ -66,9 +66,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event            | Description                                                                                                                                                                                                          | Type                  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `optionSelected` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
+| Event         | Description                                                                                                                                                                                                          | Type                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
 
 
 ## Slots
@@ -77,6 +77,13 @@ class MyComponent extends Component {
 | --------- | ------------------------------------------------------------------ |
 | `"input"` | An `<ino-input>` element that will be controlled by this component |
 | `"list"`  | An `<ino-list>` element with `<ino-option>` elements as options    |
+
+
+## CSS Custom Properties
+
+| Name                                 | Description               |
+| ------------------------------------ | ------------------------- |
+| `--ino-autocomplete-list-max-height` | max height of option list |
 
 
 ----------------------------------------------
