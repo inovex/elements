@@ -90,16 +90,16 @@ class MyComponent extends Component {
 
 | Name                                    | Description                     |
 | --------------------------------------- | ------------------------------- |
-| `--ino-dialog-overlay-background-color` | background color of the overlay |
 | `--ino-dialog-background-color`         | background color of the dialog  |
+| `--ino-dialog-border`                   | border shorthand of the dialog  |
+| `--ino-dialog-border-radius`            | border-radius of the dialog     |
+| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
 | `--ino-dialog-content-height`           | height of the content section   |
 | `--ino-dialog-footer-height`            | height of the footer section    |
 | `--ino-dialog-header-height`            | height of the header section    |
 | `--ino-dialog-height`                   | height of the dialog            |
+| `--ino-dialog-overlay-background-color` | background color of the overlay |
 | `--ino-dialog-width`                    | width of the dialog             |
-| `--ino-dialog-border-radius`            | border-radius of the dialog     |
-| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
-| `--ino-dialog-border`                   | border shorthand of the dialog  |
 
 
 ----------------------------------------------

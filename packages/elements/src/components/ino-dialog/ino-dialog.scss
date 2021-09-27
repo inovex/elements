@@ -13,6 +13,10 @@ $material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
    * @prop --ino-dialog-header-height: height of the header section
    * @prop --ino-dialog-content-height: height of the content section
    * @prop --ino-dialog-footer-height: height of the footer section
+   * @prop --ino-dialog-border-radius: border-radius of the dialog
+   * @prop --ino-dialog-border: border shorthand of the dialog
+   * @prop --ino-dialog-box-shadow: box-shadow of the dialog
+   * @prop --ino-dialog-overlay-background-color: background color of the overlay
    */
   --dialog-background-color: var(--ino-dialog-background, #fff);
   --dialog-width: var(--ino-dialog-width, 300px);
