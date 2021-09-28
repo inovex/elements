@@ -18,6 +18,10 @@ export namespace Components {
           * Text to display when there are no options found.
          */
         "noOptionsText": string;
+        /**
+          * Value of the autocomplete
+         */
+        "value": any;
     }
     interface InoButton {
         /**
@@ -1555,6 +1559,10 @@ declare namespace LocalJSX {
           * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Value of the autocomplete
+         */
+        "value"?: any;
     }
     interface InoButton {
         /**

@@ -19,6 +19,12 @@
           "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
           "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value of the autocomplete",
+          "required": false
         }
       ],
       "properties": [
@@ -34,6 +40,12 @@
           "type": "string",
           "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value of the autocomplete",
           "required": false
         }
       ],

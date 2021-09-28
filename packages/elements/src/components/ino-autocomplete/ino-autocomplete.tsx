@@ -19,10 +19,6 @@ import {
 } from '../../util/component-utils';
 import { Debouncer } from '../../util/debouncer';
 
-enum Slots {
-  INPUT = 'input',
-}
-
 const NO_OPTION_SELECTED = -1;
 
 /**
@@ -37,45 +33,32 @@ const NO_OPTION_SELECTED = -1;
 export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
   private optionEls: HTMLInoOptionElement[];
-  private optionTexts: string[];
   private menuContainer: HTMLDivElement;
-  private _selectedOptionIndex?: number = NO_OPTION_SELECTED;
   private debouncer: Debouncer = new Debouncer();
+  private filteredOptionEls: HTMLInoOptionElement[];
+  private selectedOption?: HTMLInoOptionElement;
+  private _selectedOptionIndex?: number = NO_OPTION_SELECTED;
+
+  private set selectedOptionIndex(index: number) {
+    if (this.selectedOption) {
+      this.selectedOption.selected = false;
+    }
+
+    this._selectedOptionIndex = index;
+    this.selectedOption =
+      index >= 0 ? this.filteredOptionEls[index] : undefined;
+
+    if (this.selectedOption) {
+      this.selectedOption.selected = true;
+    }
+  }
+  private get selectedOptionIndex(): number {
+    return this._selectedOptionIndex;
+  }
 
   @Element() el: HTMLInoAutocompleteElement;
 
-  @State() input: string = '';
-
-  @Watch('input')
-  onInputChange(newVal: string) {
-    this.openMenu();
-    this.inputEl.value = newVal;
-    this.debouncer.debounce(
-      () => this.filterOptions(newVal),
-      this.debounceTimeout
-    );
-  }
-
-  private filterOptions(newVal: string) {
-    const matchingOptions = [];
-    this.selectedOptionIndex = NO_OPTION_SELECTED;
-
-    this.optionEls.forEach(option => {
-      const matched = option.innerText
-        .toLowerCase()
-        .includes(newVal.toLowerCase());
-      if (matched) {
-        matchingOptions.push(option);
-      }
-      option.style.display = matched ? 'block' : 'none';
-    });
-
-    this.filteredOptionEls = matchingOptions;
-  }
-
   @State() menuIsVisible = false;
-
-  @State() filteredOptionEls: HTMLInoOptionElement[];
 
   /**
    * Timeout of the debouncing mechanism used when filtering the options.
@@ -88,6 +71,23 @@ export class Autocomplete implements ComponentInterface {
   @Prop() noOptionsText = 'No Option';
 
   /**
+   * Value of the autocomplete
+   */
+  @Prop() value;
+
+  @Watch('value')
+  onValueChange(newVal, oldValue) {
+    if (newVal === oldValue || !this.filteredOptionEls) {
+      return;
+    }
+
+    this.selectedOptionIndex = this.filteredOptionEls.indexOf(
+      this.filteredOptionEls.find((oEl) => oEl.value === newVal)
+    );
+    this.inputChanged(this.selectedOption?.innerText);
+  }
+
+  /**
    * Emits in three ways:
    *
    * 1. Clicking on an option
@@ -98,53 +98,25 @@ export class Autocomplete implements ComponentInterface {
    */
   @Event() valueChange: EventEmitter<string>;
 
-  emitValueOfSelectedOption = () =>
-    this.valueChange.emit(this.getSelectedOption()?.value);
-
   componentDidLoad() {
     this.setupInput();
   }
 
   disconnectedCallback() {
-    this.inputEl.removeEventListener('inoFocus', this.onInputElFocus);
-    this.inputEl.removeEventListener('inoBlur', this.onInputElBlur);
-  }
-
-  @Listen('slotchange')
-  onSlotChange() {
-    this.setupOptions();
+    this.inputEl.removeEventListener('inoFocus', this.onInoInputFocus);
+    this.inputEl.removeEventListener('inoBlur', this.onInoInputBlur);
   }
 
   @Listen('valueChange')
-  onValueChange(ev: CustomEvent<string>) {
+  onInoInputValueChange(ev: CustomEvent<string>) {
     if ((ev.target as HTMLElement).tagName.toLowerCase() === 'ino-input') {
-      this.input = ev.detail;
+      ev.stopImmediatePropagation();
+      this.inputChanged(ev.detail);
     }
-  }
-
-  @Listen('click')
-  onInputClick(ev: PointerEvent) {
-    if (ev.target && this.inputEl.contains(ev.target as HTMLElement)) {
-      this.openMenu();
-    }
-  }
-
-  // necessary because the input's blur will trigger BEFORE click but AFTER mousedown
-  onListItemClick(ev: MouseEvent) {
-    const eventTarget = ev.target;
-
-    if (!(eventTarget instanceof HTMLLIElement)) {
-      return;
-    }
-
-    this.selectedOptionIndex = this.filteredOptionEls.indexOf(
-      eventTarget.parentElement as HTMLInoOptionElement
-    );
-    this.onOptionSelect();
   }
 
   @Listen('keydown')
-  onArrowDownKey(ev: KeyboardEvent) {
+  onKeyDown(ev: KeyboardEvent) {
     if (
       !this.menuIsVisible ||
       !this.filteredOptionEls ||
@@ -153,24 +125,19 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    if (ev.code === 'Enter') {
-      this.onEnterPress();
+    switch (ev.code) {
+      case 'Enter':
+        this.onEnterPress();
+        break;
+      case 'ArrowDown':
+        this.onArrowDownPress();
+        this.scroll(ev);
+        break;
+      case 'ArrowUp':
+        this.onArrowUpPress();
+        this.scroll(ev);
+        break;
     }
-
-    if (ev.code === 'ArrowDown' || ev.code === 'ArrowUp') {
-      this.onArrowPress(ev.code);
-      ev.preventDefault();
-    }
-  }
-
-  private onOptionSelect() {
-    if (!this.isAnyOptionSelected()) {
-      return;
-    }
-
-    this.input = this.getSelectedOption().innerText;
-    this.emitValueOfSelectedOption();
-    this.closeMenu();
   }
 
   private onEnterPress() {
@@ -178,18 +145,14 @@ export class Autocomplete implements ComponentInterface {
     this.inputEl.getInputElement().then(moveCursorToEnd);
   }
 
-  private onArrowPress(arrowCode: 'ArrowDown' | 'ArrowUp') {
-    if (this.filteredOptionEls.length === 0) {
-      this.selectedOptionIndex = NO_OPTION_SELECTED;
+  private onOptionSelect() {
+    if (!this.selectedOption) {
       return;
     }
 
-    if (arrowCode === 'ArrowDown') {
-      this.onArrowDownPress();
-    }
-    if (arrowCode === 'ArrowUp') {
-      this.onArrowUpPress();
-    }
+    this.inputChanged(this.selectedOption.innerText);
+    this.emitValueOfSelectedOption();
+    this.closeMenu();
   }
 
   private onArrowDownPress() {
@@ -206,41 +169,26 @@ export class Autocomplete implements ComponentInterface {
       : nextIndex;
   }
 
-  private onInputElFocus = () => {
-    if (this.inputEl.disabled) {
-      return;
+  private scroll(ev: KeyboardEvent): void {
+    ev.preventDefault();
+    const { offsetTop, clientHeight: optionHeight } = this.selectedOption;
+    const { scrollTop, clientHeight } = this.menuContainer;
+    if (
+      offsetTop + optionHeight / 2 > scrollTop + clientHeight ||
+      offsetTop < scrollTop
+    ) {
+      this.menuContainer.scrollTo(0, offsetTop);
     }
+  }
 
-    this.openMenu();
-  };
-
-  private onInputElBlur = (event: CustomEvent<FocusEvent>, force = false) => {
-    if (!force && this.isOptionClick(event.detail)) {
-      return;
-    }
-
-    this.closeMenu();
-
-    if (!this.optionTexts.includes(this.input)) {
-      this.input = '';
-      this.selectedOptionIndex = NO_OPTION_SELECTED;
-    } else {
-      this.selectedOptionIndex = this.filteredOptionEls.findIndex(
-        option => option.innerText === this.input
-      );
-    }
-
-    this.emitValueOfSelectedOption();
-  };
-
-  setupInput() {
-    if (!hasSlotContent(this.el, Slots.INPUT)) {
+  private setupInput(): void {
+    if (!hasSlotContent(this.el, 'input')) {
       throw new Error(
-        `The slot "${Slots.INPUT}" is empty. Please provide an ino-input element to that slot.`
+        'The slot "input" is empty. Please provide an ino-input element to that slot.'
       );
     }
 
-    this.inputEl = getSlotContent(this.el, Slots.INPUT) as HTMLInoInputElement;
+    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
 
     if (this.inputEl.value) {
       console.warn(
@@ -249,8 +197,8 @@ export class Autocomplete implements ComponentInterface {
     }
 
     // Workaround because input does not throw native focus/blur events
-    this.inputEl.addEventListener('inoFocus', this.onInputElFocus);
-    this.inputEl.addEventListener('inoBlur', this.onInputElBlur);
+    this.inputEl.addEventListener('inoFocus', this.onInoInputFocus);
+    this.inputEl.addEventListener('inoBlur', this.onInoInputBlur);
 
     // ensure same width as the input
     this.menuContainer.style.setProperty(
@@ -259,16 +207,31 @@ export class Autocomplete implements ComponentInterface {
     );
   }
 
-  setupOptions = () => {
-    this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
-    this.filteredOptionEls = this.optionEls;
-    this.optionTexts = this.optionEls.map(item => item.innerText);
-    this.selectedOptionIndex = NO_OPTION_SELECTED;
+  private onInoInputFocus = (): void => {
+    if (!this.inputEl.disabled) {
+      this.openMenu();
+    }
   };
 
-  private isAnyOptionSelected = (): boolean =>
-    this.selectedOptionIndex !== NO_OPTION_SELECTED &&
-    this.selectedOptionIndex < this.filteredOptionEls.length;
+  private onInoInputBlur = (event: CustomEvent<FocusEvent>): void => {
+    if (this.isOptionClick(event.detail)) {
+      return;
+    }
+    this.closeMenu();
+
+    const newIndex = this.filteredOptionEls.findIndex(
+      (option) => option.innerText === this.inputEl.value
+    );
+
+    if (newIndex === NO_OPTION_SELECTED) {
+      this.inputChanged('');
+    }
+
+    if (newIndex !== this.selectedOptionIndex) {
+      this.selectedOptionIndex = newIndex;
+      this.emitValueOfSelectedOption();
+    }
+  };
 
   /**
    * Checks if the newly focused element is a list item.
@@ -279,26 +242,57 @@ export class Autocomplete implements ComponentInterface {
     ((ev.relatedTarget as HTMLElement).matches('.mdc-list-item') ||
       (ev.relatedTarget as HTMLElement).matches('ino-option'));
 
-  set selectedOptionIndex(index: number) {
-    if (this.isAnyOptionSelected()) {
-      this.getSelectedOption().selected = false;
-    }
-
-    this._selectedOptionIndex = index;
-
-    if (this.isAnyOptionSelected()) {
-      this.getSelectedOption().selected = true;
-    }
+  private emitValueOfSelectedOption(): void {
+    this.valueChange.emit(this.selectedOption?.value);
   }
 
-  get selectedOptionIndex(): number {
-    return this._selectedOptionIndex;
+  private inputChanged(newVal: string): void {
+    this.inputEl.value = newVal;
+    this.debouncer.debounce(
+      () => this.filterOptions(newVal),
+      this.debounceTimeout
+    );
   }
 
-  private getSelectedOption = (): HTMLInoOptionElement | undefined =>
-    this.isAnyOptionSelected()
-      ? this.filteredOptionEls[this.selectedOptionIndex]
-      : undefined;
+  private filterOptions(newVal: string): void {
+    const matchingOptions = [];
+
+    this.optionEls.forEach((option) => {
+      const matched = option.innerText
+        .toLowerCase()
+        .includes(newVal.toLowerCase());
+      if (matched) {
+        matchingOptions.push(option);
+      }
+      option.style.display = matched ? 'block' : 'none';
+    });
+
+    this.filteredOptionEls = matchingOptions;
+  }
+
+  private setupOptions = () => {
+    this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
+    this.filteredOptionEls = this.optionEls;
+    this.selectedOptionIndex = NO_OPTION_SELECTED;
+  };
+
+  // necessary because the input's blur will trigger BEFORE click but AFTER mousedown
+  private onListItemClick(ev: MouseEvent): void {
+    const { parentElement } = ev.target as HTMLElement;
+    if (
+      parentElement.nodeName.toLowerCase() !== 'ino-option' &&
+      parentElement.parentElement.nodeName.toLowerCase() !== 'ino-option'
+    ) {
+      return;
+    }
+
+    const inoOption = (parentElement.nodeName.toLowerCase() === 'ino-option'
+      ? parentElement
+      : parentElement.parentElement) as HTMLInoOptionElement;
+
+    this.selectedOptionIndex = this.filteredOptionEls.indexOf(inoOption);
+    this.onOptionSelect();
+  }
 
   private openMenu = () => (this.menuIsVisible = true);
   private closeMenu = () => (this.menuIsVisible = false);
@@ -312,16 +306,16 @@ export class Autocomplete implements ComponentInterface {
 
     return (
       <Host>
-        <slot name={Slots.INPUT} />
+        <slot name="input" />
         <div
           class={menuClasses}
-          ref={el => (this.menuContainer = el)}
-          onMouseDown={ev => this.onListItemClick(ev)}
+          ref={(el) => (this.menuContainer = el)}
+          onMouseDown={(ev) => this.onListItemClick(ev)}
         >
           {this.filteredOptionEls?.length === 0 && (
             <p class="no-options-text">{this.noOptionsText}</p>
           )}
-          <slot onSlotchange={() => this.onSlotChange()} />
+          <slot onSlotchange={this.setupOptions} />
         </div>
       </Host>
     );

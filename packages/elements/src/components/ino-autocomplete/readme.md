@@ -62,6 +62,7 @@ class MyComponent extends Component {
 | ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------------- |
 | `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`         |
 | `noOptionsText`   | `no-options-text`  | Text to display when there are no options found.                     | `string` | `'No Option'` |
+| `value`           | `value`            | Value of the autocomplete                                            | `any`    | `undefined`   |
 
 
 ## Events
