@@ -58,12 +58,12 @@
       "methods": [],
       "slots": [
         {
-          "name": "input",
-          "description": "An `<ino-input>` element that will be controlled by this component"
+          "name": "default",
+          "description": "A list of `<ino-option>` elements as options"
         },
         {
-          "name": "list",
-          "description": "An `<ino-list>` element with `<ino-option>` elements as options"
+          "name": "input",
+          "description": "An `<ino-input>` element that will be controlled by this component"
         }
       ],
       "cssProperties": [

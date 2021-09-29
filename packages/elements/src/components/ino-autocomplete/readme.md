@@ -74,17 +74,10 @@ class MyComponent extends Component {
 
 ## Slots
 
-| Slot      | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
-| `"input"` | An `<ino-input>` element that will be controlled by this component |
-| `"list"`  | An `<ino-list>` element with `<ino-option>` elements as options    |
-
-
-## CSS Custom Properties
-
-| Name                                 | Description               |
-| ------------------------------------ | ------------------------- |
-| `--ino-autocomplete-list-max-height` | max height of option list |
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | A list of `<ino-option>` elements as options                       |
+| `"input"`   | An `<ino-input>` element that will be controlled by this component |
 
 
 ----------------------------------------------

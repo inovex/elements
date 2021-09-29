@@ -1,9 +1,9 @@
 @use 'base/theme';
 
+/**
+* @prop --ino-autocomplete-list-max-height: max height of option list
+*/
 :host {
-  /**
-  * @prop --ino-autocomplete-list-max-height: max height of option list
-  */
   .menu {
     max-height: var(--ino-autocomplete-list-max-height, 50%);
     width: var(--input-width, max-content);

@@ -23,7 +23,7 @@ const NO_OPTION_SELECTED = -1;
 
 /**
  * @slot input - An `<ino-input>` element that will be controlled by this component
- * @slot list - An `<ino-list>` element with `<ino-option>` elements as options
+ * @slot default - A list of `<ino-option>` elements as options
  */
 @Component({
   tag: 'ino-autocomplete',
@@ -76,15 +76,11 @@ export class Autocomplete implements ComponentInterface {
   @Prop() value;
 
   @Watch('value')
-  onValueChange(newVal, oldValue) {
-    if (newVal === oldValue || !this.filteredOptionEls) {
+  onValueChange(newValue, oldValue): void {
+    if (newValue === oldValue) {
       return;
     }
-
-    this.selectedOptionIndex = this.filteredOptionEls.indexOf(
-      this.filteredOptionEls.find((oEl) => oEl.value === newVal)
-    );
-    this.inputChanged(this.selectedOption?.innerText);
+    this.setOptionByValue(newValue);
   }
 
   /**
@@ -98,17 +94,17 @@ export class Autocomplete implements ComponentInterface {
    */
   @Event() valueChange: EventEmitter<string>;
 
-  componentDidLoad() {
+  componentDidLoad(): void {
     this.setupInput();
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
     this.inputEl.removeEventListener('inoFocus', this.onInoInputFocus);
     this.inputEl.removeEventListener('inoBlur', this.onInoInputBlur);
   }
 
   @Listen('valueChange')
-  onInoInputValueChange(ev: CustomEvent<string>) {
+  onInoInputValueChange(ev: CustomEvent<string>): void {
     if ((ev.target as HTMLElement).tagName.toLowerCase() === 'ino-input') {
       ev.stopImmediatePropagation();
       this.inputChanged(ev.detail);
@@ -116,7 +112,7 @@ export class Autocomplete implements ComponentInterface {
   }
 
   @Listen('keydown')
-  onKeyDown(ev: KeyboardEvent) {
+  onKeyDown(ev: KeyboardEvent): void {
     if (
       !this.menuIsVisible ||
       !this.filteredOptionEls ||
@@ -140,12 +136,12 @@ export class Autocomplete implements ComponentInterface {
     }
   }
 
-  private onEnterPress() {
+  private onEnterPress = (): void => {
     this.onOptionSelect();
     this.inputEl.getInputElement().then(moveCursorToEnd);
-  }
+  };
 
-  private onOptionSelect() {
+  private onOptionSelect = (): void => {
     if (!this.selectedOption) {
       return;
     }
@@ -153,23 +149,23 @@ export class Autocomplete implements ComponentInterface {
     this.inputChanged(this.selectedOption.innerText);
     this.emitValueOfSelectedOption();
     this.closeMenu();
-  }
+  };
 
-  private onArrowDownPress() {
+  private onArrowDownPress = (): void => {
     const nextIndex = this.selectedOptionIndex + 1;
     const isIndexOutOfBound = nextIndex >= this.filteredOptionEls.length;
     this.selectedOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
-  }
+  };
 
-  private onArrowUpPress() {
+  private onArrowUpPress = (): void => {
     const nextIndex = this.selectedOptionIndex - 1;
     const isIndexOutOfBound = nextIndex < 0;
     this.selectedOptionIndex = isIndexOutOfBound
       ? this.filteredOptionEls.length - 1
       : nextIndex;
-  }
+  };
 
-  private scroll(ev: KeyboardEvent): void {
+  private scroll = (ev: KeyboardEvent): void => {
     ev.preventDefault();
     const { offsetTop, clientHeight: optionHeight } = this.selectedOption;
     const { scrollTop, clientHeight } = this.menuContainer;
@@ -179,9 +175,9 @@ export class Autocomplete implements ComponentInterface {
     ) {
       this.menuContainer.scrollTo(0, offsetTop);
     }
-  }
+  };
 
-  private setupInput(): void {
+  private setupInput = (): void => {
     if (!hasSlotContent(this.el, 'input')) {
       throw new Error(
         'The slot "input" is empty. Please provide an ino-input element to that slot.'
@@ -205,7 +201,7 @@ export class Autocomplete implements ComponentInterface {
       '--input-width',
       window.getComputedStyle(this.inputEl).width
     );
-  }
+  };
 
   private onInoInputFocus = (): void => {
     if (!this.inputEl.disabled) {
@@ -242,42 +238,50 @@ export class Autocomplete implements ComponentInterface {
     ((ev.relatedTarget as HTMLElement).matches('.mdc-list-item') ||
       (ev.relatedTarget as HTMLElement).matches('ino-option'));
 
-  private emitValueOfSelectedOption(): void {
+  private emitValueOfSelectedOption = (): void => {
     this.valueChange.emit(this.selectedOption?.value);
-  }
+  };
 
-  private inputChanged(newVal: string): void {
-    this.inputEl.value = newVal;
+  private inputChanged = (searchTerm: string): void => {
+    if (!this.inputEl) {
+      return;
+    }
+
+    this.inputEl.value = searchTerm;
     this.debouncer.debounce(
-      () => this.filterOptions(newVal),
+      () => this.filterOptions(searchTerm),
       this.debounceTimeout
     );
-  }
+  };
 
-  private filterOptions(newVal: string): void {
-    const matchingOptions = [];
-
-    this.optionEls.forEach((option) => {
+  private filterOptions = (newVal: string): void => {
+    this.filteredOptionEls = this.optionEls.filter((option) => {
       const matched = option.innerText
         .toLowerCase()
         .includes(newVal.toLowerCase());
-      if (matched) {
-        matchingOptions.push(option);
-      }
       option.style.display = matched ? 'block' : 'none';
+      return matched;
     });
+  };
 
-    this.filteredOptionEls = matchingOptions;
-  }
-
-  private setupOptions = () => {
+  private setupOptions = (): void => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
     this.filteredOptionEls = this.optionEls;
-    this.selectedOptionIndex = NO_OPTION_SELECTED;
+    this.setOptionByValue(this.value);
+  };
+
+  private setOptionByValue = (value: string): void => {
+    if (!this.optionEls) {
+      return;
+    }
+    this.selectedOptionIndex = this.optionEls.indexOf(
+      this.optionEls.find((oEl) => oEl.value === value)
+    );
+    this.inputChanged(this.selectedOption?.innerText);
   };
 
   // necessary because the input's blur will trigger BEFORE click but AFTER mousedown
-  private onListItemClick(ev: MouseEvent): void {
+  private onListItemClick = (ev: MouseEvent): void => {
     const { parentElement } = ev.target as HTMLElement;
     if (
       parentElement.nodeName.toLowerCase() !== 'ino-option' &&
@@ -292,7 +296,7 @@ export class Autocomplete implements ComponentInterface {
 
     this.selectedOptionIndex = this.filteredOptionEls.indexOf(inoOption);
     this.onOptionSelect();
-  }
+  };
 
   private openMenu = () => (this.menuIsVisible = true);
   private closeMenu = () => (this.menuIsVisible = false);
