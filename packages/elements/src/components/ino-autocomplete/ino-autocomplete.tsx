@@ -306,6 +306,7 @@ export class Autocomplete implements ComponentInterface {
       menu: true,
       'menu-hidden': !this.menuIsVisible,
       'menu-shown': this.menuIsVisible,
+      'mdc-list': true,
     });
 
     return (
