@@ -217,15 +217,12 @@ export class Autocomplete implements ComponentInterface {
     this.closeMenu();
 
     const newIndex = this.filteredOptionEls.findIndex(
-      (option) => option.innerText === this.inputEl.value
+      (option) => option.innerText.trim() === this.inputEl.value.trim()
     );
-
-    if (newIndex === NO_OPTION_SELECTED) {
-      this.inputChanged('');
-    }
 
     if (newIndex !== this.selectedOptionIndex) {
       this.selectedOptionIndex = newIndex;
+      this.inputChanged(this.selectedOption?.innerText || '');
       this.emitValueOfSelectedOption();
     }
   };
@@ -257,9 +254,9 @@ export class Autocomplete implements ComponentInterface {
 
   private filterOptions = (newVal: string): void => {
     this.filteredOptionEls = this.optionEls.filter((option) => {
-      const matched = option.innerText
+      const matched = option.innerText.trim()
         .toLowerCase()
-        .includes(newVal.toLowerCase());
+        .includes(newVal.trim().toLowerCase());
       option.style.display = matched ? 'block' : 'none';
       return matched;
     });
@@ -267,7 +264,6 @@ export class Autocomplete implements ComponentInterface {
   };
   private setupOptions = (): void => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
-    this.optionEls.forEach((opt) => opt.innerText = opt.innerText.trim())
     this.filteredOptionEls = this.optionEls;
     this.setOptionByValue(this.value);
   };
