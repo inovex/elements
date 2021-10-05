@@ -1,6 +1,6 @@
 # ino-snackbar
 
-Snackbars provide brief messages about app processes. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.
+Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component
 
 ### Usage
 
@@ -22,8 +22,8 @@ document
 <ino-snackbar
   message="<string>"
   action-text="<string>"
-  horizontal-alignment="<string>"
-  vertical-alignment="<string>"
+  action-on-bottom
+  align-start
   oninoactionclick="handleClickEl()"
   onhideel="handleHideEl()"
 >
@@ -44,6 +44,8 @@ class MyComponent extends Component {
       <InoSnackbar
         inoMessage="Message deleted"
         inoActionText="Undo"
+        inoActionOnBottom={false}
+        inoAlignStart={false}
       />
     );
   }
@@ -61,12 +63,16 @@ const Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = prop
   const {
     inoMessage,
     inoActionText,
+    inoActionOnBottom,
+    inoAlignStart
   } = props;
 
   return (
     <InoSnackbar
       inoMessage={inoMessage}
       inoActionText={inoActionText}
+      inoActionOnBottom={inoActionOnBottom}
+      inoAlignStart={inoAlignStart}
     >
       {props.children}
     </InoSnackbar>
@@ -81,11 +87,17 @@ class MyComponent extends Component {
       <Snackbar
         inoMessage="Message deleted"
         inoActionText="Undo"
+        inoActionOnBottom={false}
+        inoAlignStart={false}
       />
     );
   }
 }
 ```
+
+## Additional Hints
+
+Snackbar is displayed when `show` is changed to checked.
 
 <!-- Auto Generated Below -->
 

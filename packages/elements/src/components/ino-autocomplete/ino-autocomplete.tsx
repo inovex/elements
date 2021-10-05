@@ -58,7 +58,8 @@ export class Autocomplete implements ComponentInterface {
 
   @Element() el: HTMLInoAutocompleteElement;
 
-  @State() menuIsVisible = false;
+  @State() private menuIsVisible = false;
+  @State() private noOptionsIsVisible = false;
 
   /**
    * Timeout of the debouncing mechanism used when filtering the options.
@@ -262,8 +263,8 @@ export class Autocomplete implements ComponentInterface {
       option.style.display = matched ? 'block' : 'none';
       return matched;
     });
+    this.noOptionsIsVisible = this.filteredOptionEls.length === 0;
   };
-
   private setupOptions = (): void => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
     this.filteredOptionEls = this.optionEls;
@@ -274,9 +275,7 @@ export class Autocomplete implements ComponentInterface {
     if (!this.optionEls) {
       return;
     }
-    this.selectedOptionIndex = this.optionEls.indexOf(
-      this.optionEls.find((oEl) => oEl.value === value)
-    );
+    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === value);
     this.inputChanged(this.selectedOption?.innerText);
   };
 
@@ -317,7 +316,7 @@ export class Autocomplete implements ComponentInterface {
           ref={(el) => (this.menuContainer = el)}
           onMouseDown={(ev) => this.onListItemClick(ev)}
         >
-          {this.filteredOptionEls?.length === 0 && (
+          {this.noOptionsIsVisible && (
             <p class="no-options-text">{this.noOptionsText}</p>
           )}
           <slot onSlotchange={this.setupOptions} />
