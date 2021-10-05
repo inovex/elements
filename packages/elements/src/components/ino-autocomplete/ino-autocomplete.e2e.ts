@@ -34,7 +34,7 @@ const NO_OPTIONS_TEXT = 'NO_OPTIONS_FOUND';
 const INO_AUTOCOMPLETE_SELECTOR = 'ino-autocomplete';
 const INO_AUTOCOMPLETE = `
     <ino-autocomplete debounce-timeout="0" no-options-text="${NO_OPTIONS_TEXT}">
-      <ino-input id="my-input" slot="input" />
+      <ino-input id="my-input" slot="input"></ino-input>
       ${OPTION_ELS.join('\n')}
     </ino-autocomplete>
 `;
@@ -179,16 +179,13 @@ describe('InoAutocomplete', () => {
 
   it('should be able to select option that was added afterwards', async () => {
     const newOptionKey = 'Key of Option F';
-    await page.$eval(
-      INO_AUTOCOMPLETE_SELECTOR,
-      (el: HTMLElement, newOptionKey) => {
-        const inoOption = document.createElement('ino-option');
-        inoOption.value = newOptionKey;
-        inoOption.innerText = 'Option F';
-        el.appendChild(inoOption);
-      },
-      newOptionKey
-    );
+
+    await page.$eval(INO_AUTOCOMPLETE_SELECTOR, (el) => {
+      const inoOption = document.createElement('ino-option');
+      inoOption.value = 'Key of Option F';
+      inoOption.innerText = 'Option F'
+      el.appendChild<HTMLInoOptionElement>(inoOption);
+    });
 
     await openMenu();
     const visibleListItems = await findVisibleListItems();

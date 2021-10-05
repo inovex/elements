@@ -248,9 +248,9 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    this.inputEl.value = searchTerm;
+    this.inputEl.value = (searchTerm || '');
     this.debouncer.debounce(
-      () => this.filterOptions(searchTerm),
+      () => this.filterOptions(this.inputEl.value),
       this.debounceTimeout
     );
   };
@@ -267,6 +267,7 @@ export class Autocomplete implements ComponentInterface {
   };
   private setupOptions = (): void => {
     this.optionEls = Array.from(this.el.getElementsByTagName('ino-option'));
+    this.optionEls.forEach((opt) => opt.innerText = opt.innerText.trim())
     this.filteredOptionEls = this.optionEls;
     this.setOptionByValue(this.value);
   };
