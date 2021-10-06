@@ -1505,13 +1505,6 @@
           "required": false
         },
         {
-          "name": "icon",
-          "type": "string",
-          "description": "Adds an icon to the Fab-set.",
-          "defaultValue": "'_fab_set_arrow_up'",
-          "required": false
-        },
-        {
           "name": "left-right-location",
           "type": "\"left\" | \"right\"",
           "description": "The side where the Fab is displayed.\nPossible values: `right`, `left` (default).",
@@ -1539,13 +1532,6 @@
           "type": "\"bottom\" | \"left\" | \"right\" | \"top\"",
           "description": "The direction of the speed dial.\nPossible values: `top` (default), `bottom`, `right`, `left`.",
           "defaultValue": "'top'",
-          "required": false
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "description": "Adds an icon to the Fab-set.",
-          "defaultValue": "'_fab_set_arrow_up'",
           "required": false
         },
         {
