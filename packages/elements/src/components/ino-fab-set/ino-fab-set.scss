@@ -2,21 +2,12 @@
 @use 'base/animation';
 
 $primary-fab-icon-selector: 'ino-fab';
-$fab-set-wrapper-height: 66px;
 $fab-set-padding: 5px;
 
-$rotationsByDirection: (
-  top: 0deg,
-  bottom: 180deg,
-  left: 270deg,
-  right: 90deg,
-);
-
-$animationByDirection: (
-  top: scaleY(-1),
-  bottom: scaleY(1),
-  left: rotate(90deg),
-  right: rotate(270deg),
+$transformByDirection: (
+  left: rotate(270deg),
+  right: rotate(90deg),
+  bottom: rotate(180deg),
 );
 
 $wrapperFlexByDirection: (
@@ -59,12 +50,12 @@ $dialFlexByDirection: (
       align-self: center;
     }
 
-    ::slotted([slot='ino-fab-set-icon-opened']),
+    ::slotted([slot='icon-opened']),
     .ino-fab-set-icon--opened {
       display: none;
     }
 
-    ::slotted([slot='ino-fab-set-icon-closed']),
+    ::slotted([slot='icon-closed']),
     .ino-fab-set-icon--closed {
       display: block;
     }
@@ -102,6 +93,10 @@ $directions: 'top', 'bottom', 'left', 'right';
 @each $direction in $directions {
   :host {
     .ino-direction-#{$direction} {
+      .ino-fab-set-icon {
+        transform: map-get($transformByDirection, $direction);
+      }
+
       &.ino-fab-set-wrapper {
         flex-direction: map_get($wrapperFlexByDirection, $direction);
 
@@ -113,12 +108,12 @@ $directions: 'top', 'bottom', 'left', 'right';
   }
 
   :host(.ino-fab-set--open-dial) {
-    ::slotted([slot='ino-fab-set-icon-closed']),
+    ::slotted([slot='icon-closed']),
     .ino-fab-set-icon--closed {
       display: none;
     }
 
-    ::slotted([slot='ino-fab-set-icon-opened']),
+    ::slotted([slot='icon-opened']),
     .ino-fab-set-icon--opened {
       display: block;
     }

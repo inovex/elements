@@ -63,8 +63,8 @@ export class Fab implements ComponentInterface {
       'ino-direction-' + this.dialDirection
     );
 
-    const hasClosedIcon = hasSlotContent(this.el, 'ino-fab-set-icon-closed');
-    const hasOpenedIcon = hasSlotContent(this.el, 'ino-fab-set-icon-opened');
+    const hasClosedIcon = hasSlotContent(this.el, 'icon-closed');
+    const hasOpenedIcon = hasSlotContent(this.el, 'icon-opened');
 
     return (
       <Host class={hostClasses}>
@@ -80,20 +80,20 @@ export class Fab implements ComponentInterface {
             tooltip-placement="none"
           >
             {hasClosedIcon ? (
-              <slot slot="icon-leading" name="ino-fab-set-icon-closed" />
+              <slot slot="icon-leading" name="icon-closed" />
             ) : (
               <ino-icon
-                class="ino-fab-set-icon--closed"
+                class="ino-fab-set-icon ino-fab-set-icon--closed"
                 slot="icon-leading"
                 icon={'_fab_set_arrow_up'}
               />
             )}
 
             {hasOpenedIcon ? (
-              <slot slot="icon-leading" name="ino-fab-set-icon-opened" />
+              <slot slot="icon-leading" name="icon-opened" />
             ) : (
               <ino-icon
-                class="ino-fab-set-icon--opened"
+                class="ino-fab-set-icon ino-fab-set-icon--opened"
                 slot="icon-leading"
                 icon={'_fab_set_arrow_down'}
               />
