@@ -110,7 +110,7 @@ your local state and pass the state to the component again to open/close the fab
 | Property            | Attribute             | Description                                                                                   | Type                                     | Default               |
 | ------------------- | --------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------- | --------------------- |
 | `dialDirection`     | `dial-direction`      | The direction of the speed dial. Possible values: `top` (default), `bottom`, `right`, `left`. | `"bottom" \| "left" \| "right" \| "top"` | `'top'`               |
-| `icon`              | `icon`                | The icon of the fab-set                                                                       | `string`                                 | `'_fab_set_arrow_up'` |
+| `icon`              | `icon`                | Adds an icon to the Fab-set.                                                                  | `string`                                 | `'_fab_set_arrow_up'` |
 | `leftRightLocation` | `left-right-location` | The side where the Fab is displayed. Possible values: `right`, `left` (default).              | `"left" \| "right"`                      | `'left'`              |
 | `openDial`          | `open-dial`           | Opens the dial (**uncontrolled**)                                                             | `boolean`                                | `false`               |
 | `topBottomLocation` | `top-bottom-location` | The side where the Fab is displayed. Possible values: `top`, `bottom` (default).              | `"bottom" \| "top"`                      | `'bottom'`            |
