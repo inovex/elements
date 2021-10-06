@@ -43,7 +43,6 @@ export const Playground: Story<Components.InoFabSet> = (args) => html`
     top-bottom-location="${args.topBottomLocation}"
     left-right-location="${args.leftRightLocation}"
     dial-direction="${args.dialDirection}"
-    icon="${args.icon}"
   >
     <ino-fab label="First FAB">
       <ino-icon slot="icon-leading" icon="star"></ino-icon>

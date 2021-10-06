@@ -58,6 +58,16 @@ $dialFlexByDirection: (
       padding: $fab-set-padding;
       align-self: center;
     }
+
+    ::slotted([slot='ino-fab-set-icon-opened']),
+    .ino-fab-set-icon--opened {
+      display: none;
+    }
+
+    ::slotted([slot='ino-fab-set-icon-closed']),
+    .ino-fab-set-icon--closed {
+      display: block;
+    }
   }
 }
 
@@ -99,19 +109,18 @@ $directions: 'top', 'bottom', 'left', 'right';
           flex-direction: map_get($dialFlexByDirection, $direction);
         }
       }
-
-      #{$primary-fab-icon-selector} {
-        transform: rotate(map_get($rotationsByDirection, $direction));
-      }
     }
   }
 
   :host(.ino-fab-set--open-dial) {
-    .ino-direction-#{$direction} #{$primary-fab-icon-selector} {
-      transform: var(
-        --ino-fab-set-transform,
-        #{map-get($animationByDirection, $direction)}
-      );
+    ::slotted([slot='ino-fab-set-icon-closed']),
+    .ino-fab-set-icon--closed {
+      display: none;
+    }
+
+    ::slotted([slot='ino-fab-set-icon-opened']),
+    .ino-fab-set-icon--opened {
+      display: block;
     }
   }
 }

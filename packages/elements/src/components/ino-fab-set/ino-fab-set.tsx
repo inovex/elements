@@ -7,6 +7,7 @@ import {
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
@@ -20,11 +21,6 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 })
 export class Fab implements ComponentInterface {
   @Element() el!: HTMLElement;
-
-  /**
-   * Adds an icon to the Fab-set.
-   */
-  @Prop() icon: string = '_fab_set_arrow_up';
 
   /**
    * The direction of the speed dial.
@@ -67,19 +63,41 @@ export class Fab implements ComponentInterface {
       'ino-direction-' + this.dialDirection
     );
 
+    const hasClosedIcon = hasSlotContent(this.el, 'ino-fab-set-icon-closed');
+    const hasOpenedIcon = hasSlotContent(this.el, 'ino-fab-set-icon-opened');
+
     return (
       <Host class={hostClasses}>
         <div class={directionClasses}>
           <div class={speedDialClasses}>
             <slot></slot>
           </div>
+
           <ino-fab
             id={'primary-fab'}
             class="ino-fab-set-button"
             edge-position="none"
             tooltip-placement="none"
           >
-            {this.icon && <ino-icon slot="icon-leading" icon={this.icon} />}
+            {hasClosedIcon ? (
+              <slot slot="icon-leading" name="ino-fab-set-icon-closed" />
+            ) : (
+              <ino-icon
+                class="ino-fab-set-icon--closed"
+                slot="icon-leading"
+                icon={'_fab_set_arrow_up'}
+              />
+            )}
+
+            {hasOpenedIcon ? (
+              <slot slot="icon-leading" name="ino-fab-set-icon-opened" />
+            ) : (
+              <ino-icon
+                class="ino-fab-set-icon--opened"
+                slot="icon-leading"
+                icon={'_fab_set_arrow_down'}
+              />
+            )}
           </ino-fab>
         </div>
       </Host>
