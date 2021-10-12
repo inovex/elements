@@ -1324,6 +1324,18 @@
           "description": "background color of the dialog"
         },
         {
+          "name": "--ino-dialog-border",
+          "description": "border shorthand of the dialog"
+        },
+        {
+          "name": "--ino-dialog-border-radius",
+          "description": "border-radius of the dialog"
+        },
+        {
+          "name": "--ino-dialog-box-shadow",
+          "description": "box-shadow of the dialog"
+        },
+        {
           "name": "--ino-dialog-content-height",
           "description": "height of the content section"
         },
@@ -1338,6 +1350,10 @@
         {
           "name": "--ino-dialog-height",
           "description": "height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-overlay-background-color",
+          "description": "background color of the overlay"
         },
         {
           "name": "--ino-dialog-width",

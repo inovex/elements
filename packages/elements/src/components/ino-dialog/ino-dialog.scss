@@ -1,6 +1,10 @@
 @use 'base/mdc-customize';
 @use '@material/dialog/mdc-dialog';
 
+$material-dialog-box-shadow: rgb(0 0 0 / 20%) 0px 11px 15px -7px,
+  rgb(0 0 0 / 14%) 0px 24px 38px 3px, rgb(0 0 0 / 12%) 0px 9px 46px 8px;
+$material-dialog-scrim-background-color: rgba(0, 0, 0, 0.32);
+
 :host {
   /**
    * @prop --ino-dialog-background-color: background color of the dialog
@@ -9,39 +13,59 @@
    * @prop --ino-dialog-header-height: height of the header section
    * @prop --ino-dialog-content-height: height of the content section
    * @prop --ino-dialog-footer-height: height of the footer section
+   * @prop --ino-dialog-border-radius: border-radius of the dialog
+   * @prop --ino-dialog-border: border shorthand of the dialog
+   * @prop --ino-dialog-box-shadow: box-shadow of the dialog
+   * @prop --ino-dialog-overlay-background-color: background color of the overlay
    */
-  --dialog-background-color: var(--ino-dialog-background, #fff);
-  --dialog-width: var(--ino-dialog-width, 300px);
-  --dialog-height: var(--ino-dialog-height, 200px);
-  --dialog-header-height: var(--ino-dialog-header-height, 20%);
-  --dialog-content-height: var(--ino-dialog-content-height, 60%);
-  --dialog-footer-height: var(--ino-dialog-footer-height, 20%);
-}
+  $dialog-background-color: var(--ino-dialog-background-color, #fff);
+  $dialog-width: var(--ino-dialog-width, auto);
+  $dialog-height: var(--ino-dialog-height, auto);
+  $dialog-header-height: var(--ino-dialog-header-height, 20%);
+  $dialog-content-height: var(--ino-dialog-content-height, 60%);
+  $dialog-footer-height: var(--ino-dialog-footer-height, 20%);
+  $dialog-border-radius: var(--ino-dialog-border-radius, unset);
+  $dialog-box-shadow: var(
+    --ino-dialog-box-shadow,
+    #{$material-dialog-box-shadow}
+  );
+  $dialog-border: var(--ino-dialog-border, unset);
+  $dialog-scrim-background-color: var(
+    --ino-dialog-overlay-background-color,
+    #{$material-dialog-scrim-background-color}
+  );
 
-:host {
+  .mdc-dialog__scrim {
+    position: absolute;
+    background-color: $dialog-scrim-background-color;
+  }
+
   .mdc-dialog__surface {
-    background-color: var(--dialog-background-color);
-    height: var(--dialog-height);
-    width: var(--dialog-width);
+    background-color: $dialog-background-color;
+    height: $dialog-height;
+    width: $dialog-width;
     overflow: visible;
     max-width: unset;
     min-width: unset;
     max-height: unset;
     min-height: unset;
+    border-radius: $dialog-border-radius;
+    box-shadow: $dialog-box-shadow;
+    border: $dialog-border;
   }
 
   .ino-dialog__header {
     padding: 0;
-    height: var(--dialog-header-height);
+    height: $dialog-header-height;
   }
 
   .ino-dialog__content {
     padding: 0;
-    height: var(--dialog-content-height);
+    height: $dialog-content-height;
   }
 
   .ino-dialog__footer {
     padding: 0;
-    height: var(--dialog-footer-height);
+    height: $dialog-footer-height;
   }
 }
