@@ -257,10 +257,13 @@ export class Datepicker implements ComponentInterface {
       return;
     }
 
-    if (value) {
-      this.isValid = false;
-    } else {
-      this.validate();
+    switch (value) {
+      case true:
+      case false:
+        this.isValid = value;
+        break;
+      default:
+        this.validate();
     }
   }
 
