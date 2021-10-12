@@ -23,7 +23,7 @@ describe('InoDialog', () => {
       const mdcInstance = await inoDialog.shadowRoot.querySelector(
         MDC_SELECTOR
       );
-      expect(mdcInstance).not.toHaveClass('mdc-dialog--open');
+      expect(mdcInstance).toHaveClass('mdc-dialog');
     });
 
     it('should open the dialog upon setting inoOpen to true', async () => {
