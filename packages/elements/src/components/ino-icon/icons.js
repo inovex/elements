@@ -41,6 +41,7 @@ export default [
   'onboarding',
   'opportunity',
   'options',
+  'options_dotted',
   'partner',
   'password',
   'phone',
