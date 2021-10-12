@@ -170,7 +170,7 @@ describe('InoAutocomplete', () => {
     await inputEl.click();
     const spy = await page.spyOnEvent('valueChange');
     await inputEl.type('Option');
-    await page.$eval('input', (e: HTMLElement) => e.blur());
+    await page.$eval('input', (e: HTMLInputElement) => e.blur());
     await page.waitForChanges();
     const valueProp = await inputEl.getProperty('value');
     expect(valueProp).toEqual('');

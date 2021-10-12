@@ -222,9 +222,9 @@ export class Autocomplete implements ComponentInterface {
 
     if (newIndex !== this.selectedOptionIndex) {
       this.selectedOptionIndex = newIndex;
-      this.inputChanged(this.selectedOption?.innerText || '');
       this.emitValueOfSelectedOption();
     }
+    this.inputChanged(this.selectedOption?.innerText || '');
   };
 
   /**
