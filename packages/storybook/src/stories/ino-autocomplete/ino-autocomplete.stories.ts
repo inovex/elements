@@ -11,21 +11,21 @@ export default {
   component: 'ino-autocomplete',
   parameters: {
     actions: {
-      handles: ['optionSelected'],
+      handles: ['valueChange'],
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
+    story => decorateStoryWithClass(story),
+    story => {
       useEffect(() => {
-        const eventHandler = function (e: CustomEvent<string>) {
+        const eventHandler = function(e: CustomEvent<string>) {
           showSnackbar(`"${e.detail}" was selected.`);
         };
 
-        document.addEventListener('optionSelected', eventHandler);
+        document.addEventListener('valueChange', eventHandler);
 
         return () => {
-          document.removeEventListener('optionSelected', eventHandler);
+          document.removeEventListener('valueChange', eventHandler);
         };
       });
 
@@ -34,19 +34,24 @@ export default {
   ],
 } as Meta;
 
-export const Playground: Story<Components.InoAutocomplete> = (args) => html`
+const options = [];
+
+for (let i = 0; i < 500; i++) {
+  options.push(
+    html`
+      <ino-option value="value of Option ${i}">${i}</ino-option>
+    `
+  );
+}
+
+export const Playground: Story<Components.InoAutocomplete> = args => html`
   <div style="height: 300px;">
     <ino-autocomplete
       style="margin: 50px"
-      debounce-timeout="${args.debounceTimeout}"
       no-options-text="${args.noOptionsText}"
     >
-      <ino-input slot="input" />
-      <ino-list slot="list">
-        <ino-option value="value of Option A">Option A</ino-option>
-        <ino-option value="value of Option B">Option B</ino-option>
-        <ino-option value="value of Option C">Option C</ino-option>
-      </ino-list>
+      <ino-input slot="input"></ino-input>
+      ${options}
     </ino-autocomplete>
   </div>
 `;

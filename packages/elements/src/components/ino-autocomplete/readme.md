@@ -62,21 +62,29 @@ class MyComponent extends Component {
 | ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------------- |
 | `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`         |
 | `noOptionsText`   | `no-options-text`  | Text to display when there are no options found.                     | `string` | `'No Option'` |
+| `value`           | `value`            | Value of the autocomplete                                            | `any`    | `undefined`   |
 
 
 ## Events
 
-| Event            | Description                                                                                                                                                                                                          | Type                  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `optionSelected` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
+| Event         | Description                                                                                                                                                                                                          | Type                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
 
 
 ## Slots
 
-| Slot      | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
-| `"input"` | An `<ino-input>` element that will be controlled by this component |
-| `"list"`  | An `<ino-list>` element with `<ino-option>` elements as options    |
+| Slot        | Description                                                        |
+| ----------- | ------------------------------------------------------------------ |
+| `"default"` | A list of `<ino-option>` elements as options                       |
+| `"input"`   | An `<ino-input>` element that will be controlled by this component |
+
+
+## CSS Custom Properties
+
+| Name                                 | Description               |
+| ------------------------------------ | ------------------------- |
+| `--ino-autocomplete-list-max-height` | max height of option list |
 
 
 ----------------------------------------------

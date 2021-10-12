@@ -19,6 +19,12 @@
           "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
           "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value of the autocomplete",
+          "required": false
         }
       ],
       "properties": [
@@ -35,26 +41,37 @@
           "description": "Text to display when there are no options found.",
           "defaultValue": "'No Option'",
           "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value of the autocomplete",
+          "required": false
         }
       ],
       "events": [
         {
-          "name": "optionSelected",
+          "name": "valueChange",
           "description": "Emits in three ways:\n\n1. Clicking on an option\n2. Pressing `Enter` while an option is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the `<ino-options>`s."
         }
       ],
       "methods": [],
       "slots": [
         {
-          "name": "input",
-          "description": "An `<ino-input>` element that will be controlled by this component"
+          "name": "default",
+          "description": "A list of `<ino-option>` elements as options"
         },
         {
-          "name": "list",
-          "description": "An `<ino-list>` element with `<ino-option>` elements as options"
+          "name": "input",
+          "description": "An `<ino-input>` element that will be controlled by this component"
         }
       ],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-autocomplete-list-max-height",
+          "description": "max height of option list"
+        }
+      ],
       "cssParts": []
     },
     {
@@ -4214,7 +4231,7 @@
     {
       "name": "ino-snackbar",
       "path": "./src/components/ino-snackbar/ino-snackbar.tsx",
-      "description": "Snackbars provide brief messages about app processes. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component.",
+      "description": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
       "attributes": [
         {
           "name": "action-text",

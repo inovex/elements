@@ -1,8 +1,15 @@
 @use 'base/theme';
+@use 'base/mdc-customize';
+@use '@material/list';
 
-ino-autocomplete {
+@include list.core-styles;
+
+/**
+* @prop --ino-autocomplete-list-max-height: max height of option list
+*/
+:host {
   .menu {
-    height: max-content;
+    max-height: var(--ino-autocomplete-list-max-height, 50%);
     width: var(--input-width, max-content);
     position: absolute;
     z-index: 10;
@@ -11,6 +18,7 @@ ino-autocomplete {
       0 1px 10px 0 rgb(0 0 0 / 12%);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    overflow: auto;
   }
 
   .menu-hidden {
