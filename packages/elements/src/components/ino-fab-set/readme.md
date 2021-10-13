@@ -120,8 +120,6 @@ your local state and pass the state to the component again to open/close the fab
 | Slot        | Description           |
 | ----------- | --------------------- |
 | `"default"` | One or more `ino-fab` |
-| `"icon-opened"` | Custom Icon for opened state |
-| `"icon-closed"` | Custom Icon for closed state |
 
 
 ## Dependencies
