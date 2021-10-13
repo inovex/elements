@@ -1,11 +1,11 @@
-name: Test & Build
+name: Release & Deploy
 
 on:
   push:
     branches:
       - master
-  pull_request:
-    types: [opened, synchronize, reopened]
+    tags:
+    - '*'
 
 jobs:
   install:
@@ -95,10 +95,43 @@ jobs:
           name: elements-angular
           path:
             packages/elements-angular/dist/
-      - if: github.ref == 'refs/heads/master'
-        name: upload storybook artifact
+      - name: upload storybook artifact
         uses: actions/upload-artifact@v2
         with:
           name: storybook
           path:
             packages/storybook/dist/
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    environment:
+      name: unicorn
+      url: ${{ steps.deploy_unicorn.outputs.url }}
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install azcopy
+        run: |
+          echo "... Installing azcopy"
+          sudo mkdir -p /home/azcopy/
+          curl -L https://aka.ms/downloadazcopy-v10-linux | tar -zxf - --directory /home/azcopy/
+          sudo mv $(find /home/azcopy/ -type f -name azcopy) /usr/bin/
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybook
+          path: ./packages/storybook/dist/
+      - uses: rlespinasse/github-slug-action@v3.x
+      - name: Deploy unicorn
+        id: deploy_unicorn
+        run: |
+          echo "... Deploying Storybook to $UNICORN_NAME"
+          azcopy cp "./packages/storybook/dist/*" "$STORAGE_ACCOUNT/%24web/$UNICORN_NAME?$SAS_TOKEN" --recursive
+          echo "::set-output name=url::$SITE_URL/$UNICORN_NAME"
+        env:
+          SITE_URL: https://elementssa.z1.web.core.windows.net
+          UNICORN_NAME: unicorn-${{ env.GITHUB_HEAD_REF_SLUG }}
+          SAS_TOKEN: ${{ secrets.AZURE_STORAGE_SAS_TOKEN }}
+          STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}

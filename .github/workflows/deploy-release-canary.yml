@@ -1,4 +1,4 @@
-name: Canary Release
+name: Canary Release & Deploy
 
 on:
   workflow_run:
