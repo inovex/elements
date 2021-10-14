@@ -260,7 +260,7 @@ export class Datepicker implements ComponentInterface {
     switch (value) {
       case true:
       case false:
-        this.isValid = value;
+        this.isValid = !value;
         break;
       default:
         this.validate();
