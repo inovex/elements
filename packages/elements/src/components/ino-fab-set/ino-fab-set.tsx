@@ -7,6 +7,7 @@ import {
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
+import { hasSlotContent } from '../../util/component-utils';
 
 import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
@@ -62,18 +63,41 @@ export class Fab implements ComponentInterface {
       'ino-direction-' + this.dialDirection
     );
 
+    const hasClosedIcon = hasSlotContent(this.el, 'icon-closed');
+    const hasOpenedIcon = hasSlotContent(this.el, 'icon-opened');
+
     return (
       <Host class={hostClasses}>
         <div class={directionClasses}>
           <div class={speedDialClasses}>
             <slot></slot>
           </div>
+
           <ino-fab
             id={'primary-fab'}
+            class="ino-fab-set-button"
             edge-position="none"
             tooltip-placement="none"
           >
-            <ino-icon slot="icon-leading" icon={'_fab_set_arrow_up'} />
+            {hasClosedIcon ? (
+              <slot slot="icon-leading" name="icon-closed" />
+            ) : (
+              <ino-icon
+                class="ino-fab-set-icon ino-fab-set-icon--closed"
+                slot="icon-leading"
+                icon={'_fab_set_arrow_up'}
+              />
+            )}
+
+            {hasOpenedIcon ? (
+              <slot slot="icon-leading" name="icon-opened" />
+            ) : (
+              <ino-icon
+                class="ino-fab-set-icon ino-fab-set-icon--opened"
+                slot="icon-leading"
+                icon={'_fab_set_arrow_down'}
+              />
+            )}
           </ino-fab>
         </div>
       </Host>

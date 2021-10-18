@@ -2,10 +2,12 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_DIALOG = `
   <ino-dialog>
+    <button>Focusable Element</button>
   </ino-dialog>
 `;
 const INO_OPEN_DIALOG = `
   <ino-dialog open>
+      <button>Focusable Element</button>
   </ino-dialog>
 `;
 const INO_DIALOG_SELECTOR = 'ino-dialog';

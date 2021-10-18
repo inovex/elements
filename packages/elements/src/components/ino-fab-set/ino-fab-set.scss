@@ -2,19 +2,12 @@
 @use 'base/animation';
 
 $primary-fab-icon-selector: 'ino-fab';
+$fab-set-padding: 5px;
 
-$rotationsByDirection: (
-  top: 0deg,
-  bottom: 180deg,
-  left: 270deg,
-  right: 90deg,
-);
-
-$animationByDirection: (
-  top: scaleY(-1),
-  bottom: scaleY(1),
-  left: rotate(90deg),
-  right: rotate(270deg),
+$transformByDirection: (
+  left: rotate(270deg),
+  right: rotate(90deg),
+  bottom: rotate(180deg),
 );
 
 $wrapperFlexByDirection: (
@@ -40,7 +33,7 @@ $dialFlexByDirection: (
     display: flex;
 
     ::slotted(*) {
-      padding: 5px;
+      padding: $fab-set-padding;
 
       .mdc-fab .mdc-fab__icon {
         font-size: 25px;
@@ -50,6 +43,21 @@ $dialFlexByDirection: (
     .ino-speed-dial {
       display: none;
       align-items: center;
+    }
+
+    .ino-fab-set-button {
+      padding: $fab-set-padding;
+      align-self: center;
+    }
+
+    ::slotted([slot='icon-opened']),
+    .ino-fab-set-icon--opened {
+      display: none;
+    }
+
+    ::slotted([slot='icon-closed']),
+    .ino-fab-set-icon--closed {
+      display: block;
     }
   }
 }
@@ -85,6 +93,10 @@ $directions: 'top', 'bottom', 'left', 'right';
 @each $direction in $directions {
   :host {
     .ino-direction-#{$direction} {
+      .ino-fab-set-icon {
+        transform: map-get($transformByDirection, $direction);
+      }
+
       &.ino-fab-set-wrapper {
         flex-direction: map_get($wrapperFlexByDirection, $direction);
 
@@ -92,16 +104,18 @@ $directions: 'top', 'bottom', 'left', 'right';
           flex-direction: map_get($dialFlexByDirection, $direction);
         }
       }
-
-      #{$primary-fab-icon-selector} {
-        transform: rotate(map_get($rotationsByDirection, $direction));
-      }
     }
   }
 
   :host(.ino-fab-set--open-dial) {
-    .ino-direction-#{$direction} #{$primary-fab-icon-selector} {
-      transform: map-get($animationByDirection, $direction);
+    ::slotted([slot='icon-closed']),
+    .ino-fab-set-icon--closed {
+      display: none;
+    }
+
+    ::slotted([slot='icon-opened']),
+    .ino-fab-set-icon--opened {
+      display: block;
     }
   }
 }
