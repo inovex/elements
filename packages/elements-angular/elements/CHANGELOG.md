@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/inovex/elements/compare/v4.1.1...v5.0.0) (2021-10-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-autocomplete:** - rename event `optionSelected` to `valueChange` for consistency sake
+- remove slot `list`, now only takes an `<ino-input>` in the `input` slot and `<ino-option>`s in the default slot
+* **elements|ino-snackbar:** remove types `primary` & `warning` and add new types `info` (default) & `success`; remove alignment properties
+
+The snackbar has received a new design, which features the three cases info, success, and error. Also, as part of the new design, we have decided that the snackbar will now be displayed in the top right corner by default. Since we want to get away from offering properties that only make changes to the CSS in the background, we have removed the alignment properties and instead introduced CSS variables that can be used to configure the absolute position of the snackbar. For more information, have a look at its storybook page.
+* **elements|ino-snackbar:** rename property `alignment` to `horizontalAlignment` in order to improve clarity
+
+### Features
+
+* **elements|ino-datepicker:** provide error property ([#429](https://github.com/inovex/elements/issues/429)) ([43f37ef](https://github.com/inovex/elements/commit/43f37efd0c4dfe9748d7b12101732d8c47cd672d))
+* **elements|ino-select:** add property `error` to display error state ([#424](https://github.com/inovex/elements/issues/424)) ([f3b97c6](https://github.com/inovex/elements/commit/f3b97c60807599a66a2763e5358c7f2bc48c073d))
+* **elements|ino-snackbar:** add new property `verticalAlignment` ([#427](https://github.com/inovex/elements/issues/427)) ([1c34299](https://github.com/inovex/elements/commit/1c34299ed97405e3e47800d2ca6c037a6d7f6fd9))
+* **elements|ino-snackbar:** rework snackbar ([#431](https://github.com/inovex/elements/issues/431)) ([76911a3](https://github.com/inovex/elements/commit/76911a34ce4d5c5588dcacdf612441b5c54e5693))
+
+
+### Refactoring
+
+* **elements|ino-autocomplete:** provide better angular support ([#435](https://github.com/inovex/elements/issues/435)) ([bb3853c](https://github.com/inovex/elements/commit/bb3853c092c3ac462d3ab8c604667feea3f0bbaf))
+
 ### [4.1.1](https://github.com/inovex/elements/compare/v4.1.0...v4.1.1) (2021-09-06)
 
 ## [4.1.0](https://github.com/inovex/elements/compare/v4.0.0...v4.1.0) (2021-08-11)
