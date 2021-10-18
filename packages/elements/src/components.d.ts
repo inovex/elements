@@ -254,6 +254,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Displays the datepicker as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
+        /**
           * The helper text.
          */
         "helper"?: string;
@@ -1806,6 +1810,10 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Displays the datepicker as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
+         */
+        "error"?: boolean;
         /**
           * The helper text.
          */

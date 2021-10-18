@@ -1040,6 +1040,12 @@
           "required": false
         },
         {
+          "name": "error",
+          "type": "boolean",
+          "description": "Displays the datepicker as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
+          "required": false
+        },
+        {
           "name": "helper",
           "type": "string",
           "description": "The helper text.",
@@ -1178,6 +1184,12 @@
           "name": "disabled",
           "type": "boolean",
           "description": "Disables this element.",
+          "required": false
+        },
+        {
+          "name": "error",
+          "type": "boolean",
+          "description": "Displays the datepicker as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
           "required": false
         },
         {
