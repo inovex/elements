@@ -34,6 +34,7 @@ export class Autocomplete implements ComponentInterface {
   private inputEl: HTMLInoInputElement;
   private optionEls: HTMLInoOptionElement[];
   private menuContainer: HTMLDivElement;
+  private lastKeyCode: string;
   private debouncer: Debouncer = new Debouncer();
   private filteredOptionEls: HTMLInoOptionElement[];
   private selectedOption?: HTMLInoOptionElement;
@@ -115,11 +116,15 @@ export class Autocomplete implements ComponentInterface {
   @Listen('keydown')
   onKeyDown(ev: KeyboardEvent): void {
     if (
-      !this.menuIsVisible ||
-      !this.filteredOptionEls ||
-      this.filteredOptionEls.length === 0
+      !this.filteredOptionEls
+      || this.filteredOptionEls.length === 0
+      || (this.lastKeyCode !== 'Enter' && !this.menuIsVisible)
     ) {
       return;
+    }
+
+    if (this.lastKeyCode === 'Enter' && !this.menuIsVisible) {
+      this.openMenu();
     }
 
     switch (ev.code) {
