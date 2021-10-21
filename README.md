@@ -4,7 +4,11 @@
 
 > The last interoperable UI library for any framework.
 
-This repository provides lovingly crafted components based on native Web Components as well as integration layers for the [Angular](https://github.com/angular) framework and the [React](https://github.com/facebook/react) library.
+This repository provides lovingly crafted components based on native Web Components for Angular, React, Vue or any JavaScript project.
+
+## Installation
+
+See [instructions](https://github.com/inovex/elements/tree/master/packages/storybook/src/stories/docs/framework-integration) how to integrate it into your project.
 
 ## Why @inovex.de/elements?
 

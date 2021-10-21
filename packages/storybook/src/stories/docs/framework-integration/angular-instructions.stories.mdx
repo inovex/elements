@@ -21,11 +21,66 @@ We provide an integration layer package for Angular, so you can integrate the el
 
 Add the package `@inovex.de/elements-angular` to your project using `ng add`:
 
+> Hint: This command will also add the `ino-icons` to your project.
+
 ```sh
 $ ng add @inovex.de/elements-angular
 ```
 
-This should add the dependency as well as our `ino-icons` to your project.
+You can use npm or yarn as well, but you then need to change `angular.json` manually:
+
+```sh
+$ npm install @inovex.de/elements-angular --save
+```
+
+or
+
+```sh
+$ yarn add @inovex.de/elements-angular
+```
+
+```
+// angular.json
+
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  ...
+  "projects": {
+    "your-project-name": {
+      ...
+      "architect": {
+        "build": {
+          ...
+          "options": {
+            ...
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets",
+                "output": "/icon-assets"
+              }
+          }
+        },
+        "test": {
+          ...
+          "options": {
+            ...
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@inovex.de/elements/dist/inovex-elements/icon-assets",
+                "output": "/icon-assets"
+              }
+          }
+        }
+      }
+    }
+  }
+```
 
 ## 2) Import the Module `InoElementsModule`
 
@@ -60,6 +115,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // <-- c) add CUSTOM_ELEMENTS_SCHEMA
 })
 export class AppModule {}
 ```
