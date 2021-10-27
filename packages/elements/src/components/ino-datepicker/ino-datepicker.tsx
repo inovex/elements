@@ -7,10 +7,10 @@ import {
   h,
   Host,
   Listen,
+  Method,
   Prop,
   State,
   Watch,
-  Method,
 } from '@stencil/core';
 import flatpickr from 'flatpickr';
 import { Instance } from 'flatpickr/dist/types/instance';
@@ -29,8 +29,6 @@ export class Datepicker implements ComponentInterface {
 
   private flatpickr!: Instance;
   private inoInputEl?: HTMLInoInputElement;
-
-  private inputEl: HTMLInoInputElement;
 
   private validator: Validator;
 
@@ -239,7 +237,7 @@ export class Datepicker implements ComponentInterface {
   inoInputClickedHandler(e) {
     const target = e.target;
 
-    if (this.disabled || !this.inputEl.contains(target)) {
+    if (this.disabled || !this.inoInputEl.contains(target)) {
       return;
     }
 
@@ -275,24 +273,23 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
-
   /**
    * Sets focus on the native `input`.
    * Use this method instead of the global `input.focus()`.
    */
-   @Method()
-   async setFocus() {
-     this.inoInputEl?.setFocus();
-   }
+  @Method()
+  async setFocus() {
+    this.inoInputEl?.setFocus();
+  }
 
-   /**
-    * Sets blur on the native `input`.
-    * Use this method instead of the global `input.blur()`.
-    */
-   @Method()
-   async setBlur() {
-     this.inoInputEl?.setBlur();
-   }
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.inoInputEl?.setBlur();
+  }
 
   connectedCallback() {
     this.validator = new Validator({
@@ -365,7 +362,6 @@ export class Datepicker implements ComponentInterface {
     return (
       <Host>
         <ino-input
-          ref={(el) => (this.inputEl = el)}
           type="text"
           autocomplete="off"
           disabled={this.disabled}
@@ -382,7 +378,7 @@ export class Datepicker implements ComponentInterface {
           helper-validation={this.helperValidation}
           show-label-hint={this.showLabelHint}
           onValueChange={(e) => this.valueChange.emit(e.detail)}
-          ref={inoInputEl => this.inoInputEl = inoInputEl}
+          ref={(inoInputEl) => (this.inoInputEl = inoInputEl)}
         >
           <ino-icon
             clickable={!this.disabled}
