@@ -1,5 +1,7 @@
 const shell = require('shelljs');
 const prompts = require('prompts');
+const fs = require('fs-extra');
+const path = require('path');
 
 const questions = [
   {
@@ -26,17 +28,38 @@ function publishReact() {
 }
 
 function publishAngular() {
-  if (process.platform !== 'win32') {
-    shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist'
-    );
-  } else {
-    shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc'
-    );
-    shell.exec(
-      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*'
-    );
+  switch (process.platform) {
+    case 'win32':
+      shell.exec(
+        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc'
+      );
+      shell.exec(
+        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*'
+      );
+      break;
+    case 'linux':
+      const elementsAngularDirPath = path.join(
+        process.cwd(),
+        'packages/elements-angular'
+      );
+      const elementsDirPath = path.join(elementsAngularDirPath, 'elements');
+      const dstDirPath = path.join(elementsAngularDirPath, 'dist');
+
+      const yalcDir = path.join(elementsDirPath, '.yalc');
+      const lockFile = path.join(elementsDirPath, 'yalc.lock');
+
+      let newYalcDir = path.join(dstDirPath, path.basename(yalcDir));
+      fs.emptyDirSync(newYalcDir);
+      fs.copySync(yalcDir, newYalcDir);
+      fs.copySync(lockFile, dstDirPath);
+      break;
+    case 'darwin':
+      shell.exec(
+        'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist'
+      );
+      break;
+    default:
+      throw Error(`Platform ${process.platform} not supported yet`);
   }
 
   // explicitly push @inovex.de/elements-angular due to angular library project structure
