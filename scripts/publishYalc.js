@@ -1,8 +1,5 @@
 const shell = require('shelljs');
 const prompts = require('prompts');
-const fs = require('fs-extra');
-const path = require('path');
-const { cwd } = require('process');
 
 const questions = [
   {
@@ -29,36 +26,17 @@ function publishReact() {
 }
 
 function publishAngular() {
-  switch (process.platform) {
-    case 'win32':
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc'
-      );
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*'
-      );
-      break;
-    case 'linux':
-      const angularPath = path.join(process.cwd(), 'packages/elements-angular');
-      const elementsSrc = path.join(angularPath, 'elements');
-      const dst = 'dist';
-
-      const yalcDir = path.join(elementsSrc, '.yalc');
-      const lockFile = path.join(elementsSrc, 'yalc.lock');
-
-      let newYalcDir = path.join(angularPath, dst, path.basename(yalcDir));
-      fs.emptyDirSync(newYalcDir);
-
-      fs.copySync(yalcDir, newYalcDir);
-
-      fs.copyFileSync(lockFile, dst);
-      break;
-    case 'darwin':
-      shell.exec(
-        'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist'
-      );
-    default:
-      throw Error(`Platform ${process.platform} not supported yet`);
+  if (process.platform !== 'win32') {
+    shell.exec(
+      'lerna exec --scope=@inovex.de/elements-angular -- cp -r {.yalc,yalc.lock} ../dist'
+    );
+  } else {
+    shell.exec(
+      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /i /e /y .yalc ..\\dist\\.yalc'
+    );
+    shell.exec(
+      'lerna exec --scope=@inovex.de/elements-angular -- xcopy /y yalc.lock ..\\dist\\*'
+    );
   }
 
   // explicitly push @inovex.de/elements-angular due to angular library project structure
