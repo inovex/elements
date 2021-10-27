@@ -1299,7 +1299,18 @@
           "description": "Emits when the value of the datepicker changes.\nThe value can be found in `event.detail`"
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setBlur",
+          "description": "Sets blur on the native `input`.\nUse this method instead of the global `input.blur()`.",
+          "signature": "setBlur() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "Sets focus on the native `input`.\nUse this method instead of the global `input.focus()`.",
+          "signature": "setFocus() => Promise<void>"
+        }
+      ],
       "slots": [],
       "cssProperties": [],
       "cssParts": []
@@ -2505,6 +2516,16 @@
           "name": "getInputElement",
           "description": "Returns the native input element used under the hood.",
           "signature": "getInputElement() => Promise<HTMLInputElement>"
+        },
+        {
+          "name": "setBlur",
+          "description": "Sets blur on the native `input`. \nUse this method instead of the global `input.blur()`.",
+          "signature": "setBlur() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "Sets focus on the native `input`. \nUse this method instead of the global `input.focus()`.",
+          "signature": "setFocus() => Promise<void>"
         }
       ],
       "slots": [
@@ -4993,7 +5014,18 @@
           "description": "Emits when the user types something in. Contains typed input in `event.detail`"
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setBlur",
+          "description": "Sets blur on the native `textarea`. \nUse this method instead of the global `textarea.blur()`.",
+          "signature": "setBlur() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "Sets focus on the native `textarea`. \nUse this method instead of the global `textarea.focus()`.",
+          "signature": "setFocus() => Promise<void>"
+        }
+      ],
       "slots": [],
       "cssProperties": [
         {

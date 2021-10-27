@@ -10,6 +10,7 @@ import {
   Prop,
   Watch,
   h,
+  Method,
 } from '@stencil/core';
 import autosize from 'autosize';
 import classNames from 'classnames';
@@ -142,6 +143,24 @@ export class Textarea implements ComponentInterface {
    * Emits when the user types something in. Contains typed input in `event.detail`
    */
   @Event() valueChange!: EventEmitter<string>;
+
+  /**
+   * Sets focus on the native `textarea`. 
+   * Use this method instead of the global `textarea.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    this.textfield?.focus();
+  }
+
+  /**
+  * Sets blur on the native `textarea`. 
+  * Use this method instead of the global `textarea.blur()`.
+  */
+  @Method()
+  async setBlur() {
+    this.nativeTextareaElement?.blur();
+  }
 
   connectedCallback() {
     // Remove as soon as the 'filled' style should be released as new default style
