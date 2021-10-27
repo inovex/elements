@@ -78,8 +78,6 @@ export class ChipSet implements ComponentInterface {
       (chipEl: HTMLElement) => {
         // This functions hooks into the mdc to customize the init of a chip
         const chip = new MDCChip(chipEl);
-        chip.shouldRemoveOnTrailingIconClick = false;
-        this.prepareChip(chip.id);
         return chip;
       }
     );
@@ -93,29 +91,11 @@ export class ChipSet implements ComponentInterface {
   }
 
   private notifyChange() {
-    const selectedChipIds = this.mdcInstance.selectedChipIds;
-    if (selectedChipIds.length <= 0) {
+    const selectedChipIds = this.mdcInstance.getSelectedChipIndexes();
+    if (selectedChipIds.size <= 0) {
       this.updateChipSet.emit(true);
       return;
     }
-    const chipValues = selectedChipIds.map(
-      (chipId) => this.getInoChip(chipId).value
-    );
-    this.updateChipSet.emit(
-      chipValues.length === 1 ? chipValues[0] : chipValues
-    );
-  }
-
-  private prepareChip(chipId: string) {
-    if (this.type === 'filter') {
-      const chip = this.getInoChip(chipId);
-      chip.selectable = this.type === 'filter';
-    }
-  }
-
-  private getInoChip(chipId: string) {
-    const mdcRoot = this.el.querySelector(`#${chipId}`);
-    return mdcRoot!.parentElement as HTMLInoChipElement;
   }
 
   render() {

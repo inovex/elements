@@ -39,7 +39,7 @@ export class Switch implements ComponentInterface {
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
     if (this.switch) {
-      this.switch.checked = newChecked;
+      this.switch.selected = newChecked;
     }
   }
 

@@ -1,5 +1,5 @@
 @use 'base/mdc-customize';
-@use '@material/chips/mdc-chips';
+@use '@material/chips/chip';
 @use '@material/chips';
 @use 'base/theme';
 
@@ -13,7 +13,7 @@ ino-chip {
   }
 
   .mdc-chip {
-    @include chips.fill-color-accessible($default-chip-color);
+    @include chips.container-color($default-chip-color);
 
     .mdc-chip__icon--trailing {
       width: 20px;
@@ -32,8 +32,8 @@ ino-chip {
   @each $color-name in theme.$color-schemes {
     &.ino-chip--color-scheme-#{$color-name} {
       .mdc-chip {
-        @include chips.fill-color-accessible(theme.color($color-name));
-        @include chips.ink-color(theme.color($color-name, contrast));
+        @include chips.container-color(theme.color($color-name));
+        @include chips.text-label-color(theme.color($color-name, contrast));
 
         ino-icon {
           --icon-color: #{theme.color($color-name, contrast)};
@@ -43,7 +43,7 @@ ino-chip {
       // Set outline color
       &.ino-chip--outline .mdc-chip {
         @include chips.outline-color(theme.color($color-name));
-        @include chips.ink-color(theme.color($color-name, dark));
+        @include chips.text-label-color(theme.color($color-name, dark));
 
         ino-icon {
           --icon-color: #{theme.color($color-name, dark)};
@@ -54,8 +54,8 @@ ino-chip {
 
   // Set outline color
   &.ino-chip--outline .mdc-chip {
-    @include chips.fill-color-accessible(white);
-    @include chips.outline(1px, solid, $default-chip-color);
+    @include chips.container-color(white);
+    // @include chips.outline-style(1px, solid, $default-chip-color);
   }
 
   .mdc-chip__text {

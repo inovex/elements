@@ -1,6 +1,5 @@
 @use 'base/mdc-customize';
 @use "@material/list";
-@use "@material/list/mdc-list";
 @use 'base/theme';
 
 ino-option {
@@ -50,7 +49,7 @@ ino-option {
 }
 
 ino-option {
-  @include list.item-disabled-text-opacity(0.5);
+  @include list.deprecated-item-disabled-text-opacity(0.5);
 
   .mdc-list-item--disabled {
     pointer-events: none;

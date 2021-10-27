@@ -1,8 +1,6 @@
 @use 'base/mdc-customize';
 @use '@material/list';
 
-@include list.core-styles;
-
 /**
   * @prop --ino-list-item-border-radius: Border radius of the list container, also effects the first and last list item
  */
