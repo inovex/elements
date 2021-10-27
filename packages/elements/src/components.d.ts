@@ -146,25 +146,21 @@ export namespace Components {
           * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme": ColorScheme | 'default';
+        "disabled": boolean;
         /**
           * The fill type of this element.
          */
         "fill": ChipSurface;
         /**
-          * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
-         */
-        "icon"?: string;
-        /**
           * The label of this chip (**required**).
          */
         "label"?: string;
         /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click.
          */
         "removable": boolean;
         /**
-          * Adds a checkmark if the icon is selected.
+          * Makes the chip selectable. Will be set by the `<ino-chip-set>`.
          */
         "selectable": boolean;
         /**
@@ -178,9 +174,9 @@ export namespace Components {
     }
     interface InoChipSet {
         /**
-          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
+          * The type of this chip set that indicates its behavior.  `action`: Chips which have an action (default) `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options
          */
-        "type"?: ChipSetType;
+        "type": ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -1757,15 +1753,11 @@ declare namespace LocalJSX {
           * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme"?: ColorScheme | 'default';
+        "disabled"?: boolean;
         /**
           * The fill type of this element.
          */
         "fill"?: ChipSurface;
-        /**
-          * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
-         */
-        "icon"?: string;
         /**
           * The label of this chip (**required**).
          */
@@ -1775,11 +1767,11 @@ declare namespace LocalJSX {
          */
         "onRemoveChip"?: (event: CustomEvent<any>) => void;
         /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click.
          */
         "removable"?: boolean;
         /**
-          * Adds a checkmark if the icon is selected.
+          * Makes the chip selectable. Will be set by the `<ino-chip-set>`.
          */
         "selectable"?: boolean;
         /**
@@ -1797,7 +1789,7 @@ declare namespace LocalJSX {
          */
         "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
         /**
-          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
+          * The type of this chip set that indicates its behavior.  `action`: Chips which have an action (default) `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options
          */
         "type"?: ChipSetType;
     }

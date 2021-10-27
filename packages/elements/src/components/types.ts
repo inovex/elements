@@ -1,7 +1,7 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
 export type ButtonColorScheme = 'primary' | 'secondary' | 'grey' | 'white';
 export type CardAspectRatio = '16-9' | 'square';
-export type ChipSetType = '' | 'choice' | 'filter' | 'input';
+export type ChipSetType = 'action' | 'choice' | 'filter';
 export type ChipSurface = 'solid' | 'outline';
 export type ColorScheme =
   | 'primary'

@@ -16,6 +16,25 @@ export default {
   },
 } as Meta;
 
+export const ActionChip = (): TemplateResult => html`
+  <h5>Action</h5>
+  <ino-chip-set>
+    <ino-chip label="Default"></ino-chip>
+    <ino-chip label="Disabled" disabled></ino-chip>
+    <ino-chip label="Leading icon">
+      <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
+    </ino-chip>
+  </ino-chip-set>
+  <h5>Input</h5>
+  <h5>Filter</h5>
+  <ino-chip-set>
+    <ino-chip label="Selectable" selectable></ino-chip>
+    <ino-chip label="Selectable with leading icon" selectable>
+      <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
+    </ino-chip>
+  </ino-chip-set>
+`;
+
 export const Playground: Story<Components.InoChip> = (args) => html`
   <ino-chip
     class="customizable-chip"

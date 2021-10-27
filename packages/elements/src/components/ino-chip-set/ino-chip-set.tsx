@@ -1,18 +1,23 @@
-import { MDCChip, MDCChipSet } from '@material/chips';
+import { MDCChipSet } from '@material/chips';
 import {
   Component,
   ComponentInterface,
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Prop,
   Watch,
-  h,
 } from '@stencil/core';
-import classNames from 'classnames';
 
 import { ChipSetType } from '../types';
+
+enum ChipTypes {
+  ACTION = 'action',
+  CHOICE = 'choice',
+  FILTER = 'filter',
+}
 
 /**
  * @slot default - One or more `ino-chip`
@@ -24,18 +29,17 @@ import { ChipSetType } from '../types';
 })
 export class ChipSet implements ComponentInterface {
   private mdcInstance: MDCChipSet;
-  private listenerAttached = false;
 
   @Element() el!: HTMLElement;
 
   /**
    * The type of this chip set that indicates its behavior.
    *
+   * `action`: Chips which have an action (default)
    * `choice`: Single selection from a set of options
    * `filter`: Multiple selection from a set of options
-   * `input`: Enable user input by converting text into chips
    */
-  @Prop() type?: ChipSetType = '';
+  @Prop() type: ChipSetType = 'action';
 
   @Watch('type')
   typeChanged() {
@@ -59,57 +63,41 @@ export class ChipSet implements ComponentInterface {
 
   private destroy() {
     this.mdcInstance?.destroy();
-
-    if (this.listenerAttached) {
-      this.el.removeEventListener('MDCChip:interaction', () =>
-        this.notifyChange()
-      );
-      this.listenerAttached = false;
-    }
   }
 
   private create() {
     this.destroy();
 
-    const chipSetEl = this.el.querySelector('.mdc-chip-set');
-    this.mdcInstance = new MDCChipSet(
-      chipSetEl,
-      undefined,
-      (chipEl: HTMLElement) => {
-        // This functions hooks into the mdc to customize the init of a chip
-        const chip = new MDCChip(chipEl);
-        return chip;
-      }
-    );
+    const chipSetEl = this.el.querySelector('.mdc-evolution-chip-set');
+    this.mdcInstance = new MDCChipSet(chipSetEl);
 
-    if (this.type === 'choice' || this.type === 'input') {
-      this.el.addEventListener('MDCChip:interaction', () =>
-        this.notifyChange()
+    if (this.type !== ChipTypes.ACTION) {
+      const chipEls: HTMLInoChipElement[] = Array.from(
+        this.el.getElementsByTagName('ino-chip')
       );
-      this.listenerAttached = true;
+      chipEls.forEach((chip) => (chip.selectable = true));
     }
-  }
 
-  private notifyChange() {
-    const selectedChipIds = this.mdcInstance.getSelectedChipIndexes();
-    if (selectedChipIds.size <= 0) {
-      this.updateChipSet.emit(true);
-      return;
-    }
+    this.el.addEventListener('MDCChipSet:interaction', console.log);
+    this.el.addEventListener('MDCChipSet:removal', console.log);
+    this.el.addEventListener('MDCChipSet:selection', console.log);
   }
 
   render() {
-    const classChipSet = classNames(
-      'mdc-chip-set',
-      { 'mdc-chip-set--choice': this.type === 'choice' },
-      { 'mdc-chip-set--filter': this.type === 'filter' }
-    );
+    const isFilterSet = this.type === 'filter';
 
     return (
       <Host>
-        <div class={classChipSet}>
-          <slot />
-        </div>
+        <span
+          class="mdc-evolution-chip-set"
+          role={isFilterSet ? 'listbox' : 'grid'}
+          aria-orientation="horizontal"
+          aria-multiselectable={isFilterSet}
+        >
+          <span class="mdc-evolution-chip-set__chips" role="presentation">
+            <slot />
+          </span>
+        </span>
       </Host>
     );
   }

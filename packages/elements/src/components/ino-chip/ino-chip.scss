@@ -1,21 +1,15 @@
 @use 'base/mdc-customize';
-@use '@material/chips/chip';
 @use '@material/chips';
+@use "@material/chips/styles";
 @use 'base/theme';
 
 $default-chip-color: lighten(theme.color(primary), 36.5%);
 
 ino-chip {
-  display: inline-block;
-
-  & * {
-    box-sizing: initial;
-  }
-
-  .mdc-chip {
+  .ino-chip-container {
     @include chips.container-color($default-chip-color);
 
-    .mdc-chip__icon--trailing {
+    .ino-chip-trailing-icon {
       width: 20px;
       height: 20px;
       font-size: 20px;
@@ -31,9 +25,10 @@ ino-chip {
   // Generate ino-color-scheme classes
   @each $color-name in theme.$color-schemes {
     &.ino-chip--color-scheme-#{$color-name} {
-      .mdc-chip {
+      .ino-chip-container {
         @include chips.container-color(theme.color($color-name));
         @include chips.text-label-color(theme.color($color-name, contrast));
+        @include chips.checkmark-color(theme.color($color-name, contrast));
 
         ino-icon {
           --icon-color: #{theme.color($color-name, contrast)};
@@ -41,24 +36,29 @@ ino-chip {
       }
 
       // Set outline color
-      &.ino-chip--outline .mdc-chip {
+      &.ino-chip--outline .ino-chip-container {
         @include chips.outline-color(theme.color($color-name));
         @include chips.text-label-color(theme.color($color-name, dark));
 
         ino-icon {
           --icon-color: #{theme.color($color-name, dark)};
+          @include chips.checkmark-color(theme.color($color-name, dark));
         }
       }
     }
   }
 
-  // Set outline color
-  &.ino-chip--outline .mdc-chip {
+  // Set default outline styles
+  &.ino-chip--outline .ino-chip-container {
+    @include chips.outline-color($default-chip-color);
     @include chips.container-color(white);
-    // @include chips.outline-style(1px, solid, $default-chip-color);
+    @include chips.outline-style(solid);
+    @include chips.outline-width(1px);
   }
 
-  .mdc-chip__text {
-    user-select: none;
+  .ino-chip-disabled {
+    @include chips.container-color(theme.color(light));
+    @include chips.outline-color(theme.color(light, light));
+    @include chips.text-label-color(white);
   }
 }

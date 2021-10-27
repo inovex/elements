@@ -37,17 +37,17 @@ Playground.argTypes = {
 
 export const Filter = (): TemplateResult => html`
   <ino-chip-set type="filter">
-    <ino-chip value="1" label="Chip 1"></ino-chip>
-    <ino-chip value="2" label="Chip 2" selected></ino-chip>
-    <ino-chip value="3" label="Chip 3"></ino-chip>
+    <ino-chip value="1" label="Chip 1" selectable></ino-chip>
+    <ino-chip value="2" label="Chip 2" selectable></ino-chip>
+    <ino-chip value="3" label="Chip 3" selectable></ino-chip>
   </ino-chip-set>
 `;
 
 export const Choice = (): TemplateResult => html`
   <ino-chip-set type="choice">
-    <ino-chip label="Chip 1" value="1"></ino-chip>
-    <ino-chip label="Chip 2" value="2" selected></ino-chip>
-    <ino-chip label="Chip 3" value="3"></ino-chip>
+    <ino-chip label="Chip 1" value="1" selectable></ino-chip>
+    <ino-chip label="Chip 2" value="2" selectable></ino-chip>
+    <ino-chip label="Chip 3" value="3" selectable></ino-chip>
   </ino-chip-set>
 `;
 
