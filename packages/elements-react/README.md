@@ -1,14 +1,14 @@
 # @inovex.de/elements-react
 
-> The following information is only relevant if you want to contribute to this `@inovex.de/elements-react`
-> package. If you just want to use the UI elements for your own project, please refer to the top level
-> [README](../../README.md).
-
 This is the integration layer package for integrating the inovex elements into React projects.
+
+## Installation
+
+See [instructions](https://github.com/inovex/elements/tree/master/packages/storybook/src/stories/docs/framework-integration) how to integrate it into your project.
 
 ## Contributing
 
-Please refer to the top level [README](../../README.md) to see the available script commands.
+Please refer to the top level [README at GitHub](https://github.com/inovex/elements) to see the available script commands.
 
 ### Adding or Removing Components
 
@@ -25,4 +25,4 @@ package in the ionic repo.
 
 ## License
 
-TBD
+MIT

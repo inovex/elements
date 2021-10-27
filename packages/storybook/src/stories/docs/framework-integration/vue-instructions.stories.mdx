@@ -19,15 +19,13 @@ If this is the case, proceed to the next step.
 > Hint: We do not provide an integration package for Vue.js as we do for Angular and React.
 > Vue.js works out-of-the box with Web Components as Vue.js respects the DOM API standards.
 
-Add the package `@inovex.de/elements` to your project using `yarn` or `npm`:
-
-### Instructions for npm:
+Add the package `@inovex.de/elements` to your project using **npm**:
 
 ```sh
 $ npm install @inovex.de/elements --save
 ```
 
-### Instructions for Yarn:
+or **yarn**:
 
 ```sh
 $ yarn add @inovex.de/elements
@@ -39,9 +37,9 @@ Before you start using the components, you need to prepare the project.
 
 Open `src/main.js` and add the following code snippet somewhere on the first lines, to...
 
-- ... tell the Vue compiler to ignore Custom Elements starting with `ino-` during compilation (1)
-- ... define the Custom Elements (these are the inovex elements Web Components) (2)
-- ... import the icons (3, optional)
+- ... tell the Vue compiler to ignore Custom Elements starting with `ino-` during compilation (see a) below)
+- ... define the Custom Elements (these are the inovex elements Web Components) (see b) below)
+- ... import the icons (see c) below, optional)
 
 ```js
 // src/main.js
@@ -52,14 +50,14 @@ import {
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
 import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
 
-addIcons(ICON_PATHS); // 3 (only needed if you want to use our icons)
+addIcons(ICON_PATHS); // c) (only needed if you want to use our icons)
 
-// 1
+// a)
 Vue.config.ignoredElements = [
   /^ino-/, // ignore all web components starting with "ino-"
 ];
 
-// 2
+// b)
 applyPolyfills().then(() => {
   defineCustomElements();
 });

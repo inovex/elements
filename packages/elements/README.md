@@ -1,16 +1,18 @@
 # @inovex.de/elements
 
-> The following information is only relevant if you want to contribute to this `@inovex.de/elements`
-> package. If you just want to use the UI elements for your own project, please refer to the top level
-> [README](../../README.md).
-
 This is the core package containing all the inovex elements as pure Web Components.
+
+> You can integrate the elements into Angular, React, Vue or JavaScript projects. See below for instructions.
+
+## Installation
+
+See [instructions](https://github.com/inovex/elements/tree/master/packages/storybook/src/stories/docs/framework-integration) how to integrate it into your project.
 
 ## Contributing
 
-Please refer to the top level [README](../../README.md) to see the available script commands.
+Please refer to the top level [README at GitHub](https://github.com/inovex/elements) to see the available script commands.
 
-## Technologies
+## Technologies used
 
 ### Stencil
 
