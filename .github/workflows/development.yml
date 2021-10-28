@@ -112,25 +112,39 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v2
-      - name: Install azcopy
-        run: |
-          echo "... Installing azcopy"
-          sudo mkdir -p /home/azcopy/
-          curl -L https://aka.ms/downloadazcopy-v10-linux | tar -zxf - --directory /home/azcopy/
-          sudo mv $(find /home/azcopy/ -type f -name azcopy) /usr/bin/
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: actions/download-artifact@v2
         with:
           name: storybook
           path: ./packages/storybook/dist/
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Deploy unicorn
+        uses: azure/CLI@v1
         id: deploy_unicorn
-        run: |
-          echo "... Deploying Elements Storybook to $DEPLOYMENT_PATH"
-          azcopy cp "./packages/storybook/dist/*" "$STORAGE_ACCOUNT/%24web/$DEPLOYMENT_PATH?$SAS_TOKEN" --recursive
-          echo "::set-output name=url::$SITE_URL/$DEPLOYMENT_PATH"
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            echo "... Deploying Elements Storybook to $DEPLOYMENT_PATH"
+            az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d '$web/$DEPLOYMENT_PATH' -s ./packages/storybook/dist/
+            echo "::set-output name=url::$SITE_URL/$DEPLOYMENT_PATH/"
         env:
           SITE_URL: https://elementssa.z1.web.core.windows.net
           DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-          SAS_TOKEN: ${{ secrets.AZURE_STORAGE_SAS_TOKEN }}
           STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+      # - name: Purge CDN endpoint
+      #   uses: azure/CLI@v1
+      #   with:
+      #     azcliversion: 2.0.72
+      #     inlineScript: |
+      #       az cdn endpoint purge --content-paths  "/${DEPLOYMENT_PATH}/*" --profile-name inovex-elements-cdnp --name inovex-elements --resource-group inovex-elements
+      #   env:
+      #     SITE_URL: https://elementssa.z1.web.core.windows.net
+      #     DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
+      #     STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+
+      - name: logout
+        run: |
+          az logout
+        if: always()
