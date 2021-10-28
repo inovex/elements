@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@inovex.de/elements@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-3.0.1.tgz#1bb2b85b5a6961580b54d3d74aab597dcccd279c"
-  integrity sha512-IUkBhrNUzGb1oggvSqiA1H2w0/5ZIn6vuPs30G8SVujloaF3aMB25jJyjV2nldzpSVogQjsMvzdH0fPR1NBjmg==
+"@inovex.de/elements@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-5.0.0.tgz#3afd893a4ace9a5a7176f9be267f03615530f708"
+  integrity sha512-CIslSJ1v3PuZ/ssb7LL5xQI0xUutBxixWtTAO4YPGvajz6+wZp4TenAOa0B3F9BX5VO8222x2av+svAMWRxrQQ==
   dependencies:
     "@material/button" "^8.0.0"
     "@material/card" "^8.0.0"
@@ -40,7 +40,6 @@
     date-fns "^2.16.1"
     flatpickr "^4.4.6"
     tippy.js "^6.2.3"
-    typeface-lato "^0.0.75"
 
 "@material/animation@^8.0.0":
   version "8.0.0"
@@ -619,8 +618,3 @@ tslib@^1.10.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-typeface-lato@^0.0.75:
-  version "0.0.75"
-  resolved "https://registry.npmjs.org/typeface-lato/-/typeface-lato-0.0.75.tgz#8aa11c5611dc38416837c089b265a2abd1f7dd31"
-  integrity sha512-iA5uJD4PSTyIE4BDiSOexQeXkDkiJuX4Hu3wh3saJ06EB2TvJayab1Lbbmqq2je/LQv7KCQZHZmC0k4hedd8sw==
