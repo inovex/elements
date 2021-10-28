@@ -46,8 +46,7 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this._selectedOptionIndex = index;
-    this.selectedOption =
-      index >= 0 ? this.optionEls[index] : undefined;
+    this.selectedOption = index >= 0 ? this.optionEls[index] : undefined;
 
     if (this.selectedOption) {
       this.selectedOption.selected = true;
@@ -116,9 +115,9 @@ export class Autocomplete implements ComponentInterface {
   @Listen('keydown')
   onKeyDown(ev: KeyboardEvent): void {
     if (
-      !this.filteredOptionEls
-      || this.filteredOptionEls.length === 0
-      || (this.lastKeyCode !== 'Enter' && !this.menuIsVisible)
+      !this.filteredOptionEls ||
+      this.filteredOptionEls.length === 0 ||
+      (this.lastKeyCode !== 'Enter' && !this.menuIsVisible)
     ) {
       return;
     }
@@ -126,6 +125,7 @@ export class Autocomplete implements ComponentInterface {
     if (this.lastKeyCode === 'Enter' && !this.menuIsVisible) {
       this.openMenu();
     }
+    this.lastKeyCode = ev.code;
 
     switch (ev.code) {
       case 'Enter':
@@ -158,19 +158,29 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private onArrowDownPress = (): void => {
-    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) + 1;
+    const nextIndex =
+      this.filteredOptionEls.findIndex(
+        (o) => o.value === this.selectedOption?.value
+      ) + 1;
     const isIndexOutOfBound = nextIndex >= this.filteredOptionEls.length;
     const filteredOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
-    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
+    this.selectedOptionIndex = this.optionEls.indexOf(
+      this.filteredOptionEls[filteredOptionIndex]
+    );
   };
 
   private onArrowUpPress = (): void => {
-    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) - 1;
+    const nextIndex =
+      this.filteredOptionEls.findIndex(
+        (o) => o.value === this.selectedOption?.value
+      ) - 1;
     const isIndexOutOfBound = nextIndex < 0;
     const filteredOptionIndex = isIndexOutOfBound
       ? this.filteredOptionEls.length - 1
       : nextIndex;
-    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
+    this.selectedOptionIndex = this.optionEls.indexOf(
+      this.filteredOptionEls[filteredOptionIndex]
+    );
   };
 
   private scroll = (ev: KeyboardEvent): void => {
@@ -252,7 +262,7 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    this.inputEl.value = (searchTerm || '');
+    this.inputEl.value = searchTerm || '';
     this.debouncer.debounce(
       () => this.filterOptions(this.inputEl.value),
       this.debounceTimeout
@@ -261,7 +271,8 @@ export class Autocomplete implements ComponentInterface {
 
   private filterOptions = (newVal: string): void => {
     this.filteredOptionEls = this.optionEls.filter((option) => {
-      const matched = option.innerText.trim()
+      const matched = option.innerText
+        .trim()
         .toLowerCase()
         .includes(newVal.trim().toLowerCase());
       option.style.display = matched ? 'block' : 'none';
@@ -279,7 +290,9 @@ export class Autocomplete implements ComponentInterface {
     if (!this.optionEls) {
       return;
     }
-    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === value);
+    this.selectedOptionIndex = this.optionEls.findIndex(
+      (oEl) => oEl.value === value
+    );
     this.inputChanged(this.selectedOption?.innerText);
   };
 
@@ -297,7 +310,9 @@ export class Autocomplete implements ComponentInterface {
       ? parentElement
       : parentElement.parentElement) as HTMLInoOptionElement;
 
-    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === inoOption.value);
+    this.selectedOptionIndex = this.optionEls.findIndex(
+      (oEl) => oEl.value === inoOption.value
+    );
     this.onOptionSelect();
   };
 
