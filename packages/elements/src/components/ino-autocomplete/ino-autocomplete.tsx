@@ -46,7 +46,7 @@ export class Autocomplete implements ComponentInterface {
 
     this._selectedOptionIndex = index;
     this.selectedOption =
-      index >= 0 ? this.filteredOptionEls[index] : undefined;
+      index >= 0 ? this.optionEls[index] : undefined;
 
     if (this.selectedOption) {
       this.selectedOption.selected = true;
@@ -153,17 +153,19 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private onArrowDownPress = (): void => {
-    const nextIndex = this.selectedOptionIndex + 1;
+    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) + 1;
     const isIndexOutOfBound = nextIndex >= this.filteredOptionEls.length;
-    this.selectedOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
+    const filteredOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
+    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
   };
 
   private onArrowUpPress = (): void => {
-    const nextIndex = this.selectedOptionIndex - 1;
+    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) - 1;
     const isIndexOutOfBound = nextIndex < 0;
-    this.selectedOptionIndex = isIndexOutOfBound
+    const filteredOptionIndex = isIndexOutOfBound
       ? this.filteredOptionEls.length - 1
       : nextIndex;
+    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
   };
 
   private scroll = (ev: KeyboardEvent): void => {
@@ -216,7 +218,7 @@ export class Autocomplete implements ComponentInterface {
     }
     this.closeMenu();
 
-    const newIndex = this.filteredOptionEls.findIndex(
+    const newIndex = this.optionEls.findIndex(
       (option) => option.innerText.trim() === this.inputEl.value.trim()
     );
 
@@ -290,7 +292,7 @@ export class Autocomplete implements ComponentInterface {
       ? parentElement
       : parentElement.parentElement) as HTMLInoOptionElement;
 
-    this.selectedOptionIndex = this.filteredOptionEls.indexOf(inoOption);
+    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === inoOption.value);
     this.onOptionSelect();
   };
 
