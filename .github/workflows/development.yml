@@ -111,6 +111,7 @@ jobs:
     needs:
       - build
     steps:
+      - uses: rlespinasse/github-slug-action@v3.x
       - uses: actions/checkout@v2
       - uses: azure/login@v1
         with:
@@ -119,7 +120,6 @@ jobs:
         with:
           name: storybook
           path: ./packages/storybook/dist/
-      - uses: rlespinasse/github-slug-action@v3.x
       - name: Deploy unicorn
         uses: azure/CLI@v1
         id: deploy_unicorn
@@ -127,12 +127,12 @@ jobs:
           azcliversion: 2.0.72
           inlineScript: |
             echo "... Deploying Elements Storybook to $DEPLOYMENT_PATH"
-            az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d '$web/$DEPLOYMENT_PATH' -s ./packages/storybook/dist/
+            az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d "\$web/$DEPLOYMENT_PATH" -s ./packages/storybook/dist/ --output none
             echo "::set-output name=url::$SITE_URL/$DEPLOYMENT_PATH/"
         env:
           SITE_URL: https://elementssa.z1.web.core.windows.net
           DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-          STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+          STORAGE_ACCOUNT: elementssa
       # - name: Purge CDN endpoint
       #   uses: azure/CLI@v1
       #   with:
