@@ -51,7 +51,7 @@ function publishAngular() {
       let newYalcDir = path.join(dstDirPath, path.basename(yalcDir));
       fs.emptyDirSync(newYalcDir);
       fs.copySync(yalcDir, newYalcDir);
-      fs.copySync(lockFile, dstDirPath);
+      fs.copySync(lockFile, `${dstDirPath}/yalc.lock`);
       break;
     case 'darwin':
       shell.exec(
