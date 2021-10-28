@@ -2,8 +2,10 @@
 # yarn lockfile v1
 
 
-"@inovex.de/elements@file:.yalc/@inovex.de/elements":
+"@inovex.de/elements@^5.0.0":
   version "5.0.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-5.0.0.tgz#3afd893a4ace9a5a7176f9be267f03615530f708"
+  integrity sha512-CIslSJ1v3PuZ/ssb7LL5xQI0xUutBxixWtTAO4YPGvajz6+wZp4TenAOa0B3F9BX5VO8222x2av+svAMWRxrQQ==
   dependencies:
     "@material/button" "^8.0.0"
     "@material/card" "^8.0.0"
