@@ -134,6 +134,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: rlespinasse/github-slug-action@v3.x
+
       - uses: ./.github/workflows/deploy-storybook
         id: deploy_production
         with:
