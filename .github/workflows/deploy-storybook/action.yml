@@ -1,0 +1,62 @@
+name: "Publish to Azure"
+description: "Publishes the storybook artifact from previous steps to Azure."
+
+inputs:
+  deployment_path:
+    description: “Deployment path on blob storage”
+    required: true
+  storybook_artifact_name:
+    description: “Name of the storybook artifact”
+    required: true
+  azure_credentials:
+    description: “Azure secret credentials”
+    required: true
+
+outputs:
+  deployment_url:
+    description: "The deployment url on the server"
+    value: ${{steps.upload.outputs.url}}
+
+runs:
+  using: "composite"
+  steps:
+    - uses: azure/login@v1
+      with:
+        creds: ${{inputs.azure_credentials}}
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: ${{inputs.storybook_artifact_name}}
+        path: ./packages/storybook/dist/
+
+    - name: Upload storybook
+      uses: azure/CLI@v1
+      id: upload
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          echo "... Uploading elements storybook to $DEPLOYMENT_PATH"
+          az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d "\$web/$DEPLOYMENT_PATH" -s ./packages/storybook/dist/ --output none
+          echo "::set-output name=url::$SITE_URL/$DEPLOYMENT_PATH/"
+      env:
+        SITE_URL: https://elementssa.z1.web.core.windows.net
+        DEPLOYMENT_PATH: ${{inputs.deployment_path}}
+        STORAGE_ACCOUNT: elementssa
+
+    - name: logout
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az logout
+
+    # - name: Purge CDN endpoint
+    #   uses: azure/CLI@v1
+    #   with:
+    #     azcliversion: 2.0.72
+    #     inlineScript: |
+    #       az cdn endpoint purge --content-paths  "/${DEPLOYMENT_PATH}/*" --profile-name inovex-elements-cdnp --name inovex-elements --resource-group inovex-elements
+    #   env:
+    #     SITE_URL: https://elementssa.z1.web.core.windows.net
+    #     DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
+    #     STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}

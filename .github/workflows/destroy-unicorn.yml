@@ -7,22 +7,16 @@ on:
 jobs:
   destroy-unicorn:
     runs-on: ubuntu-latest
-    environment:
-      name: unicorn
     steps:
       - uses: actions/checkout@v2
-      - name: Install azcopy
-        run: |
-          echo "... Installing azcopy"
-          sudo mkdir -p /home/azcopy/
-          curl -L https://aka.ms/downloadazcopy-v10-linux | tar -zxf - --directory /home/azcopy/
-          sudo mv $(find /home/azcopy/ -type f -name azcopy) /usr/bin/
+      - uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Destroy unicorn
         run: |
-          echo "... Destroying unicorn on $GITHUB_HEAD_REF_SLUG"
-          azcopy remove "$STORAGE_ACCOUNT/%24web/$DEPLOYMENT_PATH?$SAS_TOKEN" --recursive
+          echo "... Destroying unicorn on $DEPLOYMENT_PATH"
+          aaz storage blob delete-batch --account-name STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
         env:
-          SAS_TOKEN: ${{ secrets.AZURE_STORAGE_SAS_TOKEN }}
           DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-          STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+          STORAGE_ACCOUNT: elementssa

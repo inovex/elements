@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    tags:
+      - '*'
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -107,44 +109,36 @@ jobs:
     if: github.ref != 'refs/heads/master'
     environment:
       name: unicorn
-      url: ${{ steps.deploy_unicorn.outputs.url }}
+      url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
     needs:
       - build
     steps:
-      - uses: rlespinasse/github-slug-action@v3.x
       - uses: actions/checkout@v2
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - uses: actions/download-artifact@v2
-        with:
-          name: storybook
-          path: ./packages/storybook/dist/
-      - name: Deploy unicorn
-        uses: azure/CLI@v1
+      - uses: rlespinasse/github-slug-action@v3.x
+      - uses: ./.github/workflows/deploy-storybook
         id: deploy_unicorn
         with:
-          azcliversion: 2.0.72
-          inlineScript: |
-            echo "... Deploying Elements Storybook to $DEPLOYMENT_PATH"
-            az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d "\$web/$DEPLOYMENT_PATH" -s ./packages/storybook/dist/ --output none
-            echo "::set-output name=url::$SITE_URL/$DEPLOYMENT_PATH/"
-        env:
-          SITE_URL: https://elementssa.z1.web.core.windows.net
-          DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-          STORAGE_ACCOUNT: elementssa
-      # - name: Purge CDN endpoint
-      #   uses: azure/CLI@v1
-      #   with:
-      #     azcliversion: 2.0.72
-      #     inlineScript: |
-      #       az cdn endpoint purge --content-paths  "/${DEPLOYMENT_PATH}/*" --profile-name inovex-elements-cdnp --name inovex-elements --resource-group inovex-elements
-      #   env:
-      #     SITE_URL: https://elementssa.z1.web.core.windows.net
-      #     DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-      #     STORAGE_ACCOUNT: ${{ secrets.AZURE_STORAGE_ACCOUNT }}
+          deployment_path: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
+          storybook_artifact_name: storybook
+          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: logout
-        run: |
-          az logout
-        if: always()
+  deploy-version:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'refs/tags/')
+    environment:
+      name: production
+      url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
+    needs:
+      - test
+      - build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: rlespinasse/github-slug-action@v3.x
+      - uses: ./.github/workflows/deploy-storybook
+        id: deploy_production
+        with:
+          # Ref slug refers to version number for tags
+          # (https://github.com/rlespinasse/github-slug-action/blob/v3.x/docs/slug-variables.md)
+          deployment_path: versions/${{ env.GITHUB_HEAD_REF_SLUG }}
+          storybook_artifact_name: storybook
+          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
