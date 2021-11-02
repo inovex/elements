@@ -5,6 +5,7 @@ import {
   Element,
   Event,
   EventEmitter,
+  forceUpdate,
   h,
   Host,
   Listen,
@@ -27,7 +28,9 @@ export class Select implements ComponentInterface {
   // An internal instance of the material design form field.
   private mdcSelectInstance?: MDCSelect;
   private mdcSelectContainerEl?: HTMLDivElement;
+  private mdcOptionsListEl?: HTMLUListElement;
   private nativeInputElement?: HTMLInputElement;
+  private optionsObserver: MutationObserver;
 
   @Element() el!: HTMLElement;
 
@@ -104,22 +107,25 @@ export class Select implements ComponentInterface {
   connectedCallback() {
     // in case of usage e.g. in a popover this is necessary
     this.create();
+    this.optionsObserver = new MutationObserver(() => {
+      forceUpdate(this.el);
+    });
   }
 
   componentDidLoad() {
     this.create();
+    this.optionsObserver.observe(this.mdcOptionsListEl, { childList: true });
   }
 
   componentDidUpdate() {
     // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language
-    if (this.mdcSelectInstance) {
-      this.mdcSelectInstance.layoutOptions();
-      this.mdcSelectInstance.layout();
-    }
+    this.mdcSelectInstance?.layoutOptions();
+    this.mdcSelectInstance?.layout();
   }
 
   disconnectedCallback() {
     this.mdcSelectInstance?.destroy();
+    this.optionsObserver?.disconnect();
   }
 
   private create = () => {
@@ -221,7 +227,7 @@ export class Select implements ComponentInterface {
             />
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul class="mdc-list">
+            <ul class="mdc-list" ref={(el) => (this.mdcOptionsListEl = el)}>
               <slot />
             </ul>
           </div>
