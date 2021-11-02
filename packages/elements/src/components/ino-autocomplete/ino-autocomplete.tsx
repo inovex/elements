@@ -123,6 +123,13 @@ export class Autocomplete implements ComponentInterface {
     }
 
     switch (ev.code) {
+      case 'Escape':
+        this.closeMenu();
+        break;
+      case 'Tab':
+        break;
+      default:
+        this.openMenu();
       case 'Enter':
         this.onEnterPress();
         break;
