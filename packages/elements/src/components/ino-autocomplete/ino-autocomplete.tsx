@@ -123,6 +123,20 @@ export class Autocomplete implements ComponentInterface {
     }
 
     switch (ev.code) {
+      case 'Enter':
+        this.openMenu();
+        this.onEnterPress();
+        break;
+      case 'ArrowDown':
+        this.openMenu();
+        this.onArrowDownPress();
+        this.scroll(ev);
+        break;
+      case 'ArrowUp':
+        this.openMenu();
+        this.onArrowUpPress();
+        this.scroll(ev);
+        break;
       case 'Escape':
         this.closeMenu();
         break;
@@ -130,17 +144,6 @@ export class Autocomplete implements ComponentInterface {
         break;
       default:
         this.openMenu();
-      case 'Enter':
-        this.onEnterPress();
-        break;
-      case 'ArrowDown':
-        this.onArrowDownPress();
-        this.scroll(ev);
-        break;
-      case 'ArrowUp':
-        this.onArrowUpPress();
-        this.scroll(ev);
-        break;
     }
   }
 
