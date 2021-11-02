@@ -112,7 +112,10 @@ export class Select implements ComponentInterface {
 
   componentDidUpdate() {
     // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language
-    this.mdcSelectInstance?.layout();
+    if (this.mdcSelectInstance) {
+      this.mdcSelectInstance.layoutOptions();
+      this.mdcSelectInstance.layout();
+    }
   }
 
   disconnectedCallback() {
@@ -189,7 +192,7 @@ export class Select implements ComponentInterface {
       <input
         class="ino-hidden-input"
         aria-hidden
-        ref={el => (this.nativeInputElement = el)}
+        ref={(el) => (this.nativeInputElement = el)}
         required={this.required}
         disabled={this.disabled}
       ></input>
@@ -199,7 +202,7 @@ export class Select implements ComponentInterface {
 
     return (
       <Host name={this.name}>
-        <div class={classSelect} ref={el => (this.mdcSelectContainerEl = el)}>
+        <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
           <div class="mdc-select__anchor" aria-required={this.required}>
             {leadingSlotHasContent && (
