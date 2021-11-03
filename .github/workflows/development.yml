@@ -106,7 +106,8 @@ jobs:
 
   deploy-unicorn:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/master'
+    name: Unicorn deployment (on dev)
+    if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/tags/')
     environment:
       name: unicorn
       url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
@@ -124,7 +125,10 @@ jobs:
 
   deploy-version:
     runs-on: ubuntu-latest
-    if: contains(github.ref, 'refs/tags/')
+    name: Version Deployment (on tags)
+    # TODO: Change this to github release (github.event_name == 'release' && github.event.action == 'created')
+    # as soon as we use github releases...
+    if: startsWith(github.ref, 'refs/tags/')
     environment:
       name: production
       url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
