@@ -104,46 +104,32 @@ jobs:
           path:
             packages/storybook/dist/
 
-  deploy-unicorn:
+  deploy:
     runs-on: ubuntu-latest
-    name: Unicorn deployment (on dev)
-    if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/tags/')
     environment:
       name: unicorn
-      url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
+      url: ${{ steps.az_deploy.outputs.deployment_url }}
     needs:
       - build
     steps:
       - uses: actions/checkout@v2
       - uses: rlespinasse/github-slug-action@v3.x
-      - uses: ./.github/workflows/deploy-storybook
-        id: deploy_unicorn
-        with:
-          deployment_path: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
-          storybook_artifact_name: storybook
-          azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Setting deployment path
+        run: |
+          case "$GITHUB_REF" in
+            refs/tags/*)
+              DEPLOYMENT_BASE="version";;
+            *)
+              DEPLOYMENT_BASE="unicorn";;
+          esac
 
-  deploy-version:
-    runs-on: ubuntu-latest
-    name: Version Deployment (on tags)
-    # TODO: Change this to github release (github.event_name == 'release' && github.event.action == 'created')
-    # as soon as we use github releases...
-    if: startsWith(github.ref, 'refs/tags/')
-    environment:
-      name: production
-      url: ${{ steps.deploy_unicorn.outputs.deployment_url }}
-    needs:
-      - test
-      - build
-    steps:
-      - uses: actions/checkout@v2
-      - uses: rlespinasse/github-slug-action@v3.x
-
-      - uses: ./.github/workflows/deploy-storybook
-        id: deploy_production
-        with:
-          # Ref slug refers to version number for tags
+          # Ref slug refers to the branch name or version number for tags
           # (https://github.com/rlespinasse/github-slug-action/blob/v3.x/docs/slug-variables.md)
-          deployment_path: versions/${{ env.GITHUB_HEAD_REF_SLUG }}
+          echo "DEPLOYMENT_PATH=${DEPLOYMENT_BASE}/${{ env.GITHUB_HEAD_REF_SLUG }}" >> $GITHUB_ENV
+
+      - uses: ./.github/workflows/deploy-storybook
+        id: az_deploy
+        with:
+          deployment_path: ${{ env.DEPLOYMENT_PATH }}
           storybook_artifact_name: storybook
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
