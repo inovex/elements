@@ -110,11 +110,12 @@ jobs:
       name: unicorn
       url: ${{ steps.az_deploy.outputs.deployment_url }}
     needs:
+      - test
       - build
     steps:
       - uses: actions/checkout@v2
       - uses: rlespinasse/github-slug-action@v3.x
-      - name: Setting deployment path
+      - name: Set deployment path
         run: |
           case "$GITHUB_REF" in
             refs/tags/*)
@@ -125,9 +126,10 @@ jobs:
 
           # Ref slug refers to the branch name or version number for tags
           # (https://github.com/rlespinasse/github-slug-action/blob/v3.x/docs/slug-variables.md)
-          echo "DEPLOYMENT_PATH=${DEPLOYMENT_BASE}/${{ env.GITHUB_HEAD_REF_SLUG }}" >> $GITHUB_ENV
+          echo "DEPLOYMENT_PATH=${DEPLOYMENT_BASE}/${{ env.GITHUB_REF_SLUG }}" >> $GITHUB_ENV
 
       - uses: ./.github/workflows/deploy-storybook
+        name: Deploy Storybook on Azure
         id: az_deploy
         with:
           deployment_path: ${{ env.DEPLOYMENT_PATH }}
