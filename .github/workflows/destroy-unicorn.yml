@@ -11,12 +11,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS}}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Destroy unicorn
         run: |
           echo "... Destroying unicorn on $DEPLOYMENT_PATH"
-          aaz storage blob delete-batch --account-name STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
+          az storage blob delete-batch --account-name $STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
         env:
           DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
           STORAGE_ACCOUNT: elementssa

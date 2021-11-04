@@ -43,6 +43,24 @@ runs:
         DEPLOYMENT_PATH: ${{inputs.deployment_path}}
         STORAGE_ACCOUNT: elementssa
 
+    - name: Updated hosted versions
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+          az storage blob directory list \
+            --container-name '$web' \
+            --directory-path "version" \
+            --delimiter "/" \
+            --account-name $STORAGE_ACCOUNT \
+            --query '[].name' \
+            --prefix v | sed 's/version\/\///g' > ./hosted_versions.json
+
+          az storage blob upload --account-name $STORAGE_ACCOUNT --auth-mode key -c '$web'  -f hosted_versions.json
+
+      env:
+        STORAGE_ACCOUNT: elementssa
+
     - name: logout
       uses: azure/CLI@v1
       with:
