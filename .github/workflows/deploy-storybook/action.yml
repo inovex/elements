@@ -33,7 +33,7 @@ runs:
       uses: azure/CLI@v1
       id: upload
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.29.0
         inlineScript: |
           echo "... Uploading elements storybook to $DEPLOYMENT_PATH"
           az storage blob upload-batch --account-name $STORAGE_ACCOUNT --auth-mode key -d "\$web/$DEPLOYMENT_PATH" -s ./packages/storybook/dist/ --output none
@@ -46,7 +46,7 @@ runs:
     - name: Updated hosted versions
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.29.0
         inlineScript: |
           az storage blob directory list \
             --container-name '$web' \
@@ -64,7 +64,7 @@ runs:
     - name: logout
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
+        azcliversion: 2.29.0
         inlineScript: |
           az logout
 

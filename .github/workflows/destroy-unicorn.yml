@@ -14,9 +14,19 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Destroy unicorn
-        run: |
-          echo "... Destroying unicorn on $DEPLOYMENT_PATH"
-          az storage blob delete-batch --account-name $STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.29.0
+          inlineScript: |
+            echo "... Destroying unicorn on $DEPLOYMENT_PATH"
+            az storage blob delete-batch --account-name $STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
         env:
           DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
           STORAGE_ACCOUNT: elementssa
+
+      - name: logout
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.29.0
+          inlineScript: |
+            az logout
