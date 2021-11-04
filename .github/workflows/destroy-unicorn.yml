@@ -18,5 +18,5 @@ jobs:
           echo "... Destroying unicorn on $DEPLOYMENT_PATH"
           aaz storage blob delete-batch --account-name STORAGE_ACCOUNT --auth-mode key -s '$web' --pattern "${DEPLOYMENT_PATH}*"
         env:
-          DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_HEAD_REF_SLUG }}
+          DEPLOYMENT_PATH: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
           STORAGE_ACCOUNT: elementssa
