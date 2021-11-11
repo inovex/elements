@@ -33,14 +33,14 @@ export class Chip implements ComponentInterface {
   @Prop() colorScheme: ColorScheme | 'default' = 'default';
 
   /**
-   * The fill type of this element.
-   */
-  @Prop() fill: ChipSurface = 'solid';
-
-  /**
    * Disables all interactions.
    */
   @Prop() disabled: boolean = false;
+
+  /**
+   * The fill type of this element.
+   */
+  @Prop() fill: ChipSurface = 'solid';
 
   /**
    * The content of the component.
@@ -48,10 +48,9 @@ export class Chip implements ComponentInterface {
   @Prop() label: string;
 
   /**
-   * The value of this chip.
-   * Is emitted by the `chipClicked` and `chipRemoved` events.
+   * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
    */
-  @Prop() value?: string;
+  @Prop() removable: boolean = false;
 
   /**
    * Makes the chip selectable.
@@ -59,14 +58,15 @@ export class Chip implements ComponentInterface {
   @Prop() selectable: boolean = false;
 
   /**
-   * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
-   */
-  @Prop() removable: boolean = false;
-
-  /**
    * Marks this element as selected (**works only in conjunction with `selectable`**)
    */
   @Prop() selected: boolean = false;
+
+  /**
+   * The value of this chip.
+   * Is emitted by the `chipClicked` and `chipRemoved` events.
+   */
+  @Prop() value?: string;
 
   /**
    * Event that emits the `value` as soon as the user clicks on the chip.
