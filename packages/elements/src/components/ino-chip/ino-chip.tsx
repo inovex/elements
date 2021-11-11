@@ -74,7 +74,13 @@ export class Chip implements ComponentInterface {
   @Event() chipClicked: EventEmitter<string>;
 
   @Listen('click')
-  handleClick() {
+  handleClick(e: MouseEvent) {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
     this.chipClicked.emit(this.value);
   }
 
