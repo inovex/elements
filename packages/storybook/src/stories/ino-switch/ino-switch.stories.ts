@@ -29,6 +29,14 @@ export default {
   ],
 } as Meta;
 
+export const Icons = () => html`
+  <ino-switch>
+    My Label
+    <ino-icon slot="icon-on" icon="star"></ino-icon>
+    <ino-icon slot="icon-off" icon="close"></ino-icon>
+  </ino-switch>
+`;
+
 export const Playground: Story<Components.InoSwitch> = (args) => html`
   <ino-switch
     checked="${args.checked}"

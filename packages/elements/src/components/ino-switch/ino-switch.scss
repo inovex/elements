@@ -1,183 +1,81 @@
 @use 'base/mdc-customize';
 @use '@material/switch';
+@use '@material/switch/styles';
 @use 'base/theme';
-
-// Shadows
-$small-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-  0 12px 28px 0 rgba(61, 214, 245, 0.14);
-$big-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-  0 16px 32px 0 rgba(61, 214, 245, 0.14);
-
-ino-switch {
-  /**
-   * @prop --ino-switch-toggled-on-color: border color of the switch if toggled on
-   * @prop --ino-switch-toggled-on-thumb-color: thumb color of the switch if toggled on
-   * @prop --ino-switch-toggled-on-track-color: track color of the switch if toggled on
-   * @prop --ino-switch-toggled-off-color: border color of the switch if toggled off
-   * @prop --ino-switch-toggled-off-thumb-color: thumb color of the switch if toggled off
-   * @prop --ino-switch-toggled-off-track-color: track color of the switch if toggled off
-   * @prop --ino-switch-hover-color: border color of the switch on hover
-   * @prop --ino-switch-hover-thumb-color: thumb color of the switch on hover
-   * @prop --ino-switch-hover-track-color: track color of the switch on hover
-   * @prop --ino-switch-active-color: border color of the switch if active
-   * @prop --ino-switch-active-thumb-color: thumb color of the switch if active
-   * @prop --ino-switch-active-track-color: track color of the switch if active
-   * @prop --ino-switch-disabled-color: border color of the switch if disabled
-   * @prop --ino-switch-disabled-thumb-color: thumb color of the switch if disabled
-   * @prop --ino-switch-disabled-track-color: track color of the switch if disabled
-   */
-  --switch-toggled-on-color: var(
-    --ino-switch-toggled-on-color,
-    #{theme.color(primary, base)}
-  );
-  --switch-toggled-on-thumb-color: var(
-    --ino-switch-toggled-on-thumb-color,
-    #{theme.color(primary, base)}
-  );
-  --switch-toggled-on-track-color: var(
-    --ino-switch-toggled-on-track-color,
-    #{theme.color(primary, light)}
-  );
-  --switch-toggled-off-color: var(
-    --ino-switch-toggled-off-color,
-    #{theme.color(light, base)}
-  );
-  --switch-toggled-off-thumb-color: var(
-    --ino-switch-toggled-off-thumb-color,
-    #fff
-  );
-  --switch-toggled-off-track-color: var(
-    --ino-switch-toggled-off-track-color,
-    #{theme.color(dark, dark)}
-  );
-  --switch-hover-color: var(
-    --ino-switch-hover-color,
-    #{theme.color(primary, light)}
-  );
-  --switch-hover-thumb-color: var(--ino-switch-hover-thumb-color, #fff);
-  --switch-hover-track-color: var(
-    --ino-switch-hover-track-color,
-    #{theme.color(primary, light)}
-  );
-  --switch-active-color: var(
-    --ino-switch-active-color,
-    #{theme.color(primary, dark)}
-  );
-  --switch-active-thumb-color: var(--ino-switch-active-thumb-color, #fff);
-  --switch-active-track-color: var(
-    --ino-switch-active-track-color,
-    #{theme.color(primary, dark)}
-  );
-  --switch-disabled-color: var(
-    --ino-switch-disabled-color,
-    #{theme.color(light, base)}
-  );
-  --switch-disabled-thumb-color: var(
-    --ino-switch-disabled-thumb-color,
-    #{theme.color(light, base)}
-  );
-  --switch-disabled-track-color: var(
-    --ino-switch-disabled-track-color,
-    #{theme.color(light, base)}
-  );
-}
 
 @each $color in theme.$color-schemes {
   ino-switch.ino-switch--color-scheme-#{$color} {
-    --switch-toggled-on-color: #{theme.color($color, base)};
-    --switch-toggled-on-thumb-color: #{theme.color($color, base)};
-    --switch-toggled-on-track-color: #{theme.color($color, light)};
-    --switch-hover-color: #{theme.color($color, light)};
-    --switch-hover-track-color: #{theme.color($color, light)};
-    --switch-active-color: #{theme.color($color, dark)};
-    --switch-active-track-color: #{theme.color($color, dark)};
-  }
-}
+    @include switch.theme(
+      (
+        selected-handle-color: theme.color($color, base),
+        selected-track-color: theme.color($color, light),
+        selected-hover-track-color: theme.color($color, light),
+        selected-focus-track-color: theme.color($color, light),
+        selected-pressed-track-color: theme.color($color, light),
+      )
+    );
 
-/** colors **/
-ino-switch .mdc-switch {
-  &.mdc-switch--checked {
-    .mdc-switch__thumb {
-      background-color: var(--switch-toggled-on-thumb-color);
-      border-color: var(--switch-toggled-on-color);
-    }
-    .mdc-switch__track {
-      background-color: var(--switch-toggled-on-track-color);
-    }
-  }
-
-  &:not(.mdc-switch--checked) {
-    .mdc-switch__thumb {
-      background-color: var(--switch-toggled-off-thumb-color);
-      border-color: var(--switch-toggled-off-color);
-    }
-    .mdc-switch__track {
-      background-color: var(--switch-toggled-off-track-color);
-    }
-  }
-
-  &:hover {
-    .mdc-switch__thumb {
-      background-color: var(--switch-hover-thumb-color);
-      border-color: var(--switch-hover-color);
-      box-shadow: $small-shadow;
+    .mdc-switch--selected {
+      ino-icon.mdc-switch__icon--on {
+        --ino-icon-color-primary: theme.color($color, contrast);
+      }
     }
 
-    .mdc-switch__track {
-      background-color: var(--switch-hover-track-color);
+    /*
+    .mdc-switch:hover ino-icon.mdc-switch__icon--on {
+      --ino-icon-color-primary: theme.color($color, base);
     }
-  }
-
-  &:active {
-    .mdc-switch__thumb {
-      background-color: var(--switch-active-thumb-color);
-      box-shadow: $big-shadow;
-      border-color: var(--switch-active-color);
-    }
-
-    .mdc-switch__track {
-      background-color: var(--switch-active-track-color);
-    }
-  }
-
-  &.mdc-switch--disabled {
-    .mdc-switch__thumb {
-      background-color: var(--switch-disabled-thumb-color);
-      border-color: var(--switch-disabled-color);
-    }
-
-    .mdc-switch__track {
-      background-color: var(--switch-disabled-track-color);
+     */
+    .mdc-switch--selected,
+    .mdc-switch--unselected:focus {
+      .mdc-switch__handle::after {
+        border-color: theme.color($color, base);
+      }
     }
   }
 }
 
 ino-switch {
-  label {
-    margin-left: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  // set basic styles, DOES NOT SUPPORT CSS-VARS
+  @include switch.theme(
+    (
+      track-height: 2px,
+      handle-height: 16px,
+      handle-width: 16px,
+      selected-icon-size: 10px,
+      unselected-icon-size: 10px,
+      handle-surface-color: white,
+      unselected-handle-color: white,
+      unselected-track-color: theme.color(light, base),
+      disabled-selected-handle-color: theme.color(light, base),
+      disabled-unselected-handle-color: theme.color(light, base),
+      disabled-selected-track-color: theme.color(light, base),
+      disabled-unselected-track-color: theme.color(light, base),
+      selected-hover-handle-color: white,
+      unselected-hover-handle-color: white,
+      unselected-focus-track-color: theme.color(light, base),
+      unselected-focus-handle-color: white,
+      selected-focus-handle-color: white,
+      selected-pressed-handle-color: white,
+      unselected-pressed-track-color: theme.color(light, base),
+      unselected-pressed-handle-color: white,
+    )
+  );
+
+  .mdc-switch--unselected ino-icon.mdc-switch__icon--off {
+    --ino-icon-color-primary: theme.color(light, base);
   }
 
-  .mdc-switch {
-    top: -3px;
+  .mdc-switch__handle::after {
+    border: 1px solid theme.color(light, base);
   }
 
-  .mdc-switch__thumb-underlay {
-    top: -23px;
-
-    &:before,
-    &:after {
-      display: none;
-    }
-  }
-
-  .mdc-switch__track {
-    height: 2px;
-    border: none;
-  }
-
-  .mdc-switch__thumb {
-    height: 16px;
-    width: 16px;
-    border: 2px solid;
+  // hide ripple effect
+  .mdc-switch__ripple {
+    display: none;
   }
 }
