@@ -20,6 +20,7 @@ export const Playground: Story<Components.InoChip> = (args) => html`
   <ino-chip
     class="customizable-chip"
     color-scheme="${args.colorScheme}"
+    disabled="${args.disabled}"
     fill="${args.fill}"
     label="${args.label}"
     removable="${args.removable}"
@@ -79,6 +80,7 @@ export const Selection = (): TemplateResult => {
 
 Playground.args = {
   colorScheme: 'primary',
+  disabled: false,
   fill: 'solid',
   label: 'Label',
   removable: false,

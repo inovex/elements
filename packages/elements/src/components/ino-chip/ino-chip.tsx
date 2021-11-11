@@ -129,14 +129,15 @@ export class Chip implements ComponentInterface {
     const hasTrailingGraphic = trailingSlotHasContent || this.removable;
 
     const hostClasses = classNames({
-      [colorSchemeClass]: this.colorScheme !== 'default',
+      [colorSchemeClass]: true,
+      'ino-chip--solid': this.fill === 'solid',
       'ino-chip--outline': this.fill === 'outline',
+      'ino-chip-disabled': this.disabled,
     });
 
     const chipClasses = classNames({
       'mdc-evolution-chip': true,
       'ino-chip-container': true,
-      'ino-chip-disabled': this.disabled,
       'mdc-evolution-chip--selectable': this.selectable,
       'mdc-evolution-chip--selected': this.selected,
       'mdc-evolution-chip--selecting':

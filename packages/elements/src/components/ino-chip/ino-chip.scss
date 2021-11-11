@@ -4,11 +4,45 @@
 @use 'base/theme';
 
 $default-chip-color: lighten(theme.color(primary), 36.5%);
+$default-chip-contrast-color: rgba(0, 0, 0, 0.87);
+$default-chip-dark-color: rgba(0, 0, 0, 0.87);
+
+@mixin colorChip($base-color, $contrast-color, $dark-color) {
+  &.ino-chip--solid .ino-chip-container {
+    @include chips.container-color($base-color);
+    @include chips.text-label-color($contrast-color);
+    @include chips.checkmark-color($contrast-color);
+
+    ino-icon {
+      --icon-color: #{$contrast-color};
+    }
+  }
+
+  // Set outline color
+  &.ino-chip--outline .ino-chip-container {
+    @include chips.outline-color($base-color);
+    @include chips.text-label-color($dark-color);
+    @include chips.checkmark-color($dark-color);
+
+    ino-icon {
+      --icon-color: #{$dark-color};
+    }
+  }
+
+  &.ino-chip-disabled .ino-chip-container {
+    @include chips.container-color(theme.color(light));
+    @include chips.outline-color(theme.color(light, light));
+    @include chips.text-label-color(white);
+    @include chips.outline-width(0);
+
+    ino-icon {
+      --icon-color: white;
+    }
+  }
+}
 
 ino-chip {
   .ino-chip-container {
-    @include chips.container-color($default-chip-color);
-
     .ino-chip-trailing-icon {
       display: flex;
       --ino-icon-width: 20px;
@@ -25,43 +59,30 @@ ino-chip {
     }
   }
 
-  // Generate ino-color-scheme classes
-  @each $color-name in theme.$color-schemes {
-    &.ino-chip--color-scheme-#{$color-name} {
-      .ino-chip-container {
-        @include chips.container-color(theme.color($color-name));
-        @include chips.text-label-color(theme.color($color-name, contrast));
-        @include chips.checkmark-color(theme.color($color-name, contrast));
-
-        ino-icon {
-          --icon-color: #{theme.color($color-name, contrast)};
-        }
-      }
-
-      // Set outline color
-      &.ino-chip--outline .ino-chip-container {
-        @include chips.outline-color(theme.color($color-name));
-        @include chips.text-label-color(theme.color($color-name, dark));
-
-        ino-icon {
-          --icon-color: #{theme.color($color-name, dark)};
-          @include chips.checkmark-color(theme.color($color-name, dark));
-        }
-      }
-    }
-  }
-
-  // Set default outline styles
+  // base outline styles
   &.ino-chip--outline .ino-chip-container {
-    @include chips.outline-color($default-chip-color);
-    @include chips.container-color(white);
+    @include chips.container-color(transparent);
     @include chips.outline-style(solid);
     @include chips.outline-width(1px);
   }
 
-  .ino-chip-disabled {
-    @include chips.container-color(theme.color(light));
-    @include chips.outline-color(theme.color(light, light));
-    @include chips.text-label-color(white);
+  // default styles
+  &.ino-chip--color-scheme-default {
+    @include colorChip(
+      $default-chip-color,
+      $default-chip-contrast-color,
+      $default-chip-dark-color
+    );
+  }
+
+  // Generate ino-color-scheme classes
+  @each $color-name in theme.$color-schemes {
+    &.ino-chip--color-scheme-#{$color-name} {
+      @include colorChip(
+        theme.color($color-name),
+        theme.color($color-name, contrast),
+        theme.color($color-name, dark)
+      );
+    }
   }
 }
