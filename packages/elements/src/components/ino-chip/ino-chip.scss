@@ -10,9 +10,14 @@ ino-chip {
     @include chips.container-color($default-chip-color);
 
     .ino-chip-trailing-icon {
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
+      display: flex;
+      --ino-icon-width: 20px;
+      --ino-icon-height: 20px;
+
+      .ino-chip-close-icon {
+        --ino-icon-width: 15px;
+        --ino-icon-height: 15px;
+      }
     }
 
     ino-icon {

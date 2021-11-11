@@ -212,6 +212,7 @@ export class Chip implements ComponentInterface {
                 <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--trailing ino-chip-trailing-icon">
                   {this.removable ? (
                     <ino-icon
+                      class="ino-chip-close-icon"
                       icon="close"
                       tabindex="0"
                       role="button"
