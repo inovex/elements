@@ -146,17 +146,20 @@ export namespace Components {
           * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme": ColorScheme | 'default';
+        /**
+          * Disables all interactions.
+         */
         "disabled": boolean;
         /**
           * The fill type of this element.
          */
         "fill": ChipSurface;
         /**
-          * The label of this chip (**required**).
+          * The content of the component.
          */
-        "label"?: string;
+        "label": string;
         /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click.
+          * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
         "removable": boolean;
         /**
@@ -164,11 +167,11 @@ export namespace Components {
          */
         "selectable": boolean;
         /**
-          * Marks this element as selected.
+          * Marks this element as selected (**works only in conjunction with `selectable`**)
          */
         "selected": boolean;
         /**
-          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+          * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
     }
@@ -1753,21 +1756,28 @@ declare namespace LocalJSX {
           * The name of the color scheme which is used to style the background and outline of this component.
          */
         "colorScheme"?: ColorScheme | 'default';
+        /**
+          * Disables all interactions.
+         */
         "disabled"?: boolean;
         /**
           * The fill type of this element.
          */
         "fill"?: ChipSurface;
         /**
-          * The label of this chip (**required**).
+          * The content of the component.
          */
         "label"?: string;
         /**
-          * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true.
+          * Event that emits the `value` as soon as the user clicks on the chip.
          */
-        "onRemoveChip"?: (event: CustomEvent<any>) => void;
+        "onChipClicked"?: (event: CustomEvent<string>) => void;
         /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click.
+          * Event that emits the `value` as soon as the user clicks on the remove icon.  Listen to this event to hide or destroy this chip.
+         */
+        "onChipRemoved"?: (event: CustomEvent<string>) => void;
+        /**
+          * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
         "removable"?: boolean;
         /**
@@ -1775,11 +1785,11 @@ declare namespace LocalJSX {
          */
         "selectable"?: boolean;
         /**
-          * Marks this element as selected.
+          * Marks this element as selected (**works only in conjunction with `selectable`**)
          */
         "selected"?: boolean;
         /**
-          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+          * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
     }

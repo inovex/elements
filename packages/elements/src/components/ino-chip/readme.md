@@ -2,8 +2,6 @@
 
 The ino-chip component displays the provided content and icon as a chip.
 
-> An ino-chip component must **always** belong to a `ino-chip-set` component.
-
 ## Usage
 
 The component can be used as follows:
@@ -11,106 +9,100 @@ The component can be used as follows:
 ### Web Component
 
 ```js
-document
-  .querySelector('ino-chip')
-  .addEventListener('removeChip', (e) =>
-    console.log('This chip will be removed', e.detail),
-  );
+const chip = document.querySelector('ino-chip');
+chip.addEventListener('chipClicked', (e) =>
+  console.log('This chip was clicked:', e.detail),
+)
+chip.addEventListener('chipRemoved', (e) =>
+  console.log('This chip was removed:', e.detail),
+);
 ```
 
 ```html
+
 <ino-chip
   color-scheme="<string>"
+  disabled
   fill="<string>"
   label="<string>"
-  icon-leading
   removable
   selectable
   selected
   value="<string>"
 >
-  <ino-icon slot= icon-leading" icon="<string>"></ino-icon>
+  <ino-icon slot=icon-leading" icon="<string>"></ino-icon>
 </ino-chip>
 ```
 
 ### React
 
-#### Example #1 - Basic
+#### Example #1
 
-```js
+```tsx
 import { Component } from 'react';
 import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
-  chipsetSelectionChange(e: any) {
-    console.log(
-      e.detail === true
-        ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`,
-    );
+
+  fruits = ["apple", "banana", "cherry"];
+
+  handleChipClicked(e: CustomEvent<string>) {
+    console.log("User clicked the fruit: ", e.detail);
   }
 
   render() {
     return (
-      <InoChipSet
-        type="choice"
-        onUpdateChipSet={this.chipsetSelectionChange}
-      >
-        <InoChip value="apple" label="Apple" />
-        <InoChip value="banana" label="Banana" />
-        <InoChip value="cherry" label="Cherry" />
-      </InoChipSet>
+      <div>
+        {fruits.map(fruit => (
+            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>
+          )
+        )}
+      </div>
     );
   }
 }
 ```
 
-#### Example #2 - With Types
+#### Example #2
 
-```js
+```tsx
 import React, { Component } from 'react';
 import { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';
 import { Components } from '@inovex.de/elements/dist/types/components';
 
-const ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (
-  props,
-) => {
-  const { type } = props;
+const ChipSet = () => {
 
-  const chipsetSelectionChange = (e: any) => {
-    console.log(
-      e.detail === true
-        ? 'The last one was toggled'
-        : `User clicked: ${e.detail}`,
-    );
-  };
+  const fruits = ["apple", "banana", "cherry"];
+  const [selectedFruit, setSelectedFruit] = useState < string > ("apple");
 
   return (
-    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>
-      <InoChip value="apple" label="Apple" />
-      <InoChip value="banana" label="Banana" />
-      <InoChip value="cherry" label="Cherry" />
-    </InoChipSet>
+    <div>
+      {fruits.map(fruit => (
+        <InoChip
+          value={fruit}
+          label={fruit}
+          selectable
+          selected={fruit === selectedFruit}
+          onChipClicked={(e) => setSelectedFruit(fruit)}
+        />
+      ))}
+    </div>
   );
 };
-
-class MyComponent extends Component {
-  render() {
-    return <ChipSet type="choice" />;
-  }
-}
 ```
 
 ## Additional Hints
 
-**Content**: Use the  label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.
+**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.
 
-**Styling**: The chip can be styled in many ways with the help of the `fill` and `color-scheme` attributes.
-Take a look at the attribute documentation at the bottom of the page for further information.
+### Selection
+A set of chips can be used to implement a single or multi selection from a handful of options.
+Have a look at the **Selection** and **Filter** stories.
 
 ### Removable chips
 
-If `removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.
+If `removable` is set to `true`, the chip can be removed by the user. 
+The component then displays a small `close` icon on the right side of the chip next to the label.
 
 However, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.
 
@@ -121,24 +113,24 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                  | Type                                                                                              | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | ----------- |
-| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component.            | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
-| `disabled`    | `disabled`     |                                                                                                              | `boolean`                                                                                         | `false`     |
-| `fill`        | `fill`         | The fill type of this element.                                                                               | `"outline" \| "solid"`                                                                            | `'solid'`   |
-| `label`       | `label`        | The label of this chip (**required**).                                                                       | `string`                                                                                          | `undefined` |
-| `removable`   | `removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click. | `boolean`                                                                                         | `false`     |
-| `selectable`  | `selectable`   | Makes the chip selectable.                                                                                   | `boolean`                                                                                         | `false`     |
-| `selected`    | `selected`     | Marks this element as selected.                                                                              | `boolean`                                                                                         | `false`     |
-| `value`       | `value`        | The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.                | `string`                                                                                          | `undefined` |
+| Property      | Attribute      | Description                                                                                       | Type                                                                                              | Default     |
+| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
+| `disabled`    | `disabled`     | Disables all interactions.                                                                        | `boolean`                                                                                         | `false`     |
+| `fill`        | `fill`         | The fill type of this element.                                                                    | `"outline" \| "solid"`                                                                            | `'solid'`   |
+| `label`       | `label`        | The content of the component.                                                                     | `string`                                                                                          | `undefined` |
+| `removable`   | `removable`    | Adds a close icon on the right side of this chip which emits the `removeChip` event on click.     | `boolean`                                                                                         | `false`     |
+| `selectable`  | `selectable`   | Makes the chip selectable.                                                                        | `boolean`                                                                                         | `false`     |
+| `selected`    | `selected`     | Marks this element as selected (**works only in conjunction with `selectable`**)                  | `boolean`                                                                                         | `false`     |
+| `value`       | `value`        | The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.                 | `string`                                                                                          | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                                                                                                                           | Type                              |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| `chipClicked` |                                                                                                                                                                       | `CustomEvent<HTMLInoChipElement>` |
-| `removeChip`  | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true. | `CustomEvent<any>`                |
+| Event         | Description                                                                                                                     | Type                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `chipClicked` | Event that emits the `value` as soon as the user clicks on the chip.                                                            | `CustomEvent<string>` |
+| `chipRemoved` | Event that emits the `value` as soon as the user clicks on the remove icon.  Listen to this event to hide or destroy this chip. | `CustomEvent<string>` |
 
 
 ## Slots

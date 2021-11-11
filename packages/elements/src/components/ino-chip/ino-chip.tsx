@@ -24,8 +24,6 @@ import { ChipSurface, ColorScheme } from '../types';
   shadow: false,
 })
 export class Chip implements ComponentInterface {
-  private static ID = 1;
-
   @Element() el!: HTMLInoChipElement;
 
   /**
@@ -39,17 +37,19 @@ export class Chip implements ComponentInterface {
    */
   @Prop() fill: ChipSurface = 'solid';
 
+  /**
+   * Disables all interactions.
+   */
   @Prop() disabled: boolean = false;
 
   /**
-   * The label of this chip (**required**).
+   * The content of the component.
    */
-  @Prop() label?: string;
+  @Prop() label: string;
 
   /**
    * The value of this chip.
-   *
-   * **Required** for chips as part of sets of type `filter` or `choice`.
+   * Is emitted by the `chipClicked` and `chipRemoved` events.
    */
   @Prop() value?: string;
 
@@ -59,38 +59,39 @@ export class Chip implements ComponentInterface {
   @Prop() selectable: boolean = false;
 
   /**
-   * Adds a close icon on the right side of this chip.
-   *
-   * If applied, emits the `removeChip` event on remove click.
+   * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
    */
   @Prop() removable: boolean = false;
 
   /**
-   * Marks this element as selected.
+   * Marks this element as selected (**works only in conjunction with `selectable`**)
    */
   @Prop() selected: boolean = false;
 
-  @Event() chipClicked: EventEmitter<HTMLInoChipElement>;
+  /**
+   * Event that emits the `value` as soon as the user clicks on the chip.
+   */
+  @Event() chipClicked: EventEmitter<string>;
 
   @Listen('click')
   handleClick() {
-    this.chipClicked.emit(this.el);
+    this.chipClicked.emit(this.value);
   }
 
   /**
-   * Event that emits as soon as the user removes this chip.
+   * Event that emits the `value` as soon as the user clicks on the remove icon.
    *
    * Listen to this event to hide or destroy this chip.
-   * The event only emits if the property `removable` is true.
    */
-  @Event() removeChip!: EventEmitter;
+  @Event() chipRemoved: EventEmitter<string>;
 
-  private iconClicked(e: Event) {
+  private iconClicked(e: MouseEvent) {
     e.preventDefault();
-    this.removeChip.emit(this);
+    e.stopPropagation();
+    this.chipRemoved.emit(this.value);
   }
 
-  renderPrimaryAction(content: HTMLElement[]) {
+  private renderPrimaryAction(content: HTMLElement[]) {
     if (this.selectable) {
       return (
         <span
@@ -160,7 +161,6 @@ export class Chip implements ComponentInterface {
         <span
           class={chipClasses}
           role={this.selectable ? 'presentation' : 'row'}
-          id={String(Chip.ID++)}
         >
           <span
             class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
