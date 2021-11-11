@@ -6,6 +6,7 @@ import {
   EventEmitter,
   h,
   Host,
+  Listen,
   Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -25,7 +26,7 @@ import { ChipSurface, ColorScheme } from '../types';
 export class Chip implements ComponentInterface {
   private static ID = 1;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoChipElement;
 
   /**
    * The name of the color scheme which is used
@@ -53,6 +54,11 @@ export class Chip implements ComponentInterface {
   @Prop() value?: string;
 
   /**
+   * Makes the chip selectable.
+   */
+  @Prop() selectable: boolean = false;
+
+  /**
    * Adds a close icon on the right side of this chip.
    *
    * If applied, emits the `removeChip` event on remove click.
@@ -60,15 +66,16 @@ export class Chip implements ComponentInterface {
   @Prop() removable: boolean = false;
 
   /**
-   * Makes the chip selectable.
-   * Will be set by the `<ino-chip-set>`.
-   */
-  @Prop() selectable: boolean = false;
-
-  /**
    * Marks this element as selected.
    */
   @Prop() selected: boolean = false;
+
+  @Event() chipClicked: EventEmitter<HTMLInoChipElement>;
+
+  @Listen('click')
+  handleClick() {
+    this.chipClicked.emit(this.el);
+  }
 
   /**
    * Event that emits as soon as the user removes this chip.
@@ -132,6 +139,14 @@ export class Chip implements ComponentInterface {
       'ino-chip-disabled': this.disabled,
       'mdc-evolution-chip--selectable': this.selectable,
       'mdc-evolution-chip--selected': this.selected,
+      'mdc-evolution-chip--selecting':
+        this.selectable && !leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting':
+        this.selectable && !leadingSlotHasContent && !this.selected,
+      'mdc-evolution-chip--selecting-with-primary-icon':
+        this.selectable && leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting-with-primary-icon':
+        this.selectable && leadingSlotHasContent && !this.selected,
       'mdc-evolution-chip--disabled': this.disabled,
       'mdc-evolution-chip--filter': this.selectable,
       'mdc-evolution-chip--with-primary-graphic': hasPrimaryGraphic,

@@ -128,16 +128,17 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 | `fill`        | `fill`         | The fill type of this element.                                                                               | `"outline" \| "solid"`                                                                            | `'solid'`   |
 | `label`       | `label`        | The label of this chip (**required**).                                                                       | `string`                                                                                          | `undefined` |
 | `removable`   | `removable`    | Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event on remove click. | `boolean`                                                                                         | `false`     |
-| `selectable`  | `selectable`   | Makes the chip selectable. Will be set by the `<ino-chip-set>`.                                              | `boolean`                                                                                         | `false`     |
+| `selectable`  | `selectable`   | Makes the chip selectable.                                                                                   | `boolean`                                                                                         | `false`     |
 | `selected`    | `selected`     | Marks this element as selected.                                                                              | `boolean`                                                                                         | `false`     |
 | `value`       | `value`        | The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.                | `string`                                                                                          | `undefined` |
 
 
 ## Events
 
-| Event        | Description                                                                                                                                                           | Type               |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `removeChip` | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true. | `CustomEvent<any>` |
+| Event         | Description                                                                                                                                                           | Type                              |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| `chipClicked` |                                                                                                                                                                       | `CustomEvent<HTMLInoChipElement>` |
+| `removeChip`  | Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true. | `CustomEvent<any>`                |
 
 
 ## Slots

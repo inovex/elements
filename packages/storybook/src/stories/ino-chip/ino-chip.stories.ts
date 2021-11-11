@@ -16,25 +16,6 @@ export default {
   },
 } as Meta;
 
-export const ActionChip = (): TemplateResult => html`
-  <h5>Action</h5>
-  <ino-chip-set>
-    <ino-chip label="Default"></ino-chip>
-    <ino-chip label="Disabled" disabled></ino-chip>
-    <ino-chip label="Leading icon">
-      <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
-    </ino-chip>
-  </ino-chip-set>
-  <h5>Input</h5>
-  <h5>Filter</h5>
-  <ino-chip-set>
-    <ino-chip label="Selectable" selectable></ino-chip>
-    <ino-chip label="Selectable with leading icon" selectable>
-      <ino-icon slot="icon-leading" icon="favorite"></ino-icon>
-    </ino-chip>
-  </ino-chip-set>
-`;
-
 export const Playground: Story<Components.InoChip> = (args) => html`
   <ino-chip
     class="customizable-chip"
@@ -47,6 +28,54 @@ export const Playground: Story<Components.InoChip> = (args) => html`
     value="${args.value}"
   </ino-chip>
 `;
+
+export const Selection = (): TemplateResult => {
+  const values = ['Chip 1', 'Chip 2', 'Chip 3'];
+  const selectedChips = new Set<string>();
+
+  const handleClick = (chip: HTMLInoChipElement) => {
+    const isSelected = selectedChips.has(chip.value);
+    chip.selected = !isSelected;
+
+    if (isSelected) {
+      selectedChips.delete(chip.value);
+    } else {
+      selectedChips.add(chip.value);
+    }
+  };
+
+  return html`
+    <div>
+      <div>
+        ${values.map(
+          (value) =>
+            html` <ino-chip
+              color-scheme="primary"
+              label="${value}"
+              value="${value}"
+              selectable
+              @chipClicked="${(ev) => handleClick(ev.target)}"
+            >
+            </ino-chip>`
+        )}
+      </div>
+      <div>
+        ${values.map(
+          (value) =>
+            html` <ino-chip
+              color-scheme="primary"
+              label="${value}"
+              value="${value}"
+              selectable
+              @chipClicked="${(ev) => handleClick(ev.target)}"
+            >
+              <ino-icon slot="icon-leading" icon="checkmark"></ino-icon>
+            </ino-chip>`
+        )}
+      </div>
+    </div>
+  `;
+};
 
 Playground.args = {
   colorScheme: 'primary',
@@ -68,7 +97,7 @@ Playground.argTypes.fill = {
 };
 
 export const ColorsAndFill = (): TemplateResult => html`
-  <ino-chip-set>
+  <div>
     <ino-chip label="Default"></ino-chip>
     <ino-chip color-scheme="primary" label="Primary"></ino-chip>
     <ino-chip color-scheme="secondary" label="Secondary"></ino-chip>
@@ -77,8 +106,8 @@ export const ColorsAndFill = (): TemplateResult => html`
     <ino-chip color-scheme="error" label="Error"></ino-chip>
     <ino-chip color-scheme="light" label="Light"></ino-chip>
     <ino-chip color-scheme="dark" label="Dark"></ino-chip>
-  </ino-chip-set>
-  <ino-chip-set>
+  </div>
+  <div>
     <ino-chip fill="outline" label="Outline"></ino-chip>
     <ino-chip fill="outline" label="Primary" color-scheme="primary"></ino-chip>
     <ino-chip
@@ -91,11 +120,11 @@ export const ColorsAndFill = (): TemplateResult => html`
     <ino-chip fill="outline" color-scheme="error" label="Error"></ino-chip>
     <ino-chip fill="outline" color-scheme="light" label="Light"></ino-chip>
     <ino-chip fill="outline" color-scheme="dark" label="Dark"></ino-chip>
-  </ino-chip-set>
+  </div>
 `;
 
 export const Icons = (): TemplateResult => html`
-  <ino-chip-set>
+  <div>
     <ino-chip color-scheme="primary" label="Leading">
       <ino-icon slot="icon-leading" icon="checkmark"></ino-icon>
     </ino-chip>
@@ -106,15 +135,19 @@ export const Icons = (): TemplateResult => html`
       <ino-icon slot="icon-leading" icon="checkmark"></ino-icon>
       <ino-icon slot="icon-trailing" icon="checkmark"></ino-icon>
     </ino-chip>
-  </ino-chip-set>
+  </div>
 `;
 
 export const States = (): TemplateResult => html`
   <h4>Removable and states</h4>
-  <ino-chip-set>
+  <div>
     <ino-chip color-scheme="primary" removable label="Removable"></ino-chip>
-    <ino-chip color-scheme="primary" selected label="Selected"></ino-chip>
-    <ino-chip color-scheme="primary" selected label="Selected with Checkmark" selectable></ino-chip>
-  </ino-chip-set>
+    <ino-chip
+      color-scheme="primary"
+      selected
+      label="Selected"
+      selectable
+    ></ino-chip>
+    <ino-chip color-scheme="primary" disabled label="Disabled"></ino-chip>
   </div>
 `;
