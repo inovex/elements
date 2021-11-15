@@ -124,7 +124,6 @@ export class Autocomplete implements ComponentInterface {
 
     switch (ev.code) {
       case 'Enter':
-        this.openMenu();
         this.onEnterPress();
         break;
       case 'ArrowDown':
