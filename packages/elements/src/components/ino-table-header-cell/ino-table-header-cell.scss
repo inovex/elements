@@ -1,0 +1,130 @@
+@use 'base/mdc-customize';
+@use 'base/theme';
+@use 'base/typography';
+@use '@material/data-table';
+
+$margin-right: 8px;
+
+ino-table ino-table-header-cell {
+  $sort-icon-width: 30px;
+
+  // Basic styling comes from ino-table/_table-cell.scss
+
+  display: table-cell;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+
+  &.mdc-data-table__header-cell {
+    padding: 2px 0 4px 0;
+  }
+
+  .mdc-data-table__header-cell-wrapper {
+    padding: 0 10px;
+    height: 100%;
+    border-radius: 10px;
+    outline: 0;
+    margin-right: $margin-right;
+  }
+
+  .mdc-data-table__header-cell-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  // Sortable
+  &.ino-table-header-cell--sortable {
+    .mdc-data-table__header-cell-wrapper {
+      padding-right: $sort-icon-width + 4px;
+    }
+    .mdc-data-table__header-cell-label {
+      margin-right: 4px;
+      flex-grow: 1;
+    }
+  }
+
+  // Searchable header cells
+  &.ino-table-header-cell--searchable {
+    .mdc-data-table__header-cell-wrapper {
+      cursor: pointer;
+    }
+
+    .mdc-data-table__header-cell-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ino-table-header-cell__search-icon {
+      --ino-icon-color: currentColor;
+      --ino-icon-height: 16px;
+      --ino-icon-width: 16px;
+    }
+
+    // Animation
+    .mdc-data-table__header-cell-label {
+      transform: translateX(0px);
+      will-change: transform;
+      transition: transform 0.15s ease-in-out;
+    }
+    .ino-table-header-cell__search-icon {
+      transition: opacity 0.3s ease-in-out;
+      will-change: opacity;
+      width: 0;
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus-within,
+    &.ino-table-header-cell--active {
+      .mdc-data-table__header-cell-wrapper {
+        color: theme.color(primary);
+        background: rgba(theme.color(light), 0.32);
+      }
+      .ino-table-header-cell__search-icon {
+        display: block;
+        width: auto;
+        opacity: 1;
+      }
+      .mdc-data-table__header-cell-label {
+        transform: translateX(6px); // Spacing between icon and label
+      }
+    }
+
+    .ino-table-header-cell__popover-content {
+      border-radius: inherit;
+      box-shadow: 0px 25px 50px -12px rgba(#1E2125, 0.25); // TODO move color
+    }
+  }
+  &.ino-table-header-cell--searched {
+    border-bottom-color: theme.color(primary);
+  }
+
+
+  // TODO: Add proper icons for all directions
+  ino-icon-button ino-icon {
+    will-change: transform;
+    transition: transform 150ms ease;
+  }
+  .sort-asc ino-icon {
+    transform: rotate(-180deg);
+  }
+  .sort-desc ino-icon {
+    transform: rotate(-360deg);
+  }
+
+  ino-icon-button {
+    position: absolute;
+    right: $margin-right + 6px;
+    top: 7px; // (44px - 30px) / 2
+
+    --ino-icon-button-size: 24px;
+    --ino-icon-button-icon-size: 22px;
+    --ino-icon-button-icon-color: #{theme.color(dark)};
+    border-left: 6px solid transparent;
+  }
+
+  .ino-popover {
+    text-transform: initial;
+  }
+}

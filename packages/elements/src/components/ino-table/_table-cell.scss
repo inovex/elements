@@ -1,0 +1,93 @@
+@use "base/theme";
+@use "base/typography";
+
+$vertical-spacing: 2px;
+$border-width: 2px;
+$height: var(--ino-table-row-height, 48px);
+$border-radius: 8px;
+$padding: 0 10px;
+
+@mixin core-styles() {
+  // Basic table cell styles
+  th,
+  td,
+  .mdc-data-table__header-cell {
+    padding: $padding;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Header cell
+  thead th,
+  thead td,
+  .mdc-data-table__header-cell {
+    height: 44px;
+    border-top: $border-width solid transparent;
+    border-bottom: $border-width solid #dbe0e5; // TODO: move color
+    @include typography.font(sans-serif, s, semibold);
+    color: theme.color(light);
+
+    letter-spacing: 0.32px;
+
+    &:first-child {
+      padding-left: $border-width;
+    }
+    &:last-child {
+      padding-right: $border-width;
+    }
+  }
+
+  th {
+    text-align: left
+  }
+
+
+  // Body cell
+  tbody th,
+  tbody td {
+    @include typography.font(sans-serif, s, medium);
+    height: calc(#{$height} - #{$vertical-spacing});
+    padding: $padding;
+    border-top: $border-width solid transparent;
+    border-bottom: $border-width solid transparent;
+
+    &:first-child {
+      border-left: $border-width solid transparent;
+    }
+    &:last-child {
+      border-right: $border-width solid transparent;
+    }
+
+    &:first-child {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  @include checkbox-cell();
+  @include numeric-cell();
+}
+
+@mixin checkbox-cell() {
+  .ino-table__cell--checkbox {
+    padding: 0;
+  }
+  .ino-table__cell--checkbox ino-checkbox {
+    --ino-checkbox-color: #{theme.color(secondary)};
+    --ino-checkbox-container-color-unchecked: #{theme.color(light)};
+    --ino-checkbox-color-active: #{theme.color(secondary)};
+    --ino-checkbox-color-hover: #{theme.color(secondary)};
+    --ino-checkbox-color-active: #{theme.color(secondary)};
+  }
+}
+
+@mixin numeric-cell() {
+  .ino-table__cell--numeric {
+    text-align: right;
+    padding-right: 22px;
+  }
+}

@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
+import { SortDirection, SortDirectionChangeDetails } from "./components/ino-table-header-cell/ino-table-header-cell";
+import { SortDirection as SortDirection1, SortDirectionChangeDetails as SortDirectionChangeDetails1 } from "./components/ino-table-header-cell/ino-table-header-cell";
 export namespace Components {
     interface InoAutocomplete {
         /**
@@ -869,6 +871,14 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
+        /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
         "interactive"?: boolean;
@@ -1140,22 +1150,74 @@ export namespace Components {
         "autoFocus"?: boolean;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horiziontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric": boolean;
-    }
-    interface InoTableRow {
+        "autofocus": boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow": boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected": boolean;
+        "label": string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable": boolean;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon": string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched": boolean;
+        /**
+          * Sets blur on the header cell. If searchable, closes the popover.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the header cell. If searchable, opens the popover and focuses the `data-ino-focus` target.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Updates the search behaviour of this cell.
+          * @param searchable true, if the cell should be searchable, false otherwise.
+         */
+        "setSearchable": (searchable: boolean) => Promise<void>;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart": SortDirection;
     }
     interface InoTextarea {
         /**
@@ -1537,17 +1599,11 @@ declare global {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
-    interface HTMLInoTableCellElement extends Components.InoTableCell, HTMLStencilElement {
+    interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
     }
-    var HTMLInoTableCellElement: {
-        prototype: HTMLInoTableCellElement;
-        new (): HTMLInoTableCellElement;
-    };
-    interface HTMLInoTableRowElement extends Components.InoTableRow, HTMLStencilElement {
-    }
-    var HTMLInoTableRowElement: {
-        prototype: HTMLInoTableRowElement;
-        new (): HTMLInoTableRowElement;
+    var HTMLInoTableHeaderCellElement: {
+        prototype: HTMLInoTableHeaderCellElement;
+        new (): HTMLInoTableHeaderCellElement;
     };
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
@@ -1609,8 +1665,7 @@ declare global {
         "ino-tab": HTMLInoTabElement;
         "ino-tab-bar": HTMLInoTabBarElement;
         "ino-table": HTMLInoTableElement;
-        "ino-table-cell": HTMLInoTableCellElement;
-        "ino-table-row": HTMLInoTableRowElement;
+        "ino-table-header-cell": HTMLInoTableHeaderCellElement;
         "ino-textarea": HTMLInoTextareaElement;
         "ino-tooltip": HTMLInoTooltipElement;
     }
@@ -2528,6 +2583,14 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
+        /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
         "interactive"?: boolean;
@@ -2843,22 +2906,73 @@ declare namespace LocalJSX {
         "onActiveTabChange"?: (event: CustomEvent<any>) => void;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horiziontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Emits that the sort direction or column id has changed.
+         */
+        "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric"?: boolean;
-    }
-    interface InoTableRow {
+        "autofocus"?: boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow"?: boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected"?: boolean;
+        "label"?: string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable"?: boolean;
+        /**
+          * Emits that the search field focused (true) or blurred (false).
+         */
+        "onSearchFocusChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Emits that the sort direction has been changed.
+         */
+        "onSortDirectionChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon"?: string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched"?: boolean;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart"?: SortDirection;
     }
     interface InoTextarea {
         /**
@@ -3000,8 +3114,7 @@ declare namespace LocalJSX {
         "ino-tab": InoTab;
         "ino-tab-bar": InoTabBar;
         "ino-table": InoTable;
-        "ino-table-cell": InoTableCell;
-        "ino-table-row": InoTableRow;
+        "ino-table-header-cell": InoTableHeaderCell;
         "ino-textarea": InoTextarea;
         "ino-tooltip": InoTooltip;
     }
@@ -3057,8 +3170,7 @@ declare module "@stencil/core" {
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
             "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
-            "ino-table-cell": LocalJSX.InoTableCell & JSXBase.HTMLAttributes<HTMLInoTableCellElement>;
-            "ino-table-row": LocalJSX.InoTableRow & JSXBase.HTMLAttributes<HTMLInoTableRowElement>;
+            "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }

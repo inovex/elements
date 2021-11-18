@@ -190,14 +190,9 @@ export const InoTable = createReactComponent<
   StencilJSX.IntrinsicElements['ino-table'],
   HTMLInoTableElement
 >('ino-table');
-export const InoTableCell = createReactComponent<
-  StencilJSX.IntrinsicElements['ino-table-cell'],
-  HTMLInoTableCellElement
->('ino-table-cell');
-export const InoTableRow = createReactComponent<
-  StencilJSX.IntrinsicElements['ino-table-row'],
-  HTMLInoTableRowElement
->('ino-table-row');
+export const InoTableHeaderCell = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-table-header-cell'],
+  HTMLInoTableHeaderCellElement
 export const InoTextarea = createReactComponent<
   StencilJSX.IntrinsicElements['ino-textarea'],
   HTMLInoTextareaElement

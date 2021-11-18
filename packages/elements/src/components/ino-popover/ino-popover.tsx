@@ -15,6 +15,7 @@ import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 
 import { TooltipTrigger } from '../types';
+import { hideOnEsc, hideOnPopperBlur } from './plugins';
 
 /**
  * @slot popover-trigger - The target element to attach the triggers to
@@ -54,6 +55,24 @@ export class Popover implements ComponentInterface {
 
   @Watch('for')
   forChanged() {
+    this.create();
+  }
+
+  /**
+   * If true, hides the popper on blur.
+   */
+   @Prop() hideOnBlur?: boolean = false;
+   @Watch('hideOnBlur')
+   hideOnBlurChanged() {
+     this.create();
+   }
+
+  /**
+   * If true, hides the popper on esc.
+   */
+  @Prop() hideOnEsc?: boolean = false;
+  @Watch('hideOnEsc')
+  hideOnEscChanged() {
     this.create();
   }
 
@@ -155,6 +174,15 @@ export class Popover implements ComponentInterface {
 
     if (!this.target && this.for) {
       console.warn(`The element with the id '${this.for}' could not be found.`);
+    }
+
+
+    const plugins = [];
+    if (this.hideOnBlur) {
+      plugins.push(hideOnPopperBlur);
+    }
+    if (this.hideOnEsc) {
+      plugins.push(hideOnEsc);
     }
 
     const options: Partial<Props> = {

@@ -846,14 +846,14 @@ and emits with `false` when the target or the outside is clicked.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'interactive', 'placement', 'trigger', 'visible'],
+  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible'],
   methods: ['getTippyInstance']
 })
 @Component({
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'interactive', 'placement', 'trigger', 'visible']
+  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'hideOnBlur', 'hideOnEsc', 'interactive', 'placement', 'trigger', 'visible']
 })
 export class InoPopover {
   protected el: HTMLElement;
@@ -1209,64 +1209,64 @@ export class InoTabBar {
   }
 }
 
+import type { SortDirectionChangeDetails as IInoTableSortDirectionChangeDetails } from '@inovex.de/elements';
+export declare interface InoTable extends Components.InoTable {
+  /**
+   * Emits that the sort direction or column id has changed. 
+   */
+  sortChange: EventEmitter<CustomEvent<IInoTableSortDirectionChangeDetails>>;
 
-export declare interface InoTable extends Components.InoTable {}
+}
 
 @ProxyCmp({
-  defineCustomElementFn: undefined
+  defineCustomElementFn: undefined,
+  inputs: ['loading', 'noHover', 'sortColumnId', 'sortDirection', 'stickyHeader']
 })
 @Component({
   selector: 'ino-table',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['loading', 'noHover', 'sortColumnId', 'sortDirection', 'stickyHeader']
 })
 export class InoTable {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sortChange']);
   }
 }
 
+import type { SortDirectionChangeDetails as IInoTableHeaderCellSortDirectionChangeDetails } from '@inovex.de/elements';
+export declare interface InoTableHeaderCell extends Components.InoTableHeaderCell {
+  /**
+   * Emits that the sort direction has been changed. 
+   */
+  sortDirectionChange: EventEmitter<CustomEvent<IInoTableHeaderCellSortDirectionChangeDetails>>;
+  /**
+   * Emits that the search field focused (true) or blurred (false). 
+   */
+  searchFocusChange: EventEmitter<CustomEvent<boolean>>;
 
-export declare interface InoTableCell extends Components.InoTableCell {}
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['numeric']
+  inputs: ['autofocus', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart'],
+  methods: ['setSearchable', 'setFocus', 'setBlur']
 })
 @Component({
-  selector: 'ino-table-cell',
+  selector: 'ino-table-header-cell',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['numeric']
+  inputs: ['autofocus', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart']
 })
-export class InoTableCell {
+export class InoTableHeaderCell {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-  }
-}
-
-
-export declare interface InoTableRow extends Components.InoTableRow {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['headerRow', 'selected']
-})
-@Component({
-  selector: 'ino-table-row',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['headerRow', 'selected']
-})
-export class InoTableRow {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sortDirectionChange', 'searchFocusChange']);
   }
 }
 

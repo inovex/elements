@@ -49,8 +49,7 @@ export const DIRECTIVES = [
   d.InoTab,
   d.InoTabBar,
   d.InoTable,
-  d.InoTableCell,
-  d.InoTableRow,
+  d.InoTableHeaderCell,
   d.InoTextarea,
   d.InoTooltip
 ];

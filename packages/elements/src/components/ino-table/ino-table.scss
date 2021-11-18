@@ -1,20 +1,50 @@
 @use 'base/mdc-customize';
-@use '@material/data-table/data-table';
 @use 'base/theme';
+@use "@material/data-table/data-table";
+
+@use "./table-row";
+@use "./table-cell";
+
+@include data-table.core-styles;
+@include data-table.theme-baseline;
 
 ino-table {
-  @include data-table.core-styles;
-  @include data-table.theme-baseline;
+  /**
+    * @prop --ino-table-row-height: height of a table row
+  */
+
+  @include table-row.core-styles;
+  @include table-cell.core-styles;
+
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
 
   .ino-table__table {
-    display: table;
+    border-collapse: separate;
+    border-spacing: 0 table-cell.$vertical-spacing;
+  }
+  .mdc-data-table {
+    width: inherit;
+    border-width: 0;
+    max-height: inherit;
   }
 
-  .ino-table__header {
-    display: table-header-group;
+  // Progress Indicator
+  .mdc-data-table--in-progress .mdc-data-table__content {
+    filter: grayscale(1) opacity(0.4) blur(1px);
+  }
+  .mdc-data-table__scrim {
+    background: transparent;
   }
 
-  .ino-table__body {
-    display: table-row-group;
+  .mdc-data-table__progress-indicator {
+    height: 100%;
+  }
+  .mdc-data-table:not(.ino-table--no-header)
+    .mdc-data-table__progress-indicator {
+    top: 44px;
+    height: 2px;
+    --ino-progress-bar-height: 2px;
   }
 }
