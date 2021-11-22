@@ -1582,7 +1582,7 @@ declare namespace LocalJSX {
         /**
           * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: CustomEvent<string | null>) => void;
         /**
           * Value of the autocomplete
          */
