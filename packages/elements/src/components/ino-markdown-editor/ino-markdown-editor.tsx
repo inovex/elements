@@ -52,7 +52,6 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   private createEditor(): void {
-    console.log(this.editorRef);
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit],
@@ -73,39 +72,25 @@ export class MarkdownEditor implements ComponentInterface {
   private handleBtnClick = (action: Actions): void => {
     switch (action) {
       case Actions.BOLD:
-        this.action()
-          .toggleBold()
-          .run();
+        this.action().toggleBold().run();
         break;
       case Actions.ITALIC:
-        this.action()
-          .toggleItalic()
-          .run();
+        this.action().toggleItalic().run();
         break;
       case Actions.H1:
-        this.action()
-          .toggleHeading({ level: 1 })
-          .run();
+        this.action().toggleHeading({ level: 1 }).run();
         break;
       case Actions.H2:
-        this.action()
-          .toggleHeading({ level: 2 })
-          .run();
+        this.action().toggleHeading({ level: 2 }).run();
         break;
       case Actions.H3:
-        this.action()
-          .toggleHeading({ level: 3 })
-          .run();
+        this.action().toggleHeading({ level: 3 }).run();
         break;
       case Actions.STRIKE:
-        this.action()
-          .toggleStrike()
-          .run();
+        this.action().toggleStrike().run();
         break;
       case Actions.P:
-        this.action()
-          .setParagraph()
-          .run();
+        this.action().setParagraph().run();
         break;
       default:
         console.warn('case missing:', action);
@@ -128,8 +113,9 @@ export class MarkdownEditor implements ComponentInterface {
         </div>
         <div class="markdown-editor__content">
           <div
+            class="markdown-editor__content__container"
             style={{ backgroundColor: 'yellow' }}
-            ref={el => (this.editorRef = el)}
+            ref={(el) => (this.editorRef = el)}
           ></div>
         </div>
       </div>
