@@ -92,7 +92,7 @@ export class Autocomplete implements ComponentInterface {
    *
    * Contains one of the texts provided by the `<ino-options>`s.
    */
-  @Event() valueChange: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<string | null>;
 
   componentDidLoad(): void {
     this.setupInput();
