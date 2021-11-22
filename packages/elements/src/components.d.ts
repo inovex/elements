@@ -757,6 +757,8 @@ export namespace Components {
          */
         "text"?: string;
     }
+    interface InoMarkdownEditor {
+    }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
@@ -1373,6 +1375,12 @@ declare global {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
+    }
+    var HTMLInoMarkdownEditorElement: {
+        prototype: HTMLInoMarkdownEditorElement;
+        new (): HTMLInoMarkdownEditorElement;
+    };
     interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {
     }
     var HTMLInoMenuElement: {
@@ -1543,6 +1551,7 @@ declare global {
         "ino-list": HTMLInoListElement;
         "ino-list-divider": HTMLInoListDividerElement;
         "ino-list-item": HTMLInoListItemElement;
+        "ino-markdown-editor": HTMLInoMarkdownEditorElement;
         "ino-menu": HTMLInoMenuElement;
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
@@ -2357,6 +2366,8 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface InoMarkdownEditor {
+    }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
@@ -2888,6 +2899,7 @@ declare namespace LocalJSX {
         "ino-list": InoList;
         "ino-list-divider": InoListDivider;
         "ino-list-item": InoListItem;
+        "ino-markdown-editor": InoMarkdownEditor;
         "ino-menu": InoMenu;
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
@@ -2943,6 +2955,7 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;

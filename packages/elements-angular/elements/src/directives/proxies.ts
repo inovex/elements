@@ -552,6 +552,22 @@ Contains the element itself in `event.detail` */
 }
 
 
+export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {}
+
+@Component({
+  selector: 'ino-markdown-editor',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class InoMarkdownEditor {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface InoMenu extends Components.InoMenu {}
 @ProxyCmp({
   inputs: ['placement']

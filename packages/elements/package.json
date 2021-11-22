@@ -82,11 +82,14 @@
     "@material/textfield": "^8.0.0",
     "@material/typography": "^8.0.0",
     "@stencil/core": "2.4.0",
+    "@tiptap/core": "^2.0.0-beta.141",
+    "@tiptap/starter-kit": "^2.0.0-beta.143",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",
     "date-fns": "^2.16.1",
     "flatpickr": "^4.4.6",
+    "prosemirror-markdown": "^1.6.0",
     "tippy.js": "^6.2.3"
   },
   "devDependencies": {
@@ -95,6 +98,7 @@
     "@types/classnames": "^2.2.6",
     "@types/css-font-loading-module": "^0.0.6",
     "@types/jest": "26.0.14",
+    "@types/prosemirror-markdown": "^1.5.4",
     "@types/puppeteer": "^3.0.2",
     "@types/resize-observer-browser": "^0.1.4",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
