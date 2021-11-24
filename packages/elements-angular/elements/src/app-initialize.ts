@@ -1,15 +1,18 @@
-import { NgZone } from '@angular/core';
+import { NgZone, InjectionToken } from '@angular/core';
 import {
   applyPolyfills,
   defineCustomElements,
 } from '@inovex.de/elements/dist/loader';
 import { raf } from './utils';
+import { InoElementsWindow, InoElementsConfig } from '@inovex.de/elements';
 
 let didInitialize = false;
 
-export const appInitialize = (doc: Document, zone: NgZone) => {
+export const ConfigToken = new InjectionToken<InoElementsConfig>('INOVEX_ELEMENTS_CONFIG');
+
+export const appInitialize = (config: InoElementsConfig,  doc: Document, zone: NgZone) => {
   return (): any => {
-    const win: Window | undefined = doc.defaultView as any;
+    const win: InoElementsWindow | undefined = doc.defaultView as any;
     if (win && typeof (window as any) !== 'undefined') {
       if (didInitialize) {
         return;
@@ -20,6 +23,10 @@ export const appInitialize = (doc: Document, zone: NgZone) => {
         '__zone_symbol__addEventListener' in (doc.body as any)
           ? '__zone_symbol__addEventListener'
           : 'addEventListener';
+
+
+      win.inoElements = win.inoElements || {};
+      win.inoElements.config = config;
 
       /* eslint-disable prefer-arrow/prefer-arrow-functions */
       return applyPolyfills().then(() => {

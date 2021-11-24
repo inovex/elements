@@ -1,0 +1,21 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title={`Docs/Global Configuration`} />
+
+## Global Configuration
+The global configuration provides a way to change the configuration of all components. For more information about the integration
+in frameworks, see the "Framework Integration" sections.
+
+**Note:**  As of now, the global configuration has only been documented and tested for Angular.
+
+
+### Config during runtime
+In order to access the global configuration, you can import a config object with the `import { inoElementsConfig } from '@inovex.de/elements'` and use the methods
+* `inoElementsConfig.get(key)` to access a key.
+* `inoElementsConfig.patch(key, value)` in order to patch a config during runtime.
+
+### Options
+The following options are currently available:
+
+| Property                 | Description                                                                                                                                          | Type                                                                                             |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
