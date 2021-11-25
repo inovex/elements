@@ -197,9 +197,9 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private setupInput = (): void => {
-    const inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
+    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
 
-    if (!inputEl) {
+    if (!this.inputEl) {
       throw new Error(
         `The slot "input" is empty. Please provide an <ino-input> element to that slot.`
       );
@@ -220,7 +220,8 @@ export class Autocomplete implements ComponentInterface {
       '--input-width',
       window.getComputedStyle(this.inputEl).width
     );
-    this.setOptionByValue(this.value);
+
+    this.inputChanged(this.value);
   };
 
   private onInoInputFocus = (): void => {
