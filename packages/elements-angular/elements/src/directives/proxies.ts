@@ -551,19 +551,28 @@ Contains the element itself in `event.detail` */
   }
 }
 
-
+import { MarkdownEditor as IMarkdownEditor } from '@inovex.de/elements/dist/types/components/ino-markdown-editor/ino-markdown-editor';
 export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {}
-
+@ProxyCmp({
+  inputs: ['value', 'viewMode']
+})
 @Component({
   selector: 'ino-markdown-editor',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['value', 'viewMode'],
+  outputs: ['viewModeChange', 'valueChange']
 })
 export class InoMarkdownEditor {
+  /**  */
+  viewModeChange!: IMarkdownEditor['viewModeChange'];
+  /**  */
+  valueChange!: IMarkdownEditor['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['viewModeChange', 'valueChange']);
   }
 }
 

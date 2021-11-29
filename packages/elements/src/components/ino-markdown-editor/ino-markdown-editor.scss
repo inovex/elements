@@ -1,11 +1,20 @@
 ino-markdown-editor {
   .markdown-editor__content {
     width: 500px;
-    height: 500px;
+    height: 200px;
     background-color: hotpink;
   }
 
   .markdown-editor__content__container {
-    background-color: green;
+    height: 100%;
+    width: 100%;
+  }
+
+  .show-editor {
+    display: block;
+  }
+
+  .hide-editor {
+    display: none;
   }
 }

@@ -3041,9 +3041,46 @@
       "name": "ino-markdown-editor",
       "path": "./src/components/ino-markdown-editor/ino-markdown-editor.tsx",
       "description": "",
-      "attributes": [],
-      "properties": [],
-      "events": [],
+      "attributes": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "view-mode",
+          "type": "ViewMode.MARKDOWN | ViewMode.PREVIEW",
+          "description": "",
+          "defaultValue": "ViewMode.PREVIEW",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "required": false
+        },
+        {
+          "name": "viewMode",
+          "type": "ViewMode.MARKDOWN | ViewMode.PREVIEW",
+          "description": "",
+          "defaultValue": "ViewMode.PREVIEW",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "valueChange",
+          "description": ""
+        },
+        {
+          "name": "viewModeChange",
+          "description": ""
+        }
+      ],
       "methods": [],
       "slots": [],
       "cssProperties": [],

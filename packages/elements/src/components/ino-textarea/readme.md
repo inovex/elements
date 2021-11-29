@@ -172,6 +172,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [ino-markdown-editor](../ino-markdown-editor)
+
 ### Depends on
 
 - [ino-label](../ino-label)
@@ -180,6 +184,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ino-textarea --> ino-label
+  ino-markdown-editor --> ino-textarea
   style ino-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

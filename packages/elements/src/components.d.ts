@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewMode } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -758,6 +758,8 @@ export namespace Components {
         "text"?: string;
     }
     interface InoMarkdownEditor {
+        "value": string;
+        "viewMode": ViewMode;
     }
     interface InoMenu {
         /**
@@ -2367,6 +2369,10 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface InoMarkdownEditor {
+        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onViewModeChange"?: (event: CustomEvent<ViewMode>) => void;
+        "value"?: string;
+        "viewMode"?: ViewMode;
     }
     interface InoMenu {
         /**

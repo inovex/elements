@@ -1,10 +1,20 @@
-import { Component, ComponentInterface, h } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  h,
+  Prop,
+  Watch,
+} from '@stencil/core';
 import { ChainedCommands, Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
+import classNames from 'classnames';
 import {
-  defaultMarkdownSerializer,
   defaultMarkdownParser,
+  defaultMarkdownSerializer,
 } from 'prosemirror-markdown';
+import { ViewMode } from '../types';
 
 enum Actions {
   ITALIC,
@@ -23,49 +33,62 @@ enum Actions {
 })
 export class MarkdownEditor implements ComponentInterface {
   private editorRef!: HTMLDivElement;
+  private textareaRef: HTMLInoTextareaElement;
 
   public editor!: Editor;
   public isPlainText = false;
-  public plainTextValue = '';
+
+  @Prop() value: string;
+
+  @Prop() viewMode: ViewMode = ViewMode.PREVIEW;
+
+  @Event() viewModeChange: EventEmitter<ViewMode>;
+
+  @Event() valueChange: EventEmitter<string>;
+
+  @Watch('viewMode')
+  handleViewModeChange(newViewMode: ViewMode) {
+    if (newViewMode === ViewMode.MARKDOWN) {
+      this.textareaRef.value = this.htmlToMarkdown();
+    }
+  }
+
+  private onTextareaChange = (e: CustomEvent<string>) => {
+    e.stopPropagation();
+    console.log(e.detail);
+    this.editor.commands.setContent(this.markdownToHtml(e.detail));
+    this.textareaRef.value = e.detail;
+  };
 
   componentDidLoad(): void {
     this.createEditor();
+    this.editor.commands.setContent(this.markdownToHtml(), true);
+    this.textareaRef.value = this.htmlToMarkdown();
+    this.textareaRef.addEventListener('valueChange', this.onTextareaChange);
   }
 
   disconnectedCallback(): void {
     this.editor.destroy();
+    this.textareaRef.removeEventListener('valueChange', this.onTextareaChange);
   }
 
   action = (): ChainedCommands => this.editor.chain().focus();
-
-  updatePlainText(event: Event): void {
-    this.plainTextValue = (event as CustomEvent<string>).detail;
-  }
-
-  toggleViewMode(): void {
-    this.isPlainText = !this.isPlainText;
-    if (this.isPlainText) {
-      this.plainTextValue = this.serializeContent();
-    } else {
-      this.editor.commands.setContent(this.deserializeContent());
-    }
-  }
 
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit],
+      onBlur: () => this.valueChange.emit(this.htmlToMarkdown()),
     });
   }
 
-  /* eslint-disable */
-  private serializeContent(): string {
+  private htmlToMarkdown(): string {
     const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
     return defaultMarkdownSerializer.serialize(doc);
   }
 
-  private deserializeContent(): any {
-    const state = defaultMarkdownParser.parse(this.plainTextValue);
+  private markdownToHtml(md: string = this.value): any {
+    const state = defaultMarkdownParser.parse(md);
     return state.toJSON();
   }
 
@@ -98,25 +121,63 @@ export class MarkdownEditor implements ComponentInterface {
   };
 
   render() {
+    const previewEditorClasses = classNames([
+      'markdown-editor__content__container',
+      this.viewMode === ViewMode.PREVIEW ? 'show-editor' : 'hide-editor',
+    ]);
+
+    const markdownEditorClasses = classNames([
+      this.viewMode === ViewMode.MARKDOWN ? 'show-editor' : 'hide-editor',
+    ]);
+
     return (
       <div class="markdown-editor grid-3x1 gap-y-3">
         <div class="markdown-editor__toolbar flex--row gap-x-2">
+          <ino-segment-group value={this.viewMode}>
+            <ino-segment-button
+              value={ViewMode.PREVIEW}
+              onClick={() => this.viewModeChange.emit(ViewMode.PREVIEW)}
+            >
+              Preview
+            </ino-segment-button>
+            <ino-segment-button
+              value={ViewMode.MARKDOWN}
+              onClick={() => this.viewModeChange.emit(ViewMode.MARKDOWN)}
+            >
+              Markdown
+            </ino-segment-button>
+          </ino-segment-group>
           <ino-button dense onClick={() => this.handleBtnClick(Actions.BOLD)}>
             bold
           </ino-button>
-          <ino-button dense>italic</ino-button>
-          <ino-button dense>strike</ino-button>
-          <ino-button dense>paragraph</ino-button>
-          <ino-button dense>h1</ino-button>
-          <ino-button dense>h2</ino-button>
-          <ino-button dense>h3</ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.ITALIC)}>
+            italic
+          </ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.STRIKE)}>
+            strike
+          </ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.P)}>
+            paragraph
+          </ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.H1)}>
+            h1
+          </ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.H2)}>
+            h2
+          </ino-button>
+          <ino-button dense onClick={() => this.handleBtnClick(Actions.H3)}>
+            h3
+          </ino-button>
         </div>
         <div class="markdown-editor__content">
           <div
-            class="markdown-editor__content__container"
-            style={{ backgroundColor: 'yellow' }}
+            class={previewEditorClasses}
             ref={(el) => (this.editorRef = el)}
-          ></div>
+          />
+          <ino-textarea
+            ref={(el) => (this.textareaRef = el)}
+            class={markdownEditorClasses}
+          />
         </div>
       </div>
     );

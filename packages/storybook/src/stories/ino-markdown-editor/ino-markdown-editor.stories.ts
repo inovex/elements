@@ -5,6 +5,8 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-markdown-editor.scss';
 
+const ID = 'editor-playground';
+
 export default {
   title: 'Input/ino-markdown-editor',
   component: 'ino-markdown-editor',
@@ -13,9 +15,43 @@ export default {
       handles: [],
     },
   },
-  decorators: [story => decorateStoryWithClass(story, 'story-markdown-editor')],
+  decorators: [
+    (story) => decorateStoryWithClass(story, 'story-markdown-editor'),
+    (story) => {
+      useEffect(() => {
+        const eventHandler = (e: CustomEvent<string>) => {
+          console.log(e.detail);
+        };
+
+        const viewModeChangeHandler = (e: CustomEvent<string>) => {
+          const editor = document.getElementById(
+            ID
+          ) as HTMLInoMarkdownEditorElement;
+          editor.viewMode = e.detail as any;
+        };
+
+        document.addEventListener('valueChange', eventHandler);
+        document.addEventListener('viewModeChange', viewModeChangeHandler);
+
+        return () => {
+          document.removeEventListener('valueChange', eventHandler);
+          document.removeEventListener('viewModeChange', viewModeChangeHandler);
+        };
+      });
+      return story();
+    },
+  ],
 } as Meta;
 
-export const Playground: Story<Components.InoMarkdownEditor> = args => html`
-  <ino-markdown-editor> </ino-markdown-editor>
+export const Playground: Story<Components.InoMarkdownEditor> = (args) => html`
+  <ino-markdown-editor
+    id="${ID}"
+    value="${args.value}"
+    view-mode="${args.viewMode}"
+  ></ino-markdown-editor>
 `;
+
+Playground.args = {
+  value: '',
+  viewMode: 'preview' as any,
+};
