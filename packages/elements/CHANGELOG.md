@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/inovex/elements/compare/v5.0.0...v5.1.0) (2021-11-30)
+
+
+### Features
+
+* **elements:** add focus and blur methods to input elements ([#306](https://github.com/inovex/elements/issues/306)) ([c2de9a0](https://github.com/inovex/elements/commit/c2de9a0c50eae893edee7ea4fd9f6cd829cdf869))
+* **elements|ino-autocomplete:** provide keyboard support to open menu ([#449](https://github.com/inovex/elements/issues/449)) ([ec0139f](https://github.com/inovex/elements/commit/ec0139f10165d6d1a5b6b8a62dc8884b81fcbf2d))
+* **elements|ino-icon:** add icon `request` ([#447](https://github.com/inovex/elements/issues/447)) ([8419cb3](https://github.com/inovex/elements/commit/8419cb3f07f764a29baa4ff3f06267f5e220543d))
+
+
+### Bug Fixes
+
+* **elements|ino-autocomplete:** fix option selection in filtered list ([#444](https://github.com/inovex/elements/issues/444)) ([02ab09e](https://github.com/inovex/elements/commit/02ab09e83e51545fea14114c1ea62cccb4c319e4))
+* **elements|ino-autocomplete:** set value on initialization ([#461](https://github.com/inovex/elements/issues/461)) ([0bfce6d](https://github.com/inovex/elements/commit/0bfce6d4fdfcb569cd1af1181f4f45662889c0bb))
+
+
+### Miscellaneous
+
+* add linux support for `publish:yalc` ([#448](https://github.com/inovex/elements/issues/448)) ([0a12f8c](https://github.com/inovex/elements/commit/0a12f8c9979e7dc0f85e0656ef19d27508e5e57c))
+* update readmes ([#445](https://github.com/inovex/elements/issues/445)) ([2784a2c](https://github.com/inovex/elements/commit/2784a2c51a94369dd2229bbe619e8d04b4422179))
+
 ## [5.0.0](https://github.com/inovex/elements/compare/v4.1.1...v5.0.0) (2021-10-18)
 
 
