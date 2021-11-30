@@ -221,7 +221,7 @@ export class Autocomplete implements ComponentInterface {
       window.getComputedStyle(this.inputEl).width
     );
 
-    this.inputChanged(this.value);
+    this.setOptionByValue(this.value);
   };
 
   private onInoInputFocus = (): void => {
