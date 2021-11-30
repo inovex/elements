@@ -12,11 +12,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import {
-  getSlotContent,
-  hasSlotContent,
-  moveCursorToEnd,
-} from '../../util/component-utils';
+import { getSlotContent, moveCursorToEnd } from '../../util/component-utils';
 import { Debouncer } from '../../util/debouncer';
 
 const NO_OPTION_SELECTED = -1;
@@ -51,6 +47,7 @@ export class Autocomplete implements ComponentInterface {
       this.selectedOption.selected = true;
     }
   }
+
   private get selectedOptionIndex(): number {
     return this._selectedOptionIndex;
   }
@@ -200,13 +197,13 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private setupInput = (): void => {
-    if (!hasSlotContent(this.el, 'input')) {
+    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
+
+    if (!this.inputEl) {
       throw new Error(
-        'The slot "input" is empty. Please provide an ino-input element to that slot.'
+        `The slot "input" is empty. Please provide an <ino-input> element to that slot.`
       );
     }
-
-    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
 
     if (this.inputEl.value) {
       console.warn(
@@ -223,6 +220,8 @@ export class Autocomplete implements ComponentInterface {
       '--input-width',
       window.getComputedStyle(this.inputEl).width
     );
+
+    this.setOptionByValue(this.value);
   };
 
   private onInoInputFocus = (): void => {
