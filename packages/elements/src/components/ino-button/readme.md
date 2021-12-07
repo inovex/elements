@@ -139,7 +139,6 @@ class MyComponent extends Component {
 ### Used by
 
  - [ino-input-file](../ino-input-file)
- - [ino-markdown-editor](../ino-markdown-editor)
 
 ### Depends on
 
@@ -150,7 +149,6 @@ class MyComponent extends Component {
 graph TD;
   ino-button --> ino-spinner
   ino-input-file --> ino-button
-  ino-markdown-editor --> ino-button
   style ino-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

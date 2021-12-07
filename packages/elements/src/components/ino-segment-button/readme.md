@@ -77,19 +77,6 @@ class MyComponent extends Component {
 | `--ino-segment-button-hover-shadow`   | Color and shape of the shadow on hover   |
 
 
-## Dependencies
-
-### Used by
-
- - [ino-markdown-editor](../ino-markdown-editor)
-
-### Graph
-```mermaid
-graph TD;
-  ino-markdown-editor --> ino-segment-button
-  style ino-segment-button fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

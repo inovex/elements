@@ -25,19 +25,14 @@
 
 ### Depends on
 
-- [ino-segment-group](../ino-segment-group)
-- [ino-segment-button](../ino-segment-button)
-- [ino-button](../ino-button)
+- [ino-icon](../ino-icon)
 - [ino-textarea](../ino-textarea)
 
 ### Graph
 ```mermaid
 graph TD;
-  ino-markdown-editor --> ino-segment-group
-  ino-markdown-editor --> ino-segment-button
-  ino-markdown-editor --> ino-button
+  ino-markdown-editor --> ino-icon
   ino-markdown-editor --> ino-textarea
-  ino-button --> ino-spinner
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px
 ```

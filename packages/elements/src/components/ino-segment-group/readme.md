@@ -92,19 +92,6 @@ to the value of the button that emitted the event.
 | `"default"` | One or more `ino-segment-button` |
 
 
-## Dependencies
-
-### Used by
-
- - [ino-markdown-editor](../ino-markdown-editor)
-
-### Graph
-```mermaid
-graph TD;
-  ino-markdown-editor --> ino-segment-group
-  style ino-segment-group fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
