@@ -3,6 +3,10 @@ $toolbar-action-button-size: 35px;
 $border-radius: 10px;
 
 ino-markdown-editor {
+  .markdown-editor {
+    border-radius: $border-radius;
+  }
+
   .markdown-editor__toolbar {
     display: flex;
     flex-direction: row;
@@ -63,11 +67,16 @@ ino-markdown-editor {
   }
 
   .markdown-editor__content {
-    width: 500px;
-    height: 200px;
-    background-color: hotpink;
-    border-radius: $border-radius;
-    padding: 10px 15px;
+    padding: 10px 0;
+
+    ino-textarea {
+      width: 100%;
+      height: 100%;
+
+      .mdc-text-field--textarea {
+        display: flex;
+      }
+    }
   }
 
   .markdown-editor__content__container {
@@ -81,5 +90,12 @@ ino-markdown-editor {
 
   .hide-editor {
     display: none;
+  }
+
+  .ProseMirror {
+    margin: 0 15px;
+    &-focused {
+      outline: none;
+    }
   }
 }

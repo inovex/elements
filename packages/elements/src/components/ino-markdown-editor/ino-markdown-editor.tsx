@@ -55,6 +55,7 @@ export class MarkdownEditor implements ComponentInterface {
   handleViewModeChange(newViewMode: ViewMode) {
     if (newViewMode === ViewMode.MARKDOWN) {
       this.textareaRef.value = this.htmlToMarkdown();
+      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     }
   }
 
@@ -285,6 +286,8 @@ export class MarkdownEditor implements ComponentInterface {
           <ino-textarea
             ref={(el) => (this.textareaRef = el)}
             class={markdownEditorClasses}
+            cols={100}
+            autogrow
           />
         </div>
       </div>
