@@ -9,12 +9,10 @@ import {
 } from '@stencil/core';
 import { ChainedCommands, Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
+// import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
-import {
-  defaultMarkdownParser,
-  defaultMarkdownSerializer,
-} from 'prosemirror-markdown';
 import { ViewMode } from '../types';
+import markdownSerializer from './markdown-serializer';
 
 enum Actions {
   ITALIC,
@@ -23,12 +21,11 @@ enum Actions {
   H2,
   H3,
   STRIKE,
-  P,
   OL,
   UL,
   LINK,
   CODE,
-  QUOTE,
+  BLOCKQUOTE,
 }
 
 @Component({
@@ -61,7 +58,6 @@ export class MarkdownEditor implements ComponentInterface {
 
   private onTextareaChange = (e: CustomEvent<string>) => {
     e.stopPropagation();
-    console.log(e.detail);
     this.editor.commands.setContent(this.markdownToHtml(e.detail));
     this.textareaRef.value = e.detail;
   };
@@ -90,36 +86,45 @@ export class MarkdownEditor implements ComponentInterface {
 
   private htmlToMarkdown(): string {
     const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
-    return defaultMarkdownSerializer.serialize(doc);
+    return markdownSerializer.serialize(doc);
   }
 
   private markdownToHtml(md: string = this.value): any {
-    const state = defaultMarkdownParser.parse(md);
+    const state = markdownSerializer.parse(md);
     return state.toJSON();
   }
 
   private handleBtnClick = (action: Actions): void => {
     switch (action) {
-      case Actions.BOLD:
-        this.action().toggleBold().run();
-        break;
-      case Actions.ITALIC:
-        this.action().toggleItalic().run();
-        break;
       case Actions.H1:
         this.action().toggleHeading({ level: 1 }).run();
         break;
       case Actions.H2:
         this.action().toggleHeading({ level: 2 }).run();
         break;
-      case Actions.H3:
-        this.action().toggleHeading({ level: 3 }).run();
+      case Actions.BOLD:
+        this.action().toggleBold().run();
+        break;
+      case Actions.ITALIC:
+        this.action().toggleItalic().run();
         break;
       case Actions.STRIKE:
         this.action().toggleStrike().run();
         break;
-      case Actions.P:
-        this.action().setParagraph().run();
+      case Actions.LINK:
+        //this.action().toggleLink().run();
+        break;
+      case Actions.OL:
+        this.action().toggleOrderedList().run();
+        break;
+      case Actions.UL:
+        this.action().toggleBulletList().run();
+        break;
+      case Actions.BLOCKQUOTE:
+        this.action().toggleBlockquote().run();
+        break;
+      case Actions.CODE:
+        this.action().toggleCode().run();
         break;
       default:
         console.warn('case missing:', action);
@@ -138,20 +143,27 @@ export class MarkdownEditor implements ComponentInterface {
 
   private isActive(action: string): boolean {
     switch (action) {
-      case Actions.BOLD.toString():
-        return this.editor.isActive('bold');
-      case Actions.ITALIC.toString():
-        return this.editor.isActive('italic');
       case Actions.H1.toString():
         return this.editor.isActive('heading', { level: 1 });
       case Actions.H2.toString():
         return this.editor.isActive('heading', { level: 2 });
-      case Actions.H3.toString():
-        return this.editor.isActive('heading', { level: 3 });
+      case Actions.BOLD.toString():
+        return this.editor.isActive('bold');
+      case Actions.ITALIC.toString():
+        return this.editor.isActive('italic');
       case Actions.STRIKE.toString():
         return this.editor.isActive('strike');
-      case Actions.P.toString():
-        return this.editor.isActive('paragraph');
+      case Actions.LINK.toString():
+        //this.action().toggleLink().run();
+        break;
+      case Actions.OL.toString():
+        return this.editor.isActive('orderedList');
+      case Actions.UL.toString():
+        return this.editor.isActive('bulletList');
+      case Actions.BLOCKQUOTE.toString():
+        return this.editor.isActive('blockquote');
+      case Actions.CODE.toString():
+        return this.editor.isActive('code');
       default:
         console.warn('case missing:', action);
     }
@@ -229,13 +241,6 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class="toolbar__action-button"
-              data-action={Actions.P}
-              onClick={() => this.handleBtnClick(Actions.P)}
-            >
-              <ins>U</ins>
-            </button>
-            <button
-              class="toolbar__action-button"
               data-action={Actions.STRIKE}
               onClick={() => this.handleBtnClick(Actions.STRIKE)}
             >
@@ -264,8 +269,8 @@ export class MarkdownEditor implements ComponentInterface {
             </button>
             <button
               class="toolbar__action-button"
-              data-action={Actions.QUOTE}
-              onClick={() => this.handleBtnClick(Actions.QUOTE)}
+              data-action={Actions.BLOCKQUOTE}
+              onClick={() => this.handleBtnClick(Actions.BLOCKQUOTE)}
             >
               <ino-icon icon="message" />
             </button>
