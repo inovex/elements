@@ -55,14 +55,19 @@ export default {
     }
   },
   created () {
-    const versionsUrl = window.location.origin + window.location.pathname
+    const baseUrl = window.location.origin + window.location.pathname
+    const versionsUrl = baseUrl + 'version/';
 
-    fetch(`${versionsUrl}hosted-versions.json`)
+    fetch(`${baseUrl}hosted-versions.json`)
       .then(d => d.json())
       .then(availableVersions => {
         this.versions = availableVersions
           .sort((a, b) => b.localeCompare(a, undefined, { numeric: true, sensitivity: 'base' }))
           .map(v => ({ url: versionsUrl + v, name: v }))
+
+        if(this.versions.length > 0) {
+          this.selectedVersionURL = this.versions[0]['url']
+        }
       })
   }
 }

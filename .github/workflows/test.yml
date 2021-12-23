@@ -33,12 +33,7 @@ jobs:
     - uses: ./.github/workflows/install
     - run: yarn build
 
-    ## Build chaches for subsequent workflows trigger after
-    ## succesfull build.
-    #
-    #  -> elements => master (canary release)
-    #  -> elements-angular => master (canary release)
-    #  -> elements-react => master (canary release)
+    # Build caches for release-canary workflow
 
     - if: github.ref == 'refs/heads/master'
       name: upload elements artifact
