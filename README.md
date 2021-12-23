@@ -102,7 +102,7 @@ The landingpage, versions and unicorns a hosted on github pages using the `gh-pa
 * Always destroy unicorns after closing a PR.
 * Manually delete older versions on gh-pages branch that are not used / supported anymore.
 
-**Git improvements:** Due to the size of `gh-pages`, you can execute `git config --add remote.origin.fetch '^refs/heads/gh-pages'` (since git 2.29) to ignore the branch from being fetched locally.
+**Git Notes:** Due to the size of `gh-pages`, you can execute `git config --add remote.origin.fetch '^refs/heads/gh-pages'` (since git 2.29) to ignore the branch from being fetched locally. If you need to access the `gh-pages` locally for whatever reason, perform `git clone --branch gh-pages --single-branch git@github.com:inovex/elements.git <dir-name>` to clone the gh-pages branch to a separate directory.
 
 
 ## License
