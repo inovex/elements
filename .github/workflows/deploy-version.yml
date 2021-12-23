@@ -68,5 +68,6 @@ jobs:
         with:
           branch: gh-pages
           commit-message: Deploying version ${{ env.GITHUB_REF_NAME_SLUG }} 🚀
+          folder: '.'
           clean: false # Important to keep other versions.
 
