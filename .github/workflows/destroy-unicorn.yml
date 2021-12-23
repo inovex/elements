@@ -19,4 +19,4 @@ jobs:
         with:
           branch: gh-pages
           message: "Deleting unicorn ${{ env.GITHUB_REF_NAME_SLUG }}"
-          remove: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
+          remove: -r unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
