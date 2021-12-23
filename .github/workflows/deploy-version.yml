@@ -56,18 +56,17 @@ jobs:
         name: Download Storybook Artifact
         with:
           name: storybook
-          path: artifact/version/${{ env.GITHUB_REF_NAME_SLUG }} # Target folder on gh-pages branch.
+          path: version/${{ env.GITHUB_REF_NAME_SLUG }} # Push to the proper directory on gh pages branch.
 
       # Crawls the version dir on current gh-pages branch HEAD.
       # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
-      - run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./artifact/hosted-versions.json
+      - run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
         name: Update Hosted Versions
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages
-          folder: ./artifact
           commit-message: Deploying version ${{ env.GITHUB_REF_NAME_SLUG }} 🚀
           clean: false # Important to keep other versions.
 
