@@ -62,5 +62,5 @@ jobs:
           branch: gh-pages
           folder: ./artifact
           target-folder: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
-          commit-message: Deploying to ${{ env.DEPLOYMENT_PATH }}
+          commit-message: Deploying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
 
