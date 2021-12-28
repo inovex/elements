@@ -1,3 +1,7 @@
+/**
+  @prop --ino-markdown-editor-min-height: min-height of text editor
+*/
+
 $font-size: 22px;
 $toolbar-action-button-size: 35px;
 $border-radius: 10px;
@@ -14,6 +18,7 @@ ino-markdown-editor {
     border-radius: $border-radius;
     background-color: #f9f9fa;
     padding: 10px 20px;
+    margin-bottom: 10px;
   }
 
   .toolbar__action-button {
@@ -66,9 +71,12 @@ ino-markdown-editor {
     }
   }
 
-  .markdown-editor__content {
-    padding: 10px 0;
+  .markdown-editor__content__container {
+    height: 100%;
+    width: 100%;
+  }
 
+  .markdown-editor__content {
     ino-textarea {
       width: 100%;
       height: 100%;
@@ -76,12 +84,20 @@ ino-markdown-editor {
       .mdc-text-field--textarea {
         display: flex;
       }
+
+      .mdc-text-field__input {
+        min-height: var(--ino-markdown-editor-min-height, 100px);
+      }
     }
   }
 
-  .markdown-editor__content__container {
-    height: 100%;
-    width: 100%;
+  .preview-toolbar {
+    &--show {
+      display: block;
+    }
+    &--hide {
+      display: none;
+    }
   }
 
   .show-editor {
@@ -93,9 +109,21 @@ ino-markdown-editor {
   }
 
   .ProseMirror {
-    margin: 0 15px;
+    min-height: var(--ino-markdown-editor-min-height, 100px);
+    padding: 16px;
+
     &-focused {
       outline: none;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    code {
+      border: 1px solid rgba(0, 0, 0, 0.65);
+      border-radius: 4px;
+      padding: 4px 6px;
     }
   }
 }

@@ -5,28 +5,20 @@ import {
   EventEmitter,
   h,
   Prop,
+  State,
   Watch,
 } from '@stencil/core';
-import { ChainedCommands, Editor } from '@tiptap/core';
+import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 // import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
 import { ViewMode } from '../types';
 import markdownSerializer from './markdown-serializer';
-
-enum Actions {
-  ITALIC,
-  BOLD,
-  H1,
-  H2,
-  H3,
-  STRIKE,
-  OL,
-  UL,
-  LINK,
-  CODE,
-  BLOCKQUOTE,
-}
+import {
+  Actions,
+  handleToolbarBtnClick,
+  isToolbarBtnActive,
+} from './editor-toolbar-helper';
 
 @Component({
   tag: 'ino-markdown-editor',
@@ -44,6 +36,8 @@ export class MarkdownEditor implements ComponentInterface {
 
   @Prop() viewMode: ViewMode = ViewMode.PREVIEW;
 
+  @State() stateChanged: boolean;
+
   @Event() viewModeChange: EventEmitter<ViewMode>;
 
   @Event() valueChange: EventEmitter<string>;
@@ -55,12 +49,6 @@ export class MarkdownEditor implements ComponentInterface {
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     }
   }
-
-  private onTextareaChange = (e: CustomEvent<string>) => {
-    e.stopPropagation();
-    this.editor.commands.setContent(this.markdownToHtml(e.detail));
-    this.textareaRef.value = e.detail;
-  };
 
   componentDidLoad(): void {
     this.createEditor();
@@ -74,15 +62,20 @@ export class MarkdownEditor implements ComponentInterface {
     this.textareaRef.removeEventListener('valueChange', this.onTextareaChange);
   }
 
-  action = (): ChainedCommands => this.editor.chain().focus();
-
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit],
       onBlur: () => this.valueChange.emit(this.htmlToMarkdown()),
+      onTransaction: () => (this.stateChanged = !this.stateChanged),
     });
   }
+
+  private onTextareaChange = (e: CustomEvent<string>) => {
+    e.stopPropagation();
+    this.editor.commands.setContent(this.markdownToHtml(e.detail));
+    this.textareaRef.value = e.detail;
+  };
 
   private htmlToMarkdown(): string {
     const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
@@ -94,79 +87,12 @@ export class MarkdownEditor implements ComponentInterface {
     return state.toJSON();
   }
 
-  private handleBtnClick = (action: Actions): void => {
-    switch (action) {
-      case Actions.H1:
-        this.action().toggleHeading({ level: 1 }).run();
-        break;
-      case Actions.H2:
-        this.action().toggleHeading({ level: 2 }).run();
-        break;
-      case Actions.BOLD:
-        this.action().toggleBold().run();
-        break;
-      case Actions.ITALIC:
-        this.action().toggleItalic().run();
-        break;
-      case Actions.STRIKE:
-        this.action().toggleStrike().run();
-        break;
-      case Actions.LINK:
-        //this.action().toggleLink().run();
-        break;
-      case Actions.OL:
-        this.action().toggleOrderedList().run();
-        break;
-      case Actions.UL:
-        this.action().toggleBulletList().run();
-        break;
-      case Actions.BLOCKQUOTE:
-        this.action().toggleBlockquote().run();
-        break;
-      case Actions.CODE:
-        this.action().toggleCode().run();
-        break;
-      default:
-        console.warn('case missing:', action);
-    }
+  private isBtnActive(action: Actions): boolean {
+    return isToolbarBtnActive(this.editor, action);
+  }
 
-    Array.from(
-      document.getElementsByClassName('toolbar__action-button')
-    ).forEach((el: HTMLElement) => {
-      const { action } = el.dataset;
-      el.classList.remove('toolbar__action-button--active');
-      if (this.isActive(action)) {
-        el.classList.add('toolbar__action-button--active');
-      }
-    });
-  };
-
-  private isActive(action: string): boolean {
-    switch (action) {
-      case Actions.H1.toString():
-        return this.editor.isActive('heading', { level: 1 });
-      case Actions.H2.toString():
-        return this.editor.isActive('heading', { level: 2 });
-      case Actions.BOLD.toString():
-        return this.editor.isActive('bold');
-      case Actions.ITALIC.toString():
-        return this.editor.isActive('italic');
-      case Actions.STRIKE.toString():
-        return this.editor.isActive('strike');
-      case Actions.LINK.toString():
-        //this.action().toggleLink().run();
-        break;
-      case Actions.OL.toString():
-        return this.editor.isActive('orderedList');
-      case Actions.UL.toString():
-        return this.editor.isActive('bulletList');
-      case Actions.BLOCKQUOTE.toString():
-        return this.editor.isActive('blockquote');
-      case Actions.CODE.toString():
-        return this.editor.isActive('code');
-      default:
-        console.warn('case missing:', action);
-    }
+  private handleBtnClick(action: Actions): void {
+    handleToolbarBtnClick(this.editor, action);
   }
 
   render() {
@@ -193,6 +119,12 @@ export class MarkdownEditor implements ComponentInterface {
         : '',
     ]);
 
+    const getToolbarActionBtnClass = (action: Actions) =>
+      classNames([
+        'toolbar__action-button',
+        this.isBtnActive(action) ? 'toolbar__action-button--active' : '',
+      ]);
+
     return (
       <div class="markdown-editor">
         <div class="markdown-editor__toolbar">
@@ -210,72 +142,78 @@ export class MarkdownEditor implements ComponentInterface {
               <ino-icon icon="web" />
             </button>
           </div>
-          <div>
+          <div
+            class={
+              this.viewMode === ViewMode.PREVIEW
+                ? 'preview-toolbar--show'
+                : 'preview-toolbar--hide'
+            }
+          >
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.H1)}
               data-action={Actions.H1}
               onClick={() => this.handleBtnClick(Actions.H1)}
             >
               <span class="action-button__headline">H1</span>
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.H2)}
               data-action={Actions.H2}
               onClick={() => this.handleBtnClick(Actions.H2)}
             >
               <span class="action-button__headline">H2</span>
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.BOLD)}
               data-action={Actions.BOLD}
               onClick={() => this.handleBtnClick(Actions.BOLD)}
             >
               B
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.ITALIC)}
               data-action={Actions.ITALIC}
               onClick={() => this.handleBtnClick(Actions.ITALIC)}
             >
               <i>I</i>
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.STRIKE)}
               data-action={Actions.STRIKE}
               onClick={() => this.handleBtnClick(Actions.STRIKE)}
             >
               <del>S</del>
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.LINK)}
               data-action={Actions.LINK}
               onClick={() => this.handleBtnClick(Actions.LINK)}
             >
               <ino-icon icon="request" />
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.UL)}
               data-action={Actions.UL}
               onClick={() => this.handleBtnClick(Actions.UL)}
             >
               <ino-icon icon="menu" />
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.OL)}
               data-action={Actions.OL}
               onClick={() => this.handleBtnClick(Actions.OL)}
             >
               <ino-icon icon="menu" />
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
               data-action={Actions.BLOCKQUOTE}
               onClick={() => this.handleBtnClick(Actions.BLOCKQUOTE)}
             >
               <ino-icon icon="message" />
             </button>
             <button
-              class="toolbar__action-button"
+              class={getToolbarActionBtnClass(Actions.CODE)}
               data-action={Actions.CODE}
               onClick={() => this.handleBtnClick(Actions.CODE)}
             >
