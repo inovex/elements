@@ -3083,7 +3083,12 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [],
+      "cssProperties": [
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "description": "min-height of text editor"
+        }
+      ],
       "cssParts": []
     },
     {

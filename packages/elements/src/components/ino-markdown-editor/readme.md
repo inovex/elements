@@ -21,6 +21,13 @@
 | `viewModeChange` |             | `CustomEvent<ViewMode.MARKDOWN \| ViewMode.PREVIEW>` |
 
 
+## CSS Custom Properties
+
+| Name                               | Description               |
+| ---------------------------------- | ------------------------- |
+| `--ino-markdown-editor-min-height` | min-height of text editor |
+
+
 ## Dependencies
 
 ### Depends on
