@@ -3043,7 +3043,7 @@
       "description": "",
       "attributes": [
         {
-          "name": "value",
+          "name": "initial-value",
           "type": "string",
           "description": "",
           "required": false
@@ -3058,7 +3058,7 @@
       ],
       "properties": [
         {
-          "name": "value",
+          "name": "initialValue",
           "type": "string",
           "description": "",
           "required": false
@@ -3083,12 +3083,7 @@
       ],
       "methods": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--ino-markdown-editor-min-height",
-          "description": "min-height of text editor"
-        }
-      ],
+      "cssProperties": [],
       "cssParts": []
     },
     {

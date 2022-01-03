@@ -554,13 +554,13 @@ Contains the element itself in `event.detail` */
 import { MarkdownEditor as IMarkdownEditor } from '@inovex.de/elements/dist/types/components/ino-markdown-editor/ino-markdown-editor';
 export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {}
 @ProxyCmp({
-  inputs: ['value', 'viewMode']
+  inputs: ['initialValue', 'viewMode']
 })
 @Component({
   selector: 'ino-markdown-editor',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['value', 'viewMode'],
+  inputs: ['initialValue', 'viewMode'],
   outputs: ['viewModeChange', 'valueChange']
 })
 export class InoMarkdownEditor {

@@ -32,7 +32,7 @@ export class MarkdownEditor implements ComponentInterface {
   public editor!: Editor;
   public isPlainText = false;
 
-  @Prop() value: string;
+  @Prop() initialValue: string;
 
   @Prop() viewMode: ViewMode = ViewMode.PREVIEW;
 
@@ -45,9 +45,8 @@ export class MarkdownEditor implements ComponentInterface {
   @Watch('viewMode')
   handleViewModeChange(newViewMode: ViewMode) {
     if (newViewMode === ViewMode.MARKDOWN) {
-      const markdown = this.htmlToMarkdown();
-      this.textareaRef.value = markdown;
-      this.textareaRef.rows = markdown.split('\n').length;
+      this.textareaRef.value = this.htmlToMarkdown();
+      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     }
   }
 
@@ -55,6 +54,7 @@ export class MarkdownEditor implements ComponentInterface {
     this.createEditor();
     this.editor.commands.setContent(this.markdownToHtml(), true);
     this.textareaRef.value = this.htmlToMarkdown();
+    this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     this.textareaRef.addEventListener('valueChange', this.onTextareaChange);
   }
 
@@ -83,7 +83,7 @@ export class MarkdownEditor implements ComponentInterface {
     return markdownSerializer.serialize(doc);
   }
 
-  private markdownToHtml(md: string = this.value): any {
+  private markdownToHtml(md: string = this.initialValue): any {
     const state = markdownSerializer.parse(md, this.editor.schema);
     return state.toJSON();
   }
@@ -120,6 +120,13 @@ export class MarkdownEditor implements ComponentInterface {
         : '',
     ]);
 
+    const textFormatToolbarClasses = classNames([
+      'toolbar__text-format',
+      this.viewMode === ViewMode.PREVIEW
+        ? 'toolbar__text-format--show'
+        : 'toolbar__text-format--hide',
+    ]);
+
     const getToolbarActionBtnClass = (action: Actions) =>
       classNames([
         'toolbar__action-button',
@@ -134,22 +141,16 @@ export class MarkdownEditor implements ComponentInterface {
               class={previewViewModeBtnClasses}
               onClick={() => this.viewModeChange.emit(ViewMode.PREVIEW)}
             >
-              <ino-icon icon="display" />
+              <ino-icon icon="edit_text" />
             </button>
             <button
               class={markdownViewModeBtnClasses}
               onClick={() => this.viewModeChange.emit(ViewMode.MARKDOWN)}
             >
-              <ino-icon icon="web" />
+              <ino-icon icon="code" />
             </button>
           </div>
-          <div
-            class={
-              this.viewMode === ViewMode.PREVIEW
-                ? 'preview-toolbar--show'
-                : 'preview-toolbar--hide'
-            }
-          >
+          <div class={textFormatToolbarClasses}>
             <button
               class={getToolbarActionBtnClass(Actions.H1)}
               data-action={Actions.H1}
@@ -218,7 +219,7 @@ export class MarkdownEditor implements ComponentInterface {
               data-action={Actions.CODE_BLOCK}
               onClick={() => this.handleBtnClick(Actions.CODE_BLOCK)}
             >
-              <ino-icon icon="code" />
+              <ino-icon icon="code_block" />
             </button>
           </div>
         </div>
@@ -231,7 +232,8 @@ export class MarkdownEditor implements ComponentInterface {
             ref={(el) => (this.textareaRef = el)}
             class={markdownEditorClasses}
             cols={100}
-            autogrow
+            autogrow={true}
+            outline={true}
           />
         </div>
       </div>

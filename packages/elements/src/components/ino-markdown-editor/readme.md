@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type                                    | Default            |
-| ---------- | ----------- | ----------- | --------------------------------------- | ------------------ |
-| `value`    | `value`     |             | `string`                                | `undefined`        |
-| `viewMode` | `view-mode` |             | `ViewMode.MARKDOWN \| ViewMode.PREVIEW` | `ViewMode.PREVIEW` |
+| Property       | Attribute       | Description | Type                                    | Default            |
+| -------------- | --------------- | ----------- | --------------------------------------- | ------------------ |
+| `initialValue` | `initial-value` |             | `string`                                | `undefined`        |
+| `viewMode`     | `view-mode`     |             | `ViewMode.MARKDOWN \| ViewMode.PREVIEW` | `ViewMode.PREVIEW` |
 
 
 ## Events
@@ -19,13 +19,6 @@
 | ---------------- | ----------- | ---------------------------------------------------- |
 | `valueChange`    |             | `CustomEvent<string>`                                |
 | `viewModeChange` |             | `CustomEvent<ViewMode.MARKDOWN \| ViewMode.PREVIEW>` |
-
-
-## CSS Custom Properties
-
-| Name                               | Description               |
-| ---------------------------------- | ------------------------- |
-| `--ino-markdown-editor-min-height` | min-height of text editor |
 
 
 ## Dependencies

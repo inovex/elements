@@ -25,6 +25,7 @@ import Link from '@tiptap/extension-link';
 // https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/content_editor/services/markdown_serializer.js
 const defaultSerializerConfig = {
   marks: {
+    em: defaultMarkdownSerializer.marks.em,
     [Bold.name]: defaultMarkdownSerializer.marks.strong,
     [Code.name]: defaultMarkdownSerializer.marks.code,
     [Italic.name]: {
@@ -33,13 +34,13 @@ const defaultSerializerConfig = {
       mixable: true,
       expelEnclosingWhitespace: true,
     },
+    [Link.name]: defaultMarkdownSerializer.marks.link,
     [Strike.name]: {
       open: '~~',
       close: '~~',
       mixable: true,
       expelEnclosingWhitespace: true,
     },
-    [Link.name]: defaultMarkdownSerializer.marks.link,
   },
   nodes: {
     ...defaultMarkdownSerializer.nodes,
@@ -97,10 +98,13 @@ const defaultParserTokens: { [key: string]: TokenConfig } = {
   hr: { node: HorizontalRule.name },
   hardbreak: { node: HardBreak.name },
 
+  [Italic.name]: { mark: Italic.name },
   em: { mark: Italic.name },
-  strong: { mark: 'strong' },
+  [Bold.name]: { mark: Bold.name },
+  strong: { mark: Bold.name },
   link,
-  code_inline: { mark: 'code', noCloseToken: true },
+  code_inline: { mark: Code.name, noCloseToken: true },
+  s: { mark: Strike.name },
 };
 
 const markdownSerializer = new MarkdownSerializer(
@@ -117,7 +121,7 @@ export default {
     if (!markdownParser) {
       markdownParser = new MarkdownParser(
         schema,
-        defaultMarkdownParser['tokenizer'],
+        defaultMarkdownParser['tokenizer'].enable('strikethrough'),
         defaultParserTokens
       );
     }

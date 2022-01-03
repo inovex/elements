@@ -758,7 +758,7 @@ export namespace Components {
         "text"?: string;
     }
     interface InoMarkdownEditor {
-        "value": string;
+        "initialValue": string;
         "viewMode": ViewMode;
     }
     interface InoMenu {
@@ -2369,9 +2369,9 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface InoMarkdownEditor {
+        "initialValue"?: string;
         "onValueChange"?: (event: CustomEvent<string>) => void;
         "onViewModeChange"?: (event: CustomEvent<ViewMode>) => void;
-        "value"?: string;
         "viewMode"?: ViewMode;
     }
     interface InoMenu {

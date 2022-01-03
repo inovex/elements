@@ -6,6 +6,15 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';
+const MARKDOWN_TEXT = `
+# Headline 1
+**Bold text**
+*italic text* and _italic text_
+~strike~
+* list
+* list
+* list
+`;
 
 export default {
   title: 'Input/ino-markdown-editor',
@@ -66,13 +75,13 @@ export default {
 export const Playground: Story<Components.InoMarkdownEditor> = (args) => html`
   <ino-markdown-editor
     id="${ID}"
-    value="${args.value}"
+    initial-value="${args.initialValue}"
     view-mode="${args.viewMode}"
   ></ino-markdown-editor>
 `;
 
 Playground.args = {
-  value: '',
+  initialValue: '',
   viewMode: 'preview' as any,
 };
 
@@ -81,7 +90,7 @@ export const Dialog = () => html`
   <ino-dialog id="${ID + '-dialog'}" open="false">
     <ino-markdown-editor
       id="${ID + '-2'}"
-      value="# Hallo welt"
+      initial-value="# Hallo welt"
     ></ino-markdown-editor>
     <div class="ino-dialog-footer" slot="footer">
       <ino-button icon="remove" id="close-dialog-btn">Cancel </ino-button>
