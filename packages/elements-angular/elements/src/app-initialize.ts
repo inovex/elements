@@ -8,9 +8,15 @@ import { InoElementsWindow, InoElementsConfig } from '@inovex.de/elements';
 
 let didInitialize = false;
 
-export const ConfigToken = new InjectionToken<InoElementsConfig>('INOVEX_ELEMENTS_CONFIG');
+export const ConfigToken = new InjectionToken<InoElementsConfig>(
+  'INOVEX_ELEMENTS_CONFIG'
+);
 
-export const appInitialize = (config: InoElementsConfig,  doc: Document, zone: NgZone) => {
+export const appInitialize = (
+  config: InoElementsConfig,
+  doc: Document,
+  zone: NgZone
+) => {
   return (): any => {
     const win: InoElementsWindow | undefined = doc.defaultView as any;
     if (win && typeof (window as any) !== 'undefined') {
@@ -19,14 +25,13 @@ export const appInitialize = (config: InoElementsConfig,  doc: Document, zone: N
       }
       didInitialize = true;
 
+      win.inoElements = win.inoElements || {};
+      win.inoElements.config = config;
+
       const aelFn =
         '__zone_symbol__addEventListener' in (doc.body as any)
           ? '__zone_symbol__addEventListener'
           : 'addEventListener';
-
-
-      win.inoElements = win.inoElements || {};
-      win.inoElements.config = config;
 
       /* eslint-disable prefer-arrow/prefer-arrow-functions */
       return applyPolyfills().then(() => {

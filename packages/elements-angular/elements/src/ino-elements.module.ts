@@ -33,19 +33,21 @@ import { appInitialize, ConfigToken } from './app-initialize';
   ],
 })
 export class InoElementsModule {
-  static forRoot(config?: InoElementsConfig): ModuleWithProviders<InoElementsModule> {
+  static forRoot(
+    config?: InoElementsConfig
+  ): ModuleWithProviders<InoElementsModule> {
     return {
       ngModule: InoElementsModule,
       providers: [
         {
           provide: ConfigToken,
-          useValue: config
+          useValue: config,
         },
         {
           provide: APP_INITIALIZER,
           useFactory: appInitialize,
           multi: true,
-          deps: [DOCUMENT, NgZone],
+          deps: [ConfigToken, DOCUMENT, NgZone],
         },
       ],
     };
