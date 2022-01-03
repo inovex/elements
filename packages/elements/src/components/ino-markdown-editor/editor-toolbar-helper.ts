@@ -10,7 +10,7 @@ export enum Actions {
   OL,
   UL,
   LINK,
-  CODE,
+  CODE_BLOCK,
   BLOCKQUOTE,
 }
 
@@ -34,7 +34,7 @@ export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
       focusChain(editor).toggleStrike().run();
       break;
     case Actions.LINK:
-      //focusChain(editor).toggleLink().run();
+      focusChain(editor).unsetLink().run();
       break;
     case Actions.OL:
       focusChain(editor).toggleOrderedList().run();
@@ -45,8 +45,8 @@ export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
     case Actions.BLOCKQUOTE:
       focusChain(editor).toggleBlockquote().run();
       break;
-    case Actions.CODE:
-      focusChain(editor).toggleCode().run();
+    case Actions.CODE_BLOCK:
+      focusChain(editor).toggleCodeBlock().run();
       break;
     default:
       console.warn('case missing:', action);
@@ -68,15 +68,14 @@ export function isToolbarBtnActive(editor: Editor, action: Actions): boolean {
     case Actions.STRIKE:
       return editor.isActive('strike');
     case Actions.LINK:
-      //action().toggleLink().run();
-      break;
+      return editor.isActive('link');
     case Actions.OL:
       return editor.isActive('orderedList');
     case Actions.UL:
       return editor.isActive('bulletList');
     case Actions.BLOCKQUOTE:
       return editor.isActive('blockquote');
-    case Actions.CODE:
+    case Actions.CODE_BLOCK:
       return editor.isActive('code');
     default:
       console.warn('case missing:', action);

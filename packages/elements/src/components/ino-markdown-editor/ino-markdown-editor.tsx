@@ -10,7 +10,7 @@ import {
 } from '@stencil/core';
 import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
-// import Link from '@tiptap/extension-link';
+import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
 import { ViewMode } from '../types';
 import markdownSerializer from './markdown-serializer';
@@ -45,8 +45,9 @@ export class MarkdownEditor implements ComponentInterface {
   @Watch('viewMode')
   handleViewModeChange(newViewMode: ViewMode) {
     if (newViewMode === ViewMode.MARKDOWN) {
-      this.textareaRef.value = this.htmlToMarkdown();
-      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+      const markdown = this.htmlToMarkdown();
+      this.textareaRef.value = markdown;
+      this.textareaRef.rows = markdown.split('\n').length;
     }
   }
 
@@ -65,7 +66,7 @@ export class MarkdownEditor implements ComponentInterface {
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
-      extensions: [StarterKit],
+      extensions: [StarterKit, Link],
       onBlur: () => this.valueChange.emit(this.htmlToMarkdown()),
       onTransaction: () => (this.stateChanged = !this.stateChanged),
     });
@@ -83,7 +84,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   private markdownToHtml(md: string = this.value): any {
-    const state = markdownSerializer.parse(md);
+    const state = markdownSerializer.parse(md, this.editor.schema);
     return state.toJSON();
   }
 
@@ -213,9 +214,9 @@ export class MarkdownEditor implements ComponentInterface {
               <ino-icon icon="quote" />
             </button>
             <button
-              class={getToolbarActionBtnClass(Actions.CODE)}
-              data-action={Actions.CODE}
-              onClick={() => this.handleBtnClick(Actions.CODE)}
+              class={getToolbarActionBtnClass(Actions.CODE_BLOCK)}
+              data-action={Actions.CODE_BLOCK}
+              onClick={() => this.handleBtnClick(Actions.CODE_BLOCK)}
             >
               <ino-icon icon="code" />
             </button>

@@ -1,8 +1,8 @@
 diff --git a/node_modules/@tiptap/core/dist/tiptap-core.esm.js b/node_modules/@tiptap/core/dist/tiptap-core.esm.js
-index 39969d9..3ea3d6a 100644
+index e825d63..ecc9e27 100644
 --- a/node_modules/@tiptap/core/dist/tiptap-core.esm.js
 +++ b/node_modules/@tiptap/core/dist/tiptap-core.esm.js
-@@ -2692,7 +2692,7 @@ function isExtensionRulesEnabled(extension, enabled) {
+@@ -2798,7 +2798,7 @@ function isExtensionRulesEnabled(extension, enabled) {
  
  function findDuplicates(items) {
      const filtered = items.filter((el, index) => items.indexOf(el) !== index);

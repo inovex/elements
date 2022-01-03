@@ -35,6 +35,7 @@ ino-markdown-editor {
       --ino-icon-color-primary: #{theme.color(primary, dark)};
       background-color: rgba(13, 16, 243, 0.1);
       color: theme.color(primary, dark);
+      cursor: pointer;
     }
 
     &--active {
