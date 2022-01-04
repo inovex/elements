@@ -242,7 +242,7 @@ ino-button {
 }
 
 .stackblitz-image {
-  background: url(/public/stackblitz.png);
+  background: url(/public/assets/stackblitz.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
