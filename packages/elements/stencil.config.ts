@@ -6,62 +6,85 @@ import { promises as fs } from 'fs';
 import { angularOutputTargetFix } from './angular-target-fix';
 
 async function generateCustomElementsJson(docsData: JsonDocs) {
+  // Generate docs for storybook stencil plugin
+  await fs.writeFile('../storybook/docs/elements-stencil-docs.json', JSON.stringify(docsData, null, 2));
+
+  // Generate CEM manifest for storybook webcomponents
   const jsonData = {
-    version: 1.2,
-    tags: docsData.components.map((component) => ({
-      name: component.tag,
+    version: "1.0.0",
+    modules: docsData.components.map((component) => ({
+      kind: "javascript-module",
       path: component.filePath,
-      description: component.docs,
+      declarations: [
+        {
+          kind: "class",
+          name: component.fileName,
+          tagName: component.tag,
+          description: component.docs,
 
-      attributes: component.props
-        .filter((prop) => prop.attr)
-        .map((prop) => ({
-          name: prop.attr,
-          type: prop.type,
-          description: prop.docs,
-          defaultValue: prop.default,
-          required: prop.required,
-        })),
+          attributes: component.props
+            .filter((prop) => prop.attr)
+            .map((prop) => ({
+              name: prop.attr,
+              type: {
+                text: prop.type,
+              },
+              description: prop.docs,
+              default: prop.default,
+              required: prop.required,
+            })),
 
-      properties: component.props.map((prop) => ({
-        name: prop.name,
-        type: prop.type,
-        description: prop.docs,
-        defaultValue: prop.default,
-        required: prop.required,
-      })),
+          members: [
+            ...component.props
+            .filter((prop) => !prop.attr)
+            .map((prop) => ({
+              kind: "field",
+              name: prop.name,
+              type: {
+                text: prop.type
+              },
+              description: prop.docs,
+              default: prop.default,
+              required: prop.required,
+            })),
 
-      events: component.events.map((event) => ({
-        name: event.event,
-        description: event.docs,
-      })),
+            ...component.methods.map((method) => ({
+              kind: "method",
+              name: method.name,
+            })),
+          ],
 
-      methods: component.methods.map((method) => ({
-        name: method.name,
-        description: method.docs,
-        signature: method.signature,
-      })),
+          events: component.events.map((event) => ({
+            name: event.event,
+            type: {
+              text: event.detail,
+            },
+            description: event.docs,
+          })),
 
-      slots: component.slots.map((slot) => ({
-        name: slot.name,
-        description: slot.docs,
-      })),
+          slots: component.slots.map((slot) => ({
+            name: slot.name,
+            description: slot.docs,
+          })),
 
-      cssProperties: component.styles
-        .filter((style) => style.annotation === 'prop')
-        .map((style) => ({
-          name: style.name,
-          description: style.docs,
-        })),
+          cssProperties: component.styles
+            .filter((style) => style.annotation === 'prop')
+            .map((style) => ({
+              name: style.name,
+              description: style.docs,
+            })),
 
-      cssParts: component.parts.map((part) => ({
-        name: part.name,
-        description: part.docs,
-      })),
+          cssParts: component.parts.map((part) => ({
+            name: part.name,
+            description: part.docs,
+          })),
+        },
+      ]
     })),
   };
+
   await fs.writeFile(
-    '../storybook/custom-elements.json',
+    '../storybook/docs/custom-elements-manifest.json',
     JSON.stringify(jsonData, null, 2)
   );
 }
