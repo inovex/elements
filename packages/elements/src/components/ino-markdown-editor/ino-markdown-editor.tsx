@@ -153,70 +153,60 @@ export class MarkdownEditor implements ComponentInterface {
           <div class={textFormatToolbarClasses}>
             <button
               class={getToolbarActionBtnClass(Actions.H1)}
-              data-action={Actions.H1}
               onClick={() => this.handleBtnClick(Actions.H1)}
             >
               <ino-icon icon="headline_one" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.H2)}
-              data-action={Actions.H2}
               onClick={() => this.handleBtnClick(Actions.H2)}
             >
               <ino-icon icon="headline_two" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BOLD)}
-              data-action={Actions.BOLD}
               onClick={() => this.handleBtnClick(Actions.BOLD)}
             >
               <ino-icon icon="bold" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.ITALIC)}
-              data-action={Actions.ITALIC}
               onClick={() => this.handleBtnClick(Actions.ITALIC)}
             >
               <ino-icon icon="italic" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.STRIKE)}
-              data-action={Actions.STRIKE}
               onClick={() => this.handleBtnClick(Actions.STRIKE)}
             >
               <ino-icon icon="strikethrough" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              data-action={Actions.LINK}
               onClick={() => this.handleBtnClick(Actions.LINK)}
             >
               <ino-icon icon="link" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.UL)}
-              data-action={Actions.UL}
               onClick={() => this.handleBtnClick(Actions.UL)}
             >
               <ino-icon icon="bullet_list" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.OL)}
-              data-action={Actions.OL}
               onClick={() => this.handleBtnClick(Actions.OL)}
             >
               <ino-icon icon="numeric_list" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
-              data-action={Actions.BLOCKQUOTE}
               onClick={() => this.handleBtnClick(Actions.BLOCKQUOTE)}
             >
               <ino-icon icon="quote" />
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.CODE_BLOCK)}
-              data-action={Actions.CODE_BLOCK}
               onClick={() => this.handleBtnClick(Actions.CODE_BLOCK)}
             >
               <ino-icon icon="code_block" />

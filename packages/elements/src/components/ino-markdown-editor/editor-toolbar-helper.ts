@@ -5,7 +5,6 @@ export enum Actions {
   BOLD,
   H1,
   H2,
-  H3,
   STRIKE,
   OL,
   UL,

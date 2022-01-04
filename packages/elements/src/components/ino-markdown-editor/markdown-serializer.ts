@@ -121,6 +121,7 @@ export default {
     if (!markdownParser) {
       markdownParser = new MarkdownParser(
         schema,
+        // list of markdown-it rules: https://github.com/markdown-it/markdown-it/issues/289
         defaultMarkdownParser['tokenizer'].enable('strikethrough'),
         defaultParserTokens
       );

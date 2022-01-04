@@ -108,6 +108,11 @@ ino-markdown-editor {
       outline: none;
     }
 
+    blockquote {
+      padding-left: 10px;
+      border-left: 3px solid theme.color(light);
+    }
+
     p {
       margin-top: 0;
     }
