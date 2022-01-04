@@ -11,6 +11,7 @@ export const DIRECTIVES = [
   d.InoChip,
   d.InoChipSet,
   d.InoControlItem,
+  d.InoCurrencyInput,
   d.InoDatepicker,
   d.InoDialog,
   d.InoFab,

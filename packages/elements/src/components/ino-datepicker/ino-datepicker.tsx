@@ -316,7 +316,7 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
-    const target = this.el.querySelector('ino-input > div') as HTMLElement;
+    const target = this.el.querySelector('ino-input > label') as HTMLElement;
 
     if (this.disabled || !target) {
       return;

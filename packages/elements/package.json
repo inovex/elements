@@ -87,7 +87,6 @@
     "@tiptap/extension-link": "^2.0.0-beta.33",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
-    "currency.js": "^1.2.2",
     "date-fns": "^2.16.1",
     "flatpickr": "^4.4.6",
     "prosemirror-markdown": "^1.6.0",

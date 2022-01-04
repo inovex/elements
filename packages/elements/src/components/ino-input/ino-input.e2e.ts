@@ -3,8 +3,8 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 const INO_INPUT = `<ino-input></ino-input>`;
 const INO_EMAIL_INPUT = `<ino-input type="email"></ino-input>`;
 const INO_INPUT_SELECTOR = 'ino-input';
-const INPUT_SELECTOR = 'ino-input > div > input';
-const DIV_SELECTOR = 'ino-input > div';
+const INPUT_SELECTOR = 'ino-input > label > input';
+const MDC_TEXTFIELD_SELECTOR = 'ino-input > label';
 
 describe('InoInput', () => {
   describe('Input interaction', () => {
@@ -61,69 +61,16 @@ describe('InoInput', () => {
     });
   });
 
-  describe('Input formatting', () => {
-    it('should be formatted to a decimal with two decimal places', async () => {
-      const page = await setupPageWithContent(`
-      <ino-input
-        decimal-places="2"
-      >
-      </ino-input>
-    `);
-
-      const inoInput = await page.find('ino-input');
-      const input = await page.find('ino-input > div > input');
-      inoInput.setProperty('value', 1);
-      await page.waitForChanges();
-      const value = await input.getProperty('value');
-
-      expect(value).toEqual('1,00');
-    });
-
-    it('should be formatted to have a dot as a thousand separator', async () => {
-      const page = await setupPageWithContent(`
-      <ino-input
-        thousands-separator
-      >
-      </ino-input>
-    `);
-
-      const inoInput = await page.find('ino-input');
-      const input = await page.find('ino-input > div > input');
-      inoInput.setProperty('value', 1000);
-      await page.waitForChanges();
-      const value = await input.getProperty('value');
-
-      expect(value).toEqual('1.000');
-    });
-
-    it('should be formatted to have two dots as a thousand separator', async () => {
-      const page = await setupPageWithContent(`
-      <ino-input
-        thousands-separator
-      >
-      </ino-input>
-    `);
-
-      const inoInput = await page.find('ino-input');
-      const input = await page.find('ino-input > div > input');
-      inoInput.setProperty('value', 1000000);
-      await page.waitForChanges();
-      const value = await input.getProperty('value');
-
-      expect(value).toEqual('1.000.000');
-    });
-  });
-
   describe('Input validation', () => {
     it('should not be invalid by default', async () => {
       const page = await setupPageWithContent(INO_INPUT);
-      const inputContainer = await page.find('ino-input > div');
+      const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
     });
 
-    it('should be marked as invalid when provided with ino-error', async () => {
+    it('should be marked as invalid when provided with error', async () => {
       const page = await setupPageWithContent(`<ino-input error></ino-input>`);
-      const inputContainer = await page.find('ino-input > div');
+      const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(inputContainer).toHaveClass('mdc-text-field--invalid');
     });
 
@@ -132,7 +79,7 @@ describe('InoInput', () => {
         const page = await setupPageWithContent(
           `<ino-input error pattern="a" value="a"></ino-input>`
         );
-        const inputContainer = await page.find('ino-input > div');
+        const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
         expect(inputContainer).toHaveClass('mdc-text-field--invalid');
       });
 
@@ -147,7 +94,7 @@ describe('InoInput', () => {
           nativeInputElement.value = 'b';
           nativeInputElement.blur();
         });
-        const inputContainer = await page.find('ino-input > div');
+        const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
         expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
       });
     });
@@ -163,7 +110,7 @@ describe('InoInput', () => {
             .getInputElement();
           nativeInputElement.blur();
         });
-        const inputContainer = await page.find('ino-input > div');
+        const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
         expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
       });
       it('should not be invalid on required disabled inputs', async () => {
@@ -176,7 +123,7 @@ describe('InoInput', () => {
             .getInputElement();
           nativeInputElement.blur();
         });
-        const inputContainer = await page.find('ino-input > div');
+        const inputContainer = await page.find(MDC_TEXTFIELD_SELECTOR);
         expect(inputContainer).not.toHaveClass('mdc-text-field--invalid');
       });
     });
@@ -189,7 +136,7 @@ describe('InoInput', () => {
       await inoInput.setAttribute('disabled', true);
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       const input = await page.find(INPUT_SELECTOR);
       expect(input).toHaveAttribute('disabled');
       expect(div).toHaveClass('mdc-text-field--disabled');
@@ -339,7 +286,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).not.toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as valid if the domain comprises of two single characters separated by a dot', async () => {
@@ -356,7 +303,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).not.toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as invalid if it ends with a dot', async () => {
@@ -373,7 +320,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as invalid if it does not contain an @ symbol', async () => {
@@ -390,7 +337,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as invalid if it contains multiple @ symbols', async () => {
@@ -407,7 +354,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as invalid if the domain contains multiple dots that are not separated by a character', async () => {
@@ -424,7 +371,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).toHaveClass('mdc-text-field--invalid');
     });
     it('should mark the email as invalid if it does not conform to the given pattern', async () => {
@@ -446,7 +393,7 @@ describe('InoInput', () => {
       });
       await page.waitForChanges();
 
-      const div = await page.find(DIV_SELECTOR);
+      const div = await page.find(MDC_TEXTFIELD_SELECTOR);
       expect(div).toHaveClass('mdc-text-field--invalid');
     });
   });
