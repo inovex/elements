@@ -213,5 +213,6 @@ scopes:
   - elements-angular
   - elements-react
   - storybook
+  - landingpage
   - '*'
   - deps

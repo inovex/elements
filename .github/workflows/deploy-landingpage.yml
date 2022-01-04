@@ -1,20 +1,67 @@
+name: Deploy Landingpage
 
-name: Deploy landingpage
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  install:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+
+  test:
+    runs-on: ubuntu-latest
+    needs:
+      - install
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+      - run: yarn lint
+      - run: yarn test
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - install
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+      - run: yarn build
+
+      - name: Upload Storybook Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: landingpage
+          path:
+            packages/landingpage/dist/
+
+  deploy-landingpage:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: landingpage
+          path: ./artifact
+
+      # Crawls the version dir on current gh-pages branch HEAD.
+      # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
+      - run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./artifact/hosted-versions.json
+        name: Update Hosted Versions
+
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./artifact # The folder the action should deploy.
+          commit-message: Deploying landingpage
+          clean-exclude: |
+            version
+            unicorn

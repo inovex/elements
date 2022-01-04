@@ -36,7 +36,8 @@ Each package provides a separate README and is distributed as self contained pac
 | [@inovex.de/elements](packages/elements)                          | Native Web Components                          | Websites, WebApps and Microfrontends without a framework.    |
 | [@inovex.de/elements-angular](packages/elements-angular/elements) | Angular integration layer                      | WebApps based on [Angular](https://github.com/angular).      |
 | [@inovex.de/elements-react](packages/elements-react)              | React integration layer                        | WebApps based on [React](https://github.com/facebook/react). |
-| [@inovex.de/elements-storybook](packages/elements-storybook)      | Storybook documentation                        | API reference and guide for developers.                      |
+| [@inovex.de/elements-storybook](packages/storybook)               | Storybook documentation                        | API reference and guide for developers.                      |
+| [@inovex.de/elements-landingpage](packages/landingpage)           | Landingpage                                    | The elements.inovex.de landingapge.                          |
 
 ## History and Background
 
@@ -56,7 +57,7 @@ We experienced the same and as the buzzwords _Design System_ and _Component Libr
 
 The purpose of this repository is to continue the development, making the elements easier to use, reducing the cpu footprint, creating new components and API features as well as fixing bugs. The development itself is fully managed within the space of this Github repo and Artifactory.
 
-To learn more about how you can contribute please refer to our [Contributing Section](https://elements.inovex.de/dist/latest/storybook/?path=/story/docs-contributing--architectural-overview).
+To learn more about how you can contribute please refer to our [Contributing Section](https://github.com/inovex/elements/blob/master/CONTRIBUTING.md).
 
 ### Prerequisites
 
@@ -66,19 +67,43 @@ To learn more about how you can contribute please refer to our [Contributing Sec
   to install Yarn.
 
 ### Scripts
+These are a set of important scripts to get started with this mono repository
 
-These are the available scripts to get started with this mono repository:
+| <div style="width:150px">**Command**</div> | **Description**                                                                                                                                                                                                      |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn start`                               | Launches [@inovex.de/elements](packages/elements) components in development mode locally, opens Storybook.                                                                                                           |
+| `yarn test`                                | Runs unit and e2e tests in all packages.                                                                                                                                                                             |
+| `yarn build`                               | Builds , [@inovex.de/elements-angular](packages/elements-angular), [@inovex.de/elements-react](packages/elements-react), [storybook](packages/storybook), [landingpage](packages/landingpage).                       |
+| `yarn publish:yalc`                        | Builds [@inovex.de/elements](packages/elements), react and/or angular bindings and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store. Used for local integration to other projects. |
+| `yarn lint`                                | Runs TypeScript linting in all packages.                                                                                                                                                                             |
+| `yarn clean`                               | Removes `node_modules` and `dist` from root and all packages.                                                                                                                                                        |
+| `yarn version`                             | Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.                                               |
 
-| <div style="width:150px">**Command**</div> | **Description**                                                                                                                                                                                   |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `yarn start`                               | Launches [@inovex.de/elements](packages/elements) components in development mode locally, opens Storybook.                                                                                        |
-| `yarn test`                                | Runs all tests for [@inovex.de/elements](packages/elements).                                                                                                                                      |
-| `yarn build`                               | Builds [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular), [@inovex.de/elements-react](packages/elements-react), [storybook](packages/storybook). |
-| `yarn linklocal:npm`                       | Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for npm projects.                                                                                   |
-| `yarn linklocal:yarn`                      | Builds and publishes packages locally to the [Yalc](https://github.com/whitecolor/yalc) store for yarn projects.                                                                                  |
-| `yarn lint`                                | Runs TypeScript linting in [@inovex.de/elements](packages/elements), [@inovex.de/elements-angular](packages/elements-angular).                                                                    |
-| `yarn clean`                               | Removes `node_modules` and `dist` from root and all packages.                                                                                                                                     |
-| `yarn version`                             | Prompts you for a new version, sets the new version, generates a changelog for all relevant packages and `git add`s all the changes to the current checked out branch.                            |
+
+### Github Workflows
+There are different Github workflows (`.github/workflows`) for quality control, releases and deployment:
+
+| **Workflow**             | **Trigger**                  | **Description**                                                                         |
+| ------------------------ | ---------------------------- | --------------------------------------------------------------------------------------- |
+|                          |                              |                                                                                         |
+| `deploy-landingpage.yml` | Manual                       | Deploys the landingpage package of the target branch to github pages.                   |
+| `deploy-version.yml`     | Tags                         | Deploys a new version to elements.inovex.de/version/<VERSION>                           |
+| `deploy-unicorn.yml`     | Manual                       | Deploys the package storybook of any branch to elements.inovex.de/unicorn/<BRANCH_NAME> |
+| `destroy-unicorn.yml`    | Manual / PR Closed           | Destroys a unicorn for the given branch.                                                |
+| `release-canary.yml`     | After Build & Test on Master | Releases a canary version of the current master.                                        |
+| `security.yml`           | After PR Review              | Performs security checks                                                                |
+
+For more information about triggering manual workflows, see https://github.blog/changelog/2020-07-06-github-actions-manual-triggers-with-workflow_dispatch/.
+
+### Github Pages Deployment
+The landingpage, versions and unicorns a hosted on github pages using the `gh-pages` branch. The [hosted-version.json](https://github.com/inovex/elements/blob/gh-pages/hosted-versions.json) is a connection between landingpage and versions. It is auto generated during deployment of landingpage and new versions. In order to remove a version manually, remove its source files in `/version/<VERSION-TO-REMOVE>` and trigger landingpage workflow manually. The hosted versions will then be recreated.
+
+**Storage limitations:** At the time of writing, gh pages must not exceed 1 gb. For this reason, we must ensure that we do not have more than ~70 storybooks (unicorns and versions) hosted. A couple of actions to avoid exceeding this limit are:
+* Always destroy unicorns after closing a PR.
+* Manually delete older versions on gh-pages branch that are not used / supported anymore.
+
+**Git Notes:** Due to the size of `gh-pages`, you can execute `git config --add remote.origin.fetch '^refs/heads/gh-pages'` (since git 2.29) to ignore the branch from being fetched locally. If you need to access the `gh-pages` locally for whatever reason, perform `git clone --branch gh-pages --single-branch git@github.com:inovex/elements.git <dir-name>` to clone the gh-pages branch to a separate directory.
+
 
 ## License
 
