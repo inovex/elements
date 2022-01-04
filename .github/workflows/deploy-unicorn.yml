@@ -40,6 +40,10 @@ jobs:
 
   deploy-unicorn:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.set_env_id.outputs.url }}
+
     needs:
       - test
       - build
@@ -55,6 +59,10 @@ jobs:
         with:
           name: storybook
           path: artifact
+
+      - run: echo "::set-output name=url::https://elements.inovex.io/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
+        name: Set environment url
+        id: set_env_id
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
