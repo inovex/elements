@@ -6,6 +6,7 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  staticDirs: ['../static', '../../elements/src/assets'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
   addons: ['@storybook/addon-essentials'],
   webpackFinal: (config) => {
