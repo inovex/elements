@@ -564,9 +564,11 @@ export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor 
   outputs: ['viewModeChange', 'valueChange']
 })
 export class InoMarkdownEditor {
-  /**  */
+  /** Emits when one of the view mode buttons was clicked.
+The value of type `ViewMode` can be found in `event.detail` */
   viewModeChange!: IMarkdownEditor['viewModeChange'];
-  /**  */
+  /** Emits when the value of the markdown editor **blurs**.
+The value of type `string` can be found in `event.detail` */
   valueChange!: IMarkdownEditor['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {

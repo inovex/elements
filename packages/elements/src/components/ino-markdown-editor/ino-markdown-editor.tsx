@@ -32,14 +32,27 @@ export class MarkdownEditor implements ComponentInterface {
   public editor!: Editor;
   public isPlainText = false;
 
+  /**
+   * Initial `string` value of the markdown editor.
+   * Reassigning this value do not change the editor state.
+   * The value must contain a valid Markdown syntax.
+   */
   @Prop() initialValue: string;
 
   @Prop() viewMode: ViewMode = ViewMode.PREVIEW;
 
   @State() stateChanged: boolean;
 
+  /**
+   * Emits when one of the view mode buttons was clicked.
+   * The value of type `ViewMode` can be found in `event.detail`
+   */
   @Event() viewModeChange: EventEmitter<ViewMode>;
 
+  /**
+   * Emits when the value of the markdown editor **blurs**.
+   * The value of type `string` can be found in `event.detail`
+   */
   @Event() valueChange: EventEmitter<string>;
 
   @Watch('viewMode')
@@ -52,15 +65,19 @@ export class MarkdownEditor implements ComponentInterface {
 
   componentDidLoad(): void {
     this.createEditor();
-    this.editor.commands.setContent(this.markdownToHtml(), true);
-    this.textareaRef.value = this.htmlToMarkdown();
-    this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+    if (this.initialValue) {
+      this.editor.commands.setContent(this.markdownToHtml(), true);
+      this.textareaRef.value = this.htmlToMarkdown();
+      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+    }
     this.textareaRef.addEventListener('valueChange', this.onTextareaChange);
+    this.textareaRef.addEventListener('inoBlur', this.onTextareaBlur);
   }
 
   disconnectedCallback(): void {
     this.editor.destroy();
     this.textareaRef.removeEventListener('valueChange', this.onTextareaChange);
+    this.textareaRef.removeEventListener('inoBlur', this.onTextareaBlur);
   }
 
   private createEditor(): void {
@@ -76,6 +93,11 @@ export class MarkdownEditor implements ComponentInterface {
     e.stopPropagation();
     this.editor.commands.setContent(this.markdownToHtml(e.detail));
     this.textareaRef.value = e.detail;
+  };
+
+  private onTextareaBlur = (e: CustomEvent<void>) => {
+    e.stopPropagation();
+    this.valueChange.emit(this.textareaRef.value);
   };
 
   private htmlToMarkdown(): string {

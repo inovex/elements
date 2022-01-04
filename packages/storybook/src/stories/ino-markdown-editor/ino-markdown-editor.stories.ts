@@ -6,15 +6,6 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-markdown-editor.scss';
 
 const ID = 'editor-playground';
-const MARKDOWN_TEXT = `
-# Headline 1
-**Bold text**
-*italic text* and _italic text_
-~strike~
-* list
-* list
-* list
-`;
 
 export default {
   title: 'Input/ino-markdown-editor',
@@ -39,30 +30,10 @@ export default {
           editor.viewMode = e.detail as any;
         };
 
-        const openDialogHandler = (e) => {
-          const el = e.target;
-          if (el.id === 'open-dialog-btn') {
-            const dialog = document.getElementById(
-              `${ID}-dialog`
-            ) as HTMLInoDialogElement;
-            dialog.open = true;
-          }
-          if (el.id === 'close-dialog-btn') {
-            const dialog = document.getElementById(
-              `${ID}-dialog`
-            ) as HTMLInoDialogElement;
-            dialog.open = false;
-          }
-        };
-
-        document.addEventListener('click', openDialogHandler);
-        document.addEventListener('clickEl', openDialogHandler);
         document.addEventListener('valueChange', eventHandler);
         document.addEventListener('viewModeChange', viewModeChangeHandler);
 
         return () => {
-          document.removeEventListener('click', openDialogHandler);
-          document.removeEventListener('clickEl', openDialogHandler);
           document.removeEventListener('valueChange', eventHandler);
           document.removeEventListener('viewModeChange', viewModeChangeHandler);
         };
@@ -84,16 +55,3 @@ Playground.args = {
   initialValue: '',
   viewMode: 'preview' as any,
 };
-
-export const Dialog = () => html`
-  <ino-button id="open-dialog-btn">Open Dialog</ino-button>
-  <ino-dialog id="${ID + '-dialog'}" open="false">
-    <ino-markdown-editor
-      id="${ID + '-2'}"
-      initial-value="# Hallo welt"
-    ></ino-markdown-editor>
-    <div class="ino-dialog-footer" slot="footer">
-      <ino-button icon="remove" id="close-dialog-btn">Cancel </ino-button>
-    </div>
-  </ino-dialog>
-`;

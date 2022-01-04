@@ -758,6 +758,9 @@ export namespace Components {
         "text"?: string;
     }
     interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
         "initialValue": string;
         "viewMode": ViewMode;
     }
@@ -2369,8 +2372,17 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
         "initialValue"?: string;
+        /**
+          * Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail`
+         */
         "onValueChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
+         */
         "onViewModeChange"?: (event: CustomEvent<ViewMode>) => void;
         "viewMode"?: ViewMode;
     }

@@ -3045,7 +3045,7 @@
         {
           "name": "initial-value",
           "type": "string",
-          "description": "",
+          "description": "Initial `string` value of the markdown editor.\nReassigning this value do not change the editor state.\nThe value must contain a valid Markdown syntax.",
           "required": false
         },
         {
@@ -3060,7 +3060,7 @@
         {
           "name": "initialValue",
           "type": "string",
-          "description": "",
+          "description": "Initial `string` value of the markdown editor.\nReassigning this value do not change the editor state.\nThe value must contain a valid Markdown syntax.",
           "required": false
         },
         {
@@ -3074,19 +3074,23 @@
       "events": [
         {
           "name": "valueChange",
-          "description": ""
+          "description": "Emits when the value of the markdown editor **blurs**.\nThe value of type `string` can be found in `event.detail`"
         },
         {
           "name": "viewModeChange",
-          "description": ""
+          "description": "Emits when one of the view mode buttons was clicked.\nThe value of type `ViewMode` can be found in `event.detail`"
         }
       ],
       "methods": [],
       "slots": [],
       "cssProperties": [
         {
+          "name": "--ino-markdown-editor-max-height",
+          "description": "max-height of text editor Default value is `none`."
+        },
+        {
           "name": "--ino-markdown-editor-min-height",
-          "description": "min-height of text editor"
+          "description": "min-height of text editor. Default value is `100px`."
         }
       ],
       "cssParts": []

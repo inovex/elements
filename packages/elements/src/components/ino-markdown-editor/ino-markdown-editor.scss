@@ -1,10 +1,10 @@
 @use 'base/theme';
 
 /**
-  @prop --ino-markdown-editor-min-height: min-height of text editor
+  @prop --ino-markdown-editor-min-height: min-height of text editor. Default value is `100px`.
+  @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
 */
 
-$font-size: 22px;
 $border-radius: 10px;
 
 ino-markdown-editor {
@@ -33,7 +33,7 @@ ino-markdown-editor {
 
     &:hover {
       --ino-icon-color-primary: #{theme.color(primary, dark)};
-      background-color: rgba(13, 16, 243, 0.1);
+      background-color: rgba(theme.color(primary, dark), 0.1);
       color: theme.color(primary, dark);
       cursor: pointer;
     }
@@ -63,12 +63,24 @@ ino-markdown-editor {
     }
   }
 
+  .toolbar__text-format {
+    &--show {
+      display: block;
+    }
+    &--hide {
+      display: none;
+    }
+  }
+
   .markdown-editor__content__container {
     height: 100%;
     width: 100%;
   }
 
   .markdown-editor__content {
+    overflow: auto;
+    max-height: var(--ino-markdown-editor-max-height, none);
+
     ino-textarea {
       width: 100%;
       height: 100%;
@@ -80,15 +92,6 @@ ino-markdown-editor {
       .mdc-text-field__input {
         min-height: var(--ino-markdown-editor-min-height, 100px);
       }
-    }
-  }
-
-  .toolbar__text-format {
-    &--show {
-      display: block;
-    }
-    &--hide {
-      display: none;
     }
   }
 
