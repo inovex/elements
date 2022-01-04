@@ -237,7 +237,7 @@ describe('InoInput', () => {
       expect(activeElement).toEqual(emptyElement);
 
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus()
+        async () => await document.querySelector('ino-input').setFocus()
       );
 
       const activeElementProps = await page.evaluate(() => ({
@@ -257,7 +257,7 @@ describe('InoInput', () => {
       const page = await setupPageWithContent(INO_INPUT);
 
       await page.evaluate(
-        async () => await document.querySelector('ino-input').focus()
+        async () => await document.querySelector('ino-input').setFocus()
       );
       await page.evaluate(async () => {
         const nativeInputElement = await document
