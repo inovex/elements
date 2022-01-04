@@ -60,7 +60,7 @@ jobs:
           name: storybook
           path: artifact
 
-      - run: echo "::set-output name=url::https://elements.inovex.io/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
+      - run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
         name: Set environment url
         id: set_env_id
 

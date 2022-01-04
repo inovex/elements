@@ -59,7 +59,7 @@
 
         <a
           class="btn-getting-started"
-          href="https://elements.inovex.io/dist/latest/storybook/?path=/story/docs-framework-integration--javascript"
+          href="https://elements.inovex.de/version/v5.0.0/?path=/docs/docs-framework-integration-javascript--page"
           target="_blank"
         >
           <ino-button>
@@ -242,7 +242,7 @@ ino-button {
 }
 
 .stackblitz-image {
-  background: url(/public/assets/stackblitz.png);
+  background: url(/public/stackblitz.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

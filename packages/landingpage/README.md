@@ -1,5 +1,5 @@
 # Elements landingpage
-The landingpage for inovex elements on [elements.inovex.io](elements.inovex.io).
+The landingpage for inovex elements on [elements.inovex.de](elements.inovex.de).
 
 ## Build Setup
 
