@@ -5,17 +5,22 @@ import {
 } from '@inovex.de/elements/dist/loader';
 
 import './global.scss';
-
-import { setCustomElements } from '@storybook/web-components';
-import { extractArgTypes, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
-import docsJson from '../docs/stencil-documentation.json';
+import { extractArgTypes, setStencilDocJson, extractComponentDescription } from '@pxtrn/storybook-addon-docs-stencil';
+import docsJson from '../elements-stencil-docs.json';
 import theme from './theme';
-import customElements from '../docs/custom-elements-manifest.json';
 
-// Set custom elements for descriptions and stencil docs for @pxtrn/storybook-addon-docs-stencil
-// plugin to extract the argTypes
-setCustomElements(customElements);
+
+// Instead of using the custom elements manifest, use @pxtrn/storybook-addon-docs-stencil to extract argTypes of
+// custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.
+// Enforce @pxtrn/storybook-addon-docs-stencil to use component description instead of component readme
+// see https://github.com/pixtron/storybook-addon-docs-stencil/blob/e87eece216d22d0643057cf15aedb168d83734b7/src/index.ts#L215
+docsJson.components.forEach(c => c.readme = null);
 setStencilDocJson(docsJson);
+
+// Alternative with a custom elements schema:
+// import customElements from '../docs/custom-elements-manifest.json';
+// import { setCustomElements } from '@storybook/web-components';
+// setCustomElements(customElements);
 
 applyPolyfills().then(() => defineCustomElements(window));
 
@@ -27,6 +32,7 @@ export const parameters = {
   },
   docs: {
     extractArgTypes,
+    extractComponentDescription,
     theme,
   },
   options: {

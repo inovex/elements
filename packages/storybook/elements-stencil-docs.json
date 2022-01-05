@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-04T17:05:31",
+  "timestamp": "2022-01-05T08:27:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -7,14 +7,10 @@
   },
   "components": [
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-autocomplete",
       "filePath": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
-      "fileName": "ino-autocomplete.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-autocomplete/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-autocomplete/usage",
+      "encapsulation": "shadow",
       "tag": "ino-autocomplete",
       "readme": "# ino-autocomplete\n\nA component that acts similar to the native `datalist` feature of the `<input>` element.\n\nIn contrast to other components, this one is stateful, which means that it contains its own state and is therefore less\nflexible to some extent.\n\nThis component handles the following tasks:\n\n* Management of the `value` property of the `<ino-input>` element\n* management of showing and hiding the different options filtered on the basis of the input\n* Keyboard navigation on the options\n\nThe options are filtered by `.includes(...)`, ignoring upper and lower case.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-autocomplete timeout=\"<number>\" no-options-text=\"<string>\">\n  <ino-input slot=\"input\" .../>\n  <ino-list slot=\"list\" ...>\n    <ino-option value=\"Value of Option A\">Option A</ino-option>\n    <ino-option value=\"Value of Option B\">Option B</ino-option>\n    <ino-option value=\"Value of Option C\">Option C</ino-option>\n  </ino-list>\n</ino-autocomplete>\n```\n\n### React\n\n```jsx\nimport { Component } from 'react';\nimport { InoAutocomplete, InoInput, InoList, InoListItem } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <InoAutocomplete debounceTimeout={150} noOptionsText={\"No option found!\"}>\n          <InoInput slot=\"input\"/>\n          <InoList slot=\"list\">\n            <InoOption value=\"Value of Option A\">Option A</InoOption>\n            <InoOption value=\"Value of Option B\">Option B</InoOption>\n            <InoOption value=\"Value of Option C\">Option C</InoOption>\n          </InoList>\n        </InoAutocomplete>\n      </>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "A component that acts similar to the native `datalist` feature of the `<input>` element.\n\nIn contrast to other components, this one is stateful, which means that it contains its own state and is therefore less\nflexible to some extent.\n\nThis component handles the following tasks:\n\n* Management of the `value` property of the `<ino-input>` element\n* management of showing and hiding the different options filtered on the basis of the input\n* Keyboard navigation on the options\n\nThe options are filtered by `.includes(...)`, ignoring upper and lower case.",
       "docsTags": [
         {
@@ -26,10 +22,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "debounceTimeout",
@@ -94,6 +87,18 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "valueChange",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-autocomplete-list-max-height",
@@ -112,28 +117,15 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "valueChange",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-button",
       "filePath": "./src/components/ino-button/ino-button.tsx",
-      "fileName": "ino-button.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-button/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-button/usage",
+      "encapsulation": "shadow",
       "tag": "ino-button",
       "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
-      "usage": {},
       "docs": "A button component with different styles and icon capability.",
       "docsTags": [
         {
@@ -145,21 +137,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "ino-input-file"
-      ],
-      "dependencies": [
-        "ino-spinner"
-      ],
-      "dependencyGraph": {
-        "ino-button": [
-          "ino-spinner"
-        ],
-        "ino-input-file": [
-          "ino-button"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "autoFocus",
@@ -360,6 +338,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-button-color-primary",
@@ -433,17 +412,26 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-input-file"
+      ],
+      "dependencies": [
+        "ino-spinner"
+      ],
+      "dependencyGraph": {
+        "ino-button": [
+          "ino-spinner"
+        ],
+        "ino-input-file": [
+          "ino-button"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-card",
       "filePath": "./src/components/ino-card/ino-card.tsx",
-      "fileName": "ino-card.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-card/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-card/usage",
+      "encapsulation": "none",
       "tag": "ino-card",
       "readme": "# ino-card\n\nThe ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to\nfully customize the appearance of the card.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-card')\n  .addEventListener('click', (_) => alert('Card was clicked!'));\n```\n\n```html\n<ino-card selected=\"<boolean>\" disable-elevation=\"<boolean>\">\n  <div slot=\"header\"><!-- Any content --></div>\n  <div slot=\"content\"><!-- Any content --></div>\n  <div slot=\"footer\"><!-- Any content --></div>\n</ino-card>\n```\n\n### React\n\n```js\nimport { Component } from 'react';\nimport { InoCard, InoButton, InoImg } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoCard inoDisableElevation>\n        <div class=\"my-card__header\" slot=\"header\">\n          <h1>My awesome card</h1>\n        <div/>\n        <div class=\"my-card__content\" slot=\"content\">\n          <InoImg src=\"assets/picture_of_me.png\"></InoImg>\n        </div>\n        <div class=\"my-card__footer\" slot=\"footer\">\n          <InoButton>Send Email</InoButton>\n        </div>\n      </InoCard>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to\nfully customize the appearance of the card.",
       "docsTags": [
         {
@@ -459,16 +447,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-card": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "disableElevation",
@@ -507,6 +486,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-card-background-color",
@@ -564,17 +544,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-card": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel",
       "filePath": "./src/components/ino-carousel/ino-carousel.tsx",
-      "fileName": "ino-carousel.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel/usage",
+      "encapsulation": "none",
       "tag": "ino-carousel",
       "readme": "# ino-carousel\n\nThe `ino-carousel` component works in combination with the `ino-carousel-slide` component\nand can be used to display an array of images as a slide show. What is more,\nit also features an autoplay property that allows the slides to be changed automatically.\nLastly, using the css variables described at the bottom of the page, you can easily customize\nthe dimensions of the component as well as the duration of the slide transition.\n\n## Usage\n\nTo change the slide that is currently displayed, simply set the value of the `ino-carousel`\ncomponent to the value of the corresponding slide. This is, however, not required if autoplay is\nenabled since the component automatically manages the selection of the next slide.\n\nPlease be aware that setting the value of the `ino-carousel` to a non-existent value will result\nin the component selecting an existing slide on its own.\n\nThe component can be used as follows:\n\n```html\n<ino-carousel\n  value=\"<any value>\"\n  autoplay=\"true\"\n  animated=\"true\"\n  hide-buttons=\"false\"\n  infinite=\"true\"\n  intermission=\"5000\"\n  reverse=\"false\"\n>\n  <ino-carousel-slide value=\"0\" src=\"<url>\"></ino-carousel-slide>\n  <ino-carousel-slide value=\"1\" src=\"<url>\"></ino-carousel-slide>\n  <ino-carousel-slide value=\"2\" src=\"<url>\"></ino-carousel-slide>\n</ino-carousel>\n```\n\n```jsx\nimport { Component } from 'react';\nimport {\n  InoButton,\n  InoCarousel,\n  InoCarouselSlide,\n} from '@inovex/elements/dist/react';\nimport React from 'react';\n\nclass MyComponent extends Component {\n  state = {\n    autoplay: false,\n  };\n\n  handleClick = () => {\n    this.setState((state) => ({\n      autoplay: !state.autoplay,\n    }));\n  };\n\n  render() {\n    return (\n      <InoCarousel inoAutoplay={this.state.autoplay}>\n        <InoButton onClick={() => this.handleClick()}>\n          Start/Stop Slideshow\n        </InoButton>\n        <InoCarouselSlide value={'1'} src={'url'} />\n        <InoCarouselSlide value={'2'} src={'url'} />\n      </InoCarousel>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "The `ino-carousel` component works in combination with the `ino-carousel-slide` component\nand can be used to display an array of images as a slide show. What is more,\nit also features an autoplay property that allows the slides to be changed automatically.\nLastly, using the css variables described at the bottom of the page, you can easily customize\nthe dimensions of the component as well as the duration of the slide transition.",
       "docsTags": [
         {
@@ -582,19 +566,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon-button"
-      ],
-      "dependencyGraph": {
-        "ino-carousel": [
-          "ino-icon-button"
-        ],
-        "ino-icon-button": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "animated",
@@ -717,6 +689,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-carousel-animation-duration",
@@ -746,23 +719,27 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon-button"
+      ],
+      "dependencyGraph": {
+        "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel-slide",
       "filePath": "./src/components/ino-carousel-slide/ino-carousel-slide.tsx",
-      "fileName": "ino-carousel-slide.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel-slide/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-carousel-slide/usage",
+      "encapsulation": "none",
       "tag": "ino-carousel-slide",
       "readme": "# ino-carousel-slide\n",
-      "usage": {},
       "docs": "",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "src",
@@ -799,20 +776,19 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-checkbox",
       "filePath": "./src/components/ino-checkbox/ino-checkbox.tsx",
-      "fileName": "ino-checkbox.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-checkbox/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-checkbox/usage",
+      "encapsulation": "shadow",
       "tag": "ino-checkbox",
       "readme": "# ino-checkbox\n\nA checkbox that allows the user to select one or more items from a set of options.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-checkbox')\n  .addEventListener('checkedChange', (e) =>\n    alert(`The checked state is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-checkbox\n  checked\n  disabled\n  name=\"<string>\"\n  value=\"<string>\"\n  indeterminate\n  id=\"<string>\"\n  tab-index=\"<number>\"\n>\n  Label\n</ino-checkbox>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoCheckbox } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick() {\n    this.setState({ checked: !this.state.checked });\n  }\n\n  render() {\n    return (\n      <InoCheckbox\n        value=\"Apple\"\n        onClick={(_) => this.handleCheckboxClick()}\n        checked={this.state.checked}\n      >\n        Apple\n      </InoCheckbox>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoCheckbox } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = (\n  props,\n) => {\n  const { value, onClick, checked } = props;\n\n  return (\n    <InoCheckbox value={value} onClick={onClick} checked={checked}>\n      {value}\n    </InoCheckbox>\n  );\n};\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick() {\n    this.setState({ checked: !this.state.checked });\n  }\n\n  render() {\n    return (\n      <Checkbox\n        value=\"Apple\"\n        onClick={(_) => this.handleCheckboxClick()}\n        checked={this.state.checked}\n      >\n        Apple\n      </Checkbox>\n    );\n  }\n}\n```\n\n## Additional Hints\n\nBy default, the label is always shown on the right side of the checkbox.\n\n**Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)\n\n**Selection:** Checkboxes are mainly used in lists. Selection should be used as single, stand-alone UI element. The indeterminate state is not supported.\n\n## Control flow\n\nThe input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason, listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change value and indeterminate state of input:\n\n## Demo\n",
-      "usage": {},
       "docs": "A checkbox that allows the user to select one or more items from a set of options.",
       "docsTags": [
         {
@@ -820,16 +796,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "ino-control-item"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-control-item": [
-          "ino-checkbox"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "checked",
@@ -941,6 +908,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--checkbox-container-color-unchecked",
@@ -990,17 +958,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-control-item"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-control-item": [
+          "ino-checkbox"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip",
       "filePath": "./src/components/ino-chip/ino-chip.tsx",
-      "fileName": "ino-chip.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip/usage",
+      "encapsulation": "none",
       "tag": "ino-chip",
       "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-chip')\n  .addEventListener('removeChip', (e) =>\n    console.log('This chip will be removed', e.detail),\n  );\n```\n\n```html\n<ino-chip\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  label=\"<string>\"\n  icon-leading\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot= icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  chipsetSelectionChange(e: any) {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  }\n\n  render() {\n    return (\n      <InoChipSet\n        type=\"choice\"\n        onUpdateChipSet={this.chipsetSelectionChange}\n      >\n        <InoChip value=\"apple\" label=\"Apple\" />\n        <InoChip value=\"banana\" label=\"Banana\" />\n        <InoChip value=\"cherry\" label=\"Cherry\" />\n      </InoChipSet>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (\n  props,\n) => {\n  const { type } = props;\n\n  const chipsetSelectionChange = (e: any) => {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  };\n\n  return (\n    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>\n      <InoChip value=\"apple\" label=\"Apple\" />\n      <InoChip value=\"banana\" label=\"Banana\" />\n      <InoChip value=\"cherry\" label=\"Cherry\" />\n    </InoChipSet>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <ChipSet type=\"choice\" />;\n  }\n}\n```\n\n## Additional Hints\n\n**Content**: Use the  label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n**Styling**: The chip can be styled in many ways with the help of the `fill` and `color-scheme` attributes.\nTake a look at the attribute documentation at the bottom of the page for further information.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
-      "usage": {},
       "docs": "The ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.",
       "docsTags": [
         {
@@ -1012,16 +984,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-chip": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "colorScheme",
@@ -1209,6 +1172,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -1221,17 +1185,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-chip": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip-set",
       "filePath": "./src/components/ino-chip-set/ino-chip-set.tsx",
-      "fileName": "ino-chip-set.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip-set/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-chip-set/usage",
+      "encapsulation": "none",
       "tag": "ino-chip-set",
       "readme": "# ino-chip-set\n\nThe ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-chip-set')\n  .addEventListener('updateChipSet', (e) =>\n    alert(\n      `The selected chip values are (only when type='filter' or 'choice'): ${e.detail}`,\n    ),\n  );\n```\n\n```html\n<ino-chip-set type=\"<string>\">\n  <ino-chip ...></ino-chip>\n  <ino-chip ...></ino-chip>\n  ...\n</ino-chip-set>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  chipsetSelectionChange(e: any) {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  }\n\n  render() {\n    return (\n      <InoChipSet\n        type=\"choice\"\n        onUpdateChipSet={this.chipsetSelectionChange}\n      >\n        <InoChip value=\"apple\" label=\"Apple\" />\n        <InoChip value=\"banana\" label=\"Banana\" />\n        <InoChip value=\"cherry\" label=\"Cherry\" />\n      </InoChipSet>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (\n  props,\n) => {\n  const { type } = props;\n\n  const chipsetSelectionChange = (e: any) => {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  };\n\n  return (\n    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>\n      <InoChip value=\"apple\" label=\"Apple\" />\n      <InoChip value=\"banana\" label=\"Banana\" />\n      <InoChip value=\"cherry\" label=\"Cherry\" />\n    </InoChipSet>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <ChipSet type=\"choice\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Simple chip sets\n\n`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (e.g. email addresses), simply exclude the  type` attribute.\n\n```html\n<ino-chip-set>\n  <ino-chip label=\"Default chip\"></ino-chip>\n  <ino-chip label=\"Removable\" removable onRemoveChip={_ => removeChip()}></ino-chip>\n</ino-chip-set>\n```\n\n> See `<ino-chip>` docs for more details on capabilities of single chips.\n\n### Chip sets as form elements\n\nThere are two complex types of chip sets:\n\n- ** type=\"choice\"`**: Choice chips mimic the behaviour of a radio button and allow the selection of a single option from a set of options.\n- ** type=\"filter\"`**: Filter chips mimic the behaviour of a checkbox and allow multiple options to be selected from a set of options.\n\nBoth choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the `value` attribute of each `ino-chip`.\n\n```js\ndocument\n  .querySelector('ino-chip-set')\n  .addEventListener('updateChipSet', (e) => {\n    // console.log(e.detail)\n  });\n```\n\n```html\n<ino-chip-set type=\"choice\">\n  <ino-chip label=\"Chip 1\" value=\"Apple\"></ino-chip>\n  <ino-chip label=\"Chip 2\" value=\"Banana\"></ino-chip>\n</ino-chip-set>\n```\n\n## Demo\n",
-      "usage": {},
       "docs": "The ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.",
       "docsTags": [
         {
@@ -1239,10 +1207,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "type",
@@ -1286,6 +1251,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -1294,17 +1260,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-control-item",
       "filePath": "./src/components/ino-control-item/ino-control-item.tsx",
-      "fileName": "ino-control-item.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-control-item/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-control-item/usage",
+      "encapsulation": "none",
       "tag": "ino-control-item",
       "readme": "# ino-list-item\n\nA list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-control-item')\n  .addEventListener('checkedChange', (e) =>\n    console.log(\n      'The element itself or the checkbox was clicked. Its new value is:',\n      e.detail,\n    ),\n  );\n```\n\n```html\n<ino-control-item\n  role=\"checkbox|radio\"\n  checked=\"<boolean>\"\n  disabled=\"<boolean>\"\n  name=\"<string>\"\n  value=\"<string>\"\n  tab-index=\"<number>\"\n  id=\"<string>\"\n  activated\n  text=\"<string>\"\n  secondary-text=\"<string>\"\n  selected=\"<boolean>\"\n  indeterminate=\"<boolean>\"\n  oncheckedchange=\"handleCheckChange()\"\n  trailing=\"<boolean>\"\n>\n  ...\n</ino-control-item>\n```\n\n**Slot:** This component supports icons and text as children. Just declare your icon or text inside of the `ino-control-item`-Element and it will be placed according to the `trailing`-Property.\n\n**Two lines:** For items having two lines, provide an `secondary-text` and make sure you set the `two-lines` attribute in the respective parent component (only available for `ino-list`).\n\n**Trailing:** Positions the control element at the end of the line\n\n### Restrictions\n\nPlease note that only text is supported as a trailing element. However, your icons can be placed at the leading position. To do so, use the `trailing`-Property and declare your icon inside of the element as shown below.\n\n```html\n<ino-control-item\n  role=\"checkbox\"\n  trailing\n  text=\"Checkbox-Item with a leading icon\"\n>\n  <ino-icon icon=\"add\" />\n</ino-control-item>\n\n<ino-control-item\n  role=\"checkbox\"\n  text=\"Checkbox-Item with trailing metadata\"\n>\n  <p>Some Metadata</p>\n</ino-control-item>\n```\n",
-      "usage": {},
       "docs": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "docsTags": [
         {
@@ -1312,20 +1276,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-list-item",
-        "ino-checkbox",
-        "ino-radio"
-      ],
-      "dependencyGraph": {
-        "ino-control-item": [
-          "ino-list-item",
-          "ino-checkbox",
-          "ino-radio"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "activated",
@@ -1522,6 +1473,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -1530,35 +1482,28 @@
         }
       ],
       "parts": [],
-      "listeners": []
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-datepicker",
-      "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
-      "fileName": "ino-datepicker.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-datepicker/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-datepicker/usage",
-      "tag": "ino-datepicker",
-      "readme": "# ino-datepicker\n\nA datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new datepicker value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-datepicker\n  autofocus\n  disabled\n  name=\"<string>\"\n  required\n  value=\"<string>\"\n  min=\"<string>\"\n  max=\"<string>\"\n  minute-step=\"<number>\"\n  hour-step=\"<number>\"\n  range\n  outline\n  label=\"<string>\"\n  pattern=\"<string>\"\n  date-format=\"<string>\"\n  default-date=\"<string>\"\n  default-hour=\"<number>\"\n  default-minute=\"<number>\"\n  twelve-hour-time\n  helper=\"<string>\"\n  helper-persistent\n  helper-validation\n>\n</ino-datepicker>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  valueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoDatepicker\n        inoLabel=\"Select a date\"\n        inoHelper=\"Choose a date\"\n        onValueChange={valueChange}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (\n  props,\n) => {\n  const { inoLabel, inoHelper } = props;\n\n  const valueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n    <InoDatepicker\n      inoLabel={inoLabel}\n      inoHelper={inoHelper}\n      onValueChange={valueChange}\n    />\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Datepicker inoLabel=\"Select a date\" inoHelper=\"Choose a date\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Types\n\nThis datepicker can be used as a picker for ...\n\n- date\n- time\n- datetime\n- month\n\nThe type of the picker is selected based on the  type` property. See the examples below.\n\n#### Datepicker\n\n```html\n<ino-datepicker type=\"date\" label=\"Date\"></ino-datepicker>\n```\n\n#### Timepicker\n\n```html\n<ino-datepicker type=\"time\" label=\"Time\"></ino-datepicker>\n```\n\n#### Date-Time-Picker\n\n```html\n<ino-datepicker type=\"datetime\" label=\"Datetime\"> </ino-datepicker>\n```\n\n#### Monthpicker\n\n```html\n<ino-datepicker type=\"month\" label=\"Month\"></ino-datepicker>\n```\n\n## Demo\n",
-      "usage": {},
-      "docs": "A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.",
-      "docsTags": [],
-      "encapsulation": "none",
       "dependents": [],
       "dependencies": [
-        "ino-input",
-        "ino-icon"
+        "ino-list-item",
+        "ino-checkbox",
+        "ino-radio"
       ],
       "dependencyGraph": {
-        "ino-datepicker": [
-          "ino-input",
-          "ino-icon"
-        ],
-        "ino-input": [
-          "ino-icon",
-          "ino-label"
+        "ino-control-item": [
+          "ino-list-item",
+          "ino-checkbox",
+          "ino-radio"
         ]
-      },
+      }
+    },
+    {
+      "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
+      "encapsulation": "none",
+      "tag": "ino-datepicker",
+      "readme": "# ino-datepicker\n\nA datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new datepicker value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-datepicker\n  autofocus\n  disabled\n  name=\"<string>\"\n  required\n  value=\"<string>\"\n  min=\"<string>\"\n  max=\"<string>\"\n  minute-step=\"<number>\"\n  hour-step=\"<number>\"\n  range\n  outline\n  label=\"<string>\"\n  pattern=\"<string>\"\n  date-format=\"<string>\"\n  default-date=\"<string>\"\n  default-hour=\"<number>\"\n  default-minute=\"<number>\"\n  twelve-hour-time\n  helper=\"<string>\"\n  helper-persistent\n  helper-validation\n>\n</ino-datepicker>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  valueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoDatepicker\n        inoLabel=\"Select a date\"\n        inoHelper=\"Choose a date\"\n        onValueChange={valueChange}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (\n  props,\n) => {\n  const { inoLabel, inoHelper } = props;\n\n  const valueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n    <InoDatepicker\n      inoLabel={inoLabel}\n      inoHelper={inoHelper}\n      onValueChange={valueChange}\n    />\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Datepicker inoLabel=\"Select a date\" inoHelper=\"Choose a date\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Types\n\nThis datepicker can be used as a picker for ...\n\n- date\n- time\n- datetime\n- month\n\nThe type of the picker is selected based on the  type` property. See the examples below.\n\n#### Datepicker\n\n```html\n<ino-datepicker type=\"date\" label=\"Date\"></ino-datepicker>\n```\n\n#### Timepicker\n\n```html\n<ino-datepicker type=\"time\" label=\"Time\"></ino-datepicker>\n```\n\n#### Date-Time-Picker\n\n```html\n<ino-datepicker type=\"datetime\" label=\"Datetime\"> </ino-datepicker>\n```\n\n#### Monthpicker\n\n```html\n<ino-datepicker type=\"month\" label=\"Month\"></ino-datepicker>\n```\n\n## Demo\n",
+      "docs": "A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "autoFocus",
@@ -1987,26 +1932,37 @@
           "docsTags": []
         }
       ],
-      "styles": [],
-      "slots": [],
-      "parts": [],
       "listeners": [
         {
           "event": "click",
           "capture": false,
           "passive": false
         }
-      ]
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ino-input",
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-datepicker": [
+          "ino-input",
+          "ino-icon"
+        ],
+        "ino-input": [
+          "ino-icon",
+          "ino-label"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-dialog",
       "filePath": "./src/components/ino-dialog/ino-dialog.tsx",
-      "fileName": "ino-dialog.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-dialog/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-dialog/usage",
+      "encapsulation": "shadow",
       "tag": "ino-dialog",
       "readme": "# ino-dialog\n\nThe ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-dialog')\n  .addEventListener('openChanged', (e) =>\n    alert(`inoOpen has been set to ${e.detail}`),\n  );\n```\n\n```html\n\n<ino-dialog open=\"true\">\n  <div class=\"awesome-header\" slot=\"header\"/>\n  <div class=\"awesome-content\"/>\n  <div class=\"awesome-footer\" slot=\"footer\"/>\n</ino-dialog>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoButton, InoDialog } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    open: false\n  };\n\n  handleEvent = () => {\n    this.setState((open) => ({\n      open: !open\n    }))\n  };\n\n  render() {\n    return (\n      <>\n        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>\n        <InoDialog open={this.state.open}>\n          <div class=\"awesome-content\"/>\n        </InoDialog>\n      </>\n    );\n  }\n}\n```\n\n## Demo\n",
-      "usage": {},
       "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.",
       "docsTags": [
         {
@@ -2022,10 +1978,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "open",
@@ -2057,6 +2010,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-dialog-background-color",
@@ -2124,17 +2078,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab",
       "filePath": "./src/components/ino-fab/ino-fab.tsx",
-      "fileName": "ino-fab.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab/usage",
+      "encapsulation": "shadow",
       "tag": "ino-fab",
       "readme": "# ino-fab\n\nA floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.\nIt appears in front of all screen content, typically as a circular shape with an icon in its center.\n\nFABs come in three types: regular, mini, and extended.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-fab\n  icon=\"<string>\"\n  label=\"<string>\"\n  extended\n  mini\n  tooltip-placement=\"<string>\"\n  disabled\n>\n</ino-fab>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoFab } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Fab was clicked`);\n  };\n\n  render() {\n    return (\n      <InoFab\n        inoIcon=\"star\"\n        inoLabel=\"This is a fab\"\n        onClick={this.handleClick}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoFab } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Fab: React.FunctionComponent<Components.InoFabAttributes> = (props) => {\n  const { inoLabel, inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Fab was clicked`);\n  };\n\n  return <InoFab inoIcon={inoIcon} inoLabel={inoLabel} onClick={handleClick} />;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Fab inoLabel=\"This is a fab\" inoIcon=\"star\" />;\n  }\n}\n```\n\n## Additional Hints\n\n**Content**: Use the  label` attribute to set the text of a fab. To add an icon, use the  icon` attribute.\n\n## Demo\n",
-      "usage": {},
       "docs": "A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.\nIt appears in front of all screen content, typically as a circular shape with an icon in its center.\n\nFABs come in three types: regular, mini, and extended.",
       "docsTags": [
         {
@@ -2142,23 +2094,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "ino-fab-set"
-      ],
-      "dependencies": [
-        "ino-tooltip",
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-fab": [
-          "ino-tooltip",
-          "ino-icon"
-        ],
-        "ino-fab-set": [
-          "ino-fab"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "disabled",
@@ -2364,6 +2300,13 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--fab-background-color",
@@ -2413,23 +2356,28 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "click",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [
+        "ino-fab-set"
+      ],
+      "dependencies": [
+        "ino-tooltip",
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-fab": [
+          "ino-tooltip",
+          "ino-icon"
+        ],
+        "ino-fab-set": [
+          "ino-fab"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab-set",
       "filePath": "./src/components/ino-fab-set/ino-fab-set.tsx",
-      "fileName": "ino-fab-set.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab-set/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-fab-set/usage",
+      "encapsulation": "shadow",
       "tag": "ino-fab-set",
       "readme": "# ino-fab-set\n\nThe ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab\nbutton. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed\ndial.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-fab-set\n  top-bottom-location=\"<string>\"\n  left-right-location=\"<string>\"\n  dial-direction=\"<string>\"\n  open-dial\n>\n  <ino-fab ...></ino-fab>\n  <ino-fab ...></ino-fab>\n  ...\n</ino-fab-set>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  state = {\n    open: false,\n  };\n\n  handleClick = (e: any) => {\n    alert(`Fab-Set was clicked`);\n    this.setState({ open: !this.state.open });\n  };\n\n  render() {\n    return (\n      <FabSet\n        openDial={this.state.open}\n        dialDirection=\"top\"\n        onClick={handleClick}\n      >\n        <InoFab mini label=\"Profile\" icon=\"person\"/>\n        <InoFab mini label=\"Search\" icon=\"search\"/>\n        <InoFab mini label=\"Help\" icon=\"help\"/>\n      </FabSet>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoFab, InoFabSet } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FabSet: React.FunctionComponent<Components.InoFabSetAttributes> = (\n  props,\n) => {\n  const { dialDirection } = props;\n\n  return (\n    <InoFabSet dialDirection={dialDirection}>{props.children}</InoFabSet>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <FabSet dialDirection=\"top\">\n        <InoFab mini label=\"Profile\" icon=\"person\"/>\n        <InoFab mini label=\"Search\" icon=\"search\"/>\n        <InoFab mini label=\"Help\" icon=\"help\"/>\n      </FabSet>\n    );\n  }\n}\n```\n\n## Additional Hints\n\n**Content**: Put the FABs for the speed dial inside of `ino-fab-set` as `ino-fab`.\n\n### Manage icons\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> at runtime to be located in `ino-icon/`. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\n## Control flow\n\nThe ino-fab-set has a controlled (unmanaged) attribute `openDial`. For this reason, listen to `click` events, sync to\nyour local state and pass the state to the component again to open/close the fab-set.\n",
-      "usage": {},
       "docs": "The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab\nbutton. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed\ndial.",
       "docsTags": [
         {
@@ -2437,22 +2385,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [
-        "ino-fab",
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-fab-set": [
-          "ino-fab",
-          "ino-icon"
-        ],
-        "ino-fab": [
-          "ino-tooltip",
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "dialDirection",
@@ -2548,6 +2481,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -2556,17 +2490,27 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-fab",
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-fab-set": [
+          "ino-fab",
+          "ino-icon"
+        ],
+        "ino-fab": [
+          "ino-tooltip",
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-form-row",
       "filePath": "./src/components/ino-form-row/ino-form-row.tsx",
-      "fileName": "ino-form-row.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-form-row/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-form-row/usage",
+      "encapsulation": "none",
       "tag": "ino-form-row",
       "readme": "# ino-form-row\n\nA component that styles a form element as a row with a leading label.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-form-row label=\"<string>\" mandatory>\n  Any desired form element\n</ino-form-row>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <InoFormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </InoFormRow>\n      </>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FormRow: React.FunctionComponent<Components.InoFormRowAttributes> = props => {\n  const { label, mandatory } = props;\n\n  return <InoFormRow label={label} mandatory={mandatory}>{props.children}</InoFormRow>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <FormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </FormRow>\n      </>\n    )\n  }\n}\n```\n",
-      "usage": {},
       "docs": "A component that styles a form element as a row with a leading label.",
       "docsTags": [
         {
@@ -2574,10 +2518,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "label",
@@ -2614,6 +2555,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -2622,23 +2564,18 @@
         }
       ],
       "parts": [],
-      "listeners": []
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-header",
-      "filePath": "./src/components/ino-header/ino-header.tsx",
-      "fileName": "ino-header.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-header/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-header/usage",
-      "tag": "ino-header",
-      "readme": "# ino-header\n\nA header component with a separator.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```html\n<ino-header text=\"<string>\"></ino-header>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoHeader } from '@inovex.de/elements-react/';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoCard text=\"My awesome header!\"></InoCard>;\n  }\n}\n```\n\n## Demo\n",
-      "usage": {},
-      "docs": "A header component with a separator.",
-      "docsTags": [],
-      "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/ino-header/ino-header.tsx",
+      "encapsulation": "shadow",
+      "tag": "ino-header",
+      "readme": "# ino-header\n\nA header component with a separator.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```html\n<ino-header text=\"<string>\"></ino-header>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoHeader } from '@inovex.de/elements-react/';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoCard text=\"My awesome header!\"></InoCard>;\n  }\n}\n```\n\n## Demo\n",
+      "docs": "A header component with a separator.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "text",
@@ -2659,6 +2596,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-header-box-color",
@@ -2673,69 +2611,18 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon",
       "filePath": "./src/components/ino-icon/ino-icon.tsx",
-      "fileName": "ino-icon.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon/usage",
+      "encapsulation": "shadow",
       "tag": "ino-icon",
       "readme": "# ino-icon\n\nA light icon component for texts and other components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument.querySelector('ino-icon').addEventListener('clickEl', (e) => {\n  // ...\n});\n```\n\n```js\ndocument\n  .querySelector('ino-icon')\n  .addEventListener('clickEl', (_) => alert('The icon was clicked'));\n```\n\n```html\n<ino-icon icon=\"<string>\" clickable onclickel=\"handleClickEl()\">\n</ino-icon>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  render() {\n    return <InoIcon icon=\"search\" clickable onClickEl={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {\n  const { icon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  return (\n    <InoIcon icon={icon} onClickEl={handleClick}>\n      {props.children}\n    </InoIcon>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Icon icon=\"search\" />;\n  }\n}\n```\n\n## Additional Hints\n\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n### Add icons\n\nIf you would like to add custom icons, you have to add them to the `src/assets/ino-icon` folder and execute the `yarn icon:integrate-icons`\ncommand to include the newly added icons in the `icons.js` file.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.\n",
-      "usage": {},
       "docs": "This component is based on the ionicons (https://github.com/ionic-team/ionicons)",
       "docsTags": [],
-      "encapsulation": "shadow",
-      "dependents": [
-        "ino-card",
-        "ino-chip",
-        "ino-datepicker",
-        "ino-fab",
-        "ino-fab-set",
-        "ino-icon-button",
-        "ino-img",
-        "ino-input",
-        "ino-input-file",
-        "ino-snackbar",
-        "ino-tab"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-card": [
-          "ino-icon"
-        ],
-        "ino-chip": [
-          "ino-icon"
-        ],
-        "ino-datepicker": [
-          "ino-icon"
-        ],
-        "ino-fab": [
-          "ino-icon"
-        ],
-        "ino-fab-set": [
-          "ino-icon"
-        ],
-        "ino-icon-button": [
-          "ino-icon"
-        ],
-        "ino-img": [
-          "ino-icon"
-        ],
-        "ino-input": [
-          "ino-icon"
-        ],
-        "ino-input-file": [
-          "ino-icon"
-        ],
-        "ino-snackbar": [
-          "ino-icon"
-        ],
-        "ino-tab": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "clickable",
@@ -2830,6 +2717,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-icon-color-primary",
@@ -2854,42 +2742,64 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": []
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon-button",
-      "filePath": "./src/components/ino-icon-button/ino-icon-button.tsx",
-      "fileName": "ino-icon-button.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon-button/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-icon-button/usage",
-      "tag": "ino-icon-button",
-      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
-      "usage": {},
-      "docs": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
-      "docsTags": [],
-      "encapsulation": "none",
       "dependents": [
-        "ino-carousel",
-        "ino-nav-drawer",
-        "ino-snackbar"
+        "ino-card",
+        "ino-chip",
+        "ino-datepicker",
+        "ino-fab",
+        "ino-fab-set",
+        "ino-icon-button",
+        "ino-img",
+        "ino-input",
+        "ino-input-file",
+        "ino-snackbar",
+        "ino-tab"
       ],
-      "dependencies": [
-        "ino-icon"
-      ],
+      "dependencies": [],
       "dependencyGraph": {
+        "ino-card": [
+          "ino-icon"
+        ],
+        "ino-chip": [
+          "ino-icon"
+        ],
+        "ino-datepicker": [
+          "ino-icon"
+        ],
+        "ino-fab": [
+          "ino-icon"
+        ],
+        "ino-fab-set": [
+          "ino-icon"
+        ],
         "ino-icon-button": [
           "ino-icon"
         ],
-        "ino-carousel": [
-          "ino-icon-button"
+        "ino-img": [
+          "ino-icon"
         ],
-        "ino-nav-drawer": [
-          "ino-icon-button"
+        "ino-input": [
+          "ino-icon"
+        ],
+        "ino-input-file": [
+          "ino-icon"
         ],
         "ino-snackbar": [
-          "ino-icon-button"
+          "ino-icon"
+        ],
+        "ino-tab": [
+          "ino-icon"
         ]
-      },
+      }
+    },
+    {
+      "filePath": "./src/components/ino-icon-button/ino-icon-button.tsx",
+      "encapsulation": "none",
+      "tag": "ino-icon-button",
+      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
+      "docs": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "activated",
@@ -3052,6 +2962,13 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-icon-button-background-active-color",
@@ -3086,35 +3003,37 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": [
-        {
-          "event": "click",
-          "capture": false,
-          "passive": false
-        }
-      ]
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img",
-      "filePath": "./src/components/ino-img/ino-img.tsx",
-      "fileName": "ino-img.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img/usage",
-      "tag": "ino-img",
-      "readme": "# ino-img\n\nAn image component with different styles that reserves a predefined space to avoid jumping contents.\n\n### Usage\n\nThe component can be used as follows (custom preferences have an `ino`-prefix):\n\n```js\ndocument\n  .querySelector('ino-img')\n  .addEventListener('click', (_) => alert('The image was clicked'));\n```\n\n```html\n<ino-img\n  alt=\"<string>\"\n  decoding=\"<string>\"\n  width=\"<number>\"\n  height=\"<number>\"\n  sizes=\"<string>\"\n  src=\"<string>\"\n  srcset=\"<string>\"\n  usemap=\"<string>\"\n  ratio-height=\"<number>\"\n  ratio-width=\"<number>\"\n  rounded\n>\n</ino-img>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoImg } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoImg\n        height={100}\n        width={100}\n        src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoImg } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Img: React.FunctionComponent<Components.InoImgAttributes> = (props) => {\n  const { height, width, src } = props;\n\n  return (\n    <InoImg height={height} width={width} src={src}>\n      {props.children}\n    </InoImg>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Img\n        height={100}\n        width={100}\n        src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n      />\n    );\n  }\n}\n```\n\n## Additional Hints\n\nIf the attribute `rounded` is true, the image is displayed with rounded corners.\n\n### Pre-defined ratios\n\nThe image component has two attributes `ratio-height` and `ratio-width`. Use them to define any desired ratio and avoid content jumping!\n\nExample: If the image `image.png` has a ratio of `16:9`, define the image component as follows:\n\n```html\n<ino-img src=\"image.png\" ratio-width=\"16\" ratio-height=\"9\"></ino-img>\n```\n\nUsing this setup, the width of the element extends to 100% (or the value defined in `width` attribute) and the computed height is based on the ratio attributes.\n",
-      "usage": {},
-      "docs": "An image component with different styles that reserves a predefined space to avoid jumping contents.",
-      "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
+      "dependents": [
+        "ino-carousel",
+        "ino-nav-drawer",
+        "ino-snackbar"
+      ],
       "dependencies": [
         "ino-icon"
       ],
       "dependencyGraph": {
-        "ino-img": [
+        "ino-icon-button": [
           "ino-icon"
+        ],
+        "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-nav-drawer": [
+          "ino-icon-button"
+        ],
+        "ino-snackbar": [
+          "ino-icon-button"
         ]
-      },
+      }
+    },
+    {
+      "filePath": "./src/components/ino-img/ino-img.tsx",
+      "encapsulation": "none",
+      "tag": "ino-img",
+      "readme": "# ino-img\n\nAn image component with different styles that reserves a predefined space to avoid jumping contents.\n\n### Usage\n\nThe component can be used as follows (custom preferences have an `ino`-prefix):\n\n```js\ndocument\n  .querySelector('ino-img')\n  .addEventListener('click', (_) => alert('The image was clicked'));\n```\n\n```html\n<ino-img\n  alt=\"<string>\"\n  decoding=\"<string>\"\n  width=\"<number>\"\n  height=\"<number>\"\n  sizes=\"<string>\"\n  src=\"<string>\"\n  srcset=\"<string>\"\n  usemap=\"<string>\"\n  ratio-height=\"<number>\"\n  ratio-width=\"<number>\"\n  rounded\n>\n</ino-img>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoImg } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoImg\n        height={100}\n        width={100}\n        src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoImg } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Img: React.FunctionComponent<Components.InoImgAttributes> = (props) => {\n  const { height, width, src } = props;\n\n  return (\n    <InoImg height={height} width={width} src={src}>\n      {props.children}\n    </InoImg>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Img\n        height={100}\n        width={100}\n        src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n      />\n    );\n  }\n}\n```\n\n## Additional Hints\n\nIf the attribute `rounded` is true, the image is displayed with rounded corners.\n\n### Pre-defined ratios\n\nThe image component has two attributes `ratio-height` and `ratio-width`. Use them to define any desired ratio and avoid content jumping!\n\nExample: If the image `image.png` has a ratio of `16:9`, define the image component as follows:\n\n```html\n<ino-img src=\"image.png\" ratio-width=\"16\" ratio-height=\"9\"></ino-img>\n```\n\nUsing this setup, the width of the element extends to 100% (or the value defined in `width` attribute) and the computed height is based on the ratio attributes.\n",
+      "docs": "An image component with different styles that reserves a predefined space to avoid jumping contents.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "alt",
@@ -3356,20 +3275,25 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-img": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img-list",
       "filePath": "./src/components/ino-img-list/ino-img-list.tsx",
-      "fileName": "ino-img-list.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img-list/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-img-list/usage",
+      "encapsulation": "none",
       "tag": "ino-img-list",
       "readme": "# ino-img-list\n\nThe ino-img-list component is used in combination with the ino-img component to display an array of images\nin a grid-like format. It is based on the mdc-image-list component.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-img-list enclose-label masonry>\n  <ino-img\n    src=\"url/to/image\"\n    label=\"optional label\"\n    img-list-item\n  ></ino-img>\n</ino-img-list>\n```\n\n## React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoImgList, InoImg } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  state = {\n    source: 'url/to/img',\n    encloseLabel: true,\n  };\n\n  render() {\n    return (\n      <InoImgList encloseLabel={this.state.encloseLabel}>\n        <InoImg src={this.state.source} img-list-item></InoImg>\n      </InoImgList>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "The ino-img-list component is used in combination with the ino-img component to display an array of images\nin a grid-like format. It is based on the mdc-image-list component.",
       "docsTags": [
         {
@@ -3377,10 +3301,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "encloseLabel",
@@ -3419,6 +3340,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-img-list-cols",
@@ -3433,17 +3355,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input",
       "filePath": "./src/components/ino-input/ino-input.tsx",
-      "fileName": "ino-input.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input/usage",
+      "encapsulation": "none",
       "tag": "ino-input",
       "readme": "# ino-input\n\nAn input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.\n\nUse this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-input')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new input value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-input\n  autocomplete=\"<string>\"\n  autofocus\n  disabled\n  min=\"<string>\"\n  max=\"<string>\"\n  step=\"<number>\"\n  name=\"<string>\"\n  pattern=\"<string>\"\n  placeholder=\"<string>\"\n  required\n  size=\"<number>\"\n  type=\"<string>\"\n  value=\"<string>\"\n  error\n  outline\n  label=\"<string>\"\n  helper=\"<string>\"\n  helper-persistent\n  helper-validation\n  data-list=\"<string>\"\n>\n  <datalist id=\"<string>\">\n    <option>...</option>\n  </datalist>\n  <ino-icon slot=\"icon-leading\" icon=\"...\"></ino-icon>\n  <ino-icon slot=\"icon-trailing\" icon=\"...\"></ino-icon>\n</ino-input>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoInput } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  onValueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoInput\n        placeholder=\"You can insert some text...\"\n        onValueChange={onValueChange}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoInput } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Input: React.FunctionComponent<Components.InoInputAttributes> = (\n  props,\n) => {\n  const onValueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n    <InoInput\n      placeholder=\"You can insert some text...\"\n      onValueChange={onValueChange}\n    />\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Input placeholder=\"You can insert some text...\" />;\n  }\n}\n```\n\n## Additional Hints\n\n**Outlined**: The component is by default a box component with ripple underline. Provide `outline` to use the material outline design.\n\n**Labels**: The component shows a floating label containing the value of `label`.\n\n**Helper Text**: The component shows an optional helper text underneath the input field (`helper`). By default, the helper text will be visible as soon as the user focuses on the input field. Set `helper-persistent` to show it all the time. Furthermore, use `helper-validation` to style the helper text as validation message.\n\n**Icons**: There are currently two options two place an icon: at the start/left (`icon-leading`) or at the end/right (`icon-trailing`). To specify an icon, use either the `ino-icon`-Component (preferred) or use an icon of your choice and place it inside the `ino-input`-Element. Additionally, you have to provide either `slot=\"icon-leading\"` or `slot=\"icon-trailing\"`to your icon element.\n\n**Datalist**: Provide the id of the datalist child and a list with possible selectable values will be displayed and filtered with every keystroke. See [datalist](https://developer.mozilla.org/de/docs/Web/HTML/Element/datalist) for more information.\n\n### Control flow\n\nThe input has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.\n\n```js\ndocument.querySelector('ino-input').addEventListener('valueChange', (e) => {\n  // ...\n});\n```\n\n```html\n<ino-input value=\"Here's some text\"></ino-input>\n```\n\n### Event Behaviour\n\nThe component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.\n",
-      "usage": {},
       "docs": "An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.\n\nUse this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.",
       "docsTags": [
         {
@@ -3455,23 +3375,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-datepicker"
-      ],
-      "dependencies": [
-        "ino-icon",
-        "ino-label"
-      ],
-      "dependencyGraph": {
-        "ino-input": [
-          "ino-icon",
-          "ino-label"
-        ],
-        "ino-datepicker": [
-          "ino-input"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "autoFocus",
@@ -3961,6 +3865,23 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "focus",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "change",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "input",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-input-caret-color",
@@ -3994,50 +3915,31 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "focus",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "change",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "input",
-          "capture": false,
-          "passive": false
-        }
-      ]
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input-file",
-      "filePath": "./src/components/ino-input-file/ino-input-file.tsx",
-      "fileName": "ino-input-file.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input-file/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-input-file/usage",
-      "tag": "ino-input-file",
-      "readme": "# ino-input-file\n\nAn input component for files. It functions as a wrapper around the native input capabilities having the [`type=\"file\"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).\n\nThis component replaces the native behaviour with a custom `ino-button` with logic.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-input-file')\n  .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));\n```\n\n```html\n<ino-input-file\n  accept=\"<string>\"\n  autofocus\n  disabled\n  multiple\n  name=\"<string>\"\n  required\n\n  label=\"<string>\"\n>\n</ino-input>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoInputFile } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  onChangeFile(e) {\n    const fileNames = e.detail.files\n      .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))\n      .join('\\n');\n    alert(fileNames);\n  }\n\n  render() {\n    return <InoInputFile onChangeFile={this.onChangeFile} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoInputFile } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FileInput: React.FunctionComponent<Components.InoInputFile> = (props) => {\n  const onFileChange = (e: any) => {\n    alert(`The new file is: ${e.detail}`);\n  };\n\n  return <InoInputFile onFileChange={onFileChange} />;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <FileInput />;\n  }\n}\n```\n\n## Additional Hints\n",
-      "usage": {},
-      "docs": "An input component for files. It functions as a wrapper around the native input capabilities having the [`type=\"file\"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).\n\nThis component replaces the native behaviour with a custom `ino-button` with logic.",
-      "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
+      "dependents": [
+        "ino-datepicker"
+      ],
       "dependencies": [
-        "ino-button",
-        "ino-icon"
+        "ino-icon",
+        "ino-label"
       ],
       "dependencyGraph": {
-        "ino-input-file": [
-          "ino-button",
-          "ino-icon"
+        "ino-input": [
+          "ino-icon",
+          "ino-label"
         ],
-        "ino-button": [
-          "ino-spinner"
+        "ino-datepicker": [
+          "ino-input"
         ]
-      },
+      }
+    },
+    {
+      "filePath": "./src/components/ino-input-file/ino-input-file.tsx",
+      "encapsulation": "none",
+      "tag": "ino-input-file",
+      "readme": "# ino-input-file\n\nAn input component for files. It functions as a wrapper around the native input capabilities having the [`type=\"file\"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).\n\nThis component replaces the native behaviour with a custom `ino-button` with logic.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-input-file')\n  .addEventListener('changeFile', (e) => alert(`The new file is: ${e.detail}`));\n```\n\n```html\n<ino-input-file\n  accept=\"<string>\"\n  autofocus\n  disabled\n  multiple\n  name=\"<string>\"\n  required\n\n  label=\"<string>\"\n>\n</ino-input>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoInputFile } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  onChangeFile(e) {\n    const fileNames = e.detail.files\n      .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))\n      .join('\\n');\n    alert(fileNames);\n  }\n\n  render() {\n    return <InoInputFile onChangeFile={this.onChangeFile} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoInputFile } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FileInput: React.FunctionComponent<Components.InoInputFile> = (props) => {\n  const onFileChange = (e: any) => {\n    alert(`The new file is: ${e.detail}`);\n  };\n\n  return <InoInputFile onFileChange={onFileChange} />;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <FileInput />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "docs": "An input component for files. It functions as a wrapper around the native input capabilities having the [`type=\"file\"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).\n\nThis component replaces the native behaviour with a custom `ino-button` with logic.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "accept",
@@ -4216,6 +4118,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-input-file-box-height",
@@ -4230,37 +4133,29 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-button",
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-input-file": [
+          "ino-button",
+          "ino-icon"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-label",
       "filePath": "./src/components/ino-label/ino-label.tsx",
-      "fileName": "ino-label.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-label/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-label/usage",
+      "encapsulation": "none",
       "tag": "ino-label",
       "readme": "# ino-label\n\nThis is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.\n\n```html\n<ino-label\n  outline=\"<boolean>\"\n  label=\"<string>\"\n  required=\"<boolean>\"\n  disabled=\"<boolean>\"\n>\n</ino-label>\n```\n",
-      "usage": {},
       "docs": "This is an internally used component for various sorts of inputs like `ino-input`, `ino-select` and `ino-textarea`. It is used to display the label for each respective component.\n\n```html\n<ino-label\n  outline=\"<boolean>\"\n  label=\"<string>\"\n  required=\"<boolean>\"\n  disabled=\"<boolean>\"\n>\n</ino-label>\n```",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-input",
-        "ino-select",
-        "ino-textarea"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-input": [
-          "ino-label"
-        ],
-        "ino-select": [
-          "ino-label"
-        ],
-        "ino-textarea": [
-          "ino-label"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "disabled",
@@ -4345,20 +4240,33 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-input",
+        "ino-select",
+        "ino-textarea"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-input": [
+          "ino-label"
+        ],
+        "ino-select": [
+          "ino-label"
+        ],
+        "ino-textarea": [
+          "ino-label"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list",
       "filePath": "./src/components/ino-list/ino-list.tsx",
-      "fileName": "ino-list.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list/usage",
+      "encapsulation": "none",
       "tag": "ino-list",
       "readme": "# ino-list\n\nA component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.\n\nThis component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-list dense two-lines>\n  <ino-list-item ...></ino-list-item>\n  <ino-list-divider></ino-list-divider>\n  <ino-control-item ...></ino-control-item>\n  <ino-nav-item ...></ino-nav-item>\n</ino-list>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoList avatar>\n        <InoListItem text=\"First text item\">\n          <InoImg\n            slot=\"leading\"\n            src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n            ratio-width=\"1\"\n            ratio-height=\"1\"\n          />\n        </InoListItem>\n        <InoListItem text=\"Second text item\">\n          <InoImg\n            slot=\"leading\"\n            src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n            ratio-width=\"1\"\n            ratio-height=\"1\"\n          />\n        </InoListItem>\n      </InoList>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoListItem, InoList, InoImg } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst List: React.FunctionComponent<Components.InoListAttributes> = (props) => {\n  const { avatar } = props;\n\n  return <InoList avatar={avatar}>{props.children}</InoList>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <List avatar>\n        <InoListItem text=\"First text item\">\n          <InoImg\n            slot=\"leading\"\n            src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n            ratio-width=\"1\"\n            ratio-height=\"1\"\n          />\n        </InoListItem>\n        <InoListItem text=\"Second text item\">\n          <InoImg\n            slot=\"leading\"\n            src=\"https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png\"\n            ratio-width=\"1\"\n            ratio-height=\"1\"\n          />\n        </InoListItem>\n      </List>\n    );\n  }\n}\n```\n\n## Additional Hints\n\nProvide `two-lines` to set proper style attributes for list items having a primary and secondary line.\n",
-      "usage": {},
       "docs": "A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.\n\nThis component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.",
       "docsTags": [
         {
@@ -4366,16 +4274,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-menu"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-menu": [
-          "ino-list"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "avatar",
@@ -4429,6 +4328,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-list-item-border-radius",
@@ -4443,23 +4343,24 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-menu"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-menu": [
+          "ino-list"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-divider",
       "filePath": "./src/components/ino-list-divider/ino-list-divider.tsx",
-      "fileName": "ino-list-divider.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-divider/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-divider/usage",
+      "encapsulation": "none",
       "tag": "ino-list-divider",
       "readme": "# ino-list-divider\n\nA list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-list-divder\n  between-lists\n  inset\n  padded\n>\n</ino-list-divider>\n```\n\n**Divide lists:** By default, a `ino-list-divider` sepeartes two `list-item` components. To split `ino-list` component itself, provide `between-lists` (only available for `ino-list`).\n",
-      "usage": {},
       "docs": "A list divider component that either divides two lists or list items. It functions as a wrapper around the material [list divider](https://github.com/material-components/material-components-web/blob/master/packages/mdc-divider/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "betweenLists",
@@ -4512,20 +4413,19 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-item",
       "filePath": "./src/components/ino-list-item/ino-list-item.tsx",
-      "fileName": "ino-list-item.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-item/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-list-item/usage",
+      "encapsulation": "none",
       "tag": "ino-list-item",
       "readme": "# ino-list-item\n\nA list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-list-item')\n  .addEventListener('clickEl', (e) =>\n    console.log(\n      'The new list-item was clicked, the element itself is:',\n      e.detail,\n    ),\n  );\n```\n\n```html\n<ino-list-item\n  activated\n  text=\"<string>\"\n  secondary-text=\"<string>\"\n  selected\n  onclickel=\"handleClickEl()\"\n>\n  <ino-icon slot=\"leading\" ...></ino-icon>\n  <a slot=\"primary\" href=\"www.inovex.de\">...</a>\n  <ino-icon slot=\"trailing\" ...></ino-icon>\n</ino-list-item>\n```\n\n**Ino Primary/Secondary (slot):** If you want to use different elements instead of text, you can use the `primary` or `secondary` slot. To do so, just set the `slot`-attribute of your custom element to `primary` or `secondary`.\n\n**Two lines:** For items having two lines, provide an `secondary-text` and make sure you set the `two-lines` attribute in the respective parent component (only available for `ino-list`).\n\n**Leading items:** Add an item with the slot-attribute `leading` to add a leading column to the list item in LTR languages. Typically, an icon or image.\n\n**Trailing items:** Add an item with the slot-attribute `trailing` to add a trailing column to the list item in LTR languages. Typically, small text, icon or image.\n",
-      "usage": {},
       "docs": "A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "docsTags": [
         {
@@ -4545,20 +4445,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-control-item",
-        "ino-nav-item"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-control-item": [
-          "ino-list-item"
-        ],
-        "ino-nav-item": [
-          "ino-list-item"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "activated",
@@ -4653,6 +4540,18 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-list-item-deselected-background-color",
@@ -4724,28 +4623,25 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "click",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [
+        "ino-control-item",
+        "ino-nav-item"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-control-item": [
+          "ino-list-item"
+        ],
+        "ino-nav-item": [
+          "ino-list-item"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-menu",
       "filePath": "./src/components/ino-menu/ino-menu.tsx",
-      "fileName": "ino-menu.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-menu/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-menu/usage",
+      "encapsulation": "none",
       "tag": "ino-menu",
       "readme": "# ino-menu\n\nA menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.\nThe anchor element is the parent element.\n\nThe menu items consist of different variations of the `ino-list-item` component.\n\nIf you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-button>\n  <ino-menu>\n    <ino-list-item ...></ino-list-item>\n    <ino-list-divider></ino-list-divider>\n  </ino-menu>\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport {\n  InoButton,\n  InoMenu,\n  InoListItem,\n  InoDivider,\n} from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton>\n        Show Menu\n        <InoMenu>\n          <InoListItem text=\"Home\"/>\n          <InoListItem text=\"Projects\"/>\n          <InoDivider/>\n          <InoListItem text=\"User\"/>\n          <InoListItem text=\"Settings\"/>\n        </InoMenu>\n      </InoButton>\n    );\n  }\n}\n```\n\n## Additional Hints\n\nThe menu creates a temporary surface with an empty list composer. The items of the list are provided via the slot (see\nexample above). For more details about the list capabilities itself, check the documentation of `ino-list`\nand `ino-list-item` component.\n",
-      "usage": {},
       "docs": "A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.\nThe anchor element is the parent element.\n\nThe menu items consist of different variations of the `ino-list-item` component.\n\nIf you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.",
       "docsTags": [
         {
@@ -4753,18 +4649,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-popover",
-        "ino-list"
-      ],
-      "dependencyGraph": {
-        "ino-menu": [
-          "ino-popover",
-          "ino-list"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "placement",
@@ -4843,6 +4728,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -4851,17 +4737,23 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-popover",
+        "ino-list"
+      ],
+      "dependencyGraph": {
+        "ino-menu": [
+          "ino-popover",
+          "ino-list"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-drawer",
       "filePath": "./src/components/ino-nav-drawer/ino-nav-drawer.tsx",
-      "fileName": "ino-nav-drawer.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-drawer/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-drawer/usage",
+      "encapsulation": "shadow",
       "tag": "ino-nav-drawer",
       "readme": "# ino-nav-drawer\n\nA navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-nav-drawer')\n  .addEventListener('openChange', (_) => alert('Drawer was toggled!')) // watch for toggle change\n  .setAttribute('open', true); // open drawer\n```\n\n```html\n<ino-nav-drawer\n  open=\"<boolean>\"\n  anchor=\"left|right\"\n  variant=\"docked|dismissible|modal\"\n>\n  <ino-list slot=\"content\">\n    <ino-nav-item text=\"View1\">\n      <ino-icon icon=\"user\">\n    </ino-nav-item>\n    <ino-nav-item text=\"View2\">\n      <ino-icon icon=\"settings\">\n    </ino-nav-item>\n  </ino-list>\n\n  <main slot=\"app\">\n    App Content\n  </main>\n</ino-nav-drawer>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoNavDrawer } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoNavDrawer\n        open=\"false\"\n        anchor=\"left\"\n        variant=\"docked\"\n        onOpen={(_) => alert('Yeah, you just opened the drawer!')}\n      >\n        <ino-list slot=\"header\">\n          <ino-img src=\"https://picsum.photos/50/50\" />\n        </ino-list>\n        <ino-list slot=\"content\">\n          <ino-nav-item text=\"Some Link\">\n            <ino-icon icon=\"onboarding\"></ino-icon>\n          </ino-nav-item>\n        </ino-list>\n        <ino-list slot=\"footer\">\n          <ino-nav-item text=\"My Profile\">\n            <ino-img\n              src=\"https://picsum.photos/id/1027/250/250.jpg\"\n              style=\"border-radius: 50%\"\n              ratio-width=\"1\"\n              ratio-height=\"1\"\n            ></ino-img>\n          </ino-nav-item>\n        </ino-list>\n\n        <main slot=\"app\">\n          <App /> /* Your app goes here */\n        </main>\n      </InoNavDrawer>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoNavDrawer } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Drawer: React.FunctionComponent<Components.InoNavDrawerAttributes> = (\n  props\n) => {\n  const { open, variant, anchor } = props;\n\n  return (\n    <InoNavDrawer open={open} variant={variant} onClick={onClick}>\n      Drawer Content\n      <main slot=\"app\">App Content</main>\n    </InoNavDrawer>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Drawer variant=\"dismissible\" anchor=\"left\" open=\"true\" />;\n  }\n}\n```\n\n## Demo\n",
-      "usage": {},
       "docs": "A navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.",
       "docsTags": [
         {
@@ -4889,19 +4781,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon-button"
-      ],
-      "dependencyGraph": {
-        "ino-nav-drawer": [
-          "ino-icon-button"
-        ],
-        "ino-icon-button": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "anchor",
@@ -4981,6 +4861,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-nav-drawer-background",
@@ -5045,17 +4926,24 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon-button"
+      ],
+      "dependencyGraph": {
+        "ino-nav-drawer": [
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-item",
       "filePath": "./src/components/ino-nav-item/ino-nav-item.tsx",
-      "fileName": "ino-nav-item.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-item/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-nav-item/usage",
+      "encapsulation": "none",
       "tag": "ino-nav-item",
       "readme": "# ino-nav-item\n\nA nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n> Note: This component's main use case is within the `ino-nav-drawer`.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-nav-item')\n  .addEventListener('clickEl', (e) =>\n    console.log(\n      'The new nav-item was clicked, the element itself is:',\n      e.detail,\n    ),\n  );\n```\n\n```html\n<ino-nav-item activated text=\"<string>\" onclickel=\"handleClickEl()\">\n  <ino-icon ...></ino-icon>\n</ino-nav-item>\n```\n\n**Default:** Add an item with the default slot to add a first column in the nav item in LTR languages. Typically an icon or image.\n",
-      "usage": {},
       "docs": "A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n> Note: This component's main use case is within the `ino-nav-drawer`.",
       "docsTags": [
         {
@@ -5063,16 +4951,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-list-item"
-      ],
-      "dependencyGraph": {
-        "ino-nav-item": [
-          "ino-list-item"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "activated",
@@ -5143,6 +5022,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-nav-item-background-color",
@@ -5172,17 +5052,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-list-item"
+      ],
+      "dependencyGraph": {
+        "ino-nav-item": [
+          "ino-list-item"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option",
       "filePath": "./src/components/ino-option/ino-option.tsx",
-      "fileName": "ino-option.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option/usage",
+      "encapsulation": "none",
       "tag": "ino-option",
       "readme": "# ino-option\n\nAn option component that can be used to add options to an ino-select component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-option disabled selected value=\"<string>\"> Content </ino-option>\n```\n",
-      "usage": {},
       "docs": "An option component that can be used to add options to an ino-select component.",
       "docsTags": [
         {
@@ -5190,16 +5074,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-option-group"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-option-group": [
-          "ino-option"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "disabled",
@@ -5264,6 +5139,18 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-option-deselected-background-color",
@@ -5313,28 +5200,21 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "click",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "keydown",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [
+        "ino-option-group"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-option-group": [
+          "ino-option"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option-group",
       "filePath": "./src/components/ino-option-group/ino-option-group.tsx",
-      "fileName": "ino-option-group.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option-group/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-option-group/usage",
+      "encapsulation": "none",
       "tag": "ino-option-group",
       "readme": "# ino-option-group\n\nA wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.\n\nBeyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).\n\n### Usage\n\n```html\n<ino-select>\n  <ino-option-group label=\"My First Option Group\">\n    <ino-option value=\"Option 1\">Option 1</ino-option>\n    <ino-option value=\"Option 2\">Option 2</ino-option>\n    <ino-option value=\"Option 3\">Option 3</ino-option>\n  </ino-option-group>\n  <ino-option-group label=\"My Second Option Group\">\n    <ino-option value=\"Option 4\">Option 4</ino-option>\n    <ino-option value=\"Option 5\">Option 5</ino-option>\n    <ino-option value=\"Option 6\">Option 6</ino-option>\n  </ino-option-group>\n</ino-select>\n```\n\n### React\n\n#### Example\n\n```js\nimport { Component } from 'react';\nimport {\n  InoSelect,\n  InoOption,\n  InoOptionGroup,\n} from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  changeHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoSelect\n        label=\"My Select\"\n        value={this.state.selected}\n        onValueChange={() => this.changeHandler(e.detail)}\n      >\n        <InoOptionGroup label={'Option Group 1'}>\n          <InoOption value=\"Option 1\">Option 1</InoOption>\n          <InoOption value=\"Option 2\">Option 2</InoOption>\n        </InoOptionGroup>\n        <InoOptionGroup label={'Option Group 2'}>\n          <InoOption value=\"Option 3\">Option 3</InoOption>\n          <InoOption value=\"Option 4\">Option 4</InoOption>\n        </InoOptionGroup>\n      </InoSelect>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.\n\nBeyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).",
       "docsTags": [
         {
@@ -5342,16 +5222,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-option"
-      ],
-      "dependencyGraph": {
-        "ino-option-group": [
-          "ino-option"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "label",
@@ -5372,6 +5243,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -5380,17 +5252,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-option"
+      ],
+      "dependencyGraph": {
+        "ino-option-group": [
+          "ino-option"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-popover",
       "filePath": "./src/components/ino-popover/ino-popover.tsx",
-      "fileName": "ino-popover.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-popover/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-popover/usage",
+      "encapsulation": "none",
       "tag": "ino-popover",
       "readme": "# ino-popover\n\nA Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-popover\n  color-scheme=\"<string>\"\n  controlled=\"<boolean>\"\n  distance=\"<number>\"\n  for=\"<string>\"\n  interactive=\"<boolean>\"\n  placement=\"<string>\" \n  trigger=\"<string>\"\n  visible=\"<boolean>\"\n>\n  Any desired HTML\n</ino-popover>\n```\n\n#### Targets\nThere are currently three ways to attach your popover to a component, which results in a slightly different structure:\n\n1. Using the `popover-trigger` slot _(preferred)_:\n\n```html\n<ino-popover trigger=\"click\">\n    <ino-button slot=\"popover-trigger\">Click to show/hide</ino-button>\n    <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-popover>\n├── <ino-button>\n└── <custom-html-content>\n```\n\n2. Using the `for` property:\n\n```html\n<ino-button id=\"my-target\" slot=\"popover-trigger\">Click to show/hide</ino-button>\n<ino-popover for=\"my-target\" trigger=\"click\">\n  <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-button>\n<ino-popover>\n└── <custom-html-content>\n```\n\n3. Using the parent element:\n\n```html\n<ino-button>\n    Click to show/hide\n    <ino-popover trigger=\"click\">\n      <custom-html-content></custom-html-content>\n    </ino-popover>\n</ino-button>\n```\n\n```html\n<ino-button>\n└── <ino-popover>\n    └── <custom-html-content>\n```\n\n\n#### Controlled vs. Uncontrolled\n\nThere are currently two ways you can manage the state of the popover.\n\n_Uncontrolled_\n\nEither you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover). \nThis is the easiest way as you don't have to worry about managing this state yourself.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <div>\n        <InoPopover trigger=\"mouseenter\">\n          <InoButton slot=\"popover-trigger\">Open Popover</InoButton>\n          This popover will show as soon as the user hovers the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n_Controlled_\n\nOr you use the `controlled` and `visible` property to show/hide the popover by yourself. \nThis is helpful if you want to implement custom logic when the popover should be shown or hidden.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n\n  state = {\n    showPopover: false\n  };\n\n  setPopoverState = (show: boolean) => {\n    if (this.props.someProp) return; // Some condition\n    \n    this.setState({ showPopover: show });\n  }\n\n  render() {\n    return (\n      <div>\n        <InoPopover \n          inoControlled \n          inoVisible={this.state.showPopover}\n          onInoVisibleChanged={(e) => setPopoverState(e.detail)}\n        >\n          <InoButton slot=\"popover-trigger\">\n            Open Popover\n          </InoButton>\n          This popover will show as soon as the user clicks the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n### React\n\n#### Example #1 - Basic\n\n```tsx\nimport { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoPopover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </InoPopover>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Popover: React.FunctionComponent<Components.InoPopoverAttributes> = (\n  props,\n) => {\n  const { placement, for } = props;\n\n  return (\n    <InoPopover placement={placement} for={for}>\n      {props.children}\n    </InoPopover>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Popover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </Popover>\n    );\n  }\n}\n```\n\n## Additional Hints\n",
-      "usage": {},
       "docs": "A Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.",
       "docsTags": [
         {
@@ -5402,16 +5278,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-menu"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-menu": [
-          "ino-popover"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "colorScheme",
@@ -5700,6 +5567,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -5712,23 +5580,24 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-menu"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-menu": [
+          "ino-popover"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-progress-bar",
       "filePath": "./src/components/ino-progress-bar/ino-progress-bar.tsx",
-      "fileName": "ino-progress-bar.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-progress-bar/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-progress-bar/usage",
+      "encapsulation": "shadow",
       "tag": "ino-progress-bar",
       "readme": "# ino-progress-bar\n\nThe ino-progress-bar is a linear progress bar based on the mdc-linear-progress component.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-progress-bar\n  buffer=\"0.7\"\n  progress=\"0.4\"\n  reversed\n  indeterminate\n  label=\"Progress Bar\"\n>\n</ino-progress-bar>\n```\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoProgressBar, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n    state = {\n      indeterminate: false\n    };\n\n    handleClick = () => {\n      this.setState((state) => ({\n        indeterminate: !state.indeterminate\n      }));\n    };\n\n    render() {\n      return (\n        <>\n          <InoButton onClick={() => this.handleClick()}>Click me!</InoButton>\n          <InoProgressBar indeterminate={this.state.indeterminate}></InoProgressBar>\n        </>\n      )\n    }\n}\n```\n",
-      "usage": {},
       "docs": "The ino-progress-bar is a linear progress bar based on the mdc-linear-progress component.",
       "docsTags": [],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "buffer",
@@ -5817,6 +5686,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [
         {
           "name": "--progress-bar--bar-color",
@@ -5826,17 +5696,15 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio",
       "filePath": "./src/components/ino-radio/ino-radio.tsx",
-      "fileName": "ino-radio.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio/usage",
+      "encapsulation": "shadow",
       "tag": "ino-radio",
       "readme": "# ino-radio\n\nA radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-radio')\n  .addEventListener('checkedChange', (_) =>\n    alert(`The radio button should be checked`),\n  );\n```\n\n```html\n<ino-radio\n  checked=\"<boolean>\"\n  disabled=\"<boolean>\"\n  name=\"<string>\"\n  value=\"<string>\"\n  id=\"<string>\"\n  oncheckedChange=\"handleCheckedChange()\"\n>\n  Label\n</ino-radio>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoRadio checked name=\"radio-1\">\n        Checked\n      </InoRadio>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadio } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Radio: React.FunctionComponent<Components.InoRadioAttributes> = (\n  props,\n) => {\n  const { checked, name } = props;\n\n  return (\n    <InoRadio checked={checked} name={name}>\n      {props.children}\n    </InoRadio>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Radio checked name=\"radio-1\">\n        Checked\n      </Radio>\n    );\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nClicking on the radio button triggers an event that contains the boolean value `true` (`e.detail`). This event is only triggered if the radio button was not previously selected (`checked=false`). In order to check one element and uncheck the other ones, please refer to the `ino-radio-group`-Component. If (`checked=true`) is passed to an element, the other elements **won't** be deselected without the use of the `ino-radio-group`.\n\n```html\n<ino-radio\n  checked={this.state.checked}\n  checkedChange={e => this.state.checked = e.detail}>\n</ino-radio>\n```\n\n## Demo\n",
-      "usage": {},
       "docs": "A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.",
       "docsTags": [
         {
@@ -5844,16 +5712,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [
-        "ino-control-item"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-control-item": [
-          "ino-radio"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "checked",
@@ -5933,6 +5792,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-radio-active-color",
@@ -5972,17 +5832,21 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-control-item"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-control-item": [
+          "ino-radio"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio-group",
       "filePath": "./src/components/ino-radio-group/ino-radio-group.tsx",
-      "fileName": "ino-radio-group.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio-group/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-radio-group/usage",
+      "encapsulation": "shadow",
       "tag": "ino-radio-group",
       "readme": "# ino-radio-group\n\nA wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.\n\n### Usage\n\n```html\n<ino-radio-group value=\"Option 1\">\n  <ino-radio value=\"Option 1\">I will be checked</ino-radio>\n  <ino-radio value=\"Option 2\">Option 2</ino-radio>\n  <ino-radio value=\"Option 3\">Option 3</ino-radio>\n</ino-radio-group>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  clickHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoRadioGroup value={this.state.selected}>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 1')}\n          value=\"Option 1\"\n        >\n          I will be checked\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 2')}\n          value=\"Option 2\"\n        >\n          Option 2\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 3')}\n          value=\"Option 3\"\n        >\n          Option 3\n        </InoRadio>\n      </InoRadioGroup>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadioGroup } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = (\n  props,\n) => {\n  const { value } = props;\n\n  return <InoRadioGroup value={value}>{props.children}</InoRadioGroup>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <RadioGroup value={'Option 1'}>...</RadioGroup>;\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nIn order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio` and pass it's value to the `ino-radio-group` via the `value`-Property.\n",
-      "usage": {},
       "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.",
       "docsTags": [
         {
@@ -5990,10 +5854,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "value",
@@ -6014,6 +5875,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -6022,23 +5884,18 @@
         }
       ],
       "parts": [],
-      "listeners": []
-    },
-    {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-range",
-      "filePath": "./src/components/ino-range/ino-range.tsx",
-      "fileName": "ino-range.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-range/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-range/usage",
-      "tag": "ino-range",
-      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
-      "usage": {},
-      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
-      "docsTags": [],
-      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {},
+      "dependencyGraph": {}
+    },
+    {
+      "filePath": "./src/components/ino-range/ino-range.tsx",
+      "encapsulation": "none",
+      "tag": "ino-range",
+      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
+      "docsTags": [],
+      "usage": {},
       "props": [
         {
           "name": "colorScheme",
@@ -6225,20 +6082,19 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-button",
       "filePath": "./src/components/ino-segment-button/ino-segment-button.tsx",
-      "fileName": "ino-segment-button.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-button/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-button/usage",
+      "encapsulation": "shadow",
       "tag": "ino-segment-button",
       "readme": "# ino-segment-button\n\nA button component that can be used in combination with the ino-segment-group component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-segment-button')\n  .addEventListener('click', () => alert('Button was clicked!'));\n```\n\n```html\n<ino-segment-button checked disabled name=\"<string>\" dense value=\"<string>\">\n  Button Content\n</ino-segment-button>\n```\n\n### React\n\n```js\nimport { Component } from 'react';\nimport { InoSegmentButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSegmentButton onClick={(_) => alert('Yeah, you clicked the button!')}>\n        You can click me!\n      </InoSegmentButton>\n    );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "A button component that can be used in combination with the ino-segment-group component.",
       "docsTags": [
         {
@@ -6246,10 +6102,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "checked",
@@ -6347,6 +6200,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-segment-button-checked-color",
@@ -6386,17 +6240,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-group",
       "filePath": "./src/components/ino-segment-group/ino-segment-group.tsx",
-      "fileName": "ino-segment-group.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-group/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-segment-group/usage",
+      "encapsulation": "shadow",
       "tag": "ino-segment-group",
       "readme": "# ino-segment-group\n\nA button group that can be used as an alternative to drop-down menus.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-segment-group')\n  .addEventListener('checkedChange', (e) =>\n    console.log(`${e.target} was checked!`),\n  );\n```\n\n```html\n<ino-segment-group value=\"1\" name=\"<string>\">\n  <ino-segment-button value=\"1\">Option 1</ino-segment-button>\n  <ino-segment-button value=\"2\">Option 2</ino-segment-button>\n  <ino-segment-button value=\"3\">Option 3</ino-segment-button>\n</ino-segment-group>\n```\n\n### React\n\n```js\nimport { Component } from 'react';\nimport {\n  InoSegmentButton,\n  InoSegmentGroup,\n} from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  state = {\n    val: 1,\n  };\n\n  handleEvent = (val) => {\n    this.setState({ val: val });\n  };\n\n  render() {\n    return (\n      <InoSegmentGroup value={this.state.val} name=\"my-group\">\n        <InoSegmentButton\n          value=\"1\"\n          onCheckedChange={() => this.handleEvent('1')}\n        >\n          Option 1\n        </InoSegmentButton>\n        <InoSegmentButton\n          value=\"2\"\n          onCheckedChange={() => this.handleEvent('2')}\n        >\n          Option 2\n        </InoSegmentButton>\n        <InoSegmentButton\n          value=\"3\"\n          onCheckedChange={() => this.handleEvent('3')}\n        >\n          Option 3\n        </InoSegmentButton>\n      </InoSegmentGroup>\n    );\n  }\n}\n```\n\n## Event handling\n\nThe `checkedChange` event can be used to set the selected option. Simply subscribe to the event and set the group value\nto the value of the button that emitted the event.\n",
-      "usage": {},
       "docs": "A button group that can be used as an alternative to drop-down menus.",
       "docsTags": [
         {
@@ -6404,10 +6256,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "name",
@@ -6444,6 +6293,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -6452,17 +6302,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-select",
       "filePath": "./src/components/ino-select/ino-select.tsx",
-      "fileName": "ino-select.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-select/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-select/usage",
+      "encapsulation": "none",
       "tag": "ino-select",
       "readme": "# ino-select\n\nA component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-select')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new select value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-select\n  autofocus\n  disabled\n  name=\"<string>\"\n  required\n  value=\"<string>\"\n  label=\"<string>\"\n  outline\n>\n  <ino-option value=\"Option 1\">Option 1</ino-option>\n  <ino-option value=\"Option 2\">Option 2</ino-option> ...\n</ino-select>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSelect; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </InoSelect>;;\n    )\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSelect, InoOption } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Select: React.FunctionComponent<Components.InoSelectAttributes> = props => {\n  const { inoLabel, required } = props;\n\n  return (\n    <InoSelect;\n      inoLabel={inoLabel};\n      required={required}\n    >\n      {props.children}\n    </InoSelect>;;\n  )\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Select; inoLabel=\"Form select\"; required>\n        <InoOption; value=\"Test\">Test</InoOption>\n      </Select>;;\n    )\n  }\n}\n```\n\n## Additional Hints\n\nUse the custom `ino-option` component to add options to the select component. The `label` attribute sets an optional floating label for this element.\n\n### Control flow\n\nThe select has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of select.\n\n```js\ndocument\n  .querySelector('ino-select')\n  .addEventListener('valueChange', (e) => (this.state.value = e.detail));\n```\n\n### Event Behaviour\n\nThe component behaves like a native select with additional features. The native `input'` is not bubbled. The component will emit a `valueChange` event if the value of the group changes.\n",
-      "usage": {},
       "docs": "A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.",
       "docsTags": [
         {
@@ -6474,16 +6322,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-label"
-      ],
-      "dependencyGraph": {
-        "ino-select": [
-          "ino-label"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "disabled",
@@ -6627,6 +6466,13 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "MDCSelect:change",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-select-height",
@@ -6650,23 +6496,21 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "MDCSelect:change",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [],
+      "dependencies": [
+        "ino-label"
+      ],
+      "dependencyGraph": {
+        "ino-select": [
+          "ino-label"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-sidebar",
       "filePath": "./src/components/ino-sidebar/ino-sidebar.tsx",
-      "fileName": "ino-sidebar.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-sidebar/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-sidebar/usage",
+      "encapsulation": "shadow",
       "tag": "ino-sidebar",
       "readme": "# ino-sidebar\n\nThe ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n    .querySelector('ino-sidebar')\n    .addEventListener('openChange', (e) => console.log(`state of sidebar changed to ${e.detail}`);\n```\n\n```html\n<ino-sidebar>\n  <div class=\"sidebar-header\" slot=\"header\">\n    <ino-icon clickable icon=\"close-s\"></ino-icon>\n  </div>\n  <div class=\"sidebar-content\" slot=\"content\">\n    <ino-list>\n      <ino-list-item text=\"List item\"></ino-list-item>\n      <ino-list-item text=\"List item\"></ino-list-item>\n    </ino-list>\n  </div>\n</ino-sidebar>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    expanded: false\n  };\n\n  handleClick = () => {\n    this.setState((state) => ({\n      expanded: !state.expanded\n    }));\n  };\n\n  render() {\n    return (\n      <InoButton onClick={() => this.handleClick()}>Sidebar</InoButton>\n      <InoSidebar inoOpen={this.state.expanded}></InoSidebar>\n    )\n  }\n\n}\n```\n\n## Sidenotes\n\nThe empty `div` tag with the `tabindex=\"0\"` attribute as well as the `<div class=\"mdc-drawer-scrim\"/>` tag\nare indispensable for the sidebar to work properly. For further information,\nrefer to https://github.com/material-components/material-components-web/issues/5615 and\nhttps://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer.\n",
-      "usage": {},
       "docs": "The ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.",
       "docsTags": [
         {
@@ -6678,10 +6522,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "alignRight",
@@ -6746,6 +6587,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--sidebar-width",
@@ -6764,34 +6606,18 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-snackbar",
       "filePath": "./src/components/ino-snackbar/ino-snackbar.tsx",
-      "fileName": "ino-snackbar.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-snackbar/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-snackbar/usage",
+      "encapsulation": "none",
       "tag": "ino-snackbar",
       "readme": "# ino-snackbar\n\nSnackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-snackbar')\n  .addEventListener('inoActionClick', (e) =>\n    alert('Action-Button was clicked!'),\n  );\n\ndocument\n  .querySelector('ino-snackbar')\n  .addEventListener('hideEl', (e) => alert('Snackbar hides!'));\n```\n\n```html\n<ino-snackbar\n  message=\"<string>\"\n  action-text=\"<string>\"\n  action-on-bottom\n  align-start\n  oninoactionclick=\"handleClickEl()\"\n  onhideel=\"handleHideEl()\"\n>\n</ino-snackbar>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSnackbar } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoSnackbar\n        inoMessage=\"Message deleted\"\n        inoActionText=\"Undo\"\n        inoActionOnBottom={false}\n        inoAlignStart={false}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSnackbar } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Snackbar: React.FunctionComponent<Components.InoSnackbarAttributes> = props => {\n  const {\n    inoMessage,\n    inoActionText,\n    inoActionOnBottom,\n    inoAlignStart\n  } = props;\n\n  return (\n    <InoSnackbar\n      inoMessage={inoMessage}\n      inoActionText={inoActionText}\n      inoActionOnBottom={inoActionOnBottom}\n      inoAlignStart={inoAlignStart}\n    >\n      {props.children}\n    </InoSnackbar>\n  );\n};\n\nclass MyComponent extends Component {\n  const conditionToRender = true;\n\n  render() {\n    return conditionToRender && (\n      <Snackbar\n        inoMessage=\"Message deleted\"\n        inoActionText=\"Undo\"\n        inoActionOnBottom={false}\n        inoAlignStart={false}\n      />\n    );\n  }\n}\n```\n\n## Additional Hints\n\nSnackbar is displayed when `show` is changed to checked.\n",
-      "usage": {},
       "docs": "Snackbars provide brief messages about app processes at the bottom of the screen. It functions as a wrapper around the material design's [Snackbar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar) component",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon",
-        "ino-icon-button"
-      ],
-      "dependencyGraph": {
-        "ino-snackbar": [
-          "ino-icon",
-          "ino-icon-button"
-        ],
-        "ino-icon-button": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "actionText",
@@ -6907,6 +6733,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-snackbar-bottom",
@@ -6931,29 +6758,29 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [
+        "ino-icon",
+        "ino-icon-button"
+      ],
+      "dependencyGraph": {
+        "ino-snackbar": [
+          "ino-icon",
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-spinner",
       "filePath": "./src/components/ino-spinner/ino-spinner.tsx",
-      "fileName": "ino-spinner.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-spinner/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-spinner/usage",
+      "encapsulation": "none",
       "tag": "ino-spinner",
       "readme": "# ino-spinner\n\nA component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-spinner\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  height=\"<number>\"\n  modal\n  width=\"<number>\"\n>\n</ino-spinner>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoSpinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return (\n    <InoSpinner inoColorScheme={inoColorScheme}>{props.children}</InoSpinner>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Spinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n## Additional Hints\n\nUse one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).\n\n**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.\n",
-      "usage": {},
       "docs": "A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-button"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-button": [
-          "ino-spinner"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "colorScheme",
@@ -7077,20 +6904,25 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-button"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-button": [
+          "ino-spinner"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-switch",
       "filePath": "./src/components/ino-switch/ino-switch.tsx",
-      "fileName": "ino-switch.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-switch/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-switch/usage",
+      "encapsulation": "none",
       "tag": "ino-switch",
       "readme": "# ino-switch\n\nInput switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-switch')\n  .addEventListener('checkedChange', (e) =>\n    alert(`The checked state is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-switch checked disabled color-scheme=\"<string>\" name=\"<string>\">\n  Label\n</ino-switch>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSwitch } from '@inovex.de/elements-react';\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick(e) {\n    this.setState({ checked: e.detail });\n  }\n\n  render() {\n    return (\n      <InoSwitch\n        checked={this.state.checked}\n        onCheckedChange={handleCheckboxClick}\n      >\n        Apple\n      </InoSwitch>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSwitch } from '@inovex.de/elements-react';\nimport { Components } from '@inovex.de/elements-react/dist/types/components';\n\nconst Switch: React.FunctionComponent<Components.InoSwitchAttributes> = (\n  props,\n) => {\n  const { value, onClick, checked } = props;\n\n  return (\n    <InoSwitch value={value} onCheckedChange={onClick} checked={checked}>\n      {value}\n    </InoSwitch>\n  );\n};\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick(e) {\n    this.setState({ checked: e.detail });\n  }\n\n  render() {\n    return (\n      <Switch\n        value={'Apple'}\n        checked={this.state.checked}\n        onClick={handleCheckboxClick}\n      />\n    );\n  }\n}\n```\n\n## Control flow\n\nThe input has a controlled (unmanaged) attribute `checked`. For this reason listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change the value.\n",
-      "usage": {},
       "docs": "Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.",
       "docsTags": [
         {
@@ -7098,10 +6930,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "checked",
@@ -7207,6 +7036,7 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-switch-active-color",
@@ -7291,29 +7121,18 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab",
       "filePath": "./src/components/ino-tab/ino-tab.tsx",
-      "fileName": "ino-tab.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab/usage",
+      "encapsulation": "none",
       "tag": "ino-tab",
       "readme": "# ino-tab\n\nTabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-tab\n  label=\"<string>\"\n  icon=\"<string>\"\n  indicator-content-width\n  stacked\n>\n</ino-tab>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoTabBar inoActiveTab={2}>\n        <InoTab inoLabel=\"Tab #1\" />\n        <InoTab inoLabel=\"Tab #2\" />\n        <InoTab inoLabel=\"Tab #3\" />\n      </InoTabBar>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (\n  props,\n) => {\n  const { inoActiveTab } = props;\n\n  return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <TabBar inoActiveTab={2}>\n        <InoTab inoLabel=\"Tab #1\" />\n        <InoTab inoLabel=\"Tab #2\" />\n        <InoTab inoLabel=\"Tab #3\" />\n      </TabBar>\n    );\n  }\n}\n```\n\n## Additional Hints\n\n**Content**: Provide the text of a Tab and, if desired, an icon of the tab in `icon`.\n",
-      "usage": {},
       "docs": "Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. Each Tab governs the visibility of one group of content. It functions as a wrapper around the material [Tab](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab) component.",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-tab": [
-          "ino-icon"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "icon",
@@ -7394,26 +7213,31 @@
           "docsTags": []
         }
       ],
-      "styles": [],
-      "slots": [],
-      "parts": [],
       "listeners": [
         {
           "event": "MDCTab:interacted",
           "capture": false,
           "passive": false
         }
-      ]
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-tab": [
+          "ino-icon"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab-bar",
       "filePath": "./src/components/ino-tab-bar/ino-tab-bar.tsx",
-      "fileName": "ino-tab-bar.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab-bar/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tab-bar/usage",
+      "encapsulation": "none",
       "tag": "ino-tab-bar",
       "readme": "# ino-tab-bar\n\nTabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-tab-bar')\n  .addEventListener('activeTabChange', (e) =>\n    console.log(`The index of the new tab is: ${e.detail}`),\n  );\n```\n\n```jsx\n<ino-tab-bar\n  active-tab=\"<number>\"\n  onactivetabchange=\"handleActiveTabChange()\"\n>\n  <ino-tab ...></ino-tab>\n</ino-tab-bar>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoTabBar inoActiveTab={2}>\n        <InoTab inoLabel=\"Tab #1\" />\n        <InoTab inoLabel=\"Tab #2\" />\n        <InoTab inoLabel=\"Tab #3\" />\n      </InoTabBar>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoTab, InoTabBar } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst TabBar: React.FunctionComponent<Components.InoTabBarAttributes> = (\n  props,\n) => {\n  const { inoActiveTab } = props;\n\n  return <InoTabBar inoActiveTab={inoActiveTab}>{props.children}</InoTabBar>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <TabBar inoActiveTab={2}>\n        <InoTab inoLabel=\"Tab #1\" />\n        <InoTab inoLabel=\"Tab #2\" />\n        <InoTab inoLabel=\"Tab #3\" />\n      </TabBar>\n    );\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nThe tab bar has a controlled (unmanaged) attribute `active-tab`. For this reason, the tab doesn't change on user interactions but on updates of `active-tab`. Listen to `activeTabChange`, sync it with your local state and pass the new index to the component again to activate the tab.\n\n```jsx\n<ino-tab-bar\n  active-tab={this.state.index}\n  activeTabChange={(e) => (this.state.index = e.detail)}\n/>\n```\n",
-      "usage": {},
       "docs": "Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.",
       "docsTags": [
         {
@@ -7421,10 +7245,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "activeTab",
@@ -7473,6 +7294,13 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "interacted",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -7481,23 +7309,15 @@
         }
       ],
       "parts": [],
-      "listeners": [
-        {
-          "event": "interacted",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table",
       "filePath": "./src/components/ino-table/ino-table.tsx",
-      "fileName": "ino-table.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table/usage",
+      "encapsulation": "none",
       "tag": "ino-table",
       "readme": "# ino-table\n\nThe ino-table is a custom-built data table that can be used to display large sets of data across multiple columns and rows.\nThe component is based on the mdc-data-table.\n\n## Usage\n\nThe component comprises two sub-components: `ìno-table-row` and `ino-table-cell`. The `ino-table-row` can be used to\nadd a row to the table. To add a header row, all you have to do is to add the `ino-header-row` property to the component\nand set `slot=header`.\nCorrespondingly, the `ino-table-cell` can be used to add a column to the table by adding a cell to each row.\nYou should always set `numeric` to true if the cell contains numeric values.\nThe following examples illustrate how the `ino-table` can be used:\n\n### Web Component\n\n```html\n<ino-table>\n  <ino-table-row slot=\"header\" header-row>\n    <ino-table-cell>ID</ino-table-cell>\n    <ino-table-cell>Column A</ino-table-cell>\n    <ino-table-cell>Column B</ino-table-cell>\n  </ino-table-row>\n  <ino-table-row>\n    <ino-table-cell numeric>1</ino-table-cell>\n    <ino-table-cell>Cell A1</ino-table-cell>\n    <ino-table-cell>Cell B1</ino-table-cell>\n  </ino-table-row>\n  <ino-table-row>\n    <ino-table-cell numeric>2</ino-table-cell>\n    <ino-table-cell>Cell A2</ino-table-cell>\n    <ino-table-cell>Cell B2</ino-table-cell>\n  </ino-table-row>\n</ino-table>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoTable, InoTableRow, InoTableCell, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    selected: false\n  };\n\n  handleEvent = () => {\n    this.setState((state) => ({\n      selected: !state.selected\n    }));\n  };\n\n  render() {\n      return (\n      <InoTable>\n        <InoTableRow inoHeaderRow>\n          <InoTableCell>ID</InoTableCell>\n          <InoTableCell>Title</InoTableCell>\n          <InoTableCell>Action</InoTableCell>\n        <InoTableRow>\n        <InoTableRow selected={this.state.selected}>\n          <InoTableCell inoNumeric>1</InoTableCell>\n          <InoTableCell>image.png</InoTableCell>\n          <InoTableCell>\n            <InoButton onClick={this.handleEvent()}>Download</InoButton>\n          </InoTableCell>\n        </InoTableRow>\n      </InoTable>\n      );\n  }\n}\n```\n",
-      "usage": {},
       "docs": "The ino-table is a custom-built data table that can be used to display large sets of data across multiple columns and rows.\nThe component is based on the mdc-data-table.",
       "docsTags": [
         {
@@ -7509,13 +7329,11 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -7528,17 +7346,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-cell",
       "filePath": "./src/components/ino-table-cell/ino-table-cell.tsx",
-      "fileName": "ino-table-cell.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-cell/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-cell/usage",
+      "encapsulation": "none",
       "tag": "ino-table-cell",
       "readme": "# ino-table-cell\n\nThe ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-table-row header-row>\n  <ino-table-cell numeric> 1 </ino-table-cell>\n  <ino-table-cell> Cell content </ino-table-cell>\n</ino-table-row>\n```\n",
-      "usage": {},
       "docs": "The ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.",
       "docsTags": [
         {
@@ -7546,10 +7362,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "numeric",
@@ -7571,6 +7384,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -7579,17 +7393,15 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-row",
       "filePath": "./src/components/ino-table-row/ino-table-row.tsx",
-      "fileName": "ino-table-row.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-row/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-table-row/usage",
+      "encapsulation": "none",
       "tag": "ino-table-row",
       "readme": "# ino-table-row\n\nThe ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-table-row header-row selected>\n  <ino-table-cell>Cell content</ino-table-cell>\n</ino-table-row>\n```\n",
-      "usage": {},
       "docs": "The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.",
       "docsTags": [
         {
@@ -7597,10 +7409,7 @@
           "name": "slot"
         }
       ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "usage": {},
       "props": [
         {
           "name": "headerRow",
@@ -7639,6 +7448,7 @@
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [
         {
@@ -7647,29 +7457,18 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-textarea",
       "filePath": "./src/components/ino-textarea/ino-textarea.tsx",
-      "fileName": "ino-textarea.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-textarea/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-textarea/usage",
+      "encapsulation": "none",
       "tag": "ino-textarea",
       "readme": "# ino-textarea\n\nA textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.\n\n> **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-textarea')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new textarea value is ${e.detail}`),\n  );\n```\n\n```html\n<ino-textarea\n  autofocus\n  cols=\"<number>\"\n  disabled\n  maxlength=\"<number>\"\n  minlength=\"<number>\"\n  name=\"<string>\"\n  placeholder=\"<string>\"\n  required\n  rows=\"<number>\"\n  value=\"<string>\"\n  autogrow\n  label=\"<string>\"\n>\n</ino-textarea>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoTextarea } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoTextarea autogrow>\n        Here's some text. And the textarea will grow when you enter more...\n      </InoTextarea>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoTextarea } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Textarea: React.FunctionComponent<Components.InoTextareaAttributes> = (\n  props,\n) => {\n  const { autogrow } = props;\n\n  return <InoTextarea autogrow={autogrow}>{props.children}</InoTextarea>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Textarea autogrow>\n        Here's some text. And the textarea will grow when you enter more...\n      </Textarea>\n    );\n  }\n}\n```\n\n## Additional Hints\n\n**Labels**: The component shows a floating label containing the value of `label`.\n\n### Control flow\n\nThe textarea has a controlled (unmanaged) attribute `value`. For this reason, the value doesn't change on user interaction but on updates of `value`. Listen to `valueChange`, sync it with your local state and pass the new value to the component again to change value of input.\n\n```js\ndocument.querySelector('ino-textarea').addEventListener('valueChanges', (e) => {\n  // ...\n});\n```\n\n```html\n<ino-textarea\n  value={this.state.value}\n  valueChange={e => this.state.value = e.detail}>\n</ino-textarea>\n```\n\n### Event Behaviour\n\nThe component is based on a native input with additional features. Thus, the component bubbles events triggered by the native [HTMLTextareaElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement) like `keyup`. The native `input` and `change` event is not bubbled because the value will only change when the value attribute changes.\n",
-      "usage": {},
       "docs": "A textarea component with styles. It uses a material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component for its styling.\n\n> **Note:** The textarea is always styled in an outlined manner. If you need to use a textarea in combination with other form inputs (`ino-input`), use their respective outline style.",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [
-        "ino-label"
-      ],
-      "dependencyGraph": {
-        "ino-textarea": [
-          "ino-label"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "autoFocus",
@@ -7958,6 +7757,18 @@
           "docsTags": []
         }
       ],
+      "listeners": [
+        {
+          "event": "change",
+          "capture": false,
+          "passive": false
+        },
+        {
+          "event": "input",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-textarea-caret-color",
@@ -7977,40 +7788,24 @@
       ],
       "slots": [],
       "parts": [],
-      "listeners": [
-        {
-          "event": "change",
-          "capture": false,
-          "passive": false
-        },
-        {
-          "event": "input",
-          "capture": false,
-          "passive": false
-        }
-      ]
+      "dependents": [],
+      "dependencies": [
+        "ino-label"
+      ],
+      "dependencyGraph": {
+        "ino-textarea": [
+          "ino-label"
+        ]
+      }
     },
     {
-      "dirPath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tooltip",
       "filePath": "./src/components/ino-tooltip/ino-tooltip.tsx",
-      "fileName": "ino-tooltip.tsx",
-      "readmePath": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tooltip/readme.md",
-      "usagesDir": "/Users/pfecht/Documents/inovex/inma/elements/packages/elements/src/components/ino-tooltip/usage",
+      "encapsulation": "none",
       "tag": "ino-tooltip",
       "readme": "# ino-tooltip\n\nA tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-tooltip\n  for=\"<string>\"\n  label=\"<string>\"\n  placement=\"<string>\"\n  trigger=\"<string>\"\n>\n  Any desired HTML\n</ino-tooltip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <InoTooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Tooltip: React.FunctionComponent<Components.InoTooltipAttributes> = props => {\n  const { inoPlacement, inoTrigger, inoFor, inoLabel } = props;\n\n  return <InoTooltip inoFor={inoFor} inoLabel={inoLabel} inoPlacement={inoPlacement} inoTrigger={inoTrigger}>{props.children}</InoTooltip>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <Tooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n## Additional Hints\n",
-      "usage": {},
       "docs": "A tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.",
       "docsTags": [],
-      "encapsulation": "none",
-      "dependents": [
-        "ino-fab"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "ino-fab": [
-          "ino-tooltip"
-        ]
-      },
+      "usage": {},
       "props": [
         {
           "name": "colorScheme",
@@ -8237,10 +8032,19 @@
         }
       ],
       "events": [],
+      "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "listeners": []
+      "dependents": [
+        "ino-fab"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "ino-fab": [
+          "ino-tooltip"
+        ]
+      }
     }
   ]
 }
