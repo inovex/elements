@@ -67,7 +67,8 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "sass": "^1.26.3",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.0.3",
+    "story-description-loader": "^1.0.0"
   },
   "resolutions": {
     "uglify-js": "3.6.4"
