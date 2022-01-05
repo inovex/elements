@@ -301,31 +301,31 @@ export class InoDatepicker {
   }
 }
 
-
+import type { DialogCloseAction as IDialogDialogCloseAction } from '@inovex.de/elements';
 export declare interface InoDialog extends Components.InoDialog {
   /**
-   * Emits an event upon opening or closing the dialog 
+   * Emits an event upon closing the dialog 
    */
-  openChange: EventEmitter<CustomEvent<any>>;
+  close: EventEmitter<CustomEvent<IDialogDialogCloseAction>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['open']
+  inputs: ['attachTo', 'dismissible', 'fullwidth', 'open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['open']
+  inputs: ['attachTo', 'dismissible', 'fullwidth', 'open']
 })
 export class InoDialog {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['openChange']);
+    proxyOutputs(this, this.el, ['close']);
   }
 }
 
