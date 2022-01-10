@@ -2,7 +2,7 @@
 import * as d from './proxies';
 
 export const DIRECTIVES = [
-d.InoAutocomplete,
+  d.InoAutocomplete,
   d.InoButton,
   d.InoCard,
   d.InoCarousel,

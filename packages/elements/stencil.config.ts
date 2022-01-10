@@ -1,9 +1,9 @@
 import { Config } from '@stencil/core';
-import { JsonDocs } from '@stencil/core/internal';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
-import { promises as fs } from 'fs';
-import { angularOutputTargetFix } from './angular-target-fix';
+
+const angularDiretivesPath =  '../elements-angular/elements/src/directives';
+
 export const config: Config = {
   buildEs5: 'prod',
   extras: {
@@ -31,16 +31,9 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      directivesProxyFile:
-        '../elements-angular/elements/src/directives/proxies.ts',
-      directivesUtilsFile:
-        '../elements-angular/elements/src/directives/proxies-utils.ts',
-      directivesArrayFile:
-        '../elements-angular/elements/src/directives/proxies-list.ts',
-    }),
-    angularOutputTargetFix({
-      directivesUtilsFile:
-        '../elements-angular/elements/src/directives/angular-component-lib/utils.ts',
+      directivesProxyFile: `${angularDiretivesPath}/proxies.ts`,
+      directivesUtilsFile: angularDiretivesPath,
+      directivesArrayFile: `${angularDiretivesPath}/proxies-list.ts`,
     }),
   ],
   plugins: [
