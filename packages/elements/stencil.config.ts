@@ -67,7 +67,7 @@ async function generateCustomElementsJson(docsData: JsonDocs) {
 }
 
 export const config: Config = {
-  buildEs5: 'prod',
+  buildEs5: false,
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,
