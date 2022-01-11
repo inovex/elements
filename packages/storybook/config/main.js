@@ -6,8 +6,9 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  staticDirs: ['../static', '../../elements/src/assets'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
-  addons: ['@storybook/addon-essentials'],
+  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
   webpackFinal: (config) => {
     config.devServer = {
       watchContentBase: true,
