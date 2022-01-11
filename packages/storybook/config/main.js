@@ -36,6 +36,12 @@ module.exports = {
       ],
     });
 
+    // Story Description
+    config.module.rules.push({
+      test: /\.stories\.ts/,
+      use: [{ loader: "story-description-loader", options: { isTSX: true } }],
+    });
+
     // Copy Plugin
     config.plugins.push(
       new CopyPlugin({
