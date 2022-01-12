@@ -44,23 +44,24 @@ $ yarn add @inovex.de/elements
 
 ### b) Integrate via script tag
 
-> Hint: As soon as we're open source, you have to add the links to [JSDlv](https://www.jsdelivr.com/)
-
 To load the components at runtime, you need to insert the following code fragment. Make sure that the script tag is set on each web page the user can visit on your website. For most of the websites it should be sufficient to add the tag to the `index.html` file:
 
 ```html
 <!-- Modern Browsers -->
 <script
   type="module"
-  src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.esm.js"
+  src="https://cdn.jsdelivr.net/npm/@inovex.de/elements@5.1.0/dist/inovex-elements/inovex-elements.esm.js"
 ></script>
 
 <!-- Older Browsers -->
 <script
   nomodule=""
-  src="https://elements.inovex.de/dist/v1.0.0/inovex-elements/inovex-elements.js"
+  src="https://cdn.jsdelivr.net/npm/@inovex.de/elements@5.1.0/dist/inovex-elements/inovex-elements.js"
 ></script>
 ```
+
+**Fetching the proper version:** Please note the version number (`5.1.0`) in the url above. This version might not be the latest version in future, so please update it with latest available version number on `elements.inovex.de` during your intial integration. 
+
 
 #### I do not want to pin to a concrete version, do you provide a link to the latest release?
 
@@ -73,7 +74,7 @@ However, for testing purposes, and if you just want to play around with the elem
 ```html
 <script
   type="module"
-  src="https://elements.inovex.de/dist/latest/inovex-elements/inovex-elements.esm.js"
+  src="https://cdn.jsdelivr.net/npm/@inovex.de/elements@latest/dist/inovex-elements/inovex-elements.esm.js"
 ></script>
 ```
 
