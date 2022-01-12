@@ -90,7 +90,7 @@
     "tippy.js": "^6.2.3"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "^0.0.5",
+    "@stencil/angular-output-target": "^0.4.0",
     "@stencil/sass": "^1.4.1",
     "@types/classnames": "^2.2.6",
     "@types/css-font-loading-module": "^0.0.6",
