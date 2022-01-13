@@ -2,7 +2,6 @@
   "private": true,
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "scripts": {
-    "postinstall": "patch-package",
     "build": "lerna run build",
     "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
