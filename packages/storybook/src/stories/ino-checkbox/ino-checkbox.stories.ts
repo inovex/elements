@@ -1,9 +1,9 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
+import { html } from 'lit-html';
 
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, templateForComponent } from '../utils';
 import './ino-checkbox.scss';
 
 export default {
@@ -33,11 +33,20 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  // will be used as default props for all stories
+  args: {
+    checked: false,
+    disabled: false,
+    indeterminate: false,
+    name: '',
+    selection: false,
+    value: '',
+  },
+} as Meta<Components.InoCheckbox>;
 
-export const Playground: Story<Components.InoCheckbox> = (args) => html`
+// the basic template for the checkbox component
+const Template: Story<Components.InoCheckbox> = (args) => html`
   <ino-checkbox
-    class="customizable-checkbox"
     checked="${args.checked}"
     disabled="${args.disabled}"
     indeterminate="${args.indeterminate}"
@@ -49,43 +58,17 @@ export const Playground: Story<Components.InoCheckbox> = (args) => html`
   </ino-checkbox>
 `;
 
-Playground.args = {
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  name: '',
-  selection: false,
-  value: '',
-};
+export const Playground = templateForComponent(Template, {});
 
-export const Variations = (): TemplateResult => html`
-  <div class="story-states">
-    <ino-checkbox checked>Checked</ino-checkbox>
-    <ino-checkbox>Unchecked</ino-checkbox>
-    <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
-  </div>
-  <div class="story-states">
-    <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
-    <ino-checkbox disabled>Unchecked and Disabled</ino-checkbox>
-    <ino-checkbox disabled indeterminate
-      >Indeterminate and Disabled
-    </ino-checkbox>
-  </div>
-`;
+export const Checked = templateForComponent(Template, { checked: true });
+export const Unchecked = templateForComponent(Template, { checked: false });
 
-export const Selection = (): TemplateResult => html`
-  <div class="story-states">
-    <ino-checkbox selection checked>Checked</ino-checkbox>
-    <ino-checkbox selection>Unchecked</ino-checkbox>
-    <ino-checkbox selection indeterminate>Indeterminate</ino-checkbox>
-  </div>
-  <div class="story-states">
-    <ino-checkbox checked selection disabled
-      >Checked and disabled
-    </ino-checkbox>
-    <ino-checkbox selection disabled>Unchecked and disabled</ino-checkbox>
-    <ino-checkbox selection indeterminate disabled>
-      Indeterminate Disabled
-    </ino-checkbox>
-  </div>
-`;
+// While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.
+export const Selection = templateForComponent(Template, {
+  ...Checked.args, // reuse args of Checked Story
+  checked: true,
+});
+export const Indeterminate = templateForComponent(Template, {
+  indeterminate: true,
+});
+export const Disabled = templateForComponent(Template, { disabled: true });

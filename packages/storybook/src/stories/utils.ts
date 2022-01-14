@@ -75,6 +75,20 @@ export const decorateStoryWithClass = (
   return html`<div class="${className ?? ''}">${story()}</div>`;
 };
 
+/**
+ * Forces typesafe args
+ * @param template The basic template of the components
+ * @param args The props which will be passed to the component
+ */
+export const templateForComponent = <Component>(
+  template: Story<Component>,
+  args: Component
+): Story<Component> => {
+  const BoundTemplate: Story<Component> = template.bind({});
+  BoundTemplate.args = { ...args };
+  return BoundTemplate;
+};
+
 export const showSnackbar = (message: string) => {
   const snackbar: HTMLInoSnackbarElement = document.createElement(
     'ino-snackbar'
