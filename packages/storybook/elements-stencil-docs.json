@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-10T21:35:31",
+  "timestamp": "2022-01-14T10:56:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -2752,6 +2752,7 @@
         "ino-img",
         "ino-input",
         "ino-input-file",
+        "ino-markdown-editor",
         "ino-snackbar",
         "ino-tab"
       ],
@@ -2782,6 +2783,9 @@
           "ino-icon"
         ],
         "ino-input-file": [
+          "ino-icon"
+        ],
+        "ino-markdown-editor": [
           "ino-icon"
         ],
         "ino-snackbar": [
@@ -4634,6 +4638,94 @@
         ],
         "ino-nav-item": [
           "ino-list-item"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/ino-markdown-editor/ino-markdown-editor.tsx",
+      "encapsulation": "none",
+      "tag": "ino-markdown-editor",
+      "readme": "# ino-markdown-editor\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "initialValue",
+          "type": "string",
+          "mutable": false,
+          "attr": "initial-value",
+          "reflectToAttr": false,
+          "docs": "Initial `string` value of the markdown editor.\nReassigning this value do not change the editor state.\nThe value must contain a valid Markdown syntax.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "viewMode",
+          "type": "\"markdown\" | \"preview\"",
+          "mutable": false,
+          "attr": "view-mode",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "'preview'",
+          "values": [
+            {
+              "value": "markdown",
+              "type": "string"
+            },
+            {
+              "value": "preview",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the value of the markdown editor **blurs**.\nThe value of type `string` can be found in `event.detail`",
+          "docsTags": []
+        },
+        {
+          "event": "viewModeChange",
+          "detail": "\"markdown\" | \"preview\"",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when one of the view mode buttons was clicked.\nThe value of type `ViewMode` can be found in `event.detail`",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ino-icon",
+        "ino-textarea"
+      ],
+      "dependencyGraph": {
+        "ino-markdown-editor": [
+          "ino-icon",
+          "ino-textarea"
+        ],
+        "ino-textarea": [
+          "ino-label"
         ]
       }
     },
@@ -7788,13 +7880,18 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
       "dependencies": [
         "ino-label"
       ],
       "dependencyGraph": {
         "ino-textarea": [
           "ino-label"
+        ],
+        "ino-markdown-editor": [
+          "ino-textarea"
         ]
       }
     },

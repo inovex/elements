@@ -43,4 +43,6 @@ export enum ViewMode {
   PREVIEW = 'preview',
 }
 
+export type ViewModeUnion = `${ViewMode}`;
+
 export type VerticalLocation = 'top' | 'bottom';

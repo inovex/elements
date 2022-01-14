@@ -643,25 +643,32 @@ export class InoListItem {
   }
 }
 
-import { MarkdownEditor as IMarkdownEditor } from '@inovex.de/elements/dist/types/components/ino-markdown-editor/ino-markdown-editor';
-export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {}
+import type { ViewModeUnion as IMarkdownEditorViewModeUnion } from '@inovex.de/elements';
+export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {
+  /**
+   * Emits when one of the view mode buttons was clicked.
+The value of type `ViewMode` can be found in `event.detail` 
+   */
+  viewModeChange: EventEmitter<CustomEvent<IMarkdownEditorViewModeUnion>>;
+  /**
+   * Emits when the value of the markdown editor **blurs**.
+The value of type `string` can be found in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['initialValue', 'viewMode']
 })
 @Component({
   selector: 'ino-markdown-editor',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['initialValue', 'viewMode'],
-  outputs: ['viewModeChange', 'valueChange']
+  inputs: ['initialValue', 'viewMode']
 })
 export class InoMarkdownEditor {
-  /** Emits when one of the view mode buttons was clicked.
-The value of type `ViewMode` can be found in `event.detail` */
-  viewModeChange!: IMarkdownEditor['viewModeChange'];
-  /** Emits when the value of the markdown editor **blurs**.
-The value of type `string` can be found in `event.detail` */
-  valueChange!: IMarkdownEditor['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewMode } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -762,7 +762,7 @@ export namespace Components {
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
          */
         "initialValue": string;
-        "viewMode": ViewMode;
+        "viewMode": ViewModeUnion;
     }
     interface InoMenu {
         /**
@@ -2383,8 +2383,8 @@ declare namespace LocalJSX {
         /**
           * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
          */
-        "onViewModeChange"?: (event: CustomEvent<ViewMode>) => void;
-        "viewMode"?: ViewMode;
+        "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
+        "viewMode"?: ViewModeUnion;
     }
     interface InoMenu {
         /**

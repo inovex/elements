@@ -12,7 +12,7 @@ import { Editor } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
-import { ViewMode } from '../types';
+import { ViewMode, ViewModeUnion } from '../types';
 import markdownSerializer from './markdown-serializer';
 import {
   Actions,
@@ -39,7 +39,7 @@ export class MarkdownEditor implements ComponentInterface {
    */
   @Prop() initialValue: string;
 
-  @Prop() viewMode: ViewMode = ViewMode.PREVIEW;
+  @Prop() viewMode: ViewModeUnion = 'preview';
 
   @State() stateChanged: boolean;
 
@@ -47,7 +47,7 @@ export class MarkdownEditor implements ComponentInterface {
    * Emits when one of the view mode buttons was clicked.
    * The value of type `ViewMode` can be found in `event.detail`
    */
-  @Event() viewModeChange: EventEmitter<ViewMode>;
+  @Event() viewModeChange: EventEmitter<ViewModeUnion>;
 
   /**
    * Emits when the value of the markdown editor **blurs**.
