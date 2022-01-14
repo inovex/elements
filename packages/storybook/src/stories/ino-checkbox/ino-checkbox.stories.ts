@@ -1,9 +1,10 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 
-import { decorateStoryWithClass, templateForComponent } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-checkbox.scss';
 
 export default {
@@ -45,36 +46,39 @@ export default {
 } as Meta<Components.InoCheckbox>;
 
 // the basic template for the checkbox component
-const Template: Story<Components.InoCheckbox> = (args) => html`
-  <ino-checkbox
-    checked="${args.checked}"
-    disabled="${args.disabled}"
-    indeterminate="${args.indeterminate}"
-    name="${args.name}"
-    selection="${args.selection}"
-    value="${args.value}"
-  >
-    Label
-  </ino-checkbox>
-`;
+const template = new TemplateGenerator<Components.InoCheckbox>(
+  'ino-checkbox',
+  (args) => html`
+    <ino-checkbox
+      checked="${args.checked}"
+      disabled="${args.disabled}"
+      indeterminate="${args.indeterminate}"
+      name="${args.name}"
+      selection="${args.selection}"
+      value="${args.value}"
+    >
+      Label
+    </ino-checkbox>
+  `
+);
 
-export const Playground = templateForComponent(Template, {});
+export const Playground = template.generateStory({});
 
-export const Checked = templateForComponent(Template, { checked: true });
+export const Checked = template.generateStory({ checked: true }, 'checked');
 
-// While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.
-export const Selection = templateForComponent(Template, {
-  ...Checked.args, // reuse args of Checked Story
-  checked: true,
-});
+export const Selection = template.generateStory(
+  {
+    ...Checked.args, // reuse args of Checked Story
+    selection: true,
+  },
+  'selection'
+);
 
-/*
- * The indeterminate status indicates that a user is indeterminate without changing the checked state.
- * If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked.
- * [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
- */
-export const Indeterminate = templateForComponent(Template, {
-  indeterminate: true,
-});
+export const Indeterminate = template.generateStory(
+  {
+    indeterminate: true,
+  },
+  'indeterminate'
+);
 
-export const Disabled = templateForComponent(Template, { disabled: true });
+export const Disabled = template.generateStory({ disabled: true }, 'disabled');
