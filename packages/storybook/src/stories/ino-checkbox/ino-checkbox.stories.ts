@@ -61,14 +61,20 @@ const Template: Story<Components.InoCheckbox> = (args) => html`
 export const Playground = templateForComponent(Template, {});
 
 export const Checked = templateForComponent(Template, { checked: true });
-export const Unchecked = templateForComponent(Template, { checked: false });
 
 // While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element.
 export const Selection = templateForComponent(Template, {
   ...Checked.args, // reuse args of Checked Story
   checked: true,
 });
+
+/*
+ * The indeterminate status indicates that a user is indeterminate without changing the checked state.
+ * If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked.
+ * [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)
+ */
 export const Indeterminate = templateForComponent(Template, {
   indeterminate: true,
 });
+
 export const Disabled = templateForComponent(Template, { disabled: true });
