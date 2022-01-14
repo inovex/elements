@@ -46,7 +46,7 @@ export const Playground = (args) => html`
         label="${args.label}"
       >
         <ino-input placeholder="Search for XY..." data-ino-focus>
-          <ino-icon clickable slot="ino-icon-trailing" icon="close--dense"></ino-icon>
+          <ino-icon clickable slot="icon-trailing" icon="close"></ino-icon>
         </ino-input>
       </ino-table-header-cell>
     </tr>
@@ -60,7 +60,7 @@ Playground.args = {
   sortDirection: "",
   searched: false
 }
-withIconControl(Playground, 'searchIcon', 'search--dense');
+withIconControl(Playground, 'searchIcon', 'search');
 withSortDirection(Playground, 'sortDirection')
 withSortDirection(Playground, 'sortStart', 'desc')
 
@@ -77,7 +77,7 @@ export const SearchWithInputField = () => {
       <tr slot="header-row">
         <ino-table-header-cell label="Simple Text field">
           <ino-input placeholder="Search for XY..." data-ino-focus>
-            <ino-icon slot="ino-icon-trailing" icon="close--dense"></ino-icon>
+            <ino-icon slot="icon-trailing" icon="close"></ino-icon>
           </ino-input>
         </ino-table-header-cell>
 
@@ -85,13 +85,13 @@ export const SearchWithInputField = () => {
 
         <ino-table-header-cell label="Number field with max length">
           <ino-input placeholder="Search for XY..." data-ino-focus type="number" maxlength="10" helper-character-counter>
-            <ino-icon slot="ino-icon-trailing" icon="close--dense" ></ino-icon>
+            <ino-icon slot="icon-trailing" icon="close" ></ino-icon>
           </ino-input>
         </ino-table-header-cell>
 
         <ino-table-header-cell label="Text already searched" searched>
           <ino-input placeholder="Search for XY..." data-ino-focus value="12345">
-            <ino-icon slot="ino-icon-trailing" icon="close--dense" ></ino-icon>
+            <ino-icon slot="icon-trailing" icon="close" ></ino-icon>
           </ino-input>
         </ino-table-header-cell>
       </tr>
@@ -110,15 +110,15 @@ export const SearchWithSelection = () => {
   return html`
     <ino-table>
       <tr slot="header-row">
-        <ino-table-header-cell label="Column Selection Search" search-icon="list">
+        <ino-table-header-cell label="Column Selection Search" search-icon="filter">
           <ino-list>
-            <ino-list-item text="Option 1"><ino-checkbox slot="ino-list-item-leading" selection></ino-checkbox></ino-list-item>
+            <ino-list-item text="Option 1"><ino-checkbox slot="leading" selection></ino-checkbox></ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 2"><ino-checkbox slot="ino-list-item-leading" selection></ino-checkbox></ino-list-item>
+            <ino-list-item text="Option 2"><ino-checkbox slot="leading" selection></ino-checkbox></ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 3"><ino-checkbox slot="ino-list-item-leading" selection></ino-checkbox></ino-list-item>
+            <ino-list-item text="Option 3"><ino-checkbox slot="leading" selection></ino-checkbox></ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 4"><ino-checkbox slot="ino-list-item-leading" selection></ino-checkbox></ino-list-item>
+            <ino-list-item text="Option 4"><ino-checkbox slot="leading" selection></ino-checkbox></ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
           </ino-list>
         </ino-table-header-cell>

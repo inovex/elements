@@ -44,7 +44,7 @@ For the recommended approach, set the `column-id` such that the `ino-table` know
 
 In order to add a floating column search as popover, add any desired form element as child of this component. The feature itself does not provide a search (or filter) algorithm itself but allows you to render search fields, selection or datepicker within a `ino-popover`. Based on the input, you may want to trigger a search in the backend or filter your elements locally.
 
-The `search-icon` allows you to set an alternative to the default `search--dense`, which may be useful for selections (`list`) or datepickers (`calender`).The slot contains the search input within the popover. In order to indicate to the user that a closed popover search input contains value, i.e has been searched, set the `searched` property on the table-header-cell.
+The `search-icon` allows you to set an alternative to the default `search`, which may be useful for selections (`list`) or datepickers (`calender`).The slot contains the search input within the popover. In order to indicate to the user that a closed popover search input contains value, i.e has been searched, set the `searched` property on the table-header-cell.
 
 Use the `data-ino-focus` on popover elements to focus them on load. Currently supported are `ino-input`, `ino-textarea` and `ino-datepicker` elements.
 

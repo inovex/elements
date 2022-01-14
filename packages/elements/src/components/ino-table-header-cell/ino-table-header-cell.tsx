@@ -13,12 +13,7 @@ import {
 } from '@stencil/core';
 import { generateUniqueId } from '../../util/component-utils';
 import classNames from 'classnames';
-
-export type SortDirection = 'asc' | 'desc';
-export interface SortDirectionChangeDetails {
-  columnId: string;
-  sortDirection: SortDirection;
-}
+import { SortDirection, SortDirectionChangeDetails } from '../../interface';
 
 /**
  * @slot default - The search content (input field, list) within the popover.
@@ -234,7 +229,7 @@ export class InoTableHeaderCell implements ComponentInterface {
           >
             <div
               class="mdc-data-table__header-cell-wrapper"
-              slot="trigger-target"
+              slot="popover-trigger"
               tabindex="0"
             >
               <ino-icon
@@ -256,8 +251,9 @@ export class InoTableHeaderCell implements ComponentInterface {
 
         {!this.notSortable && (
           <ino-icon-button
+            colorScheme="dark"
             class={`sort-${this.sortDirection || 'none'}`}
-            icon={!this.sortDirection ? 'sort' : 'arrow-down--dense'}
+            icon={this.sortIcon}
             onFocus={e => e.stopPropagation()}
             onClick={e => e.stopPropagation()}
             onClickEl={this.sortButtonClickHandler.bind(this)}
@@ -265,5 +261,11 @@ export class InoTableHeaderCell implements ComponentInterface {
         )}
       </Host>
     );
+  }
+
+
+  get sortIcon() {
+    if(!this.sortDirection) return 'sort';
+    return this.sortDirection == 'asc' ? 'sort_az' : 'sort_za';
   }
 }

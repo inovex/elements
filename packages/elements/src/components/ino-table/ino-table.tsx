@@ -13,7 +13,7 @@ import {
 import {
   SortDirectionChangeDetails,
   SortDirection
-} from '../ino-table-header-cell/ino-table-header-cell';
+} from '../../interface';
 import classNames from 'classnames';
 
 /**

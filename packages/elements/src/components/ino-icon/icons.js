@@ -65,7 +65,8 @@ export default [
   'snackbar-checkmark',
   'snackbar-error',
   'snackbar-information',
-  'sort_az',
+  'sort',
+	'sort_az',
   'sort_down',
   'sort_up',
   'sort_za',
@@ -88,3 +89,4 @@ export default [
   '_input_number_arrow_down',
   '_input_number_arrow_up',
 ];
+

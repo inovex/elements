@@ -181,6 +181,16 @@ The type of the picker is selected based on the  type` property. See the example
 
 ## Methods
 
+### `redraw() => Promise<void>`
+
+Redraws the datepicker.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `setBlur() => Promise<void>`
 
 Sets blur on the native `input`.

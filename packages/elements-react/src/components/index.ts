@@ -193,6 +193,7 @@ export const InoTable = createReactComponent<
 export const InoTableHeaderCell = createReactComponent<
   StencilJSX.IntrinsicElements['ino-table-header-cell'],
   HTMLInoTableHeaderCellElement
+>('ino-table-header-cell');
 export const InoTextarea = createReactComponent<
   StencilJSX.IntrinsicElements['ino-textarea'],
   HTMLInoTextareaElement

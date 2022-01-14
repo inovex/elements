@@ -36,7 +36,7 @@ ino-table ino-table-header-cell {
   // Sortable
   &.ino-table-header-cell--sortable {
     .mdc-data-table__header-cell-wrapper {
-      padding-right: $sort-icon-width + 4px;
+      padding-right: $sort-icon-width + 6px;
     }
     .mdc-data-table__header-cell-label {
       margin-right: 4px;
@@ -57,8 +57,8 @@ ino-table ino-table-header-cell {
 
     .ino-table-header-cell__search-icon {
       --ino-icon-color: currentColor;
-      --ino-icon-height: 16px;
-      --ino-icon-width: 16px;
+      --ino-icon-height: 14px;
+      --ino-icon-width: 14px;
     }
 
     // Animation
@@ -93,24 +93,22 @@ ino-table ino-table-header-cell {
 
     .ino-table-header-cell__popover-content {
       border-radius: inherit;
-      box-shadow: 0px 25px 50px -12px rgba(#1E2125, 0.25); // TODO move color
+      box-shadow: 0px 25px 50px -12px rgba(#1e2125, 0.25); // TODO move color
     }
   }
   &.ino-table-header-cell--searched {
     border-bottom-color: theme.color(primary);
   }
 
-
   // TODO: Add proper icons for all directions
   ino-icon-button ino-icon {
     will-change: transform;
     transition: transform 150ms ease;
+    transform: scale(1);
   }
-  .sort-asc ino-icon {
-    transform: rotate(-180deg);
-  }
+  .sort-asc ino-icon,
   .sort-desc ino-icon {
-    transform: rotate(-360deg);
+    transform: scale(0.8);
   }
 
   ino-icon-button {
@@ -120,7 +118,6 @@ ino-table ino-table-header-cell {
 
     --ino-icon-button-size: 24px;
     --ino-icon-button-icon-size: 22px;
-    --ino-icon-button-icon-color: #{theme.color(dark)};
     border-left: 6px solid transparent;
   }
 

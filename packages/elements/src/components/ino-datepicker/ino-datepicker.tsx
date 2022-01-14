@@ -285,6 +285,16 @@ export class Datepicker implements ComponentInterface {
    */
   @Event() valueChange!: EventEmitter<string>;
 
+
+  /**
+   * Redraws the datepicker.
+   */
+  @Method()
+  async redraw(): Promise<void> {
+    this.dispose();
+    this.create();
+  }
+
   /**
    * Sets focus on the native `input`.
    * Use this method instead of the global `input.focus()`.

@@ -15,7 +15,11 @@ import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 
 import { TooltipTrigger } from '../types';
+import { closest } from '@material/dom/ponyfill';
 import { hideOnEsc, hideOnPopperBlur } from './plugins';
+
+
+const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
 
 /**
  * @slot popover-trigger - The target element to attach the triggers to
@@ -29,8 +33,8 @@ import { hideOnEsc, hideOnPopperBlur } from './plugins';
 export class Popover implements ComponentInterface {
   @Element() el!: HTMLElement;
   private tippyInstance?: Tippy;
-  private inoPopoverContainer: HTMLDivElement;
-  private inoPopoverContent: HTMLDivElement;
+  private popoverContainer: HTMLDivElement;
+  private popoverContent: HTMLDivElement;
 
   /**
    * The placement of this popover.
@@ -187,14 +191,51 @@ export class Popover implements ComponentInterface {
 
     const options: Partial<Props> = {
       allowHTML: true,
-      animation: 'scale',
-      appendTo: this.inoPopoverContainer,
-      content: this.inoPopoverContent,
+      animation: 'scale-subtle',
+      appendTo: this.popoverContainer,
+      content: this.popoverContent,
       duration: 100,
       placement: this.placement,
       trigger: this.trigger,
-      interactive: this.interactive,
       offset: [0, this.distance],
+      plugins: [
+        ...plugins,
+        // Add lifecycle hooks as plugin to allow consumers to add their own hooks
+        // without loosing this functionality (see for instance table-header-cell)
+        {
+          fn: () => ({
+            onMount: () => {
+              // Workaround: datepickers may be already initialized an need to be redrawn.
+              const datepickers = Array.from(
+                this.el.querySelectorAll('ino-datepicker')
+              ) as HTMLInoDatepickerElement[];
+              datepickers?.forEach(datepicker => datepicker.redraw());
+
+              const target = this.popoverContent.querySelector(
+                'ino-input[data-ino-focus],' +
+                  'ino-datepicker[data-ino-focus], ' +
+                  ' ino-textarea[data-ino-focus]'
+              ) as
+                | HTMLInoDatepickerElement
+                | HTMLInoTextareaElement
+                | HTMLInoInputElement;
+              target?.setFocus();
+            },
+            onShow: () => {
+              if (this.controlled && !this.visible) {
+                this.visibleChanged.emit(true);
+                return false;
+              }
+            },
+            onHide: () => {
+              if (this.controlled && this.visible) {
+                this.visibleChanged.emit(false);
+                return false;
+              }
+            }
+          })
+        }
+      ],
       onShow: () => {
         if (this.controlled && !this.visible) {
           this.visibleChanged.emit(true);
@@ -209,6 +250,10 @@ export class Popover implements ComponentInterface {
       },
     };
 
+    if (this.interactive) {
+      options['interactive'] = true;
+    }
+
     this.tippyInstance = TippyJS(this.target, options);
   }
 
@@ -222,6 +267,21 @@ export class Popover implements ComponentInterface {
     return this.el.parentElement;
   }
 
+
+  private handlePopoverClick(e: Event): void {
+    if (!e.target) {
+      return;
+    }
+    const element = closest(
+      e.target as Element,
+      `[${POPOVER_CLOSE_ATTRIBUTE}]`
+    );
+    if (!element) {
+      return;
+    }
+    this.tippyInstance.hide();
+  }
+
   render() {
     const popoverClasses = classNames(
       'ino-popover',
@@ -232,13 +292,14 @@ export class Popover implements ComponentInterface {
       <Host>
         <slot name="popover-trigger" />
         <div
-          ref={(ref) => (this.inoPopoverContainer = ref)}
+          ref={(ref) => (this.popoverContainer = ref)}
           class={popoverClasses}
         >
           <div
             class="ino-tooltip__composer ino-popover__content"
             role="tooltip"
-            ref={(ref) => (this.inoPopoverContent = ref)}
+            ref={(ref) => (this.popoverContent = ref)}
+            onClick={this.handlePopoverClick.bind(this)}
           >
             <div class="ino-tooltip__inner">
               <slot></slot>
