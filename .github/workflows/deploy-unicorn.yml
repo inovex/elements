@@ -1,0 +1,74 @@
+name: Deploy Unicorn
+
+## Manual workflow to build & deploy the storybook in a branch to github pages.
+## The unicorn is public available at elements.inovex.de/unicorn/<BRANCH-NAME>.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+
+  test:
+    runs-on: ubuntu-latest
+    needs:
+      - install
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+      - run: yarn lint
+      - run: yarn test
+
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - install
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/workflows/install
+    - run: yarn build
+    - name: Upload Storybook Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: storybook
+        path:
+          packages/storybook/dist/
+
+  deploy-unicorn:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.set_env_id.outputs.url }}
+
+    needs:
+      - test
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout to gh-pages branch
+        with:
+          ref: gh-pages
+      - uses: rlespinasse/github-slug-action@v3.x
+
+      - uses: actions/download-artifact@v2
+        name: Download Storybook Artifact
+        with:
+          name: storybook
+          path: artifact
+
+      - run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
+        name: Set environment url
+        id: set_env_id
+
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: ./artifact
+          target-folder: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
+          commit-message: Deploying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
+

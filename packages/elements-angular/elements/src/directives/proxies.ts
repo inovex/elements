@@ -1,31 +1,38 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@inovex.de/elements';
 
-import { Autocomplete as IAutocomplete } from '@inovex.de/elements/dist/types/components/ino-autocomplete/ino-autocomplete';
-export declare interface InoAutocomplete extends Components.InoAutocomplete {}
+
+
+
+export declare interface InoAutocomplete extends Components.InoAutocomplete {
+  /**
+   * Emits in three ways:
+
+1. Clicking on an option
+2. Pressing `Enter` while an option is selected
+3. Entering a valid value and blurring the input element
+
+Contains one of the texts provided by the `<ino-options>`s. 
+   */
+  valueChange: EventEmitter<CustomEvent<string | null>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['debounceTimeout', 'noOptionsText', 'value']
 })
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['debounceTimeout', 'noOptionsText', 'value'],
-  outputs: ['valueChange']
+  inputs: ['debounceTimeout', 'noOptionsText', 'value']
 })
 export class InoAutocomplete {
-  /** Emits in three ways:
-
-1. Clicking on an option
-2. Pressing `Enter` while an option is selected
-3. Entering a valid value and blurring the input element
-
-Contains one of the texts provided by the `<ino-options>`s. */
-  valueChange!: IAutocomplete['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -36,7 +43,9 @@ Contains one of the texts provided by the `<ino-options>`s. */
 
 
 export declare interface InoButton extends Components.InoButton {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['autoFocus', 'colorScheme', 'dense', 'disabled', 'edgeMirrored', 'fill', 'form', 'loading', 'name', 'type']
 })
 @Component({
@@ -55,7 +64,9 @@ export class InoButton {
 
 
 export declare interface InoCard extends Components.InoCard {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['disableElevation', 'selected']
 })
 @Component({
@@ -74,7 +85,9 @@ export class InoCard {
 
 
 export declare interface InoCarousel extends Components.InoCarousel {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['animated', 'autoplay', 'hideButtons', 'infinite', 'intermission', 'reverse', 'value']
 })
 @Component({
@@ -93,7 +106,9 @@ export class InoCarousel {
 
 
 export declare interface InoCarouselSlide extends Components.InoCarouselSlide {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['src', 'value']
 })
 @Component({
@@ -110,21 +125,26 @@ export class InoCarouselSlide {
   }
 }
 
-import { Checkbox as ICheckbox } from '@inovex.de/elements/dist/types/components/ino-checkbox/ino-checkbox';
-export declare interface InoCheckbox extends Components.InoCheckbox {}
+
+export declare interface InoCheckbox extends Components.InoCheckbox {
+  /**
+   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
+   */
+  checkedChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
 })
 @Component({
   selector: 'ino-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value'],
-  outputs: ['checkedChange']
+  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
 })
 export class InoCheckbox {
-  /** Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. */
-  checkedChange!: ICheckbox['checkedChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -133,24 +153,29 @@ export class InoCheckbox {
   }
 }
 
-import { Chip as IChip } from '@inovex.de/elements/dist/types/components/ino-chip/ino-chip';
-export declare interface InoChip extends Components.InoChip {}
+
+export declare interface InoChip extends Components.InoChip {
+  /**
+   * Event that emits as soon as the user removes this chip.
+
+Listen to this event to hide or destroy this chip.
+The event only emits if the property `removable` is true. 
+   */
+  removeChip: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'fill', 'icon', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 @Component({
   selector: 'ino-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'fill', 'icon', 'label', 'removable', 'selectable', 'selected', 'value'],
-  outputs: ['removeChip']
+  inputs: ['colorScheme', 'fill', 'icon', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 export class InoChip {
-  /** Event that emits as soon as the user removes this chip.
-
-Listen to this event to hide or destroy this chip.
-The event only emits if the property `removable` is true. */
-  removeChip!: IChip['removeChip'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -159,23 +184,28 @@ The event only emits if the property `removable` is true. */
   }
 }
 
-import { ChipSet as IChipSet } from '@inovex.de/elements/dist/types/components/ino-chip-set/ino-chip-set';
-export declare interface InoChipSet extends Components.InoChipSet {}
+
+export declare interface InoChipSet extends Components.InoChipSet {
+  /**
+   * Event that emits when the value of this element changes.
+
+Only applicable if `inoType` is `choice` or `filter`. 
+   */
+  updateChipSet: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['type']
 })
 @Component({
   selector: 'ino-chip-set',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['type'],
-  outputs: ['updateChipSet']
+  inputs: ['type']
 })
 export class InoChipSet {
-  /** Event that emits when the value of this element changes.
-
-Only applicable if `inoType` is `choice` or `filter`. */
-  updateChipSet!: IChipSet['updateChipSet'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -184,21 +214,26 @@ Only applicable if `inoType` is `choice` or `filter`. */
   }
 }
 
-import { InoControlItem as IInoControlItem } from '@inovex.de/elements/dist/types/components/ino-control-item/ino-control-item';
-export declare interface InoControlItem extends Components.InoControlItem {}
+
+export declare interface InoControlItem extends Components.InoControlItem {
+  /**
+   * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`. 
+   */
+  checkedChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value']
 })
 @Component({
   selector: 'ino-control-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value'],
-  outputs: ['checkedChange']
+  inputs: ['activated', 'checked', 'disabled', 'indeterminate', 'name', 'role', 'secondaryText', 'selected', 'text', 'trailing', 'value']
 })
 export class InoControlItem {
-  /** Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`. */
-  checkedChange!: IInoControlItem['checkedChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -207,9 +242,18 @@ export class InoControlItem {
   }
 }
 
-import { Datepicker as IDatepicker } from '@inovex.de/elements/dist/types/components/ino-datepicker/ino-datepicker';
-export declare interface InoDatepicker extends Components.InoDatepicker {}
+
+export declare interface InoDatepicker extends Components.InoDatepicker {
+  /**
+   * Emits when the value of the datepicker changes.
+The value can be found in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
   methods: ['setFocus', 'setBlur']
 })
@@ -217,13 +261,9 @@ export declare interface InoDatepicker extends Components.InoDatepicker {}
   selector: 'ino-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
-  outputs: ['valueChange']
+  inputs: ['autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value']
 })
 export class InoDatepicker {
-  /** Emits when the value of the datepicker changes.
-The value can be found in `event.detail` */
-  valueChange!: IDatepicker['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -232,21 +272,26 @@ The value can be found in `event.detail` */
   }
 }
 
-import { Dialog as IDialog } from '@inovex.de/elements/dist/types/components/ino-dialog/ino-dialog';
-export declare interface InoDialog extends Components.InoDialog {}
+
+export declare interface InoDialog extends Components.InoDialog {
+  /**
+   * Emits an event upon opening or closing the dialog 
+   */
+  openChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['open']
 })
 @Component({
   selector: 'ino-dialog',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['open'],
-  outputs: ['openChange']
+  inputs: ['open']
 })
 export class InoDialog {
-  /** Emits an event upon opening or closing the dialog */
-  openChange!: IDialog['openChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -257,7 +302,9 @@ export class InoDialog {
 
 
 export declare interface InoFab extends Components.InoFab {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['disabled', 'edgePosition', 'extended', 'icon', 'label', 'mini', 'tooltipPlacement']
 })
 @Component({
@@ -276,7 +323,9 @@ export class InoFab {
 
 
 export declare interface InoFabSet extends Components.InoFabSet {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation']
 })
 @Component({
@@ -295,7 +344,9 @@ export class InoFabSet {
 
 
 export declare interface InoFormRow extends Components.InoFormRow {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['label', 'mandatory']
 })
 @Component({
@@ -314,7 +365,9 @@ export class InoFormRow {
 
 
 export declare interface InoHeader extends Components.InoHeader {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['text']
 })
 @Component({
@@ -331,22 +384,27 @@ export class InoHeader {
   }
 }
 
-import { Icon as IIcon } from '@inovex.de/elements/dist/types/components/ino-icon/ino-icon';
-export declare interface InoIcon extends Components.InoIcon {}
+
+export declare interface InoIcon extends Components.InoIcon {
+  /**
+   * Event that emits as soon as the user clicks on the icon.
+The event only emits if the property `inoClickable` is true. 
+   */
+  clickEl: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['clickable', 'colorSecondary', 'icon', 'src', 'svgTitle']
 })
 @Component({
   selector: 'ino-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['clickable', 'colorSecondary', 'icon', 'src', 'svgTitle'],
-  outputs: ['clickEl']
+  inputs: ['clickable', 'colorSecondary', 'icon', 'src', 'svgTitle']
 })
 export class InoIcon {
-  /** Event that emits as soon as the user clicks on the icon.
-The event only emits if the property `inoClickable` is true. */
-  clickEl!: IIcon['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -355,22 +413,27 @@ The event only emits if the property `inoClickable` is true. */
   }
 }
 
-import { IconButton as IIconButton } from '@inovex.de/elements/dist/types/components/ino-icon-button/ino-icon-button';
-export declare interface InoIconButton extends Components.InoIconButton {}
+
+export declare interface InoIconButton extends Components.InoIconButton {
+  /**
+   * Event that emits as soon as the user clicks on the icon.
+The event only emits if the property `clickable` is true. 
+   */
+  clickEl: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['activated', 'autoFocus', 'colorScheme', 'disabled', 'filled', 'icon', 'type']
 })
 @Component({
   selector: 'ino-icon-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'autoFocus', 'colorScheme', 'disabled', 'filled', 'icon', 'type'],
-  outputs: ['clickEl']
+  inputs: ['activated', 'autoFocus', 'colorScheme', 'disabled', 'filled', 'icon', 'type']
 })
 export class InoIconButton {
-  /** Event that emits as soon as the user clicks on the icon.
-The event only emits if the property `clickable` is true. */
-  clickEl!: IIconButton['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -381,7 +444,9 @@ The event only emits if the property `clickable` is true. */
 
 
 export declare interface InoImg extends Components.InoImg {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['alt', 'decoding', 'fallbackIcon', 'height', 'imgListItem', 'label', 'ratioHeight', 'ratioWidth', 'rounded', 'sizes', 'src', 'srcset', 'usemap', 'width']
 })
 @Component({
@@ -400,7 +465,9 @@ export class InoImg {
 
 
 export declare interface InoImgList extends Components.InoImgList {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['encloseLabel', 'masonry']
 })
 @Component({
@@ -417,9 +484,26 @@ export class InoImgList {
   }
 }
 
-import { Input as IInput } from '@inovex.de/elements/dist/types/components/ino-input/ino-input';
-export declare interface InoInput extends Components.InoInput {}
+
+export declare interface InoInput extends Components.InoInput {
+  /**
+   * Emits when the user types something in.
+Contains typed input in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+  /**
+   * Emits when the input field is blurred and validates email input 
+   */
+  inoBlur: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emits when the input field is focused 
+   */
+  inoFocus: EventEmitter<CustomEvent<void>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['autoFocus', 'autocomplete', 'dataList', 'decimalPlaces', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'thousandsSeparator', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
@@ -427,17 +511,9 @@ export declare interface InoInput extends Components.InoInput {}
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'decimalPlaces', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'thousandsSeparator', 'type', 'unit', 'value'],
-  outputs: ['valueChange', 'inoBlur', 'inoFocus']
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'decimalPlaces', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'thousandsSeparator', 'type', 'unit', 'value']
 })
 export class InoInput {
-  /** Emits when the user types something in.
-Contains typed input in `event.detail` */
-  valueChange!: IInput['valueChange'];
-  /** Emits when the input field is blurred and validates email input */
-  inoBlur!: IInput['inoBlur'];
-  /** Emits when the input field is focused */
-  inoFocus!: IInput['inoFocus'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -446,21 +522,26 @@ Contains typed input in `event.detail` */
   }
 }
 
-import { InputFile as IInputFile } from '@inovex.de/elements/dist/types/components/ino-input-file/ino-input-file';
-export declare interface InoInputFile extends Components.InoInputFile {}
+
+export declare interface InoInputFile extends Components.InoInputFile {
+  /**
+   * Emits when the value changes. 
+   */
+  changeFile: EventEmitter<CustomEvent<{ e: any; files: File[]; }>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required']
 })
 @Component({
   selector: 'ino-input-file',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required'],
-  outputs: ['changeFile']
+  inputs: ['accept', 'autoFocus', 'disabled', 'dragAndDrop', 'dragAndDropSecondaryText', 'dragAndDropText', 'label', 'multiple', 'name', 'required']
 })
 export class InoInputFile {
-  /** Emits when the value changes. */
-  changeFile!: IInputFile['changeFile'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -471,7 +552,9 @@ export class InoInputFile {
 
 
 export declare interface InoLabel extends Components.InoLabel {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['disabled', 'outline', 'required', 'showHint', 'text']
 })
 @Component({
@@ -490,7 +573,9 @@ export class InoLabel {
 
 
 export declare interface InoList extends Components.InoList {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['avatar', 'dense', 'twoLines']
 })
 @Component({
@@ -509,7 +594,9 @@ export class InoList {
 
 
 export declare interface InoListDivider extends Components.InoListDivider {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['betweenLists', 'inset', 'padded']
 })
 @Component({
@@ -526,23 +613,28 @@ export class InoListDivider {
   }
 }
 
-import { ListItem as IListItem } from '@inovex.de/elements/dist/types/components/ino-list-item/ino-list-item';
-export declare interface InoListItem extends Components.InoListItem {}
+
+export declare interface InoListItem extends Components.InoListItem {
+  /**
+   * Emits when the list item is clicked or
+the enter/space key if pressed while the item is in focus.
+Contains the element itself in `event.detail` 
+   */
+  clickEl: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
 })
 @Component({
   selector: 'ino-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text'],
-  outputs: ['clickEl']
+  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
 })
 export class InoListItem {
-  /** Emits when the list item is clicked or
-the enter/space key if pressed while the item is in focus.
-Contains the element itself in `event.detail` */
-  clickEl!: IListItem['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -580,7 +672,9 @@ The value of type `string` can be found in `event.detail` */
 
 
 export declare interface InoMenu extends Components.InoMenu {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['placement']
 })
 @Component({
@@ -597,21 +691,26 @@ export class InoMenu {
   }
 }
 
-import { NavDrawer as INavDrawer } from '@inovex.de/elements/dist/types/components/ino-nav-drawer/ino-nav-drawer';
-export declare interface InoNavDrawer extends Components.InoNavDrawer {}
+
+export declare interface InoNavDrawer extends Components.InoNavDrawer {
+  /**
+   * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. 
+   */
+  openChange: EventEmitter<CustomEvent<boolean>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['anchor', 'open', 'variant']
 })
 @Component({
   selector: 'ino-nav-drawer',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['anchor', 'open', 'variant'],
-  outputs: ['openChange']
+  inputs: ['anchor', 'open', 'variant']
 })
 export class InoNavDrawer {
-  /** Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. */
-  openChange!: INavDrawer['openChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -622,7 +721,9 @@ export class InoNavDrawer {
 
 
 export declare interface InoNavItem extends Components.InoNavItem {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['activated', 'disabled', 'subText', 'text']
 })
 @Component({
@@ -639,21 +740,26 @@ export class InoNavItem {
   }
 }
 
-import { InoOption as IInoOption } from '@inovex.de/elements/dist/types/components/ino-option/ino-option';
-export declare interface InoOption extends Components.InoOption {}
+
+export declare interface InoOption extends Components.InoOption {
+  /**
+   *  
+   */
+  clickEl: EventEmitter<CustomEvent<HTMLInoOptionElement>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['disabled', 'selected', 'value']
 })
 @Component({
   selector: 'ino-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'selected', 'value'],
-  outputs: ['clickEl']
+  inputs: ['disabled', 'selected', 'value']
 })
 export class InoOption {
-  /**  */
-  clickEl!: IInoOption['clickEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -664,7 +770,9 @@ export class InoOption {
 
 
 export declare interface InoOptionGroup extends Components.InoOptionGroup {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['label']
 })
 @Component({
@@ -681,9 +789,23 @@ export class InoOptionGroup {
   }
 }
 
-import { Popover as IPopover } from '@inovex.de/elements/dist/types/components/ino-popover/ino-popover';
-export declare interface InoPopover extends Components.InoPopover {}
+
+export declare interface InoPopover extends Components.InoPopover {
+  /**
+   * Emits when the popover wants to show (`true`) or hide (`false`) itself.
+This is depended on the `trigger` property.
+Use this event in controlled-mode (see `controlled`).
+
+e.g.: `trigger = 'click'` - This events emits with `true`
+when the user clicks on the target (slot/`for`/parent-element)
+and emits with `false` when the target or the outside is clicked. 
+   */
+  visibleChanged: EventEmitter<CustomEvent<boolean>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'controlled', 'distance', 'for', 'interactive', 'placement', 'trigger', 'visible'],
   methods: ['getTippyInstance']
 })
@@ -691,18 +813,9 @@ export declare interface InoPopover extends Components.InoPopover {}
   selector: 'ino-popover',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'interactive', 'placement', 'trigger', 'visible'],
-  outputs: ['visibleChanged']
+  inputs: ['colorScheme', 'controlled', 'distance', 'for', 'interactive', 'placement', 'trigger', 'visible']
 })
 export class InoPopover {
-  /** Emits when the popover wants to show (`true`) or hide (`false`) itself.
-This is depended on the `trigger` property.
-Use this event in controlled-mode (see `controlled`).
-
-e.g.: `trigger = 'click'` - This events emits with `true`
-when the user clicks on the target (slot/`for`/parent-element)
-and emits with `false` when the target or the outside is clicked. */
-  visibleChanged!: IPopover['visibleChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -713,7 +826,9 @@ and emits with `false` when the target or the outside is clicked. */
 
 
 export declare interface InoProgressBar extends Components.InoProgressBar {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['buffer', 'indeterminate', 'label', 'progress', 'reversed']
 })
 @Component({
@@ -730,22 +845,27 @@ export class InoProgressBar {
   }
 }
 
-import { Radio as IRadio } from '@inovex.de/elements/dist/types/components/ino-radio/ino-radio';
-export declare interface InoRadio extends Components.InoRadio {}
+
+export declare interface InoRadio extends Components.InoRadio {
+  /**
+   * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`.
+This event will only be emitted if the current state of the radio button is false. 
+   */
+  checkedChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['checked', 'disabled', 'name', 'value']
 })
 @Component({
   selector: 'ino-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'name', 'value'],
-  outputs: ['checkedChange']
+  inputs: ['checked', 'disabled', 'name', 'value']
 })
 export class InoRadio {
-  /** Emits when the user interacts with the radio-button. Contains `true` in `event.detail`.
-This event will only be emitted if the current state of the radio button is false. */
-  checkedChange!: IRadio['checkedChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -756,7 +876,9 @@ This event will only be emitted if the current state of the radio button is fals
 
 
 export declare interface InoRadioGroup extends Components.InoRadioGroup {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['value']
 })
 @Component({
@@ -773,21 +895,26 @@ export class InoRadioGroup {
   }
 }
 
-import { Range as IRange } from '@inovex.de/elements/dist/types/components/ino-range/ino-range';
-export declare interface InoRange extends Components.InoRange {}
+
+export declare interface InoRange extends Components.InoRange {
+  /**
+   * Emits when the value changes. Contains new value in `event.detail`. 
+   */
+  valueChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
-  outputs: ['valueChange']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
 })
 export class InoRange {
-  /** Emits when the value changes. Contains new value in `event.detail`. */
-  valueChange!: IRange['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -796,22 +923,27 @@ export class InoRange {
   }
 }
 
-import { InoSegmentButton as IInoSegmentButton } from '@inovex.de/elements/dist/types/components/ino-segment-button/ino-segment-button';
-export declare interface InoSegmentButton extends Components.InoSegmentButton {}
+
+export declare interface InoSegmentButton extends Components.InoSegmentButton {
+  /**
+   * Emits if the user interacts with the button.
+If the button is disabled or checked, the event will not be emitted. 
+   */
+  checkedChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['checked', 'dense', 'disabled', 'name', 'value']
 })
 @Component({
   selector: 'ino-segment-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value'],
-  outputs: ['checkedChange']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
 })
 export class InoSegmentButton {
-  /** Emits if the user interacts with the button.
-If the button is disabled or checked, the event will not be emitted. */
-  checkedChange!: IInoSegmentButton['checkedChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -822,7 +954,9 @@ If the button is disabled or checked, the event will not be emitted. */
 
 
 export declare interface InoSegmentGroup extends Components.InoSegmentGroup {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['name', 'value']
 })
 @Component({
@@ -839,21 +973,26 @@ export class InoSegmentGroup {
   }
 }
 
-import { Select as ISelect } from '@inovex.de/elements/dist/types/components/ino-select/ino-select';
-export declare interface InoSelect extends Components.InoSelect {}
+
+export declare interface InoSelect extends Components.InoSelect {
+  /**
+   * Emits when a selection changes. Contains new value in `event.detail`. 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 @Component({
   selector: 'ino-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value'],
-  outputs: ['valueChange']
+  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 export class InoSelect {
-  /** Emits when a selection changes. Contains new value in `event.detail`. */
-  valueChange!: ISelect['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -862,21 +1001,26 @@ export class InoSelect {
   }
 }
 
-import { InoSidebar as IInoSidebar } from '@inovex.de/elements/dist/types/components/ino-sidebar/ino-sidebar';
-export declare interface InoSidebar extends Components.InoSidebar {}
+
+export declare interface InoSidebar extends Components.InoSidebar {
+  /**
+   * Emits an event if the user expands or collapses the sidebar 
+   */
+  openChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['alignRight', 'name', 'open']
 })
 @Component({
   selector: 'ino-sidebar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['alignRight', 'name', 'open'],
-  outputs: ['openChange']
+  inputs: ['alignRight', 'name', 'open']
 })
 export class InoSidebar {
-  /** Emits an event if the user expands or collapses the sidebar */
-  openChange!: IInoSidebar['openChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -885,24 +1029,31 @@ export class InoSidebar {
   }
 }
 
-import { Snackbar as ISnackbar } from '@inovex.de/elements/dist/types/components/ino-snackbar/ino-snackbar';
-export declare interface InoSnackbar extends Components.InoSnackbar {}
+
+export declare interface InoSnackbar extends Components.InoSnackbar {
+  /**
+   * Event that emits as soon as the action button is clicked. 
+   */
+  actionClick: EventEmitter<CustomEvent<any>>;
+  /**
+   * Event that emits as soon as the snackbar hides.
+Listen to this event to hide or destroy this element. 
+   */
+  hideEl: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type'],
-  outputs: ['actionClick', 'hideEl']
+  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
 })
 export class InoSnackbar {
-  /** Event that emits as soon as the action button is clicked. */
-  actionClick!: ISnackbar['actionClick'];
-  /** Event that emits as soon as the snackbar hides.
-Listen to this event to hide or destroy this element. */
-  hideEl!: ISnackbar['hideEl'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -913,7 +1064,9 @@ Listen to this event to hide or destroy this element. */
 
 
 export declare interface InoSpinner extends Components.InoSpinner {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'height', 'modal', 'type', 'width']
 })
 @Component({
@@ -930,21 +1083,26 @@ export class InoSpinner {
   }
 }
 
-import { Switch as ISwitch } from '@inovex.de/elements/dist/types/components/ino-switch/ino-switch';
-export declare interface InoSwitch extends Components.InoSwitch {}
+
+export declare interface InoSwitch extends Components.InoSwitch {
+  /**
+   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
+   */
+  checkedChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['checked', 'colorScheme', 'disabled', 'name']
 })
 @Component({
   selector: 'ino-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'colorScheme', 'disabled', 'name'],
-  outputs: ['checkedChange']
+  inputs: ['checked', 'colorScheme', 'disabled', 'name']
 })
 export class InoSwitch {
-  /** Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. */
-  checkedChange!: ISwitch['checkedChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -953,22 +1111,27 @@ export class InoSwitch {
   }
 }
 
-import { Tab as ITab } from '@inovex.de/elements/dist/types/components/ino-tab/ino-tab';
-export declare interface InoTab extends Components.InoTab {}
+
+export declare interface InoTab extends Components.InoTab {
+  /**
+   * Emitted when the user interacts with the tab.
+This event is used by the ino-tab-bar. 
+   */
+  interacted: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['icon', 'indicatorContentWidth', 'label', 'stacked']
 })
 @Component({
   selector: 'ino-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['icon', 'indicatorContentWidth', 'label', 'stacked'],
-  outputs: ['interacted']
+  inputs: ['icon', 'indicatorContentWidth', 'label', 'stacked']
 })
 export class InoTab {
-  /** Emitted when the user interacts with the tab.
-This event is used by the ino-tab-bar. */
-  interacted!: ITab['interacted'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -977,22 +1140,27 @@ This event is used by the ino-tab-bar. */
   }
 }
 
-import { TabBar as ITabBar } from '@inovex.de/elements/dist/types/components/ino-tab-bar/ino-tab-bar';
-export declare interface InoTabBar extends Components.InoTabBar {}
+
+export declare interface InoTabBar extends Components.InoTabBar {
+  /**
+   * Emits when a tab changes.
+Contains the index of the activated tab in `event.detail` 
+   */
+  activeTabChange: EventEmitter<CustomEvent<any>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['activeTab', 'autoFocus']
 })
 @Component({
   selector: 'ino-tab-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeTab', 'autoFocus'],
-  outputs: ['activeTabChange']
+  inputs: ['activeTab', 'autoFocus']
 })
 export class InoTabBar {
-  /** Emits when a tab changes.
-Contains the index of the activated tab in `event.detail` */
-  activeTabChange!: ITabBar['activeTabChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -1004,6 +1172,9 @@ Contains the index of the activated tab in `event.detail` */
 
 export declare interface InoTable extends Components.InoTable {}
 
+@ProxyCmp({
+  defineCustomElementFn: undefined
+})
 @Component({
   selector: 'ino-table',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -1019,7 +1190,9 @@ export class InoTable {
 
 
 export declare interface InoTableCell extends Components.InoTableCell {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['numeric']
 })
 @Component({
@@ -1038,7 +1211,9 @@ export class InoTableCell {
 
 
 export declare interface InoTableRow extends Components.InoTableRow {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['headerRow', 'selected']
 })
 @Component({
@@ -1055,9 +1230,21 @@ export class InoTableRow {
   }
 }
 
-import { Textarea as ITextarea } from '@inovex.de/elements/dist/types/components/ino-textarea/ino-textarea';
-export declare interface InoTextarea extends Components.InoTextarea {}
+
+export declare interface InoTextarea extends Components.InoTextarea {
+  /**
+   * Emits when the textarea is blurred and validates email input 
+   */
+  inoBlur: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emits when the user types something in. Contains typed input in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+
+}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
   methods: ['setFocus', 'setBlur']
 })
@@ -1065,14 +1252,9 @@ export declare interface InoTextarea extends Components.InoTextarea {}
   selector: 'ino-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
-  outputs: ['inoBlur', 'valueChange']
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value']
 })
 export class InoTextarea {
-  /** Emits when the textarea is blurred and validates email input */
-  inoBlur!: ITextarea['inoBlur'];
-  /** Emits when the user types something in. Contains typed input in `event.detail` */
-  valueChange!: ITextarea['valueChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -1083,7 +1265,9 @@ export class InoTextarea {
 
 
 export declare interface InoTooltip extends Components.InoTooltip {}
+
 @ProxyCmp({
+  defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'for', 'label', 'placement', 'trigger'],
   methods: ['getTippyInstance']
 })

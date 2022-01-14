@@ -1,0 +1,53 @@
+{
+  "name": "@inovex.de/elements-landingpage",
+  "version": "4.1.1",
+  "description": "The landingpage for inovex elements",
+  "author": "Patrick Hillert <phillert@inovex.de>",
+  "private": true,
+  "contributors": [
+    "Jan-Niklas Voß <jvoss@inovex.de>",
+    "Pascal Fecht <pfecht@inovex.de>"
+  ],
+  "scripts": {
+    "clean": "shx rm -rf dist",
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "@inovex.de/elements": "^4.1.1",
+    "vue": "^2.6.14",
+    "vue-router": "^3.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0-rc.1",
+    "@vue/cli-plugin-eslint": "~5.0.0-rc.1",
+    "@vue/cli-service": "~5.0.0-rc.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "shx": "^0.3.2",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

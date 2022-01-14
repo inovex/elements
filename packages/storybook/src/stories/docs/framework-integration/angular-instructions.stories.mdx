@@ -111,7 +111,9 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    InoElementsModule.forRoot(), // <-- b) make it available in Angular
+    InoElementsModule.forRoot({
+      // Provide InoElementsConfig options here
+    }), // <-- b) make it available in Angular
   ],
   providers: [],
   bootstrap: [AppComponent],

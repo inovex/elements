@@ -12,21 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - name: setup cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            packages/*/node_modules
-            packages/*/*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-lerna-
-      - run: npm config set scripts-prepend-node-path true
-      - run: yarn install --frozen-lockfile
+      - uses: ./.github/workflows/install
 
   test:
     runs-on: ubuntu-latest
@@ -34,20 +20,7 @@ jobs:
       - install
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            packages/*/node_modules
-            packages/*/*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-lerna-
-      - run: npm config set scripts-prepend-node-path true
-      - run: yarn install --frozen-lockfile
+      - uses: ./.github/workflows/install
       - run: yarn lint
       - run: yarn test
 
@@ -56,49 +29,32 @@ jobs:
     needs:
       - install
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - name: setup cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            packages/*/node_modules
-            packages/*/*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-lerna-
-      - run: npm config set scripts-prepend-node-path true
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+    - uses: actions/checkout@v2
+    - uses: ./.github/workflows/install
+    - run: yarn build
 
-      - if: github.ref == 'refs/heads/master'
-        name: upload elements artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: elements
-          path:
-            packages/elements/dist/
-      - if: github.ref == 'refs/heads/master'
-        name: upload elements-react artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: elements-react
-          path:
+    # Build caches for release-canary workflow
+
+    - if: github.ref == 'refs/heads/master'
+      name: upload elements artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: elements
+        path:
+          packages/elements/dist/
+
+    - if: github.ref == 'refs/heads/master'
+      name: upload elements-react artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: elements-react#
+        path:
             packages/elements-react/dist/
-      - if: github.ref == 'refs/heads/master'
-        name: upload elements-angular artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: elements-angular
-          path:
+
+    - if: github.ref == 'refs/heads/master'
+      name: upload elements-angular artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: elements-angular
+        path:
             packages/elements-angular/dist/
-      - if: github.ref == 'refs/heads/master'
-        name: upload storybook artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: storybook
-          path:
-            packages/storybook/dist/

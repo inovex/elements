@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -94,7 +94,7 @@
     "tippy.js": "^6.2.3"
   },
   "devDependencies": {
-    "@stencil/angular-output-target": "^0.0.5",
+    "@stencil/angular-output-target": "^0.4.0",
     "@stencil/sass": "^1.4.1",
     "@types/classnames": "^2.2.6",
     "@types/css-font-loading-module": "^0.0.6",

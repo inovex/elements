@@ -1,0 +1,53 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* SETTINGS */
+
+  /* Colors */
+  --primary: #4a72aa;
+  --primary-dark: #2c3e50;
+  --primary-light: #e5e6fe;
+  --primary-contrast: #f9f7f7;
+
+  --light: #7b7b7b;
+  --dark: #172d4c;
+
+  /* Padding for content of the page */
+  --container-padding-horizontal: 15%;
+  --container-padding-vertical: 6%;
+
+  /* COPY FROM INOVEX ELEMENTS VARS */
+  --inovex: #003c7e;
+
+  --ivx-primary: #3d40f5;
+  --ivx-primary-light: #5d60f7;
+  --ivx-primary-dark: #0d10f3;
+  --ivx-primary-contrast: #fff;
+
+  --ivx-secondary: #9ccd00;
+  --ivx-secondary-light: #bbe962;
+  --ivx-secondary-dark: #93bf00;
+  --ivx-secondary-contrast: #fff;
+
+  --ivx-tertiary: #00b0f0;
+  --ivx-tertiary-light: #10bcfe;
+  --ivx-tertiary-dark: #006a92;
+
+  --ivx-success: var(--secondary);
+  --ivx-warning: #ffde03;
+  --ivx-error: #eb003b;
+
+  --ivx-light: #c1c1c1;
+  --ivx-dark: #777;
+}
