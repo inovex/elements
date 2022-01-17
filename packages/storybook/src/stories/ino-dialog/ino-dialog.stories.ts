@@ -94,11 +94,13 @@ export const Playground: Story<Components.InoDialog> = (args) => html`
     open="${args.open}"
     fullwidth="${args.fullwidth}"
     dismissible="${args.dismissible}"
+    attach-to="${args.attachTo}"
   >
     ${dialogContent}
   </ino-dialog>
 `;
 Playground.args = {
+  attachTo: '.story-dialog',
   open: false,
   fullwidth: false,
   dismissible: false
