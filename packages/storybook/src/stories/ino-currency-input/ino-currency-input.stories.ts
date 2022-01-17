@@ -85,6 +85,9 @@ Playground.argTypes = {
     control: 'select',
     options: ['', 'de-DE', 'en-US'],
   },
+  value: {
+    control: 'text'
+  }
 };
 
 export const DefaultValue = () => html`
