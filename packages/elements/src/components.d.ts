@@ -762,6 +762,9 @@ export namespace Components {
           * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
          */
         "initialValue": string;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown.
+         */
         "viewMode": ViewModeUnion;
     }
     interface InoMenu {
@@ -2384,6 +2387,9 @@ declare namespace LocalJSX {
           * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
          */
         "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown.
+         */
         "viewMode"?: ViewModeUnion;
     }
     interface InoMenu {

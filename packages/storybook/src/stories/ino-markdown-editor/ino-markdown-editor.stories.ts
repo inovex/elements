@@ -19,22 +19,15 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-markdown-editor'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e: CustomEvent<string>) => {
-          console.log(e.detail);
-        };
-
         const viewModeChangeHandler = (e: CustomEvent<string>) => {
           const editor = document.getElementById(
             ID
           ) as HTMLInoMarkdownEditorElement;
           editor.viewMode = e.detail as any;
         };
-
-        document.addEventListener('valueChange', eventHandler);
         document.addEventListener('viewModeChange', viewModeChangeHandler);
 
         return () => {
-          document.removeEventListener('valueChange', eventHandler);
           document.removeEventListener('viewModeChange', viewModeChangeHandler);
         };
       });
@@ -53,5 +46,5 @@ export const Playground: Story<Components.InoMarkdownEditor> = (args) => html`
 
 Playground.args = {
   initialValue: '',
-  viewMode: 'preview' as any,
+  viewMode: 'preview',
 };

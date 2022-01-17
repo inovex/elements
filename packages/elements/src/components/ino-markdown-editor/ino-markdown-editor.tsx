@@ -1,24 +1,11 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
-import { Editor } from '@tiptap/core';
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch,} from '@stencil/core';
+import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
-import { ViewMode, ViewModeUnion } from '../types';
+import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
-import {
-  Actions,
-  handleToolbarBtnClick,
-  isToolbarBtnActive,
-} from './editor-toolbar-helper';
+import {Actions, handleToolbarBtnClick, isToolbarBtnActive,} from './editor-toolbar-helper';
 
 @Component({
   tag: 'ino-markdown-editor',
@@ -28,6 +15,7 @@ import {
 export class MarkdownEditor implements ComponentInterface {
   private editorRef!: HTMLDivElement;
   private textareaRef: HTMLInoTextareaElement;
+  private isMarkdownValid: boolean = true;
 
   public editor!: Editor;
   public isPlainText = false;
@@ -39,6 +27,11 @@ export class MarkdownEditor implements ComponentInterface {
    */
   @Prop() initialValue: string;
 
+  /**
+   * Sets the view mode of the editor.
+   * Can be changed between `preview` (default) and `markdown`.
+   * The `markdown` mode is made for advanced users which known the syntax of markdown.
+   */
   @Prop() viewMode: ViewModeUnion = 'preview';
 
   @State() stateChanged: boolean;
@@ -84,30 +77,50 @@ export class MarkdownEditor implements ComponentInterface {
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit, Link],
-      onBlur: () => this.valueChange.emit(this.htmlToMarkdown()),
+      onBlur: () => {
+        const markdownText = this.htmlToMarkdown();
+        if (this.isMarkdownValid)
+          this.valueChange.emit(markdownText);
+      },
       onTransaction: () => (this.stateChanged = !this.stateChanged),
     });
   }
 
   private onTextareaChange = (e: CustomEvent<string>) => {
     e.stopPropagation();
-    this.editor.commands.setContent(this.markdownToHtml(e.detail));
     this.textareaRef.value = e.detail;
   };
 
   private onTextareaBlur = (e: CustomEvent<void>) => {
     e.stopPropagation();
-    this.valueChange.emit(this.textareaRef.value);
+    this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
+    if (this.isMarkdownValid)
+      this.valueChange.emit(this.textareaRef.value);
   };
 
   private htmlToMarkdown(): string {
-    const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
-    return markdownSerializer.serialize(doc);
+    return this.handleParsingError(() => {
+      const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
+      return markdownSerializer.serialize(doc);
+    }, this.textareaRef.value);
   }
 
-  private markdownToHtml(md: string = this.initialValue): any {
-    const state = markdownSerializer.parse(md, this.editor.schema);
-    return state.toJSON();
+  private markdownToHtml(md: string = this.initialValue): { [key: string]: any } {
+    return this.handleParsingError(() => {
+      const state = markdownSerializer.parse(md, this.editor.schema);
+      return state.toJSON();
+    }, this.editor.state);
+  }
+
+  private handleParsingError<T> (parseCallback: () => T, errorValue: T): T {
+    try {
+      this.isMarkdownValid = true;
+      return parseCallback();
+    } catch ({ message }) {
+      this.isMarkdownValid = false;
+      alert(message);
+      return errorValue;
+    }
   }
 
   private isBtnActive(action: Actions): boolean {
@@ -161,15 +174,15 @@ export class MarkdownEditor implements ComponentInterface {
           <div>
             <button
               class={previewViewModeBtnClasses}
-              onClick={() => this.viewModeChange.emit(ViewMode.PREVIEW)}
+              onClick={() => this.isMarkdownValid && this.viewModeChange.emit(ViewMode.PREVIEW)}
             >
-              <ino-icon icon="edit_text" />
+              <ino-icon icon="edit_text"/>
             </button>
             <button
               class={markdownViewModeBtnClasses}
-              onClick={() => this.viewModeChange.emit(ViewMode.MARKDOWN)}
+              onClick={() => this.isMarkdownValid && this.viewModeChange.emit(ViewMode.MARKDOWN)}
             >
-              <ino-icon icon="code" />
+              <ino-icon icon="code"/>
             </button>
           </div>
           <div class={textFormatToolbarClasses}>
@@ -177,61 +190,61 @@ export class MarkdownEditor implements ComponentInterface {
               class={getToolbarActionBtnClass(Actions.H1)}
               onClick={() => this.handleBtnClick(Actions.H1)}
             >
-              <ino-icon icon="headline_one" />
+              <ino-icon icon="headline_one"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.H2)}
               onClick={() => this.handleBtnClick(Actions.H2)}
             >
-              <ino-icon icon="headline_two" />
+              <ino-icon icon="headline_two"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BOLD)}
               onClick={() => this.handleBtnClick(Actions.BOLD)}
             >
-              <ino-icon icon="bold" />
+              <ino-icon icon="bold"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.ITALIC)}
               onClick={() => this.handleBtnClick(Actions.ITALIC)}
             >
-              <ino-icon icon="italic" />
+              <ino-icon icon="italic"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.STRIKE)}
               onClick={() => this.handleBtnClick(Actions.STRIKE)}
             >
-              <ino-icon icon="strikethrough" />
+              <ino-icon icon="strikethrough"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
               onClick={() => this.handleBtnClick(Actions.LINK)}
             >
-              <ino-icon icon="link" />
+              <ino-icon icon="link"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.UL)}
               onClick={() => this.handleBtnClick(Actions.UL)}
             >
-              <ino-icon icon="bullet_list" />
+              <ino-icon icon="bullet_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.OL)}
               onClick={() => this.handleBtnClick(Actions.OL)}
             >
-              <ino-icon icon="numeric_list" />
+              <ino-icon icon="numeric_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
               onClick={() => this.handleBtnClick(Actions.BLOCKQUOTE)}
             >
-              <ino-icon icon="quote" />
+              <ino-icon icon="quote"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.CODE_BLOCK)}
               onClick={() => this.handleBtnClick(Actions.CODE_BLOCK)}
             >
-              <ino-icon icon="code_block" />
+              <ino-icon icon="code_block"/>
             </button>
           </div>
         </div>

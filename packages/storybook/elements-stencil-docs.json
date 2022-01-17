@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-14T10:56:13",
+  "timestamp": "2022-01-17T13:06:13",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -4672,7 +4672,7 @@
           "mutable": false,
           "attr": "view-mode",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default) and `markdown`.\nThe `markdown` mode is made for advanced users which known the syntax of markdown.",
           "docsTags": [],
           "default": "'preview'",
           "values": [

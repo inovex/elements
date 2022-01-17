@@ -21,7 +21,7 @@ import CodeBlock from '@tiptap/extension-code-block';
 import HardBreak from '@tiptap/extension-hard-break';
 import Link from '@tiptap/extension-link';
 
-// Source taken from
+// Source is partially taken from
 // https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/content_editor/services/markdown_serializer.js
 const defaultSerializerConfig = {
   marks: {
@@ -58,6 +58,7 @@ const defaultSerializerConfig = {
     },
     [CodeBlock.name]: defaultMarkdownSerializer.nodes.code_block,
     [Heading.name]: defaultMarkdownSerializer.nodes.heading,
+    [HardBreak.name]: defaultMarkdownSerializer.nodes.hard_break,
     [HorizontalRule.name]: defaultMarkdownSerializer.nodes.horizontal_rule,
     [BulletList.name]: defaultMarkdownSerializer.nodes.bullet_list,
     [OrderedList.name]: defaultMarkdownSerializer.nodes.ordered_list,
@@ -116,7 +117,7 @@ let markdownParser = null;
 
 export default {
   serialize: (content: ProsemirrorNode<any>): string =>
-    markdownSerializer.serialize(content),
+    markdownSerializer.serialize(content, { tightLists: true }),
   parse: (markdownText: string, schema: Schema): ProsemirrorNode<any> => {
     if (!markdownParser) {
       markdownParser = new MarkdownParser(

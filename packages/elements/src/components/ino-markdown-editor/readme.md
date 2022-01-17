@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                           | Type                      | Default     |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `initialValue` | `initial-value` | Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax. | `string`                  | `undefined` |
-| `viewMode`     | `view-mode`     |                                                                                                                                                       | `"markdown" \| "preview"` | `'preview'` |
+| Property       | Attribute       | Description                                                                                                                                                                     | Type                      | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- |
+| `initialValue` | `initial-value` | Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.                           | `string`                  | `undefined` |
+| `viewMode`     | `view-mode`     | Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown. | `"markdown" \| "preview"` | `'preview'` |
 
 
 ## Events
