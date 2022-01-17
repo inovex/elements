@@ -98,6 +98,7 @@ export class CurrencyInput {
 
   private handleValueChange = (e: CustomEvent) => {
     let value = e.detail;
+    // value is string => !"0" == true
     value = !value ? null : this.fromCurrencyString(value);
 
     // Set the hidden input value here and emit the event. This is not fully unmanaged,
@@ -157,16 +158,14 @@ export class CurrencyInput {
   }
 
   private toCurrencyString(value: string | number): string {
-    if (value || value === 0) {
-      const locale =
-        this.currencyLocale?.length > 0
-          ? this.currencyLocale
-          : config.get('currencyLocale', this.defaultLocale);
+    if (!value  && value !== 0) return null;
 
-      const opts = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
-      return Intl.NumberFormat(locale, opts).format(Number(value));
-    }
-    return null;
+    const locale = this.currencyLocale?.length > 0
+      ? this.currencyLocale
+      : config.get('currencyLocale', this.defaultLocale);
+
+    const opts = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+    return Intl.NumberFormat(locale, opts).format(Number(value));
   }
 
   private trimCurrencyString(value?: string): string {

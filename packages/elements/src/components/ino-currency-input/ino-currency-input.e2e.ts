@@ -68,6 +68,15 @@ describe('InoCurrencyInput', () => {
       expect(await hiddenInput.getProperty('value')).toBe('-1500');
     });
 
+    it('should render with 0', async () => {
+      const page = await setupPageWithContent(CONTENT);
+      const input = await page.find(NATIVE_INPUT_SELECTOR);
+      await input.type('0');
+      await page.waitForChanges();
+      const hiddenInput = await page.find(HIDDEN_INPUT_SELECTOR);
+      expect(await hiddenInput.getProperty('value')).toBe('0');
+    });
+
     it('should prevent negative inputs on min=0', async () => {
       const page = await setupPageWithContent(CONTENT);
       const inoInput = await page.find('ino-input');
