@@ -34,12 +34,14 @@
 ### Depends on
 
 - [ino-icon](../ino-icon)
+- [ino-popover](../ino-popover)
 - [ino-textarea](../ino-textarea)
 
 ### Graph
 ```mermaid
 graph TD;
   ino-markdown-editor --> ino-icon
+  ino-markdown-editor --> ino-popover
   ino-markdown-editor --> ino-textarea
   ino-textarea --> ino-label
   style ino-markdown-editor fill:#f9f,stroke:#333,stroke-width:4px

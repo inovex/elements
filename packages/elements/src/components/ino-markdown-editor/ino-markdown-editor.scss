@@ -12,6 +12,12 @@ ino-markdown-editor {
     border-radius: $border-radius;
   }
 
+  .markdown-editor__error-text {
+    display: block;
+    padding: 10px;
+    color: theme.color(error, dark);
+  }
+
   .markdown-editor__toolbar {
     display: flex;
     flex-direction: row;

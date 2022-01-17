@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-17T13:06:13",
+  "timestamp": "2022-01-17T16:54:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -4646,7 +4646,7 @@
       "encapsulation": "none",
       "tag": "ino-markdown-editor",
       "readme": "# ino-markdown-editor\n\n\n",
-      "docs": "",
+      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * No support of image syntax. __Images are not allowed!__",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -4717,11 +4717,13 @@
       "dependents": [],
       "dependencies": [
         "ino-icon",
+        "ino-popover",
         "ino-textarea"
       ],
       "dependencyGraph": {
         "ino-markdown-editor": [
           "ino-icon",
+          "ino-popover",
           "ino-textarea"
         ],
         "ino-textarea": [
@@ -5673,10 +5675,14 @@
       ],
       "parts": [],
       "dependents": [
+        "ino-markdown-editor",
         "ino-menu"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ino-markdown-editor": [
+          "ino-popover"
+        ],
         "ino-menu": [
           "ino-popover"
         ]

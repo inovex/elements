@@ -7,6 +7,24 @@ import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
 import {Actions, handleToolbarBtnClick, isToolbarBtnActive,} from './editor-toolbar-helper';
 
+/**
+ * The **Preview Mode** supports following actions:
+ *
+ * | Actions ||||
+ * |---|
+ * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
+ * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
+ * | Bold | Inline code |
+ *
+ * Additionally, there are a lot of predefined
+ * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
+ * provided by the underlying [tiptap](https://tiptap.dev/) editor.
+ *
+ * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
+ *
+ *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+ *  * No support of image syntax. __Images are not allowed!__
+ */
 @Component({
   tag: 'ino-markdown-editor',
   styleUrl: 'ino-markdown-editor.scss',
@@ -15,7 +33,6 @@ import {Actions, handleToolbarBtnClick, isToolbarBtnActive,} from './editor-tool
 export class MarkdownEditor implements ComponentInterface {
   private editorRef!: HTMLDivElement;
   private textareaRef: HTMLInoTextareaElement;
-  private isMarkdownValid: boolean = true;
 
   public editor!: Editor;
   public isPlainText = false;
@@ -34,7 +51,8 @@ export class MarkdownEditor implements ComponentInterface {
    */
   @Prop() viewMode: ViewModeUnion = 'preview';
 
-  @State() stateChanged: boolean;
+  @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
+  @State() private errorMessage: string = '';
 
   /**
    * Emits when one of the view mode buttons was clicked.
@@ -79,10 +97,17 @@ export class MarkdownEditor implements ComponentInterface {
       extensions: [StarterKit, Link],
       onBlur: () => {
         const markdownText = this.htmlToMarkdown();
-        if (this.isMarkdownValid)
+        if (!this.errorMessage)
           this.valueChange.emit(markdownText);
       },
-      onTransaction: () => (this.stateChanged = !this.stateChanged),
+      onTransaction: () => {
+        this.toolbarActionsState = new Set<Actions>(
+          Object.values(Actions).filter(
+            (action) =>
+              typeof action === 'number' && isToolbarBtnActive(this.editor, action)
+          ) as Actions[]
+        );
+      },
     });
   }
 
@@ -94,7 +119,7 @@ export class MarkdownEditor implements ComponentInterface {
   private onTextareaBlur = (e: CustomEvent<void>) => {
     e.stopPropagation();
     this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
-    if (this.isMarkdownValid)
+    if (!this.errorMessage)
       this.valueChange.emit(this.textareaRef.value);
   };
 
@@ -112,19 +137,15 @@ export class MarkdownEditor implements ComponentInterface {
     }, this.editor.state);
   }
 
-  private handleParsingError<T> (parseCallback: () => T, errorValue: T): T {
+  private handleParsingError<T>(parseCallback: () => T, errorValue: T): T {
     try {
-      this.isMarkdownValid = true;
+      this.errorMessage = '';
       return parseCallback();
-    } catch ({ message }) {
-      this.isMarkdownValid = false;
-      alert(message);
+    } catch (err) {
+      this.errorMessage = err.message;
+      console.error(err);
       return errorValue;
     }
-  }
-
-  private isBtnActive(action: Actions): boolean {
-    return isToolbarBtnActive(this.editor, action);
   }
 
   private handleBtnClick(action: Actions): void {
@@ -165,7 +186,7 @@ export class MarkdownEditor implements ComponentInterface {
     const getToolbarActionBtnClass = (action: Actions) =>
       classNames([
         'toolbar__action-button',
-        this.isBtnActive(action) ? 'toolbar__action-button--active' : '',
+        this.toolbarActionsState.has(action) ? 'toolbar__action-button--active' : '',
       ]);
 
     return (
@@ -174,13 +195,13 @@ export class MarkdownEditor implements ComponentInterface {
           <div>
             <button
               class={previewViewModeBtnClasses}
-              onClick={() => this.isMarkdownValid && this.viewModeChange.emit(ViewMode.PREVIEW)}
+              onClick={() => !this.errorMessage && this.viewModeChange.emit(ViewMode.PREVIEW)}
             >
               <ino-icon icon="edit_text"/>
             </button>
             <button
               class={markdownViewModeBtnClasses}
-              onClick={() => this.isMarkdownValid && this.viewModeChange.emit(ViewMode.MARKDOWN)}
+              onClick={() => !this.errorMessage && this.viewModeChange.emit(ViewMode.MARKDOWN)}
             >
               <ino-icon icon="code"/>
             </button>
@@ -247,6 +268,13 @@ export class MarkdownEditor implements ComponentInterface {
               <ino-icon icon="code_block"/>
             </button>
           </div>
+          <ino-popover
+            placement="top-start"
+            color-scheme="transparent"
+            controlled={true}
+            visible={!this.errorMessage == false}>
+            <span class="markdown-editor__error-text">{this.errorMessage}</span>
+          </ino-popover>
         </div>
         <div class="markdown-editor__content">
           <div
