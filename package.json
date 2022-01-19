@@ -3,7 +3,7 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "scripts": {
     "build": "lerna run build",
-    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
+    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel --ignore example-react",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
@@ -24,7 +24,8 @@
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
     "publish:npm": "yarn lerna publish --conventional-commits --no-changelog",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "example:react": "yarn lerna run dev --scope example-react"
   },
   "devDependencies": {
     "camelcase": "^6.2.0",
