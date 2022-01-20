@@ -1,11 +1,13 @@
-import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch,} from '@stencil/core';
+import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch} from '@stencil/core';
 import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
-import {Actions, handleToolbarBtnClick, isToolbarBtnActive,} from './editor-toolbar-helper';
+import {Actions, handleToolbarBtnClick, isToolbarBtnActive} from './editor-toolbar-helper';
+
+type JsonStructure = { [key: string]: any };
 
 /**
  * The **Preview Mode** supports following actions:
@@ -67,7 +69,7 @@ export class MarkdownEditor implements ComponentInterface {
   @Event() valueChange: EventEmitter<string>;
 
   @Watch('viewMode')
-  handleViewModeChange(newViewMode: ViewMode) {
+  handleViewModeChange(newViewMode: ViewMode): void {
     if (newViewMode === ViewMode.MARKDOWN) {
       this.textareaRef.value = this.htmlToMarkdown();
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
@@ -95,28 +97,32 @@ export class MarkdownEditor implements ComponentInterface {
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit, Link],
-      onBlur: () => {
-        const markdownText = this.htmlToMarkdown();
-        if (!this.errorMessage)
-          this.valueChange.emit(markdownText);
-      },
-      onTransaction: () => {
-        this.toolbarActionsState = new Set<Actions>(
-          Object.values(Actions).filter(
-            (action) =>
-              typeof action === 'number' && isToolbarBtnActive(this.editor, action)
-          ) as Actions[]
-        );
-      },
+      onBlur: this.onEditorBlur,
+      onTransaction: this.onEditorTransaction,
     });
   }
 
-  private onTextareaChange = (e: CustomEvent<string>) => {
+  private onEditorBlur = (): void => {
+    const markdownText = this.htmlToMarkdown();
+    if (!this.errorMessage)
+      this.valueChange.emit(markdownText);
+  }
+
+  private onEditorTransaction = (): void => {
+    this.toolbarActionsState = new Set<Actions>(
+      Object.values(Actions).filter(
+        (action) =>
+          typeof action === 'number' && isToolbarBtnActive(this.editor, action)
+      ) as Actions[]
+    );
+  };
+
+  private onTextareaChange = (e: CustomEvent<string>): void => {
     e.stopPropagation();
     this.textareaRef.value = e.detail;
   };
 
-  private onTextareaBlur = (e: CustomEvent<void>) => {
+  private onTextareaBlur = (e: CustomEvent<void>): void => {
     e.stopPropagation();
     this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
     if (!this.errorMessage)
@@ -124,84 +130,84 @@ export class MarkdownEditor implements ComponentInterface {
   };
 
   private htmlToMarkdown(): string {
-    return this.handleParsingError(() => {
+    return this.tryParse(() => {
       const doc = this.editor.schema.nodeFromJSON(this.editor.getJSON());
       return markdownSerializer.serialize(doc);
     }, this.textareaRef.value);
   }
 
-  private markdownToHtml(md: string = this.initialValue): { [key: string]: any } {
-    return this.handleParsingError(() => {
+  private markdownToHtml(md: string = this.initialValue): JsonStructure {
+    return this.tryParse(() => {
       const state = markdownSerializer.parse(md, this.editor.schema);
       return state.toJSON();
     }, this.editor.state);
   }
 
-  private handleParsingError<T>(parseCallback: () => T, errorValue: T): T {
+  private tryParse<T>(parseCallback: () => T, fallbackValue: T): T {
     try {
       this.errorMessage = '';
       return parseCallback();
     } catch (err) {
       this.errorMessage = err.message;
       console.error(err);
-      return errorValue;
+      return fallbackValue;
     }
   }
 
-  private handleBtnClick(action: Actions): void {
+  private handleViewModeBtnClick(viewMode: ViewMode): void {
+    if (!this.errorMessage)
+     this.viewModeChange.emit(viewMode);
+  }
+
+  private handleToolbarActionClick(action: Actions): void {
     handleToolbarBtnClick(this.editor, action);
   }
 
   render() {
-    const previewEditorClasses = classNames([
-      'markdown-editor__content__container',
-      this.viewMode === ViewMode.PREVIEW ? 'show-editor' : 'hide-editor',
-    ]);
-    const markdownEditorClasses = classNames([
-      this.viewMode === ViewMode.MARKDOWN ? 'show-editor' : 'hide-editor',
-    ]);
+    const isPreviewMode = this.viewMode === ViewMode.PREVIEW;
+    const isMarkdownMode = this.viewMode === ViewMode.MARKDOWN;
 
-    const previewViewModeBtnClasses = classNames([
-      'toolbar__action-button',
-      'toolbar__view-mode',
-      this.viewMode === ViewMode.PREVIEW
-        ? 'toolbar__action-button--active'
-        : '',
-    ]);
-    const markdownViewModeBtnClasses = classNames([
-      'toolbar__action-button',
-      'toolbar__view-mode',
-      this.viewMode === ViewMode.MARKDOWN
-        ? 'toolbar__action-button--active'
-        : '',
-    ]);
+    const previewEditorClasses = classNames({
+      'markdown-editor__content__container': true,
+      'show-editor': isPreviewMode,
+      'hide-editor': isMarkdownMode,
+    });
+    const markdownEditorClasses = classNames({
+      'show-editor': isMarkdownMode,
+      'hide-editor': isPreviewMode,
+    });
 
-    const textFormatToolbarClasses = classNames([
-      'toolbar__text-format',
-      this.viewMode === ViewMode.PREVIEW
-        ? 'toolbar__text-format--show'
-        : 'toolbar__text-format--hide',
-    ]);
+    const getViewModeBtnClasses = (viewMode: ViewMode) => classNames({
+      'toolbar__action-button': true,
+      'toolbar__view-mode': true,
+      'toolbar__action-button--active': this.viewMode === viewMode,
+    });
+
+    const textFormatToolbarClasses = classNames({
+      'toolbar__text-format': true,
+      'toolbar__text-format--show': isPreviewMode,
+      'toolbar__text-format--hide': isMarkdownMode,
+    });
 
     const getToolbarActionBtnClass = (action: Actions) =>
-      classNames([
-        'toolbar__action-button',
-        this.toolbarActionsState.has(action) ? 'toolbar__action-button--active' : '',
-      ]);
+      classNames({
+        'toolbar__action-button': true,
+        'toolbar__action-button--active': this.toolbarActionsState.has(action),
+      });
 
     return (
       <div class="markdown-editor">
         <div class="markdown-editor__toolbar">
           <div>
             <button
-              class={previewViewModeBtnClasses}
-              onClick={() => !this.errorMessage && this.viewModeChange.emit(ViewMode.PREVIEW)}
+              class={getViewModeBtnClasses(ViewMode.PREVIEW)}
+              onClick={() => this.handleViewModeBtnClick(ViewMode.PREVIEW)}
             >
               <ino-icon icon="edit_text"/>
             </button>
             <button
-              class={markdownViewModeBtnClasses}
-              onClick={() => !this.errorMessage && this.viewModeChange.emit(ViewMode.MARKDOWN)}
+              class={getViewModeBtnClasses(ViewMode.MARKDOWN)}
+              onClick={() => this.handleViewModeBtnClick(ViewMode.MARKDOWN)}
             >
               <ino-icon icon="code"/>
             </button>
@@ -209,61 +215,61 @@ export class MarkdownEditor implements ComponentInterface {
           <div class={textFormatToolbarClasses}>
             <button
               class={getToolbarActionBtnClass(Actions.H1)}
-              onClick={() => this.handleBtnClick(Actions.H1)}
+              onClick={() => this.handleToolbarActionClick(Actions.H1)}
             >
               <ino-icon icon="headline_one"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.H2)}
-              onClick={() => this.handleBtnClick(Actions.H2)}
+              onClick={() => this.handleToolbarActionClick(Actions.H2)}
             >
               <ino-icon icon="headline_two"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BOLD)}
-              onClick={() => this.handleBtnClick(Actions.BOLD)}
+              onClick={() => this.handleToolbarActionClick(Actions.BOLD)}
             >
               <ino-icon icon="bold"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.ITALIC)}
-              onClick={() => this.handleBtnClick(Actions.ITALIC)}
+              onClick={() => this.handleToolbarActionClick(Actions.ITALIC)}
             >
               <ino-icon icon="italic"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.STRIKE)}
-              onClick={() => this.handleBtnClick(Actions.STRIKE)}
+              onClick={() => this.handleToolbarActionClick(Actions.STRIKE)}
             >
               <ino-icon icon="strikethrough"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.LINK)}
-              onClick={() => this.handleBtnClick(Actions.LINK)}
+              onClick={() => this.handleToolbarActionClick(Actions.LINK)}
             >
               <ino-icon icon="link"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.UL)}
-              onClick={() => this.handleBtnClick(Actions.UL)}
+              onClick={() => this.handleToolbarActionClick(Actions.UL)}
             >
               <ino-icon icon="bullet_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.OL)}
-              onClick={() => this.handleBtnClick(Actions.OL)}
+              onClick={() => this.handleToolbarActionClick(Actions.OL)}
             >
               <ino-icon icon="numeric_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
-              onClick={() => this.handleBtnClick(Actions.BLOCKQUOTE)}
+              onClick={() => this.handleToolbarActionClick(Actions.BLOCKQUOTE)}
             >
               <ino-icon icon="quote"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.CODE_BLOCK)}
-              onClick={() => this.handleBtnClick(Actions.CODE_BLOCK)}
+              onClick={() => this.handleToolbarActionClick(Actions.CODE_BLOCK)}
             >
               <ino-icon icon="code_block"/>
             </button>
@@ -272,7 +278,7 @@ export class MarkdownEditor implements ComponentInterface {
             placement="top-start"
             color-scheme="transparent"
             controlled={true}
-            visible={!this.errorMessage == false}>
+            visible={!this.errorMessage}>
             <span class="markdown-editor__error-text">{this.errorMessage}</span>
           </ino-popover>
         </div>
