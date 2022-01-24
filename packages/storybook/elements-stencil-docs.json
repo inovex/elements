@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-17T16:54:31",
+  "timestamp": "2022-01-24T10:02:04",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -4672,7 +4672,7 @@
           "mutable": false,
           "attr": "view-mode",
           "reflectToAttr": false,
-          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default) and `markdown`.\nThe `markdown` mode is made for advanced users which known the syntax of markdown.",
+          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default) and `markdown`.\nThe `markdown` mode is made for advanced users that know the markdown syntax.",
           "docsTags": [],
           "default": "'preview'",
           "values": [
@@ -4691,6 +4691,15 @@
       ],
       "methods": [],
       "events": [
+        {
+          "event": "inoBlur",
+          "detail": "void",
+          "bubbles": false,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the ino-markdown-editor is blurred",
+          "docsTags": []
+        },
         {
           "event": "valueChange",
           "detail": "string",
@@ -4711,7 +4720,18 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-markdown-editor-max-height",
+          "annotation": "prop",
+          "docs": "max-height of text editor Default value is `none`."
+        },
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "annotation": "prop",
+          "docs": "min-height of text editor. Default value is `100px`."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],

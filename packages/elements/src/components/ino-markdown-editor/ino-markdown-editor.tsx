@@ -68,6 +68,11 @@ export class MarkdownEditor implements ComponentInterface {
    */
   @Event() valueChange: EventEmitter<string>;
 
+  /**
+   * Emits when the ino-markdown-editor is blurred
+   */
+  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+
   @Watch('viewMode')
   handleViewModeChange(newViewMode: ViewMode): void {
     if (newViewMode === ViewMode.MARKDOWN && this.textareaRef) {
@@ -106,6 +111,7 @@ export class MarkdownEditor implements ComponentInterface {
     const markdownText = this.htmlToMarkdown();
     if (!this.errorMessage)
       this.valueChange.emit(markdownText);
+    this.inoBlur.emit();
   }
 
   private onEditorTransaction = (): void => {
@@ -127,6 +133,7 @@ export class MarkdownEditor implements ComponentInterface {
     this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
     if (!this.errorMessage)
       this.valueChange.emit(this.textareaRef.value);
+    this.inoBlur.emit();
   };
 
   private htmlToMarkdown(): string {

@@ -655,6 +655,10 @@ The value of type `ViewMode` can be found in `event.detail`
 The value of type `string` can be found in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
+  /**
+   * Emits when the ino-markdown-editor is blurred 
+   */
+  inoBlur: EventEmitter<CustomEvent<void>>;
 
 }
 
@@ -673,7 +677,7 @@ export class InoMarkdownEditor {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['viewModeChange', 'valueChange']);
+    proxyOutputs(this, this.el, ['viewModeChange', 'valueChange', 'inoBlur']);
   }
 }
 

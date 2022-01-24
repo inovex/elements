@@ -763,7 +763,7 @@ export namespace Components {
          */
         "initialValue": string;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown.
+          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode": ViewModeUnion;
     }
@@ -2380,6 +2380,10 @@ declare namespace LocalJSX {
          */
         "initialValue"?: string;
         /**
+          * Emits when the ino-markdown-editor is blurred
+         */
+        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        /**
           * Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail`
          */
         "onValueChange"?: (event: CustomEvent<string>) => void;
@@ -2388,7 +2392,7 @@ declare namespace LocalJSX {
          */
         "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown.
+          * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode"?: ViewModeUnion;
     }

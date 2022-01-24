@@ -7,18 +7,19 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                                                     | Type                      | Default     |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- |
-| `initialValue` | `initial-value` | Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.                           | `string`                  | `undefined` |
-| `viewMode`     | `view-mode`     | Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users which known the syntax of markdown. | `"markdown" \| "preview"` | `'preview'` |
+| Property       | Attribute       | Description                                                                                                                                                                | Type                      | Default     |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- |
+| `initialValue` | `initial-value` | Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.                      | `string`                  | `undefined` |
+| `viewMode`     | `view-mode`     | Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax. | `"markdown" \| "preview"` | `'preview'` |
 
 
 ## Events
 
-| Event            | Description                                                                                                      | Type                                                 |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `valueChange`    | Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail` | `CustomEvent<string>`                                |
-| `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<ViewMode.MARKDOWN \| ViewMode.PREVIEW>` |
+| Event            | Description                                                                                                      | Type                                   |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `inoBlur`        | Emits when the ino-markdown-editor is blurred                                                                    | `CustomEvent<void>`                    |
+| `valueChange`    | Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail` | `CustomEvent<string>`                  |
+| `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<"markdown" \| "preview">` |
 
 
 ## CSS Custom Properties
