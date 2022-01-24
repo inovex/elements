@@ -84,25 +84,25 @@ export class MarkdownEditor implements ComponentInterface {
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     }
     this.textareaRef.addEventListener('valueChange', this.onTextareaChange);
-    this.textareaRef.addEventListener('inoBlur', this.onTextareaBlur);
+    this.textareaRef.addEventListener('inoBlur', this.handleMarkdownBlur);
   }
 
   disconnectedCallback(): void {
     this.editor.destroy();
     this.textareaRef.removeEventListener('valueChange', this.onTextareaChange);
-    this.textareaRef.removeEventListener('inoBlur', this.onTextareaBlur);
+    this.textareaRef.removeEventListener('inoBlur', this.handleMarkdownBlur);
   }
 
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
       extensions: [StarterKit, Link],
-      onBlur: this.onEditorBlur,
+      onBlur: this.handlePreviewBlur ,
       onTransaction: this.onEditorTransaction,
     });
   }
 
-  private onEditorBlur = (): void => {
+  private handlePreviewBlur  = (): void => {
     const markdownText = this.htmlToMarkdown();
     if (!this.errorMessage)
       this.valueChange.emit(markdownText);
@@ -122,7 +122,7 @@ export class MarkdownEditor implements ComponentInterface {
     this.textareaRef.value = e.detail;
   };
 
-  private onTextareaBlur = (e: CustomEvent<void>): void => {
+  private handleMarkdownBlur = (e: CustomEvent<void>): void => {
     e.stopPropagation();
     this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
     if (!this.errorMessage)
@@ -278,7 +278,7 @@ export class MarkdownEditor implements ComponentInterface {
             placement="top-start"
             color-scheme="transparent"
             controlled={true}
-            visible={!this.errorMessage == false}>
+            visible={Boolean(this.errorMessage)}>
             <span class="markdown-editor__error-text">{this.errorMessage}</span>
           </ino-popover>
         </div>
