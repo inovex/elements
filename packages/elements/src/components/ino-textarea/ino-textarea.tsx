@@ -81,6 +81,11 @@ export class Textarea implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
+   * Marks this element as readonly.
+   */
+  @Prop() readonly?: boolean;
+
+  /**
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
@@ -145,7 +150,7 @@ export class Textarea implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   /**
-   * Sets focus on the native `textarea`. 
+   * Sets focus on the native `textarea`.
    * Use this method instead of the global `textarea.focus()`.
    */
   @Method()
@@ -154,7 +159,7 @@ export class Textarea implements ComponentInterface {
   }
 
   /**
-  * Sets blur on the native `textarea`. 
+  * Sets blur on the native `textarea`.
   * Use this method instead of the global `textarea.blur()`.
   */
   @Method()
@@ -244,6 +249,7 @@ export class Textarea implements ComponentInterface {
           <textarea
             ref={(el) => (this.nativeTextareaElement = el)}
             class="mdc-text-field__input"
+            readonly={this.readonly}
             autofocus={this.autoFocus}
             cols={this.cols}
             disabled={this.disabled}

@@ -48,6 +48,7 @@ export const Playground: Story<Components.InoTextarea> = (args) => html`
     maxlength="${args.maxlength}"
     disabled="${args.disabled}"
     required="${args.required}"
+    readonly="${args.readonly}"
     show-label-hint="${args.showLabelHint}"
     autogrow="${args.autogrow}"
     show-character-counter="${args.showCharacterCounter}"
@@ -63,6 +64,7 @@ Playground.args = {
   maxlength: 30,
   disabled: false,
   required: false,
+  readonly: false,
   outline: true,
   showLabelHint: false,
   autogrow: false,

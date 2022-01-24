@@ -121,6 +121,7 @@ The component is based on a native input with additional features. Thus, the com
 | `name`                 | `name`                   | The name of this element.                                                                                                                                                                                                                                                                                 | `string`  | `undefined` |
 | `outline`              | `outline`                | Styles the input field as outlined element.                                                                                                                                                                                                                                                               | `boolean` | `undefined` |
 | `placeholder`          | `placeholder`            | The placeholder of this element.                                                                                                                                                                                                                                                                          | `string`  | `undefined` |
+| `readonly`             | `readonly`               | Marks this element as readonly.                                                                                                                                                                                                                                                                           | `boolean` | `undefined` |
 | `required`             | `required`               | Marks this element as required.                                                                                                                                                                                                                                                                           | `boolean` | `undefined` |
 | `rows`                 | `rows`                   | The number of rows of this textarea.                                                                                                                                                                                                                                                                      | `number`  | `undefined` |
 | `showCharacterCounter` | `show-character-counter` | Displays the number of characters. The maxlength-property must be set.                                                                                                                                                                                                                                    | `boolean` | `undefined` |
@@ -140,7 +141,7 @@ The component is based on a native input with additional features. Thus, the com
 
 ### `setBlur() => Promise<void>`
 
-Sets blur on the native `textarea`. 
+Sets blur on the native `textarea`.
 Use this method instead of the global `textarea.blur()`.
 
 #### Returns
@@ -151,7 +152,7 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `textarea`. 
+Sets focus on the native `textarea`.
 Use this method instead of the global `textarea.focus()`.
 
 #### Returns

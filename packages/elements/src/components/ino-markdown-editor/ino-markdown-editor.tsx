@@ -52,6 +52,23 @@ export class MarkdownEditor implements ComponentInterface {
    * The `markdown` mode is made for advanced users that know the markdown syntax.
    */
   @Prop() viewMode: ViewModeUnion = 'preview';
+  @Watch('viewMode')
+  handleViewModeChange(newViewMode: ViewMode): void {
+    if (newViewMode === ViewMode.MARKDOWN && this.textareaRef) {
+      this.textareaRef.value = this.htmlToMarkdown();
+      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+    }
+  }
+
+  /**
+   * Sets the readonly property of the editor.
+   * When present, makes the editor not mutable, so the user can not edit.
+   */
+  @Prop() readonly: boolean = false;
+  @Watch('readonly')
+  handleReadonlyChange(newReadonlyValue: boolean): void {
+    this.editor?.setEditable(!newReadonlyValue);
+  }
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
   @State() private errorMessage: string = '';
@@ -72,14 +89,6 @@ export class MarkdownEditor implements ComponentInterface {
    * Emits when the ino-markdown-editor is blurred
    */
   @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
-
-  @Watch('viewMode')
-  handleViewModeChange(newViewMode: ViewMode): void {
-    if (newViewMode === ViewMode.MARKDOWN && this.textareaRef) {
-      this.textareaRef.value = this.htmlToMarkdown();
-      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
-    }
-  }
 
   componentDidLoad(): void {
     this.createEditor();
@@ -104,6 +113,7 @@ export class MarkdownEditor implements ComponentInterface {
       extensions: [StarterKit, Link],
       onBlur: this.handlePreviewBlur ,
       onTransaction: this.onEditorTransaction,
+      editable: !this.readonly,
     });
   }
 
@@ -174,12 +184,17 @@ export class MarkdownEditor implements ComponentInterface {
     const isPreviewMode = this.viewMode === ViewMode.PREVIEW;
     const isMarkdownMode = this.viewMode === ViewMode.MARKDOWN;
 
-    const previewEditorClasses = classNames({
+    const editorClasses = classNames({
+      'markdown-editor': true,
+      'markdown-editor--readonly': this.readonly,
+    });
+
+    const previewModeEditorClasses = classNames({
       'markdown-editor__content__container': true,
       'show-editor': isPreviewMode,
       'hide-editor': isMarkdownMode,
     });
-    const markdownEditorClasses = classNames({
+    const markdownModeEditorClasses = classNames({
       'show-editor': isMarkdownMode,
       'hide-editor': isPreviewMode,
     });
@@ -203,7 +218,7 @@ export class MarkdownEditor implements ComponentInterface {
       });
 
     return (
-      <div class="markdown-editor">
+      <div class={editorClasses}>
         <div class="markdown-editor__toolbar">
           <div>
             <button
@@ -291,15 +306,16 @@ export class MarkdownEditor implements ComponentInterface {
         </div>
         <div class="markdown-editor__content">
           <div
-            class={previewEditorClasses}
+            class={previewModeEditorClasses}
             ref={(el) => (this.editorRef = el)}
           />
           <ino-textarea
             ref={(el) => (this.textareaRef = el)}
-            class={markdownEditorClasses}
+            class={markdownModeEditorClasses}
             cols={100}
             autogrow={true}
             outline={true}
+            readonly={this.readonly}
           />
         </div>
       </div>

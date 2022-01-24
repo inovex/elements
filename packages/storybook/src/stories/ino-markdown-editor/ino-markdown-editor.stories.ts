@@ -41,10 +41,12 @@ export const Playground: Story<Components.InoMarkdownEditor> = (args) => html`
     id="${ID}"
     initial-value="${args.initialValue}"
     view-mode="${args.viewMode}"
+    readonly="${args.readonly}"
   ></ino-markdown-editor>
 `;
 
 Playground.args = {
   initialValue: '',
   viewMode: 'preview',
+  readonly: false,
 };

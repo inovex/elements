@@ -664,13 +664,13 @@ The value of type `string` can be found in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['initialValue', 'viewMode']
+  inputs: ['initialValue', 'readonly', 'viewMode']
 })
 @Component({
   selector: 'ino-markdown-editor',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['initialValue', 'viewMode']
+  inputs: ['initialValue', 'readonly', 'viewMode']
 })
 export class InoMarkdownEditor {
   protected el: HTMLElement;
@@ -1256,14 +1256,14 @@ export declare interface InoTextarea extends Components.InoTextarea {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'readonly', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value'],
   methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value']
+  inputs: ['autoFocus', 'autogrow', 'cols', 'disabled', 'label', 'maxlength', 'minlength', 'name', 'outline', 'placeholder', 'readonly', 'required', 'rows', 'showCharacterCounter', 'showLabelHint', 'value']
 })
 export class InoTextarea {
   protected el: HTMLElement;

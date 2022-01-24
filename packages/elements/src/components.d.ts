@@ -763,6 +763,10 @@ export namespace Components {
          */
         "initialValue": string;
         /**
+          * Sets the readonly property of the editor. When present, makes the editor not mutable, so the user can not edit.
+         */
+        "readonly": boolean;
+        /**
           * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode": ViewModeUnion;
@@ -1177,6 +1181,10 @@ export namespace Components {
          */
         "placeholder"?: string;
         /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
+        /**
           * Marks this element as required.
          */
         "required"?: boolean;
@@ -1185,11 +1193,11 @@ export namespace Components {
          */
         "rows"?: number;
         /**
-          * Sets blur on the native `textarea`.  Use this method instead of the global `textarea.blur()`.
+          * Sets blur on the native `textarea`. Use this method instead of the global `textarea.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `textarea`.  Use this method instead of the global `textarea.focus()`.
+          * Sets focus on the native `textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -2392,6 +2400,10 @@ declare namespace LocalJSX {
          */
         "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
         /**
+          * Sets the readonly property of the editor. When present, makes the editor not mutable, so the user can not edit.
+         */
+        "readonly"?: boolean;
+        /**
           * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode"?: ViewModeUnion;
@@ -2858,6 +2870,10 @@ declare namespace LocalJSX {
           * The placeholder of this element.
          */
         "placeholder"?: string;
+        /**
+          * Marks this element as readonly.
+         */
+        "readonly"?: boolean;
         /**
           * Marks this element as required.
          */

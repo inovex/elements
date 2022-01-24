@@ -10,6 +10,7 @@
 | Property       | Attribute       | Description                                                                                                                                                                | Type                      | Default     |
 | -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- |
 | `initialValue` | `initial-value` | Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.                      | `string`                  | `undefined` |
+| `readonly`     | `readonly`      | Sets the readonly property of the editor. When present, makes the editor not mutable, so the user can not edit.                                                            | `boolean`                 | `false`     |
 | `viewMode`     | `view-mode`     | Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax. | `"markdown" \| "preview"` | `'preview'` |
 
 
@@ -20,14 +21,6 @@
 | `inoBlur`        | Emits when the ino-markdown-editor is blurred                                                                    | `CustomEvent<void>`                    |
 | `valueChange`    | Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail` | `CustomEvent<string>`                  |
 | `viewModeChange` | Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail` | `CustomEvent<"markdown" \| "preview">` |
-
-
-## CSS Custom Properties
-
-| Name                               | Description                                          |
-| ---------------------------------- | ---------------------------------------------------- |
-| `--ino-markdown-editor-max-height` | max-height of text editor Default value is `none`.   |
-| `--ino-markdown-editor-min-height` | min-height of text editor. Default value is `100px`. |
 
 
 ## Dependencies
