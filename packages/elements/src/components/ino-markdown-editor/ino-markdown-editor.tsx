@@ -70,7 +70,7 @@ export class MarkdownEditor implements ComponentInterface {
 
   @Watch('viewMode')
   handleViewModeChange(newViewMode: ViewMode): void {
-    if (newViewMode === ViewMode.MARKDOWN) {
+    if (newViewMode === ViewMode.MARKDOWN && this.textareaRef) {
       this.textareaRef.value = this.htmlToMarkdown();
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     }
@@ -88,7 +88,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    this.editor.destroy();
+    this.editor?.destroy();
     this.textareaRef.removeEventListener('valueChange', this.onTextareaChange);
     this.textareaRef.removeEventListener('inoBlur', this.handleMarkdownBlur);
   }
