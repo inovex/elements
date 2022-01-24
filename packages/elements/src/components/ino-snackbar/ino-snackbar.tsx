@@ -25,11 +25,6 @@ export class Snackbar implements ComponentInterface {
   @Element() el!: HTMLInoSnackbarElement;
 
   /**
-   * The text message to display.
-   */
-  @Prop() message?: string;
-
-  /**
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
@@ -108,7 +103,7 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private handleSnackbarHide = e => {
+  private handleSnackbarHide = (e) => {
     this.hideEl.emit();
     e.stopPropagation();
   };
@@ -138,7 +133,7 @@ export class Snackbar implements ComponentInterface {
     return (
       <Host class={hostClasses}>
         <div
-          ref={el => (this.snackbarElement = el as HTMLDivElement)}
+          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
@@ -154,7 +149,9 @@ export class Snackbar implements ComponentInterface {
               class="mdc-snackbar__label ino-snackbar-message-container"
               aria-atomic="false"
             >
-              <div class="ino-snackbar-text-container">{this.message}</div>
+              <div class="ino-snackbar-text-container">
+                <slot />
+              </div>
               {hasActionText && (
                 <div>
                   <button
