@@ -59,7 +59,7 @@ export class MarkdownEditor implements ComponentInterface {
       this.textareaRef.value = this.htmlToMarkdown();
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     } else {
-      this.editor.setEditable(newViewMode !== ViewMode.READONLY)
+      this.editor?.setEditable(newViewMode !== ViewMode.READONLY)
     }
   }
 
