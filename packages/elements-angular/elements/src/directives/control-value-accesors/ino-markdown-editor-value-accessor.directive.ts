@@ -1,6 +1,6 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import {TextValueAccessorDirective} from "./text-value-accessor.directive";
+import { TextValueAccessorDirective } from "./text-value-accessor.directive";
 
 @Directive({
   selector: 'ino-markdown-editor',
