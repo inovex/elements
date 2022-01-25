@@ -763,10 +763,6 @@ export namespace Components {
          */
         "initialValue": string;
         /**
-          * Sets the readonly property of the editor. When present, makes the editor not mutable, so the user can not edit.
-         */
-        "readonly": boolean;
-        /**
           * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode": ViewModeUnion;
@@ -1180,10 +1176,6 @@ export namespace Components {
           * The placeholder of this element.
          */
         "placeholder"?: string;
-        /**
-          * Marks this element as readonly.
-         */
-        "readonly"?: boolean;
         /**
           * Marks this element as required.
          */
@@ -2400,10 +2392,6 @@ declare namespace LocalJSX {
          */
         "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
         /**
-          * Sets the readonly property of the editor. When present, makes the editor not mutable, so the user can not edit.
-         */
-        "readonly"?: boolean;
-        /**
           * Sets the view mode of the editor. Can be changed between `preview` (default) and `markdown`. The `markdown` mode is made for advanced users that know the markdown syntax.
          */
         "viewMode"?: ViewModeUnion;
@@ -2870,10 +2858,6 @@ declare namespace LocalJSX {
           * The placeholder of this element.
          */
         "placeholder"?: string;
-        /**
-          * Marks this element as readonly.
-         */
-        "readonly"?: boolean;
         /**
           * Marks this element as required.
          */

@@ -81,11 +81,6 @@ export class Textarea implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
-   * Marks this element as readonly.
-   */
-  @Prop() readonly?: boolean;
-
-  /**
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
@@ -249,7 +244,6 @@ export class Textarea implements ComponentInterface {
           <textarea
             ref={(el) => (this.nativeTextareaElement = el)}
             class="mdc-text-field__input"
-            readonly={this.readonly}
             autofocus={this.autoFocus}
             cols={this.cols}
             disabled={this.disabled}

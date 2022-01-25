@@ -48,26 +48,19 @@ export class MarkdownEditor implements ComponentInterface {
 
   /**
    * Sets the view mode of the editor.
-   * Can be changed between `preview` (default) and `markdown`.
+   * Can be changed between `preview` (default), `markdown` and `readonly`.
    * The `markdown` mode is made for advanced users that know the markdown syntax.
    */
   @Prop() viewMode: ViewModeUnion = 'preview';
+
   @Watch('viewMode')
   handleViewModeChange(newViewMode: ViewMode): void {
     if (newViewMode === ViewMode.MARKDOWN && this.textareaRef) {
       this.textareaRef.value = this.htmlToMarkdown();
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+    } else {
+      this.editor.setEditable(newViewMode !== ViewMode.READONLY)
     }
-  }
-
-  /**
-   * Sets the readonly property of the editor.
-   * When present, makes the editor not mutable, so the user can not edit.
-   */
-  @Prop() readonly: boolean = false;
-  @Watch('readonly')
-  handleReadonlyChange(newReadonlyValue: boolean): void {
-    this.editor?.setEditable(!newReadonlyValue);
   }
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
@@ -113,7 +106,7 @@ export class MarkdownEditor implements ComponentInterface {
       extensions: [StarterKit, Link],
       onBlur: this.handlePreviewBlur ,
       onTransaction: this.onEditorTransaction,
-      editable: !this.readonly,
+      editable: this.viewMode !== ViewMode.READONLY,
     });
   }
 
@@ -181,12 +174,13 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   render() {
-    const isPreviewMode = this.viewMode === ViewMode.PREVIEW;
+    const isReadonlyMode = this.viewMode === ViewMode.READONLY;
+    const isPreviewMode = isReadonlyMode || this.viewMode === ViewMode.PREVIEW;
     const isMarkdownMode = this.viewMode === ViewMode.MARKDOWN;
 
     const editorClasses = classNames({
       'markdown-editor': true,
-      'markdown-editor--readonly': this.readonly,
+      'markdown-editor--readonly': isReadonlyMode,
     });
 
     const previewModeEditorClasses = classNames({
@@ -315,7 +309,6 @@ export class MarkdownEditor implements ComponentInterface {
             cols={100}
             autogrow={true}
             outline={true}
-            readonly={this.readonly}
           />
         </div>
       </div>

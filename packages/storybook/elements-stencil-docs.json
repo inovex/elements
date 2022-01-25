@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-24T15:21:35",
+  "timestamp": "2022-01-25T10:15:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -4667,25 +4667,8 @@
           "required": false
         },
         {
-          "name": "readonly",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "readonly",
-          "reflectToAttr": false,
-          "docs": "Sets the readonly property of the editor.\nWhen present, makes the editor not mutable, so the user can not edit.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "viewMode",
-          "type": "\"markdown\" | \"preview\"",
+          "type": "\"markdown\" | \"preview\" | \"readonly\"",
           "mutable": false,
           "attr": "view-mode",
           "reflectToAttr": false,
@@ -4699,6 +4682,10 @@
             },
             {
               "value": "preview",
+              "type": "string"
+            },
+            {
+              "value": "readonly",
               "type": "string"
             }
           ],
@@ -4728,7 +4715,7 @@
         },
         {
           "event": "viewModeChange",
-          "detail": "\"markdown\" | \"preview\"",
+          "detail": "\"markdown\" | \"preview\" | \"readonly\"",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -4737,7 +4724,18 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-markdown-editor-max-height",
+          "annotation": "prop",
+          "docs": "max-height of text editor Default value is `none`."
+        },
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "annotation": "prop",
+          "docs": "min-height of text editor. Default value is `100px`."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -7750,22 +7748,6 @@
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "readonly",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "readonly",
-          "reflectToAttr": false,
-          "docs": "Marks this element as readonly.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": true,

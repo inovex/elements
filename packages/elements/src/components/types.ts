@@ -41,6 +41,7 @@ export type TooltipTrigger =
 export enum ViewMode {
   MARKDOWN = 'markdown',
   PREVIEW = 'preview',
+  READONLY = 'readonly',
 }
 
 export type ViewModeUnion = `${ViewMode}`;
