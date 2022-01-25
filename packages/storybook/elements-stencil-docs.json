@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-01-10T21:35:31",
+  "timestamp": "2022-01-25T07:21:43",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -3821,7 +3821,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `input`. \nUse this method instead of the global `input.blur()`.",
+          "docs": "Sets blur on the native `input`.\nUse this method instead of the global `input.blur()`.",
           "docsTags": []
         },
         {
@@ -3832,7 +3832,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `input`. \nUse this method instead of the global `input.focus()`.",
+          "docs": "Sets focus on the native `input`.\nUse this method instead of the global `input.focus()`.",
           "docsTags": []
         }
       ],

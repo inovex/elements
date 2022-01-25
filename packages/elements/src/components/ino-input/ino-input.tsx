@@ -211,7 +211,7 @@ export class Input implements ComponentInterface {
 
   @Watch('error')
   errorHandler(value?: boolean) {
-    if (this.disabled) return;
+    if (this.disabled || !this.textfield) return;
 
     if (value) {
       this.textfield.valid = false;
@@ -219,7 +219,7 @@ export class Input implements ComponentInterface {
     } else {
       this.textfield.valid = true;
       this.textfield.useNativeValidation = true;
-      this.nativeInputEl.checkValidity();
+      this.nativeInputEl?.checkValidity();
     }
   }
 
@@ -237,16 +237,16 @@ export class Input implements ComponentInterface {
   }
 
   /**
-   * Sets focus on the native `input`. 
+   * Sets focus on the native `input`.
    * Use this method instead of the global `input.focus()`.
    */
    @Method()
    async setFocus() {
      this.textfield?.focus();
    }
- 
+
    /**
-    * Sets blur on the native `input`. 
+    * Sets blur on the native `input`.
     * Use this method instead of the global `input.blur()`.
     */
    @Method()

@@ -188,7 +188,7 @@ Type: `Promise<HTMLInputElement>`
 
 ### `setBlur() => Promise<void>`
 
-Sets blur on the native `input`. 
+Sets blur on the native `input`.
 Use this method instead of the global `input.blur()`.
 
 #### Returns
@@ -199,7 +199,7 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `input`. 
+Sets focus on the native `input`.
 Use this method instead of the global `input.focus()`.
 
 #### Returns
