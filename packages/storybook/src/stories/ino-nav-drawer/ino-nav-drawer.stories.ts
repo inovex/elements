@@ -1,6 +1,7 @@
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import jamesLogo from '../../assets/images/james-logo.png';
 import './ino-nav-drawer.scss';
 
 const openChangeHandle = function (e) {
@@ -75,7 +76,7 @@ export default {
 const navContent = html`
   <ino-img
     slot="logo"
-    src="https://app-uat.james.inma.inovex.io/static/media/james-logo.e7e70758.png"
+    src=${jamesLogo}
     width="50"
   ></ino-img>
   <div slot="subtitle">inovex</div>
@@ -164,7 +165,7 @@ export const Playground = (args) => html`
       <div slot="header">
         <ino-img
           slot="logo"
-          src="https://app-uat.james.inma.inovex.io/static/media/james-logo.e7e70758.png"
+          src=${jamesLogo}
           width="50"
         ></ino-img>
         <p>inovex</p>
