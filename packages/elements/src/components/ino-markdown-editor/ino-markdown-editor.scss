@@ -133,8 +133,7 @@ ino-markdown-editor {
       border-color: theme.color(light, dark);
     }
     &-focused {
-      outline: none;
-      border: 2px solid theme.color(primary);
+      outline: theme.color(primary) auto 1px;
     }
 
     *:first-child {
