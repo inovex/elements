@@ -14,7 +14,7 @@ import { InoRadioValueAccessorDirective } from './directives/control-value-acces
 import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
 import {
   InoMarkdownEditorValueAccessorDirective
-} from "./directives/control-value-accesors/ino-markdown-editor-value-accessor.directive";
+} from './directives/control-value-accesors/ino-markdown-editor-value-accessor.directive';
 
 import { appInitialize, ConfigToken } from './app-initialize';
 
