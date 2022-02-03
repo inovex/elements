@@ -47,7 +47,7 @@ jobs:
       name: upload elements-react artifact
       uses: actions/upload-artifact@v2
       with:
-        name: elements-react#
+        name: elements-react
         path:
             packages/elements-react/dist/
 
