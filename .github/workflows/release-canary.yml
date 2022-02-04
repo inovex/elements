@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches: [master]
+    branches: [elements-solving-canary-release-workflow]
 
 jobs:
   canary-release:
@@ -12,7 +12,26 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
+      - uses: actions/setup-node@v1
+        with:
+          always-auth: true
+          node-version: '14.x'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+      - name: setup cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+            packages/*/*/node_modules
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-lerna-
+      - run: npm config set scripts-prepend-node-path true
+        shell: bash
+      - run: yarn install --frozen-lockfile
+        shell: bash
 
       - name: Download elements artifact
         uses: dawidd6/action-download-artifact@v2
