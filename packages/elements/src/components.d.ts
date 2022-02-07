@@ -317,6 +317,9 @@ export namespace Components {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
+        /**
+          * Position the calendar inside the wrapper and inside the ino-datepicker.
+         */
         "static"?: boolean;
         /**
           * If true, displays time picker in 12 hour mode with AM/PM selection.
@@ -1912,6 +1915,9 @@ declare namespace LocalJSX {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
+        /**
+          * Position the calendar inside the wrapper and inside the ino-datepicker.
+         */
         "static"?: boolean;
         /**
           * If true, displays time picker in 12 hour mode with AM/PM selection.
