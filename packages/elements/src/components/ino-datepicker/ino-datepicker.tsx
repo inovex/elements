@@ -142,6 +142,14 @@ export class Datepicker implements ComponentInterface {
     this.validate();
   }
 
+  @Prop() static? = false;
+
+  @Watch('static')
+  staticChanged(staticVal: boolean) {
+    this.flatpickr?.set('static', staticVal);
+  }
+
+
   /**
    * A string to change the date format.
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
@@ -315,7 +323,7 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
-    const target = this.el.querySelector('ino-input > div') as HTMLElement;
+    const target = this.el.querySelector('ino-input') as HTMLElement;
 
     if (this.disabled || !target) {
       return;
@@ -341,12 +349,12 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
       mode: this.range ? 'range' : 'single',
+      static: this.static,
       onValueChange: (value: string) => this.valueChange.emit(value),
     });
 
     const options = { ...sharedOptions, ...typeSpecificOptions };
     this.flatpickr = flatpickr(target, options);
-
     if (this.value) {
       this.flatpickr?.setDate(this.value);
     }

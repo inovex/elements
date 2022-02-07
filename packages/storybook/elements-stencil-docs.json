@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-03T10:25:29",
+  "timestamp": "2022-02-07T13:05:06",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -1825,6 +1825,23 @@
           "reflectToAttr": false,
           "docs": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "static",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "static",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
