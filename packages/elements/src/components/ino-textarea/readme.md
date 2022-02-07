@@ -140,7 +140,7 @@ The component is based on a native input with additional features. Thus, the com
 
 ### `setBlur() => Promise<void>`
 
-Sets blur on the native `textarea`. 
+Sets blur on the native `textarea`.
 Use this method instead of the global `textarea.blur()`.
 
 #### Returns
@@ -151,7 +151,7 @@ Type: `Promise<void>`
 
 ### `setFocus() => Promise<void>`
 
-Sets focus on the native `textarea`. 
+Sets focus on the native `textarea`.
 Use this method instead of the global `textarea.focus()`.
 
 #### Returns
@@ -172,6 +172,10 @@ Type: `Promise<void>`
 
 ## Dependencies
 
+### Used by
+
+ - [ino-markdown-editor](../ino-markdown-editor)
+
 ### Depends on
 
 - [ino-label](../ino-label)
@@ -180,6 +184,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   ino-textarea --> ino-label
+  ino-markdown-editor --> ino-textarea
   style ino-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

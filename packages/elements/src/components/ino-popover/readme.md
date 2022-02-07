@@ -245,11 +245,13 @@ Type: `Promise<any>`
 
 ### Used by
 
+ - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-menu](../ino-menu)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-markdown-editor --> ino-popover
   ino-menu --> ino-popover
   style ino-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-01T09:07:28",
+  "timestamp": "2022-02-03T10:25:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.4.0",
@@ -2752,6 +2752,7 @@
         "ino-img",
         "ino-input",
         "ino-input-file",
+        "ino-markdown-editor",
         "ino-snackbar",
         "ino-tab"
       ],
@@ -2782,6 +2783,9 @@
           "ino-icon"
         ],
         "ino-input-file": [
+          "ino-icon"
+        ],
+        "ino-markdown-editor": [
           "ino-icon"
         ],
         "ino-snackbar": [
@@ -4638,6 +4642,120 @@
       }
     },
     {
+      "filePath": "./src/components/ino-markdown-editor/ino-markdown-editor.tsx",
+      "encapsulation": "none",
+      "tag": "ino-markdown-editor",
+      "readme": "# ino-markdown-editor\n\n\n",
+      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * No support of image syntax. __Images are not allowed!__",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "initialValue",
+          "type": "string",
+          "mutable": false,
+          "attr": "initial-value",
+          "reflectToAttr": false,
+          "docs": "Initial `string` value of the markdown editor.\nReassigning this value do not change the editor state.\nThe value must contain a valid Markdown syntax.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "viewMode",
+          "type": "\"markdown\" | \"preview\" | \"readonly\"",
+          "mutable": false,
+          "attr": "view-mode",
+          "reflectToAttr": false,
+          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default), `markdown` and `readonly`.\nThe `markdown` mode is made for advanced users that know the markdown syntax.",
+          "docsTags": [],
+          "default": "'preview'",
+          "values": [
+            {
+              "value": "markdown",
+              "type": "string"
+            },
+            {
+              "value": "preview",
+              "type": "string"
+            },
+            {
+              "value": "readonly",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "inoBlur",
+          "detail": "void",
+          "bubbles": false,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the ino-markdown-editor is blurred",
+          "docsTags": []
+        },
+        {
+          "event": "valueChange",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the value of the markdown editor **blurs**.\nThe value of type `string` can be found in `event.detail`",
+          "docsTags": []
+        },
+        {
+          "event": "viewModeChange",
+          "detail": "\"markdown\" | \"preview\" | \"readonly\"",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when one of the view mode buttons was clicked.\nThe value of type `ViewMode` can be found in `event.detail`",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [
+        {
+          "name": "--ino-markdown-editor-max-height",
+          "annotation": "prop",
+          "docs": "max-height of text editor Default value is `none`."
+        },
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "annotation": "prop",
+          "docs": "min-height of text editor. Default value is `100px`."
+        }
+      ],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "ino-icon",
+        "ino-popover",
+        "ino-textarea"
+      ],
+      "dependencyGraph": {
+        "ino-markdown-editor": [
+          "ino-icon",
+          "ino-popover",
+          "ino-textarea"
+        ],
+        "ino-textarea": [
+          "ino-label"
+        ]
+      }
+    },
+    {
       "filePath": "./src/components/ino-menu/ino-menu.tsx",
       "encapsulation": "none",
       "tag": "ino-menu",
@@ -5581,10 +5699,14 @@
       ],
       "parts": [],
       "dependents": [
+        "ino-markdown-editor",
         "ino-menu"
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ino-markdown-editor": [
+          "ino-popover"
+        ],
         "ino-menu": [
           "ino-popover"
         ]
@@ -7722,7 +7844,7 @@
           },
           "signature": "setBlur() => Promise<void>",
           "parameters": [],
-          "docs": "Sets blur on the native `textarea`. \nUse this method instead of the global `textarea.blur()`.",
+          "docs": "Sets blur on the native `textarea`.\nUse this method instead of the global `textarea.blur()`.",
           "docsTags": []
         },
         {
@@ -7733,7 +7855,7 @@
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
-          "docs": "Sets focus on the native `textarea`. \nUse this method instead of the global `textarea.focus()`.",
+          "docs": "Sets focus on the native `textarea`.\nUse this method instead of the global `textarea.focus()`.",
           "docsTags": []
         }
       ],
@@ -7788,13 +7910,18 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
       "dependencies": [
         "ino-label"
       ],
       "dependencyGraph": {
         "ino-textarea": [
           "ino-label"
+        ],
+        "ino-markdown-editor": [
+          "ino-textarea"
         ]
       }
     },

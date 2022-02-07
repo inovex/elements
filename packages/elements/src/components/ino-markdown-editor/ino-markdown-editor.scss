@@ -1,0 +1,168 @@
+@use 'base/theme';
+@use '@material/textfield';
+
+/**
+  @prop --ino-markdown-editor-min-height: min-height of text editor. Default value is `100px`.
+  @prop --ino-markdown-editor-max-height: max-height of text editor Default value is `none`.
+*/
+
+$border-radius: 10px;
+
+ino-markdown-editor {
+  .markdown-editor {
+    border-radius: $border-radius;
+
+    &--readonly {
+      .markdown-editor__toolbar {
+        display: none;
+      }
+
+      .ProseMirror {
+        padding: 0;
+        border: 0;
+      }
+    }
+  }
+
+  .markdown-editor__error-text {
+    display: block;
+    padding: 10px;
+    color: theme.color(error, dark);
+  }
+
+  .markdown-editor__toolbar {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    border-radius: $border-radius;
+    background-color: lighten(theme.color(light), 22%);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+  }
+
+  .toolbar__action-button {
+    --ino-icon-color-primary: #{theme.color(dark, light)};
+    border: 0;
+    margin: 0;
+    padding: 1px 2px;
+    border-radius: $border-radius;
+    background-color: transparent;
+    font-size: 22px;
+
+    &:hover {
+      --ino-icon-color-primary: #{theme.color(primary, dark)};
+      background-color: rgba(theme.color(primary, dark), 0.1);
+      color: theme.color(primary, dark);
+      cursor: pointer;
+    }
+
+    &--active {
+      --ino-icon-color-primary: #{theme.color(primary, dark)};
+      background-color: rgba(theme.color(primary, dark), 0.1);
+      color: theme.color(primary, dark);
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    ino-icon {
+      vertical-align: middle;
+      padding: 5px;
+    }
+  }
+
+  .toolbar__view-mode {
+    border-radius: 0;
+    margin: 0;
+
+    &:first-of-type {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+    &:last-of-type {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  .toolbar__text-format {
+    &--show {
+      display: block;
+    }
+    &--hide {
+      display: none;
+    }
+  }
+
+  .markdown-editor__content__container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .markdown-editor__content {
+    overflow: auto;
+    max-height: var(--ino-markdown-editor-max-height, none);
+
+    ino-textarea {
+      width: 100%;
+      height: 100%;
+
+      .mdc-text-field--textarea.mdc-text-field--outlined {
+        @include textfield.outline-color(theme.color(light, light));
+        @include textfield.hover-outline-color(theme.color(light, dark));
+
+        display: flex;
+        .mdc-text-field__input {
+          min-height: var(--ino-markdown-editor-min-height, 100px);
+        }
+      }
+    }
+  }
+
+  .show-editor {
+    display: block;
+  }
+
+  .hide-editor {
+    display: none;
+  }
+
+  .ProseMirror {
+    min-height: var(--ino-markdown-editor-min-height, 100px);
+    padding: 15px 16px;
+    border-radius: 4px;
+    border: 1px solid theme.color(light, light);
+
+    &:hover:not(&-focused) {
+      border-color: theme.color(light, dark);
+    }
+    &-focused {
+      outline: theme.color(primary) auto 1px;
+    }
+
+    *:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    *:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    blockquote {
+      padding-left: 10px;
+      border-left: 3px solid theme.color(light);
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    pre code {
+      display: block;
+      background-color: rgba(theme.color(light), $alpha: 0.15);
+      white-space: pre;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto;
+      max-width: 100%;
+      min-width: 100px;
+      padding: 6px 8px;
+    }
+  }
+}

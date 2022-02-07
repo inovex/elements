@@ -643,6 +643,44 @@ export class InoListItem {
   }
 }
 
+import type { ViewModeUnion as IMarkdownEditorViewModeUnion } from '@inovex.de/elements';
+export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {
+  /**
+   * Emits when one of the view mode buttons was clicked.
+The value of type `ViewMode` can be found in `event.detail` 
+   */
+  viewModeChange: EventEmitter<CustomEvent<IMarkdownEditorViewModeUnion>>;
+  /**
+   * Emits when the value of the markdown editor **blurs**.
+The value of type `string` can be found in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
+  /**
+   * Emits when the ino-markdown-editor is blurred 
+   */
+  inoBlur: EventEmitter<CustomEvent<void>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['initialValue', 'viewMode']
+})
+@Component({
+  selector: 'ino-markdown-editor',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['initialValue', 'viewMode']
+})
+export class InoMarkdownEditor {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['viewModeChange', 'valueChange', 'inoBlur']);
+  }
+}
+
 
 export declare interface InoMenu extends Components.InoMenu {}
 

@@ -5,7 +5,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 const angularDiretivesPath =  '../elements-angular/elements/src/directives';
 
 export const config: Config = {
-  buildEs5: 'prod',
+  buildEs5: false,
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,

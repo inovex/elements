@@ -38,4 +38,12 @@ export type TooltipTrigger =
   | 'click mouseenter focus'
   | 'click focus mouseenter';
 
+export enum ViewMode {
+  MARKDOWN = 'markdown',
+  PREVIEW = 'preview',
+  READONLY = 'readonly',
+}
+
+export type ViewModeUnion = `${ViewMode}`;
+
 export type VerticalLocation = 'top' | 'bottom';
