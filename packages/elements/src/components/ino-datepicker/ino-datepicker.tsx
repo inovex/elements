@@ -142,6 +142,9 @@ export class Datepicker implements ComponentInterface {
     this.validate();
   }
 
+  /**
+   * Position the calendar inside the wrapper and inside the ino-datepicker.
+   */
   @Prop() static? = false;
 
   @Watch('static')
