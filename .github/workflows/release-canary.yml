@@ -12,7 +12,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
           always-auth: true
           node-version: '14.x'
@@ -28,8 +28,6 @@ jobs:
           key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-lerna-
-      - run: npm config set scripts-prepend-node-path true
-        shell: bash
       - run: yarn install --frozen-lockfile
         shell: bash
 
