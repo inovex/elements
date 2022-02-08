@@ -20,6 +20,10 @@ ino-markdown-editor {
       .ProseMirror {
         padding: 0;
         border: 0;
+
+        &-focused {
+          outline: none;
+        }
       }
     }
   }
