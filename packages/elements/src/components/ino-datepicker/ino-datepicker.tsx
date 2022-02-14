@@ -299,6 +299,7 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
     });
+    this.create();
   }
 
   componentDidLoad() {
