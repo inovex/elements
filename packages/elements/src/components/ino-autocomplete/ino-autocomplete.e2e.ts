@@ -57,7 +57,9 @@ describe('InoAutocomplete', () => {
 
   async function findVisibleListItems(): Promise<E2EElement[]> {
     const allListItems = await inoAutocomplete.findAll('ino-option');
-    return asyncFilter(allListItems, (listItem: E2EElement) => listItem.isVisible());
+    return asyncFilter(allListItems, (listItem: E2EElement) =>
+      listItem.isVisible()
+    );
   }
 
   beforeEach(async () => {
@@ -183,7 +185,7 @@ describe('InoAutocomplete', () => {
     await page.$eval(INO_AUTOCOMPLETE_SELECTOR, (el) => {
       const inoOption = document.createElement('ino-option');
       inoOption.value = 'Key of Option F';
-      inoOption.innerText = 'Option F'
+      inoOption.innerText = 'Option F';
       el.appendChild<HTMLInoOptionElement>(inoOption);
     });
 
@@ -197,5 +199,23 @@ describe('InoAutocomplete', () => {
     await page.waitForChanges();
     expect(spy).toHaveReceivedEvent();
     expect(spy).toHaveReceivedEventDetail(newOptionKey);
+  });
+
+  it('should emit null on blur if its invalid option', async () => {
+    const spy = await page.spyOnEvent('valueChange');
+
+    await inputEl.click();
+    await inputEl.type(OPTIONS[0].text);
+    await page.$eval('input', (e: HTMLInputElement) => e.blur());
+    await page.waitForChanges();
+    expect(spy).toHaveReceivedEvent();
+    expect(spy).toHaveReceivedEventDetail(OPTIONS[0].key);
+
+    await inputEl.click();
+    await inputEl.type('Option');
+    await page.$eval('input', (e: HTMLInputElement) => e.blur());
+    await page.waitForChanges();
+    expect(spy).toHaveReceivedEvent();
+    expect(spy).toHaveReceivedEventDetail(null);
   });
 });

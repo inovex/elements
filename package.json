@@ -1,6 +1,7 @@
 {
   "private": true,
   "description": "This is a Monorepo root package which is used to execute build scripts.",
+  "engines" : { "node" : ">=14.17" },
   "scripts": {
     "build": "lerna run build",
     "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
@@ -29,9 +30,9 @@
   "devDependencies": {
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
+    "fs-extra": "^9.0.0",
     "husky": "^6.0.0",
     "js-yaml": "^3.14.0",
-    "fs-extra": "^9.0.0",
     "lint-staged": "^10.5.3",
     "prettier": "^2.1.2",
     "prompts": "^2.4.0",
@@ -59,5 +60,5 @@
     ]
   },
   "name": "core",
-  "version": "5.0.0"
+  "version": "5.1.0"
 }

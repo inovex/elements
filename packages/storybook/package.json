@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-storybook",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -31,8 +31,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 6006 -c config -s static,../elements/src/assets --quiet --no-version-updates",
-    "build": "build-storybook -c config -s static,../elements/src/assets -o dist",
+    "dev": "start-storybook -p 6006 -c config --quiet --no-version-updates",
+    "build": "build-storybook -c config -o dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
@@ -40,19 +40,20 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^5.0.0",
+    "@inovex.de/elements": "^5.1.0",
     "moment": "^2.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@storybook/addon-actions": "^6.3.2",
-    "@storybook/addon-essentials": "^6.3.2",
-    "@storybook/addon-links": "^6.3.2",
-    "@storybook/addon-viewport": "^6.3.2",
-    "@storybook/builder-webpack5": "^6.3.2",
-    "@storybook/manager-webpack5": "^6.3.2",
-    "@storybook/theming": "^6.3.2",
-    "@storybook/web-components": "^6.3.2",
+    "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addon-viewport": "^6.4.9",
+    "@storybook/builder-webpack5": "^6.4.9",
+    "@storybook/manager-webpack5": "^6.4.9",
+    "@storybook/theming": "^6.4.9",
+    "@storybook/web-components": "^6.4.9",
     "@types/node": "^12.0.4",
     "babel-loader": "8.2.2",
     "chalk": "^2.4.2",
@@ -67,7 +68,8 @@
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "sass": "^1.26.3",
-    "sass-loader": "^7.0.3"
+    "sass-loader": "^7.0.3",
+    "story-description-loader": "^1.0.0"
   },
   "resolutions": {
     "uglify-js": "3.6.4"

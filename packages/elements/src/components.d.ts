@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -607,11 +607,11 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Sets blur on the native `input`.  Use this method instead of the global `input.blur()`.
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input`.  Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -756,6 +756,16 @@ export namespace Components {
           * The primary text of this list item.
          */
         "text"?: string;
+    }
+    interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
+        "initialValue": string;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+         */
+        "viewMode": ViewModeUnion;
     }
     interface InoMenu {
         /**
@@ -1175,11 +1185,11 @@ export namespace Components {
          */
         "rows"?: number;
         /**
-          * Sets blur on the native `textarea`.  Use this method instead of the global `textarea.blur()`.
+          * Sets blur on the native `textarea`. Use this method instead of the global `textarea.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `textarea`.  Use this method instead of the global `textarea.focus()`.
+          * Sets focus on the native `textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1373,6 +1383,12 @@ declare global {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
     };
+    interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
+    }
+    var HTMLInoMarkdownEditorElement: {
+        prototype: HTMLInoMarkdownEditorElement;
+        new (): HTMLInoMarkdownEditorElement;
+    };
     interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {
     }
     var HTMLInoMenuElement: {
@@ -1543,6 +1559,7 @@ declare global {
         "ino-list": HTMLInoListElement;
         "ino-list-divider": HTMLInoListDividerElement;
         "ino-list-item": HTMLInoListItemElement;
+        "ino-markdown-editor": HTMLInoMarkdownEditorElement;
         "ino-menu": HTMLInoMenuElement;
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
@@ -1582,7 +1599,7 @@ declare namespace LocalJSX {
         /**
           * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: CustomEvent<string | null>) => void;
         /**
           * Value of the autocomplete
          */
@@ -2357,6 +2374,28 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
+        "initialValue"?: string;
+        /**
+          * Emits when the ino-markdown-editor is blurred
+         */
+        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail`
+         */
+        "onValueChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
+         */
+        "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+         */
+        "viewMode"?: ViewModeUnion;
+    }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
@@ -2888,6 +2927,7 @@ declare namespace LocalJSX {
         "ino-list": InoList;
         "ino-list-divider": InoListDivider;
         "ino-list-item": InoListItem;
+        "ino-markdown-editor": InoMarkdownEditor;
         "ino-menu": InoMenu;
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
@@ -2943,6 +2983,7 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;

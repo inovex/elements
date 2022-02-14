@@ -12,11 +12,7 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import {
-  getSlotContent,
-  hasSlotContent,
-  moveCursorToEnd,
-} from '../../util/component-utils';
+import { getSlotContent, moveCursorToEnd } from '../../util/component-utils';
 import { Debouncer } from '../../util/debouncer';
 
 const NO_OPTION_SELECTED = -1;
@@ -45,13 +41,13 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this._selectedOptionIndex = index;
-    this.selectedOption =
-      index >= 0 ? this.optionEls[index] : undefined;
+    this.selectedOption = index >= 0 ? this.optionEls[index] : undefined;
 
     if (this.selectedOption) {
       this.selectedOption.selected = true;
     }
   }
+
   private get selectedOptionIndex(): number {
     return this._selectedOptionIndex;
   }
@@ -93,7 +89,7 @@ export class Autocomplete implements ComponentInterface {
    *
    * Contains one of the texts provided by the `<ino-options>`s.
    */
-  @Event() valueChange: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<string | null>;
 
   componentDidLoad(): void {
     this.setupInput();
@@ -114,12 +110,13 @@ export class Autocomplete implements ComponentInterface {
 
   @Listen('keydown')
   onKeyDown(ev: KeyboardEvent): void {
-    if (
-      !this.menuIsVisible ||
-      !this.filteredOptionEls ||
-      this.filteredOptionEls.length === 0
-    ) {
+    if (!this.filteredOptionEls || this.filteredOptionEls.length === 0) {
       return;
+    }
+
+    const blackList = ['Enter', 'Escape', 'Tab'];
+    if (!this.menuIsVisible && !blackList.includes(ev.code)) {
+      this.openMenu();
     }
 
     switch (ev.code) {
@@ -127,13 +124,22 @@ export class Autocomplete implements ComponentInterface {
         this.onEnterPress();
         break;
       case 'ArrowDown':
+        this.openMenu();
         this.onArrowDownPress();
         this.scroll(ev);
         break;
       case 'ArrowUp':
+        this.openMenu();
         this.onArrowUpPress();
         this.scroll(ev);
         break;
+      case 'Escape':
+        this.closeMenu();
+        break;
+      case 'Tab':
+        break;
+      default:
+        this.openMenu();
     }
   }
 
@@ -153,19 +159,29 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private onArrowDownPress = (): void => {
-    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) + 1;
+    const nextIndex =
+      this.filteredOptionEls.findIndex(
+        (o) => o.value === this.selectedOption?.value
+      ) + 1;
     const isIndexOutOfBound = nextIndex >= this.filteredOptionEls.length;
     const filteredOptionIndex = isIndexOutOfBound ? 0 : nextIndex;
-    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
+    this.selectedOptionIndex = this.optionEls.indexOf(
+      this.filteredOptionEls[filteredOptionIndex]
+    );
   };
 
   private onArrowUpPress = (): void => {
-    const nextIndex = this.filteredOptionEls.findIndex(o => o.value === this.selectedOption?.value) - 1;
+    const nextIndex =
+      this.filteredOptionEls.findIndex(
+        (o) => o.value === this.selectedOption?.value
+      ) - 1;
     const isIndexOutOfBound = nextIndex < 0;
     const filteredOptionIndex = isIndexOutOfBound
       ? this.filteredOptionEls.length - 1
       : nextIndex;
-    this.selectedOptionIndex = this.optionEls.indexOf(this.filteredOptionEls[filteredOptionIndex]);
+    this.selectedOptionIndex = this.optionEls.indexOf(
+      this.filteredOptionEls[filteredOptionIndex]
+    );
   };
 
   private scroll = (ev: KeyboardEvent): void => {
@@ -181,13 +197,13 @@ export class Autocomplete implements ComponentInterface {
   };
 
   private setupInput = (): void => {
-    if (!hasSlotContent(this.el, 'input')) {
+    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
+
+    if (!this.inputEl) {
       throw new Error(
-        'The slot "input" is empty. Please provide an ino-input element to that slot.'
+        `The slot "input" is empty. Please provide an <ino-input> element to that slot.`
       );
     }
-
-    this.inputEl = getSlotContent(this.el, 'input') as HTMLInoInputElement;
 
     if (this.inputEl.value) {
       console.warn(
@@ -204,6 +220,8 @@ export class Autocomplete implements ComponentInterface {
       '--input-width',
       window.getComputedStyle(this.inputEl).width
     );
+
+    this.setOptionByValue(this.value);
   };
 
   private onInoInputFocus = (): void => {
@@ -247,7 +265,7 @@ export class Autocomplete implements ComponentInterface {
       return;
     }
 
-    this.inputEl.value = (searchTerm || '');
+    this.inputEl.value = searchTerm || '';
     this.debouncer.debounce(
       () => this.filterOptions(this.inputEl.value),
       this.debounceTimeout
@@ -256,7 +274,8 @@ export class Autocomplete implements ComponentInterface {
 
   private filterOptions = (newVal: string): void => {
     this.filteredOptionEls = this.optionEls.filter((option) => {
-      const matched = option.innerText.trim()
+      const matched = option.innerText
+        .trim()
         .toLowerCase()
         .includes(newVal.trim().toLowerCase());
       option.style.display = matched ? 'block' : 'none';
@@ -274,7 +293,9 @@ export class Autocomplete implements ComponentInterface {
     if (!this.optionEls) {
       return;
     }
-    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === value);
+    this.selectedOptionIndex = this.optionEls.findIndex(
+      (oEl) => oEl.value === value
+    );
     this.inputChanged(this.selectedOption?.innerText);
   };
 
@@ -292,7 +313,9 @@ export class Autocomplete implements ComponentInterface {
       ? parentElement
       : parentElement.parentElement) as HTMLInoOptionElement;
 
-    this.selectedOptionIndex = this.optionEls.findIndex((oEl) => oEl.value === inoOption.value);
+    this.selectedOptionIndex = this.optionEls.findIndex(
+      (oEl) => oEl.value === inoOption.value
+    );
     this.onOptionSelect();
   };
 
@@ -304,7 +327,6 @@ export class Autocomplete implements ComponentInterface {
       menu: true,
       'menu-hidden': !this.menuIsVisible,
       'menu-shown': this.menuIsVisible,
-      'mdc-list': true,
     });
 
     return (
@@ -315,10 +337,12 @@ export class Autocomplete implements ComponentInterface {
           ref={(el) => (this.menuContainer = el)}
           onMouseDown={(ev) => this.onListItemClick(ev)}
         >
-          {this.noOptionsIsVisible && (
-            <p class="no-options-text">{this.noOptionsText}</p>
-          )}
-          <slot onSlotchange={this.setupOptions} />
+          <div class="mdc-list">
+            {this.noOptionsIsVisible && (
+              <p class="no-options-text">{this.noOptionsText}</p>
+            )}
+            <slot onSlotchange={this.setupOptions}/>
+          </div>
         </div>
       </Host>
     );

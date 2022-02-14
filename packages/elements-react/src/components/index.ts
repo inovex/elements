@@ -206,3 +206,7 @@ export const InoTooltip = createReactComponent<
   StencilJSX.IntrinsicElements['ino-tooltip'],
   HTMLInoTooltipElement
 >('ino-tooltip');
+export const InoMarkdownEditor = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-markdown-editor'],
+  HTMLInoMarkdownEditorElement
+>('ino-markdown-editor');

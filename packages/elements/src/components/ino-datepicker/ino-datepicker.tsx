@@ -315,8 +315,9 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
+    const target = this.el.querySelector('ino-input > div') as HTMLElement;
 
-    if (this.disabled) {
+    if (this.disabled || !target) {
       return;
     }
 
@@ -344,8 +345,6 @@ export class Datepicker implements ComponentInterface {
     });
 
     const options = { ...sharedOptions, ...typeSpecificOptions };
-
-    const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
 
     if (this.value) {
