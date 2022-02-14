@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { InoButton } from '@inovex.de/elements-react';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,9 +12,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
+        <InoButton onClick={() => setCount((count) => count + 1)}>count is: {count}</InoButton>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.

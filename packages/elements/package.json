@@ -82,6 +82,7 @@
     "@material/textfield": "^8.0.0",
     "@material/typography": "^8.0.0",
     "@stencil/core": "2.4.0",
+    "@stencil/react-output-target": "^0.2.1",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "currency.js": "^1.2.2",

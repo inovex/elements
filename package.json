@@ -3,7 +3,7 @@
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "scripts": {
     "build": "lerna run build",
-    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel --ignore example-react",
+    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
