@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -163,7 +163,7 @@ export namespace Components {
          */
         "removable": boolean;
         /**
-          * Makes the chip selectable. Will be set by the `<ino-chip-set>`.
+          * Makes the chip selectable.
          */
         "selectable": boolean;
         /**
@@ -174,12 +174,6 @@ export namespace Components {
           * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
-    }
-    interface InoChipSet {
-        /**
-          * The type of this chip set that indicates its behavior.  `action`: Chips which have an action (default) `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options
-         */
-        "type": ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -227,21 +221,7 @@ export namespace Components {
          */
         "value"?: string;
     }
-    interface InoCurrencyInput {
-        /**
-          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
-         */
-        "currencyLocale"?: string;
-        /**
-          * Numeric currency value
-         */
-        "value": number | string;
-    }
     interface InoDatepicker {
-        /**
-          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
-         */
-        "attachToBody": boolean;
         /**
           * Autofocuses this element.
          */
@@ -344,18 +324,6 @@ export namespace Components {
         "value"?: string;
     }
     interface InoDialog {
-        /**
-          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
-         */
-        "attachTo"?: string;
-        /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
-         */
-        "dismissible"?: boolean;
-        /**
-          * Defines a full width dialog sliding up from the bottom of the page.
-         */
-        "fullwidth"?: boolean;
         /**
           * Opens the dialog if set to true
          */
@@ -564,6 +532,10 @@ export namespace Components {
          */
         "dataList"?: string;
         /**
+          * The number of decimal places. Only works on 'text' type input.
+         */
+        "decimalPlaces"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -636,10 +608,6 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
-          * Sets an interceptor to manipulate user input before emitting a `valueChange` event.
-         */
-        "setUserInputInterceptor": (fn: UserInputInterceptor) => Promise<void>;
-        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
@@ -652,9 +620,13 @@ export namespace Components {
          */
         "step"?: number | 'any';
         /**
+          * Shows a dot as a thousands separator. Only works on 'text' type input.
+         */
+        "thousandsSeparator"?: boolean;
+        /**
           * The type of this element (default = text).
          */
-        "type"?: InputType;
+        "type"?: string;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -1292,23 +1264,11 @@ declare global {
         prototype: HTMLInoChipElement;
         new (): HTMLInoChipElement;
     };
-    interface HTMLInoChipSetElement extends Components.InoChipSet, HTMLStencilElement {
-    }
-    var HTMLInoChipSetElement: {
-        prototype: HTMLInoChipSetElement;
-        new (): HTMLInoChipSetElement;
-    };
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
     }
     var HTMLInoControlItemElement: {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
-    };
-    interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
-    }
-    var HTMLInoCurrencyInputElement: {
-        prototype: HTMLInoCurrencyInputElement;
-        new (): HTMLInoCurrencyInputElement;
     };
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
     }
@@ -1564,9 +1524,7 @@ declare global {
         "ino-carousel-slide": HTMLInoCarouselSlideElement;
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
-        "ino-chip-set": HTMLInoChipSetElement;
         "ino-control-item": HTMLInoControlItemElement;
-        "ino-currency-input": HTMLInoCurrencyInputElement;
         "ino-datepicker": HTMLInoDatepickerElement;
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
@@ -1781,7 +1739,7 @@ declare namespace LocalJSX {
          */
         "removable"?: boolean;
         /**
-          * Makes the chip selectable. Will be set by the `<ino-chip-set>`.
+          * Makes the chip selectable.
          */
         "selectable"?: boolean;
         /**
@@ -1792,16 +1750,6 @@ declare namespace LocalJSX {
           * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
-    }
-    interface InoChipSet {
-        /**
-          * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
-         */
-        "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
-        /**
-          * The type of this chip set that indicates its behavior.  `action`: Chips which have an action (default) `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options
-         */
-        "type"?: ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -1853,25 +1801,7 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface InoCurrencyInput {
-        /**
-          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
-         */
-        "currencyLocale"?: string;
-        /**
-          * Emits when the user types something in. Contains typed input in `event.detail`
-         */
-        "onValueChange"?: (event: CustomEvent<number>) => void;
-        /**
-          * Numeric currency value
-         */
-        "value"?: number | string;
-    }
     interface InoDatepicker {
-        /**
-          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
-         */
-        "attachToBody"?: boolean;
         /**
           * Autofocuses this element.
          */
@@ -1971,21 +1901,9 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
-          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
+          * Emits an event upon opening or closing the dialog
          */
-        "attachTo"?: string;
-        /**
-          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
-         */
-        "dismissible"?: boolean;
-        /**
-          * Defines a full width dialog sliding up from the bottom of the page.
-         */
-        "fullwidth"?: boolean;
-        /**
-          * Emits an event upon closing the dialog
-         */
-        "onClose"?: (event: CustomEvent<DialogCloseAction>) => void;
+        "onOpenChange"?: (event: CustomEvent<any>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -2202,6 +2120,10 @@ declare namespace LocalJSX {
          */
         "dataList"?: string;
         /**
+          * The number of decimal places. Only works on 'text' type input.
+         */
+        "decimalPlaces"?: number;
+        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2286,9 +2208,13 @@ declare namespace LocalJSX {
          */
         "step"?: number | 'any';
         /**
+          * Shows a dot as a thousands separator. Only works on 'text' type input.
+         */
+        "thousandsSeparator"?: boolean;
+        /**
           * The type of this element (default = text).
          */
-        "type"?: InputType;
+        "type"?: string;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -2954,9 +2880,7 @@ declare namespace LocalJSX {
         "ino-carousel-slide": InoCarouselSlide;
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
-        "ino-chip-set": InoChipSet;
         "ino-control-item": InoControlItem;
-        "ino-currency-input": InoCurrencyInput;
         "ino-datepicker": InoDatepicker;
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
@@ -3011,9 +2935,7 @@ declare module "@stencil/core" {
             "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
-            "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
-            "ino-currency-input": LocalJSX.InoCurrencyInput & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
