@@ -12,7 +12,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import { generateUniqueId } from '../../util/component-utils';
 import { renderHiddenInput } from '../../util/helpers';
 import { ColorScheme } from '../types';
 
@@ -29,7 +29,6 @@ import { ColorScheme } from '../types';
 export class Switch implements ComponentInterface {
   @Element() el!: HTMLElement;
   private nativeInputEl!: HTMLInputElement;
-  private iconContainerEl: HTMLDivElement;
   private switch: MDCSwitch;
 
   private switchId = `ino-switch-id_${generateUniqueId()}`;
@@ -66,7 +65,6 @@ export class Switch implements ComponentInterface {
 
   componentDidLoad() {
     this.switch = new MDCSwitch(this.el.querySelector('.mdc-switch'));
-    this.addMdcClassesToIcons();
   }
 
   componentDidUnLoad() {
@@ -84,13 +82,6 @@ export class Switch implements ComponentInterface {
     this.checkedChange.emit(!this.checked);
   };
 
-  private addMdcClassesToIcons() {
-    const onIcon = this.iconContainerEl.querySelector('[slot="icon-on"]');
-    const offIcon = this.iconContainerEl.querySelector('[slot="icon-off"]');
-    onIcon?.classList.add('mdc-switch__icon', 'mdc-switch__icon--on');
-    offIcon?.classList.add('mdc-switch__icon', 'mdc-switch__icon--off');
-  }
-
   render() {
     const { el, name, disabled } = this;
 
@@ -103,11 +94,11 @@ export class Switch implements ComponentInterface {
     const switchClasses = classNames(
       'ino-switch',
       'mdc-switch',
-      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected'
+      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected',
+      {
+        'ino-switch-disabled': this.disabled
+      }
     );
-
-    const hasOnIcon = hasSlotContent(this.el, 'icon-on');
-    const hasOffIcon = hasSlotContent(this.el, 'icon-off');
 
     return (
       <Host class={hostClasses} checked={this.checked} disabled={this.disabled}>
@@ -123,13 +114,6 @@ export class Switch implements ComponentInterface {
           <div class="mdc-switch__handle-track">
             <div class="mdc-switch__handle">
               <div class="mdc-switch__ripple" />
-              <div
-                ref={(el) => (this.iconContainerEl = el)}
-                class="mdc-switch__icons"
-              >
-                {hasOnIcon && <slot name="icon-on" />}
-                {hasOffIcon && <slot name="icon-off" />}
-              </div>
             </div>
           </div>
         </button>

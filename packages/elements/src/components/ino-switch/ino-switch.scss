@@ -3,34 +3,43 @@
 @use '@material/switch/styles';
 @use 'base/theme';
 
+@mixin set-handle-border-color($color) {
+  .mdc-switch__handle::after {
+    border: 2px solid $color;
+  }
+}
+
 @each $color in theme.$color-schemes {
   ino-switch.ino-switch--color-scheme-#{$color} {
     @include switch.theme(
       (
+
         selected-handle-color: theme.color($color, base),
+        selected-hover-handle-color: theme.color($color, base),
+        selected-focus-handle-color: theme.color($color, base),
+        selected-pressed-handle-color: theme.color($color, base),
+        disabled-selected-handle-color: theme.color($color, light),
+
         selected-track-color: theme.color($color, light),
         selected-hover-track-color: theme.color($color, light),
         selected-focus-track-color: theme.color($color, light),
         selected-pressed-track-color: theme.color($color, light),
+        unselected-focus-track-color: theme.color($color, base),
+        unselected-hover-track-color: theme.color($color, base),
+        disabled-selected-track-color: theme.color($color, light)
       )
     );
 
-    .mdc-switch--selected {
-      ino-icon.mdc-switch__icon--on {
-        --ino-icon-color-primary: theme.color($color, contrast);
+    :not(.ino-switch-disabled) {
+      &.mdc-switch--selected,
+      &.mdc-switch--unselected:focus,
+      &.mdc-switch--unselected:hover {
+        @include set-handle-border-color(theme.color($color, base));
       }
     }
 
-    /*
-    .mdc-switch:hover ino-icon.mdc-switch__icon--on {
-      --ino-icon-color-primary: theme.color($color, base);
-    }
-     */
-    .mdc-switch--selected,
-    .mdc-switch--unselected:focus {
-      .mdc-switch__handle::after {
-        border-color: theme.color($color, base);
-      }
+    .ino-switch-disabled.mdc-switch--selected {
+      @include set-handle-border-color(theme.color($color, light));
     }
   }
 }
@@ -51,28 +60,16 @@ ino-switch {
       handle-surface-color: white,
       unselected-handle-color: white,
       unselected-track-color: theme.color(light, base),
-      disabled-selected-handle-color: theme.color(light, base),
       disabled-unselected-handle-color: theme.color(light, base),
-      disabled-selected-track-color: theme.color(light, base),
       disabled-unselected-track-color: theme.color(light, base),
-      selected-hover-handle-color: white,
       unselected-hover-handle-color: white,
-      unselected-focus-track-color: theme.color(light, base),
       unselected-focus-handle-color: white,
-      selected-focus-handle-color: white,
-      selected-pressed-handle-color: white,
       unselected-pressed-track-color: theme.color(light, base),
       unselected-pressed-handle-color: white,
     )
   );
 
-  .mdc-switch--unselected ino-icon.mdc-switch__icon--off {
-    --ino-icon-color-primary: theme.color(light, base);
-  }
-
-  .mdc-switch__handle::after {
-    border: 1px solid theme.color(light, base);
-  }
+  @include set-handle-border-color(theme.color(light, base));
 
   // hide ripple effect
   .mdc-switch__ripple {
