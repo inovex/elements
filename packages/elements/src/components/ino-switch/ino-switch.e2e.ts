@@ -1,89 +1,55 @@
-import { setupPageWithContent } from '../../util/e2etests-setup';
-
-const INO_SWITCH = `<ino-switch></ino-switch>`;
-const DIV_SELECTOR = 'ino-switch > div';
+import {setupPageWithContent} from '../../util/e2etests-setup';
+import {E2EElement, E2EPage} from "@stencil/core/testing";
 
 describe('InoSwitch', () => {
-  describe('Properties', () => {
-    it('should render correctly if disabled is set to true', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
 
-      const inoSwitchEl = await page.find('ino-switch');
-      inoSwitchEl.setAttribute('disabled', 'true');
-      await page.waitForChanges();
+  let page: E2EPage;
+  let inoSwitch: E2EElement;
 
-      const div = await page.find(DIV_SELECTOR);
-      expect(div).toHaveClass('mdc-switch--disabled');
-    });
-
-    it('should render correctly if checked is set to true', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
-
-      const inoSwitchEl = await page.find('ino-switch');
-      inoSwitchEl.setAttribute('checked', 'true');
-      await page.waitForChanges();
-
-      const div = await page.find(DIV_SELECTOR);
-      expect(div).toHaveClass('mdc-switch--checked');
-    });
+  beforeEach(async () => {
+    page = await setupPageWithContent(`<ino-switch></ino-switch>`);
+    inoSwitch = await page.find('ino-switch');
   });
 
-  describe('Events', () => {
-    it('should fire checkedChange event on click', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
+  it('should fire checkedChange event on click', async () => {
+    const checkedChange = await page.spyOnEvent('checkedChange');
+    expect(checkedChange).not.toHaveReceivedEvent();
+    await inoSwitch.click();
+    await page.waitForChanges();
+    expect(checkedChange).toHaveReceivedEvent();
+  });
 
-      const checkedChange = await page.spyOnEvent('checkedChange');
-      expect(checkedChange).not.toHaveReceivedEvent();
-      await page.click('ino-switch');
-      await page.waitForChanges();
-      expect(checkedChange).toHaveReceivedEvent();
-    });
+  it('should fire checkedChange event with true if the checked property is not set', async () => {
+    const checkedChange = await page.spyOnEvent('checkedChange');
+    await inoSwitch.click();
+    await page.waitForChanges();
+    expect(checkedChange).toHaveReceivedEventDetail(true);
+  });
 
-    it('should fire checkedChange event with true if the checked property is not set', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
+  it('should fire checkedChange event with true if the checked property is set to false', async () => {
+    const checkedChange = await page.spyOnEvent('checkedChange');
+    inoSwitch.setAttribute('checked', false);
+    await page.waitForChanges();
+    await inoSwitch.click();
+    await page.waitForChanges();
+    expect(checkedChange).toHaveReceivedEventDetail(true);
+  });
 
-      const checkedChange = await page.spyOnEvent('checkedChange');
-      await page.click('ino-switch');
-      await page.waitForChanges();
-      expect(checkedChange.firstEvent.detail).toBe(true);
-    });
+  it('should fire checkedChange event with false if the checked property is set to true', async () => {
+    const checkedChange = await page.spyOnEvent('checkedChange');
+    inoSwitch.setAttribute('checked', true);
+    await page.waitForChanges();
+    await inoSwitch.click();
+    await page.waitForChanges();
+    expect(checkedChange).toHaveReceivedEventDetail(false);
+  });
 
-    it('should fire checkedChange event with true if the checked property is set to false', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
-
-      const checkedChange = await page.spyOnEvent('checkedChange');
-      const inoSwitchEl = await page.find('ino-switch');
-      inoSwitchEl.setAttribute('checked', 'false');
-      await page.waitForChanges();
-      await page.click('ino-switch');
-      await page.waitForChanges();
-      expect(checkedChange.firstEvent.detail).toBe(true);
-    });
-
-    it('should fire checkedChange event with false if the checked property is set to true', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
-
-      const checkedChange = await page.spyOnEvent('checkedChange');
-      const inoSwitchEl = await page.find('ino-switch');
-      inoSwitchEl.setAttribute('checked', 'true');
-      await page.waitForChanges();
-      await page.click('ino-switch');
-      await page.waitForChanges();
-      expect(checkedChange.firstEvent.detail).toBe(false);
-    });
-
-    it('should not fire a checkedChange event if disabled is true', async () => {
-      const page = await setupPageWithContent(INO_SWITCH);
-
-      const checkedChange = await page.spyOnEvent('checkedChange');
-      const inoSwitchEl = await page.find('ino-switch');
-
-      inoSwitchEl.setAttribute('disabled', 'true');
-      await page.waitForChanges();
-
-      await page.click('ino-switch');
-      await page.waitForChanges();
-      expect(checkedChange).not.toHaveReceivedEvent();
-    });
+  it('should not fire a checkedChange event if disabled is true', async () => {
+    const checkedChange = await page.spyOnEvent('checkedChange');
+    inoSwitch.setAttribute('disabled', 'true');
+    await page.waitForChanges();
+    await inoSwitch.click();
+    await page.waitForChanges();
+    expect(checkedChange).not.toHaveReceivedEvent();
   });
 });
