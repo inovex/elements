@@ -62,7 +62,7 @@ export class Switch implements ComponentInterface {
   @Prop() colorScheme: ColorScheme = 'primary';
 
   componentDidLoad() {
-    this.switch = new MDCSwitch(document.querySelector('.mdc-switch'));
+    this.switch = new MDCSwitch(this.el.querySelector('.mdc-switch'));
   }
 
   componentDidUnLoad() {
