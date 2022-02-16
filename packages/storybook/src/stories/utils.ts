@@ -2,7 +2,6 @@ import { Story } from '@storybook/web-components';
 import { StoryFnHtmlReturnType } from '@storybook/web-components/dist/ts3.4/client/preview/types';
 import { html } from 'lit-html';
 import ICONS from '../../../elements/src/components/ino-icon/icons';
-import docsJson from '../../elements-stencil-docs';
 
 export const maybeCreateStoryArgs = <T>(story: Story<T>) => {
   if (!story.args) {
@@ -73,7 +72,7 @@ export const decorateStoryWithClass = (
   story: () => StoryFnHtmlReturnType,
   className?: string
 ): StoryFnHtmlReturnType => {
-  return html` <div class="${className ?? ''}">${story()}</div>`;
+  return html`<div class="${className ?? ''}">${story()}</div>`;
 };
 
 export const showSnackbar = (message: string) => {
