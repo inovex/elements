@@ -1099,7 +1099,7 @@ export class InoSpinner {
 
 export declare interface InoSwitch extends Components.InoSwitch {
   /**
-   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
+   * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 

@@ -2722,7 +2722,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+          * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`.
          */
         "onCheckedChange"?: (event: CustomEvent<any>) => void;
     }

@@ -113,7 +113,7 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 
 | Event           | Description                                                                                                    | Type               |
 | --------------- | -------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `checkedChange` | Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. | `CustomEvent<any>` |
+| `checkedChange` | Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`. | `CustomEvent<any>` |
 
 
 ## Slots

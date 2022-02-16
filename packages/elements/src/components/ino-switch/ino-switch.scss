@@ -13,32 +13,30 @@
   ino-switch.ino-switch--color-scheme-#{$color} {
     @include switch.theme(
       (
-
         selected-handle-color: theme.color($color, base),
         selected-hover-handle-color: theme.color($color, base),
         selected-focus-handle-color: theme.color($color, base),
         selected-pressed-handle-color: theme.color($color, base),
         disabled-selected-handle-color: theme.color($color, light),
-
         selected-track-color: theme.color($color, light),
         selected-hover-track-color: theme.color($color, light),
         selected-focus-track-color: theme.color($color, light),
         selected-pressed-track-color: theme.color($color, light),
         unselected-focus-track-color: theme.color($color, base),
         unselected-hover-track-color: theme.color($color, base),
-        disabled-selected-track-color: theme.color($color, light)
+        disabled-selected-track-color: theme.color($color, light),
       )
     );
 
-    :not(.ino-switch-disabled) {
-      &.mdc-switch--selected,
-      &.mdc-switch--unselected:focus,
-      &.mdc-switch--unselected:hover {
+    &:not(.ino-switch-disabled) {
+      .mdc-switch--selected,
+      .mdc-switch--unselected:focus,
+      .mdc-switch--unselected:hover {
         @include set-handle-border-color(theme.color($color, base));
       }
     }
 
-    .ino-switch-disabled.mdc-switch--selected {
+    &.ino-switch-disabled .mdc-switch--selected {
       @include set-handle-border-color(theme.color($color, light));
     }
   }
@@ -48,6 +46,12 @@ ino-switch {
   display: flex;
   gap: 5px;
   align-items: center;
+  cursor: pointer;
+
+  &.ino-switch-disabled {
+    cursor: default;
+    pointer-events: none;
+  }
 
   // set basic styles, DOES NOT SUPPORT CSS-VARS
   @include switch.theme(
@@ -60,7 +64,7 @@ ino-switch {
       handle-surface-color: white,
       unselected-handle-color: white,
       unselected-track-color: theme.color(light, base),
-      disabled-unselected-handle-color: theme.color(light, base),
+      disabled-unselected-handle-color: white,
       disabled-unselected-track-color: theme.color(light, base),
       unselected-hover-handle-color: white,
       unselected-focus-handle-color: white,
