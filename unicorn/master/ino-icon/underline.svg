@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25">
+  <g id="Unterstrichen" transform="translate(1)">
+    <text id="U" transform="translate(2 21)" fill="currentColor" font-size="21" font-family="Lato-Medium, Lato" font-weight="500"><tspan x="0" y="0">U</tspan></text>
+    <line id="Linie_3" data-name="Linie 3" x2="20" transform="translate(0 24)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
