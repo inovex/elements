@@ -22,11 +22,6 @@ export const config: Config = {
   enableCache: true,
   namespace: 'inovex-elements',
   outputTargets: [
-    react({
-      componentCorePackage: '@inovex.de/elements',
-      proxiesFile: `${reactProxyPath}/index.ts`,
-      includeDefineCustomElements: true,
-    }),
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
