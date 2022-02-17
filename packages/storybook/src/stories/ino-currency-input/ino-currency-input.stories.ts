@@ -38,45 +38,13 @@ export const Playground: Story<Components.InoCurrencyInput> = (args) => html`
     <ino-input
       class="customizable-input"
       id="customizable-input"
-      autofocus="${args.autoFocus}"
-      disabled="${args.disabled}"
-      error="${args.error}"
-      helper="${args.helper}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
-      label="${args.label}"
-      min="${args.min}"
-      max="${args.max}"
-      name="${args.name}"
-      outline="${args.outline}"
-      placeholder="${args.placeholder}"
-      readonly="${args.readonly}"
-      required="${args.required}"
-      show-label-hint="${args.showLabelHint}"
-      type="text"
-      unit="${args.unit}"
+      label="Currency Input"
+      outline="true"
     >
     </ino-input>
   </ino-currency-input>
 `;
 Playground.args = {
-  autocomplete: false,
-  autoFocus: false,
-  disabled: false,
-  error: false,
-  helper: 'Helper message',
-  helperPersistent: false,
-  helperValidation: false,
-  label: 'Currency Input',
-  min: '',
-  max: '',
-  outlined: true,
-  name: '',
-  placeholder: '',
-  readonly: false,
-  required: false,
-  showLabelHint: false,
-  unit: '',
   value: '10.50',
   currencyLocale: '',
 };
@@ -104,7 +72,7 @@ export const Unit = () => html`
 
 export const Locales = () => html`
   <ino-currency-input value="150215.99" currency-locale="de-DE">
-    <ino-input autofocus unit="€" label="German locale"></ino-input>
+    <ino-input unit="€" label="German locale"></ino-input>
   </ino-currency-input>
 
   <ino-currency-input value="150215.99" currency-locale="en-US">
