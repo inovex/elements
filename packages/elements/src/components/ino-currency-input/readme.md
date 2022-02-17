@@ -104,9 +104,9 @@ class MyComponent extends Component {
 
 ## Slots
 
-| Slot        | Description              |
-| ----------- | ------------------------ |
-| `"default"` | ino-input of type "text" |
+| Slot        | Description                    |
+| ----------- | ------------------------------ |
+| `"default"` | `<ino-input>` of `type="text"` |
 
 
 ----------------------------------------------

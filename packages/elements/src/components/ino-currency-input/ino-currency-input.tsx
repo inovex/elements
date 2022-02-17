@@ -11,7 +11,7 @@ import {
 import { config } from '../config';
 
 /**
- * @slot default - ino-input of type "text"
+ * @slot default - `<ino-input>` of `type="text"`
  */
 @Component({
   tag: 'ino-currency-input',
