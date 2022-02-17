@@ -210,3 +210,7 @@ export const InoMarkdownEditor = createReactComponent<
   StencilJSX.IntrinsicElements['ino-markdown-editor'],
   HTMLInoMarkdownEditorElement
 >('ino-markdown-editor');
+export const InoCurrencyInput = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-currency-input'],
+  HTMLInoCurrencyInputElement
+>('ino-currency-input');

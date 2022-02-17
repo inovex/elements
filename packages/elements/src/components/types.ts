@@ -47,3 +47,14 @@ export enum ViewMode {
 export type ViewModeUnion = `${ViewMode}`;
 
 export type VerticalLocation = 'top' | 'bottom';
+export type InputType =
+  | 'color'
+  | 'email'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'text'
+  | 'url'
+  | 'week';
+export type UserInputInterceptor = (value: string) => string;

@@ -243,6 +243,35 @@ export class InoControlItem {
 }
 
 
+export declare interface InoCurrencyInput extends Components.InoCurrencyInput {
+  /**
+   * Emits when the user types something in.
+Contains typed input in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<number>>;
+
+}
+
+@ProxyCmp({
+  defineCustomElementFn: undefined,
+  inputs: ['currencyLocale', 'value']
+})
+@Component({
+  selector: 'ino-currency-input',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['currencyLocale', 'value']
+})
+export class InoCurrencyInput {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
+  }
+}
+
+
 export declare interface InoDatepicker extends Components.InoDatepicker {
   /**
    * Emits when the value of the datepicker changes.
@@ -487,11 +516,6 @@ export class InoImgList {
 
 export declare interface InoInput extends Components.InoInput {
   /**
-   * Emits when the user types something in.
-Contains typed input in `event.detail` 
-   */
-  valueChange: EventEmitter<CustomEvent<string>>;
-  /**
    * Emits when the input field is blurred and validates email input 
    */
   inoBlur: EventEmitter<CustomEvent<void>>;
@@ -499,26 +523,31 @@ Contains typed input in `event.detail`
    * Emits when the input field is focused 
    */
   inoFocus: EventEmitter<CustomEvent<void>>;
+  /**
+   * Emits when the user types something in.
+Contains typed input in `event.detail` 
+   */
+  valueChange: EventEmitter<CustomEvent<string>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'decimalPlaces', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'thousandsSeparator', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'decimalPlaces', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'thousandsSeparator', 'type', 'unit', 'value']
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value']
 })
 export class InoInput {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['valueChange', 'inoBlur', 'inoFocus']);
+    proxyOutputs(this, this.el, ['inoBlur', 'inoFocus', 'valueChange']);
   }
 }
 

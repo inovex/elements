@@ -11918,7 +11918,7 @@ cuint@^0.2.2:
 
 currency.js@^1.2.2:
   version "1.2.2"
-  resolved "https://registry.npmjs.org/currency.js/-/currency.js-1.2.2.tgz#ae84daf68798051097ad3feb2d022ad08994f526"
+  resolved "https://registry.yarnpkg.com/currency.js/-/currency.js-1.2.2.tgz#ae84daf68798051097ad3feb2d022ad08994f526"
   integrity sha512-trMkXtHpIFq2P+PcSml3La/jpwo8shy2Xn/b5mBXoJhx3E4m3wBbdjS8eHy/DWgYKaEUH8EXPC6yomFx+zumww==
 
 currently-unhandled@^0.4.1:
