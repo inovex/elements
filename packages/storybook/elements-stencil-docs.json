@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "timestamp": "2022-02-17T10:48:52",
+=======
+  "timestamp": "2022-02-17T08:21:33",
+>>>>>>> Stashed changes
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
