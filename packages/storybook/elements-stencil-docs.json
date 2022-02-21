@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-17T10:48:52",
+  "timestamp": "2022-02-21T09:32:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -1581,6 +1581,23 @@
       "usage": {},
       "props": [
         {
+          "name": "attachToBody",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "attach-to-body",
+          "reflectToAttr": false,
+          "docs": "Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "autoFocus",
           "type": "boolean",
           "mutable": false,
@@ -1900,23 +1917,6 @@
           "reflectToAttr": false,
           "docs": "If true, an *optional* message is displayed if not required,\notherwise a * marker is displayed if required",
           "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "static",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "static",
-          "reflectToAttr": false,
-          "docs": "",
-          "docsTags": [],
-          "default": "false",
           "values": [
             {
               "type": "boolean"

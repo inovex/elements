@@ -35,6 +35,7 @@ export default {
 export const Playground: Story<Components.InoDatepicker> = (args) => html`
   <ino-datepicker
     class="customizable-picker"
+    attach-to-body="${args.attachToBody}",
     disabled="${args.disabled}"
     date-format="${args.dateFormat}"
     helper="${args.helper}"
@@ -55,6 +56,7 @@ export const Playground: Story<Components.InoDatepicker> = (args) => html`
   </ino-datepicker>
 `;
 Playground.args = {
+  attachToBody: true,
   disabled: false,
   dateFormat: 'Y-m-d',
   helper: 'Helper text to describe the input',

@@ -143,13 +143,14 @@ export class Datepicker implements ComponentInterface {
   }
 
   /**
-   * Position the calendar inside the wrapper and inside the ino-datepicker.
+   * Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.
    */
-  @Prop() static? = false;
+  @Prop() attachToBody = false;
 
-  @Watch('static')
-  staticChanged(staticVal: boolean) {
-    this.flatpickr?.set('static', staticVal);
+  @Watch('attachToBody')
+  attachToBodyChanged(attachToBody: boolean) {
+    console.log(attachToBody);
+    this.flatpickr?.set('static', !attachToBody);
   }
 
 
@@ -327,7 +328,7 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
-    const target = this.el.querySelector('ino-input > label') as HTMLElement;
+    const target = this.el.querySelector('ino-input') as HTMLElement;
 
     if (this.disabled || !target) {
       return;
@@ -353,10 +354,10 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
       mode: this.range ? 'range' : 'single',
-      static: this.static,
+      static: !this.attachToBody,
       onValueChange: (value: string) => this.valueChange.emit(value),
     });
-
+    console.log(this.attachToBody, typeSpecificOptions);
     const options = { ...sharedOptions, ...typeSpecificOptions };
     this.flatpickr = flatpickr(target, options);
 
