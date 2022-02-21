@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-21T14:53:58",
+  "timestamp": "2022-02-21T12:13:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -972,8 +972,8 @@
       "filePath": "./src/components/ino-chip/ino-chip.tsx",
       "encapsulation": "none",
       "tag": "ino-chip",
-      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-chip')\n  .addEventListener('removeChip', (e) =>\n    console.log('This chip will be removed', e.detail),\n  );\n```\n\n```html\n<ino-chip\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  label=\"<string>\"\n  icon-leading\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot= icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  chipsetSelectionChange(e: any) {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  }\n\n  render() {\n    return (\n      <InoChipSet\n        type=\"choice\"\n        onUpdateChipSet={this.chipsetSelectionChange}\n      >\n        <InoChip value=\"apple\" label=\"Apple\" />\n        <InoChip value=\"banana\" label=\"Banana\" />\n        <InoChip value=\"cherry\" label=\"Cherry\" />\n      </InoChipSet>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (\n  props,\n) => {\n  const { type } = props;\n\n  const chipsetSelectionChange = (e: any) => {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  };\n\n  return (\n    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>\n      <InoChip value=\"apple\" label=\"Apple\" />\n      <InoChip value=\"banana\" label=\"Banana\" />\n      <InoChip value=\"cherry\" label=\"Cherry\" />\n    </InoChipSet>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <ChipSet type=\"choice\" />;\n  }\n}\n```\n\n## Additional Hints\n\n**Content**: Use the  label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n**Styling**: The chip can be styled in many ways with the help of the `fill` and `color-scheme` attributes.\nTake a look at the attribute documentation at the bottom of the page for further information.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. The component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
-      "docs": "The ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.",
+      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\nconst chip = document.querySelector('ino-chip');\nchip.addEventListener('chipClicked', (e) =>\n  console.log('This chip was clicked:', e.detail),\n)\nchip.addEventListener('chipRemoved', (e) =>\n  console.log('This chip was removed:', e.detail),\n);\n```\n\n```html\n\n<ino-chip\n  color-scheme=\"<string>\"\n  disabled\n  fill=\"<string>\"\n  label=\"<string>\"\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot=icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1\n\n```tsx\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  fruits = [\"apple\", \"banana\", \"cherry\"];\n\n  handleChipClicked(e: CustomEvent<string>) {\n    console.log(\"User clicked the fruit: \", e.detail);\n  }\n\n  render() {\n    return (\n      <div>\n        {fruits.map(fruit => (\n            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>\n          )\n        )}\n      </div>\n    );\n  }\n}\n```\n\n#### Example #2\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet = () => {\n\n  const fruits = [\"apple\", \"banana\", \"cherry\"];\n  const [selectedFruit, setSelectedFruit] = useState < string > (\"apple\");\n\n  return (\n    <div>\n      {fruits.map(fruit => (\n        <InoChip\n          value={fruit}\n          label={fruit}\n          selectable\n          selected={fruit === selectedFruit}\n          onChipClicked={(e) => setSelectedFruit(fruit)}\n        />\n      ))}\n    </div>\n  );\n};\n```\n\n## Additional Hints\n\n**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n### Selection\nA set of chips can be used to implement a single or multi selection from a handful of options.\nHave a look at the **Selection** and **Filter** stories.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. \nThe component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
+      "docs": "The ino-chip component displays the provided content and icon as a chip.",
       "docsTags": [
         {
           "name": "slot",
@@ -1033,6 +1033,23 @@
           "required": false
         },
         {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Disables all interactions.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "fill",
           "type": "\"outline\" | \"solid\"",
           "mutable": false,
@@ -1055,41 +1072,19 @@
           "required": false
         },
         {
-          "name": "icon",
-          "type": "string",
-          "mutable": false,
-          "attr": "icon",
-          "reflectToAttr": false,
-          "docs": "Prepends an icon to the chip label.",
-          "docsTags": [
-            {
-              "name": "deprecated",
-              "text": "This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot."
-            }
-          ],
-          "deprecation": "This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "label",
           "type": "string",
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The label of this chip (**required**).",
+          "docs": "The content of the component.",
           "docsTags": [],
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false
         },
         {
@@ -1098,7 +1093,7 @@
           "mutable": false,
           "attr": "removable",
           "reflectToAttr": false,
-          "docs": "Adds a close icon on the right side of this chip.\n\nIf applied, emits the `removeChip` event.",
+          "docs": "Adds a close icon on the right side of this chip which emits the `removeChip` event on click.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1115,7 +1110,7 @@
           "mutable": false,
           "attr": "selectable",
           "reflectToAttr": false,
-          "docs": "Adds a checkmark if the icon is selected.",
+          "docs": "Makes the chip selectable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1132,7 +1127,7 @@
           "mutable": false,
           "attr": "selected",
           "reflectToAttr": false,
-          "docs": "Marks this element as selected.",
+          "docs": "Marks this element as selected (**works only in conjunction with `selectable`**)",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1149,7 +1144,7 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of this chip.\n\n**Required** for chips as part of sets of type `filter` or `choice`.",
+          "docs": "The value of this chip.\nIs emitted by the `chipClicked` and `chipRemoved` events.",
           "docsTags": [],
           "values": [
             {
@@ -1163,16 +1158,31 @@
       "methods": [],
       "events": [
         {
-          "event": "removeChip",
-          "detail": "any",
+          "event": "chipClicked",
+          "detail": "string",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Event that emits as soon as the user removes this chip.\n\nListen to this event to hide or destroy this chip.\nThe event only emits if the property `removable` is true.",
+          "docs": "Event that emits the `value` as soon as the user clicks on the chip.",
+          "docsTags": []
+        },
+        {
+          "event": "chipRemoved",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Event that emits the `value` as soon as the user clicks on the remove icon.\n\nListen to this event to hide or destroy this chip.",
           "docsTags": []
         }
       ],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "click",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -1194,75 +1204,6 @@
           "ino-icon"
         ]
       }
-    },
-    {
-      "filePath": "./src/components/ino-chip-set/ino-chip-set.tsx",
-      "encapsulation": "none",
-      "tag": "ino-chip-set",
-      "readme": "# ino-chip-set\n\nThe ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-chip-set')\n  .addEventListener('updateChipSet', (e) =>\n    alert(\n      `The selected chip values are (only when type='filter' or 'choice'): ${e.detail}`,\n    ),\n  );\n```\n\n```html\n<ino-chip-set type=\"<string>\">\n  <ino-chip ...></ino-chip>\n  <ino-chip ...></ino-chip>\n  ...\n</ino-chip-set>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  chipsetSelectionChange(e: any) {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  }\n\n  render() {\n    return (\n      <InoChipSet\n        type=\"choice\"\n        onUpdateChipSet={this.chipsetSelectionChange}\n      >\n        <InoChip value=\"apple\" label=\"Apple\" />\n        <InoChip value=\"banana\" label=\"Banana\" />\n        <InoChip value=\"cherry\" label=\"Cherry\" />\n      </InoChipSet>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet: React.FunctionComponent<Components.InoChipSetAttributes> = (\n  props,\n) => {\n  const { type } = props;\n\n  const chipsetSelectionChange = (e: any) => {\n    console.log(\n      e.detail === true\n        ? 'The last one was toggled'\n        : `User clicked: ${e.detail}`,\n    );\n  };\n\n  return (\n    <InoChipSet type={inoType} onUpdateChipSet={chipsetSelectionChange}>\n      <InoChip value=\"apple\" label=\"Apple\" />\n      <InoChip value=\"banana\" label=\"Banana\" />\n      <InoChip value=\"cherry\" label=\"Cherry\" />\n    </InoChipSet>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <ChipSet type=\"choice\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Simple chip sets\n\n`chip sets` can be a simple composer for one or more chips. If you want to style content as a chip (e.g. email addresses), simply exclude the  type` attribute.\n\n```html\n<ino-chip-set>\n  <ino-chip label=\"Default chip\"></ino-chip>\n  <ino-chip label=\"Removable\" removable onRemoveChip={_ => removeChip()}></ino-chip>\n</ino-chip-set>\n```\n\n> See `<ino-chip>` docs for more details on capabilities of single chips.\n\n### Chip sets as form elements\n\nThere are two complex types of chip sets:\n\n- ** type=\"choice\"`**: Choice chips mimic the behaviour of a radio button and allow the selection of a single option from a set of options.\n- ** type=\"filter\"`**: Filter chips mimic the behaviour of a checkbox and allow multiple options to be selected from a set of options.\n\nBoth choice and filter chip sets emit an `updateChipSet` event when a user selects or deselects a chip. The `CustomEvent` contains a property `detail` which, in turn, contains one or multiple chip values. The values are provided via the `value` attribute of each `ino-chip`.\n\n```js\ndocument\n  .querySelector('ino-chip-set')\n  .addEventListener('updateChipSet', (e) => {\n    // console.log(e.detail)\n  });\n```\n\n```html\n<ino-chip-set type=\"choice\">\n  <ino-chip label=\"Chip 1\" value=\"Apple\"></ino-chip>\n  <ino-chip label=\"Chip 2\" value=\"Banana\"></ino-chip>\n</ino-chip-set>\n```\n\n## Demo\n",
-      "docs": "The ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - One or more `ino-chip`"
-        }
-      ],
-      "usage": {},
-      "props": [
-        {
-          "name": "type",
-          "type": "\"\" | \"choice\" | \"filter\" | \"input\"",
-          "mutable": false,
-          "attr": "type",
-          "reflectToAttr": false,
-          "docs": "The type of this chip set that indicates its behavior.\n\n`choice`: Single selection from a set of options\n`filter`: Multiple selection from a set of options\n`input`: Enable user input by converting text into chips",
-          "docsTags": [],
-          "default": "''",
-          "values": [
-            {
-              "type": "\"\""
-            },
-            {
-              "value": "choice",
-              "type": "string"
-            },
-            {
-              "value": "filter",
-              "type": "string"
-            },
-            {
-              "value": "input",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "updateChipSet",
-          "detail": "any",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Event that emits when the value of this element changes.\n\nOnly applicable if `inoType` is `choice` or `filter`.",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "One or more `ino-chip`"
-        }
-      ],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/ino-control-item/ino-control-item.tsx",
@@ -1497,81 +1438,6 @@
       }
     },
     {
-      "filePath": "./src/components/ino-currency-input/ino-currency-input.tsx",
-      "encapsulation": "none",
-      "tag": "ino-currency-input",
-      "readme": "# ino-currency-input\nA component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-currency-input')\n  .addEventListener('valueChange', e => alert(`The new input value is: ${e.detail}`));\n```\n```html\n<ino-currency-input value=\"<number>\" currency-locale=\"<string>\">\n  <ino-input type=\"text\" ...></ino-input>\n</ino-currency-input>\n```\n\nThe child input element requires to be of type `text`.\n\n### Event behaviour\nThe currency input watches for value changes on the underlying `ino-input`, updates the inputs value and stops the event propagation. In order to avoid distraction for the user, the currency input only formats the input value on focus and on blur. Furthermore, the `ino-currency-input` itself emits a `valueChange` event when the user commits a currency value (on blur).\n\n### Locales\nThe currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.\n\nHowever, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\n\nclass MyComponent extends Component {\n  onValueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoCurrencyInput\n        placeholder=\"You can insert some text...\"\n        onValueChange={onValueChange}\n      >\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst CurrencyInput: React.FunctionComponent<Components.InoCurrencyInputAttributes> = props => {\n  const { placeholder } = props;\n\n  const onValueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n      <InoCurrencyInput onValueChange={onValueChange}>\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <CurrencyInput placeholder=\"You can insert some text...\" />;\n  }\n}\n```\n\n\n",
-      "docs": "A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - `<ino-input>` of `type=\"text\"`"
-        }
-      ],
-      "usage": {},
-      "props": [
-        {
-          "name": "currencyLocale",
-          "type": "string",
-          "mutable": false,
-          "attr": "currency-locale",
-          "reflectToAttr": false,
-          "docs": "A supported locale for currency number formatting. If not given, it uses the global config.\nSee https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "number | string",
-          "mutable": false,
-          "attr": "value",
-          "reflectToAttr": true,
-          "docs": "Numeric currency value",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "valueChange",
-          "detail": "number",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emits when the user types something in.\nContains typed input in `event.detail`",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "`<ino-input>` of `type=\"text\"`"
-        }
-      ],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
-    },
-    {
       "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
       "encapsulation": "none",
       "tag": "ino-datepicker",
@@ -1580,23 +1446,6 @@
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "attachToBody",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "attach-to-body",
-          "reflectToAttr": false,
-          "docs": "Attach calendar overlay to body (true) or\nPosition the calendar inside the wrapper and inside the ino-datepicker (false)",
-          "docsTags": [],
-          "default": "true",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "autoFocus",
           "type": "boolean",
@@ -2045,8 +1894,8 @@
           "ino-icon"
         ],
         "ino-input": [
-          "ino-label",
-          "ino-icon"
+          "ino-icon",
+          "ino-label"
         ]
       }
     },
@@ -2054,64 +1903,24 @@
       "filePath": "./src/components/ino-dialog/ino-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ino-dialog",
-      "readme": "# ino-dialog\n\nThe ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-dialog')\n  .addEventListener('close', (e) =>\n    alert(`dialog has been closed with action: ${e.detail}`),\n  );\n```\n\n```html\n<ino-dialog>\n  <div class=\"awesome-content\"></div>\n</ino-dialog>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoButton, InoDialog } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    open: false\n  };\n\n  handleEvent = () => {\n    this.setState((open) => ({\n      open: !open\n    }))\n  };\n\n  render() {\n    return (\n      <>\n        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>\n        <InoDialog open={this.state.open}>\n          <div class=\"awesome-content\"/>\n        </InoDialog>\n      </>\n    );\n  }\n}\n```\n\n## Additional information\n\n### Sizing\nThe dialog is displayed in the middle (horiziontally and vertically centered) on a surface.\nIn order to customize the dialog's size, use the `--ino-dialog-height` and `--ino-dialog-width` properties.\nEither use a fixed value or use css calc (f.e. `calc(100% - 60px)` to add a margin auf `30px` on both sides).\n\n### Fullwidth\nA Fullwidth dialog is a distinct variant which has 100% width an is attached to the bottom of the page. It scrolls up and defines a small\nmargin at top for the background scrim and escape for dialog close. It's not recommenended to use this option with `--ino-dialog-width` and `--ino-dialog-height`.\n\n### Closing actions\nYou can mark elements as \"action elements\" by providing a `data-ino-dialog-action=\"action-name\"` attribute.\nOn user clicks, the dialog checks whether the target is a dialog action and, if true, emits a `close` event with `event.detail = \"action-name\"`.\n\nSubsequently, listen to the `close` Event and check the `event.detail` to retrieve the users action.\n",
-      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
+      "readme": "# ino-dialog\n\nThe ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-dialog')\n  .addEventListener('openChanged', (e) =>\n    alert(`inoOpen has been set to ${e.detail}`),\n  );\n```\n\n```html\n\n<ino-dialog open=\"true\">\n  <div class=\"awesome-header\" slot=\"header\"/>\n  <div class=\"awesome-content\"/>\n  <div class=\"awesome-footer\" slot=\"footer\"/>\n</ino-dialog>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoButton, InoDialog } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    open: false\n  };\n\n  handleEvent = () => {\n    this.setState((open) => ({\n      open: !open\n    }))\n  };\n\n  render() {\n    return (\n      <>\n        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>\n        <InoDialog open={this.state.open}>\n          <div class=\"awesome-content\"/>\n        </InoDialog>\n      </>\n    );\n  }\n}\n```\n\n## Demo\n",
+      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "default - content of the dialog"
+          "text": "content - content of the dialog"
+        },
+        {
+          "name": "slot",
+          "text": "header - header of the dialog"
+        },
+        {
+          "name": "slot",
+          "text": "footer - footer of the dialog"
         }
       ],
       "usage": {},
       "props": [
-        {
-          "name": "attachTo",
-          "type": "string",
-          "mutable": false,
-          "attr": "attach-to",
-          "reflectToAttr": false,
-          "docs": "The target element the dialog should be attached to.\nIf not given, the dialog is a child of the documents body.\nNote: This property is immutable after initialization.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "dismissible",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "dismissible",
-          "reflectToAttr": false,
-          "docs": "Close the dialog on pressing the ESC key or clicking outside of the dialog.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "fullwidth",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "fullwidth",
-          "reflectToAttr": false,
-          "docs": "Defines a full width dialog sliding up from the bottom of the page.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "open",
           "type": "boolean",
@@ -2133,23 +1942,16 @@
       "methods": [],
       "events": [
         {
-          "event": "close",
-          "detail": "string",
+          "event": "openChange",
+          "detail": "any",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits an event upon closing the dialog",
+          "docs": "Emits an event upon opening or closing the dialog",
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keyup",
-          "target": "body",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [
         {
           "name": "--ino-dialog-background-color",
@@ -2172,6 +1974,21 @@
           "docs": "box-shadow of the dialog"
         },
         {
+          "name": "--ino-dialog-content-height",
+          "annotation": "prop",
+          "docs": "height of the content section"
+        },
+        {
+          "name": "--ino-dialog-footer-height",
+          "annotation": "prop",
+          "docs": "height of the footer section"
+        },
+        {
+          "name": "--ino-dialog-header-height",
+          "annotation": "prop",
+          "docs": "height of the header section"
+        },
+        {
           "name": "--ino-dialog-height",
           "annotation": "prop",
           "docs": "height of the dialog"
@@ -2189,8 +2006,16 @@
       ],
       "slots": [
         {
-          "name": "default",
+          "name": "content",
           "docs": "content of the dialog"
+        },
+        {
+          "name": "footer",
+          "docs": "footer of the dialog"
+        },
+        {
+          "name": "header",
+          "docs": "header of the dialog"
         }
       ],
       "parts": [],
@@ -3546,6 +3371,22 @@
           "required": false
         },
         {
+          "name": "decimalPlaces",
+          "type": "number",
+          "mutable": false,
+          "attr": "decimal-places",
+          "reflectToAttr": false,
+          "docs": "The number of decimal places. Only works on 'text' type input.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -3644,7 +3485,7 @@
         {
           "name": "label",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The optional floating label of this input field.",
@@ -3839,8 +3680,24 @@
           "required": false
         },
         {
+          "name": "thousandsSeparator",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "thousands-separator",
+          "reflectToAttr": false,
+          "docs": "Shows a dot as a thousands separator. Only works on 'text' type input.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "type",
-          "type": "\"color\" | \"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\" | \"week\"",
+          "type": "string",
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -3849,39 +3706,6 @@
           "default": "'text'",
           "values": [
             {
-              "value": "color",
-              "type": "string"
-            },
-            {
-              "value": "email",
-              "type": "string"
-            },
-            {
-              "value": "number",
-              "type": "string"
-            },
-            {
-              "value": "password",
-              "type": "string"
-            },
-            {
-              "value": "search",
-              "type": "string"
-            },
-            {
-              "value": "tel",
-              "type": "string"
-            },
-            {
-              "value": "text",
-              "type": "string"
-            },
-            {
-              "value": "url",
-              "type": "string"
-            },
-            {
-              "value": "week",
               "type": "string"
             }
           ],
@@ -3907,7 +3731,7 @@
         {
           "name": "value",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
@@ -3988,12 +3812,12 @@
       ],
       "listeners": [
         {
-          "event": "change",
+          "event": "focus",
           "capture": false,
           "passive": false
         },
         {
-          "event": "focus",
+          "event": "change",
           "capture": false,
           "passive": false
         },
@@ -4040,13 +3864,13 @@
         "ino-datepicker"
       ],
       "dependencies": [
-        "ino-label",
-        "ino-icon"
+        "ino-icon",
+        "ino-label"
       ],
       "dependencyGraph": {
         "ino-input": [
-          "ino-label",
-          "ino-icon"
+          "ino-icon",
+          "ino-label"
         ],
         "ino-datepicker": [
           "ino-input"
@@ -5904,23 +5728,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "reversed",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "reversed",
-          "reflectToAttr": false,
-          "docs": "Reverses the progress bar",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -7167,6 +6974,14 @@
         {
           "name": "slot",
           "text": "default - Label of the switch"
+        },
+        {
+          "name": "slot",
+          "text": "icon-on - Icon used for the checked state. The colors of the `color-scheme` will be used."
+        },
+        {
+          "name": "slot",
+          "text": "icon-off - Icon used for the unchecked state. The colors of the `color-scheme` will be used."
         }
       ],
       "usage": {},
@@ -7271,92 +7086,24 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.",
+          "docs": "Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`.",
           "docsTags": []
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-switch-active-color",
-          "annotation": "prop",
-          "docs": "border color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-active-thumb-color",
-          "annotation": "prop",
-          "docs": "thumb color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-active-track-color",
-          "annotation": "prop",
-          "docs": "track color of the switch if active"
-        },
-        {
-          "name": "--ino-switch-disabled-color",
-          "annotation": "prop",
-          "docs": "border color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-disabled-thumb-color",
-          "annotation": "prop",
-          "docs": "thumb color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-disabled-track-color",
-          "annotation": "prop",
-          "docs": "track color of the switch if disabled"
-        },
-        {
-          "name": "--ino-switch-hover-color",
-          "annotation": "prop",
-          "docs": "border color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-hover-thumb-color",
-          "annotation": "prop",
-          "docs": "thumb color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-hover-track-color",
-          "annotation": "prop",
-          "docs": "track color of the switch on hover"
-        },
-        {
-          "name": "--ino-switch-toggled-off-color",
-          "annotation": "prop",
-          "docs": "border color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-off-thumb-color",
-          "annotation": "prop",
-          "docs": "thumb color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-off-track-color",
-          "annotation": "prop",
-          "docs": "track color of the switch if toggled off"
-        },
-        {
-          "name": "--ino-switch-toggled-on-color",
-          "annotation": "prop",
-          "docs": "border color of the switch if toggled on"
-        },
-        {
-          "name": "--ino-switch-toggled-on-thumb-color",
-          "annotation": "prop",
-          "docs": "thumb color of the switch if toggled on"
-        },
-        {
-          "name": "--ino-switch-toggled-on-track-color",
-          "annotation": "prop",
-          "docs": "track color of the switch if toggled on"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
           "docs": "Label of the switch"
+        },
+        {
+          "name": "icon-off",
+          "docs": "Icon used for the unchecked state. The colors of the `color-scheme` will be used."
+        },
+        {
+          "name": "icon-on",
+          "docs": "Icon used for the checked state. The colors of the `color-scheme` will be used."
         }
       ],
       "parts": [],

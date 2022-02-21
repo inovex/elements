@@ -1,6 +1,8 @@
 @use 'base/mdc-customize';
 @use '@material/list';
 
+@include list.deprecated-core-styles;
+
 /**
   * @prop --ino-list-item-border-radius: Border radius of the list container, also effects the first and last list item
  */
@@ -15,20 +17,20 @@ ino-list {
   ino-list-item:last-child,
   ino-control-item:first-child,
   ino-control-item:last-child,
-  .mdc-list--avatar-list .mdc-list-item__graphic {
+  .mdc-deprecated-list--avatar-list .mdc-deprecated-list-item__graphic {
     overflow: hidden;
   }
 
   $half-border-radius: calc(var(--list-item-border-radius) * 0.5);
 
-  .mdc-list > ino-list-item:first-child,
-  .mdc-list > ino-control-item:first-child {
+  .mdc-deprecated-list > ino-list-item:first-child,
+  .mdc-deprecated-list > ino-control-item:first-child {
     border-top-left-radius: $half-border-radius;
     border-top-right-radius: $half-border-radius;
   }
 
-  .mdc-list > ino-list-item:last-child,
-  .mdc-list > ino-control-item:last-child {
+  .mdc-deprecated-list > ino-list-item:last-child,
+  .mdc-deprecated-list > ino-control-item:last-child {
     border-bottom-left-radius: $half-border-radius;
     border-bottom-right-radius: $half-border-radius;
   }
