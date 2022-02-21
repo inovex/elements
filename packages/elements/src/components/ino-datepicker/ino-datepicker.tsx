@@ -143,13 +143,13 @@ export class Datepicker implements ComponentInterface {
   }
 
   /**
-   * Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.
+   * Attach calendar overlay to body (true) or
+   * Position the calendar inside the wrapper and inside the ino-datepicker (false)
    */
-  @Prop() attachToBody = false;
+  @Prop() attachToBody = true;
 
   @Watch('attachToBody')
   attachToBodyChanged(attachToBody: boolean) {
-    console.log(attachToBody);
     this.flatpickr?.set('static', !attachToBody);
   }
 

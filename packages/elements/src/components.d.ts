@@ -240,7 +240,7 @@ export namespace Components {
     }
     interface InoDatepicker {
         /**
-          * Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody": boolean;
         /**
@@ -1859,7 +1859,7 @@ declare namespace LocalJSX {
     }
     interface InoDatepicker {
         /**
-          * Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody"?: boolean;
         /**

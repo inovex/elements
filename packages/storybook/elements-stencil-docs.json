@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-21T09:32:48",
+  "timestamp": "2022-02-21T14:33:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -1586,9 +1586,9 @@
           "mutable": false,
           "attr": "attach-to-body",
           "reflectToAttr": false,
-          "docs": "Position the calendar inside the wrapper and inside the ino-datepicker or attach calendar overlay to body.",
+          "docs": "Attach calendar overlay to body (true) or\nPosition the calendar inside the wrapper and inside the ino-datepicker (false)",
           "docsTags": [],
-          "default": "false",
+          "default": "true",
           "values": [
             {
               "type": "boolean"
