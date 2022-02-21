@@ -365,6 +365,10 @@ export class Input implements ComponentInterface {
     if (value != this.value) {
       this.cursorPosition = e.target.selectionStart;
       this.valueChange.emit(value);
+
+      // reset value to control the input
+      // without it, the input event would be handled by mdc and set the value to the native input el
+      this.textfieldValue = this.value;
     }
   };
 
