@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -345,6 +345,18 @@ export namespace Components {
         "value"?: string;
     }
     interface InoDialog {
+        /**
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
+         */
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
         /**
           * Opens the dialog if set to true
          */
@@ -1961,9 +1973,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
-          * Emits an event upon opening or closing the dialog
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
+        /**
+          * Emits an event upon closing the dialog
+         */
+        "onClose"?: (event: CustomEvent<DialogCloseAction>) => void;
         /**
           * Opens the dialog if set to true
          */
