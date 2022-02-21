@@ -1,18 +1,11 @@
-import { JSX as StencilJSX } from '@stencil/core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
+/* eslint-disable */
+/* tslint:disable */
+/* auto-generated react proxies */
+import { createReactComponent } from './react-component-lib';
+
+import type { JSX } from '@inovex.de/elements';
+
 import { defineCustomElements } from '@inovex.de/elements/dist/loader';
-
-import { createReactComponent } from './createComponent';
-
-defineCustomElements(window);
-addIcons(ICON_PATHS);
-
-//
-// Export all the elements we have. This is THE react wrapper.
-//
 
 export const InoAutocomplete = createReactComponent<
   StencilJSX.IntrinsicElements['ino-autocomplete'],
