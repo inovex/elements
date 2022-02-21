@@ -310,6 +310,7 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
     });
+    this.create();
   }
 
   componentDidLoad() {
@@ -326,7 +327,7 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
-    const target = this.el.querySelector('ino-input') as HTMLElement;
+    const target = this.el.querySelector('ino-input > label') as HTMLElement;
 
     if (this.disabled || !target) {
       return;
@@ -358,6 +359,7 @@ export class Datepicker implements ComponentInterface {
 
     const options = { ...sharedOptions, ...typeSpecificOptions };
     this.flatpickr = flatpickr(target, options);
+
     if (this.value) {
       this.flatpickr?.setDate(this.value);
     }

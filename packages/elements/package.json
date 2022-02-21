@@ -81,13 +81,12 @@
     "@material/tab-scroller": "^8.0.0",
     "@material/textfield": "^8.0.0",
     "@material/typography": "^8.0.0",
-    "@stencil/core": "2.4.0",
+    "@stencil/core": "2.14.0",
     "@tiptap/core": "^2.0.0-beta.159",
     "@tiptap/starter-kit": "^2.0.0-beta.164",
     "@tiptap/extension-link": "^2.0.0-beta.33",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
-    "currency.js": "^1.2.2",
     "date-fns": "^2.16.1",
     "flatpickr": "^4.4.6",
     "prosemirror-markdown": "^1.6.0",
@@ -100,8 +99,7 @@
     "@types/css-font-loading-module": "^0.0.6",
     "@types/jest": "26.0.14",
     "@types/prosemirror-markdown": "^1.5.4",
-    "@types/puppeteer": "^3.0.2",
-    "@types/resize-observer-browser": "^0.1.4",
+    "@types/resize-observer-browser": "^0.1.7",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "camelcase": "^5.0.0",
@@ -111,7 +109,7 @@
     "eslint-plugin-react": "^7.22.0",
     "jest": "26.4.2",
     "jest-cli": "26.4.2",
-    "puppeteer": "^5.3.1",
+    "puppeteer": "^10.4.0",
     "shx": "^0.3.2"
   }
 }

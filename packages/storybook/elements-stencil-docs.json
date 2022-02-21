@@ -1,9 +1,9 @@
 {
-  "timestamp": "2022-02-07T13:05:06",
+  "timestamp": "2022-02-17T10:48:52",
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.4.0",
-    "typescriptVersion": "4.1.3"
+    "version": "2.14.0",
+    "typescriptVersion": "4.5.4"
   },
   "components": [
     {
@@ -14,12 +14,12 @@
       "docs": "A component that acts similar to the native `datalist` feature of the `<input>` element.\n\nIn contrast to other components, this one is stateful, which means that it contains its own state and is therefore less\nflexible to some extent.\n\nThis component handles the following tasks:\n\n* Management of the `value` property of the `<ino-input>` element\n* management of showing and hiding the different options filtered on the basis of the input\n* Keyboard navigation on the options\n\nThe options are filtered by `.includes(...)`, ignoring upper and lower case.",
       "docsTags": [
         {
-          "text": "input - An `<ino-input>` element that will be controlled by this component",
-          "name": "slot"
+          "name": "slot",
+          "text": "input - An `<ino-input>` element that will be controlled by this component"
         },
         {
-          "text": "default - A list of `<ino-option>` elements as options",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - A list of `<ino-option>` elements as options"
         }
       ],
       "usage": {},
@@ -129,12 +129,12 @@
       "docs": "A button component with different styles and icon capability.",
       "docsTags": [
         {
-          "text": "icon-leading - For the icon to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
         },
         {
-          "text": "icon-trailing - For the icon to be appended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-trailing - For the icon to be appended"
         }
       ],
       "usage": {},
@@ -435,16 +435,16 @@
       "docs": "The ino-card is a flexible and extensible component. It features a header, content, and footer slot that can be used to\nfully customize the appearance of the card.",
       "docsTags": [
         {
-          "text": "header - For the element to be placed in the card header",
-          "name": "slot"
+          "name": "slot",
+          "text": "header - For the element to be placed in the card header"
         },
         {
-          "text": "content - For card content",
-          "name": "slot"
+          "name": "slot",
+          "text": "content - For card content"
         },
         {
-          "text": "footer - For the element to be placed in the card footer",
-          "name": "slot"
+          "name": "slot",
+          "text": "footer - For the element to be placed in the card footer"
         }
       ],
       "usage": {},
@@ -562,8 +562,8 @@
       "docs": "The `ino-carousel` component works in combination with the `ino-carousel-slide` component\nand can be used to display an array of images as a slide show. What is more,\nit also features an autoplay property that allows the slides to be changed automatically.\nLastly, using the css variables described at the bottom of the page, you can easily customize\nthe dimensions of the component as well as the duration of the slide transition.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-carousel-slide`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-carousel-slide`"
         }
       ],
       "usage": {},
@@ -792,8 +792,8 @@
       "docs": "A checkbox that allows the user to select one or more items from a set of options.",
       "docsTags": [
         {
-          "text": "default - Label of the checkbox",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Label of the checkbox"
         }
       ],
       "usage": {},
@@ -976,12 +976,12 @@
       "docs": "The ino-chip component displays the provided content and icon as a chip.\n\n> An ino-chip component must **always** belong to a `ino-chip-set` component.",
       "docsTags": [
         {
-          "text": "icon-leading - For the icon to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
         },
         {
-          "text": "icon-trailing - For the icon to be appended - disables the `removable` property",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-trailing - For the icon to be appended - disables the `removable` property"
         }
       ],
       "usage": {},
@@ -1063,8 +1063,8 @@
           "docs": "Prepends an icon to the chip label.",
           "docsTags": [
             {
-              "text": "This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.",
-              "name": "deprecated"
+              "name": "deprecated",
+              "text": "This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot."
             }
           ],
           "deprecation": "This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.",
@@ -1203,8 +1203,8 @@
       "docs": "The ino-chip-set is a wrapper component for `ino-chip` components. It enables the user to filter content,\nselect a choice, or trigger an action.\n\n> See the `ino-chip` documentation for more details about a single instance of a chip.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-chip`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-chip`"
         }
       ],
       "usage": {},
@@ -1272,8 +1272,8 @@
       "docs": "A list item component that displays a single instance of choice in a list or menu with a control element (radio-button or checkbox). It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "docsTags": [
         {
-          "text": "default - Any element",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Any element"
         }
       ],
       "usage": {},
@@ -1495,6 +1495,81 @@
           "ino-radio"
         ]
       }
+    },
+    {
+      "filePath": "./src/components/ino-currency-input/ino-currency-input.tsx",
+      "encapsulation": "none",
+      "tag": "ino-currency-input",
+      "readme": "# ino-currency-input\nA component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-currency-input')\n  .addEventListener('valueChange', e => alert(`The new input value is: ${e.detail}`));\n```\n```html\n<ino-currency-input value=\"<number>\" currency-locale=\"<string>\">\n  <ino-input type=\"text\" ...></ino-input>\n</ino-currency-input>\n```\n\nThe child input element requires to be of type `text`.\n\n### Event behaviour\nThe currency input watches for value changes on the underlying `ino-input`, updates the inputs value and stops the event propagation. In order to avoid distraction for the user, the currency input only formats the input value on focus and on blur. Furthermore, the `ino-currency-input` itself emits a `valueChange` event when the user commits a currency value (on blur).\n\n### Locales\nThe currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.\n\nHowever, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\n\nclass MyComponent extends Component {\n  onValueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoCurrencyInput\n        placeholder=\"You can insert some text...\"\n        onValueChange={onValueChange}\n      >\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst CurrencyInput: React.FunctionComponent<Components.InoCurrencyInputAttributes> = props => {\n  const { placeholder } = props;\n\n  const onValueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n      <InoCurrencyInput onValueChange={onValueChange}>\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <CurrencyInput placeholder=\"You can insert some text...\" />;\n  }\n}\n```\n\n\n",
+      "docs": "A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - `<ino-input>` of `type=\"text\"`"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "currencyLocale",
+          "type": "string",
+          "mutable": false,
+          "attr": "currency-locale",
+          "reflectToAttr": false,
+          "docs": "A supported locale for currency number formatting. If not given, it uses the global config.\nSee https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": true,
+          "docs": "Numeric currency value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the user types something in.\nContains typed input in `event.detail`",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "`<ino-input>` of `type=\"text\"`"
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
@@ -1970,8 +2045,8 @@
           "ino-icon"
         ],
         "ino-input": [
-          "ino-icon",
-          "ino-label"
+          "ino-label",
+          "ino-icon"
         ]
       }
     },
@@ -1983,16 +2058,16 @@
       "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.",
       "docsTags": [
         {
-          "text": "content - content of the dialog",
-          "name": "slot"
+          "name": "slot",
+          "text": "content - content of the dialog"
         },
         {
-          "text": "header - header of the dialog",
-          "name": "slot"
+          "name": "slot",
+          "text": "header - header of the dialog"
         },
         {
-          "text": "footer - footer of the dialog",
-          "name": "slot"
+          "name": "slot",
+          "text": "footer - footer of the dialog"
         }
       ],
       "usage": {},
@@ -2107,8 +2182,8 @@
       "docs": "A floating action button represents the primary action in an application. [Floating Action Button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-fab) component.\nIt appears in front of all screen content, typically as a circular shape with an icon in its center.\n\nFABs come in three types: regular, mini, and extended.",
       "docsTags": [
         {
-          "text": "icon-leading - For the icon to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
         }
       ],
       "usage": {},
@@ -2190,8 +2265,8 @@
           "docs": "Adds an icon to the Fab.",
           "docsTags": [
             {
-              "text": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.",
-              "name": "deprecated"
+              "name": "deprecated",
+              "text": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot."
             }
           ],
           "deprecation": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.",
@@ -2398,8 +2473,8 @@
       "docs": "The ino-fab-set component serves as a container for multiple fab buttons. It contains actions related to the main fab\nbutton. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed\ndial.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-fab`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-fab`"
         }
       ],
       "usage": {},
@@ -2531,8 +2606,8 @@
       "docs": "A component that styles a form element as a row with a leading label.",
       "docsTags": [
         {
-          "text": "default - Any element",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Any element"
         }
       ],
       "usage": {},
@@ -3318,8 +3393,8 @@
       "docs": "The ino-img-list component is used in combination with the ino-img component to display an array of images\nin a grid-like format. It is based on the mdc-image-list component.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-img` with `imgListItem=\"true\"`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-img` with `imgListItem=\"true\"`"
         }
       ],
       "usage": {},
@@ -3388,12 +3463,12 @@
       "docs": "An input component with styles. It functions as a wrapper around the material [textfield](https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield) component.\n\nUse this element for **simple types** like `text`, `password`, `number` or `email`. For more complex types, there are elements like a [Radio Button](../ino-radio), a [Checkbox](../ino-checkbox), a [Datepicker](../ino-datepicker) and many more.",
       "docsTags": [
         {
-          "text": "icon-leading - For the icon to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
         },
         {
-          "text": "icon-trailing - For the icon to be appended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-trailing - For the icon to be appended"
         }
       ],
       "usage": {},
@@ -3441,22 +3516,6 @@
           "values": [
             {
               "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "decimalPlaces",
-          "type": "number",
-          "mutable": false,
-          "attr": "decimal-places",
-          "reflectToAttr": false,
-          "docs": "The number of decimal places. Only works on 'text' type input.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
             }
           ],
           "optional": true,
@@ -3561,7 +3620,7 @@
         {
           "name": "label",
           "type": "string",
-          "mutable": false,
+          "mutable": true,
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The optional floating label of this input field.",
@@ -3756,24 +3815,8 @@
           "required": false
         },
         {
-          "name": "thousandsSeparator",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "thousands-separator",
-          "reflectToAttr": false,
-          "docs": "Shows a dot as a thousands separator. Only works on 'text' type input.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "type",
-          "type": "string",
+          "type": "\"color\" | \"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\" | \"week\"",
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -3782,6 +3825,39 @@
           "default": "'text'",
           "values": [
             {
+              "value": "color",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "number",
+              "type": "string"
+            },
+            {
+              "value": "password",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            },
+            {
+              "value": "week",
               "type": "string"
             }
           ],
@@ -3807,7 +3883,7 @@
         {
           "name": "value",
           "type": "string",
-          "mutable": false,
+          "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
@@ -3888,12 +3964,12 @@
       ],
       "listeners": [
         {
-          "event": "focus",
+          "event": "change",
           "capture": false,
           "passive": false
         },
         {
-          "event": "change",
+          "event": "focus",
           "capture": false,
           "passive": false
         },
@@ -3940,13 +4016,13 @@
         "ino-datepicker"
       ],
       "dependencies": [
-        "ino-icon",
-        "ino-label"
+        "ino-label",
+        "ino-icon"
       ],
       "dependencyGraph": {
         "ino-input": [
-          "ino-icon",
-          "ino-label"
+          "ino-label",
+          "ino-icon"
         ],
         "ino-datepicker": [
           "ino-input"
@@ -4291,8 +4367,8 @@
       "docs": "A component that displays a list of choices. It functions as a wrapper around the material [list](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) component.\n\nThis component is a composer to configure and wrap `list-item`s, `list-divider`s, `control-item`s and `nav-item`s.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`"
         }
       ],
       "usage": {},
@@ -4450,20 +4526,20 @@
       "docs": "A list item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.",
       "docsTags": [
         {
-          "text": "leading - For the element to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "leading - For the element to be prepended"
         },
         {
-          "text": "trailing - For the element to be appended",
-          "name": "slot"
+          "name": "slot",
+          "text": "trailing - For the element to be appended"
         },
         {
-          "text": "primary - For the (text) element",
-          "name": "slot"
+          "name": "slot",
+          "text": "primary - For the (text) element"
         },
         {
-          "text": "secondary - For the secondary text element in a two-lined list",
-          "name": "slot"
+          "name": "slot",
+          "text": "secondary - For the secondary text element in a two-lined list"
         }
       ],
       "usage": {},
@@ -4780,8 +4856,8 @@
       "docs": "A menu component that displays a list of choices on a temporary surface which opens and closes on anchor or item click.\nThe anchor element is the parent element.\n\nThe menu items consist of different variations of the `ino-list-item` component.\n\nIf you need a more customizable menu with a different type of elements or functionalities, have a look at the `ino-popover`.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-(control|list|nav)-item` and `ino-list-divider`"
         }
       ],
       "usage": {},
@@ -4892,28 +4968,28 @@
       "docs": "A navigation drawer component with different variants, setting up the base layout for your app.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n> Note: The navigation drawer works best with `ino-list` and `ino-nav-item`s inside.",
       "docsTags": [
         {
-          "text": "header - For a custom header on top of the navigation bar",
-          "name": "slot"
+          "name": "slot",
+          "text": "header - For a custom header on top of the navigation bar"
         },
         {
-          "text": "logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)",
-          "name": "slot"
+          "name": "slot",
+          "text": "logo - For the logo on top of the navigation bar (cannot be used with the `header` slot)"
         },
         {
-          "text": "subtitle - For the element just below the logo (cannot be used with the `header` slot)",
-          "name": "slot"
+          "name": "slot",
+          "text": "subtitle - For the element just below the logo (cannot be used with the `header` slot)"
         },
         {
-          "text": "content - For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)",
-          "name": "slot"
+          "name": "slot",
+          "text": "content - For the content of the navigation bar (usually used with `ino-list` and `ino-nav-item`)"
         },
         {
-          "text": "footer - For elements below the content slot",
-          "name": "slot"
+          "name": "slot",
+          "text": "footer - For elements below the content slot"
         },
         {
-          "text": "app - For the application located next to this nav-drawer",
-          "name": "slot"
+          "name": "slot",
+          "text": "app - For the application located next to this nav-drawer"
         }
       ],
       "usage": {},
@@ -5082,8 +5158,8 @@
       "docs": "A nav item component that displays a single instance of choice in a list or menu. It functions as a wrapper around the material [list item](https://github.com/material-components/material-components-web/blob/master/packages/mdc-list/) capabilities.\n\nThis component is used as child of `ino-list` and `ino-menu` components.\n\n> Note: This component's main use case is within the `ino-nav-drawer`.",
       "docsTags": [
         {
-          "text": "default - Any element",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Any element"
         }
       ],
       "usage": {},
@@ -5205,8 +5281,8 @@
       "docs": "An option component that can be used to add options to an ino-select component.",
       "docsTags": [
         {
-          "text": "default - The text of the option",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - The text of the option"
         }
       ],
       "usage": {},
@@ -5353,8 +5429,8 @@
       "docs": "A wrapper component to be used for a group of ino-options. This component adds a non-selectable header before the options.\n\nBeyond that, if you encounter problems using React or Vue in conjunction with the `ino-select`, use this component as a wrapper around your `ino-option`. This way the virtual DOM will know when to update the `ino-select` and its children, which may otherwise not work properly if the options are added dynamically while deeply nested in the `ino-select'. For more information refer to [this issue](https://github.com/ionic-team/stencil/issues/2259).",
       "docsTags": [
         {
-          "text": "default - One or more `ino-option`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-option`"
         }
       ],
       "usage": {},
@@ -5405,12 +5481,12 @@
       "docs": "A Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.",
       "docsTags": [
         {
-          "text": "popover-trigger - The target element to attach the triggers to",
-          "name": "slot"
+          "name": "slot",
+          "text": "popover-trigger - The target element to attach the triggers to"
         },
         {
-          "text": "default - Content of the popover",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Content of the popover"
         }
       ],
       "usage": {},
@@ -5847,8 +5923,8 @@
       "docs": "A radio component that allows the user to select an option from a set of radio-buttons. In order to have a single select functionality, please refer to the `ino-radio-group`-component. This component functions as a wrapper around the material [radio](https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio) component.",
       "docsTags": [
         {
-          "text": "default - Label of the checkbox",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Label of the checkbox"
         }
       ],
       "usage": {},
@@ -5989,8 +6065,8 @@
       "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-radio`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-radio`"
         }
       ],
       "usage": {},
@@ -6237,8 +6313,8 @@
       "docs": "A button component that can be used in combination with the ino-segment-group component.",
       "docsTags": [
         {
-          "text": "default - Label of the button",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Label of the button"
         }
       ],
       "usage": {},
@@ -6391,8 +6467,8 @@
       "docs": "A button group that can be used as an alternative to drop-down menus.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-segment-button`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-segment-button`"
         }
       ],
       "usage": {},
@@ -6453,12 +6529,12 @@
       "docs": "A component providing single-option select menus. It functions as a wrapper around the material design's [select](https://github.com/material-components/material-components-web/tree/master/packages/mdc-select) component.",
       "docsTags": [
         {
-          "text": "icon-leading - For the icon to be prepended",
-          "name": "slot"
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
         },
         {
-          "text": "default - One or more `ino-option(-group)`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-option(-group)`"
         }
       ],
       "usage": {},
@@ -6653,12 +6729,12 @@
       "docs": "The ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.",
       "docsTags": [
         {
-          "text": "header - For the header element",
-          "name": "slot"
+          "name": "slot",
+          "text": "header - For the header element"
         },
         {
-          "text": "content - For the content",
-          "name": "slot"
+          "name": "slot",
+          "text": "content - For the content"
         }
       ],
       "usage": {},
@@ -7065,8 +7141,8 @@
       "docs": "Input switches toggle the state of a single item. Compared to the input checkbox, their changes usually apply without any additional submission.",
       "docsTags": [
         {
-          "text": "default - Label of the switch",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - Label of the switch"
         }
       ],
       "usage": {},
@@ -7380,8 +7456,8 @@
       "docs": "Tabs organize and allow navigation between groups of content that are related and at the same hierarchical level. The Tab Bar contains the Tab Scroller and Tab components. It functions as a wrapper around the material [Tab Bar](https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar) component.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-tab`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-tab`"
         }
       ],
       "usage": {},
@@ -7460,12 +7536,12 @@
       "docs": "The ino-table is a custom-built data table that can be used to display large sets of data across multiple columns and rows.\nThe component is based on the mdc-data-table.",
       "docsTags": [
         {
-          "text": "header - For the table header element",
-          "name": "slot"
+          "name": "slot",
+          "text": "header - For the table header element"
         },
         {
-          "text": "default - One or more `ino-row`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-row`"
         }
       ],
       "usage": {},
@@ -7497,8 +7573,8 @@
       "docs": "The ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.",
       "docsTags": [
         {
-          "text": "default - The cell value",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - The cell value"
         }
       ],
       "usage": {},
@@ -7544,8 +7620,8 @@
       "docs": "The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.",
       "docsTags": [
         {
-          "text": "default - One or more `ino-table-cell`",
-          "name": "slot"
+          "name": "slot",
+          "text": "default - One or more `ino-table-cell`"
         }
       ],
       "usage": {},

@@ -22,6 +22,7 @@ scopes:
   - elements|ino-chip
   - elements|ino-chip-set
   - elements|ino-control-item
+  - elements|ino-currency-input
   - elements|ino-datepicker
   - elements|ino-dialog
   - elements|ino-fab
@@ -72,6 +73,7 @@ scopes:
   - elements-angular|ino-chip
   - elements-angular|ino-chip-set
   - elements-angular|ino-control-item
+  - elements-angular|ino-currency-input
   - elements-angular|ino-datepicker
   - elements-angular|ino-dialog
   - elements-angular|ino-fab
@@ -122,6 +124,7 @@ scopes:
   - elements-react|ino-chip
   - elements-react|ino-chip-set
   - elements-react|ino-control-item
+  - elements-react|ino-currency-input
   - elements-react|ino-datepicker
   - elements-react|ino-dialog
   - elements-react|ino-fab
@@ -172,6 +175,7 @@ scopes:
   - storybook|ino-chip
   - storybook|ino-chip-set
   - storybook|ino-control-item
+  - storybook|ino-currency-input
   - storybook|ino-datepicker
   - storybook|ino-dialog
   - storybook|ino-fab

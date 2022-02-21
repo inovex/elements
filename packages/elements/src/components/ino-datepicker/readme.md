@@ -216,8 +216,8 @@ Type: `Promise<void>`
 graph TD;
   ino-datepicker --> ino-input
   ino-datepicker --> ino-icon
-  ino-input --> ino-icon
   ino-input --> ino-label
+  ino-input --> ino-icon
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

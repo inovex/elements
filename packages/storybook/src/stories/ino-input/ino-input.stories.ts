@@ -38,7 +38,6 @@ export const Playground = (args) => html`
     autocomplete="${args.autcomplete}"
     autofocus="${args.autoFocus}"
     data-list="${args.dataList}"
-    decimal-places="${args.decimalPlaces}"
     disabled="${args.disabled}"
     error="${args.error}"
     helper="${args.helper}"
@@ -53,12 +52,10 @@ export const Playground = (args) => html`
     outline="${args.outline}"
     pattern="${args.pattern}"
     placeholder="${args.placeholder}"
-    readonly="${args.readonly}"
     required="${args.required}"
     show-label-hint="${args.showLabelHint}"
     size=${args.size}
     step="${args.step}"
-    thousands-separator="${args.thousandsSeparator}"
     type="${args.type}"
     unit="${args.unit}"
     value="${args.value}"
@@ -69,7 +66,6 @@ Playground.args = {
   autocomplete: false,
   autoFocus: false,
   dataList: '',
-  decimalPlaces: '',
   disabled: false,
   error: false,
   helper: 'Helper message',
@@ -84,12 +80,10 @@ Playground.args = {
   name: '',
   pattern: '*',
   placeholder: '',
-  readonly: false,
   required: false,
   showLabelHint: false,
   size: '',
   step: 5,
-  thousandsSeparator: false,
   type: 'text',
   unit: '',
   value: '',
@@ -212,12 +206,5 @@ export const NumberFormats = () => html`
 `;
 
 export const Metadata = () => html`
-  <ino-input
-    value="2,00"
-    decimal-places="2"
-    thousands-separator
-    unit="€"
-    label="Euro Input"
-  ></ino-input>
   <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
 `;
