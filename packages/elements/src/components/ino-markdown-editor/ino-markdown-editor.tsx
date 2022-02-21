@@ -46,6 +46,13 @@ export class MarkdownEditor implements ComponentInterface {
    */
   @Prop() initialValue: string;
 
+  @Watch('initialValue')
+  handleInitialValueChange(newInitialValue: string): void {
+    this.editor.commands.setContent(this.markdownToHtml(newInitialValue), true);
+    this.textareaRef.value = this.htmlToMarkdown();
+    this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+  }
+
   /**
    * Sets the view mode of the editor.
    * Can be changed between `preview` (default), `markdown` and `readonly`.
@@ -86,9 +93,7 @@ export class MarkdownEditor implements ComponentInterface {
   componentDidLoad(): void {
     this.createEditor();
     if (this.initialValue) {
-      this.editor.commands.setContent(this.markdownToHtml(), true);
-      this.textareaRef.value = this.htmlToMarkdown();
-      this.textareaRef.rows = this.textareaRef.value.split('\n').length;
+      this.handleInitialValueChange(this.initialValue);
     }
     this.textareaRef.addEventListener('valueChange', this.onTextareaChange);
     this.textareaRef.addEventListener('inoBlur', this.handleMarkdownBlur);
