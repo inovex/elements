@@ -1,4 +1,5 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
+import { E2EElement, E2EPage } from '@stencil/core/testing';
 
 const INO_INPUT = `<ino-input></ino-input>`;
 const INO_EMAIL_INPUT = `<ino-input type="email"></ino-input>`;
@@ -7,6 +8,37 @@ const INPUT_SELECTOR = 'ino-input > label > input';
 const MDC_TEXTFIELD_SELECTOR = 'ino-input > label';
 
 describe('InoInput', () => {
+  let page: E2EPage;
+  let inoInputEl: E2EElement;
+  let inputEl: E2EElement;
+
+  beforeEach(async () => {
+    page = await setupPageWithContent(INO_INPUT);
+    inoInputEl = await page.find('ino-input');
+    inputEl = await page.find('input');
+  });
+
+  async function getNativeHtmlValue(): Promise<string> {
+    const htmlInputEl = await page.$('input')
+    return await page.evaluate((el) => el.value, htmlInputEl);
+  }
+
+  it('should not update value on typing', async () => {
+    let value = await getNativeHtmlValue();
+    expect(value).toEqual('');
+    await inputEl.type('5');
+    await page.waitForChanges();
+    value = await getNativeHtmlValue();
+    expect(value).toEqual('');
+  });
+
+  it('should update internal value on property change', async () => {
+    inoInputEl.setAttribute('value', 5);
+    await page.waitForChanges();
+    const value = await getNativeHtmlValue();
+    expect(value).toEqual("5");
+  });
+
   describe('Input interaction', () => {
     it('should be focused automatically', async () => {
       const emptyElement = {};
