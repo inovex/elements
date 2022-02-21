@@ -357,7 +357,7 @@ export class Datepicker implements ComponentInterface {
       static: !this.attachToBody,
       onValueChange: (value: string) => this.valueChange.emit(value),
     });
-    console.log(this.attachToBody, typeSpecificOptions);
+
     const options = { ...sharedOptions, ...typeSpecificOptions };
     this.flatpickr = flatpickr(target, options);
 
