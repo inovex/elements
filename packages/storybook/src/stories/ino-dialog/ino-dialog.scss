@@ -1,44 +1,42 @@
-.story-dialog {
-  ino-dialog {
-    --ino-dialog-width: 650px;
-    --ino-dialog-height: 250px;
-  }
+.ino-dialog-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  .ino-dialog-header {
+  --ino-icon-button-size: 32px;
+  --ino-icon-button-icon-size: 16px;
+  .ino-dialog-title {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
+    width: 100%;
 
-    .ino-dialog-title {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-
-      h3 {
-        padding: 0 10px 0 10px;
-      }
+    h2 {
+      padding: 0 10px 0 10px;
     }
   }
+}
 
-  .ino-dialog-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+.ino-dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  height: 100%;
+  padding: 24px;
+}
 
-  .ino-dialog-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
+.ino-dialog-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 12px;
 
-    ino-button {
-      margin-right: 10px;
-    }
+  ino-button {
+    margin-right: 10px;
   }
 }
