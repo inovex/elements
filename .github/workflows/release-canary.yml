@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches: [elements-solving-canary-release-workflow]
+    branches: [master]
 
 jobs:
   canary-release:
