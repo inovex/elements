@@ -12,7 +12,23 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+      - name: setup cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+            packages/*/*/node_modules
+          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-lerna-
+      - run: yarn install --frozen-lockfile
+        shell: bash
 
       - name: Download elements artifact
         uses: dawidd6/action-download-artifact@v2
