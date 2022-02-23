@@ -240,6 +240,10 @@ export namespace Components {
     }
     interface InoDatepicker {
         /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody": boolean;
+        /**
           * Autofocuses this element.
          */
         "autoFocus"?: boolean;
@@ -1866,6 +1870,10 @@ declare namespace LocalJSX {
         "value"?: number | string;
     }
     interface InoDatepicker {
+        /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody"?: boolean;
         /**
           * Autofocuses this element.
          */

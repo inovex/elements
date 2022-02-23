@@ -283,14 +283,14 @@ The value can be found in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
+  inputs: ['attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
   methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value']
+  inputs: ['attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value']
 })
 export class InoDatepicker {
   protected el: HTMLElement;
