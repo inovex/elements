@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-21T12:13:23",
+  "timestamp": "2022-02-23T16:51:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6519,18 +6519,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-select-height",
-          "annotation": "prop",
-          "docs": "Height of the open select menu"
-        },
-        {
-          "name": "--ino-select-icon-color",
-          "annotation": "prop",
-          "docs": "Icon color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

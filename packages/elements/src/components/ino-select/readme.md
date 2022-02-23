@@ -129,14 +129,6 @@ The component behaves like a native select with additional features. The native 
 | `"icon-leading"` | For the icon to be prepended     |
 
 
-## CSS Custom Properties
-
-| Name                      | Description                    |
-| ------------------------- | ------------------------------ |
-| `--ino-select-height`     | Height of the open select menu |
-| `--ino-select-icon-color` | Icon color                     |
-
-
 ## Dependencies
 
 ### Depends on

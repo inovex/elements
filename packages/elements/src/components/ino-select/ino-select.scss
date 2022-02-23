@@ -1,11 +1,13 @@
 @use 'base/mdc-customize';
-@use '@material/list/mdc-list';
+@use '@material/list';
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
 @use 'base/theme';
 @use '../ino-label/ino-label';
+
+@include list.deprecated-core-styles;
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);

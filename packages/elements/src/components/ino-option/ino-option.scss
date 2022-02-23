@@ -2,6 +2,8 @@
 @use "@material/list";
 @use 'base/theme';
 
+@include list.deprecated-core-styles;
+
 ino-option {
   /**
    * @prop --ino-option-selected-background-color: Background color if selected
@@ -51,11 +53,11 @@ ino-option {
 ino-option {
   @include list.deprecated-item-disabled-text-opacity(0.5);
 
-  .mdc-list-item--disabled {
+  .mdc-deprecated-list-item--disabled {
     pointer-events: none;
   }
 
-  .mdc-list-item {
+  .mdc-deprecated-list-item {
     padding-top: 6px;
     padding-bottom: 6px;
     height: auto;
@@ -74,8 +76,8 @@ ino-option {
       background-color: var(--option-deselected-background-color-active);
     }
 
-    &.mdc-list-item--selected,
-    &.mdc-list-item--activated {
+    &.mdc-deprecated-list-item--selected,
+    &.mdc-deprecated-list-item--activated {
       background-color: var(--option-selected-background-color);
 
       &::before,
