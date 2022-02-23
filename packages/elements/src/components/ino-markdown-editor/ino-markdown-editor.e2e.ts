@@ -132,4 +132,15 @@ describe('InoMarkdownEditor', () => {
     expect(spy).toHaveReceivedEvent();
     expect(spy).toHaveReceivedEventDetail(dummyText);
   });
+
+  it('should change initial value', async () => {
+    const initialText = '# Hello World';
+    await setUpTest(initialText, ViewMode.MARKDOWN);
+    expect(await textArea.getProperty('value')).toBe(initialText);
+
+    const newInitialText = '# Hallo Welt';
+    inoMarkdownEditor.setProperty('initialValue', newInitialText);
+    await page.waitForChanges();
+    expect(await textArea.getProperty('value')).toBe(newInitialText);
+  });
 });
