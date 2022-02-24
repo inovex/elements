@@ -150,8 +150,8 @@ export class Range implements ComponentInterface {
             type="range"
             min={this.min}
             max={this.max}
-            value={this.value || this.min || 0}
             step={this.step}
+            value={this.value || this.min || 0}
             disabled={this.disabled}
             name={this.name}
             aria-label={this.name}
