@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
 export namespace Components {
@@ -221,7 +221,21 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface InoCurrencyInput {
+        /**
+          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
+         */
+        "currencyLocale"?: string;
+        /**
+          * Numeric currency value
+         */
+        "value": number | string;
+    }
     interface InoDatepicker {
+        /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody": boolean;
         /**
           * Autofocuses this element.
          */
@@ -324,6 +338,18 @@ export namespace Components {
         "value"?: string;
     }
     interface InoDialog {
+        /**
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
+         */
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
         /**
           * Opens the dialog if set to true
          */
@@ -532,10 +558,6 @@ export namespace Components {
          */
         "dataList"?: string;
         /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "decimalPlaces"?: number;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -608,6 +630,10 @@ export namespace Components {
          */
         "setFocus": () => Promise<void>;
         /**
+          * Sets an interceptor to manipulate user input before emitting a `valueChange` event.
+         */
+        "setUserInputInterceptor": (fn: UserInputInterceptor) => Promise<void>;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
@@ -620,13 +646,9 @@ export namespace Components {
          */
         "step"?: number | 'any';
         /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "thousandsSeparator"?: boolean;
-        /**
           * The type of this element (default = text).
          */
-        "type"?: string;
+        "type"?: InputType;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -1275,6 +1297,12 @@ declare global {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
     };
+    interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
+    }
+    var HTMLInoCurrencyInputElement: {
+        prototype: HTMLInoCurrencyInputElement;
+        new (): HTMLInoCurrencyInputElement;
+    };
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
     }
     var HTMLInoDatepickerElement: {
@@ -1530,6 +1558,7 @@ declare global {
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
         "ino-control-item": HTMLInoControlItemElement;
+        "ino-currency-input": HTMLInoCurrencyInputElement;
         "ino-datepicker": HTMLInoDatepickerElement;
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
@@ -1806,7 +1835,25 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface InoCurrencyInput {
+        /**
+          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
+         */
+        "currencyLocale"?: string;
+        /**
+          * Emits when the user types something in. Contains typed input in `event.detail`
+         */
+        "onValueChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Numeric currency value
+         */
+        "value"?: number | string;
+    }
     interface InoDatepicker {
+        /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody"?: boolean;
         /**
           * Autofocuses this element.
          */
@@ -1906,9 +1953,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
-          * Emits an event upon opening or closing the dialog
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
+        /**
+          * Emits an event upon closing the dialog
+         */
+        "onClose"?: (event: CustomEvent<DialogCloseAction>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -2125,10 +2184,6 @@ declare namespace LocalJSX {
          */
         "dataList"?: string;
         /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "decimalPlaces"?: number;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2213,13 +2268,9 @@ declare namespace LocalJSX {
          */
         "step"?: number | 'any';
         /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "thousandsSeparator"?: boolean;
-        /**
           * The type of this element (default = text).
          */
-        "type"?: string;
+        "type"?: InputType;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -2886,6 +2937,7 @@ declare namespace LocalJSX {
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
         "ino-control-item": InoControlItem;
+        "ino-currency-input": InoCurrencyInput;
         "ino-datepicker": InoDatepicker;
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
@@ -2941,6 +2993,7 @@ declare module "@stencil/core" {
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
+            "ino-currency-input": LocalJSX.InoCurrencyInput & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;

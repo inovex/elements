@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-24T14:58:06",
+  "timestamp": "2022-02-24T15:17:40",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -690,7 +690,28 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-carousel-animation-duration",
+          "annotation": "prop",
+          "docs": "sets the duration of the slide animation"
+        },
+        {
+          "name": "--ino-carousel-height",
+          "annotation": "prop",
+          "docs": "sets the height of the carousel component"
+        },
+        {
+          "name": "--ino-carousel-icon-color",
+          "annotation": "prop",
+          "docs": "sets the color of the navigation buttons"
+        },
+        {
+          "name": "--ino-carousel-width",
+          "annotation": "prop",
+          "docs": "sets the width of the carousel component"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -1417,6 +1438,81 @@
       }
     },
     {
+      "filePath": "./src/components/ino-currency-input/ino-currency-input.tsx",
+      "encapsulation": "none",
+      "tag": "ino-currency-input",
+      "readme": "# ino-currency-input\nA component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-currency-input')\n  .addEventListener('valueChange', e => alert(`The new input value is: ${e.detail}`));\n```\n```html\n<ino-currency-input value=\"<number>\" currency-locale=\"<string>\">\n  <ino-input type=\"text\" ...></ino-input>\n</ino-currency-input>\n```\n\nThe child input element requires to be of type `text`.\n\n### Event behaviour\nThe currency input watches for value changes on the underlying `ino-input`, updates the inputs value and stops the event propagation. In order to avoid distraction for the user, the currency input only formats the input value on focus and on blur. Furthermore, the `ino-currency-input` itself emits a `valueChange` event when the user commits a currency value (on blur).\n\n### Locales\nThe currency input uses a native number formatter which supports a vary of different locales (see [Documentation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)). On a component level, you can provide any supported locale via the `currency-locale` attribute.\n\nHowever, it may be useful to define a global locale for currencies, This may even differ from the application's locale, for instance a Belgian application may use English as language but the German currency format. For this reason, you can provide the `currencyLocale` option on the global configuration.\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\n\nclass MyComponent extends Component {\n  onValueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoCurrencyInput\n        placeholder=\"You can insert some text...\"\n        onValueChange={onValueChange}\n      >\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoCurrencyInput, InoInput } from '@inovex.de/elements-react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst CurrencyInput: React.FunctionComponent<Components.InoCurrencyInputAttributes> = props => {\n  const { placeholder } = props;\n\n  const onValueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n      <InoCurrencyInput onValueChange={onValueChange}>\n        <InoInput type=\"text\" />\n      </InoCurrencyInput>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <CurrencyInput placeholder=\"You can insert some text...\" />;\n  }\n}\n```\n\n\n",
+      "docs": "A component providing currency functionality by extending a `ino-input`. Main objectives of this component are the separatation of formatted currency values from its numeric values and to handle different currency locales.\n\nThe `ino-currency-input` controls an underlying `ino-input` and evaluates its value on blur. While the `ino-input` has the textual user input as value, the `ino-currency-input` provides a numeric value of the currency. In theory, you can use all `ino-input` properties. However, properties like maxlength, step, etc. make no sense for currency inputs and are thus not supported.",
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - `<ino-input>` of `type=\"text\"`"
+        }
+      ],
+      "usage": {},
+      "props": [
+        {
+          "name": "currencyLocale",
+          "type": "string",
+          "mutable": false,
+          "attr": "currency-locale",
+          "reflectToAttr": false,
+          "docs": "A supported locale for currency number formatting. If not given, it uses the global config.\nSee https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number | string",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": true,
+          "docs": "Numeric currency value",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the user types something in.\nContains typed input in `event.detail`",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "`<ino-input>` of `type=\"text\"`"
+        }
+      ],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    },
+    {
       "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
       "encapsulation": "none",
       "tag": "ino-datepicker",
@@ -1425,6 +1521,23 @@
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "attachToBody",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "attach-to-body",
+          "reflectToAttr": false,
+          "docs": "Attach calendar overlay to body (true) or\nPosition the calendar inside the wrapper and inside the ino-datepicker (false)",
+          "docsTags": [],
+          "default": "true",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "autoFocus",
           "type": "boolean",
@@ -1873,8 +1986,8 @@
           "ino-icon"
         ],
         "ino-input": [
-          "ino-icon",
-          "ino-label"
+          "ino-label",
+          "ino-icon"
         ]
       }
     },
@@ -1882,24 +1995,64 @@
       "filePath": "./src/components/ino-dialog/ino-dialog.tsx",
       "encapsulation": "shadow",
       "tag": "ino-dialog",
-      "readme": "# ino-dialog\n\nThe ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-dialog')\n  .addEventListener('openChanged', (e) =>\n    alert(`inoOpen has been set to ${e.detail}`),\n  );\n```\n\n```html\n\n<ino-dialog open=\"true\">\n  <div class=\"awesome-header\" slot=\"header\"/>\n  <div class=\"awesome-content\"/>\n  <div class=\"awesome-footer\" slot=\"footer\"/>\n</ino-dialog>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoButton, InoDialog } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    open: false\n  };\n\n  handleEvent = () => {\n    this.setState((open) => ({\n      open: !open\n    }))\n  };\n\n  render() {\n    return (\n      <>\n        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>\n        <InoDialog open={this.state.open}>\n          <div class=\"awesome-content\"/>\n        </InoDialog>\n      </>\n    );\n  }\n}\n```\n\n## Demo\n",
-      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-drawer and is composed of a header, content, and footer section which are fully customizable.",
+      "readme": "# ino-dialog\n\nThe ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-dialog')\n  .addEventListener('close', (e) =>\n    alert(`dialog has been closed with action: ${e.detail}`),\n  );\n```\n\n```html\n<ino-dialog>\n  <div class=\"awesome-content\"></div>\n</ino-dialog>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoButton, InoDialog } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    open: false\n  };\n\n  handleEvent = () => {\n    this.setState((open) => ({\n      open: !open\n    }))\n  };\n\n  render() {\n    return (\n      <>\n        <InoButton onClick={() => this.handleEvent()}>Open Dialog</InoButton>\n        <InoDialog open={this.state.open}>\n          <div class=\"awesome-content\"/>\n        </InoDialog>\n      </>\n    );\n  }\n}\n```\n\n## Additional information\n\n### Sizing\nThe dialog is displayed in the middle (horiziontally and vertically centered) on a surface.\nIn order to customize the dialog's size, use the `--ino-dialog-height` and `--ino-dialog-width` properties.\nEither use a fixed value or use css calc (f.e. `calc(100% - 60px)` to add a margin auf `30px` on both sides).\n\n### Fullwidth\nA Fullwidth dialog is a distinct variant which has 100% width an is attached to the bottom of the page. It scrolls up and defines a small\nmargin at top for the background scrim and escape for dialog close. It's not recommenended to use this option with `--ino-dialog-width` and `--ino-dialog-height`.\n\n### Closing actions\nYou can mark elements as \"action elements\" by providing a `data-ino-dialog-action=\"action-name\"` attribute.\nOn user clicks, the dialog checks whether the target is a dialog action and, if true, emits a `close` event with `event.detail = \"action-name\"`.\n\nSubsequently, listen to the `close` Event and check the `event.detail` to retrieve the users action.\n",
+      "docs": "The ino-dialog component displays a modal window that can be used to display additional information or notify the user.\nIt is based on the mdc-dialog and is fully customizable. The styling of a dialog's content must be provided by users.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "content - content of the dialog"
-        },
-        {
-          "name": "slot",
-          "text": "header - header of the dialog"
-        },
-        {
-          "name": "slot",
-          "text": "footer - footer of the dialog"
+          "text": "default - content of the dialog"
         }
       ],
       "usage": {},
       "props": [
+        {
+          "name": "attachTo",
+          "type": "string",
+          "mutable": false,
+          "attr": "attach-to",
+          "reflectToAttr": false,
+          "docs": "The target element the dialog should be attached to.\nIf not given, the dialog is a child of the documents body.\nNote: This property is immutable after initialization.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "dismissible",
+          "reflectToAttr": false,
+          "docs": "Close the dialog on pressing the ESC key or clicking outside of the dialog.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "fullwidth",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "fullwidth",
+          "reflectToAttr": false,
+          "docs": "Defines a full width dialog sliding up from the bottom of the page.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "open",
           "type": "boolean",
@@ -1921,16 +2074,23 @@
       "methods": [],
       "events": [
         {
-          "event": "openChange",
-          "detail": "any",
+          "event": "close",
+          "detail": "string",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits an event upon opening or closing the dialog",
+          "docs": "Emits an event upon closing the dialog",
           "docsTags": []
         }
       ],
-      "listeners": [],
+      "listeners": [
+        {
+          "event": "keyup",
+          "target": "body",
+          "capture": false,
+          "passive": false
+        }
+      ],
       "styles": [
         {
           "name": "--ino-dialog-background-color",
@@ -1953,21 +2113,6 @@
           "docs": "box-shadow of the dialog"
         },
         {
-          "name": "--ino-dialog-content-height",
-          "annotation": "prop",
-          "docs": "height of the content section"
-        },
-        {
-          "name": "--ino-dialog-footer-height",
-          "annotation": "prop",
-          "docs": "height of the footer section"
-        },
-        {
-          "name": "--ino-dialog-header-height",
-          "annotation": "prop",
-          "docs": "height of the header section"
-        },
-        {
           "name": "--ino-dialog-height",
           "annotation": "prop",
           "docs": "height of the dialog"
@@ -1985,16 +2130,8 @@
       ],
       "slots": [
         {
-          "name": "content",
+          "name": "default",
           "docs": "content of the dialog"
-        },
-        {
-          "name": "footer",
-          "docs": "footer of the dialog"
-        },
-        {
-          "name": "header",
-          "docs": "header of the dialog"
         }
       ],
       "parts": [],
@@ -2227,7 +2364,48 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--fab-background-color",
+          "annotation": "prop",
+          "docs": "Background color"
+        },
+        {
+          "name": "--fab-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active"
+        },
+        {
+          "name": "--fab-background-color-disabled",
+          "annotation": "prop",
+          "docs": "Background color if disabled"
+        },
+        {
+          "name": "--fab-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover"
+        },
+        {
+          "name": "--fab-color-disabled",
+          "annotation": "prop",
+          "docs": "Text color if disabled"
+        },
+        {
+          "name": "--fab-icon-color",
+          "annotation": "prop",
+          "docs": "Color of the slotted icon"
+        },
+        {
+          "name": "--fab-icon-color-disabled",
+          "annotation": "prop",
+          "docs": "Color of the slotted icon if disabled"
+        },
+        {
+          "name": "--ino-fab-color",
+          "annotation": "prop",
+          "docs": "Text color"
+        }
+      ],
       "slots": [
         {
           "name": "icon-leading",
@@ -3309,22 +3487,6 @@
           "required": false
         },
         {
-          "name": "decimalPlaces",
-          "type": "number",
-          "mutable": false,
-          "attr": "decimal-places",
-          "reflectToAttr": false,
-          "docs": "The number of decimal places. Only works on 'text' type input.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
@@ -3423,7 +3585,7 @@
         {
           "name": "label",
           "type": "string",
-          "mutable": false,
+          "mutable": true,
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The optional floating label of this input field.",
@@ -3618,24 +3780,8 @@
           "required": false
         },
         {
-          "name": "thousandsSeparator",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "thousands-separator",
-          "reflectToAttr": false,
-          "docs": "Shows a dot as a thousands separator. Only works on 'text' type input.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "type",
-          "type": "string",
+          "type": "\"color\" | \"email\" | \"number\" | \"password\" | \"search\" | \"tel\" | \"text\" | \"url\" | \"week\"",
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -3644,6 +3790,39 @@
           "default": "'text'",
           "values": [
             {
+              "value": "color",
+              "type": "string"
+            },
+            {
+              "value": "email",
+              "type": "string"
+            },
+            {
+              "value": "number",
+              "type": "string"
+            },
+            {
+              "value": "password",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            },
+            {
+              "value": "tel",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            },
+            {
+              "value": "url",
+              "type": "string"
+            },
+            {
+              "value": "week",
               "type": "string"
             }
           ],
@@ -3669,7 +3848,7 @@
         {
           "name": "value",
           "type": "string",
-          "mutable": false,
+          "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
@@ -3750,12 +3929,12 @@
       ],
       "listeners": [
         {
-          "event": "focus",
+          "event": "change",
           "capture": false,
           "passive": false
         },
         {
-          "event": "change",
+          "event": "focus",
           "capture": false,
           "passive": false
         },
@@ -3802,13 +3981,13 @@
         "ino-datepicker"
       ],
       "dependencies": [
-        "ino-icon",
-        "ino-label"
+        "ino-label",
+        "ino-icon"
       ],
       "dependencyGraph": {
         "ino-input": [
-          "ino-icon",
-          "ino-label"
+          "ino-label",
+          "ino-icon"
         ],
         "ino-datepicker": [
           "ino-input"
@@ -6589,7 +6768,13 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--sidebar-width",
+          "annotation": "prop",
+          "docs": "The width of the open sidebar."
+        }
+      ],
       "slots": [
         {
           "name": "content",
