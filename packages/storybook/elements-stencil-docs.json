@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-24T11:56:18",
+  "timestamp": "2022-02-24T13:52:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6610,13 +6610,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--sidebar-width",
-          "annotation": "prop",
-          "docs": "The width of the open sidebar."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "content",

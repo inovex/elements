@@ -9,7 +9,6 @@ const eventHandler = (e) => {
   const el: HTMLElement = e.target;
   const elTagName = el.tagName.toLowerCase();
 
-  console.log(el);
   if (elTagName !== 'ino-icon' && elTagName !== 'ino-button') {
     return;
   }
@@ -17,6 +16,8 @@ const eventHandler = (e) => {
   const sidebar: HTMLInoSidebarElement = el
     .closest('.sidebar-demo')
     .querySelector('ino-sidebar');
+
+  console.log(sidebar)
 
   sidebar.open = !sidebar.open;
 };
