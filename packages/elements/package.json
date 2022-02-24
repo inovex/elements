@@ -43,7 +43,7 @@
   "scripts": {
     "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
     "clean": "shx rm -rf dist",
-    "dev": "stencil build --docs --watch --legacy",
+    "dev": "NODE_ENV=development stencil build --docs --watch --legacy",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test": "stencil test --e2e --ci",
