@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-24T11:37:27",
+  "timestamp": "2022-02-24T11:56:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -2248,48 +2248,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--fab-background-color",
-          "annotation": "prop",
-          "docs": "Background color"
-        },
-        {
-          "name": "--fab-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color if active"
-        },
-        {
-          "name": "--fab-background-color-disabled",
-          "annotation": "prop",
-          "docs": "Background color if disabled"
-        },
-        {
-          "name": "--fab-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color on hover"
-        },
-        {
-          "name": "--fab-color-disabled",
-          "annotation": "prop",
-          "docs": "Text color if disabled"
-        },
-        {
-          "name": "--fab-icon-color",
-          "annotation": "prop",
-          "docs": "Color of the slotted icon"
-        },
-        {
-          "name": "--fab-icon-color-disabled",
-          "annotation": "prop",
-          "docs": "Color of the slotted icon if disabled"
-        },
-        {
-          "name": "--ino-fab-color",
-          "annotation": "prop",
-          "docs": "Text color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",

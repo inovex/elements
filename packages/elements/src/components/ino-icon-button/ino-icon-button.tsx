@@ -133,6 +133,7 @@ export class IconButton implements ComponentInterface {
           disabled={this.disabled}
           type={this.type}
         >
+          <div class="mdc-icon-button__ripple"/>
           <ino-icon icon={this.icon} class="mdc-icon-button__icon" />
         </button>
       </Host>
