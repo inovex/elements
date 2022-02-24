@@ -31,7 +31,10 @@ export default {
             'ino-carousel'
           );
           const isLeftArrow = iconButton.icon === 'arrow_left';
-          carousel.value = mod(carousel.value + (isLeftArrow ? -1 : 1), 3);
+          carousel.value = mod(
+            carousel.value + (isLeftArrow ? -1 : 1),
+            3
+          ).toString();
         };
 
         const mod = (a, b) => ((a % b) + b) % b;
@@ -60,7 +63,7 @@ export const Playground: Story<Components.InoCarousel> = (args) => html`
       intermission="${args.intermission}"
       reverse="${args.reverse}"
     >
-      <ino-carousel-slide src=${lightningImg} value="0"> </ino-carousel-slide>
+      <ino-carousel-slide src=${lightningImg} value="0"></ino-carousel-slide>
       <ino-carousel-slide src=${mountainsImg} value="1"></ino-carousel-slide>
       <ino-carousel-slide src=${nidarosImg} value="2"></ino-carousel-slide>
     </ino-carousel>

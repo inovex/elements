@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-24T13:52:39",
+  "timestamp": "2022-02-24T14:20:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -672,7 +672,7 @@
         },
         {
           "name": "value",
-          "type": "any",
+          "type": "string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -680,7 +680,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "string"
             }
           ],
           "optional": true,
@@ -690,28 +690,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-carousel-animation-duration",
-          "annotation": "prop",
-          "docs": "sets the duration of the slide animation"
-        },
-        {
-          "name": "--ino-carousel-height",
-          "annotation": "prop",
-          "docs": "sets the height of the carousel component"
-        },
-        {
-          "name": "--ino-carousel-icon-color",
-          "annotation": "prop",
-          "docs": "sets the color of the navigation buttons"
-        },
-        {
-          "name": "--ino-carousel-width",
-          "annotation": "prop",
-          "docs": "sets the width of the carousel component"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

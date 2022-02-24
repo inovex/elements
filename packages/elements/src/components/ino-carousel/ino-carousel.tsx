@@ -27,10 +27,10 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Optional group value to manually manage the displayed slide
    */
-  @Prop() value?: any;
+  @Prop() value?: string;
 
   @Watch('value')
-  valueChanged(newVal: any) {
+  valueChanged(newVal: string) {
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the current slide
     this.selectSlide(newVal);
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
@@ -96,7 +96,7 @@ export class InoCarousel implements ComponentInterface {
       );
   };
 
-  private selectSlide(value: number): boolean {
+  private selectSlide(value: string): boolean {
     let slideSelected = false;
     this.slides.forEach((slide) => {
       if (value === slide.value) {

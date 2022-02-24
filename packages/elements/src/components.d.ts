@@ -103,7 +103,7 @@ export namespace Components {
         /**
           * Optional group value to manually manage the displayed slide
          */
-        "value"?: any;
+        "value"?: string;
     }
     interface InoCarouselSlide {
         /**
@@ -1672,7 +1672,7 @@ declare namespace LocalJSX {
         /**
           * Optional group value to manually manage the displayed slide
          */
-        "value"?: any;
+        "value"?: string;
     }
     interface InoCarouselSlide {
         /**
