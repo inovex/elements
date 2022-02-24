@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-23T16:51:09",
+  "timestamp": "2022-02-24T11:24:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6023,7 +6023,7 @@
           "mutable": false,
           "attr": "markers",
           "reflectToAttr": false,
-          "docs": "Mark this slider to show the steps of the range.\nOnly applicable if `discrete=true`",
+          "docs": "Mark this slider to show the steps of the range.\nOnly applicable if `discrete` is enabled.",
           "docsTags": [],
           "values": [
             {
@@ -6046,7 +6046,7 @@
               "type": "number"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false
         },
         {
@@ -6088,7 +6088,7 @@
           "mutable": false,
           "attr": "step",
           "reflectToAttr": false,
-          "docs": "The step size for this element.\nOnly applicable if ino-discrete is true.",
+          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers (if enabled).",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -6116,11 +6116,28 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setFnToMapValueToAriaText",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFnToMapValueToAriaText(fn: (value: number) => string) => Promise<void>",
+          "parameters": [],
+          "docs": "Should be used to make the component accessible.\nIf the value is not user-friendly (e.g. a number to represent the day of the week),\nuse this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "fn A function that maps the numeric value to a user-friendly string."
+            }
+          ]
+        }
+      ],
       "events": [
         {
           "event": "valueChange",
-          "detail": "any",
+          "detail": "number",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
@@ -6519,7 +6536,18 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-select-height",
+          "annotation": "prop",
+          "docs": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "annotation": "prop",
+          "docs": "Icon color"
+        }
+      ],
       "slots": [
         {
           "name": "default",

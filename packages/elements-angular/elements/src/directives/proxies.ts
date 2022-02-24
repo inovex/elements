@@ -913,13 +913,14 @@ export declare interface InoRange extends Components.InoRange {
   /**
    * Emits when the value changes. Contains new value in `event.detail`. 
    */
-  valueChange: EventEmitter<CustomEvent<any>>;
+  valueChange: EventEmitter<CustomEvent<number>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
+  methods: ['setFnToMapValueToAriaText']
 })
 @Component({
   selector: 'ino-range',

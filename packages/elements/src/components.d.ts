@@ -912,13 +912,13 @@ export namespace Components {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
+          * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
         "markers"?: boolean;
         /**
           * The max value of this element (**required**).
          */
-        "max"?: number;
+        "max": number;
         /**
           * The min value of this element.
          */
@@ -928,7 +928,12 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The step size for this element. Only applicable if ino-discrete is true.
+          * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
+          * @param fn A function that maps the numeric value to a user-friendly string.
+         */
+        "setFnToMapValueToAriaText": (fn: (value: number) => string) => Promise<void>;
+        /**
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */
         "step"?: number;
         /**
@@ -2532,7 +2537,7 @@ declare namespace LocalJSX {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
+          * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
         "markers"?: boolean;
         /**
@@ -2550,9 +2555,9 @@ declare namespace LocalJSX {
         /**
           * Emits when the value changes. Contains new value in `event.detail`.
          */
-        "onValueChange"?: (event: CustomEvent<any>) => void;
+        "onValueChange"?: (event: CustomEvent<number>) => void;
         /**
-          * The step size for this element. Only applicable if ino-discrete is true.
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */
         "step"?: number;
         /**
