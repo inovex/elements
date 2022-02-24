@@ -177,7 +177,7 @@ export class Chip implements ComponentInterface {
               hasPrimaryGraphic && (
                 <span class="mdc-evolution-chip__graphic">
                   {leadingSlotHasContent && (
-                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
                       <slot name="icon-leading" />
                     </span>
                   )}

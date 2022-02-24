@@ -41,12 +41,19 @@ $default-chip-dark-color: rgba(0, 0, 0, 0.87);
   }
 }
 
+$icon-size: 16px;
+
 ino-chip {
   .ino-chip-container {
+    .ino-chip-leading-icon {
+      --ino-icon-width: #{$icon-size};
+      --ino-icon-height: #{$icon-size};
+    }
+
     .ino-chip-trailing-icon {
       display: flex;
-      --ino-icon-width: 20px;
-      --ino-icon-height: 20px;
+      --ino-icon-width: #{$icon-size};
+      --ino-icon-height: #{$icon-size};
 
       .ino-chip-close-icon {
         --ino-icon-width: 15px;
