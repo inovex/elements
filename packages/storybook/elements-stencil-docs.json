@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-22T10:37:31",
+  "timestamp": "2022-03-08T16:56:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -412,11 +412,19 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-input-file"],
-      "dependencies": ["ino-spinner"],
+      "dependents": [
+        "ino-input-file"
+      ],
+      "dependencies": [
+        "ino-spinner"
+      ],
       "dependencyGraph": {
-        "ino-button": ["ino-spinner"],
-        "ino-input-file": ["ino-button"]
+        "ino-button": [
+          "ino-spinner"
+        ],
+        "ino-input-file": [
+          "ino-button"
+        ]
       }
     },
     {
@@ -537,9 +545,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon"],
+      "dependencies": [
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-card": ["ino-icon"]
+        "ino-card": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -708,10 +720,16 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon-button"],
+      "dependencies": [
+        "ino-icon-button"
+      ],
       "dependencyGraph": {
-        "ino-carousel": ["ino-icon-button"],
-        "ino-icon-button": ["ino-icon"]
+        "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -940,10 +958,14 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-control-item"],
+      "dependents": [
+        "ino-control-item"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-control-item": ["ino-checkbox"]
+        "ino-control-item": [
+          "ino-checkbox"
+        ]
       }
     },
     {
@@ -1174,9 +1196,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon"],
+      "dependencies": [
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-chip": ["ino-icon"]
+        "ino-chip": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -1398,9 +1424,17 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-list-item", "ino-checkbox", "ino-radio"],
+      "dependencies": [
+        "ino-list-item",
+        "ino-checkbox",
+        "ino-radio"
+      ],
       "dependencyGraph": {
-        "ino-control-item": ["ino-list-item", "ino-checkbox", "ino-radio"]
+        "ino-control-item": [
+          "ino-list-item",
+          "ino-checkbox",
+          "ino-radio"
+        ]
       }
     },
     {
@@ -2024,10 +2058,19 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-input", "ino-icon"],
+      "dependencies": [
+        "ino-input",
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-datepicker": ["ino-input", "ino-icon"],
-        "ino-input": ["ino-label", "ino-icon"]
+        "ino-datepicker": [
+          "ino-input",
+          "ino-icon"
+        ],
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
+        ]
       }
     },
     {
@@ -2452,11 +2495,21 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-fab-set"],
-      "dependencies": ["ino-tooltip", "ino-icon"],
+      "dependents": [
+        "ino-fab-set"
+      ],
+      "dependencies": [
+        "ino-tooltip",
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-fab": ["ino-tooltip", "ino-icon"],
-        "ino-fab-set": ["ino-fab"]
+        "ino-fab": [
+          "ino-tooltip",
+          "ino-icon"
+        ],
+        "ino-fab-set": [
+          "ino-fab"
+        ]
       }
     },
     {
@@ -2577,10 +2630,19 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-fab", "ino-icon"],
+      "dependencies": [
+        "ino-fab",
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-fab-set": ["ino-fab", "ino-icon"],
-        "ino-fab": ["ino-tooltip", "ino-icon"]
+        "ino-fab-set": [
+          "ino-fab",
+          "ino-icon"
+        ],
+        "ino-fab": [
+          "ino-tooltip",
+          "ino-icon"
+        ]
       }
     },
     {
@@ -2836,19 +2898,45 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-card": ["ino-icon"],
-        "ino-chip": ["ino-icon"],
-        "ino-datepicker": ["ino-icon"],
-        "ino-fab": ["ino-icon"],
-        "ino-fab-set": ["ino-icon"],
-        "ino-icon-button": ["ino-icon"],
-        "ino-img": ["ino-icon"],
-        "ino-input": ["ino-icon"],
-        "ino-input-file": ["ino-icon"],
-        "ino-markdown-editor": ["ino-icon"],
-        "ino-snackbar": ["ino-icon"],
-        "ino-tab": ["ino-icon"],
-        "ino-table-header-cell": ["ino-icon"]
+        "ino-card": [
+          "ino-icon"
+        ],
+        "ino-chip": [
+          "ino-icon"
+        ],
+        "ino-datepicker": [
+          "ino-icon"
+        ],
+        "ino-fab": [
+          "ino-icon"
+        ],
+        "ino-fab-set": [
+          "ino-icon"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ],
+        "ino-img": [
+          "ino-icon"
+        ],
+        "ino-input": [
+          "ino-icon"
+        ],
+        "ino-input-file": [
+          "ino-icon"
+        ],
+        "ino-markdown-editor": [
+          "ino-icon"
+        ],
+        "ino-snackbar": [
+          "ino-icon"
+        ],
+        "ino-tab": [
+          "ino-icon"
+        ],
+        "ino-table-header-cell": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -3068,13 +3156,25 @@
         "ino-snackbar",
         "ino-table-header-cell"
       ],
-      "dependencies": ["ino-icon"],
+      "dependencies": [
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-icon-button": ["ino-icon"],
-        "ino-carousel": ["ino-icon-button"],
-        "ino-nav-drawer": ["ino-icon-button"],
-        "ino-snackbar": ["ino-icon-button"],
-        "ino-table-header-cell": ["ino-icon-button"]
+        "ino-icon-button": [
+          "ino-icon"
+        ],
+        "ino-carousel": [
+          "ino-icon-button"
+        ],
+        "ino-nav-drawer": [
+          "ino-icon-button"
+        ],
+        "ino-snackbar": [
+          "ino-icon-button"
+        ],
+        "ino-table-header-cell": [
+          "ino-icon-button"
+        ]
       }
     },
     {
@@ -3331,9 +3431,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon"],
+      "dependencies": [
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-img": ["ino-icon"]
+        "ino-img": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -3963,11 +4067,21 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-datepicker"],
-      "dependencies": ["ino-label", "ino-icon"],
+      "dependents": [
+        "ino-datepicker"
+      ],
+      "dependencies": [
+        "ino-label",
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-input": ["ino-label", "ino-icon"],
-        "ino-datepicker": ["ino-input"]
+        "ino-input": [
+          "ino-label",
+          "ino-icon"
+        ],
+        "ino-datepicker": [
+          "ino-input"
+        ]
       }
     },
     {
@@ -4172,10 +4286,18 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-button", "ino-icon"],
+      "dependencies": [
+        "ino-button",
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-input-file": ["ino-button", "ino-icon"],
-        "ino-button": ["ino-spinner"]
+        "ino-input-file": [
+          "ino-button",
+          "ino-icon"
+        ],
+        "ino-button": [
+          "ino-spinner"
+        ]
       }
     },
     {
@@ -4274,12 +4396,22 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ino-input", "ino-select", "ino-textarea"],
+      "dependents": [
+        "ino-input",
+        "ino-select",
+        "ino-textarea"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-input": ["ino-label"],
-        "ino-select": ["ino-label"],
-        "ino-textarea": ["ino-label"]
+        "ino-input": [
+          "ino-label"
+        ],
+        "ino-select": [
+          "ino-label"
+        ],
+        "ino-textarea": [
+          "ino-label"
+        ]
       }
     },
     {
@@ -4363,10 +4495,14 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-menu"],
+      "dependents": [
+        "ino-menu"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-menu": ["ino-list"]
+        "ino-menu": [
+          "ino-list"
+        ]
       }
     },
     {
@@ -4639,11 +4775,18 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-control-item", "ino-nav-item"],
+      "dependents": [
+        "ino-control-item",
+        "ino-nav-item"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-control-item": ["ino-list-item"],
-        "ino-nav-item": ["ino-list-item"]
+        "ino-control-item": [
+          "ino-list-item"
+        ],
+        "ino-nav-item": [
+          "ino-list-item"
+        ]
       }
     },
     {
@@ -4744,10 +4887,20 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon", "ino-popover", "ino-textarea"],
+      "dependencies": [
+        "ino-icon",
+        "ino-popover",
+        "ino-textarea"
+      ],
       "dependencyGraph": {
-        "ino-markdown-editor": ["ino-icon", "ino-popover", "ino-textarea"],
-        "ino-textarea": ["ino-label"]
+        "ino-markdown-editor": [
+          "ino-icon",
+          "ino-popover",
+          "ino-textarea"
+        ],
+        "ino-textarea": [
+          "ino-label"
+        ]
       }
     },
     {
@@ -4851,9 +5004,15 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-popover", "ino-list"],
+      "dependencies": [
+        "ino-popover",
+        "ino-list"
+      ],
       "dependencyGraph": {
-        "ino-menu": ["ino-popover", "ino-list"]
+        "ino-menu": [
+          "ino-popover",
+          "ino-list"
+        ]
       }
     },
     {
@@ -5034,10 +5193,16 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon-button"],
+      "dependencies": [
+        "ino-icon-button"
+      ],
       "dependencyGraph": {
-        "ino-nav-drawer": ["ino-icon-button"],
-        "ino-icon-button": ["ino-icon"]
+        "ino-nav-drawer": [
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -5154,9 +5319,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-list-item"],
+      "dependencies": [
+        "ino-list-item"
+      ],
       "dependencyGraph": {
-        "ino-nav-item": ["ino-list-item"]
+        "ino-nav-item": [
+          "ino-list-item"
+        ]
       }
     },
     {
@@ -5297,10 +5466,14 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-option-group"],
+      "dependents": [
+        "ino-option-group"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-option-group": ["ino-option"]
+        "ino-option-group": [
+          "ino-option"
+        ]
       }
     },
     {
@@ -5346,9 +5519,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-option"],
+      "dependencies": [
+        "ino-option"
+      ],
       "dependencyGraph": {
-        "ino-option-group": ["ino-option"]
+        "ino-option-group": [
+          "ino-option"
+        ]
       }
     },
     {
@@ -5710,9 +5887,15 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-markdown-editor": ["ino-popover"],
-        "ino-menu": ["ino-popover"],
-        "ino-table-header-cell": ["ino-popover"]
+        "ino-markdown-editor": [
+          "ino-popover"
+        ],
+        "ino-menu": [
+          "ino-popover"
+        ],
+        "ino-table-header-cell": [
+          "ino-popover"
+        ]
       }
     },
     {
@@ -5940,10 +6123,14 @@
         }
       ],
       "parts": [],
-      "dependents": ["ino-control-item"],
+      "dependents": [
+        "ino-control-item"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-control-item": ["ino-radio"]
+        "ino-control-item": [
+          "ino-radio"
+        ]
       }
     },
     {
@@ -6618,9 +6805,13 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-label"],
+      "dependencies": [
+        "ino-label"
+      ],
       "dependencyGraph": {
-        "ino-select": ["ino-label"]
+        "ino-select": [
+          "ino-label"
+        ]
       }
     },
     {
@@ -6876,10 +7067,18 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon", "ino-icon-button"],
+      "dependencies": [
+        "ino-icon",
+        "ino-icon-button"
+      ],
       "dependencyGraph": {
-        "ino-snackbar": ["ino-icon", "ino-icon-button"],
-        "ino-icon-button": ["ino-icon"]
+        "ino-snackbar": [
+          "ino-icon",
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -7017,10 +7216,14 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ino-button"],
+      "dependents": [
+        "ino-button"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-button": ["ino-spinner"]
+        "ino-button": [
+          "ino-spinner"
+        ]
       }
     },
     {
@@ -7269,9 +7472,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-icon"],
+      "dependencies": [
+        "ino-icon"
+      ],
       "dependencyGraph": {
-        "ino-tab": ["ino-icon"]
+        "ino-tab": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -7741,10 +7948,20 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": ["ino-popover", "ino-icon", "ino-icon-button"],
+      "dependencies": [
+        "ino-popover",
+        "ino-icon",
+        "ino-icon-button"
+      ],
       "dependencyGraph": {
-        "ino-table-header-cell": ["ino-popover", "ino-icon", "ino-icon-button"],
-        "ino-icon-button": ["ino-icon"]
+        "ino-table-header-cell": [
+          "ino-popover",
+          "ino-icon",
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
       }
     },
     {
@@ -8074,11 +8291,19 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": ["ino-markdown-editor"],
-      "dependencies": ["ino-label"],
+      "dependents": [
+        "ino-markdown-editor"
+      ],
+      "dependencies": [
+        "ino-label"
+      ],
       "dependencyGraph": {
-        "ino-textarea": ["ino-label"],
-        "ino-markdown-editor": ["ino-textarea"]
+        "ino-textarea": [
+          "ino-label"
+        ],
+        "ino-markdown-editor": [
+          "ino-textarea"
+        ]
       }
     },
     {
@@ -8319,10 +8544,14 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["ino-fab"],
+      "dependents": [
+        "ino-fab"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "ino-fab": ["ino-tooltip"]
+        "ino-fab": [
+          "ino-tooltip"
+        ]
       }
     }
   ]
