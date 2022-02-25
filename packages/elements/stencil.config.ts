@@ -18,6 +18,7 @@ export const config: Config = {
   },
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
+  sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   outputTargets: [
     {
