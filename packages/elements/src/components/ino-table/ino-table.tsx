@@ -33,7 +33,7 @@ export class InoTable implements ComponentInterface {
    * True, if the table is loading data.
    *
    * Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an
-   * additional horiziontal loading bar.
+   * additional horizontal loading bar.
    */
   @Prop() loading?: boolean;
 

@@ -5,9 +5,9 @@ It currently supports different states (selected, active), sorting and loading i
 > The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).
 
 ## Usage
-The table itself is a wrapper component around native `tr` and `td`. It renders a native `table` element itself and provides the styling for rows and column cell. As a sidenode it should be said, that having separate `ino-table-row` and `ino-table-header-cell` components would be the more consistent way with respect to the other components (for instance select or radio buttons). However, in large tables, rendering thousands of elements would be a massive overhead for mainly styling purposes.
+The table itself is a wrapper component around native `tr` and `td`. It renders a native `table` element itself and provides the styling for rows and column cell. As a side note it should be said, that having separate `ino-table-row` and `ino-table-header-cell` components would be the more consistent way with respect to the other components (for instance select or radio buttons). However, in large tables, rendering thousands of elements would be a massive overhead for mainly styling purposes.
 
-Nontheless, a separate `ino-table-header-cell` element contains all the sorting and searching behaviour you may need to make more your tables more intelligent.
+Nonetheless, a separate `ino-table-header-cell` element contains all the sorting and searching behaviour you may need to make more your tables more intelligent.
 
 
 ### Web Component
@@ -60,14 +60,14 @@ class MyComponent extends Component {
 The table supports the following states:
 
 ### Loading indication
-In order to show the user that data is beeing loaded and to prohibit any user interaction, set `loading="true"` on the `ino-table`.
+In order to show the user that data is being loaded and to prohibit any user interaction, set `loading="true"` on the `ino-table`.
 Additionally, one can display a `<ino-progress-bar>` as follows:
 
 ```html
 <ino-progress-bar slot="loading-indicator" active indeterminate></ino-progress-bar>
 ```
 
-Provide the progress bar as child of the `ino-table` in order render the slot `loading-indicator` at the desired position. Also note the debounce time of 500ms in the example above. While the progress-bar is only shown after a loading time of more than 500ms, the table is immediatelly disabled for any user interaction.
+Provide the progress bar as child of the `ino-table` in order render the slot `loading-indicator` at the desired position. Also note the debounce time of 500ms in the example above. While the progress-bar is only shown after a loading time of more than 500ms, the table is immediately disabled for any user interaction.
 
 > **Note** The table's `loading` and the progress indicator's `active` attribute are **independent**. You are responsible by yourself to keep their values in sync.
 
@@ -112,23 +112,23 @@ document.addEventListener('sortChange', sortChangeHandler);
 ## Rows and Cells
 
 ### Table row
-For table rows use the native `tr` elements. Use the `slot="header-row"` in order to render the row as header within the `table > thead`. The default slot of the `ino-table` is treated as table content containg multiple `tr` elements. For default styling, there is no class needed. However, the following state classes are available:
+For table rows use the native `tr` elements. Use the `slot="header-row"` in order to render the row as header within the `table > thead`. The default slot of the `ino-table` is treated as table content containing multiple `tr` elements. For default styling, there is no class needed. However, the following state classes are available:
 
-| State              | Usage                | Description                                      |
-| ------------------ | -------------------- | ------------------------------------------------ |
-| Selected table row | `<tr class="ino-table__row--selected"></tr>` | Indicates that the user selected a row. |
+| State              | Usage                                        | Description                                                                       |
+|--------------------|----------------------------------------------|-----------------------------------------------------------------------------------|
+| Selected table row | `<tr class="ino-table__row--selected"></tr>` | Indicates that the user selected a row.                                           |
 | Selected table row | `<tr class="ino-table__row--active"></tr>`   | Indicates that the user activates a row (for instance to show detail information) |
 
 Furthermore, the `--ino-table-row-height` css variables allows you to increase or decrease the density of rows. This may be useful to provide the user customization option.
 
 
 ### Table cell
-For table cells `td`, `th` or, if needed, `ino-table-header-cell` elements. All table cells retrieve their styling options from the wrapping `ino-table` element, so you don't need to set any classes by default. However, you may want to use the following classes to provide customazation options:
+For table cells `td`, `th` or, if needed, `ino-table-header-cell` elements. All table cells retrieve their styling options from the wrapping `ino-table` element, so you don't need to set any classes by default. However, you may want to use the following classes to provide customization options:
 
-| Name               | Usage                | Description                                      |
-| ------------------ | -------------------- | ------------------------------------------------ |
+| Name                | Usage                                         | Description                                                                                                 |
+|---------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | Table cell selector | `<td class="ino-table__cell--checkbox"></td>` | Indicates that a table cell contains a checkbox which to select the current row (body) or all rows (header) |
-| Table cell numeric | `<td class="ino-table__cell--numeric"></td>`   | Indicates that the value is numeric (Mainly sets `text-align: right`). |
+| Table cell numeric  | `<td class="ino-table__cell--numeric"></td>`  | Indicates that the value is numeric (Mainly sets `text-align: right`).                                      |
 
 
 <!-- Auto Generated Below -->
@@ -136,13 +136,13 @@ For table cells `td`, `th` or, if needed, `ino-table-header-cell` elements. All 
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                                                                                | Type              | Default     |
-| --------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- |
-| `loading`       | `loading`        | True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horiziontal loading bar. | `boolean`         | `undefined` |
-| `noHover`       | `no-hover`       | If true, disables row hover styling.  Useful for simples tables with few rows or columns.                                                                                  | `boolean`         | `undefined` |
-| `sortColumnId`  | `sort-column-id` | Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.                                             | `string`          | `undefined` |
-| `sortDirection` | `sort-direction` | Direction of the column currently sorted by.                                                                                                                               | `"asc" \| "desc"` | `undefined` |
-| `stickyHeader`  | `sticky-header`  | True, if table header stays visible on vertical scroll                                                                                                                     | `boolean`         | `false`     |
+| Property        | Attribute        | Description                                                                                                                                                               | Type              | Default     |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------- |
+| `loading`       | `loading`        | True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar. | `boolean`         | `undefined` |
+| `noHover`       | `no-hover`       | If true, disables row hover styling.  Useful for simples tables with few rows or columns.                                                                                 | `boolean`         | `undefined` |
+| `sortColumnId`  | `sort-column-id` | Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.                                            | `string`          | `undefined` |
+| `sortDirection` | `sort-direction` | Direction of the column currently sorted by.                                                                                                                              | `"asc" \| "desc"` | `undefined` |
+| `stickyHeader`  | `sticky-header`  | True, if table header stays visible on vertical scroll                                                                                                                    | `boolean`         | `false`     |
 
 
 ## Events

@@ -40,9 +40,8 @@ $padding: 0 10px;
   }
 
   th {
-    text-align: left
+    text-align: left;
   }
-
 
   // Body cell
   tbody th,
@@ -81,7 +80,6 @@ $padding: 0 10px;
     --ino-checkbox-container-color-unchecked: #{theme.color(light)};
     --ino-checkbox-color-active: #{theme.color(secondary)};
     --ino-checkbox-color-hover: #{theme.color(secondary)};
-    --ino-checkbox-color-active: #{theme.color(secondary)};
   }
 }
 

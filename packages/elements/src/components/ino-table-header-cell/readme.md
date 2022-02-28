@@ -26,7 +26,7 @@ The element emits a `sortDirectionChange` event which you can handle to implemen
 let the `ino-table` handle it. Otherwise, you have to implement the logic to reset other columns in the table yourself (which may be useful when you want to sort
 for multiple columns).
 
-For the recommended approach, set the `column-id` such that the `ino-table` knows the identify of this column. For more details, see the documentation of `ino-table`.
+For the recommended approach, set the `column-id` such that the `ino-table` knows the identity of this column. For more details, see the documentation of `ino-table`.
 
 ```html
 <tr slot="header-row">
@@ -44,11 +44,11 @@ For the recommended approach, set the `column-id` such that the `ino-table` know
 
 In order to add a floating column search as popover, add any desired form element as child of this component. The feature itself does not provide a search (or filter) algorithm itself but allows you to render search fields, selection or datepicker within a `ino-popover`. Based on the input, you may want to trigger a search in the backend or filter your elements locally.
 
-The `search-icon` allows you to set an alternative to the default `search`, which may be useful for selections (`list`) or datepickers (`calender`).The slot contains the search input within the popover. In order to indicate to the user that a closed popover search input contains value, i.e has been searched, set the `searched` property on the table-header-cell.
+The `search-icon` allows you to set an alternative to the default `search`, which may be useful for selections (`list`) or datepickers (`calender`).The slot contains the search input within the popover. In order to indicate to the user that a closed popover search input contains value, i.e. has been searched, set the `searched` property on the table-header-cell.
 
-Use the `data-ino-focus` on popover elements to focus them on load. Currently supported are `ino-input`, `ino-textarea` and `ino-datepicker` elements.
+Use the `data-ino-focus` on popover elements to focus them on load. Currently, `ino-input`, `ino-textarea` and `ino-datepicker` are supported.
 
-> Note: During inital rendering, the component checks for child elements and decides its searchability. However, if you need to change the search behaviour after initial rendering (for instance lazy load the input elements), use the `setSortable` method to update the behaviour.
+> Note: During initial rendering, the component checks for child elements and decides its searchability. However, if you need to change the search behaviour after initial rendering (for instance lazy load the input elements), use the `setSortable` method to update the behaviour.
 
 **Example:**
 
