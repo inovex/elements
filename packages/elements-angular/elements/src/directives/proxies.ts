@@ -920,7 +920,7 @@ export declare interface InoRange extends Components.InoRange {
 @ProxyCmp({
   defineCustomElementFn: undefined,
   inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
-  methods: ['setFnToMapValueToAriaText']
+  methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',

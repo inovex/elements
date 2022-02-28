@@ -122,10 +122,15 @@ export class Range implements ComponentInterface {
    * If the value is not user-friendly (e.g. a number to represent the day of the week),
    * use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
    *
+   * e.g.:
+   *
+   * `const rangeEl = document.querySelector("ino-range")`
+   * `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
+   *
    * @param fn A function that maps the numeric value to a user-friendly string.
    */
   @Method()
-  async setFnToMapValueToAriaText(fn: (value: number) => string) {
+  async setValueToAriaTextMapperFn(fn: (value: number) => string) {
     this.sliderInstance.setValueToAriaValueTextFn(fn);
   }
 

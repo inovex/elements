@@ -97,11 +97,16 @@ class MyComponent extends Component {
 
 ## Methods
 
-### `setFnToMapValueToAriaText(fn: (value: number) => string) => Promise<void>`
+### `setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>`
 
 Should be used to make the component accessible.
 If the value is not user-friendly (e.g. a number to represent the day of the week),
 use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
+
+e.g.:
+
+`const rangeEl = document.querySelector("ino-range")`
+`rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
 
 #### Returns
 

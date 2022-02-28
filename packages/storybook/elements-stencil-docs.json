@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-24T15:17:40",
+  "timestamp": "2022-02-28T16:34:54",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6235,14 +6235,14 @@
       ],
       "methods": [
         {
-          "name": "setFnToMapValueToAriaText",
+          "name": "setValueToAriaTextMapperFn",
           "returns": {
             "type": "Promise<void>",
             "docs": ""
           },
-          "signature": "setFnToMapValueToAriaText(fn: (value: number) => string) => Promise<void>",
+          "signature": "setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>",
           "parameters": [],
-          "docs": "Should be used to make the component accessible.\nIf the value is not user-friendly (e.g. a number to represent the day of the week),\nuse this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).",
+          "docs": "Should be used to make the component accessible.\nIf the value is not user-friendly (e.g. a number to represent the day of the week),\nuse this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).\n\ne.g.:\n\n`const rangeEl = document.querySelector(\"ino-range\")`\n`rangeEl.setFnToMapValueToAriaText((value: number) => value + \". day in this week\")`",
           "docsTags": [
             {
               "name": "param",

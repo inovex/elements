@@ -950,10 +950,10 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
+          * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
           * @param fn A function that maps the numeric value to a user-friendly string.
          */
-        "setFnToMapValueToAriaText": (fn: (value: number) => string) => Promise<void>;
+        "setValueToAriaTextMapperFn": (fn: (value: number) => string) => Promise<void>;
         /**
           * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */
