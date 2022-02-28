@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-28T10:39:38",
+  "timestamp": "2022-02-28T20:14:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -1575,11 +1575,36 @@
       "filePath": "./src/components/ino-datepicker/ino-datepicker.tsx",
       "encapsulation": "none",
       "tag": "ino-datepicker",
-      "readme": "# ino-datepicker\n\nA datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new datepicker value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-datepicker\n  autofocus\n  disabled\n  name=\"<string>\"\n  required\n  value=\"<string>\"\n  min=\"<string>\"\n  max=\"<string>\"\n  minute-step=\"<number>\"\n  hour-step=\"<number>\"\n  range\n  outline\n  label=\"<string>\"\n  pattern=\"<string>\"\n  date-format=\"<string>\"\n  default-date=\"<string>\"\n  default-hour=\"<number>\"\n  default-minute=\"<number>\"\n  twelve-hour-time\n  helper=\"<string>\"\n  helper-persistent\n  helper-validation\n>\n</ino-datepicker>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  valueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoDatepicker\n        inoLabel=\"Select a date\"\n        inoHelper=\"Choose a date\"\n        onValueChange={valueChange}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (\n  props,\n) => {\n  const { inoLabel, inoHelper } = props;\n\n  const valueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n    <InoDatepicker\n      inoLabel={inoLabel}\n      inoHelper={inoHelper}\n      onValueChange={valueChange}\n    />\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Datepicker inoLabel=\"Select a date\" inoHelper=\"Choose a date\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Types\n\nThis datepicker can be used as a picker for ...\n\n- date\n- time\n- datetime\n- month\n\nThe type of the picker is selected based on the  type` property. See the examples below.\n\n#### Datepicker\n\n```html\n<ino-datepicker type=\"date\" label=\"Date\"></ino-datepicker>\n```\n\n#### Timepicker\n\n```html\n<ino-datepicker type=\"time\" label=\"Time\"></ino-datepicker>\n```\n\n#### Date-Time-Picker\n\n```html\n<ino-datepicker type=\"datetime\" label=\"Datetime\"> </ino-datepicker>\n```\n\n#### Monthpicker\n\n```html\n<ino-datepicker type=\"month\" label=\"Month\"></ino-datepicker>\n```\n\n## Demo\n",
+      "readme": "# ino-datepicker\n\nA datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new datepicker value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-datepicker\n  autofocus\n  disabled\n  name=\"<string>\"\n  required\n  value=\"<string>\"\n  min=\"<string>\"\n  max=\"<string>\"\n  minute-step=\"<number>\"\n  hour-step=\"<number>\"\n  inline=\"<boolean>\"\n  range\n  outline\n  placeholder=\"<string>\"\n  label=\"<string>\"\n  pattern=\"<string>\"\n  date-format=\"<string>\"\n  default-date=\"<string>\"\n  default-hour=\"<number>\"\n  default-minute=\"<number>\"\n  twelve-hour-time\n  helper=\"<string>\"\n  helper-persistent\n  helper-validation\n>\n</ino-datepicker>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  valueChange(e: any) {\n    alert(`The new value is ${e.detail}`);\n  }\n\n  render() {\n    return (\n      <InoDatepicker\n        inoLabel=\"Select a date\"\n        inoHelper=\"Choose a date\"\n        onValueChange={valueChange}\n      />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoDatepicker } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Datepicker: React.FunctionComponent<Components.InoDatepickerAttributes> = (\n  props,\n) => {\n  const { inoLabel, inoHelper } = props;\n\n  const valueChange = (e: any) => {\n    alert(`The new value is ${e.detail}`);\n  };\n\n  return (\n    <InoDatepicker\n      inoLabel={inoLabel}\n      inoHelper={inoHelper}\n      onValueChange={valueChange}\n    />\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Datepicker inoLabel=\"Select a date\" inoHelper=\"Choose a date\" />;\n  }\n}\n```\n\n## Additional Hints\n\n### Types\n\nThis datepicker can be used as a picker for ...\n\n- date\n- time\n- datetime\n- month\n\nThe type of the picker is selected based on the  type` property. See the examples below.\n\n#### Datepicker\n\n```html\n<ino-datepicker type=\"date\" label=\"Date\"></ino-datepicker>\n```\n\n#### Timepicker\n\n```html\n<ino-datepicker type=\"time\" label=\"Time\"></ino-datepicker>\n```\n\n#### Date-Time-Picker\n\n```html\n<ino-datepicker type=\"datetime\" label=\"Datetime\"> </ino-datepicker>\n```\n\n#### Monthpicker\n\n```html\n<ino-datepicker type=\"month\" label=\"Month\"></ino-datepicker>\n```\n\n## Demo\n",
       "docs": "A datepicker is a ui component to select dates and times. It behaves like a native `input` but uses the [flatpickr](https://github.com/flatpickr/flatpickr) library for a better ui experience.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-leading - Leading `ino-icon` of the underyling ino-input"
+        },
+        {
+          "name": "slot",
+          "text": "icon-trailing - Trailing `ino-icon` of the underyling ino-input (only for inline pickers)"
+        }
+      ],
       "usage": {},
       "props": [
+        {
+          "name": "appendTo",
+          "type": "string",
+          "mutable": false,
+          "attr": "append-to",
+          "reflectToAttr": true,
+          "docs": "Optional id of an element to append the datepicker to.\nDefault is:\n * the host element for inline pickers\n * body for collapsable pickers",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
         {
           "name": "attachToBody",
           "type": "boolean",
@@ -1781,6 +1806,22 @@
           "required": false
         },
         {
+          "name": "inline",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "inline",
+          "reflectToAttr": false,
+          "docs": "Displays the datepicker inlined.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
           "name": "label",
           "type": "string",
           "mutable": false,
@@ -1872,6 +1913,22 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "mutable": false,
+          "attr": "placeholder",
+          "reflectToAttr": false,
+          "docs": "The placeholder of the input element.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -2040,10 +2097,24 @@
           "event": "click",
           "capture": false,
           "passive": false
+        },
+        {
+          "event": "clickEl",
+          "capture": false,
+          "passive": false
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon-leading",
+          "docs": "Leading `ino-icon` of the underyling ino-input"
+        },
+        {
+          "name": "icon-trailing",
+          "docs": "Trailing `ino-icon` of the underyling ino-input (only for inline pickers)"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [

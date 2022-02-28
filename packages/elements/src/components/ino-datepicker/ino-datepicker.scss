@@ -3,6 +3,10 @@
 @import '~flatpickr/dist/flatpickr';
 @import '~flatpickr/dist/plugins/monthSelect/style';
 
+$light-blue: #d0d0e6; // rgba(theme.color(primary), 0.1);
+$padding-vertical: 12px;
+$padding-horizontal: 24px;
+
 ino-datepicker {
   display: block;
 
@@ -11,8 +15,6 @@ ino-datepicker {
   .mdc-text-field {
     width: 100%;
   }
-
-  @include typography.font(sans-serif, m, regular);
 
   .mdc-text-field--with-leading-icon .mdc-text-field__icon,
   .mdc-text-field--with-trailing-icon .mdc-text-field__icon {
@@ -25,7 +27,7 @@ ino-datepicker {
 $hover-color: lighten(theme.color(primary), 36.5%);
 
 .flatpickr-calendar {
-  @include typography.font($size: xs);
+  @include typography.font(sans-serif, s, regular);
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0 6px 6px 6px;
   margin-top: 4px;
@@ -47,104 +49,160 @@ $hover-color: lighten(theme.color(primary), 36.5%);
     @include typography.font($size: s);
   }
 
-  .flatpickr-innerContainer {
-    margin: 0 20px 15px 20px;
+  &.inline {
+    padding: 0;
+    box-shadow: none;
+  }
+}
 
-    .flatpickr-day {
-      border-width: 0;
+// Header Container
 
-      &:hover:not(focus) {
-        background-color: $hover-color;
-      }
+.flatpickr-calendar .flatpickr-current-month {
+  padding-top: 8px;
+  font-size: typography.pxToRem(13px);
+}
 
-      &.today:not(.selected) {
-        color: theme.color(primary);
-        font-weight: typography.font-weight(semibold);
-      }
+.flatpickr-calendar .flatpickr-months {
+  padding: 0 20px 0 6px;
+  margin-bottom: 10px;
+  border-radius: 24px;
+  // background-color: theme.$light-blue;
+  align-items: center;
 
-      &.selected {
-        background: theme.color(primary);
-        box-shadow: 0 8px 16px 0 rgba(61, 64, 245, 0.3),
-          0 16px 32px 0 rgba(61, 214, 245, 0.14);
+  .flatpickr-month {
+    height: 38px;
 
-        &:hover {
-          background: theme.color(primary);
-        }
-      }
-
-      &.endRange,
-      &.endRange:hover {
-        background-color: theme.color(primary);
-      }
+    .cur-month,
+    .numInput,
+    .flatpickr-monthDropdown-months {
+      font-weight: typography.font-weight(semibold);
+      margin-right: 4px;
+      min-width: 100px;
+      letter-spacing: typography.pxToRem(0.4px);
     }
   }
 
-  .flatpickr-monthSelect-months {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0;
-    margin-bottom: 10px;
+  // Keep layout working when arrow hidden
+  .flatpickr-disabled {
+    display: block;
+    visibility: hidden;
+  }
 
-    .flatpickr-monthSelect-month {
-      width: 30%;
-      margin: 3px;
-      border-radius: 20px;
+  .ino-datepicker__icon {
+    pointer-events: none; // Required otherwise the flatpickr closes immediately.
+    display: block;
 
-      &.selected {
-        background-color: theme.color(primary);
-        color: white;
-        box-shadow: 0 4px 12px 0 rgba(61, 64, 245, 0.3),
-          0 8px 24px 0 rgba(61, 214, 245, 0.14);
-      }
+    --ino-icon-height: 12px;
+    --ino-icon-width: 12px;
+    --ino-icon-color: #{theme.color(primary)};
+  }
+}
 
-      &:hover:not(.selected) {
-        background-color: $hover-color;
-      }
+.flatpickr-calendar:not(.inline) {
+  .flatpickr-prev-month {
+    padding: (10px + $padding-vertical) 12px 10px (12px + $padding-horizontal) !important;
+  }
+  .flatpickr-next-month {
+    padding: (10px + $padding-vertical) (12px + $padding-horizontal) 12px 10px !important;
+  }
+}
+
+// Days Container
+
+// Header Row
+.flatpickr-calendar .flatpickr-innerContainer {
+  padding: 0 20px 15px 20px;
+
+  .flatpickr-weekday {
+    font-weight: typography.font-weight(medium);
+    color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+// Content
+.flatpickr-calendar .flatpickr-day {
+  margin: 4px;
+  $size: 32px;
+  $notSelected: ':not(.selected):not(.startRange):not(.endRange)';
+
+  font-weight: typography.font-weight(medium);
+  max-width: $size;
+  height: $size;
+  line-height: $size - 2px;
+
+  // Text color
+  &:not(.flatpickr-disabled)#{$notSelected} {
+    color: theme.color(dark);
+  }
+  &.nextMonthDay:not(.flatpickr-disabled)#{$notSelected},
+  &.prevMonthDay:not(.flatpickr-disabled)#{$notSelected} {
+    color: theme.color(dark);
+  }
+
+  &:hover:not(.flatpickr-disabled)#{$notSelected},
+  &:focus:not(.flatpickr-disabled)#{$notSelected} {
+    color: theme.color(primary);
+    background-color: $light-blue;
+    border-color: $light-blue;
+  }
+
+  // Today
+  &.today:not(.flatpickr-disabled)#{$notSelected} {
+    color: theme.color(primary);
+    // Only add border if its not in a range
+    // (provides problems with the background color logic of flatpickr)
+    &:not(.inRange) {
+      border: 1px solid theme.color(primary);
     }
   }
 
-  .flatpickr-months {
-    margin: 15px 20px 0 20px;
+  // Selected, Range-Start and Range-End are styled the same.
+  &.selected,
+  &.endRange,
+  &.endRange:hover,
+  &.startRange,
+  &.startRange:hover {
+    background-color: theme.color(primary);
+    border-color: theme.color(primary);
+    color: white;
+    font-weight: typography.font-weight(semibold);
+    line-height: $size;
+  }
 
-    .flatpickr-month {
-      .cur-month,
-      .numInput {
-        font-weight: typography.font-weight(regular);
-      }
+  // Background within a range
+  &.inRange:not(.selected) {
+    border-color: $light-blue;
+    background-color: $light-blue;
+    box-shadow: -12px 0 0 $light-blue, 12px 0 0 $light-blue;
+  }
+  &.selected.startRange + .endRange:not(:nth-child(7n + 1)),
+  &.startRange.startRange + .endRange:not(:nth-child(7n + 1)) {
+    box-shadow: -12px 0 0 $light-blue;
+  }
+}
+
+// Month picker
+
+.flatpickr-calendar .flatpickr-monthSelect-months {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  margin-bottom: 10px;
+
+  .flatpickr-monthSelect-month {
+    font-weight: typography.font-weight(medium);
+    width: 30%;
+    margin: 3px;
+    border-radius: 20px;
+
+    &.selected {
+      background-color: theme.color(primary);
+      font-weight: typography.font-weight(semibold);
+      color: white;
     }
 
-    // Keep layout working when arrow hidden
-    .flatpickr-disabled {
-      display: block;
-      visibility: hidden;
-    }
-
-    .flatpickr-prev-month {
-      margin-left: 10px;
-    }
-
-    .flatpickr-next-month {
-      margin-right: 10px;
-    }
-
-    .flatpickr-prev-month,
-    .flatpickr-next-month {
-      position: relative;
-
-      svg {
-        fill: theme.color(primary);
-        height: 11px;
-        width: 11px;
-
-        path {
-          stroke: theme.color(primary);
-          stroke-width: 1px;
-        }
-      }
-
-      &:hover > svg {
-        fill: theme.color(primary);
-      }
+    &:hover:not(.selected) {
+      background-color: $light-blue;
     }
   }
 }

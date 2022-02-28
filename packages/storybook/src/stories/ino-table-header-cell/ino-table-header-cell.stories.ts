@@ -99,6 +99,36 @@ export const SearchWithInputField = () => {
   `;
 };
 
+export const SearchWithDatepicker = () => {
+  return html`
+    <ino-table>
+      <tr slot="header-row">
+        <ino-table-header-cell label="Column Selection Search" search-icon="calendar" class="datepicker-cell">
+          <div lang="de" class="datepicker-group">
+            <aside>
+              <ul>
+                <li class="today">Heute</li>
+                <li class="lastWeek">Letzte Woche</li>
+                <li class="thisWeek">Diese Woche</li>
+              </ul>
+            </aside>
+            <main id="main">
+              <ino-datepicker type="date" label="An" inline date-format="d.m.Y" placeholder="tt.mm.jjjj" append-to="main" data-ino-focus></ino-datepicker>
+              <ino-radio-group value="at">
+                <ino-radio value="at">Am</ino-radio>
+                <ino-radio value="after">Ab</ino-radio>
+                <ino-radio value="before">Bis</ino-radio>
+                <ino-radio value="range">Zeitraum</ino-radio>
+              </ino-radio-group>
+            </main>
+          </div>
+        </ino-table-header-cell>
+      </tr>
+    </ino-table>
+  `;
+};
+
+
 export const SearchWithSelection = () => {
   useEffect(() => {
     const checkboxes = document.querySelectorAll('ino-checkbox');

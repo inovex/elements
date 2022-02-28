@@ -39,6 +39,7 @@ export const Playground: Story<Components.InoDatepicker> = (args) => html`
     disabled="${args.disabled}"
     date-format="${args.dateFormat}"
     helper="${args.helper}"
+    inline="${args.inline}"
     helper-persistent="${args.helperPersistent}"
     helper-validation="${args.helperValidation}"
     label="${args.label}"
@@ -62,6 +63,7 @@ Playground.args = {
   helper: 'Helper text to describe the input',
   helperPersistent: false,
   helperValidation: false,
+  inline: true,
   label: 'Label',
   min: minDate,
   max: maxDate,
@@ -160,6 +162,85 @@ export const Locale = () => html`
   ></ino-datepicker>
 `;
 
+
+export const MultipleTypes = () => {
+  useEffect(() => {
+    const group = document.querySelector('ino-radio-group') as any;
+    const datepicker = document.querySelector('.datepicker-group ino-datepicker') as any;
+
+    // Shortcuts
+    document.querySelector('.today').addEventListener('click', () => {
+      datepicker.value = '02.03.2020';
+      datepicker.label = 'Am'
+      group.value = 'at'
+      datepicker.range = false;
+    })
+    document.querySelector('.thisWeek').addEventListener('click', () => {
+      group.value = 'range'
+      datepicker.label = 'Zeitraum';
+      datepicker.range = true;
+      datepicker.value = '02.03.2020 bis 08.03.2020';
+    })
+    document.querySelector('.lastWeek').addEventListener('click', () => {
+      group.value = 'range'
+      datepicker.label = 'Zeitraum';
+      datepicker.range = true;
+      datepicker.value = '24.02.2020 bis 01.03.2020';
+    })
+
+    // Radio Button handler
+    group.addEventListener('checkedChange', (e: any) => {
+      switch (e.target.value) {
+        case 'at':
+          datepicker.label = 'Am';
+          datepicker.range = false;
+          break;
+        case 'after':
+          datepicker.label = 'Ab';
+          datepicker.range = false;
+          if (group.value == 'range') {
+            datepicker.value = datepicker.value.split(" - ").shift();
+          }
+          break;
+        case 'before':
+          datepicker.label = 'Bis';
+          datepicker.range = false;
+          if (group.value == 'range') {
+            datepicker.value = datepicker.value.split(" - ").pop();
+          }
+          break;
+        case 'range':
+          datepicker.range = true;
+          datepicker.label = 'Zeitraum';
+          break;
+      }
+      group.value = e.target.value;
+    });
+  });
+
+  return html`
+    <div lang="de" class="datepicker-group">
+      <aside>
+        <ul>
+          <li class="today">Heute</li>
+          <li class="lastWeek">Letzte Woche</li>
+          <li class="thisWeek">Diese Woche</li>
+        </ul>
+      </aside>
+      <main id="main">
+        <ino-datepicker type="date" label="An" inline date-format="d.m.Y" placeholder="tt.mm.jjjj" append-to="main">
+        </ino-datepicker>
+        <ino-radio-group value="at">
+          <ino-radio value="at">Am</ino-radio>
+          <ino-radio value="after">Ab</ino-radio>
+          <ino-radio value="before">Bis</ino-radio>
+          <ino-radio value="range">Zeitraum</ino-radio>
+        </ino-radio-group>
+      </main>
+    </div>
+  `;
+};
+
 export const Form = () => html`
   <h4>Required</h4>
   <p>The form should not submit as long as the date field is empty.</p>
@@ -168,3 +249,5 @@ export const Form = () => html`
     <button type="submit">Submit</button>
   </form>
 `;
+
+

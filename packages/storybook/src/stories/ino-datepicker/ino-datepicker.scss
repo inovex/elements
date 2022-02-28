@@ -1,9 +1,56 @@
 .story-datepicker {
   .customizable-picker {
     margin-bottom: 48px;
+    width: 340px;
   }
 
   h4 {
     margin-top: 32px;
   }
+}
+
+.datepicker-group {
+  display: flex;
+  width: 630px;
+  height: 550px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 25px 50px -12px rgba(#1e2125, 0.25);
+
+  aside {
+    width: 230px;
+    background: #eff5fc;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  main {
+    padding: 24px;
+  }
+
+  li {
+    list-style: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  ul {
+    padding: 0;
+  }
+
+  ino-radio-group {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 12px 24px 0;
+  }
+
+  ino-input {
+    margin-bottom: 24px;
+  }
+}
+
+.fancy-datepicker {
+  width: 350px;
 }

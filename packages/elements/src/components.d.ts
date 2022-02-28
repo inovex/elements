@@ -241,6 +241,10 @@ export namespace Components {
     }
     interface InoDatepicker {
         /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody": boolean;
@@ -289,6 +293,10 @@ export namespace Components {
          */
         "hourStep": number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -312,6 +320,10 @@ export namespace Components {
           * Styles the datepicker as outlined element.
          */
         "outline"?: boolean;
+        /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
         /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
@@ -1929,6 +1941,10 @@ declare namespace LocalJSX {
     }
     interface InoDatepicker {
         /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody"?: boolean;
@@ -1977,6 +1993,10 @@ declare namespace LocalJSX {
          */
         "hourStep"?: number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -2004,6 +2024,10 @@ declare namespace LocalJSX {
           * Styles the datepicker as outlined element.
          */
         "outline"?: boolean;
+        /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
         /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */

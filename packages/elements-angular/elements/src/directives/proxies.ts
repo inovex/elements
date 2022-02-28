@@ -283,14 +283,14 @@ The value can be found in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
+  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value'],
   methods: ['redraw', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value']
+  inputs: ['appendTo', 'attachToBody', 'autoFocus', 'dateFormat', 'defaultDate', 'defaultHour', 'defaultMinute', 'disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'hourStep', 'inline', 'label', 'max', 'min', 'minuteStep', 'name', 'outline', 'placeholder', 'range', 'required', 'showLabelHint', 'twelveHourTime', 'type', 'value']
 })
 export class InoDatepicker {
   protected el: HTMLElement;
