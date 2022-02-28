@@ -149,7 +149,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import url("//fonts.googleapis.com/css?family=Material+Icons");
 
 h1,
 h2,
