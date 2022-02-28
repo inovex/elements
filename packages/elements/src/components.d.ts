@@ -629,6 +629,10 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
+          * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+         */
+        "resetOnChange": boolean;
+        /**
           * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
@@ -2275,6 +2279,10 @@ declare namespace LocalJSX {
           * Marks this element as required.
          */
         "required"?: boolean;
+        /**
+          * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+         */
+        "resetOnChange"?: boolean;
         /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */

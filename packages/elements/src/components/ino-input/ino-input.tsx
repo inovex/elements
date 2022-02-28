@@ -63,6 +63,7 @@ export class Input implements ComponentInterface {
    * Simple static construct to generate unique helper text ids.
    */
   private static HELPER_COUNTER = 0;
+
   static generateHelperTextId() {
     return `input-helper-text__${Input.HELPER_COUNTER++}`;
   }
@@ -352,19 +353,36 @@ export class Input implements ComponentInterface {
     this.userInputInterceptorFn = fn;
   }
 
+  /**
+   * If set, resets the value after the user typed in the native input element (default).
+   * Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`)
+   * and in turn making it uncontrolled.
+   *
+   * @internal
+   */
+  @Prop() resetOnChange: boolean = true;
+
   // ----
   // Native input event handler
   // ----
 
   private handleNativeInputChange = (e) => {
     let value = e.target.value;
+
     if (this.userInputInterceptorFn) {
       value = this.userInputInterceptorFn(value);
+      this.textfieldValue = value || '';
     }
-    this.textfieldValue = value || '';
+
     if (value != this.value) {
       this.cursorPosition = e.target.selectionStart;
       this.valueChange.emit(value);
+
+      // reset value to control the input
+      // without it, the input event would be handled by mdc and set the value to the native input el
+      if (this.resetOnChange) {
+        this.textfieldValue = this.value;
+      }
     }
   };
 
