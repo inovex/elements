@@ -16,7 +16,7 @@ export declare interface InoAutocomplete extends Components.InoAutocomplete {
 2. Pressing `Enter` while an option is selected
 3. Entering a valid value and blurring the input element
 
-Contains one of the texts provided by the `<ino-options>`s.
+Contains one of the texts provided by the `<ino-options>`s. 
    */
   valueChange: EventEmitter<CustomEvent<string | null>>;
 
@@ -128,7 +128,7 @@ export class InoCarouselSlide {
 
 export declare interface InoCheckbox extends Components.InoCheckbox {
   /**
-   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 
@@ -159,7 +159,7 @@ export declare interface InoChip extends Components.InoChip {
    * Event that emits as soon as the user removes this chip.
 
 Listen to this event to hide or destroy this chip.
-The event only emits if the property `removable` is true.
+The event only emits if the property `removable` is true. 
    */
   removeChip: EventEmitter<CustomEvent<any>>;
 
@@ -189,7 +189,7 @@ export declare interface InoChipSet extends Components.InoChipSet {
   /**
    * Event that emits when the value of this element changes.
 
-Only applicable if `inoType` is `choice` or `filter`.
+Only applicable if `inoType` is `choice` or `filter`. 
    */
   updateChipSet: EventEmitter<CustomEvent<any>>;
 
@@ -217,7 +217,7 @@ export class InoChipSet {
 
 export declare interface InoControlItem extends Components.InoControlItem {
   /**
-   * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
+   * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 
@@ -246,7 +246,7 @@ export class InoControlItem {
 export declare interface InoCurrencyInput extends Components.InoCurrencyInput {
   /**
    * Emits when the user types something in.
-Contains typed input in `event.detail`
+Contains typed input in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<number>>;
 
@@ -275,7 +275,7 @@ export class InoCurrencyInput {
 export declare interface InoDatepicker extends Components.InoDatepicker {
   /**
    * Emits when the value of the datepicker changes.
-The value can be found in `event.detail`
+The value can be found in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
 
@@ -304,7 +304,7 @@ export class InoDatepicker {
 import type { DialogCloseAction as IDialogDialogCloseAction } from '@inovex.de/elements';
 export declare interface InoDialog extends Components.InoDialog {
   /**
-   * Emits an event upon closing the dialog
+   * Emits an event upon closing the dialog 
    */
   close: EventEmitter<CustomEvent<IDialogDialogCloseAction>>;
 
@@ -417,7 +417,7 @@ export class InoHeader {
 export declare interface InoIcon extends Components.InoIcon {
   /**
    * Event that emits as soon as the user clicks on the icon.
-The event only emits if the property `inoClickable` is true.
+The event only emits if the property `inoClickable` is true. 
    */
   clickEl: EventEmitter<CustomEvent<any>>;
 
@@ -446,7 +446,7 @@ export class InoIcon {
 export declare interface InoIconButton extends Components.InoIconButton {
   /**
    * Event that emits as soon as the user clicks on the icon.
-The event only emits if the property `clickable` is true.
+The event only emits if the property `clickable` is true. 
    */
   clickEl: EventEmitter<CustomEvent<any>>;
 
@@ -516,16 +516,16 @@ export class InoImgList {
 
 export declare interface InoInput extends Components.InoInput {
   /**
-   * Emits when the input field is blurred and validates email input
+   * Emits when the input field is blurred and validates email input 
    */
   inoBlur: EventEmitter<CustomEvent<void>>;
   /**
-   * Emits when the input field is focused
+   * Emits when the input field is focused 
    */
   inoFocus: EventEmitter<CustomEvent<void>>;
   /**
    * Emits when the user types something in.
-Contains typed input in `event.detail`
+Contains typed input in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
 
@@ -554,7 +554,7 @@ export class InoInput {
 
 export declare interface InoInputFile extends Components.InoInputFile {
   /**
-   * Emits when the value changes.
+   * Emits when the value changes. 
    */
   changeFile: EventEmitter<CustomEvent<{ e: any; files: File[]; }>>;
 
@@ -647,7 +647,7 @@ export declare interface InoListItem extends Components.InoListItem {
   /**
    * Emits when the list item is clicked or
 the enter/space key if pressed while the item is in focus.
-Contains the element itself in `event.detail`
+Contains the element itself in `event.detail` 
    */
   clickEl: EventEmitter<CustomEvent<any>>;
 
@@ -676,16 +676,16 @@ import type { ViewModeUnion as IMarkdownEditorViewModeUnion } from '@inovex.de/e
 export declare interface InoMarkdownEditor extends Components.InoMarkdownEditor {
   /**
    * Emits when one of the view mode buttons was clicked.
-The value of type `ViewMode` can be found in `event.detail`
+The value of type `ViewMode` can be found in `event.detail` 
    */
   viewModeChange: EventEmitter<CustomEvent<IMarkdownEditorViewModeUnion>>;
   /**
    * Emits when the value of the markdown editor **blurs**.
-The value of type `string` can be found in `event.detail`
+The value of type `string` can be found in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
   /**
-   * Emits when the ino-markdown-editor is blurred
+   * Emits when the ino-markdown-editor is blurred 
    */
   inoBlur: EventEmitter<CustomEvent<void>>;
 
@@ -734,7 +734,7 @@ export class InoMenu {
 
 export declare interface InoNavDrawer extends Components.InoNavDrawer {
   /**
-   * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
+   * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`. 
    */
   openChange: EventEmitter<CustomEvent<boolean>>;
 
@@ -783,7 +783,7 @@ export class InoNavItem {
 
 export declare interface InoOption extends Components.InoOption {
   /**
-   *
+   *  
    */
   clickEl: EventEmitter<CustomEvent<HTMLInoOptionElement>>;
 
@@ -838,7 +838,7 @@ Use this event in controlled-mode (see `controlled`).
 
 e.g.: `trigger = 'click'` - This events emits with `true`
 when the user clicks on the target (slot/`for`/parent-element)
-and emits with `false` when the target or the outside is clicked.
+and emits with `false` when the target or the outside is clicked. 
    */
   visibleChanged: EventEmitter<CustomEvent<boolean>>;
 
@@ -889,7 +889,7 @@ export class InoProgressBar {
 export declare interface InoRadio extends Components.InoRadio {
   /**
    * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`.
-This event will only be emitted if the current state of the radio button is false.
+This event will only be emitted if the current state of the radio button is false. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 
@@ -938,7 +938,7 @@ export class InoRadioGroup {
 
 export declare interface InoRange extends Components.InoRange {
   /**
-   * Emits when the value changes. Contains new value in `event.detail`.
+   * Emits when the value changes. Contains new value in `event.detail`. 
    */
   valueChange: EventEmitter<CustomEvent<any>>;
 
@@ -967,7 +967,7 @@ export class InoRange {
 export declare interface InoSegmentButton extends Components.InoSegmentButton {
   /**
    * Emits if the user interacts with the button.
-If the button is disabled or checked, the event will not be emitted.
+If the button is disabled or checked, the event will not be emitted. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 
@@ -1016,7 +1016,7 @@ export class InoSegmentGroup {
 
 export declare interface InoSelect extends Components.InoSelect {
   /**
-   * Emits when a selection changes. Contains new value in `event.detail`.
+   * Emits when a selection changes. Contains new value in `event.detail`. 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
 
@@ -1044,7 +1044,7 @@ export class InoSelect {
 
 export declare interface InoSidebar extends Components.InoSidebar {
   /**
-   * Emits an event if the user expands or collapses the sidebar
+   * Emits an event if the user expands or collapses the sidebar 
    */
   openChange: EventEmitter<CustomEvent<any>>;
 
@@ -1072,12 +1072,12 @@ export class InoSidebar {
 
 export declare interface InoSnackbar extends Components.InoSnackbar {
   /**
-   * Event that emits as soon as the action button is clicked.
+   * Event that emits as soon as the action button is clicked. 
    */
   actionClick: EventEmitter<CustomEvent<any>>;
   /**
    * Event that emits as soon as the snackbar hides.
-Listen to this event to hide or destroy this element.
+Listen to this event to hide or destroy this element. 
    */
   hideEl: EventEmitter<CustomEvent<any>>;
 
@@ -1126,7 +1126,7 @@ export class InoSpinner {
 
 export declare interface InoSwitch extends Components.InoSwitch {
   /**
-   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 
@@ -1155,7 +1155,7 @@ export class InoSwitch {
 export declare interface InoTab extends Components.InoTab {
   /**
    * Emitted when the user interacts with the tab.
-This event is used by the ino-tab-bar.
+This event is used by the ino-tab-bar. 
    */
   interacted: EventEmitter<CustomEvent<any>>;
 
@@ -1184,7 +1184,7 @@ export class InoTab {
 export declare interface InoTabBar extends Components.InoTabBar {
   /**
    * Emits when a tab changes.
-Contains the index of the activated tab in `event.detail`
+Contains the index of the activated tab in `event.detail` 
    */
   activeTabChange: EventEmitter<CustomEvent<any>>;
 
@@ -1212,7 +1212,7 @@ export class InoTabBar {
 import type { SortDirectionChangeDetails as IInoTableSortDirectionChangeDetails } from '@inovex.de/elements';
 export declare interface InoTable extends Components.InoTable {
   /**
-   * Emits that the sort direction or column id has changed.
+   * Emits that the sort direction or column id has changed. 
    */
   sortChange: EventEmitter<CustomEvent<IInoTableSortDirectionChangeDetails>>;
 
@@ -1240,11 +1240,11 @@ export class InoTable {
 import type { SortDirectionChangeDetails as IInoTableHeaderCellSortDirectionChangeDetails } from '@inovex.de/elements';
 export declare interface InoTableHeaderCell extends Components.InoTableHeaderCell {
   /**
-   * Emits that the sort direction has been changed.
+   * Emits that the sort direction has been changed. 
    */
   sortDirectionChange: EventEmitter<CustomEvent<IInoTableHeaderCellSortDirectionChangeDetails>>;
   /**
-   * Emits that the search field focused (true) or blurred (false).
+   * Emits that the search field focused (true) or blurred (false). 
    */
   searchFocusChange: EventEmitter<CustomEvent<boolean>>;
 
@@ -1273,11 +1273,11 @@ export class InoTableHeaderCell {
 
 export declare interface InoTextarea extends Components.InoTextarea {
   /**
-   * Emits when the textarea is blurred and validates email input
+   * Emits when the textarea is blurred and validates email input 
    */
   inoBlur: EventEmitter<CustomEvent<void>>;
   /**
-   * Emits when the user types something in. Contains typed input in `event.detail`
+   * Emits when the user types something in. Contains typed input in `event.detail` 
    */
   valueChange: EventEmitter<CustomEvent<string>>;
 

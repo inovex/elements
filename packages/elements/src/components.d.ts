@@ -1154,7 +1154,7 @@ export namespace Components {
     }
     interface InoTable {
         /**
-          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horiziontal loading bar.
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
          */
         "loading"?: boolean;
         /**
@@ -2910,7 +2910,7 @@ declare namespace LocalJSX {
     }
     interface InoTable {
         /**
-          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horiziontal loading bar.
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
          */
         "loading"?: boolean;
         /**

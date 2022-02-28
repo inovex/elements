@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-02-21T14:53:58",
+  "timestamp": "2022-02-28T10:39:38",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -1991,6 +1991,17 @@
       ],
       "methods": [
         {
+          "name": "redraw",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "redraw() => Promise<void>",
+          "parameters": [],
+          "docs": "Redraws the datepicker.",
+          "docsTags": []
+        },
+        {
           "name": "setBlur",
           "returns": {
             "type": "Promise<void>",
@@ -2870,7 +2881,8 @@
         "ino-input-file",
         "ino-markdown-editor",
         "ino-snackbar",
-        "ino-tab"
+        "ino-tab",
+        "ino-table-header-cell"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -2908,6 +2920,9 @@
           "ino-icon"
         ],
         "ino-tab": [
+          "ino-icon"
+        ],
+        "ino-table-header-cell": [
           "ino-icon"
         ]
       }
@@ -3126,7 +3141,8 @@
       "dependents": [
         "ino-carousel",
         "ino-nav-drawer",
-        "ino-snackbar"
+        "ino-snackbar",
+        "ino-table-header-cell"
       ],
       "dependencies": [
         "ino-icon"
@@ -3142,6 +3158,9 @@
           "ino-icon-button"
         ],
         "ino-snackbar": [
+          "ino-icon-button"
+        ],
+        "ino-table-header-cell": [
           "ino-icon-button"
         ]
       }
@@ -5501,7 +5520,7 @@
       "filePath": "./src/components/ino-popover/ino-popover.tsx",
       "encapsulation": "none",
       "tag": "ino-popover",
-      "readme": "# ino-popover\n\nA Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-popover\n  color-scheme=\"<string>\"\n  controlled=\"<boolean>\"\n  distance=\"<number>\"\n  for=\"<string>\"\n  interactive=\"<boolean>\"\n  placement=\"<string>\" \n  trigger=\"<string>\"\n  visible=\"<boolean>\"\n>\n  Any desired HTML\n</ino-popover>\n```\n\n#### Targets\nThere are currently three ways to attach your popover to a component, which results in a slightly different structure:\n\n1. Using the `popover-trigger` slot _(preferred)_:\n\n```html\n<ino-popover trigger=\"click\">\n    <ino-button slot=\"popover-trigger\">Click to show/hide</ino-button>\n    <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-popover>\n├── <ino-button>\n└── <custom-html-content>\n```\n\n2. Using the `for` property:\n\n```html\n<ino-button id=\"my-target\" slot=\"popover-trigger\">Click to show/hide</ino-button>\n<ino-popover for=\"my-target\" trigger=\"click\">\n  <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-button>\n<ino-popover>\n└── <custom-html-content>\n```\n\n3. Using the parent element:\n\n```html\n<ino-button>\n    Click to show/hide\n    <ino-popover trigger=\"click\">\n      <custom-html-content></custom-html-content>\n    </ino-popover>\n</ino-button>\n```\n\n```html\n<ino-button>\n└── <ino-popover>\n    └── <custom-html-content>\n```\n\n\n#### Controlled vs. Uncontrolled\n\nThere are currently two ways you can manage the state of the popover.\n\n_Uncontrolled_\n\nEither you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover). \nThis is the easiest way as you don't have to worry about managing this state yourself.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <div>\n        <InoPopover trigger=\"mouseenter\">\n          <InoButton slot=\"popover-trigger\">Open Popover</InoButton>\n          This popover will show as soon as the user hovers the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n_Controlled_\n\nOr you use the `controlled` and `visible` property to show/hide the popover by yourself. \nThis is helpful if you want to implement custom logic when the popover should be shown or hidden.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n\n  state = {\n    showPopover: false\n  };\n\n  setPopoverState = (show: boolean) => {\n    if (this.props.someProp) return; // Some condition\n    \n    this.setState({ showPopover: show });\n  }\n\n  render() {\n    return (\n      <div>\n        <InoPopover \n          inoControlled \n          inoVisible={this.state.showPopover}\n          onInoVisibleChanged={(e) => setPopoverState(e.detail)}\n        >\n          <InoButton slot=\"popover-trigger\">\n            Open Popover\n          </InoButton>\n          This popover will show as soon as the user clicks the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n### React\n\n#### Example #1 - Basic\n\n```tsx\nimport { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoPopover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </InoPopover>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Popover: React.FunctionComponent<Components.InoPopoverAttributes> = (\n  props,\n) => {\n  const { placement, for } = props;\n\n  return (\n    <InoPopover placement={placement} for={for}>\n      {props.children}\n    </InoPopover>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Popover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </Popover>\n    );\n  }\n}\n```\n\n## Additional Hints\n",
+      "readme": "# ino-popover\n\nA Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-popover\n  color-scheme=\"<string>\"\n  controlled=\"<boolean>\"\n  distance=\"<number>\"\n  for=\"<string>\"\n  hide-on-blur=\"<boolean>\"\n  hide-on-esc=\"<boolean>\"\n  interactive=\"<boolean>\"\n  placement=\"<string>\"\n  trigger=\"<string>\"\n  visible=\"<boolean>\"\n>\n  Any desired HTML\n</ino-popover>\n```\n\n#### Targets\nThere are currently three ways to attach your popover to a component, which results in a slightly different structure:\n\n1. Using the `popover-trigger` slot _(preferred)_:\n\n```html\n<ino-popover trigger=\"click\">\n    <ino-button slot=\"popover-trigger\">Click to show/hide</ino-button>\n    <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-popover>\n├── <ino-button>\n└── <custom-html-content>\n```\n\n2. Using the `for` property:\n\n```html\n<ino-button id=\"my-target\" slot=\"popover-trigger\">Click to show/hide</ino-button>\n<ino-popover for=\"my-target\" trigger=\"click\">\n  <custom-html-content></custom-html-content>\n</ino-popover>\n```\n\n```html\n<ino-button>\n<ino-popover>\n└── <custom-html-content>\n```\n\n3. Using the parent element:\n\n```html\n<ino-button>\n    Click to show/hide\n    <ino-popover trigger=\"click\">\n      <custom-html-content></custom-html-content>\n    </ino-popover>\n</ino-button>\n```\n\n```html\n<ino-button>\n└── <ino-popover>\n    └── <custom-html-content>\n```\n\n\n#### Controlled vs. Uncontrolled\n\nThere are currently two ways you can manage the state of the popover.\n\n_Uncontrolled_\n\nEither you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover).\nThis is the easiest way as you don't have to worry about managing this state yourself.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <div>\n        <InoPopover trigger=\"mouseenter\">\n          <InoButton slot=\"popover-trigger\">Open Popover</InoButton>\n          This popover will show as soon as the user hovers the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n_Controlled_\n\nOr you use the `controlled` and `visible` property to show/hide the popover by yourself.\nThis is helpful if you want to implement custom logic when the popover should be shown or hidden.\n\n```tsx\n// ...\n\nclass MyComponent extends Component {\n\n  state = {\n    showPopover: false\n  };\n\n  setPopoverState = (show: boolean) => {\n    if (this.props.someProp) return; // Some condition\n\n    this.setState({ showPopover: show });\n  }\n\n  render() {\n    return (\n      <div>\n        <InoPopover\n          inoControlled\n          inoVisible={this.state.showPopover}\n          onInoVisibleChanged={(e) => setPopoverState(e.detail)}\n        >\n          <InoButton slot=\"popover-trigger\">\n            Open Popover\n          </InoButton>\n          This popover will show as soon as the user clicks the button above\n        </InoPopover>\n      </div>\n    );\n  }\n}\n```\n\n### React\n\n#### Example #1 - Basic\n\n```tsx\nimport { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoPopover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </InoPopover>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoPopover } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Popover: React.FunctionComponent<Components.InoPopoverAttributes> = (\n  props,\n) => {\n  const { placement, for } = props;\n\n  return (\n    <InoPopover placement={placement} for={for}>\n      {props.children}\n    </InoPopover>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Popover placement=\"left\" for=\"popover-positions-target\">\n        This is a simple popover on the left\n      </Popover>\n    );\n  }\n}\n```\n\n## Additional Hints\n",
       "docs": "A Popover is a dialog which is bound to a specific element and appears next to it. Under the\nhood, [tippy.js](https://atomiks.github.io/tippyjs/) is used.\n\nThe Popover\nand [Tooltip](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-tooltip--default-usage)\ncomponents are very similar. However, popovers are complex dialogs consisting of several HTML elements, while tooltips\ncan only display plain text.",
       "docsTags": [
         {
@@ -5590,6 +5609,40 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideOnBlur",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-on-blur",
+          "reflectToAttr": false,
+          "docs": "If true, hides the popper on blur.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "hideOnEsc",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-on-esc",
+          "reflectToAttr": false,
+          "docs": "If true, hides the popper on esc.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -5817,7 +5870,8 @@
       "parts": [],
       "dependents": [
         "ino-markdown-editor",
-        "ino-menu"
+        "ino-menu",
+        "ino-table-header-cell"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -5825,6 +5879,9 @@
           "ino-popover"
         ],
         "ino-menu": [
+          "ino-popover"
+        ],
+        "ino-table-header-cell": [
           "ino-popover"
         ]
       }
@@ -7556,32 +7613,154 @@
       "filePath": "./src/components/ino-table/ino-table.tsx",
       "encapsulation": "none",
       "tag": "ino-table",
-      "readme": "# ino-table\n\nThe ino-table is a custom-built data table that can be used to display large sets of data across multiple columns and rows.\nThe component is based on the mdc-data-table.\n\n## Usage\n\nThe component comprises two sub-components: `ìno-table-row` and `ino-table-cell`. The `ino-table-row` can be used to\nadd a row to the table. To add a header row, all you have to do is to add the `ino-header-row` property to the component\nand set `slot=header`.\nCorrespondingly, the `ino-table-cell` can be used to add a column to the table by adding a cell to each row.\nYou should always set `numeric` to true if the cell contains numeric values.\nThe following examples illustrate how the `ino-table` can be used:\n\n### Web Component\n\n```html\n<ino-table>\n  <ino-table-row slot=\"header\" header-row>\n    <ino-table-cell>ID</ino-table-cell>\n    <ino-table-cell>Column A</ino-table-cell>\n    <ino-table-cell>Column B</ino-table-cell>\n  </ino-table-row>\n  <ino-table-row>\n    <ino-table-cell numeric>1</ino-table-cell>\n    <ino-table-cell>Cell A1</ino-table-cell>\n    <ino-table-cell>Cell B1</ino-table-cell>\n  </ino-table-row>\n  <ino-table-row>\n    <ino-table-cell numeric>2</ino-table-cell>\n    <ino-table-cell>Cell A2</ino-table-cell>\n    <ino-table-cell>Cell B2</ino-table-cell>\n  </ino-table-row>\n</ino-table>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoTable, InoTableRow, InoTableCell, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    selected: false\n  };\n\n  handleEvent = () => {\n    this.setState((state) => ({\n      selected: !state.selected\n    }));\n  };\n\n  render() {\n      return (\n      <InoTable>\n        <InoTableRow inoHeaderRow>\n          <InoTableCell>ID</InoTableCell>\n          <InoTableCell>Title</InoTableCell>\n          <InoTableCell>Action</InoTableCell>\n        <InoTableRow>\n        <InoTableRow selected={this.state.selected}>\n          <InoTableCell inoNumeric>1</InoTableCell>\n          <InoTableCell>image.png</InoTableCell>\n          <InoTableCell>\n            <InoButton onClick={this.handleEvent()}>Download</InoButton>\n          </InoTableCell>\n        </InoTableRow>\n      </InoTable>\n      );\n  }\n}\n```\n",
-      "docs": "The ino-table is a custom-built data table that can be used to display large sets of data across multiple columns and rows.\nThe component is based on the mdc-data-table.",
+      "readme": "# ino-table\nThe ino-table is a custom table used to display sets of data across multiple columns.\nIt currently supports different states (selected, active), sorting and loading indication.\n\n> The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).\n\n## Usage\nThe table itself is a wrapper component around native `tr` and `td`. It renders a native `table` element itself and provides the styling for rows and column cell. As a side note it should be said, that having separate `ino-table-row` and `ino-table-header-cell` components would be the more consistent way with respect to the other components (for instance select or radio buttons). However, in large tables, rendering thousands of elements would be a massive overhead for mainly styling purposes.\n\nNonetheless, a separate `ino-table-header-cell` element contains all the sorting and searching behaviour you may need to make more your tables more intelligent.\n\n\n### Web Component\n\n```html\n<ino-table>\n  <tr slot=\"header-row\">\n    <td>Column A</td>\n    <td>Column B</td>\n  </tr>\n  <tr>\n    <td>Cell A1</td>\n    <td>Cell B1</td>\n  </tr>\n  <tr>\n    <td>Cell A2</td>\n    <td>Cell B2</td>\n  </tr>\n</ino-table>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoTable, InoButton } from '@inovex/elements-react';\n\nclass MyComponent extends Component {\n\n  state = { selected: false };\n\n  handleEvent = () => this.setState(state => ({ selected: !state.selected }));\n\n  render() {\n    return (\n      <InoTable>\n        <tr className={ this.state.selected ?? 'ino-table__row--selected' }>\n          <td>\n            <InoButton onClick={this.handleEvent()}>Click Me</InoButton>\n          </td>\n        </tr>\n      </InoTable>\n    );\n  }\n}\n```\n\n## States\nThe table supports the following states:\n\n### Loading indication\nIn order to show the user that data is being loaded and to prohibit any user interaction, set `loading=\"true\"` on the `ino-table`.\nAdditionally, one can display a `<ino-progress-bar>` as follows:\n\n```html\n<ino-progress-bar slot=\"loading-indicator\" active indeterminate></ino-progress-bar>\n```\n\nProvide the progress bar as child of the `ino-table` in order render the slot `loading-indicator` at the desired position. Also note the debounce time of 500ms in the example above. While the progress-bar is only shown after a loading time of more than 500ms, the table is immediately disabled for any user interaction.\n\n> **Note** The table's `loading` and the progress indicator's `active` attribute are **independent**. You are responsible by yourself to keep their values in sync.\n\n## Sorting\nThe table provides the general setup for sorting. For full flexibility, the table does not actually perform the sorting by itself but notifies you that the user wants to sort for a column and direction. As a reaction, you may want to sort for the column and direction and update the respective properties/attributes on the `ino-table` element.\n\nFirst, set the sorted column, provide the `sort-column-id` and `sort-direction` attributes/properties on `ino-table`. In order to receive updates as soon as the sorting direction or column changes, use the `sortChange` event which contains the `columnId` and the target `sortDirection`.\n\n\n**Example:**\n\n```js\nconst sortChangeHandler = e => {\n  const inoTable = e.target as Components.InoTable;\n  const { columnId, sortDirection } = e.detail;\n\n  // Implement sorting algorithm here ...\n\n  inoTable.sortColumnId = columnId;\n  inoTable.sortDirection = sortDirection;\n};\ndocument.addEventListener('sortChange', sortChangeHandler);\n```\n\n```html\n<ino-table sort-column-id=\"column-a\" sort-direction=\"asc\">\n  <tr>\n    <ino-table-header-cell column-id=\"column-a\">Column A</ino-table-header-cell>\n    <ino-table-header-cell column-id=\"column-b\">Column B</ino-table-header-cell>\n  </tr>\n  <tr>\n    <td>Cell A1</td>\n    <td>Cell B1</td>\n  </tr>\n  <tr>\n    <td>Cell A2</td>\n    <td>Cell B2</td>\n  </tr>\n</ino-table>\n```\n\n## Rows and Cells\n\n### Table row\nFor table rows use the native `tr` elements. Use the `slot=\"header-row\"` in order to render the row as header within the `table > thead`. The default slot of the `ino-table` is treated as table content containing multiple `tr` elements. For default styling, there is no class needed. However, the following state classes are available:\n\n| State              | Usage                                        | Description                                                                       |\n|--------------------|----------------------------------------------|-----------------------------------------------------------------------------------|\n| Selected table row | `<tr class=\"ino-table__row--selected\"></tr>` | Indicates that the user selected a row.                                           |\n| Selected table row | `<tr class=\"ino-table__row--active\"></tr>`   | Indicates that the user activates a row (for instance to show detail information) |\n\nFurthermore, the `--ino-table-row-height` css variables allows you to increase or decrease the density of rows. This may be useful to provide the user customization option.\n\n\n### Table cell\nFor table cells `td`, `th` or, if needed, `ino-table-header-cell` elements. All table cells retrieve their styling options from the wrapping `ino-table` element, so you don't need to set any classes by default. However, you may want to use the following classes to provide customization options:\n\n| Name                | Usage                                         | Description                                                                                                 |\n|---------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------|\n| Table cell selector | `<td class=\"ino-table__cell--checkbox\"></td>` | Indicates that a table cell contains a checkbox which to select the current row (body) or all rows (header) |\n| Table cell numeric  | `<td class=\"ino-table__cell--numeric\"></td>`  | Indicates that the value is numeric (Mainly sets `text-align: right`).                                      |\n\n",
+      "docs": "The ino-table is a custom table used to display sets of data across multiple columns.\nIt currently supports different states (selected, active), sorting and loading indication.\n\n> The component is based on the [mdc-data-table](https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table).",
       "docsTags": [
         {
           "name": "slot",
-          "text": "header - For the table header element"
+          "text": "default - Table content (data, not header)"
         },
         {
           "name": "slot",
-          "text": "default - One or more `ino-row`"
+          "text": "header-row - `<tr>` element containing the table header cells (td, th, ino-table-header-cell)"
+        },
+        {
+          "name": "slot",
+          "text": "loading-indicator - `<ino-progess-bar>` element used for an additional loading state."
         }
       ],
       "usage": {},
-      "props": [],
+      "props": [
+        {
+          "name": "loading",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "loading",
+          "reflectToAttr": false,
+          "docs": "True, if the table is loading data.\n\nUse this in combination with a `ino-progress-bar` having `slot=\"loading-indicator\"` to provide an\nadditional horizontal loading bar.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "noHover",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "no-hover",
+          "reflectToAttr": false,
+          "docs": "If true, disables row hover styling.\n\nUseful for simples tables with few rows or columns.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sortColumnId",
+          "type": "string",
+          "mutable": false,
+          "attr": "sort-column-id",
+          "reflectToAttr": false,
+          "docs": "Identifier of the column currently sorted by.\n\nNeeds to the match the column ids provided on `ino-table-header-cell` elements.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sortDirection",
+          "type": "\"asc\" | \"desc\"",
+          "mutable": false,
+          "attr": "sort-direction",
+          "reflectToAttr": false,
+          "docs": "Direction of the column currently sorted by.",
+          "docsTags": [
+            {
+              "name": "See",
+              "text": "Set `sort-start` attribute on the respective column to change the sort order."
+            }
+          ],
+          "values": [
+            {
+              "value": "asc",
+              "type": "string"
+            },
+            {
+              "value": "desc",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "stickyHeader",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "sticky-header",
+          "reflectToAttr": false,
+          "docs": "True, if table header stays visible on vertical scroll",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
       "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
+      "events": [
+        {
+          "event": "sortChange",
+          "detail": "SortDirectionChangeDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits that the sort direction or column id has changed.",
+          "docsTags": []
+        }
+      ],
+      "listeners": [
+        {
+          "event": "sortDirectionChange",
+          "capture": false,
+          "passive": false
+        }
+      ],
+      "styles": [
+        {
+          "name": "--ino-table-row-height",
+          "annotation": "prop",
+          "docs": "height of a table row"
+        }
+      ],
       "slots": [
         {
           "name": "default",
-          "docs": "One or more `ino-row`"
+          "docs": "Table content (data, not header)"
         },
         {
-          "name": "header",
-          "docs": "For the table header element"
+          "name": "header-row",
+          "docs": "`<tr>` element containing the table header cells (td, th, ino-table-header-cell)"
+        },
+        {
+          "name": "loading-indicator",
+          "docs": "`<ino-progess-bar>` element used for an additional loading state."
         }
       ],
       "parts": [],
@@ -7590,73 +7769,26 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/ino-table-cell/ino-table-cell.tsx",
+      "filePath": "./src/components/ino-table-header-cell/ino-table-header-cell.tsx",
       "encapsulation": "none",
-      "tag": "ino-table-cell",
-      "readme": "# ino-table-cell\n\nThe ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-table-row header-row>\n  <ino-table-cell numeric> 1 </ino-table-cell>\n  <ino-table-cell> Cell content </ino-table-cell>\n</ino-table-row>\n```\n",
-      "docs": "The ino-table-cell is a sub-component of the ino-table-row which in turn is a sub-component\nof the ino-table. Its main purpose is to add data or header cells to a corresponding data or header row.",
+      "tag": "ino-table-header-cell",
+      "readme": "# ino-table-header-cell\n\nThe `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-table-header-cell\n  column-id=\"<string>\"\n  label=\"<string>\"\n  search-icon=\"<string>\"\n  not-sortable=\"<boolean>\"\n  sort-direction=\"<string>\"\n  sort-start=\"asc|desc\"\n></ino-table-header-cell>\n```\n\n## Sorting\n\nSet the `sortable` attribute/property on this column. The feature itself does not provide a sorting algorithm itself but notifies you whenever the user wants to sort\nthe column in a specific direction. The `sort-direction` shows the current sort direction, the `sort-start` changes the default sort direction.\n\nThe element emits a `sortDirectionChange` event which you can handle to implement the sorting behaviour. In most cases, however, it is recommended\nlet the `ino-table` handle it. Otherwise, you have to implement the logic to reset other columns in the table yourself (which may be useful when you want to sort\nfor multiple columns).\n\nFor the recommended approach, set the `column-id` such that the `ino-table` knows the identity of this column. For more details, see the documentation of `ino-table`.\n\n```html\n<tr slot=\"header-row\">\n  <ino-table-header-cell\n    label=\"1\"\n    column-id=\"column-name\"\n    sortable\n    sort-direction=\"asc\"\n  ></ino-table-header-cell>\n  <ino-table-header-cell label=\"Cell content\"></ino-table-header-cell>\n</tr>\n```\n\n## Searching\n\nIn order to add a floating column search as popover, add any desired form element as child of this component. The feature itself does not provide a search (or filter) algorithm itself but allows you to render search fields, selection or datepicker within a `ino-popover`. Based on the input, you may want to trigger a search in the backend or filter your elements locally.\n\nThe `search-icon` allows you to set an alternative to the default `search`, which may be useful for selections (`list`) or datepickers (`calender`).The slot contains the search input within the popover. In order to indicate to the user that a closed popover search input contains value, i.e. has been searched, set the `searched` property on the table-header-cell.\n\nUse the `data-ino-focus` on popover elements to focus them on load. Currently, `ino-input`, `ino-textarea` and `ino-datepicker` are supported.\n\n> Note: During initial rendering, the component checks for child elements and decides its searchability. However, if you need to change the search behaviour after initial rendering (for instance lazy load the input elements), use the `setSortable` method to update the behaviour.\n\n**Example:**\n\n```html\n<ino-table>\n  <tr slot=\"header-row\">\n    <ino-table-header-cell label=\"Simple text field\">\n      <ino-input placeholder=\"Search for XY...\" data-ino-focus>\n        <ino-icon\n          clickable\n          slot=\"ino-icon-trailing\"\n          icon=\"close--dense\"\n        ></ino-icon>\n      </ino-input>\n    </ino-table-header-cell>\n\n    <ino-table-header-cell\n      label=\"Column Selection Search\"\n      search-icon=\"list\"\n    >\n      <ino-list>\n        <ino-list-item text=\"Option 1\"\n          ><ino-checkbox\n            slot=\"ino-list-item-leading\"\n            selection\n          ></ino-checkbox\n        ></ino-list-item>\n        <ino-list-item-divider inset></ino-list-item-divider>\n        <ino-list-item text=\"Option 2\"\n          ><ino-checkbox\n            slot=\"ino-list-item-leading\"\n            selection\n          ></ino-checkbox\n        ></ino-list-item>\n        <ino-list-item-divider inset></ino-list-item-divider>\n        <ino-list-item text=\"Option 3\"\n          ><ino-checkbox\n            slot=\"ino-list-item-leading\"\n            selection\n          ></ino-checkbox\n        ></ino-list-item>\n        <ino-list-item-divider inset></ino-list-item-divider>\n        <ino-list-item text=\"Option 4\"\n          ><ino-checkbox\n            slot=\"ino-list-item-leading\"\n            selection\n          ></ino-checkbox\n        ></ino-list-item>\n        <ino-list-item-divider inset></ino-list-item-divider>\n      </ino-list>\n    </ino-table-header-cell>\n  </tr>\n</ino-table>\n```\n",
+      "docs": "The `ino-table-header-cell` is a particular header cell to provide search and column sort behaviour on `ino-table`'s.",
       "docsTags": [
         {
           "name": "slot",
-          "text": "default - The cell value"
+          "text": "default - The search content (input field, list) within the popover."
         }
       ],
       "usage": {},
       "props": [
         {
-          "name": "numeric",
+          "name": "autofocus",
           "type": "boolean",
           "mutable": false,
-          "attr": "numeric",
+          "attr": "autofocus",
           "reflectToAttr": false,
-          "docs": "Indicates that the cell contains numeric values",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "The cell value"
-        }
-      ],
-      "parts": [],
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
-    },
-    {
-      "filePath": "./src/components/ino-table-row/ino-table-row.tsx",
-      "encapsulation": "none",
-      "tag": "ino-table-row",
-      "readme": "# ino-table-row\n\nThe ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.\n\n## Usage\n\nThe component can be used as follows:\n\n```html\n<ino-table-row header-row selected>\n  <ino-table-cell>Cell content</ino-table-cell>\n</ino-table-row>\n```\n",
-      "docs": "The ino-table-row component is a sub-component of the ino-table and it is mainly used to add additional data or\nheader rows to the table.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - One or more `ino-table-cell`"
-        }
-      ],
-      "usage": {},
-      "props": [
-        {
-          "name": "headerRow",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "header-row",
-          "reflectToAttr": false,
-          "docs": "Indicates that the row is a header row",
+          "docs": "Marks the header as autofocused (used for searchable header cells).\n\nUse this in combination with the `data-ino-focus` attribute on\nthe actual search target element to focus a specific input element.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7668,12 +7800,44 @@
           "required": false
         },
         {
-          "name": "selected",
+          "name": "columnId",
+          "type": "string",
+          "mutable": false,
+          "attr": "column-id",
+          "reflectToAttr": false,
+          "docs": "A unique identifier of the column (used for sorting).",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Name of the column.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "notSortable",
           "type": "boolean",
           "mutable": false,
-          "attr": "selected",
+          "attr": "not-sortable",
           "reflectToAttr": false,
-          "docs": "Indicates whether the row is selected or not",
+          "docs": "If true, the cell is **not** sortable.\nBy default, table header cells are sortable.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7683,22 +7847,170 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "searchIcon",
+          "type": "string",
+          "mutable": false,
+          "attr": "search-icon",
+          "reflectToAttr": false,
+          "docs": "Identifier of the search icon (default `search`).\nUsed for date or list search columns.",
+          "docsTags": [],
+          "default": "'search'",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "searched",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "searched",
+          "reflectToAttr": false,
+          "docs": "True, if the column has been searched for this column.\nPersistent state to indicate the user that this column\nhas a search filter.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sortDirection",
+          "type": "\"asc\" | \"desc\"",
+          "mutable": false,
+          "attr": "sort-direction",
+          "reflectToAttr": false,
+          "docs": "The current sort direction of the column.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "asc",
+              "type": "string"
+            },
+            {
+              "value": "desc",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "sortStart",
+          "type": "\"asc\" | \"desc\"",
+          "mutable": false,
+          "attr": "sort-start",
+          "reflectToAttr": false,
+          "docs": "The initial sort direction state (default `desc`).\n\nBy default, all columns are sorted descending followed by ascending.\nTo switch this order, set sort Start to asc.",
+          "docsTags": [],
+          "default": "'desc'",
+          "values": [
+            {
+              "value": "asc",
+              "type": "string"
+            },
+            {
+              "value": "desc",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
-      "methods": [],
-      "events": [],
+      "methods": [
+        {
+          "name": "setBlur",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setBlur() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets blur on the header cell. If searchable, closes the popover.",
+          "docsTags": []
+        },
+        {
+          "name": "setFocus",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setFocus() => Promise<void>",
+          "parameters": [],
+          "docs": "Sets focus on the header cell.\nIf searchable, opens the popover and focuses the `data-ino-focus` target.",
+          "docsTags": []
+        },
+        {
+          "name": "setSearchable",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "signature": "setSearchable(searchable: boolean) => Promise<void>",
+          "parameters": [],
+          "docs": "Updates the search behaviour of this cell.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "searchable true, if the cell should be searchable, false otherwise."
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": "searchFocusChange",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits that the search field focused (true) or blurred (false).",
+          "docsTags": []
+        },
+        {
+          "event": "sortDirectionChange",
+          "detail": "SortDirectionChangeDetails",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits that the sort direction has been changed.",
+          "docsTags": []
+        }
+      ],
       "listeners": [],
       "styles": [],
       "slots": [
         {
           "name": "default",
-          "docs": "One or more `ino-table-cell`"
+          "docs": "The search content (input field, list) within the popover."
         }
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {}
+      "dependencies": [
+        "ino-popover",
+        "ino-icon",
+        "ino-icon-button"
+      ],
+      "dependencyGraph": {
+        "ino-table-header-cell": [
+          "ino-popover",
+          "ino-icon",
+          "ino-icon-button"
+        ],
+        "ino-icon-button": [
+          "ino-icon"
+        ]
+      }
     },
     {
       "filePath": "./src/components/ino-textarea/ino-textarea.tsx",
