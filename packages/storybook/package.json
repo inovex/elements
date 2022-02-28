@@ -66,8 +66,8 @@
     "prettier": "^1.16.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "sass": "^1.26.3",
-    "sass-loader": "^7.0.3",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.6.0",
     "story-description-loader": "^1.0.0"
   },
   "resolutions": {

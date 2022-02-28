@@ -1,23 +1,15 @@
-import { MDCSwitch } from '@material/switch';
-import {
-  Component,
-  ComponentInterface,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  Watch,
-} from '@stencil/core';
+import {MDCSwitch} from '@material/switch';
+import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, Watch,} from '@stencil/core';
 import classNames from 'classnames';
 
-import { generateUniqueId } from '../../util/component-utils';
-import { renderHiddenInput } from '../../util/helpers';
-import { ColorScheme } from '../types';
+import {generateUniqueId} from '../../util/component-utils';
+import {renderHiddenInput} from '../../util/helpers';
+import {ColorScheme} from '../types';
 
 /**
  * @slot default - Label of the switch
+ * @slot icon-on - Icon used for the checked state. The colors of the `color-scheme` will be used.
+ * @slot icon-off - Icon used for the unchecked state. The colors of the `color-scheme` will be used.
  */
 @Component({
   tag: 'ino-switch',
@@ -26,8 +18,9 @@ import { ColorScheme } from '../types';
 })
 export class Switch implements ComponentInterface {
   @Element() el!: HTMLElement;
-  private nativeInputEl!: HTMLInputElement;
-  private switch: MDCSwitch;
+
+  private mdcSwitchEl: HTMLButtonElement;
+  private mdcSwitch: MDCSwitch;
 
   private switchId = `ino-switch-id_${generateUniqueId()}`;
 
@@ -38,8 +31,8 @@ export class Switch implements ComponentInterface {
 
   @Watch('checked')
   checkedChanged(newChecked: boolean) {
-    if (this.switch) {
-      this.switch.checked = newChecked;
+    if (this.mdcSwitch) {
+      this.mdcSwitch.selected = newChecked;
     }
   }
 
@@ -62,61 +55,66 @@ export class Switch implements ComponentInterface {
   @Prop() colorScheme: ColorScheme = 'primary';
 
   componentDidLoad() {
-    this.switch = new MDCSwitch(this.el.querySelector('.mdc-switch'));
+    this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
   }
 
   componentDidUnLoad() {
-    this.switch?.destroy();
+    this.mdcSwitch?.destroy();
   }
 
   /**
-   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+   * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`.
    */
   @Event() checkedChange!: EventEmitter;
 
-  handleChange = (e: Event) => {
+  private handleChange = (e: MouseEvent) => {
     e.stopPropagation();
-    this.nativeInputEl.checked = this.checked;
+
+    if(this.disabled) return;
+
     this.checkedChange.emit(!this.checked);
   };
 
   render() {
-    const { el, name, disabled } = this;
+    const {el, name, disabled} = this;
 
-    renderHiddenInput(el, name, '', disabled);
+    const hiddenInput = renderHiddenInput(el, name, '', disabled);
+    hiddenInput.checked = this.checked;
 
     const hostClasses = classNames(
-      `ino-switch--color-scheme-${this.colorScheme}`
+      'ino-switch',
+      `ino-switch--color-scheme-${this.colorScheme}`,
+      {
+        'ino-switch-disabled': this.disabled
+      }
     );
 
-    const classesSwitch = classNames({
-      'mdc-switch': true,
-      'mdc-switch--disabled': this.disabled,
-      'mdc-switch--checked': this.checked,
-    });
+    const switchClasses = classNames(
+      'mdc-switch',
+      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected',
+    );
 
     return (
-      <Host class={hostClasses} checked={this.checked} disabled={this.disabled}>
-        <div class={classesSwitch}>
-          <div class="mdc-switch__track"></div>
-          <div class="mdc-switch__thumb-underlay">
-            <div class="mdc-switch__thumb"></div>
-            <input
-              name={this.name}
-              checked={this.checked}
-              disabled={this.disabled}
-              type="checkbox"
-              id={this.switchId}
-              class="mdc-switch__native-control"
-              role="switch"
-              onChange={(e) => e.stopPropagation()}
-              onInput={this.handleChange}
-              ref={(input) => (this.nativeInputEl = input as HTMLInputElement)}
-            />
+      <Host class={hostClasses} checked={this.checked} disabled={this.disabled} onClick={this.handleChange}>
+        <button
+          id={this.switchId}
+          ref={el => this.mdcSwitchEl = el}
+          class={switchClasses}
+          disabled={this.disabled}
+          type="button"
+          role="switch"
+          aria-checked={this.checked}
+
+        >
+          <div class="mdc-switch__track"/>
+          <div class="mdc-switch__handle-track">
+            <div class="mdc-switch__handle">
+              <div class="mdc-switch__ripple"/>
+            </div>
           </div>
-        </div>
-        <label htmlFor={this.switchId}>
-          <slot></slot>
+        </button>
+        <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>
+          <slot/>
         </label>
       </Host>
     );

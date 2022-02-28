@@ -25,12 +25,12 @@ export const components = () => /*html*/ `
             <h3>ino-button</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='./?path=/story/buttons-ino-chip-set--default-usage'">
+        <ino-card onClick="parent.location.href='./?path=/story/buttons-ino-chip--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-chip-set ino-type="choice">
+            <div>
               <ino-chip ino-label="iOS" ino-selected ino-value="0"></ino-chip>
               <ino-chip ino-label="Android" ino-value="1"></ino-chip>
-            </ino-chip-set>
+            </div>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-chip-set</h3>

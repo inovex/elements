@@ -18,6 +18,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class List implements ComponentInterface {
+  private listEl: HTMLUListElement;
   private listInstance!: MDCList;
 
   @Element() el!: HTMLElement;
@@ -39,8 +40,7 @@ export class List implements ComponentInterface {
   @Prop() avatar?: boolean = false;
 
   componentDidLoad() {
-    const listElement = this.el.querySelector('.mdc-list');
-    this.listInstance = new MDCList(listElement);
+    this.listInstance = new MDCList(this.listEl);
   }
 
   disconnectedCallback() {
@@ -49,15 +49,18 @@ export class List implements ComponentInterface {
 
   render() {
     const listClasses = classNames({
-      'mdc-list': true,
-      'mdc-list--dense': this.dense,
-      'mdc-list--two-line': this.twoLines,
-      'mdc-list--avatar-list': this.avatar,
+      'mdc-deprecated-list': true,
+      'mdc-deprecated-list--dense': this.dense,
+      'mdc-deprecated-list--two-line': this.twoLines,
+      'mdc-deprecated-list--avatar-list': this.avatar,
     });
 
     return (
       <Host>
-        <ul class={listClasses} aria-orientation="vertical">
+        <ul
+          ref={(el) => (this.listEl = el)}
+          class={listClasses}
+        >
           <slot />
         </ul>
       </Host>
