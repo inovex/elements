@@ -7,7 +7,6 @@ import './ino-switch.scss';
 
 const eventHandler = (e) => {
   const el = e.target;
-  console.log(e);
   if (el.tagName.toLowerCase() !== 'ino-switch') {
     return;
   }

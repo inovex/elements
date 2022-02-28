@@ -17,8 +17,6 @@ const eventHandler = (e) => {
     .closest('.sidebar-demo')
     .querySelector('ino-sidebar');
 
-  console.log(sidebar)
-
   sidebar.open = !sidebar.open;
 };
 

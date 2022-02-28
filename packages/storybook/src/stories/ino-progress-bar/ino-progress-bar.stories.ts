@@ -21,7 +21,6 @@ export default {
       };
 
       const changeFileHandler = (e) => {
-        console.log('changeFileHandler');
         const bar = document.querySelector(
           '#example'
         ) as HTMLInoProgressBarElement;
