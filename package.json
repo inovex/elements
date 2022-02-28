@@ -42,7 +42,11 @@
     "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "tslint-config-prettier": "^1.18.0",
-    "yalc": "^1.0.0-pre.32"
+    "yalc": "^1.0.0-pre.32",
+    "@nrwl/workspace": "latest",
+    "@nrwl/cli": "latest",
+    "@nrwl/tao": "latest",
+    "typescript": "4.2.4"
   },
   "dependencies": {
     "lerna": "^3.18.3"
