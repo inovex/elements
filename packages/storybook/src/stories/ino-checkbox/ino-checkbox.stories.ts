@@ -62,23 +62,18 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
   `
 );
 
-export const Playground = template.generateStory({});
+export const Playground = template.generatePlaygroundStory();
 
-export const Checked = template.generateStory({ checked: true }, 'checked');
+export const Checked = template.generateStory('checked', true);
 
-export const Selection = template.generateStory(
-  {
-    ...Checked.args, // reuse args of Checked Story
-    selection: true,
-  },
-  'selection'
+export const Selection = template.extendStory(
+  template.generateStory('selection', true),
+  Checked
 );
 
-export const Indeterminate = template.generateStory(
-  {
-    indeterminate: true,
-  },
-  'indeterminate'
-);
+export const Indeterminate = template.generateStory('indeterminate', true);
 
-export const Disabled = template.generateStory({ disabled: true }, 'disabled');
+export const Disabled = template.extendStory(
+  template.generateStory('disabled', true),
+  Checked
+);

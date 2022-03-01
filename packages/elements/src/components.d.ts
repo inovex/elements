@@ -126,7 +126,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -1797,7 +1797,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
