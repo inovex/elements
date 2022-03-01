@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-01T12:45:06",
+  "timestamp": "2022-03-01T12:58:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6806,6 +6806,22 @@
           "attr": "action-text",
           "reflectToAttr": false,
           "docs": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
           "docsTags": [],
           "values": [
             {

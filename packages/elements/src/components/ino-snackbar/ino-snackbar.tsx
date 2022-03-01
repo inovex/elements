@@ -25,6 +25,12 @@ export class Snackbar implements ComponentInterface {
   @Element() el!: HTMLElement;
 
   /**
+   * [DEPRECATED] Please use the default slot instead
+   * The text message to display.
+   */
+  @Prop() message?: string;
+
+  /**
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */
@@ -72,6 +78,10 @@ export class Snackbar implements ComponentInterface {
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
     }
     this.snackbarInstance.open();
+
+    if (this.message) {
+      console.warn('[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.');
+    }
   }
 
   disconnectedCallback() {
@@ -150,7 +160,7 @@ export class Snackbar implements ComponentInterface {
               aria-atomic="false"
             >
               <div class="ino-snackbar-text-container">
-                <slot />
+                {this.message ? this.message : <slot />}
               </div>
               {hasActionText && (
                 <div>

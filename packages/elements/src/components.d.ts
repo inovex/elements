@@ -1053,6 +1053,10 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+         */
+        "message"?: string;
+        /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
         "stayVisibleOnHover"?: boolean;
@@ -2717,6 +2721,10 @@ declare namespace LocalJSX {
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
          */
         "actionText"?: string;
+        /**
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+         */
+        "message"?: string;
         /**
           * Event that emits as soon as the action button is clicked.
          */
