@@ -420,9 +420,10 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -2038,9 +2039,10 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**

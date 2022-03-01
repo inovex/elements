@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-01T12:45:06",
+  "timestamp": "2022-03-01T13:46:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -2640,15 +2640,20 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "The text of this header",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text of this header",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
