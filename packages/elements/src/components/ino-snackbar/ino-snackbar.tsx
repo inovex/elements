@@ -27,6 +27,7 @@ export class Snackbar implements ComponentInterface {
   /**
    * [DEPRECATED] Please use the default slot instead
    * The text message to display.
+   * @deprecated
    */
   @Prop() message?: string;
 
