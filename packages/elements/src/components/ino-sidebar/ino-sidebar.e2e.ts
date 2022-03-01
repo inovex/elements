@@ -9,7 +9,7 @@ const SIDEBAR_SELECTOR = 'ino-sidebar';
 const ASIDE_SELECTOR = 'ino-sidebar >>> aside';
 
 describe('ino-sidebar', () => {
-  describe('Properties', async () => {
+  describe('Properties', () => {
     it('should render on the right side if alignRight is true', async () => {
       const page = await setupPageWithContent(INO_SIDEBAR);
       const sidebar = await page.find(SIDEBAR_SELECTOR);

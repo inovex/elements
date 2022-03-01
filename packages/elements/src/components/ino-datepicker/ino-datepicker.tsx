@@ -143,6 +143,18 @@ export class Datepicker implements ComponentInterface {
   }
 
   /**
+   * Attach calendar overlay to body (true) or
+   * Position the calendar inside the wrapper and inside the ino-datepicker (false)
+   */
+  @Prop() attachToBody = true;
+
+  @Watch('attachToBody')
+  attachToBodyChanged(attachToBody: boolean) {
+    this.flatpickr?.set('static', !attachToBody);
+  }
+
+
+  /**
    * A string to change the date format.
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
    * The default value is `d-m-Y` which accepts values like `01-01-2019`.
@@ -299,6 +311,7 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
     });
+    this.create();
   }
 
   componentDidLoad() {
@@ -315,8 +328,9 @@ export class Datepicker implements ComponentInterface {
 
   private create() {
     this.dispose();
+    const target = this.el.querySelector('ino-input') as HTMLElement;
 
-    if (this.disabled) {
+    if (this.disabled || !target) {
       return;
     }
 
@@ -340,12 +354,11 @@ export class Datepicker implements ComponentInterface {
       minDate: this.min,
       maxDate: this.max,
       mode: this.range ? 'range' : 'single',
+      static: !this.attachToBody,
       onValueChange: (value: string) => this.valueChange.emit(value),
     });
 
     const options = { ...sharedOptions, ...typeSpecificOptions };
-
-    const target = this.el.querySelector('ino-input > div') as HTMLElement;
     this.flatpickr = flatpickr(target, options);
 
     if (this.value) {

@@ -42,10 +42,6 @@ export const InoChip = createReactComponent<
   StencilJSX.IntrinsicElements['ino-chip'],
   HTMLInoChipElement
 >('ino-chip');
-export const InoChipSet = createReactComponent<
-  StencilJSX.IntrinsicElements['ino-chip-set'],
-  HTMLInoChipSetElement
->('ino-chip-set');
 export const InoControlItem = createReactComponent<
   StencilJSX.IntrinsicElements['ino-control-item'],
   HTMLInoControlItemElement
@@ -206,3 +202,11 @@ export const InoTooltip = createReactComponent<
   StencilJSX.IntrinsicElements['ino-tooltip'],
   HTMLInoTooltipElement
 >('ino-tooltip');
+export const InoMarkdownEditor = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-markdown-editor'],
+  HTMLInoMarkdownEditorElement
+>('ino-markdown-editor');
+export const InoCurrencyInput = createReactComponent<
+  StencilJSX.IntrinsicElements['ino-currency-input'],
+  HTMLInoCurrencyInputElement
+>('ino-currency-input');

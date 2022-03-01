@@ -327,7 +327,6 @@ export class Autocomplete implements ComponentInterface {
       menu: true,
       'menu-hidden': !this.menuIsVisible,
       'menu-shown': this.menuIsVisible,
-      'mdc-list': true,
     });
 
     return (
@@ -338,10 +337,12 @@ export class Autocomplete implements ComponentInterface {
           ref={(el) => (this.menuContainer = el)}
           onMouseDown={(ev) => this.onListItemClick(ev)}
         >
-          {this.noOptionsIsVisible && (
-            <p class="no-options-text">{this.noOptionsText}</p>
-          )}
-          <slot onSlotchange={this.setupOptions} />
+          <div class="mdc-list">
+            {this.noOptionsIsVisible && (
+              <p class="no-options-text">{this.noOptionsText}</p>
+            )}
+            <slot onSlotchange={this.setupOptions}/>
+          </div>
         </div>
       </Host>
     );

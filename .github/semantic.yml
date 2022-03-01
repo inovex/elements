@@ -22,6 +22,7 @@ scopes:
   - elements|ino-chip
   - elements|ino-chip-set
   - elements|ino-control-item
+  - elements|ino-currency-input
   - elements|ino-datepicker
   - elements|ino-dialog
   - elements|ino-fab
@@ -38,6 +39,7 @@ scopes:
   - elements|ino-list
   - elements|ino-list-divider
   - elements|ino-list-item
+  - elements|ino-markdown-editor
   - elements|ino-menu
   - elements|ino-nav-drawer
   - elements|ino-nav-item
@@ -71,6 +73,7 @@ scopes:
   - elements-angular|ino-chip
   - elements-angular|ino-chip-set
   - elements-angular|ino-control-item
+  - elements-angular|ino-currency-input
   - elements-angular|ino-datepicker
   - elements-angular|ino-dialog
   - elements-angular|ino-fab
@@ -87,6 +90,7 @@ scopes:
   - elements-angular|ino-list
   - elements-angular|ino-list-divider
   - elements-angular|ino-list-item
+  - elements-angular|ino-markdown-editor
   - elements-angular|ino-menu
   - elements-angular|ino-nav-drawer
   - elements-angular|ino-nav-item
@@ -120,6 +124,7 @@ scopes:
   - elements-react|ino-chip
   - elements-react|ino-chip-set
   - elements-react|ino-control-item
+  - elements-react|ino-currency-input
   - elements-react|ino-datepicker
   - elements-react|ino-dialog
   - elements-react|ino-fab
@@ -136,6 +141,7 @@ scopes:
   - elements-react|ino-list
   - elements-react|ino-list-divider
   - elements-react|ino-list-item
+  - elements-react|ino-markdown-editor
   - elements-react|ino-menu
   - elements-react|ino-nav-drawer
   - elements-react|ino-nav-item
@@ -169,6 +175,7 @@ scopes:
   - storybook|ino-chip
   - storybook|ino-chip-set
   - storybook|ino-control-item
+  - storybook|ino-currency-input
   - storybook|ino-datepicker
   - storybook|ino-dialog
   - storybook|ino-fab
@@ -185,6 +192,7 @@ scopes:
   - storybook|ino-list
   - storybook|ino-list-divider
   - storybook|ino-list-item
+  - storybook|ino-markdown-editor
   - storybook|ino-menu
   - storybook|ino-nav-drawer
   - storybook|ino-nav-item
@@ -213,5 +221,6 @@ scopes:
   - elements-angular
   - elements-react
   - storybook
+  - landingpage
   - '*'
   - deps

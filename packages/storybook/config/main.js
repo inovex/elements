@@ -6,8 +6,9 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  staticDirs: ['../static', '../../elements/src/assets'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
-  addons: ['@storybook/addon-essentials'],
+  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
   webpackFinal: (config) => {
     config.devServer = {
       watchContentBase: true,
@@ -25,14 +26,22 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             implementation: require('sass'),
-            includePaths: [
-              path.resolve(__dirname, '../src/stories'),
-              path.resolve(__dirname, '../../elements/src/components'),
-              path.resolve(__dirname, '../../../node_modules'),
-            ],
+            sassOptions: {
+              includePaths: [
+                path.resolve(__dirname, '../src/stories'),
+                path.resolve(__dirname, '../../elements/src/components'),
+                path.resolve(__dirname, '../../../node_modules'),
+              ],
+            },
           },
         },
       ],
+    });
+
+    // Story Description
+    config.module.rules.push({
+      test: /\.stories\.ts/,
+      use: [{ loader: "story-description-loader", options: { isTSX: true } }],
     });
 
     // Copy Plugin

@@ -1,7 +1,5 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
 export type ButtonColorScheme = 'primary' | 'secondary' | 'grey' | 'white';
-export type CardAspectRatio = '16-9' | 'square';
-export type ChipSetType = '' | 'choice' | 'filter' | 'input';
 export type ChipSurface = 'solid' | 'outline';
 export type ColorScheme =
   | 'primary'
@@ -12,7 +10,6 @@ export type ColorScheme =
   | 'light'
   | 'dark';
 export type DatepickerType = 'date' | 'datetime' | 'range' | 'time';
-export type DatepickerDateFormatType = 'd-m-Y' | 'Y-m-d' | 'Y-m-j' | 'j-m-Y';
 export type HorizontalLocation = 'left' | 'right';
 export type ImageDecodingTypes = 'async' | 'auto' | 'sync';
 export type Locations = HorizontalLocation | VerticalLocation;
@@ -38,4 +35,28 @@ export type TooltipTrigger =
   | 'click mouseenter focus'
   | 'click focus mouseenter';
 
+export enum ViewMode {
+  MARKDOWN = 'markdown',
+  PREVIEW = 'preview',
+  READONLY = 'readonly',
+}
+
+export type ViewModeUnion = `${ViewMode}`;
+
 export type VerticalLocation = 'top' | 'bottom';
+export type InputType =
+  | 'color'
+  | 'email'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'text'
+  | 'url'
+  | 'week';
+export type UserInputInterceptor = (value: string) => string;
+
+/**
+ * An arbitary string (or close by default) referencing the action of a dialog.
+ */
+export type DialogCloseAction = 'close'|string;

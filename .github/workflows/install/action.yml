@@ -1,0 +1,27 @@
+name: "Install"
+description: "Installs the inovex-elements packages"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+          always-auth: true
+          node-version: '14.x'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+    - name: setup cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          node_modules
+          packages/*/node_modules
+          packages/*/*/node_modules
+        key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.OS }}-lerna-
+    - run: npm config set scripts-prepend-node-path true
+      shell: bash
+    - run: yarn install --frozen-lockfile
+      shell: bash

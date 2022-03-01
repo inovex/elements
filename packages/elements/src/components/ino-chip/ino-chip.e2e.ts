@@ -1,41 +1,76 @@
+import { E2EElement, E2EPage } from '@stencil/core/testing';
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
-const INO_CHIP = `<ino-chip></ino-chip>`;
-const INO_CHIP_REMOVABLE = `<ino-chip removable="true"></ino-chip>`;
-
 describe('InoChip', () => {
-  describe('Properties', () => {
-    it('should not render with icon when removable is not set', async () => {
-      const page = await setupPageWithContent(INO_CHIP);
+  let page: E2EPage;
+  let inoChipEl: E2EElement;
 
+  beforeEach(async () => {
+    page = await setupPageWithContent(`<ino-chip></ino-chip>`);
+    inoChipEl = await page.find('ino-chip');
+  });
+
+  describe('Properties', () => {
+    it('should render chip', async () => {
+      expect(inoChipEl).toBeDefined();
+    });
+
+    it('should not render remove icon when removable is not set', async () => {
       const inoIcon = await page.find('ino-icon');
       expect(inoIcon).toBeNull();
     });
 
-    it('should render with icon when removable is set true', async () => {
-      const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
-
+    it('should render remove icon when removable is set true', async () => {
+      inoChipEl.setAttribute('removable', true);
+      await page.waitForChanges();
       const inoIcon = await page.find('ino-icon');
       expect(inoIcon).not.toBeNull();
-      expect(inoIcon.getAttribute('role')).toEqual('button');
     });
 
-    it('should render selectable chip with default values', async () => {
-      const page = await setupPageWithContent(INO_CHIP);
-
-      const inoChipEl = await page.find('ino-chip');
+    it('should render checkmark if selectable and selected is set', async () => {
       inoChipEl.setAttribute('selectable', true);
+      inoChipEl.setAttribute('selected', true);
       await page.waitForChanges();
-      const checkmarkEl = await page.find('.mdc-chip__checkmark');
+      const checkmarkEl = await page.find('svg');
       expect(checkmarkEl).not.toBeNull();
     });
   });
 
   describe('Events', () => {
-    it('should fire removeChip event on remove if removable is set true', async () => {
-      const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
+    it('should fire chipClicked event on click', async () => {
+      const chipClickedSpy = await page.spyOnEvent('chipClicked');
+      await inoChipEl.click();
+      await page.waitForChanges();
+      expect(chipClickedSpy).toHaveReceivedEvent();
+    });
 
-      const removeChip = await page.spyOnEvent('removeChip');
+    it('should fire chipClicked event on click with correct value', async () => {
+      const myValue = 'my-value';
+      inoChipEl.setAttribute('value', myValue);
+      await page.waitForChanges();
+      const chipClickedSpy = await page.spyOnEvent('chipClicked');
+      await inoChipEl.click();
+      await page.waitForChanges();
+      expect(chipClickedSpy).toHaveReceivedEventDetail(myValue);
+    });
+
+    it('should fire chipRemoved event on remove icon click with correct value if removable is set true', async () => {
+      const myValue = 'my-value';
+      inoChipEl.setAttribute('value', myValue);
+      inoChipEl.setAttribute('removable', true);
+      await page.waitForChanges();
+
+      const removeChip = await page.spyOnEvent('chipRemoved');
+      await page.click('ino-icon');
+      await page.waitForChanges();
+      expect(removeChip).toHaveReceivedEventDetail(myValue);
+    });
+
+    it('should fire chipRemoved event on remove icon click if removable is set true', async () => {
+      inoChipEl.setAttribute('removable', true);
+      await page.waitForChanges();
+
+      const removeChip = await page.spyOnEvent('chipRemoved');
       expect(removeChip).not.toHaveReceivedEvent();
 
       await page.click('ino-icon');
@@ -43,14 +78,32 @@ describe('InoChip', () => {
       expect(removeChip).toHaveReceivedEvent();
     });
 
-    it('should fire removeChip event with default values', async () => {
-      const page = await setupPageWithContent(INO_CHIP_REMOVABLE);
+    it('should fire chipRemoved event on remove icon click with correct value if removable is set true', async () => {
+      const myValue = 'my-value';
+      inoChipEl.setAttribute('value', myValue);
+      inoChipEl.setAttribute('removable', true);
+      await page.waitForChanges();
 
-      const removeChip = await page.spyOnEvent('removeChip');
+      const removeChip = await page.spyOnEvent('chipRemoved');
       await page.click('ino-icon');
-      expect(removeChip).toHaveReceivedEventDetail({
-        removeChip: {},
-      });
+      await page.waitForChanges();
+      expect(removeChip).toHaveReceivedEventDetail(myValue);
+    });
+
+    it('should not fire any events if disabled', async () => {
+      inoChipEl.setAttribute('disabled', true);
+      inoChipEl.setAttribute('removable', true);
+      await page.waitForChanges();
+
+      const chipClickedSpy = await page.spyOnEvent('chipClicked');
+      const chipRemovedSpy = await page.spyOnEvent('chipRemoved');
+
+      await inoChipEl.click();
+      await page.click('ino-icon');
+      await page.waitForChanges();
+
+      expect(chipClickedSpy).not.toHaveReceivedEvent();
+      expect(chipRemovedSpy).not.toHaveReceivedEvent();
     });
   });
 });

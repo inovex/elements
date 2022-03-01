@@ -55,9 +55,9 @@ export class InoOption {
 
   render() {
     const classSelect = classNames({
-      'mdc-list-item': true,
-      'mdc-list-item--disabled': this.disabled,
-      'mdc-list-item--selected': this.selected,
+      'mdc-deprecated-list-item': true,
+      'mdc-deprecated-list-item--disabled': this.disabled,
+      'mdc-deprecated-list-item--selected': this.selected,
     });
 
     return (
@@ -67,7 +67,7 @@ export class InoOption {
           data-value={this.value}
           aria-selected={this.selected}
         >
-          <span class="mdc-list-item__text">
+          <span class="mdc-deprecated-list-item__text">
             <slot />
           </span>
         </li>

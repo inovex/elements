@@ -3,11 +3,29 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-range.scss';
+import { useEffect } from '@storybook/client-api';
 
 export default {
   title: 'Input/<ino-range>',
   component: 'ino-range',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-range')],
+  decorators: [
+    (story) => decorateStoryWithClass(story, 'story-range'),
+    (story) => {
+      useEffect(() => {
+        const eventHandler = (e: CustomEvent<number>) =>
+          ((e.target as HTMLInoRangeElement).value = e.detail);
+        const inoRanges = document.querySelectorAll('ino-range');
+        inoRanges.forEach((r) =>
+          r.addEventListener('valueChange', eventHandler)
+        );
+        return () =>
+          inoRanges.forEach((r) =>
+            r.removeEventListener('valueChange', eventHandler)
+          );
+      });
+      return story();
+    },
+  ],
 } as Meta;
 
 export const Playground: Story<Components.InoRange> = (args) => html`
@@ -86,13 +104,23 @@ export const Colors = () => html`
   </div>
 `;
 
+export const DiscretRange = () => html`
+  <ino-range
+    color-scheme="primary"
+    min="0"
+    max="100"
+    value="50"
+    discrete
+  ></ino-range>
+`;
+
 export const SteppedRange = () => html`
   <ino-range
     color-scheme="primary"
     min="0"
     max="100"
     value="50"
-    step="20"
+    step="25"
     discrete
     markers
   ></ino-range>

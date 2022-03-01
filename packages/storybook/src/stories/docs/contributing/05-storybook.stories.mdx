@@ -3,23 +3,40 @@ import { Meta, Description } from "@storybook/addon-docs";
 <Meta title="Docs/Contributing/Storybook" />
 
 # Storybook
+Storybook demonstrates the usage and documentation of our components. The storybook itself is a separate package `packages/storybook` having the actual stories in `src/stories`.
 
-We maintain a Storybook to demonstrate the usage of our components.
+Every time we create a new component, we create a new folder `src/stories/<compontent-name>` having at least the following files:
+1. `<compontent-name>.stories.ts` containing the stories.
+2. `<compontent-name>.stories.mdx` integrating the documentation (component README.md).
+2. `<compontent-name>.scss` containing the styling.
 
-Every time we create a new component, we add at least one story which...
 
-- ...has the name **Default usage**.
-- ...contains a **customizable instance** before any other usage examples (see below).
-- ...contains some specific usage examples integrated into a Stackblitz playground to demonstrate most of the functionality (the more the better).
+## Stories
+Each component has ...
 
-## Customizable Instances
+- ... a first story named **Playground** having a customizable instance before any other usage examples (see below).
+- ... some more specific stories showing full capacities of the component.
 
-A customizable instance is just a component where all attributes of a component are set by the Storybook [Knobs Addon](https://github.com/storybooks/storybook/tree/master/addons/knobs).
+### Playground Story
+The Playground Story allows the user to see (and interact with) all attributes, properties, methods, events and slots of a component.
+This allows users to explore all possible variants of an element. Playground, in this case, means that users can pass any possible value to an element.
 
-This allows the consumer (the person who uses the components) to give users the ability to explore all possible variants of an element. Customizable, in this case, means that users can pass any possible value to an element.
+When providing Controls for a component:
 
-When providing Knobs for a component:
+- Make sure that you use the arg of the extracted properties / attributes from elements json documentation.
+- Provide an `arg` for each available attribute / property.
 
-- Make sure that you use the most fitting type (text, boolean, number, select, ...).
-- Provide a knob for each available attribute.
-- Name the knob after the attribute, for example `ino-color-scheme`
+
+### Additional stories
+Having a Playground story as baseline, each component can have several additional stories showing the full capacities of a component. In order to add further description to these stories, we
+add doc strings and use the [Story Description Loader Plugin](https://github.com/izhan/storybook-description-loader).
+
+** Example:**
+```ts
+/**
+  * A Fullwidth dialog is a distinct variant which has 100% width an is attached to the bottom of the page. It scrolls up and defines a small
+  * margin at top for the background scrim and escape for dialog close.
+  * It's not recommenended to use this option with `--ino-dialog-width` and `--ino-dialog-height`.
+  */
+export const FullWidth = args => html`<ino-dialog ...></ino-dialog>`;
+```

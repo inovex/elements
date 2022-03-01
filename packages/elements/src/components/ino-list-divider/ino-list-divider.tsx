@@ -30,9 +30,9 @@ export class ListDivider implements ComponentInterface {
 
   render() {
     const dividerClasses = classNames({
-      'mdc-list-divider': true,
-      'mdc-list-divider--padded': !this.betweenLists && this.padded,
-      'mdc-list-divider--inset': !this.betweenLists && this.inset,
+      'mdc-deprecated-list-divider': true,
+      'mdc-deprecated-list-divider--inset-leading': !this.betweenLists && (this.padded ||this.inset),
+      'mdc-deprecated-list-divider--inset-trailing': !this.betweenLists && this.padded,
     });
 
     return (

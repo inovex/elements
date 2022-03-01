@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="460px" height="460px" viewBox="0 0 460 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Artboard</title>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="angular-logo" transform="translate(16.000000, 0.000000)" fill-rule="nonzero">
+            <polygon id="Path" fill="#DD0031" points="214 0 214 0 214 0 0 76.36 32.6401719 359.49 214 460 214 460 214 460 395.359828 359.49 428 76.36"></polygon>
+            <polygon id="Path" fill="#C3002F" points="214 0 214 51.06 214 50.83 214 283.82 214 283.82 214 460 214 460 395.359828 359.49 428 76.36"></polygon>
+            <path d="M213.729776,51 L80,351 L80,351 L129.861446,351 L129.861446,351 L156.745267,283.873563 L270.254733,283.873563 L297.138554,351 L297.138554,351 L347,351 L347,351 L213.729776,51 L213.729776,51 L213.729776,51 L213.729776,51 L213.729776,51 Z M252.791738,242.494253 L174.667814,242.494253 L213.729776,148.471264 L252.791738,242.494253 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

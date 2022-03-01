@@ -85,6 +85,11 @@ ino-snackbar {
     &:hover ~ .ino-snackbar-close-btn {
       @include showCloseButton;
     }
+
+    // mdc pseudo-element blocks interaction
+    &:before {
+      display: none;
+    }
   }
 
   .ino-snackbar-close-btn {

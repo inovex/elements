@@ -9,7 +9,6 @@ const eventHandler = (e) => {
   const el: HTMLElement = e.target;
   const elTagName = el.tagName.toLowerCase();
 
-  console.log(el);
   if (elTagName !== 'ino-icon' && elTagName !== 'ino-button') {
     return;
   }

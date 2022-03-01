@@ -42,8 +42,8 @@ ino-icon-button {
     background-color: $background-color;
     border-radius: 50%;
 
-    &::before,
-    &::after {
+    .mdc-icon-button__ripple::before,
+    .mdc-icon-button__ripple::after {
       background-color: $background-active-color;
     }
 

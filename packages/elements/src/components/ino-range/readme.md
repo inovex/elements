@@ -80,19 +80,39 @@ class MyComponent extends Component {
 | `colorScheme` | `color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 | `disabled`    | `disabled`     | Disables this element.                                                                                                                             | `boolean`                                                                            | `undefined` |
 | `discrete`    | `discrete`     | Restricts the slider to only allow discrete values.                                                                                                | `boolean`                                                                            | `undefined` |
-| `markers`     | `markers`      | Mark this slider to show the steps of the range. Only applicable if `discrete=true`                                                                | `boolean`                                                                            | `undefined` |
+| `markers`     | `markers`      | Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.                                                         | `boolean`                                                                            | `undefined` |
 | `max`         | `max`          | The max value of this element (**required**).                                                                                                      | `number`                                                                             | `undefined` |
 | `min`         | `min`          | The min value of this element.                                                                                                                     | `number`                                                                             | `0`         |
 | `name`        | `name`         | The name of this element.                                                                                                                          | `string`                                                                             | `undefined` |
-| `step`        | `step`         | The step size for this element. Only applicable if ino-discrete is true.                                                                           | `number`                                                                             | `1`         |
+| `step`        | `step`         | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).                 | `number`                                                                             | `1`         |
 | `value`       | `value`        | The value of this element. (**unmanaged**, default=`min`)                                                                                          | `number`                                                                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                         | Type               |
-| ------------- | ------------------------------------------------------------------- | ------------------ |
-| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<any>` |
+| Event         | Description                                                         | Type                  |
+| ------------- | ------------------------------------------------------------------- | --------------------- |
+| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<number>` |
+
+
+## Methods
+
+### `setValueToAriaTextMapperFn(fn: (value: number) => string) => Promise<void>`
+
+Should be used to make the component accessible.
+If the value is not user-friendly (e.g. a number to represent the day of the week),
+use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
+
+e.g.:
+
+`const rangeEl = document.querySelector("ino-range")`
+`rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
