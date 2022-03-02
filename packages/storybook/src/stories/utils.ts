@@ -50,6 +50,22 @@ export const withColorScheme = <T>(
   };
 };
 
+export const withSortDirection = <T>(
+  story: Story<T>,
+  propertyName: string,
+  defaultValue?: string
+) => {
+  maybeCreateStoryArgs(story);
+  story.args[propertyName] = defaultValue || '';
+  story.argTypes[propertyName] = {
+    options: ['desc', 'asc'],
+    control: {
+      type: 'select',
+    },
+  };
+};
+
+
 export const getIcons = () => ICONS.filter((icon) => !icon.startsWith('_'));
 
 export const decorateStoryWithClass = (

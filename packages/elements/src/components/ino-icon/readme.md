@@ -135,6 +135,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
  - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-snackbar](../ino-snackbar)
  - [ino-tab](../ino-tab)
+ - [ino-table-header-cell](../ino-table-header-cell)
 
 ### Graph
 ```mermaid
@@ -151,6 +152,7 @@ graph TD;
   ino-markdown-editor --> ino-icon
   ino-snackbar --> ino-icon
   ino-tab --> ino-icon
+  ino-table-header-cell --> ino-icon
   style ino-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
