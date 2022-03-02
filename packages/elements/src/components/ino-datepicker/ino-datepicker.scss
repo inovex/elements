@@ -62,6 +62,10 @@ $hover-color: lighten(theme.color(primary), 36.5%);
   font-size: typography.pxToRem(13px);
 }
 
+.flatpickr-calendar:not(.inline) .flatpickr-current-month {
+  padding-top: 20px;
+}
+
 .flatpickr-calendar .flatpickr-months {
   padding: 0 20px 0 6px;
   margin-bottom: 10px;
@@ -134,6 +138,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
   &:not(.flatpickr-disabled)#{$notSelected} {
     color: theme.color(dark);
   }
+
   &.nextMonthDay:not(.flatpickr-disabled)#{$notSelected},
   &.prevMonthDay:not(.flatpickr-disabled)#{$notSelected} {
     color: theme.color(dark);
@@ -175,6 +180,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
     background-color: $light-blue;
     box-shadow: -12px 0 0 $light-blue, 12px 0 0 $light-blue;
   }
+
   &.selected.startRange + .endRange:not(:nth-child(7n + 1)),
   &.startRange.startRange + .endRange:not(:nth-child(7n + 1)) {
     box-shadow: -12px 0 0 $light-blue;
