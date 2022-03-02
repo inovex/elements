@@ -5,6 +5,7 @@ import { html } from 'lit-html';
 import * as moment from 'moment';
 import { decorateStoryWithClass } from '../utils';
 import './ino-datepicker.scss';
+import { registerInlineDatepickerHandler } from './utils';
 
 const days = 5;
 const defaultDate = moment().format('YYYY-MM-DD');
@@ -35,7 +36,8 @@ export default {
 export const Playground: Story<Components.InoDatepicker> = (args) => html`
   <ino-datepicker
     class="customizable-picker"
-    attach-to-body="${args.attachToBody}",
+    attach-to-body="${args.attachToBody}"
+    ,
     disabled="${args.disabled}"
     date-format="${args.dateFormat}"
     helper="${args.helper}"
@@ -171,59 +173,7 @@ export const Locale = () => html`
 `;
 
 export const MultipleTypes = () => {
-  useEffect(() => {
-    const group = document.querySelector('ino-radio-group') as HTMLInoRadioGroupElement;
-    const datepicker = document.querySelector('.datepicker-group ino-datepicker') as HTMLInoDatepickerElement;
-
-    // Shortcuts
-    document.querySelector('.today').addEventListener('click', () => {
-      datepicker.value = '02.03.2020';
-      datepicker.label = 'Am'
-      group.value = 'at'
-      datepicker.range = false;
-    })
-    document.querySelector('.thisWeek').addEventListener('click', () => {
-      group.value = 'range'
-      datepicker.label = 'Zeitraum';
-      datepicker.range = true;
-      datepicker.value = '02.03.2020 bis 08.03.2020';
-    })
-    document.querySelector('.lastWeek').addEventListener('click', () => {
-      group.value = 'range'
-      datepicker.label = 'Zeitraum';
-      datepicker.range = true;
-      datepicker.value = '24.02.2020 bis 01.03.2020';
-    })
-
-    // Radio Button handler
-    group.addEventListener('checkedChange', (e: any) => {
-      switch (e.target.value) {
-        case 'at':
-          datepicker.label = 'Am';
-          datepicker.range = false;
-          break;
-        case 'after':
-          datepicker.label = 'Ab';
-          datepicker.range = false;
-          if (group.value == 'range') {
-            datepicker.value = datepicker.value.split(" - ").shift();
-          }
-          break;
-        case 'before':
-          datepicker.label = 'Bis';
-          datepicker.range = false;
-          if (group.value == 'range') {
-            datepicker.value = datepicker.value.split(" - ").pop();
-          }
-          break;
-        case 'range':
-          datepicker.range = true;
-          datepicker.label = 'Zeitraum';
-          break;
-      }
-      group.value = e.target.value;
-    });
-  });
+  useEffect(registerInlineDatepickerHandler);
 
   return html`
     <div lang="de" class="datepicker-group">
@@ -235,7 +185,14 @@ export const MultipleTypes = () => {
         </ul>
       </aside>
       <main id="main">
-        <ino-datepicker type="date" label="An" inline date-format="d.m.Y" placeholder="tt.mm.jjjj" append-to="main">
+        <ino-datepicker
+          type="date"
+          label="An"
+          inline
+          date-format="d.m.Y"
+          placeholder="tt.mm.jjjj"
+          append-to="main"
+        >
         </ino-datepicker>
         <ino-radio-group value="at">
           <ino-radio value="at">Am</ino-radio>
@@ -256,5 +213,3 @@ export const Form = () => html`
     <button type="submit">Submit</button>
   </form>
 `;
-
-
