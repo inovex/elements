@@ -1,7 +1,6 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 import { E2EElement, E2EPage } from '@stencil/core/testing';
 import { SortDirection, SortDirectionChangeDetails } from '../../interface';
-import { setPropertyOfEl } from '../../util/test-utils';
 
 const columnId = 'my-id';
 
@@ -62,21 +61,6 @@ describe('ino-table', () => {
     await sortBtn.click();
     expect(sortDirectionChangeSpy).toHaveReceivedEventDetail(
       getDummySortDirectionDetails('desc')
-    );
-  });
-
-  it(`should emit sort event with 'desc' as detail when clicking the sort button`, async () => {
-
-    await setPropertyOfEl<HTMLInoTableHeaderCellElement>(
-      page,
-      'ino-table-header-cell',
-      { sortStart: 'asc' }
-    );
-
-    const sortDirectionChangeSpy = await page.spyOnEvent('sortDirectionChange');
-    await sortBtn.click();
-    expect(sortDirectionChangeSpy).toHaveReceivedEventDetail(
-      getDummySortDirectionDetails('asc')
     );
   });
 });
