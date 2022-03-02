@@ -4,9 +4,10 @@ import {
   Element,
   Event,
   EventEmitter,
-  Host,
-  Prop,
   h,
+  Host,
+  Listen,
+  Prop,
 } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
@@ -23,7 +24,7 @@ import { ChipSurface, ColorScheme } from '../types';
   shadow: false,
 })
 export class Chip implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoChipElement;
 
   /**
    * The name of the color scheme which is used
@@ -32,139 +33,207 @@ export class Chip implements ComponentInterface {
   @Prop() colorScheme: ColorScheme | 'default' = 'default';
 
   /**
+   * Disables all interactions.
+   */
+  @Prop() disabled: boolean = false;
+
+  /**
    * The fill type of this element.
    */
   @Prop() fill: ChipSurface = 'solid';
 
   /**
-   * Prepends an icon to the chip label.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
+   * The content of the component.
    */
-  @Prop() icon?: string;
+  @Prop() label: string;
 
   /**
-   * The label of this chip (**required**).
-   */
-  @Prop() label?: string;
-
-  /**
-   * The value of this chip.
-   *
-   * **Required** for chips as part of sets of type `filter` or `choice`.
-   */
-  @Prop() value?: string;
-
-  /**
-   * Adds a close icon on the right side of this chip.
-   *
-   * If applied, emits the `removeChip` event.
+   * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
    */
   @Prop() removable: boolean = false;
 
   /**
-   * Adds a checkmark if the icon is selected.
+   * Makes the chip selectable.
    */
   @Prop() selectable: boolean = false;
 
   /**
-   * Marks this element as selected.
+   * Marks this element as selected (**works only in conjunction with `selectable`**)
    */
   @Prop() selected: boolean = false;
 
   /**
-   * Event that emits as soon as the user removes this chip.
-   *
-   * Listen to this event to hide or destroy this chip.
-   * The event only emits if the property `removable` is true.
+   * The value of this chip.
+   * Is emitted by the `chipClicked` and `chipRemoved` events.
    */
-  @Event() removeChip!: EventEmitter;
+  @Prop() value?: string;
 
-  componentDidLoad(): void {
-    if (this.icon) {
-      console.warn(
-        `Property 'ino-icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
-      );
+  /**
+   * Event that emits the `value` as soon as the user clicks on the chip.
+   */
+  @Event() chipClicked: EventEmitter<string>;
+
+  @Listen('click')
+  handleClick(e: MouseEvent) {
+    if (this.disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
     }
+
+    this.chipClicked.emit(this.value);
   }
 
-  private iconClicked(e: Event) {
+  /**
+   * Event that emits the `value` as soon as the user clicks on the remove icon.
+   *
+   * Listen to this event to hide or destroy this chip.
+   */
+  @Event() chipRemoved: EventEmitter<string>;
+
+  private iconClicked(e: MouseEvent) {
     e.preventDefault();
-    this.removeChip.emit(this);
+    e.stopPropagation();
+    this.chipRemoved.emit(this.value);
+  }
+
+  private renderPrimaryAction(content: HTMLElement[]) {
+    if (this.selectable) {
+      return (
+        <span
+          class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+          role="option"
+          aria-selected={this.selected}
+          aria-disabled={this.disabled}
+          tabIndex={0}
+        >
+          {content}
+        </span>
+      );
+    }
+
+    return (
+      <button
+        class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+        tabIndex={this.disabled ? -1 : 0}
+        disabled={this.disabled}
+        data-value={this.value}
+        data-mdc-deletable={this.removable}
+        type="button"
+      >
+        {content}
+      </button>
+    );
   }
 
   render() {
     const colorSchemeClass = `ino-chip--color-scheme-${this.colorScheme}`;
 
-    const hostClasses = classNames({
-      [colorSchemeClass]: this.colorScheme !== 'default',
-      'ino-chip--outline': this.fill === 'outline',
-    });
-
-    const chipClasses = classNames('mdc-chip', {
-      'mdc-chip--selected': this.selected,
-    });
-
-    const leadingIconClasses = classNames({
-      'mdc-chip__icon': true,
-      'mdc-chip__icon--leading': true,
-      'mdc-chip__icon--leading-hidden': this.selected && this.selectable,
-    });
-
-    const trailingIconClasses = classNames({
-      'mdc-chip__icon': true,
-      'mdc-chip__icon--trailing': true,
-    });
-
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
+    const hasPrimaryGraphic = leadingSlotHasContent || this.selectable;
+    const hasTrailingGraphic = trailingSlotHasContent || this.removable;
+
+    const hostClasses = classNames({
+      [colorSchemeClass]: true,
+      'ino-chip--solid': this.fill === 'solid',
+      'ino-chip--outline': this.fill === 'outline',
+      'ino-chip-disabled': this.disabled,
+    });
+
+    const chipClasses = classNames({
+      'mdc-evolution-chip': true,
+      'ino-chip-container': true,
+      'mdc-evolution-chip--selectable': this.selectable,
+      'mdc-evolution-chip--selected': this.selected,
+      'mdc-evolution-chip--selecting':
+        this.selectable && !leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting':
+        this.selectable && !leadingSlotHasContent && !this.selected,
+      'mdc-evolution-chip--selecting-with-primary-icon':
+        this.selectable && leadingSlotHasContent && this.selected,
+      'mdc-evolution-chip--deselecting-with-primary-icon':
+        this.selectable && leadingSlotHasContent && !this.selected,
+      'mdc-evolution-chip--disabled': this.disabled,
+      'mdc-evolution-chip--filter': this.selectable,
+      'mdc-evolution-chip--with-primary-graphic': hasPrimaryGraphic,
+      'mdc-evolution-chip--with-primary-icon': leadingSlotHasContent,
+      'mdc-evolution-chip--with-trailing-action': hasTrailingGraphic,
+    });
+
     return (
       <Host class={hostClasses}>
-        <button class={chipClasses} tabindex="0" data-value={this.value}>
-          <div class="mdc-chip__ripple" />
-
-          {this.icon && (
-            <ino-icon class={leadingIconClasses} icon={this.icon} />
-          )}
-
-          {leadingSlotHasContent && !this.icon && (
-            <span class={leadingIconClasses}>
-              <slot name="icon-leading" />
+        <span
+          class={chipClasses}
+          role={this.selectable ? 'presentation' : 'row'}
+        >
+          <span
+            class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+            role="gridcell"
+          >
+            {this.renderPrimaryAction([
+              <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary" />,
+              hasPrimaryGraphic && (
+                <span class="mdc-evolution-chip__graphic">
+                  {leadingSlotHasContent && (
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <slot name="icon-leading" />
+                    </span>
+                  )}
+                  {this.selectable && this.selected && (
+                    <span class="mdc-evolution-chip__checkmark">
+                      <svg
+                        class="mdc-evolution-chip__checkmark-svg"
+                        viewBox="-2 -3 30 30"
+                      >
+                        <path
+                          class="mdc-evolution-chip__checkmark-path"
+                          fill="none"
+                          stroke="black"
+                          d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                        />
+                      </svg>
+                    </span>
+                  )}
+                </span>
+              ),
+              <span class="mdc-evolution-chip__text-label ino-chip-label">
+                {this.label}
+              </span>,
+            ])}
+          </span>
+          {hasTrailingGraphic && (
+            <span
+              class="mdc-evolution-chip__cell mdc-evolution-chip__cell--trailing"
+              role="gridcell"
+            >
+              <button
+                class="mdc-evolution-chip__action mdc-evolution-chip__action--trailing"
+                type="button"
+                tabIndex={-1}
+                data-mdc-deletable="true"
+                disabled={this.disabled}
+              >
+                <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--trailing" />
+                <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--trailing ino-chip-trailing-icon">
+                  {this.removable ? (
+                    <ino-icon
+                      class="ino-chip-close-icon"
+                      icon="close"
+                      tabindex="0"
+                      role="button"
+                      clickable={true}
+                      onClick={(e) => this.iconClicked(e)}
+                    />
+                  ) : (
+                    <slot name="icon-trailing" />
+                  )}
+                </span>
+              </button>
             </span>
           )}
-
-          {this.selectable && (
-            <span class="mdc-chip__checkmark">
-              <svg class="mdc-chip__checkmark-svg" viewBox="-2 -3 30 30">
-                <path
-                  class="mdc-chip__checkmark-path"
-                  fill="none"
-                  stroke="black"
-                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
-                />
-              </svg>
-            </span>
-          )}
-
-          <span class="mdc-chip__text">{this.label}</span>
-
-          {trailingSlotHasContent && (
-            <span class={trailingIconClasses}>
-              <slot name="icon-trailing" />
-            </span>
-          )}
-
-          {this.removable && !trailingSlotHasContent && (
-            <ino-icon
-              class={trailingIconClasses}
-              icon="close"
-              tabindex="0"
-              role="button"
-              clickable={true}
-              onClick={(e) => this.iconClicked(e)}
-            />
-          )}
-        </button>
+        </span>
       </Host>
     );
   }

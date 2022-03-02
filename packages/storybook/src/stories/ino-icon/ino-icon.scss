@@ -10,7 +10,13 @@
     width: 200px;
   }
 
-  ino-chip-set.icon-collection ino-icon {
-    --icon-color: #3d40f5;
+  .icon-collection {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    .chip-icon {
+      --icon-color: #3d40f5 !important;
+    }
   }
 }

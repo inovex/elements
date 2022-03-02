@@ -13,7 +13,7 @@ describe('ino-option', () => {
       const isSelected = await option.getProperty('selected');
 
       expect(option).toBeDefined();
-      expect(liElement).toHaveClass('mdc-list-item--selected');
+      expect(liElement).toHaveClass('mdc-deprecated-list-item--selected');
       expect(isSelected).toBeTruthy();
     });
 
@@ -25,7 +25,7 @@ describe('ino-option', () => {
       const isDisabled = await option.getProperty('disabled');
 
       expect(option).toBeDefined();
-      expect(liElement).toHaveClass('mdc-list-item--disabled');
+      expect(liElement).toHaveClass('mdc-deprecated-list-item--disabled');
       expect(isDisabled).toBeTruthy();
     });
   });

@@ -37,6 +37,7 @@ export class CurrencyInput {
   @Prop({ reflect: true }) value: number | string;
   @Watch('value')
   valueChanged(value: number | string) {
+
     if (!value || value === 'null') {
       this.hiddenValue = null;
       this.inputValue = null;
@@ -141,6 +142,7 @@ export class CurrencyInput {
 
     this.hiddenInputEl.name = this.inoInputEl.name;
     this.inoInputEl.name = null;
+    this.inoInputEl.resetOnChange = false;
 
     this.hiddenInputEl.min = this.inoInputEl.min;
     this.hiddenInputEl.max = this.inoInputEl.max;

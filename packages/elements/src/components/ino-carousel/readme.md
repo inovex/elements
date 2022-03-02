@@ -80,7 +80,7 @@ class MyComponent extends Component {
 | `infinite`     | `infinite`     | Restarts playback from the first slide upon reaching the last slide | `boolean` | `false`     |
 | `intermission` | `intermission` | Sets the intermission between two slides (Unit: ms)                 | `number`  | `5000`      |
 | `reverse`      | `reverse`      | Enables reverse playback of the slides                              | `boolean` | `false`     |
-| `value`        | `value`        | Optional group value to manually manage the displayed slide         | `any`     | `undefined` |
+| `value`        | `value`        | Optional group value to manually manage the displayed slide         | `string`  | `undefined` |
 
 
 ## Slots

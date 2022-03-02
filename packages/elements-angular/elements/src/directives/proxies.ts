@@ -156,61 +156,34 @@ export class InoCheckbox {
 
 export declare interface InoChip extends Components.InoChip {
   /**
-   * Event that emits as soon as the user removes this chip.
-
-Listen to this event to hide or destroy this chip.
-The event only emits if the property `removable` is true. 
+   * Event that emits the `value` as soon as the user clicks on the chip. 
    */
-  removeChip: EventEmitter<CustomEvent<any>>;
+  chipClicked: EventEmitter<CustomEvent<string>>;
+  /**
+   * Event that emits the `value` as soon as the user clicks on the remove icon.
+
+Listen to this event to hide or destroy this chip. 
+   */
+  chipRemoved: EventEmitter<CustomEvent<string>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'fill', 'icon', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 @Component({
   selector: 'ino-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'fill', 'icon', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 export class InoChip {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['removeChip']);
-  }
-}
-
-
-export declare interface InoChipSet extends Components.InoChipSet {
-  /**
-   * Event that emits when the value of this element changes.
-
-Only applicable if `inoType` is `choice` or `filter`. 
-   */
-  updateChipSet: EventEmitter<CustomEvent<any>>;
-
-}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['type']
-})
-@Component({
-  selector: 'ino-chip-set',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['type']
-})
-export class InoChipSet {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['updateChipSet']);
+    proxyOutputs(this, this.el, ['chipClicked', 'chipRemoved']);
   }
 }
 
@@ -869,13 +842,13 @@ export declare interface InoProgressBar extends Components.InoProgressBar {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['buffer', 'indeterminate', 'label', 'progress', 'reversed']
+  inputs: ['buffer', 'indeterminate', 'label', 'progress']
 })
 @Component({
   selector: 'ino-progress-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['buffer', 'indeterminate', 'label', 'progress', 'reversed']
+  inputs: ['buffer', 'indeterminate', 'label', 'progress']
 })
 export class InoProgressBar {
   protected el: HTMLElement;
@@ -940,13 +913,14 @@ export declare interface InoRange extends Components.InoRange {
   /**
    * Emits when the value changes. Contains new value in `event.detail`. 
    */
-  valueChange: EventEmitter<CustomEvent<any>>;
+  valueChange: EventEmitter<CustomEvent<number>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
+  methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
@@ -1126,7 +1100,7 @@ export class InoSpinner {
 
 export declare interface InoSwitch extends Components.InoSwitch {
   /**
-   * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`. 
+   * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`. 
    */
   checkedChange: EventEmitter<CustomEvent<any>>;
 

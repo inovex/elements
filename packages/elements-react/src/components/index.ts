@@ -42,10 +42,6 @@ export const InoChip = createReactComponent<
   StencilJSX.IntrinsicElements['ino-chip'],
   HTMLInoChipElement
 >('ino-chip');
-export const InoChipSet = createReactComponent<
-  StencilJSX.IntrinsicElements['ino-chip-set'],
-  HTMLInoChipSetElement
->('ino-chip-set');
 export const InoControlItem = createReactComponent<
   StencilJSX.IntrinsicElements['ino-control-item'],
   HTMLInoControlItemElement

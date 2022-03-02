@@ -1,4 +1,4 @@
-import { MDCSlider } from '@material/slider';
+import { MDCSlider, MDCSliderChangeEventDetail } from '@material/slider';
 import {
   Component,
   ComponentInterface,
@@ -8,6 +8,8 @@ import {
   Host,
   Prop,
   h,
+  Watch,
+  Method,
 } from '@stencil/core';
 import classNames from 'classnames';
 
@@ -19,6 +21,8 @@ import { ColorScheme } from '../types';
   shadow: false,
 })
 export class Range implements ComponentInterface {
+  private rootEl: HTMLDivElement;
+  private inputEl: HTMLInputElement;
   private sliderInstance!: MDCSlider;
 
   @Element() el!: HTMLElement;
@@ -42,7 +46,7 @@ export class Range implements ComponentInterface {
 
   /**
    * Mark this slider to show the steps of the range.
-   * Only applicable if `discrete=true`
+   * Only applicable if `discrete` is enabled.
    */
   @Prop() markers?: boolean;
 
@@ -59,56 +63,75 @@ export class Range implements ComponentInterface {
   /**
    * The max value of this element (**required**).
    */
-  @Prop() max?: number;
+  @Prop() max: number;
 
   /**
    * The value of this element. (**unmanaged**, default=`min`)
    */
   @Prop() value?: number;
 
+  @Watch('value')
+  handleValueChange(newValue: number) {
+    this.sliderInstance.setValue(newValue);
+  }
+
   /**
    * The step size for this element.
-   * Only applicable if ino-discrete is true.
+   * Only applicable if `discrete` is enabled.
+   * Is used to calculate the number of markers (if enabled).
    */
   @Prop() step?: number = 1;
 
   /**
    * Emits when the value changes. Contains new value in `event.detail`.
    */
-  @Event() valueChange!: EventEmitter;
+  @Event() valueChange!: EventEmitter<number>;
 
   componentDidLoad() {
-    const sliderElement = this.el.querySelector('.mdc-slider');
-    this.sliderInstance = new MDCSlider(sliderElement);
-    this.sliderInstance.listen(
-      'MDCSlider:change',
-      this.handleChange.bind(this)
-    );
-    this.sliderInstance.listen('MDCSlider:input', this.handleInput.bind(this));
+    /**
+     * this is required for the MDCSlider to work properly. The value attribute of the input element is hidden, which
+     * prevents the underlying MDCSliderFoundation to be initialised properly as it is trying to acquire the values
+     * of the min, max, and value attributes from the input element.
+     */
+    this.inputEl.setAttribute('value', `${this.value || this.min}`);
+    this.sliderInstance = new MDCSlider(this.rootEl);
+
+    this.sliderInstance.listen('MDCSlider:change', this.handleChange);
+    this.sliderInstance.listen('MDCSlider:input', this.handleInput);
   }
 
   disconnectedCallback() {
-    this.sliderInstance?.unlisten(
-      'MDCSlider:change',
-      this.handleChange.bind(this)
-    );
-    this.sliderInstance?.unlisten(
-      'MDCSlider:input',
-      this.handleInput.bind(this)
-    );
+    this.sliderInstance?.unlisten('MDCSlider:change', this.handleChange);
+    this.sliderInstance?.unlisten('MDCSlider:input', this.handleInput);
     this.sliderInstance?.destroy();
   }
 
-  handleChange(e) {
+  handleChange = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
     e.stopPropagation();
     e.preventDefault();
-  }
+  };
 
-  handleInput(e) {
-    const value = e.detail.value;
-    this.sliderInstance.setValue(value);
-    this.valueChange.emit(value);
+  handleInput = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
+    this.sliderInstance.setValue(this.value); // reset value to make it controlled
+    this.valueChange.emit(e.detail.value);
     e.stopPropagation();
+  };
+
+  /**
+   * Should be used to make the component accessible.
+   * If the value is not user-friendly (e.g. a number to represent the day of the week),
+   * use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).
+   *
+   * e.g.:
+   *
+   * `const rangeEl = document.querySelector("ino-range")`
+   * `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
+   *
+   * @param fn A function that maps the numeric value to a user-friendly string.
+   */
+  @Method()
+  async setValueToAriaTextMapperFn(fn: (value: number) => string) {
+    this.sliderInstance.setValueToAriaValueTextFn(fn);
   }
 
   render() {
@@ -125,28 +148,33 @@ export class Range implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <div
-          class={sliderClasses}
-          aria-label={this.name}
-          aria-disabled={this.disabled}
-          data-step={this.step}
-        >
+        <div ref={(el) => (this.rootEl = el)} class={sliderClasses}>
+          <input
+            ref={(el) => (this.inputEl = el)}
+            class="mdc-slider__input"
+            type="range"
+            min={this.min}
+            max={this.max}
+            step={this.step}
+            value={this.value || this.min || 0}
+            disabled={this.disabled}
+            name={this.name}
+            aria-label={this.name}
+          />
           <div class="mdc-slider__track">
+            <div class="mdc-slider__track--inactive" />
             <div class="mdc-slider__track--active">
-              <div class="mdc-slider__track--active_fill"></div>
+              <div class="mdc-slider__track--active_fill" />
             </div>
-            <div class="mdc-slider__track--inactive"></div>
+            {this.markers && (
+              <div class="mdc-slider__tick-marks">
+                <div class="mdc-slider__tick-mark--active" />
+              </div>
+            )}
           </div>
-          <div
-            class="mdc-slider__thumb"
-            aria-valuemin={this.min}
-            aria-valuemax={this.max}
-            aria-valuenow={this.value || this.min}
-            tabindex="0"
-            role="slider"
-          >
+          <div class="mdc-slider__thumb">
             {this.discrete && (
-              <div class="mdc-slider__value-indicator-container">
+              <div class="mdc-slider__value-indicator-container" aria-hidden>
                 <div class="mdc-slider__value-indicator">
                   <span class="mdc-slider__value-indicator-text">
                     {this.value || this.min}
@@ -154,7 +182,7 @@ export class Range implements ComponentInterface {
                 </div>
               </div>
             )}
-            <div class="mdc-slider__thumb-knob"></div>
+            <div class="mdc-slider__thumb-knob" />
           </div>
         </div>
       </Host>

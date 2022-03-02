@@ -1,5 +1,7 @@
 @use 'base/mdc-customize';
-@use '@material/list/mdc-list';
+@use '@material/list';
+
+@include list.deprecated-core-styles;
 
 ino-list-divider {
   display: block;

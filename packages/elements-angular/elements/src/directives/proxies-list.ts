@@ -9,7 +9,6 @@ export const DIRECTIVES = [
   d.InoCarouselSlide,
   d.InoCheckbox,
   d.InoChip,
-  d.InoChipSet,
   d.InoControlItem,
   d.InoCurrencyInput,
   d.InoDatepicker,

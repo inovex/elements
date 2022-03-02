@@ -1,11 +1,13 @@
 @use 'base/mdc-customize';
-@use '@material/list/mdc-list';
+@use '@material/list';
 @use '@material/menu-surface/mdc-menu-surface';
 @use '@material/menu/mdc-menu';
 @use '@material/select/mdc-select';
 @use '@material/select';
 @use 'base/theme';
 @use '../ino-label/ino-label';
+
+@include list.deprecated-core-styles;
 
 $not-outlined-select: 'not(.mdc-select--outlined)';
 $placeholder-color: rgba(0, 0, 0, 0.6);
@@ -112,6 +114,10 @@ ino-select {
       margin-top: 24px;
     }
 
+    .mdc-select__icon {
+      margin-top: 12px;
+    }
+
     .mdc-select__dropdown-icon {
       margin-top: 18px;
     }
@@ -127,7 +133,7 @@ ino-select {
     &[class*='--with-leading-icon'] {
       .mdc-floating-label,
       .mdc-floating-label--float-above {
-        left: 40px;
+        left: 48px;
       }
     }
   }

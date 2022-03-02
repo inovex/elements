@@ -2,8 +2,6 @@
 @use 'base/mdc-customize';
 @use '@material/list';
 
-@include list.core-styles;
-
 /**
 * @prop --ino-autocomplete-list-max-height: max height of option list
 */

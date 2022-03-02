@@ -6,8 +6,8 @@ export const renderHiddenInput = (
   container: HTMLElement,
   name: string,
   value: string | undefined | null,
-  disabled: boolean
-) => {
+  disabled: boolean,
+): HTMLInputElement => {
   let input = container.querySelector(
     'input.aux-input'
   ) as HTMLInputElement | null;
@@ -20,4 +20,6 @@ export const renderHiddenInput = (
   input.disabled = disabled;
   input.name = name;
   input.value = value || '';
+
+  return input;
 };
