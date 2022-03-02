@@ -473,14 +473,14 @@ export class Datepicker implements ComponentInterface {
           onValueChange={(e) => this.valueChange.emit(e.detail)}
           ref={(inoInputEl) => (this.inoInputEl = inoInputEl)}
         >
-          {hasLeadingIcon && <slot name="icon-leading"></slot>}
           {!this.inline && (
             <ino-icon
               clickable={!this.disabled}
               icon={this.type === 'time' ? 'time' : 'calendar'}
-              slot={'icon-trailing'}
+              slot={'icon-leading'}
             ></ino-icon>
           )}
+          {hasLeadingIcon && <slot name="icon-leading"></slot>}
           {this.inline && hasTrailingIcon && (
             <slot name="icon-trailing"></slot>
           )}
