@@ -145,7 +145,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
 
   &.nextMonthDay:not(.flatpickr-disabled)#{$notSelected},
   &.prevMonthDay:not(.flatpickr-disabled)#{$notSelected} {
-    color: theme.color(dark);
+    color: theme.color(dark, light);
   }
 
   &:hover:not(.flatpickr-disabled)#{$notSelected},
