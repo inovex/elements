@@ -172,8 +172,8 @@ export const Locale = () => html`
 
 export const MultipleTypes = () => {
   useEffect(() => {
-    const group = document.querySelector('ino-radio-group') as any;
-    const datepicker = document.querySelector('.datepicker-group ino-datepicker') as any;
+    const group = document.querySelector('ino-radio-group') as HTMLInoRadioGroupElement;
+    const datepicker = document.querySelector('.datepicker-group ino-datepicker') as HTMLInoDatepickerElement;
 
     // Shortcuts
     document.querySelector('.today').addEventListener('click', () => {
