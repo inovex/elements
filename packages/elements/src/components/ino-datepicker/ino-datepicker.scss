@@ -52,6 +52,9 @@ $hover-color: lighten(theme.color(primary), 36.5%);
   &.inline {
     padding: 0;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -71,7 +74,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
   margin-bottom: 10px;
   border-radius: 24px;
   // background-color: theme.$light-blue;
-  align-items: center;
+  width: 100%;
 
   .flatpickr-month {
     height: 38px;
@@ -106,6 +109,7 @@ $hover-color: lighten(theme.color(primary), 36.5%);
   .flatpickr-prev-month {
     padding: (10px + $padding-vertical) 12px 10px (12px + $padding-horizontal) !important;
   }
+
   .flatpickr-next-month {
     padding: (10px + $padding-vertical) (12px + $padding-horizontal) 12px 10px !important;
   }
