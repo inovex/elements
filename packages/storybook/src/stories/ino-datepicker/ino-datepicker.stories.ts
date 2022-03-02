@@ -63,7 +63,7 @@ Playground.args = {
   helper: 'Helper text to describe the input',
   helperPersistent: false,
   helperValidation: false,
-  inline: true,
+  inline: false,
   label: 'Label',
   min: minDate,
   max: maxDate,
@@ -151,6 +151,14 @@ export const States = () => html`
   <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
 `;
 
+export const Inline = () => html`
+  <ino-datepicker
+    style="width: 340px"
+    label="Inline"
+    inline="true"
+  ></ino-datepicker>
+`;
+
 export const Locale = () => html`
   <ino-datepicker lang="en" label="English"></ino-datepicker>
   <ino-datepicker lang="de" date-format="d.m.Y" label="German"></ino-datepicker>
@@ -161,7 +169,6 @@ export const Locale = () => html`
     label="German range"
   ></ino-datepicker>
 `;
-
 
 export const MultipleTypes = () => {
   useEffect(() => {
