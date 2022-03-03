@@ -1,12 +1,12 @@
 module.exports = {
-  extends: ['../../.eslintrc.js', 'plugin:react/recommended'],
+  extends: ['../../.eslintrc.js', 'plugin:@stencil/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
     sourceType: 'module',
   },
-  plugins: ['eslint-plugin-no-null', 'eslint-plugin-react'],
+  plugins: ['eslint-plugin-no-null'],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
@@ -34,6 +34,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': 'off',
     'template-curly-spacing': 'off',
+    '@stencil/strict-boolean-conditions': 'off',
+    '@stencil/dependency-suggestions': 'off',
+    '@stencil/prefer-vdom-listener': 'off'
   },
   ignorePatterns: ['stencil.config.ts'],
 };
