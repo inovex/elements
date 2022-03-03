@@ -10,10 +10,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-floating-promises': 'off',
-    '@typescript-eslint/no-inferrable-types': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-unnecessary-type-assertion': 'off',
     '@typescript-eslint/unbound-method': 'error',
     'comma-dangle': 'off',
     'import/no-unassigned-import': 'off',
@@ -21,19 +17,7 @@ module.exports = {
     'no-console': 'off',
     'no-null/no-null': 'off',
     'no-throw-literal': 'off',
-    'react/jsx-curly-spacing': [
-      'error',
-      {
-        when: 'never',
-      },
-    ],
-    'react/jsx-key': 'off',
     'react/jsx-no-bind': 'off',
-    'react/no-unknown-property': 'off',
-    'react/jsx-wrap-multilines': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/self-closing-comp': 'off',
-    'template-curly-spacing': 'off',
     '@stencil/strict-boolean-conditions': 'off',
     '@stencil/dependency-suggestions': 'off',
     '@stencil/prefer-vdom-listener': 'off'
