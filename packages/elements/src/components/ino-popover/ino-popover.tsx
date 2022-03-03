@@ -135,7 +135,7 @@ export class Popover implements ComponentInterface {
   /**
    * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
    */
-  @Prop() controlled: boolean = false;
+  @Prop() controlled = false;
 
   @Watch('controlled')
   controlledChanged() {

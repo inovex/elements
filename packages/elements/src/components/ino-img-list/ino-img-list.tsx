@@ -23,12 +23,12 @@ export class InoImgList implements ComponentInterface {
    * Enables the masonry image list variant, which allows the images to
    * be any combination of aspect ratios.
    */
-  @Prop() masonry: boolean = false;
+  @Prop() masonry = false;
 
   /**
    * Encapsulates the label of all img-list-items within the image
    */
-  @Prop() encloseLabel: boolean = false;
+  @Prop() encloseLabel = false;
 
   componentDidLoad(): void {
     if (this.masonry) {

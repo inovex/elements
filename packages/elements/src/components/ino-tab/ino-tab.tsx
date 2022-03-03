@@ -32,12 +32,12 @@ export class Tab implements ComponentInterface {
   /**
    * Indicates that the tab icon and label should flow vertically instead of horizontally.
    */
-  @Prop() stacked: boolean = false;
+  @Prop() stacked = false;
 
   /**
    * Indicates that the tab only expands to the width of its content.
    */
-  @Prop() indicatorContentWidth: boolean = false;
+  @Prop() indicatorContentWidth = false;
 
   /**
    * Emitted when the user interacts with the tab.

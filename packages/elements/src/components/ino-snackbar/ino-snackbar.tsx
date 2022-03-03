@@ -109,7 +109,7 @@ export class Snackbar implements ComponentInterface {
   };
 
   private handleSnackbarHide = e => {
-    this.hideEl!.emit();
+    this.hideEl.emit();
     e.stopPropagation();
   };
 

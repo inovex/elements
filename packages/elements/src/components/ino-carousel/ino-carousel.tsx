@@ -20,8 +20,8 @@ import classNames from 'classnames';
 export class InoCarousel implements ComponentInterface {
   @Element() el: HTMLInoCarouselElement;
   private slides: HTMLInoCarouselSlideElement[];
-  private currentSlide: number = 0;
-  private slideCounter: number = 1;
+  private currentSlide = 0;
+  private slideCounter = 1;
   private timer: NodeJS.Timeout;
 
   /**
@@ -39,7 +39,7 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Enables autoplay which causes slides to be changed automatically
    */
-  @Prop() autoplay: boolean = false;
+  @Prop() autoplay = false;
   @Watch('autoplay')
   autoplayChanged() {
     this.configureAutoplay();
@@ -48,27 +48,27 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Enables the slide animation
    */
-  @Prop() animated: boolean = false;
+  @Prop() animated = false;
 
   /**
    * Hides the arrow buttons
    */
-  @Prop() hideButtons: boolean = false;
+  @Prop() hideButtons = false;
 
   /**
    * Restarts playback from the first slide upon reaching the last slide
    */
-  @Prop() infinite: boolean = false;
+  @Prop() infinite = false;
 
   /**
    * Sets the intermission between two slides (Unit: ms)
    */
-  @Prop() intermission: number = 5000;
+  @Prop() intermission = 5000;
 
   /**
    * Enables reverse playback of the slides
    */
-  @Prop() reverse: boolean = false;
+  @Prop() reverse = false;
 
   componentDidLoad(): void {
     this.slides = this.getSlides();

@@ -68,7 +68,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
-  @State() private errorMessage: string = '';
+  @State() private errorMessage = '';
 
   /**
    * Emits when one of the view mode buttons was clicked.

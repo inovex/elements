@@ -50,7 +50,7 @@ export class Dialog implements ComponentInterface {
   /**
    * Opens the dialog if set to true
    */
-  @Prop() open: boolean = false;
+  @Prop() open = false;
 
   @Watch('open')
   openChanged(open: boolean) {

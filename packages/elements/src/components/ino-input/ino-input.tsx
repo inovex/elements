@@ -360,7 +360,7 @@ export class Input implements ComponentInterface {
    *
    * @internal
    */
-  @Prop() resetOnChange: boolean = true;
+  @Prop() resetOnChange = true;
 
   // ----
   // Native input event handler

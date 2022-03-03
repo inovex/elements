@@ -267,7 +267,7 @@ export class Datepicker implements ComponentInterface {
    */
   @Prop() hourStep = 1;
 
-  @State() isValid: boolean = true;
+  @State() isValid = true;
 
   @Watch('hourStep')
   hourStepChanged(value: number) {
