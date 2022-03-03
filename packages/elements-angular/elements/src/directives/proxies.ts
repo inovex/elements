@@ -756,7 +756,7 @@ export class InoNavItem {
 
 export declare interface InoOption extends Components.InoOption {
   /**
-   *  
+   * Emits on option click 
    */
   clickEl: EventEmitter<CustomEvent<HTMLInoOptionElement>>;
 
