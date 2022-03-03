@@ -18,7 +18,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class InoCarousel implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoCarouselElement;
   private slides: HTMLInoCarouselSlideElement[];
   private currentSlide: number = 0;
   private slideCounter: number = 1;

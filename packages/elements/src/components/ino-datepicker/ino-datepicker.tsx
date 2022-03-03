@@ -30,7 +30,7 @@ import { Validator } from './validator';
   shadow: false,
 })
 export class Datepicker implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoDatepickerElement;
 
   private flatpickr!: Instance;
   private inoInputEl?: HTMLInoInputElement;
@@ -291,7 +291,7 @@ export class Datepicker implements ComponentInterface {
     this.toggleFlatpickr();
   }
 
-  focusInputField = () => {
+  private focusInputField = () => {
     const currentFocus: Element = document.activeElement;
     const input = this.el.querySelector('input') as HTMLInputElement;
 

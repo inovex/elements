@@ -17,7 +17,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class InoImgList implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoImgListElement;
 
   /**
    * Enables the masonry image list variant, which allows the images to

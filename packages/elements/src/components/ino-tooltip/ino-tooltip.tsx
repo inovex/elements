@@ -21,7 +21,7 @@ export class Tooltip implements ComponentInterface {
   private tooltipInstance!: Instance;
   private target!: HTMLElement | null;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTooltipElement;
 
   /**
    * Sets the color scheme of the tooltip

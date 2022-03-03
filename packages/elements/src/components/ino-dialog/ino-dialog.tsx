@@ -28,7 +28,7 @@ export class Dialog implements ComponentInterface {
 
   private mdcDialog: MDCDialog;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoDialogElement;
 
   /**
    * The target element the dialog should be attached to.

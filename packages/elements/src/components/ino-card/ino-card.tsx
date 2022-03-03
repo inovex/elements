@@ -20,7 +20,7 @@ import { hasSlotContent } from '../../util/component-utils';
   shadow: false,
 })
 export class Card implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoCardElement;
 
   /**
    * Selects the card and displays a check mark icon on top of the card

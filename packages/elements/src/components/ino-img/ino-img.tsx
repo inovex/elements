@@ -20,7 +20,7 @@ import classNames from 'classnames';
 export class Image implements ComponentInterface {
   private imageEl: HTMLImageElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoImgElement;
 
   /**
    * The alternative text of this image.

@@ -17,7 +17,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class Tab implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTabElement;
 
   /**
    * Indicates a leading icon in the tab.

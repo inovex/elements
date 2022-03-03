@@ -36,6 +36,9 @@ export class InoOption {
    */
   @Prop() value!: string;
 
+  /**
+   * Emits on option click
+   */
   @Event() clickEl: EventEmitter<HTMLInoOptionElement>;
 
   @Listen('click')

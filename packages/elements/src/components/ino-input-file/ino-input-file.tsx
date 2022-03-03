@@ -15,7 +15,7 @@ import classNames from 'classnames';
   styleUrl: 'ino-input-file.scss',
 })
 export class InputFile implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoInputFileElement;
 
   private eventListeners: [string, EventListener | EventListenerObject][] = [];
 

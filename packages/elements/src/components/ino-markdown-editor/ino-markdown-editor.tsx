@@ -36,8 +36,7 @@ export class MarkdownEditor implements ComponentInterface {
   private editorRef!: HTMLDivElement;
   private textareaRef: HTMLInoTextareaElement;
 
-  public editor!: Editor;
-  public isPlainText = false;
+  private editor!: Editor;
 
   /**
    * Initial `string` value of the markdown editor.

@@ -27,7 +27,7 @@ export class InoTableHeaderCell implements ComponentInterface {
   private tableHeaderCellId = `ino-table-header-cell-id_${generateUniqueId()}`;
   private popoverElement: HTMLInoPopoverElement;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoTableHeaderCellElement;
 
   /**
    * Marks the header as autofocused (used for searchable header cells).
@@ -134,7 +134,7 @@ export class InoTableHeaderCell implements ComponentInterface {
     this.popoverElement?.getTippyInstance().then(tippy => tippy.hide());
   }
 
-  sortButtonClickHandler() {
+  private sortButtonClickHandler() {
     const sortOrder =
       this.sortStart === 'desc' ? ['desc', 'asc'] : ['asc', 'desc'];
     let sortDirection = sortOrder[0];

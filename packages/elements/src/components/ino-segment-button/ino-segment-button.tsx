@@ -26,7 +26,7 @@ export class InoSegmentButton implements ComponentInterface {
   private successor: Element;
   private belongsToGroup: boolean = false;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSegmentButtonElement;
 
   /**
    * Activates the button

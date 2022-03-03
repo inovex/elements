@@ -28,7 +28,7 @@ export class ListItem implements ComponentInterface {
   private listItemEl: HTMLLIElement;
   private mdcRipple: MDCRipple;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoListItemElement;
   /**
    * The primary text of this list item.
    */

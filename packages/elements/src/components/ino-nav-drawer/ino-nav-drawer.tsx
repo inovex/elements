@@ -33,7 +33,7 @@ export class NavDrawer implements ComponentInterface {
   private drawerInstance: MDCDrawer;
   private drawerEl: HTMLElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoNavDrawerElement;
 
   /**
    * Marks this element as open. (**unmanaged**)
@@ -81,12 +81,12 @@ export class NavDrawer implements ComponentInterface {
    */
   @Event() openChange!: EventEmitter<boolean>;
 
-  closeDrawer = (e: Event) => {
+  private closeDrawer = (e: Event) => {
     e.preventDefault();
     this.openChange.emit(false);
   };
 
-  toggleDrawer = (e: Event) => {
+  private toggleDrawer = (e: Event) => {
     const newOpenState = !this.open;
     this.openChange.emit(newOpenState);
     e.stopPropagation();
