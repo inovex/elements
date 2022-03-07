@@ -36,12 +36,12 @@ export default {
   ],
   // will be used as default props for all stories
   args: {
-    checked: false,
+    checked: true,
     disabled: false,
     indeterminate: false,
-    name: '',
+    name: 'my-name',
     selection: false,
-    value: '',
+    value: 'my-value',
   },
 } as Meta<Components.InoCheckbox>;
 
@@ -64,16 +64,13 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
 
 export const Playground = template.generatePlaygroundStory();
 
-export const Checked = template.generateStory('checked', true);
+export const Checked = template.generateStoryForProp('checked', true);
 
-export const Selection = template.extendStory(
-  template.generateStory('selection', true),
-  Checked
+export const Selection = template.generateStoryForProp('selection', true);
+
+export const Indeterminate = template.generateStoryForProp(
+  'indeterminate',
+  true
 );
 
-export const Indeterminate = template.generateStory('indeterminate', true);
-
-export const Disabled = template.extendStory(
-  template.generateStory('disabled', true),
-  Checked
-);
+export const Disabled = template.generateStoryForProp('disabled', true);
