@@ -28,7 +28,7 @@ export class Button implements ComponentInterface {
    */
   private button: MDCRipple;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoButtonElement;
   /**
    * Sets the autofocus for this element.
    */

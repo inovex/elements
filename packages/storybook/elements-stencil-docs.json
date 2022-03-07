@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-02T14:13:45",
+  "timestamp": "2022-03-03T16:49:38",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -3675,7 +3675,7 @@
         {
           "name": "label",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
           "docs": "The optional floating label of this input field.",
@@ -3938,7 +3938,7 @@
         {
           "name": "value",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "The value of this element. (**unmanaged**)",
@@ -5401,7 +5401,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emits on option click",
           "docsTags": []
         }
       ],

@@ -29,7 +29,7 @@ export class Checkbox implements ComponentInterface {
   private formField: MDCFormField;
   private nativeInputEl!: HTMLInputElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoCheckboxElement;
 
   /**
    * Marks this element as checked. (**unmanaged**)
@@ -101,7 +101,7 @@ export class Checkbox implements ComponentInterface {
    */
   @Event() checkedChange!: EventEmitter;
 
-  handleInput = (e: Event) => {
+  private handleInput = (e: Event) => {
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(!this.checked);
     e.stopPropagation();

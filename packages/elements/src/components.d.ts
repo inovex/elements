@@ -2564,6 +2564,9 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        /**
+          * Emits on option click
+         */
         "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option

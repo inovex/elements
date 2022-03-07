@@ -23,9 +23,7 @@ import { hasSlotContent } from '../../util/component-utils';
 export class Fab implements ComponentInterface {
   private fabRipple: MDCRipple;
 
-  @Element() el!: HTMLElement;
-
-  tooltipRef!: HTMLInoTooltipElement;
+  @Element() el!: HTMLInoFabElement;
 
   /**
    * Adds an icon to the Fab.
@@ -118,7 +116,7 @@ export class Fab implements ComponentInterface {
    */
   private static HELPER_COUNTER = 0;
 
-  static generateHelperTextId() {
+  private static generateHelperTextId() {
     return `fab-helper-text__${Fab.HELPER_COUNTER++}`;
   }
 

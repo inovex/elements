@@ -26,17 +26,17 @@ export class Spinner implements ComponentInterface {
   /**
    * If true, the spinner is shown as modal over the current app page.
    */
-  @Prop() modal: boolean = false;
+  @Prop() modal = false;
 
   /**
    * The height of this spinner (default = 40)
    */
-  @Prop() height: number = 40;
+  @Prop() height = 40;
 
   /**
    * The width of this spinner (defaul = 40)
    */
-  @Prop() width: number = 40;
+  @Prop() width = 40;
 
   private tileTemplate() {
     return [

@@ -32,7 +32,7 @@ export class Select implements ComponentInterface {
   private nativeInputElement?: HTMLInputElement;
   private optionsObserver: MutationObserver;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSelectElement;
 
   /**
    * Disables this element.
@@ -163,7 +163,7 @@ export class Select implements ComponentInterface {
     }
   }
 
-  renderDropdownIcon = () => (
+  private renderDropdownIcon = () => (
     <span class="mdc-select__dropdown-icon">
       <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
         <polygon

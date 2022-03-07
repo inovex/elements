@@ -33,12 +33,12 @@ export class Label {
    */
   @Prop() disabled: boolean;
 
-  filledTemplate = (label: HTMLElement) => [
+  private filledTemplate = (label: HTMLElement) => [
     <div class="mdc-line-ripple" />,
     label,
   ];
 
-  outlineTemplate = (label: HTMLElement) => (
+  private outlineTemplate = (label: HTMLElement) => (
     <div class="mdc-notched-outline">
       <div class="mdc-notched-outline__leading" />
       <div class="mdc-notched-outline__notch">{label}</div>
