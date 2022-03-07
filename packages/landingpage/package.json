@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-landingpage",
-  "version": "4.1.1",
+  "version": "6.0.0",
   "description": "The landingpage for inovex elements",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "private": true,
@@ -15,8 +15,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
     "@inovex.de/elements": "^4.1.1",
+    "core-js": "^3.8.3",
     "vue": "^2.6.14",
     "vue-router": "^3.2.0"
   },
