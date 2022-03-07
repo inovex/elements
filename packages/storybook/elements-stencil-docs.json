@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-03T16:49:38",
+  "timestamp": "2022-03-01T14:58:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -788,7 +788,7 @@
       "filePath": "./src/components/ino-checkbox/ino-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "ino-checkbox",
-      "readme": "# ino-checkbox\n\nA checkbox that allows the user to select one or more items from a set of options.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-checkbox')\n  .addEventListener('checkedChange', (e) =>\n    alert(`The checked state is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-checkbox\n  checked\n  disabled\n  name=\"<string>\"\n  value=\"<string>\"\n  indeterminate\n  id=\"<string>\"\n  tab-index=\"<number>\"\n>\n  Label\n</ino-checkbox>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoCheckbox } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick() {\n    this.setState({ checked: !this.state.checked });\n  }\n\n  render() {\n    return (\n      <InoCheckbox\n        value=\"Apple\"\n        onClick={(_) => this.handleCheckboxClick()}\n        checked={this.state.checked}\n      >\n        Apple\n      </InoCheckbox>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoCheckbox } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Checkbox: React.FunctionComponent<Components.InoCheckboxAttributes> = (\n  props,\n) => {\n  const { value, onClick, checked } = props;\n\n  return (\n    <InoCheckbox value={value} onClick={onClick} checked={checked}>\n      {value}\n    </InoCheckbox>\n  );\n};\n\nclass MyComponent extends Component {\n  state = {\n    checked: false,\n  };\n\n  handleCheckboxClick() {\n    this.setState({ checked: !this.state.checked });\n  }\n\n  render() {\n    return (\n      <Checkbox\n        value=\"Apple\"\n        onClick={(_) => this.handleCheckboxClick()}\n        checked={this.state.checked}\n      >\n        Apple\n      </Checkbox>\n    );\n  }\n}\n```\n\n## Additional Hints\n\nBy default, the label is always shown on the right side of the checkbox.\n\n**Indeterminate:** The indeterminate status is set by the user. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes)\n\n**Selection:** Checkboxes are mainly used in lists. Selection should be used as single, stand-alone UI element. The indeterminate state is not supported.\n\n## Control flow\n\nThe input has a controlled (unmanaged) attribute `checked` and `indeterminate`. For this reason, listen to `checkedChange`, sync it with your local state and pass the new value to the component again to change value and indeterminate state of input:\n\n## Demo\n",
+      "readme": "# ino-checkbox\n\nA checkbox that allows the user to select one or more items from a set of options.\n",
       "docs": "A checkbox that allows the user to select one or more items from a set of options.",
       "docsTags": [
         {
@@ -837,7 +837,7 @@
           "mutable": false,
           "attr": "indeterminate",
           "reflectToAttr": false,
-          "docs": "Marks this element as indeterminate (**unmanaged**)",
+          "docs": "Marks this element as indeterminate.\nIt indicates that a user is indeterminate without changing the checked state.\nIf a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked.\nFor more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).",
           "docsTags": [],
           "values": [
             {
