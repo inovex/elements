@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import {vueOutputTarget} from "@stencil/vue-output-target";
 
 const angularDiretivesPath =  '../elements-angular/elements/src/directives';
 
@@ -35,6 +36,36 @@ export const config: Config = {
       directivesProxyFile: `${angularDiretivesPath}/proxies.ts`,
       directivesUtilsFile: angularDiretivesPath,
       directivesArrayFile: `${angularDiretivesPath}/proxies-list.ts`,
+    }),
+    vueOutputTarget({
+      componentCorePackage: '@inovex.de/elements',
+      proxiesFile: '../elements-vue3/src/proxies.ts',
+      includeImportCustomElements: false,
+      includePolyfills: false,
+      includeDefineCustomElements: true,
+      componentModels: [
+        {
+          elements: [
+            'ino-checkbox', 'ino-radio',
+            'ino-switch', 'ino-segment-button',
+            'ino-control-item'
+          ],
+          targetAttr: 'checked',
+          event: 'v-checked-change',
+          externalEvent: 'checkedChange'
+        },
+        {
+          elements: [
+            'ino-autocomplete', 'ino-datepicker',
+            'ino-input-file', 'ino-input',
+            'ino-range', 'ino-select',
+            'ino-textarea'
+          ],
+          targetAttr: 'value',
+          event: 'v-value-change',
+          externalEvent: 'valueChange'
+        }
+      ],
     }),
   ],
   plugins: [
