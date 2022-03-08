@@ -1,11 +1,15 @@
-# `elements-vue3`
+# @inovex.de/elements-vue
 
-> TODO: description
+This is the integration layer package for integrating the inovex elements into Vue projects.
 
-## Usage
+## Installation
 
-```
-const elementsVue3 = require('elements-vue3');
+See [instructions](https://github.com/inovex/elements/tree/master/packages/storybook/src/stories/docs/framework-integration) how to integrate it into your project.
 
-// TODO: DEMONSTRATE API
-```
+## Contributing
+
+Please refer to the top level [README at GitHub](https://github.com/inovex/elements) to see the available script commands.
+
+## License
+
+MIT
