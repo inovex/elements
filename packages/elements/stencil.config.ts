@@ -1,9 +1,9 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
-import {vueOutputTarget} from "@stencil/vue-output-target";
+import { vueOutputTarget } from "@stencil/vue-output-target";
 
-const angularDiretivesPath =  '../elements-angular/elements/src/directives';
+const angularDirectivesPath =  '../elements-angular/elements/src/directives';
 
 export const config: Config = {
   buildEs5: false,
@@ -33,13 +33,13 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      directivesProxyFile: `${angularDiretivesPath}/proxies.ts`,
-      directivesUtilsFile: angularDiretivesPath,
-      directivesArrayFile: `${angularDiretivesPath}/proxies-list.ts`,
+      directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
+      directivesUtilsFile: angularDirectivesPath,
+      directivesArrayFile: `${angularDirectivesPath}/proxies-list.ts`,
     }),
     vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      proxiesFile: '../elements-vue3/src/proxies.ts',
+      proxiesFile: '../elements-vue/src/proxies.ts',
       includeDefineCustomElements: false,
       componentModels: [
         {
