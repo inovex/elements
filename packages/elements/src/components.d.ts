@@ -1034,6 +1034,18 @@ export namespace Components {
          */
         "error"?: boolean;
         /**
+          * A helper text to display below the select element.
+         */
+        "helper"?: string;
+        /**
+          * Displays the helper text permanently.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperValidation"?: boolean;
+        /**
           * The label of this element.
          */
         "label"?: string;
@@ -2762,6 +2774,18 @@ declare namespace LocalJSX {
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
         "error"?: boolean;
+        /**
+          * A helper text to display below the select element.
+         */
+        "helper"?: string;
+        /**
+          * Displays the helper text permanently.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Styles the helper text as a validation message.
+         */
+        "helperValidation"?: boolean;
         /**
           * The label of this element.
          */
