@@ -40,9 +40,7 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
       proxiesFile: '../elements-vue3/src/proxies.ts',
-      includeImportCustomElements: false,
-      includePolyfills: false,
-      includeDefineCustomElements: true,
+      includeDefineCustomElements: false,
       componentModels: [
         {
           elements: [

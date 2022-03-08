@@ -5,9 +5,7 @@ import { defineContainer } from './vue-component-lib/utils';
 
 import type { JSX } from '@inovex.de/elements';
 
-import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 
-defineCustomElements();
 
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
   'debounceTimeout',
@@ -107,8 +105,10 @@ export const InoCurrencyInput = /*@__PURE__*/ defineContainer<JSX.InoCurrencyInp
 
 export const InoDatepicker = /*@__PURE__*/ defineContainer<JSX.InoDatepicker>('ino-datepicker', undefined, [
   'autoFocus',
+  'appendTo',
   'disabled',
   'name',
+  'placeholder',
   'required',
   'showLabelHint',
   'value',
@@ -119,6 +119,7 @@ export const InoDatepicker = /*@__PURE__*/ defineContainer<JSX.InoDatepicker>('i
   'helper',
   'helperPersistent',
   'helperValidation',
+  'inline',
   'range',
   'attachToBody',
   'dateFormat',
@@ -348,6 +349,8 @@ export const InoOptionGroup = /*@__PURE__*/ defineContainer<JSX.InoOptionGroup>(
 export const InoPopover = /*@__PURE__*/ defineContainer<JSX.InoPopover>('ino-popover', undefined, [
   'placement',
   'for',
+  'hideOnBlur',
+  'hideOnEsc',
   'distance',
   'colorScheme',
   'interactive',
@@ -481,17 +484,27 @@ export const InoTabBar = /*@__PURE__*/ defineContainer<JSX.InoTabBar>('ino-tab-b
 ]);
 
 
-export const InoTable = /*@__PURE__*/ defineContainer<JSX.InoTable>('ino-table', undefined);
-
-
-export const InoTableCell = /*@__PURE__*/ defineContainer<JSX.InoTableCell>('ino-table-cell', undefined, [
-  'numeric'
+export const InoTable = /*@__PURE__*/ defineContainer<JSX.InoTable>('ino-table', undefined, [
+  'loading',
+  'noHover',
+  'sortColumnId',
+  'sortDirection',
+  'stickyHeader',
+  'sortChange'
 ]);
 
 
-export const InoTableRow = /*@__PURE__*/ defineContainer<JSX.InoTableRow>('ino-table-row', undefined, [
-  'headerRow',
-  'selected'
+export const InoTableHeaderCell = /*@__PURE__*/ defineContainer<JSX.InoTableHeaderCell>('ino-table-header-cell', undefined, [
+  'autofocus',
+  'searchIcon',
+  'columnId',
+  'label',
+  'searched',
+  'notSortable',
+  'sortDirection',
+  'sortStart',
+  'sortDirectionChange',
+  'searchFocusChange'
 ]);
 
 

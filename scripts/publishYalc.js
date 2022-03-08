@@ -11,7 +11,7 @@ const questions = [
     choices: [
       { title: 'Angular', value: 'angular', selected: true },
       { title: 'React', value: 'react', selected: true },
-      { title: 'Vue3', value: 'vue3', selected: true },
+      { title: 'Vue', value: 'vue', selected: true },
     ],
   },
   {
@@ -30,7 +30,7 @@ function publishReact() {
 
 function publishVue() {
   shell.exec(
-    'lerna exec --scope=@inovex.de/elements-vue3 -- yalc publish --no-sig --push'
+    'lerna exec --scope=@inovex.de/elements-vue -- yalc publish --no-sig --push'
   );
 }
 
@@ -107,10 +107,9 @@ async function main() {
   if (targets.includes('react')) {
     publishReact();
   }
-  if (targets.includes('vue3')) {
+  if (targets.includes('vue')) {
     publishVue();
   }
-
   // Clean up
   targets.forEach((target) => {
     shell.exec(
