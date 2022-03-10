@@ -3,20 +3,74 @@ import { Meta } from "@storybook/addon-docs";
 <Meta title="Docs/Framework Integration/Vue" />
 
 # Integrate with Vue.js (as Web Components)
-
-> We set up a demo project with Vue.js to show you how to integrate the components into a newly generated Vue.js
+> We set up a demo project with Vue.js (v3) to show you how to integrate the components into a newly generated Vue.js
 > project. Scroll down to see the Stackblitz.
 >
 > These instructions are based on `vue@2.6.11` and [`create-react-app@4.2.3`](https://cli.vuejs.org/).
 
-## 0) Prepare your Project
+## Vue.js 3
 
+Please follow these steps for integration into Vue.js(>= 3.0.0):
+
+### 0) Prepare your Project
+Before using `@inovex.de/elements-vue`, you should make sure that your current setup works and boots properly.
+If this is the case, proceed to the next step.
+
+### 1) Install `@inovex.de/elements-vue`
+Add the package `@inovex.de/elements-vue` to your project using **npm**:
+
+```sh
+$ npm install @inovex.de/elements-vue --save
+```
+
+or **yarn**:
+
+```sh
+$ yarn add @inovex.de/elements-vue
+```
+
+### 2) Prepare the Project to use icons (optional)
+Before you start using the elements icons, you need to prepare the project.
+Open `src/main.js` and add the following code snippet somewhere on the first lines to import the icons.
+
+```js
+// src/main.js
+import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
+import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
+
+addIcons(ICON_PATHS); // only needed if you want to use our icons
+```
+
+### 3) Use the Components
+As the integration is now complete, you can use the components in your project in the same way you would use any other Vue.js component.
+
+```js
+// src/App.vue
+import { InoButton } from "@inovex.de/elements-vue";
+
+export default {
+    name: 'ExampleApp',
+    components: {
+        InoButton,
+    },
+    data: () => ({
+        myData: [],
+    }),
+    methods: {
+        foo() {}
+    }
+}
+```
+
+## Vue.js 2
+Please follow these steps for integration into Vue.js(<= 2.x.x):
+
+### 0) Prepare your Project
 Before using `@inovex.de/elements`, you should make sure that your current setup works and boots properly.
 If this is the case, proceed to the next step.
 
-## 1) Install `@inovex.de/elements`
-
-> Hint: We do not provide an integration package for Vue.js as we do for Angular and React.
+### 1) Install `@inovex.de/elements`
+> Hint: We do not provide an integration package for Vue.js(<= 2.x.x) as we do for Angular and React.
 > Vue.js works out-of-the box with Web Components as Vue.js respects the DOM API standards.
 
 Add the package `@inovex.de/elements` to your project using **npm**:
@@ -32,7 +86,6 @@ $ yarn add @inovex.de/elements
 ```
 
 ### 2) Prepare the Project
-
 Before you start using the components, you need to prepare the project.
 
 Open `src/main.js` and add the following code snippet somewhere on the first lines, to...
@@ -64,7 +117,7 @@ applyPolyfills().then(() => {
 ```
 
 ### 3) Use the Components
-
 You can now use the components in your Vue.js project in the same way you would use any native HTML element.
 
+## Simple todo app
 To help you to get started, we created a [simple todo app](https://codesandbox.io/s/github/inovex/elements-example-vue) for you to play around with.
