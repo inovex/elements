@@ -31,7 +31,7 @@ const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
   shadow: false,
 })
 export class Popover implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoPopoverElement;
   private tippyInstance?: Tippy;
   private popoverContainer: HTMLDivElement;
   private popoverContent: HTMLDivElement;
@@ -135,7 +135,7 @@ export class Popover implements ComponentInterface {
   /**
    * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
    */
-  @Prop() controlled: boolean = false;
+  @Prop() controlled = false;
 
   @Watch('controlled')
   controlledChanged() {

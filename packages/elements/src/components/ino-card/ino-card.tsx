@@ -20,17 +20,17 @@ import { hasSlotContent } from '../../util/component-utils';
   shadow: false,
 })
 export class Card implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoCardElement;
 
   /**
    * Selects the card and displays a check mark icon on top of the card
    */
-  @Prop() selected: boolean = false;
+  @Prop() selected = false;
 
   /**
    * Disables the hover effect if true
    */
-  @Prop() disableElevation: boolean = false;
+  @Prop() disableElevation = false;
 
   render() {
     const hostClasses = classnames({

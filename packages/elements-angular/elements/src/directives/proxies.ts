@@ -756,7 +756,7 @@ export class InoNavItem {
 
 export declare interface InoOption extends Components.InoOption {
   /**
-   *  
+   * Emits on option click 
    */
   clickEl: EventEmitter<CustomEvent<HTMLInoOptionElement>>;
 
@@ -998,13 +998,13 @@ export declare interface InoSelect extends Components.InoSelect {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 @Component({
   selector: 'ino-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'error', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
+  inputs: ['disabled', 'error', 'helper', 'helperPersistent', 'helperValidation', 'label', 'name', 'outline', 'required', 'showLabelHint', 'value']
 })
 export class InoSelect {
   protected el: HTMLElement;

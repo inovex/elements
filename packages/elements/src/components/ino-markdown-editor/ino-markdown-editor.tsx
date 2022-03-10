@@ -36,8 +36,7 @@ export class MarkdownEditor implements ComponentInterface {
   private editorRef!: HTMLDivElement;
   private textareaRef: HTMLInoTextareaElement;
 
-  public editor!: Editor;
-  public isPlainText = false;
+  private editor!: Editor;
 
   /**
    * Initial `string` value of the markdown editor.
@@ -69,7 +68,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   @State() private toolbarActionsState: Set<Actions> = new Set<Actions>();
-  @State() private errorMessage: string = '';
+  @State() private errorMessage = '';
 
   /**
    * Emits when one of the view mode buttons was clicked.

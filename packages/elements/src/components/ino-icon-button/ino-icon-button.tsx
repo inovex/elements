@@ -25,7 +25,7 @@ export class IconButton implements ComponentInterface {
   // or a toggle button instance.
   private mdcInstance: MDCRipple;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoIconButtonElement;
 
   /**
    * Sets the autofocus for this element.

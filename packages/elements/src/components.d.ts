@@ -126,7 +126,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -1034,6 +1034,18 @@ export namespace Components {
          */
         "error"?: boolean;
         /**
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
+         */
+        "helper"?: string;
+        /**
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
+         */
+        "helperValidation"?: boolean;
+        /**
           * The label of this element.
          */
         "label"?: string;
@@ -1797,7 +1809,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -2564,6 +2576,9 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        /**
+          * Emits on option click
+         */
         "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
@@ -2759,6 +2774,18 @@ declare namespace LocalJSX {
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
         "error"?: boolean;
+        /**
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
+         */
+        "helper"?: string;
+        /**
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
+         */
+        "helperValidation"?: boolean;
         /**
           * The label of this element.
          */

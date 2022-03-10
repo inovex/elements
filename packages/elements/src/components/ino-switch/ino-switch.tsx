@@ -17,7 +17,7 @@ import {ColorScheme} from '../types';
   shadow: false,
 })
 export class Switch implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSwitchElement;
 
   private mdcSwitchEl: HTMLButtonElement;
   private mdcSwitch: MDCSwitch;
@@ -58,7 +58,7 @@ export class Switch implements ComponentInterface {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
   }
 
-  componentDidUnLoad() {
+  disconnectedCallback() {
     this.mdcSwitch?.destroy();
   }
 

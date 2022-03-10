@@ -24,9 +24,9 @@ The component can be used as follows:
 
 ## Events
 
-| Event     | Description | Type                                |
-| --------- | ----------- | ----------------------------------- |
-| `clickEl` |             | `CustomEvent<HTMLInoOptionElement>` |
+| Event     | Description           | Type                                |
+| --------- | --------------------- | ----------------------------------- |
+| `clickEl` | Emits on option click | `CustomEvent<HTMLInoOptionElement>` |
 
 
 ## Slots

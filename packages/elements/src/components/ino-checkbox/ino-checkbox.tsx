@@ -29,7 +29,7 @@ export class Checkbox implements ComponentInterface {
   private formField: MDCFormField;
   private nativeInputEl!: HTMLInputElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoCheckboxElement;
 
   /**
    * Marks this element as checked. (**unmanaged**)
@@ -66,7 +66,10 @@ export class Checkbox implements ComponentInterface {
   @Prop() selection?: boolean;
 
   /**
-   * Marks this element as indeterminate (**unmanaged**)
+   * Marks this element as indeterminate.
+   * It indicates that a user is indeterminate without changing the checked state.
+   * If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked.
+   * For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
    */
   @Prop() indeterminate?: boolean;
 
@@ -101,7 +104,7 @@ export class Checkbox implements ComponentInterface {
    */
   @Event() checkedChange!: EventEmitter;
 
-  handleInput = (e: Event) => {
+  private handleInput = (e: Event) => {
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(!this.checked);
     e.stopPropagation();

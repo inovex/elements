@@ -32,7 +32,7 @@ export class Select implements ComponentInterface {
   private nativeInputElement?: HTMLInputElement;
   private optionsObserver: MutationObserver;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSelectElement;
 
   /**
    * Disables this element.
@@ -69,6 +69,24 @@ export class Select implements ComponentInterface {
    * The value of this element. (**unmanaged**)
    */
   @Prop() value?: string = '';
+
+  /**
+   * A helper text to display below the select element.
+   * By default, non-validation helper text is always visible.
+   */
+  @Prop() helper?: string;
+
+  /**
+   * Indicates the helper text is a validation message.
+   * By default validation message is hidden unless the select is invalid.
+   */
+  @Prop() helperValidation?: boolean;
+
+  /**
+   * When the helper text is serving as a validation message,
+   * make it permanently visible regardless of the select's validity.
+   */
+  @Prop() helperPersistent?: boolean;
 
   @Watch('value')
   handleValueChange(value: string) {
@@ -163,7 +181,7 @@ export class Select implements ComponentInterface {
     }
   }
 
-  renderDropdownIcon = () => (
+  private renderDropdownIcon = () => (
     <span class="mdc-select__dropdown-icon">
       <svg class="mdc-select__dropdown-icon-graphic" viewBox="7 10 10 5">
         <polygon
@@ -185,6 +203,10 @@ export class Select implements ComponentInterface {
   render() {
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
 
+    const inoSelectClasses = classNames({
+      'ino-select-outlined': this.outline
+    })
+
     const classSelect = classNames({
       'mdc-select': true,
       'mdc-select--disabled': this.disabled,
@@ -192,6 +214,13 @@ export class Select implements ComponentInterface {
       'mdc-select--filled': !this.outline,
       'mdc-select--required': this.required,
       'mdc-select--with-leading-icon': leadingSlotHasContent,
+    });
+
+    const helperTextClasses = classNames({
+      'mdc-select-helper-text': true,
+      'mdc-select-helper-text--validation-msg-persistent': this
+        .helperPersistent,
+      'mdc-select-helper-text--validation-msg': this.helperValidation,
     });
 
     const hiddenInput = this.required ? (
@@ -207,7 +236,7 @@ export class Select implements ComponentInterface {
     );
 
     return (
-      <Host name={this.name}>
+      <Host class={inoSelectClasses} name={this.name}>
         <div class={classSelect} ref={(el) => (this.mdcSelectContainerEl = el)}>
           {hiddenInput}
           <div class="mdc-select__anchor" aria-required={this.required}>
@@ -227,11 +256,15 @@ export class Select implements ComponentInterface {
             />
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
-            <ul class="mdc-deprecated-list" ref={(el) => (this.mdcOptionsListEl = el)}>
+            <ul
+              class="mdc-deprecated-list"
+              ref={(el) => (this.mdcOptionsListEl = el)}
+            >
               <slot />
             </ul>
           </div>
         </div>
+        {this.helper && <p class={helperTextClasses}>{this.helper}</p>}
       </Host>
     );
   }

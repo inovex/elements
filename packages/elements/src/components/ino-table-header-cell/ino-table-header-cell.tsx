@@ -27,7 +27,7 @@ export class InoTableHeaderCell implements ComponentInterface {
   private tableHeaderCellId = `ino-table-header-cell-id_${generateUniqueId()}`;
   private popoverElement: HTMLInoPopoverElement;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoTableHeaderCellElement;
 
   /**
    * Marks the header as autofocused (used for searchable header cells).
@@ -41,7 +41,7 @@ export class InoTableHeaderCell implements ComponentInterface {
    * Identifier of the search icon (default `search`).
    * Used for date or list search columns.
    */
-  @Prop() searchIcon: string = 'search';
+  @Prop() searchIcon = 'search';
 
   /**
    * A unique identifier of the column (used for sorting).
@@ -63,13 +63,13 @@ export class InoTableHeaderCell implements ComponentInterface {
    * Persistent state to indicate the user that this column
    * has a search filter.
    */
-  @Prop() searched: boolean = false;
+  @Prop() searched = false;
 
   /**
    * If true, the cell is **not** sortable.
    * By default, table header cells are sortable.
    */
-  @Prop() notSortable: boolean = false;
+  @Prop() notSortable = false;
 
   /**
    * The current sort direction of the column.
@@ -134,7 +134,7 @@ export class InoTableHeaderCell implements ComponentInterface {
     this.popoverElement?.getTippyInstance().then(tippy => tippy.hide());
   }
 
-  sortButtonClickHandler() {
+  private sortButtonClickHandler() {
     const sortOrder =
       this.sortStart === 'desc' ? ['desc', 'asc'] : ['asc', 'desc'];
     let sortDirection = sortOrder[0];

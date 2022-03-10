@@ -27,7 +27,7 @@ import classNames from 'classnames';
   shadow: false
 })
 export class InoTable implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoTableElement;
 
   /**
    * True, if the table is loading data.
