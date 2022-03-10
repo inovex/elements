@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-01T14:58:39",
+  "timestamp": "2022-03-10T08:51:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6655,6 +6655,54 @@
           "attr": "error",
           "reflectToAttr": false,
           "docs": "Displays the select as invalid if set to true.\nIf the property is not set or set to false,\nthe validation is handled by the default validation.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "mutable": false,
+          "attr": "helper",
+          "reflectToAttr": false,
+          "docs": "A helper text to display below the select element.\nBy default, non-validation helper text is always visible.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "helperPersistent",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "helper-persistent",
+          "reflectToAttr": false,
+          "docs": "When the helper text is serving as a validation message,\nmake it permanently visible regardless of the select's validity.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "helperValidation",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "helper-validation",
+          "reflectToAttr": false,
+          "docs": "Indicates the helper text is a validation message.\nBy default validation message is hidden unless the select is invalid.",
           "docsTags": [],
           "values": [
             {
