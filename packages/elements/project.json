@@ -1,0 +1,13 @@
+{
+  "root": "packages/elements/",
+  "sourceRoot": "packages/elements/src",
+  "projectType": "library",
+  "targets": {
+    "generate-changelog": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "standard-version"
+      }
+    }
+  }
+}

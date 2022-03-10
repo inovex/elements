@@ -1,0 +1,13 @@
+{
+  "root": "packages/elements-react/",
+  "sourceRoot": "packages/elements-react/src",
+  "projectType": "library",
+  "targets": {
+    "generate-changelog": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "standard-version"
+      }
+    }
+  }
+}

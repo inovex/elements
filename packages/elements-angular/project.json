@@ -1,0 +1,13 @@
+{
+  "root": "packages/elements-angular/",
+  "sourceRoot": "packages/elements-angular/elements/src",
+  "projectType": "library",
+  "targets": {
+    "generate-changelog": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "standard-version"
+      }
+    }
+  }
+}

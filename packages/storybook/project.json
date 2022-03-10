@@ -1,0 +1,13 @@
+{
+  "root": "packages/storybook/",
+  "sourceRoot": "packages/storybook/src",
+  "projectType": "app",
+  "targets": {
+    "generate-changelog": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "standard-version"
+      }
+    }
+  }
+}

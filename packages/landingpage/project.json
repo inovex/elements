@@ -1,0 +1,13 @@
+{
+  "root": "packages/landingpage/",
+  "sourceRoot": "packages/landingpage/src",
+  "projectType": "app",
+  "targets": {
+    "generate-changelog": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "standard-version"
+      }
+    }
+  }
+}
