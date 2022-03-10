@@ -72,18 +72,21 @@ export class Select implements ComponentInterface {
 
   /**
    * A helper text to display below the select element.
+   * By default, non-validation helper text is always visible.
    */
   @Prop() helper?: string;
 
   /**
-   * Displays the helper text permanently.
-   */
-  @Prop() helperPersistent?: boolean;
-
-  /**
-   * Styles the helper text as a validation message.
+   * Indicates the helper text is a validation message.
+   * By default validation message is hidden unless the select is invalid.
    */
   @Prop() helperValidation?: boolean;
+
+  /**
+   * When the helper text is serving as a validation message,
+   * make it permanently visible regardless of the select's validity.
+   */
+  @Prop() helperPersistent?: boolean;
 
   @Watch('value')
   handleValueChange(value: string) {

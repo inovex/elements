@@ -1034,15 +1034,15 @@ export namespace Components {
          */
         "error"?: boolean;
         /**
-          * A helper text to display below the select element.
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
          */
         "helper"?: string;
         /**
-          * Displays the helper text permanently.
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
          */
         "helperPersistent"?: boolean;
         /**
-          * Styles the helper text as a validation message.
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
          */
         "helperValidation"?: boolean;
         /**
@@ -2775,15 +2775,15 @@ declare namespace LocalJSX {
          */
         "error"?: boolean;
         /**
-          * A helper text to display below the select element.
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
          */
         "helper"?: string;
         /**
-          * Displays the helper text permanently.
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
          */
         "helperPersistent"?: boolean;
         /**
-          * Styles the helper text as a validation message.
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
          */
         "helperValidation"?: boolean;
         /**
