@@ -2,8 +2,10 @@
 # yarn lockfile v1
 
 
-"@inovex.de/elements@file:.yalc/@inovex.de/elements":
-  version "5.1.0"
+"@inovex.de/elements@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-5.0.0.tgz#3afd893a4ace9a5a7176f9be267f03615530f708"
+  integrity sha512-CIslSJ1v3PuZ/ssb7LL5xQI0xUutBxixWtTAO4YPGvajz6+wZp4TenAOa0B3F9BX5VO8222x2av+svAMWRxrQQ==
   dependencies:
     "@material/button" "^8.0.0"
     "@material/card" "^8.0.0"
@@ -32,7 +34,6 @@
     "@material/textfield" "^8.0.0"
     "@material/typography" "^8.0.0"
     "@stencil/core" "2.4.0"
-    "@stencil/react-output-target" "^0.2.1"
     autosize "^4.0.2"
     classnames "^2.2.6"
     currency.js "^1.2.2"
@@ -580,11 +581,6 @@
   version "2.4.0"
   resolved "https://registry.npmjs.org/@stencil/core/-/core-2.4.0.tgz#17b45629c8986e35dcbce3f7dab7d64beede83f2"
   integrity sha512-gU6+Yyd6O0KrCSS/O6j8KKqmRo+/Dcs2fI0+APCpbAWK+nqhwDISpdnSEfGDCLMoAC08XOZCycBRk2K1VGnEcg==
-
-"@stencil/react-output-target@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/@stencil/react-output-target/-/react-output-target-0.2.1.tgz#a25d52d088a7d1b1795e01071ca9755fca9254f7"
-  integrity sha512-A6ut+ua3s9UPVXHmAco8g6phvRsr8Db1wM6Mws2bdSAawzc1n49afS+FbTMUMcjqKAGShMp5lsM0/QA0jx5SdQ==
 
 autosize@^4.0.2:
   version "4.0.2"

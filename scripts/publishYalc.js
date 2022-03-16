@@ -25,9 +25,6 @@ function publishReact() {
   shell.exec(
     'lerna exec --scope=@inovex.de/elements-react -- yalc publish --no-sig --push'
   );
-  shell.exec(
-    'lerna exec --scope=@inovex.de/elements-react17 -- yalc publish --no-sig --push'
-  );
 }
 
 function publishAngular() {
