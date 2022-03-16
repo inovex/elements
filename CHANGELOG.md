@@ -1,4 +1,16 @@
 # Changelog
+## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
+
+
+### Features
+
+* **elements|ino-select:** add helper text props ([#553](https://github.com/inovex/elements/issues/553)) ([b117525](https://github.com/inovex/elements/commit/b117525dfa6f5158911718fe766e5e2b098fab96))
+
+
+### Miscellaneous
+
+* **elements:** add stencil linter ([#547](https://github.com/inovex/elements/issues/547)) ([1c28f62](https://github.com/inovex/elements/commit/1c28f629efb7544e0cdf998bc6dc58c3a7d42529))
+
 ## [6.0.0](https://github.com/inovex/elements/compare/v5.1.0...v6.0.0) (2022-03-02)
 
 
