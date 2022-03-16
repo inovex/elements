@@ -15,6 +15,7 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ChipSurface, ColorScheme } from '../types';
 
 /**
+ * @slot default - The label text of the chip
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended - disables the `removable` property
  */
@@ -43,7 +44,10 @@ export class Chip implements ComponentInterface {
   @Prop() fill: ChipSurface = 'solid';
 
   /**
+   * [DEPRECATED] Please use the default slot instead
+   *
    * The content of the component.
+   * @deprecated
    */
   @Prop() label: string;
 
@@ -90,6 +94,12 @@ export class Chip implements ComponentInterface {
    * Listen to this event to hide or destroy this chip.
    */
   @Event() chipRemoved: EventEmitter<string>;
+
+  componentDidLoad() {
+    if (this.label) {
+      console.warn('[ino-chip] The attribute "label" is deprecated, please use the default slot instead.');
+    }
+  }
 
   private iconClicked(e: MouseEvent) {
     e.preventDefault();
@@ -199,7 +209,7 @@ export class Chip implements ComponentInterface {
                 </span>
               ),
               <span class="mdc-evolution-chip__text-label ino-chip-label">
-                {this.label}
+                {this.label ? this.label : <slot />}
               </span>,
             ])}
           </span>
