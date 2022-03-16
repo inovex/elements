@@ -21,7 +21,7 @@ import { createPicker, PickerOption, PickerTypeKeys } from './picker-factory';
 import { Validator } from './validator';
 
 /**
- * @slot icon-leading - Leading `ino-icon` of the underyling ino-input
+ * @slot icon-leading - Leading `ino-icon` of the underyling ino-input (only for inline pickers)
  * @slot icon-trailing - Trailing `ino-icon` of the underyling ino-input (only for inline pickers)
  */
 @Component({
