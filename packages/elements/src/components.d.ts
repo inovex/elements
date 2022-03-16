@@ -659,10 +659,6 @@ export namespace Components {
          */
         "showLabelHint"?: boolean;
         /**
-          * The size of this element.
-         */
-        "size"?: number;
-        /**
           * The step value of this element. Use `any` for decimal numbers
          */
         "step"?: number | 'any';
@@ -2361,10 +2357,6 @@ declare namespace LocalJSX {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
-        /**
-          * The size of this element.
-         */
-        "size"?: number;
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
