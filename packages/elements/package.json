@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "5.1.0",
+  "version": "6.1.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -94,6 +94,7 @@
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.4.0",
+    "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/sass": "^1.5.2",
     "@types/classnames": "^2.2.6",
     "@types/css-font-loading-module": "^0.0.6",
@@ -107,7 +108,6 @@
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-no-null": "^1.0.2",
-    "eslint-plugin-react": "^7.22.0",
     "jest": "26.4.2",
     "jest-cli": "26.4.2",
     "puppeteer": "^10.4.0",

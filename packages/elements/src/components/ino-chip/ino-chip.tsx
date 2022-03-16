@@ -35,7 +35,7 @@ export class Chip implements ComponentInterface {
   /**
    * Disables all interactions.
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled = false;
 
   /**
    * The fill type of this element.
@@ -50,17 +50,17 @@ export class Chip implements ComponentInterface {
   /**
    * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
    */
-  @Prop() removable: boolean = false;
+  @Prop() removable = false;
 
   /**
    * Makes the chip selectable.
    */
-  @Prop() selectable: boolean = false;
+  @Prop() selectable = false;
 
   /**
    * Marks this element as selected (**works only in conjunction with `selectable`**)
    */
-  @Prop() selected: boolean = false;
+  @Prop() selected = false;
 
   /**
    * The value of this chip.

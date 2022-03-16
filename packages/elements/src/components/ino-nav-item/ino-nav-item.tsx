@@ -17,7 +17,7 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class NavItem implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoNavItemElement;
 
   /**
    * The text of this list item.

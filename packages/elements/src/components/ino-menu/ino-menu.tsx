@@ -18,7 +18,7 @@ import { focusIfExists, generateUniqueId } from '../../util/component-utils';
   shadow: false,
 })
 export class Menu implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoMenuElement;
 
   private popoverEl: HTMLInoPopoverElement;
 

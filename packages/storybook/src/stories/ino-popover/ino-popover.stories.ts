@@ -26,6 +26,8 @@ export const Playground = (args) => html`
     placement="${args.placement}"
     trigger="${args.trigger}"
     visible="${args.visible}"
+    hide-on-blur="${args.hideOnBlur}"
+    hide-on-esc="${args.hideOnEsc}"
   >
     <div class="styled-popover">
       <ino-icon icon="user"></ino-icon> This is a styled popover.
@@ -41,6 +43,8 @@ Playground.args = {
   trigger: 'mouseenter focus',
   colorScheme: 'transparent',
   visible: false,
+  hideOnEsc: false,
+  hideOnBlur: false
 };
 Playground.argTypes = {
   placement: {

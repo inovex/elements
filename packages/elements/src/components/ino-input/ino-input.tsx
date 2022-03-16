@@ -29,7 +29,7 @@ import { InputType, UserInputInterceptor } from '../types';
   shadow: false,
 })
 export class Input implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoInputElement;
 
   private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
@@ -64,7 +64,7 @@ export class Input implements ComponentInterface {
    */
   private static HELPER_COUNTER = 0;
 
-  static generateHelperTextId() {
+  private static generateHelperTextId() {
     return `input-helper-text__${Input.HELPER_COUNTER++}`;
   }
 
@@ -135,7 +135,7 @@ export class Input implements ComponentInterface {
   /**
    * The optional floating label of this input field.
    */
-  @Prop({ mutable: true }) label?: string;
+  @Prop() label?: string;
 
   /**
    * The min value of this element.
@@ -206,7 +206,7 @@ export class Input implements ComponentInterface {
   /**
    * The value of this element. (**unmanaged**)
    */
-  @Prop({ mutable: true }) value = '';
+  @Prop() value = '';
 
   @Watch('value')
   valueChanged(newValue: string) {
@@ -360,7 +360,7 @@ export class Input implements ComponentInterface {
    *
    * @internal
    */
-  @Prop() resetOnChange: boolean = true;
+  @Prop() resetOnChange = true;
 
   // ----
   // Native input event handler
@@ -418,10 +418,6 @@ export class Input implements ComponentInterface {
   // ----
   // Internal getters and setters
   // ----
-
-  private get textfieldValue(): string {
-    return this.mdcTextfield?.value;
-  }
 
   private set textfieldValue(value: string) {
     if (this.mdcTextfield) {
