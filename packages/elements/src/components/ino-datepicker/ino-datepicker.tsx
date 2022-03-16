@@ -481,10 +481,10 @@ export class Datepicker implements ComponentInterface {
             ></ino-icon>
           )}
           {this.inline && hasLeadingIcon && (
-             <slot name="icon-leading"></slot>
+            <slot name="icon-leading"></slot>
           )}
           {this.inline && hasTrailingIcon && (
-             <slot name="icon-trailing"></slot>
+            <slot name="icon-trailing"></slot>
           )}
         </ino-input>
       </Host>
