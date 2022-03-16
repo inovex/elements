@@ -19,7 +19,7 @@ import { generateUniqueId } from '../../util/component-utils';
   shadow: true,
 })
 export class InoSegmentGroup implements ComponentInterface {
-  private groupId: string = `ino-segment-group-id_${generateUniqueId()}`;
+  private groupId = `ino-segment-group-id_${generateUniqueId()}`;
 
   @Element() el: HTMLInoSegmentGroupElement;
 

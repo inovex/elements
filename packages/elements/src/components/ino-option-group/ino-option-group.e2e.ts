@@ -12,8 +12,8 @@ describe('ino-option-group', () => {
 
     expect(header).toBeDefined();
 
-    const listItem = await header.find('.mdc-list-item');
+    const listItem = await header.find('.mdc-deprecated-list-item');
 
-    expect(listItem).toHaveClass('mdc-list-item--disabled');
+    expect(listItem).toHaveClass('mdc-deprecated-list-item--disabled');
   });
 });

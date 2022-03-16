@@ -55,7 +55,6 @@ class MyComponent extends Component {
 | `indeterminate` | `indeterminate` | Indicates whether the state of the progress bar is indeterminate        | `boolean` | `false`     |
 | `label`         | `label`         | Sets the label of the progress bar                                      | `string`  | `undefined` |
 | `progress`      | `progress`      | Sets the progress of the progress bar. Should always be between 0 and 1 | `number`  | `0`         |
-| `reversed`      | `reversed`      | Reverses the progress bar                                               | `boolean` | `false`     |
 
 
 ## CSS Custom Properties

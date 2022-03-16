@@ -26,11 +26,13 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             implementation: require('sass'),
-            includePaths: [
-              path.resolve(__dirname, '../src/stories'),
-              path.resolve(__dirname, '../../elements/src/components'),
-              path.resolve(__dirname, '../../../node_modules'),
-            ],
+            sassOptions: {
+              includePaths: [
+                path.resolve(__dirname, '../src/stories'),
+                path.resolve(__dirname, '../../elements/src/components'),
+                path.resolve(__dirname, '../../../node_modules'),
+              ],
+            },
           },
         },
       ],

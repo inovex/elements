@@ -33,7 +33,7 @@ export class Textarea implements ComponentInterface {
    */
   private textfield: MDCTextField;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTextareaElement;
 
   /**
    * The autofocus of this element.
@@ -145,7 +145,7 @@ export class Textarea implements ComponentInterface {
   @Event() valueChange!: EventEmitter<string>;
 
   /**
-   * Sets focus on the native `textarea`. 
+   * Sets focus on the native `textarea`.
    * Use this method instead of the global `textarea.focus()`.
    */
   @Method()
@@ -154,7 +154,7 @@ export class Textarea implements ComponentInterface {
   }
 
   /**
-  * Sets blur on the native `textarea`. 
+  * Sets blur on the native `textarea`.
   * Use this method instead of the global `textarea.blur()`.
   */
   @Method()

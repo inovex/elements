@@ -25,7 +25,7 @@ export class IconButton implements ComponentInterface {
   // or a toggle button instance.
   private mdcInstance: MDCRipple;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoIconButtonElement;
 
   /**
    * Sets the autofocus for this element.
@@ -133,6 +133,7 @@ export class IconButton implements ComponentInterface {
           disabled={this.disabled}
           type={this.type}
         >
+          <div class="mdc-icon-button__ripple"/>
           <ino-icon icon={this.icon} class="mdc-icon-button__icon" />
         </button>
       </Host>

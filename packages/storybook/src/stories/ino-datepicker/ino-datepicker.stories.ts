@@ -5,6 +5,7 @@ import { html } from 'lit-html';
 import * as moment from 'moment';
 import { decorateStoryWithClass } from '../utils';
 import './ino-datepicker.scss';
+import { registerInlineDatepickerHandler } from './utils';
 
 const days = 5;
 const defaultDate = moment().format('YYYY-MM-DD');
@@ -35,9 +36,12 @@ export default {
 export const Playground: Story<Components.InoDatepicker> = (args) => html`
   <ino-datepicker
     class="customizable-picker"
+    attach-to-body="${args.attachToBody}"
+    ,
     disabled="${args.disabled}"
     date-format="${args.dateFormat}"
     helper="${args.helper}"
+    inline="${args.inline}"
     helper-persistent="${args.helperPersistent}"
     helper-validation="${args.helperValidation}"
     label="${args.label}"
@@ -55,11 +59,13 @@ export const Playground: Story<Components.InoDatepicker> = (args) => html`
   </ino-datepicker>
 `;
 Playground.args = {
+  attachToBody: true,
   disabled: false,
   dateFormat: 'Y-m-d',
   helper: 'Helper text to describe the input',
   helperPersistent: false,
   helperValidation: false,
+  inline: false,
   label: 'Label',
   min: minDate,
   max: maxDate,
@@ -147,6 +153,14 @@ export const States = () => html`
   <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
 `;
 
+export const Inline = () => html`
+  <ino-datepicker
+    style="width: 340px"
+    label="Inline"
+    inline="true"
+  ></ino-datepicker>
+`;
+
 export const Locale = () => html`
   <ino-datepicker lang="en" label="English"></ino-datepicker>
   <ino-datepicker lang="de" date-format="d.m.Y" label="German"></ino-datepicker>
@@ -157,6 +171,39 @@ export const Locale = () => html`
     label="German range"
   ></ino-datepicker>
 `;
+
+export const MultipleTypes = () => {
+  useEffect(registerInlineDatepickerHandler);
+
+  return html`
+    <div lang="de" class="datepicker-group">
+      <aside>
+        <ul>
+          <li class="today">Heute</li>
+          <li class="lastWeek">Letzte Woche</li>
+          <li class="thisWeek">Diese Woche</li>
+        </ul>
+      </aside>
+      <main id="main">
+        <ino-datepicker
+          type="date"
+          label="An"
+          inline
+          date-format="d.m.Y"
+          placeholder="tt.mm.jjjj"
+          append-to="main"
+        >
+        </ino-datepicker>
+        <ino-radio-group value="at">
+          <ino-radio value="at">Am</ino-radio>
+          <ino-radio value="after">Ab</ino-radio>
+          <ino-radio value="before">Bis</ino-radio>
+          <ino-radio value="range">Zeitraum</ino-radio>
+        </ino-radio-group>
+      </main>
+    </div>
+  `;
+};
 
 export const Form = () => html`
   <h4>Required</h4>

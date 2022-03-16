@@ -1,12 +1,13 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
-import { reactOutputTarget } from '@stencil/react-output-target';
+import { reactOutputTarget as react } from '@stencil/react-output-target';
 
-const angularDiretivesPath =  '../elements-angular/elements/src/directives';
+const angularDiretivesPath = '../elements-angular/elements/src/directives';
+const reactProxyPath = '../elements-react/src/components';
 
 export const config: Config = {
-  buildEs5: 'prod',
+  buildEs5: false,
   extras: {
     cssVarsShim: true,
     dynamicImportShim: true,
@@ -19,12 +20,17 @@ export const config: Config = {
   },
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
+  sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   outputTargets: [
+    react({
+      componentCorePackage: '@inovex.de/elements',
+      proxiesFile: `${reactProxyPath}/index.ts`,
+      includeDefineCustomElements: true,
+    }),
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
-      esmLoaderPath: '../dist/loader'
     },
     { type: 'docs-readme' },
     {
@@ -36,11 +42,6 @@ export const config: Config = {
       directivesProxyFile: `${angularDiretivesPath}/proxies.ts`,
       directivesUtilsFile: angularDiretivesPath,
       directivesArrayFile: `${angularDiretivesPath}/proxies-list.ts`,
-    }),
-    reactOutputTarget({
-      componentCorePackage: '@inovex.de/elements',
-      proxiesFile: '../elements-react17/dist/index.ts',
-      includeDefineCustomElements: true,
     }),
   ],
   plugins: [

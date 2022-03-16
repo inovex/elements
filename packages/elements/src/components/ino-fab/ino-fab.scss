@@ -4,6 +4,8 @@
 @use 'base/theme';
 @use 'base/animation';
 
+@include fab.core-styles;
+
 $edge-positions: none, top-left, top-right, bottom-right, bottom-left;
 
 $edged-borders: (

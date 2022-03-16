@@ -27,8 +27,10 @@ document
   max="<string>"
   minute-step="<number>"
   hour-step="<number>"
+  inline="<boolean>"
   range
   outline
+  placeholder="<string>"
   label="<string>"
   pattern="<string>"
   date-format="<string>"
@@ -146,6 +148,8 @@ The type of the picker is selected based on the  type` property. See the example
 
 | Property           | Attribute           | Description                                                                                                                                                                       | Type                                        | Default     |
 | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ----------- |
+| `appendTo`         | `append-to`         | Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers                                         | `string`                                    | `undefined` |
+| `attachToBody`     | `attach-to-body`    | Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)                                                          | `boolean`                                   | `true`      |
 | `autoFocus`        | `autofocus`         | Autofocuses this element.                                                                                                                                                         | `boolean`                                   | `undefined` |
 | `dateFormat`       | `date-format`       | A string to change the date format. Possible values are listed [here](https://flatpickr.js.org/formatting/). The default value is `d-m-Y` which accepts values like `01-01-2019`. | `string`                                    | `'d-m-Y'`   |
 | `defaultDate`      | `default-date`      | A string/array containing the initial date of the datepicker overlay. If you're using `inoRange = true` provide an array. If a `value` is given, this will be ignored.            | `string \| string[]`                        | `undefined` |
@@ -157,12 +161,14 @@ The type of the picker is selected based on the  type` property. See the example
 | `helperPersistent` | `helper-persistent` | Displays the helper permanently.                                                                                                                                                  | `boolean`                                   | `undefined` |
 | `helperValidation` | `helper-validation` | Styles the helper text as a validation message.                                                                                                                                   | `boolean`                                   | `undefined` |
 | `hourStep`         | `hour-step`         | Adjusts the step for the hour input (incl. scrolling) Default is 1                                                                                                                | `number`                                    | `1`         |
+| `inline`           | `inline`            | Displays the datepicker inlined.                                                                                                                                                  | `boolean`                                   | `undefined` |
 | `label`            | `label`             | Defines the label for this element.                                                                                                                                               | `string`                                    | `undefined` |
 | `max`              | `max`               | The maximum date that a user can pick to (inclusive).                                                                                                                             | `string`                                    | `undefined` |
 | `min`              | `min`               | The minimum date that a user can start picking from (inclusive).                                                                                                                  | `string`                                    | `undefined` |
 | `minuteStep`       | `minute-step`       | Adjusts the step for the minute input (incl. scrolling) Default is 5                                                                                                              | `number`                                    | `5`         |
 | `name`             | `name`              | The input name of this element.                                                                                                                                                   | `string`                                    | `undefined` |
 | `outline`          | `outline`           | Styles the datepicker as outlined element.                                                                                                                                        | `boolean`                                   | `undefined` |
+| `placeholder`      | `placeholder`       | The placeholder of the input element.                                                                                                                                             | `string`                                    | `undefined` |
 | `range`            | `range`             | If true, enables the user to choose two dates as an interval. Only works with `type="date"`                                                                                       | `boolean`                                   | `undefined` |
 | `required`         | `required`          | Marks this element as required.                                                                                                                                                   | `boolean`                                   | `undefined` |
 | `showLabelHint`    | `show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required                                                                        | `boolean`                                   | `undefined` |
@@ -179,6 +185,16 @@ The type of the picker is selected based on the  type` property. See the example
 
 
 ## Methods
+
+### `redraw() => Promise<void>`
+
+Redraws the datepicker.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `setBlur() => Promise<void>`
 
@@ -203,6 +219,14 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot              | Description                                                               |
+| ----------------- | ------------------------------------------------------------------------- |
+| `"icon-leading"`  | Leading `ino-icon` of the underyling ino-input                            |
+| `"icon-trailing"` | Trailing `ino-icon` of the underyling ino-input (only for inline pickers) |
+
+
 ## Dependencies
 
 ### Depends on
@@ -215,8 +239,8 @@ Type: `Promise<void>`
 graph TD;
   ino-datepicker --> ino-input
   ino-datepicker --> ino-icon
-  ino-input --> ino-icon
   ino-input --> ino-label
+  ino-input --> ino-icon
   style ino-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

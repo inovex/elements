@@ -23,7 +23,7 @@ import {
 export class TabBar implements ComponentInterface {
   private mdcInstance?: MDCTabBar;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTabBarElement;
 
   /**
    * Activates the tab at the given index (**unmanaged**).

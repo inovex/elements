@@ -1,4 +1,5 @@
 import { MDCDialog } from '@material/dialog';
+import { closest } from '@material/dom/ponyfill';
 import {
   Component,
   ComponentInterface,
@@ -9,62 +10,113 @@ import {
   Prop,
   Watch,
   h,
+  Listen
 } from '@stencil/core';
+import { DialogCloseAction } from '../types';
+
+const DIALOG_ACTION_ATTRIBUTE = 'data-ino-dialog-action';
 
 /**
- * @slot content - content of the dialog
- * @slot header - header of the dialog
- * @slot footer - footer of the dialog
+ * @slot default - content of the dialog
  */
-
 @Component({
   tag: 'ino-dialog',
   styleUrl: 'ino-dialog.scss',
   shadow: true,
 })
 export class Dialog implements ComponentInterface {
+
   private mdcDialog: MDCDialog;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoDialogElement;
+
+  /**
+   * The target element the dialog should be attached to.
+   * If not given, the dialog is a child of the documents body.
+   * Note: This property is immutable after initialization.
+   */
+  @Prop() attachTo?: string;
+
+  /**
+   * Defines a full width dialog sliding up from the bottom of the page.
+   */
+  @Prop() fullwidth?: boolean;
+
+  /**
+   * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+   */
+  @Prop() dismissible?: boolean;
 
   /**
    * Opens the dialog if set to true
    */
-  @Prop() open: boolean = false;
+  @Prop() open = false;
+
   @Watch('open')
-  openChanged(newVal: boolean) {
-    if (newVal) {
-      this.mdcDialog.open();
-      this.openChange.emit(true);
-    } else {
-      this.mdcDialog.close();
-      this.openChange.emit(false);
+  openChanged(open: boolean) {
+    open ? this.mdcDialog?.open() : this.mdcDialog?.close();
+  }
+
+  @Listen('keyup', { target: 'body' })
+  handleKeyUp(event: KeyboardEvent) {
+    if(event.key === 'Escape' && this.open && this.dismissible) {
+      this.close.emit('close');
     }
   }
 
   /**
-   * Emits an event upon opening or closing the dialog
+   * Emits an event upon closing the dialog
    */
-  @Event() openChange!: EventEmitter;
+  @Event() close!: EventEmitter<DialogCloseAction>;
+
+
+  componentWillRender(): Promise<void> {
+    if(!this.mdcDialog || !this.open) {
+      return;
+    }
+
+    // Wait to render the content until the MDC Dialog itself is opened
+    return new Promise((resolve) => {
+      this.mdcDialog.listen('MDCDialog:opened', () => resolve(), { once: true });
+    });
+  }
+
+  componentWillLoad() {
+    // During first initaliazation, attach the dialog to the target.
+    const target = this.attachTo ? document.querySelector(this.attachTo) : document.body;
+    target?.appendChild(this.el);
+  }
 
   componentDidLoad() {
-    this.mdcDialog = new MDCDialog(
-      this.el.shadowRoot.querySelector('.mdc-dialog')
-    );
+    this.mdcDialog = new MDCDialog(this.el.shadowRoot.querySelector('.mdc-dialog'));
+
+    // Prevent internal handling of escape and scrim click action (would close the dialog).
+    // We want to manually close the dialog via our open property
     this.mdcDialog.scrimClickAction = '';
     this.mdcDialog.escapeKeyAction = '';
-    if (this.open) {
-      this.mdcDialog.open();
-    }
+
+    this.mdcDialog.listen('click', this.handleDialogClick.bind(this));
+    this.open && this.mdcDialog?.open();
   }
 
   disconnectedCallback() {
     this.mdcDialog?.destroy();
   }
 
+  private handleDialogClick(e: Event): void {
+    if (!e.target) {
+      return;
+    }
+    const element = closest(e.target as Element, `[${DIALOG_ACTION_ATTRIBUTE}]`);
+    if (!element) {
+      return;
+    }
+    this.close.emit(element.getAttribute(DIALOG_ACTION_ATTRIBUTE));
+  }
+
   render() {
     return (
-      <Host>
+      <Host class={{'ino-dialog--fullwidth': this.fullwidth}}>
         <div class="mdc-dialog">
           <div class="mdc-dialog__container">
             <div
@@ -72,19 +124,11 @@ export class Dialog implements ComponentInterface {
               role="alertdialog"
               aria-modal="true"
             >
-              <div class="ino-dialog__header">
-                <slot name="header" />
-              </div>
-              <div class="ino-dialog__content">
-                <div tabindex="0" />
-                <slot />
-              </div>
-              <div class="ino-dialog__footer">
-                <slot name="footer" />
-              </div>
+              <div tabindex="0" />
+              <slot />
             </div>
           </div>
-          <div class="mdc-dialog__scrim" />
+          <div class="mdc-dialog__scrim" onClick={() => this.dismissible && this.close.emit('close')} />
         </div>
       </Host>
     );

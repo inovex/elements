@@ -22,7 +22,7 @@ export class Snackbar implements ComponentInterface {
   private snackbarElement!: HTMLElement;
   private nodeTimeout: NodeJS.Timeout;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSnackbarElement;
 
   /**
    * The text message to display.
@@ -109,7 +109,7 @@ export class Snackbar implements ComponentInterface {
   };
 
   private handleSnackbarHide = e => {
-    this.hideEl!.emit();
+    this.hideEl.emit();
     e.stopPropagation();
   };
 

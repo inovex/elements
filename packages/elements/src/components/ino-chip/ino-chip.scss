@@ -1,64 +1,96 @@
 @use 'base/mdc-customize';
-@use '@material/chips/mdc-chips';
 @use '@material/chips';
+@use "@material/chips/styles";
 @use 'base/theme';
 
 $default-chip-color: lighten(theme.color(primary), 36.5%);
+$default-chip-contrast-color: rgba(0, 0, 0, 0.87);
+$default-chip-dark-color: rgba(0, 0, 0, 0.87);
 
-ino-chip {
-  display: inline-block;
+@mixin colorChip($base-color, $contrast-color, $dark-color) {
+  &.ino-chip--solid .ino-chip-container {
+    @include chips.container-color($base-color);
+    @include chips.text-label-color($contrast-color);
+    @include chips.checkmark-color($contrast-color);
 
-  & * {
-    box-sizing: initial;
+    ino-icon {
+      --icon-color: #{$contrast-color};
+    }
   }
 
-  .mdc-chip {
-    @include chips.fill-color-accessible($default-chip-color);
+  // Set outline color
+  &.ino-chip--outline .ino-chip-container {
+    @include chips.outline-color($base-color);
+    @include chips.text-label-color($dark-color);
+    @include chips.checkmark-color($dark-color);
 
-    .mdc-chip__icon--trailing {
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
+    ino-icon {
+      --icon-color: #{$dark-color};
+    }
+  }
+
+  &.ino-chip-disabled .ino-chip-container {
+    @include chips.container-color(theme.color(light));
+    @include chips.outline-color(theme.color(light, light));
+    @include chips.text-label-color(white);
+    @include chips.outline-width(0);
+
+    ino-icon {
+      --icon-color: white;
+    }
+  }
+}
+
+$icon-size: 16px;
+
+ino-chip {
+  .ino-chip-container {
+    .ino-chip-leading-icon {
+      --ino-icon-width: #{$icon-size};
+      --ino-icon-height: #{$icon-size};
+    }
+
+    .ino-chip-trailing-icon {
+      display: flex;
+      justify-content: center;
+      --ino-icon-width: #{$icon-size};
+      --ino-icon-height: #{$icon-size};
+
+      .ino-chip-close-icon {
+        --ino-icon-width: 15px;
+        --ino-icon-height: 15px;
+      }
     }
 
     ino-icon {
-      --icon-width: 0.75em;
-      --icon-height: 0.75em;
       --icon-color: currentColor;
     }
+  }
+
+  // base outline styles
+  &.ino-chip--outline .ino-chip-container {
+    @include chips.container-color(transparent);
+    @include chips.outline-style(solid);
+    @include chips.outline-width(1px);
+  }
+
+  // default styles
+  &.ino-chip--color-scheme-default {
+    @include colorChip(
+      $default-chip-color,
+      $default-chip-contrast-color,
+      $default-chip-dark-color
+    );
   }
 
   // Generate ino-color-scheme classes
   @each $color-name in theme.$color-schemes {
     &.ino-chip--color-scheme-#{$color-name} {
-      .mdc-chip {
-        @include chips.fill-color-accessible(theme.color($color-name));
-        @include chips.ink-color(theme.color($color-name, contrast));
-
-        ino-icon {
-          --icon-color: #{theme.color($color-name, contrast)};
-        }
-      }
-
-      // Set outline color
-      &.ino-chip--outline .mdc-chip {
-        @include chips.outline-color(theme.color($color-name));
-        @include chips.ink-color(theme.color($color-name, dark));
-
-        ino-icon {
-          --icon-color: #{theme.color($color-name, dark)};
-        }
-      }
+      @include colorChip(
+        theme.color($color-name),
+        theme.color($color-name, contrast),
+        theme.color($color-name, dark)
+      );
     }
-  }
-
-  // Set outline color
-  &.ino-chip--outline .mdc-chip {
-    @include chips.fill-color-accessible(white);
-    @include chips.outline(1px, solid, $default-chip-color);
-  }
-
-  .mdc-chip__text {
-    user-select: none;
   }
 }

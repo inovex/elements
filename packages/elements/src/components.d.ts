@@ -5,9 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSetType, ChipSurface, ColorScheme, HorizontalLocation, ImageDecodingTypes, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, VerticalLocation } from "./components/types";
+import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
+import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
         /**
@@ -103,7 +104,7 @@ export namespace Components {
         /**
           * Optional group value to manually manage the displayed slide
          */
-        "value"?: any;
+        "value"?: string;
     }
     interface InoCarouselSlide {
         /**
@@ -125,7 +126,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -147,40 +148,33 @@ export namespace Components {
          */
         "colorScheme": ColorScheme | 'default';
         /**
+          * Disables all interactions.
+         */
+        "disabled": boolean;
+        /**
           * The fill type of this element.
          */
         "fill": ChipSurface;
         /**
-          * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
+          * The content of the component.
          */
-        "icon"?: string;
+        "label": string;
         /**
-          * The label of this chip (**required**).
-         */
-        "label"?: string;
-        /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+          * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
         "removable": boolean;
         /**
-          * Adds a checkmark if the icon is selected.
+          * Makes the chip selectable.
          */
         "selectable": boolean;
         /**
-          * Marks this element as selected.
+          * Marks this element as selected (**works only in conjunction with `selectable`**)
          */
         "selected": boolean;
         /**
-          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+          * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
-    }
-    interface InoChipSet {
-        /**
-          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
-         */
-        "type"?: ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -228,7 +222,25 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface InoCurrencyInput {
+        /**
+          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
+         */
+        "currencyLocale"?: string;
+        /**
+          * Numeric currency value
+         */
+        "value": number | string;
+    }
     interface InoDatepicker {
+        /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody": boolean;
         /**
           * Autofocuses this element.
          */
@@ -274,6 +286,10 @@ export namespace Components {
          */
         "hourStep": number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -298,9 +314,17 @@ export namespace Components {
          */
         "outline"?: boolean;
         /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
+        /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
         "range"?: boolean;
+        /**
+          * Redraws the datepicker.
+         */
+        "redraw": () => Promise<void>;
         /**
           * Marks this element as required.
          */
@@ -331,6 +355,18 @@ export namespace Components {
         "value"?: string;
     }
     interface InoDialog {
+        /**
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
+         */
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
         /**
           * Opens the dialog if set to true
          */
@@ -539,10 +575,6 @@ export namespace Components {
          */
         "dataList"?: string;
         /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "decimalPlaces"?: number;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -607,13 +639,21 @@ export namespace Components {
          */
         "required"?: boolean;
         /**
-          * Sets blur on the native `input`.  Use this method instead of the global `input.blur()`.
+          * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+         */
+        "resetOnChange": boolean;
+        /**
+          * Sets blur on the native `input`. Use this method instead of the global `input.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `input`.  Use this method instead of the global `input.focus()`.
+          * Sets focus on the native `input`. Use this method instead of the global `input.focus()`.
          */
         "setFocus": () => Promise<void>;
+        /**
+          * Sets an interceptor to manipulate user input before emitting a `valueChange` event.
+         */
+        "setUserInputInterceptor": (fn: UserInputInterceptor) => Promise<void>;
         /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
@@ -627,13 +667,9 @@ export namespace Components {
          */
         "step"?: number | 'any';
         /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "thousandsSeparator"?: boolean;
-        /**
           * The type of this element (default = text).
          */
-        "type"?: string;
+        "type"?: InputType;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -757,6 +793,16 @@ export namespace Components {
          */
         "text"?: string;
     }
+    interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
+        "initialValue": string;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+         */
+        "viewMode": ViewModeUnion;
+    }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
@@ -837,6 +883,14 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
+        /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
         "interactive"?: boolean;
@@ -870,10 +924,6 @@ export namespace Components {
           * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "reversed"?: boolean;
     }
     interface InoRadio {
         /**
@@ -913,13 +963,13 @@ export namespace Components {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
+          * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
         "markers"?: boolean;
         /**
           * The max value of this element (**required**).
          */
-        "max"?: number;
+        "max": number;
         /**
           * The min value of this element.
          */
@@ -929,7 +979,12 @@ export namespace Components {
          */
         "name"?: string;
         /**
-          * The step size for this element. Only applicable if ino-discrete is true.
+          * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
+          * @param fn A function that maps the numeric value to a user-friendly string.
+         */
+        "setValueToAriaTextMapperFn": (fn: (value: number) => string) => Promise<void>;
+        /**
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */
         "step"?: number;
         /**
@@ -1108,22 +1163,74 @@ export namespace Components {
         "autoFocus"?: boolean;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric": boolean;
-    }
-    interface InoTableRow {
+        "autofocus": boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow": boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected": boolean;
+        "label": string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable": boolean;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon": string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched": boolean;
+        /**
+          * Sets blur on the header cell. If searchable, closes the popover.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the header cell. If searchable, opens the popover and focuses the `data-ino-focus` target.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Updates the search behaviour of this cell.
+          * @param searchable true, if the cell should be searchable, false otherwise.
+         */
+        "setSearchable": (searchable: boolean) => Promise<void>;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart": SortDirection;
     }
     interface InoTextarea {
         /**
@@ -1175,11 +1282,11 @@ export namespace Components {
          */
         "rows"?: number;
         /**
-          * Sets blur on the native `textarea`.  Use this method instead of the global `textarea.blur()`.
+          * Sets blur on the native `textarea`. Use this method instead of the global `textarea.blur()`.
          */
         "setBlur": () => Promise<void>;
         /**
-          * Sets focus on the native `textarea`.  Use this method instead of the global `textarea.focus()`.
+          * Sets focus on the native `textarea`. Use this method instead of the global `textarea.focus()`.
          */
         "setFocus": () => Promise<void>;
         /**
@@ -1265,17 +1372,17 @@ declare global {
         prototype: HTMLInoChipElement;
         new (): HTMLInoChipElement;
     };
-    interface HTMLInoChipSetElement extends Components.InoChipSet, HTMLStencilElement {
-    }
-    var HTMLInoChipSetElement: {
-        prototype: HTMLInoChipSetElement;
-        new (): HTMLInoChipSetElement;
-    };
     interface HTMLInoControlItemElement extends Components.InoControlItem, HTMLStencilElement {
     }
     var HTMLInoControlItemElement: {
         prototype: HTMLInoControlItemElement;
         new (): HTMLInoControlItemElement;
+    };
+    interface HTMLInoCurrencyInputElement extends Components.InoCurrencyInput, HTMLStencilElement {
+    }
+    var HTMLInoCurrencyInputElement: {
+        prototype: HTMLInoCurrencyInputElement;
+        new (): HTMLInoCurrencyInputElement;
     };
     interface HTMLInoDatepickerElement extends Components.InoDatepicker, HTMLStencilElement {
     }
@@ -1372,6 +1479,12 @@ declare global {
     var HTMLInoListItemElement: {
         prototype: HTMLInoListItemElement;
         new (): HTMLInoListItemElement;
+    };
+    interface HTMLInoMarkdownEditorElement extends Components.InoMarkdownEditor, HTMLStencilElement {
+    }
+    var HTMLInoMarkdownEditorElement: {
+        prototype: HTMLInoMarkdownEditorElement;
+        new (): HTMLInoMarkdownEditorElement;
     };
     interface HTMLInoMenuElement extends Components.InoMenu, HTMLStencilElement {
     }
@@ -1493,17 +1606,11 @@ declare global {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
-    interface HTMLInoTableCellElement extends Components.InoTableCell, HTMLStencilElement {
+    interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
     }
-    var HTMLInoTableCellElement: {
-        prototype: HTMLInoTableCellElement;
-        new (): HTMLInoTableCellElement;
-    };
-    interface HTMLInoTableRowElement extends Components.InoTableRow, HTMLStencilElement {
-    }
-    var HTMLInoTableRowElement: {
-        prototype: HTMLInoTableRowElement;
-        new (): HTMLInoTableRowElement;
+    var HTMLInoTableHeaderCellElement: {
+        prototype: HTMLInoTableHeaderCellElement;
+        new (): HTMLInoTableHeaderCellElement;
     };
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
@@ -1525,8 +1632,8 @@ declare global {
         "ino-carousel-slide": HTMLInoCarouselSlideElement;
         "ino-checkbox": HTMLInoCheckboxElement;
         "ino-chip": HTMLInoChipElement;
-        "ino-chip-set": HTMLInoChipSetElement;
         "ino-control-item": HTMLInoControlItemElement;
+        "ino-currency-input": HTMLInoCurrencyInputElement;
         "ino-datepicker": HTMLInoDatepickerElement;
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
@@ -1543,6 +1650,7 @@ declare global {
         "ino-list": HTMLInoListElement;
         "ino-list-divider": HTMLInoListDividerElement;
         "ino-list-item": HTMLInoListItemElement;
+        "ino-markdown-editor": HTMLInoMarkdownEditorElement;
         "ino-menu": HTMLInoMenuElement;
         "ino-nav-drawer": HTMLInoNavDrawerElement;
         "ino-nav-item": HTMLInoNavItemElement;
@@ -1563,8 +1671,7 @@ declare global {
         "ino-tab": HTMLInoTabElement;
         "ino-tab-bar": HTMLInoTabBarElement;
         "ino-table": HTMLInoTableElement;
-        "ino-table-cell": HTMLInoTableCellElement;
-        "ino-table-row": HTMLInoTableRowElement;
+        "ino-table-header-cell": HTMLInoTableHeaderCellElement;
         "ino-textarea": HTMLInoTextareaElement;
         "ino-tooltip": HTMLInoTooltipElement;
     }
@@ -1668,7 +1775,7 @@ declare namespace LocalJSX {
         /**
           * Optional group value to manually manage the displayed slide
          */
-        "value"?: any;
+        "value"?: string;
     }
     interface InoCarouselSlide {
         /**
@@ -1690,7 +1797,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -1716,48 +1823,41 @@ declare namespace LocalJSX {
          */
         "colorScheme"?: ColorScheme | 'default';
         /**
+          * Disables all interactions.
+         */
+        "disabled"?: boolean;
+        /**
           * The fill type of this element.
          */
         "fill"?: ChipSurface;
         /**
-          * Prepends an icon to the chip label.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.
-         */
-        "icon"?: string;
-        /**
-          * The label of this chip (**required**).
+          * The content of the component.
          */
         "label"?: string;
         /**
-          * Event that emits as soon as the user removes this chip.  Listen to this event to hide or destroy this chip. The event only emits if the property `removable` is true.
+          * Event that emits the `value` as soon as the user clicks on the chip.
          */
-        "onRemoveChip"?: (event: CustomEvent<any>) => void;
+        "onChipClicked"?: (event: CustomEvent<string>) => void;
         /**
-          * Adds a close icon on the right side of this chip.  If applied, emits the `removeChip` event.
+          * Event that emits the `value` as soon as the user clicks on the remove icon.  Listen to this event to hide or destroy this chip.
+         */
+        "onChipRemoved"?: (event: CustomEvent<string>) => void;
+        /**
+          * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
         "removable"?: boolean;
         /**
-          * Adds a checkmark if the icon is selected.
+          * Makes the chip selectable.
          */
         "selectable"?: boolean;
         /**
-          * Marks this element as selected.
+          * Marks this element as selected (**works only in conjunction with `selectable`**)
          */
         "selected"?: boolean;
         /**
-          * The value of this chip.  **Required** for chips as part of sets of type `filter` or `choice`.
+          * The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.
          */
         "value"?: string;
-    }
-    interface InoChipSet {
-        /**
-          * Event that emits when the value of this element changes.  Only applicable if `inoType` is `choice` or `filter`.
-         */
-        "onUpdateChipSet"?: (event: CustomEvent<any>) => void;
-        /**
-          * The type of this chip set that indicates its behavior.  `choice`: Single selection from a set of options `filter`: Multiple selection from a set of options `input`: Enable user input by converting text into chips
-         */
-        "type"?: ChipSetType;
     }
     interface InoControlItem {
         /**
@@ -1809,7 +1909,29 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface InoCurrencyInput {
+        /**
+          * A supported locale for currency number formatting. If not given, it uses the global config. See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
+         */
+        "currencyLocale"?: string;
+        /**
+          * Emits when the user types something in. Contains typed input in `event.detail`
+         */
+        "onValueChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Numeric currency value
+         */
+        "value"?: number | string;
+    }
     interface InoDatepicker {
+        /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
+          * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
+         */
+        "attachToBody"?: boolean;
         /**
           * Autofocuses this element.
          */
@@ -1855,6 +1977,10 @@ declare namespace LocalJSX {
          */
         "hourStep"?: number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -1883,6 +2009,10 @@ declare namespace LocalJSX {
          */
         "outline"?: boolean;
         /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
+        /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
         "range"?: boolean;
@@ -1909,9 +2039,21 @@ declare namespace LocalJSX {
     }
     interface InoDialog {
         /**
-          * Emits an event upon opening or closing the dialog
+          * The target element the dialog should be attached to. If not given, the dialog is a child of the documents body. Note: This property is immutable after initialization.
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "attachTo"?: string;
+        /**
+          * Close the dialog on pressing the ESC key or clicking outside of the dialog.
+         */
+        "dismissible"?: boolean;
+        /**
+          * Defines a full width dialog sliding up from the bottom of the page.
+         */
+        "fullwidth"?: boolean;
+        /**
+          * Emits an event upon closing the dialog
+         */
+        "onClose"?: (event: CustomEvent<DialogCloseAction>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -2128,10 +2270,6 @@ declare namespace LocalJSX {
          */
         "dataList"?: string;
         /**
-          * The number of decimal places. Only works on 'text' type input.
-         */
-        "decimalPlaces"?: number;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2204,6 +2342,10 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
+          * If set, resets the value after the user typed in the native input element (default). Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`) and in turn making it uncontrolled.
+         */
+        "resetOnChange"?: boolean;
+        /**
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
@@ -2216,13 +2358,9 @@ declare namespace LocalJSX {
          */
         "step"?: number | 'any';
         /**
-          * Shows a dot as a thousands separator. Only works on 'text' type input.
-         */
-        "thousandsSeparator"?: boolean;
-        /**
           * The type of this element (default = text).
          */
-        "type"?: string;
+        "type"?: InputType;
         /**
           * Displays the given unit at the end of the input field.
          */
@@ -2357,6 +2495,28 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface InoMarkdownEditor {
+        /**
+          * Initial `string` value of the markdown editor. Reassigning this value do not change the editor state. The value must contain a valid Markdown syntax.
+         */
+        "initialValue"?: string;
+        /**
+          * Emits when the ino-markdown-editor is blurred
+         */
+        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail`
+         */
+        "onValueChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
+         */
+        "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
+        /**
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+         */
+        "viewMode"?: ViewModeUnion;
+    }
     interface InoMenu {
         /**
           * Determines the position of the opened menu. Usually, the default value (`auto`) will work just fine. Use this if the positioning is off for some reason.
@@ -2404,6 +2564,9 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        /**
+          * Emits on option click
+         */
         "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
@@ -2437,6 +2600,14 @@ declare namespace LocalJSX {
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
+        /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
         /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
@@ -2475,10 +2646,6 @@ declare namespace LocalJSX {
           * Sets the progress of the progress bar. Should always be between 0 and 1
          */
         "progress"?: number;
-        /**
-          * Reverses the progress bar
-         */
-        "reversed"?: boolean;
     }
     interface InoRadio {
         /**
@@ -2522,7 +2689,7 @@ declare namespace LocalJSX {
          */
         "discrete"?: boolean;
         /**
-          * Mark this slider to show the steps of the range. Only applicable if `discrete=true`
+          * Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.
          */
         "markers"?: boolean;
         /**
@@ -2540,9 +2707,9 @@ declare namespace LocalJSX {
         /**
           * Emits when the value changes. Contains new value in `event.detail`.
          */
-        "onValueChange"?: (event: CustomEvent<any>) => void;
+        "onValueChange"?: (event: CustomEvent<number>) => void;
         /**
-          * The step size for this element. Only applicable if ino-discrete is true.
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */
         "step"?: number;
         /**
@@ -2712,7 +2879,7 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
+          * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`.
          */
         "onCheckedChange"?: (event: CustomEvent<any>) => void;
     }
@@ -2753,22 +2920,73 @@ declare namespace LocalJSX {
         "onActiveTabChange"?: (event: CustomEvent<any>) => void;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Emits that the sort direction or column id has changed.
+         */
+        "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric"?: boolean;
-    }
-    interface InoTableRow {
+        "autofocus"?: boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow"?: boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected"?: boolean;
+        "label"?: string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable"?: boolean;
+        /**
+          * Emits that the search field focused (true) or blurred (false).
+         */
+        "onSearchFocusChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Emits that the sort direction has been changed.
+         */
+        "onSortDirectionChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon"?: string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched"?: boolean;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart"?: SortDirection;
     }
     interface InoTextarea {
         /**
@@ -2870,8 +3088,8 @@ declare namespace LocalJSX {
         "ino-carousel-slide": InoCarouselSlide;
         "ino-checkbox": InoCheckbox;
         "ino-chip": InoChip;
-        "ino-chip-set": InoChipSet;
         "ino-control-item": InoControlItem;
+        "ino-currency-input": InoCurrencyInput;
         "ino-datepicker": InoDatepicker;
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
@@ -2888,6 +3106,7 @@ declare namespace LocalJSX {
         "ino-list": InoList;
         "ino-list-divider": InoListDivider;
         "ino-list-item": InoListItem;
+        "ino-markdown-editor": InoMarkdownEditor;
         "ino-menu": InoMenu;
         "ino-nav-drawer": InoNavDrawer;
         "ino-nav-item": InoNavItem;
@@ -2908,8 +3127,7 @@ declare namespace LocalJSX {
         "ino-tab": InoTab;
         "ino-tab-bar": InoTabBar;
         "ino-table": InoTable;
-        "ino-table-cell": InoTableCell;
-        "ino-table-row": InoTableRow;
+        "ino-table-header-cell": InoTableHeaderCell;
         "ino-textarea": InoTextarea;
         "ino-tooltip": InoTooltip;
     }
@@ -2925,8 +3143,8 @@ declare module "@stencil/core" {
             "ino-carousel-slide": LocalJSX.InoCarouselSlide & JSXBase.HTMLAttributes<HTMLInoCarouselSlideElement>;
             "ino-checkbox": LocalJSX.InoCheckbox & JSXBase.HTMLAttributes<HTMLInoCheckboxElement>;
             "ino-chip": LocalJSX.InoChip & JSXBase.HTMLAttributes<HTMLInoChipElement>;
-            "ino-chip-set": LocalJSX.InoChipSet & JSXBase.HTMLAttributes<HTMLInoChipSetElement>;
             "ino-control-item": LocalJSX.InoControlItem & JSXBase.HTMLAttributes<HTMLInoControlItemElement>;
+            "ino-currency-input": LocalJSX.InoCurrencyInput & JSXBase.HTMLAttributes<HTMLInoCurrencyInputElement>;
             "ino-datepicker": LocalJSX.InoDatepicker & JSXBase.HTMLAttributes<HTMLInoDatepickerElement>;
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
@@ -2943,6 +3161,7 @@ declare module "@stencil/core" {
             "ino-list": LocalJSX.InoList & JSXBase.HTMLAttributes<HTMLInoListElement>;
             "ino-list-divider": LocalJSX.InoListDivider & JSXBase.HTMLAttributes<HTMLInoListDividerElement>;
             "ino-list-item": LocalJSX.InoListItem & JSXBase.HTMLAttributes<HTMLInoListItemElement>;
+            "ino-markdown-editor": LocalJSX.InoMarkdownEditor & JSXBase.HTMLAttributes<HTMLInoMarkdownEditorElement>;
             "ino-menu": LocalJSX.InoMenu & JSXBase.HTMLAttributes<HTMLInoMenuElement>;
             "ino-nav-drawer": LocalJSX.InoNavDrawer & JSXBase.HTMLAttributes<HTMLInoNavDrawerElement>;
             "ino-nav-item": LocalJSX.InoNavItem & JSXBase.HTMLAttributes<HTMLInoNavItemElement>;
@@ -2963,8 +3182,7 @@ declare module "@stencil/core" {
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
             "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
-            "ino-table-cell": LocalJSX.InoTableCell & JSXBase.HTMLAttributes<HTMLInoTableCellElement>;
-            "ino-table-row": LocalJSX.InoTableRow & JSXBase.HTMLAttributes<HTMLInoTableRowElement>;
+            "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }

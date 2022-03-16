@@ -11,6 +11,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
+import { MDCRipple } from '@material/ripple';
 
 /**
  * @slot leading - For the element to be prepended
@@ -24,7 +25,10 @@ import { hasSlotContent } from '../../util/component-utils';
   shadow: false,
 })
 export class ListItem implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  private listItemEl: HTMLLIElement;
+  private mdcRipple: MDCRipple;
+
+  @Element() el!: HTMLInoListItemElement;
   /**
    * The primary text of this list item.
    */
@@ -65,6 +69,14 @@ export class ListItem implements ComponentInterface {
    */
   @Event() clickEl!: EventEmitter;
 
+  componentDidLoad() {
+    this.mdcRipple = new MDCRipple(this.listItemEl);
+  }
+
+  disconnectedCallback() {
+    this.mdcRipple?.destroy();
+  }
+
   @Listen('keydown')
   handleKeyDown(ev: KeyboardEvent) {
     if (!this.disabled && (ev.code === 'Enter' || ev.code === 'Space')) {
@@ -85,10 +97,10 @@ export class ListItem implements ComponentInterface {
     const secondarySlotHasContent = hasSlotContent(this.el, 'secondary');
 
     const listItemClasses = classNames({
-      'mdc-list-item': true,
-      'mdc-list-item--selected': this.selected,
-      'mdc-list-item--activated': this.activated,
-      'mdc-list-item--disabled': this.disabled,
+      'mdc-deprecated-list-item': true,
+      'mdc-deprecated-list-item--selected': this.selected,
+      'mdc-deprecated-list-item--activated': this.activated,
+      'mdc-deprecated-list-item--disabled': this.disabled,
     });
 
     const primaryContent = this.text || <slot name="primary" />;
@@ -98,27 +110,27 @@ export class ListItem implements ComponentInterface {
 
     return (
       <Host>
-        <li class={listItemClasses}>
-          <span class="mdc-list-item__ripple"></span>
+        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses}>
+          <span class="mdc-deprecated-list-item__ripple"></span>
           {leadingSlotHasContent && (
-            <span class="mdc-list-item__graphic" role="presentation">
+            <span class="mdc-deprecated-list-item__graphic" role="presentation">
               <slot name="leading" />
             </span>
           )}
-          <span class="mdc-list-item__text">
+          <span class="mdc-deprecated-list-item__text">
             {secondaryContent
               ? [
-                  <span class="mdc-list-item__primary-text">
+                  <span class="mdc-deprecated-list-item__primary-text">
                     {primaryContent}
                   </span>,
-                  <span class="mdc-list-item__secondary-text">
+                  <span class="mdc-deprecated-list-item__secondary-text">
                     {secondaryContent}
                   </span>,
                 ]
               : primaryContent}
           </span>
           {trailingSlotHasContent && (
-            <span class="mdc-list-item__meta">
+            <span class="mdc-deprecated-list-item__meta">
               <slot name="trailing" />
             </span>
           )}

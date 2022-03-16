@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-storybook",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -40,7 +40,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^5.1.0",
+    "@inovex.de/elements": "^6.0.0",
     "moment": "^2.24.0"
   },
   "devDependencies": {
@@ -63,12 +63,11 @@
     "jest-cli": "24.8.0",
     "jest-environment-node": "23.4.0",
     "lit-html": "^1.3.0",
-    "node-sass": "^4.12.0",
     "prettier": "^1.16.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "sass": "^1.26.3",
-    "sass-loader": "^7.0.3",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.6.0",
     "story-description-loader": "^1.0.0"
   },
   "resolutions": {

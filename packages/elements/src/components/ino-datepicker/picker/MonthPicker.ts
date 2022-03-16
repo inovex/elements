@@ -6,7 +6,7 @@ import { PartialFlatpickrOptions } from '../picker-factory';
 
 export type MonthPicker = Pick<
   BaseOptions,
-  'defaultDate' | 'minDate' | 'maxDate' | 'plugins' | 'onReady' | 'onDestroy'
+  'defaultDate' | 'minDate' | 'maxDate' | 'plugins' | 'onReady' | 'onDestroy' | 'static'
 >;
 
 type OnValueChangeFn = PartialFlatpickrOptions['onValueChange'];
@@ -75,6 +75,7 @@ export const createMonthPickerOptions = ({
   defaultDate,
   dateFormat,
   onValueChange,
+  static: staticVal,
 }: PartialFlatpickrOptions): MonthPicker => {
   if (!onValueChange) {
     throw new Error(
@@ -91,6 +92,7 @@ export const createMonthPickerOptions = ({
     maxDate,
     minDate,
     defaultDate,
+    static: staticVal,
     onReady: (_, __, instance) => {
       instance.prevMonthNav.addEventListener('click', () =>
         monthChangePrevHandler(instance, onValueChange)

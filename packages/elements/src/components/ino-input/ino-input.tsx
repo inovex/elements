@@ -15,9 +15,9 @@ import {
   Method,
 } from '@stencil/core';
 import classNames from 'classnames';
-import currency from 'currency.js';
 import { hasSlotContent } from '../../util/component-utils';
 import { getPrecision } from '../../util/math-utils';
+import { InputType, UserInputInterceptor } from '../types';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -29,12 +29,15 @@ import { getPrecision } from '../../util/math-utils';
   shadow: false,
 })
 export class Input implements ComponentInterface {
-  /**
-   * Native Input Element
-   */
-  private nativeInputEl?: HTMLInputElement;
+  @Element() el!: HTMLInoInputElement;
 
+  private nativeInputEl?: HTMLInputElement;
   private cursorPosition = 0;
+
+  /**
+   * A function called to intercept the user input.
+   */
+  private userInputInterceptorFn: UserInputInterceptor;
 
   /**
    * An internal auto generated id for the helper field.
@@ -44,19 +47,26 @@ export class Input implements ComponentInterface {
   /**
    * An internal instance of the material design textfield.
    */
-  private textfield: MDCTextField;
+  private mdcTextfield: MDCTextField;
 
   /**
    * An internal instance of an textfield helper text instance (if neccessary).
    */
-  private helperText: MDCTextFieldHelperText;
+  private mdcHelperText: MDCTextFieldHelperText;
 
   /**
    * An internal instance of an textfield icon instance (if neccessary).
    */
-  private icon: MDCTextFieldIcon;
+  private mdcTextfieldIcon: MDCTextFieldIcon;
 
-  @Element() el!: HTMLElement;
+  /**
+   * Simple static construct to generate unique helper text ids.
+   */
+  private static HELPER_COUNTER = 0;
+
+  private static generateHelperTextId() {
+    return `input-helper-text__${Input.HELPER_COUNTER++}`;
+  }
 
   /**
    * The autocomplete property of this element.
@@ -69,9 +79,63 @@ export class Input implements ComponentInterface {
   @Prop() autoFocus?: boolean;
 
   /**
+   * The id of the datalist child
+   */
+  @Prop() dataList?: string;
+
+  /**
    * Disables this element.
    */
   @Prop() disabled?: boolean;
+
+  /**
+   * Displays the input field as invalid if set to true.
+   * If the property is not set or set to false, the validation is handled by the `pattern` property.
+   * This functionality might be useful if the input validation is (additionally) handled by the backend.
+   */
+  @Prop() error?: boolean;
+
+  @Watch('error')
+  errorHandler(invalid?: boolean) {
+    if (this.disabled || !this.mdcTextfield) {
+      return;
+    }
+
+    if (invalid) {
+      this.mdcTextfield.valid = false;
+      this.mdcTextfield.useNativeValidation = false;
+    } else {
+      this.mdcTextfield.valid = true;
+      this.mdcTextfield.useNativeValidation = true;
+      this.nativeInputEl.checkValidity();
+    }
+  }
+
+  /**
+   * The optional helper text.
+   */
+  @Prop() helper?: string;
+
+  /**
+   * Displays the number of characters. The maxlength-property must be set.
+   * This helper text will be displayed persistently.
+   */
+  @Prop() helperCharacterCounter?: boolean;
+
+  /**
+   * Displays the helper permanently.
+   */
+  @Prop() helperPersistent?: boolean;
+
+  /**
+   * Styles the helper text as a validation message.
+   */
+  @Prop() helperValidation?: boolean;
+
+  /**
+   * The optional floating label of this input field.
+   */
+  @Prop() label?: string;
 
   /**
    * The min value of this element.
@@ -89,14 +153,14 @@ export class Input implements ComponentInterface {
   @Prop() maxlength?: number;
 
   /**
-   * The step value of this element. Use `any` for decimal numbers
-   */
-  @Prop() step?: number | 'any' = 1;
-
-  /**
    * The name of this element.
    */
   @Prop() name?: string;
+
+  /**
+   * Styles the input field as outlined element.
+   */
+  @Prop() outline?: boolean;
 
   /**
    * The validation pattern of this element.
@@ -114,179 +178,114 @@ export class Input implements ComponentInterface {
   @Prop() required?: boolean;
 
   /**
-   * The size of this element.
-   */
-  @Prop() size?: number;
-
-  /**
-   * The type of this element (default = text).
-   */
-  @Prop() type?: string = 'text';
-
-  /**
-   * The value of this element. (**unmanaged**)
-   */
-  @Prop() value = '';
-
-  /**
-   * Shows a dot as a thousands separator. Only works on 'text' type input.
-   */
-  @Prop() thousandsSeparator?: boolean;
-
-  /**
-   * The number of decimal places. Only works on 'text' type input.
-   */
-  @Prop() decimalPlaces?: number;
-
-  /**
-   * Displays the given unit at the end of the input field.
-   */
-  @Prop() unit: string;
-
-  @Watch('value')
-  valueChanged(newValue: string) {
-    if (this.textfield && this.nativeInputEl) {
-      const parsedInput = this.parseInput(newValue);
-      this.textfield.value = parsedInput;
-      this.nativeInputEl.value = parsedInput;
-
-      // setSelectionRange does not work on number input
-      if (this.type !== 'number' && this.type !== 'email') {
-        this.nativeInputEl.setSelectionRange(
-          this.cursorPosition,
-          this.cursorPosition
-        );
-      }
-    }
-  }
-
-  /**
    * If true, an *optional* message is displayed if not required,
    * otherwise a * marker is displayed if required
    */
   @Prop() showLabelHint?: boolean;
 
   /**
-   * Styles the input field as outlined element.
+   * The size of this element.
    */
-  @Prop() outline?: boolean;
+  @Prop() size?: number;
 
   /**
-   * The optional floating label of this input field.
+   * The step value of this element. Use `any` for decimal numbers
    */
-  @Prop() label?: string;
+  @Prop() step?: number | 'any' = 1;
 
   /**
-   * The optional helper text.
+   * The type of this element (default = text).
    */
-  @Prop() helper?: string;
+  @Prop() type?: InputType = 'text';
 
   /**
-   * Displays the helper permanently.
+   * Displays the given unit at the end of the input field.
    */
-  @Prop() helperPersistent?: boolean;
+  @Prop() unit: string;
 
   /**
-   * Styles the helper text as a validation message.
+   * The value of this element. (**unmanaged**)
    */
-  @Prop() helperValidation?: boolean;
+  @Prop() value = '';
 
-  /**
-   * Displays the number of characters. The maxlength-property must be set.
-   * This helper text will be displayed persistently.
-   */
-  @Prop() helperCharacterCounter?: boolean;
+  @Watch('value')
+  valueChanged(newValue: string) {
+    this.textfieldValue = newValue || '';
 
-  /**
-   * The id of the datalist child
-   */
-  @Prop() dataList?: string;
-
-  /**
-   * Displays the input field as invalid if set to true.
-   * If the property is not set or set to false, the validation is handled by the `pattern` property.
-   * This functionality might be useful if the input validation is (additionally) handled by the backend.
-   */
-  @Prop() error?: boolean;
-
-  @Watch('error')
-  errorHandler(value?: boolean) {
-    if (this.disabled) return;
-
-    if (value) {
-      this.textfield.valid = false;
-      this.textfield.useNativeValidation = false;
-    } else {
-      this.textfield.valid = true;
-      this.textfield.useNativeValidation = true;
-      this.nativeInputEl.checkValidity();
+    // setSelectionRange does not work on number input
+    if (this.nativeInputEl && !['number', 'email'].includes(this.type)) {
+      this.nativeInputEl.setSelectionRange(
+        this.cursorPosition,
+        this.cursorPosition
+      );
     }
+  }
+
+  // ----
+  // Events and listeners
+  // ----
+
+  /**
+   * Emits when the input field is blurred and validates email input
+   */
+  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+
+  /**
+   * Emits when the input field is focused
+   */
+  @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
+
+  /**
+   * Emits when the user types something in.
+   * Contains typed input in `event.detail`
+   */
+  @Event() valueChange!: EventEmitter<string>;
+
+  @Listen('change')
+  handleChange(e: Event) {
+    e.stopPropagation();
   }
 
   @Listen('focus')
   focusListener() {
-    this.setFocus();
+    this.mdcTextfield?.focus();
   }
 
-  /**
-   * Returns the native input element used under the hood.
-   */
-  @Method()
-  async getInputElement() {
-    return this.nativeInputEl;
+  @Listen('input')
+  handleInput(e: Event) {
+    e.stopImmediatePropagation();
+    e.stopPropagation();
   }
 
-  /**
-   * Sets focus on the native `input`. 
-   * Use this method instead of the global `input.focus()`.
-   */
-   @Method()
-   async setFocus() {
-     this.textfield?.focus();
-   }
- 
-   /**
-    * Sets blur on the native `input`. 
-    * Use this method instead of the global `input.blur()`.
-    */
-   @Method()
-   async setBlur() {
-     this.nativeInputEl?.blur();
-   }
-
-  /**
-   * Simple static construct to generate unique helper text ids.
-   */
-  private static HELPER_COUNTER = 0;
-
-  static generateHelperTextId() {
-    return `input-helper-text__${Input.HELPER_COUNTER++}`;
-  }
+  // ----
+  // Lifecycle methods
+  // ----
 
   componentDidLoad() {
-    this.textfield = new MDCTextField(this.el.querySelector('.mdc-text-field'));
+    this.mdcTextfield = new MDCTextField(
+      this.el.querySelector('.mdc-text-field')
+    );
 
     if (this.type === 'email') {
-      this.textfield.useNativeValidation = false;
+      this.mdcTextfield.useNativeValidation = false;
     }
+
     if (this.helper) {
-      this.helperText = new MDCTextFieldHelperText(
-        document.querySelector('.mdc-text-field-helper-text')
+      const helperTextEl = document.querySelector(
+        '.mdc-text-field-helper-text'
       );
+      this.mdcHelperText = new MDCTextFieldHelperText(helperTextEl);
     }
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
-
-    if (leadingSlotHasContent || trailingSlotHasContent) {
-      this.icon = new MDCTextFieldIcon(
+    if (
+      hasSlotContent(this.el, 'ino-icon-leading') ||
+      hasSlotContent(this.el, 'ino-icon-trailing')
+    ) {
+      this.mdcTextfieldIcon = new MDCTextFieldIcon(
         this.el.querySelector('.mdc-text-field__icon')
       );
     }
-
-    if (this.value && this.textfield) {
-      this.textfield.value = this.value;
-    }
+    this.textfieldValue = this.value || '';
 
     if (this.autoFocus) {
       this.setFocus();
@@ -301,71 +300,137 @@ export class Input implements ComponentInterface {
     this.el.setAttribute('tabindex', '-1');
   }
 
+  componentDidRender() {
+    // This adjusts the dimensions, whenever a property changes, e.g. the label gets translated to another language.
+    this.mdcTextfield?.layout();
+  }
+
   disconnectedCallback() {
-    this.textfield?.destroy();
-    this.helperText?.destroy();
-    this.icon?.destroy();
+    this.mdcTextfield?.destroy();
+    this.mdcHelperText?.destroy();
+    this.mdcTextfieldIcon?.destroy();
   }
 
-  private handleNativeInputChange(e) {
-    this.cursorPosition = e.target.selectionStart;
-    this.valueChange.emit(e.target.value);
+  // ----
+  // Methods
+  // ----
 
-    if (this.nativeInputEl) {
-      this.nativeInputEl.value = this.parseInput(this.value);
+  /**
+   * Returns the native input element used under the hood.
+   */
+  @Method()
+  async getInputElement() {
+    return this.nativeInputEl;
+  }
+
+  /**
+   * Sets focus on the native `input`.
+   * Use this method instead of the global `input.focus()`.
+   */
+  @Method()
+  async setFocus() {
+    this.mdcTextfield?.getDefaultFoundation().activateFocus();
+    this.mdcTextfield?.focus();
+  }
+
+  /**
+   * Sets blur on the native `input`.
+   * Use this method instead of the global `input.blur()`.
+   */
+  @Method()
+  async setBlur() {
+    this.nativeInputEl?.blur();
+  }
+
+  /**
+   * Sets an interceptor to manipulate user input before emitting a
+   * `valueChange` event.
+   *
+   * @internal
+   */
+  @Method()
+  async setUserInputInterceptor(fn: UserInputInterceptor) {
+    this.userInputInterceptorFn = fn;
+  }
+
+  /**
+   * If set, resets the value after the user typed in the native input element (default).
+   * Disabling might be useful to prevent the input from resetting (e.g. `<ino-currency-input>`)
+   * and in turn making it uncontrolled.
+   *
+   * @internal
+   */
+  @Prop() resetOnChange = true;
+
+  // ----
+  // Native input event handler
+  // ----
+
+  private handleNativeInputChange = (e) => {
+    let value = e.target.value;
+
+    if (this.userInputInterceptorFn) {
+      value = this.userInputInterceptorFn(value);
+      this.textfieldValue = value || '';
     }
-  }
 
-  /**
-   * Emits when the user types something in.
-   * Contains typed input in `event.detail`
-   */
-  @Event() valueChange!: EventEmitter<string>;
+    if (value != this.value) {
+      this.cursorPosition = e.target.selectionStart;
+      this.valueChange.emit(value);
 
-  @Listen('change')
-  handleChange(e: Event) {
-    e.stopPropagation();
-  }
+      // reset value to control the input
+      // without it, the input event would be handled by mdc and set the value to the native input el
+      if (this.resetOnChange) {
+        this.textfieldValue = this.value;
+      }
+    }
+  };
 
-  @Listen('input')
-  handleInput(e) {
-    e.stopImmediatePropagation();
-    e.stopPropagation();
-  }
-
-  /**
-   * Emits when the input field is blurred and validates email input
-   */
-  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
   private handleBlur = (e) => {
     if (this.type === 'email') {
-      this.textfield.valid = this.nativeInputEl.checkValidity();
+      this.mdcTextfield.valid = this.nativeInputEl.checkValidity();
     }
     this.inoBlur.emit(e);
   };
 
-  /**
-   * Emits when the input field is focused
-   */
-  @Event({ bubbles: false }) inoFocus!: EventEmitter<void>;
   private handleFocus = (e) => {
     this.inoFocus.emit(e);
   };
 
   private handleInputNumberArrowClick = (shouldIncrement: boolean) => {
-    const stepWithFallback = this.step && this.step !== 'any' ? this.step : 1;
+    let stepWithFallback = this.step && this.step !== 'any' ? this.step : 1;
+    stepWithFallback = shouldIncrement
+      ? stepWithFallback
+      : stepWithFallback * -1;
 
-    const precisionOfValue = this.value ? getPrecision(Number(this.value)) : 0;
-    const formattedValue = currency(this.value, {
-      precision: precisionOfValue,
-    });
-
-    const newValue = shouldIncrement
-      ? formattedValue.add(stepWithFallback)
-      : formattedValue.subtract(stepWithFallback);
-
-    this.valueChange.emit(newValue.toString());
+    const value = Number(this.value.replace(',', '.'));
+    const precision = value ? getPrecision(value) : 0;
+    const opts = {
+      minimumFractionDigits: precision,
+      maximumFractionDigits: precision,
+    };
+    const formattedValue = new Intl.NumberFormat([], opts).format(
+      value + Number(stepWithFallback)
+    );
+    this.valueChange.emit(formattedValue);
   };
+
+  // ----
+  // Internal getters and setters
+  // ----
+
+  private set textfieldValue(value: string) {
+    if (this.mdcTextfield) {
+      this.mdcTextfield.value = value;
+    }
+    if (this.nativeInputEl) {
+      this.nativeInputEl.value = value;
+    }
+  }
+
+  // ----
+  // Rendering
+  // ----
 
   private helperTextTemplate() {
     const classHelperText = classNames({
@@ -381,50 +446,10 @@ export class Input implements ComponentInterface {
     );
   }
 
-  /**
-   * Formats the given input according to the Props decimalPlaces or thousandsSeparator
-   * @param val The value which should be formatted
-   * @return if the val can be formatted, returns the formatted string, else returns the original input val
-   */
-  private parseInput(val?: string): string {
-    const canBeFormatted =
-      Boolean(val) &&
-      this.type === 'text' &&
-      Boolean(this.decimalPlaces || this.thousandsSeparator);
-
-    if (!canBeFormatted) {
-      return val;
-    }
-
-    const formatOptions = {
-      separator: this.thousandsSeparator ? '.' : '',
-      decimal: ',',
-      precision: this.decimalPlaces | 0,
-    };
-
-    const formattedValue: string = currency(val, formatOptions).format();
-
-    // Compute the new cursor position after . was added
-    if (this.thousandsSeparator) {
-      const numberOfAddedCharacters: number = Math.abs(
-        val.length - formattedValue.length
-      );
-
-      if (numberOfAddedCharacters !== 0) {
-        this.nativeInputEl.setSelectionRange(
-          this.cursorPosition + numberOfAddedCharacters,
-          this.cursorPosition + numberOfAddedCharacters
-        );
-      }
-    }
-
-    return formattedValue;
-  }
-
   private characterCounterTemplate() {
     return (
       <div class="mdc-text-field-character-counter">
-        {`${this.value.length} / ${this.maxlength}`}
+        {`${this.value?.length} / ${this.maxlength}`}
       </div>
     );
   }
@@ -435,8 +460,8 @@ export class Input implements ComponentInterface {
       this.helperCharacterCounter && !Number.isNaN(this.maxlength)
     );
 
-    const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
-    const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
+    const leadingIconSlot = hasSlotContent(this.el, 'icon-leading');
+    const trailingIconSlot = hasSlotContent(this.el, 'icon-trailing');
 
     const classTextfield = classNames({
       'ino-input__composer': true,
@@ -446,15 +471,22 @@ export class Input implements ComponentInterface {
       'mdc-text-field--filled': !this.outline,
       'mdc-text-field--outlined': this.outline,
       'mdc-text-field--box': !this.outline,
-      'mdc-text-field--with-leading-icon': leadingSlotHasContent,
-      'mdc-text-field--with-trailing-icon': trailingSlotHasContent || this.unit,
+      'mdc-text-field--with-leading-icon': leadingIconSlot,
+      'mdc-text-field--with-trailing-icon': trailingIconSlot || this.unit,
       'mdc-text-field--no-label': !this.label,
     });
 
     return (
       <Host>
-        <div class={classTextfield}>
-          {leadingSlotHasContent && (
+        <label class={classTextfield}>
+          <ino-label
+            outline={this.outline}
+            text={this.label}
+            required={this.required}
+            show-hint={this.showLabelHint}
+            disabled={this.disabled}
+          />
+          {leadingIconSlot && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--leading'}>
               <slot name={'icon-leading'}></slot>
             </span>
@@ -475,7 +507,7 @@ export class Input implements ComponentInterface {
             required={this.required}
             size={this.size}
             type={this.type}
-            value={this.parseInput(this.value)}
+            value={this.value}
             aria-controls={this.helper && this.uniqueHelperId}
             aria-describedby={this.helper && this.uniqueHelperId}
             onInput={this.handleNativeInputChange.bind(this)}
@@ -483,7 +515,6 @@ export class Input implements ComponentInterface {
             onFocus={this.handleFocus}
             list={this.dataList}
           />
-          <slot />
           {this.unit && (
             <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
               {this.unit}
@@ -503,19 +534,12 @@ export class Input implements ComponentInterface {
               />
             </div>
           )}
-          <ino-label
-            outline={this.outline}
-            text={this.label}
-            required={this.required}
-            show-hint={this.showLabelHint}
-            disabled={this.disabled}
-          />
-          {trailingSlotHasContent && (
+          {trailingIconSlot && (
             <span class={'mdc-text-field__icon mdc-text-field__icon--trailing'}>
               <slot name={'icon-trailing'} />
             </span>
           )}
-        </div>
+        </label>
         <div class="mdc-text-field-helper-line">
           {hasHelperText && this.helperTextTemplate()}
           {hasCharacterCounter && this.characterCounterTemplate()}

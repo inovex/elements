@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-react",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "description": "This is the react package of the integration layer for  @inovex.de/elements.",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
@@ -33,8 +33,6 @@
     "clean": "shx rm -rf dist",
     "compile": "npm run tsc",
     "deploy": "np --any-branch",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
     "tsc": "tsc -p ."
   },
   "main": "./dist/index.js",
@@ -47,32 +45,21 @@
   "devDependencies": {
     "@trust/webcrypto": "^0.9.2",
     "@types/jest": "^26.0.14",
-    "@types/node": "^10.12.9",
-    "@types/react": "^16.8.2",
-    "@types/react-dom": "^16.8.0",
-    "@types/react-router": "^4.4.3",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
-    "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-no-null": "^1.0.2",
-    "eslint-plugin-prefer-arrow": "^1.2.3",
-    "eslint-plugin-react": "^7.22.0",
+    "@types/node": "^14.17.0",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router": "^4.4.5",
     "np": "^3.1.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "shx": "^0.3.2",
-    "typescript": "^3.3.3"
+    "typescript": "^4.5.5"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@inovex.de/elements": "^5.1.0"
+    "@inovex.de/elements": "^6.0.0"
   }
 }

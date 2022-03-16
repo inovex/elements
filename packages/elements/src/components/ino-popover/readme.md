@@ -19,8 +19,10 @@ The component can be used as follows:
   controlled="<boolean>"
   distance="<number>"
   for="<string>"
+  hide-on-blur="<boolean>"
+  hide-on-esc="<boolean>"
   interactive="<boolean>"
-  placement="<string>" 
+  placement="<string>"
   trigger="<string>"
   visible="<boolean>"
 >
@@ -85,7 +87,7 @@ There are currently two ways you can manage the state of the popover.
 
 _Uncontrolled_
 
-Either you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover). 
+Either you use the `trigger` property to define the method when the popover should be opened or closed (e.g. hovering in opens and hovering out closes the popover).
 This is the easiest way as you don't have to worry about managing this state yourself.
 
 ```tsx
@@ -107,7 +109,7 @@ class MyComponent extends Component {
 
 _Controlled_
 
-Or you use the `controlled` and `visible` property to show/hide the popover by yourself. 
+Or you use the `controlled` and `visible` property to show/hide the popover by yourself.
 This is helpful if you want to implement custom logic when the popover should be shown or hidden.
 
 ```tsx
@@ -121,15 +123,15 @@ class MyComponent extends Component {
 
   setPopoverState = (show: boolean) => {
     if (this.props.someProp) return; // Some condition
-    
+
     this.setState({ showPopover: show });
   }
 
   render() {
     return (
       <div>
-        <InoPopover 
-          inoControlled 
+        <InoPopover
+          inoControlled
           inoVisible={this.state.showPopover}
           onInoVisibleChanged={(e) => setPopoverState(e.detail)}
         >
@@ -206,6 +208,8 @@ class MyComponent extends Component {
 | `controlled`  | `controlled`   | Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)                                                                             | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `distance`    | `distance`     | Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.  | `number`                                                                                                                                                                                                                                                                                                                               | `10`                 |
 | `for`         | `for`          | The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist. | `string`                                                                                                                                                                                                                                                                                                                               | `undefined`          |
+| `hideOnBlur`  | `hide-on-blur` | If true, hides the popper on blur.                                                                                                                                                                  | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
+| `hideOnEsc`   | `hide-on-esc`  | If true, hides the popper on esc.                                                                                                                                                                   | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `interactive` | `interactive`  | Use this if you want to interact with the popover content (e.g. button clicks)                                                                                                                      | `boolean`                                                                                                                                                                                                                                                                                                                              | `false`              |
 | `placement`   | `placement`    | The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`                                                            | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"`                                                                                                                           | `'auto'`             |
 | `trigger`     | `trigger`      | The trigger to show the tooltip - either click, hover or focus. Multiple triggers are possible by separating them with a space.                                                                     | `"click focus mouseenter" \| "click focus" \| "click mouseenter focus" \| "click mouseenter" \| "click" \| "focus click mouseenter" \| "focus click" \| "focus mouseenter click" \| "focus mouseenter" \| "focus" \| "mouseenter click focus" \| "mouseenter click" \| "mouseenter focus click" \| "mouseenter focus" \| "mouseenter"` | `'mouseenter focus'` |
@@ -245,12 +249,16 @@ Type: `Promise<any>`
 
 ### Used by
 
+ - [ino-markdown-editor](../ino-markdown-editor)
  - [ino-menu](../ino-menu)
+ - [ino-table-header-cell](../ino-table-header-cell)
 
 ### Graph
 ```mermaid
 graph TD;
+  ino-markdown-editor --> ino-popover
   ino-menu --> ino-popover
+  ino-table-header-cell --> ino-popover
   style ino-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

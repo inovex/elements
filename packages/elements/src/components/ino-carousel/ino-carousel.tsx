@@ -18,19 +18,19 @@ import classNames from 'classnames';
   shadow: false,
 })
 export class InoCarousel implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoCarouselElement;
   private slides: HTMLInoCarouselSlideElement[];
-  private currentSlide: number = 0;
-  private slideCounter: number = 1;
+  private currentSlide = 0;
+  private slideCounter = 1;
   private timer: NodeJS.Timeout;
 
   /**
    * Optional group value to manually manage the displayed slide
    */
-  @Prop() value?: any;
+  @Prop() value?: string;
 
   @Watch('value')
-  valueChanged(newVal: any) {
+  valueChanged(newVal: string) {
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the current slide
     this.selectSlide(newVal);
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
@@ -39,7 +39,7 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Enables autoplay which causes slides to be changed automatically
    */
-  @Prop() autoplay: boolean = false;
+  @Prop() autoplay = false;
   @Watch('autoplay')
   autoplayChanged() {
     this.configureAutoplay();
@@ -48,27 +48,27 @@ export class InoCarousel implements ComponentInterface {
   /**
    * Enables the slide animation
    */
-  @Prop() animated: boolean = false;
+  @Prop() animated = false;
 
   /**
    * Hides the arrow buttons
    */
-  @Prop() hideButtons: boolean = false;
+  @Prop() hideButtons = false;
 
   /**
    * Restarts playback from the first slide upon reaching the last slide
    */
-  @Prop() infinite: boolean = false;
+  @Prop() infinite = false;
 
   /**
    * Sets the intermission between two slides (Unit: ms)
    */
-  @Prop() intermission: number = 5000;
+  @Prop() intermission = 5000;
 
   /**
    * Enables reverse playback of the slides
    */
-  @Prop() reverse: boolean = false;
+  @Prop() reverse = false;
 
   componentDidLoad(): void {
     this.slides = this.getSlides();
@@ -96,7 +96,7 @@ export class InoCarousel implements ComponentInterface {
       );
   };
 
-  private selectSlide(value: number): boolean {
+  private selectSlide(value: string): boolean {
     let slideSelected = false;
     this.slides.forEach((slide) => {
       if (value === slide.value) {

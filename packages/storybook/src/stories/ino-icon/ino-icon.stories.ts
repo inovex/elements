@@ -10,22 +10,6 @@ import './ino-icon.scss';
 
 const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
 
-const findElementUpwards = function (currentEl, elTagName, elClassName) {
-  if (currentEl.tagName.toLowerCase() !== elTagName) {
-    if (currentEl.parentElement !== null) {
-      return findElementUpwards(
-        currentEl.parentElement,
-        elTagName,
-        elClassName
-      );
-    }
-  } else {
-    if (currentEl.classList.contains(elClassName)) {
-      return currentEl;
-    }
-  }
-};
-
 function copyToClipboard(text) {
   const snackbar: HTMLInoSnackbarElement = document.createElement(
     'ino-snackbar'
@@ -50,15 +34,16 @@ const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
 
 const iconChips = ICON_IDS.map(
   (name) => html`
-    <ino-chip id="icon-${name}" label="${name}" fill="outline" icon-leading>
-      <ino-icon slot="icon-leading" icon="${name}"></ino-icon>
+    <ino-chip
+      id="icon-${name}"
+      label="${name}"
+      fill="outline"
+      color-scheme="default"
+      value="${name}"
+      @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
+    >
+      <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
     </ino-chip>
-    <ino-tooltip
-      for="icon-${name}"
-      label="Click to copy ${name} to your clipboard"
-      placement="top"
-      trigger="hover focus"
-    />
   `
 );
 
@@ -94,38 +79,22 @@ export default {
           } else {
             // Hide not matching icons
             chips
-              .filter((chip) => !chip.id.includes(value))
-              .forEach((chip) => (chip.colorScheme = 'light'));
+              .filter((chip) => !chip.value.includes(value.toLowerCase()))
+              .forEach((chip) => (chip.colorScheme = 'default'));
 
             // Show matching icons
             chips
-              .filter((chip) => chip.id.includes(value))
+              .filter((chip) => chip.value.includes(value.toLowerCase()))
               .forEach((chip) => (chip.colorScheme = 'primary'));
           }
 
           input.value = value;
         };
 
-        const chipClickHandler = function (e) {
-          const inoChip: HTMLInoChipElement | null = findElementUpwards(
-            e.target,
-            'ino-chip',
-            'hydrated'
-          );
-
-          if (!inoChip) {
-            return;
-          }
-
-          copyToClipboard(inoChip.label);
-        };
-
-        document.addEventListener('click', chipClickHandler);
         document.addEventListener('valueChange', searchIconHandler);
 
         return () => {
           document.removeEventListener('valueChange', searchIconHandler);
-          document.removeEventListener('click', chipClickHandler);
         };
       });
 
@@ -156,10 +125,11 @@ withIconControl(Playground, 'icon', 'info');
 export const AllIcons = () => html`
   <div class="story-icon">
     <div class="flex-parent-center">
-      <ino-input class="icon-search-input" icon-leading placeholder="Find icon">
+      <ino-input class="icon-search-input" placeholder="Find icon">
         <ino-icon slot="icon-leading" icon="search"></ino-icon>
       </ino-input>
-      <ino-chip-set class="icon-collection"> ${iconChips}</ino-chip-set>
+      <h6>Click on the icon to copy the id to your clipboard.</h6>
+      <div class="icon-collection">${iconChips}</div>
     </div>
   </div>
 `;

@@ -9,8 +9,8 @@ export const DIRECTIVES = [
   d.InoCarouselSlide,
   d.InoCheckbox,
   d.InoChip,
-  d.InoChipSet,
   d.InoControlItem,
+  d.InoCurrencyInput,
   d.InoDatepicker,
   d.InoDialog,
   d.InoFab,
@@ -27,6 +27,7 @@ export const DIRECTIVES = [
   d.InoList,
   d.InoListDivider,
   d.InoListItem,
+  d.InoMarkdownEditor,
   d.InoMenu,
   d.InoNavDrawer,
   d.InoNavItem,
@@ -47,8 +48,7 @@ export const DIRECTIVES = [
   d.InoTab,
   d.InoTabBar,
   d.InoTable,
-  d.InoTableCell,
-  d.InoTableRow,
+  d.InoTableHeaderCell,
   d.InoTextarea,
   d.InoTooltip
 ];
