@@ -1,30 +1,12 @@
-name: Deploy Version
+name: Release
 
 ## Workflow to deploy a new version to version/<TAG_NAME> github pages.
 ## The version is available at elements.inovex.de/version/<TAG-NAME>
 
 on:
-  push:
-    tags:
-      - '*'
+  workflow_dispatch:
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
-
-  test:
-    runs-on: ubuntu-latest
-    needs:
-      - install
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
-      - run: yarn lint
-      - run: yarn test
-
   build:
     runs-on: ubuntu-latest
     needs:
@@ -41,11 +23,37 @@ jobs:
         path:
           packages/storybook/dist/
 
+  test:
+    runs-on: ubuntu-latest
+    needs:
+      - install
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+      - run: yarn lint
+      - run: yarn test
+
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/install
+      - name: Prepare git config
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor}}@users.noreply.github.com"
+      - run: yarn publish:npm --no-verify-access --create-release github --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   deploy:
     runs-on: ubuntu-latest
     needs:
-      - test
-      - build
+      - release
     steps:
       - uses: actions/checkout@v2
         name: Checkout to gh-pages branch
