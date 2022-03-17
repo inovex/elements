@@ -223,7 +223,7 @@ Type: `Promise<void>`
 
 | Slot              | Description                                                               |
 | ----------------- | ------------------------------------------------------------------------- |
-| `"icon-leading"`  | Leading `ino-icon` of the underyling ino-input                            |
+| `"icon-leading"`  | Leading `ino-icon` of the underyling ino-input (only for inline pickers)  |
 | `"icon-trailing"` | Trailing `ino-icon` of the underyling ino-input (only for inline pickers) |
 
 
