@@ -1,3 +1,19 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [6.1.2](https://github.com/inovex/elements/compare/v6.1.1...v6.1.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* **elements:** test change ([412eec7](https://github.com/inovex/elements/commit/412eec7e90f1efc4368bb5de44e03c78c20c67a3))
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
