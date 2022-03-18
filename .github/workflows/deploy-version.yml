@@ -18,11 +18,11 @@ jobs:
 #    needs:
 #      - install
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
         cache: 'yarn'
         node-version-file: '.nvmrc'
-    - uses: actions/checkout@v2
     - run: yarn install --frozen-lockfile
     - run: yarn build
     - name: Upload Artifact -> elements
