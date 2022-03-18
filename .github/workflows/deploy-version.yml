@@ -102,6 +102,7 @@ jobs:
       - run: yarn publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
 
   deploy:
     runs-on: ubuntu-latest
