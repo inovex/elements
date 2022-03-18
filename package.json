@@ -24,6 +24,7 @@
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
+    "publish:ci": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD) --no-verify-access --create-release github --yes --dist-tag test-release",
     "prepare": "husky install"
   },
   "devDependencies": {
