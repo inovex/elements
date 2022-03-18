@@ -20,7 +20,7 @@
     "preversion": "yarn build",
     "version": "node scripts/bumprootversion.js",
     "new:component": "node scripts/newComponent.js",
-    "postversion": "git add -A",
+    "postversion": "git add -A && git reset .npmrc",
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
