@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+## [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+**Note:** Version bump only for package @inovex.de/elements-angular-builder
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 

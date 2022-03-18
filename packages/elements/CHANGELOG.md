@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix datepicker hiding after input ([#555](https://github.com/inovex/elements/issues/555)) ([1b30c16](https://github.com/inovex/elements/commit/1b30c1604d5b1fd3edc069be7105728d8cf4c5f9))
+
+## [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix datepicker hiding after input ([#555](https://github.com/inovex/elements/issues/555)) ([1b30c16](https://github.com/inovex/elements/commit/1b30c1604d5b1fd3edc069be7105728d8cf4c5f9))
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 

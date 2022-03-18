@@ -1,4 +1,32 @@
 # Changelog
+### [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix datepicker hiding after input ([#555](https://github.com/inovex/elements/issues/555)) ([1b30c16](https://github.com/inovex/elements/commit/1b30c1604d5b1fd3edc069be7105728d8cf4c5f9))
+
+
+### Miscellaneous
+
+* add dist tag ([5c3d1c4](https://github.com/inovex/elements/commit/5c3d1c44c851b69464ef8adead826f36d5d18451))
+* add install step ([07cb106](https://github.com/inovex/elements/commit/07cb106fbcf9d7637aaec69e40b54c425f7b8e0d))
+* add release pipeline ([420f862](https://github.com/inovex/elements/commit/420f862c94ffe95e50aeaf2a8ad5eb2f51a2f89e))
+* remove false dependency ([c3a599a](https://github.com/inovex/elements/commit/c3a599afdcc9075af0798621cc842a56146ef9ec))
+* remove no-changelog flag ([b793167](https://github.com/inovex/elements/commit/b793167a56554484f199923a66a11d7b6e5f34f6))
+
+## [6.1.1](https://github.com/inovex/elements/compare/v6.1.0...v6.1.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** fix datepicker hiding after input ([#555](https://github.com/inovex/elements/issues/555)) ([1b30c16](https://github.com/inovex/elements/commit/1b30c1604d5b1fd3edc069be7105728d8cf4c5f9))
+
+
+
+
+
+# Changelog
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 
