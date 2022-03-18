@@ -7,16 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
+#  install:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: ./.github/workflows/install
 
   build:
     runs-on: ubuntu-latest
-    needs:
-      - install
+#    needs:
+#      - install
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/workflows/install
@@ -29,21 +29,21 @@ jobs:
         path:
           packages/storybook/dist/
 
-  test:
-    runs-on: ubuntu-latest
-    needs:
-      - install
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
-      - run: yarn lint
-      - run: yarn test
+#  test:
+#    runs-on: ubuntu-latest
+#    needs:
+#      - install
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: ./.github/workflows/install
+#      - run: yarn lint
+#      - run: yarn test
 
   release:
     runs-on: ubuntu-latest
     needs:
       - build
-      - test
+#      - test
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/install
