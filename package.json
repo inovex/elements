@@ -7,9 +7,6 @@
   "scripts": {
     "build": "lerna run build --ignore=elements-angular-example && lerna run build --scope=elements-angular-example",
     "start": "(shx test -d ./packages/elements/dist || lerna run build --scope=@inovex.de/elements) && lerna run dev --parallel",
-    "changelog": "yarn changelog:root && yarn changelog:pkgs",
-    "changelog:root": "standard-version",
-    "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
     "test": "lerna run test",
     "test:update": "lerna run test:update",
     "clean": "yarn clean:packages && yarn clean:artifacts && yarn clean:root",
@@ -21,7 +18,7 @@
     "format": "yarn prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,scss}'",
     "lerna:version": "lerna version --conventional-commits --no-changelog",
     "preversion": "yarn build && yarn test",
-    "version": "node scripts/bumprootversion.js && yarn changelog",
+    "version": "node scripts/bumprootversion.js",
     "new:component": "node scripts/newComponent.js",
     "postversion": "git add -A",
     "publish:yalc": "node ./scripts/publishYalc.js",
@@ -65,3 +62,4 @@
   "name": "core",
   "version": "7.1.1"
 }
+
