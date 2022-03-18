@@ -1,3 +1,16 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 6.1.3 (2022-03-18)
+
+**Note:** Version bump only for package @inovex.de/elements-landingpage
+
+
+
+
+
 # Changelog
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
