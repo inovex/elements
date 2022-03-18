@@ -67,7 +67,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'yarn'
-          always-auth: true
           node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
