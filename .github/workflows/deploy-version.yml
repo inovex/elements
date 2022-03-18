@@ -18,16 +18,34 @@ jobs:
 #    needs:
 #      - install
     steps:
+    - uses: actions/setup-node@v2
+      with:
+        cache: 'yarn'
+        node-version-file: '.nvmrc'
     - uses: actions/checkout@v2
-    - uses: ./.github/workflows/install
+    - run: yarn install --frozen-lockfile
     - run: yarn build
-
-    - name: Upload Storybook Artifact
+    - name: Upload Artifact -> elements
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements
+        path: packages/elements/dist/
+    - name: Upload Artifact -> elements-react
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-react
+        path: packages/elements-react/dist/
+    - name: Upload Artifact -> elements-angular
       uses: actions/upload-artifact@v2
       with:
-        name: storybook
+        name: elements-angular
         path:
-          packages/storybook/dist/
+          packages/elements-angular/dist/
+    - name: Upload Artifact -> storybook
+      uses: actions/upload-artifact@v3
+      with:
+        name: storybook
+        path: packages/storybook/dist/
 
 #  test:
 #    runs-on: ubuntu-latest
@@ -48,24 +66,30 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
+          cache: 'yarn'
           always-auth: true
-          node-version: '14.x'
+          node-version-file: '.nvmrc'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
-      - name: setup cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            packages/*/node_modules
-            packages/*/*/node_modules
-          key: ${{ runner.os }}-lerna-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-lerna-
       - run: npm config set scripts-prepend-node-path true
         shell: bash
       - run: yarn install --frozen-lockfile
         shell: bash
+      - name: Download elements artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements
+          path: packages/elements/dist/
+      - name: Download elements-react artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-react
+          path: packages/elements-react/dist/
+      - name: Download elements-angular artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-angular
+          path: packages/elements-angular/dist/
       - name: Prepare git config
         run: |
           git config user.name "${{ github.actor }}"
@@ -89,7 +113,7 @@ jobs:
         with:
           ref: gh-pages
       - uses: rlespinasse/github-slug-action@v3.x
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         name: Download Storybook Artifact
         with:
           name: storybook
