@@ -23,7 +23,7 @@
     "postversion": "git add -A",
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
-    "publish:npm": "yarn lerna publish --conventional-commits --dist-tag test-release",
+    "publish:npm": "yarn lerna publish --conventional-commits --dist-tag test-release --preid test.$(git rev-parse --short HEAD)",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -62,4 +62,3 @@
   "name": "core",
   "version": "7.1.2"
 }
-
