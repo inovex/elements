@@ -55,7 +55,6 @@
       placeholder="Type your message here"
       required
       rows="3"
-      @valueChange="({detail}) => this.message = detail"
     />
     <div class="form-btn-bar">
       <ino-switch
@@ -94,7 +93,7 @@ export default {
     name: 'ssss',
     gender: 'm',
     birthday: '',
-    message: '',
+    message: 'Hallo Welt',
     outlineStyle: false,
     selectedTitle: null,
     availableTitles: ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Jr.'],
