@@ -41,6 +41,8 @@ export const config: Config = {
       componentCorePackage: '@inovex.de/elements',
       proxiesFile: '../elements-vue/src/proxies.ts',
       includeDefineCustomElements: false,
+      // external event names (valueChange, checkedChange, ...) have to be mapped to vue event names
+      // see elements-vue/src/index.ts
       componentModels: [
         {
           elements: [
