@@ -21,5 +21,4 @@ const getHelperFunctions = () => {
 void defineCustomElements(window, getHelperFunctions());
 
 export * from './proxies';
-export * from './components';
 

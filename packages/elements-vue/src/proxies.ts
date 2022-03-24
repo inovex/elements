@@ -7,6 +7,7 @@ import type { JSX } from '@inovex.de/elements';
 
 
 
+
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
   'debounceTimeout',
   'noOptionsText',
@@ -266,8 +267,7 @@ export const InoInputFile = /*@__PURE__*/ defineContainer<JSX.InoInputFile>('ino
   'dragAndDropText',
   'dragAndDropSecondaryText',
   'changeFile'
-],
-'value', 'v-value-change', 'valueChange');
+]);
 
 
 export const InoLabel = /*@__PURE__*/ defineContainer<JSX.InoLabel>('ino-label', undefined, [
@@ -424,6 +424,9 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-selec
   'label',
   'outline',
   'value',
+  'helper',
+  'helperValidation',
+  'helperPersistent',
   'error',
   'valueChange'
 ],

@@ -77,7 +77,7 @@ export const defineContainer = <Props>(
         const eventsNames = Array.isArray(modelUpdateEvent) ? modelUpdateEvent : [modelUpdateEvent];
         eventsNames.forEach((eventName: string) => {
           vnode.el.addEventListener(eventName.toLowerCase(), (e: Event) => {
-            modelPropValue = (e?.target as any)[modelProp];
+            modelPropValue = (e as CustomEvent).detail;
             emit(UPDATE_VALUE_EVENT, modelPropValue);
 
             /**
