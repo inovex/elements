@@ -21,11 +21,5 @@ module.exports = {
         xmlnsOrder: 'alphabetical',
       },
     },
-    {
-      name: 'convertColors',
-      params: {
-        currentColor: true, // ⚠️ set all fill icons to currentColor
-      },
-    },
   ],
 };

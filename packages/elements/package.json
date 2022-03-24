@@ -53,7 +53,7 @@
     "test:spec": "stencil test --spec",
     "test:spec-watch": "stencil test --spec --watch",
     "icon:integrate-icons": "node scripts/integrateIcons.js",
-    "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ./src/util/svgo.config.js"
+    "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
   },
   "dependencies": {
     "@material/button": "^13.0.0",

@@ -1,5 +1,5 @@
 {
   "!(*eslintrc)!{packages/landingpage/**}.{t,j}s{,x}": ["prettier --write", "eslint --fix"],
   "*.{md,html,css,scss}": "prettier --write",
-  "*.{svg}": "svgo --config ./packages/elements/src/util/svgo.config.js"
+  "*.{svg}": "svgo --config ./svgo.config.js"
 }
