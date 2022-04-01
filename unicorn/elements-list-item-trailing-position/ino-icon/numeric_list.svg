@@ -1,0 +1,8 @@
+<svg id="Nummerierte_Auflistung" data-name="Nummerierte Auflistung" xmlns="http://www.w3.org/2000/svg" width="23.395" height="21" viewBox="0 0 23.395 21">
+  <line id="Linie_9" data-name="Linie 9" y1="0.048" x2="16" transform="translate(6.392 3.169)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+  <line id="Linie_10" data-name="Linie 10" y1="0.048" x2="16" transform="translate(6.392 11.129)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+  <line id="Linie_11" data-name="Linie 11" y1="0.048" x2="16" transform="translate(6.392 19.09)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
+  <text id="_1" data-name="1" transform="translate(0 6)" fill="currentColor" font-size="6" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">1</tspan></text>
+  <text id="_2" data-name="2" transform="translate(0 13)" fill="currentColor" font-size="6" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">2</tspan></text>
+  <text id="_3" data-name="3" transform="translate(0 20)" fill="currentColor" font-size="6" font-family="Lato-Bold, Lato" font-weight="700"><tspan x="0" y="0">3</tspan></text>
+</svg>
