@@ -1,6 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { Meta, Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-button.scss';
@@ -18,45 +19,44 @@ export default {
       ],
     },
   },
-} as Meta;
+   // will be used as default props for all stories
+   args: {
+    fill: 'filled',
+    dense: false,
+    disabled: false,
+    loading: false,
+  },
+} as Meta<Components.InoButton>;
 
-export const Playground: Story<Components.InoButton> = (
-  args
-) => html` <ino-button
-  class="customizable-button"
-  color-scheme="${args.colorScheme}"
-  fill="${args.fill}"
-  dense="${args.dense}"
-  disabled="${args.disabled}"
-  loading="${args.loading}"
-  edge-mirrored="${args.edgeMirrored}"
->
-  Label
-</ino-button>`;
+// the basic template for the checkbox component
+const template = new TemplateGenerator<Components.InoButton>(
+  'ino-button',
+  (args) => html`
+    <ino-button
+      fill="${args.fill}"
+    >
+      Label
+    </ino-button>
+  `
+);
 
-Playground.args = {
-  colorScheme: 'primary',
-  fill: 'solid',
-  dense: false,
-  disabled: false,
-  loading: false,
-  edgeMirrored: false,
-};
+export const Playground = template.generatePlaygroundStory();
+
+export const Filled = template.generateStoryForProp('fill', 'filled')
+export const Outlined = template.generateStoryForProp('fill', 'outlined')
+export const Text = template.generateStoryForProp('fill', 'text')
+
 
 Playground.argTypes = {
-  colorScheme: {
-    control: {
-      type: 'select',
-    },
-    options: ['primary', 'secondary', 'grey', 'white'],
-  },
   fill: {
     control: {
       type: 'select',
     },
-    options: ['solid', 'outline', 'inverse'],
+    options: ['filled', 'outlined', 'text'],
   },
 };
+
+/*
 
 export const Others = (): TemplateResult => html`
   <div class="story-button">
@@ -142,3 +142,4 @@ export const Forms = () => html`
     </form>
   </div>
 `;
+*/

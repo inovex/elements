@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-17T13:41:49",
+  "timestamp": "2022-04-07T13:29:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -99,13 +99,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-autocomplete-list-max-height",
-          "annotation": "prop",
-          "docs": "max height of option list"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -123,7 +117,7 @@
     },
     {
       "filePath": "./src/components/ino-button/ino-button.tsx",
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "tag": "ino-button",
       "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
       "docs": "A button component with different styles and icon capability.",
@@ -150,36 +144,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "grey",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -219,42 +183,25 @@
           "required": false
         },
         {
-          "name": "edgeMirrored",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "edge-mirrored",
-          "reflectToAttr": false,
-          "docs": "Styles the button to have the edge on the top-right instead of the top-left",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "fill",
-          "type": "\"inverse\" | \"outline\" | \"solid\"",
+          "type": "\"filled\" | \"outlined\" | \"text\"",
           "mutable": false,
           "attr": "fill",
           "reflectToAttr": false,
           "docs": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
           "docsTags": [],
-          "default": "'solid'",
+          "default": "'filled'",
           "values": [
             {
-              "value": "inverse",
+              "value": "filled",
               "type": "string"
             },
             {
-              "value": "outline",
+              "value": "outlined",
               "type": "string"
             },
             {
-              "value": "solid",
+              "value": "text",
               "type": "string"
             }
           ],
@@ -339,68 +286,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-button-color-primary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-primary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the primary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-primary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the primary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-primary-light",
-          "annotation": "prop",
-          "docs": "Light color of the primary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on active"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on hover"
-        },
-        {
-          "name": "--ino-button-color-secondary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-secondary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the secondary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-secondary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the secondary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-light",
-          "annotation": "prop",
-          "docs": "Light color of the secondary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on active"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",
@@ -487,48 +373,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-card-background-color",
-          "annotation": "prop",
-          "docs": "background color of the card"
-        },
-        {
-          "name": "--ino-card-background-color--active",
-          "annotation": "prop",
-          "docs": "background color of the card if active"
-        },
-        {
-          "name": "--ino-card-background-color--focus",
-          "annotation": "prop",
-          "docs": "background color of the card on focus"
-        },
-        {
-          "name": "--ino-card-background-color--hover",
-          "annotation": "prop",
-          "docs": "background color of the card on hover"
-        },
-        {
-          "name": "--ino-card-border-color",
-          "annotation": "prop",
-          "docs": "border color of the card"
-        },
-        {
-          "name": "--ino-card-border-thickness",
-          "annotation": "prop",
-          "docs": "thickness of the border"
-        },
-        {
-          "name": "--ino-card-checkmark-background-color",
-          "annotation": "prop",
-          "docs": "background color of the check mark"
-        },
-        {
-          "name": "--ino-card-checkmark-color",
-          "annotation": "prop",
-          "docs": "check mark color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "content",
@@ -690,28 +535,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-carousel-animation-duration",
-          "annotation": "prop",
-          "docs": "sets the duration of the slide animation"
-        },
-        {
-          "name": "--ino-carousel-height",
-          "annotation": "prop",
-          "docs": "sets the height of the carousel component"
-        },
-        {
-          "name": "--ino-carousel-icon-color",
-          "annotation": "prop",
-          "docs": "sets the color of the navigation buttons"
-        },
-        {
-          "name": "--ino-carousel-width",
-          "annotation": "prop",
-          "docs": "sets the width of the carousel component"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -909,48 +733,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--checkbox-container-color-unchecked",
-          "annotation": "prop",
-          "docs": "color of the checkbox container if unchecked"
-        },
-        {
-          "name": "--ino-checkbox-background-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox background if disabled"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color",
-          "annotation": "prop",
-          "docs": "primary color of the check mark"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the check mark if disabled"
-        },
-        {
-          "name": "--ino-checkbox-color",
-          "annotation": "prop",
-          "docs": "primary color of the checkbox"
-        },
-        {
-          "name": "--ino-checkbox-color-active",
-          "annotation": "prop",
-          "docs": "color of the checkbox if active"
-        },
-        {
-          "name": "--ino-checkbox-color-hover",
-          "annotation": "prop",
-          "docs": "color of the checkbox on hover"
-        },
-        {
-          "name": "--ino-checkbox-text-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox text if disabled"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -2173,43 +1956,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-dialog-background-color",
-          "annotation": "prop",
-          "docs": "background color of the dialog"
-        },
-        {
-          "name": "--ino-dialog-border",
-          "annotation": "prop",
-          "docs": "border shorthand of the dialog"
-        },
-        {
-          "name": "--ino-dialog-border-radius",
-          "annotation": "prop",
-          "docs": "border-radius of the dialog"
-        },
-        {
-          "name": "--ino-dialog-box-shadow",
-          "annotation": "prop",
-          "docs": "box-shadow of the dialog"
-        },
-        {
-          "name": "--ino-dialog-height",
-          "annotation": "prop",
-          "docs": "height of the dialog"
-        },
-        {
-          "name": "--ino-dialog-overlay-background-color",
-          "annotation": "prop",
-          "docs": "background color of the overlay"
-        },
-        {
-          "name": "--ino-dialog-width",
-          "annotation": "prop",
-          "docs": "width of the dialog"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -2446,48 +2193,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--fab-background-color",
-          "annotation": "prop",
-          "docs": "Background color"
-        },
-        {
-          "name": "--fab-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color if active"
-        },
-        {
-          "name": "--fab-background-color-disabled",
-          "annotation": "prop",
-          "docs": "Background color if disabled"
-        },
-        {
-          "name": "--fab-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color on hover"
-        },
-        {
-          "name": "--fab-color-disabled",
-          "annotation": "prop",
-          "docs": "Text color if disabled"
-        },
-        {
-          "name": "--fab-icon-color",
-          "annotation": "prop",
-          "docs": "Color of the slotted icon"
-        },
-        {
-          "name": "--fab-icon-color-disabled",
-          "annotation": "prop",
-          "docs": "Color of the slotted icon if disabled"
-        },
-        {
-          "name": "--ino-fab-color",
-          "annotation": "prop",
-          "docs": "Text color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",
@@ -2736,18 +2442,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-header-box-color",
-          "annotation": "prop",
-          "docs": "Color of the header box"
-        },
-        {
-          "name": "--ino-header-color",
-          "annotation": "prop",
-          "docs": "Text color of the header"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -2857,28 +2552,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-icon-color-primary",
-          "annotation": "prop",
-          "docs": "Primary (default) color of the icon"
-        },
-        {
-          "name": "--ino-icon-color-secondary",
-          "annotation": "prop",
-          "docs": "Secondary color of the icon"
-        },
-        {
-          "name": "--ino-icon-height",
-          "annotation": "prop",
-          "docs": "Height of the icon"
-        },
-        {
-          "name": "--ino-icon-width",
-          "annotation": "prop",
-          "docs": "Width of the icon"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -3116,38 +2790,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-icon-button-background-active-color",
-          "annotation": "prop",
-          "docs": "base color of the active background"
-        },
-        {
-          "name": "--ino-icon-button-background-color",
-          "annotation": "prop",
-          "docs": "default color of the background"
-        },
-        {
-          "name": "--ino-icon-button-icon-active-color",
-          "annotation": "prop",
-          "docs": "color of the active icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-color",
-          "annotation": "prop",
-          "docs": "default color of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-icon-size",
-          "annotation": "prop",
-          "docs": "size of the icon itself"
-        },
-        {
-          "name": "--ino-icon-button-size",
-          "annotation": "prop",
-          "docs": "size of the entire button"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -3492,13 +3135,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-img-list-cols",
-          "annotation": "prop",
-          "docs": "sets the number of columns"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -4034,28 +3671,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-input-caret-color",
-          "annotation": "prop",
-          "docs": "color of the caret"
-        },
-        {
-          "name": "--ino-input-icon-color",
-          "annotation": "prop",
-          "docs": "icon color"
-        },
-        {
-          "name": "--ino-input-label-color",
-          "annotation": "prop",
-          "docs": "color of the label"
-        },
-        {
-          "name": "--ino-input-line-color",
-          "annotation": "prop",
-          "docs": "line color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",
@@ -4271,18 +3887,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-input-file-box-height",
-          "annotation": "prop",
-          "docs": "Height of the drag and drop window"
-        },
-        {
-          "name": "--ino-input-file-box-width",
-          "annotation": "prop",
-          "docs": "Width of the drag and drop window"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -4481,13 +4086,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-list-item-border-radius",
-          "annotation": "prop",
-          "docs": "Border radius of the list container, also effects the first and last list item"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -4704,58 +4303,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-list-item-deselected-background-color",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item if active"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-deselected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color of a deselected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-deselected-color",
-          "annotation": "prop",
-          "docs": "Text color of a deselected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item if active"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item if focused"
-        },
-        {
-          "name": "--ino-list-item-selected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color of a selected list item on hover"
-        },
-        {
-          "name": "--ino-list-item-selected-color",
-          "annotation": "prop",
-          "docs": "Text color of a selected list item"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "leading",
@@ -4872,18 +4420,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-markdown-editor-max-height",
-          "annotation": "prop",
-          "docs": "max-height of text editor Default value is `none`."
-        },
-        {
-          "name": "--ino-markdown-editor-min-height",
-          "annotation": "prop",
-          "docs": "min-height of text editor. Default value is `100px`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -5128,43 +4665,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-nav-drawer-background",
-          "annotation": "prop",
-          "docs": "Background of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-height",
-          "annotation": "prop",
-          "docs": "Height of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-text-color",
-          "annotation": "prop",
-          "docs": "Color of text inside the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-timing-function",
-          "annotation": "prop",
-          "docs": "Timing function of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-transition-duration",
-          "annotation": "prop",
-          "docs": "Duration of the slide animation of the drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-closed",
-          "annotation": "prop",
-          "docs": "Docked variant only! The width of the collapsed drawer."
-        },
-        {
-          "name": "--ino-nav-drawer-width-open",
-          "annotation": "prop",
-          "docs": "The width of the open drawer."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "app",
@@ -5289,28 +4790,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-nav-item-background-color",
-          "annotation": "prop",
-          "docs": "Inactive color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-background-color-active",
-          "annotation": "prop",
-          "docs": "Active color of the background of one item."
-        },
-        {
-          "name": "--ino-nav-item-color",
-          "annotation": "prop",
-          "docs": "Inactive color of icon."
-        },
-        {
-          "name": "--ino-nav-item-color-active",
-          "annotation": "prop",
-          "docs": "Active color of icon."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -5417,48 +4897,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-option-deselected-background-color",
-          "annotation": "prop",
-          "docs": "Background color if deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color if active and deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color on focus if deselected"
-        },
-        {
-          "name": "--ino-option-deselected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color on hover if deselected"
-        },
-        {
-          "name": "--ino-option-selected-background-color",
-          "annotation": "prop",
-          "docs": "Background color if selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-active",
-          "annotation": "prop",
-          "docs": "Background color if active and selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-focus",
-          "annotation": "prop",
-          "docs": "Background color on focus if selected"
-        },
-        {
-          "name": "--ino-option-selected-background-color-hover",
-          "annotation": "prop",
-          "docs": "Background color on hover if selected"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -5978,13 +5417,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--progress-bar--bar-color",
-          "annotation": "prop",
-          "docs": "Color of the progress bar"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -6084,38 +5517,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-radio-active-color",
-          "annotation": "prop",
-          "docs": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "annotation": "prop",
-          "docs": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "annotation": "prop",
-          "docs": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "annotation": "prop",
-          "docs": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if unchecked"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6509,38 +5911,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-checked-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-hover-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6829,18 +6200,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-select-height",
-          "annotation": "prop",
-          "docs": "Height of the open select menu"
-        },
-        {
-          "name": "--ino-select-icon-color",
-          "annotation": "prop",
-          "docs": "Icon color"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6944,13 +6304,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--sidebar-width",
-          "annotation": "prop",
-          "docs": "The width of the open sidebar."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "content",
@@ -7090,28 +6444,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-snackbar-bottom",
-          "annotation": "prop",
-          "docs": "Distance to the bottom edge"
-        },
-        {
-          "name": "--ino-snackbar-left",
-          "annotation": "prop",
-          "docs": "Distance to the left edge"
-        },
-        {
-          "name": "--ino-snackbar-right",
-          "annotation": "prop",
-          "docs": "Distance to the right edge"
-        },
-        {
-          "name": "--ino-snackbar-top",
-          "annotation": "prop",
-          "docs": "Distance to the top edge"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -7742,13 +7075,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-table-row-height",
-          "annotation": "prop",
-          "docs": "height of a table row"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -8320,23 +7647,7 @@
           "passive": false
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-textarea-caret-color",
-          "annotation": "prop",
-          "docs": "color of the caret"
-        },
-        {
-          "name": "--ino-textarea-label-color",
-          "annotation": "prop",
-          "docs": "color of the label"
-        },
-        {
-          "name": "--ino-textarea-outline-color",
-          "annotation": "prop",
-          "docs": "outline color of the textarea"
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
