@@ -2,22 +2,22 @@
 @use 'base/animation';
 
 /* Colors: */
-$brand-inovex-blue: #051c59;
-$primary: #2c02ff;
-$primary-light: #2d5dff;
-$primary-hover: #2d5dff14;
-$primary-active: #2d5dff1f;
-$primary-dark: #172e9a;
 $white: #ffffff;
-$grey-light: #c1c1c1;
-$grey-dark: #777777;
-$text-color-1: #000000;
-$text-color-2: #525368;
-$text-color-3: #74758b;
-$text-disabled: #9e9e9e;
-$border: #3d40f5;
-$border-focused: #2d5dff4d;
+$grey-light: #E6E6E6;
+$grey-dark: #5E5E5E;
+$brand-inovex-blue: #051c59;
+$primary: #2C02FF;
+$primary-light: #2D5DFF;
+$primary-hover: #4B4EFF;
+$primary-active: #3D40F5;
+$primary-light-hover: rgba($primary-light, 0.08);
+$primary-light-active: rgba($primary-light, 0.12);
+$border: #3D40F5;
+$border-focused: #2D5DFF4D;
+$text-disabled: $grey-dark;
+$disabled: $grey-light;
 
+/* borders */
 $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
 
@@ -27,8 +27,13 @@ ino-button {
     align-items: center;
     height: 36px;
     padding: 8px 16px;
+    line-height: 0;
     @include typography.font(sans-serif, m, bold);
     cursor: pointer;
+  }
+
+  :disabled {
+    pointer-events: none;
   }
 
   .button--fill-filled {
@@ -46,8 +51,9 @@ ino-button {
     );
 
     &:hover {
-      background-color: #4b4eff;
+      background-color: $primary-hover;
       border-radius: $round-border;
+      box-shadow: 0 2px 2px $border-focused;
       @include animation.border-radius(
         ino-button-edged-to-round,
         $edged-border,
@@ -57,10 +63,17 @@ ino-button {
     }
 
     &:focus {
+      box-shadow: 0px 0px 0 3px $border-focused;
     }
 
     &:active {
-      background-color: #3d40f5;
+      background-color: $primary-active;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: $disabled;
+      color: $text-disabled;
     }
   }
 
@@ -72,17 +85,24 @@ ino-button {
     letter-spacing: 0.27px;
 
     &:hover {
-      background-color: $primary-hover;
+      background-color: $primary-light-hover;
     }
 
     &:focus {
-      border: solid 3px $border;
-      border-color: $border-focused;
+      box-shadow: 0px 0px 0 3px $border-focused;
+     
     }
 
     &:active {
-      background-color: #2d5dff1f;
+      background-color: $primary-light-active;
       border: solid 1px $border;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: $white;
+      color: $text-disabled;
+      border: solid 1px $grey-dark;
     }
   }
 
@@ -93,16 +113,23 @@ ino-button {
     border-radius: 19px;
 
     &:hover {
-      background-color: $primary-hover;
+      background-color: $primary-light-hover;
       border-color: transparent;
     }
 
     &:focus {
       border: none;
+      box-shadow: 0px 0px 0 3px $border-focused;
     }
 
     &:active {
-      background-color: $primary-active;
+      background-color: $primary-light-active;
+      box-shadow: none;
+    }
+
+    &:disabled {
+      background-color: $white;
+      color: $text-disabled;
     }
   }
 }

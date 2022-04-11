@@ -28,12 +28,13 @@ export default {
   },
 } as Meta<Components.InoButton>;
 
-// the basic template for the checkbox component
+// the basic template for the button component
 const template = new TemplateGenerator<Components.InoButton>(
   'ino-button',
   (args) => html`
     <ino-button
       fill="${args.fill}"
+      disabled="${args.disabled}"
     >
       Label
     </ino-button>
@@ -45,7 +46,7 @@ export const Playground = template.generatePlaygroundStory();
 export const Filled = template.generateStoryForProp('fill', 'filled')
 export const Outlined = template.generateStoryForProp('fill', 'outlined')
 export const Text = template.generateStoryForProp('fill', 'text')
-
+export const Disabled = template.generateStoryForProp('disabled', true )
 
 Playground.argTypes = {
   fill: {
@@ -54,6 +55,9 @@ Playground.argTypes = {
     },
     options: ['filled', 'outlined', 'text'],
   },
+  disabled: {
+    options: [true, false],
+  }
 };
 
 /*
