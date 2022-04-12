@@ -35,6 +35,7 @@ const template = new TemplateGenerator<Components.InoButton>(
     <ino-button
       fill="${args.fill}"
       disabled="${args.disabled}"
+      dense="${args.dense}"
     >
       Label
     </ino-button>
@@ -47,6 +48,7 @@ export const Filled = template.generateStoryForProp('fill', 'filled')
 export const Outlined = template.generateStoryForProp('fill', 'outlined')
 export const Text = template.generateStoryForProp('fill', 'text')
 export const Disabled = template.generateStoryForProp('disabled', true )
+export const Dense = template.generateStoryForProp('dense', true )
 
 Playground.argTypes = {
   fill: {
@@ -56,6 +58,9 @@ Playground.argTypes = {
     options: ['filled', 'outlined', 'text'],
   },
   disabled: {
+    options: [true, false],
+  },
+  dense: {
     options: [true, false],
   }
 };

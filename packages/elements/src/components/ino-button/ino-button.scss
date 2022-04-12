@@ -3,8 +3,8 @@
 
 /* Colors: */
 $white: #ffffff;
-$grey-light: #E6E6E6;
-$grey-dark: #5E5E5E;
+$grey-light: #EDEFF5;
+$grey-dark: #3A3B64;
 $brand-inovex-blue: #051c59;
 $primary: #2C02FF;
 $primary-light: #2D5DFF;
@@ -21,6 +21,16 @@ $disabled: $grey-light;
 $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
 
+@mixin dense {
+  padding: 6px 16px;
+  height: 32px;
+}
+
+@mixin disabled {
+  pointer-events: none;
+  color: $text-disabled;
+} 
+
 ino-button {
   .button--base {
     display: inline-flex;
@@ -32,8 +42,10 @@ ino-button {
     cursor: pointer;
   }
 
-  :disabled {
-    pointer-events: none;
+  &[dense=true] {
+    .button--base {
+      @include dense();
+    }
   }
 
   .button--fill-filled {
@@ -63,6 +75,7 @@ ino-button {
     }
 
     &:focus {
+      background-color: $primary-active;
       box-shadow: 0px 0px 0 3px $border-focused;
     }
 
@@ -72,8 +85,8 @@ ino-button {
     }
 
     &:disabled {
+      @include disabled();
       background-color: $disabled;
-      color: $text-disabled;
     }
   }
 
@@ -90,7 +103,6 @@ ino-button {
 
     &:focus {
       box-shadow: 0px 0px 0 3px $border-focused;
-     
     }
 
     &:active {
@@ -100,8 +112,8 @@ ino-button {
     }
 
     &:disabled {
+      @include disabled();
       background-color: $white;
-      color: $text-disabled;
       border: solid 1px $grey-dark;
     }
   }
@@ -128,8 +140,8 @@ ino-button {
     }
 
     &:disabled {
+      @include disabled();
       background-color: $white;
-      color: $text-disabled;
     }
   }
 }
