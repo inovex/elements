@@ -134,13 +134,15 @@ export class Button implements ComponentInterface {
       },
     );
 
-    const inoButtonClasses = classNames(
-      'button--base',
-      `button--fill-${this.fill}`
-    )
-
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
+
+    const inoButtonClasses = classNames(
+      'button--base',
+      `button--fill-${this.fill}`,
+      `${(leadingSlotHasContent)? 'hasLeadingIcon' : ''}`,
+      `${(trailingSlotHasContent)? 'hasTrailingIcon' : ''}`
+    )
 
     return (
       <Host class={hostClasses} onClick={this.handleClick}>

@@ -21,15 +21,17 @@ $disabled: $grey-light;
 $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
 
-@mixin dense {
-  padding: 6px 16px;
-  height: 32px;
-}
-
 @mixin disabled {
   pointer-events: none;
   color: $text-disabled;
 } 
+
+@mixin hasIcon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 ino-button {
   .button--base {
@@ -40,11 +42,30 @@ ino-button {
     line-height: 0;
     @include typography.font(sans-serif, m, bold);
     cursor: pointer;
+
+    &.hasLeadingIcon {
+      @include hasIcon();
+      padding: 8px 16px 8px 8px;
+
+      ino-icon {
+        margin-right: 8px;
+      }
+    }
+
+    &.hasTrailingIcon {
+      @include hasIcon();
+      padding: 8px 8px 8px 16px;
+
+      ino-icon {
+        margin-left: 8px;
+      }
+    }
   }
 
-  &[dense=true] {
+  &.ino-button--dense {
     .button--base {
-      @include dense();
+      padding: 6px 16px;
+      height: 32px;
     }
   }
 
