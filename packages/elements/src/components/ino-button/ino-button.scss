@@ -31,15 +31,20 @@ $edged-border: 24px 0 24px 24px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  span {
+    height: 16px;
+  }
 }
 
 ino-button {
   .button--base {
     display: inline-flex;
     align-items: center;
-    height: 36px;
     padding: 8px 16px;
-    line-height: 0;
+    min-height: 36px;
+    line-break: auto;
+    line-height: 100%;
     @include typography.font(sans-serif, m, bold);
     cursor: pointer;
 
@@ -65,7 +70,7 @@ ino-button {
   &.ino-button--dense {
     .button--base {
       padding: 6px 16px;
-      height: 32px;
+      min-height: 32px;
     }
   }
 
