@@ -29,16 +29,19 @@ or **yarn**:
 $ yarn add @inovex.de/elements-vue
 ```
 
-### 2) Prepare the Project to use icons (optional)
+### 2) Prepare the Project to use vue wrapper
 Before you start using the elements icons, you need to prepare the project.
-Open `src/main.js` and add the following code snippet somewhere on the first lines to import the icons.
+Open `src/main.js` and add the following code snippet on the first lines to use the elements vue wrapper.
 
 ```js
 // src/main.js
-import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
-import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
+import { createApp } from 'vue';
+import { InoElementsVue } from '@inovex.de/elements-vue';
+import App from './App.vue'
 
-addIcons(ICON_PATHS); // only needed if you want to use our icons
+const app = createApp(App);
+app.use(InoElementsVue);
+app.mount('#app');
 ```
 
 ### 3) Use the Components
