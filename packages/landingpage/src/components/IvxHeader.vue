@@ -14,7 +14,7 @@
       <ino-select
         v-if="versions.length > 0"
         fill="outline"
-        @valueChange="(e) => selectedVersionURL = e.detail"
+        v-model="selectedVersionURL"
       >
         <ino-option
           v-for="(version, i) in versions"
@@ -39,9 +39,11 @@
 </template>
 
 <script>
+import { InoButton, InoOption, InoSelect } from "@inovex.de/elements-vue";
 
 export default {
   name: 'IvxHeader',
+  components: { InoSelect, InoButton, InoOption },
   props: {
     logo: {
       type: String,
