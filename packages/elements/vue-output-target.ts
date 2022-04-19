@@ -38,6 +38,8 @@ async function runFix(proxyPath: string) {
     'utils.ts'
   );
 
+  // provide v-model bindings for elements components
+  // change auto-generated utils file to change model update handling
   let utilsString = await fs.promises.readFile(elementsVueUtilsPath, {
     encoding: 'utf-8',
   });
