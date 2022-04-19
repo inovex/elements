@@ -323,6 +323,12 @@ export class Autocomplete implements ComponentInterface {
   private closeMenu = () => (this.menuIsVisible = false);
 
   render() {
+
+    const hostClasses = classNames({
+      'no-options-found': this.noOptionsIsVisible,
+      'menu-open': this.menuIsVisible
+    })
+
     const menuClasses = classNames({
       menu: true,
       'menu-hidden': !this.menuIsVisible,
@@ -330,7 +336,7 @@ export class Autocomplete implements ComponentInterface {
     });
 
     return (
-      <Host>
+      <Host class={hostClasses}>
         <slot name="input" />
         <div
           class={menuClasses}

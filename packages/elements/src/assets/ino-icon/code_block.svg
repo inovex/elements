@@ -1,14 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22.521" height="20.409" viewBox="0 0 22.521 20.409">
-  <g id="Codeblock" transform="translate(0.053 0.706)">
-    <g id="Rechteck_321" data-name="Rechteck 321" transform="translate(0.904 0.904)" fill="none" stroke="currentColor" stroke-width="2.3">
-      <rect width="21.565" height="18.799" rx="5" stroke="none"/>
-      <rect x="1.15" y="1.15" width="19.265" height="16.499" rx="3.85" fill="none"/>
-    </g>
-    <rect id="Rechteck_320" data-name="Rechteck 320" width="14.5" height="9" fill="#f9f9fa"/>
-    <line id="Linie_21" data-name="Linie 21" y1="8" x2="2" transform="translate(6.119 0.203)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
-    <path id="Pfad_7439" data-name="Pfad 7439" d="M162.008,917.489l2.412,2.411" transform="translate(-151.189 -915.091)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
-    <path id="Pfad_7442" data-name="Pfad 7442" d="M164.42,917.489l-2.412,2.411" transform="translate(-161 -915.091)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
-    <path id="Pfad_7440" data-name="Pfad 7440" d="M162.008,919.9l2.412-2.411" transform="translate(-151.189 -912.68)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
-    <path id="Pfad_7441" data-name="Pfad 7441" d="M164.42,919.9l-2.412-2.411" transform="translate(-161 -912.68)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
-  </g>
-</svg>
+<svg width="22.521" height="20.409" viewBox="0 0 22.521 20.409" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-width="2.3" data-name="Rechteck 321" transform="translate(.957 1.61)"><rect width="21.565" height="18.799" stroke="none" rx="5"/><rect width="19.265" height="16.499" x="1.15" y="1.15" rx="3.85"/></g><path fill="#f9f9fa" d="M.053.706h14.5v9H.053z" data-name="Rechteck 320"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="m6.172 8.909 2-8" data-name="Linie 21"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="m10.872 3.104 2.412 2.411" data-name="Pfad 7439"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3.473 3.104 1.061 5.515" data-name="Pfad 7442"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="m10.872 7.926 2.412-2.411" data-name="Pfad 7440"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3.473 7.926 1.061 5.515" data-name="Pfad 7441"/></svg>
