@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-vue",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "This is the Vue.js package of the integration layer for @inovex/elements.",
   "keywords": [
     "vue3",
@@ -26,10 +26,9 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@inovex.de/elements": "6.0.0"
+    "@inovex.de/elements": "6.1.0"
   },
   "devDependencies": {
-    "@stencil/core": "^2.14.0",
     "shx": "^0.3.2",
     "typescript": "^4.2.4",
     "vue": "^3.0.0",

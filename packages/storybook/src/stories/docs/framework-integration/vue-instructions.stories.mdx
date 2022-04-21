@@ -5,8 +5,6 @@ import { Meta } from "@storybook/addon-docs";
 # Integrate with Vue.js (as Web Components)
 > We set up a demo project with Vue.js (v3) to show you how to integrate the components into a newly generated Vue.js
 > project. Scroll down to see the Stackblitz.
->
-> These instructions are based on `vue@2.6.11` and [`create-react-app@4.2.3`](https://cli.vuejs.org/).
 
 ## Vue.js 3
 
@@ -40,7 +38,7 @@ import { InoElementsVue } from '@inovex.de/elements-vue';
 import App from './App.vue'
 
 const app = createApp(App);
-app.use(InoElementsVue);
+app.use(InoElementsVue); // add this line to your code
 app.mount('#app');
 ```
 
