@@ -11,12 +11,12 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
-import { getSlotContent } from '../../util/component-utils';
+import TippyJS, {Instance as Tippy, Placement, Props} from 'tippy.js';
+import {getSlotContent} from '../../util/component-utils';
 
-import { TooltipTrigger } from '../types';
-import { closest } from '@material/dom/ponyfill';
-import { hideOnEsc, hideOnPopperBlur } from './plugins';
+import {TooltipTrigger} from '../types';
+import {closest} from '@material/dom/ponyfill';
+import {hideOnEsc, hideOnPopperBlur} from './plugins';
 
 
 const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
@@ -51,6 +51,17 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * If set, attaches the popover element to the body.
+   * Useful to avoid overflow or z-index issues.
+   */
+  @Prop() attachToBody = false;
+
+  @Watch('attachToBody')
+  bodyChanged() {
+    this.create();
+  }
+
+  /**
    * The target id the popover belongs to.
    * If not given, the popover is attached to the element provided in the named slot (`popover-trigger`)
    * or the parent component if a slot element does not exist.
@@ -65,16 +76,18 @@ export class Popover implements ComponentInterface {
   /**
    * If true, hides the popper on blur.
    */
-   @Prop() hideOnBlur?: boolean = false;
-   @Watch('hideOnBlur')
-   hideOnBlurChanged() {
-     this.create();
-   }
+  @Prop() hideOnBlur?: boolean = false;
+
+  @Watch('hideOnBlur')
+  hideOnBlurChanged() {
+    this.create();
+  }
 
   /**
    * If true, hides the popper on esc.
    */
   @Prop() hideOnEsc?: boolean = false;
+
   @Watch('hideOnEsc')
   hideOnEscChanged() {
     this.create();
@@ -192,7 +205,7 @@ export class Popover implements ComponentInterface {
     const options: Partial<Props> = {
       allowHTML: true,
       animation: 'scale-subtle',
-      appendTo: this.popoverContainer,
+      appendTo: this.attachToBody ? document.body : this.popoverContainer,
       content: this.popoverContent,
       duration: 100,
       placement: this.placement,
@@ -213,8 +226,8 @@ export class Popover implements ComponentInterface {
 
               const target = this.popoverContent.querySelector(
                 'ino-input[data-ino-focus],' +
-                  'ino-datepicker[data-ino-focus], ' +
-                  ' ino-textarea[data-ino-focus]'
+                'ino-datepicker[data-ino-focus], ' +
+                ' ino-textarea[data-ino-focus]'
               ) as
                 | HTMLInoDatepickerElement
                 | HTMLInoTextareaElement
@@ -285,25 +298,23 @@ export class Popover implements ComponentInterface {
   render() {
     const popoverClasses = classNames(
       'ino-popover',
-      `ino-popover--color-scheme-${this.colorScheme}`
+      `ino-popover--color-scheme-${this.colorScheme}`,
+      'ino-popover__content',
     );
 
     return (
       <Host>
-        <slot name="popover-trigger" />
+        <slot name="popover-trigger"/>
         <div
           ref={(ref) => (this.popoverContainer = ref)}
-          class={popoverClasses}
         >
           <div
-            class="ino-tooltip__composer ino-popover__content"
+            class={popoverClasses}
             role="tooltip"
             ref={(ref) => (this.popoverContent = ref)}
             onClick={this.handlePopoverClick.bind(this)}
           >
-            <div class="ino-tooltip__inner">
-              <slot></slot>
-            </div>
+            <slot></slot>
           </div>
         </div>
       </Host>
