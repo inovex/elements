@@ -11,13 +11,11 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import TippyJS, {Instance as Tippy, Placement, Props} from 'tippy.js';
-import {getSlotContent} from '../../util/component-utils';
-
-import {TooltipTrigger} from '../types';
-import {closest} from '@material/dom/ponyfill';
-import {hideOnEsc, hideOnPopperBlur} from './plugins';
-
+import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
+import { getSlotContent } from '../../util/component-utils';
+import { TooltipTrigger } from '../types';
+import { closest } from '@material/dom/ponyfill';
+import { hideOnEsc, hideOnPopperBlur } from './plugins';
 
 const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
 
@@ -193,7 +191,6 @@ export class Popover implements ComponentInterface {
       console.warn(`The element with the id '${this.for}' could not be found.`);
     }
 
-
     const plugins = [];
     if (this.hideOnBlur) {
       plugins.push(hideOnPopperBlur);
@@ -222,12 +219,12 @@ export class Popover implements ComponentInterface {
               const datepickers = Array.from(
                 this.el.querySelectorAll('ino-datepicker')
               ) as HTMLInoDatepickerElement[];
-              datepickers?.forEach(datepicker => datepicker.redraw());
+              datepickers?.forEach((datepicker) => datepicker.redraw());
 
               const target = this.popoverContent.querySelector(
                 'ino-input[data-ino-focus],' +
-                'ino-datepicker[data-ino-focus], ' +
-                ' ino-textarea[data-ino-focus]'
+                  'ino-datepicker[data-ino-focus], ' +
+                  ' ino-textarea[data-ino-focus]'
               ) as
                 | HTMLInoDatepickerElement
                 | HTMLInoTextareaElement
@@ -245,9 +242,9 @@ export class Popover implements ComponentInterface {
                 this.visibleChanged.emit(false);
                 return false;
               }
-            }
-          })
-        }
+            },
+          }),
+        },
       ],
       onShow: () => {
         if (this.controlled && !this.visible) {
@@ -280,7 +277,6 @@ export class Popover implements ComponentInterface {
     return this.el.parentElement;
   }
 
-
   private handlePopoverClick(e: Event): void {
     if (!e.target) {
       return;
@@ -299,15 +295,13 @@ export class Popover implements ComponentInterface {
     const popoverClasses = classNames(
       'ino-popover',
       `ino-popover--color-scheme-${this.colorScheme}`,
-      'ino-popover__content',
+      'ino-popover__content'
     );
 
     return (
       <Host>
-        <slot name="popover-trigger"/>
-        <div
-          ref={(ref) => (this.popoverContainer = ref)}
-        >
+        <slot name="popover-trigger" />
+        <div ref={(ref) => (this.popoverContainer = ref)}>
           <div
             class={popoverClasses}
             role="tooltip"
