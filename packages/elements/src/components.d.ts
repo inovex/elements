@@ -863,6 +863,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody": boolean;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
@@ -2596,6 +2600,10 @@ declare namespace LocalJSX {
         "label"?: string;
     }
     interface InoPopover {
+        /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody"?: boolean;
         /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
