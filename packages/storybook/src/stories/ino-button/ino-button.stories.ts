@@ -36,6 +36,7 @@ const template = new TemplateGenerator<Components.InoButton>(
       fill="${args.fill}"
       disabled="${args.disabled}"
       dense="${args.dense}"
+      loading="${args.loading}"
     >
       Label
     </ino-button>
@@ -73,6 +74,7 @@ export const Outlined = template.generateStoryForProp('fill', 'outlined')
 export const Text = template.generateStoryForProp('fill', 'text')
 export const Disabled = template.generateStoryForProp('disabled', true )
 export const Dense = template.generateStoryForProp('dense', true )
+export const Loading = template.generateStoryForProp('loading', true )
 export const LeadingIconFilled = templateLeadingIcon.generateStoryForProp('fill', 'filled')
 export const TrailingIconFilled = templateTrailingIcon.generateStoryForProp('fill', 'filled')
 export const LeadingIconOutlined = templateLeadingIcon.generateStoryForProp('fill', 'outlined')

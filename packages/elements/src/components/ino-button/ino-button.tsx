@@ -153,7 +153,6 @@ export class Button implements ComponentInterface {
           name={this.name}
           type={this.type}
           form={this.form}
-         
         >
           {leadingSlotHasContent && (
             <span class="icon-wrapper">

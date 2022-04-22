@@ -177,4 +177,8 @@ ino-button {
       background-color: $white;
     }
   }
+
+  &.ino-button--loading {
+    font-size: 0;
+  }
 }
