@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/inovex/elements/compare/v6.1.0...v6.2.0) (2022-04-22)
+
+
+### Features
+
+* **elements|ino-popover:** add option to attach popover to body ([#575](https://github.com/inovex/elements/issues/575)) ([6b18745](https://github.com/inovex/elements/commit/6b18745b866ab498993ce5057488790703c6c8c0))
+
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 
