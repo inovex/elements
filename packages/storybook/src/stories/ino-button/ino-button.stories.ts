@@ -86,12 +86,6 @@ Playground.argTypes = {
       type: 'select',
     },
     options: ['filled', 'outlined', 'text'],
-  },
-  disabled: {
-    options: [true, false],
-  },
-  dense: {
-    options: [true, false],
   }
 };
 

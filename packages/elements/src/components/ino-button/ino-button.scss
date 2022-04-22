@@ -32,7 +32,8 @@ $edged-border: 24px 0 24px 24px;
   justify-content: center;
   align-items: center;
 
-  span {
+  .icon-wrapper {
+    --ino-icon-color-primary: $primary;
     height: 16px;
   }
 }
@@ -52,7 +53,7 @@ ino-button {
       @include hasIcon();
       padding: 8px 16px 8px 8px;
 
-      ino-icon {
+      .icon-wrapper {
         margin-right: 8px;
       }
     }
@@ -61,7 +62,7 @@ ino-button {
       @include hasIcon();
       padding: 8px 8px 8px 16px;
 
-      ino-icon {
+      .icon-wrapper {
         margin-left: 8px;
       }
     }
@@ -113,6 +114,12 @@ ino-button {
     &:disabled {
       @include disabled();
       background-color: $disabled;
+    }
+
+    &.hasLeadingIcon, &.hasTrailingIcon {
+      .icon-wrapper {
+        --ino-icon-color-primary: $white;
+      }
     }
   }
 

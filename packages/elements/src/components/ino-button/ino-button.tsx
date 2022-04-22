@@ -140,8 +140,8 @@ export class Button implements ComponentInterface {
     const inoButtonClasses = classNames(
       'button--base',
       `button--fill-${this.fill}`,
-      `${(leadingSlotHasContent)? 'hasLeadingIcon' : ''}`,
-      `${(trailingSlotHasContent)? 'hasTrailingIcon' : ''}`
+      { hasLeadingIcon: leadingSlotHasContent },
+      { hasTrailingIcon: trailingSlotHasContent },
     )
 
     return (
@@ -153,9 +153,10 @@ export class Button implements ComponentInterface {
           name={this.name}
           type={this.type}
           form={this.form}
+         
         >
           {leadingSlotHasContent && (
-            <span>
+            <span class="icon-wrapper">
               <slot name="icon-leading" />
             </span>
           )}
@@ -167,7 +168,7 @@ export class Button implements ComponentInterface {
             )}
           </div>
           {trailingSlotHasContent && (
-            <span>
+            <span class="icon-wrapper">
               <slot name="icon-trailing" />
             </span>
           )}
