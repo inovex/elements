@@ -95,6 +95,7 @@
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.4.0",
+    "@stencil/vue-output-target": "^0.6.0",
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/sass": "^1.5.2",
     "@types/classnames": "^2.2.6",
