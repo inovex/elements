@@ -274,6 +274,6 @@ scopes:
   - elements-vue
   - storybook
   - landingpage
-  - elements-example-vue
+  - elements-vue-example
   - '*'
   - deps
