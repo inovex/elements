@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/inovex/elements/compare/v6.1.0...v6.2.0) (2022-04-22)
+
+
+### Documentation
+
+* **elements:** revise docs of ino-header and ino-datepicker ([#560](https://github.com/inovex/elements/issues/560)) ([b286ad4](https://github.com/inovex/elements/commit/b286ad4fad4dc5291d220618930fa7ecea9d9db1))
+
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 

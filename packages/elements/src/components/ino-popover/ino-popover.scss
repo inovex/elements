@@ -5,22 +5,12 @@
 
 $color-schemes: 'primary', 'secondary', 'light';
 
-ino-popover {
+.ino-popover > * {
   border-radius: 6px;
 }
 
-.ino-popover,
-[data-tippy-root],
-.tippy-box,
-.tippy-content,
-.ino-tooltip__composer.ino-popover__content,
-.ino-tooltip__inner,
-.ino-popover__content {
-  border-radius: inherit;
-}
-
 @each $color in $color-schemes {
-  .ino-popover.ino-popover--color-scheme-#{$color} {
+  .ino-popover.ino-popover--color-scheme-#{$color} > * {
     @include tooltip-mixins.tooltip(
       theme.color($color, light),
       theme.color($color, contrast)
@@ -28,6 +18,6 @@ ino-popover {
   }
 }
 
-.ino-popover.ino-popover--color-scheme-transparent {
+.ino-popover.ino-popover--color-scheme-transparent > * {
   @include tooltip-mixins.tooltip(#fff, theme.color(dark));
 }

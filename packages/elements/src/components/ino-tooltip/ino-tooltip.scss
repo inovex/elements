@@ -13,13 +13,17 @@ ino-tooltip .ino-tooltip__composer {
 
 @each $color in $color-schemes {
   ino-tooltip.ino-tooltip--color-scheme-#{$color} {
-    @include tooltip-mixins.tooltip(
-      theme.color($color, light),
-      theme.color($color, contrast)
-    );
+    .ino-tooltip__composer {
+      @include tooltip-mixins.tooltip(
+        theme.color($color, light),
+        theme.color($color, contrast)
+      );
+    }
   }
 }
 
 ino-tooltip.ino-tooltip--color-scheme-transparent {
-  @include tooltip-mixins.tooltip(#fff, theme.color(dark));
+  .ino-tooltip__composer {
+    @include tooltip-mixins.tooltip(#fff, theme.color(dark));
+  }
 }
