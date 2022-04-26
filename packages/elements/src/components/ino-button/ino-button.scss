@@ -4,7 +4,7 @@
 /* Colors: */
 $white: #ffffff;
 $grey-light: #EDEFF5;
-$grey-dark: #3A3B64;
+$grey-dark: #7275A1;
 $brand-inovex-blue: #051c59;
 $primary: #2C02FF;
 $primary-light: #2D5DFF;
@@ -125,7 +125,7 @@ ino-button {
 
   .button--fill-outlined {
     background-color: white;
-    border: solid 1px $border;
+    border: solid 1.5px $border;
     border-radius: 19px;
     color: $primary;
     letter-spacing: 0.27px;
@@ -140,14 +140,14 @@ ino-button {
 
     &:active {
       background-color: $primary-light-active;
-      border: solid 1px $border;
+      border-color: $border;
       box-shadow: none;
     }
 
     &:disabled {
       @include disabled();
       background-color: $white;
-      border: solid 1px $grey-dark;
+      border-color: $grey-dark;
     }
   }
 
