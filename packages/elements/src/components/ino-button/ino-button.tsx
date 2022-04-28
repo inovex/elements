@@ -1,4 +1,3 @@
-import { MDCRipple } from '@material/ripple';
 import {
   Component,
   ComponentInterface,
@@ -23,10 +22,7 @@ import { ButtonType, SurfaceType } from '../types';
   shadow: false,
 })
 export class Button implements ComponentInterface {
-  /**
-   * An internal instance of the material design button.
-   */
-  private button: MDCRipple;
+  private buttonEl: HTMLButtonElement;
 
   @Element() el!: HTMLInoButtonElement;
   /**
@@ -72,36 +68,25 @@ export class Button implements ComponentInterface {
    */
   @Prop({ reflect: true }) loading?: boolean;
 
-  private buttonSizeBeforeLoad: string;
+  private buttonSizeBeforeLoad: string | null = null;
+  private buttonHeightBeforeLoad: string | null = null;
 
   @Watch('loading')
   loadingChanged(isLoading: boolean) {
     if (isLoading) {
-      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
-      const labelStyles = window.getComputedStyle(mdcLabel);
-      this.buttonSizeBeforeLoad = labelStyles.width;
+      const buttonStyles = window.getComputedStyle(this.buttonEl);
+      this.buttonSizeBeforeLoad = buttonStyles.width;
+      this.buttonHeightBeforeLoad = buttonStyles.height;
     } else {
-      this.buttonSizeBeforeLoad = undefined;
+      this.buttonSizeBeforeLoad = null;
     }
   }
 
   componentDidUpdate() {
     if (this.loading && this.buttonSizeBeforeLoad) {
-      const mdcLabel = this.el.shadowRoot.querySelector(
-        '.mdc-button__label'
-      ) as HTMLDivElement;
-      mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
+      this.buttonEl.style.setProperty('width', this.buttonSizeBeforeLoad);
+      this.buttonEl.style.setProperty('height', this.buttonHeightBeforeLoad);
     }
-  }
-
-  componentDidLoad() {
-    this.button = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-button')
-    );
-  }
-
-  disconnectedCallback() {
-    this.button?.destroy();
   }
 
   private handleClick = (e: Event) => {
@@ -127,12 +112,10 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const hostClasses = classNames(
-      {
-        'ino-button--loading': this.loading,
-        'ino-button--dense': this.dense,
-      },
-    );
+    const hostClasses = classNames({
+      'ino-button--loading': this.loading,
+      'ino-button--dense': this.dense,
+    });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
@@ -141,8 +124,14 @@ export class Button implements ComponentInterface {
       'button--base',
       `button--fill-${this.fill}`,
       { hasLeadingIcon: leadingSlotHasContent },
-      { hasTrailingIcon: trailingSlotHasContent },
-    )
+      { hasTrailingIcon: trailingSlotHasContent }
+    );
+
+    const labelClasses = classNames(
+      'label-wrapper',
+      {'label-wrapper-hide': this.loading}
+      
+    );
 
     return (
       <Host class={hostClasses} onClick={this.handleClick}>
@@ -153,19 +142,20 @@ export class Button implements ComponentInterface {
           name={this.name}
           type={this.type}
           form={this.form}
+          ref={(el) => (this.buttonEl = el)}
         >
           {leadingSlotHasContent && (
             <span class="icon-wrapper">
               <slot name="icon-leading" />
             </span>
           )}
-          <div>
-            {this.loading ? (
-              <ino-spinner height={20} width={20} type="circle" />
-            ) : (
+            <span class={labelClasses}>
               <slot></slot>
+            </span>
+            {this.loading && (
+              <ino-spinner height={20} width={20} type="circle" />
             )}
-          </div>
+          
           {trailingSlotHasContent && (
             <span class="icon-wrapper">
               <slot name="icon-trailing" />
