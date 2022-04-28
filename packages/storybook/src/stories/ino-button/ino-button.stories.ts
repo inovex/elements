@@ -43,29 +43,6 @@ const template = new TemplateGenerator<Components.InoButton>(
   `
 );
 
-const templateLeadingIcon = new TemplateGenerator<Components.InoButton>(
-  'ino-button',
-  (args) => html`
-    <ino-button
-      fill="${args.fill}"
-    >
-      <ino-icon icon="info" slot="icon-leading"></ino-icon>
-      Label
-    </ino-button>
-  `
-);
-
-const templateTrailingIcon = new TemplateGenerator<Components.InoButton>(
-  'ino-button',
-  (args) => html`
-    <ino-button
-      fill="${args.fill}"
-    >
-      <ino-icon icon="info" slot="icon-trailing"></ino-icon>
-      Label
-    </ino-button>
-  `
-);
 
 export const Playground = template.generatePlaygroundStory();
 
@@ -75,12 +52,26 @@ export const Text = template.generateStoryForProp('fill', 'text')
 export const Disabled = template.generateStoryForProp('disabled', true )
 export const Dense = template.generateStoryForProp('dense', true )
 export const Loading = template.generateStoryForProp('loading', true )
-export const LeadingIconFilled = templateLeadingIcon.generateStoryForProp('fill', 'filled')
-export const TrailingIconFilled = templateTrailingIcon.generateStoryForProp('fill', 'filled')
-export const LeadingIconOutlined = templateLeadingIcon.generateStoryForProp('fill', 'outlined')
-export const TrailingIconOutlined = templateTrailingIcon.generateStoryForProp('fill', 'outlined')
-export const LeadingIconText = templateLeadingIcon.generateStoryForProp('fill', 'text')
-export const TrailingIconText = templateTrailingIcon.generateStoryForProp('fill', 'text')
+
+/*
+ In order to include icons use the icon-leading˙ or ˙icon-trailing˙ slot
+ */
+
+export const LeadingAndTrailingIcon = () => html`
+    <ino-button
+      class="storybook-button"
+    >
+      <ino-icon icon="info" slot="icon-leading"></ino-icon>
+      Label
+    </ino-button>
+
+    <ino-button
+      class="storybook-button"
+    >
+      <ino-icon icon="info" slot="icon-trailing"></ino-icon>
+      Label
+    </ino-button>
+  `;
 
 Playground.argTypes = {
   fill: {

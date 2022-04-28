@@ -124,18 +124,6 @@ The component bubbles the native `click`-Event to the user.
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true. | `CustomEvent<any>` |
 
 
-## CSS Custom Properties
-
-| Name                                        | Description                         |
-| ------------------------------------------- | ----------------------------------- |
-| `--ino-icon-button-background-active-color` | base color of the active background |
-| `--ino-icon-button-background-color`        | default color of the background     |
-| `--ino-icon-button-icon-active-color`       | color of the active icon itself     |
-| `--ino-icon-button-icon-color`              | default color of the icon itself    |
-| `--ino-icon-button-icon-size`               | size of the icon itself             |
-| `--ino-icon-button-size`                    | size of the entire button           |
-
-
 ## Dependencies
 
 ### Used by

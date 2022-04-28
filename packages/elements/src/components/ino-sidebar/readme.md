@@ -92,13 +92,6 @@ https://github.com/material-components/material-components-web/tree/master/packa
 | `"header"`  | For the header element |
 
 
-## CSS Custom Properties
-
-| Name              | Description                    |
-| ----------------- | ------------------------------ |
-| `--sidebar-width` | The width of the open sidebar. |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

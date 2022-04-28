@@ -1,19 +1,21 @@
 @use 'base/typography';
 @use 'base/animation';
+@use 'ino-spinner/mixins/circle' as spinner;
+@use 'base/theme';
 
 /* Colors: */
 $white: #ffffff;
-$grey-light: #EDEFF5;
-$grey-dark: #7275A1;
+$grey-light: #edeff5;
+$grey-dark: #7275a1;
 $brand-inovex-blue: #051c59;
-$primary: #2C02FF;
-$primary-light: #2D5DFF;
-$primary-hover: #4B4EFF;
-$primary-active: #3D40F5;
+$primary: #2c02ff;
+$primary-light: #2d5dff;
+$primary-hover: #4b4eff;
+$primary-active: #3d40f5;
 $primary-light-hover: rgba($primary-light, 0.08);
 $primary-light-active: rgba($primary-light, 0.12);
-$border: #3D40F5;
-$border-focused: #2D5DFF4D;
+$border: #3d40f5;
+$border-focused: #2d5dff4d;
 $text-disabled: $grey-dark;
 $disabled: $grey-light;
 
@@ -24,7 +26,7 @@ $edged-border: 24px 0 24px 24px;
 @mixin disabled {
   pointer-events: none;
   color: $text-disabled;
-} 
+}
 
 @mixin hasIcon {
   display: flex;
@@ -116,7 +118,8 @@ ino-button {
       background-color: $disabled;
     }
 
-    &.hasLeadingIcon, &.hasTrailingIcon {
+    &.hasLeadingIcon,
+    &.hasTrailingIcon {
       .icon-wrapper {
         --ino-icon-color-primary: $white;
       }
@@ -149,6 +152,15 @@ ino-button {
       background-color: $white;
       border-color: $grey-dark;
     }
+
+    &.ino-button--loading {
+      ino-spinner {
+        &.ino-spinner--type-circle .ino-spinner__composer {
+          @include spinner.circle;
+          @include spinner.circle-color($primary);
+        }
+      }
+    }
   }
 
   .button--fill-text {
@@ -179,6 +191,37 @@ ino-button {
   }
 
   &.ino-button--loading {
-    font-size: 0;
+    .label-wrapper-hide {
+      display: none;
+    }
+
+    .button--base {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button--fill-filled {
+      ino-spinner {
+        &.ino-spinner--type-circle .ino-spinner__composer {
+          @include spinner.circle-color($white);
+        }
+      }
+    }
+
+    .button--fill-outlined {
+      ino-spinner {
+        &.ino-spinner--type-circle .ino-spinner__composer {
+          @include spinner.circle-color($primary);
+        }
+      }
+    }
+  }
+
+  &.storybook-button {
+    &:first-of-type {
+      button {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }
