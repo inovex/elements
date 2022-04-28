@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-17T13:41:49",
+  "timestamp": "2022-04-28T13:58:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -5625,6 +5625,35 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "followCursor",
+          "type": "\"horizontal\" | \"initial\" | \"vertical\" | boolean",
+          "mutable": false,
+          "attr": "follow-cursor",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "initial",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {

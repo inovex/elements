@@ -348,12 +348,14 @@ export const InoOptionGroup = /*@__PURE__*/ defineContainer<JSX.InoOptionGroup>(
 
 export const InoPopover = /*@__PURE__*/ defineContainer<JSX.InoPopover>('ino-popover', undefined, [
   'placement',
+  'attachToBody',
   'for',
   'hideOnBlur',
   'hideOnEsc',
   'distance',
   'colorScheme',
   'interactive',
+  'followCursor',
   'trigger',
   'controlled',
   'visible',

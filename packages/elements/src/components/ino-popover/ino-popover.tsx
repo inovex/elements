@@ -11,7 +11,12 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
+import TippyJS, {
+  Instance as Tippy,
+  Placement,
+  Props,
+  followCursor,
+} from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
 import { TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
@@ -121,6 +126,16 @@ export class Popover implements ComponentInterface {
     this.create();
   }
 
+  @Prop() followCursor: Props['followCursor'] = false;
+
+  /**
+   * Determines if and how the popover follows the user's mouse cursor.
+   */
+  @Watch('followCursor')
+  followCursorChanged() {
+    this.create();
+  }
+
   /**
    * The trigger to show the tooltip - either click, hover or focus.
    * Multiple triggers are possible by separating them with a space.
@@ -199,12 +214,20 @@ export class Popover implements ComponentInterface {
       plugins.push(hideOnEsc);
     }
 
+    // in HTML to check if "false" was provided
+    const shouldFollowCursor = this.followCursor && (this.followCursor as any) !== "false";
+
+    if(shouldFollowCursor) {
+      plugins.push(followCursor)
+    }
+
     const options: Partial<Props> = {
       allowHTML: true,
       animation: 'scale-subtle',
       appendTo: this.attachToBody ? document.body : this.popoverContainer,
       content: this.popoverContent,
       duration: 100,
+      followCursor: shouldFollowCursor ? this.followCursor : false,
       placement: this.placement,
       trigger: this.trigger,
       offset: [0, this.distance],
