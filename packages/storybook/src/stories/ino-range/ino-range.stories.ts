@@ -4,6 +4,7 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-range.scss';
 import { useEffect } from '@storybook/client-api';
+import { TemplateGenerator } from '../template-generator';
 
 export default {
   title: 'Input/<ino-range>',
@@ -14,21 +15,44 @@ export default {
       useEffect(() => {
         const eventHandler = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).value = e.detail);
+          const eventHandlerRanged = (e: CustomEvent<number>) =>
+          ((e.target as HTMLInoRangeElement).rangedValue = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
-        inoRanges.forEach((r) =>
+        inoRanges.forEach((r) => {
           r.addEventListener('valueChange', eventHandler)
+          r.addEventListener('rangedValueChange', eventHandlerRanged)
+        }
         );
         return () =>
-          inoRanges.forEach((r) =>
+          inoRanges.forEach((r) => {
             r.removeEventListener('valueChange', eventHandler)
-          );
+            r.removeEventListener('rangedValueChange', eventHandlerRanged)
+          });
       });
       return story();
     },
   ],
-} as Meta;
+  args: {
+    disabled: false,
+    discrete: false,
+    min: 0,
+    rangedMin: 0,
+    max: 100,
+    rangedMax: 100,
+    rangedValue: 70,
+    name: '',
+    markers: false,
+    value: 50,
+    step: 1,
+    ranged: false,
 
-export const Playground: Story<Components.InoRange> = (args) => html`
+  }
+} as Meta<Components.InoRange>;
+
+// the basic template for the checkbox component
+const template = new TemplateGenerator<Components.InoRange>(
+  'ino-range',
+  (args) => html`
   <ino-range
     class="customizable-range"
     disabled="${args.disabled}"
@@ -39,89 +63,26 @@ export const Playground: Story<Components.InoRange> = (args) => html`
     markers="${args.markers}"
     value="${args.value}"
     step="${args.step}"
+    ranged="${args.ranged}"
+    ranged-min="${args.rangedMin}"
+    ranged-max="${args.rangedMax}"
     color-scheme="${args.colorScheme}"
   >
   </ino-range>
-`;
+  `
+);
 
-Playground.args = {
-  disabled: false,
-  discrete: false,
+export const Playground = template.generatePlaygroundStory();
+
+export const Discrete = template.generateStoryForProp('discrete', true);
+
+export const Markers = template.generateStoryForProp('markers', true, {discrete: true});
+
+export const Ranged = template.generateStoryForProp('ranged', true, {
+  value: 30,
   min: 0,
-  max: 100,
-  name: '',
-  markers: false,
-  value: 50,
-  step: 1,
-};
-withColorScheme(Playground, 'colorScheme');
-
-export const Colors = () => html`
-  <div class="flex-parent">
-    <div class="flex-child">
-      <h5>primary</h5>
-      <ino-range color-schem="primary" min="0" max="100" value="50"></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>secondary</h5>
-      <ino-range
-        color-scheme="secondary"
-        min="0"
-        max="100"
-        value="50"
-      ></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>success</h5>
-      <ino-range
-        color-scheme="success"
-        min="0"
-        max="100"
-        value="50"
-      ></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>warning</h5>
-      <ino-range
-        color-scheme="warning"
-        min="0"
-        max="100"
-        value="50"
-      ></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>error</h5>
-      <ino-range color-scheme="error" min="0" max="100" value="50"></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>light</h5>
-      <ino-range color-scheme="light" min="0" max="100" value="50"></ino-range>
-    </div>
-    <div class="flex-child">
-      <h5>dark</h5>
-      <ino-range color-scheme="dark" min="0" max="100" value="50"></ino-range>
-    </div>
-  </div>
-`;
-
-export const DiscretRange = () => html`
-  <ino-range
-    color-scheme="primary"
-    min="0"
-    max="100"
-    value="50"
-    discrete
-  ></ino-range>
-`;
-
-export const SteppedRange = () => html`
-  <ino-range
-    color-scheme="primary"
-    min="0"
-    max="100"
-    value="50"
-    step="25"
-    discrete
-    markers
-  ></ino-range>
-`;
+  max: 50,
+  rangedValue: 70,
+  rangedMin: 51,
+  rangedMax: 100,
+});

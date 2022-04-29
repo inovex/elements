@@ -914,26 +914,30 @@ export declare interface InoRange extends Components.InoRange {
    * Emits when the value changes. Contains new value in `event.detail`. 
    */
   valueChange: EventEmitter<CustomEvent<number>>;
+  /**
+   *  
+   */
+  rangedValueChange: EventEmitter<CustomEvent<number>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedMax', 'rangedMin', 'rangedValue', 'step', 'value'],
   methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedMax', 'rangedMin', 'rangedValue', 'step', 'value']
 })
 export class InoRange {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['valueChange']);
+    proxyOutputs(this, this.el, ['valueChange', 'rangedValueChange']);
   }
 }
 

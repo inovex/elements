@@ -109,16 +109,6 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
 
 
-## CSS Custom Properties
-
-| Name                         | Description                         |
-| ---------------------------- | ----------------------------------- |
-| `--ino-icon-color-primary`   | Primary (default) color of the icon |
-| `--ino-icon-color-secondary` | Secondary color of the icon         |
-| `--ino-icon-height`          | Height of the icon                  |
-| `--ino-icon-width`           | Width of the icon                   |
-
-
 ## Dependencies
 
 ### Used by

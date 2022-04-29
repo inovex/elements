@@ -984,6 +984,22 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Enables the ranged knob if set to true
+         */
+        "ranged": boolean;
+        /**
+          * The max value of the ranged element (**required**).
+         */
+        "rangedMax": number;
+        /**
+          * The min value of this element.
+         */
+        "rangedMin"?: number;
+        /**
+          * The value of the ranged element. (**unmanaged**, default=`min`)
+         */
+        "rangedValue"?: number;
+        /**
           * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
           * @param fn A function that maps the numeric value to a user-friendly string.
          */
@@ -2726,10 +2742,27 @@ declare namespace LocalJSX {
           * The name of this element.
          */
         "name"?: string;
+        "onRangedValueChange"?: (event: CustomEvent<number>) => void;
         /**
           * Emits when the value changes. Contains new value in `event.detail`.
          */
         "onValueChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Enables the ranged knob if set to true
+         */
+        "ranged"?: boolean;
+        /**
+          * The max value of the ranged element (**required**).
+         */
+        "rangedMax"?: number;
+        /**
+          * The min value of this element.
+         */
+        "rangedMin"?: number;
+        /**
+          * The value of the ranged element. (**unmanaged**, default=`min`)
+         */
+        "rangedValue"?: number;
         /**
           * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
          */

@@ -84,15 +84,20 @@ class MyComponent extends Component {
 | `max`         | `max`          | The max value of this element (**required**).                                                                                                      | `number`                                                                             | `undefined` |
 | `min`         | `min`          | The min value of this element.                                                                                                                     | `number`                                                                             | `0`         |
 | `name`        | `name`         | The name of this element.                                                                                                                          | `string`                                                                             | `undefined` |
+| `ranged`      | `ranged`       | Enables the ranged knob if set to true                                                                                                             | `boolean`                                                                            | `false`     |
+| `rangedMax`   | `ranged-max`   | The max value of the ranged element (**required**).                                                                                                | `number`                                                                             | `undefined` |
+| `rangedMin`   | `ranged-min`   | The min value of this element.                                                                                                                     | `number`                                                                             | `0`         |
+| `rangedValue` | `ranged-value` | The value of the ranged element. (**unmanaged**, default=`min`)                                                                                    | `number`                                                                             | `undefined` |
 | `step`        | `step`         | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).                 | `number`                                                                             | `1`         |
 | `value`       | `value`        | The value of this element. (**unmanaged**, default=`min`)                                                                                          | `number`                                                                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                         | Type                  |
-| ------------- | ------------------------------------------------------------------- | --------------------- |
-| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<number>` |
+| Event               | Description                                                         | Type                  |
+| ------------------- | ------------------------------------------------------------------- | --------------------- |
+| `rangedValueChange` |                                                                     | `CustomEvent<number>` |
+| `valueChange`       | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<number>` |
 
 
 ## Methods

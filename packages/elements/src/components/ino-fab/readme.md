@@ -99,20 +99,6 @@ class MyComponent extends Component {
 | `"icon-leading"` | For the icon to be prepended |
 
 
-## CSS Custom Properties
-
-| Name                              | Description                           |
-| --------------------------------- | ------------------------------------- |
-| `--fab-background-color`          | Background color                      |
-| `--fab-background-color-active`   | Background color if active            |
-| `--fab-background-color-disabled` | Background color if disabled          |
-| `--fab-background-color-hover`    | Background color on hover             |
-| `--fab-color-disabled`            | Text color if disabled                |
-| `--fab-icon-color`                | Color of the slotted icon             |
-| `--fab-icon-color-disabled`       | Color of the slotted icon if disabled |
-| `--ino-fab-color`                 | Text color                            |
-
-
 ## Dependencies
 
 ### Used by

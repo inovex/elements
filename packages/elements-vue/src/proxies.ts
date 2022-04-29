@@ -390,13 +390,18 @@ export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange>('ino-range',
   'disabled',
   'colorScheme',
   'discrete',
+  'ranged',
   'markers',
   'name',
   'min',
+  'rangedMin',
   'max',
+  'rangedMax',
   'value',
+  'rangedValue',
   'step',
-  'valueChange'
+  'valueChange',
+  'rangedValueChange'
 ],
 'value', 'v-value-change', 'valueChange');
 
