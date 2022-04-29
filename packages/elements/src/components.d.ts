@@ -988,14 +988,6 @@ export namespace Components {
          */
         "ranged": boolean;
         /**
-          * The max value of the ranged element (**required**).
-         */
-        "rangedMax": number;
-        /**
-          * The min value of this element.
-         */
-        "rangedMin"?: number;
-        /**
           * The value of the ranged element. (**unmanaged**, default=`min`)
          */
         "rangedValue"?: number;
@@ -2751,14 +2743,6 @@ declare namespace LocalJSX {
           * Enables the ranged knob if set to true
          */
         "ranged"?: boolean;
-        /**
-          * The max value of the ranged element (**required**).
-         */
-        "rangedMax"?: number;
-        /**
-          * The min value of this element.
-         */
-        "rangedMin"?: number;
         /**
           * The value of the ranged element. (**unmanaged**, default=`min`)
          */

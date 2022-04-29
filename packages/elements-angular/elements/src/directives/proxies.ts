@@ -923,14 +923,14 @@ export declare interface InoRange extends Components.InoRange {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedMax', 'rangedMin', 'rangedValue', 'step', 'value'],
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedValue', 'step', 'value'],
   methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedMax', 'rangedMin', 'rangedValue', 'step', 'value']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'rangedValue', 'step', 'value']
 })
 export class InoRange {
   protected el: HTMLElement;

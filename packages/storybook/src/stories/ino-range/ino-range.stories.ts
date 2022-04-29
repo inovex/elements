@@ -66,6 +66,7 @@ const template = new TemplateGenerator<Components.InoRange>(
     ranged="${args.ranged}"
     ranged-min="${args.rangedMin}"
     ranged-max="${args.rangedMax}"
+    ranged-value="${args.rangedValue}"
     color-scheme="${args.colorScheme}"
   >
   </ino-range>
@@ -81,8 +82,6 @@ export const Markers = template.generateStoryForProp('markers', true, {discrete:
 export const Ranged = template.generateStoryForProp('ranged', true, {
   value: 30,
   min: 0,
-  max: 50,
+  max: 100,
   rangedValue: 70,
-  rangedMin: 51,
-  rangedMax: 100,
 });

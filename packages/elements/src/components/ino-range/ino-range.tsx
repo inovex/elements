@@ -68,19 +68,9 @@ export class Range implements ComponentInterface {
   @Prop() min?: number = 0;
 
   /**
-   * The min value of this element.
-   */
-  @Prop() rangedMin?: number = 0;
-
-  /**
    * The max value of this element (**required**).
    */
   @Prop() max: number;
-
-   /**
-   * The max value of the ranged element (**required**).
-   */
-  @Prop() rangedMax: number;
 
   /**
    * The value of this element. (**unmanaged**, default=`min`)
@@ -129,11 +119,11 @@ export class Range implements ComponentInterface {
      * prevents the underlying MDCSliderFoundation to be initialised properly as it is trying to acquire the values
      * of the min, max, and value attributes from the input element.
      */
+    console.log(this.value, this.rangedValue)
     this.inputEl.setAttribute('value', `${this.value || this.min}`);
-    if(this.ranged) {
-      this.inputEl2.setAttribute('value',  `${this.rangedValue || this.rangedMin}`)
-    }
+    this.inputEl2?.setAttribute('value',  `${this.rangedValue}`)
     this.sliderInstance = new MDCSlider(this.rootEl);
+    console.log(this.sliderInstance)
 
     this.sliderInstance.listen('MDCSlider:change', this.handleChange);
     this.sliderInstance.listen('MDCSlider:input', this.handleInput);
@@ -211,7 +201,7 @@ export class Range implements ComponentInterface {
             class="mdc-slider__input"
             type="range"
             min={this.min}
-            max={this.max}
+            max={this.ranged ? this.rangedValue : this.max}
             step={this.step}
             value={this.value || this.min || 0}
             disabled={this.disabled}
@@ -223,9 +213,9 @@ export class Range implements ComponentInterface {
               ref={(el) => (this.inputEl2 = el)}
               class="mdc-slider__input"
               type="range"
-              min={this.rangedMin}
-              max={this.rangedMax}
-              value={this.rangedValue || this.rangedMin || 0}
+              min={this.value}
+              max={this.max}
+              value={this.rangedValue || this.max || 0}
             />
           )}
           <div class="mdc-slider__track">
