@@ -99,6 +99,19 @@ Subsequently, listen to the `close` Event and check the `event.detail` to retrie
 | `"default"` | content of the dialog |
 
 
+## CSS Custom Properties
+
+| Name                                    | Description                     |
+| --------------------------------------- | ------------------------------- |
+| `--ino-dialog-background-color`         | background color of the dialog  |
+| `--ino-dialog-border`                   | border shorthand of the dialog  |
+| `--ino-dialog-border-radius`            | border-radius of the dialog     |
+| `--ino-dialog-box-shadow`               | box-shadow of the dialog        |
+| `--ino-dialog-height`                   | height of the dialog            |
+| `--ino-dialog-overlay-background-color` | background color of the overlay |
+| `--ino-dialog-width`                    | width of the dialog             |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

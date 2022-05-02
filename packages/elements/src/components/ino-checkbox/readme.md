@@ -31,6 +31,20 @@ A checkbox that allows the user to select one or more items from a set of option
 | `"default"` | Label of the checkbox |
 
 
+## CSS Custom Properties
+
+| Name                                       | Description                                  |
+| ------------------------------------------ | -------------------------------------------- |
+| `--checkbox-container-color-unchecked`     | color of the checkbox container if unchecked |
+| `--ino-checkbox-background-color-disabled` | color of the checkbox background if disabled |
+| `--ino-checkbox-checkmark-color`           | primary color of the check mark              |
+| `--ino-checkbox-checkmark-color-disabled`  | color of the check mark if disabled          |
+| `--ino-checkbox-color`                     | primary color of the checkbox                |
+| `--ino-checkbox-color-active`              | color of the checkbox if active              |
+| `--ino-checkbox-color-hover`               | color of the checkbox on hover               |
+| `--ino-checkbox-text-color-disabled`       | color of the checkbox text if disabled       |
+
+
 ## Dependencies
 
 ### Used by
