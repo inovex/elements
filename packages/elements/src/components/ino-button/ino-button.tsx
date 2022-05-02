@@ -10,7 +10,9 @@ import {
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
-import { ButtonType, SurfaceType } from '../types';
+import { ButtonType } from '../types';
+
+export type Variants = 'filled' | 'outlined' | 'text';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -53,15 +55,18 @@ export class Button implements ComponentInterface {
   @Prop() type?: ButtonType = 'button';
 
   /**
-   * The fill type of this element.
-   * Possible values: `solid` (default), `outline`, `inverse`.
+   * The button variant.
+   *
+   * * **filled**: Contain actions that are important for your application.
+   * * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.
+   * * **text**: Typically used for less prominent actions, including those in dialogs and cards.
    */
-  @Prop() fill?: SurfaceType = 'filled';
+  @Prop() variant: Variants = 'filled';
 
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() dense?: boolean = false;
+  @Prop() dense: boolean = false;
 
   /**
    * Shows an infinite loading spinner and prevents further clicks.
@@ -114,24 +119,24 @@ export class Button implements ComponentInterface {
   render() {
     const hostClasses = classNames({
       'ino-button--loading': this.loading,
-      'ino-button--dense': this.dense,
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
     const inoButtonClasses = classNames(
-      'button--base',
-      `button--fill-${this.fill}`,
-      { hasLeadingIcon: leadingSlotHasContent },
-      { hasTrailingIcon: trailingSlotHasContent }
+      'button',
+      `button__variant--${this.variant}`,
+      {
+        'button__icon--leading': leadingSlotHasContent,
+        'button__icon--trailing': trailingSlotHasContent,
+        'button--dense': this.dense,
+      }
     );
 
-    const labelClasses = classNames(
-      'label-wrapper',
-      {'label-wrapper-hide': this.loading}
-      
-    );
+    const labelClasses = classNames('button__label', {
+      'button__label--hide': this.loading,
+    });
 
     return (
       <Host class={hostClasses} onClick={this.handleClick}>
@@ -145,19 +150,16 @@ export class Button implements ComponentInterface {
           ref={(el) => (this.buttonEl = el)}
         >
           {leadingSlotHasContent && (
-            <span class="icon-wrapper">
+            <span class="icon__wrapper">
               <slot name="icon-leading" />
             </span>
           )}
-            <span class={labelClasses}>
-              <slot></slot>
-            </span>
-            {this.loading && (
-              <ino-spinner height={20} width={20} type="circle" />
-            )}
-          
+          <span class={labelClasses}>
+            <slot></slot>
+          </span>
+          {this.loading && <ino-spinner height={20} width={20} type="circle" />}
           {trailingSlotHasContent && (
-            <span class="icon-wrapper">
+            <span class="icon__wrapper">
               <slot name="icon-trailing" />
             </span>
           )}

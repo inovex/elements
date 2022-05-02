@@ -1,6 +1,6 @@
 @use 'base/typography';
 @use 'base/animation';
-@use 'ino-spinner/mixins/circle' as spinner;
+@use 'ino-spinner/ino-spinner' as spinner;
 @use 'base/theme';
 
 /* Colors: */
@@ -28,200 +28,161 @@ $edged-border: 24px 0 24px 24px;
   color: $text-disabled;
 }
 
-@mixin hasIcon {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  .icon-wrapper {
-    --ino-icon-color-primary: $primary;
-    height: 16px;
-  }
-}
-
 ino-button {
-  .button--base {
-    display: inline-flex;
+  .button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    column-gap: 8px;
     padding: 8px 16px;
+
     min-height: 36px;
     line-break: auto;
     line-height: 100%;
     @include typography.font(sans-serif, m, bold);
+
     cursor: pointer;
 
-    &.hasLeadingIcon {
-      @include hasIcon();
-      padding: 8px 16px 8px 8px;
-
-      .icon-wrapper {
-        margin-right: 8px;
-      }
-    }
-
-    &.hasTrailingIcon {
-      @include hasIcon();
-      padding: 8px 8px 8px 16px;
-
-      .icon-wrapper {
-        margin-left: 8px;
-      }
-    }
-  }
-
-  &.ino-button--dense {
-    .button--base {
+    &.button--dense {
       padding: 6px 16px;
       min-height: 32px;
     }
+
+    &.button__icon--leading {
+      padding-left: 8px;
+    }
+
+    &.button__icon--trailing {
+      padding-right: 8px;
+    }
   }
 
-  .button--fill-filled {
-    background-color: $primary;
-    border-color: transparent;
-    border-radius: $edged-border;
-    color: white;
-    text-align: center;
+  .icon__wrapper {
+    height: 16px;
+  }
 
+  .button__label--hide {
+    display: none;
+  }
+}
+
+// filled variant
+ino-button .button__variant--filled {
+  background-color: $primary;
+  border-color: transparent;
+  border-radius: $edged-border;
+  color: white;
+  text-align: center;
+
+  @include animation.border-radius(
+    ino-button-round-to-edge,
+    $round-border,
+    $edged-border,
+    0.15s
+  );
+
+  &:hover {
+    background-color: $primary-hover;
+    border-radius: $round-border;
+    box-shadow: 0 2px 2px $border-focused;
     @include animation.border-radius(
-      ino-button-round-to-edge,
-      $round-border,
+      ino-button-edged-to-round,
       $edged-border,
+      $round-border,
       0.15s
     );
-
-    &:hover {
-      background-color: $primary-hover;
-      border-radius: $round-border;
-      box-shadow: 0 2px 2px $border-focused;
-      @include animation.border-radius(
-        ino-button-edged-to-round,
-        $edged-border,
-        $round-border,
-        0.15s
-      );
-    }
-
-    &:focus {
-      background-color: $primary-active;
-      box-shadow: 0px 0px 0 3px $border-focused;
-    }
-
-    &:active {
-      background-color: $primary-active;
-      box-shadow: none;
-    }
-
-    &:disabled {
-      @include disabled();
-      background-color: $disabled;
-    }
-
-    &.hasLeadingIcon,
-    &.hasTrailingIcon {
-      .icon-wrapper {
-        --ino-icon-color-primary: $white;
-      }
-    }
   }
 
-  .button--fill-outlined {
-    background-color: white;
-    border: solid 1.5px $border;
-    border-radius: 19px;
-    color: $primary;
-    letter-spacing: 0.27px;
-
-    &:hover {
-      background-color: $primary-light-hover;
-    }
-
-    &:focus {
-      box-shadow: 0px 0px 0 3px $border-focused;
-    }
-
-    &:active {
-      background-color: $primary-light-active;
-      border-color: $border;
-      box-shadow: none;
-    }
-
-    &:disabled {
-      @include disabled();
-      background-color: $white;
-      border-color: $grey-dark;
-    }
-
-    &.ino-button--loading {
-      ino-spinner {
-        &.ino-spinner--type-circle .ino-spinner__composer {
-          @include spinner.circle;
-          @include spinner.circle-color($primary);
-        }
-      }
-    }
+  &:focus {
+    background-color: $primary-active;
+    box-shadow: 0 0 0 3px $border-focused;
   }
 
-  .button--fill-text {
-    background-color: transparent;
-    border: 3px transparent;
-    color: $primary;
-    border-radius: 19px;
-
-    &:hover {
-      background-color: $primary-light-hover;
-      border-color: transparent;
-    }
-
-    &:focus {
-      border: none;
-      box-shadow: 0px 0px 0 3px $border-focused;
-    }
-
-    &:active {
-      background-color: $primary-light-active;
-      box-shadow: none;
-    }
-
-    &:disabled {
-      @include disabled();
-      background-color: $white;
-    }
+  &:active {
+    background-color: $primary-active;
+    box-shadow: none;
   }
 
-  &.ino-button--loading {
-    .label-wrapper-hide {
-      display: none;
-    }
-
-    .button--base {
-      display: flex;
-      justify-content: center;
-    }
-
-    .button--fill-filled {
-      ino-spinner {
-        &.ino-spinner--type-circle .ino-spinner__composer {
-          @include spinner.circle-color($white);
-        }
-      }
-    }
-
-    .button--fill-outlined {
-      ino-spinner {
-        &.ino-spinner--type-circle .ino-spinner__composer {
-          @include spinner.circle-color($primary);
-        }
-      }
-    }
+  &:disabled {
+    @include disabled();
+    background-color: $disabled;
   }
 
-  &.storybook-button {
-    &:first-of-type {
-      button {
-        margin-bottom: 1rem;
-      }
-    }
+  .icon__wrapper {
+    --ino-icon-color-primary: $white;
   }
+
+  ino-spinner {
+    @include spinner.set-spinner-color($white);
+  }
+}
+
+// outlined variant
+ino-button .button__variant--outlined {
+  background-color: white;
+  border: solid 1.5px $border;
+  border-radius: 19px;
+  color: $primary;
+  letter-spacing: 0.27px;
+
+  &:hover {
+    background-color: $primary-light-hover;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px $border-focused;
+  }
+
+  &:active {
+    background-color: $primary-light-active;
+    border-color: $border;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    @include disabled();
+    background-color: $white;
+    border-color: $grey-dark;
+  }
+
+  ino-spinner {
+    @include spinner.set-spinner-color($primary);
+  }
+}
+
+// text variant
+ino-button .button__variant--text {
+  background-color: transparent;
+  border: 3px transparent;
+  color: $primary;
+  border-radius: 19px;
+
+  &:hover {
+    background-color: $primary-light-hover;
+    border-color: transparent;
+  }
+
+  &:focus {
+    border: none;
+    box-shadow: 0 0 0 3px $border-focused;
+  }
+
+  &:active {
+    background-color: $primary-light-active;
+    box-shadow: none;
+  }
+
+  &:disabled {
+    @include disabled();
+    background-color: $white;
+  }
+
+  ino-spinner {
+    @include spinner.set-spinner-color($primary);
+  }
+}
+
+ino-button.ino-button--loading {
+  pointer-events: none;
 }

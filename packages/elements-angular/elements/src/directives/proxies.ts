@@ -46,13 +46,13 @@ export declare interface InoButton extends Components.InoButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'dense', 'disabled', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 @Component({
   selector: 'ino-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'dense', 'disabled', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 export class InoButton {
   protected el: HTMLElement;
