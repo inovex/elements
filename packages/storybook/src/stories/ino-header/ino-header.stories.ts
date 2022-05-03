@@ -12,9 +12,10 @@ export default {
 } as Meta;
 
 export const Playground: Story<Components.InoHeader> = (args) => html`
-  <ino-header text="${args.text}"></ino-header>
+  <ino-header text="${args.text}">${args.defaultSlot}</ino-header>
 `;
 
 Playground.args = {
-  text: 'Text',
+  text: '',
+  defaultSlot: 'Headline Text',
 };
