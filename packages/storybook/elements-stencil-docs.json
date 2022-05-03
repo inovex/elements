@@ -6973,7 +6973,7 @@
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
-          "docs": "The text message to display.",
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
           "docsTags": [],
           "values": [
             {
