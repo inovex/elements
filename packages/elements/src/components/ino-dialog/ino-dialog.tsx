@@ -28,7 +28,7 @@ export class Dialog implements ComponentInterface {
 
   private mdcDialog: MDCDialog;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoDialogElement;
 
   /**
    * The target element the dialog should be attached to.
@@ -50,7 +50,7 @@ export class Dialog implements ComponentInterface {
   /**
    * Opens the dialog if set to true
    */
-  @Prop() open: boolean = false;
+  @Prop() open = false;
 
   @Watch('open')
   openChanged(open: boolean) {

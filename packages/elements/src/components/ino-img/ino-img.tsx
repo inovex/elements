@@ -20,7 +20,7 @@ import classNames from 'classnames';
 export class Image implements ComponentInterface {
   private imageEl: HTMLImageElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoImgElement;
 
   /**
    * The alternative text of this image.
@@ -75,12 +75,12 @@ export class Image implements ComponentInterface {
   /**
    * Icon used for fallback image if image can not be loaded
    */
-  @Prop() fallbackIcon: string = 'image_not_available';
+  @Prop() fallbackIcon = 'image_not_available';
 
   /**
    * Indicates that the image is a part of an image list component
    */
-  @Prop() imgListItem: boolean = false;
+  @Prop() imgListItem = false;
 
   /**
    * Sets the label of the image. Note: Only works if image is part of

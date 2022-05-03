@@ -25,7 +25,7 @@ export class Range implements ComponentInterface {
   private inputEl: HTMLInputElement;
   private sliderInstance!: MDCSlider;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoRangeElement;
 
   /**
    * Disables this element.
@@ -106,12 +106,12 @@ export class Range implements ComponentInterface {
     this.sliderInstance?.destroy();
   }
 
-  handleChange = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
+  private handleChange = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
     e.stopPropagation();
     e.preventDefault();
   };
 
-  handleInput = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
+  private handleInput = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
     this.sliderInstance.setValue(this.value); // reset value to make it controlled
     this.valueChange.emit(e.detail.value);
     e.stopPropagation();

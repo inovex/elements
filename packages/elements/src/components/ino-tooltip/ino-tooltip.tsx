@@ -21,7 +21,7 @@ export class Tooltip implements ComponentInterface {
   private tooltipInstance!: Instance;
   private target!: HTMLElement | null;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTooltipElement;
 
   /**
    * Sets the color scheme of the tooltip
@@ -113,14 +113,11 @@ export class Tooltip implements ComponentInterface {
 
     this.tooltipInstance = TippyJS(this.target, options);
 
-    this.target!.addEventListener('keyup', this.onEnterTarget.bind(this));
-    this.target!.addEventListener('blur', this.onLeaveTarget.bind(this), true);
+    this.target.addEventListener('keyup', this.onEnterTarget.bind(this));
+    this.target.addEventListener('blur', this.onLeaveTarget.bind(this), true);
 
     if (this.trigger.includes('hover')) {
-      this.target!.addEventListener(
-        'mouseleave',
-        this.onLeaveTarget.bind(this)
-      );
+      this.target.addEventListener('mouseleave', this.onLeaveTarget.bind(this));
     }
   }
 
@@ -128,13 +125,13 @@ export class Tooltip implements ComponentInterface {
     if (this.tooltipInstance) {
       await this.tooltipInstance.destroy();
 
-      this.target!.removeEventListener('keyup', this.onEnterTarget.bind(this));
-      this.target!.removeEventListener(
+      this.target.removeEventListener('keyup', this.onEnterTarget.bind(this));
+      this.target.removeEventListener(
         'blur',
         this.onLeaveTarget.bind(this),
         true
       );
-      this.target!.removeEventListener(
+      this.target.removeEventListener(
         'mouseleave',
         this.onLeaveTarget.bind(this)
       );

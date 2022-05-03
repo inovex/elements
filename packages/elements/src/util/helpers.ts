@@ -12,7 +12,7 @@ export const renderHiddenInput = (
     'input.aux-input'
   ) as HTMLInputElement | null;
   if (!input) {
-    input = container.ownerDocument!.createElement('input');
+    input = container.ownerDocument.createElement('input');
     input.type = 'hidden';
     input.classList.add('aux-input');
     container.appendChild(input);

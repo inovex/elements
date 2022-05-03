@@ -102,16 +102,19 @@ The component behaves like a native select with additional features. The native 
 
 ## Properties
 
-| Property        | Attribute         | Description                                                                                                                                     | Type      | Default     |
-| --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `disabled`      | `disabled`        | Disables this element.                                                                                                                          | `boolean` | `undefined` |
-| `error`         | `error`           | Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation. | `boolean` | `undefined` |
-| `label`         | `label`           | The label of this element.                                                                                                                      | `string`  | `undefined` |
-| `name`          | `name`            | The name of this element.                                                                                                                       | `string`  | `undefined` |
-| `outline`       | `outline`         | Styles this select box as outlined element.                                                                                                     | `boolean` | `undefined` |
-| `required`      | `required`        | Marks this element as required.                                                                                                                 | `boolean` | `undefined` |
-| `showLabelHint` | `show-label-hint` | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.                                     | `boolean` | `undefined` |
-| `value`         | `value`           | The value of this element. (**unmanaged**)                                                                                                      | `string`  | `''`        |
+| Property           | Attribute           | Description                                                                                                                                     | Type      | Default     |
+| ------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`         | `disabled`          | Disables this element.                                                                                                                          | `boolean` | `undefined` |
+| `error`            | `error`             | Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation. | `boolean` | `undefined` |
+| `helper`           | `helper`            | A helper text to display below the select element. By default, non-validation helper text is always visible.                                    | `string`  | `undefined` |
+| `helperPersistent` | `helper-persistent` | When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.                       | `boolean` | `undefined` |
+| `helperValidation` | `helper-validation` | Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.                        | `boolean` | `undefined` |
+| `label`            | `label`             | The label of this element.                                                                                                                      | `string`  | `undefined` |
+| `name`             | `name`              | The name of this element.                                                                                                                       | `string`  | `undefined` |
+| `outline`          | `outline`           | Styles this select box as outlined element.                                                                                                     | `boolean` | `undefined` |
+| `required`         | `required`          | Marks this element as required.                                                                                                                 | `boolean` | `undefined` |
+| `showLabelHint`    | `show-label-hint`   | If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.                                     | `boolean` | `undefined` |
+| `value`            | `value`             | The value of this element. (**unmanaged**)                                                                                                      | `string`  | `''`        |
 
 
 ## Events

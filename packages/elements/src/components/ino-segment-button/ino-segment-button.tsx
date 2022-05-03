@@ -24,14 +24,14 @@ import { generateUniqueId } from '../../util/component-utils';
 export class InoSegmentButton implements ComponentInterface {
   private buttonId = `ino-segment-button-id_${generateUniqueId()}`;
   private successor: Element;
-  private belongsToGroup: boolean = false;
+  private belongsToGroup = false;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSegmentButtonElement;
 
   /**
    * Activates the button
    */
-  @Prop() checked: boolean = false;
+  @Prop() checked = false;
   @Watch('checked')
   checkedChanged(newVal: boolean) {
     if (this.belongsToGroup && this.successor && !newVal) {
@@ -42,12 +42,12 @@ export class InoSegmentButton implements ComponentInterface {
   /**
    * Disables the button
    */
-  @Prop() disabled: boolean = false;
+  @Prop() disabled = false;
 
   /**
    * Slightly decreases the size of the button
    */
-  @Prop() dense: boolean = false;
+  @Prop() dense = false;
 
   /**
    * Name of the element

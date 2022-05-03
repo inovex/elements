@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
+
+
+### Features
+
+* **elements|ino-select:** add helper text props ([#553](https://github.com/inovex/elements/issues/553)) ([b117525](https://github.com/inovex/elements/commit/b117525dfa6f5158911718fe766e5e2b098fab96))
+
+
+### Miscellaneous
+
+* **elements:** add stencil linter ([#547](https://github.com/inovex/elements/issues/547)) ([1c28f62](https://github.com/inovex/elements/commit/1c28f629efb7544e0cdf998bc6dc58c3a7d42529))
+
+## [6.0.0](https://github.com/inovex/elements/compare/v5.1.0...v6.0.0) (2022-03-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-table:** Due to performance reasons we have removed the components `<ino-table-row>` and `<ino-table-cell>`. The `<ino-table>` has been reworked to work with the native table elements (`<tr>` and `<td>`). Additionally, a new component `<ino-table-header-cell>` was provided to be used instead of the `<th>` element to implement functionalities like filtering and sorting. For extensive examples, check out the respective stories.
+* **elements:** * `ino-progress-bar`: Removed `reversed` property as it is no longer supported by our underlying library
+* `ino-chip-set`: Has been removed because it was only a wrapper, whose logic does not demand a component of its own.
+* `ino-chip`: This component has undergone an extensive rework. We removed the already deprecated `icon` property (use slots instead). The event `removeChip` has been renamed to `chipRemoved` to be consistent with our naming scheme. The event now emits `value` as its detail instead of the element itself (element can still be accessed by `event.target`).
+* `ino-switch`: All CSS-Vars have been removed in order to keep a more consistent look across the library and also to reduce the maintenance cost.
+* **elements|ino-dialog:** In order to provide better flexibility, we removed all named slots. Now there is only the default slot that can be used to provide your own header and footer beside the content. Furthermore, the `openChange` event has been renamed to `close` which emits whenever the user closes the dialog. Added an option to make non-critical dialogs dismissible by pressing `esc` or clicking outside the dialog.
+* **elements|ino-currency-input:** Move currency input functionality of `<ino-input>` to a separate component `<ino-currency-input>` to reduce the complexity of the input component. In the course of this, we removed the properties `decimalPlaces` and `thousandsSeparator` from the `<ino-input>`. The new component supports these functionalities by providing the respective locale.
+
+### Features
+
+* **elements:** add global configuration ([#460](https://github.com/inovex/elements/issues/460)) ([ffac7fe](https://github.com/inovex/elements/commit/ffac7fe5b8df8c67cda83cff60ffc441bddf06c7))
+* **elements-angular:** remove obsolet event fix and upgrade stencil target generator ([#486](https://github.com/inovex/elements/issues/486)) ([a1bc55c](https://github.com/inovex/elements/commit/a1bc55c301875743fda5f8d9c58ae14c7e8565aa))
+* **elements|ino-currency-input:** add component ([#481](https://github.com/inovex/elements/issues/481)) ([bd1ab55](https://github.com/inovex/elements/commit/bd1ab5551e8776a0c4d4f037425f9c5bb2aa5cbe))
+* **elements|ino-datepicker:** add new property `attachToBody` ([#510](https://github.com/inovex/elements/issues/510)) ([e970e92](https://github.com/inovex/elements/commit/e970e9222e09055f9d842ede592a04d84c3ace01))
+* **elements|ino-dialog:** rework the dialog component ([#483](https://github.com/inovex/elements/issues/483)) ([c69a23e](https://github.com/inovex/elements/commit/c69a23eb4f0ca70bf89cbf696da947c2d65fae7f))
+* **elements|ino-markdown-editor:** add new component ([#471](https://github.com/inovex/elements/issues/471)) ([8803083](https://github.com/inovex/elements/commit/88030835d52ed638d0a467fdfa90d2bd57ec631b))
+* **elements|ino-table:** rework the component along with all the related elements ([#459](https://github.com/inovex/elements/issues/459)) ([a3141e3](https://github.com/inovex/elements/commit/a3141e348b1088832c8a8cdde07922ed4b4a3374))
+
+
+### Miscellaneous
+
+* **elements:** update mdc packages to v13 ([#349](https://github.com/inovex/elements/issues/349)) ([77452bf](https://github.com/inovex/elements/commit/77452bf4f97862c7ee0a576a071c0649d67fc30b))
+
 ## [5.1.0](https://github.com/inovex/elements/compare/v5.0.0...v5.1.0) (2021-11-30)
 
 

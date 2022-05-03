@@ -21,7 +21,7 @@ export class List implements ComponentInterface {
   private listEl: HTMLUListElement;
   private listInstance!: MDCList;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoListElement;
 
   /**
    * Styles the list more dense, making it appear more compact.

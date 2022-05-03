@@ -1,7 +1,7 @@
 @use 'base/mdc-customize';
 @use 'ino-tooltip/mixins' as tooltip-mixins;
 @use 'base/theme';
-@import '~tippy.js/animations/scale.css';
+@import '~tippy.js/animations/scale-subtle.css';
 
 $color-schemes: 'primary', 'secondary', 'light';
 

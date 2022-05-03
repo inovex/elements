@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // ##################################
 // Font and typography
 // ##################################
@@ -68,5 +70,5 @@ $_font-sizes: (
 }
 
 @function pxToRem($px) {
-  @return $px / 16px * 1rem;
+  @return math.div($px, 16px) * 1rem;
 }
