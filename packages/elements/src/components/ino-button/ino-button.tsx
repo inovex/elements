@@ -66,7 +66,7 @@ export class Button implements ComponentInterface {
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() dense: boolean = false;
+  @Prop() dense = false;
 
   /**
    * Shows an infinite loading spinner and prevents further clicks.
