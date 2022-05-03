@@ -1,190 +1,373 @@
-import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { html } from 'lit-html';
-import { decorateStoryWithClass } from '../utils';
-
-// == event block
-const checkboxHandler = (e) => {
-  const el = e.target;
-  if (el.tagName.toLowerCase() !== 'ino-checkbox') {
-    return;
-  }
-
-  const row = el.closest('ino-table-row');
-  el.checked = !el.checked;
-  row.inoSelected = el.checked;
-  if (el.id === 'headerBox') {
-    el.indeterminate = false;
-    setAllBoxes();
-  } else {
-    setHeaderBox();
-  }
-};
-
-const setAllBoxes = () => {
-  const mainBox = document.getElementById(
-    'headerBox'
-  ) as HTMLInoCheckboxElement;
-  const boxes = Array.from(
-    document.querySelectorAll('ino-checkbox:not(#headerBox)')
-  ) as HTMLInoCheckboxElement[];
-  boxes.forEach((checkbox) => {
-    checkbox.checked = mainBox.checked;
-    checkbox.closest('ino-table-row').selected = mainBox.checked;
-  });
-};
-
-const setHeaderBox = () => {
-  const mainBox = document.getElementById(
-    'headerBox'
-  ) as HTMLInoCheckboxElement;
-  const boxes = Array.from(
-    document.querySelectorAll('ino-checkbox:not(#headerBox)')
-  ) as HTMLInoCheckboxElement[];
-  if (boxes.every((i) => i.checked)) {
-    mainBox.checked = true;
-    mainBox.indeterminate = false;
-  } else if (boxes.some((i) => i.checked)) {
-    mainBox.indeterminate = true;
-  } else {
-    mainBox.checked = false;
-    mainBox.indeterminate = false;
-  }
-};
+import { decorateStoryWithClass, withSortDirection } from '../utils';
+import { useEffect } from '@storybook/client-api';
+import { Components } from '@inovex.de/elements';
+import './ino-table.scss';
 
 export default {
   title: `Structure/ino-table`,
   component: 'ino-table',
+  inline: true,
   decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
-      useEffect(() => {
-        document.addEventListener('checkedChange', checkboxHandler);
-        return () =>
-          document.removeEventListener('checkedChange', checkboxHandler);
-      });
-      return story();
-    },
-  ],
-} as Meta;
+      story => decorateStoryWithClass(story, 'story-ino-table'),
+      story => {
+    useEffect(() => {
+      const tables = document.querySelectorAll('ino-table');
+      const sortChangeHandler = e => {
+        const {columnId, sortDirection} = e.detail;
+        e.target.sortColumnId = columnId;
+        e.target.sortDirection = sortDirection;
+      };
+      tables.forEach(t => t.addEventListener('sortChange', sortChangeHandler));
+      return () => tables.forEach(t => t.removeEventListener('sortChange', sortChangeHandler));
+    })
+    return story();
+  }]
+};
 
-export const Playground: Story<Components.InoTable> = () => html`
-  <ino-table>
-    <ino-table-row slot="header" header-row>
-      <ino-table-cell>ID</ino-table-cell>
-      <ino-table-cell>Name</ino-table-cell>
-      <ino-table-cell>Release Date</ino-table-cell>
-      <ino-table-cell>Box Office</ino-table-cell>
-      <ino-table-cell>Rating</ino-table-cell>
-    </ino-table-row>
-
-    <ino-table-row>
-      <ino-table-cell numeric>1</ino-table-cell>
-      <ino-table-cell>The Bourne Identity</ino-table-cell>
-      <ino-table-cell>14.06.2002</ino-table-cell>
-      <ino-table-cell>$214 million</ino-table-cell>
-      <ino-table-cell>93%</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell numeric>2</ino-table-cell>
-      <ino-table-cell>Sully</ino-table-cell>
-      <ino-table-cell>09.09.2016</ino-table-cell>
-      <ino-table-cell>$240.8 million</ino-table-cell>
-      <ino-table-cell>84%</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell numeric>3</ino-table-cell>
-      <ino-table-cell>The Martian</ino-table-cell>
-      <ino-table-cell>02.10.2015</ino-table-cell>
-      <ino-table-cell>$630.2 million</ino-table-cell>
-      <ino-table-cell>94%</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell numeric>4</ino-table-cell>
-      <ino-table-cell>John Wick: Chapter 3</ino-table-cell>
-      <ino-table-cell>17.05.2019</ino-table-cell>
-      <ino-table-cell>$326.7 million</ino-table-cell>
-      <ino-table-cell>92%</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell numeric>5</ino-table-cell>
-      <ino-table-cell>10 Cloverfield Lane</ino-table-cell>
-      <ino-table-cell>11.03.2016</ino-table-cell>
-      <ino-table-cell>$110.2 million</ino-table-cell>
-      <ino-table-cell>87%</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell numeric>6</ino-table-cell>
-      <ino-table-cell>Thor: Ragnarok</ino-table-cell>
-      <ino-table-cell>10.10.2017</ino-table-cell>
-      <ino-table-cell>$854 million</ino-table-cell>
-      <ino-table-cell>92%</ino-table-cell>
-    </ino-table-row>
+export const Playground = args => html`
+  <ino-table
+      loading="${args.loading}"
+      sort-column-id="${args.sortColumnId}"
+      sort-direction="${args.sortDirection}"
+      no-hover="${args.noHover}"
+      sticky-header="${args.stickyHeader}"
+  >
+    ${unsafeHTML(/*html*/`
+      <tr slot="header-row">
+        <ino-table-header-cell column-id="id" sort-start="asc" label="ID"></ino-table-header-cell>
+        <ino-table-header-cell column-id="name" label="Name"></ino-table-header-cell>
+        <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
+        <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
+        <ino-table-header-cell column-id="rating" label="Rating" not-sortable></ino-table-header-cell>
+        <ino-table-header-cell column-id="another1" label="Another Column" not-sortable></ino-table-header-cell>
+        <ino-table-header-cell column-id="another2" label="Another Column" not-sortable></ino-table-header-cell>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>The Bourne Identity</td>
+        <td>14.06.2002</td>
+        <td>$214 million</td>
+        <td>93%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Sully</td>
+        <td>09.09.2016</td>
+        <td>$240.8 million</td>
+        <td>84%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>The Martian</td>
+        <td>02.10.2015</td>
+        <td>$630.2 million</td>
+        <td>94%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>John Wick: Chapter 3</td>
+        <td>17.05.2019</td>
+        <td>$326.7 million</td>
+        <td>92%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>10 Cloverfield Lane</td>
+        <td>11.03.2016</td>
+        <td>$110.2 million</td>
+        <td>87%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Thor: Ragnarok</td>
+        <td>10.10.2017</td>
+        <td>$854 million</td>
+        <td>92%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>The latest movie</td>
+        <td>01.01.2021</td>
+        <td>$900 million</td>
+        <td>95%</td>
+        <td>Some information</td>
+        <td>Some information</td>
+      </tr>
+    `)}
   </ino-table>
 `;
 
-export const WithCheckboxes = () => html`
-  <ino-table>
-    <ino-table-row slot="header" header-row>
-      <ino-table-cell
-        ><ino-checkbox id="headerBox" selection></ino-checkbox
-      ></ino-table-cell>
-      <ino-table-cell>Header A</ino-table-cell>
-      <ino-table-cell>Header B</ino-table-cell>
-      <ino-table-cell>Header C</ino-table-cell>
-      <ino-table-cell>Header D</ino-table-cell>
-      <ino-table-cell>Actions</ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
-      <ino-table-cell numeric>1</ino-table-cell>
-      <ino-table-cell>Cell B1</ino-table-cell>
-      <ino-table-cell>Cell C1</ino-table-cell>
-      <ino-table-cell>Cell D1</ino-table-cell>
-      <ino-table-cell
-        ><ino-icon-button icon="download"></ino-icon-button
-      ></ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
-      <ino-table-cell numeric>2</ino-table-cell>
-      <ino-table-cell>Cell B2</ino-table-cell>
-      <ino-table-cell>Cell C2</ino-table-cell>
-      <ino-table-cell>Cell D2</ino-table-cell>
-      <ino-table-cell
-        ><ino-icon-button icon="download"></ino-icon-button
-      ></ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
-      <ino-table-cell numeric>3</ino-table-cell>
-      <ino-table-cell>Cell B3</ino-table-cell>
-      <ino-table-cell>Cell C3</ino-table-cell>
-      <ino-table-cell>Cell D3</ino-table-cell>
-      <ino-table-cell
-        ><ino-icon-button icon="download"></ino-icon-button
-      ></ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
-      <ino-table-cell numeric>4</ino-table-cell>
-      <ino-table-cell>Cell B4</ino-table-cell>
-      <ino-table-cell>Cell C4</ino-table-cell>
-      <ino-table-cell>Cell D4</ino-table-cell>
-      <ino-table-cell
-        ><ino-icon-button icon="download"></ino-icon-button
-      ></ino-table-cell>
-    </ino-table-row>
-    <ino-table-row>
-      <ino-table-cell><ino-checkbox selection></ino-checkbox></ino-table-cell>
-      <ino-table-cell numeric>5</ino-table-cell>
-      <ino-table-cell>Cell B5</ino-table-cell>
-      <ino-table-cell>Cell C5</ino-table-cell>
-      <ino-table-cell>Cell D5</ino-table-cell>
-      <ino-table-cell
-        ><ino-icon-button icon="download"></ino-icon-button
-      ></ino-table-cell>
-    </ino-table-row>
+Playground.args = {
+  loading: false,
+  sortColumnId: 'id',
+  noHover: false,
+  stickyHeader: false
+}
+Playground.argTypes = {
+  sortColumnId: {
+    options: ['id', 'name', 'release', 'box-office', 'rating'],
+    control: {
+      type: 'select'
+    }
+  }
+}
+withSortDirection(Playground, 'sortDirection', 'asc')
+
+
+export const SelectionWithCheckboxes = () => {
+
+  useEffect(() => {
+    const mainBox = document.getElementById('headerBox') as Components.InoCheckbox;
+
+    const checkboxHandler = e => {
+      const triggerCheckbox = e.target;
+      triggerCheckbox.checked = !triggerCheckbox.checked;
+
+      const checkboxes = Array.from(
+        document.querySelectorAll('.selectable-table tbody ino-checkbox')
+      ) as Components.InoCheckbox[];
+
+      if (triggerCheckbox.id === 'headerBox') {
+        triggerCheckbox.indeterminate = false;
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = mainBox.checked;
+          const row = (checkbox as HTMLElement).closest('tr');
+          row.classList.toggle('ino-table__row--selected', mainBox.checked);
+        });
+      }
+      else if(mainBox) {
+        const row = (triggerCheckbox as HTMLElement).closest('tr');
+        row.classList.toggle('ino-table__row--selected', triggerCheckbox.checked);
+
+        if (checkboxes.some(i => i.checked)) {
+          mainBox.indeterminate = true;
+        }
+        else {
+          const allChecked = checkboxes.every(i => i.checked);
+          mainBox.checked = allChecked;
+          mainBox.indeterminate = allChecked;
+        }
+      }
+    };
+
+    const table = document.querySelector('.selectable-table');
+    table.addEventListener('checkedChange', checkboxHandler);
+    return () => table.removeEventListener('checkedChange', checkboxHandler);
+  });
+
+  return html`
+    <ino-table class="selectable-table">
+      ${unsafeHTML(/*html*/`
+        <tr slot="header-row">
+          <td class="ino-table__cell--checkbox">
+            <ino-checkbox id="headerBox" selection></ino-checkbox>
+          </td>
+          <td>Header A</td>
+          <td>Header B</td>
+          <td>Header C</td>
+          <td>Header D</td>
+          <td>Header E</td>
+          <td>Header F</td>
+          <td>Header G</td>
+          <td>Header H</td>
+          <td>Header I</td>
+        </tr>
+        <tr>
+          <td class="ino-table__cell--checkbox"><ino-checkbox selection></ino-checkbox></td>
+          <td class="ino-table__cell--numeric">1</td>
+          <td>Cell B1</td>
+          <td>Cell C1</td>
+          <td>Cell D1</td>
+          <td>Cell E1</td>
+          <td>Cell F1</td>
+          <td>Cell G1</td>
+          <td>Cell H1</td>
+          <td>Cell I1</td>
+        </tr>
+        <tr class="ino-table__row--selected">
+          <td class="ino-table__cell--checkbox"><ino-checkbox selection checked></ino-checkbox></td>
+          <td class="ino-table__cell--numeric">2</td>
+          <td>Cell B2</td>
+          <td>Cell C2</td>
+          <td>Cell D2</td>
+          <td>Cell E2</td>
+          <td>Cell F2</td>
+          <td>Cell G2</td>
+          <td>Cell H2</td>
+          <td>Cell I2</td>
+        </tr>
+        <tr>
+          <td class="ino-table__cell--checkbox"><ino-checkbox selection></ino-checkbox></td>
+          <td class="ino-table__cell--numeric">3</td>
+          <td>Cell B3</td>
+          <td>Cell C3</td>
+          <td>Cell D3</td>
+          <td>Cell E3</td>
+          <td>Cell F3</td>
+          <td>Cell G3</td>
+          <td>Cell H3</td>
+          <td>Cell I3</td>
+        </tr>
+        <tr class="ino-table__row--active">
+          <td class="ino-table__cell--checkbox"><ino-checkbox selection></ino-checkbox></td>
+          <td class="ino-table__cell--numeric">4</td>
+          <td>Cell B4</td>
+          <td>Cell C4</td>
+          <td>Cell D4</td>
+          <td>Cell E4</td>
+          <td>Cell F4</td>
+          <td>Cell G4</td>
+          <td>Cell H4</td>
+          <td>Cell I4</td>
+        </tr>
+        <tr>
+          <td class="ino-table__cell--checkbox"><ino-checkbox selection></ino-checkbox></td>
+          <td class="ino-table__cell--numeric">5</td>
+          <td>Cell B5</td>
+          <td>Cell C5</td>
+          <td>Cell D5</td>
+          <td>Cell E5</td>
+          <td>Cell F5</td>
+          <td>Cell G5</td>
+          <td>Cell H5</td>
+          <td>Cell I5</td>
+        </tr>
+      `)}
+      </ino-table>
+  `;
+};
+
+export const Sortable = () => html`
+  <ino-table sort-column-id="header-a" sort-direction="asc">
+    ${unsafeHTML( /*html*/`
+      <tr slot="header-row">
+        <ino-table-header-cell class="ino-table__cell--numeric" column-id="header-a" sort-start="asc" style="width:150px;" label="Header A"></ino-table-header-cell>
+        <ino-table-header-cell column-id="header-b" label="Header B"></ino-table-header-cell>
+        <ino-table-header-cell column-id="header-c" label="Header C"></ino-table-header-cell>
+        <ino-table-header-cell column-id="header-d" label="Header D"></ino-table-header-cell>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">1</td>
+        <td>Cell B1</td>
+        <td>Cell C1</td>
+        <td>Cell D1</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">2</td>
+        <td>Cell B2</td>
+        <td>Cell C2</td>
+        <td>Cell D2</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">3</td>
+        <td>Cell B3</td>
+        <td>Cell C3</td>
+        <td>Cell D3</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">4</td>
+        <td>Cell B4</td>
+        <td>Cell C4</td>
+        <td>Cell D4</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">5</td>
+        <td>Cell B5</td>
+        <td>Cell C5</td>
+        <td>Cell D5</td>
+      </tr>
+    `)}
+  </ino-table>
+`;
+
+export const LoadingWithIndicator = () => html`
+  <ino-table loading>
+    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
+    ${unsafeHTML(/*html*/`
+      <tr slot="header-row">
+        <td>Header A</td>
+        <td>Header B</td>
+        <td>Header C</td>
+        <td>Header D</td>
+        <td>Header E</td>
+        <td>Header F</td>
+        <td>Header G</td>
+        <td>Header H</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">1</td>
+        <td>Cell B1</td>
+        <td>Cell C1</td>
+        <td>Cell D1</td>
+        <td>Cell E1</td>
+        <td>Cell F1</td>
+        <td>Cell G1</td>
+        <td>Cell H1</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">5</td>
+        <td>Cell B2</td>
+        <td>Cell C2</td>
+        <td>Cell D2</td>
+        <td>Cell E2</td>
+        <td>Cell F2</td>
+        <td>Cell G2</td>
+        <td>Cell H2</td>
+      </tr>
+    `)}
+  </ino-table>
+  `;
+
+export const LoadingOnlyHeader = () => html`
+  <ino-table loading>
+    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
+    ${unsafeHTML(/*html*/`
+      <tr slot="header-row">
+        <ino-table-header-cell label="Header A"></ino-table-header-cell>
+        <ino-table-header-cell label="Header B"></ino-table-header-cell>
+        <ino-table-header-cell label="Header C"></ino-table-header-cell>
+        <ino-table-header-cell label="Header D"></ino-table-header-cell>
+      </tr>
+    `)}
+  </ino-table>
+`;
+
+export const LoadingOnlyContent = () => html`
+  <ino-table loading>
+    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
+    ${unsafeHTML(/*html*/`
+      <tr>
+        <td class="ino-table__cell--numeric">1</td>
+        <td>Cell B1</td>
+        <td>Cell C1</td>
+        <td>Cell D1</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">2</td>
+        <td>Cell B2</td>
+        <td>Cell C2</td>
+        <td>Cell D2</td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--numeric">3</td>
+        <td>Cell B3</td>
+        <td>Cell C3</td>
+        <td>Cell D3</td>
+      </tr>
+    `)}
   </ino-table>
 `;

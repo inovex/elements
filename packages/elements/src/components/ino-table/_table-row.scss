@@ -1,0 +1,64 @@
+@use 'base/theme';
+
+$row-active-color: theme.color(secondary);
+$row-hover-border-color: #d4ddea; // TODO: Move color
+$row-alt-background-color: #f6f8fb; // TODO: Move color
+$row-alt-hover-background-color: $row-alt-background-color;
+
+@mixin core-styles() {
+  tr {
+    border: none;
+  }
+
+  tbody tr {
+    &:nth-child(even) {
+      background-color: $row-alt-background-color;
+    }
+  }
+
+  @include active-row();
+  @include row-hover();
+}
+
+@mixin active-row() {
+  .ino-table__row--active {
+    td,
+    td:first-child,
+    td:last-child,
+    th,
+    th:first-child,
+    th:last-child {
+      border-color: rgba($row-active-color, 0.64);
+    }
+
+    &:hover {
+      td,
+      td:first-child,
+      td:last-child,
+      th,
+      th:first-child,
+      th:last-child {
+        border-color: $row-active-color !important;
+      }
+    }
+  }
+}
+
+@mixin row-hover() {
+  .mdc-data-table:not(.ino-table--no-hover) tbody {
+    tr:not(.mdc-data-table__row--selected):hover {
+      &:nth-child(even) {
+        background-color: $row-alt-hover-background-color;
+      }
+
+      td,
+      td:first-child,
+      td:last-child,
+      th,
+      th:first-child,
+      th:last-child {
+        border-color: $row-hover-border-color;
+      }
+    }
+  }
+}

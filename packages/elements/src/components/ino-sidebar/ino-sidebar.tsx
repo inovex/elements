@@ -25,17 +25,17 @@ import { MDCCustomDrawer } from './MDCCustomDrawer';
 export class InoSidebar {
   private drawer?: MDCDrawer;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSidebarElement;
 
   /**
    * Aligns the sidebar to the right (true) or left (false) side
    */
-  @Prop() alignRight: boolean = false;
+  @Prop() alignRight = false;
 
   /**
    * Expands the sidebar
    */
-  @Prop() open: boolean = false;
+  @Prop() open = false;
 
   @Watch('open')
   openChanged(newValue: boolean) {

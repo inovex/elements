@@ -33,7 +33,7 @@ export class Textarea implements ComponentInterface {
    */
   private textfield: MDCTextField;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoTextareaElement;
 
   /**
    * The autofocus of this element.

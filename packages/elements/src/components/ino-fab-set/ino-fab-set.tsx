@@ -20,7 +20,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
   shadow: true,
 })
 export class Fab implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoFabSetElement;
 
   /**
    * The direction of the speed dial.

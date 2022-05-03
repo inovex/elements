@@ -22,7 +22,7 @@ export class Snackbar implements ComponentInterface {
   private snackbarElement!: HTMLElement;
   private nodeTimeout: NodeJS.Timeout;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoSnackbarElement;
 
   /**
    * The text to display for the action button.
@@ -103,8 +103,8 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private handleSnackbarHide = (e) => {
-    this.hideEl!.emit();
+  private handleSnackbarHide = e => {
+    this.hideEl.emit();
     e.stopPropagation();
   };
 

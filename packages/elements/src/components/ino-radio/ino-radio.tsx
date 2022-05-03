@@ -25,7 +25,7 @@ import { renderHiddenInput } from '../../util/helpers';
   shadow: true,
 })
 export class Radio implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoRadioElement;
   private nativeInputEl!: HTMLInputElement;
 
   /**
@@ -73,7 +73,7 @@ export class Radio implements ComponentInterface {
    */
   @Event() checkedChange!: EventEmitter;
 
-  handleInput = (e: Event) => {
+  private handleInput = (e: Event) => {
     e.stopPropagation();
     this.nativeInputEl.checked = this.checked;
     this.checkedChange.emit(true);
