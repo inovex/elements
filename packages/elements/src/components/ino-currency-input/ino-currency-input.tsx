@@ -23,7 +23,7 @@ export class CurrencyInput {
   private inoInputEl?: HTMLInoInputElement;
   private hiddenInputEl?: HTMLInputElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoCurrencyInputElement;
 
   /**
    * A supported locale for currency number formatting. If not given, it uses the global config.

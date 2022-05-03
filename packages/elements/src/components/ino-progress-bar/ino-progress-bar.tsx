@@ -18,7 +18,7 @@ import classNames from 'classnames';
 export class InoProgressBar implements ComponentInterface {
   private mdcProgress: MDCLinearProgress;
 
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoProgressBarElement;
 
   /**
    * Sets the buffer progress

@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
+import { Meta } from '@storybook/web-components';
+import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 
 import { decorateStoryWithClass } from '../utils';
 import './ino-checkbox.scss';
@@ -33,59 +34,43 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  // will be used as default props for all stories
+  args: {
+    checked: true,
+    disabled: false,
+    indeterminate: false,
+    name: 'my-name',
+    selection: false,
+    value: 'my-value',
+  },
+} as Meta<Components.InoCheckbox>;
 
-export const Playground: Story<Components.InoCheckbox> = (args) => html`
-  <ino-checkbox
-    class="customizable-checkbox"
-    checked="${args.checked}"
-    disabled="${args.disabled}"
-    indeterminate="${args.indeterminate}"
-    name="${args.name}"
-    selection="${args.selection}"
-    value="${args.value}"
-  >
-    Label
-  </ino-checkbox>
-`;
-
-Playground.args = {
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  name: '',
-  selection: false,
-  value: '',
-};
-
-export const Variations = (): TemplateResult => html`
-  <div class="story-states">
-    <ino-checkbox checked>Checked</ino-checkbox>
-    <ino-checkbox>Unchecked</ino-checkbox>
-    <ino-checkbox indeterminate>Indeterminated</ino-checkbox>
-  </div>
-  <div class="story-states">
-    <ino-checkbox disabled checked>Checked and Disabled</ino-checkbox>
-    <ino-checkbox disabled>Unchecked and Disabled</ino-checkbox>
-    <ino-checkbox disabled indeterminate
-      >Indeterminate and Disabled
+// the basic template for the checkbox component
+const template = new TemplateGenerator<Components.InoCheckbox>(
+  'ino-checkbox',
+  (args) => html`
+    <ino-checkbox
+      checked="${args.checked}"
+      disabled="${args.disabled}"
+      indeterminate="${args.indeterminate}"
+      name="${args.name}"
+      selection="${args.selection}"
+      value="${args.value}"
+    >
+      Label
     </ino-checkbox>
-  </div>
-`;
+  `
+);
 
-export const Selection = (): TemplateResult => html`
-  <div class="story-states">
-    <ino-checkbox selection checked>Checked</ino-checkbox>
-    <ino-checkbox selection>Unchecked</ino-checkbox>
-    <ino-checkbox selection indeterminate>Indeterminate</ino-checkbox>
-  </div>
-  <div class="story-states">
-    <ino-checkbox checked selection disabled
-      >Checked and disabled
-    </ino-checkbox>
-    <ino-checkbox selection disabled>Unchecked and disabled</ino-checkbox>
-    <ino-checkbox selection indeterminate disabled>
-      Indeterminate Disabled
-    </ino-checkbox>
-  </div>
-`;
+export const Playground = template.generatePlaygroundStory();
+
+export const Checked = template.generateStoryForProp('checked', true);
+
+export const Selection = template.generateStoryForProp('selection', true);
+
+export const Indeterminate = template.generateStoryForProp(
+  'indeterminate',
+  true
+);
+
+export const Disabled = template.generateStoryForProp('disabled', true);

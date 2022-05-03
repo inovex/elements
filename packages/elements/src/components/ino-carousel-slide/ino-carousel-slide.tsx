@@ -13,7 +13,7 @@ import {
   shadow: false,
 })
 export class InoCarouselSlide implements ComponentInterface {
-  @Element() el: HTMLElement;
+  @Element() el: HTMLInoCarouselSlideElement;
 
   /**
    * Link to the image

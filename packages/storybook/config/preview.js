@@ -5,16 +5,19 @@ import {
 } from '@inovex.de/elements/dist/loader';
 
 import './global.scss';
-import { extractArgTypes, setStencilDocJson, extractComponentDescription } from '@pxtrn/storybook-addon-docs-stencil';
+import {
+  extractArgTypes,
+  extractComponentDescription,
+  setStencilDocJson,
+} from '@pxtrn/storybook-addon-docs-stencil';
 import docsJson from '../elements-stencil-docs.json';
 import theme from './theme';
-
 
 // Instead of using the custom elements manifest, use @pxtrn/storybook-addon-docs-stencil to extract argTypes of
 // custom elements of the stencil generated json docs. This works better  for (attributes / props), methods, events, slots.
 // Enforce @pxtrn/storybook-addon-docs-stencil to use component description instead of component readme
 // see https://github.com/pixtron/storybook-addon-docs-stencil/blob/e87eece216d22d0643057cf15aedb168d83734b7/src/index.ts#L215
-docsJson.components.forEach(c => c.readme = null);
+docsJson.components.forEach((c) => (c.readme = null));
 setStencilDocJson(docsJson);
 
 // Alternative with a custom elements schema:
@@ -34,6 +37,11 @@ export const parameters = {
     extractArgTypes,
     extractComponentDescription,
     theme,
+    // NEW: HIDE DECORATORS FROM STORY OUTPUT,
+    // FIXME: disabled all decorator functions which are currently used for event handling
+    source: {
+      // excludeDecorators: true,
+    },
   },
   options: {
     panelPosition: 'bottom',

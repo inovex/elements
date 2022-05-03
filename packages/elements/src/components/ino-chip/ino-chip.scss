@@ -52,13 +52,13 @@ ino-chip {
 
     .ino-chip-trailing-icon {
       display: flex;
+      justify-content: center;
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
 
       .ino-chip-close-icon {
         --ino-icon-width: 15px;
         --ino-icon-height: 15px;
-        padding-top: 1px; // hacky, center vertically
       }
     }
 

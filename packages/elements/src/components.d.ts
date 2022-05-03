@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement } from "tippy.js";
+import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
         /**
@@ -125,7 +126,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -233,6 +234,10 @@ export namespace Components {
     }
     interface InoDatepicker {
         /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody": boolean;
@@ -281,6 +286,10 @@ export namespace Components {
          */
         "hourStep": number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -305,9 +314,17 @@ export namespace Components {
          */
         "outline"?: boolean;
         /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
+        /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
         "range"?: boolean;
+        /**
+          * Redraws the datepicker.
+         */
+        "redraw": () => Promise<void>;
         /**
           * Marks this element as required.
          */
@@ -866,6 +883,14 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
+        /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
         "interactive"?: boolean;
@@ -1009,6 +1034,18 @@ export namespace Components {
          */
         "error"?: boolean;
         /**
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
+         */
+        "helper"?: string;
+        /**
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
+         */
+        "helperValidation"?: boolean;
+        /**
           * The label of this element.
          */
         "label"?: string;
@@ -1138,22 +1175,74 @@ export namespace Components {
         "autoFocus"?: boolean;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric": boolean;
-    }
-    interface InoTableRow {
+        "autofocus": boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow": boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected": boolean;
+        "label": string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable": boolean;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon": string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched": boolean;
+        /**
+          * Sets blur on the header cell. If searchable, closes the popover.
+         */
+        "setBlur": () => Promise<void>;
+        /**
+          * Sets focus on the header cell. If searchable, opens the popover and focuses the `data-ino-focus` target.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * Updates the search behaviour of this cell.
+          * @param searchable true, if the cell should be searchable, false otherwise.
+         */
+        "setSearchable": (searchable: boolean) => Promise<void>;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart": SortDirection;
     }
     interface InoTextarea {
         /**
@@ -1529,17 +1618,11 @@ declare global {
         prototype: HTMLInoTableElement;
         new (): HTMLInoTableElement;
     };
-    interface HTMLInoTableCellElement extends Components.InoTableCell, HTMLStencilElement {
+    interface HTMLInoTableHeaderCellElement extends Components.InoTableHeaderCell, HTMLStencilElement {
     }
-    var HTMLInoTableCellElement: {
-        prototype: HTMLInoTableCellElement;
-        new (): HTMLInoTableCellElement;
-    };
-    interface HTMLInoTableRowElement extends Components.InoTableRow, HTMLStencilElement {
-    }
-    var HTMLInoTableRowElement: {
-        prototype: HTMLInoTableRowElement;
-        new (): HTMLInoTableRowElement;
+    var HTMLInoTableHeaderCellElement: {
+        prototype: HTMLInoTableHeaderCellElement;
+        new (): HTMLInoTableHeaderCellElement;
     };
     interface HTMLInoTextareaElement extends Components.InoTextarea, HTMLStencilElement {
     }
@@ -1600,8 +1683,7 @@ declare global {
         "ino-tab": HTMLInoTabElement;
         "ino-tab-bar": HTMLInoTabBarElement;
         "ino-table": HTMLInoTableElement;
-        "ino-table-cell": HTMLInoTableCellElement;
-        "ino-table-row": HTMLInoTableRowElement;
+        "ino-table-header-cell": HTMLInoTableHeaderCellElement;
         "ino-textarea": HTMLInoTextareaElement;
         "ino-tooltip": HTMLInoTooltipElement;
     }
@@ -1727,7 +1809,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Marks this element as indeterminate (**unmanaged**)
+          * Marks this element as indeterminate. It indicates that a user is indeterminate without changing the checked state. If a checkbox is unchecked and indeterminate then it will lose the indeterminate state on click and change to checked. For more information, see [Documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Indeterminate_state_checkboxes).
          */
         "indeterminate"?: boolean;
         /**
@@ -1855,6 +1937,10 @@ declare namespace LocalJSX {
     }
     interface InoDatepicker {
         /**
+          * Optional id of an element to append the datepicker to. Default is:  * the host element for inline pickers  * body for collapsable pickers
+         */
+        "appendTo"?: string;
+        /**
           * Attach calendar overlay to body (true) or Position the calendar inside the wrapper and inside the ino-datepicker (false)
          */
         "attachToBody"?: boolean;
@@ -1903,6 +1989,10 @@ declare namespace LocalJSX {
          */
         "hourStep"?: number;
         /**
+          * Displays the datepicker inlined.
+         */
+        "inline"?: boolean;
+        /**
           * Defines the label for this element.
          */
         "label"?: string;
@@ -1930,6 +2020,10 @@ declare namespace LocalJSX {
           * Styles the datepicker as outlined element.
          */
         "outline"?: boolean;
+        /**
+          * The placeholder of the input element.
+         */
+        "placeholder"?: string;
         /**
           * If true, enables the user to choose two dates as an interval. Only works with `type="date"`
          */
@@ -2482,6 +2576,9 @@ declare namespace LocalJSX {
           * Disables the option
          */
         "disabled"?: boolean;
+        /**
+          * Emits on option click
+         */
         "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
@@ -2515,6 +2612,14 @@ declare namespace LocalJSX {
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
         "for"?: string;
+        /**
+          * If true, hides the popper on blur.
+         */
+        "hideOnBlur"?: boolean;
+        /**
+          * If true, hides the popper on esc.
+         */
+        "hideOnEsc"?: boolean;
         /**
           * Use this if you want to interact with the popover content (e.g. button clicks)
          */
@@ -2669,6 +2774,18 @@ declare namespace LocalJSX {
           * Displays the select as invalid if set to true. If the property is not set or set to false, the validation is handled by the default validation.
          */
         "error"?: boolean;
+        /**
+          * A helper text to display below the select element. By default, non-validation helper text is always visible.
+         */
+        "helper"?: string;
+        /**
+          * When the helper text is serving as a validation message, make it permanently visible regardless of the select's validity.
+         */
+        "helperPersistent"?: boolean;
+        /**
+          * Indicates the helper text is a validation message. By default validation message is hidden unless the select is invalid.
+         */
+        "helperValidation"?: boolean;
         /**
           * The label of this element.
          */
@@ -2827,22 +2944,73 @@ declare namespace LocalJSX {
         "onActiveTabChange"?: (event: CustomEvent<any>) => void;
     }
     interface InoTable {
+        /**
+          * True, if the table is loading data.  Use this in combination with a `ino-progress-bar` having `slot="loading-indicator"` to provide an additional horizontal loading bar.
+         */
+        "loading"?: boolean;
+        /**
+          * If true, disables row hover styling.  Useful for simples tables with few rows or columns.
+         */
+        "noHover"?: boolean;
+        /**
+          * Emits that the sort direction or column id has changed.
+         */
+        "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+         */
+        "sortColumnId"?: string;
+        /**
+          * Direction of the column currently sorted by.
+          * @See Set `sort-start` attribute on the respective column to change the sort order.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * True, if table header stays visible on vertical scroll
+         */
+        "stickyHeader"?: boolean;
     }
-    interface InoTableCell {
+    interface InoTableHeaderCell {
         /**
-          * Indicates that the cell contains numeric values
+          * Marks the header as autofocused (used for searchable header cells).  Use this in combination with the `data-ino-focus` attribute on the actual search target element to focus a specific input element.
          */
-        "numeric"?: boolean;
-    }
-    interface InoTableRow {
+        "autofocus"?: boolean;
         /**
-          * Indicates that the row is a header row
+          * A unique identifier of the column (used for sorting).
          */
-        "headerRow"?: boolean;
+        "columnId"?: string;
         /**
-          * Indicates whether the row is selected or not
+          * Name of the column.
          */
-        "selected"?: boolean;
+        "label"?: string;
+        /**
+          * If true, the cell is **not** sortable. By default, table header cells are sortable.
+         */
+        "notSortable"?: boolean;
+        /**
+          * Emits that the search field focused (true) or blurred (false).
+         */
+        "onSearchFocusChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Emits that the sort direction has been changed.
+         */
+        "onSortDirectionChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        /**
+          * Identifier of the search icon (default `search`). Used for date or list search columns.
+         */
+        "searchIcon"?: string;
+        /**
+          * True, if the column has been searched for this column. Persistent state to indicate the user that this column has a search filter.
+         */
+        "searched"?: boolean;
+        /**
+          * The current sort direction of the column.
+         */
+        "sortDirection"?: SortDirection;
+        /**
+          * The initial sort direction state (default `desc`).  By default, all columns are sorted descending followed by ascending. To switch this order, set sort Start to asc.
+         */
+        "sortStart"?: SortDirection;
     }
     interface InoTextarea {
         /**
@@ -2983,8 +3151,7 @@ declare namespace LocalJSX {
         "ino-tab": InoTab;
         "ino-tab-bar": InoTabBar;
         "ino-table": InoTable;
-        "ino-table-cell": InoTableCell;
-        "ino-table-row": InoTableRow;
+        "ino-table-header-cell": InoTableHeaderCell;
         "ino-textarea": InoTextarea;
         "ino-tooltip": InoTooltip;
     }
@@ -3039,8 +3206,7 @@ declare module "@stencil/core" {
             "ino-tab": LocalJSX.InoTab & JSXBase.HTMLAttributes<HTMLInoTabElement>;
             "ino-tab-bar": LocalJSX.InoTabBar & JSXBase.HTMLAttributes<HTMLInoTabBarElement>;
             "ino-table": LocalJSX.InoTable & JSXBase.HTMLAttributes<HTMLInoTableElement>;
-            "ino-table-cell": LocalJSX.InoTableCell & JSXBase.HTMLAttributes<HTMLInoTableCellElement>;
-            "ino-table-row": LocalJSX.InoTableRow & JSXBase.HTMLAttributes<HTMLInoTableRowElement>;
+            "ino-table-header-cell": LocalJSX.InoTableHeaderCell & JSXBase.HTMLAttributes<HTMLInoTableHeaderCellElement>;
             "ino-textarea": LocalJSX.InoTextarea & JSXBase.HTMLAttributes<HTMLInoTextareaElement>;
             "ino-tooltip": LocalJSX.InoTooltip & JSXBase.HTMLAttributes<HTMLInoTooltipElement>;
         }

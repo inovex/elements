@@ -17,7 +17,7 @@ import {
   shadow: true,
 })
 export class RadioGroup implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoRadioGroupElement;
 
   /**
    * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.

@@ -20,7 +20,7 @@ import {
 export class InoControlItem implements ComponentInterface {
   private inputEl: HTMLInputElement;
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLInoControlItemElement;
 
   /**
    * The type of control element
@@ -91,12 +91,12 @@ export class InoControlItem implements ComponentInterface {
    */
   @Event() checkedChange!: EventEmitter;
 
-  changedHandler = (e: CustomEvent<boolean>) => {
+  private changedHandler = (e: CustomEvent<boolean>) => {
     e.stopPropagation();
     this.checkedChange.emit(e.detail);
   };
 
-  clickHandler = (e: MouseEvent) => {
+  private clickHandler = (e: MouseEvent) => {
     e.stopPropagation();
     if (this.disabled || e.target['tagName'] === 'INO-CHECKBOX') {
       return;
