@@ -85,6 +85,7 @@ export const Playground: Story<Components.InoSnackbar> = (args) => html`
       action-text="${args.actionText}"
       timeout="${args.timeout}"
       type="${args.type}"
+      message="${args.message}"
     >
       ${args.defaultSlot}
     </ino-snackbar>
@@ -93,6 +94,7 @@ export const Playground: Story<Components.InoSnackbar> = (args) => html`
 Playground.args = {
   actionText: Texts.info.action,
   defaultSlot: Texts.info.msg,
+  message: '',
   timeout: -1,
   type: 'info',
 };

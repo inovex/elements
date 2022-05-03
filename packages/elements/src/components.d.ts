@@ -437,9 +437,10 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -1090,6 +1091,11 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
+         */
+        "message"?: string;
+        /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
         "stayVisibleOnHover"?: boolean;
@@ -1152,7 +1158,8 @@ export namespace Components {
          */
         "indicatorContentWidth": boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2133,9 +2140,10 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -2836,6 +2844,11 @@ declare namespace LocalJSX {
          */
         "actionText"?: string;
         /**
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
+         */
+        "message"?: string;
+        /**
           * Event that emits as soon as the action button is clicked.
          */
         "onActionClick"?: (event: CustomEvent<any>) => void;
@@ -2910,7 +2923,8 @@ declare namespace LocalJSX {
          */
         "indicatorContentWidth"?: boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**

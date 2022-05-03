@@ -2722,15 +2722,20 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "The text of this header",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text of this header",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -7453,8 +7458,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Indicates a label text in the tab.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead.\nIndicates a label text in the tab.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"

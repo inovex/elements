@@ -1059,13 +1059,13 @@ Listen to this event to hide or destroy this element.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['actionText', 'stayVisibleOnHover', 'timeout', 'type']
+  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
 })
 @Component({
   selector: 'ino-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['actionText', 'stayVisibleOnHover', 'timeout', 'type']
+  inputs: ['actionText', 'message', 'stayVisibleOnHover', 'timeout', 'type']
 })
 export class InoSnackbar {
   protected el: HTMLElement;
