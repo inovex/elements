@@ -1086,6 +1086,7 @@ export namespace Components {
         "actionText"?: string;
         /**
           * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -1151,7 +1152,8 @@ export namespace Components {
          */
         "indicatorContentWidth": boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2829,6 +2831,7 @@ declare namespace LocalJSX {
         "actionText"?: string;
         /**
           * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -2906,7 +2909,8 @@ declare namespace LocalJSX {
          */
         "indicatorContentWidth"?: boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**

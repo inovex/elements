@@ -32,6 +32,13 @@ export class Snackbar implements ComponentInterface {
   @Prop() message?: string;
 
   /**
+   * [DEPRECATED] Please use the default slot instead
+   * The text message to display.
+   * @deprecated
+   */
+  @Prop() message?: string;
+
+  /**
    * The text to display for the action button.
    * If no text is defined, the snack bar is displayed in an alternative feedback style.
    */

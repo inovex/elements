@@ -16,11 +16,13 @@ export const Playground: Story<Components.InoTab> = (args) => html`
     label="${args.label}"
     stacked="${args.stacked}"
   >
+    ${args.defaultSlot}
   </ino-tab>
 `;
 Playground.args = {
   indicatorContentWidth: false,
-  label: 'Customizable Tab',
+  defaultSlot: 'Customizable Tab',
+  label: '',
   stacked: false,
 };
 withIconControl(Playground, 'icon', 'info');

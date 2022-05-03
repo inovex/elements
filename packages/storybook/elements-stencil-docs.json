@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-01T13:46:55",
+  "timestamp": "2022-03-01T14:24:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6980,7 +6980,12 @@
           "attr": "message",
           "reflectToAttr": false,
           "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -7449,8 +7454,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Indicates a label text in the tab.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead.\nIndicates a label text in the tab.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
