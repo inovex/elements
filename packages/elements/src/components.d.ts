@@ -222,6 +222,10 @@ export namespace Components {
          */
         "currencyLocale"?: string;
         /**
+          * Shows a corresponding unit symbole in the input-field
+         */
+        "unit"?: string;
+        /**
           * Numeric currency value
          */
         "value": number | string;
@@ -1922,6 +1926,10 @@ declare namespace LocalJSX {
           * Emits when the user types something in. Contains typed input in `event.detail`
          */
         "onValueChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Shows a corresponding unit symbole in the input-field
+         */
+        "unit"?: string;
         /**
           * Numeric currency value
          */
