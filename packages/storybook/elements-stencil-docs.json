@@ -5439,6 +5439,23 @@
       "usage": {},
       "props": [
         {
+          "name": "attachToBody",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "attach-to-body",
+          "reflectToAttr": false,
+          "docs": "If set, attaches the popover element to the body.\nUseful to avoid overflow or z-index issues.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "colorScheme",
           "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
           "mutable": false,
@@ -5500,6 +5517,35 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "followCursor",
+          "type": "\"horizontal\" | \"initial\" | \"vertical\" | boolean",
+          "mutable": false,
+          "attr": "follow-cursor",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "initial",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            },
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {

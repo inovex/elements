@@ -11,13 +11,16 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import TippyJS, { Instance as Tippy, Placement, Props } from 'tippy.js';
+import TippyJS, {
+  Instance as Tippy,
+  Placement,
+  Props,
+  followCursor,
+} from 'tippy.js';
 import { getSlotContent } from '../../util/component-utils';
-
 import { TooltipTrigger } from '../types';
 import { closest } from '@material/dom/ponyfill';
 import { hideOnEsc, hideOnPopperBlur } from './plugins';
-
 
 const POPOVER_CLOSE_ATTRIBUTE = 'data-ino-close';
 
@@ -51,6 +54,17 @@ export class Popover implements ComponentInterface {
   }
 
   /**
+   * If set, attaches the popover element to the body.
+   * Useful to avoid overflow or z-index issues.
+   */
+  @Prop() attachToBody = false;
+
+  @Watch('attachToBody')
+  bodyChanged() {
+    this.create();
+  }
+
+  /**
    * The target id the popover belongs to.
    * If not given, the popover is attached to the element provided in the named slot (`popover-trigger`)
    * or the parent component if a slot element does not exist.
@@ -65,16 +79,18 @@ export class Popover implements ComponentInterface {
   /**
    * If true, hides the popper on blur.
    */
-   @Prop() hideOnBlur?: boolean = false;
-   @Watch('hideOnBlur')
-   hideOnBlurChanged() {
-     this.create();
-   }
+  @Prop() hideOnBlur?: boolean = false;
+
+  @Watch('hideOnBlur')
+  hideOnBlurChanged() {
+    this.create();
+  }
 
   /**
    * If true, hides the popper on esc.
    */
   @Prop() hideOnEsc?: boolean = false;
+
   @Watch('hideOnEsc')
   hideOnEscChanged() {
     this.create();
@@ -107,6 +123,16 @@ export class Popover implements ComponentInterface {
 
   @Watch('interactive')
   interactiveChanged() {
+    this.create();
+  }
+
+  @Prop() followCursor: Props['followCursor'] = false;
+
+  /**
+   * Determines if and how the popover follows the user's mouse cursor.
+   */
+  @Watch('followCursor')
+  followCursorChanged() {
     this.create();
   }
 
@@ -180,7 +206,6 @@ export class Popover implements ComponentInterface {
       console.warn(`The element with the id '${this.for}' could not be found.`);
     }
 
-
     const plugins = [];
     if (this.hideOnBlur) {
       plugins.push(hideOnPopperBlur);
@@ -189,12 +214,20 @@ export class Popover implements ComponentInterface {
       plugins.push(hideOnEsc);
     }
 
+    // in HTML to check if "false" was provided
+    const shouldFollowCursor = this.followCursor && (this.followCursor as any) !== "false";
+
+    if(shouldFollowCursor) {
+      plugins.push(followCursor)
+    }
+
     const options: Partial<Props> = {
       allowHTML: true,
       animation: 'scale-subtle',
-      appendTo: this.popoverContainer,
+      appendTo: this.attachToBody ? document.body : this.popoverContainer,
       content: this.popoverContent,
       duration: 100,
+      followCursor: shouldFollowCursor ? this.followCursor : false,
       placement: this.placement,
       trigger: this.trigger,
       offset: [0, this.distance],
@@ -209,7 +242,7 @@ export class Popover implements ComponentInterface {
               const datepickers = Array.from(
                 this.el.querySelectorAll('ino-datepicker')
               ) as HTMLInoDatepickerElement[];
-              datepickers?.forEach(datepicker => datepicker.redraw());
+              datepickers?.forEach((datepicker) => datepicker.redraw());
 
               const target = this.popoverContent.querySelector(
                 'ino-input[data-ino-focus],' +
@@ -232,9 +265,9 @@ export class Popover implements ComponentInterface {
                 this.visibleChanged.emit(false);
                 return false;
               }
-            }
-          })
-        }
+            },
+          }),
+        },
       ],
       onShow: () => {
         if (this.controlled && !this.visible) {
@@ -267,7 +300,6 @@ export class Popover implements ComponentInterface {
     return this.el.parentElement;
   }
 
-
   private handlePopoverClick(e: Event): void {
     if (!e.target) {
       return;
@@ -285,25 +317,21 @@ export class Popover implements ComponentInterface {
   render() {
     const popoverClasses = classNames(
       'ino-popover',
-      `ino-popover--color-scheme-${this.colorScheme}`
+      `ino-popover--color-scheme-${this.colorScheme}`,
+      'ino-popover__content'
     );
 
     return (
       <Host>
         <slot name="popover-trigger" />
-        <div
-          ref={(ref) => (this.popoverContainer = ref)}
-          class={popoverClasses}
-        >
+        <div ref={(ref) => (this.popoverContainer = ref)}>
           <div
-            class="ino-tooltip__composer ino-popover__content"
+            class={popoverClasses}
             role="tooltip"
             ref={(ref) => (this.popoverContent = ref)}
             onClick={this.handlePopoverClick.bind(this)}
           >
-            <div class="ino-tooltip__inner">
-              <slot></slot>
-            </div>
+            <slot></slot>
           </div>
         </div>
       </Host>

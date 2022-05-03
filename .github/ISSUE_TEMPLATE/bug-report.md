@@ -36,7 +36,7 @@ If CodeSandbox or Stackblitz is better suitable for reproduction of your issue, 
 * Web Components: https://stackblitz.com/edit/ino-elements-js-example
 * Angular: https://codesandbox.io/s/github/inovex/elements-example-angular
 * React: https://codesandbox.io/s/github/inovex/elements-example-react
-* Vue: https://codesandbox.io/s/github/inovex/elements-example-vue
+* Vue: https://codesandbox.io/s/github/inovex/elements-vue-example
 -->
 
 Steps to reproduce the behavior:
