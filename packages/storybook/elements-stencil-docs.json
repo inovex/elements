@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-01T14:24:16",
+  "timestamp": "2022-03-16T14:59:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -6997,27 +6997,6 @@
           "required": false
         },
         {
-          "name": "message",
-          "type": "string",
-          "mutable": false,
-          "attr": "message",
-          "reflectToAttr": false,
-          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
-          "docsTags": [
-            {
-              "name": "deprecated"
-            }
-          ],
-          "deprecation": "",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "stayVisibleOnHover",
           "type": "boolean",
           "mutable": false,
@@ -8375,7 +8354,12 @@
       "tag": "ino-tooltip",
       "readme": "# ino-tooltip\n\nA tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-tooltip\n  for=\"<string>\"\n  label=\"<string>\"\n  placement=\"<string>\"\n  trigger=\"<string>\"\n>\n  Any desired HTML\n</ino-tooltip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <InoTooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Tooltip: React.FunctionComponent<Components.InoTooltipAttributes> = props => {\n  const { inoPlacement, inoTrigger, inoFor, inoLabel } = props;\n\n  return <InoTooltip inoFor={inoFor} inoLabel={inoLabel} inoPlacement={inoPlacement} inoTrigger={inoTrigger}>{props.children}</InoTooltip>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <Tooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n## Additional Hints\n",
       "docs": "A tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default The text shown in the tooltip."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -8430,8 +8414,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The text shown in the tooltip.",
-          "docsTags": [],
+          "docs": "The text shown in the tooltip.\n\n[DEPRECATED] Please use the default slot instead",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -8605,7 +8594,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default The text shown in the tooltip.",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "dependents": [
         "ino-fab"

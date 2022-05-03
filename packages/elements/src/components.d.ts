@@ -1331,7 +1331,8 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -3098,7 +3099,8 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
