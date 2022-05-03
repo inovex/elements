@@ -227,13 +227,13 @@ Contains typed input in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['currencyLocale', 'unit', 'value']
+  inputs: ['currencyLocale', 'value']
 })
 @Component({
   selector: 'ino-currency-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['currencyLocale', 'unit', 'value']
+  inputs: ['currencyLocale', 'value']
 })
 export class InoCurrencyInput {
   protected el: HTMLElement;

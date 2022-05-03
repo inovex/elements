@@ -32,11 +32,6 @@ export class CurrencyInput {
   @Prop() currencyLocale?: string;
 
   /**
-   * Shows a corresponding unit symbole in the input-field
-   */
-  @Prop() unit?: string;
-
-  /**
    * Numeric currency value
    */
   @Prop({ reflect: true }) value: number | string;
