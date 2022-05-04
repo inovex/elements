@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-03-16T14:59:25",
+  "timestamp": "2022-05-04T07:50:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -977,6 +977,10 @@
       "docsTags": [
         {
           "name": "slot",
+          "text": "default - The label text of the chip"
+        },
+        {
+          "name": "slot",
           "text": "icon-leading - For the icon to be prepended"
         },
         {
@@ -1077,8 +1081,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The content of the component.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\n\nThe content of the component.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -1185,6 +1194,10 @@
       ],
       "styles": [],
       "slots": [
+        {
+          "name": "default",
+          "docs": "The label text of the chip"
+        },
         {
           "name": "icon-leading",
           "docs": "For the icon to be prepended"
@@ -6988,6 +7001,27 @@
           "reflectToAttr": false,
           "docs": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
           "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
