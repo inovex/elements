@@ -149,7 +149,8 @@ export namespace Components {
          */
         "fill": ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label": string;
         /**
@@ -1833,7 +1834,8 @@ declare namespace LocalJSX {
          */
         "fill"?: ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label"?: string;
         /**
