@@ -12,6 +12,7 @@
     width: var(--input-width, max-content);
     max-height: var(--ino-autocomplete-list-max-height, 225px);
     position: absolute;
+    top: 76px;
     z-index: 10;
     background-color: white;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
