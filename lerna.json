@@ -3,7 +3,7 @@
     "packages/*",
     "packages/elements-angular/elements/**"
   ],
-  "version": "6.1.5",
+  "version": "6.1.6",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
