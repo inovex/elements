@@ -5,7 +5,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 6.1.5 (2022-04-19)
 
-**Note:** Version bump only for package core
+**Note:** Version bump only for package coret
 
 
 
