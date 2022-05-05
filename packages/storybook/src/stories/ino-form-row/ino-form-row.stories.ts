@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-form-row.scss';
@@ -15,10 +16,10 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
+    story => decorateStoryWithClass(story),
+    story => {
       useEffect(() => {
-        const valueChangeHandler = function (e) {
+        const valueChangeHandler = function(e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
             return;
           }
@@ -40,15 +41,20 @@ export default {
   ],
 } as Meta;
 
-export const Playground: Story<Components.InoFormRow> = (args) => html`
-  <ino-form-row
-    class="customizable-form-row"
-    label="${args.label}"
-    mandatory="${args.mandatory}"
-  >
-    <ino-input></ino-input>
-  </ino-form-row>
-`;
+const template = new TemplateGenerator<Components.InoFormRow>(
+  'ino-button',
+  args => html`
+    <ino-form-row
+      class="customizable-form-row"
+      label="${args.label}"
+      mandatory="${args.mandatory}"
+    >
+      <ino-input></ino-input>
+    </ino-form-row>
+  `
+);
+
+export const Playground = template.generatePlaygroundStory();
 
 Playground.args = {
   label: 'Label',
