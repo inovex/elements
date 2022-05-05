@@ -42,7 +42,7 @@ export default {
 } as Meta;
 
 const template = new TemplateGenerator<Components.InoFormRow>(
-  'ino-button',
+  'ino-form-row',
   args => html`
     <ino-form-row
       class="customizable-form-row"
