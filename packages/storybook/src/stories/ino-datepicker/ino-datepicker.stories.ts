@@ -34,7 +34,7 @@ export default {
 } as Meta<Components.InoDatepicker>;
 
 const template = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker
       class="customizable-picker"
@@ -63,7 +63,7 @@ const template = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker
       type="datetime"
@@ -86,7 +86,7 @@ const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker
       label="Predefined value"
@@ -127,7 +127,7 @@ const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateVariations = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker
       type="time"
@@ -139,7 +139,7 @@ const templateVariations = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateStates = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker label="Disabled" disabled></ino-datepicker>
     <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
@@ -148,7 +148,7 @@ const templateStates = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateInline = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker
       style="width: 340px"
@@ -159,7 +159,7 @@ const templateInline = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <ino-datepicker lang="en" label="English"></ino-datepicker>
     <ino-datepicker
@@ -177,7 +177,7 @@ const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     ${useEffect(registerInlineDatepickerHandler)}
     <div lang="de" class="datepicker-group">
@@ -210,7 +210,7 @@ const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
 );
 
 const templateRequiredForm = new TemplateGenerator<Components.InoDatepicker>(
-  'ino-datepciker',
+  'ino-datepicker',
   args => html`
     <form>
       <ino-datepicker
