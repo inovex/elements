@@ -2,6 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-markdown-editor.scss';
 
@@ -16,8 +17,8 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-markdown-editor'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-markdown-editor'),
+    story => {
       useEffect(() => {
         const viewModeChangeHandler = (e: CustomEvent<string>) => {
           const editor = document.getElementById(
@@ -36,13 +37,18 @@ export default {
   ],
 } as Meta;
 
-export const Playground: Story<Components.InoMarkdownEditor> = (args) => html`
-  <ino-markdown-editor
-    id="${ID}"
-    initial-value="${args.initialValue}"
-    view-mode="${args.viewMode}"
-  ></ino-markdown-editor>
-`;
+const template = new TemplateGenerator<Components.InoMarkdownEditor>(
+  'ino-markdown-editor',
+  args => html`
+    <ino-markdown-editor
+      id="${ID}"
+      initial-value="${args.initialValue}"
+      view-mode="${args.viewMode}"
+    ></ino-markdown-editor>
+  `
+);
+
+export const Playground = template.generatePlaygroundStory();
 
 Playground.args = {
   initialValue: '',
