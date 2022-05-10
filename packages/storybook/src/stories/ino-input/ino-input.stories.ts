@@ -214,7 +214,7 @@ export const NumberFormats = templateNumberFormats.generatePlaygroundStory();
 export const Metadata = templateMetadata.generatePlaygroundStory();
 
 Playground.args = {
-  autocomplete: 'false',
+  autocomplete: 'off',
   autoFocus: false,
   dataList: '',
   disabled: false,
