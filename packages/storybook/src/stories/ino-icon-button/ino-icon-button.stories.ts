@@ -185,6 +185,35 @@ export const Variations = () => html`
   </div>
 `;
 
+export const CSSProperties = (args) => {
+  return html`
+    <style>
+      .customizable-icon-button {
+        --ino-icon-button-background-disabled-color: ${args.inoIconButtonBackgroundDisabledColor};
+        --ino-icon-button-icon-disabled-color: ${args.inoIconButtonIconDisabledColor};
+      }
+    </style>
+    <ino-icon-button
+      class="customizable-icon-button"
+      disabled="${args.disabled}"
+      filled="${args.filled}"
+      color-scheme="primary"
+      icon="time"
+    >
+    </ino-icon-button>
+  `;
+};
+CSSProperties.args = {
+  disabled: 'true',
+  filled: 'true',
+  inoIconButtonBackgroundDisabledColor: '#EB002D',
+  inoIconButtonIconDisabledColor: '#820F35'
+};
+CSSProperties.argTypes = {
+  inoIconButtonBackgroundDisabledColor: { control: 'color' },
+  inoIconButtonIconDisabledColor: { control: 'color' }
+}
+
 // import readme from '../../../../../elements/src/components/ino-icon-button/readme.md';
 // import { renderWithMermaid } from '../../../core/with-stencil-readme';
 // export const Documentation = () => renderWithMermaid(readme);
