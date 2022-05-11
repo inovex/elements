@@ -119,6 +119,25 @@ export const States = () => html`
           activated
         ></ino-icon-button>
       </div>
+
+      <div class="flex-child">
+        <h4>Disabled</h4>
+        <ino-icon-button
+          icon="time"
+          color-scheme="primary"
+          disabled
+        ></ino-icon-button>
+      </div>
+
+      <div class="flex-child">
+        <h4>Disabled (filled)</h4>
+        <ino-icon-button
+          icon="time"
+          color-scheme="primary"
+          disabled
+          filled
+        ></ino-icon-button>
+      </div>
     </div>
   </div>
 `;
