@@ -123,6 +123,8 @@ export class IconButton implements ComponentInterface {
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
       'mdc-ripple-upgraded--background-focused': this.activated,
+      'ino-icon-button-filled': this.filled,
+      'ino-icon-button--disabled': this.disabled,
     });
 
     return (

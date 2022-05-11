@@ -77,7 +77,19 @@ ino-icon-button {
     }
   }
 
-  button:disabled ino-icon {
-    --icon-color: #{theme.color(dark, light)};
+  // Disabled
+
+  .ino-icon-button--disabled.ino-icon-button-filled {
+    --ino-icon-button-background-color: #{theme.color(dark, light)};
+
+    ino-icon {
+      --ino-icon-button-icon-color: #fff;
+    }
+  }
+
+  .ino-icon-button--disabled:not(.ino-icon-button-filled) {
+    ino-icon {
+      --ino-icon-button-icon-color: #{theme.color(dark, light)};
+    }
   }
 }
