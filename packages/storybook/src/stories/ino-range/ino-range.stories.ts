@@ -1,6 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withColorScheme } from '../utils';
 import './ino-range.scss';
 import { useEffect } from '@storybook/client-api';
@@ -9,26 +10,37 @@ export default {
   title: 'Input/<ino-range>',
   component: 'ino-range',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-range'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-range'),
+    story => {
       useEffect(() => {
         const eventHandler = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).value = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
-        inoRanges.forEach((r) =>
-          r.addEventListener('valueChange', eventHandler)
-        );
+        inoRanges.forEach(r => r.addEventListener('valueChange', eventHandler));
         return () =>
-          inoRanges.forEach((r) =>
+          inoRanges.forEach(r =>
             r.removeEventListener('valueChange', eventHandler)
           );
       });
       return story();
     },
   ],
-} as Meta;
+  args: {
+    disabled: false,
+    discrete: false,
+    min: 0,
+    max: 100,
+    name: '',
+    markers: false,
+    value: 50,
+    step: 1,
+    colorScheme: 'primary',
+  }
+} as Meta<Components.InoRange>;
 
-export const Playground: Story<Components.InoRange> = (args) => html`
+const template = new TemplateGenerator<Components.InoRange>(
+  'ino-range',
+  args => html`
   <ino-range
     class="customizable-range"
     disabled="${args.disabled}"
@@ -39,24 +51,12 @@ export const Playground: Story<Components.InoRange> = (args) => html`
     markers="${args.markers}"
     value="${args.value}"
     step="${args.step}"
-    color-scheme="${args.colorScheme}"
-  >
-  </ino-range>
-`;
+    color-scheme="${args.colorScheme}"></ino-range>
+`);
 
-Playground.args = {
-  disabled: false,
-  discrete: false,
-  min: 0,
-  max: 100,
-  name: '',
-  markers: false,
-  value: 50,
-  step: 1,
-};
-withColorScheme(Playground, 'colorScheme');
-
-export const Colors = () => html`
+const templateColors = new TemplateGenerator<Components.InoRange>(
+  'ino-range',
+  args => html`
   <div class="flex-parent">
     <div class="flex-child">
       <h5>primary</h5>
@@ -102,26 +102,17 @@ export const Colors = () => html`
       <ino-range color-scheme="dark" min="0" max="100" value="50"></ino-range>
     </div>
   </div>
-`;
+`);
 
-export const DiscretRange = () => html`
-  <ino-range
-    color-scheme="primary"
-    min="0"
-    max="100"
-    value="50"
-    discrete
-  ></ino-range>
-`;
+export const Playground = template.generatePlaygroundStory();
+export const DiscretRange = template.generateStoryForProp('discrete', true);
+export const SteppedRange = template.generateStoryForProp('step', 25);
+export const ColorSchemeSecondary = templateColors.generateStoryForProp('colorScheme', 'primary');
 
-export const SteppedRange = () => html`
-  <ino-range
-    color-scheme="primary"
-    min="0"
-    max="100"
-    value="50"
-    step="25"
-    discrete
-    markers
-  ></ino-range>
-`;
+withColorScheme(Playground, 'colorScheme');
+
+SteppedRange.args = {
+  discrete: true,
+  markers: true,
+  step: 25,
+};
