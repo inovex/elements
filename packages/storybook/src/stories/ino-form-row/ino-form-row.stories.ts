@@ -39,24 +39,23 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  args: {
+    label: 'Label',
+    mandatory: false,
+  }
+} as Meta<Components.InoFormRow>;
 
 const template = new TemplateGenerator<Components.InoFormRow>(
   'ino-form-row',
   args => html`
-    <ino-form-row
-      class="customizable-form-row"
-      label="${args.label}"
-      mandatory="${args.mandatory}"
-    >
-      <ino-input></ino-input>
-    </ino-form-row>
-  `
-);
+  <ino-form-row
+    class="customizable-form-row"
+    label="${args.label}"
+    mandatory="${args.mandatory}"
+  >
+    <ino-input></ino-input>
+  </ino-form-row>
+`);
 
 export const Playground = template.generatePlaygroundStory();
-
-Playground.args = {
-  label: 'Label',
-  mandatory: false,
-};
+export const Mandatory = template.generateStoryForProp('mandatory', true);
