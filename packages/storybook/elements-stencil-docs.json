@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-05-05T13:35:49",
+  "timestamp": "2022-05-12T09:00:14",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -99,7 +99,13 @@
           "passive": false
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-autocomplete-list-max-height",
+          "annotation": "prop",
+          "docs": "max height of option list"
+        }
+      ],
       "slots": [
         {
           "name": "default",
