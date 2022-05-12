@@ -44,29 +44,25 @@ type InoInputFileExtended = Components.InoInputFile & {
 const template = new TemplateGenerator<InoInputFileExtended>(
   'ino-input-file',
   args => html`
-    <ino-input-file
-      class="customizable-input"
-      accept="${args.accept}"
-      autoFocus="${args.autoFocus}"
-      disabled="${args.disabled}"
-      multiple="${args.multiple}"
-      required="${args.required}"
-      label="${args.label}"
-      label-selected="${args.labelSelected}"
-      drag-and-drop="${args.dragAndDrop}"
-      drag-and-drop-text="${args.dragAndDropText}"
-      drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"
-    >
-    </ino-input-file>
-  `
-);
+  <ino-input-file
+  class="customizable-input"
+  accept="${args.accept}"
+  autoFocus="${args.autoFocus}"
+  disabled="${args.disabled}"
+  multiple="${args.multiple}"
+  required="${args.required}"
+  label="${args.label}"
+  label-selected="${args.labelSelected}"
+  drag-and-drop="${args.dragAndDrop}"
+  drag-and-drop-text="${args.dragAndDropText}"
+  drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"></ino-input-file>
+`);
 
 const templateDragAndDrop = new TemplateGenerator<InoInputFileExtended>(
   'ino-input-file',
-  (args) => html`
-    <ino-input-file multiple drag-and-drop></ino-input-file>
-  `
-);
+  args => html`
+  <ino-input-file multiple drag-and-drop></ino-input-file>
+`);
 
 export const Playground = template.generatePlaygroundStory();
 export const DragAndDrop = templateDragAndDrop.generatePlaygroundStory();
