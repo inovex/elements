@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-04-28T13:58:01",
+  "timestamp": "2022-05-17T16:49:03",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -2945,7 +2945,12 @@
       "tag": "ino-icon-button",
       "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
       "docs": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "icon-leading - For the icon to be prepended"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -3061,7 +3066,13 @@
           "attr": "icon",
           "reflectToAttr": false,
           "docs": "The name of the icon of this element.",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "deprecated",
+              "text": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot."
+            }
+          ],
+          "deprecation": "This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.",
           "values": [
             {
               "type": "string"
@@ -3148,7 +3159,12 @@
           "docs": "size of the entire button"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "icon-leading",
+          "docs": "For the icon to be prepended"
+        }
+      ],
       "parts": [],
       "dependents": [
         "ino-carousel",

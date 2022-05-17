@@ -24,11 +24,11 @@ export const Playground = (args) => {
       activated="${args.activated}"
       disabled="${args.disabled}"
       filled="${args.filled}"
-      icon="${args.icon}"
       type="${args.type}"
       autofocus="${args.autofocus}"
       color-scheme="${args.colorScheme}"
     >
+      <ino-icon slot="icon-leading" icon="${args.icon}" />
     </ino-icon-button>
   `;
 };
@@ -55,42 +55,47 @@ export const Filled = () => html`
       <div class="flex-child">
         <h4>Primary</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="primary"
           filled
-        ></ino-icon-button>
+        >   
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Secondary</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="secondary"
           filled
-        ></ino-icon-button>
+        >    
+         <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Success</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="success"
           filled
-        ></ino-icon-button>
+        >
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Warning</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="warning"
           filled
-        ></ino-icon-button>
+        > 
+         <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Error</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="error"
           filled
-        ></ino-icon-button>
+        >
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
     </div>
   </div>
@@ -103,21 +108,23 @@ export const States = () => html`
         <h4>Activated (Managed)</h4>
         <ino-icon-button
           class="managed"
-          icon="time"
           color-scheme="primary"
           activated
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
 
       <div class="flex-child">
         <h4>Activated (Managed, Filled)</h4>
         <ino-icon-button
           class="managed"
-          icon="time"
           color-scheme="primary"
           filled
           activated
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
     </div>
   </div>
@@ -131,8 +138,9 @@ export const Variations = () => html`
         <ino-icon-button
           filled
           color-scheme="primary"
-          icon="time"
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>CSS Variables</h4>
@@ -143,9 +151,9 @@ export const Variations = () => html`
           --ino-icon-button-icon-active-color: white;
           --ino-icon-button-background-active-color: pink;
         "
-          icon="time"
         >
-        </ino-icon-button>
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Managed + Changing colors</h4>
@@ -157,14 +165,16 @@ export const Variations = () => html`
           --ino-icon-button-icon-active-color: red;
           --ino-icon-button-background-active-color: red;
         "
-          icon="time"
           activated
         >
-        </ino-icon-button>
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
     </div>
   </div>
 `;
+
+
 
 // import readme from '../../../../../elements/src/components/ino-icon-button/readme.md';
 // import { renderWithMermaid } from '../../../core/with-stencil-readme';
