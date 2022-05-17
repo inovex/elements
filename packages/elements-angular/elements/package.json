@@ -21,9 +21,6 @@
   "scripts": {
     "prepublishOnly": "cd ../ && yarn build"
   },
-  "publishConfig": {
-    "directory": "../dist"
-  },
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "dependencies"
