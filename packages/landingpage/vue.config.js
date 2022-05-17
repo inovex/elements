@@ -9,4 +9,4 @@ module.exports = defineConfig({
         return args;
       });
   }
-})
+});

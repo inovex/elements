@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "6.1.0",
+  "version": "6.2.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -52,7 +52,8 @@
     "test:e2e-watch": "stencil test --e2e --watch",
     "test:spec": "stencil test --spec",
     "test:spec-watch": "stencil test --spec --watch",
-    "icon:integrate-icons": "node scripts/integrateIcons.js"
+    "icon:integrate-icons": "node scripts/integrateIcons.js",
+    "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
   },
   "dependencies": {
     "@material/button": "^13.0.0",
@@ -94,6 +95,7 @@
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.4.0",
+    "@stencil/vue-output-target": "^0.6.0",
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/sass": "^1.5.2",
     "@types/classnames": "^2.2.6",

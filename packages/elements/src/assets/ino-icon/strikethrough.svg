@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20">
-  <g id="Durchgestrichen" transform="translate(2, -5.8)">
-    <text id="S" transform="translate(3 25)" fill="currentColor" font-size="25" font-family="Lato-Medium, Lato" font-weight="500"><tspan x="0" y="0">S</tspan></text>
-    <line id="Linie_4" data-name="Linie 4" x2="20" transform="translate(0 16.5)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/>
-  </g>
-</svg>
+<svg width="24" height="20" viewBox="0 0 24 20" xmlns="http://www.w3.org/2000/svg"><text fill="currentColor" font-family="Lato-Medium, Lato" font-size="25" font-weight="500" transform="translate(5 19.2)"><tspan x="0" y="0">S</tspan></text><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M2 10.7h20" data-name="Linie 4"/></svg>

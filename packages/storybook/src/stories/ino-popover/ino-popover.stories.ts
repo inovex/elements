@@ -23,6 +23,7 @@ export const Playground = (args) => html`
     distance="${args.distance}"
     for="${args.for}"
     interactive="${args.interactive}"
+    followCursor="${args.followCursor}"
     placement="${args.placement}"
     trigger="${args.trigger}"
     visible="${args.visible}"
@@ -171,3 +172,30 @@ export const ControlledPopover = () => {
     </ino-popover>
   `;
 };
+
+export const FollowCursor = () => html`
+  <ino-button>
+    Enabled
+    <ino-popover follow-cursor="true" placement="top">
+      <div class="popover-content">I follow in both directions</div>
+    </ino-popover>
+  </ino-button>
+  <ino-button>
+    Horizontal
+    <ino-popover follow-cursor="horizontal" placement="top">
+      <div class="popover-content">I only follow horizontally</div>
+    </ino-popover>
+  </ino-button>
+  <ino-button>
+    Vertical
+    <ino-popover follow-cursor="vertical" placement="top">
+      <div class="popover-content">I only follow vertically</div>
+    </ino-popover>
+  </ino-button>
+  <ino-button>
+    Initial
+    <ino-popover follow-cursor="initial" placement="top">
+      <div class="popover-content">I stay at the initial position</div>
+    </ino-popover>
+  </ino-button>
+`;
