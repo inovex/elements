@@ -24,12 +24,13 @@ export const Playground = (args) => {
       activated="${args.activated}"
       disabled="${args.disabled}"
       filled="${args.filled}"
-      icon="${args.icon}"
       type="${args.type}"
       autofocus="${args.autofocus}"
       color-scheme="${args.colorScheme}"
     >
-    </ino-icon-button>`;
+      <ino-icon slot="icon-leading" icon="${args.icon}" />
+    </ino-icon-button>
+  `;
 };
 Playground.args = {
   activated: false,
@@ -54,42 +55,47 @@ export const Filled = () => html`
       <div class="flex-child">
         <h4>Primary</h4>
         <ino-icon-button
-          icon='time'
           color-scheme="primary"
           filled
-        ></ino-icon-button>
+        >   
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Secondary</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="secondary"
           filled
-        ></ino-icon-button>
+        >    
+         <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Success</h4>
         <ino-icon-button
-          icon="time"  
           color-scheme="success"
           filled
-        ></ino-icon-button>
+        >
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Warning</h4>
         <ino-icon-button
-          icon="time"  
           color-scheme="warning"
           filled
-        ></ino-icon-button>
+        > 
+         <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Error</h4>
         <ino-icon-button
-          icon="time"
           color-scheme="error"
           filled
-        ></ino-icon-button>
+        >
+          <ino-icon slot='icon-leading' icon='time'></ino-icon>
+        </ino-icon-button>
       </div>
     </div>
   </div>
@@ -101,22 +107,24 @@ export const States = () => html`
       <div class="flex-child">
         <h4>Activated (Managed)</h4>
         <ino-icon-button
-          icon="time"  
           class="managed"
           color-scheme="primary"
           activated
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
 
       <div class="flex-child">
         <h4>Activated (Managed, Filled)</h4>
         <ino-icon-button
-          icon="time"  
           class="managed"
           color-scheme="primary"
           filled
           activated
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
     </div>
   </div>
@@ -128,36 +136,39 @@ export const Variations = () => html`
       <div class="flex-child">
         <h4>Filled primary</h4>
         <ino-icon-button
-          icon="time"  
           filled
           color-scheme="primary"
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>CSS Variables</h4>
         <ino-icon-button
-          icon="time"  
           style="
           --ino-icon-button-icon-color: white;
           --ino-icon-button-background-color: purple;
           --ino-icon-button-icon-active-color: white;
           --ino-icon-button-background-active-color: pink;
         "
-        ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Managed + Changing colors</h4>
         <ino-icon-button
-          icon="time"  
           class="managed"
           style="
           --ino-icon-button-icon-color: gray;
           --ino-icon-button-background-color: transparent;
           --ino-icon-button-icon-active-color: red;
           --ino-icon-button-background-active-color: red;
-          "
+        "
           activated
-          ></ino-icon-button>
+        >
+        <ino-icon slot='icon-leading' icon='time'></ino-icon>
+      </ino-icon-button>
       </div>
     </div>
   </div>
