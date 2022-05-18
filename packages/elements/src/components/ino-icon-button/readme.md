@@ -41,7 +41,24 @@ class MyComponent extends Component {
 }
 ```
 
-#### Example #2 - With Types
+#### Example #2 - Using default slot
+
+```js
+import { Component } from 'react';
+import { InoIconButton } from '@inovex.de/elements/dist/react';
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`IconButton was clicked`);
+  };
+  render() {
+    return <InoIconButton onClick={handleClick}>
+       <ino-icon icon='time'></ino-icon>
+    </InoIconButton>;
+  } 
+}
+```
+
+#### Example #3 - With Types
 
 ```js
 import React, { Component } from 'react';
@@ -113,7 +130,7 @@ The component bubbles the native `click`-Event to the user.
 | `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.             | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
 | `disabled`    | `disabled`     | Disables this element.                                                                                                                                                                                            | `boolean`                                                                            | `undefined` |
 | `filled`      | `filled`       | Styles this element as filled icon button with the `ino-color-scheme` as background color.                                                                                                                        | `boolean`                                                                            | `undefined` |
-| `icon`        | `icon`         | <span style="color:red">**[DEPRECATED]**</span> This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.<br/><br/>The name of the icon of this element. | `string`                                                                             | `undefined` |
+| `icon`        | `icon`         | The name of the icon of this element. | `string`                                                                             | `undefined` |
 | `type`        | `type`         | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                              | `"button" \| "reset" \| "submit"`                                                    | `'button'`  |
 
 
