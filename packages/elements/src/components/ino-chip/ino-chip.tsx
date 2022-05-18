@@ -91,7 +91,7 @@ export class Chip implements ComponentInterface {
    */
   @Event() chipRemoved: EventEmitter<string>;
 
-  private iconClicked(e: MouseEvent) {
+  private iconClicked = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     this.chipRemoved.emit(this.value);
@@ -214,6 +214,7 @@ export class Chip implements ComponentInterface {
                 tabIndex={-1}
                 data-mdc-deletable="true"
                 disabled={this.disabled}
+                onClick={(e) => this.iconClicked(e)}
               >
                 <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--trailing" />
                 <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--trailing ino-chip-trailing-icon">
@@ -224,7 +225,6 @@ export class Chip implements ComponentInterface {
                       tabindex="0"
                       role="button"
                       clickable={true}
-                      onClick={(e) => this.iconClicked(e)}
                     />
                   ) : (
                     <slot name="icon-trailing" />

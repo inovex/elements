@@ -114,6 +114,11 @@ ino-list-item {
       }
     }
 
+    // vertical align meta item
+    .mdc-deprecated-list-item__meta {
+      display: flex;
+    }
+
     &:hover {
       background-color: var(--list-item-deselected-background-color-hover);
     }

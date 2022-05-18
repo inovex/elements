@@ -1,4 +1,28 @@
 # Changelog
+## [6.2.0](https://github.com/inovex/elements/compare/v6.1.0...v6.2.0) (2022-04-22)
+
+
+### Features
+
+* **elements|ino-popover:** add option to attach popover to body ([#575](https://github.com/inovex/elements/issues/575)) ([6b18745](https://github.com/inovex/elements/commit/6b18745b866ab498993ce5057488790703c6c8c0))
+
+
+### Bug Fixes
+
+* **elements|ino-chip:** fix `chipRemoved` event not firing in some cases ([#565](https://github.com/inovex/elements/issues/565)) ([aa15ea7](https://github.com/inovex/elements/commit/aa15ea740d6054c500aab9a079cb7903687655e3))
+* **elements|ino-datepicker:** fix datepicker hiding after input ([#555](https://github.com/inovex/elements/issues/555)) ([1b30c16](https://github.com/inovex/elements/commit/1b30c1604d5b1fd3edc069be7105728d8cf4c5f9))
+* **elements|ino-list-item:** fix vertical alignment of trailing element ([#564](https://github.com/inovex/elements/issues/564)) ([71d9b93](https://github.com/inovex/elements/commit/71d9b9310fff0de5e728da30603b235511674fac))
+
+
+### Documentation
+
+* **elements:** revise docs of ino-header and ino-datepicker ([#560](https://github.com/inovex/elements/issues/560)) ([b286ad4](https://github.com/inovex/elements/commit/b286ad4fad4dc5291d220618930fa7ecea9d9db1))
+
+
+### Miscellaneous
+
+* add svgo to minimize icons and autoadd currentColor ([#562](https://github.com/inovex/elements/issues/562)) ([7e078f5](https://github.com/inovex/elements/commit/7e078f5280b46b474715c6394b18876750906521))
+
 ## [6.1.0](https://github.com/inovex/elements/compare/v6.0.0...v6.1.0) (2022-03-10)
 
 

@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
-import { Placement } from "tippy.js";
+import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
@@ -859,6 +859,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody": boolean;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
@@ -870,6 +874,7 @@ export namespace Components {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        "followCursor": Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
@@ -2589,6 +2594,10 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody"?: boolean;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
@@ -2600,6 +2609,7 @@ declare namespace LocalJSX {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        "followCursor"?: Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */

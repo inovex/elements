@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="22px" height="20px" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/reload</title>
-    <g id="elements-library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="00.16-icons" transform="translate(-919.000000, -1681.000000)" stroke="currentColor" stroke-width="1.5">
-            <g id="Group" transform="translate(918.000000, 1679.000000)">
-                <g transform="translate(2.000000, 3.000000)">
-                    <path d="M18.6602123,6.48419151 C17.5717225,2.73801296 14.1138881,0 10.0165565,0 C5.60597088,0 1.93640353,3.17267654 1.16556529,7.36031882 M1.54809807,12.0543963 C2.79883481,15.5215296 6.11825678,18 10.0165565,18 C14.3759735,18 18.011466,14.900511 18.8395525,10.7850147" id="Shape"></path>
-                    <polyline id="Path-20" points="0 3 0 8 5 8"></polyline>
-                    <polyline id="Path-20" transform="translate(17.500000, 12.500000) scale(-1, -1) translate(-17.500000, -12.500000) " points="15 10 15 15 20 15"></polyline>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M19.66 7.484a9.004 9.004 0 0 0-17.494.876m.382 4.694a9.004 9.004 0 0 0 17.292-1.269"/><path d="M1 4v5h5m15 7v-5h-5"/></g></svg>

@@ -1,10 +1,9 @@
 @use 'base/theme';
 
 $row-active-color: theme.color(secondary);
-$row-hover-border-color: #D4DDEA; // TODO: Move color
-$row-alt-background-color: #F6F8FB; // TODO: Move color
+$row-hover-border-color: #d4ddea; // TODO: Move color
+$row-alt-background-color: #f6f8fb; // TODO: Move color
 $row-alt-hover-background-color: $row-alt-background-color;
-
 
 @mixin core-styles() {
   tr {
@@ -23,14 +22,22 @@ $row-alt-hover-background-color: $row-alt-background-color;
 
 @mixin active-row() {
   .ino-table__row--active {
-    td, td:first-child, td:last-child,
-    th, th:first-child, th:last-child {
+    td,
+    td:first-child,
+    td:last-child,
+    th,
+    th:first-child,
+    th:last-child {
       border-color: rgba($row-active-color, 0.64);
     }
 
     &:hover {
-      td, td:first-child, td:last-child,
-      th, th:first-child, th:last-child {
+      td,
+      td:first-child,
+      td:last-child,
+      th,
+      th:first-child,
+      th:last-child {
         border-color: $row-active-color !important;
       }
     }
@@ -44,8 +51,12 @@ $row-alt-hover-background-color: $row-alt-background-color;
         background-color: $row-alt-hover-background-color;
       }
 
-      td, td:first-child, td:last-child,
-      th, th:first-child, th:last-child {
+      td,
+      td:first-child,
+      td:last-child,
+      th,
+      th:first-child,
+      th:last-child {
         border-color: $row-hover-border-color;
       }
     }

@@ -43,7 +43,7 @@
 
     <ino-tab-bar
       :active-tab="tab"
-      @activeTabChange="e => tab = e.detail"
+      @activeTabChange="(e) => this.tab = e.detail"
     >
       <ino-tab
         label="Label1"
@@ -63,11 +63,11 @@
       />
     </ino-tab-bar>
 
-    <ino-input label="Input field" />
+    <ino-input label="Input field" v-model="textInput" />
 
     <ino-switch
       :checked="switchState"
-      @checkedChange="e => switchState = e.detail"
+      v-model="switchState"
     >
       Customizable Switch
     </ino-switch>
@@ -89,9 +89,8 @@
     </div>
 
     <ino-datepicker
-      :value="date"
       date-format="Y-m-d"
-      @valueChange="e => date = e.detail"
+      v-model="date"
     />
 
     <ino-chip
@@ -111,8 +110,34 @@
 
 <script>
 
+import {
+  InoButton, InoCard,
+  InoCheckbox,
+  InoChip,
+  InoDatepicker,
+  InoFab,
+  InoHeader,
+  InoIcon, InoIconButton, InoInput,
+  InoSwitch, InoTab, InoTabBar
+} from "@inovex.de/elements-vue";
+
 export default {
   name: 'IvxUiComponentsSection',
+  components: {
+    InoFab,
+    InoChip,
+    InoButton,
+    InoHeader,
+    InoCheckbox,
+    InoIcon,
+    InoDatepicker,
+    InoSwitch,
+    InoInput,
+    InoTab,
+    InoTabBar,
+    InoCard,
+    InoIconButton,
+  },
   data () {
     return {
       today: '',
@@ -121,7 +146,8 @@ export default {
       checked3: false,
       tab: 0,
       switchState: false,
-      date: undefined
+      date: undefined,
+      textInput: '',
     }
   },
   mounted () {
