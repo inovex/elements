@@ -14,12 +14,14 @@ export function getSlotContent(
 
 /**
  * Checks if the given element has at least one child node at the given slot
- * @param el The element which has a named slot inside
- * @param slotName The name of the slot to check
+ * @param el The element which has a (named) slot inside
+ * @param slotName The name of the slot to check. If not provided default slot is used.
  * @return `true` if a child at the slot exists, otherwise `false`
  */
-export function hasSlotContent(el: HTMLElement, slotName: string): boolean {
-  return el.querySelectorAll(`[slot="${slotName}"]`).length > 0;
+export function hasSlotContent(el: HTMLElement, slotName?: string): boolean {
+  return slotName 
+    ? el.querySelectorAll(`[slot="${slotName}"]`).length > 0 
+    : el.querySelector('slot')?.assignedElements().length === 0;
 }
 
 /**

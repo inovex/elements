@@ -486,7 +486,6 @@ export namespace Components {
         "filled"?: boolean;
         /**
           * The name of the icon of this element.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
          */
         "icon"?: string;
         /**
@@ -2195,7 +2194,6 @@ declare namespace LocalJSX {
         "filled"?: boolean;
         /**
           * The name of the icon of this element.
-          * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
          */
         "icon"?: string;
         /**

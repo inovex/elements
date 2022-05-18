@@ -17,7 +17,7 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ColorScheme, ButtonType } from '../types';
 
 /**
- * @slot icon-leading - For the icon to be prepended
+ * @slot default - `<ino-icon>`
  */
 @Component({
   tag: 'ino-icon-button',
@@ -69,7 +69,6 @@ export class IconButton implements ComponentInterface {
 
   /**
    * The name of the icon of this element.
-   * @deprecated This property is deprecated and will be removed with the next major release. Instead, use the `icon-leading` slot.
     */
   @Prop() icon?: string;
 
@@ -93,13 +92,6 @@ export class IconButton implements ComponentInterface {
       e.stopPropagation();
     } else {
       this.clickEl.emit();
-    }
-
-
-    if (this.icon) {
-      console.warn(
-        `Property 'icon' is deprecated and will be removed with the next major release. Instead, use the icon-leading slot.`
-      );
     }
   }
 
@@ -137,7 +129,7 @@ export class IconButton implements ComponentInterface {
       'mdc-ripple-upgraded--background-focused': this.activated,
     });
     
-    const iconSlotHasContent = hasSlotContent(this.el, 'icon-leading');
+    const iconSlotHasContent = hasSlotContent(this.el);
 
     return (
       <Host class={hostClasses}>
@@ -149,7 +141,7 @@ export class IconButton implements ComponentInterface {
         >
           <div class="mdc-icon-button__ripple"/>
           {this.icon && !iconSlotHasContent && <ino-icon icon={this.icon} class="mdc-icon-button__icon" /> }
-          {iconSlotHasContent && <slot name="icon-leading" />}
+          {iconSlotHasContent &&   <slot />}
         </button>
       </Host>
     );
