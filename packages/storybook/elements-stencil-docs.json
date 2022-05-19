@@ -1,5 +1,5 @@
 {
-  "timestamp": "2022-05-12T16:04:43",
+  "timestamp": "2022-05-12T13:19:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -339,68 +339,7 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--ino-button-color-primary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-primary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the primary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-primary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the primary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-primary-light",
-          "annotation": "prop",
-          "docs": "Light color of the primary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on active"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on hover"
-        },
-        {
-          "name": "--ino-button-color-secondary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-secondary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the secondary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-secondary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the secondary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-light",
-          "annotation": "prop",
-          "docs": "Light color of the secondary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on active"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",
