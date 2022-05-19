@@ -27,6 +27,9 @@ export default {
       return story();
     },
   ],
+  args: {
+    value: 'opt-2',
+  },
 } as Meta<Components.InoRadioGroup>;
 
 const template = new TemplateGenerator<Components.InoRadioGroup>(
@@ -39,12 +42,8 @@ const template = new TemplateGenerator<Components.InoRadioGroup>(
     </ino-radio-group>
   `
 );
-
 export const Playground = template.generatePlaygroundStory();
 
-Playground.args = {
-  value: 'opt-2',
-};
 Playground.argTypes = {
   value: {
     control: {
