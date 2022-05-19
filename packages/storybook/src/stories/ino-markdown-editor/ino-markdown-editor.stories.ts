@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -35,6 +35,10 @@ export default {
       return story();
     },
   ],
+  args: {
+    initialValue: '',
+    viewMode: 'preview',
+  }
 } as Meta;
 
 const template = new TemplateGenerator<Components.InoMarkdownEditor>(
@@ -47,10 +51,5 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
     ></ino-markdown-editor>
   `
 );
-
 export const Playground = template.generatePlaygroundStory();
 
-Playground.args = {
-  initialValue: '',
-  viewMode: 'preview',
-};
