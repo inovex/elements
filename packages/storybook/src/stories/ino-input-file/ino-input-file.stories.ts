@@ -34,6 +34,18 @@ export default {
       handles: ['changeFile .customizable-input'],
     },
   },
+  args: {
+    accept: '',
+    autoFocus: false,
+    disabled: false,
+    multiple: false,
+    required: false,
+    label: 'Select a file to upload',
+    labelSelected: 'selected',
+    dragAndDrop: false,
+    dragAndDropText: 'Drag your files here',
+    dragAndDropSecondaryText: 'or',
+  }
 } as Meta<Components.InoInputFile>;
 
 
@@ -57,25 +69,12 @@ const template = new TemplateGenerator<InoInputFileExtended>(
   drag-and-drop-text="${args.dragAndDropText}"
   drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"></ino-input-file>
 `);
+export const Playground = template.generatePlaygroundStory();
+
 
 const templateDragAndDrop = new TemplateGenerator<InoInputFileExtended>(
   'ino-input-file',
   args => html`
   <ino-input-file multiple drag-and-drop></ino-input-file>
 `);
-
-export const Playground = template.generatePlaygroundStory();
 export const DragAndDrop = templateDragAndDrop.generatePlaygroundStory();
-
-Playground.args = {
-  accept: '',
-  autoFocus: false,
-  disabled: false,
-  multiple: false,
-  required: false,
-  label: 'Select a file to upload',
-  labelSelected: 'selected',
-  dragAndDrop: false,
-  dragAndDropText: 'Drag your files here',
-  dragAndDropSecondaryText: 'or',
-};
