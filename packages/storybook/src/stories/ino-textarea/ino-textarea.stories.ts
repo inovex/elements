@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -10,7 +10,7 @@ export default {
   title: 'Input/ino-textarea',
   component: 'ino-textarea',
   parameters: {
-    actions: {
+    actions: {    
       handles: [
         'input .customizable-textarea',
         'valueChange .customizable-textarea',
@@ -18,8 +18,8 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-textarea'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-textarea'),
+    story => {
       useEffect(() => {
         const eventHandler = (e) => e.target.setAttribute('value', e.detail);
         const textareas = document.querySelectorAll('ino-textarea');
@@ -37,8 +37,6 @@ export default {
   args: {
     cols: 60,
     rows: 5,
-    placeholder: '',
-    value: '',
     label: 'Label',
     minlength: 0,
     maxlength: 30,
@@ -57,9 +55,7 @@ const template = new TemplateGenerator<Components.InoTextarea>(
   <ino-textarea
     class="customizable-textarea"
     cols="${args.cols}"
-    rows="${args.rows}"
-    placeholder="${args.placeholder}"
-    value="${args.value}"
+    rows="${args.rows}" 
     label="${args.label}"
     outline="${args.outline}"
     minlength="${args.minlength}"
@@ -77,8 +73,6 @@ const templateWithMaxLength = new TemplateGenerator<Components.InoTextarea>(
     class="customizable-textarea"
     cols="${args.cols}"
     rows="${args.rows}"
-    placeholder="${args.placeholder}"
-    value="${args.value}"
     label="${args.label}"
     outline="${args.outline}"
     minlength="${args.minlength}"
@@ -104,7 +98,7 @@ const templateLabels = new TemplateGenerator<Components.InoTextarea>(
   <ino-textarea
     label="Floating label"
     value="With value"
-    cols="30"
+    cols="30" 
     rows="3"
   ></ino-textarea>
 `);
