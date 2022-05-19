@@ -5,7 +5,7 @@
     "node": ">=14.17"
   },
   "scripts": {
-    "build": "lerna run build --stream",
+    "build": "lerna run build --ignore=elements-angular-example --stream && lerna run build --scope=elements-angular-example",
     "start": "(shx test -d ./packages/elements/dist || lerna run build --scope=@inovex.de/elements) && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
