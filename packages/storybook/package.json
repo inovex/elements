@@ -44,16 +44,17 @@
     "moment": "^2.24.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.17.12",
+    "@babel/plugin-transform-typescript": "^7.17.12",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
-    "@storybook/addon-actions": "^v6.5.0-beta.4 ",
-    "@storybook/addon-essentials": "^v6.5.0-beta.4 ",
-    "@storybook/addon-links": "^v6.5.0-beta.4 ",
-    "@storybook/addon-viewport": "^v6.5.0-beta.4 ",
-    "@storybook/builder-webpack5": "^v6.5.0-beta.4 ",
-    "@storybook/manager-webpack5": "^v6.5.0-beta.4 ",
-    "@storybook/theming": "^v6.5.0-beta.4 ",
-    "@storybook/web-components": "^v6.5.0-beta.4 ",
+    "@storybook/addon-actions": "^v6.5.0-beta.4",
+    "@storybook/addon-essentials": "^v6.5.0-beta.4",
+    "@storybook/addon-links": "^v6.5.0-beta.4",
+    "@storybook/addon-viewport": "^v6.5.0-beta.4",
+    "@storybook/builder-webpack5": "^v6.5.0-beta.4",
+    "@storybook/manager-webpack5": "^v6.5.0-beta.4",
+    "@storybook/theming": "^v6.5.0-beta.4",
+    "@storybook/web-components": "^v6.5.0-beta.4",
     "@types/node": "^12.0.4",
     "babel-loader": "8.2.2",
     "chalk": "^2.4.2",
@@ -68,7 +69,9 @@
     "react-dom": "^16.8.1",
     "sass": "^1.49.7",
     "sass-loader": "^12.6.0",
-    "story-description-loader": "^1.0.0"
+    "story-description-loader": "^1.0.0",
+    "webpack": "^5.0.0",
+    "typescript": "^4.2.4"
   },
   "resolutions": {
     "uglify-js": "3.6.4"

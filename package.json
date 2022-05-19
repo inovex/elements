@@ -5,8 +5,8 @@
     "node": ">=14.17"
   },
   "scripts": {
-    "build": "lerna run build --ignore=elements-angular-example --stream && lerna run build --scope=elements-angular-example",
-    "start": "lerna run build --scope=@inovex.de/elements && lerna run dev --parallel",
+    "build": "lerna run build --stream",
+    "start": "(shx test -d ./packages/elements/dist || lerna run build --scope=@inovex.de/elements) && lerna run dev --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",
@@ -51,7 +51,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "packages/elements-angular/elements/*"
+      "packages/elements-angular/*"
     ],
     "nohoist": [
       "**/@types/jasmine",
