@@ -82,6 +82,32 @@ const template = new TemplateGenerator<Components.InoSelect>(
     <ino-option value="Option 3">Option 3</ino-option>
   </ino-select>
 `);
+export const Playground = template.generatePlaygroundStory();
+export const Outlined = template.generateStoryForProp('outline', true);
+export const Disabled = template.generateStoryForProp('disabled', true);
+export const Error = template.generateStoryForProp('error', true);
+export const ShowLabelHint = template.generateStoryForProp(
+  'showLabelHint',
+  true
+);
+export const HelperMessage = template.generateStoryForProp(
+  'helper',
+  'My Helper Message',
+  { helperPersistent: true }
+);
+
+export const HelperMessageValidation = template.generateStoryForProp(
+  'helperValidation',
+  true,
+  {
+    value: null,
+    required: true,
+    helper: 'This message will be highlighted when no option has been selected',
+    helperPersistent: true
+  }
+);
+
+
 
 const templateWithIcon = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
@@ -103,6 +129,8 @@ const templateWithIcon = new TemplateGenerator<Components.InoSelect>(
     </ino-select>
   </div>
 `);
+export const WithIcon = templateWithIcon.generatePlaygroundStory();
+
 
 const templateForm = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
@@ -115,32 +143,5 @@ const templateForm = new TemplateGenerator<Components.InoSelect>(
     <ino-button type="submit">Submit</ino-button>
   </form>
 `);
-
-export const Playground = template.generatePlaygroundStory();
-
-export const Outlined = template.generateStoryForProp('outline', true);
-export const WithIcon = templateWithIcon.generatePlaygroundStory();
-export const Disabled = template.generateStoryForProp('disabled', true);
-export const HelperMessage = template.generateStoryForProp(
-  'helper',
-  'My Helper Message',
-  { helperPersistent: true }
-);
-
-export const HelperMessageValidation = template.generateStoryForProp(
-  'helperValidation',
-  true,
-  {
-    value: null,
-    required: true,
-    helper: 'This message will be highlighted when no option has been selected',
-    helperPersistent: true
-  }
-);
-
-export const Error = template.generateStoryForProp('error', true);
 export const Form = templateForm.generatePlaygroundStory();
-export const ShowLabelHint = template.generateStoryForProp(
-  'showLabelHint',
-  true
-);
+
