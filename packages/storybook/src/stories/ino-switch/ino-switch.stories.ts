@@ -28,6 +28,11 @@ export default {
       return story();
     },
   ],
+  args: {
+    checked: false,
+    disabled: false,
+    name: '',
+  }
 } as Meta<Components.InoSwitch>;
 
 const template = new TemplateGenerator<Components.InoSwitch>(
@@ -42,6 +47,9 @@ const template = new TemplateGenerator<Components.InoSwitch>(
     Switch Label
   </ino-switch>
 `);
+export const Playground = template.generatePlaygroundStory();
+withColorScheme(Playground, 'colorScheme', 'primary');
+
 
 const templateColorSchema = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
@@ -54,18 +62,6 @@ const templateColorSchema = new TemplateGenerator<Components.InoSwitch>(
   <ino-switch color-scheme="light" checked>Light</ino-switch>
   <ino-switch color-scheme="dark" checked>Dark</ino-switch>
 `);
-
-const templateStates = new TemplateGenerator<Components.InoSwitch>(
-  'ino-switch',
-  args => html`
-  <ino-switch checked>Checked</ino-switch>
-  <ino-switch>Unchecked</ino-switch>
-  <ino-switch disabled checked>Checked and Disabled</ino-switch>
-  <ino-switch disabled>Disabled</ino-switch>
-`);
-
-export const Playground = template.generatePlaygroundStory();
-
 /**
  * Change the color scheme by setting `color-schema` with the following values:
  * 
@@ -77,8 +73,17 @@ export const Playground = template.generatePlaygroundStory();
  * - `light`
  * - `dark`
  */
-export const ColorScheme = templateColorSchema.generatePlaygroundStory();
+ export const ColorScheme = templateColorSchema.generatePlaygroundStory();
 
+
+const templateStates = new TemplateGenerator<Components.InoSwitch>(
+  'ino-switch',
+  args => html`
+  <ino-switch checked>Checked</ino-switch>
+  <ino-switch>Unchecked</ino-switch>
+  <ino-switch disabled checked>Checked and Disabled</ino-switch>
+  <ino-switch disabled>Disabled</ino-switch>
+`);
 /**
  * Change the state of the `<ino-switch>` element by setting the following properties
  * 
@@ -87,9 +92,3 @@ export const ColorScheme = templateColorSchema.generatePlaygroundStory();
  */
 export const States = templateStates.generatePlaygroundStory();
 
-Playground.args = {
-  checked: false,
-  disabled: false,
-  name: '',
-};
-withColorScheme(Playground, 'colorScheme', 'primary');
