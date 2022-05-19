@@ -78,6 +78,8 @@ const template = new TemplateGenerator<Components.InoDatepicker>(
     value="${args.value}"
   ></ino-datepicker>
 `);
+export const Playground = template.generatePlaygroundStory();
+
 
 const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -100,6 +102,8 @@ const templateFormats = new TemplateGenerator<Components.InoDatepicker>(
     label="Month"
   ></ino-datepicker>
 `);
+export const DateFormats = templateFormats.generateStoryForProp('dateFormat', '')
+
 
 const templateTwelveHourTime = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -111,6 +115,8 @@ const templateTwelveHourTime = new TemplateGenerator<Components.InoDatepicker>(
     twelve-hour-time
   ></ino-datepicker>
 `);
+export const TwelveHourTime = templateTwelveHourTime.generateStoryForProp('twelveHourTime', true)
+
 
 const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -151,6 +157,26 @@ const templateRestrictions = new TemplateGenerator<Components.InoDatepicker>(
     default-minute="49"
   ></ino-datepicker>
 `);
+/**
+ * Various restrictions like the ones shown 
+ * can be achieved by setting the properties `min`, `max`, `value`, `hour-step`, `minute-step`, `default-hour` or `default-minute` values.
+ * 
+ * - `min`: The minimum date that a user can start picking from (inclusive).
+ * 
+ * - `max`: The maximum date that a user can pick to (inclusive).
+ * 
+ * - `value`: The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
+ * 
+ * - `hour-step`: Adjusts the step for the hour input (incl. scrolling) Default is 1
+ * 
+ * - `minute-step`: Adjusts the step for the minute input (incl. scrolling) Default is 5
+ * 
+ * - `default-hour`: A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
+ * 
+ * - `default-minute`: A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
+ */
+ export const Restrictions = templateRestrictions.generatePlaygroundStory();
+ 
 
 const templateStates = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -159,6 +185,17 @@ const templateStates = new TemplateGenerator<Components.InoDatepicker>(
   <ino-datepicker label="Required" required show-label-hint></ino-datepicker>
   <ino-datepicker label="Optional" show-label-hint></ino-datepicker>
 `);
+/**
+ * Different states are achived by setting the properties `disabled`, `required` or `show-label-hint`.
+ * 
+ * - `disabled`: Disables this element.
+ * 
+ * - `required`: Marks this element as required.
+ * 
+ * - `show-label-hint`: If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
+ */
+ export const States = templateStates.generatePlaygroundStory();
+
 
 const templateInline = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -169,6 +206,8 @@ const templateInline = new TemplateGenerator<Components.InoDatepicker>(
     inline="true"
   ></ino-datepicker>
 `);
+export const Inline = templateInline.generateStoryForProp('inline', true);
+
 
 const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -186,6 +225,10 @@ const templateLocale = new TemplateGenerator<Components.InoDatepicker>(
     label="German range"
   ></ino-datepicker>
 `);
+/**
+ * The language of the ino-datepicker can by set by `lang`
+ */
+ export const Locale = templateLocale.generatePlaygroundStory();
 
 const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -218,6 +261,8 @@ const templateMultipleTypes = new TemplateGenerator<Components.InoDatepicker>(
     </main>
   </div>
 `);
+export const MultipleTypes = templateMultipleTypes.generatePlaygroundStory();
+
 
 const templateRequiredForm = new TemplateGenerator<Components.InoDatepicker>(
   'ino-datepicker',
@@ -231,73 +276,11 @@ const templateRequiredForm = new TemplateGenerator<Components.InoDatepicker>(
     <ino-button type="submit">Submit</ino-button>
   </form>
 `);
-
-export const Playground = template.generatePlaygroundStory();
-export const DateFormats = templateFormats.generateStoryForProp('dateFormat', '')
-
-/**
- * Various restrictions like the ones shown 
- * can be achieved by setting the properties `min`, `max`, `value`, `hour-step`, `minute-step`, `default-hour` or `default-minute` values.
- * 
- * - `min`: The minimum date that a user can start picking from (inclusive).
- * 
- * - `max`: The maximum date that a user can pick to (inclusive).
- * 
- * - `value`: The currently selected date shown in the input field **unmanaged**. The given value will not be formatted as date.
- * 
- * - `hour-step`: Adjusts the step for the hour input (incl. scrolling) Default is 1
- * 
- * - `minute-step`: Adjusts the step for the minute input (incl. scrolling) Default is 5
- * 
- * - `default-hour`: A number containing the initial hour in the date-time picker overlay. If a `value` is given, this will be ignored.
- * 
- * - `default-minute`: A number containing the initial minute in the date-time picker overlay. If a `value` is given, this will be ignored.
- */
-export const Restrictions = templateRestrictions.generatePlaygroundStory();
-export const TwelveHourTime = templateTwelveHourTime.generateStoryForProp('twelveHourTime', true)
-
-/**
- * Different states are achived by setting the properties `disabled`, `required` or `show-label-hint`.
- * 
- * - `disabled`: Disables this element.
- * 
- * - `required`: Marks this element as required.
- * 
- * - `show-label-hint`: If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required.
- */
-export const States = templateStates.generatePlaygroundStory();
-export const Inline = templateInline.generateStoryForProp('inline', true);
-
-/**
- * The language of the ino-datepicker can by set by `lang`
- */
-export const Locale = templateLocale.generatePlaygroundStory();
-export const MultipleTypes = templateMultipleTypes.generatePlaygroundStory();
 /**
  * The form should not submit as long as the date field is empty
  */
 export const RequiredForm = templateRequiredForm.generatePlaygroundStory();
 
-Playground.args = {
-  attachToBody: true,
-  disabled: false,
-  dateFormat: 'Y-m-d',
-  helper: 'Helper text to describe the input',
-  helperPersistent: false,
-  helperValidation: false,
-  inline: false,
-  label: 'Label',
-  min: minDate,
-  max: maxDate,
-  outline: false,
-  range: false,
-  required: false,
-  error: false,
-  showLabelHint: false,
-  twelveHourTime: false,
-  type: 'date',
-  value: defaultDate,
-};
 
 Playground.argTypes = {
   type: {
