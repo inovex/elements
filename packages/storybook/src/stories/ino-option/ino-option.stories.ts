@@ -9,13 +9,16 @@ export default {
   title: 'Input/ino-option',
   component: 'ino-option',
   decorators: [story => decorateStoryWithClass(story, 'story-ino-option')],
+  args:{
+    disabled: false,
+    value: 'Content',
+  }
 } as Meta;
 
 type InoOptionGroupExtended = Components.InoOptionGroup & {
   disabled: boolean,
   value: string,
 };
-
 
 const template = new TemplateGenerator<InoOptionGroupExtended>(
   'ino-option-group',
@@ -40,6 +43,7 @@ const template = new TemplateGenerator<InoOptionGroupExtended>(
     </div>
   `
 );
+export const Playground = template.generatePlaygroundStory();
 
 const templateStates = new TemplateGenerator<Components.InoOptionGroup>(
   'ino-option-group',
@@ -55,11 +59,4 @@ const templateStates = new TemplateGenerator<Components.InoOptionGroup>(
     </div>
   `
 );
-
-export const Playground = template.generatePlaygroundStory();
 export const States = templateStates.generatePlaygroundStory();
-
-Playground.args = {
-  disabled: false,
-  value: 'Content',
-};
