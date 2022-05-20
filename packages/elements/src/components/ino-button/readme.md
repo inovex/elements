@@ -116,6 +116,24 @@ class MyComponent extends Component {
 | `"icon-trailing"` | For the icon to be appended  |
 
 
+## CSS Custom Properties
+
+| Name                                        | Description                                                             |
+| ------------------------------------------- | ----------------------------------------------------------------------- |
+| `--ino-button-color-primary`                | Color of the primary button                                             |
+| `--ino-button-color-primary-contrast`       | Contrast color of the primary button. Will be used for the text color   |
+| `--ino-button-color-primary-dark`           | Dark color of the primary button. Will be used for the active effect    |
+| `--ino-button-color-primary-light`          | Light color of the primary button. Will be used for the hover effect    |
+| `--ino-button-color-primary-shadow-dark`    | Shadow color of the primary button used on active                       |
+| `--ino-button-color-primary-shadow-light`   | Shadow color of the primary button used on hover                        |
+| `--ino-button-color-secondary`              | Color of the primary button                                             |
+| `--ino-button-color-secondary-contrast`     | Contrast color of the secondary button. Will be used for the text color |
+| `--ino-button-color-secondary-dark`         | Dark color of the secondary button. Will be used for the active effect  |
+| `--ino-button-color-secondary-light`        | Light color of the secondary button. Will be used for the hover effect  |
+| `--ino-button-color-secondary-shadow-dark`  | Shadow color of the secondary button used on active                     |
+| `--ino-button-color-secondary-shadow-light` | Shadow color of the secondary button used on hover                      |
+
+
 ## Dependencies
 
 ### Used by

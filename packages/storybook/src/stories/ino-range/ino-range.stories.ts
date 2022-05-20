@@ -13,20 +13,25 @@ export default {
     (story) => decorateStoryWithClass(story, 'story-range'),
     (story) => {
       useEffect(() => {
-        const eventHandler = (e: CustomEvent<number>) =>
+        const eventHandlerSingle = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).value = e.detail);
-          const eventHandlerRanged = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).rangedValue = e.detail);
+          const eventHandlerStart = (e: CustomEvent<number>) =>
+          ((e.target as HTMLInoRangeElement).valueStart = e.detail);
+          const eventHandlerEnd = (e: CustomEvent<number>) =>
+          ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
         inoRanges.forEach((r) => {
-          r.addEventListener('valueChange', eventHandler)
-          r.addEventListener('rangedValueChange', eventHandlerRanged)
+          r.addEventListener('valueChange', eventHandlerSingle);
+          r.addEventListener('valueStartChange', eventHandlerStart);
+          r.addEventListener('valueEndChange', eventHandlerEnd);
         }
         );
         return () =>
           inoRanges.forEach((r) => {
-            r.removeEventListener('valueChange', eventHandler)
-            r.removeEventListener('rangedValueChange', eventHandlerRanged)
+            r.removeEventListener('valueChange', eventHandlerSingle)
+            r.removeEventListener('valueStartChange', eventHandlerStart)
+            r.removeEventListener('valueEndChange', eventHandlerEnd)
+
           });
       });
       return story();
@@ -36,13 +41,12 @@ export default {
     disabled: false,
     discrete: false,
     min: 0,
-    rangedMin: 0,
     max: 100,
-    rangedMax: 100,
-    rangedValue: 70,
+    value: 50,
+    valueStart: 30,
+    valueEnd: 70,
     name: '',
     markers: false,
-    value: 50,
     step: 1,
     ranged: false,
 
@@ -64,9 +68,8 @@ const template = new TemplateGenerator<Components.InoRange>(
     value="${args.value}"
     step="${args.step}"
     ranged="${args.ranged}"
-    ranged-min="${args.rangedMin}"
-    ranged-max="${args.rangedMax}"
-    ranged-value="${args.rangedValue}"
+    value-start="${args.valueStart}"
+    value-end="${args.valueEnd}"
     color-scheme="${args.colorScheme}"
   >
   </ino-range>
@@ -77,11 +80,11 @@ export const Playground = template.generatePlaygroundStory();
 
 export const Discrete = template.generateStoryForProp('discrete', true);
 
-export const Markers = template.generateStoryForProp('markers', true, {discrete: true});
+export const Markers = template.generateStoryForProp('markers', true, {discrete: true });
 
 export const Ranged = template.generateStoryForProp('ranged', true, {
-  value: 30,
   min: 0,
   max: 100,
-  rangedValue: 70,
+  valueStart: 30,
+  valueEnd: 70,
 });

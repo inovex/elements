@@ -39,3 +39,8 @@ export function moveCursorToEnd(el: HTMLInputElement) {
     el.setSelectionRange(len, len);
   }
 }
+
+export function preventEvent(event: CustomEvent<unknown>) {
+  event.stopPropagation();
+  event.preventDefault();
+}

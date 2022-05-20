@@ -14,6 +14,7 @@ import {
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
+import {preventEvent} from "../../util/component-utils";
 
 @Component({
   tag: 'ino-range',
@@ -21,9 +22,9 @@ import { ColorScheme } from '../types';
   shadow: false,
 })
 export class Range implements ComponentInterface {
-  private rootEl: HTMLDivElement;
-  private inputEl: HTMLInputElement;
-  private inputEl2: HTMLInputElement;
+  private sliderEl: HTMLDivElement;
+  private inputElStart: HTMLInputElement; // default knob
+  private inputElEnd: HTMLInputElement; // is the right knob in ranged mode
   private sliderInstance!: MDCSlider;
 
   @Element() el!: HTMLInoRangeElement;
@@ -38,17 +39,12 @@ export class Range implements ComponentInterface {
    * Possible values: `primary` (default), `secondary`,
    * `success`, `warning`, `error`, `light`, `dark`.
    */
-  @Prop() colorScheme: ColorScheme = 'primary';
+  @Prop() colorScheme?: ColorScheme = 'primary';
 
   /**
    * Restricts the slider to only allow discrete values.
    */
   @Prop() discrete?: boolean;
-
-  /**
-  * Enables the ranged knob if set to true
-  */
-  @Prop() ranged = false;
 
   /**
    * Mark this slider to show the steps of the range.
@@ -73,45 +69,61 @@ export class Range implements ComponentInterface {
   @Prop() max: number;
 
   /**
-   * The value of this element. (**unmanaged**, default=`min`)
+   * The value of this element.
+   * Only applicable if not in ranged mode.
    */
   @Prop() value?: number;
 
   /**
-   * The value of the ranged element. (**unmanaged**, default=`min`)
+   * Allows to input an interval.
+   * Use `valueStart` and `valueEnd` to provide values.
    */
-  @Prop() rangedValue?: number;
+  @Prop() ranged = false;
+
+  /**
+   * The value of the left thumb.
+   * Only applicable in ranged mode.
+   */
+  @Prop() valueStart?: number;
+
+  /**
+   * The value of the right thumb.
+   * Only applicable in ranged mode.
+   */
+  @Prop() valueEnd?: number;
 
   @Watch('value')
+  @Watch('valueEnd')
   handleValueChange(newValue: number) {
-    console.log('value', newValue)
-    if(this.ranged) {
-      this.sliderInstance.setValueStart(newValue)
-    } else {
-      this.sliderInstance.setValue(newValue);
-    }
+    this.sliderInstance.setValue(newValue);
   }
 
-  @Watch('rangedValue')
+  @Watch('valueStart')
   handleRangedValueChanged(newValue: number) {
-    console.log('ranged value', newValue)
-      this.sliderInstance.setValue(newValue);
+    this.sliderInstance.setValueStart(newValue);
   }
 
   /**
    * The step size for this element.
    * Only applicable if `discrete` is enabled.
-   * Is used to calculate the number of markers (if enabled).
+   * Is used to calculate the number of markers.
    */
   @Prop() step?: number = 1;
 
   /**
-   * Emits when the value changes. Contains new value in `event.detail`.
+   * Emits when the value changes (not in ranged mode).
    */
   @Event() valueChange!: EventEmitter<number>;
 
-  @Event() rangedValueChange!: EventEmitter<number>;
+  /**
+   * Emits when the start (left) value of the interval changes (in ranged mode).
+   */
+  @Event() valueStartChange!: EventEmitter<number>;
 
+  /**
+   * Emits when the end (right) value of the interval changes (in ranged mode).
+   */
+  @Event() valueEndChange!: EventEmitter<number>;
 
   componentDidLoad() {
     /**
@@ -119,48 +131,45 @@ export class Range implements ComponentInterface {
      * prevents the underlying MDCSliderFoundation to be initialised properly as it is trying to acquire the values
      * of the min, max, and value attributes from the input element.
      */
-    console.log(this.value, this.rangedValue)
-    this.inputEl.setAttribute('value', `${this.value || this.min}`);
-    this.inputEl2?.setAttribute('value',  `${this.rangedValue}`)
-    this.sliderInstance = new MDCSlider(this.rootEl);
-    console.log(this.sliderInstance)
+    this.inputElEnd.setAttribute(
+      'value',
+      `${this.valueEnd || this.value || this.min}`
+    );
+    this.inputElStart?.setAttribute('value', `${this.valueStart}`);
+    this.sliderInstance = new MDCSlider(this.sliderEl);
 
-    this.sliderInstance.listen('MDCSlider:change', this.handleChange);
+    this.sliderInstance.listen('MDCSlider:change', preventEvent);
     this.sliderInstance.listen('MDCSlider:input', this.handleInput);
   }
 
   disconnectedCallback() {
-    this.sliderInstance?.unlisten('MDCSlider:change', this.handleChange);
+    this.sliderInstance?.unlisten('MDCSlider:change', preventEvent);
     this.sliderInstance?.unlisten('MDCSlider:input', this.handleInput);
     this.sliderInstance?.destroy();
   }
-
-  private handleChange = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
-    e.stopPropagation();
-    e.preventDefault();
-  };
 
   private handleInput = (e: CustomEvent<MDCSliderChangeEventDetail>) => {
     e.stopPropagation();
 
     const { thumb, value } = e.detail;
 
-    if(!this.ranged) {
+    if (!this.ranged) {
       this.sliderInstance.setValue(this.value); // reset value to make it controlled
       this.valueChange.emit(value);
       return;
     }
 
-    if(thumb === Thumb.START) {
-      this.sliderInstance.setValueStart(this.value);
-      this.valueChange.emit(value)
+    if (thumb === Thumb.START) {
+      this.sliderInstance.setValueStart(this.valueStart); // reset value to make it controlled
+      this.valueStartChange.emit(value);
+      return;
     }
 
-    if(thumb === Thumb.END) { // default
-      this.sliderInstance.setValue(this.rangedValue); // reset value to make it controlled
-      this.rangedValueChange.emit(value);
+    if (thumb === Thumb.END) {
+      this.sliderInstance.setValue(this.valueEnd); // reset value to make it controlled
+      this.valueEndChange.emit(value);
+      return;
     }
-
   };
 
   /**
@@ -195,29 +204,29 @@ export class Range implements ComponentInterface {
 
     return (
       <Host class={hostClasses}>
-        <div ref={(el) => (this.rootEl = el)} class={sliderClasses}>
+        <div ref={(el) => (this.sliderEl = el)} class={sliderClasses}>
+          {this.ranged && (
+            <input
+              ref={(el) => (this.inputElStart = el)}
+              class="mdc-slider__input"
+              type="range"
+              min={this.min}
+              max={this.valueEnd}
+              value={this.valueStart || this.max || 0}
+            />
+          )}
           <input
-            ref={(el) => (this.inputEl = el)}
+            ref={(el) => (this.inputElEnd = el)}
             class="mdc-slider__input"
             type="range"
-            min={this.min}
-            max={this.ranged ? this.rangedValue : this.max}
+            min={this.ranged ? this.valueStart : this.min}
+            max={this.max}
             step={this.step}
-            value={this.value || this.min || 0}
+            value={this.valueEnd || this.value || this.min || 0}
             disabled={this.disabled}
             name={this.name}
             aria-label={this.name}
           />
-          {this.ranged && (
-            <input
-              ref={(el) => (this.inputEl2 = el)}
-              class="mdc-slider__input"
-              type="range"
-              min={this.value}
-              max={this.max}
-              value={this.rangedValue || this.max || 0}
-            />
-          )}
           <div class="mdc-slider__track">
             <div class="mdc-slider__track--inactive" />
             <div class="mdc-slider__track--active">
@@ -234,17 +243,28 @@ export class Range implements ComponentInterface {
               <div class="mdc-slider__value-indicator-container" aria-hidden>
                 <div class="mdc-slider__value-indicator">
                   <span class="mdc-slider__value-indicator-text">
-                    {this.value || this.min}
+                    {this.value || this.valueStart}
                   </span>
                 </div>
               </div>
             )}
             <div class="mdc-slider__thumb-knob" />
           </div>
-
-          {this.ranged && (<div class="mdc-slider__thumb">
-            <div class="mdc-slider__thumb-knob"></div>
-          </div>)}
+          {this.ranged && (
+            <div class="mdc-slider__thumb">
+              <div
+                class="mdc-slider__value-indicator-container"
+                aria-hidden="true"
+              >
+                <div class="mdc-slider__value-indicator">
+                  <span class="mdc-slider__value-indicator-text">
+                    {this.valueEnd}
+                  </span>
+                </div>
+              </div>
+              <div class="mdc-slider__thumb-knob"></div>
+            </div>
+          )}
         </div>
       </Host>
     );
