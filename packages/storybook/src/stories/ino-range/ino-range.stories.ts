@@ -15,23 +15,21 @@ export default {
       useEffect(() => {
         const eventHandlerSingle = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).value = e.detail);
-          const eventHandlerStart = (e: CustomEvent<number>) =>
+        const eventHandlerStart = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).valueStart = e.detail);
-          const eventHandlerEnd = (e: CustomEvent<number>) =>
+        const eventHandlerEnd = (e: CustomEvent<number>) =>
           ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
         const inoRanges = document.querySelectorAll('ino-range');
         inoRanges.forEach((r) => {
           r.addEventListener('valueChange', eventHandlerSingle);
           r.addEventListener('valueStartChange', eventHandlerStart);
           r.addEventListener('valueEndChange', eventHandlerEnd);
-        }
-        );
+        });
         return () =>
           inoRanges.forEach((r) => {
-            r.removeEventListener('valueChange', eventHandlerSingle)
-            r.removeEventListener('valueStartChange', eventHandlerStart)
-            r.removeEventListener('valueEndChange', eventHandlerEnd)
-
+            r.removeEventListener('valueChange', eventHandlerSingle);
+            r.removeEventListener('valueStartChange', eventHandlerStart);
+            r.removeEventListener('valueEndChange', eventHandlerEnd);
           });
       });
       return story();
@@ -49,30 +47,29 @@ export default {
     markers: false,
     step: 1,
     ranged: false,
-
-  }
+  },
 } as Meta<Components.InoRange>;
 
 // the basic template for the checkbox component
 const template = new TemplateGenerator<Components.InoRange>(
   'ino-range',
   (args) => html`
-  <ino-range
-    class="customizable-range"
-    disabled="${args.disabled}"
-    min="${args.min}"
-    max="${args.max}"
-    name="${args.name}"
-    discrete="${args.discrete}"
-    markers="${args.markers}"
-    value="${args.value}"
-    step="${args.step}"
-    ranged="${args.ranged}"
-    value-start="${args.valueStart}"
-    value-end="${args.valueEnd}"
-    color-scheme="${args.colorScheme}"
-  >
-  </ino-range>
+    <ino-range
+      class="customizable-range"
+      disabled="${args.disabled}"
+      min="${args.min}"
+      max="${args.max}"
+      name="${args.name}"
+      discrete="${args.discrete}"
+      markers="${args.markers}"
+      value="${args.value}"
+      step="${args.step}"
+      ranged="${args.ranged}"
+      value-start="${args.valueStart}"
+      value-end="${args.valueEnd}"
+      color-scheme="${args.colorScheme}"
+    >
+    </ino-range>
   `
 );
 
@@ -80,11 +77,11 @@ export const Playground = template.generatePlaygroundStory();
 
 export const Discrete = template.generateStoryForProp('discrete', true);
 
-export const Markers = template.generateStoryForProp('markers', true, {discrete: true });
+export const Markers = template.generateStoryForProp('markers', true, {
+  discrete: true,
+});
 
 export const Ranged = template.generateStoryForProp('ranged', true, {
-  min: 0,
-  max: 100,
   valueStart: 30,
   valueEnd: 70,
 });

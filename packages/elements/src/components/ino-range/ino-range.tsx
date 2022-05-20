@@ -14,7 +14,7 @@ import {
 import classNames from 'classnames';
 
 import { ColorScheme } from '../types';
-import {preventEvent} from "../../util/component-utils";
+import { preventEvent } from '../../util/component-utils';
 
 @Component({
   tag: 'ino-range',
@@ -239,34 +239,28 @@ export class Range implements ComponentInterface {
             )}
           </div>
           <div class="mdc-slider__thumb">
-            {this.discrete && (
-              <div class="mdc-slider__value-indicator-container" aria-hidden>
-                <div class="mdc-slider__value-indicator">
-                  <span class="mdc-slider__value-indicator-text">
-                    {this.value || this.valueStart}
-                  </span>
-                </div>
-              </div>
-            )}
+            {this.discrete &&
+              Range.renderValueIndicator(this.value || this.valueStart)}
             <div class="mdc-slider__thumb-knob" />
           </div>
           {this.ranged && (
             <div class="mdc-slider__thumb">
-              <div
-                class="mdc-slider__value-indicator-container"
-                aria-hidden="true"
-              >
-                <div class="mdc-slider__value-indicator">
-                  <span class="mdc-slider__value-indicator-text">
-                    {this.valueEnd}
-                  </span>
-                </div>
-              </div>
+              {this.discrete && Range.renderValueIndicator(this.valueEnd)}
               <div class="mdc-slider__thumb-knob"></div>
             </div>
           )}
         </div>
       </Host>
+    );
+  }
+
+  private static renderValueIndicator(value?: number) {
+    return (
+      <div class="mdc-slider__value-indicator-container" aria-hidden>
+        <div class="mdc-slider__value-indicator">
+          <span class="mdc-slider__value-indicator-text">{value}</span>
+        </div>
+      </div>
     );
   }
 }
