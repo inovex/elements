@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './vue-output-target';
+import { JsonDocsOutputTarget } from './json-docs-output-target';
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
 
@@ -27,10 +28,7 @@ export const config: Config = {
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
     { type: 'docs-readme' },
-    {
-      type: 'docs-json',
-      file: '../storybook/elements-stencil-docs.json',
-    },
+    JsonDocsOutputTarget,
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
       directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
