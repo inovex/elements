@@ -1,5 +1,4 @@
 {
-  "timestamp": "2022-05-04T07:50:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -3074,6 +3073,11 @@
           "docs": "default color of the background"
         },
         {
+          "name": "--ino-icon-button-background-disabled-color",
+          "annotation": "prop",
+          "docs": "base color of the background in disabled state"
+        },
+        {
           "name": "--ino-icon-button-icon-active-color",
           "annotation": "prop",
           "docs": "color of the active icon itself"
@@ -3082,6 +3086,11 @@
           "name": "--ino-icon-button-icon-color",
           "annotation": "prop",
           "docs": "default color of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-disabled-color",
+          "annotation": "prop",
+          "docs": "color of the icon itself in disabled state"
         },
         {
           "name": "--ino-icon-button-icon-size",
@@ -8618,5 +8627,3 @@
     }
   ]
 }
-
-
