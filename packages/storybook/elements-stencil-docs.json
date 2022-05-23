@@ -3760,22 +3760,6 @@
           "required": false
         },
         {
-          "name": "size",
-          "type": "number",
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": false,
-          "docs": "The size of this element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "step",
           "type": "\"any\" | number",
           "mutable": false,
