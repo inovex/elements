@@ -149,7 +149,8 @@ export namespace Components {
          */
         "fill": ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label": string;
         /**
@@ -430,9 +431,10 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -1084,7 +1086,8 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -1150,7 +1153,8 @@ export namespace Components {
          */
         "indicatorContentWidth": boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1322,7 +1326,8 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1829,7 +1834,8 @@ declare namespace LocalJSX {
          */
         "fill"?: ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2122,9 +2128,10 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -2826,7 +2833,8 @@ declare namespace LocalJSX {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -2904,7 +2912,8 @@ declare namespace LocalJSX {
          */
         "indicatorContentWidth"?: boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -3079,7 +3088,8 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**

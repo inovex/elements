@@ -875,6 +875,10 @@
       "docsTags": [
         {
           "name": "slot",
+          "text": "default - The label text of the chip"
+        },
+        {
+          "name": "slot",
           "text": "icon-leading - For the icon to be prepended"
         },
         {
@@ -984,8 +988,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The content of the component.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\n\nThe content of the component.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -1085,6 +1094,10 @@
       ],
       "styles": [],
       "slots": [
+        {
+          "name": "default",
+          "docs": "The label text of the chip"
+        },
         {
           "name": "icon-leading",
           "docs": "For the icon to be prepended"
@@ -2631,15 +2644,20 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "The text of this header",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text of this header",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -3055,6 +3073,11 @@
           "docs": "default color of the background"
         },
         {
+          "name": "--ino-icon-button-background-disabled-color",
+          "annotation": "prop",
+          "docs": "base color of the background in disabled state"
+        },
+        {
           "name": "--ino-icon-button-icon-active-color",
           "annotation": "prop",
           "docs": "color of the active icon itself"
@@ -3063,6 +3086,11 @@
           "name": "--ino-icon-button-icon-color",
           "annotation": "prop",
           "docs": "default color of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-disabled-color",
+          "annotation": "prop",
+          "docs": "color of the icon itself in disabled state"
         },
         {
           "name": "--ino-icon-button-icon-size",
@@ -6973,8 +7001,13 @@
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
-          "docs": "The text message to display.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -7443,8 +7476,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Indicates a label text in the tab.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead.\nIndicates a label text in the tab.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -8330,7 +8368,12 @@
       "readme": "# ino-tooltip\n\nA tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-tooltip\n  for=\"<string>\"\n  label=\"<string>\"\n  placement=\"<string>\"\n  trigger=\"<string>\"\n>\n  Any desired HTML\n</ino-tooltip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <InoTooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Tooltip: React.FunctionComponent<Components.InoTooltipAttributes> = props => {\n  const { inoPlacement, inoTrigger, inoFor, inoLabel } = props;\n\n  return <InoTooltip inoFor={inoFor} inoLabel={inoLabel} inoPlacement={inoPlacement} inoTrigger={inoTrigger}>{props.children}</InoTooltip>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <Tooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
       "docs": "A tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default The text shown in the tooltip."
+        }
+      ],
       "encapsulation": "none",
       "dependents": [
         "ino-fab"
@@ -8394,8 +8437,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The text shown in the tooltip.",
-          "docsTags": [],
+          "docs": "The text shown in the tooltip.\n\n[DEPRECATED] Please use the default slot instead",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -8568,7 +8616,12 @@
       ],
       "events": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default The text shown in the tooltip.",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "listeners": []
     }
