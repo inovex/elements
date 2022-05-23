@@ -1,5 +1,4 @@
 {
-  "timestamp": "2022-05-02T16:11:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -124,7 +123,7 @@
     },
     {
       "filePath": "./src/components/ino-button/ino-button.tsx",
-      "encapsulation": "none",
+      "fileName": "ino-button.tsx",
       "tag": "ino-button",
       "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
       "usage": {},
@@ -139,7 +138,7 @@
           "text": "icon-trailing - For the icon to be appended"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [
         "ino-input-file"
       ],
@@ -307,7 +306,6 @@
       ],
       "methods": [],
       "events": [],
-      "listeners": [],
       "styles": [],
       "slots": [
         {

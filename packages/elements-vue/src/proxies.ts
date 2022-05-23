@@ -23,9 +23,7 @@ export const InoButton = /*@__PURE__*/ defineContainer<JSX.InoButton>('ino-butto
   'name',
   'form',
   'type',
-  'colorScheme',
-  'edgeMirrored',
-  'fill',
+  'variant',
   'dense',
   'loading'
 ]);
