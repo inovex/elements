@@ -1,4 +1,5 @@
 {
+  "timestamp": "2022-05-02T16:11:00",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
@@ -123,7 +124,7 @@
     },
     {
       "filePath": "./src/components/ino-button/ino-button.tsx",
-      "fileName": "ino-button.tsx",
+      "encapsulation": "none",
       "tag": "ino-button",
       "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
       "usage": {},
@@ -171,36 +172,6 @@
           "required": false
         },
         {
-          "name": "colorScheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "grey",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "dense",
           "type": "boolean",
           "mutable": false,
@@ -214,7 +185,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false
         },
         {
@@ -228,49 +199,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "edgeMirrored",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "edge-mirrored",
-          "reflectToAttr": false,
-          "docs": "Styles the button to have the edge on the top-right instead of the top-left",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "fill",
-          "type": "\"inverse\" | \"outline\" | \"solid\"",
-          "mutable": false,
-          "attr": "fill",
-          "reflectToAttr": false,
-          "docs": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
-          "docsTags": [],
-          "default": "'solid'",
-          "values": [
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -349,72 +277,38 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\" | \"text\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The button variant.\n\n* **filled**: Contain actions that are important for your application.\n* **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.\n* **text**: Typically used for less prominent actions, including those in dialogs and cards.",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-button-color-primary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-primary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the primary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-primary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the primary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-primary-light",
-          "annotation": "prop",
-          "docs": "Light color of the primary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on active"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on hover"
-        },
-        {
-          "name": "--ino-button-color-secondary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-secondary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the secondary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-secondary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the secondary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-light",
-          "annotation": "prop",
-          "docs": "Light color of the secondary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on active"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on hover"
-        }
-      ],
+      "listeners": [],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",

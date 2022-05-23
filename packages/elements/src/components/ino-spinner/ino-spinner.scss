@@ -5,6 +5,23 @@
 @use './mixins/circle';
 @use './mixins/tile';
 
+@mixin set-spinner-color($color) {
+  &.ino-spinner--type-tile .ino-spinner__composer {
+    @include tile.tile;
+    @include tile.tile-color($color);
+  }
+
+  &.ino-spinner--type-bounce .ino-spinner__composer {
+    @include bounce.bounce;
+    @include bounce.bounce-color($color);
+  }
+
+  &.ino-spinner--type-circle .ino-spinner__composer {
+    @include circle.circle;
+    @include circle.circle-color($color);
+  }
+}
+
 ino-spinner {
   // Styles for all spinners
   .ino-spinner__composer {
@@ -15,20 +32,7 @@ ino-spinner {
 
   @each $color-name in theme.$color-schemes {
     &.ino-spinner--color-scheme-#{$color-name} {
-      &.ino-spinner--type-tile .ino-spinner__composer {
-        @include tile.tile;
-        @include tile.tile-color(theme.color($color-name));
-      }
-
-      &.ino-spinner--type-bounce .ino-spinner__composer {
-        @include bounce.bounce;
-        @include bounce.bounce-color(theme.color($color-name));
-      }
-
-      &.ino-spinner--type-circle .ino-spinner__composer {
-        @include circle.circle;
-        @include circle.circle-color(theme.color($color-name));
-      }
+      @include set-spinner-color(theme.color($color-name));
     }
   }
 

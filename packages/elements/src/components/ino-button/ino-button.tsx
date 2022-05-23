@@ -1,4 +1,3 @@
-import { MDCRipple } from '@material/ripple';
 import {
   Component,
   ComponentInterface,
@@ -11,7 +10,9 @@ import {
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
-import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
+import { ButtonType } from '../types';
+
+export type Variants = 'filled' | 'outlined' | 'text';
 
 /**
  * @slot icon-leading - For the icon to be prepended
@@ -20,13 +21,10 @@ import { ButtonColorScheme, ButtonType, SurfaceType } from '../types';
 @Component({
   tag: 'ino-button',
   styleUrl: 'ino-button.scss',
-  shadow: true,
+  shadow: false,
 })
 export class Button implements ComponentInterface {
-  /**
-   * An internal instance of the material design button.
-   */
-  private button: MDCRipple;
+  private buttonEl: HTMLButtonElement;
 
   @Element() el!: HTMLInoButtonElement;
   /**
@@ -57,64 +55,43 @@ export class Button implements ComponentInterface {
   @Prop() type?: ButtonType = 'button';
 
   /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`, `grey`, `white`.
-   * `white` and `grey` can only be used in combination with the `outline` fill-option!
+   * The button variant.
+   *
+   * * **filled**: Contain actions that are important for your application.
+   * * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.
+   * * **text**: Typically used for less prominent actions, including those in dialogs and cards.
    */
-  @Prop() colorScheme?: ButtonColorScheme = 'primary';
-
-  /**
-   * Styles the button to have the edge on the top-right instead of the top-left
-   */
-  @Prop() edgeMirrored? = false;
-
-  /**
-   * The fill type of this element.
-   * Possible values: `solid` (default), `outline`, `inverse`.
-   */
-  @Prop() fill?: SurfaceType = 'solid';
+  @Prop() variant: Variants = 'filled';
 
   /**
    * Makes the button text and container slightly smaller.
    */
-  @Prop() dense?: boolean = false;
+  @Prop() dense = false;
 
   /**
    * Shows an infinite loading spinner and prevents further clicks.
    */
   @Prop({ reflect: true }) loading?: boolean;
 
-  private buttonSizeBeforeLoad: string;
+  private buttonSizeBeforeLoad: string | null = null;
+  private buttonHeightBeforeLoad: string | null = null;
 
   @Watch('loading')
   loadingChanged(isLoading: boolean) {
     if (isLoading) {
-      const mdcLabel = this.el.shadowRoot.querySelector('.mdc-button__label');
-      const labelStyles = window.getComputedStyle(mdcLabel);
-      this.buttonSizeBeforeLoad = labelStyles.width;
+      const buttonStyles = window.getComputedStyle(this.buttonEl);
+      this.buttonSizeBeforeLoad = buttonStyles.width;
+      this.buttonHeightBeforeLoad = buttonStyles.height;
     } else {
-      this.buttonSizeBeforeLoad = undefined;
+      this.buttonSizeBeforeLoad = null;
     }
   }
 
   componentDidUpdate() {
     if (this.loading && this.buttonSizeBeforeLoad) {
-      const mdcLabel = this.el.shadowRoot.querySelector(
-        '.mdc-button__label'
-      ) as HTMLDivElement;
-      mdcLabel.style.setProperty('width', this.buttonSizeBeforeLoad);
+      this.buttonEl.style.setProperty('width', this.buttonSizeBeforeLoad);
+      this.buttonEl.style.setProperty('height', this.buttonHeightBeforeLoad);
     }
-  }
-
-  componentDidLoad() {
-    this.button = new MDCRipple(
-      this.el.shadowRoot.querySelector('.mdc-button')
-    );
-  }
-
-  disconnectedCallback() {
-    this.button?.destroy();
   }
 
   private handleClick = (e: Event) => {
@@ -140,51 +117,49 @@ export class Button implements ComponentInterface {
   };
 
   render() {
-    const hostClasses = classNames(
-      {
-        'ino-button--loading': this.loading,
-        'ino-button--mirrored-edge': this.edgeMirrored,
-        'ino-button--dense': this.dense,
-      },
-      `ino-button--fill-${this.fill}`,
-      `ino-button--color-scheme-${this.colorScheme}`
-    );
-
-    const mdcClasses = classNames({
-      'mdc-button': true,
-      'mdc-button--unelevated':
-        this.fill === 'solid' || this.fill === 'inverse',
-      'mdc-button--outlined': this.fill === 'outline',
-      'ino-button--dense': this.dense,
+    const hostClasses = classNames({
+      'ino-button--loading': this.loading,
     });
 
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
+    const inoButtonClasses = classNames(
+      'button',
+      `button__variant--${this.variant}`,
+      {
+        'button__icon--leading': leadingSlotHasContent,
+        'button__icon--trailing': trailingSlotHasContent,
+        'button--dense': this.dense,
+      }
+    );
+
+    const labelClasses = classNames('button__label', {
+      'button__label--hide': this.loading,
+    });
+
     return (
       <Host class={hostClasses} onClick={this.handleClick}>
         <button
-          class={mdcClasses}
+          class={inoButtonClasses}
           autoFocus={this.autoFocus}
           disabled={this.disabled}
           name={this.name}
           type={this.type}
           form={this.form}
+          ref={(el) => (this.buttonEl = el)}
         >
           {leadingSlotHasContent && (
-            <span class="mdc-button__icon">
+            <span class="icon__wrapper">
               <slot name="icon-leading" />
             </span>
           )}
-          <div class="mdc-button__label">
-            {this.loading ? (
-              <ino-spinner height={20} width={20} type="circle" />
-            ) : (
-              <slot></slot>
-            )}
-          </div>
+          <span class={labelClasses}>
+            <slot></slot>
+          </span>
+          {this.loading && <ino-spinner height={20} width={20} type="circle" />}
           {trailingSlotHasContent && (
-            <span class="mdc-button__icon">
+            <span class="icon__wrapper">
               <slot name="icon-trailing" />
             </span>
           )}

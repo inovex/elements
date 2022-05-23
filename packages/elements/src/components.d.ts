@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
@@ -30,25 +31,13 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
-        "dense"?: boolean;
+        "dense": boolean;
         /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -65,6 +54,10 @@ export namespace Components {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant": Variants;
     }
     interface InoCard {
         /**
@@ -1718,10 +1711,6 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
         "dense"?: boolean;
@@ -1729,14 +1718,6 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -1753,6 +1734,10 @@ declare namespace LocalJSX {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant"?: Variants;
     }
     interface InoCard {
         /**
