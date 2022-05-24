@@ -1,5 +1,5 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withIconControl } from '../utils';
@@ -17,6 +17,37 @@ export default {
     label: 'Label',
     mini: false,
     tooltipPlacement: 'right',
+  },
+  argTypes: {
+    edgePosition: {
+      control: {
+        type: 'select',
+      },
+      options: ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
+    },
+    tooltipPlacement: {
+      control: {
+        type: 'select',
+      },
+      options: [
+        'auto',
+        'auto-end',
+        'auto-start',
+        'bottom',
+        'bottom-end',
+        'bottom-start',
+        'left',
+        'left-end',
+        'left-start',
+        'none',
+        'right',
+        'right-end',
+        'right-start',
+        'top',
+        'top-end',
+        'top-start',
+      ],
+    }
   }
 } as Meta<Components.InoFab>;
 
@@ -38,38 +69,6 @@ const template = new TemplateGenerator<Components.InoFab>(
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'add');
-
-Playground.argTypes.edgePosition = {
-  control: {
-    type: 'select',
-  },
-  options: ['top-left', 'top-right', 'bottom-right', 'bottom-left', 'none'],
-};
-
-Playground.argTypes.tooltipPlacement = {
-  control: {
-    type: 'select',
-  },
-  options: [
-    'auto',
-    'auto-end',
-    'auto-start',
-    'bottom',
-    'bottom-end',
-    'bottom-start',
-    'left',
-    'left-end',
-    'left-start',
-    'none',
-    'right',
-    'right-end',
-    'right-start',
-    'top',
-    'top-end',
-    'top-start',
-  ],
-};
-
 
 const templateVariants = new TemplateGenerator<Components.InoFab>(
   'ino-fab',
@@ -123,10 +122,11 @@ const templateEdgePositions = new TemplateGenerator<Components.InoFab>(
  * In order to achive edges on the fab-button, add `edge-position`.
  * 
  * Possible values are:
- *  'top-right'
- *  'top-left'
- *  'bottom-right'
- *  'bottom-left'
- *  'none' = 'top-left';
+ * 
+ * - `top-right`
+ * - `top-left`
+ * - `bottom-right`
+ * - `bottom-left`
+ * - `none` = `top-left`
  */
 export const EdgePositions = templateEdgePositions.generatePlaygroundStory();
