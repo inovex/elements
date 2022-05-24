@@ -1,6 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-header.scss';
@@ -9,13 +10,18 @@ export default {
   title: 'Structure/ino-header',
   component: 'ino-header',
   decorators: [(story) => decorateStoryWithClass(story)],
-} as Meta;
+  args: {
+    text: 'Headline Text',
+    
+  }
+} as Meta<Components.InoHeader>;
 
-export const Playground: Story<Components.InoHeader> = (args) => html`
-  <ino-header text="${args.text}">${args.defaultSlot}</ino-header>
-`;
+const template = new TemplateGenerator<Components.InoHeader>(
+  'ino-header',
+  args => html`
+  <ino-header text="${args.text}"></ino-header>
+`);
 
-Playground.args = {
-  text: '',
-  defaultSlot: 'Headline Text',
-};
+export const Playground = template.generatePlaygroundStory();
+
+
