@@ -1,6 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
+import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 
@@ -15,11 +16,13 @@ export default {
       useEffect(() => {
         // Open
         const handleOpen = e => {
-          const dialog = document.getElementById(e.target.getAttribute("data-dialog-id")) as HTMLInoDialogElement;
+          const dialog = document.getElementById(e.target.parentElement.getAttribute("data-dialog-id")) as HTMLInoDialogElement;
           dialog.open = true;
         }
+
         const btns = document.querySelectorAll('.open-dialog-btn');
         btns.forEach(btn => btn.addEventListener('click', handleOpen));
+
 
         // Close
         const dialogs = document.querySelectorAll('ino-dialog');
@@ -56,87 +59,75 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  args: {
+    attachTo: '.story-dialog',
+    open: false,
+    fullwidth: false,
+    dismissible: false,
+    dataDialogId: 'demo-playground-dialog',
+  },
+} as Meta<Components.InoDialog>;
 
+type InoDialogExtended = Components.InoDialog & {
+  dataDialogId: string;
+}
 
-const dialogContent = html`
-  <div class="ino-dialog-header">
-      <div class="ino-dialog-title">
-        <h3>Select your favourite characters</h3>
-      </div>
-      <ino-icon-button icon="close" data-ino-dialog-action="close"></ino-icon-button>
-    </div>
-    <div class="ino-dialog-content">
-      <ino-segment-group value="2" id="dense-segment-grp">
-        <ino-segment-button dense value="1">Morty</ino-segment-button>
-        <ino-segment-button dense value="2">Pickle Rick</ino-segment-button>
-        <ino-segment-button dense value="3">Squanchy</ino-segment-button>
-        <ino-segment-button dense value="4">Beth</ino-segment-button>
-        <ino-segment-button dense value="5">Jerry</ino-segment-button>
-        <ino-segment-button dense value="6">Summer</ino-segment-button>
-      </ino-segment-group>
-    </div>
-    <div class="ino-dialog-footer">
-      <ino-button
-        icon="remove"
-        data-ino-dialog-action="cancel"
-        fill="outline"
-        color-scheme="secondary"
-        >Cancel
-      </ino-button>
-      <ino-button icon="mail" data-ino-dialog-action="submit">Submit</ino-button>
-    </div>
-`;
-
-export const Playground: Story<Components.InoDialog> = (args) => html`
-  <ino-button class="open-dialog-btn" data-dialog-id="demo-playground-dialog">Open Dialog</ino-button>
-  <ino-dialog id="demo-playground-dialog"
+const template = new TemplateGenerator<InoDialogExtended>(
+  'ino-dialog',
+  args => html`
+  <ino-button class="open-dialog-btn" data-dialog-id="${args.dataDialogId}">Open Dialog</ino-button>
+  <ino-dialog id="${args.dataDialogId}"
     open="${args.open}"
     fullwidth="${args.fullwidth}"
     dismissible="${args.dismissible}"
     attach-to="${args.attachTo}"
   >
-    ${dialogContent}
+  <div class="ino-dialog-header">
+    <div class="ino-dialog-title">
+      <h3>Select your favourite characters</h3>
+    </div>
+    <ino-icon-button icon="close" data-ino-dialog-action="close"></ino-icon-button>
+  </div>
+  <div class="ino-dialog-content">
+    <ino-segment-group value="2" id="dense-segment-grp">
+      <ino-segment-button dense value="1">Morty</ino-segment-button>
+      <ino-segment-button dense value="2">Pickle Rick</ino-segment-button>
+      <ino-segment-button dense value="3">Squanchy</ino-segment-button>
+      <ino-segment-button dense value="4">Beth</ino-segment-button>
+      <ino-segment-button dense value="5">Jerry</ino-segment-button>
+      <ino-segment-button dense value="6">Summer</ino-segment-button>
+    </ino-segment-group>
+  </div>
+  <div class="ino-dialog-footer">
+    <ino-button
+      icon="remove"
+      data-ino-dialog-action="cancel"
+      fill="outline"
+      color-scheme="secondary"
+      >Cancel
+    </ino-button>
+    <ino-button icon="mail" data-ino-dialog-action="submit">Submit</ino-button>
+  </div>
   </ino-dialog>
-`;
-Playground.args = {
-  attachTo: '.story-dialog',
+`);
+
+export const Playground = template.generatePlaygroundStory();
+export const FullWidth = template.generateStoryForProp('fullwidth', true, {
+  dataDialogId: 'demo-fullwidth-dialog',
   open: false,
-  fullwidth: false,
-  dismissible: false
-};
+});
 
-/**
- * A fullwidth dialog is a variant which has 100% width an is attached to the bottom of the page.
- * It scrolls up and defines a small  margin at top for the background scrim and escape for dialog close.
- * Use this type of dialog for large content (like for instance wizards or tables).
- */
-export const FullWidth = () => html`
-<ino-button class="open-dialog-btn" data-dialog-id="demo-fullwidth-dialog">Open Fullwidth dialog</ino-button>
-<ino-dialog id="demo-fullwidth-dialog" fullwidth>
-  ${dialogContent}
-</ino-dialog>
-`;
-
-/**
- * A dismissible dialog is used for non-critical content and allows the user to close
- * the dialog on esc click and on clicking outsied of the dialog.
- */
- export const Dismissible = () => html`
- <ino-button class="open-dialog-btn" data-dialog-id="demo-dismissible-dialog">Open dismissible dialog</ino-button>
- <ino-dialog id="demo-dismissible-dialog" dismissible>
-   ${dialogContent}
- </ino-dialog>
- `;
-
+export const Dismissible = template.generateStoryForProp('dismissible', true, {
+  dataDialogId: 'demo-dismissible-dialog',
+  open: false,
+});
 
 /**
  * Closing actions allow you to handle different button actions (like confirm, cancel, ...) using the `close` event listener on the dialog.
  * Close the dialog and see the snackbar afterwards.
  */
- export const ClosingAction = () => html`
- <ino-button class="open-dialog-btn" data-dialog-id="demo-action-dialog">Open dismissible dialog</ino-button>
- <ino-dialog id="demo-action-dialog" dismissible>
-   ${dialogContent}
- </ino-dialog>
- `;
+export const ClosingAction = template.generatePlaygroundStory();
+ClosingAction.args = {
+  dismissible: true,
+  dataDialogId: 'demo-action-dialog',
+};
