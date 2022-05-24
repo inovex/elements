@@ -12,7 +12,6 @@ import {
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
-import { hasSlotContent } from '../../util/component-utils';
 
 import { ColorScheme, ButtonType } from '../types';
 
@@ -129,8 +128,6 @@ export class IconButton implements ComponentInterface {
       'mdc-ripple-upgraded--background-focused': this.activated,
     });
     
-    const iconSlotHasContent = hasSlotContent(this.el);
-
     return (
       <Host class={hostClasses}>
         <button
@@ -140,8 +137,9 @@ export class IconButton implements ComponentInterface {
           type={this.type}
         >
           <div class="mdc-icon-button__ripple"/>
-          {this.icon && !iconSlotHasContent && <ino-icon icon={this.icon} class="mdc-icon-button__icon" /> }
-          {iconSlotHasContent && <slot />}
+          <span class="mdc-icon-button__icon">
+            {this.icon ? <ino-icon icon={this.icon} /> : <slot />}
+          </span>
         </button>
       </Host>
     );
