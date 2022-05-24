@@ -1,6 +1,7 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
+import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 
@@ -33,9 +34,15 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  args: {
+    disableElevation: false,
+    selected: false,
+  },
+} as Meta<Components.InoCard>;
 
-export const Playground: Story<Components.InoCard> = (args) => html`
+const template = new TemplateGenerator<Components.InoCard>(
+  'ino-card',
+  args => html`
   <ino-card
     class="customizable-card"
     disable-elevation="${args.disableElevation}"
@@ -56,9 +63,6 @@ export const Playground: Story<Components.InoCard> = (args) => html`
       </ino-segment-group>
     </div>
   </ino-card>
-`;
+`);
 
-Playground.args = {
-  disableElevation: false,
-  selected: false,
-};
+export const Playground = template.generatePlaygroundStory();
