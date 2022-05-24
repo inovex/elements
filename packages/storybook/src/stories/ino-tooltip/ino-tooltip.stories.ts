@@ -18,12 +18,12 @@ export const Playground: Story<Components.InoTooltip> = (args) => html`
     placement="${args.placement}"
     trigger="${args.trigger}"
     color-scheme="${args.colorScheme}"
-  >
-  </ino-tooltip>
+  >${args.defaultSlot}</ino-tooltip>
 `;
 Playground.args = {
   for: 'tooltip-target',
-  label: 'This is a tooltip text.',
+  defaultSlot: 'This is a tooltip text.',
+  label: '',
   placement: 'bottom',
   trigger: 'mouseenter focus',
 };
@@ -53,25 +53,21 @@ withColorScheme(Playground, 'colorScheme', 'transparent');
 
 export const Placements = () => html`
   <ino-tooltip
-    label="This is a tooltip left"
     placement="left"
     for="tooltip-positions-target"
-  ></ino-tooltip>
+  >This is a tooltip left</ino-tooltip>
   <ino-tooltip
-    label="This is a tooltip right"
     placement="right"
     for="tooltip-positions-target"
-  ></ino-tooltip>
+  >This is a tooltip right</ino-tooltip>
   <ino-tooltip
-    label="This is a tooltip top"
     placement="top"
     for="tooltip-positions-target"
-  ></ino-tooltip>
+  >This is a tooltip top</ino-tooltip>
   <ino-tooltip
-    label="This is a tooltip bottom"
     placement="bottom"
     for="tooltip-positions-target"
-  ></ino-tooltip>
+  >This is a tooltip bottom</ino-tooltip>
   <ino-button class="placement-button" id="tooltip-positions-target"
     >Tooltip</ino-button
   >
@@ -82,60 +78,53 @@ export const Triggers = () => html`
   <ino-tooltip
     placement="top"
     for="tooltip-mouseenter"
-    label="This tooltip occurs on hover"
-  ></ino-tooltip>
+  >This tooltip occurs on hover</ino-tooltip>
 
   <ino-button id="tooltip-focus">Focus</ino-button>
   <ino-tooltip
     placement="top"
     for="tooltip-focus"
-    label="This tooltip occurs on focus"
     trigger="focus"
-  ></ino-tooltip>
+  >This tooltip occurs on focus</ino-tooltip>
 
   <ino-button id="tooltip-click">Click</ino-button>
   <ino-tooltip
     placement="right"
     for="tooltip-click"
-    label="This tooltip occurs on click"
     trigger="click"
-  ></ino-tooltip>
+  >This tooltip occurs on click</ino-tooltip>
 `;
 
 export const Colors = () => html`
   <ino-button id="primary-tooltip" color-scheme="primary">Primary</ino-button>
   <ino-tooltip
     for="primary-tooltip"
-    label="Primary color scheme"
     color-scheme="primary"
     placement="top"
-  ></ino-tooltip>
+  >Primary color scheme</ino-tooltip>
 
   <ino-button id="secondary-tooltip" color-scheme="secondary"
     >Secondary</ino-button
   >
   <ino-tooltip
     for="secondary-tooltip"
-    label="Secondary color scheme"
     color-scheme="secondary"
     placement="top"
-  ></ino-tooltip>
+  >Secondary color scheme</ino-tooltip>
 
   <ino-button id="light-tooltip" color-scheme="grey">Light</ino-button>
   <ino-tooltip
     for="light-tooltip"
-    label="Light color scheme"
     color-scheme="light"
     placement="top"
-  ></ino-tooltip>
+  >Light color scheme</ino-tooltip>
 
   <ino-button id="transparent-tooltip" color-scheme="grey"
     >Transparent</ino-button
   >
   <ino-tooltip
     for="transparent-tooltip"
-    label="Transparent color scheme"
     color-scheme="transparent"
     placement="top"
-  ></ino-tooltip>
+  >Transparent color scheme</ino-tooltip>
 `;

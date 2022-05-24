@@ -25,7 +25,9 @@ export class Snackbar implements ComponentInterface {
   @Element() el!: HTMLInoSnackbarElement;
 
   /**
+   * [DEPRECATED] Please use the default slot instead
    * The text message to display.
+   * @deprecated
    */
   @Prop() message?: string;
 
@@ -77,6 +79,10 @@ export class Snackbar implements ComponentInterface {
       this.snackbarElement.addEventListener('mouseleave', this.setupTimeout);
     }
     this.snackbarInstance.open();
+
+    if (this.message) {
+      console.warn('[ino-snackbar] The attribute "message" is deprecated, please use the default slot instead.');
+    }
   }
 
   disconnectedCallback() {
@@ -108,7 +114,7 @@ export class Snackbar implements ComponentInterface {
     }
   };
 
-  private handleSnackbarHide = e => {
+  private handleSnackbarHide = (e) => {
     this.hideEl.emit();
     e.stopPropagation();
   };
@@ -138,7 +144,7 @@ export class Snackbar implements ComponentInterface {
     return (
       <Host class={hostClasses}>
         <div
-          ref={el => (this.snackbarElement = el as HTMLDivElement)}
+          ref={(el) => (this.snackbarElement = el as HTMLDivElement)}
           class={snackbarClasses}
           aria-live="assertive"
           aria-atomic="true"
@@ -154,7 +160,9 @@ export class Snackbar implements ComponentInterface {
               class="mdc-snackbar__label ino-snackbar-message-container"
               aria-atomic="false"
             >
-              <div class="ino-snackbar-text-container">{this.message}</div>
+              <div class="ino-snackbar-text-container">
+                {this.message ? this.message : <slot />}
+              </div>
               {hasActionText && (
                 <div>
                   <button

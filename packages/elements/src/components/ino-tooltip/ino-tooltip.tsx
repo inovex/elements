@@ -12,6 +12,9 @@ import classNames from 'classnames';
 import TippyJS, { Instance, Placement } from 'tippy.js';
 import { TooltipTrigger } from '../types';
 
+/**
+ * @slot default The text shown in the tooltip.
+ */
 @Component({
   tag: 'ino-tooltip',
   styleUrl: 'ino-tooltip.scss',
@@ -66,6 +69,9 @@ export class Tooltip implements ComponentInterface {
 
   /**
    * The text shown in the tooltip.
+   *
+   * [DEPRECATED] Please use the default slot instead
+   * @deprecated
    */
   @Prop() label?: string;
 
@@ -160,7 +166,7 @@ export class Tooltip implements ComponentInterface {
     return (
       <Host class={hostClasses}>
         <div class="ino-tooltip__composer" role="tooltip">
-          <div class="ino-tooltip__inner">{this.label}</div>
+          <div class="ino-tooltip__inner">{this.label ? this.label : <slot />}</div>
         </div>
       </Host>
     );
