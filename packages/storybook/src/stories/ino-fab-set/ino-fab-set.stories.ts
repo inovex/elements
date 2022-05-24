@@ -1,10 +1,15 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
+import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab-set.scss';
+
+const VERTICAL_POSITION_OPTIONS = ['top', 'bottom'];
+const HORIZONTAL_POSITION_OPTIONS = ['left', 'right'];
+
 const clickHandler = (e) => {
   e.preventDefault();
   e.stopPropagation();
@@ -49,9 +54,37 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  argTypes: {
+    topBottomLocation: {
+      control: {
+        type: 'select',
+      },
+      options: VERTICAL_POSITION_OPTIONS,
+    },
+    leftRightLocation: {
+      control: {
+        type: 'select',
+      },
+      options: HORIZONTAL_POSITION_OPTIONS,
+    },
+    dialDirection: {
+      control: {
+        type: 'select',
+      },
+      options: [...VERTICAL_POSITION_OPTIONS, ...HORIZONTAL_POSITION_OPTIONS],
+    },
+  },
+  args:  {
+    openDial: false,
+    dialDirection: 'top',
+    leftRightLocation: 'left',
+    topBottomLocation: 'bottom',
+  }
+} as Meta<Components.InoFabSet>;
 
-export const Playground: Story<Components.InoFabSet> = (args) => html`
+const template = new TemplateGenerator<Components.InoFabSet>(
+  'ino-fab-set',
+  args => html`
   <ino-fab-set
     open-dial="${args.openDial}"
     top-bottom-location="${args.topBottomLocation}"
@@ -68,42 +101,13 @@ export const Playground: Story<Components.InoFabSet> = (args) => html`
       <ino-icon slot="icon-leading" icon="info"></ino-icon>
     </ino-fab>
   </ino-fab-set>
-`;
-
-Playground.args = {
-  openDial: false,
-  dialDirection: 'top',
-  leftRightLocation: 'left',
-  topBottomLocation: 'bottom',
-};
-
+`);
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', '_fab_set_arrow_up');
 
-const VERTICAL_POSITION_OPTIONS = ['top', 'bottom'];
-const HORIZONTAL_POSITION_OPTIONS = ['left', 'right'];
-
-Playground.argTypes = {
-  topBottomLocation: {
-    control: {
-      type: 'select',
-    },
-    options: VERTICAL_POSITION_OPTIONS,
-  },
-  leftRightLocation: {
-    control: {
-      type: 'select',
-    },
-    options: HORIZONTAL_POSITION_OPTIONS,
-  },
-  dialDirection: {
-    control: {
-      type: 'select',
-    },
-    options: [...VERTICAL_POSITION_OPTIONS, ...HORIZONTAL_POSITION_OPTIONS],
-  },
-};
-
-export const CustomIcons: Story<Components.InoFabSet> = () => html`
+const templateCustomIcons = new TemplateGenerator<Components.InoFabSet>(
+  'ino-fab-set',
+  args => html`
   <ino-fab-set
     top-bottom-location="bottom"
     left-right-location="right"
@@ -121,4 +125,6 @@ export const CustomIcons: Story<Components.InoFabSet> = () => html`
       <ino-icon slot="icon-leading" icon="info"></ino-icon>
     </ino-fab>
   </ino-fab-set>
-`;
+`);
+
+export const CustomIcons = templateCustomIcons.generatePlaygroundStory();
