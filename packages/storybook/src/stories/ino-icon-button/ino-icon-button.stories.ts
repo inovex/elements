@@ -119,6 +119,25 @@ export const States = () => html`
           activated
         ></ino-icon-button>
       </div>
+
+      <div class="flex-child">
+        <h4>Disabled</h4>
+        <ino-icon-button
+          icon="time"
+          color-scheme="primary"
+          disabled
+        ></ino-icon-button>
+      </div>
+
+      <div class="flex-child">
+        <h4>Disabled (filled)</h4>
+        <ino-icon-button
+          icon="time"
+          color-scheme="primary"
+          disabled
+          filled
+        ></ino-icon-button>
+      </div>
     </div>
   </div>
 `;
@@ -165,6 +184,73 @@ export const Variations = () => html`
     </div>
   </div>
 `;
+
+export const CSSProperties = (args) => {
+  return html`
+    <style>
+      .customizable-icon-button {
+        --ino-icon-button-background-disabled-color: ${args.inoIconButtonBackgroundDisabledColor};
+        --ino-icon-button-icon-disabled-color: ${args.inoIconButtonIconDisabledColor};
+        --ino-icon-button-size: ${args.inoIconButtonSize};
+        --ino-icon-button-icon-size: ${args.inoIconButtonIconSize};
+        --ino-icon-button-icon-color: ${args.inoIconButtonIconColor};
+        --ino-icon-button-background-color: ${args.inoIconButtonBackgroundColor};
+        --ino-icon-button-icon-active-color: ${args.inoIconButtonIconActiveColor};
+        --ino-icon-button-background-active-color: ${args.inoIconButtonBackgroundActiveColor};
+      }
+    </style>
+    <ino-icon-button
+      class="customizable-icon-button"
+      disabled="${args.disabled}"
+      filled="${args.filled}"
+      color-scheme="primary"
+      activated="${args.activated}"
+      icon="time"
+    >
+    </ino-icon-button>
+  `;
+};
+CSSProperties.args = {
+  disabled: 'false',
+  filled: 'false',
+  activated: 'false',
+  inoIconButtonBackgroundDisabledColor: '#00B9EB',
+  inoIconButtonIconDisabledColor: '#D35D85',
+  inoIconButtonSize: '48px',
+  inoIconButtonIconSize: '24px',
+  inoIconButtonIconColor: '#820F35',
+  inoIconButtonBackgroundColor: 'transparent',
+  inoIconButtonIconActiveColor: '#820F35',
+  inoIconButtonBackgroundActiveColor: '#39DEE3',
+};
+CSSProperties.argTypes = {
+  inoIconButtonBackgroundDisabledColor: { control: 'color' },
+  inoIconButtonIconDisabledColor: { control: 'color' },
+  inoIconButtonIconColor: { control: 'color' },
+  inoIconButtonBackgroundColor: { control: 'color' },
+  inoIconButtonIconActiveColor: { control: 'color' },
+  inoIconButtonBackgroundActiveColor: { control: 'color' },
+  autofocus: {
+    table: {
+      disable: true
+    }
+  },
+  colorScheme: {
+    table: {
+      disable: true
+    }
+  },
+  icon: {
+    table: {
+      disable: true
+    }
+  },
+  type: {
+    table: {
+      disable: true
+    }
+  }
+}
 
 // import readme from '../../../../../elements/src/components/ino-icon-button/readme.md';
 // import { renderWithMermaid } from '../../../core/with-stencil-readme';

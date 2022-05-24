@@ -23,9 +23,7 @@ export const InoButton = /*@__PURE__*/ defineContainer<JSX.InoButton>('ino-butto
   'name',
   'form',
   'type',
-  'colorScheme',
-  'edgeMirrored',
-  'fill',
+  'variant',
   'dense',
   'loading'
 ]);
@@ -242,7 +240,6 @@ export const InoInput = /*@__PURE__*/ defineContainer<JSX.InoInput>('ino-input',
   'placeholder',
   'required',
   'showLabelHint',
-  'size',
   'step',
   'type',
   'unit',

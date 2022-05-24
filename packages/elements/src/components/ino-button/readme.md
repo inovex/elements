@@ -94,18 +94,16 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                                                                                                                                               | Type                                            | Default     |
-| -------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
-| `autoFocus`    | `autofocus`     | Sets the autofocus for this element.                                                                                                                                                                                                                      | `boolean`                                       | `undefined` |
-| `colorScheme`  | `color-scheme`  | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option! | `"grey" \| "primary" \| "secondary" \| "white"` | `'primary'` |
-| `dense`        | `dense`         | Makes the button text and container slightly smaller.                                                                                                                                                                                                     | `boolean`                                       | `false`     |
-| `disabled`     | `disabled`      | Disables this element.                                                                                                                                                                                                                                    | `boolean`                                       | `undefined` |
-| `edgeMirrored` | `edge-mirrored` | Styles the button to have the edge on the top-right instead of the top-left                                                                                                                                                                               | `boolean`                                       | `false`     |
-| `fill`         | `fill`          | The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.                                                                                                                                                                  | `"inverse" \| "outline" \| "solid"`             | `'solid'`   |
-| `form`         | `form`          | The form id this element origins to.                                                                                                                                                                                                                      | `string`                                        | `undefined` |
-| `loading`      | `loading`       | Shows an infinite loading spinner and prevents further clicks.                                                                                                                                                                                            | `boolean`                                       | `undefined` |
-| `name`         | `name`          | The name of the element.                                                                                                                                                                                                                                  | `string`                                        | `undefined` |
-| `type`         | `type`          | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`               | `'button'`  |
+| Property    | Attribute   | Description                                                                                                                                                                                                                                                                                                               | Type                               | Default     |
+| ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------- |
+| `autoFocus` | `autofocus` | Sets the autofocus for this element.                                                                                                                                                                                                                                                                                      | `boolean`                          | `undefined` |
+| `dense`     | `dense`     | Makes the button text and container slightly smaller.                                                                                                                                                                                                                                                                     | `boolean`                          | `false`     |
+| `disabled`  | `disabled`  | Disables this element.                                                                                                                                                                                                                                                                                                    | `boolean`                          | `undefined` |
+| `form`      | `form`      | The form id this element origins to.                                                                                                                                                                                                                                                                                      | `string`                           | `undefined` |
+| `loading`   | `loading`   | Shows an infinite loading spinner and prevents further clicks.                                                                                                                                                                                                                                                            | `boolean`                          | `undefined` |
+| `name`      | `name`      | The name of the element.                                                                                                                                                                                                                                                                                                  | `string`                           | `undefined` |
+| `type`      | `type`      | The type of this form.  Can either be `button`, `submit` or `reset`.                                                                                                                                                                                                                                                      | `"button" \| "reset" \| "submit"`  | `'button'`  |
+| `variant`   | `variant`   | The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards. | `"filled" \| "outlined" \| "text"` | `'filled'`  |
 
 
 ## Slots
@@ -114,24 +112,6 @@ class MyComponent extends Component {
 | ----------------- | ---------------------------- |
 | `"icon-leading"`  | For the icon to be prepended |
 | `"icon-trailing"` | For the icon to be appended  |
-
-
-## CSS Custom Properties
-
-| Name                                        | Description                                                             |
-| ------------------------------------------- | ----------------------------------------------------------------------- |
-| `--ino-button-color-primary`                | Color of the primary button                                             |
-| `--ino-button-color-primary-contrast`       | Contrast color of the primary button. Will be used for the text color   |
-| `--ino-button-color-primary-dark`           | Dark color of the primary button. Will be used for the active effect    |
-| `--ino-button-color-primary-light`          | Light color of the primary button. Will be used for the hover effect    |
-| `--ino-button-color-primary-shadow-dark`    | Shadow color of the primary button used on active                       |
-| `--ino-button-color-primary-shadow-light`   | Shadow color of the primary button used on hover                        |
-| `--ino-button-color-secondary`              | Color of the primary button                                             |
-| `--ino-button-color-secondary-contrast`     | Contrast color of the secondary button. Will be used for the text color |
-| `--ino-button-color-secondary-dark`         | Dark color of the secondary button. Will be used for the active effect  |
-| `--ino-button-color-secondary-light`        | Light color of the secondary button. Will be used for the hover effect  |
-| `--ino-button-color-secondary-shadow-dark`  | Shadow color of the secondary button used on active                     |
-| `--ino-button-color-secondary-shadow-light` | Shadow color of the secondary button used on hover                      |
 
 
 ## Dependencies

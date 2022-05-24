@@ -125,5 +125,18 @@ describe('InoCurrencyInput', () => {
       await page.waitForChanges();
       expect(valueChange.lastEvent.detail).toBe(11.11);
     });
+
+    it('should accept zero values (controlled)', async () => {
+      const testValue = 0;
+      const expected =  Intl.NumberFormat('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(testValue);
+     
+      const page = await setupPageWithContent(`
+      <ino-currency-input value="${testValue}">
+        <ino-input type="text"></ino-input>
+      </ino-currency-input>
+    `);
+    const input = await page.find(NATIVE_INPUT_SELECTOR);
+    expect(await input.getProperty('value')).toBe(expected);
+    });
   });
 });
