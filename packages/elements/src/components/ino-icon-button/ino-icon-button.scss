@@ -12,6 +12,8 @@ ino-icon-button {
     * @prop --ino-icon-button-background-color: default color of the background
     * @prop --ino-icon-button-icon-active-color: color of the active icon itself
     * @prop --ino-icon-button-background-active-color: base color of the active background
+    * @prop --ino-icon-button-icon-disabled-color: color of the icon itself in disabled state
+    * @prop --ino-icon-button-background-disabled-color: base color of the background in disabled state
   */
 
   $button-size: var(--ino-icon-button-size, 48px);
@@ -77,7 +79,25 @@ ino-icon-button {
     }
   }
 
-  button:disabled ino-icon {
-    --icon-color: #{theme.color(dark, light)};
+  // Disabled
+
+  .ino-icon-button--disabled.ino-icon-button-filled {
+    --ino-icon-button-background-color: var(
+      --ino-icon-button-background-disabled-color,
+      #{theme.color(dark, light)}
+    );
+
+    ino-icon {
+      --ino-icon-button-icon-color: #fff;
+    }
+  }
+
+  .ino-icon-button--disabled:not(.ino-icon-button-filled) {
+    ino-icon {
+      --ino-icon-button-icon-color: var(
+        --ino-icon-button-icon-disabled-color,
+        #{theme.color(dark, light)}
+      );
+    }
   }
 }

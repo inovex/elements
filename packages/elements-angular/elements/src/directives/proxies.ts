@@ -46,13 +46,13 @@ export declare interface InoButton extends Components.InoButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'colorScheme', 'dense', 'disabled', 'edgeMirrored', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 @Component({
   selector: 'ino-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'colorScheme', 'dense', 'disabled', 'edgeMirrored', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 export class InoButton {
   protected el: HTMLElement;
@@ -506,14 +506,14 @@ Contains typed input in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value']
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value']
 })
 export class InoInput {
   protected el: HTMLElement;

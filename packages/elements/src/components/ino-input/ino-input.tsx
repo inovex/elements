@@ -184,11 +184,6 @@ export class Input implements ComponentInterface {
   @Prop() showLabelHint?: boolean;
 
   /**
-   * The size of this element.
-   */
-  @Prop() size?: number;
-
-  /**
    * The step value of this element. Use `any` for decimal numbers
    */
   @Prop() step?: number | 'any' = 1;
@@ -505,7 +500,6 @@ export class Input implements ComponentInterface {
             pattern={this.pattern}
             placeholder={this.placeholder}
             required={this.required}
-            size={this.size}
             type={this.type}
             value={this.value}
             aria-controls={this.helper && this.uniqueHelperId}

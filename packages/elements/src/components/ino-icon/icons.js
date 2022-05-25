@@ -1,9 +1,5 @@
 export default [
-  '_fab_set_arrow_down',
-	'_fab_set_arrow_up',
-	'_input_number_arrow_down',
-	'_input_number_arrow_up',
-	'add',
+  'add',
 	'arrow_down',
 	'arrow_left',
 	'arrow_right',
@@ -62,10 +58,10 @@ export default [
 	'refresh',
 	'remove',
 	'report',
-	'request',
 	'save',
 	'search',
 	'settings',
+	'share',
 	'snackbar-checkmark',
 	'snackbar-error',
 	'snackbar-information',
@@ -87,5 +83,9 @@ export default [
 	'upload',
 	'user',
 	'warning',
-	'web'
+	'web',
+	'_fab_set_arrow_down',
+	'_fab_set_arrow_up',
+	'_input_number_arrow_down',
+	'_input_number_arrow_up'
 ];
