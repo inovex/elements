@@ -4,7 +4,6 @@ import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-currency-input.scss';
-import { Story } from '@storybook/web-components';
 
 export default {
   title: `Input/ino-currency-input`,
@@ -31,7 +30,7 @@ export default {
   },
   args: {
     value: '15.00',
-    currencyLocale: '',
+    currencyLocale: 'de-DE'
   },
 
 };
@@ -48,30 +47,7 @@ const template = new TemplateGenerator<Components.InoCurrencyInput>(
         id="customizable-input"
         label="Default Input"
         outline="true"
-      >
-      </ino-input>
-    </ino-currency-input>
-  `
-);
-
-type InoCurrencyWithExtendedType = Components.InoCurrencyInput & {
-  unit: '€' | '$';
-  label: string,
-}
-
-const templateUnit = new TemplateGenerator<InoCurrencyWithExtendedType>(
-  'ino-currency-input',
-  args => html`
-    <ino-currency-input
-      value="${args.value}"
-      currency-locale="${args.currencyLocale}"
-    >
-      <ino-input
-        class="customizable-input"
-        id="customizable-input"
-        label="${args.label}"
-        outline="true"
-        unit="${args.unit}"
+        unit="€"
       >
       </ino-input>
     </ino-currency-input>
@@ -79,43 +55,23 @@ const templateUnit = new TemplateGenerator<InoCurrencyWithExtendedType>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.args = {
-  value: '10.50',
-  currencyLocale: '',
-};
 
 Playground.argTypes = {
   currencyLocale: {
-    control: 'select',
+    control: 'radio',
     options: ['de-DE', 'en-US'],
   },
   value: {
-    control: 'text',
+    control: 'number',
   }
-}
-
-/**
- * Default uses a comma (,) for currency number formatting and no unit
- */
-export const Default = template.generatePlaygroundStory();
-
-/**
- * Corresponding unit symbol is shown at the end of the input field
- */
-export const Unit = templateUnit.generatePlaygroundStory();
-Unit.args = {
-  unit: '€',
-  label: 'Euro Input'
 }
 
 /**
    * A supported locale for currency number formatting. If not given, it uses the global config.
    * See https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument
    */
-export const Locales = templateUnit.generatePlaygroundStory();
+export const Locales = template.generatePlaygroundStory();
 Locales.args = {
-  unit: '$',
-  label: 'EN Input',
   currencyLocale: 'en-EN'
 }
 
