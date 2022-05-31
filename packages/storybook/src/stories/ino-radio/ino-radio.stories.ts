@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -40,16 +40,15 @@ export default {
 const template = new TemplateGenerator<Components.InoRadio>(
   'ino-radio',
   args => html`
-    <ino-radio
-      checked="${args.checked}"
-      disabled="${args.disabled}"
-      name="${args.name}"
-      value="${args.value}"
-    >
-      Radio Button Label
-    </ino-radio>
-  `
-);
+  <ino-radio
+    checked="${args.checked}"
+    disabled="${args.disabled}"
+    name="${args.name}"
+    value="${args.value}"
+  >
+    Radio Button Label
+  </ino-radio>
+`);
 
 export const Playground = template.generatePlaygroundStory();
 
