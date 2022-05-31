@@ -55,7 +55,10 @@ const template = new TemplateGenerator<Components.InoRange>(
 `);
 export const Playground = template.generatePlaygroundStory();
 export const DiscretRange = template.generateStoryForProp('discrete', true);
-export const SteppedRange = template.generateStoryForProp('step', 25);
+export const SteppedRange = template.generateStoryForProp('step', 25, {
+  discrete: true,
+  markers: true
+});
 
 const templateColors = new TemplateGenerator<Components.InoRange>(
   'ino-range',
@@ -109,9 +112,3 @@ const templateColors = new TemplateGenerator<Components.InoRange>(
 export const ColorSchemeSecondary = templateColors.generateStoryForProp('colorScheme', 'primary');
 
 withColorScheme(Playground, 'colorScheme');
-
-SteppedRange.args = {
-  discrete: true,
-  markers: true,
-  step: 25,
-};
