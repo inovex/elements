@@ -70,11 +70,4 @@ const template = new TemplateGenerator<InoInputFileExtended>(
   drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"></ino-input-file>
 `);
 export const Playground = template.generatePlaygroundStory();
-
-
-const templateDragAndDrop = new TemplateGenerator<InoInputFileExtended>(
-  'ino-input-file',
-  args => html`
-  <ino-input-file multiple drag-and-drop></ino-input-file>
-`);
-export const DragAndDrop = templateDragAndDrop.generatePlaygroundStory();
+export const DragAndDrop = template.generateStoryForProp('dragAndDrop', true);
