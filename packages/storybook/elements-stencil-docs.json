@@ -138,7 +138,7 @@
           "text": "icon-trailing - For the icon to be appended"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [
         "ino-input-file"
       ],
@@ -171,36 +171,6 @@
           "required": false
         },
         {
-          "name": "colorScheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "grey",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "white",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
           "name": "dense",
           "type": "boolean",
           "mutable": false,
@@ -214,7 +184,7 @@
               "type": "boolean"
             }
           ],
-          "optional": true,
+          "optional": false,
           "required": false
         },
         {
@@ -228,49 +198,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "edgeMirrored",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "edge-mirrored",
-          "reflectToAttr": false,
-          "docs": "Styles the button to have the edge on the top-right instead of the top-left",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "fill",
-          "type": "\"inverse\" | \"outline\" | \"solid\"",
-          "mutable": false,
-          "attr": "fill",
-          "reflectToAttr": false,
-          "docs": "The fill type of this element.\nPossible values: `solid` (default), `outline`, `inverse`.",
-          "docsTags": [],
-          "default": "'solid'",
-          "values": [
-            {
-              "value": "inverse",
-              "type": "string"
-            },
-            {
-              "value": "outline",
-              "type": "string"
-            },
-            {
-              "value": "solid",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -349,72 +276,37 @@
           ],
           "optional": true,
           "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"filled\" | \"outlined\" | \"text\"",
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "The button variant.\n\n* **filled**: Contain actions that are important for your application.\n* **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.\n* **text**: Typically used for less prominent actions, including those in dialogs and cards.",
+          "docsTags": [],
+          "default": "'filled'",
+          "values": [
+            {
+              "value": "filled",
+              "type": "string"
+            },
+            {
+              "value": "outlined",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
       "events": [],
-      "styles": [
-        {
-          "name": "--ino-button-color-primary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-primary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the primary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-primary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the primary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-primary-light",
-          "annotation": "prop",
-          "docs": "Light color of the primary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on active"
-        },
-        {
-          "name": "--ino-button-color-primary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the primary button used on hover"
-        },
-        {
-          "name": "--ino-button-color-secondary",
-          "annotation": "prop",
-          "docs": "Color of the primary button"
-        },
-        {
-          "name": "--ino-button-color-secondary-contrast",
-          "annotation": "prop",
-          "docs": "Contrast color of the secondary button. Will be used for the text color"
-        },
-        {
-          "name": "--ino-button-color-secondary-dark",
-          "annotation": "prop",
-          "docs": "Dark color of the secondary button. Will be used for the active effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-light",
-          "annotation": "prop",
-          "docs": "Light color of the secondary button. Will be used for the hover effect"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-dark",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on active"
-        },
-        {
-          "name": "--ino-button-color-secondary-shadow-light",
-          "annotation": "prop",
-          "docs": "Shadow color of the secondary button used on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "icon-leading",
@@ -983,6 +875,10 @@
       "docsTags": [
         {
           "name": "slot",
+          "text": "default - The label text of the chip"
+        },
+        {
+          "name": "slot",
           "text": "icon-leading - For the icon to be prepended"
         },
         {
@@ -1092,8 +988,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The content of the component.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\n\nThe content of the component.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -1193,6 +1094,10 @@
       ],
       "styles": [],
       "slots": [
+        {
+          "name": "default",
+          "docs": "The label text of the chip"
+        },
         {
           "name": "icon-leading",
           "docs": "For the icon to be prepended"
@@ -2739,15 +2644,20 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "The text of this header",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text of this header",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
             }
           ],
-          "optional": false,
-          "required": true
+          "optional": true,
+          "required": false
         }
       ],
       "methods": [],
@@ -2958,10 +2868,15 @@
       "filePath": "./src/components/ino-icon-button/ino-icon-button.tsx",
       "fileName": "ino-icon-button.tsx",
       "tag": "ino-icon-button",
-      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
+      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - Using default slot\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n  render() {\n    return <InoIconButton onClick={handleClick}>\n       <ino-icon icon='time'></ino-icon>\n    </InoIconButton>;\n  } \n}\n```\n\n#### Example #3 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
       "usage": {},
       "docs": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - `<ino-icon>`"
+        }
+      ],
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
@@ -3163,6 +3078,11 @@
           "docs": "default color of the background"
         },
         {
+          "name": "--ino-icon-button-background-disabled-color",
+          "annotation": "prop",
+          "docs": "base color of the background in disabled state"
+        },
+        {
           "name": "--ino-icon-button-icon-active-color",
           "annotation": "prop",
           "docs": "color of the active icon itself"
@@ -3171,6 +3091,11 @@
           "name": "--ino-icon-button-icon-color",
           "annotation": "prop",
           "docs": "default color of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-disabled-color",
+          "annotation": "prop",
+          "docs": "color of the icon itself in disabled state"
         },
         {
           "name": "--ino-icon-button-icon-size",
@@ -3183,7 +3108,12 @@
           "docs": "size of the entire button"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "`<ino-icon>`"
+        }
+      ],
       "parts": [],
       "listeners": [
         {
@@ -3862,22 +3792,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "size",
-          "type": "number",
-          "mutable": false,
-          "attr": "size",
-          "reflectToAttr": false,
-          "docs": "The size of this element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
             }
           ],
           "optional": true,
@@ -7097,8 +7011,13 @@
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
-          "docs": "The text message to display.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead\nThe text message to display.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -7567,8 +7486,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Indicates a label text in the tab.",
-          "docsTags": [],
+          "docs": "[DEPRECATED] Please use the default slot instead.\nIndicates a label text in the tab.",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -8454,7 +8378,12 @@
       "readme": "# ino-tooltip\n\nA tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-tooltip\n  for=\"<string>\"\n  label=\"<string>\"\n  placement=\"<string>\"\n  trigger=\"<string>\"\n>\n  Any desired HTML\n</ino-tooltip>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <InoTooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton, InoTooltip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Tooltip: React.FunctionComponent<Components.InoTooltipAttributes> = props => {\n  const { inoPlacement, inoTrigger, inoFor, inoLabel } = props;\n\n  return <InoTooltip inoFor={inoFor} inoLabel={inoLabel} inoPlacement={inoPlacement} inoTrigger={inoTrigger}>{props.children}</InoTooltip>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton id=\"tooltip-button\">Hover me to see the Tooltip!</InoButton>\n      <Tooltip inoFor=\"tooltip-button\" inoLabel=\"This is the tooltip!\" inoPlacement=\"top\" inoTrigger=\"hover\" />\n    );\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
       "docs": "A tooltip component that displays text when users hover over, focus on, or tap an element.\n\n> Note: A tooltip can only display plain text. For more complex dialogs, see the [Popover](https://elements.inovex.de/dist/latest/storybook/?path=/story/notification-ino-popover--default-usage) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default The text shown in the tooltip."
+        }
+      ],
       "encapsulation": "none",
       "dependents": [
         "ino-fab"
@@ -8518,8 +8447,13 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "The text shown in the tooltip.",
-          "docsTags": [],
+          "docs": "The text shown in the tooltip.\n\n[DEPRECATED] Please use the default slot instead",
+          "docsTags": [
+            {
+              "name": "deprecated"
+            }
+          ],
+          "deprecation": "",
           "values": [
             {
               "type": "string"
@@ -8692,7 +8626,12 @@
       ],
       "events": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default The text shown in the tooltip.",
+          "docs": ""
+        }
+      ],
       "parts": [],
       "listeners": []
     }
