@@ -27,14 +27,15 @@ export const Playground: Story<Components.InoChip> = (args) => html`
     selectable="${args.selectable}"
     selected="${args.selected}"
     value="${args.value}"
-  </ino-chip>
+  >${args.defaultSlot}</ino-chip>
 `;
 
 Playground.args = {
+  defaultSlot: 'My chip label',
   colorScheme: 'default',
   disabled: false,
   fill: 'solid',
-  label: 'Label',
+  label: '',
   removable: false,
   selectable: false,
   selected: false,
@@ -75,39 +76,42 @@ export const Fill = (): TemplateResult => html`
 export const Colors = (): TemplateResult => html`
   <div class="ino-chip-story">
     <ino-chip label="Default"></ino-chip>
-    <ino-chip color-scheme="primary" label="Primary"></ino-chip>
-    <ino-chip color-scheme="secondary" label="Secondary"></ino-chip>
-    <ino-chip color-scheme="success" label="Success"></ino-chip>
-    <ino-chip color-scheme="warning" label="Warning"></ino-chip>
-    <ino-chip color-scheme="error" label="Error"></ino-chip>
-    <ino-chip color-scheme="light" label="Light"></ino-chip>
-    <ino-chip color-scheme="dark" label="Dark"></ino-chip>
+    <ino-chip color-scheme="primary">Primary</ino-chip>
+    <ino-chip color-scheme="secondary">Secondary</ino-chip>
+    <ino-chip color-scheme="success">Success</ino-chip>
+    <ino-chip color-scheme="warning">Warning</ino-chip>
+    <ino-chip color-scheme="error">Error</ino-chip>
+    <ino-chip color-scheme="light">Light</ino-chip>
+    <ino-chip color-scheme="dark">Dark</ino-chip>
   </div>
   <div class="ino-chip-story">
-    <ino-chip fill="outline" label="Outline"></ino-chip>
-    <ino-chip fill="outline" label="Primary" color-scheme="primary"></ino-chip>
+    <ino-chip fill="outline">Outline</ino-chip>
+    <ino-chip fill="outline" color-scheme="primary">Primary</ino-chip>
     <ino-chip
       fill="outline"
       label="Secondary"
       color-scheme="secondary"
     ></ino-chip>
-    <ino-chip fill="outline" color-scheme="success" label="Success"></ino-chip>
-    <ino-chip fill="outline" color-scheme="warning" label="Warning"></ino-chip>
-    <ino-chip fill="outline" color-scheme="error" label="Error"></ino-chip>
-    <ino-chip fill="outline" color-scheme="light" label="Light"></ino-chip>
-    <ino-chip fill="outline" color-scheme="dark" label="Dark"></ino-chip>
+    <ino-chip fill="outline" color-scheme="success">Success</ino-chip>
+    <ino-chip fill="outline" color-scheme="warning">Warning</ino-chip>
+    <ino-chip fill="outline" color-scheme="error">Error</ino-chip>
+    <ino-chip fill="outline" color-scheme="light">Light</ino-chip>
+    <ino-chip fill="outline" color-scheme="dark">Dark</ino-chip>
   </div>
 `;
 
 export const Icons = (): TemplateResult => html`
   <div class="ino-chip-story">
-    <ino-chip label="Leading">
+    <ino-chip>
+      Leading
       <ino-icon slot="icon-leading" icon="star"></ino-icon>
     </ino-chip>
-    <ino-chip label="Trailing">
+    <ino-chip>
+      Trailing
       <ino-icon slot="icon-trailing" icon="star"></ino-icon>
     </ino-chip>
-    <ino-chip label="Leading & Trailing">
+    <ino-chip>
+      <span>Leading & Trailing</span>
       <ino-icon slot="icon-leading" icon="star"></ino-icon>
       <ino-icon slot="icon-trailing" icon="star"></ino-icon>
     </ino-chip>
@@ -116,9 +120,9 @@ export const Icons = (): TemplateResult => html`
 
 export const States = (): TemplateResult => html`
   <div class="ino-chip-story">
-    <ino-chip removable label="Removable"></ino-chip>
-    <ino-chip selected label="Selected" selectable></ino-chip>
-    <ino-chip disabled label="Disabled"></ino-chip>
+    <ino-chip removable>Removable</ino-chip>
+    <ino-chip selected selectable>Selected</ino-chip>
+    <ino-chip disabled>Disabled</ino-chip>
   </div>
 `;
 
@@ -139,11 +143,9 @@ export const Selection = (): TemplateResult => {
         (value, index) =>
           html` <ino-chip
             color-scheme="${index === 0 ? 'primary' : 'default'}"
-            label="${value}"
             value="${value}"
             @chipClicked="${(ev) => handleClick(ev.target)}"
-          >
-          </ino-chip>`
+          >${value}</ino-chip>`
       )}
     </div>
   `;
@@ -169,12 +171,10 @@ export const Filter = (): TemplateResult => {
       ${values.map(
         (value) =>
           html` <ino-chip
-            label="${value}"
             value="${value}"
             selectable
             @chipClicked="${(ev) => handleClick(ev.target)}"
-          >
-          </ino-chip>`
+          >${value}</ino-chip>`
       )}
     </div>
   `;
@@ -190,12 +190,10 @@ export const Remove = (): TemplateResult => {
       ${chips.map(
         (value, index) =>
           html` <ino-chip
-            label="${value}"
             value="${value}"
             removable="${index !== 0}"
             @chipRemoved="${(ev) => handleClick(ev.target)}"
-          >
-          </ino-chip>`
+          >${value}</ino-chip>`
       )}
     </div>
   `;

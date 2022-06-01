@@ -105,12 +105,14 @@
 </template>
 
 <script>
+import { InoButton } from "@inovex.de/elements-vue";
 import IvxCard from './IvxCard'
 
 export default {
   name: 'IvxInstallSection',
   components: {
-    IvxCard
+    IvxCard,
+    InoButton,
   },
   data () {
     return {

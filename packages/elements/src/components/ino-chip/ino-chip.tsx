@@ -15,6 +15,7 @@ import { hasSlotContent } from '../../util/component-utils';
 import { ChipSurface, ColorScheme } from '../types';
 
 /**
+ * @slot default - The label text of the chip
  * @slot icon-leading - For the icon to be prepended
  * @slot icon-trailing - For the icon to be appended - disables the `removable` property
  */
@@ -43,7 +44,10 @@ export class Chip implements ComponentInterface {
   @Prop() fill: ChipSurface = 'solid';
 
   /**
+   * [DEPRECATED] Please use the default slot instead
+   *
    * The content of the component.
+   * @deprecated
    */
   @Prop() label: string;
 
@@ -91,7 +95,13 @@ export class Chip implements ComponentInterface {
    */
   @Event() chipRemoved: EventEmitter<string>;
 
-  private iconClicked(e: MouseEvent) {
+  componentDidLoad() {
+    if (this.label) {
+      console.warn('[ino-chip] The attribute "label" is deprecated, please use the default slot instead.');
+    }
+  }
+
+  private iconClicked = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     this.chipRemoved.emit(this.value);
@@ -199,7 +209,7 @@ export class Chip implements ComponentInterface {
                 </span>
               ),
               <span class="mdc-evolution-chip__text-label ino-chip-label">
-                {this.label}
+                {this.label ? this.label : <slot />}
               </span>,
             ])}
           </span>
@@ -214,6 +224,7 @@ export class Chip implements ComponentInterface {
                 tabIndex={-1}
                 data-mdc-deletable="true"
                 disabled={this.disabled}
+                onClick={(e) => this.iconClicked(e)}
               >
                 <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--trailing" />
                 <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--trailing ino-chip-trailing-icon">
@@ -224,7 +235,6 @@ export class Chip implements ComponentInterface {
                       tabindex="0"
                       role="button"
                       clickable={true}
-                      onClick={(e) => this.iconClicked(e)}
                     />
                   ) : (
                     <slot name="icon-trailing" />

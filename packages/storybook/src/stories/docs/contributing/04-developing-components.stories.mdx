@@ -28,24 +28,21 @@ For examples and details please refer to the **Events** section below.
 
 ## Properties
 
-We have native and custom properties in components. For example, the `ino-button` element has native properties like `disabled` and **prefixed** custom attributes like `ino-color-scheme`. This differentation helps the user to understand the underyling functionality and prohibits incompatibilities with native elements.
-
-For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take some time when writing this description, since it will be compiled by stencil and used in the storybook.
+For each property, we provide a short jsdoc when defining a property. This comment should contain a short and precise description of the property's functionality. Take some time when writing this description, since it will be used as a references by other developers.
 
 ## Events
 
-Similar to properties, we differentiate between native and Custom Events. Native events are triggered by native html elements like `<input>` and bubble out of the scope automatically. For example, the button element uses a `HTMLButtonElement` internally that emits `click`, ... events).
-
-**Important:** Native events are not defined inside the component. For this reason, we provide an explanation of their behaviour in the `readme.md` and add them to the **Usage** section.
-
+We differentiate between native and Custom Events.
+Native events are triggered by native HTML elements like `<input>` and bubble out of the scope automatically. For example, the `<button>` element uses a `HTMLButtonElement` internally that emits `click` events.
+Custom Events are our way to inform the consumer about internal changes.
 Every time we provide a Custom Event for a component we always set their action in **present tense**.
 
 Here are some examples to make the naming easier for you:
 
 ### Example 1: The ino-input Component
 
-- Input: `value` (Attribute, @Prop())
-- Output: `valueChange` (Custom Event, @Event())
+- Input: `value` (Attribute, `@Prop()`)
+- Output: `valueChange` (Custom Event, `@Event()`)
 
 #### Description
 
@@ -53,32 +50,39 @@ The name of the input param `value` is contained in the name of the event param 
 
 _Hey consumer, the value should change. Here is the value. But you decide if you want to change the value. You can set the @Input `value` with the value I gave you, then I will update my value. If you do not update the value, I will not update the value und the old value remains the same_.
 
-### Example 2: The ino-chip Component
+### Example 2: The ino-checkbox Component
 
-- Input: `ino-removable` (Attribute, @Prop())
-- Output: `removeChip` (Custom Event, @Event())
+- Input: `checked` (Attribute, @Prop())
+- Output: `checkedChange` (Custom Event, @Event())
 
 #### Description
 
-In this case, the chip component has a little x-icon if `ino-removable` is set. If the user clicks the icon, an event is emitted that says:
+In this case, if the user clicks the checkbox, an event is emitted that says:
 
-_Hey consumer, the x-icon has been clicked and the chip component should be removed. But you decide if you want to remove it._
+_Hey consumer, the checkbox has been clicked and the `checked` property should be updated. But you decide if you want to check it or not._
 
 Here is a list of some example events we use:
 
 ```
 checkedChange
-updateChipSet
-removeChip
 valueChange
 clickEl
-changeFile
 hideEl
 activeTabChange
 loadEl
 unloadEl
 ...
 ```
+
+## Testing
+
+All of our components should be tested to ensure correct functionality.
+The following two types of tests should be present if possible.
+
+| Type             | Description                                                                                                                                                                                                                                                 | Frameworks      |
+|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| Unit (spec)      | Unit tests focus on testing a component's methods in isolation. For example, when a method is given the argument X, it should return Y.                                                                                                                     | Jest            |
+| End-To-End (e2e) | End-to-end tests focus on how the components are rendered in the DOM and how the individual components work together.  For example, when my-component has the X attribute, the child component then renders the text Y, and expects to receive the event Z. | Jest, Puppeteer |
 
 ## Documentation
 
@@ -91,6 +95,5 @@ We extend the generated docs by adding more information of how to use the compon
 
 Normally, we...
 
-- ... provide a **Usage** section to describe the API as HTML element. This is in the form of a generic element containing **all** attributes and the data type (`<ino-button name="<string>" ...></ino-button>`).
 - ... explain extraordinary attributes.
 - ... explain the behaviour of native and custom events if it is more complex.

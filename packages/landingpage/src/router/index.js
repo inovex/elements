@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import Router from 'vue-router'
 import WelcomeIndex from '@/views/WelcomeIndex'
+import { createRouter, createWebHashHistory } from "vue-router";
 
-Vue.use(Router)
+const routes = [
+  {
+    path: '/',
+    name: 'WelcomeIndex',
+    component: WelcomeIndex
+  }
+];
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'WelcomeIndex',
-      component: WelcomeIndex
-    }
-  ]
+export default createRouter({
+  history: createWebHashHistory(),
+  routes,
 })

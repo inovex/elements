@@ -1,9 +1,11 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
-import { reactOutputTarget } from '@stencil/react-output-target';
+import { vueOutputTarget } from './vue-output-target';
+import { JsonDocsOutputTarget } from './json-docs-output-target';
+import { reactOutputTarget as react } from '@stencil/react-output-target';
 
-const angularDiretivesPath = '../elements-angular/elements/src/directives';
+const angularDirectivesPath = '../elements-angular/elements/src/directives';
 const reactProxyPath = '../elements-react/src/components';
 
 export const config: Config = {
@@ -23,25 +25,56 @@ export const config: Config = {
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   outputTargets: [
+    react({
+      componentCorePackage: '@inovex.de/elements',
+      proxiesFile: `${reactProxyPath}/index.ts`,
+      includeDefineCustomElements: true,
+    }),
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
     { type: 'docs-readme' },
-    {
-      type: 'docs-json',
-      file: '../storybook/elements-stencil-docs.json',
-    },
+    JsonDocsOutputTarget,
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      directivesProxyFile: `${angularDiretivesPath}/proxies.ts`,
-      directivesUtilsFile: angularDiretivesPath,
-      directivesArrayFile: `${angularDiretivesPath}/proxies-list.ts`,
+      directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
+      directivesUtilsFile: angularDirectivesPath,
+      directivesArrayFile: `${angularDirectivesPath}/proxies-list.ts`,
     }),
-    reactOutputTarget({
+    vueOutputTarget({
       componentCorePackage: '@inovex.de/elements',
-      proxiesFile: `${reactProxyPath}/index.ts`,
-      includeDefineCustomElements: true,
+      proxiesFile: '../elements-vue/src/proxies.ts',
+      includeDefineCustomElements: false,
+      // external event names (valueChange, checkedChange, ...) have to be mapped to vue event names
+      // see elements-vue/src/index.ts
+      componentModels: [
+        {
+          elements: [
+            'ino-checkbox',
+            'ino-radio',
+            'ino-switch',
+            'ino-segment-button',
+            'ino-control-item',
+          ],
+          targetAttr: 'checked',
+          event: 'v-checked-change',
+          externalEvent: 'checkedChange',
+        },
+        {
+          elements: [
+            'ino-autocomplete',
+            'ino-datepicker',
+            'ino-input',
+            'ino-range',
+            'ino-select',
+            'ino-textarea',
+          ],
+          targetAttr: 'value',
+          event: 'v-value-change',
+          externalEvent: 'valueChange',
+        },
+      ],
     }),
   ],
   plugins: [

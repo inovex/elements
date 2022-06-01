@@ -37,8 +37,7 @@ export class CurrencyInput {
   @Prop({ reflect: true }) value: number | string;
   @Watch('value')
   valueChanged(value: number | string) {
-
-    if (!value || value === 'null') {
+    if ((!value && value !== 0) || value === 'null') {
       this.hiddenValue = null;
       this.inputValue = null;
     }

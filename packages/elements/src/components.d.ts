@@ -5,9 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
-import { Placement } from "tippy.js";
+import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
@@ -30,25 +31,13 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
-        "dense"?: boolean;
+        "dense": boolean;
         /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -65,6 +54,10 @@ export namespace Components {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant": Variants;
     }
     interface InoCard {
         /**
@@ -156,7 +149,8 @@ export namespace Components {
          */
         "fill": ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label": string;
         /**
@@ -437,9 +431,10 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -659,10 +654,6 @@ export namespace Components {
          */
         "showLabelHint"?: boolean;
         /**
-          * The size of this element.
-         */
-        "size"?: number;
-        /**
           * The step value of this element. Use `any` for decimal numbers
          */
         "step"?: number | 'any';
@@ -863,6 +854,10 @@ export namespace Components {
     }
     interface InoPopover {
         /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody": boolean;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
@@ -874,6 +869,7 @@ export namespace Components {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        "followCursor": Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
@@ -1090,7 +1086,8 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -1156,7 +1153,8 @@ export namespace Components {
          */
         "indicatorContentWidth": boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1328,7 +1326,8 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1713,10 +1712,6 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
         "dense"?: boolean;
@@ -1724,14 +1719,6 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -1748,6 +1735,10 @@ declare namespace LocalJSX {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant"?: Variants;
     }
     interface InoCard {
         /**
@@ -1843,7 +1834,8 @@ declare namespace LocalJSX {
          */
         "fill"?: ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2136,9 +2128,10 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead The text of this header
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -2361,10 +2354,6 @@ declare namespace LocalJSX {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
-        /**
-          * The size of this element.
-         */
-        "size"?: number;
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
@@ -2597,6 +2586,10 @@ declare namespace LocalJSX {
     }
     interface InoPopover {
         /**
+          * If set, attaches the popover element to the body. Useful to avoid overflow or z-index issues.
+         */
+        "attachToBody"?: boolean;
+        /**
           * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
@@ -2608,6 +2601,7 @@ declare namespace LocalJSX {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        "followCursor"?: Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
          */
@@ -2839,7 +2833,8 @@ declare namespace LocalJSX {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -2917,7 +2912,8 @@ declare namespace LocalJSX {
          */
         "indicatorContentWidth"?: boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -3092,7 +3088,8 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
