@@ -1,15 +1,29 @@
 import { Components } from '@inovex.de/elements';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 
 export default {
   title: `Structure/ino-tab`,
   component: 'ino-tab',
   decorators: [(story) => decorateStoryWithClass(story)],
-} as Meta;
+  args: {
+    indicatorContentWidth: false,
+    defaultSlot: 'Customizable Tab',
+    label: '',
+    stacked: false,
+    icon: 'info',
+  },
+} as Meta<Components.InoTab>;
 
-export const Playground: Story<Components.InoTab> = (args) => html`
+type InoTabExtended = Components.InoTab & {
+  defaultSlot: string,
+}
+
+const template = new TemplateGenerator<InoTabExtended>(
+  'ino-tab',
+  args => html`
   <ino-tab
     icon="${args.icon}"
     indicator-content-width="${args.indicatorContentWidth}"
@@ -18,29 +32,16 @@ export const Playground: Story<Components.InoTab> = (args) => html`
   >
     ${args.defaultSlot}
   </ino-tab>
-`;
-Playground.args = {
-  indicatorContentWidth: false,
-  defaultSlot: 'Customizable Tab',
-  label: '',
-  stacked: false,
-};
+`);
+
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
 
-export const Variants = () => html`
-  <div class="story-tab-variants">
-    <ino-tab label="Default" icon="info"></ino-tab>
-    <ino-tab label="Stacked" icon="info" stacked></ino-tab>
-    <ino-tab-bar active-tab="0">
-      <ino-tab label="Default active Tab" icon="info"></ino-tab>
-    </ino-tab-bar>
-    <ino-tab-bar active-tab="0">
-      <ino-tab
-        label="Active content width indicator"
-        icon="info"
-        indicator-content-width
-      >
-      </ino-tab>
-    </ino-tab-bar>
-  </div>
-`;
+export const Icon = template.generateStoryForProp('icon', 'info');
+export const Label = template.generateStoryForProp('label', '');
+Label.args = {
+  defaultSlot: 'Label',
+}
+export const Stacked = template.generateStoryForProp('stacked', true);
+export const IndicatorContentWidth = template.generateStoryForProp('indicatorContentWidth', true);
+
