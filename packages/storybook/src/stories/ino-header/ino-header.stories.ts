@@ -11,15 +11,18 @@ export default {
   component: 'ino-header',
   decorators: [(story) => decorateStoryWithClass(story)],
   args: {
-    text: 'Headline Text',
-    
+    text: '',
+    defaultSlot: 'Headline Text'
   }
 } as Meta<Components.InoHeader>;
 
-const template = new TemplateGenerator<Components.InoHeader>(
+type InoHeaderExtended = Components.InoHeader & {
+  defaultSlot: string,
+}
+const template = new TemplateGenerator<InoHeaderExtended>(
   'ino-header',
   args => html`
-  <ino-header text="${args.text}"></ino-header>
+  <ino-header text="${args.text}">${args.defaultSlot}</ino-header>
 `);
 
 export const Playground = template.generatePlaygroundStory();
