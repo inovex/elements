@@ -1,0 +1,6 @@
+This elements icon is copied from /doc/assets/elements.svg to match the path Storybook needs.
+
+That's because the logo is used in two rendered outputs:
+
+* The GitLab/GitHub README.md Viewer
+* The Storybook Story "Getting Started" (which simply requires the README.md)
