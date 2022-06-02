@@ -1,6 +1,8 @@
 import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import jamesLogo from '../../assets/images/james-logo.png';
 import './ino-nav-drawer.scss';
 
@@ -15,8 +17,7 @@ const openChangeHandle = function (e) {
 const clickHandler = (e) => {
   e.preventDefault();
   e.stopPropagation();
-
-  const el = e.target;
+  const el = e.target.parentElement;
   if (el.className.includes('toggle-nav')) {
     // go up to the ino drawer
     const drawer = el.closest('ino-nav-drawer');
@@ -71,7 +72,26 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  argTypes: {
+    anchor: {
+      control: {
+        type: 'select',
+      },
+      options: ['left', 'right'],
+    },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['docked', 'dismissible', 'modal'],
+    },
+  },
+  args: {
+    open: true,
+    anchor: 'left',
+    variant: 'docked',
+  }
+} as Meta<Components.InoNavDrawer>;
 
 const navContent = html`
   <ino-img
@@ -154,7 +174,9 @@ const mainContent = html`
   </p>
 `;
 
-export const Playground = (args) => html`
+const template = new TemplateGenerator<Components.InoNavDrawer>(
+  'ino-nav-drawer',
+  args => html`
   <div class="story-nav-drawer__default">
     <ino-nav-drawer
       open=${args.open}
@@ -192,59 +214,24 @@ export const Playground = (args) => html`
       </main>
     </ino-nav-drawer>
   </div>
-`;
-Playground.args = {
-  open: true,
-  anchor: 'left',
-  variant: 'docked',
-};
-Playground.argTypes = {
-  anchor: {
-    control: {
-      type: 'select',
-    },
-    options: ['left', 'right'],
-  },
-  variant: {
-    control: {
-      type: 'select',
-    },
-    options: ['docked', 'dismissible', 'modal'],
-  },
-};
+`);
 
-export const Dismissible = () => {
-  return html`
-    <div class="story-nav-drawer__dismissible">
-      <ino-nav-drawer
-        variant="dismissible"
-        class="nav-drawer-dismissible"
-        anchor="left"
-      >
-        ${navContent}
-        <main slot="app" class="main-content">
-          <ino-button fill="outline" dense class="toggle-nav"
-            >Toggle Navigation</ino-button
-          >
-          ${mainContent}
-        </main>
-      </ino-nav-drawer>
-    </div>
-  `;
-};
+export const Playground = template.generatePlaygroundStory();
 
-export const Modal = () => {
-  return html`
-    <div class="story-nav-drawer__modal">
-      <ino-nav-drawer variant="modal" class="nav-drawer-modal" anchor="left">
-        ${navContent}
-        <main slot="app" class="main-content">
-          <ino-button fill="outline" dense class="toggle-nav"
-            >Toggle Navigation</ino-button
-          >
-          ${mainContent}
-        </main>
-      </ino-nav-drawer>
-    </div>
-  `;
-};
+const templateModal = new TemplateGenerator<Components.InoNavDrawer>(
+  'ino-nav-drawer',
+  args => html`
+  <div class="story-nav-drawer__modal">
+    <ino-nav-drawer variant="modal" class="nav-drawer-modal" anchor="left">
+      ${navContent}
+      <main slot="app" class="main-content">
+        <ino-button fill="outline" dense class="toggle-nav"
+          >Toggle Navigation</ino-button
+        >
+        ${mainContent}
+      </main>
+    </ino-nav-drawer>
+  </div>
+`);
+
+export const Modal = templateModal.generateStoryForProp('variant', 'modal');
