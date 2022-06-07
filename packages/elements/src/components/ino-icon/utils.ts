@@ -53,20 +53,11 @@ export function getUrl(src: string | undefined, icon: string | undefined) {
 		return getNamedUrl(url);
 	}
 
-	url = getSrc(icon);
-	if (url) {
-		return url;
-	}
-
-	return null;
+  return getSrc(icon);
 }
 
 export function getNamedUrl(name: string) {
-	const url = getIconMap().get(name);
-	if (url) {
-		return url;
-	}
-	return getAssetPath(`./ino-icon/${name}.svg`);
+	return getIconMap().get(name) ?? getAssetPath(`./ino-icon/${name}.svg`);
 }
 
 export const isSrc = (str: string) => str.length > 0 && /(\/|\.)/.test(str);
