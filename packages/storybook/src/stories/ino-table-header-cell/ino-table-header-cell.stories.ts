@@ -4,8 +4,10 @@ import {
   withIconControl,
   withSortDirection,
 } from '../utils';
+import { Meta } from '@storybook/web-components';
 import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
+import { TemplateGenerator } from '../template-generator';
 import './ino-table-header-cell.scss';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
 
@@ -40,9 +42,19 @@ export default {
       return story();
     },
   ],
-};
+  args: {
+    autofocus: true,
+    notSortable: false,
+    label: 'Label, e.g. Belegart',
+    columnId: '',
+    sortDirection: '',
+    searched: false,
+  },
+} as Meta;
 
-export const Playground = (args) => html`
+const template = new TemplateGenerator<Components.InoTableHeaderCell>(
+  'ino-table-header-cell',
+  args => html`
   <ino-table>
     <tr slot="header-row">
       <ino-table-header-cell
@@ -59,113 +71,71 @@ export const Playground = (args) => html`
       </ino-table-header-cell>
     </tr>
   </ino-table>
-`;
-Playground.args = {
-  autofocus: true,
-  notSortable: false,
-  label: 'Label, e.g. Belegart',
-  columnId: '',
-  sortDirection: '',
-  searched: false,
-};
+`);
+
+export const Playground = template.generatePlaygroundStory();
+
 withIconControl(Playground, 'searchIcon', 'search');
 withSortDirection(Playground, 'sortDirection');
 withSortDirection(Playground, 'sortStart', 'desc');
 
-export const SearchWithInputField = () => {
-  useEffect(() => {
-    const checkboxes = document.querySelectorAll('ino-checkbox');
-    const checkedHandler = (e) =>
-      ((e.target as Components.InoCheckbox).checked = (e as any).detail);
-    checkboxes.forEach((c) =>
-      addEventListener('checkedChange', checkedHandler)
-    );
-    return checkboxes.forEach((c) =>
-      removeEventListener('checkedChange', checkedHandler)
-    );
-  });
+export const Autofocus = template.generateStoryForProp('autofocus', true);
+export const Label = template.generateStoryForProp('label', 'Search for XY...');
+export const NotSortable = template.generateStoryForProp('notSortable', true);
+export const SortDirection = template.generateStoryForProp('sortDirection', 'desc');
+export const SearchIcon = template.generateStoryForProp('searchIcon', 'search');
+export const Searched = template.generateStoryForProp('searched', true);
 
-  return html`
-    <ino-table>
-      <tr slot="header-row">
-        <ino-table-header-cell label="Simple Text field">
-          <ino-input placeholder="Search for XY..." data-ino-focus>
-            <ino-icon slot="icon-trailing" icon="close"></ino-icon>
-          </ino-input>
-        </ino-table-header-cell>
+const templateSearchWithDatepicker = new TemplateGenerator<Components.InoTableHeaderCell>(
+  'ino-table-header-cell',
+  args => html`
+  ${useEffect(registerInlineDatepickerHandler)}
+  <ino-table>
+    <tr slot="header-row">
+      <ino-table-header-cell
+        label="Column Selection Search"
+        search-icon="calendar"
+        class="datepicker-cell"
+      >
+        <div lang="de" class="datepicker-group">
+          <aside>
+            <ul>
+              <li class="today">Today</li>
+              <li class="lastWeek">last week</li>
+              <li class="thisWeek">this week</li>
+            </ul>
+          </aside>
+          <main id="main">
+            <ino-datepicker
+              type="date"
+              label="An"
+              inline
+              date-format="d.m.Y"
+              placeholder="tt.mm.jjjj"
+              append-to="main"
+              data-ino-focus
+            ></ino-datepicker>
+            <ino-radio-group value="at">
+              <ino-radio value="at">At</ino-radio>
+              <ino-radio value="after">After</ino-radio>
+              <ino-radio value="before">Before</ino-radio>
+              <ino-radio value="range">Range</ino-radio>
+            </ino-radio-group>
+          </main>
+        </div>
+      </ino-table-header-cell>
+    </tr>
+  </ino-table>
+`);
 
-        <ino-table-header-cell label="Only sortable"></ino-table-header-cell>
+/**
+ * Use a `ino-datepicker` element inside of a `ino-table-header-cell` element to show a search with a datepicker on click
+ */
+export const SearchWithDatepicker = templateSearchWithDatepicker.generatePlaygroundStory();
 
-        <ino-table-header-cell label="Number field with max length">
-          <ino-input
-            placeholder="Search for XY..."
-            data-ino-focus
-            type="number"
-            maxlength="10"
-            helper-character-counter
-          >
-            <ino-icon slot="icon-trailing" icon="close"></ino-icon>
-          </ino-input>
-        </ino-table-header-cell>
-
-        <ino-table-header-cell label="Text already searched" searched>
-          <ino-input
-            placeholder="Search for XY..."
-            data-ino-focus
-            value="12345"
-          >
-            <ino-icon slot="icon-trailing" icon="close"></ino-icon>
-          </ino-input>
-        </ino-table-header-cell>
-      </tr>
-    </ino-table>
-  `;
-};
-
-export const SearchWithDatepicker = () => {
-  useEffect(registerInlineDatepickerHandler);
-
-  return html`
-    <ino-table>
-      <tr slot="header-row">
-        <ino-table-header-cell
-          label="Column Selection Search"
-          search-icon="calendar"
-          class="datepicker-cell"
-        >
-          <div lang="de" class="datepicker-group">
-            <aside>
-              <ul>
-                <li class="today">Heute</li>
-                <li class="lastWeek">Letzte Woche</li>
-                <li class="thisWeek">Diese Woche</li>
-              </ul>
-            </aside>
-            <main id="main">
-              <ino-datepicker
-                type="date"
-                label="An"
-                inline
-                date-format="d.m.Y"
-                placeholder="tt.mm.jjjj"
-                append-to="main"
-                data-ino-focus
-              ></ino-datepicker>
-              <ino-radio-group value="at">
-                <ino-radio value="at">Am</ino-radio>
-                <ino-radio value="after">Ab</ino-radio>
-                <ino-radio value="before">Bis</ino-radio>
-                <ino-radio value="range">Zeitraum</ino-radio>
-              </ino-radio-group>
-            </main>
-          </div>
-        </ino-table-header-cell>
-      </tr>
-    </ino-table>
-  `;
-};
-
-export const SearchWithSelection = () => {
+const templateSearchWithSelection = new TemplateGenerator<Components.InoTableHeaderCell>(
+  'ino-table-header-cell',
+  args => {
   useEffect(() => {
     const checkboxes = document.querySelectorAll('ino-checkbox');
     const checkedHandler = (e) =>
@@ -178,34 +148,38 @@ export const SearchWithSelection = () => {
         removeEventListener('checkedChange', checkedHandler)
       );
   });
-
+  
   return html`
-    <ino-table>
-      <tr slot="header-row">
-        <ino-table-header-cell
-          label="Column Selection Search"
-          search-icon="filter"
-        >
-          <ino-list>
-            <ino-list-item text="Option 1">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
-            </ino-list-item>
-            <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 2">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
-            </ino-list-item>
-            <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 3">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
-            </ino-list-item>
-            <ino-list-item-divider inset></ino-list-item-divider>
-            <ino-list-item text="Option 4">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
-            </ino-list-item>
-            <ino-list-item-divider inset></ino-list-item-divider>
-          </ino-list>
-        </ino-table-header-cell>
-      </tr>
-    </ino-table>
-  `;
-};
+  <ino-table>
+    <tr slot="header-row">
+      <ino-table-header-cell
+        label="Column Selection Search"
+        search-icon="filter"
+      >
+        <ino-list>
+          <ino-list-item text="Option 1">
+            <ino-checkbox slot="leading" selection></ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset></ino-list-item-divider>
+          <ino-list-item text="Option 2">
+            <ino-checkbox slot="leading" selection></ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset></ino-list-item-divider>
+          <ino-list-item text="Option 3">
+            <ino-checkbox slot="leading" selection></ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset></ino-list-item-divider>
+          <ino-list-item text="Option 4">
+            <ino-checkbox slot="leading" selection></ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset></ino-list-item-divider>
+        </ino-list>
+      </ino-table-header-cell>
+    </tr>
+  </ino-table>
+`});
+
+/**
+ * Use a `ino-list` element inside of a `ino-table-header-cell` element to show a list selection on click
+ */
+export const SearchWithSelection = templateSearchWithSelection.generatePlaygroundStory();
