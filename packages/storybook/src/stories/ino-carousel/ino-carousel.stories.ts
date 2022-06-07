@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 
 // @ts-ignore
 import lightningImg from '../../assets/images/lightning.jpg';
@@ -26,15 +27,13 @@ export default {
             return;
           }
           const iconButton: HTMLInoIconButtonElement = e.target;
-
           const carousel: HTMLInoCarouselElement = iconButton.closest(
             'ino-carousel'
           );
+          const slidesLenght = carousel.querySelectorAll('ino-carousel-slide').length
           const isLeftArrow = iconButton.icon === 'arrow_left';
           carousel.value = mod(
-            carousel.value + (isLeftArrow ? -1 : 1),
-            3
-          ).toString();
+            carousel.value + (isLeftArrow ? slidesLenght - 1: 1), 3).toString()
         };
 
         const mod = (a, b) => ((a % b) + b) % b;
@@ -48,10 +47,20 @@ export default {
       return story();
     },
   ],
+  args: {
+    value: 0,
+    autoplay: false,
+    animated: false,
+    hideButtons: false,
+    infinite: true,
+    intermission: 5000,
+    reverse: false,
+  },
 } as Meta;
 
-export const Playground: Story<Components.InoCarousel> = (args) => html`
-  <h3>Customizable carousel</h3>
+const template = new TemplateGenerator<Components.InoCarousel>(
+  'ino-carousel',
+  args => html`
   <div class="ino-carousel-example">
     <ino-carousel
       class="customizable-carousel"
@@ -68,22 +77,27 @@ export const Playground: Story<Components.InoCarousel> = (args) => html`
       <ino-carousel-slide src=${nidarosImg} value="2"></ino-carousel-slide>
     </ino-carousel>
   </div>
-`;
+`);
 
-Playground.args = {
-  value: 0,
-  autoplay: false,
-  animated: false,
-  hideButtons: false,
-  infinite: false,
-  intermission: 5000,
-  reverse: false,
-};
+export const Playground = template.generatePlaygroundStory();
+export const Autoplay = template.generateStoryForProp('autoplay', true, {
+  intermission: "2000",
+  animated: true,
+  infinite: true,
+});
+export const Animated = template.generateStoryForProp('animated', true);
+export const HideButtons = template.generateStoryForProp('hideButtons', true);
+export const Infinite = template.generateStoryForProp('infinite', true);
+export const Intermissen = template.generateStoryForProp('intermission', '2000', {
+  autoplay: true,
+  animated: true,
+  infinite: true,
+});
+export const Reverse = template.generateStoryForProp('reverse', true, {
+  intermission: "2000",
+  autoplay: true,
+  animated: true,
+  infinite: true,
+});
 
-export const Autoplay = () => html`
-  <ino-carousel intermission="2000" autoplay animated infinite value="0">
-    <ino-carousel-slide src=${lightningImg} value="0"></ino-carousel-slide>
-    <ino-carousel-slide src=${mountainsImg} value="1"></ino-carousel-slide>
-    <ino-carousel-slide src=${nidarosImg} value="2"></ino-carousel-slide>
-  </ino-carousel>
-`;
+
