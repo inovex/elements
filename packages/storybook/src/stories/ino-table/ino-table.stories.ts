@@ -3,6 +3,7 @@ import { html } from 'lit-html';
 import { decorateStoryWithClass, withSortDirection } from '../utils';
 import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
+import { TemplateGenerator } from '../template-generator';
 import './ino-table.scss';
 
 export default {
@@ -23,113 +24,123 @@ export default {
       return () => tables.forEach(t => t.removeEventListener('sortChange', sortChangeHandler));
     })
     return story();
-  }]
+  }],
+  argTypes: {
+    sortColumnId: {
+      options: ['id', 'name', 'release', 'box-office', 'rating'],
+      control: {
+        type: 'select'
+      },
+    },
+  },
+  args: {
+    loading: false,
+    sortColumnId: 'id',
+    noHover: false,
+    stickyHeader: false,
+    sortDirection: 'asc',
+  },
 };
 
-export const Playground = args => html`
-  <ino-table
-      loading="${args.loading}"
-      sort-column-id="${args.sortColumnId}"
-      sort-direction="${args.sortDirection}"
-      no-hover="${args.noHover}"
-      sticky-header="${args.stickyHeader}"
-  >
-    ${unsafeHTML(/*html*/`
-      <tr slot="header-row">
-        <ino-table-header-cell column-id="id" sort-start="asc" label="ID"></ino-table-header-cell>
-        <ino-table-header-cell column-id="name" label="Name"></ino-table-header-cell>
-        <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
-        <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
-        <ino-table-header-cell column-id="rating" label="Rating" not-sortable></ino-table-header-cell>
-        <ino-table-header-cell column-id="another1" label="Another Column" not-sortable></ino-table-header-cell>
-        <ino-table-header-cell column-id="another2" label="Another Column" not-sortable></ino-table-header-cell>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>The Bourne Identity</td>
-        <td>14.06.2002</td>
-        <td>$214 million</td>
-        <td>93%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Sully</td>
-        <td>09.09.2016</td>
-        <td>$240.8 million</td>
-        <td>84%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>The Martian</td>
-        <td>02.10.2015</td>
-        <td>$630.2 million</td>
-        <td>94%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>John Wick: Chapter 3</td>
-        <td>17.05.2019</td>
-        <td>$326.7 million</td>
-        <td>92%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>10 Cloverfield Lane</td>
-        <td>11.03.2016</td>
-        <td>$110.2 million</td>
-        <td>87%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Thor: Ragnarok</td>
-        <td>10.10.2017</td>
-        <td>$854 million</td>
-        <td>92%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>The latest movie</td>
-        <td>01.01.2021</td>
-        <td>$900 million</td>
-        <td>95%</td>
-        <td>Some information</td>
-        <td>Some information</td>
-      </tr>
-    `)}
-  </ino-table>
+const tableContent = html`
+    <tr slot="header-row"><ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
+      <ino-table-header-cell column-id="name" sort-start="asc" label="Name"></ino-table-header-cell>
+      <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
+      <ino-table-header-cell column-id="rating" label="Rating" not-sortable></ino-table-header-cell>
+      <ino-table-header-cell column-id="another1" label="Another Column" not-sortable></ino-table-header-cell>
+      <ino-table-header-cell column-id="another2" label="Another Column" not-sortable></ino-table-header-cell>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>The Bourne Identity</td>
+      <td>14.06.2002</td>
+      <td>$214 million</td>
+      <td>93%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Sully</td>
+      <td>09.09.2016</td>
+      <td>$240.8 million</td>
+      <td>84%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>The Martian</td>
+      <td>02.10.2015</td>
+      <td>$630.2 million</td>
+      <td>94%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>John Wick: Chapter 3</td>
+      <td>17.05.2019</td>
+      <td>$326.7 million</td>
+      <td>92%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>10 Cloverfield Lane</td>
+      <td>11.03.2016</td>
+      <td>$110.2 million</td>
+      <td>87%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Thor: Ragnarok</td>
+      <td>10.10.2017</td>
+      <td>$854 million</td>
+      <td>92%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>The latest movie</td>
+      <td>01.01.2021</td>
+      <td>$900 million</td>
+      <td>95%</td>
+      <td>Some information</td>
+      <td>Some information</td>
+    </tr>
 `;
 
-Playground.args = {
-  loading: false,
-  sortColumnId: 'id',
-  noHover: false,
-  stickyHeader: false
-}
-Playground.argTypes = {
-  sortColumnId: {
-    options: ['id', 'name', 'release', 'box-office', 'rating'],
-    control: {
-      type: 'select'
-    }
-  }
-}
-withSortDirection(Playground, 'sortDirection', 'asc')
+const template = new TemplateGenerator<Components.InoTable>(
+  'ino-table',
+  args => html`
+  <ino-table
+    loading="${args.loading}"
+    sort-column-id="${args.sortColumnId}"
+    sort-direction="${args.sortDirection}"
+    no-hover="${args.noHover}"
+    sticky-header="${args.stickyHeader}"
+  >
+  ${args.loading? html`<ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>` : html``}
+  ${tableContent}
+  </ino-table>
+`);
 
+export const Playground = template.generatePlaygroundStory();
+export const Loading = template.generateStoryForProp('loading', true);
+export const NoHover = template.generateStoryForProp('noHover', true);
+export const SortColumnId = template.generateStoryForProp('sortColumnId', 'id');
+export const SortDirection = template.generateStoryForProp('sortDirection', 'desc');
+export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
 
-export const SelectionWithCheckboxes = () => {
-
+const templateSelectionWithCheckboxes = new TemplateGenerator<Components.InoTable>(
+'ino-table',
+args => {
   useEffect(() => {
     const mainBox = document.getElementById('headerBox') as Components.InoCheckbox;
 
@@ -249,125 +260,9 @@ export const SelectionWithCheckboxes = () => {
       `)}
       </ino-table>
   `;
-};
+});
 
-export const Sortable = () => html`
-  <ino-table sort-column-id="header-a" sort-direction="asc">
-    ${unsafeHTML( /*html*/`
-      <tr slot="header-row">
-        <ino-table-header-cell class="ino-table__cell--numeric" column-id="header-a" sort-start="asc" style="width:150px;" label="Header A"></ino-table-header-cell>
-        <ino-table-header-cell column-id="header-b" label="Header B"></ino-table-header-cell>
-        <ino-table-header-cell column-id="header-c" label="Header C"></ino-table-header-cell>
-        <ino-table-header-cell column-id="header-d" label="Header D"></ino-table-header-cell>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">1</td>
-        <td>Cell B1</td>
-        <td>Cell C1</td>
-        <td>Cell D1</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">2</td>
-        <td>Cell B2</td>
-        <td>Cell C2</td>
-        <td>Cell D2</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">3</td>
-        <td>Cell B3</td>
-        <td>Cell C3</td>
-        <td>Cell D3</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">4</td>
-        <td>Cell B4</td>
-        <td>Cell C4</td>
-        <td>Cell D4</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">5</td>
-        <td>Cell B5</td>
-        <td>Cell C5</td>
-        <td>Cell D5</td>
-      </tr>
-    `)}
-  </ino-table>
-`;
-
-export const LoadingWithIndicator = () => html`
-  <ino-table loading>
-    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
-    ${unsafeHTML(/*html*/`
-      <tr slot="header-row">
-        <td>Header A</td>
-        <td>Header B</td>
-        <td>Header C</td>
-        <td>Header D</td>
-        <td>Header E</td>
-        <td>Header F</td>
-        <td>Header G</td>
-        <td>Header H</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">1</td>
-        <td>Cell B1</td>
-        <td>Cell C1</td>
-        <td>Cell D1</td>
-        <td>Cell E1</td>
-        <td>Cell F1</td>
-        <td>Cell G1</td>
-        <td>Cell H1</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">5</td>
-        <td>Cell B2</td>
-        <td>Cell C2</td>
-        <td>Cell D2</td>
-        <td>Cell E2</td>
-        <td>Cell F2</td>
-        <td>Cell G2</td>
-        <td>Cell H2</td>
-      </tr>
-    `)}
-  </ino-table>
-  `;
-
-export const LoadingOnlyHeader = () => html`
-  <ino-table loading>
-    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
-    ${unsafeHTML(/*html*/`
-      <tr slot="header-row">
-        <ino-table-header-cell label="Header A"></ino-table-header-cell>
-        <ino-table-header-cell label="Header B"></ino-table-header-cell>
-        <ino-table-header-cell label="Header C"></ino-table-header-cell>
-        <ino-table-header-cell label="Header D"></ino-table-header-cell>
-      </tr>
-    `)}
-  </ino-table>
-`;
-
-export const LoadingOnlyContent = () => html`
-  <ino-table loading>
-    <ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>
-    ${unsafeHTML(/*html*/`
-      <tr>
-        <td class="ino-table__cell--numeric">1</td>
-        <td>Cell B1</td>
-        <td>Cell C1</td>
-        <td>Cell D1</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">2</td>
-        <td>Cell B2</td>
-        <td>Cell C2</td>
-        <td>Cell D2</td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--numeric">3</td>
-        <td>Cell B3</td>
-        <td>Cell C3</td>
-        <td>Cell D3</td>
-      </tr>
-    `)}
-  </ino-table>
-`;
+/**
+ * Use `ino-checkbox` elements in the first column for checkbox-selection
+ */
+export const SelectionWithCheckboxes = templateSelectionWithCheckboxes.generatePlaygroundStory();
