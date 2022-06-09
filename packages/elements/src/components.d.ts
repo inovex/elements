@@ -1314,7 +1314,7 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -1335,7 +1335,7 @@ export namespace Components {
          */
         "placement": Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger": TooltipTrigger;
     }
@@ -3080,7 +3080,7 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -3097,7 +3097,7 @@ declare namespace LocalJSX {
          */
         "placement"?: Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger"?: TooltipTrigger;
     }
