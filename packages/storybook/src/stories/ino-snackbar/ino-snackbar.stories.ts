@@ -4,6 +4,7 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
+import { TemplateGenerator } from '../template-generator';
 
 const Texts = {
   info: {
@@ -33,11 +34,11 @@ export default {
     (s) => decorateStoryWithClass(s, 'story-ino-snackbar'),
     (story) => {
       const btnClickHandler = (e) => {
-        if (!e.target.classList.contains('snackbar-trigger')) {
+        if (!e.target.parentElement.classList.contains('snackbar-trigger')) {
           return;
         }
 
-        const triggerId = e.target.dataset.templateId;
+        const triggerId = e.target.parentElement.dataset.templateId;
 
         const templates = Array.from(document.getElementsByTagName('template'));
         const templateWithId = templates.find(
@@ -73,121 +74,67 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+      },
+      options: ['info', 'success', 'error'],
+    },
+  },
+  args: {
+    actionText: Texts.info.action,
+    defaultSlot: Texts.info.msg,
+    message: '',
+    timeout: -1,
+    type: 'info',
+    id: 'snackbar-default',
+    stayVisibleOnHover: false,
+  },
 
-export const Playground: Story<Components.InoSnackbar> = (args) => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-default"
+} as Meta<Components.InoSnackbar>;
+
+type InoSnackbarExtended = Components.InoSnackbar & {
+  id: string,
+  defaultSlot: string,
+}
+
+const template = new TemplateGenerator<InoSnackbarExtended>(
+  'ino-snackbar',
+  args => html`
+  <ino-button class="snackbar-trigger" data-template-id="${args.id}"
     >Show Snackbar
   </ino-button>
-  <template id="snackbar-default">
+  <template id="${args.id}">
     <ino-snackbar
-      id="snackbar-default"
+      id="${args.id}"
       action-text="${args.actionText}"
       timeout="${args.timeout}"
       type="${args.type}"
       message="${args.message}"
+      stay-visible-on-hover="${args.stayVisibleOnHover}"
     >
       ${args.defaultSlot}
     </ino-snackbar>
   </template>
-`;
-Playground.args = {
-  actionText: Texts.info.action,
-  defaultSlot: Texts.info.msg,
-  message: '',
-  timeout: -1,
-  type: 'info',
-};
+`);
 
-Playground.argTypes = {
-  type: {
-    control: {
-      type: 'select',
-    },
-    options: ['info', 'success', 'error'],
-  },
-};
-
-export const ActionText = () => html`
-  <ino-button class="snackbar-trigger" data-template-id="snackbar-action-text"
-    >Show Snackbar (with action text)
-  </ino-button>
-  <template id="snackbar-action-text">
-    <ino-snackbar id="snackbar-action-text" action-text="${Texts.info.action}">
-      ${Texts.info.msg}
-    </ino-snackbar>
-  </template>
-  <ino-button
-    class="snackbar-trigger"
-    data-template-id="snackbar-wo-action-text"
-    >Show Snackbar (without action text)
-  </ino-button>
-  <template id="snackbar-wo-action-text">
-    <ino-snackbar id="snackbar-wo-action-text">
-      ${Texts.info.msg}
-    </ino-snackbar>
-  </template>
-`;
-
-export const Types = () =>
-  snackbarTypes.map(
-    (type) => html`
-      <ino-button
-        class="snackbar-trigger"
-        data-template-id="snackbar-type-${type}"
-        >Show Snackbar (${type})
-      </ino-button>
-      <template id="snackbar-type-${type}">
-        <ino-snackbar
-          id="snackbar-type-${type}"
-          action-text="${Texts[type].action}"
-          type="${type}"
-          timeout="-1"
-        >
-          <span>${Texts[type].msg}</span>
-        </ino-snackbar>
-      </template>
-    `
-  );
-
-export const CustomPositions: Story<Components.InoSnackbar> = () => html`
-  <ino-button
-    class="snackbar-trigger"
-    data-template-id="snackbar-position-top-left"
-    >Show Snackbar (Top-Left)
-  </ino-button>
-  <template id="snackbar-position-top-left">
-    <ino-snackbar
-      id="snackbar-position-top-left"
-      style="--ino-snackbar-left: 0; --ino-snackbar-right: auto;"
-    >
-      ${Texts.info.msg}
-    </ino-snackbar>
-  </template>
-  <ino-button
-    class="snackbar-trigger"
-    data-template-id="snackbar-position-bottom-left"
-    >Show Snackbar (Bottom-Left)
-  </ino-button>
-  <template id="snackbar-position-bottom-left">
-    <ino-snackbar
-      id="snackbar-position-bottom-left"
-      style="--ino-snackbar-left: 0; --ino-snackbar-bottom: 0; --ino-snackbar-top: auto; --ino-snackbar-right: auto;"
-    >
-      ${Texts.info.msg}
-    </ino-snackbar>
-  </template>
-  <ino-button
-    class="snackbar-trigger"
-    data-template-id="snackbar-position-bottom-right"
-    >Show Snackbar (Bottom-Right)
-  </ino-button>
-  <template id="snackbar-position-bottom-right">
-    <ino-snackbar
-      id="snackbar-position-bottom-right"
-      style="--ino-snackbar-bottom: 0; --ino-snackbar-top: auto;"
-    >
-      ${Texts.info.msg}
-    </ino-snackbar>
-  </template>
-`;
+export const Playground = template.generatePlaygroundStory();
+export const ActionText = template.generateStoryForProp('actionText', 'Show', {
+  id: 'snackbar-actionText',
+  defaultSlot: 'You received a new message.'
+});
+export const Types = template.generateStoryForProp('type', 'success', {
+  id: 'snackbar-type',
+  defaultSlot: 'User successfully updated!',
+  actionText: 'Undo',
+});
+export const Timeout = template.generateStoryForProp('timeout', 5000, {
+  id: 'snackbar-timeout',
+  defaultSlot: 'This snackbar will disappear in 5s'
+});
+export const StayVisibleOnHover = template.generateStoryForProp('stayVisibleOnHover', true, {
+  id: 'snackbar-stayVisibleOnHover',
+  timeout: 5000,
+  defaultSlot: 'This snackbar stays visible on hover otherwise it will disappear in 5s'
+});
