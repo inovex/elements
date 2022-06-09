@@ -17,7 +17,7 @@ import {
 @Component({
   tag: 'ino-radio-group',
   styleUrl: 'ino-radio-group.scss',
-  shadow: true,
+  shadow: false,
 })
 export class RadioGroup implements ComponentInterface {
   @Element() el!: HTMLInoRadioGroupElement;
@@ -59,26 +59,29 @@ export class RadioGroup implements ComponentInterface {
    */
   async handleKeyDown(ev: KeyboardEvent) {
     const radios = await this.getRadios();
-    const checkedRadioIndex = radios.findIndex((radio) =>
+    const checkedRadio= radios.find((radio) =>
       Boolean(radio.checked)
     );
 
-    if (checkedRadioIndex === -1) {
-      radios[0].checked = true;
+    if(!checkedRadio) {
+      this.valueChange.emit(radios[0].value);
       return;
     }
+
+    let nextRadioButton: HTMLInoRadioElement;
 
     switch (ev.key) {
       case 'ArrowDown':
       case 'ArrowRight':
-        this.valueChange.emit(radios[checkedRadioIndex + 1].value);
+        nextRadioButton = checkedRadio.nextElementSibling as HTMLInoRadioElement ?? radios[0];
         break;
-
       case 'ArrowUp':
-      case 'ArrowRight':
-        this.valueChange.emit(radios[checkedRadioIndex - 1].value);
+      case 'ArrowLeft':
+        nextRadioButton = checkedRadio.previousElementSibling as HTMLInoRadioElement ?? radios[radios.length -1];
         break;
     }
+
+    this.valueChange.emit(nextRadioButton.value);
   }
 
   /**
@@ -150,7 +153,9 @@ export class RadioGroup implements ComponentInterface {
   render() {
     return (
       <Host>
-        <slot></slot>
+        <div class="ino-radio-group-wrapper" tabIndex={0}>
+          <slot></slot>
+        </div>
       </Host>
     );
   }
