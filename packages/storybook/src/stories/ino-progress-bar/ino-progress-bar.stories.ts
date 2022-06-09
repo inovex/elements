@@ -4,6 +4,7 @@ import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-progress-bar.scss';
+import { TemplateGenerator } from '../template-generator';
 
 export default {
   title: 'Notification/ino-progress-bar',
@@ -56,48 +57,48 @@ export default {
       return story();
     },
   ],
+  argTypes: {
+    buffer: {
+      control: { min: 0, max: 1, step: 0.1 },
+    },
+    progress: {
+      control: { min: 0, max: 1, step: 0.1 },
+    },
+  },
+  args: {
+    buffer: 0.9,
+    progress: 0.4,
+    indeterminate: false,
+    label: 'Progress Bar',
+  },
 } as Meta;
 
-export const Playground: Story<Components.InoProgressBar> = (args) => {
-  return html`
-    <ino-progress-bar
+const template = new TemplateGenerator<Components.InoProgressBar>(
+  'ino-progress-bar',
+  args => html`
+  <ino-progress-bar
       buffer="${args.buffer}"
       progress="${args.progress}"
       indeterminate="${args.indeterminate}"
       label="${args.label}"
-    >
-    </ino-progress-bar>
-  `;
-};
-Playground.args = {
-  buffer: 0.9,
-  progress: 0.4,
-  indeterminate: false,
-  label: 'Progress Bar',
-};
-Playground.argTypes = {
-  buffer: {
-    control: { min: 0, max: 1, step: 0.1 },
-  },
-  progress: {
-    control: { min: 0, max: 1, step: 0.1 },
-  },
-};
+  >
+  </ino-progress-bar>
+`);
 
-export const Variants = () => html`
-  <h5>With buffering dots</h5>
-  <ino-progress-bar buffer="0.8" progress="0.3"></ino-progress-bar>
+export const Playground = template.generatePlaygroundStory();
+export const Buffer = template.generateStoryForProp('buffer', 0.5);
+export const Indeterminate = template.generateStoryForProp('indeterminate', true);
+export const Progress = template.generateStoryForProp('progress', 0.5, {
+  buffer: 1,
+});
 
-  <h5>Without buffering dots</h5>
-  <ino-progress-bar buffer="1" progress="0.3"></ino-progress-bar>
-
-  <h5>Indeterminate progress bar</h5>
-  <ino-progress-bar indeterminate></ino-progress-bar>
-`;
-
-export const UploadExample = () => html`
+const templateUploadExample = new TemplateGenerator<Components.InoProgressBar>(
+  'ino-progress-bar',
+  args => html`
   <div class="progress-bar-example">
     <ino-progress-bar id="example" progress="0" buffer="1"> </ino-progress-bar>
     <ino-input-file label="Upload" multiple></ino-input-file>
   </div>
-`;
+`);
+
+export const UploadExample = templateUploadExample.generatePlaygroundStory();
