@@ -23,9 +23,10 @@ export class RadioGroup implements ComponentInterface {
   @Element() el!: HTMLInoRadioGroupElement;
 
   /**
-   * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+   * The value of the radio group.
+   * If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
    */
-  @Prop() value?: any | null;
+  @Prop() value?: string | number | null;
 
   @Watch('value')
   valueChanged(value: string) {
@@ -51,19 +52,24 @@ export class RadioGroup implements ComponentInterface {
       radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
     });
   }
-  @Event() valueChange!: EventEmitter;
 
-  @Listen('keydown')
   /**
-   * Allows key navigation once radio button has been focused.
+   * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.
+   * Contains the `value` of the selected `<ino-radio>`.
    */
-  async handleKeyDown(ev: KeyboardEvent) {
-    const radios = await this.getRadios();
-    const checkedRadio= radios.find((radio) =>
-      Boolean(radio.checked)
-    );
+  @Event() valueChange!: EventEmitter<number | string>;
 
-    if(!checkedRadio) {
+  /**
+   * Allows key navigation once radio group has been focused.
+   */
+  @Listen('keydown')
+  async handleKeyDown(ev: KeyboardEvent) {
+    ev.preventDefault();
+
+    const radios = await this.getRadios();
+    const checkedRadio = radios.find((radio) => Boolean(radio.checked));
+
+    if (!checkedRadio) {
       this.valueChange.emit(radios[0].value);
       return;
     }
@@ -73,11 +79,14 @@ export class RadioGroup implements ComponentInterface {
     switch (ev.key) {
       case 'ArrowDown':
       case 'ArrowRight':
-        nextRadioButton = checkedRadio.nextElementSibling as HTMLInoRadioElement ?? radios[0];
+        nextRadioButton =
+          (checkedRadio.nextElementSibling as HTMLInoRadioElement) ?? radios[0];
         break;
       case 'ArrowUp':
       case 'ArrowLeft':
-        nextRadioButton = checkedRadio.previousElementSibling as HTMLInoRadioElement ?? radios[radios.length -1];
+        nextRadioButton =
+          (checkedRadio.previousElementSibling as HTMLInoRadioElement) ??
+          radios[radios.length - 1];
         break;
     }
 
@@ -111,7 +120,7 @@ export class RadioGroup implements ComponentInterface {
     checkedRadio.classList.remove('ino-checked-hover');
   }
 
-  private async updateRadios(value) {
+  private async updateRadios(value: string | number) {
     /**
      * Make sure we get all radios first
      * so values are up to date prior

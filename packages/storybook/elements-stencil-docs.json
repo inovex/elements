@@ -6139,22 +6139,25 @@
           "text": "default - One or more `ino-radio`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
         {
           "name": "value",
-          "type": "any",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
+          "docs": "The value of the radio group.\nIf there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "number"
+            },
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -6162,7 +6165,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "number | string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.\nContains the `value` of the selected `<ino-radio>`.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6171,7 +6184,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-range/ino-range.tsx",

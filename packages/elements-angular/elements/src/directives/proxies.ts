@@ -888,7 +888,14 @@ export class InoRadio {
 }
 
 
-export declare interface InoRadioGroup extends Components.InoRadioGroup {}
+export declare interface InoRadioGroup extends Components.InoRadioGroup {
+  /**
+   * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.
+Contains the `value` of the selected `<ino-radio>`. 
+   */
+  valueChange: EventEmitter<CustomEvent<number | string>>;
+
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -905,6 +912,7 @@ export class InoRadioGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
   }
 }
 
