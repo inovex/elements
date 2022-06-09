@@ -6,6 +6,9 @@ import {
   Prop,
   Watch,
   h,
+  Listen,
+  EventEmitter,
+  Event,
 } from '@stencil/core';
 
 /**
@@ -47,6 +50,35 @@ export class RadioGroup implements ComponentInterface {
       );
       radio.removeEventListener('mouseout', () => this.removeHoverAnimation());
     });
+  }
+  @Event() valueChange!: EventEmitter;
+
+  @Listen('keydown')
+  /**
+   * Allows key navigation once radio button has been focused.
+   */
+  async handleKeyDown(ev: KeyboardEvent) {
+    const radios = await this.getRadios();
+    const checkedRadioIndex = radios.findIndex((radio) =>
+      Boolean(radio.checked)
+    );
+
+    if (checkedRadioIndex === -1) {
+      radios[0].checked = true;
+      return;
+    }
+
+    switch (ev.key) {
+      case 'ArrowDown':
+      case 'ArrowRight':
+        this.valueChange.emit(radios[checkedRadioIndex + 1].value);
+        break;
+
+      case 'ArrowUp':
+      case 'ArrowRight':
+        this.valueChange.emit(radios[checkedRadioIndex - 1].value);
+        break;
+    }
   }
 
   /**
