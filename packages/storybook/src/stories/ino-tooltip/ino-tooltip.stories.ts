@@ -43,7 +43,7 @@ export default {
 } as Meta;
 
 type InoTooltipExtended = Components.InoTooltip & {
-  dafaultSlot: string,
+  defaultSlot: string,
   buttonLabel: string,
 }
 
