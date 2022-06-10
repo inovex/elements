@@ -81,20 +81,20 @@ const template = new TemplateGenerator<Components.InoCarousel>(
 
 export const Playground = template.generatePlaygroundStory();
 export const Autoplay = template.generateStoryForProp('autoplay', true, {
-  intermission: "2000",
+  intermission: 2000,
   animated: true,
   infinite: true,
 });
 export const Animated = template.generateStoryForProp('animated', true);
 export const HideButtons = template.generateStoryForProp('hideButtons', true);
 export const Infinite = template.generateStoryForProp('infinite', true);
-export const Intermissen = template.generateStoryForProp('intermission', '2000', {
+export const Intermission = template.generateStoryForProp('intermission', 2000, {
   autoplay: true,
   animated: true,
   infinite: true,
 });
 export const Reverse = template.generateStoryForProp('reverse', true, {
-  intermission: "2000",
+  intermission: 2000,
   autoplay: true,
   animated: true,
   infinite: true,
