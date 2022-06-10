@@ -64,6 +64,9 @@ export class RadioGroup implements ComponentInterface {
    */
   @Listen('keydown')
   async handleKeyDown(ev: KeyboardEvent) {
+
+    if(!ev.key.startsWith('Arrow')) return;
+
     ev.preventDefault();
 
     const radios = await this.getRadios();
