@@ -7066,7 +7066,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type",
+          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
