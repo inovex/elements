@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, withColorScheme } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import { TemplateGenerator } from '../template-generator';
 import './ino-spinner.scss';
 
@@ -9,14 +9,6 @@ export default {
   title: 'Notification/ino-spinner',
   component: 'ino-spinner',
   decorators: [(story) => decorateStoryWithClass(story, 'story-spinner')],
-  argTypes: {
-    type: {
-      control: {
-        type: 'select',
-      },
-      options: ['circle', 'tile', 'bounce'],
-    },
-  },
   args: {
     colorScheme: 'primary',
     modal: false,
@@ -41,8 +33,6 @@ const template = new TemplateGenerator<Components.InoSpinner>(
 
 export const Playground = template.generatePlaygroundStory();
 export const Type = template.generateStoryForProp('type', 'bounce');
-export const ColorScheme = template.generateStoryForProp('colorScheme', 'success', {
+export const ColorScheme = template.generateStoryForProp('colorScheme', 'secondary', {
   type: 'circle',
 });
-
-withColorScheme(Playground, 'colorScheme', 'primary');
