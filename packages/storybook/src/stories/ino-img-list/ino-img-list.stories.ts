@@ -23,7 +23,7 @@ const template = new TemplateGenerator<Components.InoImgList>(
   'ino-img-list',
   args => html`
   <ino-img-list enclose-label="${args.encloseLabel}" masonry="${args.masonry}">
-    ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5}
+    ${sampleImg} ${sampleImg2} ${sampleImg3} ${sampleImg4} ${sampleImg5} ${sampleImg6}
   </ino-img-list>
 `);
 
