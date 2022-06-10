@@ -10,14 +10,6 @@ export default {
   title: 'Graphic/<ino-img>',
   component: 'ino-img',
   decorators: [(story) => decorateStoryWithClass(story)],
-  argTypes: {
-    decoding: {
-      control: {
-        type: 'select',
-      },
-      options: ['async', 'auto', 'sync'],
-    },
-  },
   args: {
     alt: 'Alternative Text',
     decoding: 'async',
