@@ -8,7 +8,11 @@ import ICONS from '../../../../elements/src/components/ino-icon/icons';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
-const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_'));
+const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_')).concat([
+  'status_zukuenftige',
+  'status_abwesend',
+  'status_offboarding_laufend',
+]);
 
 function copyToClipboard(text) {
   const snackbar: HTMLInoSnackbarElement = document.createElement(
