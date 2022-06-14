@@ -8,7 +8,7 @@ export default {
   component: 'ino-nav-item',
   args:{
     text: 'Nav item',
-    subText: 'Nav item sub text',
+    subText: '',
     activated: false,
     disabled: false,
     icon: false,
@@ -45,13 +45,22 @@ export const Playground = template.generatePlaygroundStory();
 Playground.args = {
   icon: true,
 }
-export const Text = template.generateStoryForProp('text', 'simple-text');
+Playground.argTypes = {
+  // hide custom attributes from table
+  icon: {
+    table: {
+      disable: true,
+    },
+  },
+};
+
+export const Text = template.generateStoryForProp('text', 'Some Text');
 export const Activated = template.generateStoryForProp('activated', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
 export const TwoLines = template.generateStoryForProp('subText', 'Secondary Text 2');
 
 /**
- * Use a `ino-icon` element inside the `ino-nav-item` to add a icon to the ino-nav-item
+ * Use an `ino-icon` element inside the default slot of an `ino-nav-item` to display an icon next to the text.
  */
 export const Graphic = template.generatePlaygroundStory();
 Graphic.args = {
