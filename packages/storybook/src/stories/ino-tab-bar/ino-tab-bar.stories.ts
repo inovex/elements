@@ -53,5 +53,4 @@ const template = new TemplateGenerator<Components.InoTabBar>(
 `);
 
 export const Playground = template.generatePlaygroundStory();
-export const AutoFocus = template.generateStoryForProp('autoFocus', true);
-export const activeTab = template.generateStoryForProp('activeTab', 1);
+export const ActiveTab = template.generateStoryForProp('activeTab', 1);
