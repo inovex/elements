@@ -431,7 +431,7 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * [DEPRECATED] Please use the default slot instead The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
           * @deprecated
          */
         "text"?: string;
@@ -2128,7 +2128,7 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * [DEPRECATED] Please use the default slot instead The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
           * @deprecated
          */
         "text"?: string;
