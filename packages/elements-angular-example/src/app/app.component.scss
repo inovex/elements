@@ -1,0 +1,45 @@
+h2 {
+  text-align: center;
+}
+
+.app-wrapper {
+  background: white;
+  width: 60%;
+  border: 1px solid #ccc;
+  margin: 24px auto;
+  padding: 0;
+}
+
+.action-box {
+  background-color: #fcfcfc;
+  font-size: 14px;
+
+  padding: 12px;
+  display: flex;
+}
+
+.action-box ino-input {
+  flex-grow: 1;
+}
+
+.todos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todos li:nth-child(odd) {
+  background: #eeeeee;
+}
+
+.todos li:last-child {
+  border-bottom: none;
+}
