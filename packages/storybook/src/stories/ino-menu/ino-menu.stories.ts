@@ -9,14 +9,6 @@ export default {
   title: `Structure/ino-menu`,
   component: 'ino-menu',
   decorators: [(story) => decorateStoryWithClass(story, 'story-ino-menu')],
-  argTypes: {
-    placement: {
-      controle: {
-        type:  'select',
-      },
-      options: ['auto', 'top', 'right', 'bottom', 'left'],
-    },
-  },
   args: {
     placement: 'auto',
   }
@@ -25,7 +17,7 @@ export default {
 const template = new TemplateGenerator<Components.InoMenu>(
   'ino-menu',
   args => html`
-  <ino-card ino-disable-elevation>
+  <ino-card disable-elevation>
     <div class="row" slot="header">
       <p>Open Menu</p>
       <ino-icon-button icon="menu">
