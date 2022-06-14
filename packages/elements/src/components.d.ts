@@ -941,9 +941,9 @@ export namespace Components {
     }
     interface InoRadioGroup {
         /**
-          * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+          * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
-        "value"?: any | null;
+        "value"?: string | number | null;
     }
     interface InoRange {
         /**
@@ -2677,9 +2677,13 @@ declare namespace LocalJSX {
     }
     interface InoRadioGroup {
         /**
-          * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+          * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
-        "value"?: any | null;
+        "onValueChange"?: (event: CustomEvent<number | string>) => void;
+        /**
+          * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+         */
+        "value"?: string | number | null;
     }
     interface InoRange {
         /**

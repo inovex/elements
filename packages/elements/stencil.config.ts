@@ -66,6 +66,7 @@ export const config: Config = {
             'ino-autocomplete',
             'ino-datepicker',
             'ino-input',
+            'ino-radio-group',
             'ino-range',
             'ino-select',
             'ino-textarea',

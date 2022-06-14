@@ -1,6 +1,6 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
@@ -21,8 +21,14 @@ export default {
         const eventHandler = e =>
           radioGrp.setAttribute('value', e.target.getAttribute('value'));
         radioGrp.addEventListener('checkedChange', eventHandler);
-        return () =>
+        const evtHandler = e => {
+          radioGrp.setAttribute('value', e.detail);
+        };
+        radioGrp.addEventListener('valueChange', evtHandler);
+        return () => {
           radioGrp.removeEventListener('checkedChange', eventHandler);
+          radioGrp.removeEventListener('valueChange', evtHandler);
+        }
       });
       return story();
     },
