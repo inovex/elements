@@ -1,2 +1,9 @@
-:host {
+ino-radio-group {
+  .ino-radio-group-wrapper {
+    width: fit-content;
+  }
+
+  ino-radio:last-child {
+    margin-right: 8px;
+  }
 }

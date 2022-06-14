@@ -6130,31 +6130,34 @@
       "filePath": "./src/components/ino-radio-group/ino-radio-group.tsx",
       "fileName": "ino-radio-group.tsx",
       "tag": "ino-radio-group",
-      "readme": "# ino-radio-group\n\nA wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.\n\n### Usage\n\n```html\n<ino-radio-group value=\"Option 1\">\n  <ino-radio value=\"Option 1\">I will be checked</ino-radio>\n  <ino-radio value=\"Option 2\">Option 2</ino-radio>\n  <ino-radio value=\"Option 3\">Option 3</ino-radio>\n</ino-radio-group>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  clickHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoRadioGroup value={this.state.selected}>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 1')}\n          value=\"Option 1\"\n        >\n          I will be checked\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 2')}\n          value=\"Option 2\"\n        >\n          Option 2\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 3')}\n          value=\"Option 3\"\n        >\n          Option 3\n        </InoRadio>\n      </InoRadioGroup>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadioGroup } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = (\n  props,\n) => {\n  const { value } = props;\n\n  return <InoRadioGroup value={value}>{props.children}</InoRadioGroup>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <RadioGroup value={'Option 1'}>...</RadioGroup>;\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nIn order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio` and pass it's value to the `ino-radio-group` via the `value`-Property.\n",
+      "readme": "# ino-radio-group\n\nA wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.\n\n### Usage\n\n```html\n<ino-radio-group value=\"Option 1\">\n  <ino-radio value=\"Option 1\">I will be checked</ino-radio>\n  <ino-radio value=\"Option 2\">Option 2</ino-radio>\n  <ino-radio value=\"Option 3\">Option 3</ino-radio>\n</ino-radio-group>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  clickHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoRadioGroup value={this.state.selected} onValueChange={(ev) => this.clickHandler(ev.detail)}>\n        <InoRadio value=\"Option 1\">\n          I will be checked\n        </InoRadio>\n        <InoRadio value=\"Option 2\">\n          Option 2\n        </InoRadio>\n        <InoRadio value=\"Option 3\">\n          Option 3\n        </InoRadio>\n      </InoRadioGroup>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadioGroup } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = (\n  props,\n) => {\n  const { value } = props;\n\n  return <InoRadioGroup value={value}>{props.children}</InoRadioGroup>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <RadioGroup value={'Option 1'}>...</RadioGroup>;\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nIn order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio-group` and pass the value via the `value`-Property.\n",
       "usage": {},
-      "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.",
+      "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.",
       "docsTags": [
         {
           "name": "slot",
           "text": "default - One or more `ino-radio`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
         {
           "name": "value",
-          "type": "any",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
+          "docs": "The value of the radio group.\nIf there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "number"
+            },
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -6162,7 +6165,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "number | string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.\nContains the `value` of the selected `<ino-radio>`.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6171,7 +6184,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-range/ino-range.tsx",
@@ -6225,7 +6244,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6326,12 +6345,29 @@
           "required": false
         },
         {
+          "name": "ranged",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "ranged",
+          "reflectToAttr": false,
+          "docs": "Allows to input an interval.\nUse `valueStart` and `valueEnd` to provide values.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "step",
           "type": "number",
           "mutable": false,
           "attr": "step",
           "reflectToAttr": false,
-          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers (if enabled).",
+          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers.",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -6348,7 +6384,39 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of this element. (**unmanaged**, default=`min`)",
+          "docs": "The value of this element.\nOnly applicable if not in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueEnd",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-end",
+          "reflectToAttr": false,
+          "docs": "The value of the right thumb.\nOnly applicable in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueStart",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-start",
+          "reflectToAttr": false,
+          "docs": "The value of the left thumb.\nOnly applicable in ranged mode.",
           "docsTags": [],
           "values": [
             {
@@ -6384,7 +6452,25 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits when the value changes. Contains new value in `event.detail`.",
+          "docs": "Emits when the value changes (not in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueEndChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the end (right) value of the interval changes (in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueStartChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the start (left) value of the interval changes (in ranged mode).",
           "docsTags": []
         }
       ],

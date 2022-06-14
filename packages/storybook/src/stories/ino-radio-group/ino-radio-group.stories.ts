@@ -13,22 +13,28 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
+    story => decorateStoryWithClass(story),
+    story => {
       useEffect(() => {
         const radioGrp = document.querySelector('#radio-grp');
-        const eventHandler = (e) =>
+        const eventHandler = e =>
           radioGrp.setAttribute('value', e.target.getAttribute('value'));
         radioGrp.addEventListener('checkedChange', eventHandler);
-        return () =>
+        const evtHandler = e => {
+          radioGrp.setAttribute('value', e.detail);
+        };
+        radioGrp.addEventListener('valueChange', evtHandler);
+        return () => {
           radioGrp.removeEventListener('checkedChange', eventHandler);
+          radioGrp.removeEventListener('valueChange', evtHandler);
+        }
       });
       return story();
     },
   ],
 } as Meta;
 
-export const Playground: Story<Components.InoRadioGroup> = (args) => html`
+export const Playground: Story<Components.InoRadioGroup> = args => html`
   <ino-radio-group id="radio-grp" value="${args.value}">
     <ino-radio value="opt-1">Opt 1</ino-radio>
     <ino-radio value="opt-2">Opt 2</ino-radio>
