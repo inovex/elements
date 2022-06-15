@@ -1,5 +1,5 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
@@ -23,9 +23,10 @@ export default {
     disabled: false,
     name: '',
     value: '',
-  }
+  },
 } as Meta<Components.InoSegmentButton>;
 
+const checkedChangeHandler = (e: CustomEvent<boolean>) => (e.target as HTMLInoSegmentButtonElement).checked = e.detail;
 
 const template = new TemplateGenerator<Components.InoSegmentButton>(
   'ino-segment-button',
@@ -38,6 +39,7 @@ const template = new TemplateGenerator<Components.InoSegmentButton>(
     disabled="${args.disabled}"
     name="${args.name}"
     value="${args.value}"
+    @checkedChange="${checkedChangeHandler}"
   >
     Segment Button Label
   </ino-segment-button>
