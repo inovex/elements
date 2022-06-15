@@ -23,7 +23,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['button', 'reset', 'submit'], 
+      options: ['button', 'reset', 'submit'],
     },
   },
   args: {
