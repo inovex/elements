@@ -97,6 +97,7 @@ export const InoControlItem = /*@__PURE__*/ defineContainer<JSX.InoControlItem>(
 
 export const InoCurrencyInput = /*@__PURE__*/ defineContainer<JSX.InoCurrencyInput>('ino-currency-input', undefined, [
   'currencyLocale',
+  'unit',
   'value',
   'valueChange'
 ]);
@@ -379,8 +380,10 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio>('ino-radio',
 
 
 export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup>('ino-radio-group', undefined, [
-  'value'
-]);
+  'value',
+  'valueChange'
+],
+'value', 'v-value-change', 'valueChange');
 
 
 export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange>('ino-range', undefined, [
@@ -392,8 +395,13 @@ export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange>('ino-range',
   'min',
   'max',
   'value',
+  'ranged',
+  'valueStart',
+  'valueEnd',
   'step',
-  'valueChange'
+  'valueChange',
+  'valueStartChange',
+  'valueEndChange'
 ],
 'value', 'v-value-change', 'valueChange');
 

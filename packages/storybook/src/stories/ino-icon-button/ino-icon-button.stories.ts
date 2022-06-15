@@ -29,8 +29,7 @@ export const Playground = (args) => {
       autofocus="${args.autofocus}"
       color-scheme="${args.colorScheme}"
     >
-    </ino-icon-button>
-  `;
+    </ino-icon-button>`;
 };
 Playground.args = {
   activated: false,
@@ -55,7 +54,7 @@ export const Filled = () => html`
       <div class="flex-child">
         <h4>Primary</h4>
         <ino-icon-button
-          icon="time"
+          icon='time'
           color-scheme="primary"
           filled
         ></ino-icon-button>
@@ -71,7 +70,7 @@ export const Filled = () => html`
       <div class="flex-child">
         <h4>Success</h4>
         <ino-icon-button
-          icon="time"
+          icon="time"  
           color-scheme="success"
           filled
         ></ino-icon-button>
@@ -79,7 +78,7 @@ export const Filled = () => html`
       <div class="flex-child">
         <h4>Warning</h4>
         <ino-icon-button
-          icon="time"
+          icon="time"  
           color-scheme="warning"
           filled
         ></ino-icon-button>
@@ -102,8 +101,8 @@ export const States = () => html`
       <div class="flex-child">
         <h4>Activated (Managed)</h4>
         <ino-icon-button
+          icon="time"  
           class="managed"
-          icon="time"
           color-scheme="primary"
           activated
         ></ino-icon-button>
@@ -112,8 +111,8 @@ export const States = () => html`
       <div class="flex-child">
         <h4>Activated (Managed, Filled)</h4>
         <ino-icon-button
+          icon="time"  
           class="managed"
-          icon="time"
           color-scheme="primary"
           filled
           activated
@@ -148,38 +147,36 @@ export const Variations = () => html`
       <div class="flex-child">
         <h4>Filled primary</h4>
         <ino-icon-button
+          icon="time"  
           filled
           color-scheme="primary"
-          icon="time"
         ></ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>CSS Variables</h4>
         <ino-icon-button
+          icon="time"  
           style="
           --ino-icon-button-icon-color: white;
           --ino-icon-button-background-color: purple;
           --ino-icon-button-icon-active-color: white;
           --ino-icon-button-background-active-color: pink;
         "
-          icon="time"
-        >
-        </ino-icon-button>
+        ></ino-icon-button>
       </div>
       <div class="flex-child">
         <h4>Managed + Changing colors</h4>
         <ino-icon-button
+          icon="time"  
           class="managed"
           style="
           --ino-icon-button-icon-color: gray;
           --ino-icon-button-background-color: transparent;
           --ino-icon-button-icon-active-color: red;
           --ino-icon-button-background-active-color: red;
-        "
-          icon="time"
+          "
           activated
-        >
-        </ino-icon-button>
+          ></ino-icon-button>
       </div>
     </div>
   </div>
