@@ -84,15 +84,20 @@ class MyComponent extends Component {
 | `max`         | `max`          | The max value of this element (**required**).                                                                                                      | `number`                                                                             | `undefined` |
 | `min`         | `min`          | The min value of this element.                                                                                                                     | `number`                                                                             | `0`         |
 | `name`        | `name`         | The name of this element.                                                                                                                          | `string`                                                                             | `undefined` |
-| `step`        | `step`         | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).                 | `number`                                                                             | `1`         |
-| `value`       | `value`        | The value of this element. (**unmanaged**, default=`min`)                                                                                          | `number`                                                                             | `undefined` |
+| `ranged`      | `ranged`       | Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.                                                                    | `boolean`                                                                            | `false`     |
+| `step`        | `step`         | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.                              | `number`                                                                             | `1`         |
+| `value`       | `value`        | The value of this element. Only applicable if not in ranged mode.                                                                                  | `number`                                                                             | `undefined` |
+| `valueEnd`    | `value-end`    | The value of the right thumb. Only applicable in ranged mode.                                                                                      | `number`                                                                             | `undefined` |
+| `valueStart`  | `value-start`  | The value of the left thumb. Only applicable in ranged mode.                                                                                       | `number`                                                                             | `undefined` |
 
 
 ## Events
 
-| Event         | Description                                                         | Type                  |
-| ------------- | ------------------------------------------------------------------- | --------------------- |
-| `valueChange` | Emits when the value changes. Contains new value in `event.detail`. | `CustomEvent<number>` |
+| Event              | Description                                                                 | Type                  |
+| ------------------ | --------------------------------------------------------------------------- | --------------------- |
+| `valueChange`      | Emits when the value changes (not in ranged mode).                          | `CustomEvent<number>` |
+| `valueEndChange`   | Emits when the end (right) value of the interval changes (in ranged mode).  | `CustomEvent<number>` |
+| `valueStartChange` | Emits when the start (left) value of the interval changes (in ranged mode). | `CustomEvent<number>` |
 
 
 ## Methods

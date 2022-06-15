@@ -6254,7 +6254,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6355,12 +6355,29 @@
           "required": false
         },
         {
+          "name": "ranged",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "ranged",
+          "reflectToAttr": false,
+          "docs": "Allows to input an interval.\nUse `valueStart` and `valueEnd` to provide values.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "step",
           "type": "number",
           "mutable": false,
           "attr": "step",
           "reflectToAttr": false,
-          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers (if enabled).",
+          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers.",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -6377,7 +6394,39 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of this element. (**unmanaged**, default=`min`)",
+          "docs": "The value of this element.\nOnly applicable if not in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueEnd",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-end",
+          "reflectToAttr": false,
+          "docs": "The value of the right thumb.\nOnly applicable in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueStart",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-start",
+          "reflectToAttr": false,
+          "docs": "The value of the left thumb.\nOnly applicable in ranged mode.",
           "docsTags": [],
           "values": [
             {
@@ -6413,7 +6462,25 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits when the value changes. Contains new value in `event.detail`.",
+          "docs": "Emits when the value changes (not in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueEndChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the end (right) value of the interval changes (in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueStartChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the start (left) value of the interval changes (in ranged mode).",
           "docsTags": []
         }
       ],

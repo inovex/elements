@@ -3,7 +3,6 @@ import {
   defaultMarkdownSerializer,
   MarkdownParser,
   MarkdownSerializer,
-  TokenConfig,
 } from 'prosemirror-markdown';
 import { Node as ProsemirrorNode, Schema } from 'prosemirror-model';
 import Bold from '@tiptap/extension-bold';
@@ -76,9 +75,9 @@ const {
   link,
   heading,
   fence,
-} = (defaultMarkdownParser.tokens as unknown) as { [key: string]: TokenConfig };
+}: MarkdownParser["tokens"] = defaultMarkdownParser.tokens;
 
-const defaultParserTokens: { [key: string]: TokenConfig } = {
+const defaultParserTokens: MarkdownParser["tokens"] = {
   blockquote: { block: Blockquote.name },
   paragraph: { block: Paragraph.name },
   list_item: { block: ListItem.name },
@@ -116,9 +115,9 @@ const markdownSerializer = new MarkdownSerializer(
 let markdownParser = null;
 
 export default {
-  serialize: (content: ProsemirrorNode<any>): string =>
+  serialize: (content: ProsemirrorNode): string =>
     markdownSerializer.serialize(content, { tightLists: true }),
-  parse: (markdownText: string, schema: Schema): ProsemirrorNode<any> => {
+  parse: (markdownText: string, schema: Schema): ProsemirrorNode => {
     if (!markdownParser) {
       markdownParser = new MarkdownParser(
         schema,

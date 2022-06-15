@@ -949,7 +949,7 @@ export namespace Components {
         /**
           * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "colorScheme": ColorScheme;
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -975,18 +975,30 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+         */
+        "ranged": boolean;
+        /**
           * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
           * @param fn A function that maps the numeric value to a user-friendly string.
          */
         "setValueToAriaTextMapperFn": (fn: (value: number) => string) => Promise<void>;
         /**
-          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**, default=`min`)
+          * The value of this element. Only applicable if not in ranged mode.
          */
         "value"?: number;
+        /**
+          * The value of the right thumb. Only applicable in ranged mode.
+         */
+        "valueEnd"?: number;
+        /**
+          * The value of the left thumb. Only applicable in ranged mode.
+         */
+        "valueStart"?: number;
     }
     interface InoSegmentButton {
         /**
@@ -2715,17 +2727,37 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emits when the value changes. Contains new value in `event.detail`.
+          * Emits when the value changes (not in ranged mode).
          */
         "onValueChange"?: (event: CustomEvent<number>) => void;
         /**
-          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
+          * Emits when the end (right) value of the interval changes (in ranged mode).
+         */
+        "onValueEndChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Emits when the start (left) value of the interval changes (in ranged mode).
+         */
+        "onValueStartChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+         */
+        "ranged"?: boolean;
+        /**
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**, default=`min`)
+          * The value of this element. Only applicable if not in ranged mode.
          */
         "value"?: number;
+        /**
+          * The value of the right thumb. Only applicable in ranged mode.
+         */
+        "valueEnd"?: number;
+        /**
+          * The value of the left thumb. Only applicable in ranged mode.
+         */
+        "valueStart"?: number;
     }
     interface InoSegmentButton {
         /**

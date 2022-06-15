@@ -75,6 +75,18 @@ export const config: Config = {
           event: 'v-value-change',
           externalEvent: 'valueChange',
         },
+        {
+          elements: 'ino-range',
+          targetAttr: 'valueStart',
+          event: 'v-value-start-change',
+          externalEvent: 'valueStartChange',
+        },
+        {
+          elements: 'ino-range',
+          targetAttr: 'valueEnd',
+          event: 'v-value-end-change',
+          externalEvent: 'valueEndChange',
+        },
       ],
     }),
   ],
