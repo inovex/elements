@@ -1,6 +1,6 @@
 # ino-radio-group
 
-A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.
+A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.
 
 ### Usage
 
@@ -31,23 +31,14 @@ class MyComponent extends Component {
 
   render() {
     return (
-      <InoRadioGroup value={this.state.selected}>
-        <InoRadio
-          onValueChange={() => this.clickHandler('Option 1')}
-          value="Option 1"
-        >
+      <InoRadioGroup value={this.state.selected} onValueChange={(ev) => this.clickHandler(ev.detail)}>
+        <InoRadio value="Option 1">
           I will be checked
         </InoRadio>
-        <InoRadio
-          onValueChange={() => this.clickHandler('Option 2')}
-          value="Option 2"
-        >
+        <InoRadio value="Option 2">
           Option 2
         </InoRadio>
-        <InoRadio
-          onValueChange={() => this.clickHandler('Option 3')}
-          value="Option 3"
-        >
+        <InoRadio value="Option 3">
           Option 3
         </InoRadio>
       </InoRadioGroup>
@@ -82,16 +73,23 @@ class MyComponent extends Component {
 
 ### Control flow
 
-In order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio` and pass it's value to the `ino-radio-group` via the `value`-Property.
+In order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio-group` and pass the value via the `value`-Property.
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                                                | Type  | Default     |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ----------- |
-| `value`  | `value`   | The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked. | `any` | `undefined` |
+| Property | Attribute | Description                                                                                                                                                | Type               | Default     |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- |
+| `value`  | `value`   | The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked. | `number \| string` | `undefined` |
+
+
+## Events
+
+| Event         | Description                                                                                                                                                 | Type                            |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `valueChange` | Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`. | `CustomEvent<number \| string>` |
 
 
 ## Slots

@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-storybook",
-  "version": "6.2.0",
+  "version": "7.0.0",
   "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -40,22 +40,24 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^6.2.0",
+    "@inovex.de/elements": "^7.0.0",
     "moment": "^2.24.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.17.12",
+    "@babel/plugin-transform-typescript": "^7.17.12",
+    "@babel/plugin-proposal-optional-chaining": "^7.17.12",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
-    "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addon-essentials": "^6.4.9",
-    "@storybook/addon-links": "^6.4.9",
-    "@storybook/addon-viewport": "^6.4.9",
-    "@storybook/builder-webpack5": "^6.4.9",
-    "@storybook/manager-webpack5": "^6.4.9",
-    "@storybook/theming": "^6.4.9",
-    "@storybook/web-components": "^6.4.9",
-    "@types/node": "^12.0.4",
-    "babel-loader": "8.2.2",
+    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-links": "^6.5.8",
+    "@storybook/addon-viewport": "^6.5.8",
+    "@storybook/builder-webpack5": "^6.5.8",
+    "@storybook/manager-webpack5": "^6.5.8",
+    "@storybook/theming": "^6.5.8",
+    "@storybook/web-components": "^6.5.8",
+    "@types/node": "^14.17.0",
+    "babel-loader": "8.2.5",
     "chalk": "^2.4.2",
     "core-js": "^3.2.1",
     "css-loader": "^0.28.0",
@@ -64,11 +66,13 @@
     "jest-environment-node": "23.4.0",
     "lit-html": "^1.3.0",
     "prettier": "^1.16.4",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "sass": "^1.49.7",
     "sass-loader": "^12.6.0",
-    "story-description-loader": "^1.0.0"
+    "story-description-loader": "^1.0.0",
+    "webpack": "^5.0.0",
+    "typescript": "^4.2.4"
   },
   "resolutions": {
     "uglify-js": "3.6.4"

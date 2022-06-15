@@ -113,16 +113,16 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                       | Type                                                                                              | Default     |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
-| `disabled`    | `disabled`     | Disables all interactions.                                                                        | `boolean`                                                                                         | `false`     |
-| `fill`        | `fill`         | The fill type of this element.                                                                    | `"outline" \| "solid"`                                                                            | `'solid'`   |
-| `label`       | `label`        | The content of the component.                                                                     | `string`                                                                                          | `undefined` |
-| `removable`   | `removable`    | Adds a close icon on the right side of this chip which emits the `removeChip` event on click.     | `boolean`                                                                                         | `false`     |
-| `selectable`  | `selectable`   | Makes the chip selectable.                                                                        | `boolean`                                                                                         | `false`     |
-| `selected`    | `selected`     | Marks this element as selected (**works only in conjunction with `selectable`**)                  | `boolean`                                                                                         | `false`     |
-| `value`       | `value`        | The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.                 | `string`                                                                                          | `undefined` |
+| Property      | Attribute      | Description                                                                                                                               | Type                                                                                              | Default     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
+| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component.                                         | `"dark" \| "default" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'default'` |
+| `disabled`    | `disabled`     | Disables all interactions.                                                                                                                | `boolean`                                                                                         | `false`     |
+| `fill`        | `fill`         | The fill type of this element.                                                                                                            | `"outline" \| "solid"`                                                                            | `'solid'`   |
+| `label`       | `label`        | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead  The content of the component. | `string`                                                                                          | `undefined` |
+| `removable`   | `removable`    | Adds a close icon on the right side of this chip which emits the `removeChip` event on click.                                             | `boolean`                                                                                         | `false`     |
+| `selectable`  | `selectable`   | Makes the chip selectable.                                                                                                                | `boolean`                                                                                         | `false`     |
+| `selected`    | `selected`     | Marks this element as selected (**works only in conjunction with `selectable`**)                                                          | `boolean`                                                                                         | `false`     |
+| `value`       | `value`        | The value of this chip. Is emitted by the `chipClicked` and `chipRemoved` events.                                                         | `string`                                                                                          | `undefined` |
 
 
 ## Events
@@ -137,6 +137,7 @@ However, the component will not be hidden or destroyed but instead emits a `remo
 
 | Slot              | Description                                                     |
 | ----------------- | --------------------------------------------------------------- |
+| `"default"`       | The label text of the chip                                      |
 | `"icon-leading"`  | For the icon to be prepended                                    |
 | `"icon-trailing"` | For the icon to be appended - disables the `removable` property |
 

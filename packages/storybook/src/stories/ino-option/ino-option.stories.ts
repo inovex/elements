@@ -9,32 +9,20 @@ export default {
   title: 'Input/ino-option',
   component: 'ino-option',
   decorators: [story => decorateStoryWithClass(story, 'story-ino-option')],
-  args:{
-    disabled: false,
-    value: 'Content',
+  args: {
+    value: 'some-id',
   }
-} as Meta;
+} as Meta<Components.InoOption>;
 
-type InoOptionGroupExtended = Components.InoOptionGroup & {
-  disabled: boolean,
-  value: string,
-};
-
-const template = new TemplateGenerator<InoOptionGroupExtended>(
-  'ino-option-group',
+const template = new TemplateGenerator<Components.InoOption>(
+  'ino-option',
   args => html`
     <div class="story-option">
-      <ino-select label="Customizable option">
+      <ino-select label="My Select">
         <ino-option
           class="customizable-option"
           disabled="${args.disabled}"
-          value="${args.value}"
-        >
-          Content
-        </ino-option>
-        <ino-option
-          class="customizable-option"
-          disabled="${args.disabled}"
+          selected="${args.selected}"
           value="${args.value}"
         >
           Content
@@ -43,20 +31,12 @@ const template = new TemplateGenerator<InoOptionGroupExtended>(
     </div>
   `
 );
+
 export const Playground = template.generatePlaygroundStory();
+Playground.args = {
+  disabled: false,
+  selected: false,
+}
 
-const templateStates = new TemplateGenerator<Components.InoOptionGroup>(
-  'ino-option-group',
-  args => html`
-    <div class="story-option">
-      <ino-select label="Disabled option">
-        <ino-option value="Content" disabled>Content</ino-option>
-      </ino-select>
-
-      <ino-select label="Selected option">
-        <ino-option value="Content" selected>Content</ino-option>
-      </ino-select>
-    </div>
-  `
-);
-export const States = templateStates.generatePlaygroundStory();
+export const DisabledOption = template.generateStoryForProp('disabled', true);
+export const SelectedOption = template.generateStoryForProp('selected', true);

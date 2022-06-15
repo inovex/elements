@@ -1,28 +1,4 @@
-.story-button {
-  ino-button {
-    margin-bottom: 10px;
-  }
-
-  .button-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 10px;
-  }
-
-  .reset-form {
-    display: flex;
-
-    .reset-input {
-      flex: 1;
-      margin: 0 12px 12px 0;
-    }
-  }
-
-  .white-button {
-    background-color: blue;
-    height: 100%;
-    width: min-content;
-    padding: 5px;
-  }
+.story-button .container {
+  display: flex;
+  column-gap: 20px;
 }
