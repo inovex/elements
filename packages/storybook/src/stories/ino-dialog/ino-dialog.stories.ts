@@ -30,7 +30,7 @@ export default {
           e.target.open = false;
           if(e.target.id == 'demo-action-dialog') {
             const snackbar = document.createElement("ino-snackbar") as HTMLInoSnackbarElement;
-            snackbar.message = `Closed with action: ${e.detail}`;
+            snackbar.innerText = `Closed with action: ${e.detail}`;
             document.body.appendChild(snackbar);
           }
         };
@@ -64,7 +64,6 @@ export default {
     open: false,
     fullwidth: false,
     dismissible: false,
-    dataDialogId: 'demo-playground-dialog',
   },
 } as Meta<Components.InoDialog>;
 
@@ -112,15 +111,9 @@ const template = new TemplateGenerator<InoDialogExtended>(
 `);
 
 export const Playground = template.generatePlaygroundStory();
-export const FullWidth = template.generateStoryForProp('fullwidth', true, {
-  dataDialogId: 'demo-fullwidth-dialog',
-  open: false,
-});
 
-export const Dismissible = template.generateStoryForProp('dismissible', true, {
-  dataDialogId: 'demo-dismissible-dialog',
-  open: false,
-});
+export const FullWidth = template.generateStoryForProp('fullwidth', true);
+export const Dismissible = template.generateStoryForProp('dismissible', true);
 
 /**
  * Closing actions allow you to handle different button actions (like confirm, cancel, ...) using the `close` event listener on the dialog.
