@@ -19,10 +19,10 @@ function copyToClipboard(text) {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      snackbar.message = `Successfully copied "${text}" to your clipboard!`;
+      snackbar.innerText = `Successfully copied "${text}" to your clipboard!`;
     })
     .catch(() => {
-      snackbar.message = `An error occurred while copying the id to your clipboard!`;
+      snackbar.innerText = `An error occurred while copying the id to your clipboard!`;
     })
     .finally(() => {
       document.body.appendChild(snackbar);
@@ -37,13 +37,13 @@ const iconChips = ICON_IDS.map(
   (name) => html`
     <ino-chip
       id="icon-${name}"
-      label="${name}"
       fill="outline"
       color-scheme="default"
       value="${name}"
       @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
     >
       <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
+      ${name}
     </ino-chip>
   `
 );
@@ -128,14 +128,10 @@ const template = new TemplateGenerator<Components.InoIcon>(
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
-export const Clickable = template.generateStoryForProp('clickable', true);
-export const Source = template.generateStoryForProp('src', '');
-export const SVGTitle = template.generateStoryForProp('svgTitle', 'svgTitle');
-export const ColorSecondary = template.generateStoryForProp('colorSecondary', true);
 
 const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
-  args => html`
+  () => html`
   <div class="story-icon">
     <div class="flex-parent-center">
       <ino-input class="icon-search-input" placeholder="Find icon">
