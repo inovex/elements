@@ -66,3 +66,7 @@ ino-sidebar[align-right] {
     justify-content: flex-start;
   }
 }
+
+.button__label {
+  pointer-events: none;
+}
