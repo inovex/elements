@@ -41,7 +41,24 @@ class MyComponent extends Component {
 }
 ```
 
-#### Example #2 - With Types
+#### Example #2 - Using default slot
+
+```js
+import { Component } from 'react';
+import { InoIconButton } from '@inovex.de/elements/dist/react';
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`IconButton was clicked`);
+  };
+  render() {
+    return <InoIconButton onClick={handleClick}>
+       <ino-icon icon='time'></ino-icon>
+    </InoIconButton>;
+  } 
+}
+```
+
+#### Example #3 - With Types
 
 ```js
 import React, { Component } from 'react';
@@ -124,16 +141,25 @@ The component bubbles the native `click`-Event to the user.
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true. | `CustomEvent<any>` |
 
 
+## Slots
+
+| Slot        | Description  |
+| ----------- | ------------ |
+| `"default"` | `<ino-icon>` |
+
+
 ## CSS Custom Properties
 
-| Name                                        | Description                         |
-| ------------------------------------------- | ----------------------------------- |
-| `--ino-icon-button-background-active-color` | base color of the active background |
-| `--ino-icon-button-background-color`        | default color of the background     |
-| `--ino-icon-button-icon-active-color`       | color of the active icon itself     |
-| `--ino-icon-button-icon-color`              | default color of the icon itself    |
-| `--ino-icon-button-icon-size`               | size of the icon itself             |
-| `--ino-icon-button-size`                    | size of the entire button           |
+| Name                                          | Description                                    |
+| --------------------------------------------- | ---------------------------------------------- |
+| `--ino-icon-button-background-active-color`   | base color of the active background            |
+| `--ino-icon-button-background-color`          | default color of the background                |
+| `--ino-icon-button-background-disabled-color` | base color of the background in disabled state |
+| `--ino-icon-button-icon-active-color`         | color of the active icon itself                |
+| `--ino-icon-button-icon-color`                | default color of the icon itself               |
+| `--ino-icon-button-icon-disabled-color`       | color of the icon itself in disabled state     |
+| `--ino-icon-button-icon-size`                 | size of the icon itself                        |
+| `--ino-icon-button-size`                      | size of the entire button                      |
 
 
 ## Dependencies

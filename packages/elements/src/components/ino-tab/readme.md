@@ -74,12 +74,12 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property                | Attribute                 | Description                                                                           | Type      | Default     |
-| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------- | --------- | ----------- |
-| `icon`                  | `icon`                    | Indicates a leading icon in the tab.                                                  | `string`  | `undefined` |
-| `indicatorContentWidth` | `indicator-content-width` | Indicates that the tab only expands to the width of its content.                      | `boolean` | `false`     |
-| `label`                 | `label`                   | Indicates a label text in the tab.                                                    | `string`  | `undefined` |
-| `stacked`               | `stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally. | `boolean` | `false`     |
+| Property                | Attribute                 | Description                                                                                                                                    | Type      | Default     |
+| ----------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `icon`                  | `icon`                    | Indicates a leading icon in the tab.                                                                                                           | `string`  | `undefined` |
+| `indicatorContentWidth` | `indicator-content-width` | Indicates that the tab only expands to the width of its content.                                                                               | `boolean` | `false`     |
+| `label`                 | `label`                   | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead. Indicates a label text in the tab. | `string`  | `undefined` |
+| `stacked`               | `stacked`                 | Indicates that the tab icon and label should flow vertically instead of horizontally.                                                          | `boolean` | `false`     |
 
 
 ## Events
