@@ -15,6 +15,9 @@ import classNames from 'classnames';
 
 import { ColorScheme, ButtonType } from '../types';
 
+/**
+ * @slot default - `<ino-icon>`
+ */
 @Component({
   tag: 'ino-icon-button',
   styleUrl: 'ino-icon-button.scss',
@@ -65,7 +68,7 @@ export class IconButton implements ComponentInterface {
 
   /**
    * The name of the icon of this element.
-   */
+    */
   @Prop() icon?: string;
 
   /**
@@ -123,8 +126,10 @@ export class IconButton implements ComponentInterface {
     const iconButtonClasses = classNames({
       'mdc-icon-button': true,
       'mdc-ripple-upgraded--background-focused': this.activated,
+      'ino-icon-button-filled': this.filled,
+      'ino-icon-button--disabled': this.disabled,
     });
-
+    
     return (
       <Host class={hostClasses}>
         <button
@@ -134,7 +139,9 @@ export class IconButton implements ComponentInterface {
           type={this.type}
         >
           <div class="mdc-icon-button__ripple"/>
-          <ino-icon icon={this.icon} class="mdc-icon-button__icon" />
+          <span class="mdc-icon-button__icon">
+            {this.icon ? <ino-icon icon={this.icon} /> : <slot />}
+          </span>
         </button>
       </Host>
     );
