@@ -30,21 +30,13 @@ export default {
       return story();
     },
   ],
-  argTypes: {
-    role: {
-      control: {
-        type: 'select',
-      },
-      options: ['checkbox', 'radio'],
-    },
-  },
   args: {
     activated: false,
     checked: false,
     disabled: false,
     indeterminate: false,
     role: 'checkbox',
-    secondaryText: 'Secondary Text',
+    secondaryText: '',
     selected: false,
     text: 'Text',
     trailing: false,
@@ -54,14 +46,14 @@ export default {
 const template = new TemplateGenerator<Components.InoControlItem>(
   'ino-control-item',
   args => html`
-  <ino-list>
+  <ino-list two-lines="${args.secondaryText || false}">
     <ino-control-item
       activated="${args.activated}"
       checked="${args.checked}"
       disabled="${args.disabled}"
       indeterminate="${args.indeterminate}"
       role="${args.role}"
-      secondaryText="${args.secondaryText}"
+      secondary-text="${args.secondaryText}"
       selected="${args.selected}"
       text="${args.text}"
       trailing="${args.trailing}"
@@ -73,22 +65,11 @@ const template = new TemplateGenerator<Components.InoControlItem>(
 
 export const Playground = template.generatePlaygroundStory();
 
-const templateRoles = new TemplateGenerator<Components.InoControlItem>(
-  'ino-control-item', 
-  args => html`
-  <ino-list>
-    <ino-control-item checked role="checkbox" text="Checkbox">
-    </ino-control-item>
-  </ino-list>
-  <ino-list>
-    <ino-control-item role="radio" text="Radio"></ino-control-item>
-  </ino-list>
-`);
-
-export const Roles = templateRoles.generateStoryForProp('role', 'checkbox')
+export const Roles = template.generateStoryForProp('role', 'radio')
 export const Checked = template.generateStoryForProp('checked', true);
 export const Indeterminate = template.generateStoryForProp('indeterminate', true);
 export const Activated = template.generateStoryForProp('activated', true);
 export const Selected = template.generateStoryForProp('selected', true);
+export const SecondaryText = template.generateStoryForProp('secondaryText', 'Some Secondary Text');
 export const Disabled = template.generateStoryForProp('disabled', true);
 export const Trailing = template.generateStoryForProp('trailing', true);
