@@ -26,7 +26,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@inovex.de/elements": "6.1.0"
+    "@inovex.de/elements": "^7.0.0"
   },
   "devDependencies": {
     "shx": "^0.3.2",

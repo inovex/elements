@@ -1,16 +1,26 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, withColorScheme } from '../utils';
+import { decorateStoryWithClass } from '../utils';
+import { TemplateGenerator } from '../template-generator';
 import './ino-spinner.scss';
 
 export default {
   title: 'Notification/ino-spinner',
   component: 'ino-spinner',
   decorators: [(story) => decorateStoryWithClass(story, 'story-spinner')],
+  args: {
+    colorScheme: 'primary',
+    modal: false,
+    type: 'tile',
+    height: 40,
+    width: 40,
+  },
 } as Meta;
 
-export const Playground: Story<Components.InoSpinner> = (args) => html`
+const template = new TemplateGenerator<Components.InoSpinner>(
+  'ino-spinner',
+  args => html`
   <ino-spinner
     color-scheme="${args.colorScheme}"
     height="${args.height}"
@@ -19,74 +29,10 @@ export const Playground: Story<Components.InoSpinner> = (args) => html`
     width="${args.width}"
   >
   </ino-spinner>
-`;
-Playground.args = {
-  modal: false,
-  type: 'tile',
-  height: 40,
-  width: 40,
-};
-Playground.argTypes = {
-  type: {
-    control: {
-      type: 'select',
-    },
-    options: ['circle', 'tile', 'bounce'],
-  },
-};
-withColorScheme(Playground, 'colorScheme', 'primary');
+`);
 
-export const Colors = () => html`
-  <div class="flex-parent">
-    <div class="flex-child">
-      <h5>primary</h5>
-      <ino-spinner color-scheme="primary"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>secondary</h5>
-      <ino-spinner color-scheme="secondary"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>success</h5>
-      <ino-spinner color-scheme="success"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>warning</h5>
-      <ino-spinner color-scheme="warning"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>error</h5>
-      <ino-spinner color-scheme="error"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>light</h5>
-      <ino-spinner color-scheme="light"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>dark</h5>
-      <ino-spinner color-scheme="dark"></ino-spinner>
-    </div>
-  </div>
-`;
-
-export const Types = () => html`
-  <div class="flex-parent">
-    <div class="flex-child">
-      <h5>tile</h5>
-      <ino-spinner type="tile"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>bounce</h5>
-      <ino-spinner type="bounce"></ino-spinner>
-    </div>
-    <div class="flex-child">
-      <h5>circle</h5>
-      <ino-spinner type="circle"></ino-spinner>
-    </div>
-  </div>
-`;
-
-// TODO: Breaks page
-// export const AsModal = () => html`
-//   <ino-spinner modal></ino-spinner>
-// `;
+export const Playground = template.generatePlaygroundStory();
+export const Type = template.generateStoryForProp('type', 'bounce');
+export const ColorScheme = template.generateStoryForProp('colorScheme', 'secondary', {
+  type: 'circle',
+});
