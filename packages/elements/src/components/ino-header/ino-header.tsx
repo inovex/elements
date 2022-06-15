@@ -1,5 +1,8 @@
 import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 
+/**
+ * @slot default - The text to display
+ */
 @Component({
   tag: 'ino-header',
   styleUrl: 'ino-header.scss',
@@ -7,8 +10,7 @@ import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 })
 export class Header implements ComponentInterface {
   /**
-   * [DEPRECATED] Please use the default slot instead
-   * The text of this header
+   * [DEPRECATED] Please use the default slot instead of this prop.
    * @deprecated
    */
   @Prop() text?: string;

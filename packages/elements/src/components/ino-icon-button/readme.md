@@ -41,7 +41,24 @@ class MyComponent extends Component {
 }
 ```
 
-#### Example #2 - With Types
+#### Example #2 - Using default slot
+
+```js
+import { Component } from 'react';
+import { InoIconButton } from '@inovex.de/elements/dist/react';
+class MyComponent extends Component {
+  handleClick = (e: any) => {
+    alert(`IconButton was clicked`);
+  };
+  render() {
+    return <InoIconButton onClick={handleClick}>
+       <ino-icon icon='time'></ino-icon>
+    </InoIconButton>;
+  } 
+}
+```
+
+#### Example #3 - With Types
 
 ```js
 import React, { Component } from 'react';
@@ -122,6 +139,13 @@ The component bubbles the native `click`-Event to the user.
 | Event     | Description                                                                                                        | Type               |
 | --------- | ------------------------------------------------------------------------------------------------------------------ | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description  |
+| ----------- | ------------ |
+| `"default"` | `<ino-icon>` |
 
 
 ## CSS Custom Properties

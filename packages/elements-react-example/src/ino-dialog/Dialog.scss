@@ -1,0 +1,48 @@
+ino-dialog {
+  --ino-dialog-width: 650px;
+  --ino-dialog-height: 250px;
+}
+
+.ino-dialog-section {
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.17);
+  border-radius: 6px;
+  background-color: white;
+  margin-bottom: 0.5rem;
+  padding: 1.25rem;
+  min-width: 100%;
+}
+
+.ino-dialog-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ino-dialog-header {
+  font-size: 0.9375rem;
+  color: black;
+  font-weight: 400;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.ino-dialog-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.ino-dialog-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+
+  ino-button {
+    margin-right: 10px;
+  }
+}
