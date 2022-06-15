@@ -58,13 +58,3 @@ export const Playground = template.generatePlaygroundStory();
 export const Unchecked = template.generatePlaygroundStory()
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
-
-/**
- * Checks and disables this element.
- */
-export const CheckedAndDisabled = template.generatePlaygroundStory();
-
-CheckedAndDisabled.args = {
-  checked: true,
-  disabled: true,
-};
