@@ -42,15 +42,6 @@ export default {
   }
 } as Meta<Components.InoSidebar>;
 
-const header = html`
-    <div class="header">
-      <div class="header--section">
-        <ino-icon clickable icon="menu"></ino-icon>
-        <p>Sidebar</p>
-      </div>
-    </div>
-`;
-
 const sidebarContent = html`
     <div class="sidebar-header" slot="header">
       <ino-icon clickable icon="close" />
@@ -133,45 +124,3 @@ const template = new TemplateGenerator<Components.InoSidebar>(
 `);
 
 export const Playground = template.generatePlaygroundStory();
-
-const templateSidebarRight = new TemplateGenerator<Components.InoSidebar>(
-  'ino-sidebar',
-  args => html`
-  <div class="sidebar-demo">
-    ${header}
-    <ino-sidebar
-      id="customizable-sidebar"
-      align-right="${args.alignRight}"
-      name="${args.name}"
-      open="${args.open}"
-      class="sidebar-right"
-    >
-      ${sidebarContent}
-    </ino-sidebar>
-    ${mainContent}
-  </div>
-`);
-export const SidebarRight = templateSidebarRight.generateStoryForProp('alignRight', true);
-
-const templateSidebarDiffrentWidth = new TemplateGenerator<Components.InoSidebar>(
-  'ino-sidebar',
-  args => html`
-  <div class="sidebar-demo">
-    ${header}
-    <ino-sidebar
-      id="customizable-sidebar"
-      align-right="${args.alignRight}"
-      name="${args.name}"
-      open="${args.open}"
-      style="--ino-sidebar-width:500px"
-    >
-      ${sidebarContent}
-    </ino-sidebar>
-    ${mainContent}
-  </div>
-`);
-/**
- * Set a custom sidebar-width with the `--ino-sidebar-width` scss variable
- */
-export const SidebarDifferentWidth = templateSidebarDiffrentWidth.generatePlaygroundStory();
-
