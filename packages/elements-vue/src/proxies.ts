@@ -97,7 +97,6 @@ export const InoControlItem = /*@__PURE__*/ defineContainer<JSX.InoControlItem>(
 
 export const InoCurrencyInput = /*@__PURE__*/ defineContainer<JSX.InoCurrencyInput>('ino-currency-input', undefined, [
   'currencyLocale',
-  'unit',
   'value',
   'valueChange'
 ]);
