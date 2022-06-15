@@ -10,13 +10,8 @@ export default {
     dense: false,
     twoLines: false,
     avatar: false,
-    secondaryText: "",
   }
 } as Meta<Components.InoList>;
-
-type InoListExtended = Components.InoList & {
-  secondaryText: string,
-}
 
 const exampleImg = html
 `
@@ -28,7 +23,7 @@ const exampleImg = html
     ></ino-img>
     `;
 
-const template = new TemplateGenerator<InoListExtended>(
+const template = new TemplateGenerator<Components.InoList>(
   'ino-list',
   args => html`
   <ino-list
@@ -36,15 +31,14 @@ const template = new TemplateGenerator<InoListExtended>(
     two-lines="${args.twoLines}"
     avatar="${args.avatar}"
   >
-    <ino-list-item text="First text item" secondary-text="${args.secondaryText}">${args.avatar? exampleImg : ""}</ino-list-item>
-    <ino-list-item text="Second text item" secondary-text="${args.secondaryText}">${args.avatar? exampleImg : ""}</ino-list-item>
-    <ino-list-item text="Third text item" secondary-text="${args.secondaryText}">${args.avatar? exampleImg : ""}</ino-list-item>
+    <ino-list-item text="First text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
+    <ino-list-item text="Second text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
+    <ino-list-item text="Third text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
 </ino-list>
 `);
 
 export const Playground = template.generatePlaygroundStory();
-export const TwoLines = template.generateStoryForProp('twoLines', true, {
-  secondaryText: "Secondary",
-});
+
+export const TwoLines = template.generateStoryForProp('twoLines', true);
 export const Dense = template.generateStoryForProp('dense', true);
 export const Avatar = template.generateStoryForProp('avatar', true);
