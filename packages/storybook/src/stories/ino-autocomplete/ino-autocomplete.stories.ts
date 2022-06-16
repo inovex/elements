@@ -1,8 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, showSnackbar } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 
 import './ino-autocomplete.scss';
 
@@ -14,49 +13,36 @@ export default {
       handles: ['valueChange'],
     },
   },
-  decorators: [
-    story => decorateStoryWithClass(story),
-    story => {
-      useEffect(() => {
-        const eventHandler = function(e: CustomEvent<string>) {
-          showSnackbar(`"${e.detail}" was selected.`);
-        };
+  decorators: [(story) => decorateStoryWithClass(story)],
+  args: {
+    debounce: 100,
+    options: [
+      'Hamburg',
+      'Berlin',
+      'München',
+      'Karlsruhe',
+      'Köln',
+      'Stuttgart',
+      'Dortmund',
+    ],
+    value: '',
+  },
+} as Meta<Components.InoAutocomplete>;
 
-        document.addEventListener('valueChange', eventHandler);
+const inputHandler = (ev: CustomEvent<string>) => {
+  (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
+};
 
-        return () => {
-          document.removeEventListener('valueChange', eventHandler);
-        };
-      });
-
-      return story();
-    },
-  ],
-} as Meta;
-
-const options = [];
-
-for (let i = 0; i < 500; i++) {
-  options.push(
-    html`
-      <ino-option value="value of Option ${i}">${i}</ino-option>
-    `
-  );
-}
-
-export const Playground: Story<Components.InoAutocomplete> = args => html`
+export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">
     <ino-autocomplete
+      debounce="${args.debounce}"
+      .options=${args.options}
+      value="${args.value}"
+      @valueChange="${inputHandler}"
       style="margin: 50px"
-      no-options-text="${args.noOptionsText}"
     >
-      <ino-input slot="input" helper="Helper text" helper-persistent></ino-input>
-      ${options}
+      <ino-input></ino-input>
     </ino-autocomplete>
   </div>
 `;
-
-Playground.args = {
-  debounceTimeout: 300,
-  noOptionsText: 'No option found',
-};

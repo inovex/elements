@@ -10,27 +10,25 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoAutocomplete extends Components.InoAutocomplete {
   /**
-   * Emits in three ways:
+   * Emits the list item the user clicked on.
+If Key-Value-Objects are provided as `options`, the `key` of the selected option will be emitted.
 
-1. Clicking on an option
-2. Pressing `Enter` while an option is selected
-3. Entering a valid value and blurring the input element
-
-Contains one of the texts provided by the `<ino-options>`s. 
+Trigger on two occasions:
+1. The user clicked on a list-item. 
    */
-  valueChange: EventEmitter<CustomEvent<string | null>>;
+  valueChange: EventEmitter<CustomEvent<string>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['debounceTimeout', 'noOptionsText', 'value']
+  inputs: ['debounce', 'noOptionsText', 'options', 'value']
 })
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['debounceTimeout', 'noOptionsText', 'value']
+  inputs: ['debounce', 'noOptionsText', 'options', 'value']
 })
 export class InoAutocomplete {
   protected el: HTMLElement;

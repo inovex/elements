@@ -1,36 +1,32 @@
-@use 'base/theme';
 @use 'base/mdc-customize';
 @use '@material/list';
+@use 'base/theme';
 
-/**
-* @prop --ino-autocomplete-list-max-height: max height of option list
-*/
-:host {
-  position: relative;
+@include list.deprecated-core-styles;
 
-  .menu {
-    width: var(--input-width, max-content);
-    max-height: var(--ino-autocomplete-list-max-height, 225px);
-    position: absolute;
-    top: 76px;
-    z-index: 10;
-    background-color: white;
-    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
-      0 1px 10px 0 rgb(0 0 0 / 12%);
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: auto;
+.ino-autocomplete__list {
+  margin: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
+    0 1px 10px 0 rgb(0 0 0 / 12%);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: auto;
+}
+
+.ino-autocomplete__list-item {
+  height: 25px;
+
+  &--selected {
+    background-color: rgba(61, 64, 245, 0.1);
   }
 
-  .menu-hidden {
-    display: none;
+  &--highlight {
+    color: white;
+    background-color: theme.color(primary);
   }
 
-  .menu-shown {
-    display: block;
-  }
-
-  .no-options-text {
+  &--no-match {
     padding-left: 16px;
     padding-right: 16px;
     color: theme.color(light, dark);
