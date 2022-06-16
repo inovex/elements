@@ -62,7 +62,7 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.inoInputEl.value = value;
-    this.inputEl.selectionStart = this.inputEl.selectionEnd = value.length;
+    this.inputEl.selectionStart = this.inputEl.selectionEnd = value.length; // move cursor to end
   }
 
   /**
@@ -139,7 +139,7 @@ export class Autocomplete implements ComponentInterface {
       },
       events: {
         input: {
-          focus: () => this.autocomplete.start(),
+          focus: () => this.autocomplete.start(), // open menu on focus
         },
       },
     });
