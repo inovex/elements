@@ -23,7 +23,7 @@
 
   &--highlight {
     color: white;
-    background-color: theme.color(primary);
+    background-color: rgba(theme.color(primary), 0.7);
   }
 
   &--no-match {
