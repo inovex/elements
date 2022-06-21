@@ -1,6 +1,6 @@
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, withSortDirection } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
@@ -44,7 +44,7 @@ export default {
 
 const tableContent = 
     html`<tr slot="header-row"></tr>
-    <ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
+      <ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
       <ino-table-header-cell column-id="name" sort-start="asc" label="Name"></ino-table-header-cell>
       <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
       <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
@@ -135,7 +135,7 @@ export const Loading = template.generateStoryForProp('loading', true);
 export const NoHover = template.generateStoryForProp('noHover', true);
 
 /**
- * For table sorting there are to needed props: 
+ * For table sorting there are two needed props: 
  * 
  * `sortColumnId` identifies the column currently sorted by.
  * Needs to match the column ids provided on `ino-table-header-cell` elements.
@@ -143,7 +143,7 @@ export const NoHover = template.generateStoryForProp('noHover', true);
  * `sortDirection` shows direction of the column currently sorted by.
  * @See Set `sort-start` attribute on the respective column to change the sort order.
  * 
- * Sorting-logic needs to be implementet by user.
+ * Sorting-logic needs to be implemented by user.
  */
 export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
 export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
