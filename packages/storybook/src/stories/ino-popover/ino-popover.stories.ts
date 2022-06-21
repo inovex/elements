@@ -83,7 +83,6 @@ const template = new TemplateGenerator<InoPopoverExtended>(
       <ino-icon icon="user"></ino-icon> This is a styled popover.
     </div>
   </ino-popover>
-  
 `);
 
 export const Playground = template.generatePlaygroundStory();
@@ -141,34 +140,33 @@ const templateInteractive = new TemplateGenerator<Components.InoPopover>(
 export const Interactions = templateInteractive.generateStoryForProp('interactive', true);
 
 const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
-  'ino-popover',
-  args => {
-    useEffect(() => {
-      const eventHandler = (e) => {
-        e.target?.setAttribute('visible', e.detail);
-        (document.querySelector(
-          '#controlled-checkbox'
-        ) as HTMLInputElement).checked = e.detail;
-      };
-  
-      document.addEventListener('visibleChanged', eventHandler);
-      return () => document.removeEventListener('visibleChanged', eventHandler);
-    });
+'ino-popover',
+args => {
+  useEffect(() => {
+    const eventHandler = (e) => {
+      e.target?.setAttribute('visible', e.detail);
+      (document.querySelector(
+        '#controlled-checkbox'
+      ) as HTMLInputElement).checked = e.detail;
+    };
 
-    return html`
-    <ino-popover
-      id="controlled-popover"
-      placement="left"
-      controlled
-      trigger="click"
+    document.addEventListener('visibleChanged', eventHandler);
+    return () => document.removeEventListener('visibleChanged', eventHandler);
+  });
+
+  return html`
+  <ino-popover
+    id="controlled-popover"
+    placement="left"
+    controlled
+    trigger="click"
+  >
+    <ino-checkbox id="controlled-checkbox" slot="popover-trigger"
+      >Uncheck to hide / check to show</ino-checkbox
     >
-      <ino-checkbox id="controlled-checkbox" slot="popover-trigger"
-        >Uncheck to hide / check to show</ino-checkbox
-      >
-      <div class="popover-content">I'm a controlled popover</div>
-    </ino-popover>
-    `
-  }
+    <div class="popover-content">I'm a controlled popover</div>
+  </ino-popover>
+`}
 );
 
 export const ControlledPopover = templateControlledPopover.generateStoryForProp('controlled', true)
