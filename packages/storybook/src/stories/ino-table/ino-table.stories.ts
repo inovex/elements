@@ -42,15 +42,15 @@ export default {
   },
 };
 
-const tableContent = html`
-    <tr slot="header-row"><ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
+const tableContent = 
+    html`<tr slot="header-row"></tr>
+    <ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
       <ino-table-header-cell column-id="name" sort-start="asc" label="Name"></ino-table-header-cell>
       <ino-table-header-cell column-id="release" label="Release Date"></ino-table-header-cell>
       <ino-table-header-cell column-id="box-office" label="Box Office"></ino-table-header-cell>
       <ino-table-header-cell column-id="rating" label="Rating" not-sortable></ino-table-header-cell>
       <ino-table-header-cell column-id="another1" label="Another Column" not-sortable></ino-table-header-cell>
       <ino-table-header-cell column-id="another2" label="Another Column" not-sortable></ino-table-header-cell>
-    </tr>
     <tr>
       <td>1</td>
       <td>The Bourne Identity</td>
@@ -126,9 +126,8 @@ const template = new TemplateGenerator<Components.InoTable>(
     no-hover="${args.noHover}"
     sticky-header="${args.stickyHeader}"
   >
-  ${args.loading? html`<ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>` : html``}
-  ${tableContent}
-  </ino-table>
+    ${args.loading? html`<ino-progress-bar slot="loading-indicator" indeterminate debounce="200" active></ino-progress-bar>` : html``}
+    ${tableContent}
 `);
 
 export const Playground = template.generatePlaygroundStory();
