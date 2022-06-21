@@ -133,8 +133,19 @@ const template = new TemplateGenerator<Components.InoTable>(
 export const Playground = template.generatePlaygroundStory();
 export const Loading = template.generateStoryForProp('loading', true);
 export const NoHover = template.generateStoryForProp('noHover', true);
-export const SortColumnId = template.generateStoryForProp('sortColumnId', 'id');
-export const SortDirection = template.generateStoryForProp('sortDirection', 'desc');
+
+/**
+ * For table sorting there are to needed props: 
+ * 
+ * `sortColumnId` identifies the column currently sorted by.
+ * Needs to match the column ids provided on `ino-table-header-cell` elements.
+ * 
+ * `sortDirection` shows direction of the column currently sorted by.
+ * @See Set `sort-start` attribute on the respective column to change the sort order.
+ * 
+ * Sorting-logic needs to be implementet by user.
+ */
+export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();
 export const StickyHeader = template.generateStoryForProp('stickyHeader', true);
 
 const templateSelectionWithCheckboxes = new TemplateGenerator<Components.InoTable>(
