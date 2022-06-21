@@ -17,15 +17,15 @@ export default {
 const template = new TemplateGenerator<Components.InoListDivider>(
   'ino-list-divider',
   args => html`
-  <ino-list>
-    <ino-list-item text="Item 2"></ino-list-item>
-    <ino-list-divider
-      inset="${args.inset}"
-      between-lists="${args.betweenLists}"
-      padded="${args.padded}"
-    ></ino-list-divider>
-    <ino-list-item text="Item 3"></ino-list-item>
-  </ino-list>
+<ino-list>
+  <ino-list-item text="Item 2"></ino-list-item>
+  <ino-list-divider
+    inset="${args.inset}"
+    between-lists="${args.betweenLists}"
+    padded="${args.padded}"
+  ></ino-list-divider>
+  <ino-list-item text="Item 3"></ino-list-item>
+</ino-list>
 `);
 export const Playground = template.generatePlaygroundStory();
 export const Padded = template.generateStoryForProp('padded', true);
