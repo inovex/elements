@@ -173,7 +173,7 @@ export class RadioGroup implements ComponentInterface {
     // set default scss class if property is undefined
     if (!this.alignment) {
       style = classNames('ino-radio-group-wrapper');
-      return;
+      return style;
     }
 
     switch (this.alignment) {
