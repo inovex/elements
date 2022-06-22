@@ -10,6 +10,9 @@ import {
   EventEmitter,
   Event,
 } from '@stencil/core';
+import classNames from 'classnames';
+
+type Alignment = 'horizontal' | 'vertical';
 
 /**
  * @slot default - One or more `ino-radio`
@@ -27,6 +30,10 @@ export class RadioGroup implements ComponentInterface {
    * If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
    */
   @Prop() value?: string | number | null;
+  /**
+   * sets the alignment of the radios
+   */
+  @Prop() alignment: Alignment = 'horizontal';
 
   @Watch('value')
   valueChanged(value: string) {
@@ -64,8 +71,7 @@ export class RadioGroup implements ComponentInterface {
    */
   @Listen('keydown')
   async handleKeyDown(ev: KeyboardEvent) {
-
-    if(!ev.key.startsWith('Arrow')) return;
+    if (!ev.key.startsWith('Arrow')) return;
 
     ev.preventDefault();
 
@@ -162,10 +168,29 @@ export class RadioGroup implements ComponentInterface {
     return Promise.all(Array.from(this.el.querySelectorAll('ino-radio')));
   }
 
+  private setAlignment() {
+    let style: string;
+    // set default scss class if property is undefined
+    if (!this.alignment) {
+      style = classNames('ino-radio-group-wrapper');
+      return;
+    }
+
+    switch (this.alignment) {
+      case 'horizontal':
+        style = classNames('ino-radio-group-wrapper');
+        break;
+      case 'vertical':
+        style = classNames('ino-radio-group-wrapper-vertical');
+        break;
+    }
+    return style;
+  }
+
   render() {
     return (
       <Host>
-        <div class="ino-radio-group-wrapper" tabIndex={0}>
+        <div class={this.setAlignment()} tabIndex={0}>
           <slot></slot>
         </div>
       </Host>

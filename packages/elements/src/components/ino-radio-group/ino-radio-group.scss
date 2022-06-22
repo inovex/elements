@@ -3,6 +3,12 @@ ino-radio-group {
     width: fit-content;
   }
 
+  .ino-radio-group-wrapper-vertical {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+
   ino-radio:last-child {
     margin-right: 8px;
   }
