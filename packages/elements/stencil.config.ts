@@ -3,8 +3,10 @@ import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './vue-output-target';
 import { JsonDocsOutputTarget } from './json-docs-output-target';
+import { reactOutputTarget as react } from '@stencil/react-output-target';
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
+const reactProxyPath = '../elements-react/src/components';
 
 export const config: Config = {
   buildEs5: false,
@@ -23,6 +25,11 @@ export const config: Config = {
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   outputTargets: [
+    react({
+      componentCorePackage: '@inovex.de/elements',
+      proxiesFile: `${reactProxyPath}/index.ts`,
+      includeDefineCustomElements: true,
+    }),
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
@@ -59,6 +66,7 @@ export const config: Config = {
             'ino-autocomplete',
             'ino-datepicker',
             'ino-input',
+            'ino-radio-group',
             'ino-range',
             'ino-select',
             'ino-textarea',
@@ -66,6 +74,18 @@ export const config: Config = {
           targetAttr: 'value',
           event: 'v-value-change',
           externalEvent: 'valueChange',
+        },
+        {
+          elements: 'ino-range',
+          targetAttr: 'valueStart',
+          event: 'v-value-start-change',
+          externalEvent: 'valueStartChange',
+        },
+        {
+          elements: 'ino-range',
+          targetAttr: 'valueEnd',
+          event: 'v-value-end-change',
+          externalEvent: 'valueEndChange',
         },
       ],
     }),

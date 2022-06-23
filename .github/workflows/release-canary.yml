@@ -47,7 +47,7 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: elements-angular
-          path: packages/elements-angular/dist/
+          path: packages/elements-angular/elements/dist/
 
       - run: yarn publish:canary
         env:
