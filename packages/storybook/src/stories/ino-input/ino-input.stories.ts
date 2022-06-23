@@ -1,5 +1,8 @@
 import { useEffect } from '@storybook/client-api';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import { decorateStoryWithClass } from '../utils';
 import './ino-input.scss';
 
@@ -7,14 +10,14 @@ export default {
   title: 'Input/ino-input',
   component: 'ino-input',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-input'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-ino-input'),
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('value', e.detail);
+        const eventHandler = e => e.target.setAttribute('value', e.detail);
         const inputs = document.querySelectorAll('ino-input');
-        inputs.forEach((i) => i.addEventListener('valueChange', eventHandler));
+        inputs.forEach(i => i.addEventListener('valueChange', eventHandler));
         return () =>
-          inputs.forEach((i) =>
+          inputs.forEach(i =>
             i.removeEventListener('valueChange', eventHandler)
           );
       });
@@ -29,13 +32,41 @@ export default {
       ],
     },
   },
-};
+  args: {
+    autocomplete: 'off',
+    autoFocus: false,
+    dataList: '',
+    disabled: false,
+    error: false,
+    helper: 'Helper message',
+    helperCharacterCounter: false,
+    helperPersistent: false,
+    helperValidation: false,
+    label: 'Input label',
+    min: '',
+    max: '',
+    maxlength: 100,
+    outline: false,
+    name: '',
+    pattern: '*',
+    placeholder: '',
+    required: false,
+    showLabelHint: false,
+    size: 0,
+    step: 5,
+    type: 'text',
+    unit: '',
+    value: '',
+  }
+} as Meta<Components.InoInput>;
 
-export const Playground = (args) => html`
+const template = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input
     class="customizable-input"
     id="customizable-input"
-    autocomplete="${args.autcomplete}"
+    autocomplete="${args.autocomplete}"
     autofocus="${args.autoFocus}"
     data-list="${args.dataList}"
     disabled="${args.disabled}"
@@ -61,33 +92,9 @@ export const Playground = (args) => html`
     value="${args.value}"
   >
   </ino-input>
-`;
-Playground.args = {
-  autocomplete: false,
-  autoFocus: false,
-  dataList: '',
-  disabled: false,
-  error: false,
-  helper: 'Helper message',
-  helperCharacterCounter: false,
-  helperPersistent: false,
-  helperValidation: false,
-  label: 'Input label',
-  min: '',
-  max: '',
-  maxlength: 100,
-  outline: false,
-  name: '',
-  pattern: '*',
-  placeholder: '',
-  required: false,
-  showLabelHint: false,
-  size: '',
-  step: 5,
-  type: 'text',
-  unit: '',
-  value: '',
-};
+`);
+export const Playground = template.generatePlaygroundStory();
+
 Playground.argTypes = {
   type: {
     control: {
@@ -97,7 +104,9 @@ Playground.argTypes = {
   },
 };
 
-export const Types = () => html`
+const templateType = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input placeholder="type = text"></ino-input>
   <ino-input placeholder="type = email" type="email"></ino-input>
   <ino-input type="number" placeholder="type = number"></ino-input>
@@ -112,9 +121,19 @@ export const Types = () => html`
     step="any"
   ></ino-input>
   <ino-input type="password" placeholder="type = password"></ino-input>
-`;
+`);
+/**
+ * Changes the type of the ino-input element.
+ * 
+ * - `type`: The type of this element (default = text).
+ * - `step`: The step value of this element. Use `any` for decimal numbers
+ */
+export const Types = templateType.generatePlaygroundStory();
 
-export const States = () => html`
+
+const templateStates = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input placeholder="Disabled" disabled></ino-input>
   <ino-input label="Optional" show-label-hint></ino-input>
   <ino-input label="Required" required show-label-hint></ino-input>
@@ -127,9 +146,21 @@ export const States = () => html`
     show-label-hint
     required
   ></ino-input>
-`;
+`);
+/**
+ * Change the state of the ino-input element by adding this properties in various combinations:
+ * 
+ * - `disabled`: Disables this element.
+ * - `show-label-hint`: If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
+ * - `required`: Marks this element as required.
+ * - `outline`: Styles the input field as outlined element.
+ */
+export const States = templateStates.generatePlaygroundStory();
 
-export const Labels = () => html`
+
+const templateLabels = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input label="Floating label"></ino-input>
   <ino-input label="Floating label" value="With value"></ino-input>
 
@@ -139,9 +170,20 @@ export const Labels = () => html`
     value="With value"
     outline
   ></ino-input>
-`;
+`);
+/**
+ * Add labels to the ino-input element by setting this properties:
+ * 
+ * - `label`: The optional floating label of this input field.
+ * - `value`: The value of this element. (**unmanaged**)
+ * - `outline`: Styles the input field as outlined element.
+ */
+export const Labels = templateLabels.generatePlaygroundStory();
 
-export const HelperTexts = () => html`
+
+const templateHelperTexts = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input
     placeholder="Helper text on focus (default)"
     helper="Helper text"
@@ -162,13 +204,21 @@ export const HelperTexts = () => html`
     helper-character-counter
     maxlength="25"
   ></ino-input>
-`;
+`);
+/**
+ * Add helper text to the ino-input element by adding this properties:
+ * 
+ * - `helper`: The optional helper text.
+ * - `helper-persistent`: Displays the helper permanently.
+ * - `helper-validation`: Styles the helper text as a validation message.
+ * - `helper-character-counter`: Displays the number of characters. The maxlength-property must be set. This helper text will be displayed persistently.
+ */
+export const HelperTexts = templateHelperTexts.generatePlaygroundStory();
 
-export const Outlined = () => html`
-  <ino-input placeholder="Outlined" outline></ino-input>
-`;
 
-export const Icons = () => html`
+const templateIcons = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input icon-leading label="Leading icon">
     <ino-icon slot="icon-leading" icon="search"></ino-icon>
   </ino-input>
@@ -176,16 +226,28 @@ export const Icons = () => html`
     <ino-icon slot="icon-trailing" icon="search"></ino-icon>
   </ino-input>
   <ino-input icon-leading icon-trailing label="Leading and Trailing icon">
-   <ino-icon slot="icon-leading" icon="search"></ino-icon>
-   <ino-icon slot="icon-trailing" icon="add"></ino-icon>
+    <ino-icon slot="icon-leading" icon="search"></ino-icon>
+    <ino-icon slot="icon-trailing" icon="add"></ino-icon>
   </ino-input>
   <ino-input icon-trailing label="Clickable Icon">
     <ino-icon clickable slot="icon-trailing" icon="search"></ino-icon>
   </ino-input>
- </div>
-`;
+`);
+/**
+ * Add icons to the ino-input element by adding a `slot` and a `icon`.
+ * 
+ * - `slot="icon-leading"`: For the icon to be prepended
+ * - `slot="icon-trailing"`: For the icon to be appended
+ * - `icon="search"`: For a magnifying glass symbole
+ * - `icon="add"`: For a plus sign symbole
+ * - `clickable`: Marks the icon as clickable, curser changes to pointer on hover
+ */
+export const Icons = templateIcons.generatePlaygroundStory();
 
-export const DataList = () => html`
+
+const templateDataList = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input label="Datalist" data-list="languages">
     <datalist id="languages">
       <option>HTML</option>
@@ -195,16 +257,40 @@ export const DataList = () => html`
       <option>Ruby on Rails</option>
     </datalist>
   </ino-input>
-`;
+`);
+/**
+ * Add a datalist to a ino-input-element by setting `data-list` to the ID of the `<datalist>` child-element
+ */
+export const DataList = templateDataList.generatePlaygroundStory();
 
-export const NumberFormats = () => html`
-  <ino-input decimal-places="2" placeholder="With 2 decimal places"></ino-input>
+
+const templateNumberFormats = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input
+    type="number"
+    decimal-places="2"
+    placeholder="With 2 decimal places"
+  ></ino-input>
+  <ino-input
+    type="number"
+    step="1"
     thousands-separator
     placeholder="With thousands separator"
   ></ino-input>
-`;
+`);
+/**
+ * Add number format by setting one of this properties
+ * 
+ * - `decimal-places`: number of decimal places allowed
+ * - `thousands-separator`: add thousands separators
+ */
+export const NumberFormats = templateNumberFormats.generatePlaygroundStory();
 
-export const Metadata = () => html`
+
+const templateMetadata = new TemplateGenerator<Components.InoInput>(
+  'ino-input',
+  args => html`
   <ino-input value="2" type="number" unit="h" label="Hours input"></ino-input>
-`;
+`);
+export const Metadata = templateMetadata.generateStoryForProp('unit', 'h')
