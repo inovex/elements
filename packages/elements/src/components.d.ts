@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonColorScheme, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, SurfaceType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
@@ -30,25 +31,13 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
-        "dense"?: boolean;
+        "dense": boolean;
         /**
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -65,6 +54,10 @@ export namespace Components {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant": Variants;
     }
     interface InoCard {
         /**
@@ -156,7 +149,8 @@ export namespace Components {
          */
         "fill": ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label": string;
         /**
@@ -437,9 +431,10 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -658,10 +653,6 @@ export namespace Components {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
-        /**
-          * The size of this element.
-         */
-        "size"?: number;
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
@@ -950,15 +941,15 @@ export namespace Components {
     }
     interface InoRadioGroup {
         /**
-          * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+          * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
-        "value"?: any | null;
+        "value"?: string | number | null;
     }
     interface InoRange {
         /**
           * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
          */
-        "colorScheme": ColorScheme;
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -984,18 +975,30 @@ export namespace Components {
          */
         "name"?: string;
         /**
+          * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+         */
+        "ranged": boolean;
+        /**
           * Should be used to make the component accessible. If the value is not user-friendly (e.g. a number to represent the day of the week), use this method to set a function that maps the slider `value` to value of the `aria-valuetext` attribute (e.g. `0` => `monday`).  e.g.:  `const rangeEl = document.querySelector("ino-range")` `rangeEl.setFnToMapValueToAriaText((value: number) => value + ". day in this week")`
           * @param fn A function that maps the numeric value to a user-friendly string.
          */
         "setValueToAriaTextMapperFn": (fn: (value: number) => string) => Promise<void>;
         /**
-          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**, default=`min`)
+          * The value of this element. Only applicable if not in ranged mode.
          */
         "value"?: number;
+        /**
+          * The value of the right thumb. Only applicable in ranged mode.
+         */
+        "valueEnd"?: number;
+        /**
+          * The value of the left thumb. Only applicable in ranged mode.
+         */
+        "valueStart"?: number;
     }
     interface InoSegmentButton {
         /**
@@ -1095,7 +1098,8 @@ export namespace Components {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -1107,7 +1111,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type
+          * Changes the snackbar type. There are three types of messages: info, success, and error.
          */
         "type": SnackbarType;
     }
@@ -1161,7 +1165,8 @@ export namespace Components {
          */
         "indicatorContentWidth": boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1189,7 +1194,7 @@ export namespace Components {
          */
         "noHover"?: boolean;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
@@ -1321,7 +1326,7 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -1333,7 +1338,8 @@ export namespace Components {
          */
         "getTippyInstance": () => Promise<any>;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -1341,7 +1347,7 @@ export namespace Components {
          */
         "placement": Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger": TooltipTrigger;
     }
@@ -1718,10 +1724,6 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `grey`, `white`. `white` and `grey` can only be used in combination with the `outline` fill-option!
-         */
-        "colorScheme"?: ButtonColorScheme;
-        /**
           * Makes the button text and container slightly smaller.
          */
         "dense"?: boolean;
@@ -1729,14 +1731,6 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Styles the button to have the edge on the top-right instead of the top-left
-         */
-        "edgeMirrored"?: boolean;
-        /**
-          * The fill type of this element. Possible values: `solid` (default), `outline`, `inverse`.
-         */
-        "fill"?: SurfaceType;
         /**
           * The form id this element origins to.
          */
@@ -1753,6 +1747,10 @@ declare namespace LocalJSX {
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
         "type"?: ButtonType;
+        /**
+          * The button variant.  * **filled**: Contain actions that are important for your application. * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app. * **text**: Typically used for less prominent actions, including those in dialogs and cards.
+         */
+        "variant"?: Variants;
     }
     interface InoCard {
         /**
@@ -1848,7 +1846,8 @@ declare namespace LocalJSX {
          */
         "fill"?: ChipSurface;
         /**
-          * The content of the component.
+          * [DEPRECATED] Please use the default slot instead  The content of the component.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2141,9 +2140,10 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
+          * @deprecated
          */
-        "text": string;
+        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -2366,10 +2366,6 @@ declare namespace LocalJSX {
           * If true, an *optional* message is displayed if not required, otherwise a * marker is displayed if required
          */
         "showLabelHint"?: boolean;
-        /**
-          * The size of this element.
-         */
-        "size"?: number;
         /**
           * The step value of this element. Use `any` for decimal numbers
          */
@@ -2693,9 +2689,13 @@ declare namespace LocalJSX {
     }
     interface InoRadioGroup {
         /**
-          * The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+          * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
-        "value"?: any | null;
+        "onValueChange"?: (event: CustomEvent<number | string>) => void;
+        /**
+          * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
+         */
+        "value"?: string | number | null;
     }
     interface InoRange {
         /**
@@ -2727,17 +2727,37 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Emits when the value changes. Contains new value in `event.detail`.
+          * Emits when the value changes (not in ranged mode).
          */
         "onValueChange"?: (event: CustomEvent<number>) => void;
         /**
-          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers (if enabled).
+          * Emits when the end (right) value of the interval changes (in ranged mode).
+         */
+        "onValueEndChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Emits when the start (left) value of the interval changes (in ranged mode).
+         */
+        "onValueStartChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
+         */
+        "ranged"?: boolean;
+        /**
+          * The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers.
          */
         "step"?: number;
         /**
-          * The value of this element. (**unmanaged**, default=`min`)
+          * The value of this element. Only applicable if not in ranged mode.
          */
         "value"?: number;
+        /**
+          * The value of the right thumb. Only applicable in ranged mode.
+         */
+        "valueEnd"?: number;
+        /**
+          * The value of the left thumb. Only applicable in ranged mode.
+         */
+        "valueStart"?: number;
     }
     interface InoSegmentButton {
         /**
@@ -2849,7 +2869,8 @@ declare namespace LocalJSX {
          */
         "actionText"?: string;
         /**
-          * The text message to display.
+          * [DEPRECATED] Please use the default slot instead The text message to display.
+          * @deprecated
          */
         "message"?: string;
         /**
@@ -2869,7 +2890,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type
+          * Changes the snackbar type. There are three types of messages: info, success, and error.
          */
         "type"?: SnackbarType;
     }
@@ -2927,7 +2948,8 @@ declare namespace LocalJSX {
          */
         "indicatorContentWidth"?: boolean;
         /**
-          * Indicates a label text in the tab.
+          * [DEPRECATED] Please use the default slot instead. Indicates a label text in the tab.
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -2967,7 +2989,7 @@ declare namespace LocalJSX {
          */
         "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
@@ -3094,7 +3116,7 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -3102,7 +3124,8 @@ declare namespace LocalJSX {
          */
         "for"?: string;
         /**
-          * The text shown in the tooltip.
+          * The text shown in the tooltip.  [DEPRECATED] Please use the default slot instead
+          * @deprecated
          */
         "label"?: string;
         /**
@@ -3110,7 +3133,7 @@ declare namespace LocalJSX {
          */
         "placement"?: Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger"?: TooltipTrigger;
     }

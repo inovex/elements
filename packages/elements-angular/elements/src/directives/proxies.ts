@@ -46,13 +46,13 @@ export declare interface InoButton extends Components.InoButton {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'colorScheme', 'dense', 'disabled', 'edgeMirrored', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 @Component({
   selector: 'ino-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'colorScheme', 'dense', 'disabled', 'edgeMirrored', 'fill', 'form', 'loading', 'name', 'type']
+  inputs: ['autoFocus', 'dense', 'disabled', 'form', 'loading', 'name', 'type', 'variant']
 })
 export class InoButton {
   protected el: HTMLElement;
@@ -506,14 +506,14 @@ Contains typed input in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value'],
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value'],
   methods: ['getInputElement', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'size', 'step', 'type', 'unit', 'value']
+  inputs: ['autoFocus', 'autocomplete', 'dataList', 'disabled', 'error', 'helper', 'helperCharacterCounter', 'helperPersistent', 'helperValidation', 'label', 'max', 'maxlength', 'min', 'name', 'outline', 'pattern', 'placeholder', 'required', 'showLabelHint', 'step', 'type', 'unit', 'value']
 })
 export class InoInput {
   protected el: HTMLElement;
@@ -888,7 +888,14 @@ export class InoRadio {
 }
 
 
-export declare interface InoRadioGroup extends Components.InoRadioGroup {}
+export declare interface InoRadioGroup extends Components.InoRadioGroup {
+  /**
+   * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.
+Contains the `value` of the selected `<ino-radio>`. 
+   */
+  valueChange: EventEmitter<CustomEvent<number | string>>;
+
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -905,35 +912,44 @@ export class InoRadioGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
   }
 }
 
 
 export declare interface InoRange extends Components.InoRange {
   /**
-   * Emits when the value changes. Contains new value in `event.detail`. 
+   * Emits when the value changes (not in ranged mode). 
    */
   valueChange: EventEmitter<CustomEvent<number>>;
+  /**
+   * Emits when the start (left) value of the interval changes (in ranged mode). 
+   */
+  valueStartChange: EventEmitter<CustomEvent<number>>;
+  /**
+   * Emits when the end (right) value of the interval changes (in ranged mode). 
+   */
+  valueEndChange: EventEmitter<CustomEvent<number>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value'],
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
   methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'step', 'value']
+  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart']
 })
 export class InoRange {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['valueChange']);
+    proxyOutputs(this, this.el, ['valueChange', 'valueStartChange', 'valueEndChange']);
   }
 }
 
