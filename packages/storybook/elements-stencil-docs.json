@@ -4826,18 +4826,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-markdown-editor-max-height",
-          "annotation": "prop",
-          "docs": "max-height of text editor Default value is `none`."
-        },
-        {
-          "name": "--ino-markdown-editor-min-height",
-          "annotation": "prop",
-          "docs": "min-height of text editor. Default value is `100px`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "listeners": []

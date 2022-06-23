@@ -1,6 +1,8 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch} from '@stencil/core';
 import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
+import TaskItem from "@tiptap/extension-task-item";
+import TaskList from "@tiptap/extension-task-list";
 import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
@@ -111,7 +113,7 @@ export class MarkdownEditor implements ComponentInterface {
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
-      extensions: [StarterKit, Link],
+      extensions: [StarterKit, Link, TaskItem.configure({ nested: true }), TaskList],
       onBlur: this.handlePreviewBlur ,
       onTransaction: this.onEditorTransaction,
       editable: this.viewMode !== ViewMode.READONLY,
@@ -157,6 +159,7 @@ export class MarkdownEditor implements ComponentInterface {
   private markdownToHtml(md: string = this.initialValue): JsonStructure {
     return this.tryParse(() => {
       const state = markdownSerializer.parse(md, this.editor.schema);
+      console.log(state);
       return state.toJSON();
     }, this.editor.state);
   }
@@ -284,6 +287,12 @@ export class MarkdownEditor implements ComponentInterface {
               onClick={() => this.handleToolbarActionClick(Actions.OL)}
             >
               <ino-icon icon="numeric_list"/>
+            </button>
+            <button
+              class={getToolbarActionBtnClass(Actions.TASK_LIST)}
+              onClick={() => this.handleToolbarActionClick(Actions.TASK_LIST)}
+            >
+              <ino-icon icon="info"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}

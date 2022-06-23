@@ -11,6 +11,7 @@ export enum Actions {
   LINK,
   CODE_BLOCK,
   BLOCKQUOTE,
+  TASK_LIST,
 }
 
 const focusChain = (editor: Editor): ChainedCommands => editor.chain().focus();
@@ -47,6 +48,9 @@ export function handleToolbarBtnClick(editor: Editor, action: Actions): void {
     case Actions.CODE_BLOCK:
       focusChain(editor).toggleCodeBlock().run();
       break;
+    case Actions.TASK_LIST:
+      focusChain(editor).toggleTaskList().run();
+      break;
     default:
       console.warn('case missing:', action);
   }
@@ -76,6 +80,8 @@ export function isToolbarBtnActive(editor: Editor, action: Actions): boolean {
       return editor.isActive('blockquote');
     case Actions.CODE_BLOCK:
       return editor.isActive('code');
+    case Actions.TASK_LIST:
+      return editor.isActive('taskList');
     default:
       console.warn('case missing:', action);
   }
