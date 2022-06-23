@@ -7783,7 +7783,7 @@
           "mutable": false,
           "attr": "sort-column-id",
           "reflectToAttr": false,
-          "docs": "Identifier of the column currently sorted by.\n\nNeeds to the match the column ids provided on `ino-table-header-cell` elements.",
+          "docs": "Identifier of the column currently sorted by.\n\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
           "docsTags": [],
           "values": [
             {

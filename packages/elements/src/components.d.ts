@@ -1194,7 +1194,7 @@ export namespace Components {
          */
         "noHover"?: boolean;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
@@ -2989,7 +2989,7 @@ declare namespace LocalJSX {
          */
         "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
