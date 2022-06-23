@@ -1,3 +1,9 @@
+ino-button {
+  .button__label {
+    pointer-events: none;
+  }
+}
+
 .ino-dialog-header {
   display: flex;
   flex-direction: row;

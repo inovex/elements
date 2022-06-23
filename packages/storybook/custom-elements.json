@@ -4301,12 +4301,6 @@
           "required": false
         },
         {
-          "name": "message",
-          "type": "string",
-          "description": "The text message to display.",
-          "required": false
-        },
-        {
           "name": "stay-visible-on-hover",
           "type": "boolean",
           "description": "If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.",
@@ -4333,12 +4327,6 @@
           "name": "actionText",
           "type": "string",
           "description": "The text to display for the action button.\nIf no text is defined, the snack bar is displayed in an alternative feedback style.",
-          "required": false
-        },
-        {
-          "name": "message",
-          "type": "string",
-          "description": "The text message to display.",
           "required": false
         },
         {
