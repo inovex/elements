@@ -1,14 +1,32 @@
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { Components } from '@inovex.de/elements';
+import { TemplateGenerator } from '../template-generator'
 
 export default {
   title: `Structure/ino-nav-item`,
   component: 'ino-nav-item',
-} as Meta;
+  args:{
+    text: 'Nav item',
+    subText: '',
+    activated: false,
+    disabled: false,
+    icon: false,
+  }
+} as Meta<Components.InoNavItem>;
 
-export const Playground = (args) => html`
+type InoNavItemExtended = Components.InoNavItem & {
+  icon: boolean;
+}
+
+const icon = html
+`<ino-icon icon="onboarding"></ino-icon>`;
+
+
+const template = new TemplateGenerator<InoNavItemExtended>(
+  'ino-nav-item',
+  args => html`
   <div class="story-list">
-    <h4>Customizable nav item</h4>
     <ino-list>
       <ino-nav-item
         class="customizable-nav-item"
@@ -17,45 +35,34 @@ export const Playground = (args) => html`
         activated="${args.activated}"
         disabled="${args.disabled}"
       >
-        <ino-icon icon="onboarding"></ino-icon>
+        ${args.icon? icon : ''}
       </ino-nav-item>
     </ino-list>
   </div>
-`;
+`);
+
+export const Playground = template.generatePlaygroundStory();
 Playground.args = {
-  text: 'Nav item',
-  subText: 'Nav item sub text',
-  activated: false,
-  disabled: false,
+  icon: true,
+}
+Playground.argTypes = {
+  // hide custom attributes from table
+  icon: {
+    table: {
+      disable: true,
+    },
+  },
 };
 
-export const States = () => html`
-  <ino-list>
-    <ino-nav-item text="Simple item"></ino-nav-item>
-    <ino-nav-item text="Simple item 2"></ino-nav-item>
-    <ino-nav-item activated text="Activated item"></ino-nav-item>
-    <ino-nav-item disabled text="Disabled item"></ino-nav-item>
-  </ino-list>
-`;
+export const Text = template.generateStoryForProp('text', 'Some Text');
+export const Activated = template.generateStoryForProp('activated', true);
+export const Disabled = template.generateStoryForProp('disabled', true);
+export const TwoLines = template.generateStoryForProp('subText', 'Secondary Text 2');
 
-export const TwoLines = () => html`
-  <ino-list two-lines="true">
-    <ino-nav-item text="Simple item" sub-text="Secondary Text"></ino-nav-item>
-    <ino-nav-item
-      text="Simple item 2"
-      sub-text="Secondary Text 2"
-    ></ino-nav-item>
-  </ino-list>
-`;
-
-export const Graphic = () => html`
-  <ino-list>
-    <ino-nav-item text="Lorem ipsum dolor sit">
-      <ino-icon icon="onboarding"></ino-icon>
-    </ino-nav-item>
-    <ino-nav-item text="Lorem ipsum dolor sit">
-      <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" ratio-width="1" ratio-height="1"></ino-img>
-    </ino-nav-item>
-  </ino-list>
-  </div>
-`;
+/**
+ * Use an `ino-icon` element inside the default slot of an `ino-nav-item` to display an icon next to the text.
+ */
+export const Graphic = template.generatePlaygroundStory();
+Graphic.args = {
+  icon: true,
+}

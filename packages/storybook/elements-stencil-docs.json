@@ -2632,7 +2632,12 @@
       "readme": "# ino-header\n\nA header component with a separator.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```html\n<ino-header text=\"<string>\"></ino-header>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoHeader } from '@inovex.de/elements-react/';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoHeader text=\"My awesome header!\"></InoHeader>;\n  }\n}\n```\n\n## Demo\n",
       "usage": {},
       "docs": "A header component with a separator.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - The text to display"
+        }
+      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -2644,7 +2649,7 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "[DEPRECATED] Please use the default slot instead\nThe text of this header",
+          "docs": "[DEPRECATED] Please use the default slot instead of this prop.",
           "docsTags": [
             {
               "name": "deprecated"
@@ -2674,7 +2679,12 @@
           "docs": "Text color of the header"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "The text to display"
+        }
+      ],
       "parts": [],
       "listeners": []
     },
@@ -2868,10 +2878,15 @@
       "filePath": "./src/components/ino-icon-button/ino-icon-button.tsx",
       "fileName": "ino-icon-button.tsx",
       "tag": "ino-icon-button",
-      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
+      "readme": "# ino-icon-button\n\nA rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-icon-button')\n  .addEventListener('click', (_) => alert('The icon button was clicked'));\n```\n\n```html\n<ino-icon-button\n  autofocus\n  disabled\n  activated=\"<boolean>\"\n  icon=\"<string>\"\n>\n</ino-icon-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  render() {\n    return <InoIconButton icon=\"search\" onClick={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - Using default slot\n\n```js\nimport { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n  render() {\n    return <InoIconButton onClick={handleClick}>\n       <ino-icon icon='time'></ino-icon>\n    </InoIconButton>;\n  } \n}\n```\n\n#### Example #3 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoIconButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst IconButton: React.FunctionComponent<Components.InoIconButtonAttributes> = (\n  props,\n) => {\n  const { inoIcon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`IconButton was clicked`);\n  };\n\n  return (\n    <InoIconButton icon={inoIcon} onClick={handleClick}>\n      {props.children}\n    </InoIconButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <IconButton icon=\"search\" />;\n  }\n}\n```\n\n## Managed Icon Button\n\nButtons, and icon buttons as well, are unmanaged components which swap their state internally based on the interactions. However, in some cases, it may be useful to change this behavior and provide an external state.\n\nThis can be done by using the `activated` flag and further listing to the `click` event to change the state. _Example:_\n\n```js\nactivated = false;\n\ndocument.querySelector('ino-icon-button').addEventListener('click', (e) => {\n  const el = e.target;\n  activated = !activated;\n  activated\n    ? el.addAttribute('activated')\n    : el.removeAttribute('activated');\n});\n```\n\n```html\n<ino-icon-button icon=\"info\"></ino-icon-button>\n```\n\n## Additional Hints\n\n**Toggle Button**: To use the ino-icon-button as a toggle button the user can listen to the native `click`-Event and change the icon in the `icon`-Attribute.\n\n### Native Events\n\nThe component bubbles the native `click`-Event to the user.\n",
       "usage": {},
       "docs": "A rounded button component that contains an icon. It functions as a wrapper around the material [icon-button](https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button) component.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - `<ino-icon>`"
+        }
+      ],
       "encapsulation": "none",
       "dependents": [
         "ino-carousel",
@@ -3103,7 +3118,12 @@
           "docs": "size of the entire button"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "`<ino-icon>`"
+        }
+      ],
       "parts": [],
       "listeners": [
         {
@@ -6120,31 +6140,34 @@
       "filePath": "./src/components/ino-radio-group/ino-radio-group.tsx",
       "fileName": "ino-radio-group.tsx",
       "tag": "ino-radio-group",
-      "readme": "# ino-radio-group\n\nA wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.\n\n### Usage\n\n```html\n<ino-radio-group value=\"Option 1\">\n  <ino-radio value=\"Option 1\">I will be checked</ino-radio>\n  <ino-radio value=\"Option 2\">Option 2</ino-radio>\n  <ino-radio value=\"Option 3\">Option 3</ino-radio>\n</ino-radio-group>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  clickHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoRadioGroup value={this.state.selected}>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 1')}\n          value=\"Option 1\"\n        >\n          I will be checked\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 2')}\n          value=\"Option 2\"\n        >\n          Option 2\n        </InoRadio>\n        <InoRadio\n          onValueChange={() => this.clickHandler('Option 3')}\n          value=\"Option 3\"\n        >\n          Option 3\n        </InoRadio>\n      </InoRadioGroup>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadioGroup } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = (\n  props,\n) => {\n  const { value } = props;\n\n  return <InoRadioGroup value={value}>{props.children}</InoRadioGroup>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <RadioGroup value={'Option 1'}>...</RadioGroup>;\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nIn order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio` and pass it's value to the `ino-radio-group` via the `value`-Property.\n",
+      "readme": "# ino-radio-group\n\nA wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.\n\n### Usage\n\n```html\n<ino-radio-group value=\"Option 1\">\n  <ino-radio value=\"Option 1\">I will be checked</ino-radio>\n  <ino-radio value=\"Option 2\">Option 2</ino-radio>\n  <ino-radio value=\"Option 3\">Option 3</ino-radio>\n</ino-radio-group>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRadio, InoRadioGroup } from '@inovex.de/elements-react/dist';\n\nclass MyComponent extends Component {\n  state = {\n    selected: 'Option 1',\n  };\n\n  clickHandler = (value) => {\n    this.setState({ selected: value });\n  };\n\n  render() {\n    return (\n      <InoRadioGroup value={this.state.selected} onValueChange={(ev) => this.clickHandler(ev.detail)}>\n        <InoRadio value=\"Option 1\">\n          I will be checked\n        </InoRadio>\n        <InoRadio value=\"Option 2\">\n          Option 2\n        </InoRadio>\n        <InoRadio value=\"Option 3\">\n          Option 3\n        </InoRadio>\n      </InoRadioGroup>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRadioGroup } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst RadioGroup: React.FunctionComponent<Components.InoRadioGroupAttributes> = (\n  props,\n) => {\n  const { value } = props;\n\n  return <InoRadioGroup value={value}>{props.children}</InoRadioGroup>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <RadioGroup value={'Option 1'}>...</RadioGroup>;\n  }\n}\n```\n\n## Additional Hints\n\n### Control flow\n\nIn order to change the checked element (and uncheck the other ones) listen to the `valueChange`-Event emitted by the `ino-radio-group` and pass the value via the `value`-Property.\n",
       "usage": {},
-      "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons. Due to the shadow DOM implementation of the `ino-radio`-Element the `name`-Property cannot be used to achieve the single selection functionality.",
+      "docs": "A wrapper component to be used for a group of ino-radio-buttons. This component manages the single selection functionality of a group of ino-radio-buttons.",
       "docsTags": [
         {
           "name": "slot",
           "text": "default - One or more `ino-radio`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
         {
           "name": "value",
-          "type": "any",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of the radio group. If there is an ino-radio-child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
+          "docs": "The value of the radio group.\nIf there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "number"
+            },
+            {
+              "type": "string"
             }
           ],
           "optional": true,
@@ -6152,7 +6175,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "number | string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group.\nContains the `value` of the selected `<ino-radio>`.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6161,7 +6194,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "keydown",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-range/ino-range.tsx",
@@ -6215,7 +6254,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6316,12 +6355,29 @@
           "required": false
         },
         {
+          "name": "ranged",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "ranged",
+          "reflectToAttr": false,
+          "docs": "Allows to input an interval.\nUse `valueStart` and `valueEnd` to provide values.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "step",
           "type": "number",
           "mutable": false,
           "attr": "step",
           "reflectToAttr": false,
-          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers (if enabled).",
+          "docs": "The step size for this element.\nOnly applicable if `discrete` is enabled.\nIs used to calculate the number of markers.",
           "docsTags": [],
           "default": "1",
           "values": [
@@ -6338,7 +6394,39 @@
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
-          "docs": "The value of this element. (**unmanaged**, default=`min`)",
+          "docs": "The value of this element.\nOnly applicable if not in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueEnd",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-end",
+          "reflectToAttr": false,
+          "docs": "The value of the right thumb.\nOnly applicable in ranged mode.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "valueStart",
+          "type": "number",
+          "mutable": false,
+          "attr": "value-start",
+          "reflectToAttr": false,
+          "docs": "The value of the left thumb.\nOnly applicable in ranged mode.",
           "docsTags": [],
           "values": [
             {
@@ -6374,7 +6462,25 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits when the value changes. Contains new value in `event.detail`.",
+          "docs": "Emits when the value changes (not in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueEndChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the end (right) value of the interval changes (in ranged mode).",
+          "docsTags": []
+        },
+        {
+          "event": "valueStartChange",
+          "detail": "number",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emits when the start (left) value of the interval changes (in ranged mode).",
           "docsTags": []
         }
       ],
@@ -7056,7 +7162,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type",
+          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -7677,7 +7783,7 @@
           "mutable": false,
           "attr": "sort-column-id",
           "reflectToAttr": false,
-          "docs": "Identifier of the column currently sorted by.\n\nNeeds to the match the column ids provided on `ino-table-header-cell` elements.",
+          "docs": "Identifier of the column currently sorted by.\n\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
           "docsTags": [],
           "values": [
             {
@@ -8391,7 +8497,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
+          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `secondary` `light`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -8532,7 +8638,7 @@
           "mutable": false,
           "attr": "trigger",
           "reflectToAttr": false,
-          "docs": "The trigger to show the tooltip - either click, hover or focus.\nMultiple triggers possible by separating them with a space.",
+          "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\nMultiple triggers possible by separating them with a space.",
           "docsTags": [],
           "default": "'mouseenter focus'",
           "values": [

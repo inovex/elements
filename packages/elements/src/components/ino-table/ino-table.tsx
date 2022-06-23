@@ -47,7 +47,7 @@ export class InoTable implements ComponentInterface {
   /**
    * Identifier of the column currently sorted by.
    *
-   * Needs to the match the column ids provided on `ino-table-header-cell` elements.
+   * Needs to match the column ids provided on `ino-table-header-cell` elements.
    */
   @Prop() sortColumnId?: string;
 

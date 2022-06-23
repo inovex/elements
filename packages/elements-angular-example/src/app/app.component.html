@@ -1,0 +1,29 @@
+<ino-header inoTitle="Simple TODO"></ino-header>
+
+<div class="app-wrapper">
+  <div class="action-box">
+    <ino-input
+      (keyup.enter)="add()"
+      type="text"
+      [value]="newTodoName"
+      (keyup)="onValueChanged($event)"
+      placeholder="What needs to be done..."
+    >
+      <ino-icon
+        clickable="true"
+        (clickEl)="add()"
+        slot="icon-trailing"
+        icon="add"
+      ></ino-icon>
+    </ino-input>
+  </div>
+
+  <ino-list>
+    <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
+      <ino-checkbox slot="leading" (click)="delete(i, todo)"></ino-checkbox>
+      <ino-button fill="outline" slot="trailing" (click)="delete(i, todo)"
+        >Delete</ino-button
+      >
+    </ino-list-item>
+  </ino-list>
+</div>
