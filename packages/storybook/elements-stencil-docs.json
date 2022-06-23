@@ -1,8 +1,4 @@
 {
-<<<<<<< elements-#574-ino-markdown-editor-reformat-stories
-  "timestamp": "2022-05-19T15:27:16",
-=======
->>>>>>> elements-#574-refactor-stories
   "compiler": {
     "name": "@stencil/core",
     "version": "2.14.0",
