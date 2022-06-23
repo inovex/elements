@@ -1,6 +1,7 @@
 import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_ICON = `<ino-icon icon="add"></ino-icon>`;
+const INO_ICON_FALLBACK = `<ino-icon icon="status_zukuenftige"></ino-icon>`;
 const INO_ICON_SELECTOR = 'ino-icon';
 
 describe('InoIcon', () => {
@@ -27,6 +28,12 @@ describe('InoIcon', () => {
       await page.waitForChanges();
 
       expect(clickEvent).not.toHaveReceivedEvent();
+    });
+
+    it('should use fallback icon', async () => {
+      const page = await setupPageWithContent(INO_ICON_FALLBACK);
+      const inoIcon = await page.find(INO_ICON_SELECTOR);
+      expect(inoIcon).toHaveClass('ino-icon--color-scheme-primary');
     });
   });
 });

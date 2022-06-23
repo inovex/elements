@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
+import { Meta } from '@storybook/web-components';
+import { TemplateGenerator } from '../template-generator';
+import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-control-item.scss';
@@ -29,75 +30,46 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  args: {
+    activated: false,
+    checked: false,
+    disabled: false,
+    indeterminate: false,
+    role: 'checkbox',
+    secondaryText: '',
+    selected: false,
+    text: 'Text',
+    trailing: false,
+  },
+} as Meta<Components.InoControlItem>;
 
-export const Playground: Story<Components.InoControlItem> = (args) => html`
-  <ino-list>
+const template = new TemplateGenerator<Components.InoControlItem>(
+  'ino-control-item',
+  args => html`
+  <ino-list two-lines="${args.secondaryText || false}">
     <ino-control-item
       activated="${args.activated}"
       checked="${args.checked}"
       disabled="${args.disabled}"
       indeterminate="${args.indeterminate}"
       role="${args.role}"
-      secondaryText="${args.secondaryText}"
+      secondary-text="${args.secondaryText}"
       selected="${args.selected}"
       text="${args.text}"
       trailing="${args.trailing}"
     >
     </ino-control-item>
   </ino-list>
-`;
+`);
 
-Playground.args = {
-  activated: false,
-  checked: false,
-  disabled: false,
-  indeterminate: false,
-  role: 'checkbox',
-  secondaryText: 'Secondary Text',
-  selected: false,
-  text: 'Text',
-  trailing: false,
-};
 
-Playground.argTypes = {
-  role: {
-    control: {
-      type: 'select',
-    },
-    options: ['checkbox', 'radio'],
-  },
-};
+export const Playground = template.generatePlaygroundStory();
 
-export const Roles = (): TemplateResult => html`
-  <ino-list>
-    <ino-control-item checked role="checkbox" text="Checkbox">
-    </ino-control-item>
-  </ino-list>
-  <ino-list>
-    <ino-control-item role="radio" text="Radio"></ino-control-item>
-  </ino-list>
-`;
-
-export const States = (): TemplateResult => html`
-  <ino-list>
-    <ino-control-item role="checkbox" text="Checked" checked>
-    </ino-control-item>
-    <ino-control-item role="checkbox" text="Indeterminate" indeterminate>
-    </ino-control-item>
-    <ino-control-item role="checkbox" text="Activated" activated>
-    </ino-control-item>
-    <ino-control-item role="checkbox" text="Selected" selected>
-    </ino-control-item>
-    <ino-control-item role="checkbox" text="Disabled" disabled>
-    </ino-control-item>
-  </ino-list>
-`;
-
-export const Position = (): TemplateResult => html`
-  <ino-list>
-    <ino-control-item role="checkbox" text="Leading"> </ino-control-item>
-    <ino-control-item trailing role="checkbox" text="Trailing">
-    </ino-control-item>
-  </ino-list>
-`;
+export const Roles = template.generateStoryForProp('role', 'radio')
+export const Checked = template.generateStoryForProp('checked', true);
+export const Indeterminate = template.generateStoryForProp('indeterminate', true);
+export const Activated = template.generateStoryForProp('activated', true);
+export const Selected = template.generateStoryForProp('selected', true);
+export const SecondaryText = template.generateStoryForProp('secondaryText', 'Some Secondary Text');
+export const Disabled = template.generateStoryForProp('disabled', true);
+export const Trailing = template.generateStoryForProp('trailing', true);
