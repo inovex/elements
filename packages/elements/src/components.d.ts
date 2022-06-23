@@ -941,6 +941,10 @@ export namespace Components {
     }
     interface InoRadioGroup {
         /**
+          * sets the alignment of the radios
+         */
+        "alignment": Alignment;
+        /**
           * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
         "value"?: string | number | null;
@@ -2688,6 +2692,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoRadioGroup {
+        /**
+          * sets the alignment of the radios
+         */
+        "alignment"?: Alignment;
         /**
           * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
