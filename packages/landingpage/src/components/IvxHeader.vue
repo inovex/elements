@@ -58,7 +58,7 @@ export default {
   },
   created () {
     const baseUrl = window.location.origin + window.location.pathname
-    const versionsUrl = baseUrl + 'version/';
+    const versionsUrl = baseUrl + 'example-project-react'; // hier den pfad generieren für die jeweiligen versionen
 
     fetch(`${baseUrl}hosted-versions.json`)
       .then(d => d.json())
