@@ -10,9 +10,10 @@ import {
   EventEmitter,
   Event,
 } from '@stencil/core';
+import { Alignment } from '../types';
 import classNames from 'classnames';
 
-type Alignment = 'horizontal' | 'vertical';
+
 
 /**
  * @slot default - One or more `ino-radio`
