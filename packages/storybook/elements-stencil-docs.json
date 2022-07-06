@@ -5605,7 +5605,7 @@
           "mutable": false,
           "attr": "follow-cursor",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Determines if and how the popover follows the user's mouse cursor.",
           "docsTags": [],
           "default": "false",
           "values": [
