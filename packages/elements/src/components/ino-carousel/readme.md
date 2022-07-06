@@ -83,6 +83,13 @@ class MyComponent extends Component {
 | `value`        | `value`        | Optional group value to manually manage the displayed slide         | `string`  | `undefined` |
 
 
+## Events
+
+| Event         | Description                                  | Type                            |
+| ------------- | -------------------------------------------- | ------------------------------- |
+| `valueChange` | Emits the value of the slide once it changed | `CustomEvent<number \| string>` |
+
+
 ## Slots
 
 | Slot        | Description                      |

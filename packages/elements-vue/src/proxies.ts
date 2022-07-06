@@ -42,7 +42,8 @@ export const InoCarousel = /*@__PURE__*/ defineContainer<JSX.InoCarousel>('ino-c
   'hideButtons',
   'infinite',
   'intermission',
-  'reverse'
+  'reverse',
+  'valueChange'
 ]);
 
 

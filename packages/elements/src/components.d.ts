@@ -1784,6 +1784,10 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
+          * Emits the value of the slide once it changed
+         */
+        "onValueChange"?: (event: CustomEvent<number | string>) => void;
+        /**
           * Enables reverse playback of the slides
          */
         "reverse"?: boolean;
