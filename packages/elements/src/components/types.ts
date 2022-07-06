@@ -17,7 +17,7 @@ export type NavDrawerAnchor = 'left' | 'right';
 export type NavDrawerVariant = 'docked' | 'dismissible' | 'modal';
 export type SnackbarType = 'info' | 'success' | 'error';
 export type SpinnerType = 'tile' | 'bounce' | 'circle';
-export type SurfaceType = 'solid' | 'outline' | 'inverse';
+export type SurfaceType = 'filled' | 'outlined' | 'text';
 export type TooltipTrigger =
   | 'mouseenter'
   | 'mouseenter focus'

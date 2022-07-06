@@ -50,7 +50,7 @@ export const Playground: Story<Components.InoAutocomplete> = args => html`
       style="margin: 50px"
       no-options-text="${args.noOptionsText}"
     >
-      <ino-input slot="input"></ino-input>
+      <ino-input slot="input" helper="Helper text" helper-persistent></ino-input>
       ${options}
     </ino-autocomplete>
   </div>

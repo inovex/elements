@@ -57,4 +57,4 @@ jobs:
       with:
         name: elements-angular
         path:
-            packages/elements-angular/dist/
+            packages/elements-angular/elements/dist/
