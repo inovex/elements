@@ -41,7 +41,6 @@ export default {
     multiple: false,
     required: false,
     label: 'Select a file to upload',
-    labelSelected: 'selected',
     dragAndDrop: false,
     dragAndDropText: 'Drag your files here',
     dragAndDropSecondaryText: 'or',
@@ -49,11 +48,7 @@ export default {
 } as Meta<Components.InoInputFile>;
 
 
-type InoInputFileExtended = Components.InoInputFile & {
-  labelSelected: string,
-}
-
-const template = new TemplateGenerator<InoInputFileExtended>(
+const template = new TemplateGenerator<Components.InoInputFile>(
   'ino-input-file',
   args => html`
   <ino-input-file
@@ -64,7 +59,6 @@ const template = new TemplateGenerator<InoInputFileExtended>(
   multiple="${args.multiple}"
   required="${args.required}"
   label="${args.label}"
-  label-selected="${args.labelSelected}"
   drag-and-drop="${args.dragAndDrop}"
   drag-and-drop-text="${args.dragAndDropText}"
   drag-and-drop-secondary-text="${args.dragAndDropSecondaryText}"></ino-input-file>
