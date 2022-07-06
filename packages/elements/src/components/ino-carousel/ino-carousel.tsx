@@ -157,7 +157,7 @@ export class InoCarousel implements ComponentInterface {
     const carouselSlide = this.getSlides()[this.currentSlide];
     const allSlides = this.getSlides();
 
-    if (!carouselSlide) {
+    if (!carouselSlide && allSlides[0] !== undefined) {
       this.valueChange.emit(allSlides[0].value);
       return;
     }
@@ -170,9 +170,11 @@ export class InoCarousel implements ComponentInterface {
           allSlides[0];
         break;
       case ArrowDirections.LEFT:
-        nextSlide =
-          (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
-          allSlides[allSlides.length - 1];
+        if (allSlides.length !== 0) {
+          nextSlide =
+            (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
+            allSlides[allSlides.length - 1];
+        }
         break;
     }
     this.valueChange.emit(nextSlide.value);
