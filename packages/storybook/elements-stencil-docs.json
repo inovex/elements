@@ -2439,6 +2439,14 @@
         {
           "name": "slot",
           "text": "default - One or more `ino-fab`"
+        },
+        {
+          "name": "slot",
+          "text": "icon-opened - The icon of the FAB button while being open"
+        },
+        {
+          "name": "slot",
+          "text": "icon-closed - The icon of the FAB button while being closed"
         }
       ],
       "encapsulation": "shadow",
@@ -2557,6 +2565,14 @@
         {
           "name": "default",
           "docs": "One or more `ino-fab`"
+        },
+        {
+          "name": "icon-closed",
+          "docs": "The icon of the FAB button while being closed"
+        },
+        {
+          "name": "icon-opened",
+          "docs": "The icon of the FAB button while being open"
         }
       ],
       "parts": [],
