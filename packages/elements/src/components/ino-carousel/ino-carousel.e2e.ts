@@ -36,7 +36,7 @@ describe('ino-carousel', () => {
   });
 });
 
-describe('InoRadioGroup', () => {
+describe('InoCarousel', () => {
   let page: E2EPage;
   let inoCarousel: E2EElement;
   let inoCarouselWrapper: E2EElement;
