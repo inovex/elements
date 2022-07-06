@@ -110,7 +110,7 @@ Snackbar is displayed when `show` is changed to checked.
 | `message`            | `message`               | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead The text message to display. | `string`                         | `undefined` |
 | `stayVisibleOnHover` | `stay-visible-on-hover` | If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.                                  | `boolean`                        | `false`     |
 | `timeout`            | `timeout`               | Sets the timeout in ms until the snackbar disappears. The timeout can be disabled by setting it to a negative value.                    | `number`                         | `5000`      |
-| `type`               | `type`                  | Changes the snackbar type                                                                                                               | `"error" \| "info" \| "success"` | `'info'`    |
+| `type`               | `type`                  | Changes the snackbar type. There are three types of messages: info, success, and error.                                                 | `"error" \| "info" \| "success"` | `'info'`    |
 
 
 ## Events
