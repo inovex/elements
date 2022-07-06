@@ -869,6 +869,9 @@ export namespace Components {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        /**
+          * Determines if and how the popover follows the user's mouse cursor.
+         */
         "followCursor": Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
@@ -2613,6 +2616,9 @@ declare namespace LocalJSX {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        /**
+          * Determines if and how the popover follows the user's mouse cursor.
+         */
         "followCursor"?: Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
