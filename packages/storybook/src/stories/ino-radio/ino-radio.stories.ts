@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-radio.scss';
 
@@ -14,25 +15,31 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-radio'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-radio'),
+    story => {
       useEffect(() => {
-        const eventHandler = (e) => e.target.setAttribute('checked', e.detail);
+        const eventHandler = e => e.target.setAttribute('checked', e.detail);
         const radios = document.querySelectorAll('ino-radio');
-        radios.forEach((r) =>
-          r.addEventListener('checkedChange', eventHandler)
-        );
+        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
         return () =>
-          radios.forEach((r) =>
+          radios.forEach(r =>
             r.removeEventListener('checkedChange', eventHandler)
           );
       });
       return story();
     },
   ],
-} as Meta;
+  args: {
+    checked: false,
+    disabled: false,
+    name: 'radio-custom',
+    value: 'radio-1',
+  },
+} as Meta<Components.InoRadio>;
 
-export const Playground: Story<Components.InoRadio> = (args) => html`
+const template = new TemplateGenerator<Components.InoRadio>(
+  'ino-radio',
+  args => html`
   <ino-radio
     checked="${args.checked}"
     disabled="${args.disabled}"
@@ -41,29 +48,13 @@ export const Playground: Story<Components.InoRadio> = (args) => html`
   >
     Radio Button Label
   </ino-radio>
-`;
-Playground.args = {
-  checked: false,
-  disabled: false,
-  name: 'radio-custom',
-  value: 'radio-1',
-};
+`);
 
-export const States = () => html`
-  <ino-radio>Unchecked</ino-radio>
-  <ino-radio checked>Checked</ino-radio>
-  <ino-radio disabled>Disabled</ino-radio>
-  <ino-radio checked disabled>Checked and Disabled</ino-radio>
-`;
+export const Playground = template.generatePlaygroundStory();
 
-// TODO: CSS Variables
-//   <style>
-//     ino-radio.customizable-radio {
-//       --ino-radio-unchecked-color: ${text('--ino-radio-unchecked-color', '#D4DDEA', 'Custom Properties')};
-//       --ino-radio-checked-color: ${text('--ino-radio-checked-color', '#EB002D', 'Custom Properties')};
-//       --ino-radio-hover-color: ${text('--ino-radio-hover-color', '#FF1A47', 'Custom Properties')};
-//       --ino-radio-active-color: ${text('--ino-radio-active-color', '#D20014', 'Custom Properties')};
-//       --ino-radio-disabled-inner-circle-color: ${text('--ino-radio-disabled-inner-circle-color', '#777777', 'Custom Properties')};
-//       --ino-radio-disabled-outer-circle-color: ${text('--ino-radio-disabled-outer-circle-color', '#c1c1c1', 'Custom Properties')};
-//     }
-//   </style>
+/**
+ * Default unchecked state of this element.
+ */
+export const Unchecked = template.generatePlaygroundStory()
+export const Checked = template.generateStoryForProp('checked', true);
+export const Disabled = template.generateStoryForProp('disabled', true);

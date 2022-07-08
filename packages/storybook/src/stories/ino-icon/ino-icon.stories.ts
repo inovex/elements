@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 
 import ICONS from '../../../../elements/src/components/ino-icon/icons';
 
@@ -22,10 +23,10 @@ function copyToClipboard(text) {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      snackbar.message = `Successfully copied "${text}" to your clipboard!`;
+      snackbar.innerText = `Successfully copied "${text}" to your clipboard!`;
     })
     .catch(() => {
-      snackbar.message = `An error occurred while copying the id to your clipboard!`;
+      snackbar.innerText = `An error occurred while copying the id to your clipboard!`;
     })
     .finally(() => {
       document.body.appendChild(snackbar);
@@ -40,13 +41,13 @@ const iconChips = ICON_IDS.map(
   (name) => html`
     <ino-chip
       id="icon-${name}"
-      label="${name}"
       fill="outline"
       color-scheme="default"
       value="${name}"
       @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
     >
       <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
+      ${name}
     </ino-chip>
   `
 );
@@ -105,28 +106,36 @@ export default {
       return story();
     },
   ],
+  args: {
+    clickable: true,
+    colorSecondary: false,
+    icon: 'info',
+    svgTitle: 'svg-Title',
+    src: 'scr-url',
+  },
 } as Meta;
 
-export const Playground: Story<Components.InoIcon> = (args) => html`
+const template = new TemplateGenerator<Components.InoIcon>(
+  'ino-icon',
+  args => html`
   <ino-icon
     class="customizable-icon"
     clickable="${args.clickable}"
     color-secondary="${args.colorSecondary}"
     icon="${args.icon}"
     svg-title="${args.svgTitle}"
+    src="${args.src}"
     style="--icon-width: 30px; --icon-height: 30px;"
   >
   </ino-icon>
-`;
+`);
 
-Playground.args = {
-  clickable: true,
-  colorSecondary: false,
-};
-
+export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
 
-export const AllIcons = () => html`
+const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
+  'ino-icon',
+  () => html`
   <div class="story-icon">
     <div class="flex-parent-center">
       <ino-input class="icon-search-input" placeholder="Find icon">
@@ -136,38 +145,6 @@ export const AllIcons = () => html`
       <div class="icon-collection">${iconChips}</div>
     </div>
   </div>
-`;
+`);
+export const AllIcons = templateAllIcons.generatePlaygroundStory();
 
-export const Colors = () => html`
-  <div
-    class="flex-icons"
-    style="--ino-icon-width: 30px; --ino-icon-height: 30px;"
-  >
-    <ino-icon
-      id="primary-icon"
-      class="preview-icon"
-      icon="info"
-      color-secondary="false"
-    >
-    </ino-icon>
-    <ino-tooltip
-      for="primary-icon"
-      trigger="hover"
-      label="I'm the default icon"
-      placement="left"
-    ></ino-tooltip>
-    <ino-icon
-      id="secondary-icon"
-      class="preview-icon"
-      icon="info"
-      color-secondary="true"
-    >
-    </ino-icon>
-    <ino-tooltip
-      for="secondary-icon"
-      trigger="hover"
-      label="I'm the secondary icon (ino-color-secondary=true)"
-      placement="right"
-    ></ino-tooltip>
-  </div>
-`;
