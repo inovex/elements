@@ -59,13 +59,16 @@
         },
         {
           "name": "options",
-          "type": "string[]",
+          "type": "KeyValue[] | string[]",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
           "docsTags": [],
           "default": "[]",
           "values": [
+            {
+              "type": "KeyValue[]"
+            },
             {
               "type": "string[]"
             }

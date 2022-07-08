@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -23,7 +23,7 @@ export namespace Components {
         /**
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "options": string[];
+        "options": string[] | KeyValue[];
         /**
           * The selected value.
          */
@@ -1727,7 +1727,7 @@ declare namespace LocalJSX {
         /**
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "options"?: string[];
+        "options"?: string[] | KeyValue[];
         /**
           * The selected value.
          */

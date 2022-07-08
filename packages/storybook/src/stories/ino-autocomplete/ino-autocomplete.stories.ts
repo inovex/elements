@@ -31,7 +31,23 @@ export default {
 
 const inputHandler = (ev: CustomEvent<string>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
+  console.log(ev.detail)
 };
+
+
+export const Objects: Story<Components.InoAutocomplete> = (args) => html`
+  <div style="height: 300px;">
+    <ino-autocomplete
+      debounce="${args.debounce}"
+      .options=${[{key: 'a', value: 'A'}, {key: 'b', value: 'B'}]}
+      value="${args.value}"
+      @valueChange="${inputHandler}"
+      style="margin: 50px"
+    >
+      <ino-input></ino-input>
+    </ino-autocomplete>
+  </div>
+`;
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">
@@ -46,3 +62,4 @@ export const Playground: Story<Components.InoAutocomplete> = (args) => html`
     </ino-autocomplete>
   </div>
 `;
+

@@ -11,7 +11,7 @@ import {
   Watch,
 } from '@stencil/core';
 import autoComplete from '@tarekraafat/autocomplete.js';
-
+import { KeyValue } from '../types';
 
 /**
  * @slot input - An `<ino-input>` element that will be controlled by this component
@@ -32,7 +32,7 @@ export class Autocomplete implements ComponentInterface {
   /**
    * Number of ms the search function should be delayed after the user typed something.
    */
-  @Prop() debounce: number = 100;
+  @Prop() debounce = 100;
 
   /**
    * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
@@ -42,7 +42,7 @@ export class Autocomplete implements ComponentInterface {
   /**
    * All options either as a string array or as an array of `{key: string; value: string}` objects.
    */
-  @Prop() options: string[] = [];
+  @Prop() options: string[] | KeyValue[] = [];
 
   @Watch('options')
   onOptionsChange() {
@@ -75,8 +75,9 @@ export class Autocomplete implements ComponentInterface {
   @Event() valueChange: EventEmitter<string>;
 
   @Listen('selection')
-  onItemSelect(ev: CustomEvent<any>) {
-    this.valueChange.emit(ev.detail.selection.value);
+  onItemSelect(ev: CustomEvent<{ selection: { value: string | KeyValue } }>) {
+    const value = ev.detail.selection.value;
+    this.valueChange.emit(Autocomplete.isKeyValue(value) ? value.key : value);
   }
 
   @Listen('close')
@@ -85,12 +86,17 @@ export class Autocomplete implements ComponentInterface {
 
     const { query, matches } = ev.detail;
 
-    const queryMatchesSomeOptionExactly = matches.some(
-      (match) => match.value === query
+    const exactMatch: {value: string | KeyValue} = matches.find(
+      (match) =>
+        (Autocomplete.isKeyValue(match.value)
+          ? match.value.value
+          : match.value) === query
     );
 
-    if (queryMatchesSomeOptionExactly) {
-      this.valueChange.emit(query);
+    if (exactMatch) {
+      this.valueChange.emit(
+        Autocomplete.isKeyValue(exactMatch.value) ? exactMatch.value.key : exactMatch.value
+      );
     } else {
       this.valueChange.emit(null);
       this.resetInput();
@@ -113,7 +119,7 @@ export class Autocomplete implements ComponentInterface {
   private initAutocomplete() {
     this.autocomplete?.unInit();
 
-    this.autocomplete = new autoComplete({
+    const options = {
       selector: () => this.el.querySelector('input'),
       threshold: 0,
       debounce: this.debounce,
@@ -142,7 +148,13 @@ export class Autocomplete implements ComponentInterface {
           focus: () => this.autocomplete.start(), // open menu on focus
         },
       },
-    });
+    };
+
+    if (this.options.length > 0 && Autocomplete.isKeyValue(this.options[0])) {
+      options['data']['keys'] = ['value'];
+    }
+
+    this.autocomplete = new autoComplete(options);
   }
 
   private createNoMatchMessage(query: string): HTMLDivElement {
@@ -159,6 +171,10 @@ export class Autocomplete implements ComponentInterface {
 
   private resetInput(): void {
     this.inoInputEl.value = '';
+  }
+
+  private static isKeyValue(value: string | KeyValue): value is KeyValue {
+    return (value as KeyValue).value !== undefined;
   }
 
   render() {
