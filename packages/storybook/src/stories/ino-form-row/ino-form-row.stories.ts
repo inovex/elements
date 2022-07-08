@@ -1,7 +1,8 @@
 import { Components } from '@inovex.de/elements';
 import { useEffect } from '@storybook/client-api';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
+import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-form-row.scss';
@@ -15,10 +16,10 @@ export default {
     },
   },
   decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
+    story => decorateStoryWithClass(story),
+    story => {
       useEffect(() => {
-        const valueChangeHandler = function (e) {
+        const valueChangeHandler = function(e) {
           if (e.target.tagName.toLowerCase() !== 'ino-input') {
             return;
           }
@@ -38,9 +39,15 @@ export default {
       return story();
     },
   ],
-} as Meta;
+  args: {
+    label: 'Label',
+    mandatory: false,
+  }
+} as Meta<Components.InoFormRow>;
 
-export const Playground: Story<Components.InoFormRow> = (args) => html`
+const template = new TemplateGenerator<Components.InoFormRow>(
+  'ino-form-row',
+  args => html`
   <ino-form-row
     class="customizable-form-row"
     label="${args.label}"
@@ -48,9 +55,7 @@ export const Playground: Story<Components.InoFormRow> = (args) => html`
   >
     <ino-input></ino-input>
   </ino-form-row>
-`;
+`);
 
-Playground.args = {
-  label: 'Label',
-  mandatory: false,
-};
+export const Playground = template.generatePlaygroundStory();
+export const Mandatory = template.generateStoryForProp('mandatory', true);
