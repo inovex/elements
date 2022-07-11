@@ -82,7 +82,7 @@ In order to change the checked element (and uncheck the other ones) listen to th
 
 | Property    | Attribute   | Description                                                                                                                                                | Type                         | Default        |
 | ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | -------------- |
-| `alignment` | `alignment` | sets the alignment of the radios                                                                                                                           | `"horizontal" \| "vertical"` | `'horizontal'` |
+| `alignment` | `alignment` | Sets the alignment of the radios to either vertical or horizontal.                                                                                         | `"horizontal" \| "vertical"` | `'horizontal'` |
 | `value`     | `value`     | The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked. | `number \| string`           | `undefined`    |
 
 

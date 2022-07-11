@@ -6150,7 +6150,7 @@
           "mutable": false,
           "attr": "alignment",
           "reflectToAttr": false,
-          "docs": "sets the alignment of the radios",
+          "docs": "Sets the alignment of the radios to either vertical or horizontal.",
           "docsTags": [],
           "default": "'horizontal'",
           "values": [

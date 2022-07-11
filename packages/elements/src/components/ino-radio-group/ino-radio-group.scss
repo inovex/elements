@@ -1,12 +1,15 @@
 ino-radio-group {
   .ino-radio-group-wrapper {
     width: fit-content;
-  }
-
-  .ino-radio-group-wrapper-vertical {
-    width: fit-content;
     display: flex;
-    flex-direction: column;
+
+    &--vertical {
+      flex-direction: column;
+    }
+
+    &--horizontal {
+      flex-direction: row;
+    }
   }
 
   ino-radio:last-child {

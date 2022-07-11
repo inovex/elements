@@ -941,7 +941,7 @@ export namespace Components {
     }
     interface InoRadioGroup {
         /**
-          * sets the alignment of the radios
+          * Sets the alignment of the radios to either vertical or horizontal.
          */
         "alignment": Alignment;
         /**
@@ -2693,7 +2693,7 @@ declare namespace LocalJSX {
     }
     interface InoRadioGroup {
         /**
-          * sets the alignment of the radios
+          * Sets the alignment of the radios to either vertical or horizontal.
          */
         "alignment"?: Alignment;
         /**

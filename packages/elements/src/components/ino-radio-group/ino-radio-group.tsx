@@ -32,7 +32,7 @@ export class RadioGroup implements ComponentInterface {
    */
   @Prop() value?: string | number | null;
   /**
-   * sets the alignment of the radios
+   * Sets the alignment of the radios to either vertical or horizontal.
    */
   @Prop() alignment: Alignment = 'horizontal';
 
@@ -169,29 +169,15 @@ export class RadioGroup implements ComponentInterface {
     return Promise.all(Array.from(this.el.querySelectorAll('ino-radio')));
   }
 
-  private setAlignment() {
-    let style: string;
-    // set default scss class if property is undefined
-    if (!this.alignment) {
-      style = classNames('ino-radio-group-wrapper');
-      return style;
-    }
-
-    switch (this.alignment) {
-      case 'horizontal':
-        style = classNames('ino-radio-group-wrapper');
-        break;
-      case 'vertical':
-        style = classNames('ino-radio-group-wrapper-vertical');
-        break;
-    }
-    return style;
-  }
-
   render() {
+    const hostClasses = classNames({
+      'ino-radio-group-wrapper': true,
+      'ino-radio-group-wrapper--vertical': this.alignment === 'vertical',
+      'ino-radio-group-wrapper--horizontal': this.alignment === 'horizontal',
+    });
     return (
       <Host>
-        <div class={this.setAlignment()} tabIndex={0}>
+        <div class={hostClasses} tabIndex={0}>
           <slot></slot>
         </div>
       </Host>
