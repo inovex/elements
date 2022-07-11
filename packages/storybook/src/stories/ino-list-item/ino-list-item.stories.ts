@@ -2,6 +2,8 @@ import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
+import { TemplateGenerator } from '../template-generator';
+import { Components } from '@inovex.de/elements';
 import './ino-list-item.scss';
 
 export default {
@@ -30,170 +32,95 @@ export default {
       return story();
     },
   ],
+  argsTypes: {
+    twoLines: {
+      description: 'Two Lines option of the parent list element',
+    },
+  },
+  args: {
+    secondaryText: '',
+    selected: false,
+    activated: false,
+    disabled: false,
+    text: 'List item',
+  },
 } as Meta;
 
-export const Playground = (args) => html`
-  <ino-list two-lines="${args.twoLines}">
-    <ino-list-item
-      secondary-text="${args.secondaryText}"
-      selected="${args.selected}"
-      activated="${args.activated}"
-      disabled="${args.disabled}"
-      text="${args.text}"
-    >
-    </ino-list-item>
-  </ino-list>
-`;
-Playground.args = {
-  twoLines: true,
-  secondaryText: 'Second line text',
-  selected: false,
-  activated: false,
-  disabled: false,
-  text: 'List item',
+const exampleImg = html` <ino-img
+  slot="leading"
+  src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+  ratio-width="1"
+  ratio-height="1"
+></ino-img>`;
+
+const template = new TemplateGenerator<Components.InoListItem>(
+  'ino-list-item',
+  (args) => html`
+    <ino-list two-lines="${Boolean(args.secondaryText)}">
+      <ino-list-item
+        secondary-text="${args.secondaryText}"
+        selected="${args.selected}"
+        activated="${args.activated}"
+        disabled="${args.disabled}"
+        text="${args.text}"
+      >
+      </ino-list-item>
+    </ino-list>
+  `
+);
+
+export const Playground = template.generatePlaygroundStory();
+
+export const Text = template.generateStoryForProp('text', 'simple-item');
+export const SecondaryText = template.generateStoryForProp(
+  'secondaryText',
+  'Second line text'
+);
+export const Selected = template.generateStoryForProp('selected', true);
+export const Activated = template.generateStoryForProp('activated', true);
+export const Disabled = template.generateStoryForProp('disabled', true);
+
+type InoListVariants = Components.InoList & {
+  avatar: boolean;
+  meta: boolean;
+  checkbox: boolean;
+  radio: boolean;
 };
-Playground.argTypes = {
-  twoLines: {
-    description: 'Two Lines option of the parent list element',
-  },
-};
 
-const exampleImg = html`
-  <ino-img
-    slot="leading"
-    src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-    ratio-width="1"
-    ratio-height="1"
-  ></ino-img>
-`;
+const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
+  'ino-list-item',
+  (args) => html`
+    <ino-list>
+      <ino-list-item text="Lorem ipsum dolor sit">
+        ${args.avatar && exampleImg}
+        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox>`}
+        ${args.meta && html`<p slot="trailing">$10.00</p>`}
+        ${args.radio && html` <ino-radio slot="leading" selection></ino-radio>`}
+      </ino-list-item>
+    </ino-list>
+  `
+);
 
-export const States = () => html`
-  <ino-list>
-    <ino-list-item text="Simple item"></ino-list-item>
-    <ino-list-item selected text="Selected item"></ino-list-item>
-    <ino-list-item selected text="Selected item 2"></ino-list-item>
-    <ino-list-item text="Simple item 2"></ino-list-item>
-    <ino-list-item activated text="Activated item"></ino-list-item>
-    <ino-list-item disabled text="Disabled item"></ino-list-item>
-  </ino-list>
-`;
+/**
+ * You can use any elements in the `leading` or `trailing` slot (e.g. images).
+ */
+export const Graphics = templateGraphicAndMeta.generatePlaygroundStory();
+Graphics.args = { avatar: true };
 
-export const GraphicAndMeta = () => html`
-  <ino-list>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      ${exampleImg}
-      <p slot="trailing">$10.00</p>
-    </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      ${exampleImg}
-      <p slot="trailing">$10.00</p>
-    </ino-list-item>
-  </ino-list>
-`;
+/**
+ * You can use any elements in the `leading` or `trailing` slot (e.g. meta-data).
+ */
+export const MetaData = templateGraphicAndMeta.generatePlaygroundStory();
+MetaData.args = { meta: true };
 
-export const Checkbox = () => html`
-  <h4>Leading checkbox</h4>
-  <ino-list>
-    <ino-list-item text="First text item">
-      <ino-checkbox slot="leading" selection></ino-checkbox>
-    </ino-list-item>
-    <ino-list-item text="Second text item">
-      <ino-checkbox slot="leading" selection></ino-checkbox>
-    </ino-list-item>
-  </ino-list>
+/**
+ * You can use a `ino-checkbox` element in the `leading` or `trailing` slot.
+ */
+export const WithCheckbox = templateGraphicAndMeta.generatePlaygroundStory();
+WithCheckbox.args = { checkbox: true };
 
-  <h4>Trailing checkbox</h4>
-  <ino-list>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-checkbox slot="trailing" selection></ino-checkbox>
-    </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-checkbox slot="trailing" selection></ino-checkbox>
-    </ino-list-item>
-  </ino-list>
-
-  <h4>Leading checkbox and trailing metadata</h4>
-  <ino-list>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-checkbox slot="leading" selection></ino-checkbox>
-      <p slot="trailing">Some Metdata</p>
-    </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-checkbox slot="leading" selection></ino-checkbox>
-      <p slot="trailing">Some Metdata</p>
-    </ino-list-item>
-  </ino-list>
-`;
-
-export const Radio = () => html`
-  <h4>Leading radio button</h4>
-  <ino-list>
-    <ino-list-item text="First text item">
-      <ino-radio slot="leading" name="group-1"></ino-radio>
-    </ino-list-item>
-    <ino-list-item text="Second text item">
-      <ino-radio slot="leading" name="group-1"></ino-radio>
-    </ino-list-item>
-  </ino-list>
-
-  <h4>Trailing radio button</h4>
-  <ino-list>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-radio slot="trailing" name="group-5"></ino-radio>
-    </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-radio slot="trailing" name="group-5"></ino-radio>
-    </ino-list-item>
-  </ino-list>
-
-  <h4>Leading radio button and trailing metadata</h4>
-  <ino-list>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-radio slot="leading" name="group-6"></ino-radio>
-      <p slot="trailing">Some Metadata</p>
-    </ino-list-item>
-    <ino-list-item text="Lorem ipsum dolor sit">
-      <ino-radio slot="leading" name="group-6"></ino-radio>
-      <p slot="trailing">Some Metadata</p>
-    </ino-list-item>
-  </ino-list>
-`;
-
-export const Slots = () => html`
-  <h4>Primary Slot</h4>
-  <ino-list>
-    <ino-list-item>
-      ${exampleImg}
-      <a slot="primary" href="">Link Element</a>
-    </ino-list-item>
-  </ino-list>
-
-  <h4>Primary and Secondary Slot</h4>
-  <ino-list two-lines>
-    <ino-list-item>
-      ${exampleImg}
-      <a slot="primary" href="">Primary Link Element</a>
-      <a slot="secondary" href="">Secondary Link Element</a>
-      <p slot="trailing">$10.00</p>
-    </ino-list-item>
-  </ino-list>
-`;
-
-export const TwoLines = () => html`
-  <ino-list two-lines avatar>
-    <ino-list-item
-      text="Lorem ipsum dolor sit"
-      secondary-text="Secondary Lorem ipsum dolor sit"
-    >
-      ${exampleImg}
-      <ino-icon slot="trailing" icon="info"></ino-icon>
-    </ino-list-item>
-    <ino-list-item
-      text="Lorem ipsum dolor sit"
-      secondary-text="Secondary Lorem ipsum dolor sit"
-    >
-      ${exampleImg}
-      <ino-icon slot="trailing" icon="info"></ino-icon>
-    </ino-list-item>
-  </ino-list>
-`;
+/**
+ * You can use a `ino-checkbox` element in the `leading` or `trailing` slot.
+ */
+export const WithRadio = templateGraphicAndMeta.generatePlaygroundStory();
+WithRadio.args = { radio: true };

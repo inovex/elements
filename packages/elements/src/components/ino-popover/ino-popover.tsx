@@ -126,11 +126,11 @@ export class Popover implements ComponentInterface {
     this.create();
   }
 
-  @Prop() followCursor: Props['followCursor'] = false;
-
   /**
    * Determines if and how the popover follows the user's mouse cursor.
    */
+  @Prop() followCursor: Props['followCursor'] = false;
+
   @Watch('followCursor')
   followCursorChanged() {
     this.create();
