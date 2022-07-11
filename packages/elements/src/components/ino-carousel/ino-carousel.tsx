@@ -41,7 +41,7 @@ export class InoCarousel implements ComponentInterface {
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
   }
   /**
-   * Emits the value of the slide once it changed
+   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
    */
   @Event() valueChange: EventEmitter<number | string>;
 
@@ -154,10 +154,11 @@ export class InoCarousel implements ComponentInterface {
   };
 
   private emitSlideChange(iconArrow: ArrowDirections): void {
-    const carouselSlide = this.getSlides()[this.currentSlide];
     const allSlides = this.getSlides();
+    if (!allSlides || allSlides.length === 0) return;
+    const carouselSlide = this.getSlides()[this.currentSlide];
 
-    if (!carouselSlide && allSlides[0] !== undefined) {
+    if (!carouselSlide) {
       this.valueChange.emit(allSlides[0].value);
       return;
     }
@@ -170,11 +171,10 @@ export class InoCarousel implements ComponentInterface {
           allSlides[0];
         break;
       case ArrowDirections.LEFT:
-        if (allSlides.length !== 0) {
-          nextSlide =
-            (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
-            allSlides[allSlides.length - 1];
-        }
+        nextSlide =
+          (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
+          allSlides[allSlides.length - 1];
+
         break;
     }
     this.valueChange.emit(nextSlide.value);

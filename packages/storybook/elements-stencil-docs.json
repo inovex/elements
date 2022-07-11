@@ -602,7 +602,7 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits the value of the slide once it changed",
+          "docs": "Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.",
           "docsTags": []
         }
       ],

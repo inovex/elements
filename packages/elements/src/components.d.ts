@@ -1784,7 +1784,7 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
-          * Emits the value of the slide once it changed
+          * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
          */
         "onValueChange"?: (event: CustomEvent<number | string>) => void;
         /**

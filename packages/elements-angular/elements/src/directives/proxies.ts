@@ -86,7 +86,7 @@ export class InoCard {
 
 export declare interface InoCarousel extends Components.InoCarousel {
   /**
-   * Emits the value of the slide once it changed 
+   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked. 
    */
   valueChange: EventEmitter<CustomEvent<number | string>>;
 

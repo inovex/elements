@@ -85,9 +85,9 @@ class MyComponent extends Component {
 
 ## Events
 
-| Event         | Description                                  | Type                            |
-| ------------- | -------------------------------------------- | ------------------------------- |
-| `valueChange` | Emits the value of the slide once it changed | `CustomEvent<number \| string>` |
+| Event         | Description                                                                                             | Type                            |
+| ------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `valueChange` | Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked. | `CustomEvent<number \| string>` |
 
 
 ## Slots
