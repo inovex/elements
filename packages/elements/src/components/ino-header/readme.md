@@ -34,9 +34,16 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property | Attribute | Description                                                                                                                        | Type     | Default     |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| `text`   | `text`    | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead The text of this header | `string` | `undefined` |
+| Property | Attribute | Description                                                                                                              | Type     | Default     |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
+| `text`   | `text`    | <span style="color:red">**[DEPRECATED]**</span> <br/><br/>[DEPRECATED] Please use the default slot instead of this prop. | `string` | `undefined` |
+
+
+## Slots
+
+| Slot        | Description         |
+| ----------- | ------------------- |
+| `"default"` | The text to display |
 
 
 ## CSS Custom Properties

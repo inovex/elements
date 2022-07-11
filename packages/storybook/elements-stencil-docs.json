@@ -2449,6 +2449,14 @@
         {
           "name": "slot",
           "text": "default - One or more `ino-fab`"
+        },
+        {
+          "name": "slot",
+          "text": "icon-opened - The icon of the FAB button while being open"
+        },
+        {
+          "name": "slot",
+          "text": "icon-closed - The icon of the FAB button while being closed"
         }
       ],
       "encapsulation": "shadow",
@@ -2567,6 +2575,14 @@
         {
           "name": "default",
           "docs": "One or more `ino-fab`"
+        },
+        {
+          "name": "icon-closed",
+          "docs": "The icon of the FAB button while being closed"
+        },
+        {
+          "name": "icon-opened",
+          "docs": "The icon of the FAB button while being open"
         }
       ],
       "parts": [],
@@ -2642,7 +2658,12 @@
       "readme": "# ino-header\r\n\r\nA header component with a separator.\r\n\r\n## Usage\r\n\r\nThe component can be used as follows:\r\n\r\n### Web Component\r\n\r\n```html\r\n<ino-header text=\"<string>\"></ino-header>\r\n```\r\n\r\n### React\r\n\r\n#### Example #1 - Basic\r\n\r\n```js\r\nimport { Component } from 'react';\r\nimport { InoHeader } from '@inovex.de/elements-react/';\r\n\r\nclass MyComponent extends Component {\r\n  render() {\r\n    return <InoHeader text=\"My awesome header!\"></InoHeader>;\r\n  }\r\n}\r\n```\r\n\r\n## Demo\r\n\r",
       "usage": {},
       "docs": "A header component with a separator.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - The text to display"
+        }
+      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [],
@@ -2654,7 +2675,7 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "[DEPRECATED] Please use the default slot instead\r\nThe text of this header",
+          "docs": "[DEPRECATED] Please use the default slot instead of this prop.",
           "docsTags": [
             {
               "name": "deprecated"
@@ -2684,7 +2705,12 @@
           "docs": "Text color of the header"
         }
       ],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "The text to display"
+        }
+      ],
       "parts": [],
       "listeners": []
     },
@@ -5605,7 +5631,7 @@
           "mutable": false,
           "attr": "follow-cursor",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Determines if and how the popover follows the user's mouse cursor.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -7162,7 +7188,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Changes the snackbar type",
+          "docs": "Changes the snackbar type. There are three types of messages: info, success, and error.",
           "docsTags": [],
           "default": "'info'",
           "values": [
@@ -7783,7 +7809,7 @@
           "mutable": false,
           "attr": "sort-column-id",
           "reflectToAttr": false,
-          "docs": "Identifier of the column currently sorted by.\r\n\r\nNeeds to the match the column ids provided on `ino-table-header-cell` elements.",
+          "docs": "Identifier of the column currently sorted by.\n\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
           "docsTags": [],
           "values": [
             {
@@ -8497,7 +8523,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\r\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
+          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `secondary` `light`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -8638,7 +8664,7 @@
           "mutable": false,
           "attr": "trigger",
           "reflectToAttr": false,
-          "docs": "The trigger to show the tooltip - either click, hover or focus.\r\nMultiple triggers possible by separating them with a space.",
+          "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\nMultiple triggers possible by separating them with a space.",
           "docsTags": [],
           "default": "'mouseenter focus'",
           "values": [

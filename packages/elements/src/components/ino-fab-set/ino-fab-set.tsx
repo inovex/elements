@@ -13,6 +13,8 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
 
 /**
  * @slot default - One or more `ino-fab`
+ * @slot icon-opened - The icon of the FAB button while being open
+ * @slot icon-closed - The icon of the FAB button while being closed
  */
 @Component({
   tag: 'ino-fab-set',
