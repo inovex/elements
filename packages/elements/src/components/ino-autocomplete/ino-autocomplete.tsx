@@ -13,6 +13,8 @@ import {
 import autoComplete from '@tarekraafat/autocomplete.js';
 import { KeyValue } from '../types';
 
+type Selection = {value: string | KeyValue};
+
 /**
  * @slot input - An `<ino-input>` element that will be controlled by this component
  */
@@ -27,7 +29,7 @@ export class Autocomplete implements ComponentInterface {
   private listEl: HTMLDivElement;
   private inoInputEl: HTMLInoInputElement;
   private inputEl: HTMLInputElement;
-  private autocomplete: any; // no typings for this library yet
+  private autocomplete: any; // no typings for this library yet https://tarekraafat.github.io/autoComplete.js/#/
 
   /**
    * Number of ms the search function should be delayed after the user typed something.
@@ -75,7 +77,7 @@ export class Autocomplete implements ComponentInterface {
   @Event() valueChange: EventEmitter<string>;
 
   @Listen('selection')
-  onItemSelect(ev: CustomEvent<{ selection: { value: string | KeyValue } }>) {
+  onItemSelect(ev: CustomEvent<{ selection: Selection }>) {
     const value = ev.detail.selection.value;
     this.valueChange.emit(Autocomplete.isKeyValue(value) ? value.key : value);
   }
@@ -86,7 +88,7 @@ export class Autocomplete implements ComponentInterface {
 
     const { query, matches } = ev.detail;
 
-    const exactMatch: {value: string | KeyValue} = matches.find(
+    const exactMatch: Selection = matches.find(
       (match) =>
         (Autocomplete.isKeyValue(match.value)
           ? match.value.value
