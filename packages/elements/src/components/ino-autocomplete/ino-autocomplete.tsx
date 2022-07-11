@@ -44,7 +44,7 @@ export class Autocomplete implements ComponentInterface {
   /**
    * All options either as a string array or as an array of `{key: string; value: string}` objects.
    */
-  @Prop() options: string[] | KeyValue[] = [];
+  @Prop() options!: string[] | KeyValue[];
 
   @Watch('options')
   onOptionsChange() {
@@ -54,32 +54,35 @@ export class Autocomplete implements ComponentInterface {
   /**
    * The selected value.
    */
-  @Prop() value: string | null;
+  @Prop() value: string | KeyValue | null;
 
   @Watch('value')
-  onValueChange(value: string | null) {
+  onValueChange(value: string | KeyValue | null) {
     if (value === null) {
       this.resetInput();
       return;
     }
 
-    this.inoInputEl.value = value;
-    this.inputEl.selectionStart = this.inputEl.selectionEnd = value.length; // move cursor to end
+    const val = Autocomplete.isKeyValue(value) ? value.value : value;
+
+    this.inoInputEl.value = val;
+    this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
   }
 
   /**
-   * Emits the list item the user clicked on.
-   * If Key-Value-Objects are provided as `options`, the `key` of the selected option will be emitted.
+   * Emits the list item the user clicked on either as a string or
+   * a `{key: string; value: string}` object depending on the provided options.
    *
    * Trigger on two occasions:
    * 1. The user clicked on a list-item.
+   * 2. The user types in a string that matches an option and blurs the input
    */
-  @Event() valueChange: EventEmitter<string>;
+  @Event() valueChange: EventEmitter<string | { key: string; value: string }>;
 
   @Listen('selection')
   onItemSelect(ev: CustomEvent<{ selection: Selection }>) {
     const value = ev.detail.selection.value;
-    this.valueChange.emit(Autocomplete.isKeyValue(value) ? value.key : value);
+    this.valueChange.emit(value);
   }
 
   @Listen('close')
@@ -96,9 +99,7 @@ export class Autocomplete implements ComponentInterface {
     );
 
     if (exactMatch) {
-      this.valueChange.emit(
-        Autocomplete.isKeyValue(exactMatch.value) ? exactMatch.value.key : exactMatch.value
-      );
+      this.valueChange.emit(exactMatch.value);
     } else {
       this.valueChange.emit(null);
       this.resetInput();
@@ -115,8 +116,19 @@ export class Autocomplete implements ComponentInterface {
       );
     }
 
+    this.inoInputEl.addEventListener('valueChange', this.onInputValueChange);
+
     this.initAutocomplete();
   }
+
+  disconnectedCallback() {
+    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+  }
+
+  private onInputValueChange = (e: CustomEvent<string>) => {
+    this.inoInputEl.value = e.detail;
+    e.stopPropagation();
+  };
 
   private initAutocomplete() {
     this.autocomplete?.unInit();
@@ -157,6 +169,8 @@ export class Autocomplete implements ComponentInterface {
     }
 
     this.autocomplete = new autoComplete(options);
+
+    if (this.value) this.onValueChange(this.value);
   }
 
   private createNoMatchMessage(query: string): HTMLDivElement {

@@ -10,13 +10,14 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoAutocomplete extends Components.InoAutocomplete {
   /**
-   * Emits the list item the user clicked on.
-If Key-Value-Objects are provided as `options`, the `key` of the selected option will be emitted.
+   * Emits the list item the user clicked on either as a string or
+a `{key: string; value: string}` object depending on the provided options.
 
 Trigger on two occasions:
-1. The user clicked on a list-item. 
+1. The user clicked on a list-item.
+2. The user types in a string that matches an option and blurs the input 
    */
-  valueChange: EventEmitter<CustomEvent<string>>;
+  valueChange: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
 
 }
 

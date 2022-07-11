@@ -27,7 +27,7 @@ export namespace Components {
         /**
           * The selected value.
          */
-        "value": string | null;
+        "value": string | KeyValue | null;
     }
     interface InoButton {
         /**
@@ -1721,17 +1721,17 @@ declare namespace LocalJSX {
          */
         "noOptionsText"?: string;
         /**
-          * Emits the list item the user clicked on. If Key-Value-Objects are provided as `options`, the `key` of the selected option will be emitted.  Trigger on two occasions: 1. The user clicked on a list-item.
+          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: CustomEvent<string | { key: string; value: string }>) => void;
         /**
           * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "options"?: string[] | KeyValue[];
+        "options": string[] | KeyValue[];
         /**
           * The selected value.
          */
-        "value"?: string | null;
+        "value"?: string | KeyValue | null;
     }
     interface InoButton {
         /**

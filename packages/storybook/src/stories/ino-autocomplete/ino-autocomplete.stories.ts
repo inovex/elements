@@ -17,37 +17,26 @@ export default {
   args: {
     debounce: 100,
     options: [
-      'Hamburg',
-      'Berlin',
-      'München',
-      'Karlsruhe',
-      'Köln',
-      'Stuttgart',
-      'Dortmund',
+      {
+        key: 'hh',
+        value: 'Hamburg',
+      },
+      {
+        key: 'ber',
+        value: 'Berlin',
+      },
+      {
+        key: 'k',
+        value: 'Karlsruhe',
+      },
     ],
     value: '',
   },
 } as Meta<Components.InoAutocomplete>;
 
-const inputHandler = (ev: CustomEvent<string>) => {
+const inputHandler = (ev: CustomEvent<string | {key: string; value: string}>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
-  console.log(ev.detail)
 };
-
-
-export const Objects: Story<Components.InoAutocomplete> = (args) => html`
-  <div style="height: 300px;">
-    <ino-autocomplete
-      debounce="${args.debounce}"
-      .options=${[{key: 'a', value: 'A'}, {key: 'b', value: 'B'}]}
-      value="${args.value}"
-      @valueChange="${inputHandler}"
-      style="margin: 50px"
-    >
-      <ino-input></ino-input>
-    </ino-autocomplete>
-  </div>
-`;
 
 export const Playground: Story<Components.InoAutocomplete> = (args) => html`
   <div style="height: 300px;">

@@ -58,19 +58,19 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property        | Attribute         | Description                                                                                              | Type       | Default                      |
-| --------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------- |
-| `debounce`      | `debounce`        | Number of ms the search function should be delayed after the user typed something.                       | `number`   | `100`                        |
-| `noOptionsText` | `no-options-text` | Text to display when there are no options found, where `$` is the placeholder for the input of the user. | `string`   | `'Found No Results for "$"'` |
-| `options`       | --                | All options either as a string array or as an array of `{key: string; value: string}` objects.           | `string[]` | `[]`                         |
-| `value`         | `value`           | The selected value.                                                                                      | `string`   | `undefined`                  |
+| Property               | Attribute         | Description                                                                                              | Type                                        | Default                      |
+| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------- |
+| `debounce`             | `debounce`        | Number of ms the search function should be delayed after the user typed something.                       | `number`                                    | `100`                        |
+| `noOptionsText`        | `no-options-text` | Text to display when there are no options found, where `$` is the placeholder for the input of the user. | `string`                                    | `'Found No Results for "$"'` |
+| `options` _(required)_ | --                | All options either as a string array or as an array of `{key: string; value: string}` objects.           | `KeyValue[] \| string[]`                    | `undefined`                  |
+| `value`                | `value`           | The selected value.                                                                                      | `string \| { key: string; value: string; }` | `undefined`                  |
 
 
 ## Events
 
-| Event         | Description                                                                                                                                                                                               | Type                  |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `valueChange` | Emits the list item the user clicked on. If Key-Value-Objects are provided as `options`, the `key` of the selected option will be emitted.  Trigger on two occasions: 1. The user clicked on a list-item. | `CustomEvent<string>` |
+| Event         | Description                                                                                                                                                                                                                                                                      | Type                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `valueChange` | Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input | `CustomEvent<string \| { key: string; value: string; }>` |
 
 
 ## Slots
