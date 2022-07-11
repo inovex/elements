@@ -7809,7 +7809,7 @@
           "mutable": false,
           "attr": "sort-column-id",
           "reflectToAttr": false,
-          "docs": "Identifier of the column currently sorted by.\n\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
+          "docs": "Identifier of the column currently sorted by.\r\n\r\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
           "docsTags": [],
           "values": [
             {
@@ -8523,7 +8523,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `secondary` `light`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip\r\nValid options include: `primary`, `secondary` `light`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -8664,7 +8664,7 @@
           "mutable": false,
           "attr": "trigger",
           "reflectToAttr": false,
-          "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\nMultiple triggers possible by separating them with a space.",
+          "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\r\nMultiple triggers possible by separating them with a space.",
           "docsTags": [],
           "default": "'mouseenter focus'",
           "values": [
