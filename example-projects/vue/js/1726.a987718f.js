@@ -1,0 +1,5 @@
+"use strict";(self["webpackChunkelements_vue_example"]=self["webpackChunkelements_vue_example"]||[]).push([[1726],{1726:function(o,r,e){e.r(r),e.d(r,{ino_form_row:function(){return i}});var n=e(7318);
+/*!
+ * Crafted with ❤ by inovex GmbH
+ */const l="ino-form-row{box-sizing:border-box}ino-form-row>.ino-form-row__composer{display:flex;align-items:center;box-sizing:border-box;width:100%;padding:2px}ino-form-row .ino-form-row__element{flex:1}ino-form-row .ino-form-row__label{width:120px}";let i=class{constructor(o){(0,n.r)(this,o)}render(){return(0,n.h)(n.H,null,(0,n.h)("div",{class:"ino-form-row__composer"},(0,n.h)("div",{class:"ino-form-row__label"},this.label,this.mandatory&&(0,n.h)("span",null,"*")),(0,n.h)("div",{class:"ino-form-row__element"},(0,n.h)("slot",null))))}};i.style=l}}]);
+//# sourceMappingURL=1726.a987718f.js.map
