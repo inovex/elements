@@ -155,7 +155,9 @@ export class InoCarousel implements ComponentInterface {
 
   private emitSlideChange(iconArrow: ArrowDirections): void {
     const allSlides = this.getSlides();
+    
     if (!allSlides || allSlides.length === 0) return;
+    
     const carouselSlide = this.getSlides()[this.currentSlide];
 
     if (!carouselSlide) {
