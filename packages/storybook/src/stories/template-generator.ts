@@ -50,6 +50,7 @@ export class TemplateGenerator<Component extends Object> {
 
     if (args) {
       BoundTemplate.args = { ...args };
+
     }
 
     if (prop) {

@@ -1,7 +1,7 @@
 import { Components } from '@inovex.de/elements';
-import { Meta, Story } from '@storybook/web-components';
+import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
-import { decorateStoryWithClass, withColorScheme } from '../utils';
+import { decorateStoryWithClass } from '../utils';
 import './ino-range.scss';
 import { useEffect } from '@storybook/client-api';
 import { TemplateGenerator } from '../template-generator';
@@ -84,4 +84,5 @@ export const Markers = template.generateStoryForProp('markers', true, {
 export const Ranged = template.generateStoryForProp('ranged', true, {
   valueStart: 30,
   valueEnd: 70,
+  discrete: true,
 });
