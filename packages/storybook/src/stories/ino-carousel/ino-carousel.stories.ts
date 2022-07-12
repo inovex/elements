@@ -19,33 +19,7 @@ export default {
   title: 'Graphic/<ino-carousel>',
   component: 'ino-carousel',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-carousel'),
-    (story) => {
-      useEffect(() => {
-        const eventHandler = function (e) {
-          if (e.target.tagName.toLowerCase() !== 'ino-icon-button') {
-            return;
-          }
-          const iconButton: HTMLInoIconButtonElement = e.target;
-          const carousel: HTMLInoCarouselElement = iconButton.closest(
-            'ino-carousel'
-          );
-          const slidesLenght = carousel.querySelectorAll('ino-carousel-slide').length
-          const isLeftArrow = iconButton.icon === 'arrow_left';
-          carousel.value = mod(
-            carousel.value + (isLeftArrow ? slidesLenght - 1: 1), 3).toString()
-        };
-
-        const mod = (a, b) => ((a % b) + b) % b;
-
-        document.addEventListener('clickEl', eventHandler);
-
-        return () => {
-          document.removeEventListener('clickEl', eventHandler);
-        };
-      });
-      return story();
-    },
+    (story) => decorateStoryWithClass(story, 'story-carousel'), 
   ],
   args: {
     value: 0,
@@ -57,6 +31,11 @@ export default {
     reverse: false,
   },
 } as Meta;
+
+const onSlideChanged = (ev: CustomEvent<string>) => {
+  const carouselEl = ev.target  as HTMLInoCarouselElement;
+  carouselEl.value = ev.detail 
+}
 
 const template = new TemplateGenerator<Components.InoCarousel>(
   'ino-carousel',
@@ -71,6 +50,7 @@ const template = new TemplateGenerator<Components.InoCarousel>(
       infinite="${args.infinite}"
       intermission="${args.intermission}"
       reverse="${args.reverse}"
+      @valueChange="${onSlideChanged}"
     >
       <ino-carousel-slide src=${lightningImg} value="0"></ino-carousel-slide>
       <ino-carousel-slide src=${mountainsImg} value="1"></ino-carousel-slide>
