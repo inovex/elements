@@ -899,13 +899,13 @@ Contains the `value` of the selected `<ino-radio>`.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['value']
+  inputs: ['alignment', 'value']
 })
 @Component({
   selector: 'ino-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['value']
+  inputs: ['alignment', 'value']
 })
 export class InoRadioGroup {
   protected el: HTMLElement;

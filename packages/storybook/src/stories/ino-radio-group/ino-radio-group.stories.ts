@@ -28,20 +28,25 @@ export default {
         return () => {
           radioGrp.removeEventListener('checkedChange', eventHandler);
           radioGrp.removeEventListener('valueChange', evtHandler);
-        }
+        };
       });
       return story();
     },
   ],
   args: {
     value: 'opt-2',
+    alignments: 'horizontal',
   },
 } as Meta<Components.InoRadioGroup>;
 
 const template = new TemplateGenerator<Components.InoRadioGroup>(
   'ino-radio-group',
   args => html`
-    <ino-radio-group id="radio-grp" value="${args.value}">
+    <ino-radio-group 
+      id="radio-grp" 
+      value="${args.value}"
+      alignment="${args.alignment}"
+    >
       <ino-radio value="opt-1">Opt 1</ino-radio>
       <ino-radio value="opt-2">Opt 2</ino-radio>
       <ino-radio value="opt-3">Opt 3</ino-radio>
@@ -58,3 +63,15 @@ Playground.argTypes = {
     options: ['opt-1', 'opt-2', 'opt-3'],
   },
 };
+
+export const VerticalAlignment = () => html`
+  <ino-radio-group
+    id="radio-grp"
+    value="opt-2"
+    alignment="vertical"
+  >
+    <ino-radio value="opt-1">Opt 1</ino-radio>
+    <ino-radio value="opt-2">Opt 2</ino-radio>
+    <ino-radio value="opt-3">Opt 3</ino-radio>
+  </ino-radio-group>
+`;
