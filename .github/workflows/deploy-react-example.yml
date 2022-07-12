@@ -1,4 +1,4 @@
-name: Deploy elements-react example
+name: Deploy react example
 
 on:
   workflow_dispatch:

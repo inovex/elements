@@ -1,4 +1,4 @@
-name: Deploy elements-vue example
+name: Deploy vue example
 
 on:
   workflow_dispatch:
