@@ -11,6 +11,7 @@ import { Select } from './ino-select';
 import { Fab } from './ino-fab';
 import { NavItemLink } from './shared/components/NavItemLink';
 import { Button } from './ino-button';
+import { StarterGuide } from './started-guide';
 
 type CustomRoute = {
   to: string;
@@ -60,6 +61,7 @@ const App: React.FC = () => {
         </InoList>
         <InoList slot="content">
           <NavItemLink to="/home" label="TodoApp" />
+          <NavItemLink to="/guide" label="StarterGuide" />
           <InoListDivider/>
           {
             ROUTES.map(({ to, label }) => (
@@ -72,6 +74,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Navigate replace to="/home"/>}/>
             <Route path="/home" element={ <HomeTodoApp/>} />
+            <Route path="/guide" element={ <StarterGuide/>} />
+
             {
               ROUTES.map((route) => (
                   <Route key={route.to} path={route.to} element={route.component} />

@@ -1,0 +1,38 @@
+%centered-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+}
+.leftpage {
+  @extend %centered-div;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.body {
+  @extend %centered-div;
+  justify-content: center;
+}
+
+.rightpage {
+  @extend %centered-div;
+  background-color: #003c7e;
+  color: white;
+  justify-content: center;
+  .p {
+    text-align: center;
+  }
+}
