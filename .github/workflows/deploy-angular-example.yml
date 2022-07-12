@@ -55,7 +55,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: packages/landingpage/example-projects/angular # The folder the action should deploy.
+          folder:  ./artifact # The folder the action should deploy.
+          target-folder: ./example-projects/angular # The folder the action will deploy to.
           commit-message: Deploying elements-angular-example
           clean-exclude: |
             version
