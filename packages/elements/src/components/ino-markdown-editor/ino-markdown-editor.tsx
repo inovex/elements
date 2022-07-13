@@ -104,6 +104,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   private initializeEditor(initialValue: string): void {
+    if (!this.editor) return;
     this.editor.commands.setContent(this.markdownToHtml(initialValue), true);
     this.textareaRef.value = this.htmlToMarkdown();
     this.textareaRef.rows = this.textareaRef.value.split('\n').length;
