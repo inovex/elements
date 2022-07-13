@@ -89,10 +89,12 @@ export default {
     markdownSerializer.serialize(content, { tightLists: true }),
   parse: (markdownText: string): string => {
     if (!markdownRenderer) {
+      // list of markdown-it rules: https://github.com/markdown-it/markdown-it/issues/289
       markdownRenderer = defaultMarkdownParser['tokenizer']
         .enable('strikethrough')
         .use(taskLists, { enabled: true, label: true, labelAfter: true });
     }
+
     return markdownRenderer.render(markdownText);
   },
 };
