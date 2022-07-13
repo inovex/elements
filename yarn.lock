@@ -4498,9 +4498,9 @@
     "@hapi/hoek" "^9.0.0"
 
 "@hedgedoc/markdown-it-task-lists@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/@hedgedoc/markdown-it-task-lists/-/markdown-it-task-lists-1.0.3.tgz#a7ed9f65c9b0656b1f26eae1068679b8662a7e39"
-  integrity sha512-/Gi8zNbr7oD/LIdNEKeYAVV2e/z+sjrfuWHDOL+2HQKdpQaMBMpG0xb/aN3CQmJiKQCWUaBO47iuapn7VUh98w==
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@hedgedoc/markdown-it-task-lists/-/markdown-it-task-lists-1.0.5.tgz#283655abe6157492b007a725cec6b36ac7280a58"
+  integrity sha512-l/rJ8tJAZ1Fs0vzQPfap4+YnILWZBxCqtTikjE26Y5hJYY0LY3GJCWU4WXHVIPMJ/0Dm4XbKonXURfLQn5GeZw==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"

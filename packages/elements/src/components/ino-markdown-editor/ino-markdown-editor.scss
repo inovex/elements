@@ -171,15 +171,16 @@ ino-markdown-editor {
 
     ul[data-type='taskList'] {
       list-style: none;
-      padding: 0;
+    }
+
+    :is(ul, ol)[data-type='taskList'] {
+      padding-left: 12px;
 
       p {
         margin: 0;
       }
 
       li {
-        display: flex;
-
         > label {
           flex: 0 0 auto;
           margin-right: 0.5rem;
@@ -187,7 +188,7 @@ ino-markdown-editor {
         }
 
         > div {
-          flex: 1 1 auto;
+          display: inline-block;
         }
       }
     }

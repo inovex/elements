@@ -4759,7 +4759,7 @@
       "tag": "ino-markdown-editor",
       "readme": "# ino-markdown-editor\n\n\n",
       "usage": {},
-      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * No support of image syntax. __Images are not allowed!__",
+      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],

@@ -1,15 +1,13 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch} from '@stencil/core';
 import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
-import TaskItem from "@tiptap/extension-task-item";
-import TaskList from "@tiptap/extension-task-list";
+import TaskItem from "./extensions/task_item";
+import TaskList from "./extensions/task_list";
 import Link from '@tiptap/extension-link';
 import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
 import {Actions, handleToolbarBtnClick, isToolbarBtnActive} from './editor-toolbar-helper';
-
-type JsonStructure = { [key: string]: any };
 
 /**
  * The **Preview Mode** supports following actions:
@@ -18,7 +16,7 @@ type JsonStructure = { [key: string]: any };
  * |---|
  * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
  * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
- * | Bold | Inline code |
+ * | Bold | Inline code | Task list |
  *
  * Additionally, there are a lot of predefined
  * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
@@ -27,6 +25,7 @@ type JsonStructure = { [key: string]: any };
  * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
  *
  *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+ *  * Support of task list syntax (`- [x] MyToDoTask`)
  *  * No support of image syntax. __Images are not allowed!__
  */
 @Component({
@@ -156,12 +155,8 @@ export class MarkdownEditor implements ComponentInterface {
     }, this.textareaRef.value);
   }
 
-  private markdownToHtml(md: string = this.initialValue): JsonStructure {
-    return this.tryParse(() => {
-      const state = markdownSerializer.parse(md, this.editor.schema);
-      console.log(state);
-      return state.toJSON();
-    }, this.editor.state);
+  private markdownToHtml(md: string = this.initialValue): string {
+    return this.tryParse(() => markdownSerializer.parse(md), this.editor.getHTML());
   }
 
   private tryParse<T>(parseCallback: () => T, fallbackValue: T): T {
@@ -292,7 +287,7 @@ export class MarkdownEditor implements ComponentInterface {
               class={getToolbarActionBtnClass(Actions.TASK_LIST)}
               onClick={() => this.handleToolbarActionClick(Actions.TASK_LIST)}
             >
-              <ino-icon icon="info"/>
+              <ino-icon icon="task_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
