@@ -1,4 +1,4 @@
-import { Components } from '@inovex.de/elements';
+import { Components, KeyValue } from '@inovex.de/elements';
 import { Meta, Story } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
@@ -34,7 +34,7 @@ export default {
   },
 } as Meta<Components.InoAutocomplete>;
 
-const inputHandler = (ev: CustomEvent<string | {key: string; value: string}>) => {
+const inputHandler = (ev: CustomEvent<KeyValue>) => {
   (ev.target as HTMLInoAutocompleteElement).value = ev.detail;
 };
 

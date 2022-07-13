@@ -65,8 +65,8 @@ export class Autocomplete implements ComponentInterface {
 
     const val = Autocomplete.isKeyValue(value) ? value.value : value;
 
-    this.inoInputEl.value = val;
-    this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
+    if(this.inoInputEl) this.inoInputEl.value = val;
+    if(this.inputEl) this.inputEl.selectionStart = this.inputEl.selectionEnd = val.length; // move cursor to end
   }
 
   /**
@@ -107,18 +107,12 @@ export class Autocomplete implements ComponentInterface {
   }
 
   componentDidLoad() {
-    this.inoInputEl = this.el.querySelector('ino-input');
-    this.inputEl = this.el.querySelector('input');
-
-    if (!this.inoInputEl) {
-      throw new Error(
-        `[ino-autocomplete] No <ino-input> element found in default slot.`
-      );
-    }
-
-    this.inoInputEl.addEventListener('valueChange', this.onInputValueChange);
-
+    this.initComponents();
     this.initAutocomplete();
+  }
+
+  connectedCallback() {
+    this.initComponents();
   }
 
   disconnectedCallback() {
@@ -129,6 +123,22 @@ export class Autocomplete implements ComponentInterface {
     this.inoInputEl.value = e.detail;
     e.stopPropagation();
   };
+
+  private initComponents() {
+
+    this.inoInputEl?.removeEventListener('valueChange', this.onInputValueChange);
+
+    this.inoInputEl = this.el.querySelector('ino-input');
+    this.inputEl = this.el.querySelector('input');
+
+    if (!this.inoInputEl) {
+      throw new Error(
+        `[ino-autocomplete] No <ino-input> element found in default slot.`
+      );
+    }
+
+    this.inoInputEl?.addEventListener('valueChange', this.onInputValueChange);
+  }
 
   private initAutocomplete() {
     this.autocomplete?.unInit();
@@ -164,7 +174,7 @@ export class Autocomplete implements ComponentInterface {
       },
     };
 
-    if (this.options.length > 0 && Autocomplete.isKeyValue(this.options[0])) {
+    if (this.options?.length > 0 && Autocomplete.isKeyValue(this.options[0])) {
       options['data']['keys'] = ['value'];
     }
 
@@ -186,7 +196,7 @@ export class Autocomplete implements ComponentInterface {
   }
 
   private resetInput(): void {
-    this.inoInputEl.value = '';
+    if(this.inoInputEl) this.inoInputEl.value = '';
   }
 
   private static isKeyValue(value: string | KeyValue): value is KeyValue {
