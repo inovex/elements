@@ -17,9 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/install
-      - run: cd packages/elements-react-example
       - run: yarn lint
       - run: yarn test
+      - run: cd packages/elements-react-example
 
   build:
     runs-on: ubuntu-latest
