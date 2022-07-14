@@ -34,7 +34,7 @@ jobs:
       - name: Upload Storybook Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: elements-angular-example
+          name: angular
           path:
             packages/elements-angular-example/dist/
 
@@ -50,7 +50,7 @@ jobs:
 
       - uses: actions/download-artifact@v2
         with:
-          name: elements-angular-example
+          name: angular
           path: ./artifact
 
       - name: Deploy Angular example project to Github Pages 🚀
@@ -58,8 +58,10 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder:  ./artifact # The folder the action should deploy.
-          target-folder: ./example-projects/angular # The folder the action will deploy to.
+          target-folder: ./example-projects/ # The folder the action will deploy to.
           commit-message: Deploying elements-angular-example
           clean-exclude: |
             version
             unicorn
+            example-projects/react
+            example-projects/vue
