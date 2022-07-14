@@ -77,7 +77,7 @@ export default {
   created () {
     const baseUrl = window.location.origin + window.location.pathname
     const exampleProjectReactUrl = baseUrl + 'example-projects/react/index.html/';
-    const exampleProjectAngularUrl = baseUrl + 'example-projects/angular/index.html/';
+    const exampleProjectAngularUrl = baseUrl + 'example-projects/elements-angular-example/';
     const exampleProjectVueUrl = baseUrl + 'example-projects/vue/index.html/'; 
 
     this.exampleProjectReactUrl = exampleProjectReactUrl;
