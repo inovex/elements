@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href /example-projects/angular/elements-angular-example/",
+    "build": "ng build --base-href /example-projects/elements-angular-example/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI"
   },
