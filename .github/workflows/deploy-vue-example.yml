@@ -19,7 +19,6 @@ jobs:
       - uses: ./.github/workflows/install
       - run: cd packages/elements-vue-example/
       - run: yarn lint
-      - run: yarn test
 
   build:
     runs-on: ubuntu-latest
