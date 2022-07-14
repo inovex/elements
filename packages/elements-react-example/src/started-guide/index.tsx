@@ -10,7 +10,7 @@ import {
   InoInput,
 } from '../shared/InovexElements';
 import './Guide.scss';
-import logo from '../../../landingpage/src/assets/logos/elements.svg'
+import logo from '../../../landingpage/src/assets/logos/elements.svg';
 
 export const StarterGuide: React.FC = () => {
   return (
@@ -52,7 +52,7 @@ export const StarterGuide: React.FC = () => {
           <InoInput icon-trailing="" label="password" outline={true}>
             <InoIcon slot="icon-trailing" icon="password"></InoIcon>
           </InoInput>
-          <InoButton type="submit">Sign in</InoButton>
+          <InoButton type="submit">Sign In</InoButton>
         </div>
       </div>
       <div className="rightpage">
