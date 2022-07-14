@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
 import {Actions, handleToolbarBtnClick, isToolbarBtnActive} from './editor-toolbar-helper';
+import Link from "@tiptap/extension-link";
 
 /**
  * The **Preview Mode** supports following actions:
@@ -113,7 +114,7 @@ export class MarkdownEditor implements ComponentInterface {
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
-      extensions: [StarterKit.configure({ bulletList: false }), BulletList, TaskItem, TaskList],
+      extensions: [StarterKit.configure({ bulletList: false }), BulletList, Link, TaskItem, TaskList],
       onBlur: this.handlePreviewBlur,
       onTransaction: this.onEditorTransaction,
       editable: this.viewMode !== ViewMode.READONLY,
