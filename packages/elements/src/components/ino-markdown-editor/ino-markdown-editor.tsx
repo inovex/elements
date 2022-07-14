@@ -3,7 +3,7 @@ import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import TaskItem from "./extensions/task_item";
 import TaskList from "./extensions/task_list";
-import Link from '@tiptap/extension-link';
+import BulletList from './extensions/bullet_list';
 import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
@@ -86,7 +86,7 @@ export class MarkdownEditor implements ComponentInterface {
   /**
    * Emits when the ino-markdown-editor is blurred
    */
-  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+  @Event({bubbles: false}) inoBlur!: EventEmitter<void>;
 
   componentDidLoad(): void {
     this.createEditor();
@@ -113,14 +113,14 @@ export class MarkdownEditor implements ComponentInterface {
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
-      extensions: [StarterKit, Link, TaskItem.configure({ nested: true }), TaskList],
-      onBlur: this.handlePreviewBlur ,
+      extensions: [StarterKit.configure({ bulletList: false }), BulletList, TaskItem, TaskList],
+      onBlur: this.handlePreviewBlur,
       onTransaction: this.onEditorTransaction,
       editable: this.viewMode !== ViewMode.READONLY,
     });
   }
 
-  private handlePreviewBlur  = (): void => {
+  private handlePreviewBlur = (): void => {
     const markdownText = this.htmlToMarkdown();
     if (!this.errorMessage)
       this.valueChange.emit(markdownText);
@@ -173,7 +173,7 @@ export class MarkdownEditor implements ComponentInterface {
 
   private handleViewModeBtnClick(viewMode: ViewMode): void {
     if (!this.errorMessage)
-     this.viewModeChange.emit(viewMode);
+      this.viewModeChange.emit(viewMode);
   }
 
   private handleToolbarActionClick(action: Actions): void {

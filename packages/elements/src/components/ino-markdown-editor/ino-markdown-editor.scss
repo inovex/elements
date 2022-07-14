@@ -181,6 +181,7 @@ ino-markdown-editor {
       }
 
       li {
+        display: flex;
         > label {
           flex: 0 0 auto;
           margin-right: 0.5rem;
@@ -188,7 +189,12 @@ ino-markdown-editor {
         }
 
         > div {
+          flex: 1 1 auto;
           display: inline-block;
+        }
+
+        input[type='checkbox'] {
+          accent-color: theme.color(primary);
         }
       }
     }

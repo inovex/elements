@@ -14,7 +14,7 @@ import Heading from '@tiptap/extension-heading';
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 import Paragraph from '@tiptap/extension-paragraph';
 import OrderedList from '@tiptap/extension-ordered-list';
-import BulletList from '@tiptap/extension-bullet-list';
+import BulletList from './extensions/bullet_list';
 import ListItem from '@tiptap/extension-list-item';
 import CodeBlock from '@tiptap/extension-code-block';
 import HardBreak from '@tiptap/extension-hard-break';
