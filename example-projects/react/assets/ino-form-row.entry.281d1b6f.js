@@ -1,3 +1,0 @@
-import{r as i,h as o,H as n}from"./index.73055f53.js";/*!
- * Crafted with ❤ by inovex GmbH
- */const s="ino-form-row{box-sizing:border-box}ino-form-row>.ino-form-row__composer{display:flex;align-items:center;box-sizing:border-box;width:100%;padding:2px}ino-form-row .ino-form-row__element{flex:1}ino-form-row .ino-form-row__label{width:120px}";let e=class{constructor(r){i(this,r)}render(){return o(n,null,o("div",{class:"ino-form-row__composer"},o("div",{class:"ino-form-row__label"},this.label,this.mandatory&&o("span",null,"*")),o("div",{class:"ino-form-row__element"},o("slot",null))))}};e.style=s;export{e as ino_form_row};

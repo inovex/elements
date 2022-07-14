@@ -1,3 +1,0 @@
-/*!
- * Crafted with ❤ by inovex GmbH
- */function o(){return"_"+Math.random().toString(36).substr(2,9)}function r(t,n){return t.querySelector(`[slot="${n}"]`)}function s(t,n){var e;return n?t.querySelectorAll(`[slot="${n}"]`).length>0:((e=t.querySelector("slot"))===null||e===void 0?void 0:e.assignedElements().length)===0}function u(t){var n;(n=t.querySelector("[data-ino-focus]"))===null||n===void 0||n.focus()}function a(t){const n=t.value.length;t.setSelectionRange&&(t.focus(),t.setSelectionRange(n,n))}function i(t){t.stopPropagation(),t.preventDefault()}export{o as a,u as f,r as g,s as h,a as m,i as p};
