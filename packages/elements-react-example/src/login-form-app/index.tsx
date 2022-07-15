@@ -12,7 +12,7 @@ import {
 import './Guide.scss';
 import logo from '../../../landingpage/src/assets/logos/elements.svg';
 
-export const StarterGuide: React.FC = () => {
+export const LoginFormApp: React.FC = () => {
   return (
     <div className="container">
       <div className="leftpage">
@@ -64,4 +64,4 @@ export const StarterGuide: React.FC = () => {
   );
 };
 
-ReactDOM.render(<StarterGuide />, document.getElementById('root'));
+ReactDOM.render(<LoginFormApp />, document.getElementById('root'));
