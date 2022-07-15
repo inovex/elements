@@ -4511,85 +4511,13 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@inovex.de/elements@file:packages/elements-react/.yalc/@inovex.de/elements":
+"@inovex.de/elements-angular@^7.0.0":
   version "7.0.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements-angular/-/elements-angular-7.0.0.tgz#819a6600b1d7273feb046fc063181cbbdf47843c"
+  integrity sha512-VMa2Y7kf3F83CXs6Gk1+QoTZNmx+P5OORag5Le3ecCU3NGD+awkRlZ4RZs/aCUF9Hh+iASDM9vjFoRrVEf/h/Q==
   dependencies:
-    "@material/button" "^13.0.0"
-    "@material/card" "^13.0.0"
-    "@material/checkbox" "^13.0.0"
-    "@material/chips" "^13.0.0"
-    "@material/data-table" "^13.0.0"
-    "@material/dialog" "^13.0.0"
-    "@material/drawer" "^13.0.0"
-    "@material/fab" "^13.0.0"
-    "@material/form-field" "^13.0.0"
-    "@material/icon-button" "^13.0.0"
-    "@material/image-list" "^13.0.0"
-    "@material/linear-progress" "^13.0.0"
-    "@material/list" "^13.0.0"
-    "@material/menu" "^13.0.0"
-    "@material/radio" "^13.0.0"
-    "@material/ripple" "^13.0.0"
-    "@material/select" "^13.0.0"
-    "@material/slider" "^13.0.0"
-    "@material/snackbar" "^13.0.0"
-    "@material/switch" "^13.0.0"
-    "@material/tab" "^13.0.0"
-    "@material/tab-bar" "^13.0.0"
-    "@material/tab-indicator" "^13.0.0"
-    "@material/tab-scroller" "^13.0.0"
-    "@material/textfield" "^13.0.0"
-    "@material/typography" "^13.0.0"
-    "@stencil/core" "2.14.0"
-    "@tiptap/core" "^2.0.0-beta.159"
-    "@tiptap/extension-link" "^2.0.0-beta.33"
-    "@tiptap/starter-kit" "^2.0.0-beta.164"
-    autosize "^4.0.2"
-    classnames "^2.2.6"
-    date-fns "^2.16.1"
-    flatpickr "^4.4.6"
-    prosemirror-markdown "^1.6.0"
-    tippy.js "^6.2.3"
-
-"@inovex.de/elements@file:packages/elements-vue/.yalc/@inovex.de/elements":
-  version "7.0.0"
-  dependencies:
-    "@material/button" "^13.0.0"
-    "@material/card" "^13.0.0"
-    "@material/checkbox" "^13.0.0"
-    "@material/chips" "^13.0.0"
-    "@material/data-table" "^13.0.0"
-    "@material/dialog" "^13.0.0"
-    "@material/drawer" "^13.0.0"
-    "@material/fab" "^13.0.0"
-    "@material/form-field" "^13.0.0"
-    "@material/icon-button" "^13.0.0"
-    "@material/image-list" "^13.0.0"
-    "@material/linear-progress" "^13.0.0"
-    "@material/list" "^13.0.0"
-    "@material/menu" "^13.0.0"
-    "@material/radio" "^13.0.0"
-    "@material/ripple" "^13.0.0"
-    "@material/select" "^13.0.0"
-    "@material/slider" "^13.0.0"
-    "@material/snackbar" "^13.0.0"
-    "@material/switch" "^13.0.0"
-    "@material/tab" "^13.0.0"
-    "@material/tab-bar" "^13.0.0"
-    "@material/tab-indicator" "^13.0.0"
-    "@material/tab-scroller" "^13.0.0"
-    "@material/textfield" "^13.0.0"
-    "@material/typography" "^13.0.0"
-    "@stencil/core" "2.14.0"
-    "@tiptap/core" "^2.0.0-beta.159"
-    "@tiptap/extension-link" "^2.0.0-beta.33"
-    "@tiptap/starter-kit" "^2.0.0-beta.164"
-    autosize "^4.0.2"
-    classnames "^2.2.6"
-    date-fns "^2.16.1"
-    flatpickr "^4.4.6"
-    prosemirror-markdown "^1.6.0"
-    tippy.js "^6.2.3"
+    "@inovex.de/elements" "^7.0.0"
+    tslib "^2.2.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -20626,9 +20554,9 @@ module-alias@^2.2.2:
   integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
 moment@^2.24.0:
-  version "2.29.2"
-  resolved "https://registry.npmjs.org/moment/-/moment-2.29.2.tgz#00910c60b20843bcba52d37d58c628b47b1f20e4"
-  integrity sha512-UgzG4rvxYpN15jgCmVJwac49h9ly9NurikMWGPdVxm8GZD6XjkKPxDTjQQ43gtGgnV3X0cAyWDdP2Wexoquifg==
+  version "2.29.4"
+  resolved "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
