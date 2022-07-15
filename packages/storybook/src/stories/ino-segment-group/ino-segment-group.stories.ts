@@ -28,12 +28,6 @@ export default {
   },
 } as Meta<Components.InoSegmentGroup>;
 
-const checkedChangeHandler = (e: CustomEvent<boolean>) => {
-  const pressedButton = e.target as HTMLInoSegmentButtonElement;
-  const segmentGroup = pressedButton.closest('ino-segment-group');
-  segmentGroup.value = pressedButton.value;
-};
-
 const template = new TemplateGenerator<Components.InoSegmentGroup>(
   'ino-segment-group',
   (args) => html`
@@ -42,12 +36,38 @@ const template = new TemplateGenerator<Components.InoSegmentGroup>(
       name="${args.name}"
       value="${args.value}"
     >
-      <ino-segment-button value="opt-1" @checkedChange="${checkedChangeHandler}">Option 1</ino-segment-button>
-      <ino-segment-button value="opt-2" @checkedChange="${checkedChangeHandler}">Option 2</ino-segment-button>
-      <ino-segment-button value="opt-3" @checkedChange="${checkedChangeHandler}">Option 3</ino-segment-button>
-      <ino-segment-button value="opt-4" @checkedChange="${checkedChangeHandler}">Option 4</ino-segment-button>
+      <ino-segment-button
+        value="opt-1"
+        @checkedChange="${checkedChangeHandler}"
+      >
+        Option 1
+      </ino-segment-button>
+      <ino-segment-button
+        value="opt-2"
+        @checkedChange="${checkedChangeHandler}"
+      >
+        Option 2
+      </ino-segment-button>
+      <ino-segment-button
+        value="opt-3"
+        @checkedChange="${checkedChangeHandler}"
+      >
+        Option 3
+      </ino-segment-button>
+      <ino-segment-button
+        value="opt-4"
+        @checkedChange="${checkedChangeHandler}"
+      >
+        Option 4
+      </ino-segment-button>
     </ino-segment-group>
   `
 );
 
 export const Playground = template.generatePlaygroundStory();
+
+function checkedChangeHandler(e: CustomEvent<boolean>) {
+  const pressedButton = e.target as HTMLInoSegmentButtonElement;
+  const segmentGroup = pressedButton.closest('ino-segment-group');
+  segmentGroup.value = pressedButton.value;
+}

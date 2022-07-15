@@ -30,11 +30,6 @@ export default {
   },
 } as Meta<Components.InoSelect>;
 
-const handleFormSubmission = (e) => {
-  e.preventDefault();
-  showSnackbar('Form submitted.');
-};
-
 const optionsTemplate = html`
   <ino-option value="Option 1">Option 1</ino-option>
   <ino-option value="Option 2">Option 2</ino-option>
@@ -131,3 +126,8 @@ const templateForm = new TemplateGenerator<Components.InoSelect>(
   `
 );
 export const Form = templateForm.generatePlaygroundStory();
+
+function handleFormSubmission(e) {
+  e.preventDefault();
+  showSnackbar('Form submitted.');
+}

@@ -24,29 +24,6 @@ export default {
   },
 } as Meta<Components.InoNavDrawer>;
 
-
-const openChangeHandle = function (e) {
-  const el = e.target;
-  if (el.tagName.toLowerCase() !== 'ino-nav-drawer') {
-    return;
-  }
-  el.setAttribute('open', !!e.detail);
-};
-
-const toggleNav = (e: PointerEvent) => {
-  const drawer = (e.target as HTMLElement).closest('ino-nav-drawer');
-  drawer.open = !drawer.open;
-  return;
-};
-
-const handleNavItemClick = (e: PointerEvent) => {
-  const navItem = (e.target as HTMLElement).closest('ino-nav-item');
-  document
-    .querySelectorAll('ino-nav-item')
-    .forEach((navItem) => (navItem.activated = false));
-  navItem.activated = true;
-};
-
 const template = new TemplateGenerator<Components.InoNavDrawer>(
   'ino-nav-drawer',
   (args) => html`
@@ -104,3 +81,22 @@ export const Dismissible = template.generateStoryForProp(
   'variant',
   'dismissible'
 );
+
+function openChangeHandle(e: CustomEvent<boolean>) {
+  const el = e.target as HTMLInoNavDrawerElement;
+  el.open = e.detail;
+}
+
+function toggleNav(e: PointerEvent) {
+  const drawer = (e.target as HTMLElement).closest('ino-nav-drawer');
+  drawer.open = !drawer.open;
+  return;
+}
+
+function handleNavItemClick(e: PointerEvent) {
+  const navItem = (e.target as HTMLElement).closest('ino-nav-item');
+  document
+    .querySelectorAll('ino-nav-item')
+    .forEach((navItem) => (navItem.activated = false));
+  navItem.activated = true;
+}

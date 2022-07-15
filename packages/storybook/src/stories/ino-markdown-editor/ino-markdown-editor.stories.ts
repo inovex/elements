@@ -17,10 +17,6 @@ export default {
   },
 } as Meta;
 
-const handleViewModeChange = (e: CustomEvent<ViewMode>) => {
-  (e.target as HTMLInoMarkdownEditorElement).viewMode = e.detail;
-};
-
 const template = new TemplateGenerator<Components.InoMarkdownEditor>(
   'ino-markdown-editor',
   (args) => html`
@@ -32,3 +28,7 @@ const template = new TemplateGenerator<Components.InoMarkdownEditor>(
   `
 );
 export const Playground = template.generatePlaygroundStory();
+
+function handleViewModeChange(e: CustomEvent<ViewMode>) {
+  (e.target as HTMLInoMarkdownEditorElement).viewMode = e.detail;
+}

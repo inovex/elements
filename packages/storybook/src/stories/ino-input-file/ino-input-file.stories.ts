@@ -24,13 +24,6 @@ export default {
   },
 } as Meta<Components.InoInputFile>;
 
-const handleChangeFile = (e: CustomEvent<{ files: File[] }>) => {
-  const fileNames = e.detail.files
-    .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
-    .join('\n');
-  alert(fileNames);
-};
-
 const template = new TemplateGenerator<Components.InoInputFile>(
   'ino-input-file',
   (args) => html`
@@ -51,3 +44,10 @@ const template = new TemplateGenerator<Components.InoInputFile>(
 );
 export const Playground = template.generatePlaygroundStory();
 export const DragAndDrop = template.generateStoryForProp('dragAndDrop', true);
+
+function handleChangeFile (e: CustomEvent<{ files: File[] }>) {
+  const fileNames = e.detail.files
+    .map((f) => [f.name, f.type, f.size + ' bytes'].join(', '))
+    .join('\n');
+  alert(fileNames);
+}

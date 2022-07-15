@@ -1,28 +1,15 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-snackbar.scss';
 import { TemplateGenerator } from '../template-generator';
+import { useEffect } from '@storybook/client-api';
 
 export default {
   title: 'Notification/ino-snackbar',
   component: 'ino-snackbar',
-  decorators: [
-    (s) => decorateStoryWithClass(s, 'story-ino-snackbar'),
-    (story) => {
-      useEffect(() => {
-        document.addEventListener('click', btnClickHandler);
-        document.addEventListener('hideEl', snackbarHideHandler);
-        return () => {
-          document.removeEventListener('click', btnClickHandler);
-          document.addEventListener('hideEl', snackbarHideHandler);
-        };
-      });
-      return story();
-    },
-  ],
+  decorators: [(s) => decorateStoryWithClass(s, 'story-ino-snackbar')],
   args: {
     actionText: 'Some Action',
     defaultSlot: 'This is a message',
@@ -41,6 +28,16 @@ type InoSnackbarExtended = Components.InoSnackbar & {
 const template = new TemplateGenerator<InoSnackbarExtended>(
   'ino-snackbar',
   (args) => html`
+    ${useEffect(() => {
+      function snackbarHideHandler(e: CustomEvent<void>) {
+        (e.target as HTMLInoSnackbarElement).remove();
+      }
+
+      document.addEventListener('hideEl', snackbarHideHandler);
+      return () => {
+        document.addEventListener('hideEl', snackbarHideHandler);
+      };
+    })}
     <ino-button
       class="snackbar-trigger"
       data-template-id="${args.id}"
@@ -55,7 +52,7 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
-        @hideEl="${snackbarHideHandler}"
+        @hideEl="${console.log}"
       >
         ${args.defaultSlot}
       </ino-snackbar>
@@ -124,8 +121,4 @@ function btnClickHandler(e: PointerEvent) {
   }
 
   document.body.appendChild(templateWithId.content.cloneNode(true));
-}
-
-function snackbarHideHandler(e: CustomEvent<void>) {
-  (e.target as HTMLInoSnackbarElement).remove();
 }

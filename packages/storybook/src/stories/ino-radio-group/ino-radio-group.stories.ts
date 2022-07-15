@@ -1,10 +1,9 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
-import {handleValueChange} from "../handler";
+import { handleValueChange } from '../handler';
 
 export default {
   title: 'Input/ino-radio-group',
@@ -14,9 +13,7 @@ export default {
       handles: ['checkedChange ino-radio'],
     },
   },
-  decorators: [
-    story => decorateStoryWithClass(story),
-  ],
+  decorators: [(story) => decorateStoryWithClass(story)],
   args: {
     value: 'opt-2',
     alignments: 'horizontal',

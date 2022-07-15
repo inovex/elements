@@ -1,5 +1,4 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
@@ -14,13 +13,12 @@ import nidarosImg from '../../assets/images/nidaros.jpg';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-carousel.scss';
+import { handleValueChange } from '../handler';
 
 export default {
   title: 'Graphic/<ino-carousel>',
   component: 'ino-carousel',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-carousel'), 
-  ],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-carousel')],
   args: {
     value: 0,
     autoplay: false,
@@ -31,11 +29,6 @@ export default {
     reverse: false,
   },
 } as Meta;
-
-const onSlideChanged = (ev: CustomEvent<string>) => {
-  const carouselEl = ev.target  as HTMLInoCarouselElement;
-  carouselEl.value = ev.detail 
-}
 
 const template = new TemplateGenerator<Components.InoCarousel>(
   'ino-carousel',
@@ -50,7 +43,7 @@ const template = new TemplateGenerator<Components.InoCarousel>(
       infinite="${args.infinite}"
       intermission="${args.intermission}"
       reverse="${args.reverse}"
-      @valueChange="${onSlideChanged}"
+      @valueChange="${handleValueChange}"
     >
       <ino-carousel-slide src=${lightningImg} value="0"></ino-carousel-slide>
       <ino-carousel-slide src=${mountainsImg} value="1"></ino-carousel-slide>

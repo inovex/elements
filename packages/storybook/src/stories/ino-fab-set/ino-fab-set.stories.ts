@@ -23,13 +23,6 @@ export default {
   },
 } as Meta<Components.InoFabSet>;
 
-const clickHandler = (e: CustomEvent<void>) => {
-  const fabSetEl = (e.target as HTMLElement).closest(
-    'ino-fab-set'
-  ) as HTMLInoFabSetElement;
-  fabSetEl.openDial = !fabSetEl.openDial;
-};
-
 const template = new TemplateGenerator<
   Components.InoFabSet & { iconOpened: string; iconClosed: string }
 >(
@@ -69,3 +62,10 @@ const template = new TemplateGenerator<
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'iconOpened', '_fab_set_arrow_down');
 withIconControl(Playground, 'iconClosed', '_fab_set_arrow_up');
+
+function clickHandler(e: CustomEvent<void>) {
+  const fabSetEl = (e.target as HTMLElement).closest(
+    'ino-fab-set'
+  ) as HTMLInoFabSetElement;
+  fabSetEl.openDial = !fabSetEl.openDial;
+}

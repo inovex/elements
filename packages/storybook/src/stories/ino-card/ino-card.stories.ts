@@ -16,11 +16,6 @@ export default {
   },
 } as Meta<Components.InoCard>;
 
-const clickHandler = (e: PointerEvent) => {
-  const inoCard = (e.target as HTMLElement).closest('ino-card');
-  inoCard.selected = !inoCard.selected;
-};
-
 const template = new TemplateGenerator<Components.InoCard>(
   'ino-card',
   (args) => html`
@@ -53,3 +48,8 @@ export const DisabledElevation = template.generateStoryForProp(
   'disableElevation',
   true
 );
+
+function clickHandler(e: PointerEvent) {
+  const inoCard = (e.target as HTMLElement).closest('ino-card');
+  inoCard.selected = !inoCard.selected;
+}

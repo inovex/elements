@@ -25,11 +25,6 @@ export default {
   },
 } as Meta<Components.InoRange>;
 
-const eventHandlerStart = (e: CustomEvent<number>) =>
-  ((e.target as HTMLInoRangeElement).valueStart = e.detail);
-const eventHandlerEnd = (e: CustomEvent<number>) =>
-  ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
-
 // the basic template for the checkbox component
 const template = new TemplateGenerator<Components.InoRange>(
   'ino-range',
@@ -69,3 +64,11 @@ export const Ranged = template.generateStoryForProp('ranged', true, {
   valueEnd: 70,
   discrete: true,
 });
+
+function eventHandlerStart(e: CustomEvent<number>) {
+  (e.target as HTMLInoRangeElement).valueStart = e.detail;
+}
+
+function eventHandlerEnd(e: CustomEvent<number>) {
+  (e.target as HTMLInoRangeElement).valueEnd = e.detail;
+}

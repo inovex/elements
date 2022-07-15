@@ -1,5 +1,4 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
@@ -21,32 +20,6 @@ export default {
 
 type InoDialogExtended = Components.InoDialog & {
   dataDialogId: string;
-};
-
-const openDialog = (e: PointerEvent) => {
-  const dialog = document.getElementById(
-    (e.target as HTMLElement).parentElement.getAttribute('data-dialog-id')
-  ) as HTMLInoDialogElement;
-
-  dialog.open = true;
-};
-
-const handleDialogClose = (e: CustomEvent<void>) => {
-  const dialogEl = e.target as HTMLInoDialogElement;
-  dialogEl.open = false;
-  const snackbar = document.createElement(
-    'ino-snackbar'
-  ) as HTMLInoSnackbarElement;
-  snackbar.innerText = `Closed with action: ${e.detail}`;
-  document.body.appendChild(snackbar);
-};
-
-const checkedChangeHandler = (e: CustomEvent) => {
-  const segmentButton = e.target as HTMLInoSegmentButtonElement;
-  const group: HTMLInoSegmentGroupElement = segmentButton.closest(
-    'ino-segment-group'
-  );
-  group.value = segmentButton.value;
 };
 
 const template = new TemplateGenerator<InoDialogExtended>(
@@ -153,3 +126,29 @@ ClosingAction.args = {
   dismissible: true,
   dataDialogId: 'demo-action-dialog',
 };
+
+function openDialog(e: PointerEvent) {
+  const dialog = document.getElementById(
+    (e.target as HTMLElement).parentElement.getAttribute('data-dialog-id')
+  ) as HTMLInoDialogElement;
+
+  dialog.open = true;
+}
+
+function handleDialogClose(e: CustomEvent<void>) {
+  const dialogEl = e.target as HTMLInoDialogElement;
+  dialogEl.open = false;
+  const snackbar = document.createElement(
+    'ino-snackbar'
+  ) as HTMLInoSnackbarElement;
+  snackbar.innerText = `Closed with action: ${e.detail}`;
+  document.body.appendChild(snackbar);
+}
+
+function checkedChangeHandler(e: CustomEvent) {
+  const segmentButton = e.target as HTMLInoSegmentButtonElement;
+  const group: HTMLInoSegmentGroupElement = segmentButton.closest(
+    'ino-segment-group'
+  );
+  group.value = segmentButton.value;
+}

@@ -29,78 +29,6 @@ export default {
   },
 } as Meta;
 
-const valueChangeHandler = (e: CustomEvent<string>) => {
-  const inputEl = e.target as HTMLInoInputElement;
-
-  const value: string = e.detail;
-
-  const chips: HTMLInoChipElement[] = Array.from(
-    document.getElementsByTagName('ino-chip')
-  );
-
-  // show all chips
-  if (!value) {
-    chips.forEach((chip) => (chip.colorScheme = 'default'));
-  } else {
-    // Hide not matching icons
-    chips
-      .filter((chip) => !chip.value.includes(value.toLowerCase()))
-      .forEach((chip) => (chip.colorScheme = 'default'));
-
-    // Show matching icons
-    chips
-      .filter((chip) => chip.value.includes(value.toLowerCase()))
-      .forEach((chip) => (chip.colorScheme = 'primary'));
-  }
-
-  inputEl.value = value;
-};
-
-const ICONS_WITHOUT_INTERNALS = ICONS.filter(
-  (icon) => !icon.startsWith('_')
-).concat([
-  'status_zukuenftige',
-  'status_abwesend',
-  'status_offboarding_laufend',
-]);
-
-function copyToClipboard(text) {
-  const snackbar: HTMLInoSnackbarElement = document.createElement(
-    'ino-snackbar'
-  );
-
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      snackbar.innerText = `Successfully copied "${text}" to your clipboard!`;
-    })
-    .catch(() => {
-      snackbar.innerText = `An error occurred while copying the id to your clipboard!`;
-    })
-    .finally(() => {
-      document.body.appendChild(snackbar);
-    });
-}
-
-const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
-  (name) => name.length >= 1
-);
-
-const iconChips = ICON_IDS.map(
-  (name) => html`
-    <ino-chip
-      id="icon-${name}"
-      fill="outline"
-      color-scheme="default"
-      value="${name}"
-      @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
-    >
-      <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
-      ${name}
-    </ino-chip>
-  `
-);
-
 const template = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
   (args) => html`
@@ -139,3 +67,75 @@ const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   `
 );
 export const AllIcons = templateAllIcons.generatePlaygroundStory();
+
+const ICONS_WITHOUT_INTERNALS = ICONS.filter(
+  (icon) => !icon.startsWith('_')
+).concat([
+  'status_zukuenftige',
+  'status_abwesend',
+  'status_offboarding_laufend',
+]);
+
+const ICON_IDS = ICONS_WITHOUT_INTERNALS.sort().filter(
+  (name) => name.length >= 1
+);
+
+const iconChips = ICON_IDS.map(
+  (name) => html`
+    <ino-chip
+      id="icon-${name}"
+      fill="outline"
+      color-scheme="default"
+      value="${name}"
+      @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
+    >
+      <ino-icon class="chip-icon" slot="icon-leading" icon="${name}"></ino-icon>
+      ${name}
+    </ino-chip>
+  `
+);
+
+function valueChangeHandler(e: CustomEvent<string>) {
+  const inputEl = e.target as HTMLInoInputElement;
+
+  const value: string = e.detail;
+
+  const chips: HTMLInoChipElement[] = Array.from(
+    document.getElementsByTagName('ino-chip')
+  );
+
+  // show all chips
+  if (!value) {
+    chips.forEach((chip) => (chip.colorScheme = 'default'));
+  } else {
+    // Hide not matching icons
+    chips
+      .filter((chip) => !chip.value.includes(value.toLowerCase()))
+      .forEach((chip) => (chip.colorScheme = 'default'));
+
+    // Show matching icons
+    chips
+      .filter((chip) => chip.value.includes(value.toLowerCase()))
+      .forEach((chip) => (chip.colorScheme = 'primary'));
+  }
+
+  inputEl.value = value;
+}
+
+function copyToClipboard(text) {
+  const snackbar: HTMLInoSnackbarElement = document.createElement(
+    'ino-snackbar'
+  );
+
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      snackbar.innerText = `Successfully copied "${text}" to your clipboard!`;
+    })
+    .catch(() => {
+      snackbar.innerText = `An error occurred while copying the id to your clipboard!`;
+    })
+    .finally(() => {
+      document.body.appendChild(snackbar);
+    });
+}
