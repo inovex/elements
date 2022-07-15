@@ -55,7 +55,7 @@ export class MarkdownEditor implements ComponentInterface {
   /**
    * Sets the view mode of the editor.
    * Can be changed between `preview` (default), `markdown` and `readonly`.
-   * The `markdown` mode is made for advanced users that know the markdown syntax.
+   * The `markdown` mode is made for advanced users that know the Markdown syntax.
    */
   @Prop() viewMode: ViewModeUnion = 'preview';
 
