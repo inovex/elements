@@ -1,35 +1,16 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-control-item.scss';
+import { handleCheckedChange } from '../handler';
 
 export default {
   title: 'Structure/ino-control-item',
   component: 'ino-control-item',
-  decorators: [
-    (story) => decorateStoryWithClass(story),
-    (story) => {
-      useEffect(() => {
-        const checkedChangeHandler = (e: CustomEvent<boolean>) => {
-          const controlItem = e.target as HTMLInoControlItemElement;
-
-          controlItem.checked = e.detail;
-
-          if (controlItem.indeterminate) {
-            controlItem.indeterminate = false;
-          }
-        };
-        document.addEventListener('checkedChange', checkedChangeHandler);
-        return () =>
-          document.removeEventListener('checkedChange', checkedChangeHandler);
-      });
-      return story();
-    },
-  ],
+  decorators: [(story) => decorateStoryWithClass(story)],
   args: {
     activated: false,
     checked: false,
@@ -57,6 +38,7 @@ const template = new TemplateGenerator<Components.InoControlItem>(
       selected="${args.selected}"
       text="${args.text}"
       trailing="${args.trailing}"
+      @checkedChange="${handleCheckedChange}"
     >
     </ino-control-item>
   </ino-list>

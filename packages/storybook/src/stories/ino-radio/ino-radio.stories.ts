@@ -1,10 +1,10 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-radio.scss';
+import { handleCheckedChange } from '../handler';
 
 export default {
   title: 'Input/ino-radio',
@@ -14,21 +14,7 @@ export default {
       handles: ['checkedChange ino-radio'],
     },
   },
-  decorators: [
-    story => decorateStoryWithClass(story, 'story-radio'),
-    story => {
-      useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('checked', e.detail);
-        const radios = document.querySelectorAll('ino-radio');
-        radios.forEach(r => r.addEventListener('checkedChange', eventHandler));
-        return () =>
-          radios.forEach(r =>
-            r.removeEventListener('checkedChange', eventHandler)
-          );
-      });
-      return story();
-    },
-  ],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-radio')],
   args: {
     checked: false,
     disabled: false,
@@ -45,6 +31,7 @@ const template = new TemplateGenerator<Components.InoRadio>(
     disabled="${args.disabled}"
     name="${args.name}"
     value="${args.value}"
+    @checkedChange="${handleCheckedChange}"
   >
     Radio Button Label
   </ino-radio>

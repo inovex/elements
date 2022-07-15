@@ -5,6 +5,7 @@ import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 
 import './ino-segment-button.scss';
+import {handleCheckedChange} from "../handler";
 
 export default {
   title: 'Buttons/ino-segment-button',
@@ -26,8 +27,6 @@ export default {
   },
 } as Meta<Components.InoSegmentButton>;
 
-const checkedChangeHandler = (e: CustomEvent<boolean>) => (e.target as HTMLInoSegmentButtonElement).checked = e.detail;
-
 const template = new TemplateGenerator<Components.InoSegmentButton>(
   'ino-segment-button',
   args => html`
@@ -39,7 +38,7 @@ const template = new TemplateGenerator<Components.InoSegmentButton>(
     disabled="${args.disabled}"
     name="${args.name}"
     value="${args.value}"
-    @checkedChange="${checkedChangeHandler}"
+    @checkedChange="${handleCheckedChange}"
   >
     Segment Button Label
   </ino-segment-button>

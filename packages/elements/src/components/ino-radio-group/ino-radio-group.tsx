@@ -103,6 +103,11 @@ export class RadioGroup implements ComponentInterface {
     this.valueChange.emit(nextRadioButton.value);
   }
 
+  @Listen('checkedChange')
+  handleCheckedChange(ev: CustomEvent<boolean>) {
+    this.valueChange.emit((ev.target as HTMLInoRadioElement).value);
+  }
+
   /**
    * Adds a hover animation to the currently checked ino radio
    */

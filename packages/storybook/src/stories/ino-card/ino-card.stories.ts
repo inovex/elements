@@ -1,5 +1,4 @@
 import { Components } from '@inovex.de/elements';
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { TemplateGenerator } from '../template-generator';
 import { html } from 'lit-html';
@@ -10,35 +9,17 @@ import './ino-card.scss';
 export default {
   title: 'Structure/<ino-card>',
   component: 'ino-card',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-card'),
-    (story) => {
-      useEffect(() => {
-        const handleClick = function (e) {
-          const maybeCard: HTMLInoCardElement | undefined = e.target?.closest(
-            'ino-card'
-          );
-
-          if (!maybeCard) return;
-
-          maybeCard.selected = !maybeCard.selected;
-        };
-
-        document.addEventListener('click', handleClick);
-
-        return () => {
-          document.removeEventListener('click', handleClick);
-        };
-      });
-
-      return story();
-    },
-  ],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-card')],
   args: {
     disableElevation: false,
     selected: false,
   },
 } as Meta<Components.InoCard>;
+
+const clickHandler = (e: PointerEvent) => {
+  const inoCard = (e.target as HTMLElement).closest('ino-card');
+  inoCard.selected = !inoCard.selected;
+};
 
 const template = new TemplateGenerator<Components.InoCard>(
   'ino-card',
@@ -47,6 +28,7 @@ const template = new TemplateGenerator<Components.InoCard>(
       class="customizable-card"
       disable-elevation="${args.disableElevation}"
       selected="${args.selected}"
+      @click="${clickHandler}"
     >
       <div slot="header" class="card-header">
         <ino-icon icon="info" clickable></ino-icon>

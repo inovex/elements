@@ -4,9 +4,7 @@ import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-switch.scss';
-
-const eventHandler = (e: CustomEvent<boolean>) =>
-  ((e.target as HTMLInoSwitchElement).checked = e.detail);
+import { handleCheckedChange } from '../handler';
 
 export default {
   title: 'Input/ino-switch',
@@ -28,7 +26,7 @@ const template = new TemplateGenerator<Components.InoSwitch>(
       color-scheme="${args.colorScheme}"
       disabled="${args.disabled}"
       name="${args.name}"
-      @checkedChange="${eventHandler}"
+      @checkedChange="${handleCheckedChange}"
     >
       Switch Label
     </ino-switch>

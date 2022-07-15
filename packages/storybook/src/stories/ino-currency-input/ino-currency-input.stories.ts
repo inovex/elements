@@ -1,27 +1,15 @@
-import { useEffect } from '@storybook/client-api';
 import { Components } from '@inovex.de/elements';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass } from '../utils';
 import './ino-currency-input.scss';
+import { handleValueChange } from '../handler';
 
 export default {
   title: `Input/ino-currency-input`,
   component: 'ino-currency-input',
   decorators: [
-    story => decorateStoryWithClass(story, 'story-ino-currency-input'),
-    story => {
-      useEffect(() => {
-        const eventHandler = e => e.target.setAttribute('value', e.detail);
-        const inputs = document.querySelectorAll('ino-currency-input');
-        inputs.forEach(i => i.addEventListener('valueChange', eventHandler));
-        return () =>
-          inputs.forEach(i =>
-            i.removeEventListener('valueChange', eventHandler)
-          );
-      });
-      return story();
-    },
+    (story) => decorateStoryWithClass(story, 'story-ino-currency-input'),
   ],
   parameters: {
     actions: {
@@ -30,9 +18,8 @@ export default {
   },
   args: {
     value: '15.00',
-    currencyLocale: 'de-DE'
+    currencyLocale: 'de-DE',
   },
-
 };
 
 const template = new TemplateGenerator<Components.InoCurrencyInput>(
@@ -41,6 +28,7 @@ const template = new TemplateGenerator<Components.InoCurrencyInput>(
     <ino-currency-input
       value="${args.value}"
       currency-locale="${args.currencyLocale}"
+      @valueChange="${handleValueChange}"
     >
       <ino-input
         class="customizable-input"

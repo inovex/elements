@@ -6,37 +6,14 @@ import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator';
 import './ino-table-header-cell.scss';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
+import { sortChangeHandler } from '../ino-table/ino-table.stories';
+import { handleCheckedChange, handleValueChange } from '../handler';
 
 export default {
   title: `Structure/ino-table-header-cell`,
   component: 'ino-table-header-cell',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-ino-table-header-cell'),
-    (story) => {
-      useEffect(() => {
-        const sortChangeHandler = (e) => {
-          const inoTable = e.target as Components.InoTable;
-          const { columnId, sortDirection } = e.detail;
-          inoTable.sortColumnId = columnId;
-          inoTable.sortDirection = sortDirection;
-        };
-        document.addEventListener('sortChange', sortChangeHandler);
-
-        const valueChangedHandler = (e) => (e.target.value = e.detail);
-        const inoInputs = document.querySelectorAll('ino-input');
-        inoInputs.forEach((el) =>
-          el.addEventListener('valueChange', valueChangedHandler)
-        );
-
-        return () => {
-          document.removeEventListener('sortChange', sortChangeHandler);
-          inoInputs.forEach((el) =>
-            el.removeEventListener('valueChange', valueChangedHandler)
-          );
-        };
-      });
-      return story();
-    },
   ],
   args: {
     autofocus: false,
@@ -52,7 +29,7 @@ export default {
 const template = new TemplateGenerator<Components.InoTableHeaderCell>(
   'ino-table-header-cell',
   (args) => html`
-    <ino-table>
+    <ino-table @sortChange="${sortChangeHandler}">
       <ino-table-header-cell
         autofocus="${args.autofocus}"
         not-sortable="${args.notSortable}"
@@ -61,7 +38,7 @@ const template = new TemplateGenerator<Components.InoTableHeaderCell>(
         searched="${args.searched}"
         label="${args.label}"
       >
-        <ino-input placeholder="Search for XY..." data-ino-focus>
+        <ino-input @valueChange="${handleValueChange}" placeholder="Search for XY..." data-ino-focus>
           <ino-icon clickable slot="icon-trailing" icon="close"></ino-icon>
         </ino-input>
       </ino-table-header-cell>
@@ -89,7 +66,7 @@ const templateSearchWithDatepicker = new TemplateGenerator<
   'ino-table-header-cell',
   (args) => html`
     ${useEffect(registerInlineDatepickerHandler)}
-    <ino-table>
+    <ino-table @sortChange="${sortChangeHandler}">
       <tr slot="header-row">
         <ino-table-header-cell
           label="Column Selection Search"
@@ -135,22 +112,10 @@ export const SearchWithDatepicker = templateSearchWithDatepicker.generatePlaygro
 
 const templateSearchWithSelection = new TemplateGenerator<
   Components.InoTableHeaderCell
->('ino-table-header-cell', (args) => {
-  useEffect(() => {
-    const checkboxes = document.querySelectorAll('ino-checkbox');
-    const checkedHandler = (e) =>
-      ((e.target as Components.InoCheckbox).checked = (e as any).detail);
-    checkboxes.forEach((c) =>
-      addEventListener('checkedChange', checkedHandler)
-    );
-    return () =>
-      checkboxes.forEach((c) =>
-        removeEventListener('checkedChange', checkedHandler)
-      );
-  });
-
-  return html`
-    <ino-table>
+>(
+  'ino-table-header-cell',
+  () => html`
+    <ino-table @sortChange="${sortChangeHandler}">
       <tr slot="header-row">
         <ino-table-header-cell
           label="Column Selection Search"
@@ -158,27 +123,43 @@ const templateSearchWithSelection = new TemplateGenerator<
         >
           <ino-list>
             <ino-list-item text="Option 1">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
+              <ino-checkbox
+                @checkedChange="${handleCheckedChange}"
+                slot="leading"
+                selection
+              ></ino-checkbox>
             </ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
             <ino-list-item text="Option 2">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
+              <ino-checkbox
+                @checkedChange="${handleCheckedChange}"
+                slot="leading"
+                selection
+              ></ino-checkbox>
             </ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
             <ino-list-item text="Option 3">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
+              <ino-checkbox
+                @checkedChange="${handleCheckedChange}"
+                slot="leading"
+                selection
+              ></ino-checkbox>
             </ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
             <ino-list-item text="Option 4">
-              <ino-checkbox slot="leading" selection></ino-checkbox>
+              <ino-checkbox
+                @checkedChange="${handleCheckedChange}"
+                slot="leading"
+                selection
+              ></ino-checkbox>
             </ino-list-item>
             <ino-list-item-divider inset></ino-list-item-divider>
           </ino-list>
         </ino-table-header-cell>
       </tr>
     </ino-table>
-  `;
-});
+  `
+);
 
 /**
  * Use a `ino-list` element inside of a `ino-table-header-cell` element to show a list selection on click

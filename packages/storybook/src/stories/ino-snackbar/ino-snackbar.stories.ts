@@ -12,36 +12,6 @@ export default {
   decorators: [
     (s) => decorateStoryWithClass(s, 'story-ino-snackbar'),
     (story) => {
-      const btnClickHandler = (e) => {
-        if (!e.target.parentElement.classList.contains('snackbar-trigger')) {
-          return;
-        }
-
-        const triggerId = e.target.parentElement.dataset.templateId;
-
-        const templates = Array.from(document.getElementsByTagName('template'));
-        const templateWithId = templates.find(
-          (template) => template.id === triggerId
-        );
-
-        const currentSnackbars = document.body.getElementsByTagName(
-          'ino-snackbar'
-        );
-
-        const snackbarWithIdExists = Array.from(currentSnackbars).some(
-          (snackbar) => snackbar.id === triggerId
-        );
-
-        if (snackbarWithIdExists) {
-          return;
-        }
-
-        document.body.appendChild(templateWithId.content.cloneNode(true));
-      };
-
-      const snackbarHideHandler = (e) =>
-        (e.target as HTMLInoSnackbarElement).remove();
-
       useEffect(() => {
         document.addEventListener('click', btnClickHandler);
         document.addEventListener('hideEl', snackbarHideHandler);
@@ -71,8 +41,12 @@ type InoSnackbarExtended = Components.InoSnackbar & {
 const template = new TemplateGenerator<InoSnackbarExtended>(
   'ino-snackbar',
   (args) => html`
-    <ino-button class="snackbar-trigger" data-template-id="${args.id}"
-      >Show Snackbar
+    <ino-button
+      class="snackbar-trigger"
+      data-template-id="${args.id}"
+      @click="${btnClickHandler}"
+    >
+      Show Snackbar
     </ino-button>
     <template id="${args.id}">
       <ino-snackbar
@@ -81,6 +55,7 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
         timeout="${args.timeout}"
         type="${args.type}"
         stay-visible-on-hover="${args.stayVisibleOnHover}"
+        @hideEl="${snackbarHideHandler}"
       >
         ${args.defaultSlot}
       </ino-snackbar>
@@ -89,7 +64,8 @@ const template = new TemplateGenerator<InoSnackbarExtended>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-Playground.argTypes = { // hide custom attributes from table
+Playground.argTypes = {
+  // hide custom attributes from table
   id: {
     table: {
       disable: true,
@@ -128,3 +104,28 @@ export const StayVisibleOnHover = template.generateStoryForProp(
       'This snackbar stays visible on hover otherwise it will disappear in 5s',
   }
 );
+
+function btnClickHandler(e: PointerEvent) {
+  const triggerId = (e.target as HTMLElement).parentElement.dataset.templateId;
+
+  const templates = Array.from(document.getElementsByTagName('template'));
+  const templateWithId = templates.find(
+    (template) => template.id === triggerId
+  );
+
+  const currentSnackbars = document.body.getElementsByTagName('ino-snackbar');
+
+  const snackbarWithIdExists = Array.from(currentSnackbars).some(
+    (snackbar) => snackbar.id === triggerId
+  );
+
+  if (snackbarWithIdExists) {
+    return;
+  }
+
+  document.body.appendChild(templateWithId.content.cloneNode(true));
+}
+
+function snackbarHideHandler(e: CustomEvent<void>) {
+  (e.target as HTMLInoSnackbarElement).remove();
+}

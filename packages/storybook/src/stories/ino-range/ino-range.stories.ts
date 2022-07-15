@@ -3,38 +3,13 @@ import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import './ino-range.scss';
-import { useEffect } from '@storybook/client-api';
 import { TemplateGenerator } from '../template-generator';
+import { handleValueChange } from '../handler';
 
 export default {
   title: 'Input/<ino-range>',
   component: 'ino-range',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-range'),
-    (story) => {
-      useEffect(() => {
-        const eventHandlerSingle = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).value = e.detail);
-        const eventHandlerStart = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).valueStart = e.detail);
-        const eventHandlerEnd = (e: CustomEvent<number>) =>
-          ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
-        const inoRanges = document.querySelectorAll('ino-range');
-        inoRanges.forEach((r) => {
-          r.addEventListener('valueChange', eventHandlerSingle);
-          r.addEventListener('valueStartChange', eventHandlerStart);
-          r.addEventListener('valueEndChange', eventHandlerEnd);
-        });
-        return () =>
-          inoRanges.forEach((r) => {
-            r.removeEventListener('valueChange', eventHandlerSingle);
-            r.removeEventListener('valueStartChange', eventHandlerStart);
-            r.removeEventListener('valueEndChange', eventHandlerEnd);
-          });
-      });
-      return story();
-    },
-  ],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-range')],
   args: {
     disabled: false,
     discrete: false,
@@ -50,6 +25,11 @@ export default {
   },
 } as Meta<Components.InoRange>;
 
+const eventHandlerStart = (e: CustomEvent<number>) =>
+  ((e.target as HTMLInoRangeElement).valueStart = e.detail);
+const eventHandlerEnd = (e: CustomEvent<number>) =>
+  ((e.target as HTMLInoRangeElement).valueEnd = e.detail);
+
 // the basic template for the checkbox component
 const template = new TemplateGenerator<Components.InoRange>(
   'ino-range',
@@ -62,12 +42,15 @@ const template = new TemplateGenerator<Components.InoRange>(
       name="${args.name}"
       discrete="${args.discrete}"
       markers="${args.markers}"
-      value="${args.value}"
       step="${args.step}"
       ranged="${args.ranged}"
       value-start="${args.valueStart}"
       value-end="${args.valueEnd}"
       color-scheme="${args.colorScheme}"
+      value="${args.value}"
+      @valueChange="${handleValueChange}"
+      @valueStartChange="${eventHandlerStart}"
+      @valueEndChange="${eventHandlerEnd}"
     >
     </ino-range>
   `

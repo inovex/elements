@@ -6,13 +6,6 @@ import { decorateStoryWithClass, withIconControl } from '../utils';
 
 import './ino-fab-set.scss';
 
-const clickHandler = (e: CustomEvent<void>) => {
-  const fabSetEl = (e.target as HTMLElement).closest(
-    'ino-fab-set'
-  ) as HTMLInoFabSetElement;
-  fabSetEl.openDial = !fabSetEl.openDial;
-};
-
 export default {
   title: 'Buttons/<ino-fab-set>',
   component: 'ino-fab-set',
@@ -29,6 +22,13 @@ export default {
     topBottomLocation: 'bottom',
   },
 } as Meta<Components.InoFabSet>;
+
+const clickHandler = (e: CustomEvent<void>) => {
+  const fabSetEl = (e.target as HTMLElement).closest(
+    'ino-fab-set'
+  ) as HTMLInoFabSetElement;
+  fabSetEl.openDial = !fabSetEl.openDial;
+};
 
 const template = new TemplateGenerator<
   Components.InoFabSet & { iconOpened: string; iconClosed: string }

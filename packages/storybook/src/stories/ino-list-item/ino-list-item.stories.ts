@@ -1,37 +1,15 @@
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
 import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
 import './ino-list-item.scss';
+import { handleCheckedChange } from '../handler';
 
 export default {
   title: 'Structure/ino-list-item',
   component: 'ino-list-item',
-  decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-list-item'),
-    (story) => {
-      useEffect(() => {
-        const eventHandler = (e) => {
-          const el = e.target;
-          el.setAttribute('checked', e.detail);
-          if (el.getAttribute('indeterminate') === 'true') {
-            el.setAttribute('indeterminate', 'false');
-          }
-        };
-        const selections = document.querySelectorAll('ino-checkbox, ino-radio');
-        selections.forEach((s) =>
-          s.addEventListener('checkedChange', eventHandler)
-        );
-        return () =>
-          selections.forEach((s) =>
-            s.removeEventListener('checkedChange', eventHandler)
-          );
-      });
-      return story();
-    },
-  ],
+  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-list-item')],
   argsTypes: {
     twoLines: {
       description: 'Two Lines option of the parent list element',
@@ -93,9 +71,18 @@ const templateGraphicAndMeta = new TemplateGenerator<InoListVariants>(
     <ino-list>
       <ino-list-item text="Lorem ipsum dolor sit">
         ${args.avatar && exampleImg}
-        ${args.checkbox && html` <ino-checkbox slot="leading"></ino-checkbox>`}
+        ${args.checkbox &&
+        html` <ino-checkbox
+          @checkedChange="${handleCheckedChange}"
+          slot="leading"
+        ></ino-checkbox>`}
         ${args.meta && html`<p slot="trailing">$10.00</p>`}
-        ${args.radio && html` <ino-radio slot="leading" selection></ino-radio>`}
+        ${args.radio &&
+        html` <ino-radio
+          @checkedChange="${handleCheckedChange}"
+          slot="leading"
+          selection
+        ></ino-radio>`}
       </ino-list-item>
     </ino-list>
   `

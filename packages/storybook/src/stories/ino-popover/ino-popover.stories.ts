@@ -1,4 +1,3 @@
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
@@ -15,34 +14,6 @@ export default {
     },
   },
   decorators: [(story) => decorateStoryWithClass(story, 'story-ino-popover')],
-  argTypes: {
-    placement: {
-      control: {
-        type: 'select',
-      },
-      options: ['top', 'right', 'bottom', 'left'],
-    },
-    trigger: {
-      control: {
-        type: 'select',
-      },
-      options: [
-        'mouseenter',
-        'focus',
-        'click',
-        'mouseenter focus',
-        'mouseenter click',
-        'focus click',
-        'mouseenter focus click',
-      ],
-    },
-    colorScheme: {
-      control: {
-        type: 'select',
-      },
-      options: ['primary', 'secondary', 'light', 'transparent'],
-    },
-  },
   args: {
     controlled: false,
     distance: 10,
