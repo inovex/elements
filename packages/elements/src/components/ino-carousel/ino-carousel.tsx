@@ -6,9 +6,15 @@ import {
   Prop,
   Watch,
   h,
+  Event,
+  EventEmitter,
 } from '@stencil/core';
 import classNames from 'classnames';
 
+enum ArrowDirections {
+  LEFT,
+  RIGHT,
+}
 /**
  * @slot default - One or more `ino-carousel-slide`
  */
@@ -28,13 +34,16 @@ export class InoCarousel implements ComponentInterface {
    * Optional group value to manually manage the displayed slide
    */
   @Prop() value?: string;
-
   @Watch('value')
   valueChanged(newVal: string) {
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the current slide
     this.selectSlide(newVal);
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
   }
+  /**
+   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+   */
+  @Event() valueChange: EventEmitter<number | string>;
 
   /**
    * Enables autoplay which causes slides to be changed automatically
@@ -144,6 +153,35 @@ export class InoCarousel implements ComponentInterface {
     }
   };
 
+  private emitSlideChange(iconArrow: ArrowDirections): void {
+    const allSlides = this.getSlides();
+    
+    if (!allSlides || allSlides.length === 0) return;
+    
+    const carouselSlide = this.getSlides()[this.currentSlide];
+
+    if (!carouselSlide) {
+      this.valueChange.emit(allSlides[0].value);
+      return;
+    }
+
+    let nextSlide: HTMLInoCarouselSlideElement;
+    switch (iconArrow) {
+      case ArrowDirections.RIGHT:
+        nextSlide =
+          (carouselSlide.nextElementSibling as HTMLInoCarouselSlideElement) ??
+          allSlides[0];
+        break;
+      case ArrowDirections.LEFT:
+        nextSlide =
+          (carouselSlide.previousElementSibling as HTMLInoCarouselSlideElement) ??
+          allSlides[allSlides.length - 1];
+
+        break;
+    }
+    this.valueChange.emit(nextSlide.value);
+  }
+
   private getSlides() {
     return Array.from(
       this.el.querySelectorAll('ino-carousel-slide')
@@ -173,10 +211,16 @@ export class InoCarousel implements ComponentInterface {
             <slot />
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button icon="arrow_left" />
+            <ino-icon-button
+              icon="arrow_left"
+              onClick={() => this.emitSlideChange(ArrowDirections.LEFT)}
+            />
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button icon="arrow_right" />
+            <ino-icon-button
+              icon="arrow_right"
+              onClick={() => this.emitSlideChange(ArrowDirections.RIGHT)}
+            />
           </div>
         </div>
       </Host>

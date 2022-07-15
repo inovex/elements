@@ -64,6 +64,7 @@ export const config: Config = {
         {
           elements: [
             'ino-autocomplete',
+            'ino-carousel',
             'ino-datepicker',
             'ino-input',
             'ino-radio-group',

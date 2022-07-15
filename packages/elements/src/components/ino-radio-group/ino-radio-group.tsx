@@ -10,6 +10,10 @@ import {
   EventEmitter,
   Event,
 } from '@stencil/core';
+import { Alignment } from '../types';
+import classNames from 'classnames';
+
+
 
 /**
  * @slot default - One or more `ino-radio`
@@ -27,6 +31,10 @@ export class RadioGroup implements ComponentInterface {
    * If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
    */
   @Prop() value?: string | number | null;
+  /**
+   * Sets the alignment of the radios to either vertical or horizontal.
+   */
+  @Prop() alignment: Alignment = 'horizontal';
 
   @Watch('value')
   valueChanged(value: string) {
@@ -64,8 +72,7 @@ export class RadioGroup implements ComponentInterface {
    */
   @Listen('keydown')
   async handleKeyDown(ev: KeyboardEvent) {
-
-    if(!ev.key.startsWith('Arrow')) return;
+    if (!ev.key.startsWith('Arrow')) return;
 
     ev.preventDefault();
 
@@ -163,9 +170,14 @@ export class RadioGroup implements ComponentInterface {
   }
 
   render() {
+    const hostClasses = classNames({
+      'ino-radio-group-wrapper': true,
+      'ino-radio-group-wrapper--vertical': this.alignment === 'vertical',
+      'ino-radio-group-wrapper--horizontal': this.alignment === 'horizontal',
+    });
     return (
       <Host>
-        <div class="ino-radio-group-wrapper" tabIndex={0}>
+        <div class={hostClasses} tabIndex={0}>
           <slot></slot>
         </div>
       </Host>

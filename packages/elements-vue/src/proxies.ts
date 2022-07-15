@@ -42,8 +42,10 @@ export const InoCarousel = /*@__PURE__*/ defineContainer<JSX.InoCarousel>('ino-c
   'hideButtons',
   'infinite',
   'intermission',
-  'reverse'
-]);
+  'reverse',
+  'valueChange'
+],
+'value', 'v-value-change', 'valueChange');
 
 
 export const InoCarouselSlide = /*@__PURE__*/ defineContainer<JSX.InoCarouselSlide>('ino-carousel-slide', undefined, [
@@ -380,6 +382,7 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio>('ino-radio',
 
 export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup>('ino-radio-group', undefined, [
   'value',
+  'alignment',
   'valueChange'
 ],
 'value', 'v-value-change', 'valueChange');

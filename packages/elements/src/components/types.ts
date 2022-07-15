@@ -60,3 +60,5 @@ export type UserInputInterceptor = (value: string) => string;
  * An arbitary string (or close by default) referencing the action of a dialog.
  */
 export type DialogCloseAction = 'close'|string;
+
+export type Alignment = 'horizontal' | 'vertical';
