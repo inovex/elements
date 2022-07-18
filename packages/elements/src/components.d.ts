@@ -790,7 +790,7 @@ export namespace Components {
          */
         "initialValue": string;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
          */
         "viewMode": ViewModeUnion;
     }
@@ -2537,7 +2537,7 @@ declare namespace LocalJSX {
          */
         "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
          */
         "viewMode"?: ViewModeUnion;
     }
