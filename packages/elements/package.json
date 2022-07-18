@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -56,6 +56,7 @@
     "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
   },
   "dependencies": {
+    "@hedgedoc/markdown-it-task-lists": "^1.0.3",
     "@material/button": "^13.0.0",
     "@material/card": "^13.0.0",
     "@material/checkbox": "^13.0.0",
@@ -85,10 +86,9 @@
     "@stencil/core": "2.14.0",
     "@tiptap/core": "^2.0.0-beta.159",
     "@tiptap/extension-link": "^2.0.0-beta.33",
-    "@tiptap/starter-kit": "^2.0.0-beta.164",
-    "@tiptap/extension-task-list": "^2.0.0-beta.29",
     "@tiptap/extension-task-item": "^2.0.0-beta.36",
-    "@hedgedoc/markdown-it-task-lists": "^1.0.3",
+    "@tiptap/extension-task-list": "^2.0.0-beta.29",
+    "@tiptap/starter-kit": "^2.0.0-beta.164",
     "autosize": "^4.0.2",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",
