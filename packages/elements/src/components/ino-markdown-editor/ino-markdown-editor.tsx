@@ -1,13 +1,14 @@
 import {Component, ComponentInterface, Event, EventEmitter, h, Prop, State, Watch} from '@stencil/core';
 import {Editor} from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
-import Link from '@tiptap/extension-link';
+import TaskItem from "./extensions/task_item";
+import TaskList from "./extensions/task_list";
+import BulletList from './extensions/bullet_list';
 import classNames from 'classnames';
 import {ViewMode, ViewModeUnion} from '../types';
 import markdownSerializer from './markdown-serializer';
 import {Actions, handleToolbarBtnClick, isToolbarBtnActive} from './editor-toolbar-helper';
-
-type JsonStructure = { [key: string]: any };
+import Link from "@tiptap/extension-link";
 
 /**
  * The **Preview Mode** supports following actions:
@@ -16,7 +17,7 @@ type JsonStructure = { [key: string]: any };
  * |---|
  * | Link | Blockquotes | Unordered list / Bullet list | Headline 1 |
  * | Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |
- * | Bold | Inline code |
+ * | Bold | Inline code | Task list |
  *
  * Additionally, there are a lot of predefined
  * [keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)
@@ -25,6 +26,7 @@ type JsonStructure = { [key: string]: any };
  * The **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:
  *
  *  * Support of strikethrough syntax (`~~TextToStrike~~`)
+ *  * Support of task list syntax (`- [x] MyToDoTask`)
  *  * No support of image syntax. __Images are not allowed!__
  */
 @Component({
@@ -53,7 +55,7 @@ export class MarkdownEditor implements ComponentInterface {
   /**
    * Sets the view mode of the editor.
    * Can be changed between `preview` (default), `markdown` and `readonly`.
-   * The `markdown` mode is made for advanced users that know the markdown syntax.
+   * The `markdown` mode is made for advanced users that know the Markdown syntax.
    */
   @Prop() viewMode: ViewModeUnion = 'preview';
 
@@ -63,7 +65,7 @@ export class MarkdownEditor implements ComponentInterface {
       this.textareaRef.value = this.htmlToMarkdown();
       this.textareaRef.rows = this.textareaRef.value.split('\n').length;
     } else {
-      this.editor?.setEditable(newViewMode !== ViewMode.READONLY)
+      this.editor?.setEditable(newViewMode !== ViewMode.READONLY);
     }
   }
 
@@ -85,7 +87,7 @@ export class MarkdownEditor implements ComponentInterface {
   /**
    * Emits when the ino-markdown-editor is blurred
    */
-  @Event({ bubbles: false }) inoBlur!: EventEmitter<void>;
+  @Event({bubbles: false}) inoBlur!: EventEmitter<void>;
 
   componentDidLoad(): void {
     this.createEditor();
@@ -103,6 +105,7 @@ export class MarkdownEditor implements ComponentInterface {
   }
 
   private initializeEditor(initialValue: string): void {
+    if (!this.editor) return;
     this.editor.commands.setContent(this.markdownToHtml(initialValue), true);
     this.textareaRef.value = this.htmlToMarkdown();
     this.textareaRef.rows = this.textareaRef.value.split('\n').length;
@@ -111,14 +114,14 @@ export class MarkdownEditor implements ComponentInterface {
   private createEditor(): void {
     this.editor = new Editor({
       element: this.editorRef,
-      extensions: [StarterKit, Link],
-      onBlur: this.handlePreviewBlur ,
+      extensions: [StarterKit.configure({ bulletList: false }), BulletList, Link, TaskItem, TaskList],
+      onBlur: this.handlePreviewBlur,
       onTransaction: this.onEditorTransaction,
       editable: this.viewMode !== ViewMode.READONLY,
     });
   }
 
-  private handlePreviewBlur  = (): void => {
+  private handlePreviewBlur = (): void => {
     const markdownText = this.htmlToMarkdown();
     if (!this.errorMessage)
       this.valueChange.emit(markdownText);
@@ -141,6 +144,7 @@ export class MarkdownEditor implements ComponentInterface {
 
   private handleMarkdownBlur = (e: CustomEvent<void>): void => {
     e.stopPropagation();
+    this.editor.commands.clearContent();
     this.editor.commands.setContent(this.markdownToHtml(this.textareaRef.value));
     if (!this.errorMessage)
       this.valueChange.emit(this.textareaRef.value);
@@ -154,11 +158,8 @@ export class MarkdownEditor implements ComponentInterface {
     }, this.textareaRef.value);
   }
 
-  private markdownToHtml(md: string = this.initialValue): JsonStructure {
-    return this.tryParse(() => {
-      const state = markdownSerializer.parse(md, this.editor.schema);
-      return state.toJSON();
-    }, this.editor.state);
+  private markdownToHtml(md: string = this.initialValue): string {
+    return this.tryParse(() => markdownSerializer.parse(md), this.editor.getHTML());
   }
 
   private tryParse<T>(parseCallback: () => T, fallbackValue: T): T {
@@ -174,7 +175,7 @@ export class MarkdownEditor implements ComponentInterface {
 
   private handleViewModeBtnClick(viewMode: ViewMode): void {
     if (!this.errorMessage)
-     this.viewModeChange.emit(viewMode);
+      this.viewModeChange.emit(viewMode);
   }
 
   private handleToolbarActionClick(action: Actions): void {
@@ -284,6 +285,12 @@ export class MarkdownEditor implements ComponentInterface {
               onClick={() => this.handleToolbarActionClick(Actions.OL)}
             >
               <ino-icon icon="numeric_list"/>
+            </button>
+            <button
+              class={getToolbarActionBtnClass(Actions.TASK_LIST)}
+              onClick={() => this.handleToolbarActionClick(Actions.TASK_LIST)}
+            >
+              <ino-icon icon="task_list"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}

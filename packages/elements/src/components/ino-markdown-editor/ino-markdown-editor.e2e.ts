@@ -5,13 +5,19 @@ import { ViewMode } from '../types';
 const MARKDOWN_TEXT = [
   '# Headline 1\n',
   '## Headline 2\n',
-  '_italic_',
-  '**bold**',
-  '~~strikethrough~~',
-  '[elements](https://github.com/inovex/elements)',
-  '`inline code`',
-  '\n> Blockquote',
-  '\n```\nthis should be a code block\n```',
+  [
+    '_italic_',
+    '**bold**',
+    '~~strikethrough~~',
+    '[elements](https://github.com/inovex/elements)',
+    '`inline code`'
+  ].join(' '),
+  '',
+  '> Blockquote\n',
+  '```\nthis should be a code block\n```\n',
+  '* [x] ToDo 1 checked',
+  '* [ ] ToDo 2',
+  '* [ ] ToDo 3',
 ].join('\n');
 
 const HTML_TEXT_TAGS = [
@@ -23,7 +29,8 @@ const HTML_TEXT_TAGS = [
   '<a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/inovex/elements">elements</a>',
   '<code>inline code</code>',
   '<blockquote><p>Blockquote</p></blockquote>',
-  '<pre><code>this should be a code block</code></pre>',
+  `<pre><code>this should be a code block
+<br class="ProseMirror-trailingBreak"></code></pre>`,
 ];
 
 const INO_MARKDOWN_EDITOR_SELECTOR = 'ino-markdown-editor';
@@ -91,7 +98,7 @@ describe('InoMarkdownEditor', () => {
   it('should display all text format buttons', async () => {
     await setUpTest('', ViewMode.PREVIEW);
     const buttons = await textFormatToolbar.findAll('.toolbar__action-button');
-    expect(buttons).toHaveLength(10);
+    expect(buttons).toHaveLength(11);
 
     const spy = await page.spyOnEvent('click');
     for (const btn of buttons) {
@@ -106,6 +113,8 @@ describe('InoMarkdownEditor', () => {
     const htmlValue = tipTapEditor.innerHTML;
 
     expect(textValue).toBe(MARKDOWN_TEXT);
+    expect(htmlValue.includes('<ul data-type="taskList">')).toBeTruthy();
+    expect(htmlValue.match(/input/gm)).toHaveLength(3);
     HTML_TEXT_TAGS.forEach((tag) => expect(htmlValue).toContain(tag));
   });
 

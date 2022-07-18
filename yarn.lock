@@ -4497,6 +4497,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hedgedoc/markdown-it-task-lists@^1.0.3":
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@hedgedoc/markdown-it-task-lists/-/markdown-it-task-lists-1.0.5.tgz#283655abe6157492b007a725cec6b36ac7280a58"
+  integrity sha512-l/rJ8tJAZ1Fs0vzQPfap4+YnILWZBxCqtTikjE26Y5hJYY0LY3GJCWU4WXHVIPMJ/0Dm4XbKonXURfLQn5GeZw==
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -4510,14 +4515,6 @@
   version "1.2.1"
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
-
-"@inovex.de/elements-angular@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/@inovex.de/elements-angular/-/elements-angular-7.0.0.tgz#819a6600b1d7273feb046fc063181cbbdf47843c"
-  integrity sha512-VMa2Y7kf3F83CXs6Gk1+QoTZNmx+P5OORag5Le3ecCU3NGD+awkRlZ4RZs/aCUF9Hh+iASDM9vjFoRrVEf/h/Q==
-  dependencies:
-    "@inovex.de/elements" "^7.0.0"
-    tslib "^2.2.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -7722,6 +7719,16 @@
   version "2.0.0-beta.27"
   resolved "https://registry.npmjs.org/@tiptap/extension-strike/-/extension-strike-2.0.0-beta.27.tgz#c5187bf3c28837f95a5c0c0617d0dd31c318353d"
   integrity sha512-2dmCgtesuDdivM/54Q+Y6Tc3JbGz1SkHP6c62piuqBiYLWg3xa16zChZOhfN8szbbQlBgLT6XRTDt3c2Ux+Dug==
+
+"@tiptap/extension-task-item@^2.0.0-beta.36":
+  version "2.0.0-beta.36"
+  resolved "https://registry.npmjs.org/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.36.tgz#c01b81f893b5eab9e60e136fcdca55392f684fd6"
+  integrity sha512-+XYJyj66slqn2rjYN26VxasvIGCejVvbvtZrS3UJuYS4/090o4othNQcUlb6cWK0MtSBiLVisbeFMGXDH3q0LQ==
+
+"@tiptap/extension-task-list@^2.0.0-beta.29":
+  version "2.0.0-beta.29"
+  resolved "https://registry.npmjs.org/@tiptap/extension-task-list/-/extension-task-list-2.0.0-beta.29.tgz#3ca388b9251e4d42d152177c609f6cebb57c4a1e"
+  integrity sha512-PbHlVmYWevClA3mmXyshhR58GT1J22vVlFEDj2o25WRPY2dCTv4X136wPRVf9ee4nZII0Xcp2SsVC1kfgtuVRg==
 
 "@tiptap/extension-text@^2.0.0-beta.15":
   version "2.0.0-beta.15"
