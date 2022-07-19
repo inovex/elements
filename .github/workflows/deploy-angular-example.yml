@@ -63,5 +63,3 @@ jobs:
           clean-exclude: |
             version
             unicorn
-            example-projects/react
-            example-projects/vue
