@@ -2,7 +2,11 @@ import React from 'react';
 import './Dialog.scss';
 
 //import { InoButton, InoDialog, InoIconButton, InoOption, InoSelect } from '../shared/InovexElements';
-const { InoButton, InoDialog, InoIconButton, InoOption, InoSelect }  = import.meta.glob('./shared/InovexElements');
+const InoButton  = import.meta.glob('./shared/InovexElements');
+const InoDialog = import.meta.glob('./shared/InovexElements');
+const InoIconButton = import.meta.glob('./shared/InovexElements');
+const InoOption = import.meta.glob('./shared/InovexElements');
+const InoSelect  = import.meta.glob('./shared/InovexElements');
 
 export const Dialog: React.FC = () => {
   const [selectedValue, setSelectedValue] = React.useState('');
