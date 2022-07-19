@@ -1,7 +1,7 @@
 import { Link, useMatch } from 'react-router-dom';
-//import { InoIcon, InoNavItem } from '../InovexElements';
-const InoIcon = import.meta.glob('./shared/InovexElements');
-const InoNavItem = import.meta.glob('./shared/InovexElements');
+import { InoIcon, InoNavItem } from '../InovexElements';
+// const InoIcon = import.meta.glob('./shared/InovexElements');
+// const InoNavItem = import.meta.glob('./shared/InovexElements');
 
 import React from 'react';
 
