@@ -8,4 +8,12 @@ export default defineConfig({
     open: '/'
   },
   base: "/example-projects/react/",
+  optimizeDeps: {
+    include: ['elements']
+  },
+  build: {
+    commonjsOptions: {
+      include: [/elements/, /node_modules/]
+    }
+  },
 })
