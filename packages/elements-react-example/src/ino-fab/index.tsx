@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { InoFab, InoIcon } from '../shared/InovexElements';
+//import { InoFab, InoIcon } from '../shared/InovexElements';
+const { InoFab, InoIcon } = import.meta.glob('./shared/InovexElements');
 
 export const Fab: React.FC = () => {
   return (

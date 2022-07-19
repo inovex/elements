@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import './index.scss';
 import logo from './favicon.svg';
 
-import { InoList, InoListDivider, InoNavDrawer } from './shared/InovexElements';
+const { InoList, InoListDivider, InoNavDrawer } = import.meta.glob('./shared/InovexElements');
+
+//import { InoList, InoListDivider, InoNavDrawer } from './shared/InovexElements';
 
 import { HomeTodoApp } from './home-todo-app';
 import { Dialog } from './ino-dialog';

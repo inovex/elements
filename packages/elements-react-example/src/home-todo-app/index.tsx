@@ -2,14 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './App.scss';
-import {
+// import {
+//   InoCheckbox,
+//   InoIcon,
+//   InoInput,
+//   InoList,
+//   InoListDivider,
+//   InoListItem,
+// } from '../shared/InovexElements';
+
+const {
   InoCheckbox,
   InoIcon,
   InoInput,
   InoList,
   InoListDivider,
   InoListItem,
-} from '../shared/InovexElements';
+}  = import.meta.glob('./shared/InovexElements');
 
 export const HomeTodoApp: React.FC = () => {
   const [newTodoName, setTodoName] = React.useState('');
