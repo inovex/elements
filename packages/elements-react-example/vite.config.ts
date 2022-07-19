@@ -9,11 +9,11 @@ export default defineConfig({
   },
   base: "/example-projects/react/",
   optimizeDeps: {
-    include: ['elements']
+    include: ['elements-react']
   },
   build: {
     commonjsOptions: {
-      include: [/elements/, /node_modules/]
+      include: [/elements-react/, /node_modules/]
     }
   },
 })
