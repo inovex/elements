@@ -26,6 +26,9 @@
 .body {
   @extend %centered-div;
   justify-content: center;
+
+  --ino-input-line-color: #003c7e;
+  --ino-input-label-color: #003c7e;
 }
 
 .rightpage {
