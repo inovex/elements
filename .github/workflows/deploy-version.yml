@@ -10,17 +10,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: ./.github/workflows/utils/dependencies-install
+    - uses: ./.github/workflows/dependencies-install
     - run: yarn build
-    - uses: ./.github/workflows/utils/artifacts-upload
+    - uses: ./.github/workflows/artifacts-upload
 
   release:
     runs-on: ubuntu-latest
     needs:
       - build
     steps:
-      - uses: ./.github/workflows/utils/dependencies-install
-      - uses: ./.github/workflows/utils/artifacts-download
+      - uses: ./.github/workflows/dependencies-install
+      - uses: ./.github/workflows/artifacts-download
       - name: Prepare git config
         run: |
           git config user.name "${{ github.actor }}"
