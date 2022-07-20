@@ -82,10 +82,10 @@ jobs:
         with:
           name: elements-angular
           path: packages/elements-angular/dist/
-      - name: Prepare git config
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor}}@users.noreply.github.com"
+     # - name: Prepare git config
+     #   run: |
+     #     git config user.name "${{ github.actor }}"
+     #     git config user.email "${{ github.actor}}@users.noreply.github.com"
       - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
