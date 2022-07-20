@@ -23,7 +23,7 @@
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "publish:ci": "HUSKY_SKIP_HOOKS=1 yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD) --no-verify-access --create-release github --yes --dist-tag test-release",
+    "publish:ci": "HUSKY_SKIP_HOOKS=1 yarn lerna publish --conventional-commits --canary --preid test.$(git rev-parse --short HEAD) --no-verify-access --create-release github --yes --force-publish='*'",
     "prepare": "husky install"
   },
   "devDependencies": {
