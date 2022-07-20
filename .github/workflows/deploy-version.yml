@@ -12,11 +12,11 @@ jobs:
 #    needs:
 #      - install
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
       with:
-        cache: 'yarn'
         node-version-file: '.nvmrc'
+        cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: yarn build
     - name: Upload Artifact -> elements
@@ -46,7 +46,7 @@ jobs:
 #    needs:
 #      - install
 #    steps:
-#      - uses: actions/checkout@v2
+#      - uses: actions/checkout@v3
 #      - uses: ./.github/workflows/install
 #      - run: yarn lint
 #      - run: yarn test
@@ -57,17 +57,16 @@ jobs:
       - build
 #      - test
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
           node-version-file: '.nvmrc'
+          cache: 'yarn'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
+          always-auth: true
       - run: npm config set scripts-prepend-node-path true
-        shell: bash
       - run: yarn install --frozen-lockfile
-        shell: bash
       - name: Download elements artifact
         uses: actions/download-artifact@v3
         with:
@@ -87,7 +86,7 @@ jobs:
         run: |
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor}}@users.noreply.github.com"
-      - run: yarn publish:ci
+      - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -97,7 +96,7 @@ jobs:
     needs:
       - release
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout to gh-pages branch
         with:
           ref: gh-pages
