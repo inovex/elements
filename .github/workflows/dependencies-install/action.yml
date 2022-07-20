@@ -17,7 +17,7 @@ runs:
       uses: actions/cache@v3
       id: lerna-cache
       with:
-        path: **/node_modules
+        path: '**/node_modules'
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
     - name: Install Dependencies
       run: yarn install --frozen-lockfile
