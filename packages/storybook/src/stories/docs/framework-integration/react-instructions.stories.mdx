@@ -78,15 +78,31 @@ To demonstrate how fast you can create a stylish login form, lets start with our
 </div>
 ```
 
-In this case we give both of our `<InoInput>` outlines and their corresponding label. `<InoInput label="email" outline={true}>`.
+## Properties
 
-> Hint: We can customize almost all Elements components, for example by giving the `<InoInput>` an icon or changing the floating label for a helper text. For more customization check out the playground.
+To configure the components of the inovex-elements we use **properties**. 
+
+In this case we give our `<InoInput>` the `outline` property and its corresponding label. More properties of the `<InoInput>` can be found in our **[docs](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--playground)**. 
+`<InoInput label="email" outline={true}>`.
+> Hint: We can customize almost all Elements components. Add icons to the `<InoInput>` element by adding a [slot and an icon](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--icons) of the `<InoIcon>` component. Play around with each components playground to see all possibilites.
 
 ```jsx
 <InoInput label="password" outline={true}>
     <InoIcon slot="icon-trailing" icon="password"></InoIcon>
 </InoInput>
 ```
+
+#### CSS Custom Properties
+
+For css customization, we can use **CSS Custom Properties** given by our `<InoInput>` component to style our outlines and labels.
+
+```scss
+InoInput {
+    --ino-input-line-color: blue;
+    --ino-input-label-color: blue;
+  }
+```
+
 
 To further develop our sign in, lets add social network logins with the `<InoFabSet>` component.
 > Hint: `<InoFabSet>` serves as a container for multiple fab buttons. It contains actions related to the main fab button. Upon interacting with the fab button, a FAB-Set can display three to six related actions in the form of a speed dial.
@@ -109,3 +125,6 @@ To further develop our sign in, lets add social network logins with the `<InoFab
     </InoFab>
 </InoFabSet>
 ```
+
+The `<InoFabSet>` has 4 properties `open-dial`, `dialDirection`, `leftRightLocation` and `topBottomLocation`. In the [Playground](https://elements.inovex.de/version/v7.0.0/?path=/docs/buttons-ino-fab-set--playground) we can find the *Description* and *Control* for each property.
+Here we can configure the controls and therefore customize our `<InoFabSet>`.
