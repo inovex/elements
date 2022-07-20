@@ -9,10 +9,16 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version-file: '.nvmrc'
-        cache: 'yarn'
         registry-url: https://registry.npmjs.org
         scope: '@inovex.de' # important for yarn
         always-auth: true
+    - name: restore lerna cache
+      uses: actions/cache@v3
+      id: lerna-cache
+      with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
     - name: Install Dependencies
+      if: steps.lerna-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
       shell: bash
