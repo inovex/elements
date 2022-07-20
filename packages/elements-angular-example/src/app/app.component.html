@@ -1,13 +1,12 @@
-<ino-header inoTitle="Simple TODO"></ino-header>
+<ino-header>Simple ToDo</ino-header>
 
-<div class="app-wrapper">
+<div class="app-wrapper" [formGroup]="form">
   <div class="action-box">
     <ino-input
-      (keyup.enter)="add()"
+      formControlName="todoName"
       type="text"
-      [value]="newTodoName"
-      (keyup)="onValueChanged($event)"
       placeholder="What needs to be done..."
+      (keyup.enter)="add()"
     >
       <ino-icon
         clickable="true"
@@ -21,9 +20,22 @@
   <ino-list>
     <ino-list-item *ngFor="let todo of todos; index as i" [text]="todo.name">
       <ino-checkbox slot="leading" (click)="delete(i, todo)"></ino-checkbox>
-      <ino-button fill="outline" slot="trailing" (click)="delete(i, todo)"
+      <ino-button
+        variant="outlined"
+        dense="true"
+        slot="trailing"
+        (click)="delete(i, todo)"
         >Delete</ino-button
       >
     </ino-list-item>
   </ino-list>
+</div>
+
+<div class="btn-box">
+  <ino-button (click)="toggleInputState()"
+    >{{
+      this.form.controls['todoName']?.disabled ? 'Enable' : 'Disable'
+    }}
+    Input</ino-button
+  >
 </div>

@@ -43,3 +43,14 @@ h2 {
 .todos li:last-child {
   border-bottom: none;
 }
+
+.btn-box {
+  background: white;
+  width: 60%;
+  margin: 24px auto;
+  padding: 0;
+
+  ino-button {
+    float: right;
+  }
+}
