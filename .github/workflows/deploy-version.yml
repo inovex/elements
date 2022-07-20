@@ -65,8 +65,8 @@ jobs:
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
           always-auth: true
-      - run: npm config set scripts-prepend-node-path true
       - run: yarn install --frozen-lockfile
+        shell: bash
       - name: Download elements artifact
         uses: actions/download-artifact@v3
         with:
