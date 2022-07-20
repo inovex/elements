@@ -53,7 +53,7 @@ export class ListItem implements ComponentInterface {
    * Styles the row in an activated style.
    *
    * In contrast to `selected`, use this for only one item
-   * and to mark it as permantently activated.
+   * and to mark it as permanently activated.
    */
   @Prop() activated?: boolean;
 
@@ -61,6 +61,22 @@ export class ListItem implements ComponentInterface {
    * Styles the row in a disabled style.
    */
   @Prop() disabled?: boolean;
+
+  /**
+   * Styles the list more dense, making it appear more compact.
+   */
+  @Prop() dense?: boolean;
+
+  /**
+   * Marks this element as list with items having two lines.
+   */
+  @Prop() twoLines?: boolean;
+
+  /**
+   * Configures the leading tiles of each row to display images instead of icons.
+   * This will make the graphics of the list items larger.
+   */
+  @Prop() avatar?: boolean = false;
 
   /**
    * Emits when the list item is clicked or
@@ -97,10 +113,12 @@ export class ListItem implements ComponentInterface {
     const secondarySlotHasContent = hasSlotContent(this.el, 'secondary');
 
     const listItemClasses = classNames({
-      'mdc-deprecated-list-item': true,
-      'mdc-deprecated-list-item--selected': this.selected,
-      'mdc-deprecated-list-item--activated': this.activated,
-      'mdc-deprecated-list-item--disabled': this.disabled,
+      'mdc-list-item': true,
+      'mdc-list-item--selected': this.selected,
+      'mdc-list-item--activated': this.activated,
+      'mdc-list-item--disabled': this.disabled,
+      'mdc-list-item--two-lines': this.twoLines,
+      'mdc-list-item--with-leading-avatar': this.avatar,
     });
 
     const primaryContent = this.text || <slot name="primary" />;
@@ -111,26 +129,24 @@ export class ListItem implements ComponentInterface {
     return (
       <Host>
         <li ref={(el) => (this.listItemEl = el)} class={listItemClasses}>
-          <span class="mdc-deprecated-list-item__ripple"></span>
+          <span class="mdc-list-item__ripple"></span>
           {leadingSlotHasContent && (
-            <span class="mdc-deprecated-list-item__graphic" role="presentation">
+            <span class="mdc-list-item__start">
               <slot name="leading" />
             </span>
           )}
-          <span class="mdc-deprecated-list-item__text">
-            {secondaryContent
-              ? [
-                  <span class="mdc-deprecated-list-item__primary-text">
-                    {primaryContent}
-                  </span>,
-                  <span class="mdc-deprecated-list-item__secondary-text">
-                    {secondaryContent}
-                  </span>,
-                ]
-              : primaryContent}
+          <span class="mdc-list-item__content ">
+            <span class="mdc-list-item__primary-text">{
+              primaryContent
+            }</span>
+            {secondaryContent && (
+              <span class="mdc-list-item__secondary-text">{
+                secondaryContent
+              }</span>
+            )}
           </span>
           {trailingSlotHasContent && (
-            <span class="mdc-deprecated-list-item__meta">
+            <span class="mdc-list-item__end ">
               <slot name="trailing" />
             </span>
           )}
