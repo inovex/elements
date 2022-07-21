@@ -4,16 +4,18 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  mode: "development",
   server: {
     open: '/'
   },
-  base: "/example-projects/react/",
+  base: "./example-projects/react/",
   optimizeDeps: {
-    include: ['elements-react']
+    include: ['@inovex.de/elements-react']
   },
   build: {
     commonjsOptions: {
-      include: [/elements-react/, /node_modules/]
-    }
+      include: [/@inovex.de\/elements-react\//, /node_modules\//]
+    },
+    minify: false,
   },
 })
