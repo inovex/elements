@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     open: '/'
   },
-  base: ".elements.inovex.de/example-projects/react/",
+  base: "/example-projects/react/",
   optimizeDeps: {
     include: ['@inovex.de/elements-react']
   },
