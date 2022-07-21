@@ -16,21 +16,18 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "format": "yarn prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,scss}'",
-    "lerna:version": "lerna version --conventional-commits --no-changelog",
-    "version": "node scripts/bumprootversion.js",
     "new:component": "node scripts/newComponent.js",
-    "postversion": "git add -A",
     "publish:yalc": "node ./scripts/publishYalc.js",
-    "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
+    "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "publish:ci": "HUSKY_SKIP_HOOKS=1 yarn lerna publish --conventional-commits --canary --preid test.$(git rev-parse --short HEAD) --no-verify-access --create-release github --yes --force-publish='*'",
-    "prepare": "husky install"
+    "publish:ci": "yarn lerna publish --conventional-commits --canary --preid test.$(git rev-parse --short HEAD) --no-verify-access --create-release github --yes --force-publish",
+    "version": "node scripts/bumprootversion.js",
+    "postversion": "git add -A"
   },
   "devDependencies": {
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
     "fs-extra": "^9.0.0",
-    "husky": "^6.0.0",
     "js-yaml": "^3.14.0",
     "lint-staged": "^10.5.3",
     "prettier": "^2.1.2",
@@ -60,5 +57,5 @@
     ]
   },
   "name": "core",
-  "version": "7.1.2"
+  "version": "7.1.6"
 }
