@@ -1,6 +1,7 @@
 /*!
  * Crafted with ❤ by inovex GmbH
- *//*! *****************************************************************************
+ */
+/*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -13,7 +14,85 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */var u=function(t,e){return u=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(r,n){r.__proto__=n}||function(r,n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(r[o]=n[o])},u(t,e)};function y(t,e){if(typeof e!="function"&&e!==null)throw new TypeError("Class extends value "+String(e)+" is not a constructor or null");u(t,e);function r(){this.constructor=t}t.prototype=e===null?Object.create(e):(r.prototype=e.prototype,new r)}var f=function(){return f=Object.assign||function(e){for(var r,n=1,o=arguments.length;n<o;n++){r=arguments[n];for(var i in r)Object.prototype.hasOwnProperty.call(r,i)&&(e[i]=r[i])}return e},f.apply(this,arguments)};function d(t){var e=typeof Symbol=="function"&&Symbol.iterator,r=e&&t[e],n=0;if(r)return r.call(t);if(t&&typeof t.length=="number")return{next:function(){return t&&n>=t.length&&(t=void 0),{value:t&&t[n++],done:!t}}};throw new TypeError(e?"Object is not iterable.":"Symbol.iterator is not defined.")}function c(t,e){var r=typeof Symbol=="function"&&t[Symbol.iterator];if(!r)return t;var n=r.call(t),o,i=[],a;try{for(;(e===void 0||e-- >0)&&!(o=n.next()).done;)i.push(o.value)}catch(s){a={error:s}}finally{try{o&&!o.done&&(r=n.return)&&r.call(n)}finally{if(a)throw a.error}}return i}function l(t,e,r){if(r||arguments.length===2)for(var n=0,o=e.length,i;n<o;n++)(i||!(n in e))&&(i||(i=Array.prototype.slice.call(e,0,n)),i[n]=e[n]);return t.concat(i||Array.prototype.slice.call(e))}/**
+***************************************************************************** */
+var extendStatics = function(d, b) {
+  extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+    d2.__proto__ = b2;
+  } || function(d2, b2) {
+    for (var p in b2)
+      if (Object.prototype.hasOwnProperty.call(b2, p))
+        d2[p] = b2[p];
+  };
+  return extendStatics(d, b);
+};
+function __extends(d, b) {
+  if (typeof b !== "function" && b !== null)
+    throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+  extendStatics(d, b);
+  function __() {
+    this.constructor = d;
+  }
+  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+var __assign = function() {
+  __assign = Object.assign || function __assign2(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+      for (var p in s)
+        if (Object.prototype.hasOwnProperty.call(s, p))
+          t[p] = s[p];
+    }
+    return t;
+  };
+  return __assign.apply(this, arguments);
+};
+function __values(o) {
+  var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+  if (m)
+    return m.call(o);
+  if (o && typeof o.length === "number")
+    return {
+      next: function() {
+        if (o && i >= o.length)
+          o = void 0;
+        return { value: o && o[i++], done: !o };
+      }
+    };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+function __read(o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m)
+    return o;
+  var i = m.call(o), r, ar = [], e;
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+      ar.push(r.value);
+  } catch (error) {
+    e = { error };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"]))
+        m.call(i);
+    } finally {
+      if (e)
+        throw e.error;
+    }
+  }
+  return ar;
+}
+function __spreadArray(to, from, pack) {
+  if (pack || arguments.length === 2)
+    for (var i = 0, l = from.length, ar; i < l; i++) {
+      if (ar || !(i in from)) {
+        if (!ar)
+          ar = Array.prototype.slice.call(from, 0, i);
+        ar[i] = from[i];
+      }
+    }
+  return to.concat(ar || Array.prototype.slice.call(from));
+}
+/**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -34,7 +113,49 @@ PERFORMANCE OF THIS SOFTWARE.
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var p=function(){function t(e){e===void 0&&(e={}),this.adapter=e}return Object.defineProperty(t,"cssClasses",{get:function(){return{}},enumerable:!1,configurable:!0}),Object.defineProperty(t,"strings",{get:function(){return{}},enumerable:!1,configurable:!0}),Object.defineProperty(t,"numbers",{get:function(){return{}},enumerable:!1,configurable:!0}),Object.defineProperty(t,"defaultAdapter",{get:function(){return{}},enumerable:!1,configurable:!0}),t.prototype.init=function(){},t.prototype.destroy=function(){},t}();/**
+ */
+var MDCFoundation = function() {
+  function MDCFoundation2(adapter) {
+    if (adapter === void 0) {
+      adapter = {};
+    }
+    this.adapter = adapter;
+  }
+  Object.defineProperty(MDCFoundation2, "cssClasses", {
+    get: function() {
+      return {};
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCFoundation2, "strings", {
+    get: function() {
+      return {};
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCFoundation2, "numbers", {
+    get: function() {
+      return {};
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCFoundation2, "defaultAdapter", {
+    get: function() {
+      return {};
+    },
+    enumerable: false,
+    configurable: true
+  });
+  MDCFoundation2.prototype.init = function() {
+  };
+  MDCFoundation2.prototype.destroy = function() {
+  };
+  return MDCFoundation2;
+}();
+/**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -55,4 +176,54 @@ PERFORMANCE OF THIS SOFTWARE.
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var v=function(){function t(e,r){for(var n=[],o=2;o<arguments.length;o++)n[o-2]=arguments[o];this.root=e,this.initialize.apply(this,l([],c(n))),this.foundation=r===void 0?this.getDefaultFoundation():r,this.foundation.init(),this.initialSyncWithDOM()}return t.attachTo=function(e){return new t(e,new p({}))},t.prototype.initialize=function(){},t.prototype.getDefaultFoundation=function(){throw new Error("Subclasses must override getDefaultFoundation to return a properly configured foundation class")},t.prototype.initialSyncWithDOM=function(){},t.prototype.destroy=function(){this.foundation.destroy()},t.prototype.listen=function(e,r,n){this.root.addEventListener(e,r,n)},t.prototype.unlisten=function(e,r,n){this.root.removeEventListener(e,r,n)},t.prototype.emit=function(e,r,n){n===void 0&&(n=!1);var o;typeof CustomEvent=="function"?o=new CustomEvent(e,{bubbles:n,detail:r}):(o=document.createEvent("CustomEvent"),o.initCustomEvent(e,n,!1,r)),this.root.dispatchEvent(o)},t}();export{v as M,y as _,f as a,d as b,p as c,l as d,c as e};
+ */
+var MDCComponent = function() {
+  function MDCComponent2(root, foundation) {
+    var args = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+      args[_i - 2] = arguments[_i];
+    }
+    this.root = root;
+    this.initialize.apply(this, __spreadArray([], __read(args)));
+    this.foundation = foundation === void 0 ? this.getDefaultFoundation() : foundation;
+    this.foundation.init();
+    this.initialSyncWithDOM();
+  }
+  MDCComponent2.attachTo = function(root) {
+    return new MDCComponent2(root, new MDCFoundation({}));
+  };
+  MDCComponent2.prototype.initialize = function() {
+  };
+  MDCComponent2.prototype.getDefaultFoundation = function() {
+    throw new Error("Subclasses must override getDefaultFoundation to return a properly configured foundation class");
+  };
+  MDCComponent2.prototype.initialSyncWithDOM = function() {
+  };
+  MDCComponent2.prototype.destroy = function() {
+    this.foundation.destroy();
+  };
+  MDCComponent2.prototype.listen = function(evtType, handler, options) {
+    this.root.addEventListener(evtType, handler, options);
+  };
+  MDCComponent2.prototype.unlisten = function(evtType, handler, options) {
+    this.root.removeEventListener(evtType, handler, options);
+  };
+  MDCComponent2.prototype.emit = function(evtType, evtData, shouldBubble) {
+    if (shouldBubble === void 0) {
+      shouldBubble = false;
+    }
+    var evt;
+    if (typeof CustomEvent === "function") {
+      evt = new CustomEvent(evtType, {
+        bubbles: shouldBubble,
+        detail: evtData
+      });
+    } else {
+      evt = document.createEvent("CustomEvent");
+      evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+    }
+    this.root.dispatchEvent(evt);
+  };
+  return MDCComponent2;
+}();
+export { MDCComponent as M, __extends as _, __assign as a, __values as b, MDCFoundation as c, __spreadArray as d, __read as e };

@@ -1,6 +1,7 @@
 /*!
  * Crafted with ❤ by inovex GmbH
- *//**
+ */
+/**
  * @license
  * Copyright 2018 Google Inc.
  *
@@ -21,4 +22,35 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */function s(e,r){if(e.closest)return e.closest(r);for(var t=e;t;){if(o(t,r))return t;t=t.parentElement}return null}function o(e,r){var t=e.matches||e.webkitMatchesSelector||e.msMatchesSelector;return t.call(e,r)}function n(e){var r=e;if(r.offsetParent!==null)return r.scrollWidth;var t=r.cloneNode(!0);t.style.setProperty("position","absolute"),t.style.setProperty("transform","translate(-9999px, -9999px)"),document.documentElement.appendChild(t);var l=t.scrollWidth;return document.documentElement.removeChild(t),l}export{s as c,n as e,o as m};
+ */
+function closest(element, selector) {
+  if (element.closest) {
+    return element.closest(selector);
+  }
+  var el = element;
+  while (el) {
+    if (matches(el, selector)) {
+      return el;
+    }
+    el = el.parentElement;
+  }
+  return null;
+}
+function matches(element, selector) {
+  var nativeMatches = element.matches || element.webkitMatchesSelector || element.msMatchesSelector;
+  return nativeMatches.call(element, selector);
+}
+function estimateScrollWidth(element) {
+  var htmlEl = element;
+  if (htmlEl.offsetParent !== null) {
+    return htmlEl.scrollWidth;
+  }
+  var clone = htmlEl.cloneNode(true);
+  clone.style.setProperty("position", "absolute");
+  clone.style.setProperty("transform", "translate(-9999px, -9999px)");
+  document.documentElement.appendChild(clone);
+  var scrollWidth = clone.scrollWidth;
+  document.documentElement.removeChild(clone);
+  return scrollWidth;
+}
+export { closest as c, estimateScrollWidth as e, matches as m };

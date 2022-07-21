@@ -1,3 +1,29 @@
 /*!
  * Crafted with ❤ by inovex GmbH
- */function o(){return"_"+Math.random().toString(36).substr(2,9)}function r(t,n){return t.querySelector(`[slot="${n}"]`)}function s(t,n){var e;return n?t.querySelectorAll(`[slot="${n}"]`).length>0:((e=t.querySelector("slot"))===null||e===void 0?void 0:e.assignedElements().length)===0}function u(t){var n;(n=t.querySelector("[data-ino-focus]"))===null||n===void 0||n.focus()}function a(t){const n=t.value.length;t.setSelectionRange&&(t.focus(),t.setSelectionRange(n,n))}function i(t){t.stopPropagation(),t.preventDefault()}export{o as a,u as f,r as g,s as h,a as m,i as p};
+ */
+function generateUniqueId() {
+  return "_" + Math.random().toString(36).substr(2, 9);
+}
+function getSlotContent(el, slotName) {
+  return el.querySelector(`[slot="${slotName}"]`);
+}
+function hasSlotContent(el, slotName) {
+  var _a;
+  return slotName ? el.querySelectorAll(`[slot="${slotName}"]`).length > 0 : ((_a = el.querySelector("slot")) === null || _a === void 0 ? void 0 : _a.assignedElements().length) === 0;
+}
+function focusIfExists(el) {
+  var _a;
+  (_a = el.querySelector("[data-ino-focus]")) === null || _a === void 0 ? void 0 : _a.focus();
+}
+function moveCursorToEnd(el) {
+  const len = el.value.length;
+  if (el.setSelectionRange) {
+    el.focus();
+    el.setSelectionRange(len, len);
+  }
+}
+function preventEvent(event) {
+  event.stopPropagation();
+  event.preventDefault();
+}
+export { generateUniqueId as a, focusIfExists as f, getSlotContent as g, hasSlotContent as h, moveCursorToEnd as m, preventEvent as p };

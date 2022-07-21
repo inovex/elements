@@ -1,6 +1,10 @@
-import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import{F as E}from"./focus-trap-ee7050ec.2579e912.js";import{M as O}from"./component-5bb46374.0386aca6.js";/*!
+import { _ as __extends, a as __assign, c as MDCFoundation, M as MDCComponent } from "./component-97c8fef9.061cf906.js";
+import { F as FocusTrap } from "./focus-trap-ee7050ec.2579e912.js";
+import { M as MDCList } from "./component-5bb46374.0386aca6.js";
+/*!
  * Crafted with ❤ by inovex GmbH
- *//**
+ */
+/**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -21,7 +25,13 @@ import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */function v(o,e){return e(o,{skipInitialFocus:!0})}/**
+ */
+function createFocusTrapInstance(surfaceEl, focusTrapFactory) {
+  return focusTrapFactory(surfaceEl, {
+    skipInitialFocus: true
+  });
+}
+/**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -42,7 +52,25 @@ import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var r={ANIMATE:"mdc-drawer--animate",CLOSING:"mdc-drawer--closing",DISMISSIBLE:"mdc-drawer--dismissible",MODAL:"mdc-drawer--modal",OPEN:"mdc-drawer--open",OPENING:"mdc-drawer--opening",ROOT:"mdc-drawer"},T={APP_CONTENT_SELECTOR:".mdc-drawer-app-content",CLOSE_EVENT:"MDCDrawer:closed",OPEN_EVENT:"MDCDrawer:opened",SCRIM_SELECTOR:".mdc-drawer-scrim",LIST_SELECTOR:".mdc-list,.mdc-deprecated-list",LIST_ITEM_ACTIVATED_SELECTOR:".mdc-list-item--activated,.mdc-deprecated-list-item--activated"};/**
+ */
+var cssClasses$1 = {
+  ANIMATE: "mdc-drawer--animate",
+  CLOSING: "mdc-drawer--closing",
+  DISMISSIBLE: "mdc-drawer--dismissible",
+  MODAL: "mdc-drawer--modal",
+  OPEN: "mdc-drawer--open",
+  OPENING: "mdc-drawer--opening",
+  ROOT: "mdc-drawer"
+};
+var strings$1 = {
+  APP_CONTENT_SELECTOR: ".mdc-drawer-app-content",
+  CLOSE_EVENT: "MDCDrawer:closed",
+  OPEN_EVENT: "MDCDrawer:opened",
+  SCRIM_SELECTOR: ".mdc-drawer-scrim",
+  LIST_SELECTOR: ".mdc-list,.mdc-deprecated-list",
+  LIST_ITEM_ACTIVATED_SELECTOR: ".mdc-list-item--activated,.mdc-deprecated-list-item--activated"
+};
+/**
  * @license
  * Copyright 2018 Google Inc.
  *
@@ -63,7 +91,151 @@ import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var d=function(o){f(e,o);function e(t){var n=o.call(this,p(p({},e.defaultAdapter),t))||this;return n.animationFrame=0,n.animationTimer=0,n}return Object.defineProperty(e,"strings",{get:function(){return T},enumerable:!1,configurable:!0}),Object.defineProperty(e,"cssClasses",{get:function(){return r},enumerable:!1,configurable:!0}),Object.defineProperty(e,"defaultAdapter",{get:function(){return{addClass:function(){},removeClass:function(){},hasClass:function(){return!1},elementHasClass:function(){return!1},notifyClose:function(){},notifyOpen:function(){},saveFocus:function(){},restoreFocus:function(){},focusActiveNavigationItem:function(){},trapFocus:function(){},releaseFocus:function(){}}},enumerable:!1,configurable:!0}),e.prototype.destroy=function(){this.animationFrame&&cancelAnimationFrame(this.animationFrame),this.animationTimer&&clearTimeout(this.animationTimer)},e.prototype.open=function(){var t=this;this.isOpen()||this.isOpening()||this.isClosing()||(this.adapter.addClass(r.OPEN),this.adapter.addClass(r.ANIMATE),this.runNextAnimationFrame(function(){t.adapter.addClass(r.OPENING)}),this.adapter.saveFocus())},e.prototype.close=function(){!this.isOpen()||this.isOpening()||this.isClosing()||this.adapter.addClass(r.CLOSING)},e.prototype.isOpen=function(){return this.adapter.hasClass(r.OPEN)},e.prototype.isOpening=function(){return this.adapter.hasClass(r.OPENING)||this.adapter.hasClass(r.ANIMATE)},e.prototype.isClosing=function(){return this.adapter.hasClass(r.CLOSING)},e.prototype.handleKeydown=function(t){var n=t.keyCode,a=t.key,s=a==="Escape"||n===27;s&&this.close()},e.prototype.handleTransitionEnd=function(t){var n=r.OPENING,a=r.CLOSING,s=r.OPEN,i=r.ANIMATE,l=r.ROOT,h=this.isElement(t.target)&&this.adapter.elementHasClass(t.target,l);!h||(this.isClosing()?(this.adapter.removeClass(s),this.closed(),this.adapter.restoreFocus(),this.adapter.notifyClose()):(this.adapter.focusActiveNavigationItem(),this.opened(),this.adapter.notifyOpen()),this.adapter.removeClass(i),this.adapter.removeClass(n),this.adapter.removeClass(a))},e.prototype.opened=function(){},e.prototype.closed=function(){},e.prototype.runNextAnimationFrame=function(t){var n=this;cancelAnimationFrame(this.animationFrame),this.animationFrame=requestAnimationFrame(function(){n.animationFrame=0,clearTimeout(n.animationTimer),n.animationTimer=setTimeout(t,0)})},e.prototype.isElement=function(t){return Boolean(t.classList)},e}(m);/**
+ */
+var MDCDismissibleDrawerFoundation = function(_super) {
+  __extends(MDCDismissibleDrawerFoundation2, _super);
+  function MDCDismissibleDrawerFoundation2(adapter) {
+    var _this = _super.call(this, __assign(__assign({}, MDCDismissibleDrawerFoundation2.defaultAdapter), adapter)) || this;
+    _this.animationFrame = 0;
+    _this.animationTimer = 0;
+    return _this;
+  }
+  Object.defineProperty(MDCDismissibleDrawerFoundation2, "strings", {
+    get: function() {
+      return strings$1;
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCDismissibleDrawerFoundation2, "cssClasses", {
+    get: function() {
+      return cssClasses$1;
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCDismissibleDrawerFoundation2, "defaultAdapter", {
+    get: function() {
+      return {
+        addClass: function() {
+          return void 0;
+        },
+        removeClass: function() {
+          return void 0;
+        },
+        hasClass: function() {
+          return false;
+        },
+        elementHasClass: function() {
+          return false;
+        },
+        notifyClose: function() {
+          return void 0;
+        },
+        notifyOpen: function() {
+          return void 0;
+        },
+        saveFocus: function() {
+          return void 0;
+        },
+        restoreFocus: function() {
+          return void 0;
+        },
+        focusActiveNavigationItem: function() {
+          return void 0;
+        },
+        trapFocus: function() {
+          return void 0;
+        },
+        releaseFocus: function() {
+          return void 0;
+        }
+      };
+    },
+    enumerable: false,
+    configurable: true
+  });
+  MDCDismissibleDrawerFoundation2.prototype.destroy = function() {
+    if (this.animationFrame) {
+      cancelAnimationFrame(this.animationFrame);
+    }
+    if (this.animationTimer) {
+      clearTimeout(this.animationTimer);
+    }
+  };
+  MDCDismissibleDrawerFoundation2.prototype.open = function() {
+    var _this = this;
+    if (this.isOpen() || this.isOpening() || this.isClosing()) {
+      return;
+    }
+    this.adapter.addClass(cssClasses$1.OPEN);
+    this.adapter.addClass(cssClasses$1.ANIMATE);
+    this.runNextAnimationFrame(function() {
+      _this.adapter.addClass(cssClasses$1.OPENING);
+    });
+    this.adapter.saveFocus();
+  };
+  MDCDismissibleDrawerFoundation2.prototype.close = function() {
+    if (!this.isOpen() || this.isOpening() || this.isClosing()) {
+      return;
+    }
+    this.adapter.addClass(cssClasses$1.CLOSING);
+  };
+  MDCDismissibleDrawerFoundation2.prototype.isOpen = function() {
+    return this.adapter.hasClass(cssClasses$1.OPEN);
+  };
+  MDCDismissibleDrawerFoundation2.prototype.isOpening = function() {
+    return this.adapter.hasClass(cssClasses$1.OPENING) || this.adapter.hasClass(cssClasses$1.ANIMATE);
+  };
+  MDCDismissibleDrawerFoundation2.prototype.isClosing = function() {
+    return this.adapter.hasClass(cssClasses$1.CLOSING);
+  };
+  MDCDismissibleDrawerFoundation2.prototype.handleKeydown = function(evt) {
+    var keyCode = evt.keyCode, key = evt.key;
+    var isEscape = key === "Escape" || keyCode === 27;
+    if (isEscape) {
+      this.close();
+    }
+  };
+  MDCDismissibleDrawerFoundation2.prototype.handleTransitionEnd = function(evt) {
+    var OPENING = cssClasses$1.OPENING, CLOSING = cssClasses$1.CLOSING, OPEN = cssClasses$1.OPEN, ANIMATE = cssClasses$1.ANIMATE, ROOT = cssClasses$1.ROOT;
+    var isRootElement = this.isElement(evt.target) && this.adapter.elementHasClass(evt.target, ROOT);
+    if (!isRootElement) {
+      return;
+    }
+    if (this.isClosing()) {
+      this.adapter.removeClass(OPEN);
+      this.closed();
+      this.adapter.restoreFocus();
+      this.adapter.notifyClose();
+    } else {
+      this.adapter.focusActiveNavigationItem();
+      this.opened();
+      this.adapter.notifyOpen();
+    }
+    this.adapter.removeClass(ANIMATE);
+    this.adapter.removeClass(OPENING);
+    this.adapter.removeClass(CLOSING);
+  };
+  MDCDismissibleDrawerFoundation2.prototype.opened = function() {
+  };
+  MDCDismissibleDrawerFoundation2.prototype.closed = function() {
+  };
+  MDCDismissibleDrawerFoundation2.prototype.runNextAnimationFrame = function(callback) {
+    var _this = this;
+    cancelAnimationFrame(this.animationFrame);
+    this.animationFrame = requestAnimationFrame(function() {
+      _this.animationFrame = 0;
+      clearTimeout(_this.animationTimer);
+      _this.animationTimer = setTimeout(callback, 0);
+    });
+  };
+  MDCDismissibleDrawerFoundation2.prototype.isElement = function(element) {
+    return Boolean(element.classList);
+  };
+  return MDCDismissibleDrawerFoundation2;
+}(MDCFoundation);
+/**
  * @license
  * Copyright 2018 Google Inc.
  *
@@ -84,7 +256,24 @@ import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var y=function(o){f(e,o);function e(){return o!==null&&o.apply(this,arguments)||this}return e.prototype.handleScrimClick=function(){this.close()},e.prototype.opened=function(){this.adapter.trapFocus()},e.prototype.closed=function(){this.adapter.releaseFocus()},e}(d);/**
+ */
+var MDCModalDrawerFoundation = function(_super) {
+  __extends(MDCModalDrawerFoundation2, _super);
+  function MDCModalDrawerFoundation2() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+  MDCModalDrawerFoundation2.prototype.handleScrimClick = function() {
+    this.close();
+  };
+  MDCModalDrawerFoundation2.prototype.opened = function() {
+    this.adapter.trapFocus();
+  };
+  MDCModalDrawerFoundation2.prototype.closed = function() {
+    this.adapter.releaseFocus();
+  };
+  return MDCModalDrawerFoundation2;
+}(MDCDismissibleDrawerFoundation);
+/**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -105,4 +294,140 @@ import{_ as f,a as p,c as m,M as C}from"./component-97c8fef9.061cf906.js";import
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var u=d.cssClasses,c=d.strings,N=function(o){f(e,o);function e(){return o!==null&&o.apply(this,arguments)||this}return e.attachTo=function(t){return new e(t)},Object.defineProperty(e.prototype,"open",{get:function(){return this.foundation.isOpen()},set:function(t){t?this.foundation.open():this.foundation.close()},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"list",{get:function(){return this.innerList},enumerable:!1,configurable:!0}),e.prototype.initialize=function(t,n){t===void 0&&(t=function(s){return new E(s)}),n===void 0&&(n=function(s){return new O(s)});var a=this.root.querySelector(c.LIST_SELECTOR);a&&(this.innerList=n(a),this.innerList.wrapFocus=!0),this.focusTrapFactory=t},e.prototype.initialSyncWithDOM=function(){var t=this,n=u.MODAL,a=c.SCRIM_SELECTOR;this.scrim=this.root.parentNode.querySelector(a),this.scrim&&this.root.classList.contains(n)&&(this.handleScrimClick=function(){return t.foundation.handleScrimClick()},this.scrim.addEventListener("click",this.handleScrimClick),this.focusTrap=v(this.root,this.focusTrapFactory)),this.handleKeydown=function(s){t.foundation.handleKeydown(s)},this.handleTransitionEnd=function(s){t.foundation.handleTransitionEnd(s)},this.listen("keydown",this.handleKeydown),this.listen("transitionend",this.handleTransitionEnd)},e.prototype.destroy=function(){this.unlisten("keydown",this.handleKeydown),this.unlisten("transitionend",this.handleTransitionEnd),this.innerList&&this.innerList.destroy();var t=u.MODAL;this.scrim&&this.handleScrimClick&&this.root.classList.contains(t)&&(this.scrim.removeEventListener("click",this.handleScrimClick),this.open=!1)},e.prototype.getDefaultFoundation=function(){var t=this,n={addClass:function(i){t.root.classList.add(i)},removeClass:function(i){t.root.classList.remove(i)},hasClass:function(i){return t.root.classList.contains(i)},elementHasClass:function(i,l){return i.classList.contains(l)},saveFocus:function(){t.previousFocus=document.activeElement},restoreFocus:function(){var i=t.previousFocus;i&&i.focus&&t.root.contains(document.activeElement)&&i.focus()},focusActiveNavigationItem:function(){var i=t.root.querySelector(c.LIST_ITEM_ACTIVATED_SELECTOR);i&&i.focus()},notifyClose:function(){t.emit(c.CLOSE_EVENT,{},!0)},notifyOpen:function(){t.emit(c.OPEN_EVENT,{},!0)},trapFocus:function(){t.focusTrap.trapFocus()},releaseFocus:function(){t.focusTrap.releaseFocus()}},a=u.DISMISSIBLE,s=u.MODAL;if(this.root.classList.contains(a))return new d(n);if(this.root.classList.contains(s))return new y(n);throw new Error("MDCDrawer: Failed to instantiate component. Supported variants are "+a+" and "+s+".")},e}(C);export{N as M};
+ */
+var cssClasses = MDCDismissibleDrawerFoundation.cssClasses, strings = MDCDismissibleDrawerFoundation.strings;
+var MDCDrawer = function(_super) {
+  __extends(MDCDrawer2, _super);
+  function MDCDrawer2() {
+    return _super !== null && _super.apply(this, arguments) || this;
+  }
+  MDCDrawer2.attachTo = function(root) {
+    return new MDCDrawer2(root);
+  };
+  Object.defineProperty(MDCDrawer2.prototype, "open", {
+    get: function() {
+      return this.foundation.isOpen();
+    },
+    set: function(isOpen) {
+      if (isOpen) {
+        this.foundation.open();
+      } else {
+        this.foundation.close();
+      }
+    },
+    enumerable: false,
+    configurable: true
+  });
+  Object.defineProperty(MDCDrawer2.prototype, "list", {
+    get: function() {
+      return this.innerList;
+    },
+    enumerable: false,
+    configurable: true
+  });
+  MDCDrawer2.prototype.initialize = function(focusTrapFactory, listFactory) {
+    if (focusTrapFactory === void 0) {
+      focusTrapFactory = function(el) {
+        return new FocusTrap(el);
+      };
+    }
+    if (listFactory === void 0) {
+      listFactory = function(el) {
+        return new MDCList(el);
+      };
+    }
+    var listEl = this.root.querySelector(strings.LIST_SELECTOR);
+    if (listEl) {
+      this.innerList = listFactory(listEl);
+      this.innerList.wrapFocus = true;
+    }
+    this.focusTrapFactory = focusTrapFactory;
+  };
+  MDCDrawer2.prototype.initialSyncWithDOM = function() {
+    var _this = this;
+    var MODAL = cssClasses.MODAL;
+    var SCRIM_SELECTOR = strings.SCRIM_SELECTOR;
+    this.scrim = this.root.parentNode.querySelector(SCRIM_SELECTOR);
+    if (this.scrim && this.root.classList.contains(MODAL)) {
+      this.handleScrimClick = function() {
+        return _this.foundation.handleScrimClick();
+      };
+      this.scrim.addEventListener("click", this.handleScrimClick);
+      this.focusTrap = createFocusTrapInstance(this.root, this.focusTrapFactory);
+    }
+    this.handleKeydown = function(evt) {
+      _this.foundation.handleKeydown(evt);
+    };
+    this.handleTransitionEnd = function(evt) {
+      _this.foundation.handleTransitionEnd(evt);
+    };
+    this.listen("keydown", this.handleKeydown);
+    this.listen("transitionend", this.handleTransitionEnd);
+  };
+  MDCDrawer2.prototype.destroy = function() {
+    this.unlisten("keydown", this.handleKeydown);
+    this.unlisten("transitionend", this.handleTransitionEnd);
+    if (this.innerList) {
+      this.innerList.destroy();
+    }
+    var MODAL = cssClasses.MODAL;
+    if (this.scrim && this.handleScrimClick && this.root.classList.contains(MODAL)) {
+      this.scrim.removeEventListener("click", this.handleScrimClick);
+      this.open = false;
+    }
+  };
+  MDCDrawer2.prototype.getDefaultFoundation = function() {
+    var _this = this;
+    var adapter = {
+      addClass: function(className) {
+        _this.root.classList.add(className);
+      },
+      removeClass: function(className) {
+        _this.root.classList.remove(className);
+      },
+      hasClass: function(className) {
+        return _this.root.classList.contains(className);
+      },
+      elementHasClass: function(element, className) {
+        return element.classList.contains(className);
+      },
+      saveFocus: function() {
+        _this.previousFocus = document.activeElement;
+      },
+      restoreFocus: function() {
+        var previousFocus = _this.previousFocus;
+        if (previousFocus && previousFocus.focus && _this.root.contains(document.activeElement)) {
+          previousFocus.focus();
+        }
+      },
+      focusActiveNavigationItem: function() {
+        var activeNavItemEl = _this.root.querySelector(strings.LIST_ITEM_ACTIVATED_SELECTOR);
+        if (activeNavItemEl) {
+          activeNavItemEl.focus();
+        }
+      },
+      notifyClose: function() {
+        _this.emit(strings.CLOSE_EVENT, {}, true);
+      },
+      notifyOpen: function() {
+        _this.emit(strings.OPEN_EVENT, {}, true);
+      },
+      trapFocus: function() {
+        _this.focusTrap.trapFocus();
+      },
+      releaseFocus: function() {
+        _this.focusTrap.releaseFocus();
+      }
+    };
+    var DISMISSIBLE = cssClasses.DISMISSIBLE, MODAL = cssClasses.MODAL;
+    if (this.root.classList.contains(DISMISSIBLE)) {
+      return new MDCDismissibleDrawerFoundation(adapter);
+    } else if (this.root.classList.contains(MODAL)) {
+      return new MDCModalDrawerFoundation(adapter);
+    } else {
+      throw new Error("MDCDrawer: Failed to instantiate component. Supported variants are " + DISMISSIBLE + " and " + MODAL + ".");
+    }
+  };
+  return MDCDrawer2;
+}(MDCComponent);
+export { MDCDrawer as M };
