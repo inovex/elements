@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: elements-angular
-          path: packages/elements-angular/dist/
+          path: packages/elements-angular/elements/dist/
      # - name: Prepare git config
      #   run: |
      #     git config user.name "${{ github.actor }}"
