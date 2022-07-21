@@ -5,6 +5,7 @@ author: 'Benjamin Pagelsdorf'
 runs:
   using: "composite"
   steps:
+  - uses: actions/checkout@v3
   - name: Upload elements artifact
     uses: actions/upload-artifact@v3
     with:

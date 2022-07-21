@@ -5,6 +5,7 @@ author: 'Benjamin Pagelsdorf'
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v3
     - name: Download elements artifact
       uses: actions/download-artifact@v3
       with:
