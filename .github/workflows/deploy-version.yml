@@ -67,7 +67,7 @@ jobs:
      #     git config user.name "${{ github.actor }}"
      #     git config user.email "${{ github.actor}}@users.noreply.github.com"
       - shell: bash
-        run: ls -l && exit 1
+        run: ls -la && ls -la packages
       - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
