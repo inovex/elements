@@ -10,11 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn build
-        shell: bash
-      - uses: ./.github/workflows/artifacts-upload
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'yarn'
+    - run: yarn install --frozen-lockfile
+    - run: yarn build
+    - uses: ./.github/workflows/artifacts-upload
 
   release:
     runs-on: ubuntu-latest
@@ -25,31 +28,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          cache: 'yarn'
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
           always-auth: true
       - run: yarn install --frozen-lockfile
-        shell: bash
-      - name: Download elements artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: elements
-          path: packages/elements/dist/
-      - name: Download elements-react artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: elements-react
-          path: packages/elements-react/dist/
-      - name: Download elements-angular artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: elements-angular
-          path: packages/elements-angular/elements/dist/
-     # - name: Prepare git config
-     #   run: |
-     #     git config user.name "${{ github.actor }}"
-     #     git config user.email "${{ github.actor}}@users.noreply.github.com"
+      - uses: ./.github/workflows/artifacts-download
       - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
