@@ -1,45 +1,7 @@
-import { c as createCommonjsModule } from "./_commonjsHelpers-6ccee0aa.3580eb33.js";
-/*!
+import{c as i}from"./_commonjsHelpers-6ccee0aa.3580eb33.js";/*!
  * Crafted with ❤ by inovex GmbH
- */
-var classnames = createCommonjsModule(function(module) {
-  /*!
-    Copyright (c) 2017 Jed Watson.
-    Licensed under the MIT License (MIT), see
-    http://jedwatson.github.io/classnames
-  */
-  (function() {
-    var hasOwn = {}.hasOwnProperty;
-    function classNames() {
-      var classes = [];
-      for (var i = 0; i < arguments.length; i++) {
-        var arg = arguments[i];
-        if (!arg)
-          continue;
-        var argType = typeof arg;
-        if (argType === "string" || argType === "number") {
-          classes.push(arg);
-        } else if (Array.isArray(arg) && arg.length) {
-          var inner = classNames.apply(null, arg);
-          if (inner) {
-            classes.push(inner);
-          }
-        } else if (argType === "object") {
-          for (var key in arg) {
-            if (hasOwn.call(arg, key) && arg[key]) {
-              classes.push(key);
-            }
-          }
-        }
-      }
-      return classes.join(" ");
-    }
-    if (module.exports) {
-      classNames.default = classNames;
-      module.exports = classNames;
-    } else {
-      window.classNames = classNames;
-    }
-  })();
-});
-export { classnames as c };
+ */var u=i(function(r){/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/(function(){var l={}.hasOwnProperty;function e(){for(var n=[],t=0;t<arguments.length;t++){var s=arguments[t];if(!!s){var o=typeof s;if(o==="string"||o==="number")n.push(s);else if(Array.isArray(s)&&s.length){var f=e.apply(null,s);f&&n.push(f)}else if(o==="object")for(var a in s)l.call(s,a)&&s[a]&&n.push(a)}}return n.join(" ")}r.exports?(e.default=e,r.exports=e):window.classNames=e})()});export{u as c};

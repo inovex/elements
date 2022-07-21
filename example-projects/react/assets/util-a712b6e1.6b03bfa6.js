@@ -1,7 +1,6 @@
 /*!
  * Crafted with ❤ by inovex GmbH
- */
-/**
+ *//**
  * @license
  * Copyright 2016 Google Inc.
  *
@@ -22,62 +21,4 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
-var cssPropertyNameMap = {
-  animation: {
-    prefixed: "-webkit-animation",
-    standard: "animation"
-  },
-  transform: {
-    prefixed: "-webkit-transform",
-    standard: "transform"
-  },
-  transition: {
-    prefixed: "-webkit-transition",
-    standard: "transition"
-  }
-};
-var jsEventTypeMap = {
-  animationend: {
-    cssProperty: "animation",
-    prefixed: "webkitAnimationEnd",
-    standard: "animationend"
-  },
-  animationiteration: {
-    cssProperty: "animation",
-    prefixed: "webkitAnimationIteration",
-    standard: "animationiteration"
-  },
-  animationstart: {
-    cssProperty: "animation",
-    prefixed: "webkitAnimationStart",
-    standard: "animationstart"
-  },
-  transitionend: {
-    cssProperty: "transition",
-    prefixed: "webkitTransitionEnd",
-    standard: "transitionend"
-  }
-};
-function isWindow(windowObj) {
-  return Boolean(windowObj.document) && typeof windowObj.document.createElement === "function";
-}
-function getCorrectPropertyName(windowObj, cssProperty) {
-  if (isWindow(windowObj) && cssProperty in cssPropertyNameMap) {
-    var el = windowObj.document.createElement("div");
-    var _a = cssPropertyNameMap[cssProperty], standard = _a.standard, prefixed = _a.prefixed;
-    var isStandard = standard in el.style;
-    return isStandard ? standard : prefixed;
-  }
-  return cssProperty;
-}
-function getCorrectEventName(windowObj, eventType) {
-  if (isWindow(windowObj) && eventType in jsEventTypeMap) {
-    var el = windowObj.document.createElement("div");
-    var _a = jsEventTypeMap[eventType], standard = _a.standard, prefixed = _a.prefixed, cssProperty = _a.cssProperty;
-    var isStandard = cssProperty in el.style;
-    return isStandard ? standard : prefixed;
-  }
-  return eventType;
-}
-export { getCorrectPropertyName as a, getCorrectEventName as g };
+ */var d={animation:{prefixed:"-webkit-animation",standard:"animation"},transform:{prefixed:"-webkit-transform",standard:"transform"},transition:{prefixed:"-webkit-transition",standard:"transition"}},s={animationend:{cssProperty:"animation",prefixed:"webkitAnimationEnd",standard:"animationend"},animationiteration:{cssProperty:"animation",prefixed:"webkitAnimationIteration",standard:"animationiteration"},animationstart:{cssProperty:"animation",prefixed:"webkitAnimationStart",standard:"animationstart"},transitionend:{cssProperty:"transition",prefixed:"webkitTransitionEnd",standard:"transitionend"}};function m(t){return Boolean(t.document)&&typeof t.document.createElement=="function"}function c(t,n){if(m(t)&&n in d){var r=t.document.createElement("div"),a=d[n],i=a.standard,e=a.prefixed,o=i in r.style;return o?i:e}return n}function p(t,n){if(m(t)&&n in s){var r=t.document.createElement("div"),a=s[n],i=a.standard,e=a.prefixed,o=a.cssProperty,f=o in r.style;return f?i:e}return n}export{c as a,p as g};

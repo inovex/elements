@@ -1,7 +1,6 @@
 /*!
  * Crafted with ❤ by inovex GmbH
- */
-/**
+ *//**
  * @license
  * Copyright 2020 Google Inc.
  *
@@ -22,40 +21,4 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
-var AnimationFrame = function() {
-  function AnimationFrame2() {
-    this.rafIDs = /* @__PURE__ */ new Map();
-  }
-  AnimationFrame2.prototype.request = function(key, callback) {
-    var _this = this;
-    this.cancel(key);
-    var frameID = requestAnimationFrame(function(frame) {
-      _this.rafIDs.delete(key);
-      callback(frame);
-    });
-    this.rafIDs.set(key, frameID);
-  };
-  AnimationFrame2.prototype.cancel = function(key) {
-    var rafID = this.rafIDs.get(key);
-    if (rafID) {
-      cancelAnimationFrame(rafID);
-      this.rafIDs.delete(key);
-    }
-  };
-  AnimationFrame2.prototype.cancelAll = function() {
-    var _this = this;
-    this.rafIDs.forEach(function(_, key) {
-      _this.cancel(key);
-    });
-  };
-  AnimationFrame2.prototype.getQueue = function() {
-    var queue = [];
-    this.rafIDs.forEach(function(_, key) {
-      queue.push(key);
-    });
-    return queue;
-  };
-  return AnimationFrame2;
-}();
-export { AnimationFrame as A };
+ */var o=function(){function a(){this.rafIDs=new Map}return a.prototype.request=function(t,n){var e=this;this.cancel(t);var r=requestAnimationFrame(function(i){e.rafIDs.delete(t),n(i)});this.rafIDs.set(t,r)},a.prototype.cancel=function(t){var n=this.rafIDs.get(t);n&&(cancelAnimationFrame(n),this.rafIDs.delete(t))},a.prototype.cancelAll=function(){var t=this;this.rafIDs.forEach(function(n,e){t.cancel(e)})},a.prototype.getQueue=function(){var t=[];return this.rafIDs.forEach(function(n,e){t.push(e)}),t},a}();export{o as A};
