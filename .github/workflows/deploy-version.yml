@@ -45,22 +45,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
-      - uses: ./.github/workflows/artifacts-download
-#      - name: Download elements artifact
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: elements
-#          path: packages/elements/dist/
-#      - name: Download elements-react artifact
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: elements-react
-#          path: packages/elements-react/dist/
-#      - name: Download elements-angular artifact
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: elements-angular
-#          path: packages/elements-angular/elements/dist/
+#      - uses: ./.github/workflows/artifacts-download
+      - name: Download elements artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements
+          path: packages/elements/dist/
+      - name: Download elements-react artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-react
+          path: packages/elements-react/dist/
+      - name: Download elements-angular artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-angular
+          path: packages/elements-angular/elements/dist/
      # - name: Prepare git config
      #   run: |
      #     git config user.name "${{ github.actor }}"
