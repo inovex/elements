@@ -11,13 +11,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'yarn'
-    - run: yarn install --frozen-lockfile
+    - uses: ./.github/workflows/dependencies-install
     - run: yarn build
-    - uses: ./.github/workflows/artifacts-upload
+    - name: Upload Artifact -> elements
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements
+        path: packages/elements/dist/
+    - name: Upload Artifact -> elements-react
+      uses: actions/upload-artifact@v3
+      with:
+        name: elements-react
+        path: packages/elements-react/dist/
+    - name: Upload Artifact -> elements-angular
+      uses: actions/upload-artifact@v2
+      with:
+        name: elements-angular
+        path:
+          packages/elements-angular/dist/
+    - name: Upload Artifact -> storybook
+      uses: actions/upload-artifact@v3
+      with:
+        name: storybook
+        path: packages/storybook/dist/
 
   release:
     runs-on: ubuntu-latest
@@ -25,14 +41,26 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/workflows/dependencies-install
+      - name: Download elements artifact
+        uses: actions/download-artifact@v3
         with:
-          node-version-file: '.nvmrc'
-          registry-url: https://registry.npmjs.org
-          scope: '@inovex.de' # important for yarn
-          always-auth: true
-      - run: yarn install --frozen-lockfile
-      - uses: ./.github/workflows/artifacts-download
+          name: elements
+          path: packages/elements/dist/
+      - name: Download elements-react artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-react
+          path: packages/elements-react/dist/
+      - name: Download elements-angular artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: elements-angular
+          path: packages/elements-angular/dist/
+     # - name: Prepare git config
+     #   run: |
+     #     git config user.name "${{ github.actor }}"
+     #     git config user.email "${{ github.actor}}@users.noreply.github.com"
       - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
