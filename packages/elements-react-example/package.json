@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "homepage": "http://elements.inovex.de/example-projects/react/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
