@@ -1,6 +1,7 @@
 import { Todo } from './shared/models/todo';
 import { TodoService } from './shared/services/todo.service';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -9,19 +10,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   todos: Array<Todo>;
-  newTodoName: string = '';
+  form: FormGroup;
 
-  constructor(private todoService: TodoService) {
+  constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
+    this.form = this.fb.group({
+      todoName: [{ value: '', disabled: false }],
+    });
   }
 
-  onValueChanged($event: any) {
-    this.newTodoName = $event.target.value;
+  toggleInputState(): void {
+    const control = this.form.get('todoName');
+    if (control)
+      control.disabled ? control.enable() : control.disable();
   }
 
   add() {
-    this.todos.push(new Todo(this.newTodoName));
-    this.newTodoName = '';
+    this.todos.push(new Todo(this.form.value.todoName));
   }
 
   delete(index: number, todo: Todo) {
