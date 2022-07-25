@@ -83,7 +83,7 @@
     "@material/tab-scroller": "^13.0.0",
     "@material/textfield": "^13.0.0",
     "@material/typography": "^13.0.0",
-    "@stencil/core": "2.14.0",
+    "@stencil/core": "2.17.1",
     "@tiptap/core": "^2.0.0-beta.159",
     "@tiptap/extension-link": "^2.0.0-beta.33",
     "@tiptap/extension-task-item": "^2.0.0-beta.36",
