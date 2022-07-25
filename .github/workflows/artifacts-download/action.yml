@@ -17,11 +17,11 @@ runs:
         name: elements-react
         path: packages/elements-react/dist/
 
-#    - name: Download elements-angular artifact
-#      uses: actions/download-artifact@v3
-#      with:
-#        name: elements-angular
-#        path: packages/elements-angular/elements/dist/
+    - name: Download elements-angular artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: elements-angular
+        path: packages/elements-angular/elements/dist/
 
     - name: Download elements-vue artifact
       uses: actions/download-artifact@v3
