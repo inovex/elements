@@ -2,7 +2,7 @@
 
 This is the core package containing all the inovex elements as pure Web Components.
 
-> You can integrate the elements into Angular, React, Vue or JavaScript projects. See below for instructions. 
+> You can integrate the elements into Angular, React, Vue or JavaScript projects. See below for instructions.
 
 ## Installation
 
