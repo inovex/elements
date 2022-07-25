@@ -5,7 +5,7 @@
     "node": ">=14.17"
   },
   "scripts": {
-    "build": "lerna run build --ignore=elements-angular-example && lerna run build --scope=elements-angular-example",
+    "build": "lerna run build",
     "start": "(shx test -d ./packages/elements/dist || lerna run build --scope=@inovex.de/elements) && lerna run dev --parallel",
     "test": "lerna run test",
     "test:update": "lerna run test:update",
@@ -45,7 +45,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "packages/elements-angular/elements/dist"
+      "packages/elements-angular/elements"
     ],
     "nohoist": [
       "**/@types/jasmine",
