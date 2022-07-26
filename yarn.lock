@@ -4516,6 +4516,57 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@inovex.de/elements-angular@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements-angular/-/elements-angular-7.1.0.tgz#0f14cbb00177be9249830eed3bef67de0c077bd5"
+  integrity sha512-BW9wAvCWTBJ20+UgpPag26f0Y2GtARc3MJ1igzG5B5CkPQk3YxaSUoZ7WcCbY9QT0l7Tquo2mSm8o3A4xOx1Ew==
+  dependencies:
+    "@inovex.de/elements" "^7.1.0"
+    tslib "^2.2.0"
+
+"@inovex.de/elements@file:packages/elements-react/.yalc/@inovex.de/elements":
+  version "7.1.0"
+  dependencies:
+    "@hedgedoc/markdown-it-task-lists" "^1.0.3"
+    "@material/button" "^13.0.0"
+    "@material/card" "^13.0.0"
+    "@material/checkbox" "^13.0.0"
+    "@material/chips" "^13.0.0"
+    "@material/data-table" "^13.0.0"
+    "@material/dialog" "^13.0.0"
+    "@material/drawer" "^13.0.0"
+    "@material/fab" "^13.0.0"
+    "@material/form-field" "^13.0.0"
+    "@material/icon-button" "^13.0.0"
+    "@material/image-list" "^13.0.0"
+    "@material/linear-progress" "^13.0.0"
+    "@material/list" "^13.0.0"
+    "@material/menu" "^13.0.0"
+    "@material/radio" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/select" "^13.0.0"
+    "@material/slider" "^13.0.0"
+    "@material/snackbar" "^13.0.0"
+    "@material/switch" "^13.0.0"
+    "@material/tab" "^13.0.0"
+    "@material/tab-bar" "^13.0.0"
+    "@material/tab-indicator" "^13.0.0"
+    "@material/tab-scroller" "^13.0.0"
+    "@material/textfield" "^13.0.0"
+    "@material/typography" "^13.0.0"
+    "@stencil/core" "2.17.1"
+    "@tiptap/core" "^2.0.0-beta.159"
+    "@tiptap/extension-link" "^2.0.0-beta.33"
+    "@tiptap/extension-task-item" "^2.0.0-beta.36"
+    "@tiptap/extension-task-list" "^2.0.0-beta.29"
+    "@tiptap/starter-kit" "^2.0.0-beta.164"
+    autosize "^4.0.2"
+    classnames "^2.2.6"
+    date-fns "^2.16.1"
+    flatpickr "^4.4.6"
+    prosemirror-markdown "^1.6.0"
+    tippy.js "^6.2.3"
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -6604,10 +6655,10 @@
   resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.4.0.tgz#6724ed805d50e802f58212d74a71caf442e0b569"
   integrity sha512-zauaj0za46IWoPgv2IanDp3tiljwDRDNk4jB7WII6KeL66dkk7ffeqYZ0CgySTU5W2FjnKR6JEKbAnwUxjGIsA==
 
-"@stencil/core@2.14.0":
-  version "2.14.0"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.14.0.tgz#4878e56b1989bfd77d73de6e951c3721e0e32052"
-  integrity sha512-tiGFK9VADoHJvAZoTHN/c6YBaTzB5+V3aTn7CzjPxIqryjh3jCUlMP4VDvzkrnVWjhj8Fa82zMWdePgr/xoyOw==
+"@stencil/core@2.17.1":
+  version "2.17.1"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.17.1.tgz#c0fd74d2991c2ea9d7e382017726bfd01009a05c"
+  integrity sha512-ErjQsNALgZQ9SYeBHhqwL1UO+Zbptwl3kwrRJC2tGlc3G/T6UvPuaKr+PGsqI+CZGia+0+R5EELQvFu74mYeIg==
 
 "@stencil/eslint-plugin@^0.4.0":
   version "0.4.0"
