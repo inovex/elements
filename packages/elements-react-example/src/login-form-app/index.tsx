@@ -8,11 +8,33 @@ import {
   InoFabSet,
   InoHeader,
   InoInput,
+  InoSnackbar,
+  InoPopover,
 } from '../shared/InovexElements';
 import './Guide.scss';
-import logo from '../../../landingpage/src/assets/logos/elements.svg'
+import logo from '../../../landingpage/src/assets/logos/elements.svg';
 
 export const LoginFormApp: React.FC = () => {
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [showSnackbar, setSnackbar] = React.useState(false);
+
+  const onValueChanged = (value: CustomEvent<string>, input: string) => {
+    switch (input) {
+      case 'email':
+        setEmail(value.detail);
+        break;
+      case 'password':
+        setPassword(value.detail);
+        break;
+    }
+  };
+
+  const resetData = () => {
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <div className="container">
       <div className="leftpage">
@@ -48,17 +70,59 @@ export const LoginFormApp: React.FC = () => {
             </InoFabSet>
           </div>
           <InoHeader>or</InoHeader>
-          <InoInput label="email" outline={true}></InoInput>
-          <InoInput icon-trailing="" label="password" outline={true}>
-            <InoIcon slot="icon-trailing" icon="password"></InoIcon>
+          <InoInput
+            type="text"
+            label="email"
+            outline={true}
+            value={email}
+            onValueChange={(value) => onValueChanged(value, 'email')}
+          ></InoInput>
+          <InoInput
+            type="text"
+            icon-trailing=""
+            label="password"
+            outline={true}
+            value={password}
+            onValueChange={(value) => onValueChanged(value, 'password')}
+          >
+            <InoIcon
+              slot="icon-trailing"
+              icon="password"
+              clickable={true}
+            ></InoIcon>{' '}
+            {/* TODO after ino-icon fix: clickEl reinpacken damit man das passwort verstecken kann oder nicht*/}
           </InoInput>
-          <InoButton type="submit">Sign in</InoButton>
+          <InoButton
+            type="submit"
+            onClick={() => {
+              setSnackbar(!showSnackbar);
+              resetData();
+            }}
+          >
+            Sign In
+          </InoButton>
+          {showSnackbar ? (
+            <InoSnackbar
+              action-text="Welcome back!"
+              timeout={5000}
+              type="success"
+              stay-visible-on-hover="false"
+            >
+              Sucessfully logged in
+            </InoSnackbar>
+          ) : null}
         </div>
       </div>
       <div className="rightpage">
         <h1>New Here?</h1>
         <p>Sign up here and discover the power of the Elements</p>
-        <InoButton>Sign Up</InoButton>
+        <InoButton id="register">Sign Up</InoButton>
+        <InoPopover for="register" placement="bottom">
+          <div className="styled-popover">
+            <InoIcon icon="user"></InoIcon>
+            to be continued.
+          </div>
+        </InoPopover>
       </div>
     </div>
   );

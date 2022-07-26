@@ -26,6 +26,9 @@
 .body {
   @extend %centered-div;
   justify-content: center;
+
+  --ino-input-line-color: #003c7e;
+  --ino-input-label-color: #003c7e;
 }
 
 .rightpage {
@@ -35,5 +38,12 @@
   justify-content: center;
   .p {
     text-align: center;
+  }
+
+  .styled-popover {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
   }
 }
