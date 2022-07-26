@@ -790,7 +790,7 @@ export namespace Components {
          */
         "initialValue": string;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
          */
         "viewMode": ViewModeUnion;
     }
@@ -1359,6 +1359,126 @@ export namespace Components {
         "trigger": TooltipTrigger;
     }
 }
+export interface InoAutocompleteCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoAutocompleteElement;
+}
+export interface InoCarouselCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoCarouselElement;
+}
+export interface InoCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoCheckboxElement;
+}
+export interface InoChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoChipElement;
+}
+export interface InoControlItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoControlItemElement;
+}
+export interface InoCurrencyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoCurrencyInputElement;
+}
+export interface InoDatepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoDatepickerElement;
+}
+export interface InoDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoDialogElement;
+}
+export interface InoIconCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoIconElement;
+}
+export interface InoIconButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoIconButtonElement;
+}
+export interface InoInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoInputElement;
+}
+export interface InoInputFileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoInputFileElement;
+}
+export interface InoListItemCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoListItemElement;
+}
+export interface InoMarkdownEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoMarkdownEditorElement;
+}
+export interface InoNavDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoNavDrawerElement;
+}
+export interface InoOptionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoOptionElement;
+}
+export interface InoPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoPopoverElement;
+}
+export interface InoRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoRadioElement;
+}
+export interface InoRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoRadioGroupElement;
+}
+export interface InoRangeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoRangeElement;
+}
+export interface InoSegmentButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSegmentButtonElement;
+}
+export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSelectElement;
+}
+export interface InoSidebarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSidebarElement;
+}
+export interface InoSnackbarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSnackbarElement;
+}
+export interface InoSwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSwitchElement;
+}
+export interface InoTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoTabElement;
+}
+export interface InoTabBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoTabBarElement;
+}
+export interface InoTableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoTableElement;
+}
+export interface InoTableHeaderCellCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoTableHeaderCellElement;
+}
+export interface InoTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoTextareaElement;
+}
 declare global {
     interface HTMLInoAutocompleteElement extends Components.InoAutocomplete, HTMLStencilElement {
     }
@@ -1719,7 +1839,7 @@ declare namespace LocalJSX {
         /**
           * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
          */
-        "onValueChange"?: (event: CustomEvent<string | null>) => void;
+        "onValueChange"?: (event: InoAutocompleteCustomEvent<string | null>) => void;
         /**
           * Value of the autocomplete
          */
@@ -1791,6 +1911,10 @@ declare namespace LocalJSX {
          */
         "intermission"?: number;
         /**
+          * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked.
+         */
+        "onValueChange"?: (event: InoCarouselCustomEvent<number | string>) => void;
+        /**
           * Enables reverse playback of the slides
          */
         "reverse"?: boolean;
@@ -1829,7 +1953,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user clicks on the checkbox to change the checked state. Contains the status in `event.detail`.
          */
-        "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        "onCheckedChange"?: (event: InoCheckboxCustomEvent<any>) => void;
         /**
           * Styles the checkbox as a selection variant that has a larger radius. While checkboxes are mainly used in lists, the selection should be used as a single, independent UI element. The indeterminate state is not supported here.
          */
@@ -1860,11 +1984,11 @@ declare namespace LocalJSX {
         /**
           * Event that emits the `value` as soon as the user clicks on the chip.
          */
-        "onChipClicked"?: (event: CustomEvent<string>) => void;
+        "onChipClicked"?: (event: InoChipCustomEvent<string>) => void;
         /**
           * Event that emits the `value` as soon as the user clicks on the remove icon.  Listen to this event to hide or destroy this chip.
          */
-        "onChipRemoved"?: (event: CustomEvent<string>) => void;
+        "onChipRemoved"?: (event: InoChipCustomEvent<string>) => void;
         /**
           * Adds a close icon on the right side of this chip which emits the `removeChip` event on click.
          */
@@ -1906,7 +2030,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user clicks on the checkbox or the list item to change the checked state. Contains the status in `event.detail`.
          */
-        "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        "onCheckedChange"?: (event: InoControlItemCustomEvent<any>) => void;
         /**
           * The type of control element
          */
@@ -1940,7 +2064,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user types something in. Contains typed input in `event.detail`
          */
-        "onValueChange"?: (event: CustomEvent<number>) => void;
+        "onValueChange"?: (event: InoCurrencyInputCustomEvent<number>) => void;
         /**
           * Numeric currency value
          */
@@ -2026,7 +2150,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the value of the datepicker changes. The value can be found in `event.detail`
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: InoDatepickerCustomEvent<string>) => void;
         /**
           * Styles the datepicker as outlined element.
          */
@@ -2076,7 +2200,7 @@ declare namespace LocalJSX {
         /**
           * Emits an event upon closing the dialog
          */
-        "onClose"?: (event: CustomEvent<DialogCloseAction>) => void;
+        "onClose"?: (event: InoDialogCustomEvent<DialogCloseAction>) => void;
         /**
           * Opens the dialog if set to true
          */
@@ -2168,7 +2292,7 @@ declare namespace LocalJSX {
         /**
           * Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true.
          */
-        "onClickEl"?: (event: CustomEvent<any>) => void;
+        "onClickEl"?: (event: InoIconCustomEvent<any>) => void;
         /**
           * Specifies the exact `src` of an SVG file to use.
          */
@@ -2206,7 +2330,7 @@ declare namespace LocalJSX {
         /**
           * Event that emits as soon as the user clicks on the icon. The event only emits if the property `clickable` is true.
          */
-        "onClickEl"?: (event: CustomEvent<any>) => void;
+        "onClickEl"?: (event: InoIconButtonCustomEvent<any>) => void;
         /**
           * The type of this form.  Can either be `button`, `submit` or `reset`.
          */
@@ -2340,15 +2464,15 @@ declare namespace LocalJSX {
         /**
           * Emits when the input field is blurred and validates email input
          */
-        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        "onInoBlur"?: (event: InoInputCustomEvent<void>) => void;
         /**
           * Emits when the input field is focused
          */
-        "onInoFocus"?: (event: CustomEvent<void>) => void;
+        "onInoFocus"?: (event: InoInputCustomEvent<void>) => void;
         /**
           * Emits when the user types something in. Contains typed input in `event.detail`
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: InoInputCustomEvent<string>) => void;
         /**
           * Styles the input field as outlined element.
          */
@@ -2430,7 +2554,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the value changes.
          */
-        "onChangeFile"?: (event: CustomEvent<{
+        "onChangeFile"?: (event: InoInputFileCustomEvent<{
     e: any;
     files: File[];
   }>) => void;
@@ -2501,7 +2625,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the list item is clicked or the enter/space key if pressed while the item is in focus. Contains the element itself in `event.detail`
          */
-        "onClickEl"?: (event: CustomEvent<any>) => void;
+        "onClickEl"?: (event: InoListItemCustomEvent<any>) => void;
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -2523,17 +2647,17 @@ declare namespace LocalJSX {
         /**
           * Emits when the ino-markdown-editor is blurred
          */
-        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        "onInoBlur"?: (event: InoMarkdownEditorCustomEvent<void>) => void;
         /**
           * Emits when the value of the markdown editor **blurs**. The value of type `string` can be found in `event.detail`
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: InoMarkdownEditorCustomEvent<string>) => void;
         /**
           * Emits when one of the view mode buttons was clicked. The value of type `ViewMode` can be found in `event.detail`
          */
-        "onViewModeChange"?: (event: CustomEvent<ViewModeUnion>) => void;
+        "onViewModeChange"?: (event: InoMarkdownEditorCustomEvent<ViewModeUnion>) => void;
         /**
-          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the markdown syntax.
+          * Sets the view mode of the editor. Can be changed between `preview` (default), `markdown` and `readonly`. The `markdown` mode is made for advanced users that know the Markdown syntax.
          */
         "viewMode"?: ViewModeUnion;
     }
@@ -2551,7 +2675,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user clicks on the drawer toggle icon to change the open state. Contains the status in `event.detail`.
          */
-        "onOpenChange"?: (event: CustomEvent<boolean>) => void;
+        "onOpenChange"?: (event: InoNavDrawerCustomEvent<boolean>) => void;
         /**
           * Marks this element as open. (**unmanaged**)
          */
@@ -2587,7 +2711,7 @@ declare namespace LocalJSX {
         /**
           * Emits on option click
          */
-        "onClickEl"?: (event: CustomEvent<HTMLInoOptionElement>) => void;
+        "onClickEl"?: (event: InoOptionCustomEvent<HTMLInoOptionElement>) => void;
         /**
           * Selects the option
          */
@@ -2643,7 +2767,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the popover wants to show (`true`) or hide (`false`) itself. This is depended on the `trigger` property. Use this event in controlled-mode (see `controlled`).  e.g.: `trigger = 'click'` - This events emits with `true` when the user clicks on the target (slot/`for`/parent-element) and emits with `false` when the target or the outside is clicked.
          */
-        "onVisibleChanged"?: (event: CustomEvent<boolean>) => void;
+        "onVisibleChanged"?: (event: InoPopoverCustomEvent<boolean>) => void;
         /**
           * The placement of this popover. Accepted values: `top(-start, -end)`, `right(-start, -end)`, `bottom(-start, -end)`, `left(-start, -end)`
          */
@@ -2691,7 +2815,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user interacts with the radio-button. Contains `true` in `event.detail`. This event will only be emitted if the current state of the radio button is false.
          */
-        "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        "onCheckedChange"?: (event: InoRadioCustomEvent<any>) => void;
         /**
           * The value of this element.
          */
@@ -2705,7 +2829,7 @@ declare namespace LocalJSX {
         /**
           * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
-        "onValueChange"?: (event: CustomEvent<number | string>) => void;
+        "onValueChange"?: (event: InoRadioGroupCustomEvent<number | string>) => void;
         /**
           * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
@@ -2743,15 +2867,15 @@ declare namespace LocalJSX {
         /**
           * Emits when the value changes (not in ranged mode).
          */
-        "onValueChange"?: (event: CustomEvent<number>) => void;
+        "onValueChange"?: (event: InoRangeCustomEvent<number>) => void;
         /**
           * Emits when the end (right) value of the interval changes (in ranged mode).
          */
-        "onValueEndChange"?: (event: CustomEvent<number>) => void;
+        "onValueEndChange"?: (event: InoRangeCustomEvent<number>) => void;
         /**
           * Emits when the start (left) value of the interval changes (in ranged mode).
          */
-        "onValueStartChange"?: (event: CustomEvent<number>) => void;
+        "onValueStartChange"?: (event: InoRangeCustomEvent<number>) => void;
         /**
           * Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.
          */
@@ -2793,7 +2917,7 @@ declare namespace LocalJSX {
         /**
           * Emits if the user interacts with the button. If the button is disabled or checked, the event will not be emitted.
          */
-        "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        "onCheckedChange"?: (event: InoSegmentButtonCustomEvent<any>) => void;
         /**
           * Value of the element
          */
@@ -2841,7 +2965,7 @@ declare namespace LocalJSX {
         /**
           * Emits when a selection changes. Contains new value in `event.detail`.
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: InoSelectCustomEvent<string>) => void;
         /**
           * Styles this select box as outlined element.
          */
@@ -2871,7 +2995,7 @@ declare namespace LocalJSX {
         /**
           * Emits an event if the user expands or collapses the sidebar
          */
-        "onOpenChange"?: (event: CustomEvent<any>) => void;
+        "onOpenChange"?: (event: InoSidebarCustomEvent<any>) => void;
         /**
           * Expands the sidebar
          */
@@ -2890,11 +3014,11 @@ declare namespace LocalJSX {
         /**
           * Event that emits as soon as the action button is clicked.
          */
-        "onActionClick"?: (event: CustomEvent<any>) => void;
+        "onActionClick"?: (event: InoSnackbarCustomEvent<any>) => void;
         /**
           * Event that emits as soon as the snackbar hides. Listen to this event to hide or destroy this element.
          */
-        "onHideEl"?: (event: CustomEvent<any>) => void;
+        "onHideEl"?: (event: InoSnackbarCustomEvent<any>) => void;
         /**
           * If set to true, the timeout that closes the snackbar is paused when the user hovers over the snackbar.
          */
@@ -2950,7 +3074,7 @@ declare namespace LocalJSX {
         /**
           * Emits when the user clicks on the switch to change the `checked` state. Contains the status in `event.detail`.
          */
-        "onCheckedChange"?: (event: CustomEvent<any>) => void;
+        "onCheckedChange"?: (event: InoSwitchCustomEvent<any>) => void;
     }
     interface InoTab {
         /**
@@ -2969,7 +3093,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the user interacts with the tab. This event is used by the ino-tab-bar.
          */
-        "onInteracted"?: (event: CustomEvent<any>) => void;
+        "onInteracted"?: (event: InoTabCustomEvent<any>) => void;
         /**
           * Indicates that the tab icon and label should flow vertically instead of horizontally.
          */
@@ -2987,7 +3111,7 @@ declare namespace LocalJSX {
         /**
           * Emits when a tab changes. Contains the index of the activated tab in `event.detail`
          */
-        "onActiveTabChange"?: (event: CustomEvent<any>) => void;
+        "onActiveTabChange"?: (event: InoTabBarCustomEvent<any>) => void;
     }
     interface InoTable {
         /**
@@ -3001,7 +3125,7 @@ declare namespace LocalJSX {
         /**
           * Emits that the sort direction or column id has changed.
          */
-        "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        "onSortChange"?: (event: InoTableCustomEvent<SortDirectionChangeDetails>) => void;
         /**
           * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
@@ -3036,11 +3160,11 @@ declare namespace LocalJSX {
         /**
           * Emits that the search field focused (true) or blurred (false).
          */
-        "onSearchFocusChange"?: (event: CustomEvent<boolean>) => void;
+        "onSearchFocusChange"?: (event: InoTableHeaderCellCustomEvent<boolean>) => void;
         /**
           * Emits that the sort direction has been changed.
          */
-        "onSortDirectionChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
+        "onSortDirectionChange"?: (event: InoTableHeaderCellCustomEvent<SortDirectionChangeDetails>) => void;
         /**
           * Identifier of the search icon (default `search`). Used for date or list search columns.
          */
@@ -3094,11 +3218,11 @@ declare namespace LocalJSX {
         /**
           * Emits when the textarea is blurred and validates email input
          */
-        "onInoBlur"?: (event: CustomEvent<void>) => void;
+        "onInoBlur"?: (event: InoTextareaCustomEvent<void>) => void;
         /**
           * Emits when the user types something in. Contains typed input in `event.detail`
          */
-        "onValueChange"?: (event: CustomEvent<string>) => void;
+        "onValueChange"?: (event: InoTextareaCustomEvent<string>) => void;
         /**
           * Styles the input field as outlined element.
          */

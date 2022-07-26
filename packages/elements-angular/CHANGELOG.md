@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/inovex/elements/compare/v7.0.0...v7.1.0) (2022-07-18)
+
+
+### Features
+
+* **elements|ino-carousel:** add `valueChange` event to inform about slide changes on arrow click ([#650](https://github.com/inovex/elements/issues/650)) ([6f98a31](https://github.com/inovex/elements/commit/6f98a317294c9789d5fed72e9210d5f2adf5dacf))
+* **elements|ino-radio-group:** add option to align radios vertically & horizontally ([#652](https://github.com/inovex/elements/issues/652)) ([2106dfd](https://github.com/inovex/elements/commit/2106dfdd85abd0a93b3325eb82216bddd1e4ea2b))
+* add angular example project ([#601](https://github.com/inovex/elements/issues/601)) ([b860b56](https://github.com/inovex/elements/commit/b860b56b4e7c37ccd55481e14889242d694cb8b5))
+* **elements|ino-radio-group:** support keyboard navigation ([#644](https://github.com/inovex/elements/issues/644)) ([b0bf72f](https://github.com/inovex/elements/commit/b0bf72f860fed2bb64d3d7c6589737a01bb59f2b))
+* **elements|ino-range:** support input of intervals ([#605](https://github.com/inovex/elements/issues/605)) ([2f7d8fd](https://github.com/inovex/elements/commit/2f7d8fdb42fab55402adc8913502046a4e043453))
+
 ## [7.0.0](https://github.com/inovex/elements/compare/v6.2.0...v7.0.0) (2022-05-23)
 
 

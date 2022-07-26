@@ -78,6 +78,7 @@ export default [
 	'status_future',
 	'status_past',
 	'strikethrough',
+	'task_list',
 	'time',
 	'underline',
 	'upload',

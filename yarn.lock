@@ -4516,50 +4516,13 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@inovex.de/elements@^7.1.0":
+"@inovex.de/elements-angular@^7.1.0":
   version "7.1.0"
-  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-7.1.0.tgz#b64aff05ed3df0448b217870ee4c2ce90d076766"
-  integrity sha512-XZ5UkmoShWTNzjBo/AJAnVTo+FJ75pWr4B/kubMeqXClNLC8LPqfx8RHpfkwKVzEnIIHMbSVkkcT+7qStx8Lqw==
+  resolved "https://registry.npmjs.org/@inovex.de/elements-angular/-/elements-angular-7.1.0.tgz#0f14cbb00177be9249830eed3bef67de0c077bd5"
+  integrity sha512-BW9wAvCWTBJ20+UgpPag26f0Y2GtARc3MJ1igzG5B5CkPQk3YxaSUoZ7WcCbY9QT0l7Tquo2mSm8o3A4xOx1Ew==
   dependencies:
-    "@hedgedoc/markdown-it-task-lists" "^1.0.3"
-    "@material/button" "^13.0.0"
-    "@material/card" "^13.0.0"
-    "@material/checkbox" "^13.0.0"
-    "@material/chips" "^13.0.0"
-    "@material/data-table" "^13.0.0"
-    "@material/dialog" "^13.0.0"
-    "@material/drawer" "^13.0.0"
-    "@material/fab" "^13.0.0"
-    "@material/form-field" "^13.0.0"
-    "@material/icon-button" "^13.0.0"
-    "@material/image-list" "^13.0.0"
-    "@material/linear-progress" "^13.0.0"
-    "@material/list" "^13.0.0"
-    "@material/menu" "^13.0.0"
-    "@material/radio" "^13.0.0"
-    "@material/ripple" "^13.0.0"
-    "@material/select" "^13.0.0"
-    "@material/slider" "^13.0.0"
-    "@material/snackbar" "^13.0.0"
-    "@material/switch" "^13.0.0"
-    "@material/tab" "^13.0.0"
-    "@material/tab-bar" "^13.0.0"
-    "@material/tab-indicator" "^13.0.0"
-    "@material/tab-scroller" "^13.0.0"
-    "@material/textfield" "^13.0.0"
-    "@material/typography" "^13.0.0"
-    "@stencil/core" "2.14.0"
-    "@tiptap/core" "^2.0.0-beta.159"
-    "@tiptap/extension-link" "^2.0.0-beta.33"
-    "@tiptap/extension-task-item" "^2.0.0-beta.36"
-    "@tiptap/extension-task-list" "^2.0.0-beta.29"
-    "@tiptap/starter-kit" "^2.0.0-beta.164"
-    autosize "^4.0.2"
-    classnames "^2.2.6"
-    date-fns "^2.16.1"
-    flatpickr "^4.4.6"
-    prosemirror-markdown "^1.6.0"
-    tippy.js "^6.2.3"
+    "@inovex.de/elements" "^7.1.0"
+    tslib "^2.2.0"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -6649,10 +6612,10 @@
   resolved "https://registry.npmjs.org/@stencil/angular-output-target/-/angular-output-target-0.4.0.tgz#6724ed805d50e802f58212d74a71caf442e0b569"
   integrity sha512-zauaj0za46IWoPgv2IanDp3tiljwDRDNk4jB7WII6KeL66dkk7ffeqYZ0CgySTU5W2FjnKR6JEKbAnwUxjGIsA==
 
-"@stencil/core@2.14.0":
-  version "2.14.0"
-  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.14.0.tgz#4878e56b1989bfd77d73de6e951c3721e0e32052"
-  integrity sha512-tiGFK9VADoHJvAZoTHN/c6YBaTzB5+V3aTn7CzjPxIqryjh3jCUlMP4VDvzkrnVWjhj8Fa82zMWdePgr/xoyOw==
+"@stencil/core@2.17.1":
+  version "2.17.1"
+  resolved "https://registry.npmjs.org/@stencil/core/-/core-2.17.1.tgz#c0fd74d2991c2ea9d7e382017726bfd01009a05c"
+  integrity sha512-ErjQsNALgZQ9SYeBHhqwL1UO+Zbptwl3kwrRJC2tGlc3G/T6UvPuaKr+PGsqI+CZGia+0+R5EELQvFu74mYeIg==
 
 "@stencil/eslint-plugin@^0.4.0":
   version "0.4.0"
@@ -7766,9 +7729,9 @@
   integrity sha512-2dmCgtesuDdivM/54Q+Y6Tc3JbGz1SkHP6c62piuqBiYLWg3xa16zChZOhfN8szbbQlBgLT6XRTDt3c2Ux+Dug==
 
 "@tiptap/extension-task-item@^2.0.0-beta.36":
-  version "2.0.0-beta.37"
-  resolved "https://registry.npmjs.org/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.37.tgz#fcf719c4f6d09a69a6525f116bb96560bddfdf51"
-  integrity sha512-zdTE7G6KHgdr+V32eWk7V6YkKxV3X0VJvfuybRlUcS4QyX4dSWnIqeHzzmX8Jd9IXjRghIFtjNi7IKxIGAhMsg==
+  version "2.0.0-beta.36"
+  resolved "https://registry.npmjs.org/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.36.tgz#c01b81f893b5eab9e60e136fcdca55392f684fd6"
+  integrity sha512-+XYJyj66slqn2rjYN26VxasvIGCejVvbvtZrS3UJuYS4/090o4othNQcUlb6cWK0MtSBiLVisbeFMGXDH3q0LQ==
 
 "@tiptap/extension-task-list@^2.0.0-beta.29":
   version "2.0.0-beta.29"
@@ -20606,9 +20569,9 @@ module-alias@^2.2.2:
   integrity sha512-A/78XjoX2EmNvppVWEhM2oGk3x4lLxnkEA4jTbaK97QKSDjkIoOsKQlfylt/d3kKKi596Qy3NP5XrXJ6fZIC9Q==
 
 moment@^2.24.0:
-  version "2.29.2"
-  resolved "https://registry.npmjs.org/moment/-/moment-2.29.2.tgz#00910c60b20843bcba52d37d58c628b47b1f20e4"
-  integrity sha512-UgzG4rvxYpN15jgCmVJwac49h9ly9NurikMWGPdVxm8GZD6XjkKPxDTjQQ43gtGgnV3X0cAyWDdP2Wexoquifg==
+  version "2.29.4"
+  resolved "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 move-concurrently@^1.0.1:
   version "1.0.1"

@@ -84,7 +84,13 @@ export class InoCard {
 }
 
 
-export declare interface InoCarousel extends Components.InoCarousel {}
+export declare interface InoCarousel extends Components.InoCarousel {
+  /**
+   * Emits the `value` of the slide that should be displayed after the left or right arrow has been clicked. 
+   */
+  valueChange: EventEmitter<CustomEvent<number | string>>;
+
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -101,6 +107,7 @@ export class InoCarousel {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
   }
 }
 

@@ -19,6 +19,7 @@ export const config: Config = {
     appendChildSlotFix: false,
     cloneNodeFix: false,
     slotChildNodesFix: true,
+    experimentalImportInjection: true,
   },
   globalScript: './src/util/import-fonts.ts',
   enableCache: true,
@@ -64,6 +65,7 @@ export const config: Config = {
         {
           elements: [
             'ino-autocomplete',
+            'ino-carousel',
             'ino-datepicker',
             'ino-input',
             'ino-radio-group',
