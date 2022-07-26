@@ -380,6 +380,7 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio>('ino-radio',
 
 export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup>('ino-radio-group', undefined, [
   'value',
+  'alignment',
   'valueChange'
 ],
 'value', 'v-value-change', 'valueChange');

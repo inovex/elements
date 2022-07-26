@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -431,7 +431,7 @@ export namespace Components {
     }
     interface InoHeader {
         /**
-          * [DEPRECATED] Please use the default slot instead The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
           * @deprecated
          */
         "text"?: string;
@@ -869,6 +869,9 @@ export namespace Components {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        /**
+          * Determines if and how the popover follows the user's mouse cursor.
+         */
         "followCursor": Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
@@ -940,6 +943,10 @@ export namespace Components {
         "value"?: string;
     }
     interface InoRadioGroup {
+        /**
+          * Sets the alignment of the radios to either vertical or horizontal.
+         */
+        "alignment": Alignment;
         /**
           * The value of the radio group. If there is an ino-radio child with the given value, the radio-button will be checked and the other radio-buttons unchecked.
          */
@@ -1111,7 +1118,7 @@ export namespace Components {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type
+          * Changes the snackbar type. There are three types of messages: info, success, and error.
          */
         "type": SnackbarType;
     }
@@ -1194,7 +1201,7 @@ export namespace Components {
          */
         "noHover"?: boolean;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
@@ -1326,7 +1333,7 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -1347,7 +1354,7 @@ export namespace Components {
          */
         "placement": Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger": TooltipTrigger;
     }
@@ -2140,7 +2147,7 @@ declare namespace LocalJSX {
     }
     interface InoHeader {
         /**
-          * [DEPRECATED] Please use the default slot instead The text of this header
+          * [DEPRECATED] Please use the default slot instead of this prop.
           * @deprecated
          */
         "text"?: string;
@@ -2613,6 +2620,9 @@ declare namespace LocalJSX {
           * Displaces the popover away from, or toward, the anchor element in the direction of its placement. A positive number displaces it further away, while a negative number lets it overlap the anchor.
          */
         "distance"?: number;
+        /**
+          * Determines if and how the popover follows the user's mouse cursor.
+         */
         "followCursor"?: Props['followCursor'];
         /**
           * The target id the popover belongs to. If not given, the popover is attached to the element provided in the named slot (`popover-trigger`) or the parent component if a slot element does not exist.
@@ -2688,6 +2698,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoRadioGroup {
+        /**
+          * Sets the alignment of the radios to either vertical or horizontal.
+         */
+        "alignment"?: Alignment;
         /**
           * Emits if the user clicks or navigates (via keyboard) to a `<ino-radio>` element within the radio group. Contains the `value` of the selected `<ino-radio>`.
          */
@@ -2890,7 +2904,7 @@ declare namespace LocalJSX {
          */
         "timeout"?: number;
         /**
-          * Changes the snackbar type
+          * Changes the snackbar type. There are three types of messages: info, success, and error.
          */
         "type"?: SnackbarType;
     }
@@ -2989,7 +3003,7 @@ declare namespace LocalJSX {
          */
         "onSortChange"?: (event: CustomEvent<SortDirectionChangeDetails>) => void;
         /**
-          * Identifier of the column currently sorted by.  Needs to the match the column ids provided on `ino-table-header-cell` elements.
+          * Identifier of the column currently sorted by.  Needs to match the column ids provided on `ino-table-header-cell` elements.
          */
         "sortColumnId"?: string;
         /**
@@ -3116,7 +3130,7 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: 'primary', 'secondary' 'light', 'transparent'
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
         "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
@@ -3133,7 +3147,7 @@ declare namespace LocalJSX {
          */
         "placement"?: Placement;
         /**
-          * The trigger to show the tooltip - either click, hover or focus. Multiple triggers possible by separating them with a space.
+          * The trigger to show the tooltip - either `click`, `hover` or `focus`. Multiple triggers possible by separating them with a space.
          */
         "trigger"?: TooltipTrigger;
     }

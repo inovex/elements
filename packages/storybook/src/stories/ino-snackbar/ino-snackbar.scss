@@ -4,6 +4,9 @@
   align-items: center;
   padding: 24px;
 
+  .button__label {
+    pointer-events: none;
+  }
   ino-button:not(:last-of-type) {
     margin-bottom: 32px;
   }

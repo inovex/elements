@@ -56,59 +56,40 @@ export default {
 } as Meta<Components.InoSelect>;
 
 const optionsTemplate = html`
-  <ino-option value="Option 1">Option 1</ino-option>
-  <ino-option value="Option 2">Option 2</ino-option>
-  <ino-option value="Option 3">Option 3</ino-option>
+      <ino-option value="Option 1">Option 1</ino-option>
+      <ino-option value="Option 2">Option 2</ino-option>
+      <ino-option value="Option 3">Option 3</ino-option>
 `;
 
 const template = new TemplateGenerator<Components.InoSelect>(
   'ino-select',
   (args) => html`
-    <ino-select
-      disabled="${args.disabled}"
-      name="${args.name}"
-      outline="${args.outline}"
-      label="${args.label}"
-      required="${args.required}"
-      show-label-hint="${args.showLabelHint}"
-      value="${args.value}"
-      error="${args.error}"
-      helper="${args.helper}"
-      helper-persistent="${args.helperPersistent}"
-      helper-validation="${args.helperValidation}"
-    >
-      <ino-option value="Option 1">Option 1</ino-option>
-      <ino-option value="Option 2">Option 2</ino-option>
-      <ino-option value="Option 3">Option 3</ino-option>
-    </ino-select>
-  `
-);
-
+  <ino-select
+    disabled="${args.disabled}"
+    name="${args.name}"
+    outline="${args.outline}"
+    label="${args.label}"
+    required="${args.required}"
+    show-label-hint="${args.showLabelHint}"
+    value="${args.value}"
+    error="${args.error}"
+    helper="${args.helper}"
+    helper-persistent="${args.helperPersistent}"
+    helper-validation="${args.helperValidation}"
+  >
+    <ino-option value="Option 1">Option 1</ino-option>
+    <ino-option value="Option 2">Option 2</ino-option>
+    <ino-option value="Option 3">Option 3</ino-option>
+  </ino-select>
+`);
 export const Playground = template.generatePlaygroundStory();
-
 export const Outlined = template.generateStoryForProp('outline', true);
-
-export const WithIcon = () => html`
-  <div style="height: 400px;">
-    <ino-select label="Select with leading icon">
-      <ino-icon slot="icon-leading" icon="user"></ino-icon>
-      <ino-option value="Selected Option" selected>Selected Option</ino-option>
-      ${optionsTemplate}
-    </ino-select>
-    <ino-select
-      style="margin-top: 150px;"
-      outline
-      label="Select with leading icon"
-    >
-      <ino-icon slot="icon-leading" icon="user"></ino-icon>
-      <ino-option value="Selected Option" selected>Selected Option</ino-option>
-      ${optionsTemplate}
-    </ino-select>
-  </div>
-`;
-
 export const Disabled = template.generateStoryForProp('disabled', true);
-
+export const Error = template.generateStoryForProp('error', true);
+export const ShowLabelHint = template.generateStoryForProp(
+  'showLabelHint',
+  true
+);
 export const HelperMessage = template.generateStoryForProp(
   'helper',
   'My Helper Message',
@@ -126,17 +107,41 @@ export const HelperMessageValidation = template.generateStoryForProp(
   }
 );
 
-export const Error = template.generateStoryForProp('error', true);
 
-export const Form = () => html`
+
+const templateWithIcon = new TemplateGenerator<Components.InoSelect>(
+  'ino-select',
+  args => html`
+  <div style="height: 400px;">
+    <ino-select label="Select with leading icon">
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+    <ino-select
+      style="margin-top: 150px;"
+      outline
+      label="Select with leading icon"
+    >
+      <ino-icon slot="icon-leading" icon="user"></ino-icon>
+      <ino-option value="Selected Option" selected>Selected Option</ino-option>
+      ${optionsTemplate}
+    </ino-select>
+  </div>
+`);
+export const WithIcon = templateWithIcon.generatePlaygroundStory();
+
+
+const templateForm = new TemplateGenerator<Components.InoSelect>(
+  'ino-select',
+  args => html`
   <form>
     <p>Form should not submit if no value is selected</p>
-    <ino-select required> ${optionsTemplate}</ino-select>
+    <ino-select required>
+    ${optionsTemplate}
+    </ino-select>
     <ino-button type="submit">Submit</ino-button>
   </form>
-`;
+`);
+export const Form = templateForm.generatePlaygroundStory();
 
-export const ShowLabelHint = template.generateStoryForProp(
-  'showLabelHint',
-  true
-);
