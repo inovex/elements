@@ -4497,6 +4497,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hedgedoc/markdown-it-task-lists@^1.0.3":
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@hedgedoc/markdown-it-task-lists/-/markdown-it-task-lists-1.0.5.tgz#283655abe6157492b007a725cec6b36ac7280a58"
+  integrity sha512-l/rJ8tJAZ1Fs0vzQPfap4+YnILWZBxCqtTikjE26Y5hJYY0LY3GJCWU4WXHVIPMJ/0Dm4XbKonXURfLQn5GeZw==
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -4510,6 +4515,51 @@
   version "1.2.1"
   resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
+
+"@inovex.de/elements@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.npmjs.org/@inovex.de/elements/-/elements-7.1.0.tgz#b64aff05ed3df0448b217870ee4c2ce90d076766"
+  integrity sha512-XZ5UkmoShWTNzjBo/AJAnVTo+FJ75pWr4B/kubMeqXClNLC8LPqfx8RHpfkwKVzEnIIHMbSVkkcT+7qStx8Lqw==
+  dependencies:
+    "@hedgedoc/markdown-it-task-lists" "^1.0.3"
+    "@material/button" "^13.0.0"
+    "@material/card" "^13.0.0"
+    "@material/checkbox" "^13.0.0"
+    "@material/chips" "^13.0.0"
+    "@material/data-table" "^13.0.0"
+    "@material/dialog" "^13.0.0"
+    "@material/drawer" "^13.0.0"
+    "@material/fab" "^13.0.0"
+    "@material/form-field" "^13.0.0"
+    "@material/icon-button" "^13.0.0"
+    "@material/image-list" "^13.0.0"
+    "@material/linear-progress" "^13.0.0"
+    "@material/list" "^13.0.0"
+    "@material/menu" "^13.0.0"
+    "@material/radio" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/select" "^13.0.0"
+    "@material/slider" "^13.0.0"
+    "@material/snackbar" "^13.0.0"
+    "@material/switch" "^13.0.0"
+    "@material/tab" "^13.0.0"
+    "@material/tab-bar" "^13.0.0"
+    "@material/tab-indicator" "^13.0.0"
+    "@material/tab-scroller" "^13.0.0"
+    "@material/textfield" "^13.0.0"
+    "@material/typography" "^13.0.0"
+    "@stencil/core" "2.14.0"
+    "@tiptap/core" "^2.0.0-beta.159"
+    "@tiptap/extension-link" "^2.0.0-beta.33"
+    "@tiptap/extension-task-item" "^2.0.0-beta.36"
+    "@tiptap/extension-task-list" "^2.0.0-beta.29"
+    "@tiptap/starter-kit" "^2.0.0-beta.164"
+    autosize "^4.0.2"
+    classnames "^2.2.6"
+    date-fns "^2.16.1"
+    flatpickr "^4.4.6"
+    prosemirror-markdown "^1.6.0"
+    tippy.js "^6.2.3"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
@@ -7714,6 +7764,16 @@
   version "2.0.0-beta.27"
   resolved "https://registry.npmjs.org/@tiptap/extension-strike/-/extension-strike-2.0.0-beta.27.tgz#c5187bf3c28837f95a5c0c0617d0dd31c318353d"
   integrity sha512-2dmCgtesuDdivM/54Q+Y6Tc3JbGz1SkHP6c62piuqBiYLWg3xa16zChZOhfN8szbbQlBgLT6XRTDt3c2Ux+Dug==
+
+"@tiptap/extension-task-item@^2.0.0-beta.36":
+  version "2.0.0-beta.37"
+  resolved "https://registry.npmjs.org/@tiptap/extension-task-item/-/extension-task-item-2.0.0-beta.37.tgz#fcf719c4f6d09a69a6525f116bb96560bddfdf51"
+  integrity sha512-zdTE7G6KHgdr+V32eWk7V6YkKxV3X0VJvfuybRlUcS4QyX4dSWnIqeHzzmX8Jd9IXjRghIFtjNi7IKxIGAhMsg==
+
+"@tiptap/extension-task-list@^2.0.0-beta.29":
+  version "2.0.0-beta.29"
+  resolved "https://registry.npmjs.org/@tiptap/extension-task-list/-/extension-task-list-2.0.0-beta.29.tgz#3ca388b9251e4d42d152177c609f6cebb57c4a1e"
+  integrity sha512-PbHlVmYWevClA3mmXyshhR58GT1J22vVlFEDj2o25WRPY2dCTv4X136wPRVf9ee4nZII0Xcp2SsVC1kfgtuVRg==
 
 "@tiptap/extension-text@^2.0.0-beta.15":
   version "2.0.0-beta.15"
