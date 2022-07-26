@@ -1085,20 +1085,6 @@ export namespace Components {
          */
         "value"?: string;
     }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight": boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Expands the sidebar
-         */
-        "open": boolean;
-    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -1447,10 +1433,6 @@ export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSelectElement;
 }
-export interface InoSidebarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoSidebarElement;
-}
 export interface InoSnackbarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSnackbarElement;
@@ -1714,12 +1696,6 @@ declare global {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
-    interface HTMLInoSidebarElement extends Components.InoSidebar, HTMLStencilElement {
-    }
-    var HTMLInoSidebarElement: {
-        prototype: HTMLInoSidebarElement;
-        new (): HTMLInoSidebarElement;
-    };
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
@@ -1814,7 +1790,6 @@ declare global {
         "ino-segment-button": HTMLInoSegmentButtonElement;
         "ino-segment-group": HTMLInoSegmentGroupElement;
         "ino-select": HTMLInoSelectElement;
-        "ino-sidebar": HTMLInoSidebarElement;
         "ino-snackbar": HTMLInoSnackbarElement;
         "ino-spinner": HTMLInoSpinnerElement;
         "ino-switch": HTMLInoSwitchElement;
@@ -2983,24 +2958,6 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight"?: boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Emits an event if the user expands or collapses the sidebar
-         */
-        "onOpenChange"?: (event: InoSidebarCustomEvent<any>) => void;
-        /**
-          * Expands the sidebar
-         */
-        "open"?: boolean;
-    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -3315,7 +3272,6 @@ declare namespace LocalJSX {
         "ino-segment-button": InoSegmentButton;
         "ino-segment-group": InoSegmentGroup;
         "ino-select": InoSelect;
-        "ino-sidebar": InoSidebar;
         "ino-snackbar": InoSnackbar;
         "ino-spinner": InoSpinner;
         "ino-switch": InoSwitch;
@@ -3370,7 +3326,6 @@ declare module "@stencil/core" {
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
-            "ino-sidebar": LocalJSX.InoSidebar & JSXBase.HTMLAttributes<HTMLInoSidebarElement>;
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;

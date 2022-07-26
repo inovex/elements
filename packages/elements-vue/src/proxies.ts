@@ -442,14 +442,6 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-selec
 'value', 'v-value-change', 'valueChange');
 
 
-export const InoSidebar = /*@__PURE__*/ defineContainer<JSX.InoSidebar>('ino-sidebar', undefined, [
-  'alignRight',
-  'open',
-  'name',
-  'openChange'
-]);
-
-
 export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-snackbar', undefined, [
   'message',
   'actionText',
