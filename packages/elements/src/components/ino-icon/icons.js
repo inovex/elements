@@ -1,5 +1,9 @@
 export default [
-  'add',
+  '_fab_set_arrow_down',
+	'_fab_set_arrow_up',
+	'_input_number_arrow_down',
+	'_input_number_arrow_up',
+	'add',
 	'arrow_down',
 	'arrow_left',
 	'arrow_right',
@@ -78,15 +82,10 @@ export default [
 	'status_future',
 	'status_past',
 	'strikethrough',
-	'task_list',
 	'time',
 	'underline',
 	'upload',
 	'user',
 	'warning',
-	'web',
-	'_fab_set_arrow_down',
-	'_fab_set_arrow_up',
-	'_input_number_arrow_down',
-	'_input_number_arrow_up'
+	'web'
 ];
