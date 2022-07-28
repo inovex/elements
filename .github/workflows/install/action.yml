@@ -12,7 +12,7 @@ runs:
           registry-url: https://registry.npmjs.org
           scope: '@inovex.de' # important for yarn
     - name: setup cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           node_modules
