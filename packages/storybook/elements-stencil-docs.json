@@ -2675,7 +2675,7 @@
           "mutable": false,
           "attr": "text",
           "reflectToAttr": false,
-          "docs": "[DEPRECATED] Please use the default slot instead\r\nThe text of this header",
+          "docs": "[DEPRECATED] Please use the default slot instead of this prop.",
           "docsTags": [
             {
               "name": "deprecated"
@@ -4769,7 +4769,7 @@
       "tag": "ino-markdown-editor",
       "readme": "# ino-markdown-editor\r\n\r\n\r\n\r",
       "usage": {},
-      "docs": "The **Preview Mode** supports following actions:\r\n\r\n| Actions ||||\r\n|---|\r\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\r\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\r\n| Bold | Inline code |\r\n\r\nAdditionally, there are a lot of predefined\r\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\r\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\r\n\r\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\r\n\r\n * Support of strikethrough syntax (`~~TextToStrike~~`)\r\n * No support of image syntax. __Images are not allowed!__",
+      "docs": "The **Preview Mode** supports following actions:\r\n\r\n| Actions ||||\r\n|---|\r\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\r\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\r\n| Bold | Inline code | Task list |\r\n\r\nAdditionally, there are a lot of predefined\r\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\r\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\r\n\r\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\r\n\r\n * Support of strikethrough syntax (`~~TextToStrike~~`)\r\n * Support of task list syntax (`- [x] MyToDoTask`)\r\n * No support of image syntax. __Images are not allowed!__",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
@@ -4811,7 +4811,7 @@
           "mutable": false,
           "attr": "view-mode",
           "reflectToAttr": false,
-          "docs": "Sets the view mode of the editor.\r\nCan be changed between `preview` (default), `markdown` and `readonly`.\r\nThe `markdown` mode is made for advanced users that know the markdown syntax.",
+          "docs": "Sets the view mode of the editor.\r\nCan be changed between `preview` (default), `markdown` and `readonly`.\r\nThe `markdown` mode is made for advanced users that know the Markdown syntax.",
           "docsTags": [],
           "default": "'preview'",
           "values": [
@@ -7831,7 +7831,7 @@
           "mutable": false,
           "attr": "sort-column-id",
           "reflectToAttr": false,
-          "docs": "Identifier of the column currently sorted by.\r\n\r\nNeeds to the match the column ids provided on `ino-table-header-cell` elements.",
+          "docs": "Identifier of the column currently sorted by.\r\n\r\nNeeds to match the column ids provided on `ino-table-header-cell` elements.",
           "docsTags": [],
           "values": [
             {
@@ -8545,7 +8545,7 @@
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\r\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
+          "docs": "Sets the color scheme of the tooltip\r\nValid options include: `primary`, `secondary` `light`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
@@ -8686,7 +8686,7 @@
           "mutable": false,
           "attr": "trigger",
           "reflectToAttr": false,
-          "docs": "The trigger to show the tooltip - either click, hover or focus.\r\nMultiple triggers possible by separating them with a space.",
+          "docs": "The trigger to show the tooltip - either `click`, `hover` or `focus`.\r\nMultiple triggers possible by separating them with a space.",
           "docsTags": [],
           "default": "'mouseenter focus'",
           "values": [
