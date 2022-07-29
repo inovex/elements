@@ -104,8 +104,8 @@ InoInput {
 }
 ```
 
-Most components have built in styles and themes you can choose from. Lets add a different Notification, everytime our user signs in. 
-If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesfull login, we can use  `type="success"`
+Most components have built in styles and themes you can choose from. Lets add a different Notification, everytime our user signs in.
+If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesfull login, we can use `type="success"`
 
 > Hint: check out our codesandbox for more insights about the functionality.
 
@@ -138,8 +138,95 @@ const ValidateLogin = () => {
 ```
 
 ```jsx
-{showSnackbar ? <ValidateLogin /> : null}
+{
+  showSnackbar ? <ValidateLogin /> : null;
+}
 ```
 
 Change the types accordingly to your wishes. The timeout property is in _ms_ and indicates when the snackbar dissapears. The timeout can be disabled by setting it to a negative value.
 More about the properties of the InoSnackbar is documented [here](https://elements.inovex.de/version/v7.1.0/?path=/docs/notification-ino-snackbar--playground).
+
+## Finishing touches
+
+### Add a logo
+
+> Hint: automatically style your logo with rounded borders by using the `rounded` property of `<InoImg>`
+
+```jsx
+<InoImg
+  alt="Elements logo"
+  decoding="async"
+  src={logo}
+  height={75}
+  width={75}
+  fallbackIcon="cloud"
+></InoImg>
+```
+
+If our image can't be loaded, it will render an `<InoIcon icon="cloud">` due to the `fallbackIcon="cloud"` property.
+The `decoding` property can either be `async`, `auto` or `sync` and sets the decode method of the native html input element.
+
+### Toggle Password Visibility
+
+By clicking on the ino icon lock, we can toggle the visibility of our password by changing the InoInput `type` property.
+
+```jsx
+const [hidePassword, setVisibility] = React.useState<InputType>('password');
+
+const togglePasswordVisibility = () => {
+  if (hidePassword === 'password') {
+    setVisibility('text');
+  } else {
+    setVisibility('password');
+  }
+};
+```
+
+```jsx
+<InoInput
+  type={hidePassword}
+  label="password"
+  outline
+  value={password}
+  onValueChange={value => onValueChanged(value, 'password')}
+>
+  <InoIcon
+    slot="icon-trailing"
+    icon="password"
+    clickable
+    onClick={() => togglePasswordVisibility()}
+  ></InoIcon>
+</InoInput>
+```
+
+### Use Popovers on components for more information
+
+```jsx
+<InoButton id="sign-up">Sign Up</InoButton>
+
+<InoPopover for="sign-up" placement="bottom" colorScheme="light" interactive>
+  <div className="styled-popover">
+    <InoIcon icon="user"></InoIcon>
+    Already have an account? Sign in.
+  </div>
+</InoPopover>
+```
+
+Make sure the `id` of the hosting element and the `for` property of the attached `<InoPopover>` is the same.
+Given the intention or background of your page it is helpful to change the `placement`(`top`, `right`, `bottom`, `left`) and the`colorScheme` property(`primary`, `secondary`, `light`, `transparent`).
+Use the `interactive` property if you want to interact with the popover content (e.g. button clicks).
+
+### Display a social network login alternative
+
+```jsx
+<InoTab icon="mail" indicator-content-width="false" stacked>
+  Gmail
+</InoTab>
+<InoTab icon="mail" indicator-content-width="false" stacked>
+  Yahoo
+</InoTab>
+```
+
+The `stacked` property indicates that the tab icon and label should flow vertically instead of horizontally.
+
+> Hint: Alternatively group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground), if you plan on using many tabs. It functions as a wrapper around the material Tab Bar component.
