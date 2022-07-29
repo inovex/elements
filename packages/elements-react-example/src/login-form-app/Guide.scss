@@ -36,15 +36,14 @@
   background-color: #003c7e;
   color: white;
   justify-content: center;
-  .p {
-    text-align: center;
-  }
+  text-align: center;
 
   .styled-popover {
     padding: 24px;
     display: flex;
     justify-content: space-between;
     column-gap: 10px;
+    color: black;
   }
 }
 .login-alternatives {
