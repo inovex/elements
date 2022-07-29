@@ -9,6 +9,7 @@ import {
   InoPopover,
   InoTab,
 } from '../shared/InovexElements';
+import { InputType } from '@inovex.de/elements';
 import './Guide.scss';
 import logo from '../../../landingpage/src/assets/logos/elements.svg';
 
@@ -16,7 +17,7 @@ export const LoginFormApp: React.FC = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showSnackbar, setSnackbar] = React.useState(false);
-  const [hidePassword, setVisibility] = React.useState('password');
+  const [hidePassword, setVisibility] = React.useState<InputType>('password');
 
   const onValueChanged = (value: CustomEvent<string>, input: string) => {
     switch (input) {
@@ -80,6 +81,7 @@ export const LoginFormApp: React.FC = () => {
             src={logo}
             height={75}
             width={75}
+            fallbackIcon="cloud"
           ></InoImg>
           <h1 style={{ paddingLeft: 25, fontSize: 25 }}>Elements</h1>
         </div>
@@ -134,9 +136,12 @@ export const LoginFormApp: React.FC = () => {
       <div className="rightpage">
         <h1>New Here?</h1>
         <p>Sign up here and discover the power of the Elements</p>
-        <InoButton id="register">Sign Up</InoButton>
-        <InoPopover for="register" placement="bottom">
-          <div className="styled-popover">to be continued.</div>
+        <InoButton id="sign-up">Sign Up</InoButton>
+        <InoPopover for="sign-up" placement="bottom" colorScheme="light" interactive>
+          <div className="styled-popover">
+            <InoIcon icon="user"></InoIcon>
+            Already have an account? Sign in.
+          </div>
         </InoPopover>
       </div>
     </div>
