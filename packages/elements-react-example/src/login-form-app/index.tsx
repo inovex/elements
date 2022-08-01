@@ -17,6 +17,7 @@ export const LoginFormApp: React.FC = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [showSnackbar, setSnackbar] = React.useState(false);
+  const [isValid, setValidity] = React.useState(false);
   const [hidePassword, setVisibility] = React.useState<InputType>('password');
 
   const onValueChanged = (value: CustomEvent<string>, input: string) => {
@@ -40,6 +41,9 @@ export const LoginFormApp: React.FC = () => {
 
   const submit = () => {
     setSnackbar(true);
+    setValidity(email.length > 0 && password.length >= 8);
+    setEmail('');
+    setPassword('');
 
     setTimeout(() => {
       setSnackbar(false);
@@ -47,18 +51,7 @@ export const LoginFormApp: React.FC = () => {
   };
 
   const ValidateLogin = () => {
-    if (email.length === 0 || password.length < 8) {
-      return (
-        <InoSnackbar
-          action-text="email and/or password too short"
-          timeout={5000}
-          type="error"
-          stay-visible-on-hover="false"
-        >
-          Login failed
-        </InoSnackbar>
-      );
-    } else {
+    if (isValid) {
       return (
         <InoSnackbar
           action-text="Welcome back!"
@@ -67,6 +60,17 @@ export const LoginFormApp: React.FC = () => {
           stay-visible-on-hover="false"
         >
           Sucessfully logged in
+        </InoSnackbar>
+      );
+    } else {
+      return (
+        <InoSnackbar
+          action-text="email and/or password too short"
+          timeout={5000}
+          type="error"
+          stay-visible-on-hover="false"
+        >
+          Login failed
         </InoSnackbar>
       );
     }
@@ -101,7 +105,7 @@ export const LoginFormApp: React.FC = () => {
 
           <div className="login-inputs">
             <InoInput
-              type="text"
+              type="email"
               label="email"
               outline
               value={email}
@@ -137,7 +141,12 @@ export const LoginFormApp: React.FC = () => {
         <h1>New Here?</h1>
         <p>Sign up here and discover the power of the Elements</p>
         <InoButton id="sign-up">Sign Up</InoButton>
-        <InoPopover for="sign-up" placement="bottom" colorScheme="light" interactive>
+        <InoPopover
+          for="sign-up"
+          placement="bottom"
+          colorScheme="light"
+          interactive
+        >
           <div className="styled-popover">
             <InoIcon icon="user"></InoIcon>
             Already have an account? Sign in.
