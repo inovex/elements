@@ -33,4 +33,5 @@ export {
   InoSidebar,
   InoNavItem,
   InoNavDrawer,
+  InoHeader
 } from '@inovex.de/elements-react/';
