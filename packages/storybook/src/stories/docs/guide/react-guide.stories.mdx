@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Docs/Guide/React" />
+<Meta title="Docs/Guides/React" />
 
 # Create your first Project
 
@@ -120,7 +120,7 @@ Let's give our login form the `valueChange` event of the `<InoInput>` component,
     label="email"
     outline
     value={email}
-    onValueChange={value => onValueChanged(value, 'email')}
+    onValueChange={value => setEmail(value.detail)}
 ></InoInput>
 
 <InoInput
@@ -128,28 +128,11 @@ Let's give our login form the `valueChange` event of the `<InoInput>` component,
     label="password"
     outline
     value={password}
-    onValueChange={value => onValueChanged(value, 'password')}
+    onValueChange={value => setPassword(value.detail)}
 ></InoInput>
 ```
 
 > Hint: while in our Playground the Event is called `valueChange`, we name it `onValueChange` inside of our `<InoInput>`. The reason for this is that we want to accomodate our naming similar to the react-way of naming events (e.g. onClick)
-
-Since this event contains the typed input, we create our own `onValueChanged()` function to receive this typed input and set it to our email state object.
-
-```jsx
-const onValueChanged = (value: CustomEvent<string>, input: string) => {
-  switch (input) {
-    case 'email':
-      setEmail(value.detail);
-      break;
-    case 'password':
-      setPassword(value.detail);
-      break;
-  }
-};
-```
-
-Beside the `value` parameter representing the contained input, we give our `onValueChanged` function an `input` parameter, so that it can differentiate whether to set the email or password. This way, we guarantee that we never mix them up.
 
 ## Slots
 
@@ -169,7 +152,7 @@ If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our inp
     label="password"
     outline
     value={password}
-    onValueChange={value => onValueChanged(value, 'password')}
+    onValueChange={value => setPassword(value.detail)}
 >
   <InoIcon slot="icon-trailing" icon="password"></InoIcon>
 </InoInput>
@@ -250,7 +233,7 @@ const togglePasswordVisibility = () => {
     label="password"
     outline
     value={password}
-    onValueChange={value => onValueChanged(value, 'password')}
+    onValueChange={value => setPassword(value.detail)}
 >
     <InoIcon
         slot="icon-trailing"

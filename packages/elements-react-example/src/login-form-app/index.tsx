@@ -20,17 +20,6 @@ export const LoginFormApp: React.FC = () => {
   const [isValid, setValidity] = React.useState(false);
   const [hidePassword, setVisibility] = React.useState<InputType>('password');
 
-  const onValueChanged = (value: CustomEvent<string>, input: string) => {
-    switch (input) {
-      case 'email':
-        setEmail(value.detail);
-        break;
-      case 'password':
-        setPassword(value.detail);
-        break;
-    }
-  };
-
   const togglePasswordVisibility = () => {
     if (hidePassword === 'password') {
       setVisibility('text');
@@ -109,14 +98,14 @@ export const LoginFormApp: React.FC = () => {
               label="email"
               outline
               value={email}
-              onValueChange={(value) => onValueChanged(value, 'email')}
+              onValueChange={value => setEmail(value.detail)}
             ></InoInput>
             <InoInput
               type={hidePassword}
               label="password"
               outline
               value={password}
-              onValueChange={(value) => onValueChanged(value, 'password')}
+              onValueChange={value => setPassword(value.detail)}
             >
               <InoIcon
                 slot="icon-trailing"

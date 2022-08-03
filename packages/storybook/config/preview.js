@@ -52,7 +52,7 @@ export const parameters = {
           'Welcome',
           'Changelog',
           'Framework Integration',
-          'Guide',
+          'Guides',
           'Styleguide',
           'Contributing',
         ],
