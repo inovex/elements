@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches: [elements-#653-deploy-example-projects]
+    branches: [master]
 
 jobs:
   deploy-elements-angular-example:
@@ -14,17 +14,18 @@ jobs:
         with:
           ref: gh-pages
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: elements-angular-example
-          path: /example-projects/angular
+          path: example-projects/angular
 
       - name: Deploy Angular example project to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
           commit-message: Deploying elements-angular-example
+          folder: example-projects/angular
           clean-exclude: |
             version
             unicorn
