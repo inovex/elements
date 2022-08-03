@@ -5,9 +5,9 @@ import { TemplateGenerator } from '../template-generator';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 
 export default {
-  title: `Structure/ino-tab`,
+  title: 'Structure/ino-tab',
   component: 'ino-tab',
-  decorators: [(story) => decorateStoryWithClass(story)],
+  decorators: [story => decorateStoryWithClass(story)],
   args: {
     indicatorContentWidth: false,
     stacked: false,
@@ -18,18 +18,21 @@ export default {
 const template = new TemplateGenerator<Components.InoTab>(
   'ino-tab',
   args => html`
-  <ino-tab
-    icon="${args.icon}"
-    indicator-content-width="${args.indicatorContentWidth}"
-    stacked="${args.stacked}"
-  >
-    Label
-  </ino-tab>
-`);
+    <ino-tab
+      icon="${args.icon}"
+      indicator-content-width="${args.indicatorContentWidth}"
+      stacked="${args.stacked}"
+    >
+      Label
+    </ino-tab>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
 
 export const Stacked = template.generateStoryForProp('stacked', true);
-export const IndicatorContentWidth = template.generateStoryForProp('indicatorContentWidth', true);
-
+export const IndicatorContentWidth = template.generateStoryForProp(
+  'indicatorContentWidth',
+  true
+);

@@ -6,9 +6,9 @@ import { TemplateGenerator } from '../template-generator';
 import './ino-tooltip.scss';
 
 export default {
-  title: `Notification/ino-tooltip`,
+  title: 'Notification/ino-tooltip',
   component: 'ino-tooltip',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-tooltip')],
+  decorators: [story => decorateStoryWithClass(story, 'story-tooltip')],
   args: {
     for: 'tooltip-target',
     placement: 'auto',
@@ -20,14 +20,16 @@ export default {
 const template = new TemplateGenerator<Components.InoTooltip>(
   'ino-tooltip',
   args => html`
-  <ino-button id="${args.for}">Trigger Element</ino-button>
-  <ino-tooltip
-    for="${args.for}"
-    placement="${args.placement}"
-    trigger="${args.trigger}"
-    color-scheme="${args.colorScheme}"
-  >This is a tooltip</ino-tooltip>
-`);
+    <ino-button id="${args.for}">Trigger Element</ino-button>
+    <ino-tooltip
+      for="${args.for}"
+      placement="${args.placement}"
+      trigger="${args.trigger}"
+      color-scheme="${args.colorScheme}"
+      >This is a tooltip</ino-tooltip
+    >
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 
@@ -37,6 +39,10 @@ export const Placement = template.generateStoryForProp('placement', 'right', {
 export const Trigger = template.generateStoryForProp('trigger', 'click', {
   for: 'tooltip-target-trigger',
 });
-export const ColorScheme = template.generateStoryForProp('colorScheme', 'secondary', {
-  for: 'tooltip-target-color-scheme',
-});
+export const ColorScheme = template.generateStoryForProp(
+  'colorScheme',
+  'secondary',
+  {
+    for: 'tooltip-target-color-scheme',
+  }
+);

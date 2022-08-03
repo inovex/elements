@@ -8,13 +8,13 @@ import './ino-table-header-cell.scss';
 import { registerInlineDatepickerHandler } from '../ino-datepicker/utils';
 
 export default {
-  title: `Structure/ino-table-header-cell`,
+  title: 'Structure/ino-table-header-cell',
   component: 'ino-table-header-cell',
   decorators: [
-    (story) => decorateStoryWithClass(story, 'story-ino-table-header-cell'),
-    (story) => {
+    story => decorateStoryWithClass(story, 'story-ino-table-header-cell'),
+    story => {
       useEffect(() => {
-        const sortChangeHandler = (e) => {
+        const sortChangeHandler = e => {
           const inoTable = e.target as Components.InoTable;
           const { columnId, sortDirection } = e.detail;
           inoTable.sortColumnId = columnId;
@@ -22,15 +22,15 @@ export default {
         };
         document.addEventListener('sortChange', sortChangeHandler);
 
-        const valueChangedHandler = (e) => (e.target.value = e.detail);
+        const valueChangedHandler = e => (e.target.value = e.detail);
         const inoInputs = document.querySelectorAll('ino-input');
-        inoInputs.forEach((el) =>
+        inoInputs.forEach(el =>
           el.addEventListener('valueChange', valueChangedHandler)
         );
 
         return () => {
           document.removeEventListener('sortChange', sortChangeHandler);
-          inoInputs.forEach((el) =>
+          inoInputs.forEach(el =>
             el.removeEventListener('valueChange', valueChangedHandler)
           );
         };
@@ -51,7 +51,7 @@ export default {
 
 const template = new TemplateGenerator<Components.InoTableHeaderCell>(
   'ino-table-header-cell',
-  (args) => html`
+  args => html`
     <ino-table>
       <ino-table-header-cell
         autofocus="${args.autofocus}"
@@ -87,7 +87,7 @@ const templateSearchWithDatepicker = new TemplateGenerator<
   Components.InoTableHeaderCell
 >(
   'ino-table-header-cell',
-  (args) => html`
+  args => html`
     ${useEffect(registerInlineDatepickerHandler)}
     <ino-table>
       <tr slot="header-row">
@@ -135,16 +135,14 @@ export const SearchWithDatepicker = templateSearchWithDatepicker.generatePlaygro
 
 const templateSearchWithSelection = new TemplateGenerator<
   Components.InoTableHeaderCell
->('ino-table-header-cell', (args) => {
+>('ino-table-header-cell', args => {
   useEffect(() => {
     const checkboxes = document.querySelectorAll('ino-checkbox');
-    const checkedHandler = (e) =>
+    const checkedHandler = e =>
       ((e.target as Components.InoCheckbox).checked = (e as any).detail);
-    checkboxes.forEach((c) =>
-      addEventListener('checkedChange', checkedHandler)
-    );
+    checkboxes.forEach(c => addEventListener('checkedChange', checkedHandler));
     return () =>
-      checkboxes.forEach((c) =>
+      checkboxes.forEach(c =>
         removeEventListener('checkedChange', checkedHandler)
       );
   });

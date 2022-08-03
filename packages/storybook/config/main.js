@@ -8,8 +8,18 @@ module.exports = {
   },
   staticDirs: ['../static', '../../elements/src/assets'],
   stories: ['../src/**/*.stories.ts', '../src/**/*.stories.mdx'],
-  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil'],
-  webpackFinal: (config) => {
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@storybook/addon-interactions',
+    '@storybook/addon-docs',
+    '@storybook/addon-knobs',
+  ],
+  features: {
+    storyStoreV7: !global.navigator?.userAgent?.match?.('jsdom'),
+    interactionsDebugger: true,
+  },
+  webpackFinal: config => {
     config.devServer = {
       watchContentBase: true,
       contentBase: path.join(__dirname, 'src'),
@@ -41,7 +51,7 @@ module.exports = {
     // Story Description
     config.module.rules.push({
       test: /\.stories\.ts/,
-      use: [{ loader: "story-description-loader", options: { isTSX: true } }],
+      use: [{ loader: 'story-description-loader', options: { isTSX: true } }],
     });
 
     // Copy Plugin

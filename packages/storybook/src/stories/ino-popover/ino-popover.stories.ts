@@ -7,14 +7,14 @@ import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
 
 export default {
-  title: `Notification/ino-popover`,
+  title: 'Notification/ino-popover',
   component: 'ino-popover',
   parameters: {
     actions: {
       handles: ['visibleChange ino-popover'],
     },
   },
-  decorators: [(story) => decorateStoryWithClass(story, 'story-ino-popover')],
+  decorators: [story => decorateStoryWithClass(story, 'story-ino-popover')],
   argTypes: {
     placement: {
       control: {
@@ -61,7 +61,7 @@ let POPOVER_COUNTER = 1;
 
 const template = new TemplateGenerator<Components.InoPopover>(
   'ino-popover',
-  (args) => {
+  args => {
     const id = `popover-${POPOVER_COUNTER++}`;
 
     return html`
@@ -135,7 +135,7 @@ export const Interactions = templateInteractive.generateStoryForProp(
 const templateControlledPopover = new TemplateGenerator<Components.InoPopover>(
   'ino-popover',
   () => {
-    const eventHandler = (e) => {
+    const eventHandler = e => {
       e.target?.setAttribute('visible', e.detail);
       (document.querySelector(
         '#controlled-checkbox'
