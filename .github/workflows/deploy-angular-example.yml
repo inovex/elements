@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
+    branches: [elements-#653-deploy-example-projects]
 
 jobs:
   deploy-elements-angular-example:
