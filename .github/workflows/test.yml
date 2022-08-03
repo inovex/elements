@@ -36,25 +36,5 @@ jobs:
     # Build caches for release-canary workflow
 
     - if: github.ref == 'refs/heads/master'
-      name: upload elements artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: elements
-        path:
-          packages/elements/dist/
-
-    - if: github.ref == 'refs/heads/master'
-      name: upload elements-react artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: elements-react
-        path:
-            packages/elements-react/dist/
-
-    - if: github.ref == 'refs/heads/master'
-      name: upload elements-angular artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: elements-angular
-        path:
-            packages/elements-angular/elements/dist/
+      name: Upload all build artifacts
+      uses: ./.github/workflows/artifacts-upload
