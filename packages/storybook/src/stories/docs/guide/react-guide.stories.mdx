@@ -250,6 +250,7 @@ Most components have built in styles and themes you can choose from. Let's add a
 If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesful login, we can use `type="success"`
 
 ```jsx
+const [showSnackbar, setSnackbar] = React.useState(false);
 const [isValid, setValidity] = React.useState(false);
 
 const submit = () => {
