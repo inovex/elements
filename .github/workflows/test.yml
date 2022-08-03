@@ -35,6 +35,6 @@ jobs:
 
     # Build caches for release-canary workflow
 
-    - if: github.ref == 'refs/heads/master'
-      name: Upload all build artifacts
+    #- if: github.ref == 'refs/heads/master'
+    - name: Upload all build artifacts
       uses: ./.github/workflows/artifacts-upload
