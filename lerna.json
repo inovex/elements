@@ -1,7 +1,7 @@
 {
   "packages": [
     "packages/*",
-    "packages/elements-angular/elements/dist"
+    "packages/elements-angular/elements"
   ],
   "version": "7.1.0",
   "npmClient": "yarn",

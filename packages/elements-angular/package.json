@@ -15,7 +15,6 @@
     "ng": "ng",
     "start": "ng serve",
     "clean": "shx rm -rf dist && shx rm -rf elements/dist",
-    "build": "ng build && tsc -p elements/tsconfig.schematics.json",
     "lint": "eslint elements/src",
     "lint:fix": "eslint elements/src --fix",
     "e2e": "ng e2e",
