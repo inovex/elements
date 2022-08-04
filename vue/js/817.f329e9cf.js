@@ -1,0 +1,5 @@
+"use strict";(self["webpackChunkelements_vue_example"]=self["webpackChunkelements_vue_example"]||[]).push([[817],{817:function(e,r,t){t.r(r),t.d(r,{ino_header:function(){return s}});var a=t(1817);
+/*!
+ * Crafted with ❤ by inovex GmbH
+ */const o=":host{--header-color:var(--ino-header-color, #525368);--header-box-color:var(--ino-header-box-color, rgba(0, 0, 0, 0.05))}:host .header-container{display:table-row}:host p{font-size:13px;font-weight:600;color:var(--header-color);white-space:nowrap;display:table-cell}:host .header-separator{display:table-cell;width:100%}:host .header-inner-box{margin-left:6px;border-radius:1px;background-color:var(--header-box-color);height:10px}",s=class{constructor(e){(0,a.r)(this,e)}componentDidLoad(){this.text&&console.warn('[ino-header] The attribute "text" is deprecated, please use the default slot instead.')}render(){return(0,a.h)(a.H,null,(0,a.h)("div",{class:"header-container"},(0,a.h)("p",null,this.text?this.text:(0,a.h)("slot",null)),(0,a.h)("div",{class:"header-separator"},(0,a.h)("div",{class:"header-inner-box"}))))}};s.style=o}}]);
+//# sourceMappingURL=817.f329e9cf.js.map
