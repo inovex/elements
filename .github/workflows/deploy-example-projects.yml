@@ -14,23 +14,11 @@ jobs:
         with:
           ref: gh-pages
 
-      - uses: dawidd6/action-download-artifact@v2
+      - uses: ./.github/workflows/artifacts-download
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-angular-example
-          path: example-projects/angular
-
-      - uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-react-example
-          path: example-projects/react
-
-      - uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-vue-example
-          path: example-projects/vue
+          workflow-id: ${{ github.event.workflow_run.workflow_id }}
+          download-core-artifacts: false
+          download-example-artifacts: true
 
       - name: Deploy Example Projects to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
