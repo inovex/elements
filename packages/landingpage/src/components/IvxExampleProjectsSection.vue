@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="header-wrapper">
-            Check out some of our example projects for you!
+            Check out our example projects!
           </div>
 
         </div>
@@ -76,18 +76,17 @@ export default {
   },
   created () {
     const baseUrl = window.location.origin + window.location.pathname
-    const exampleProjectReactUrl = baseUrl + 'example-projects/react/index.html/';
-    const exampleProjectAngularUrl = baseUrl + 'example-projects/elements-angular-example/';
-    const exampleProjectVueUrl = baseUrl + 'example-projects/vue/index.html/'; 
+    const exampleProjectReactUrl = baseUrl + 'example-projects/react';
+    const exampleProjectAngularUrl = baseUrl + 'example-projects/angular';
+    const exampleProjectVueUrl = baseUrl + 'example-projects/vue';
 
     this.exampleProjectReactUrl = exampleProjectReactUrl;
-    this.exampleProjectAngularUrl = exampleProjectAngularUrl; 
+    this.exampleProjectAngularUrl = exampleProjectAngularUrl;
     this.exampleProjectVueUrl = exampleProjectVueUrl;
   },
   mounted () {
     setTimeout(() => {
       const allFrameworkContainer = this.$el.querySelectorAll('.root .framework-container')
-      console.log(allFrameworkContainer)
 
       allFrameworkContainer.forEach(child => {
         const timeout = Math.random() * 1100
