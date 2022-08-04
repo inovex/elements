@@ -4,6 +4,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './vue-output-target';
 import { JsonDocsOutputTarget } from './json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
+import wrappedIconsRollup from './plugins/rollup-plugin-wrappedIcons';
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
 const reactProxyPath = '../elements-react/src/components';
@@ -98,5 +99,8 @@ export const config: Config = {
       includePaths: ['./src/components', '../../node_modules'],
     }),
   ],
+  rollupPlugins: {
+    after: [wrappedIconsRollup()],
+  },
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
