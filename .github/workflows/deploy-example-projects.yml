@@ -1,0 +1,41 @@
+name: Deploy Example Projects
+
+on:
+  workflow_run:
+    workflows: [ "Test & Build" ]
+    types: [completed]
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: elements-angular-example
+          path: example-projects/angular
+
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: elements-react-example
+          path: example-projects/react
+
+      - uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: elements-vue-example
+          path: example-projects/vue
+
+      - name: Deploy Example Projects to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          commit-message: Deploying example projects
+          folder: '.'
+          target-folder: example-projects
