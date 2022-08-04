@@ -2,29 +2,75 @@ name: 'Download elements build artifacts'
 description: 'Download elements build artifacts that can be used by release workflows'
 author: 'Benjamin Pagelsdorf'
 
+inputs:
+  workflow-id:
+    description: 'ID of workflow to download artifacts from'
+    required: false
+    default: 'true'
+  download-core-artifacts:
+    description: 'Do download core artifacts?'
+    required: false
+    default: 'true'
+  download-example-artifacts:
+    description: 'Do download example project artifacts?'
+    required: false
+    default: 'false'
+
 runs:
   using: "composite"
   steps:
-    - name: Download elements artifact
-      uses: actions/download-artifact@v3
+    - if: inputs.download-core-artifacts != 'false'
+      name: Download elements artifact
+      uses: dawidd6/action-download-artifact@v2
       with:
+        workflow: ${{ inputs.workflow-id }}
         name: elements
         path: packages/elements/dist/
 
-    - name: Download elements-react artifact
-      uses: actions/download-artifact@v3
+    - if: inputs.download-core-artifacts != 'false'
+      name: Download elements-react artifact
+      uses: dawidd6/action-download-artifact@v2
       with:
+        workflow: ${{ inputs.workflow-id }}
         name: elements-react
         path: packages/elements-react/dist/
 
-    - name: Download elements-angular artifact
-      uses: actions/download-artifact@v3
+    - if: inputs.download-core-artifacts != 'false'
+      name: Download elements-angular artifact
+      uses: dawidd6/action-download-artifact@v2
       with:
+        workflow: ${{ inputs.workflow-id }}
         name: elements-angular
         path: packages/elements-angular/elements/dist/
 
-    - name: Download elements-vue artifact
-      uses: actions/download-artifact@v3
+    - if: inputs.download-core-artifacts != 'false'
+      name: Download elements-vue artifact
+      uses: dawidd6/action-download-artifact@v2
       with:
+        workflow: ${{ inputs.workflow-id }}
         name: elements-vue
         path: packages/elements-vue/dist/
+
+    - if: inputs.download-example-artifacts != 'false'
+      name: Download elements-angular-example artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: ${{ inputs.workflow-id }}
+        name: elements-angular-example
+        path: example-projects/angular
+
+    - if: inputs.download-example-artifacts != 'false'
+      name: Download elements-react-example artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: ${{ inputs.workflow-id }}
+        name: elements-react-example
+        path: example-projects/react
+
+    - if: inputs.download-example-artifacts != 'false'
+      name: Download elements-vue-example artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: ${{ inputs.workflow-id }}
+        name: elements-vue-example
+        path: example-projects/vue

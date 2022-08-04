@@ -2,52 +2,74 @@ name: 'Upload elements build artifacts'
 description: 'Upload elements build artifacts that can be used by release workflows'
 author: 'Benjamin Pagelsdorf'
 
+inputs:
+  upload-core-artifacts:
+    description: 'Do upload core artifacts?'
+    required: false
+    default: 'true'
+  upload-storybook-artifact:
+    description: 'Do upload storybook artifact?'
+    required: false
+    default: 'true'
+  upload-example-artifacts:
+    description: 'Do upload example project artifacts?'
+    required: false
+    default: 'true'
+
 runs:
   using: "composite"
   steps:
-  - name: Upload elements artifact
+  - if: inputs.upload-core-artifacts != 'false'
+    name: Upload elements artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements
       path: packages/elements/dist/
 
-  - name: Upload elements-react artifact
+  - if: inputs.upload-core-artifacts != 'false'
+    name: Upload elements-react artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-react
       path: packages/elements-react/dist/
 
-  - name: Upload elements-angular artifact
+  - if: inputs.upload-core-artifacts != 'false'
+    name: Upload elements-angular artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular
       path: packages/elements-angular/elements/dist/
 
-  - name: Upload elements-vue artifact
+  - if: inputs.upload-core-artifacts != 'false'
+    name: Upload elements-vue artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-vue
       path: packages/elements-vue/dist/
 
-  - name: Upload storybook artifact
+  - if: inputs.upload-storybook-artifact != 'false'
+    name: Upload storybook artifact
     uses: actions/upload-artifact@v3
     with:
       name: storybook
       path: packages/storybook/dist/
 
-  - name: Upload elements-angular-example artifact
+  - if: inputs.upload-example-artifacts != 'false'
+    name: Upload elements-angular-example artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular-example
       path: packages/elements-angular-example/dist/
 
-  - name: Upload elements-react-example artifact
+  - if: inputs.upload-example-artifacts != 'false'
+    name: Upload elements-react-example artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-react-example
       path: packages/elements-react-example/dist/
 
-  - name: Upload elements-vue-example artifact
+  - if: inputs.upload-example-artifacts != 'false'
+    name: Upload elements-vue-example artifact
     uses: actions/upload-artifact@v3
     with:
       name: elements-vue-example
