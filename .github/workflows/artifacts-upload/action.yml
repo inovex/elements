@@ -34,3 +34,21 @@ runs:
     with:
       name: storybook
       path: packages/storybook/dist/
+
+  - name: Upload elements-angular-example artifact
+    uses: actions/upload-artifact@v3
+    with:
+      name: elements-angular-example
+      path: packages/elements-angular-example/dist/
+
+  - name: Upload elements-react-example artifact
+    uses: actions/upload-artifact@v3
+    with:
+      name: elements-react-example
+      path: packages/elements-react-example/dist/
+
+  - name: Upload elements-vue-example artifact
+    uses: actions/upload-artifact@v3
+    with:
+      name: elements-vue-example
+      path: packages/elements-vue-example/dist/

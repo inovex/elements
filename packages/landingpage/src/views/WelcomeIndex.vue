@@ -57,6 +57,10 @@
       <ivx-install-section />
     </ivx-content-block>
 
+    <ivx-content-block>
+      <ivx-example-projects-section />
+    </ivx-content-block>
+
     <ivx-hero-banner class="hero_banner">
       <template v-slot:headline>
         <div class="proven_tools">
@@ -125,6 +129,7 @@ import IvxUiComponentsSection from '@/components/IvxUiComponentsSection'
 import IvxFrameworkLogos from '@/components/IvxFrameworkLogos'
 import IvxFactsSection from '@/components/IvxFactsSection'
 import IvxInstallSection from '@/components/IvxInstallSection'
+import IvxExampleProjectsSection from '@/components/IvxExampleProjectsSection'
 import IvxToolsSection from '@/components/IvxToolsSection'
 import IvxEventsSection from '@/components/IvxEventsSection'
 import IvxSpiritSection from '@/components/IvxSpiritSection'
@@ -140,6 +145,7 @@ export default {
     IvxFrameworkLogos,
     IvxFactsSection,
     IvxInstallSection,
+    IvxExampleProjectsSection,
     IvxToolsSection,
     IvxEventsSection,
     IvxSpiritSection
