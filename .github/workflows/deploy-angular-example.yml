@@ -1,4 +1,4 @@
-name: Deploy angular example
+name: Deploy elements-angular-example
 
 on:
   workflow_run:
@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  deploy-elements-angular-example:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
           name: elements-angular-example
           path: example-projects/angular
 
-      - name: Deploy Angular example project to Github Pages 🚀
+      - name: Deploy elements-angular-example to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.

@@ -1,71 +1,31 @@
-name: Deploy react example
+name: Deploy elements-react-example
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: [ "Test & Build" ]
+    types: [completed]
+    branches: [master]
 
 jobs:
-#  install:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: ./.github/workflows/install
-
-#  test:
-#    runs-on: ubuntu-latest
-#    needs:
-#      - install
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: ./.github/workflows/install
-#      - run: yarn lint
-#      - run: yarn test
-
-  build:
+  deploy:
     runs-on: ubuntu-latest
-#    needs:
-#      - install
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
-      - name: Build Elements
-        working-directory: ./packages/elements
-        run: yarn build
-      - name: Build Elements-React
-        working-directory: ./packages/elements-react
-        run: yarn build
-      - name: Build Elements-React-Example
-        working-directory: ./packages/elements-react-example
-        run: yarn build
-
-      - name: Upload Storybook Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: elements-react-example
-          path:
-            packages/elements-react-example/dist/
-
-  deploy-elements-react-example:
-    runs-on: ubuntu-latest
-    needs:
-#      - test
-      - build
-    steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: gh-pages
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
           name: elements-react-example
-          path: ./artifact
+          path: example-projects/react
 
-      - name: Deploy React example project to Github Pages 🚀
+      - name: Deploy elements-react-example to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder:  ./artifact # The folder the action should deploy.
-          target-folder: ./example-projects/react # The folder the action will deploy to.
           commit-message: Deploying elements-react-example
+          folder: example-projects/react
           clean-exclude: |
             version
             unicorn
