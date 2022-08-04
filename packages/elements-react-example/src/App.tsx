@@ -3,10 +3,6 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import './index.scss';
 import logo from './favicon.svg';
 
-// const InoList = import.meta.glob('./shared/InovexElements');
-// const InoListDivider = import.meta.glob('./shared/InovexElements');
-// const InoNavDrawer = import.meta.glob('./shared/InovexElements');
-
 import { InoList, InoListDivider, InoNavDrawer } from './shared/InovexElements';
 
 import { HomeTodoApp } from './home-todo-app';

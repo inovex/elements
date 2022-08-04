@@ -1,8 +1,6 @@
 import React from 'react';
 
-//import { InoOption, InoSelect } from '../shared/InovexElements';
-const InoOption = import.meta.glob('./shared/InovexElements');
-const InoSelect = import.meta.glob('./shared/InovexElements');
+import { InoOption, InoSelect } from '../shared/InovexElements';
 
 export const Select: React.FC = () => {
   const [selectedValue, setSelectedValue] = React.useState('');

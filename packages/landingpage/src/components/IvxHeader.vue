@@ -25,7 +25,7 @@
           {{ version.name }} {{ i === 0 ? "(latest)" : "" }}
         </ino-option>
       </ino-select>
-      
+
       <a
         :href="selectedVersionURL + '/'"
         alt="elements documentation"
@@ -59,7 +59,7 @@ export default {
   created () {
     const baseUrl = window.location.origin + window.location.pathname
     const versionsUrl = baseUrl + 'version/';
-   
+
     fetch(`${baseUrl}hosted-versions.json`)
       .then(d => d.json())
       .then(availableVersions => {
