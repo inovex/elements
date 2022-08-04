@@ -1,0 +1,53 @@
+%centered-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 100%;
+  width: 100%;
+  position: absolute; //position aboslute to maintain example-project nav drawer
+}
+.leftpage {
+  @extend %centered-div;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.body {
+  @extend %centered-div;
+  justify-content: center;
+
+  --ino-input-line-color: #003c7e;
+  --ino-input-label-color: #003c7e;
+}
+
+.rightpage {
+  @extend %centered-div;
+  background-color: #003c7e;
+  color: white;
+  justify-content: center;
+  text-align: center;
+
+  .styled-popover {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    color: black;
+  }
+}
+.login-alternatives {
+  display: flex;
+  flex-direction: row;
+}

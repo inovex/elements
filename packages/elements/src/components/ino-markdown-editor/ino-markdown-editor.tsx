@@ -290,7 +290,7 @@ export class MarkdownEditor implements ComponentInterface {
               class={getToolbarActionBtnClass(Actions.TASK_LIST)}
               onClick={() => this.handleToolbarActionClick(Actions.TASK_LIST)}
             >
-              <ino-icon icon="task_list"/>
+              <ino-icon icon="checkmark"/>
             </button>
             <button
               class={getToolbarActionBtnClass(Actions.BLOCKQUOTE)}
