@@ -4447,14 +4447,6 @@
   resolved "https://registry.npmjs.org/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
   integrity sha512-H9XAx3hc0BQHY6l+IFSWHDySypcXsvsuLhgYLUGywmJ5pswRVQJUHpOsobnLYp2ZUaUlKiKDrgWWhosOwAEM8Q==
 
-"@inovex.de/elements-angular@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.npmjs.org/@inovex.de/elements-angular/-/elements-angular-7.1.0.tgz#0f14cbb00177be9249830eed3bef67de0c077bd5"
-  integrity sha512-BW9wAvCWTBJ20+UgpPag26f0Y2GtARc3MJ1igzG5B5CkPQk3YxaSUoZ7WcCbY9QT0l7Tquo2mSm8o3A4xOx1Ew==
-  dependencies:
-    "@inovex.de/elements" "^7.1.0"
-    tslib "^2.2.0"
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"

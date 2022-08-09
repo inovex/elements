@@ -16,38 +16,39 @@
    * @prop --ino-checkbox-checkmark-color-disabled: color of the check mark if disabled
    */
 
-  --checkbox-color: var(--ino-checkbox-color, #{theme.color(primary)});
-  --checkbox-color-hover: var(
-    --ino-checkbox-color-hover,
-    #{theme.color(primary, light)}
-  );
-  --checkbox-color-active: var(
-    --ino-checkbox-color-active,
-    #{theme.color(primary, dark)}
-  );
-  --checkbox-container-color-unchecked: var(
-    --ino-checkbox-container-color-unchecked,
-    #{theme.color(primary, light)}
-  );
-  --checkbox-text-color-disabled: var(
-    --ino-checkbox-text-color-disabled,
-    #{theme.color(dark)}
-  );
-  --checkbox-background-color-disabled: var(
-    --ino-checkbox-background-color-disabled,
-    #{theme.color(light, light)}
-  );
-  --checkbox-checkmark-color: var(--ino-checkbox-checkmark-color, #fff);
-  --checkbox-checkmark-color-disabled: var(
-    --ino-checkbox-checkmark-color-disabled,
-    #{theme.color(light)}
-  );
+   --checkbox-color: var(--ino-checkbox-color, #{theme.color(primary)});
+   --checkbox-color-hover: var(
+     --ino-checkbox-color-hover,
+     #{theme.color(primary, light)}
+   );
+   --checkbox-color-active: var(
+     --ino-checkbox-color-active,
+     #{theme.color(primary, dark)}
+   );
+   --checkbox-container-color-unchecked: var(
+     --ino-checkbox-container-color-unchecked,
+     #{theme.color(primary, light)}
+   );
+   --checkbox-text-color-disabled: var(
+     --ino-checkbox-text-color-disabled,
+     #{theme.color(dark)}
+   );
+   --checkbox-background-color-disabled: var(
+     --ino-checkbox-background-color-disabled,
+     #{theme.color(light, light)}
+   );
+   --checkbox-checkmark-color: var(--ino-checkbox-checkmark-color, #fff);
+   --checkbox-checkmark-color-disabled: var(
+     --ino-checkbox-checkmark-color-disabled,
+     #{theme.color(light)}
+   );
 }
 
+
 :host {
-  --mdc-checkbox-unchecked-color: var(--checkbox-container-color-unchecked);
-  --mdc-checkbox-checked-color: var(--checkbox-color);
-  --mdc-checkbox-disabled-color: var(--checkbox-background-color-disabled);
+  --mdc-checkbox-unchecked-color: #ABB1CC;
+  --mdc-checkbox-checked-color: #2C02FF;
+  --mdc-checkbox-disabled-color: #CBD0E0;
   --mdc-checkbox-ink-color: var(--checkbox-checkmark-color);
 
   .mdc-checkbox {
@@ -57,52 +58,38 @@
     }
   }
 
-  .mdc-checkbox--disabled {
-    --mdc-checkbox-ink-color: var(--checkbox-checkmark-color-disabled);
+  .mdc-checkbox__background {
+    border: 1.5px solid;
+    border-radius: 5px;
+    width: 22px;
+    height: 22px;
+    top: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
+    left: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
+  }
+
+  .mdc-checkbox__checkmark {
+    inset: 2.3px;
+    width: 15px;
   }
 
   .mdc-checkbox--disabled ~ label {
-    color: var(--checkbox-text-color-disabled);
+    color: #CBD0E0;
   }
 }
+
 
 :host(:hover) {
-  .mdc-checkbox:not(.mdc-checkbox--disabled) {
-    --mdc-checkbox-unchecked-color: var(--checkbox-color-hover);
-    --mdc-checkbox-checked-color: var(--checkbox-color-hover);
-
-    .mdc-checkbox__background {
-      box-shadow: 0 4px 8px 0 rgba(61, 64, 245, 0.3),
-        0 12px 28px 0 rgba(61, 214, 245, 0.14);
-    }
-  }
-}
-
-:host(:active) .mdc-checkbox:not(.checked),
-:host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
-  --mdc-checkbox-unchecked-color: var(--checkbox-color-active);
-  --mdc-checkbox-checked-color: var(--checkbox-color-active);
-}
-
-// ino-selection
-// --------------------------------------------------
-
-:host .ino-checkbox-selection {
   .mdc-checkbox__background {
-    border-radius: 30px;
-
-    .mdc-checkbox__checkmark {
-      width: 12px;
-      height: 12px;
-      top: 1px;
-      left: 1px;
-    }
-    .mdc-checkbox__mixedmark {
-      margin: 0 2px;
-    }
-  }
-  &:not(:hover):not(.checked).ino-checkbox--indeterminate {
-    // Switch background color
-    --mdc-checkbox-checked-color: var(--ino-checkbox-container-color-unchecked);
+    --mdc-checkbox-unchecked-color:#4B4EFF;
+    
   }
 }
+
+//Styling during click, pressed state
+:host(:active) .mdc-checkbox:not(.checked), :host(:focus),
+:host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
+  .mdc-checkbox__background {
+    box-shadow: 0px 0px 0px 4px #2D5DFF4D;
+  }
+}
+
