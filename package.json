@@ -20,21 +20,18 @@
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "format": "yarn prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,scss}'",
-    "lerna:version": "lerna version --conventional-commits --no-changelog",
-    "preversion": "yarn build && yarn test",
-    "version": "node scripts/bumprootversion.js && yarn changelog",
     "new:component": "node scripts/newComponent.js",
-    "postversion": "git add -A",
     "publish:yalc": "node ./scripts/publishYalc.js",
-    "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish='*'",
-    "publish:npm": "yarn lerna publish --conventional-commits --no-changelog",
-    "prepare": "husky install"
+    "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
+    "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
+    "publish:ci": "yarn lerna publish --conventional-commits --no-verify-access --create-release github --yes",
+    "version": "node scripts/bumprootversion.js",
+    "postversion": "git add -A"
   },
   "devDependencies": {
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
     "fs-extra": "^9.0.0",
-    "husky": "^6.0.0",
     "js-yaml": "^3.14.0",
     "lint-staged": "^10.5.3",
     "prettier": "^2.1.2",
@@ -47,7 +44,7 @@
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
-    "lerna": "^3.18.3"
+    "lerna": "^4.0.0"
   },
   "workspaces": {
     "packages": [
