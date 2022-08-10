@@ -41,7 +41,7 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
+    "build": "stencil build --docs --legacy",
     "clean": "shx rm -rf dist",
     "dev": "cross-env NODE_ENV=development stencil build --docs --watch --legacy",
     "lint": "eslint src",

@@ -1,7 +1,14 @@
-export default function wrappedIconsRollup() {
-  const fs = require('fs-extra');
-  const path = require('path');
+const fs = require('fs-extra');
+const path = require('path');
 
+export default function wrapIconsPlugin() {
+  return {
+    name: 'wrap-icons-plugin',
+    buildEnd: wrapIcons 
+  };
+}
+
+function wrapIcons() {
   const ROOT_DIR = path.join(__dirname, '../');
   const DST_DIR = path.join(ROOT_DIR, 'dist');
   const DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
@@ -89,20 +96,4 @@ require.context('!!file-loader?name=[name].[ext]&outputPath=svg!./', false, /\.s
 `;
 
   fs.writeFileSync(DST_JS, jsContent);
-
-  return {
-    name: 'rollup-plugin-wrappedIcons',
-    resolveId(source) {
-      if (source === 'dist') {
-        return source;
-      }
-      return null;
-    },
-    load(id) {
-      if (id === 'dist') {
-        return { finalFile };
-      }
-      return null;
-    },
-  };
 }
