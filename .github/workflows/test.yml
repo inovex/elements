@@ -54,8 +54,8 @@ jobs:
       - name: Serve Storybook and run tests
         working-directory: packages/storybook
         run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server ./packages/storybook/dist --port 6006 --silent" \
+          npx concurrently --names "SB,TEST" --success "command-{TEST}" --kill-others \
+            "npx http-server /dist --port 6006 --silent" \
             "npx wait-on tcp:6006 && yarn test-storybook"
       - name: Upload test results
         if: failure()
