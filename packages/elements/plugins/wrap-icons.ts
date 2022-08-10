@@ -4,7 +4,7 @@ const path = require('path');
 export default function wrapIconsPlugin() {
   return {
     name: 'wrap-icons-plugin',
-    buildEnd: wrapIcons 
+    generateBundle: wrapIcons 
   };
 }
 
