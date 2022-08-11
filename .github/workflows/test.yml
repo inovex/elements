@@ -55,8 +55,8 @@ jobs:
         working-directory: packages/storybook
         run: |
           npx concurrently --names "SB,TEST" --success "command-{TEST}" --kill-others \
-            "npx http-server /dist --port 6006 --silent" \
-            "npx wait-on tcp:6006 && yarn test-storybook"
+            "npx http-server ./dist --port 6006 --silent" \
+            "npx wait-on tcp:6006 && yarn test:visual"
       - name: Upload test results
         if: failure()
         uses: actions/upload-artifact@v2
