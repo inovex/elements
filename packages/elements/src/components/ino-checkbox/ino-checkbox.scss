@@ -4,54 +4,26 @@
 @use '@material/checkbox';
 @use 'base/theme';
 
-:host {
-  /**
-   * @prop --ino-checkbox-color: primary color of the checkbox
-   * @prop --ino-checkbox-color-hover: color of the checkbox on hover
-   * @prop --ino-checkbox-color-active: color of the checkbox if active
-   * @prop --checkbox-container-color-unchecked: color of the checkbox container if unchecked
-   * @prop --ino-checkbox-text-color-disabled: color of the checkbox text if disabled
-   * @prop --ino-checkbox-background-color-disabled: color of the checkbox background if disabled
-   * @prop --ino-checkbox-checkmark-color: primary color of the check mark
-   * @prop --ino-checkbox-checkmark-color-disabled: color of the check mark if disabled
-   */
+$primary-dark: #2C02FF;
+$primary-base: #4B4EFF;
+$primary-light: #2D5DFF4D;
+$grey: #ABB1CC;
+$grey-light: #CBD0E0;
+$white: #fff;
 
-   --checkbox-color: var(--ino-checkbox-color, #{theme.color(primary)});
-   --checkbox-color-hover: var(
-     --ino-checkbox-color-hover,
-     #{theme.color(primary, light)}
-   );
-   --checkbox-color-active: var(
-     --ino-checkbox-color-active,
-     #{theme.color(primary, dark)}
-   );
-   --checkbox-container-color-unchecked: var(
-     --ino-checkbox-container-color-unchecked,
-     #{theme.color(primary, light)}
-   );
-   --checkbox-text-color-disabled: var(
-     --ino-checkbox-text-color-disabled,
-     #{theme.color(dark)}
-   );
-   --checkbox-background-color-disabled: var(
-     --ino-checkbox-background-color-disabled,
-     #{theme.color(light, light)}
-   );
-   --checkbox-checkmark-color: var(--ino-checkbox-checkmark-color, #fff);
-   --checkbox-checkmark-color-disabled: var(
-     --ino-checkbox-checkmark-color-disabled,
-     #{theme.color(light)}
-   );
-}
-
+$unchecked-color: $grey;
+$checked-color: $primary-dark;
+$hover-color: $primary-base;
+$disabled-color: $grey-light;
+$ink-color: $white;
+$focus-shadow-color: $primary-light;
+$focus-border-color: $primary-base;
 
 :host {
-  --mdc-checkbox-unchecked-color: #ABB1CC;
-  --mdc-checkbox-checked-color: #2C02FF;
-  --mdc-checkbox-disabled-color: #CBD0E0;
-  --mdc-checkbox-ink-color: var(--checkbox-checkmark-color);
-
   .mdc-checkbox {
+    @include checkbox.container-colors($unchecked-color, $white, $checked-color, $checked-color);
+    @include checkbox.disabled-container-colors($disabled-color, $white, $disabled-color, $disabled-color);
+
     &:before,
     &:after {
       display: none; // Remove ripple effect
@@ -65,6 +37,7 @@
     height: 22px;
     top: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
     left: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
+
   }
 
   .mdc-checkbox__checkmark {
@@ -73,23 +46,20 @@
   }
 
   .mdc-checkbox--disabled ~ label {
-    color: #CBD0E0;
+    color: $disabled-color;
   }
 }
-
 
 :host(:hover) {
-  .mdc-checkbox__background {
-    --mdc-checkbox-unchecked-color:#4B4EFF;
-    
+  .mdc-checkbox {
+    @include checkbox.container-colors($primary-base, $white, $checked-color, $checked-color);
   }
 }
 
-//Styling during click, pressed state
 :host(:active) .mdc-checkbox:not(.checked), :host(:focus),
-:host(active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
+:host(:active) .mdc-checkbox:not(.mdc-checkbox--disabled) {
   .mdc-checkbox__background {
-    box-shadow: 0px 0px 0px 4px #2D5DFF4D;
+    box-shadow: 0px 0px 0px 4px $primary-light;
   }
 }
 
