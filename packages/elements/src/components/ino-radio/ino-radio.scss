@@ -19,30 +19,18 @@
    * @prop --ino-radio-disabled-inner-circle-color: color of the inner circle if disabled
    * @prop --ino-radio-disabled-outer-circle-color: color of the outer circle if disabled
    */
-  --radio-unchecked-color: var(
-    --ino-radio-unchecked-color,
-    #{theme.color(light, dark)}
-  );
-  --radio-checked-color: var(
-    --ino-radio-checked-color,
-    #{theme.color(primary)}
-  );
-  --radio-hover-color: var(
-    --ino-radio-hover-color,
-    #{theme.color(primary, light)}
-  );
-  --radio-active-color: var(
-    --ino-radio-active-color,
-    #{theme.color(primary, dark)}
-  );
+  --radio-unchecked-color: #ABB1CC;
+  --radio-checked-color: #2C02FF;
+  --radio-hover-color: #4B4EFF;
+  --radio-active-color: #2C02FF;
   --radio-disabled-color: #CBD0E0;
- 
+  --radio-focus-color: #2D5DFF4D;
 }
 
 :host {
   .mdc-radio {
-    @include radio.unchecked-stroke-color(#ABB1CC);
-    @include radio.checked-stroke-color(#2C02FF);
+    @include radio.unchecked-stroke-color(var(--radio-unchecked-color));
+    @include radio.checked-stroke-color(var(--radio-checked-color));
     @include radio.ink-color(var(--radio-checked-color));
     @include radio.disabled-unchecked-stroke-color(var(--radio-disabled-color));
     @include radio.disabled-checked-stroke-color(var(--radio-disabled-color));
@@ -52,7 +40,6 @@
       border-width: 1.5px;
     }
 
-
     &:before,
     &:after {
       display: none;
@@ -61,7 +48,7 @@
 
 
   :hover .mdc-radio:not(.mdc-radio--disabled) {
-    @include radio.unchecked-stroke-color(#4B4EFF);
+    @include radio.unchecked-stroke-color(var(--radio-hover-color));
     @include radio.checked-stroke-color(var(--radio-hover-color));
     @include radio.ink-color(var(--radio-hover-color));
     @include animateInnerCircle(0.5);
@@ -72,7 +59,6 @@
     @include radio.checked-stroke-color(var(--radio-active-color));
     @include radio.ink-color(var(--radio-active-color));
     @include animateInnerCircle(0.7);
-
   }
 
   .mdc-radio--disabled {
@@ -115,5 +101,5 @@
 }
 
 :host(:focus) .mdc-radio__outer-circle {
-  box-shadow: 0px 0px 0px 4px #2D5DFF4D;
+  box-shadow: 0px 0px 0px 4px var(--radio-focus-color);
 }
