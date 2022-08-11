@@ -24,4 +24,5 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           commit-message: Deploying example projects
+          folder: '.'
           target-folder: example-projects
