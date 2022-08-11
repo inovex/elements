@@ -35,7 +35,8 @@
     "build": "build-storybook -c config -o dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test:visual": "test-storybook --config-dir config"
+    "test:visual": "test-storybook --config-dir config",
+    "test:visual-update": "test-storybook --config-dir config -u"
   },
   "files": [
     "dist/"
