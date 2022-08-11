@@ -4,7 +4,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './vue-output-target';
 import { JsonDocsOutputTarget } from './json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import wrapIconsPlugin from './plugins/wrap-icons';
+import { wrapIconsOutputTarget } from './wrap-icons-output-target';
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
 const reactProxyPath = '../elements-react/src/components';
@@ -92,13 +92,13 @@ export const config: Config = {
         },
       ],
     }),
+    wrapIconsOutputTarget
   ],
   plugins: [
     sass({
       injectGlobalPaths: [],
       includePaths: ['./src/components', '../../node_modules'],
     }),
-    wrapIconsPlugin()
   ],
   preamble: 'Crafted with ❤ by inovex GmbH',
 };
