@@ -36,7 +36,8 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "test:visual": "test-storybook --config-dir config",
-    "test:visual-update": "test-storybook --config-dir config -u"
+    "test:visual-update": "test-storybook --config-dir config -u",
+    "test:ci": "npx concurrently --names \"SB,TEST\" --success \"command-TEST\" --kill-others \"npx http-server ./dist --port 6006 --silent\" \"npx wait-on tcp:6006 && yarn test:visual\""
   },
   "files": [
     "dist/"
