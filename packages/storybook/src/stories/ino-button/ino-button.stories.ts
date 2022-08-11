@@ -48,10 +48,6 @@ export const Loading = template.generateStoryForProp('loading', true);
 export const LeadingAndTrailingIcon = () => html`
   <div class="container">
     <ino-button>
-      <ino-icon icon="info" slot="icon-leading"></ino-icon>
-      Label
-    </ino-button>
-    <ino-button>
       <ino-icon icon="info" slot="icon-trailing"></ino-icon>
       Label
     </ino-button>
