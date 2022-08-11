@@ -54,3 +54,9 @@ jobs:
       - name: Serve Storybook and run tests
         working-directory: packages/storybook
         run: yarn test:ci
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: report
+          path: __diff_output__
