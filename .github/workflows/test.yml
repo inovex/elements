@@ -59,4 +59,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: report
-          path: __diff_output__
+          path: packages/storybook/__snapshots__/__diff_output__
