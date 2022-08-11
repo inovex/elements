@@ -28,4 +28,5 @@ jobs:
       name: Upload all build artifacts
       uses: ./.github/workflows/artifacts-upload
       with:
-        upload-storybook-artifact: false
+        upload-core-artifacts: true
+        upload-example-artifacts: true

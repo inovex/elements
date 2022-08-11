@@ -6,13 +6,12 @@ inputs:
   workflow-id:
     description: 'ID of workflow to download artifacts from'
     required: false
-    default: 'true'
   download-core-artifacts:
-    description: 'Do download core artifacts?'
+    description: 'Download core artifacts?'
     required: false
-    default: 'true'
+    default: 'false'
   download-example-artifacts:
-    description: 'Do download example project artifacts?'
+    description: 'Download example project artifacts?'
     required: false
     default: 'false'
 

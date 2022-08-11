@@ -17,7 +17,6 @@ jobs:
       - uses: ./.github/workflows/artifacts-download
         with:
           workflow-id: ${{ github.event.workflow_run.workflow_id }}
-          download-core-artifacts: false
           download-example-artifacts: true
 
       - name: Deploy Example Projects to Github Pages 🚀

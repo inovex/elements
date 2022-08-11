@@ -4,17 +4,17 @@ author: 'Benjamin Pagelsdorf'
 
 inputs:
   upload-core-artifacts:
-    description: 'Do upload core artifacts?'
+    description: 'Upload core artifacts?'
     required: false
-    default: 'true'
+    default: 'false'
   upload-storybook-artifact:
-    description: 'Do upload storybook artifact?'
+    description: 'Upload storybook artifact?'
     required: false
-    default: 'true'
+    default: 'false'
   upload-example-artifacts:
-    description: 'Do upload example project artifacts?'
+    description: 'Upload example project artifacts?'
     required: false
-    default: 'true'
+    default: 'false'
 
 runs:
   using: "composite"
