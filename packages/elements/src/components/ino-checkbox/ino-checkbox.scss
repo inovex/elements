@@ -33,20 +33,36 @@ $focus-border-color: $primary-base;
   .mdc-checkbox__background {
     border: 1.5px solid;
     border-radius: 5px;
-    width: 22px;
-    height: 22px;
+    width: 21px;
+    height: 21px;
     top: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
     left: calc((var(--mdc-checkbox-ripple-size, 37px) - 18px) / 2);
-
   }
 
   .mdc-checkbox__checkmark {
-    inset: 2.3px;
-    width: 15px;
+    inset: 3.3px 0 0 2.5px;
+    width: 13px;
+    path {
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+  }
+
+  .mdc-checkbox__mixedmark {
+    @include checkbox.ink-color($white);
+    width: 65%;
+    background-color: $white;
+    border-radius: 50px;
   }
 
   .mdc-checkbox--disabled ~ label {
     color: $disabled-color;
+  }
+
+  .ino-checkbox-selection { 
+    .mdc-checkbox__background {
+      border-radius: 50px;
+    }
   }
 }
 
@@ -62,4 +78,3 @@ $focus-border-color: $primary-base;
     box-shadow: 0px 0px 0px 4px $primary-light;
   }
 }
-
