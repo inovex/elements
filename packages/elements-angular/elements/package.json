@@ -25,5 +25,12 @@
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "dependencies"
-  }
+  },
+  "main": "./dist/bundles/inovex.de-elements-angular.umd.js",
+  "module": "./dist/fesm2015/inovex.de-elements-angular.js",
+  "es2015": "./dist/fesm2015/inovex.de-elements-angular.js",
+  "esm2015": "./dist/esm2015/inovex.de-elements-angular.js",
+  "fesm2015": "./dist/fesm2015/inovex.de-elements-angular.js",
+  "typings": "./dist/inovex.de-elements-angular.d.ts",
+  "sideEffects": false
 }
