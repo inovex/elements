@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - elements-691_refactor_ci_workflows
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -22,6 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/dependencies-install
+    - run: npm config set scripts-prepend-node-path true
     - run: yarn build
 
     # Build caches for release-canary workflow
