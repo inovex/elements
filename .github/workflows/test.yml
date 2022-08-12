@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - elements-691_refactor_ci_workflows
   pull_request:
     types: [opened, synchronize, reopened]
 
