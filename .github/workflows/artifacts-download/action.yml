@@ -10,10 +10,18 @@ inputs:
     description: 'Download core artifacts?'
     required: false
     default: 'false'
+  core-artifacts-base-path:
+    description: 'Base path of artifact download. Will be suffixed with specific framework name e.g /elements-vue/dist/'
+    required: false
+    default: 'packages'
   download-example-artifacts:
     description: 'Download example project artifacts?'
     required: false
     default: 'false'
+  example-artifacts-base-path:
+    description: 'Base path of artifact download. Will be suffixed with specific framework name e.g /vue'
+    required: false
+    default: 'example-projects'
 
 runs:
   using: "composite"
@@ -24,7 +32,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements
-        path: packages/elements/dist/
+        path: ${{ inputs.core-artifacts-base-path }}/elements/dist/
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-react artifact
@@ -32,7 +40,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react
-        path: packages/elements-react/dist/
+        path: ${{ inputs.core-artifacts-base-path }}/elements-react/dist/
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-angular artifact
@@ -40,7 +48,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular
-        path: packages/elements-angular/elements/dist/
+        path: ${{ inputs.core-artifacts-base-path }}/elements-angular/elements/dist/
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-vue artifact
@@ -48,7 +56,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue
-        path: packages/elements-vue/dist/
+        path: ${{ inputs.core-artifacts-base-path }}/elements-vue/dist/
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-angular-example artifact
@@ -56,7 +64,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular-example
-        path: example-projects/angular
+        path: ${{ inputs.example-artifacts-base-path }}/angular
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-react-example artifact
@@ -64,7 +72,7 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react-example
-        path: example-projects/react
+        path: ${{ inputs.example-artifacts-base-path }}/react
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-vue-example artifact
@@ -72,4 +80,4 @@ runs:
       with:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue-example
-        path: example-projects/vue
+        path: ${{ inputs.example-artifacts-base-path }}/vue
