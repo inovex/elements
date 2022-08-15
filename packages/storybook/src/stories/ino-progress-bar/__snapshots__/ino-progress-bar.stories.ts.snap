@@ -6,6 +6,7 @@ exports[`Notification/ino-progress-bar Buffer smoke-test 1`] = `
     <ino-progress-bar buffer="0.5"
                       progress="undefined"
                       indeterminate="false"
+                      class="hydrated"
     >
     </ino-progress-bar>
   </div>
@@ -18,6 +19,7 @@ exports[`Notification/ino-progress-bar Indeterminate smoke-test 1`] = `
     <ino-progress-bar buffer="undefined"
                       progress="undefined"
                       indeterminate="true"
+                      class="hydrated"
     >
     </ino-progress-bar>
   </div>
@@ -42,6 +44,7 @@ exports[`Notification/ino-progress-bar Progress smoke-test 1`] = `
     <ino-progress-bar buffer="undefined"
                       progress="0.5"
                       indeterminate="false"
+                      class="hydrated"
     >
     </ino-progress-bar>
   </div>

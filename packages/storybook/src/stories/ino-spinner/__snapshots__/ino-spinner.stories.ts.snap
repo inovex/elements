@@ -8,7 +8,36 @@ exports[`Notification/ino-spinner ColorScheme smoke-test 1`] = `
                  modal="false"
                  type="circle"
                  width="40"
+                 class="ino-spinner--type-circle ino-spinner--color-scheme-secondary hydrated"
     >
+      <div class="ino-spinner__composer"
+           style="width: 40px; height: 40px;"
+      >
+        <div class="ino-spinner__circle-1">
+        </div>
+        <div class="ino-spinner__circle-2">
+        </div>
+        <div class="ino-spinner__circle-3">
+        </div>
+        <div class="ino-spinner__circle-4">
+        </div>
+        <div class="ino-spinner__circle-5">
+        </div>
+        <div class="ino-spinner__circle-6">
+        </div>
+        <div class="ino-spinner__circle-7">
+        </div>
+        <div class="ino-spinner__circle-8">
+        </div>
+        <div class="ino-spinner__circle-9">
+        </div>
+        <div class="ino-spinner__circle-10">
+        </div>
+        <div class="ino-spinner__circle-11">
+        </div>
+        <div class="ino-spinner__circle-12">
+        </div>
+      </div>
     </ino-spinner>
   </div>
 </div>
@@ -22,7 +51,22 @@ exports[`Notification/ino-spinner Playground smoke-test 1`] = `
                  modal="false"
                  type="tile"
                  width="40"
+                 class="ino-spinner--type-tile ino-spinner--color-scheme-primary hydrated"
     >
+      <div class="ino-spinner__composer"
+           style="width: 40px; height: 40px;"
+      >
+        <div class="ino-spinner__rect1">
+        </div>
+        <div class="ino-spinner__rect2">
+        </div>
+        <div class="ino-spinner__rect3">
+        </div>
+        <div class="ino-spinner__rect4">
+        </div>
+        <div class="ino-spinner__rect5">
+        </div>
+      </div>
     </ino-spinner>
   </div>
 </div>
@@ -36,7 +80,16 @@ exports[`Notification/ino-spinner Type smoke-test 1`] = `
                  modal="false"
                  type="bounce"
                  width="40"
+                 class="ino-spinner--type-bounce ino-spinner--color-scheme-primary hydrated"
     >
+      <div class="ino-spinner__composer"
+           style="width: 40px; height: 40px;"
+      >
+        <div class="ino-spinner__double-bounce-1">
+        </div>
+        <div class="ino-spinner__double-bounce-2">
+        </div>
+      </div>
     </ino-spinner>
   </div>
 </div>

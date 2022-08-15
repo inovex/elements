@@ -8,209 +8,362 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                sort-direction="asc"
                no-hover="false"
                sticky-header="false"
+               class="hydrated"
     >
-      <ino-progress-bar slot="loading-indicator"
-                        indeterminate
-                        debounce="200"
-                        active
-      >
-      </ino-progress-bar>
-      <tr slot="header-row">
-      </tr>
-      <ino-table-header-cell column-id="id"
-                             sort-start="asc"
-                             label="ID"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="name"
-                             sort-start="asc"
-                             label="Name"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="release"
-                             label="Release Date"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="box-office"
-                             label="Box Office"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="rating"
-                             label="Rating"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another1"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another2"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <tr>
-        <td>
-          1
-        </td>
-        <td>
-          The Bourne Identity
-        </td>
-        <td>
-          14.06.2002
-        </td>
-        <td>
-          $214 million
-        </td>
-        <td>
-          93%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2
-        </td>
-        <td>
-          Sully
-        </td>
-        <td>
-          09.09.2016
-        </td>
-        <td>
-          $240.8 million
-        </td>
-        <td>
-          84%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          The Martian
-        </td>
-        <td>
-          02.10.2015
-        </td>
-        <td>
-          $630.2 million
-        </td>
-        <td>
-          94%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          4
-        </td>
-        <td>
-          John Wick: Chapter 3
-        </td>
-        <td>
-          17.05.2019
-        </td>
-        <td>
-          $326.7 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          5
-        </td>
-        <td>
-          10 Cloverfield Lane
-        </td>
-        <td>
-          11.03.2016
-        </td>
-        <td>
-          $110.2 million
-        </td>
-        <td>
-          87%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          6
-        </td>
-        <td>
-          Thor: Ragnarok
-        </td>
-        <td>
-          10.10.2017
-        </td>
-        <td>
-          $854 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          7
-        </td>
-        <td>
-          The latest movie
-        </td>
-        <td>
-          01.01.2021
-        </td>
-        <td>
-          $900 million
-        </td>
-        <td>
-          95%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
+      <div class="mdc-data-table mdc-data-table--in-progress">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell column-id="id"
+                                     sort-start="asc"
+                                     label="ID"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="id"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__m056ntios"
+                                     sort-direction="asc"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    ID
+                  </div>
+                </div>
+                <ino-icon-button class="ino-icon-button--color-scheme-dark hydrated sort-asc">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="name"
+                                     sort-start="asc"
+                                     label="Name"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="name"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__t0w3a4whu"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Name
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="release"
+                                     label="Release Date"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="release"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__15sukmeki"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Release Date
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="box-office"
+                                     label="Box Office"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="box-office"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__3jx5k6151"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Box Office
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="rating"
+                                     label="Rating"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="rating"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__3lyhrqblf"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Rating
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another1"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__5rr4wuelb"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another2"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another2"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__sfskwk3xo"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  The Bourne Identity
+                </td>
+                <td>
+                  14.06.2002
+                </td>
+                <td>
+                  $214 million
+                </td>
+                <td>
+                  93%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                  Sully
+                </td>
+                <td>
+                  09.09.2016
+                </td>
+                <td>
+                  $240.8 million
+                </td>
+                <td>
+                  84%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  The Martian
+                </td>
+                <td>
+                  02.10.2015
+                </td>
+                <td>
+                  $630.2 million
+                </td>
+                <td>
+                  94%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  4
+                </td>
+                <td>
+                  John Wick: Chapter 3
+                </td>
+                <td>
+                  17.05.2019
+                </td>
+                <td>
+                  $326.7 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  5
+                </td>
+                <td>
+                  10 Cloverfield Lane
+                </td>
+                <td>
+                  11.03.2016
+                </td>
+                <td>
+                  $110.2 million
+                </td>
+                <td>
+                  87%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6
+                </td>
+                <td>
+                  Thor: Ragnarok
+                </td>
+                <td>
+                  10.10.2017
+                </td>
+                <td>
+                  $854 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  7
+                </td>
+                <td>
+                  The latest movie
+                </td>
+                <td>
+                  01.01.2021
+                </td>
+                <td>
+                  $900 million
+                </td>
+                <td>
+                  95%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+          <ino-progress-bar slot="loading-indicator"
+                            indeterminate
+                            debounce="200"
+                            active
+                            class="hydrated"
+          >
+          </ino-progress-bar>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -224,203 +377,351 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                sort-direction="asc"
                no-hover="true"
                sticky-header="false"
+               class="hydrated"
     >
-      <tr slot="header-row">
-      </tr>
-      <ino-table-header-cell column-id="id"
-                             sort-start="asc"
-                             label="ID"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="name"
-                             sort-start="asc"
-                             label="Name"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="release"
-                             label="Release Date"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="box-office"
-                             label="Box Office"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="rating"
-                             label="Rating"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another1"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another2"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <tr>
-        <td>
-          1
-        </td>
-        <td>
-          The Bourne Identity
-        </td>
-        <td>
-          14.06.2002
-        </td>
-        <td>
-          $214 million
-        </td>
-        <td>
-          93%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2
-        </td>
-        <td>
-          Sully
-        </td>
-        <td>
-          09.09.2016
-        </td>
-        <td>
-          $240.8 million
-        </td>
-        <td>
-          84%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          The Martian
-        </td>
-        <td>
-          02.10.2015
-        </td>
-        <td>
-          $630.2 million
-        </td>
-        <td>
-          94%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          4
-        </td>
-        <td>
-          John Wick: Chapter 3
-        </td>
-        <td>
-          17.05.2019
-        </td>
-        <td>
-          $326.7 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          5
-        </td>
-        <td>
-          10 Cloverfield Lane
-        </td>
-        <td>
-          11.03.2016
-        </td>
-        <td>
-          $110.2 million
-        </td>
-        <td>
-          87%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          6
-        </td>
-        <td>
-          Thor: Ragnarok
-        </td>
-        <td>
-          10.10.2017
-        </td>
-        <td>
-          $854 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          7
-        </td>
-        <td>
-          The latest movie
-        </td>
-        <td>
-          01.01.2021
-        </td>
-        <td>
-          $900 million
-        </td>
-        <td>
-          95%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
+      <div class="mdc-data-table ino-table--no-hover">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell column-id="id"
+                                     sort-start="asc"
+                                     label="ID"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="id"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__s4tzbiy0z"
+                                     sort-direction="asc"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    ID
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="name"
+                                     sort-start="asc"
+                                     label="Name"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="name"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__ar0os0cid"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Name
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="release"
+                                     label="Release Date"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="release"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__5kv751zeu"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Release Date
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="box-office"
+                                     label="Box Office"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="box-office"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__hjfjst5zk"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Box Office
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="rating"
+                                     label="Rating"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="rating"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__97w3k0u4x"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Rating
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another1"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__8duc7tob1"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another2"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another2"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__yizk0t8eo"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  The Bourne Identity
+                </td>
+                <td>
+                  14.06.2002
+                </td>
+                <td>
+                  $214 million
+                </td>
+                <td>
+                  93%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                  Sully
+                </td>
+                <td>
+                  09.09.2016
+                </td>
+                <td>
+                  $240.8 million
+                </td>
+                <td>
+                  84%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  The Martian
+                </td>
+                <td>
+                  02.10.2015
+                </td>
+                <td>
+                  $630.2 million
+                </td>
+                <td>
+                  94%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  4
+                </td>
+                <td>
+                  John Wick: Chapter 3
+                </td>
+                <td>
+                  17.05.2019
+                </td>
+                <td>
+                  $326.7 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  5
+                </td>
+                <td>
+                  10 Cloverfield Lane
+                </td>
+                <td>
+                  11.03.2016
+                </td>
+                <td>
+                  $110.2 million
+                </td>
+                <td>
+                  87%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6
+                </td>
+                <td>
+                  Thor: Ragnarok
+                </td>
+                <td>
+                  10.10.2017
+                </td>
+                <td>
+                  $854 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  7
+                </td>
+                <td>
+                  The latest movie
+                </td>
+                <td>
+                  01.01.2021
+                </td>
+                <td>
+                  $900 million
+                </td>
+                <td>
+                  95%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -434,203 +735,355 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                sort-direction="asc"
                no-hover="false"
                sticky-header="false"
+               class="hydrated"
     >
-      <tr slot="header-row">
-      </tr>
-      <ino-table-header-cell column-id="id"
-                             sort-start="asc"
-                             label="ID"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="name"
-                             sort-start="asc"
-                             label="Name"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="release"
-                             label="Release Date"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="box-office"
-                             label="Box Office"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="rating"
-                             label="Rating"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another1"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another2"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <tr>
-        <td>
-          1
-        </td>
-        <td>
-          The Bourne Identity
-        </td>
-        <td>
-          14.06.2002
-        </td>
-        <td>
-          $214 million
-        </td>
-        <td>
-          93%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2
-        </td>
-        <td>
-          Sully
-        </td>
-        <td>
-          09.09.2016
-        </td>
-        <td>
-          $240.8 million
-        </td>
-        <td>
-          84%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          The Martian
-        </td>
-        <td>
-          02.10.2015
-        </td>
-        <td>
-          $630.2 million
-        </td>
-        <td>
-          94%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          4
-        </td>
-        <td>
-          John Wick: Chapter 3
-        </td>
-        <td>
-          17.05.2019
-        </td>
-        <td>
-          $326.7 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          5
-        </td>
-        <td>
-          10 Cloverfield Lane
-        </td>
-        <td>
-          11.03.2016
-        </td>
-        <td>
-          $110.2 million
-        </td>
-        <td>
-          87%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          6
-        </td>
-        <td>
-          Thor: Ragnarok
-        </td>
-        <td>
-          10.10.2017
-        </td>
-        <td>
-          $854 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          7
-        </td>
-        <td>
-          The latest movie
-        </td>
-        <td>
-          01.01.2021
-        </td>
-        <td>
-          $900 million
-        </td>
-        <td>
-          95%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell column-id="id"
+                                     sort-start="asc"
+                                     label="ID"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="id"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__1r7drcqkt"
+                                     sort-direction="asc"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    ID
+                  </div>
+                </div>
+                <ino-icon-button class="ino-icon-button--color-scheme-dark hydrated sort-asc">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="name"
+                                     sort-start="asc"
+                                     label="Name"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="name"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__gcrnpqpsr"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Name
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="release"
+                                     label="Release Date"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="release"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__wgrmcedpk"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Release Date
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="box-office"
+                                     label="Box Office"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="box-office"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__4nct635qo"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Box Office
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="rating"
+                                     label="Rating"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="rating"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__r3dmy0edy"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Rating
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another1"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__nytu2wcrg"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another2"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another2"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__z49d4bpwd"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  The Bourne Identity
+                </td>
+                <td>
+                  14.06.2002
+                </td>
+                <td>
+                  $214 million
+                </td>
+                <td>
+                  93%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                  Sully
+                </td>
+                <td>
+                  09.09.2016
+                </td>
+                <td>
+                  $240.8 million
+                </td>
+                <td>
+                  84%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  The Martian
+                </td>
+                <td>
+                  02.10.2015
+                </td>
+                <td>
+                  $630.2 million
+                </td>
+                <td>
+                  94%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  4
+                </td>
+                <td>
+                  John Wick: Chapter 3
+                </td>
+                <td>
+                  17.05.2019
+                </td>
+                <td>
+                  $326.7 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  5
+                </td>
+                <td>
+                  10 Cloverfield Lane
+                </td>
+                <td>
+                  11.03.2016
+                </td>
+                <td>
+                  $110.2 million
+                </td>
+                <td>
+                  87%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6
+                </td>
+                <td>
+                  Thor: Ragnarok
+                </td>
+                <td>
+                  10.10.2017
+                </td>
+                <td>
+                  $854 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  7
+                </td>
+                <td>
+                  The latest movie
+                </td>
+                <td>
+                  01.01.2021
+                </td>
+                <td>
+                  $900 million
+                </td>
+                <td>
+                  95%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -640,208 +1093,222 @@ exports[`Structure/ino-table SelectionWithCheckboxes smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table">
     <ino-table class="selectable-table">
-      <tr slot="header-row">
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox id="headerBox"
-                        selection
-          >
-          </ino-checkbox>
-        </td>
-        <td>
-          Header A
-        </td>
-        <td>
-          Header B
-        </td>
-        <td>
-          Header C
-        </td>
-        <td>
-          Header D
-        </td>
-        <td>
-          Header E
-        </td>
-        <td>
-          Header F
-        </td>
-        <td>
-          Header G
-        </td>
-        <td>
-          Header H
-        </td>
-        <td>
-          Header I
-        </td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox selection>
-          </ino-checkbox>
-        </td>
-        <td class="ino-table__cell--numeric">
-          1
-        </td>
-        <td>
-          Cell B1
-        </td>
-        <td>
-          Cell C1
-        </td>
-        <td>
-          Cell D1
-        </td>
-        <td>
-          Cell E1
-        </td>
-        <td>
-          Cell F1
-        </td>
-        <td>
-          Cell G1
-        </td>
-        <td>
-          Cell H1
-        </td>
-        <td>
-          Cell I1
-        </td>
-      </tr>
-      <tr class="ino-table__row--selected">
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox selection
-                        checked
-          >
-          </ino-checkbox>
-        </td>
-        <td class="ino-table__cell--numeric">
-          2
-        </td>
-        <td>
-          Cell B2
-        </td>
-        <td>
-          Cell C2
-        </td>
-        <td>
-          Cell D2
-        </td>
-        <td>
-          Cell E2
-        </td>
-        <td>
-          Cell F2
-        </td>
-        <td>
-          Cell G2
-        </td>
-        <td>
-          Cell H2
-        </td>
-        <td>
-          Cell I2
-        </td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox selection>
-          </ino-checkbox>
-        </td>
-        <td class="ino-table__cell--numeric">
-          3
-        </td>
-        <td>
-          Cell B3
-        </td>
-        <td>
-          Cell C3
-        </td>
-        <td>
-          Cell D3
-        </td>
-        <td>
-          Cell E3
-        </td>
-        <td>
-          Cell F3
-        </td>
-        <td>
-          Cell G3
-        </td>
-        <td>
-          Cell H3
-        </td>
-        <td>
-          Cell I3
-        </td>
-      </tr>
-      <tr class="ino-table__row--active">
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox selection>
-          </ino-checkbox>
-        </td>
-        <td class="ino-table__cell--numeric">
-          4
-        </td>
-        <td>
-          Cell B4
-        </td>
-        <td>
-          Cell C4
-        </td>
-        <td>
-          Cell D4
-        </td>
-        <td>
-          Cell E4
-        </td>
-        <td>
-          Cell F4
-        </td>
-        <td>
-          Cell G4
-        </td>
-        <td>
-          Cell H4
-        </td>
-        <td>
-          Cell I4
-        </td>
-      </tr>
-      <tr>
-        <td class="ino-table__cell--checkbox">
-          <ino-checkbox selection>
-          </ino-checkbox>
-        </td>
-        <td class="ino-table__cell--numeric">
-          5
-        </td>
-        <td>
-          Cell B5
-        </td>
-        <td>
-          Cell C5
-        </td>
-        <td>
-          Cell D5
-        </td>
-        <td>
-          Cell E5
-        </td>
-        <td>
-          Cell F5
-        </td>
-        <td>
-          Cell G5
-        </td>
-        <td>
-          Cell H5
-        </td>
-        <td>
-          Cell I5
-        </td>
-      </tr>
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox id="headerBox"
+                                selection
+                  >
+                  </ino-checkbox>
+                </td>
+                <td>
+                  Header A
+                </td>
+                <td>
+                  Header B
+                </td>
+                <td>
+                  Header C
+                </td>
+                <td>
+                  Header D
+                </td>
+                <td>
+                  Header E
+                </td>
+                <td>
+                  Header F
+                </td>
+                <td>
+                  Header G
+                </td>
+                <td>
+                  Header H
+                </td>
+                <td>
+                  Header I
+                </td>
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <tr>
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox selection>
+                  </ino-checkbox>
+                </td>
+                <td class="ino-table__cell--numeric">
+                  1
+                </td>
+                <td>
+                  Cell B1
+                </td>
+                <td>
+                  Cell C1
+                </td>
+                <td>
+                  Cell D1
+                </td>
+                <td>
+                  Cell E1
+                </td>
+                <td>
+                  Cell F1
+                </td>
+                <td>
+                  Cell G1
+                </td>
+                <td>
+                  Cell H1
+                </td>
+                <td>
+                  Cell I1
+                </td>
+              </tr>
+              <tr class="ino-table__row--selected">
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox selection
+                                checked
+                  >
+                  </ino-checkbox>
+                </td>
+                <td class="ino-table__cell--numeric">
+                  2
+                </td>
+                <td>
+                  Cell B2
+                </td>
+                <td>
+                  Cell C2
+                </td>
+                <td>
+                  Cell D2
+                </td>
+                <td>
+                  Cell E2
+                </td>
+                <td>
+                  Cell F2
+                </td>
+                <td>
+                  Cell G2
+                </td>
+                <td>
+                  Cell H2
+                </td>
+                <td>
+                  Cell I2
+                </td>
+              </tr>
+              <tr>
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox selection>
+                  </ino-checkbox>
+                </td>
+                <td class="ino-table__cell--numeric">
+                  3
+                </td>
+                <td>
+                  Cell B3
+                </td>
+                <td>
+                  Cell C3
+                </td>
+                <td>
+                  Cell D3
+                </td>
+                <td>
+                  Cell E3
+                </td>
+                <td>
+                  Cell F3
+                </td>
+                <td>
+                  Cell G3
+                </td>
+                <td>
+                  Cell H3
+                </td>
+                <td>
+                  Cell I3
+                </td>
+              </tr>
+              <tr class="ino-table__row--active">
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox selection>
+                  </ino-checkbox>
+                </td>
+                <td class="ino-table__cell--numeric">
+                  4
+                </td>
+                <td>
+                  Cell B4
+                </td>
+                <td>
+                  Cell C4
+                </td>
+                <td>
+                  Cell D4
+                </td>
+                <td>
+                  Cell E4
+                </td>
+                <td>
+                  Cell F4
+                </td>
+                <td>
+                  Cell G4
+                </td>
+                <td>
+                  Cell H4
+                </td>
+                <td>
+                  Cell I4
+                </td>
+              </tr>
+              <tr>
+                <td class="ino-table__cell--checkbox">
+                  <ino-checkbox selection>
+                  </ino-checkbox>
+                </td>
+                <td class="ino-table__cell--numeric">
+                  5
+                </td>
+                <td>
+                  Cell B5
+                </td>
+                <td>
+                  Cell C5
+                </td>
+                <td>
+                  Cell D5
+                </td>
+                <td>
+                  Cell E5
+                </td>
+                <td>
+                  Cell F5
+                </td>
+                <td>
+                  Cell G5
+                </td>
+                <td>
+                  Cell H5
+                </td>
+                <td>
+                  Cell I5
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -855,203 +1322,351 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                sort-direction="asc"
                no-hover="false"
                sticky-header="false"
+               class="hydrated"
     >
-      <tr slot="header-row">
-      </tr>
-      <ino-table-header-cell column-id="id"
-                             sort-start="asc"
-                             label="ID"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="name"
-                             sort-start="asc"
-                             label="Name"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="release"
-                             label="Release Date"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="box-office"
-                             label="Box Office"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="rating"
-                             label="Rating"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another1"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another2"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <tr>
-        <td>
-          1
-        </td>
-        <td>
-          The Bourne Identity
-        </td>
-        <td>
-          14.06.2002
-        </td>
-        <td>
-          $214 million
-        </td>
-        <td>
-          93%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2
-        </td>
-        <td>
-          Sully
-        </td>
-        <td>
-          09.09.2016
-        </td>
-        <td>
-          $240.8 million
-        </td>
-        <td>
-          84%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          The Martian
-        </td>
-        <td>
-          02.10.2015
-        </td>
-        <td>
-          $630.2 million
-        </td>
-        <td>
-          94%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          4
-        </td>
-        <td>
-          John Wick: Chapter 3
-        </td>
-        <td>
-          17.05.2019
-        </td>
-        <td>
-          $326.7 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          5
-        </td>
-        <td>
-          10 Cloverfield Lane
-        </td>
-        <td>
-          11.03.2016
-        </td>
-        <td>
-          $110.2 million
-        </td>
-        <td>
-          87%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          6
-        </td>
-        <td>
-          Thor: Ragnarok
-        </td>
-        <td>
-          10.10.2017
-        </td>
-        <td>
-          $854 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          7
-        </td>
-        <td>
-          The latest movie
-        </td>
-        <td>
-          01.01.2021
-        </td>
-        <td>
-          $900 million
-        </td>
-        <td>
-          95%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell column-id="id"
+                                     sort-start="asc"
+                                     label="ID"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="id"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__lizzi90wd"
+                                     sort-direction="asc"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    ID
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="name"
+                                     sort-start="asc"
+                                     label="Name"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="name"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__j2kgcycso"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Name
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="release"
+                                     label="Release Date"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="release"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__35tse3t8g"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Release Date
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="box-office"
+                                     label="Box Office"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="box-office"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__5g3b6cnac"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Box Office
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                          type="button"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="rating"
+                                     label="Rating"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="rating"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__e4kzocqxj"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Rating
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another1"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__hz5a77w29"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another2"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another2"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__1mlgnx0v9"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  The Bourne Identity
+                </td>
+                <td>
+                  14.06.2002
+                </td>
+                <td>
+                  $214 million
+                </td>
+                <td>
+                  93%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                  Sully
+                </td>
+                <td>
+                  09.09.2016
+                </td>
+                <td>
+                  $240.8 million
+                </td>
+                <td>
+                  84%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  The Martian
+                </td>
+                <td>
+                  02.10.2015
+                </td>
+                <td>
+                  $630.2 million
+                </td>
+                <td>
+                  94%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  4
+                </td>
+                <td>
+                  John Wick: Chapter 3
+                </td>
+                <td>
+                  17.05.2019
+                </td>
+                <td>
+                  $326.7 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  5
+                </td>
+                <td>
+                  10 Cloverfield Lane
+                </td>
+                <td>
+                  11.03.2016
+                </td>
+                <td>
+                  $110.2 million
+                </td>
+                <td>
+                  87%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6
+                </td>
+                <td>
+                  Thor: Ragnarok
+                </td>
+                <td>
+                  10.10.2017
+                </td>
+                <td>
+                  $854 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  7
+                </td>
+                <td>
+                  The latest movie
+                </td>
+                <td>
+                  01.01.2021
+                </td>
+                <td>
+                  $900 million
+                </td>
+                <td>
+                  95%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -1065,203 +1680,355 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                sort-direction="asc"
                no-hover="false"
                sticky-header="true"
+               class="hydrated"
     >
-      <tr slot="header-row">
-      </tr>
-      <ino-table-header-cell column-id="id"
-                             sort-start="asc"
-                             label="ID"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="name"
-                             sort-start="asc"
-                             label="Name"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="release"
-                             label="Release Date"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="box-office"
-                             label="Box Office"
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="rating"
-                             label="Rating"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another1"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <ino-table-header-cell column-id="another2"
-                             label="Another Column"
-                             not-sortable
-      >
-      </ino-table-header-cell>
-      <tr>
-        <td>
-          1
-        </td>
-        <td>
-          The Bourne Identity
-        </td>
-        <td>
-          14.06.2002
-        </td>
-        <td>
-          $214 million
-        </td>
-        <td>
-          93%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          2
-        </td>
-        <td>
-          Sully
-        </td>
-        <td>
-          09.09.2016
-        </td>
-        <td>
-          $240.8 million
-        </td>
-        <td>
-          84%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          3
-        </td>
-        <td>
-          The Martian
-        </td>
-        <td>
-          02.10.2015
-        </td>
-        <td>
-          $630.2 million
-        </td>
-        <td>
-          94%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          4
-        </td>
-        <td>
-          John Wick: Chapter 3
-        </td>
-        <td>
-          17.05.2019
-        </td>
-        <td>
-          $326.7 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          5
-        </td>
-        <td>
-          10 Cloverfield Lane
-        </td>
-        <td>
-          11.03.2016
-        </td>
-        <td>
-          $110.2 million
-        </td>
-        <td>
-          87%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          6
-        </td>
-        <td>
-          Thor: Ragnarok
-        </td>
-        <td>
-          10.10.2017
-        </td>
-        <td>
-          $854 million
-        </td>
-        <td>
-          92%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
-      <tr>
-        <td>
-          7
-        </td>
-        <td>
-          The latest movie
-        </td>
-        <td>
-          01.01.2021
-        </td>
-        <td>
-          $900 million
-        </td>
-        <td>
-          95%
-        </td>
-        <td>
-          Some information
-        </td>
-        <td>
-          Some information
-        </td>
-      </tr>
+      <div class="mdc-data-table mdc-data-table--sticky-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <thead class="ino-table__header">
+              <tr slot="header-row">
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell column-id="id"
+                                     sort-start="asc"
+                                     label="ID"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="id"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__qpnv1pihb"
+                                     sort-direction="asc"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    ID
+                  </div>
+                </div>
+                <ino-icon-button class="ino-icon-button--color-scheme-dark hydrated sort-asc">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="name"
+                                     sort-start="asc"
+                                     label="Name"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="name"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__8oxc4e3yf"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Name
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="release"
+                                     label="Release Date"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="release"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__wyxons897"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Release Date
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="box-office"
+                                     label="Box Office"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
+                                     data-column-id="box-office"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__twdmkpygj"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Box Office
+                  </div>
+                </div>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="rating"
+                                     label="Rating"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="rating"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__u7b0xeh4c"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Rating
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another1"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__2oh6mxu0a"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <ino-table-header-cell column-id="another2"
+                                     label="Another Column"
+                                     not-sortable
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell hydrated"
+                                     data-column-id="another2"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__vgx0my70v"
+              >
+                <div class="mdc-data-table__header-cell-wrapper"
+                     tabindex="-1"
+                >
+                  <div class="mdc-data-table__header-cell-label">
+                    Another Column
+                  </div>
+                </div>
+              </ino-table-header-cell>
+              <tr>
+                <td>
+                  1
+                </td>
+                <td>
+                  The Bourne Identity
+                </td>
+                <td>
+                  14.06.2002
+                </td>
+                <td>
+                  $214 million
+                </td>
+                <td>
+                  93%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  2
+                </td>
+                <td>
+                  Sully
+                </td>
+                <td>
+                  09.09.2016
+                </td>
+                <td>
+                  $240.8 million
+                </td>
+                <td>
+                  84%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  3
+                </td>
+                <td>
+                  The Martian
+                </td>
+                <td>
+                  02.10.2015
+                </td>
+                <td>
+                  $630.2 million
+                </td>
+                <td>
+                  94%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  4
+                </td>
+                <td>
+                  John Wick: Chapter 3
+                </td>
+                <td>
+                  17.05.2019
+                </td>
+                <td>
+                  $326.7 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  5
+                </td>
+                <td>
+                  10 Cloverfield Lane
+                </td>
+                <td>
+                  11.03.2016
+                </td>
+                <td>
+                  $110.2 million
+                </td>
+                <td>
+                  87%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  6
+                </td>
+                <td>
+                  Thor: Ragnarok
+                </td>
+                <td>
+                  10.10.2017
+                </td>
+                <td>
+                  $854 million
+                </td>
+                <td>
+                  92%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  7
+                </td>
+                <td>
+                  The latest movie
+                </td>
+                <td>
+                  01.01.2021
+                </td>
+                <td>
+                  $900 million
+                </td>
+                <td>
+                  95%
+                </td>
+                <td>
+                  Some information
+                </td>
+                <td>
+                  Some information
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>

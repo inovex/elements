@@ -6,16 +6,42 @@ exports[`Input/ino-radio-group Playground smoke-test 1`] = `
     <ino-radio-group id="radio-grp"
                      value="opt-2"
                      alignment="undefined"
+                     class="hydrated"
     >
-      <ino-radio value="opt-1">
-        Opt 1
-      </ino-radio>
-      <ino-radio value="opt-2">
-        Opt 2
-      </ino-radio>
-      <ino-radio value="opt-3">
-        Opt 3
-      </ino-radio>
+      <div class="ino-radio-group-wrapper"
+           tabindex="0"
+      >
+        <ino-radio value="opt-1"
+                   class="hydrated"
+        >
+          Opt 1
+          <input type="hidden"
+                 class="aux-input"
+                 name="undefined"
+                 value
+          >
+        </ino-radio>
+        <ino-radio value="opt-2"
+                   class="hydrated ino-radio--checked"
+        >
+          Opt 2
+          <input type="hidden"
+                 class="aux-input"
+                 name="undefined"
+                 value="opt-2"
+          >
+        </ino-radio>
+        <ino-radio value="opt-3"
+                   class="hydrated"
+        >
+          Opt 3
+          <input type="hidden"
+                 class="aux-input"
+                 name="undefined"
+                 value
+          >
+        </ino-radio>
+      </div>
     </ino-radio-group>
   </div>
 </div>

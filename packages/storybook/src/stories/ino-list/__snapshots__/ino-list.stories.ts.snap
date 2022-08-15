@@ -6,36 +6,71 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
             two-lines="false"
             avatar="true"
   >
-    <ino-list-item text="First text item"
-                   secondary-text
-    >
-      <ino-img slot="leading"
-               src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-               ratio-width="1"
-               ratio-height="1"
+    <ul class="mdc-deprecated-list mdc-deprecated-list--avatar-list">
+      <ino-list-item text="First text item"
+                     secondary-text
       >
-      </ino-img>
-    </ino-list-item>
-    <ino-list-item text="Second text item"
-                   secondary-text
-    >
-      <ino-img slot="leading"
-               src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-               ratio-width="1"
-               ratio-height="1"
+        <li class="mdc-deprecated-list-item">
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__graphic"
+                role="presentation"
+          >
+            <ino-img slot="leading"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                     ratio-width="1"
+                     ratio-height="1"
+            >
+            </ino-img>
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            First text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Second text item"
+                     secondary-text
       >
-      </ino-img>
-    </ino-list-item>
-    <ino-list-item text="Third text item"
-                   secondary-text
-    >
-      <ino-img slot="leading"
-               src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
-               ratio-width="1"
-               ratio-height="1"
+        <li class="mdc-deprecated-list-item">
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__graphic"
+                role="presentation"
+          >
+            <ino-img slot="leading"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                     ratio-width="1"
+                     ratio-height="1"
+            >
+            </ino-img>
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Second text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Third text item"
+                     secondary-text
       >
-      </ino-img>
-    </ino-list-item>
+        <li class="mdc-deprecated-list-item">
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__graphic"
+                role="presentation"
+          >
+            <ino-img slot="leading"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                     ratio-width="1"
+                     ratio-height="1"
+            >
+            </ino-img>
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Third text item
+          </span>
+        </li>
+      </ino-list-item>
+    </ul>
   </ino-list>
 </div>
 `;
@@ -45,19 +80,52 @@ exports[`Structure/ino-list  Dense smoke-test 1`] = `
   <ino-list dense="true"
             two-lines="false"
             avatar="false"
+            class="hydrated"
   >
-    <ino-list-item text="First text item"
-                   secondary-text
-    >
-    </ino-list-item>
-    <ino-list-item text="Second text item"
-                   secondary-text
-    >
-    </ino-list-item>
-    <ino-list-item text="Third text item"
-                   secondary-text
-    >
-    </ino-list-item>
+    <ul class="mdc-deprecated-list mdc-deprecated-list--dense">
+      <ino-list-item text="First text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            First text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Second text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Second text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Third text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Third text item
+          </span>
+        </li>
+      </ino-list-item>
+    </ul>
   </ino-list>
 </div>
 `;
@@ -67,19 +135,52 @@ exports[`Structure/ino-list  Playground smoke-test 1`] = `
   <ino-list dense="false"
             two-lines="false"
             avatar="false"
+            class="hydrated"
   >
-    <ino-list-item text="First text item"
-                   secondary-text
-    >
-    </ino-list-item>
-    <ino-list-item text="Second text item"
-                   secondary-text
-    >
-    </ino-list-item>
-    <ino-list-item text="Third text item"
-                   secondary-text
-    >
-    </ino-list-item>
+    <ul class="mdc-deprecated-list">
+      <ino-list-item text="First text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            First text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Second text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Second text item
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Third text item"
+                     secondary-text
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            Third text item
+          </span>
+        </li>
+      </ino-list-item>
+    </ul>
   </ino-list>
 </div>
 `;
@@ -89,19 +190,67 @@ exports[`Structure/ino-list  TwoLines smoke-test 1`] = `
   <ino-list dense="false"
             two-lines="true"
             avatar="false"
+            class="hydrated"
   >
-    <ino-list-item text="First text item"
-                   secondary-text="Secondary Text"
-    >
-    </ino-list-item>
-    <ino-list-item text="Second text item"
-                   secondary-text="Secondary Text"
-    >
-    </ino-list-item>
-    <ino-list-item text="Third text item"
-                   secondary-text="Secondary Text"
-    >
-    </ino-list-item>
+    <ul class="mdc-deprecated-list mdc-deprecated-list--two-line">
+      <ino-list-item text="First text item"
+                     secondary-text="Secondary Text"
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            <span class="mdc-deprecated-list-item__primary-text">
+              First text item
+            </span>
+            <span class="mdc-deprecated-list-item__secondary-text">
+              Secondary Text
+            </span>
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Second text item"
+                     secondary-text="Secondary Text"
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            <span class="mdc-deprecated-list-item__primary-text">
+              Second text item
+            </span>
+            <span class="mdc-deprecated-list-item__secondary-text">
+              Secondary Text
+            </span>
+          </span>
+        </li>
+      </ino-list-item>
+      <ino-list-item text="Third text item"
+                     secondary-text="Secondary Text"
+                     class="hydrated"
+      >
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
+          <span class="mdc-deprecated-list-item__ripple">
+          </span>
+          <span class="mdc-deprecated-list-item__text">
+            <span class="mdc-deprecated-list-item__primary-text">
+              Third text item
+            </span>
+            <span class="mdc-deprecated-list-item__secondary-text">
+              Secondary Text
+            </span>
+          </span>
+        </li>
+      </ino-list-item>
+    </ul>
   </ino-list>
 </div>
 `;

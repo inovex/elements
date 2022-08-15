@@ -3,25 +3,48 @@
 exports[`Structure/ino-menu Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-menu">
-    <ino-card disable-elevation>
-      <div class="row"
-           slot="header"
-      >
-        <p>
-          Open Menu
-        </p>
-        <ino-icon-button icon="menu">
-          <ino-menu placement="auto">
-            <ino-list-item tabindex="0"
-                           text="Item 1"
+    <ino-card disable-elevation
+              class="hydrated"
+    >
+      <div class="mdc-card mdc-card--outlined">
+        <div class="ino-card__checkmark-container">
+        </div>
+        <div class="ino-card__header">
+          <div class="row"
+               slot="header"
+          >
+            <p>
+              Open Menu
+            </p>
+            <ino-icon-button icon="menu"
+                             id="elements-menu_8vywhm2c0"
+                             class="ino-icon-button--color-scheme-primary hydrated"
+                             aria-expanded="false"
             >
-            </ino-list-item>
-            <ino-list-item tabindex="0"
-                           text="Item 2"
-            >
-            </ino-list-item>
-          </ino-menu>
-        </ino-icon-button>
+              <ino-menu placement="auto"
+                        class="hydrated"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div>
+                  </div>
+                </ino-popover>
+              </ino-menu>
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
       </div>
     </ino-card>
   </div>

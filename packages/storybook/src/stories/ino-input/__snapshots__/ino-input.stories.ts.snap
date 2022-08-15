@@ -5,6 +5,8 @@ exports[`Input/ino-input DataList smoke-test 1`] = `
   <div class="story-ino-input">
     <ino-input label="Datalist"
                data-list="languages"
+               class="hydrated"
+               tabindex="-1"
     >
       <datalist id="languages">
         <option>
@@ -24,7 +26,12 @@ exports[`Input/ino-input DataList smoke-test 1`] = `
         </option>
       </datalist>
       <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label>
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Datalist
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -44,9 +51,13 @@ exports[`Input/ino-input HelperTexts smoke-test 1`] = `
   <div class="story-ino-input">
     <ino-input placeholder="Helper text on focus (default)"
                helper="Helper text"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -68,9 +79,13 @@ exports[`Input/ino-input HelperTexts smoke-test 1`] = `
     <ino-input placeholder="Persistent helper text"
                helper="Persistent helper text"
                helper-persistent
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -93,9 +108,13 @@ exports[`Input/ino-input HelperTexts smoke-test 1`] = `
                placeholder="Validation message for required input"
                helper="This field is required"
                helper-validation
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="ino-label--required hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -103,7 +122,6 @@ exports[`Input/ino-input HelperTexts smoke-test 1`] = `
                required
                type="text"
                aria-controls="input-helper-text__19"
-               aria-describedby="input-helper-text__19"
         >
       </label>
       <div class="mdc-text-field-helper-line">
@@ -118,9 +136,13 @@ exports[`Input/ino-input HelperTexts smoke-test 1`] = `
     <ino-input value="Length of 12"
                helper-character-counter
                maxlength="25"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                maxlength="25"
@@ -143,13 +165,21 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
   <div class="story-ino-input">
     <ino-input icon-leading
                label="Leading icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Leading icon
+          </label>
         </ino-label>
         <span class="mdc-text-field__icon mdc-text-field__icon--leading">
           <ino-icon slot="icon-leading"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -163,9 +193,16 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     </ino-input>
     <ino-input icon-trailing
                label="Trailing icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Trailing icon
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -174,6 +211,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
           <ino-icon slot="icon-trailing"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -184,13 +222,21 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     <ino-input icon-leading
                icon-trailing
                label="Leading and Trailing icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Leading and Trailing icon
+          </label>
         </ino-label>
         <span class="mdc-text-field__icon mdc-text-field__icon--leading">
           <ino-icon slot="icon-leading"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -201,6 +247,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
           <ino-icon slot="icon-trailing"
                     icon="add"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -210,9 +257,16 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     </ino-input>
     <ino-input icon-trailing
                label="Clickable Icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Clickable Icon
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -222,6 +276,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
           <ino-icon clickable
                     slot="icon-trailing"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -236,9 +291,17 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
 exports[`Input/ino-input Labels smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-input">
-    <ino-input label="Floating label">
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label>
+    <ino-input label="Floating label"
+               class="hydrated"
+               tabindex="-1"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Floating label
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -250,9 +313,16 @@ exports[`Input/ino-input Labels smoke-test 1`] = `
     </ino-input>
     <ino-input label="Floating label"
                value="With value"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--label-floating mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label mdc-floating-label--float-above">
+            Floating label
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -264,9 +334,24 @@ exports[`Input/ino-input Labels smoke-test 1`] = `
     </ino-input>
     <ino-input label="Outlined floating label"
                outline
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
-        <ino-label>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Outlined floating label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -279,9 +364,26 @@ exports[`Input/ino-input Labels smoke-test 1`] = `
     <ino-input label="Outlined floating label"
                value="With value"
                outline
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined mdc-text-field--label-floating">
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch"
+                 style="width: 127.25px;"
+            >
+              <label class="mdc-floating-label mdc-floating-label--float-above"
+                     style
+              >
+                Outlined floating label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -302,9 +404,16 @@ exports[`Input/ino-input Metadata smoke-test 1`] = `
                type="number"
                unit="h"
                label="Hours input"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-text-field--label-floating">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label mdc-floating-label--float-above">
+            Hours input
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -314,9 +423,9 @@ exports[`Input/ino-input Metadata smoke-test 1`] = `
           h
         </span>
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -333,9 +442,13 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
     <ino-input type="number"
                decimal-places="2"
                placeholder="With 2 decimal places"
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -343,9 +456,9 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -356,9 +469,13 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                step="1"
                thousands-separator
                placeholder="With thousands separator"
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -366,9 +483,9 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -382,7 +499,7 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
 exports[`Input/ino-input Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-input">
-    <ino-input class="customizable-input"
+    <ino-input class="customizable-input hydrated"
                id="customizable-input"
                autocomplete="off"
                autofocus="false"
@@ -408,9 +525,15 @@ exports[`Input/ino-input Playground smoke-test 1`] = `
                type="text"
                unit
                value
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Input label
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                autocomplete="off"
@@ -445,9 +568,13 @@ exports[`Input/ino-input States smoke-test 1`] = `
   <div class="story-ino-input">
     <ino-input placeholder="Disabled"
                disabled
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="ino-label--disabled hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                disabled
@@ -461,9 +588,18 @@ exports[`Input/ino-input States smoke-test 1`] = `
     </ino-input>
     <ino-input label="Optional"
                show-label-hint
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label show-hint>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
+        <ino-label show-hint
+                   class="ino-label--show-hint hydrated"
+        >
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label">
+            Optional
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -476,9 +612,18 @@ exports[`Input/ino-input States smoke-test 1`] = `
     <ino-input label="Required"
                required
                show-label-hint
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
-        <ino-label show-hint>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
+        <ino-label show-hint
+                   class="ino-label--show-hint ino-label--required hydrated"
+        >
+          <div class="mdc-line-ripple">
+          </div>
+          <label class="mdc-floating-label mdc-floating-label--required">
+            Required
+          </label>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -492,9 +637,19 @@ exports[`Input/ino-input States smoke-test 1`] = `
     <ino-input placeholder="Outline disabled"
                outline
                disabled
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--outlined mdc-text-field--no-label">
-        <ino-label>
+        <ino-label class="ino-label--outlined ino-label--disabled hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--no-label">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                disabled
@@ -509,9 +664,26 @@ exports[`Input/ino-input States smoke-test 1`] = `
     <ino-input label="Outline optional"
                outline
                show-label-hint
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
-        <ino-label show-hint>
+        <ino-label show-hint
+                   class="ino-label--show-hint ino-label--outlined hydrated"
+        >
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Outline optional
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -525,9 +697,26 @@ exports[`Input/ino-input States smoke-test 1`] = `
                outline
                show-label-hint
                required
+               class="hydrated"
+               tabindex="-1"
     >
       <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
-        <ino-label show-hint>
+        <ino-label show-hint
+                   class="ino-label--show-hint ino-label--outlined ino-label--required hydrated"
+        >
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label mdc-floating-label--required"
+                     style
+              >
+                Outline required
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -545,9 +734,14 @@ exports[`Input/ino-input States smoke-test 1`] = `
 exports[`Input/ino-input Types smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-input">
-    <ino-input placeholder="type = text">
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+    <ino-input placeholder="type = text"
+               class="hydrated"
+               tabindex="-1"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -560,9 +754,13 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     </ino-input>
     <ino-input placeholder="type = email"
                type="email"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -575,9 +773,13 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     </ino-input>
     <ino-input type="number"
                placeholder="type = number"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"
@@ -585,9 +787,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>
@@ -597,9 +799,13 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     <ino-input type="number"
                placeholder="type = number with steps=5"
                step="5"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="5"
@@ -607,9 +813,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>
@@ -619,9 +825,13 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     <ino-input type="number"
                placeholder="type = number with step='any' (decimal numbers)"
                step="any"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="any"
@@ -629,9 +839,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>
@@ -640,9 +850,13 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     </ino-input>
     <ino-input type="password"
                placeholder="type = password"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-        <ino-label>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+        <ino-label class="hydrated">
+          <div class="mdc-line-ripple">
+          </div>
         </ino-label>
         <input class="mdc-text-field__input"
                step="1"

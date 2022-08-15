@@ -3,12 +3,36 @@
 exports[`Input/ino-switch Checked smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-switch">
-    <ino-switch checked="true"
+    <ino-switch checked
                 color-scheme="primary"
                 disabled="false"
                 name
+                class="ino-switch ino-switch--color-scheme-primary hydrated"
     >
-      Switch Label
+      <button id="ino-switch-id__sty7nwtbz"
+              class="mdc-switch mdc-switch--selected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+              type="button"
+              role="switch"
+              aria-checked="true"
+              style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+      >
+        <div class="mdc-switch__track">
+        </div>
+        <div class="mdc-switch__handle-track">
+          <div class="mdc-switch__handle">
+            <div class="mdc-switch__ripple">
+            </div>
+          </div>
+        </div>
+      </button>
+      <label for="ino-switch-id__sty7nwtbz">
+        Switch Label
+        <input type="hidden"
+               class="aux-input"
+               name
+               value
+        >
+      </label>
     </ino-switch>
   </div>
 </div>
@@ -19,10 +43,36 @@ exports[`Input/ino-switch Disabled smoke-test 1`] = `
   <div class="story-switch">
     <ino-switch checked="false"
                 color-scheme="primary"
-                disabled="true"
+                disabled
                 name
+                class="ino-switch ino-switch--color-scheme-primary ino-switch-disabled hydrated"
     >
-      Switch Label
+      <button id="ino-switch-id__je4aet5e5"
+              class="mdc-switch mdc-switch--unselected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+              disabled
+              type="button"
+              role="switch"
+              aria-checked="false"
+              style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+      >
+        <div class="mdc-switch__track">
+        </div>
+        <div class="mdc-switch__handle-track">
+          <div class="mdc-switch__handle">
+            <div class="mdc-switch__ripple">
+            </div>
+          </div>
+        </div>
+      </button>
+      <label for="ino-switch-id__je4aet5e5">
+        Switch Label
+        <input type="hidden"
+               class="aux-input"
+               disabled
+               name
+               value
+        >
+      </label>
     </ino-switch>
   </div>
 </div>
@@ -35,8 +85,32 @@ exports[`Input/ino-switch Playground smoke-test 1`] = `
                 color-scheme="primary"
                 disabled="false"
                 name
+                class="ino-switch ino-switch--color-scheme-primary hydrated"
     >
-      Switch Label
+      <button id="ino-switch-id__itvvikj0i"
+              class="mdc-switch mdc-switch--unselected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+      >
+        <div class="mdc-switch__track">
+        </div>
+        <div class="mdc-switch__handle-track">
+          <div class="mdc-switch__handle">
+            <div class="mdc-switch__ripple">
+            </div>
+          </div>
+        </div>
+      </button>
+      <label for="ino-switch-id__itvvikj0i">
+        Switch Label
+        <input type="hidden"
+               class="aux-input"
+               name
+               value
+        >
+      </label>
     </ino-switch>
   </div>
 </div>

@@ -16,7 +16,24 @@ exports[`Graphic/<ino-img> Playground smoke-test 1`] = `
              ratio-height="1"
              rounded="false"
              fallback-icon="image_not_available"
+             style="height: 100px; width: 100px;"
     >
+      <div class="ino-img__composer">
+        <img class="ino-img__image"
+             alt="Alternative Text"
+             decoding="async"
+             sizes="undefined"
+             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+             srcset
+             usemap
+             height="100"
+             width="100"
+        >
+        <div class="ino-img__fallback-icon">
+          <ino-icon>
+          </ino-icon>
+        </div>
+      </div>
     </ino-img>
   </div>
 </div>

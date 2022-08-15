@@ -109,9 +109,18 @@ exports[`Buttons/<ino-button> Loading smoke-test 1`] = `
     <ino-button variant="filled"
                 disabled="false"
                 dense="false"
-                loading="true"
+                loading
+                class="ino-button--loading"
     >
-      Label
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label button__label--hide">
+          Label
+        </span>
+        <ino-spinner>
+        </ino-spinner>
+      </button>
     </ino-button>
   </div>
 </div>

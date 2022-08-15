@@ -7,8 +7,14 @@ exports[`Input/ino-radio Checked smoke-test 1`] = `
                disabled="false"
                name="radio-custom"
                value="radio-1"
+               class="ino-radio--checked hydrated"
     >
       Radio Button Label
+      <input type="hidden"
+             class="aux-input"
+             name="radio-custom"
+             value="radio-1"
+      >
     </ino-radio>
   </div>
 </div>
@@ -21,8 +27,15 @@ exports[`Input/ino-radio Disabled smoke-test 1`] = `
                disabled="true"
                name="radio-custom"
                value="radio-1"
+               class="hydrated"
     >
       Radio Button Label
+      <input type="hidden"
+             class="aux-input"
+             disabled
+             name="radio-custom"
+             value
+      >
     </ino-radio>
   </div>
 </div>
@@ -35,8 +48,14 @@ exports[`Input/ino-radio Playground smoke-test 1`] = `
                disabled="false"
                name="radio-custom"
                value="radio-1"
+               class="hydrated"
     >
       Radio Button Label
+      <input type="hidden"
+             class="aux-input"
+             name="radio-custom"
+             value
+      >
     </ino-radio>
   </div>
 </div>
@@ -49,8 +68,14 @@ exports[`Input/ino-radio Unchecked smoke-test 1`] = `
                disabled="false"
                name="radio-custom"
                value="radio-1"
+               class="hydrated"
     >
       Radio Button Label
+      <input type="hidden"
+             class="aux-input"
+             name="radio-custom"
+             value
+      >
     </ino-radio>
   </div>
 </div>

@@ -3,10 +3,16 @@
 exports[`Notification/ino-snackbar ActionText smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-snackbar">
-    <ino-button class="snackbar-trigger"
+    <ino-button class="snackbar-trigger hydrated"
                 data-template-id="snackbar-actionText"
     >
-      Show Snackbar
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Show Snackbar
+        </span>
+      </button>
     </ino-button>
     <template id="snackbar-actionText">
       <ino-snackbar id="snackbar-actionText"
@@ -25,10 +31,16 @@ exports[`Notification/ino-snackbar ActionText smoke-test 1`] = `
 exports[`Notification/ino-snackbar Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-snackbar">
-    <ino-button class="snackbar-trigger"
+    <ino-button class="snackbar-trigger hydrated"
                 data-template-id="snackbar-default"
     >
-      Show Snackbar
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Show Snackbar
+        </span>
+      </button>
     </ino-button>
     <template id="snackbar-default">
       <ino-snackbar id="snackbar-default"
@@ -91,10 +103,16 @@ exports[`Notification/ino-snackbar Timeout smoke-test 1`] = `
 exports[`Notification/ino-snackbar Types smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-snackbar">
-    <ino-button class="snackbar-trigger"
+    <ino-button class="snackbar-trigger hydrated"
                 data-template-id="snackbar-type"
     >
-      Show Snackbar
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Show Snackbar
+        </span>
+      </button>
     </ino-button>
     <template id="snackbar-type">
       <ino-snackbar id="snackbar-type"

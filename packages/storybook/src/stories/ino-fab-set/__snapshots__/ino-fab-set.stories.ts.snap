@@ -8,30 +8,45 @@ exports[`Buttons/<ino-fab-set> Playground smoke-test 1`] = `
                    top-bottom-location="bottom"
                    left-right-location="left"
                    dial-direction="top"
+                   class="ino-top-bottom-location-bottom ino-left-right-location-left hydrated"
       >
         <ino-icon slot="icon-opened"
                   icon="_fab_set_arrow_down"
+                  class="hydrated ino-icon--color-scheme-primary"
         >
         </ino-icon>
         <ino-icon slot="icon-closed"
                   icon="_fab_set_arrow_up"
+                  class="hydrated ino-icon--color-scheme-primary"
         >
         </ino-icon>
-        <ino-fab label="First FAB">
+        <ino-fab label="First FAB"
+                 class="ino-fab--edge-position-top-left hydrated"
+                 id="fab-helper-text__0"
+        >
           <ino-icon slot="icon-leading"
                     icon="star"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </ino-fab>
-        <ino-fab label="Second FAB">
+        <ino-fab label="Second FAB"
+                 class="ino-fab--edge-position-top-left hydrated"
+                 id="fab-helper-text__1"
+        >
           <ino-icon slot="icon-leading"
                     icon="favorite"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </ino-fab>
-        <ino-fab label="Third FAB">
+        <ino-fab label="Third FAB"
+                 class="ino-fab--edge-position-top-left hydrated"
+                 id="fab-helper-text__2"
+        >
           <ino-icon slot="icon-leading"
                     icon="info"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </ino-fab>

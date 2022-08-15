@@ -4,29 +4,152 @@ exports[`Input/ino-option-group Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-option-group">
     <div class="story-option-group-customizable">
-      <ino-select label="Select with Group">
-        <ino-option-group label="My group Label">
-          <ino-option value="Option 1">
-            Option 1
-          </ino-option>
-          <ino-option value="Option 2">
-            Option 2
-          </ino-option>
-          <ino-option value="Option 3">
-            Option 3
-          </ino-option>
-        </ino-option-group>
-        <ino-option-group label="My group Label">
-          <ino-option value="Option 4">
-            Option 4
-          </ino-option>
-          <ino-option value="Option 5">
-            Option 5
-          </ino-option>
-          <ino-option value="Option 6">
-            Option 6
-          </ino-option>
-        </ino-option-group>
+      <ino-select label="Select with Group"
+                  class="hydrated"
+      >
+        <div class="mdc-select mdc-select--filled">
+          <div class="mdc-select__anchor mdc-ripple-upgraded"
+               tabindex="0"
+               aria-disabled="false"
+               aria-invalid="false"
+          >
+            <div class="mdc-select__selected-text">
+            </div>
+            <span class="mdc-select__dropdown-icon">
+              <svg class="mdc-select__dropdown-icon-graphic"
+                   viewbox="7 10 10 5"
+              >
+                <polygon class="mdc-select__dropdown-icon-inactive"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 10 12 15 17 10"
+                >
+                </polygon>
+                <polygon class="mdc-select__dropdown-icon-active"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 15 12 10 17 15"
+                >
+                </polygon>
+              </svg>
+            </span>
+            <ino-label class="hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+              <label class="mdc-floating-label">
+                Select with Group
+              </label>
+            </ino-label>
+          </div>
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-deprecated-list">
+              <ino-option-group label="My group Label"
+                                class="hydrated"
+              >
+                <ino-option id="ino-opt-group-header"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled"
+                      data-value="My group Label"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      My group Label
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 1"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 1"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 1
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 2"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 2"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 2
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 3"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 3"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 3
+                    </span>
+                  </li>
+                </ino-option>
+              </ino-option-group>
+              <ino-option-group label="My group Label"
+                                class="hydrated"
+              >
+                <ino-option id="ino-opt-group-header"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled"
+                      data-value="My group Label"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      My group Label
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 4"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 4"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 4
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 5"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 5"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 5
+                    </span>
+                  </li>
+                </ino-option>
+                <ino-option value="Option 6"
+                            class="hydrated"
+                >
+                  <li class="mdc-deprecated-list-item"
+                      data-value="Option 6"
+                      tabindex="-1"
+                  >
+                    <span class="mdc-deprecated-list-item__text">
+                      Option 6
+                    </span>
+                  </li>
+                </ino-option>
+              </ino-option-group>
+            </ul>
+          </div>
+        </div>
       </ino-select>
     </div>
   </div>

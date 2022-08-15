@@ -31,15 +31,11 @@ exports[`Input/<ino-range> Discrete smoke-test 1`] = `
           <div class="mdc-slider__track--inactive">
           </div>
           <div class="mdc-slider__track--active">
-            <div class="mdc-slider__track--active_fill"
-                 style="transform: scaleX(0.7);"
-            >
+            <div class="mdc-slider__track--active_fill">
             </div>
           </div>
         </div>
-        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px);"
-        >
+        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded">
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
           >
@@ -89,9 +85,7 @@ exports[`Input/<ino-range> Markers smoke-test 1`] = `
           <div class="mdc-slider__track--inactive">
           </div>
           <div class="mdc-slider__track--active">
-            <div class="mdc-slider__track--active_fill"
-                 style="transform: scaleX(0.7); transition: all 0s ease 0s;"
-            >
+            <div class="mdc-slider__track--active_fill">
             </div>
           </div>
           <div class="mdc-slider__tick-marks">
@@ -299,9 +293,7 @@ exports[`Input/<ino-range> Markers smoke-test 1`] = `
             </div>
           </div>
         </div>
-        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px); transition: all 0s ease 0s;"
-        >
+        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded">
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
           >
@@ -323,7 +315,7 @@ exports[`Input/<ino-range> Markers smoke-test 1`] = `
 exports[`Input/<ino-range> Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-range">
-    <ino-range class="customizable-range"
+    <ino-range class="customizable-range ino-range--color-scheme-undefined hydrated"
                disabled="false"
                min="0"
                max="100"
@@ -337,6 +329,33 @@ exports[`Input/<ino-range> Playground smoke-test 1`] = `
                value-end="70"
                color-scheme="undefined"
     >
+      <div class="mdc-slider">
+        <input class="mdc-slider__input"
+               type="range"
+               min="0"
+               max="100"
+               step="1"
+               name
+               aria-label
+               value="70"
+        >
+        <div class="mdc-slider__track">
+          <div class="mdc-slider__track--inactive">
+          </div>
+          <div class="mdc-slider__track--active">
+            <div class="mdc-slider__track--active_fill"
+                 style="transform: scaleX(0.7);"
+            >
+            </div>
+          </div>
+        </div>
+        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px);"
+        >
+          <div class="mdc-slider__thumb-knob">
+          </div>
+        </div>
+      </div>
     </ino-range>
   </div>
 </div>

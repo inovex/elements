@@ -3,17 +3,16 @@
 exports[`Notification/ino-tooltip ColorScheme smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-tooltip">
-    <ino-button id="tooltip-target-color-scheme"
-                class="hydrated"
-    >
-      <button class="button button__variant--filled"
-              type="button"
-      >
-        <span class="button__label">
-          Trigger Element
-        </span>
-      </button>
+    <ino-button id="tooltip-target-color-scheme">
+      Trigger Element
     </ino-button>
+    <ino-tooltip for="tooltip-target-color-scheme"
+                 placement="auto"
+                 trigger="mouseenter focus"
+                 color-scheme="secondary"
+    >
+      This is a tooltip
+    </ino-tooltip>
   </div>
 </div>
 `;
@@ -21,17 +20,16 @@ exports[`Notification/ino-tooltip ColorScheme smoke-test 1`] = `
 exports[`Notification/ino-tooltip Placement smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-tooltip">
-    <ino-button id="tooltip-target-placement"
-                class="hydrated"
-    >
-      <button class="button button__variant--filled"
-              type="button"
-      >
-        <span class="button__label">
-          Trigger Element
-        </span>
-      </button>
+    <ino-button id="tooltip-target-placement">
+      Trigger Element
     </ino-button>
+    <ino-tooltip for="tooltip-target-placement"
+                 placement="right"
+                 trigger="mouseenter focus"
+                 color-scheme="primary"
+    >
+      This is a tooltip
+    </ino-tooltip>
   </div>
 </div>
 `;
@@ -56,17 +54,16 @@ exports[`Notification/ino-tooltip Playground smoke-test 1`] = `
 exports[`Notification/ino-tooltip Trigger smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-tooltip">
-    <ino-button id="tooltip-target-trigger"
-                class="hydrated"
-    >
-      <button class="button button__variant--filled"
-              type="button"
-      >
-        <span class="button__label">
-          Trigger Element
-        </span>
-      </button>
+    <ino-button id="tooltip-target-trigger">
+      Trigger Element
     </ino-button>
+    <ino-tooltip for="tooltip-target-trigger"
+                 placement="auto"
+                 trigger="click"
+                 color-scheme="primary"
+    >
+      This is a tooltip
+    </ino-tooltip>
   </div>
 </div>
 `;

@@ -73,10 +73,14 @@ exports[`Input/ino-option Playground smoke-test 1`] = `
   <div class="story-ino-option">
     <div class="story-option">
       <ino-select label="My Select"
-                  class
+                  class="hydrated"
       >
         <div class="mdc-select mdc-select--filled">
-          <div class="mdc-select__anchor">
+          <div class="mdc-select__anchor mdc-ripple-upgraded"
+               tabindex="0"
+               aria-disabled="false"
+               aria-invalid="false"
+          >
             <div class="mdc-select__selected-text">
             </div>
             <span class="mdc-select__dropdown-icon">
@@ -97,7 +101,12 @@ exports[`Input/ino-option Playground smoke-test 1`] = `
                 </polygon>
               </svg>
             </span>
-            <ino-label>
+            <ino-label class="hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+              <label class="mdc-floating-label">
+                My Select
+              </label>
             </ino-label>
           </div>
           <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
@@ -109,6 +118,7 @@ exports[`Input/ino-option Playground smoke-test 1`] = `
               >
                 <li class="mdc-deprecated-list-item"
                     data-value="some-id"
+                    tabindex="-1"
                 >
                   <span class="mdc-deprecated-list-item__text">
                     Content

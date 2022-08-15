@@ -3,7 +3,7 @@
 exports[`Input/ino-textarea Autogrow smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -14,6 +14,30 @@ exports[`Input/ino-textarea Autogrow smoke-test 1`] = `
                   show-label-hint="false"
                   autogrow="true"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  minlength="0"
+                  rows="5"
+                  style="overflow: hidden; overflow-wrap: break-word; height: 120px;"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -22,7 +46,7 @@ exports[`Input/ino-textarea Autogrow smoke-test 1`] = `
 exports[`Input/ino-textarea CharacterCount smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -35,6 +59,33 @@ exports[`Input/ino-textarea CharacterCount smoke-test 1`] = `
                   autogrow="false"
                   show-character-counter="true"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined mdc-text-field--with-internal-counter">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  maxlength="30"
+                  minlength="0"
+                  rows="5"
+        >
+        </textarea>
+        <div class="mdc-text-field-character-counter">
+          0 / 30
+        </div>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style="transition-duration: 0s;"
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -43,7 +94,7 @@ exports[`Input/ino-textarea CharacterCount smoke-test 1`] = `
 exports[`Input/ino-textarea Disabled smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -54,6 +105,30 @@ exports[`Input/ino-textarea Disabled smoke-test 1`] = `
                   show-label-hint="false"
                   autogrow="false"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined mdc-text-field--disabled">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  disabled
+                  minlength="0"
+                  rows="5"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined ino-label--disabled hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -65,13 +140,61 @@ exports[`Input/ino-textarea Labels smoke-test 1`] = `
     <ino-textarea label="Floating label"
                   cols="30"
                   rows="3"
+                  class="ino-textarea--outline hydrated"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined">
+        <textarea class="mdc-text-field__input"
+                  cols="30"
+                  rows="3"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Floating label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
     <ino-textarea label="Floating label"
                   value="With value"
                   cols="30"
                   rows="3"
+                  class="ino-textarea--outline hydrated"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined mdc-text-field--label-floating">
+        <textarea class="mdc-text-field__input"
+                  cols="30"
+                  rows="3"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch"
+                 style="width: 80px;"
+            >
+              <label class="mdc-floating-label mdc-floating-label--float-above"
+                     style
+              >
+                Floating label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -80,7 +203,7 @@ exports[`Input/ino-textarea Labels smoke-test 1`] = `
 exports[`Input/ino-textarea Outline smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -91,6 +214,29 @@ exports[`Input/ino-textarea Outline smoke-test 1`] = `
                   show-label-hint="false"
                   autogrow="false"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  minlength="0"
+                  rows="5"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -99,7 +245,7 @@ exports[`Input/ino-textarea Outline smoke-test 1`] = `
 exports[`Input/ino-textarea Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -112,6 +258,33 @@ exports[`Input/ino-textarea Playground smoke-test 1`] = `
                   autogrow="false"
                   show-character-counter="true"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined mdc-text-field--with-internal-counter">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  maxlength="30"
+                  minlength="0"
+                  rows="5"
+        >
+        </textarea>
+        <div class="mdc-text-field-character-counter">
+          0 / 30
+        </div>
+        <ino-label class="ino-label--outlined hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -120,7 +293,7 @@ exports[`Input/ino-textarea Playground smoke-test 1`] = `
 exports[`Input/ino-textarea Required smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label*"
@@ -131,6 +304,30 @@ exports[`Input/ino-textarea Required smoke-test 1`] = `
                   show-label-hint="false"
                   autogrow="false"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  minlength="0"
+                  required
+                  rows="5"
+        >
+        </textarea>
+        <ino-label class="ino-label--outlined ino-label--required hydrated">
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label mdc-floating-label--required"
+                     style
+              >
+                Label*
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>
@@ -139,7 +336,7 @@ exports[`Input/ino-textarea Required smoke-test 1`] = `
 exports[`Input/ino-textarea ShowLabelHint smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-textarea">
-    <ino-textarea class="customizable-textarea"
+    <ino-textarea class="customizable-textarea ino-textarea--outline hydrated"
                   cols="60"
                   rows="5"
                   label="Label"
@@ -150,6 +347,31 @@ exports[`Input/ino-textarea ShowLabelHint smoke-test 1`] = `
                   show-label-hint="true"
                   autogrow="false"
     >
+      <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined">
+        <textarea class="mdc-text-field__input"
+                  cols="60"
+                  minlength="0"
+                  rows="5"
+        >
+        </textarea>
+        <ino-label show-hint
+                   class="ino-label--show-hint ino-label--outlined hydrated"
+        >
+          <div class="mdc-notched-outline mdc-notched-outline--upgraded">
+            <div class="mdc-notched-outline__leading">
+            </div>
+            <div class="mdc-notched-outline__notch">
+              <label class="mdc-floating-label"
+                     style="transition-duration: 0s;"
+              >
+                Label
+              </label>
+            </div>
+            <div class="mdc-notched-outline__trailing">
+            </div>
+          </div>
+        </ino-label>
+      </div>
     </ino-textarea>
   </div>
 </div>

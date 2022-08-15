@@ -9,8 +9,14 @@ exports[`Input/ino-checkbox Checked smoke-test 1`] = `
                   name="my-name"
                   selection="false"
                   value="my-value"
+                  class="hydrated"
     >
       Label
+      <input type="hidden"
+             class="aux-input"
+             name="my-name"
+             value="my-value"
+      >
     </ino-checkbox>
   </div>
 </div>
@@ -41,8 +47,14 @@ exports[`Input/ino-checkbox Indeterminate smoke-test 1`] = `
                   name="my-name"
                   selection="false"
                   value="my-value"
+                  class="hydrated"
     >
       Label
+      <input type="hidden"
+             class="aux-input"
+             name="my-name"
+             value="my-value"
+      >
     </ino-checkbox>
   </div>
 </div>
@@ -57,8 +69,14 @@ exports[`Input/ino-checkbox Playground smoke-test 1`] = `
                   name="my-name"
                   selection="false"
                   value="my-value"
+                  class="hydrated"
     >
       Label
+      <input type="hidden"
+             class="aux-input"
+             name="my-name"
+             value="my-value"
+      >
     </ino-checkbox>
   </div>
 </div>
@@ -73,8 +91,14 @@ exports[`Input/ino-checkbox Selection smoke-test 1`] = `
                   name="my-name"
                   selection="true"
                   value="my-value"
+                  class="hydrated"
     >
       Label
+      <input type="hidden"
+             class="aux-input"
+             name="my-name"
+             value="my-value"
+      >
     </ino-checkbox>
   </div>
 </div>

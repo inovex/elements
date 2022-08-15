@@ -4,38 +4,114 @@ exports[`Structure/ino-sidebar Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-sidebar">
     <div class="sidebar-demo">
-      <ino-button>
-        Toggle Sidebar
+      <ino-button class="hydrated">
+        <button class="button button__variant--filled"
+                type="button"
+        >
+          <span class="button__label">
+            Toggle Sidebar
+          </span>
+        </button>
       </ino-button>
       <ino-sidebar id="customizable-sidebar"
                    align-right="false"
                    name
                    open="false"
+                   class="hydrated"
       >
         <div class="sidebar-header"
              slot="header"
         >
           <ino-icon clickable
                     icon="close"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </div>
         <div class="sidebar-content"
              slot="content"
         >
-          <ino-list>
-            <ino-list-item text="List item">
-            </ino-list-item>
-            <ino-list-item text="List item">
-            </ino-list-item>
-            <ino-list-item text="List item">
-            </ino-list-item>
-            <ino-list-item text="List item">
-            </ino-list-item>
-            <ino-list-item text="List item">
-            </ino-list-item>
-            <ino-list-item text="List item">
-            </ino-list-item>
+          <ino-list class="hydrated">
+            <ul class="mdc-deprecated-list">
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+              <ino-list-item text="List item"
+                             class="hydrated"
+              >
+                <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__ripple">
+                  </span>
+                  <span class="mdc-deprecated-list-item__text">
+                    List item
+                  </span>
+                </li>
+              </ino-list-item>
+            </ul>
           </ino-list>
         </div>
       </ino-sidebar>

@@ -6,23 +6,117 @@ exports[`Structure/ino-tab-bar ActiveTab smoke-test 1`] = `
     <ino-tab-bar id="customizable-tabbar"
                  active-tab="1"
                  auto-focus="false"
+                 class="hydrated"
     >
-      <ino-tab label="User"
-               icon="user"
+      <div class="mdc-tab-bar"
+           role="tablist"
       >
-      </ino-tab>
-      <ino-tab label="Messages"
-               icon="message"
-      >
-      </ino-tab>
-      <ino-tab label="Settings"
-               icon="settings"
-      >
-      </ino-tab>
-      <ino-tab label="Download"
-               icon="download"
-      >
-      </ino-tab>
+        <div class="mdc-tab-scroller">
+          <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+               style="margin-bottom: 0px;"
+          >
+            <div class="mdc-tab-scroller__scroll-content">
+              <ino-tab label="User"
+                       icon="user"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-5"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      User
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Messages"
+                       icon="message"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-tab--active mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="true"
+                        id="mdc-tab-6"
+                        tabindex="0"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Messages
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Settings"
+                       icon="settings"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-7"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Settings
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Download"
+                       icon="download"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-8"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Download
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+            </div>
+          </div>
+        </div>
+      </div>
     </ino-tab-bar>
   </div>
 </div>
@@ -34,23 +128,117 @@ exports[`Structure/ino-tab-bar Playground smoke-test 1`] = `
     <ino-tab-bar id="customizable-tabbar"
                  active-tab="0"
                  auto-focus="false"
+                 class="hydrated"
     >
-      <ino-tab label="User"
-               icon="user"
+      <div class="mdc-tab-bar"
+           role="tablist"
       >
-      </ino-tab>
-      <ino-tab label="Messages"
-               icon="message"
-      >
-      </ino-tab>
-      <ino-tab label="Settings"
-               icon="settings"
-      >
-      </ino-tab>
-      <ino-tab label="Download"
-               icon="download"
-      >
-      </ino-tab>
+        <div class="mdc-tab-scroller">
+          <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+               style="margin-bottom: 0px;"
+          >
+            <div class="mdc-tab-scroller__scroll-content">
+              <ino-tab label="User"
+                       icon="user"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-tab--active mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="true"
+                        id="mdc-tab-1"
+                        tabindex="0"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      User
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Messages"
+                       icon="message"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-2"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Messages
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Settings"
+                       icon="settings"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-3"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Settings
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+              <ino-tab label="Download"
+                       icon="download"
+                       class="hydrated"
+              >
+                <button class="mdc-tab mdc-ripple-upgraded"
+                        role="tab"
+                        aria-selected="false"
+                        id="mdc-tab-4"
+                >
+                  <span class="mdc-tab__content">
+                    <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <span class="mdc-tab__text-label">
+                      Download
+                    </span>
+                  </span>
+                  <span class="mdc-tab-indicator">
+                    <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+                    </span>
+                  </span>
+                  <span class="mdc-tab__ripple">
+                  </span>
+                </button>
+              </ino-tab>
+            </div>
+          </div>
+        </div>
+      </div>
     </ino-tab-bar>
   </div>
 </div>
