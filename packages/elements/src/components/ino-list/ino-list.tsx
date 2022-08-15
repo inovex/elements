@@ -4,7 +4,7 @@ import {
   ComponentInterface,
   Element,
   Host,
-  h,
+  h, Prop,
 } from '@stencil/core';
 
 /**
@@ -16,13 +16,22 @@ import {
   shadow: false,
 })
 export class List implements ComponentInterface {
-  private listEl: HTMLUListElement;
   private listInstance!: MDCList;
 
   @Element() el!: HTMLInoListElement;
 
+  /**
+   * For a11y: If list is interactive then set role type
+   */
+  @Prop() role?: 'list' | 'menu' | 'listbox' = 'list';
+
+  /**
+   * For a11y: Set to true if list allows multi-selection
+   */
+  @Prop() multiselect?: boolean = false;
+
   componentDidLoad() {
-    this.listInstance = new MDCList(this.listEl);
+    this.listInstance = new MDCList(this.el);
   }
 
   disconnectedCallback() {
@@ -31,13 +40,11 @@ export class List implements ComponentInterface {
 
   render() {
     return (
-      <Host>
-        <ul
-          ref={(el) => (this.listEl = el)}
-          class="mdc-list"
-        >
-          <slot />
-        </ul>
+      <Host
+        class="mdc-list"
+        aria-multiselectable={this.multiselect}
+        role={this.role}
+      >
       </Host>
     );
   }

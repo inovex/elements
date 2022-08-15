@@ -36,20 +36,6 @@ The component can be used as follows:
 | `"default"` | The text of the option |
 
 
-## CSS Custom Properties
-
-| Name                                              | Description                               |
-| ------------------------------------------------- | ----------------------------------------- |
-| `--ino-option-deselected-background-color`        | Background color if deselected            |
-| `--ino-option-deselected-background-color-active` | Background color if active and deselected |
-| `--ino-option-deselected-background-color-focus`  | Background color on focus if deselected   |
-| `--ino-option-deselected-background-color-hover`  | Background color on hover if deselected   |
-| `--ino-option-selected-background-color`          | Background color if selected              |
-| `--ino-option-selected-background-color-active`   | Background color if active and selected   |
-| `--ino-option-selected-background-color-focus`    | Background color on focus if selected     |
-| `--ino-option-selected-background-color-hover`    | Background color on hover if selected     |
-
-
 ## Dependencies
 
 ### Used by

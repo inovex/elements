@@ -99,11 +99,10 @@ Provide `two-lines` to set proper style attributes for list items having a prima
 
 ## Properties
 
-| Property   | Attribute   | Description                                                                                                                        | Type      | Default     |
-| ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
-| `avatar`   | `avatar`    | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger. | `boolean` | `false`     |
-| `dense`    | `dense`     | Styles the list more dense, making it appear more compact.                                                                         | `boolean` | `undefined` |
-| `twoLines` | `two-lines` | Marks this element as list with items having two lines.                                                                            | `boolean` | `undefined` |
+| Property      | Attribute     | Description                                          | Type                            | Default  |
+| ------------- | ------------- | ---------------------------------------------------- | ------------------------------- | -------- |
+| `multiselect` | `multiselect` | For a11y: Set to true if list allows multi-selection | `boolean`                       | `false`  |
+| `role`        | `role`        | For a11y: If list is interactive then set role type  | `"list" \| "listbox" \| "menu"` | `'list'` |
 
 
 ## Slots
@@ -111,13 +110,6 @@ Provide `two-lines` to set proper style attributes for list items having a prima
 | Slot        | Description                                                        |
 | ----------- | ------------------------------------------------------------------ |
 | `"default"` | One or more `ino-(control\|list\|nav)-item` and `ino-list-divider` |
-
-
-## CSS Custom Properties
-
-| Name                            | Description                                                                    |
-| ------------------------------- | ------------------------------------------------------------------------------ |
-| `--ino-list-item-border-radius` | Border radius of the list container, also effects the first and last list item |
 
 
 ## Dependencies

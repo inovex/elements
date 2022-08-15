@@ -46,13 +46,17 @@ document
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                                                                                      | Type      | Default     |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------- |
-| `activated`     | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.           | `boolean` | `undefined` |
-| `disabled`      | `disabled`       | Styles the row in a disabled style.                                                                                                              | `boolean` | `undefined` |
-| `secondaryText` | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`  | `undefined` |
-| `selected`      | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean` | `undefined` |
-| `text`          | `text`           | The primary text of this list item.                                                                                                              | `string`  | `undefined` |
+| Property        | Attribute        | Description                                                                                                                                      | Type                                   | Default      |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- | ------------ |
+| `activated`     | `activated`      | Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.            | `boolean`                              | `undefined`  |
+| `avatar`        | `avatar`         | Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.               | `boolean`                              | `false`      |
+| `dense`         | `dense`          | Styles the list more dense, making it appear more compact.                                                                                       | `boolean`                              | `undefined`  |
+| `disabled`      | `disabled`       | Styles the row in a disabled style.                                                                                                              | `boolean`                              | `undefined`  |
+| `role`          | `role`           | For a11y: If list item is interactive then set role type                                                                                         | `"listitem" \| "menuitem" \| "option"` | `'listitem'` |
+| `secondaryText` | `secondary-text` | Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.                                               | `string`                               | `undefined`  |
+| `selected`      | `selected`       | Styles the row in a selected style.  In contrast to `activated`, use this option to select one or multiple items that are likely to change soon. | `boolean`                              | `undefined`  |
+| `text`          | `text`           | The primary text of this list item.                                                                                                              | `string`                               | `undefined`  |
+| `twoLines`      | `two-lines`      | Marks this element as list with items having two lines.                                                                                          | `boolean`                              | `undefined`  |
 
 
 ## Events
@@ -70,22 +74,6 @@ document
 | `"primary"`   | For the (text) element                             |
 | `"secondary"` | For the secondary text element in a two-lined list |
 | `"trailing"`  | For the element to be appended                     |
-
-
-## CSS Custom Properties
-
-| Name                                                 | Description                                           |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| `--ino-list-item-deselected-background-color`        | Background color of a deselected list item            |
-| `--ino-list-item-deselected-background-color-active` | Background color of a deselected list item if active  |
-| `--ino-list-item-deselected-background-color-focus`  | Background color of a deselected list item if focused |
-| `--ino-list-item-deselected-background-color-hover`  | Background color of a deselected list item on hover   |
-| `--ino-list-item-deselected-color`                   | Text color of a deselected list item                  |
-| `--ino-list-item-selected-background-color`          | Background color of a selected list item              |
-| `--ino-list-item-selected-background-color-active`   | Background color of a selected list item if active    |
-| `--ino-list-item-selected-background-color-focus`    | Background color of a selected list item if focused   |
-| `--ino-list-item-selected-background-color-hover`    | Background color of a selected list item on hover     |
-| `--ino-list-item-selected-color`                     | Text color of a selected list item                    |
 
 
 ## Dependencies

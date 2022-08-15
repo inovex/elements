@@ -25,7 +25,6 @@ import { MDCRipple } from '@material/ripple';
   shadow: false,
 })
 export class ListItem implements ComponentInterface {
-  private listItemEl: HTMLLIElement;
   private mdcRipple: MDCRipple;
 
   @Element() el!: HTMLInoListItemElement;
@@ -79,6 +78,11 @@ export class ListItem implements ComponentInterface {
   @Prop() avatar?: boolean = false;
 
   /**
+   * For a11y: If list item is interactive then set role type
+   */
+  @Prop() role?: 'listitem' | 'menuitem' | 'option' = 'listitem';
+
+  /**
    * Emits when the list item is clicked or
    * the enter/space key if pressed while the item is in focus.
    * Contains the element itself in `event.detail`
@@ -86,7 +90,7 @@ export class ListItem implements ComponentInterface {
   @Event() clickEl!: EventEmitter;
 
   componentDidLoad() {
-    this.mdcRipple = new MDCRipple(this.listItemEl);
+    this.mdcRipple = new MDCRipple(this.el);
   }
 
   disconnectedCallback() {
@@ -111,6 +115,7 @@ export class ListItem implements ComponentInterface {
     const leadingSlotHasContent = hasSlotContent(this.el, 'leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'trailing');
     const secondarySlotHasContent = hasSlotContent(this.el, 'secondary');
+    const isInteractive = this.activated || this.selected || this.disabled;
 
     const listItemClasses = classNames({
       'mdc-list-item': true,
@@ -119,17 +124,22 @@ export class ListItem implements ComponentInterface {
       'mdc-list-item--disabled': this.disabled,
       'mdc-list-item--two-lines': this.twoLines,
       'mdc-list-item--with-leading-avatar': this.avatar,
+      'mdc-list-item--non-interactive': !isInteractive,
     });
 
-    const primaryContent = this.text || <slot name="primary" />;
+    const primaryContent = this.text || <slot />;
     const secondaryContent =
       this.secondaryText ||
       (secondarySlotHasContent ? <slot name="secondary" /> : null);
 
     return (
-      <Host>
-        <li ref={(el) => (this.listItemEl = el)} class={listItemClasses}>
-          <span class="mdc-list-item__ripple"></span>
+        <Host
+          class={listItemClasses}
+          data-evolution="true"
+          aria-disabled={this.disabled}
+          role={this.role}
+        >
+          {isInteractive && (<span class="mdc-list-item__ripple"></span>)}
           {leadingSlotHasContent && (
             <span class="mdc-list-item__start">
               <slot name="leading" />
@@ -150,8 +160,7 @@ export class ListItem implements ComponentInterface {
               <slot name="trailing" />
             </span>
           )}
-        </li>
-      </Host>
+        </Host>
     );
   }
 }

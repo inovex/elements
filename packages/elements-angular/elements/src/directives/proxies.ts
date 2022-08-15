@@ -585,13 +585,13 @@ export declare interface InoList extends Components.InoList {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['avatar', 'dense', 'twoLines']
+  inputs: ['multiselect', 'role']
 })
 @Component({
   selector: 'ino-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['avatar', 'dense', 'twoLines']
+  inputs: ['multiselect', 'role']
 })
 export class InoList {
   protected el: HTMLElement;
@@ -635,13 +635,13 @@ Contains the element itself in `event.detail`
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'avatar', 'dense', 'disabled', 'role', 'secondaryText', 'selected', 'text', 'twoLines']
 })
 @Component({
   selector: 'ino-list-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'disabled', 'secondaryText', 'selected', 'text']
+  inputs: ['activated', 'avatar', 'dense', 'disabled', 'role', 'secondaryText', 'selected', 'text', 'twoLines']
 })
 export class InoListItem {
   protected el: HTMLElement;

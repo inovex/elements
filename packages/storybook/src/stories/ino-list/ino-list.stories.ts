@@ -7,9 +7,8 @@ export default {
   title: 'Structure/ino-list ',
   component: 'ino-list',
   args: {
-    dense: false,
-    twoLines: false,
-    avatar: false,
+    role: null,
+    multiselect: false,
   }
 } as Meta<Components.InoList>;
 
@@ -27,18 +26,13 @@ const template = new TemplateGenerator<Components.InoList>(
   'ino-list',
   args => html`
   <ino-list
-    dense="${args.dense}"
-    two-lines="${args.twoLines}"
-    avatar="${args.avatar}"
+    multiselect="${args.multiselect}"
+    role="${args.role}"
   >
-    <ino-list-item text="First text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
-    <ino-list-item text="Second text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
-    <ino-list-item text="Third text item" secondary-text="${args.twoLines ? 'Secondary Text' : ''}">${args.avatar? exampleImg : ""}</ino-list-item>
+    <ino-list-item two-lines="true" >First text item</ino-list-item>
+    <ino-list-item text="Second text item" two-lines="true"  avatar="true">${exampleImg}</ino-list-item>
+    <ino-list-item text="Third text item" two-lines="true" avatar="true" secondary-text="Secondary Text">${exampleImg}</ino-list-item>
 </ino-list>
 `);
 
 export const Playground = template.generatePlaygroundStory();
-
-export const TwoLines = template.generateStoryForProp('twoLines', true);
-export const Dense = template.generateStoryForProp('dense', true);
-export const Avatar = template.generateStoryForProp('avatar', true);

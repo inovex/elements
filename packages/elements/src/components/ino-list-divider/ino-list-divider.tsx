@@ -40,7 +40,11 @@ export class ListDivider implements ComponentInterface {
         {this.betweenLists ? (
           <hr class={dividerClasses} />
         ) : (
-          <li role="separator" class={dividerClasses} />
+          <li
+            role="separator"
+            class={dividerClasses}
+            aria-hidden="true"
+          />
         )}
       </Host>
     );

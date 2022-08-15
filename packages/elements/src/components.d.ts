@@ -736,17 +736,13 @@ export namespace Components {
     }
     interface InoList {
         /**
-          * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+          * For a11y: Set to true if list allows multi-selection
          */
-        "avatar"?: boolean;
+        "multiselect"?: boolean;
         /**
-          * Styles the list more dense, making it appear more compact.
+          * For a11y: If list is interactive then set role type
          */
-        "dense"?: boolean;
-        /**
-          * Marks this element as list with items having two lines.
-         */
-        "twoLines"?: boolean;
+        "role"?: 'list' | 'menu' | 'listbox';
     }
     interface InoListDivider {
         /**
@@ -764,13 +760,25 @@ export namespace Components {
     }
     interface InoListItem {
         /**
-          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
          */
         "activated"?: boolean;
+        /**
+          * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+         */
+        "avatar"?: boolean;
+        /**
+          * Styles the list more dense, making it appear more compact.
+         */
+        "dense"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
         "disabled"?: boolean;
+        /**
+          * For a11y: If list item is interactive then set role type
+         */
+        "role"?: 'listitem' | 'menuitem' | 'option';
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -783,6 +791,10 @@ export namespace Components {
           * The primary text of this list item.
          */
         "text"?: string;
+        /**
+          * Marks this element as list with items having two lines.
+         */
+        "twoLines"?: boolean;
     }
     interface InoMarkdownEditor {
         /**
@@ -2587,17 +2599,13 @@ declare namespace LocalJSX {
     }
     interface InoList {
         /**
-          * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+          * For a11y: Set to true if list allows multi-selection
          */
-        "avatar"?: boolean;
+        "multiselect"?: boolean;
         /**
-          * Styles the list more dense, making it appear more compact.
+          * For a11y: If list is interactive then set role type
          */
-        "dense"?: boolean;
-        /**
-          * Marks this element as list with items having two lines.
-         */
-        "twoLines"?: boolean;
+        "role"?: 'list' | 'menu' | 'listbox';
     }
     interface InoListDivider {
         /**
@@ -2615,9 +2623,17 @@ declare namespace LocalJSX {
     }
     interface InoListItem {
         /**
-          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permantently activated.
+          * Styles the row in an activated style.  In contrast to `selected`, use this for only one item and to mark it as permanently activated.
          */
         "activated"?: boolean;
+        /**
+          * Configures the leading tiles of each row to display images instead of icons. This will make the graphics of the list items larger.
+         */
+        "avatar"?: boolean;
+        /**
+          * Styles the list more dense, making it appear more compact.
+         */
+        "dense"?: boolean;
         /**
           * Styles the row in a disabled style.
          */
@@ -2626,6 +2642,10 @@ declare namespace LocalJSX {
           * Emits when the list item is clicked or the enter/space key if pressed while the item is in focus. Contains the element itself in `event.detail`
          */
         "onClickEl"?: (event: InoListItemCustomEvent<any>) => void;
+        /**
+          * For a11y: If list item is interactive then set role type
+         */
+        "role"?: 'listitem' | 'menuitem' | 'option';
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */
@@ -2638,6 +2658,10 @@ declare namespace LocalJSX {
           * The primary text of this list item.
          */
         "text"?: string;
+        /**
+          * Marks this element as list with items having two lines.
+         */
+        "twoLines"?: boolean;
     }
     interface InoMarkdownEditor {
         /**

@@ -279,9 +279,8 @@ export const InoLabel = /*@__PURE__*/ defineContainer<JSX.InoLabel>('ino-label',
 
 
 export const InoList = /*@__PURE__*/ defineContainer<JSX.InoList>('ino-list', undefined, [
-  'dense',
-  'twoLines',
-  'avatar'
+  'role',
+  'multiselect'
 ]);
 
 
@@ -298,6 +297,10 @@ export const InoListItem = /*@__PURE__*/ defineContainer<JSX.InoListItem>('ino-l
   'selected',
   'activated',
   'disabled',
+  'dense',
+  'twoLines',
+  'avatar',
+  'role',
   'clickEl'
 ]);
 
