@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-textarea Autogrow smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  disabled="false"
+                  required="false"
+                  show-label-hint="false"
+                  autogrow="true"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea CharacterCount smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  maxlength="30"
+                  disabled="false"
+                  required="false"
+                  show-label-hint="false"
+                  autogrow="false"
+                  show-character-counter="true"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  disabled="true"
+                  required="false"
+                  show-label-hint="false"
+                  autogrow="false"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea Labels smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea label="Floating label"
+                  cols="30"
+                  rows="3"
+    >
+    </ino-textarea>
+    <ino-textarea label="Floating label"
+                  value="With value"
+                  cols="30"
+                  rows="3"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea Outline smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  disabled="false"
+                  required="false"
+                  show-label-hint="false"
+                  autogrow="false"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  maxlength="30"
+                  disabled="false"
+                  required="false"
+                  show-label-hint="false"
+                  autogrow="false"
+                  show-character-counter="true"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea Required smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label*"
+                  outline="true"
+                  minlength="0"
+                  disabled="false"
+                  required="true"
+                  show-label-hint="false"
+                  autogrow="false"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-textarea ShowLabelHint smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-textarea">
+    <ino-textarea class="customizable-textarea"
+                  cols="60"
+                  rows="5"
+                  label="Label"
+                  outline="true"
+                  minlength="0"
+                  disabled="false"
+                  required="false"
+                  show-label-hint="true"
+                  autogrow="false"
+    >
+    </ino-textarea>
+  </div>
+</div>
+`;

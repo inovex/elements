@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-tab-bar ActiveTab smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-tab-bar">
+    <ino-tab-bar id="customizable-tabbar"
+                 active-tab="1"
+                 auto-focus="false"
+    >
+      <ino-tab label="User"
+               icon="user"
+      >
+      </ino-tab>
+      <ino-tab label="Messages"
+               icon="message"
+      >
+      </ino-tab>
+      <ino-tab label="Settings"
+               icon="settings"
+      >
+      </ino-tab>
+      <ino-tab label="Download"
+               icon="download"
+      >
+      </ino-tab>
+    </ino-tab-bar>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-tab-bar Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-tab-bar">
+    <ino-tab-bar id="customizable-tabbar"
+                 active-tab="0"
+                 auto-focus="false"
+    >
+      <ino-tab label="User"
+               icon="user"
+      >
+      </ino-tab>
+      <ino-tab label="Messages"
+               icon="message"
+      >
+      </ino-tab>
+      <ino-tab label="Settings"
+               icon="settings"
+      >
+      </ino-tab>
+      <ino-tab label="Download"
+               icon="download"
+      >
+      </ino-tab>
+    </ino-tab-bar>
+  </div>
+</div>
+`;

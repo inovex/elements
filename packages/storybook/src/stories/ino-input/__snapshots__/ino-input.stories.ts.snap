@@ -1,0 +1,658 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-input DataList smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input label="Datalist"
+               data-list="languages"
+    >
+      <datalist id="languages">
+        <option>
+          HTML
+        </option>
+        <option>
+          Java
+        </option>
+        <option>
+          Perl
+        </option>
+        <option>
+          PHP
+        </option>
+        <option>
+          Ruby on Rails
+        </option>
+      </datalist>
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+               list="languages"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input HelperTexts smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input placeholder="Helper text on focus (default)"
+               helper="Helper text"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="Helper text on focus (default)"
+               type="text"
+               aria-controls="input-helper-text__17"
+               aria-describedby="input-helper-text__17"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+        <div class="mdc-text-field-helper-text"
+             id="input-helper-text__17"
+             aria-hidden="true"
+        >
+          Helper text
+        </div>
+      </div>
+    </ino-input>
+    <ino-input placeholder="Persistent helper text"
+               helper="Persistent helper text"
+               helper-persistent
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="Persistent helper text"
+               type="text"
+               aria-controls="input-helper-text__18"
+               aria-describedby="input-helper-text__18"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent"
+             id="input-helper-text__18"
+             aria-hidden="true"
+        >
+          Persistent helper text
+        </div>
+      </div>
+    </ino-input>
+    <ino-input required
+               placeholder="Validation message for required input"
+               helper="This field is required"
+               helper-validation
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="Validation message for required input"
+               required
+               type="text"
+               aria-controls="input-helper-text__19"
+               aria-describedby="input-helper-text__19"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+        <div class="mdc-text-field-helper-text mdc-text-field-helper-text--validation-msg"
+             id="input-helper-text__19"
+             aria-hidden="true"
+        >
+          This field is required
+        </div>
+      </div>
+    </ino-input>
+    <ino-input value="Length of 12"
+               helper-character-counter
+               maxlength="25"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               maxlength="25"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+        <div class="mdc-text-field-character-counter">
+          12 / 25
+        </div>
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input Icons smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input icon-leading
+               label="Leading icon"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon">
+        <ino-label>
+        </ino-label>
+        <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+          <ino-icon slot="icon-leading"
+                    icon="search"
+          >
+          </ino-icon>
+        </span>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input icon-trailing
+               label="Trailing icon"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+        <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
+          <ino-icon slot="icon-trailing"
+                    icon="search"
+          >
+          </ino-icon>
+        </span>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input icon-leading
+               icon-trailing
+               label="Leading and Trailing icon"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon">
+        <ino-label>
+        </ino-label>
+        <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+          <ino-icon slot="icon-leading"
+                    icon="search"
+          >
+          </ino-icon>
+        </span>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+        <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
+          <ino-icon slot="icon-trailing"
+                    icon="add"
+          >
+          </ino-icon>
+        </span>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input icon-trailing
+               label="Clickable Icon"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+        <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="search"
+          >
+          </ino-icon>
+        </span>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input Labels smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input label="Floating label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Floating label"
+               value="With value"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Outlined floating label"
+               outline
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Outlined floating label"
+               value="With value"
+               outline
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input Metadata smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input value="2"
+               type="number"
+               unit="h"
+               label="Hours input"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="number"
+        >
+        <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
+          h
+        </span>
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input NumberFormats smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input type="number"
+               decimal-places="2"
+               placeholder="With 2 decimal places"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="With 2 decimal places"
+               type="number"
+        >
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input type="number"
+               step="1"
+               thousands-separator
+               placeholder="With thousands separator"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="With thousands separator"
+               type="number"
+        >
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input class="customizable-input"
+               id="customizable-input"
+               autocomplete="off"
+               autofocus="false"
+               data-list
+               disabled="false"
+               error="false"
+               helper="Helper message"
+               helper-character-counter="false"
+               helper-persistent="false"
+               helper-validation="false"
+               label="Input label"
+               min
+               max
+               maxlength="100"
+               name
+               outline="false"
+               pattern="*"
+               placeholder
+               required="false"
+               show-label-hint="false"
+               size="0"
+               step="5"
+               type="text"
+               unit
+               value
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               autocomplete="off"
+               min
+               max
+               maxlength="100"
+               step="5"
+               name
+               pattern="*"
+               placeholder
+               type="text"
+               aria-controls="input-helper-text__0"
+               aria-describedby="input-helper-text__0"
+               list
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+        <div class="mdc-text-field-helper-text"
+             id="input-helper-text__0"
+             aria-hidden="true"
+        >
+          Helper message
+        </div>
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input States smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input placeholder="Disabled"
+               disabled
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               disabled
+               step="1"
+               placeholder="Disabled"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Optional"
+               show-label-hint
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label show-hint>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Required"
+               required
+               show-label-hint
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <ino-label show-hint>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               required
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input placeholder="Outline disabled"
+               outline
+               disabled
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--outlined mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               disabled
+               step="1"
+               placeholder="Outline disabled"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Outline optional"
+               outline
+               show-label-hint
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
+        <ino-label show-hint>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input label="Outline required"
+               outline
+               show-label-hint
+               required
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--outlined">
+        <ino-label show-hint>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               required
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-input Types smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-input">
+    <ino-input placeholder="type = text">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="type = text"
+               type="text"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input placeholder="type = email"
+               type="email"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="type = email"
+               type="email"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input type="number"
+               placeholder="type = number"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="type = number"
+               type="number"
+        >
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input type="number"
+               placeholder="type = number with steps=5"
+               step="5"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="5"
+               placeholder="type = number with steps=5"
+               type="number"
+        >
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input type="number"
+               placeholder="type = number with step='any' (decimal numbers)"
+               step="any"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="any"
+               placeholder="type = number with step='any' (decimal numbers)"
+               type="number"
+        >
+        <div class="arrow-container">
+          <ino-icon class="ino-num-arrows up">
+          </ino-icon>
+          <ino-icon class="ino-num-arrows down">
+          </ino-icon>
+        </div>
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+    <ino-input type="password"
+               placeholder="type = password"
+    >
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+        <ino-label>
+        </ino-label>
+        <input class="mdc-text-field__input"
+               step="1"
+               placeholder="type = password"
+               type="password"
+        >
+      </label>
+      <div class="mdc-text-field-helper-line">
+      </div>
+    </ino-input>
+  </div>
+</div>
+`;

@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-option DisabledOption smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-option">
+    <div class="story-option">
+      <ino-select label="My Select"
+                  class="hydrated"
+      >
+        <div class="mdc-select mdc-select--filled">
+          <div class="mdc-select__anchor mdc-ripple-upgraded"
+               tabindex="0"
+               aria-disabled="false"
+               aria-invalid="false"
+          >
+            <div class="mdc-select__selected-text">
+              Content
+            </div>
+            <span class="mdc-select__dropdown-icon">
+              <svg class="mdc-select__dropdown-icon-graphic"
+                   viewbox="7 10 10 5"
+              >
+                <polygon class="mdc-select__dropdown-icon-inactive"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 10 12 15 17 10"
+                >
+                </polygon>
+                <polygon class="mdc-select__dropdown-icon-active"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 15 12 10 17 15"
+                >
+                </polygon>
+              </svg>
+            </span>
+            <ino-label class="hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+              <label class="mdc-floating-label mdc-floating-label--float-above">
+                My Select
+              </label>
+            </ino-label>
+          </div>
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-deprecated-list">
+              <ino-option class="customizable-option hydrated"
+                          disabled="true"
+                          selected="undefined"
+                          value="some-id"
+              >
+                <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled mdc-deprecated-list-item--selected"
+                    data-value="some-id"
+                    aria-selected
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__text">
+                    Content
+                  </span>
+                </li>
+              </ino-option>
+            </ul>
+          </div>
+        </div>
+      </ino-select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-option Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-option">
+    <div class="story-option">
+      <ino-select label="My Select"
+                  class
+      >
+        <div class="mdc-select mdc-select--filled">
+          <div class="mdc-select__anchor">
+            <div class="mdc-select__selected-text">
+            </div>
+            <span class="mdc-select__dropdown-icon">
+              <svg class="mdc-select__dropdown-icon-graphic"
+                   viewbox="7 10 10 5"
+              >
+                <polygon class="mdc-select__dropdown-icon-inactive"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 10 12 15 17 10"
+                >
+                </polygon>
+                <polygon class="mdc-select__dropdown-icon-active"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 15 12 10 17 15"
+                >
+                </polygon>
+              </svg>
+            </span>
+            <ino-label>
+            </ino-label>
+          </div>
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-deprecated-list">
+              <ino-option class="customizable-option hydrated"
+                          disabled="false"
+                          selected="false"
+                          value="some-id"
+              >
+                <li class="mdc-deprecated-list-item"
+                    data-value="some-id"
+                >
+                  <span class="mdc-deprecated-list-item__text">
+                    Content
+                  </span>
+                </li>
+              </ino-option>
+            </ul>
+          </div>
+        </div>
+      </ino-select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-option SelectedOption smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-option">
+    <div class="story-option">
+      <ino-select label="My Select"
+                  class="hydrated"
+      >
+        <div class="mdc-select mdc-select--filled">
+          <div class="mdc-select__anchor mdc-ripple-upgraded"
+               tabindex="0"
+               aria-disabled="false"
+               aria-invalid="false"
+          >
+            <div class="mdc-select__selected-text">
+              Content
+            </div>
+            <span class="mdc-select__dropdown-icon">
+              <svg class="mdc-select__dropdown-icon-graphic"
+                   viewbox="7 10 10 5"
+              >
+                <polygon class="mdc-select__dropdown-icon-inactive"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 10 12 15 17 10"
+                >
+                </polygon>
+                <polygon class="mdc-select__dropdown-icon-active"
+                         stroke="none"
+                         fill-rule="evenodd"
+                         points="7 15 12 10 17 15"
+                >
+                </polygon>
+              </svg>
+            </span>
+            <ino-label class="hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+              <label class="mdc-floating-label mdc-floating-label--float-above">
+                My Select
+              </label>
+            </ino-label>
+          </div>
+          <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+            <ul class="mdc-deprecated-list">
+              <ino-option class="customizable-option hydrated"
+                          disabled="undefined"
+                          selected="true"
+                          value="some-id"
+              >
+                <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled mdc-deprecated-list-item--selected"
+                    data-value="some-id"
+                    aria-selected
+                    tabindex="-1"
+                >
+                  <span class="mdc-deprecated-list-item__text">
+                    Content
+                  </span>
+                </li>
+              </ino-option>
+            </ul>
+          </div>
+        </div>
+      </ino-select>
+    </div>
+  </div>
+</div>
+`;

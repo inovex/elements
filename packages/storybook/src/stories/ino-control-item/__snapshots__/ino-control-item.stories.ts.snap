@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-control-item Activated smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="true"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Checked smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="true"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="true"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Indeterminate smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="true"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Roles smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="radio"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item SecondaryText smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="Some Secondary Text">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text="Some Secondary Text"
+                        selected="false"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Selected smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="true"
+                        text="Text"
+                        trailing="false"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-control-item Trailing smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-list two-lines="false">
+      <ino-control-item activated="false"
+                        checked="false"
+                        disabled="false"
+                        indeterminate="false"
+                        role="checkbox"
+                        secondary-text
+                        selected="false"
+                        text="Text"
+                        trailing="true"
+      >
+      </ino-control-item>
+    </ino-list>
+  </div>
+</div>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-option-group Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-option-group">
+    <div class="story-option-group-customizable">
+      <ino-select label="Select with Group">
+        <ino-option-group label="My group Label">
+          <ino-option value="Option 1">
+            Option 1
+          </ino-option>
+          <ino-option value="Option 2">
+            Option 2
+          </ino-option>
+          <ino-option value="Option 3">
+            Option 3
+          </ino-option>
+        </ino-option-group>
+        <ino-option-group label="My group Label">
+          <ino-option value="Option 4">
+            Option 4
+          </ino-option>
+          <ino-option value="Option 5">
+            Option 5
+          </ino-option>
+          <ino-option value="Option 6">
+            Option 6
+          </ino-option>
+        </ino-option-group>
+      </ino-select>
+    </div>
+  </div>
+</div>
+`;

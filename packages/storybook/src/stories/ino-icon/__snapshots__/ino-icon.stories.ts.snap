@@ -1,0 +1,1097 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-icon">
+    <div class="story-icon">
+      <div class="flex-parent-center">
+        <ino-input class="icon-search-input"
+                   placeholder="Find icon"
+        >
+          <ino-icon slot="icon-leading"
+                    icon="search"
+          >
+          </ino-icon>
+        </ino-input>
+        <h6>
+          Click on the icon to copy the id to your clipboard.
+        </h6>
+        <div class="icon-collection">
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-add"
+                    value="add"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="add"
+            >
+            </ino-icon>
+            add
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-arrow_down"
+                    value="arrow_down"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="arrow_down"
+            >
+            </ino-icon>
+            arrow_down
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-arrow_left"
+                    value="arrow_left"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="arrow_left"
+            >
+            </ino-icon>
+            arrow_left
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-arrow_right"
+                    value="arrow_right"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="arrow_right"
+            >
+            </ino-icon>
+            arrow_right
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-arrow_up"
+                    value="arrow_up"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="arrow_up"
+            >
+            </ino-icon>
+            arrow_up
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-back_arrow"
+                    value="back_arrow"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="back_arrow"
+            >
+            </ino-icon>
+            back_arrow
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-birthday"
+                    value="birthday"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="birthday"
+            >
+            </ino-icon>
+            birthday
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-bold"
+                    value="bold"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="bold"
+            >
+            </ino-icon>
+            bold
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-bullet_list"
+                    value="bullet_list"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="bullet_list"
+            >
+            </ino-icon>
+            bullet_list
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-calendar"
+                    value="calendar"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="calendar"
+            >
+            </ino-icon>
+            calendar
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-call"
+                    value="call"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="call"
+            >
+            </ino-icon>
+            call
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-camera"
+                    value="camera"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="camera"
+            >
+            </ino-icon>
+            camera
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-cart"
+                    value="cart"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="cart"
+            >
+            </ino-icon>
+            cart
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-chat"
+                    value="chat"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="chat"
+            >
+            </ino-icon>
+            chat
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-checkmark"
+                    value="checkmark"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="checkmark"
+            >
+            </ino-icon>
+            checkmark
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-close"
+                    value="close"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="close"
+            >
+            </ino-icon>
+            close
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-cloud"
+                    value="cloud"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="cloud"
+            >
+            </ino-icon>
+            cloud
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-code"
+                    value="code"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="code"
+            >
+            </ino-icon>
+            code
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-code_block"
+                    value="code_block"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="code_block"
+            >
+            </ino-icon>
+            code_block
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-company"
+                    value="company"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="company"
+            >
+            </ino-icon>
+            company
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-copy"
+                    value="copy"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="copy"
+            >
+            </ino-icon>
+            copy
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-developer"
+                    value="developer"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="developer"
+            >
+            </ino-icon>
+            developer
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-display"
+                    value="display"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="display"
+            >
+            </ino-icon>
+            display
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-download"
+                    value="download"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="download"
+            >
+            </ino-icon>
+            download
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-edit"
+                    value="edit"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="edit"
+            >
+            </ino-icon>
+            edit
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-edit_text"
+                    value="edit_text"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="edit_text"
+            >
+            </ino-icon>
+            edit_text
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-employee"
+                    value="employee"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="employee"
+            >
+            </ino-icon>
+            employee
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-favorite"
+                    value="favorite"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="favorite"
+            >
+            </ino-icon>
+            favorite
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-filter"
+                    value="filter"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="filter"
+            >
+            </ino-icon>
+            filter
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-folder"
+                    value="folder"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="folder"
+            >
+            </ino-icon>
+            folder
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-headline_one"
+                    value="headline_one"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="headline_one"
+            >
+            </ino-icon>
+            headline_one
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-headline_two"
+                    value="headline_two"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="headline_two"
+            >
+            </ino-icon>
+            headline_two
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-help"
+                    value="help"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="help"
+            >
+            </ino-icon>
+            help
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-image_not_available"
+                    value="image_not_available"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="image_not_available"
+            >
+            </ino-icon>
+            image_not_available
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-info"
+                    value="info"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="info"
+            >
+            </ino-icon>
+            info
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-italic"
+                    value="italic"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="italic"
+            >
+            </ino-icon>
+            italic
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-link"
+                    value="link"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="link"
+            >
+            </ino-icon>
+            link
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-location"
+                    value="location"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="location"
+            >
+            </ino-icon>
+            location
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-logout"
+                    value="logout"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="logout"
+            >
+            </ino-icon>
+            logout
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-mail"
+                    value="mail"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="mail"
+            >
+            </ino-icon>
+            mail
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-menu"
+                    value="menu"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="menu"
+            >
+            </ino-icon>
+            menu
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-message"
+                    value="message"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="message"
+            >
+            </ino-icon>
+            message
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-number"
+                    value="number"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="number"
+            >
+            </ino-icon>
+            number
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-numeric_list"
+                    value="numeric_list"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="numeric_list"
+            >
+            </ino-icon>
+            numeric_list
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-offboarding"
+                    value="offboarding"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="offboarding"
+            >
+            </ino-icon>
+            offboarding
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-offboarding_running"
+                    value="offboarding_running"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="offboarding_running"
+            >
+            </ino-icon>
+            offboarding_running
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-onboarding"
+                    value="onboarding"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="onboarding"
+            >
+            </ino-icon>
+            onboarding
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-onboarding_running"
+                    value="onboarding_running"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="onboarding_running"
+            >
+            </ino-icon>
+            onboarding_running
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-opportunity"
+                    value="opportunity"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="opportunity"
+            >
+            </ino-icon>
+            opportunity
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-options"
+                    value="options"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="options"
+            >
+            </ino-icon>
+            options
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-options_dotted"
+                    value="options_dotted"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="options_dotted"
+            >
+            </ino-icon>
+            options_dotted
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-partner"
+                    value="partner"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="partner"
+            >
+            </ino-icon>
+            partner
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-password"
+                    value="password"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="password"
+            >
+            </ino-icon>
+            password
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-phone"
+                    value="phone"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="phone"
+            >
+            </ino-icon>
+            phone
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-pin"
+                    value="pin"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="pin"
+            >
+            </ino-icon>
+            pin
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-print"
+                    value="print"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="print"
+            >
+            </ino-icon>
+            print
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-question"
+                    value="question"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="question"
+            >
+            </ino-icon>
+            question
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-quote"
+                    value="quote"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="quote"
+            >
+            </ino-icon>
+            quote
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-refresh"
+                    value="refresh"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="refresh"
+            >
+            </ino-icon>
+            refresh
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-remove"
+                    value="remove"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="remove"
+            >
+            </ino-icon>
+            remove
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-report"
+                    value="report"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="report"
+            >
+            </ino-icon>
+            report
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-save"
+                    value="save"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="save"
+            >
+            </ino-icon>
+            save
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-search"
+                    value="search"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="search"
+            >
+            </ino-icon>
+            search
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-settings"
+                    value="settings"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="settings"
+            >
+            </ino-icon>
+            settings
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-share"
+                    value="share"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="share"
+            >
+            </ino-icon>
+            share
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-snackbar-checkmark"
+                    value="snackbar-checkmark"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="snackbar-checkmark"
+            >
+            </ino-icon>
+            snackbar-checkmark
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-snackbar-error"
+                    value="snackbar-error"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="snackbar-error"
+            >
+            </ino-icon>
+            snackbar-error
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-snackbar-information"
+                    value="snackbar-information"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="snackbar-information"
+            >
+            </ino-icon>
+            snackbar-information
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-sort"
+                    value="sort"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="sort"
+            >
+            </ino-icon>
+            sort
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-sort_az"
+                    value="sort_az"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="sort_az"
+            >
+            </ino-icon>
+            sort_az
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-sort_down"
+                    value="sort_down"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="sort_down"
+            >
+            </ino-icon>
+            sort_down
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-sort_up"
+                    value="sort_up"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="sort_up"
+            >
+            </ino-icon>
+            sort_up
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-sort_za"
+                    value="sort_za"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="sort_za"
+            >
+            </ino-icon>
+            sort_za
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-star"
+                    value="star"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="star"
+            >
+            </ino-icon>
+            star
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_abwesend"
+                    value="status_abwesend"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_abwesend"
+            >
+            </ino-icon>
+            status_abwesend
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_away"
+                    value="status_away"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_away"
+            >
+            </ino-icon>
+            status_away
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_current"
+                    value="status_current"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_current"
+            >
+            </ino-icon>
+            status_current
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_future"
+                    value="status_future"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_future"
+            >
+            </ino-icon>
+            status_future
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_offboarding_laufend"
+                    value="status_offboarding_laufend"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_offboarding_laufend"
+            >
+            </ino-icon>
+            status_offboarding_laufend
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_past"
+                    value="status_past"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_past"
+            >
+            </ino-icon>
+            status_past
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-status_zukuenftige"
+                    value="status_zukuenftige"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="status_zukuenftige"
+            >
+            </ino-icon>
+            status_zukuenftige
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-strikethrough"
+                    value="strikethrough"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="strikethrough"
+            >
+            </ino-icon>
+            strikethrough
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-time"
+                    value="time"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="time"
+            >
+            </ino-icon>
+            time
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-underline"
+                    value="underline"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="underline"
+            >
+            </ino-icon>
+            underline
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-upload"
+                    value="upload"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="upload"
+            >
+            </ino-icon>
+            upload
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-user"
+                    value="user"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="user"
+            >
+            </ino-icon>
+            user
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-warning"
+                    value="warning"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="warning"
+            >
+            </ino-icon>
+            warning
+          </ino-chip>
+          <ino-chip fill="outline"
+                    color-scheme="default"
+                    id="icon-web"
+                    value="web"
+          >
+            <ino-icon class="chip-icon"
+                      slot="icon-leading"
+                      icon="web"
+            >
+            </ino-icon>
+            web
+          </ino-chip>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/ino-icon Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-icon">
+    <ino-icon class="customizable-icon"
+              style="--icon-width: 30px; --icon-height: 30px;"
+              clickable="true"
+              color-secondary="false"
+              icon="info"
+              svg-title="svg-Title"
+              src="scr-url"
+    >
+    </ino-icon>
+  </div>
+</div>
+`;

@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-table-header-cell Label smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="false"
+                             sort-direction
+                             search-icon="search"
+                             searched="false"
+                             label="Search for XY..."
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell NotSortable smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="true"
+                             sort-direction
+                             search-icon="search"
+                             searched="false"
+                             label="Label"
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="false"
+                             sort-direction
+                             search-icon="search"
+                             searched="false"
+                             label="Label"
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell SearchIcon smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="false"
+                             sort-direction
+                             search-icon="search"
+                             searched="false"
+                             label="Label"
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell SearchWithDatepicker smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell label="Column Selection Search"
+                             search-icon="calendar"
+                             class="datepicker-cell"
+      >
+        <div lang="de"
+             class="datepicker-group"
+        >
+          <aside>
+            <ul>
+              <li class="today">
+                Today
+              </li>
+              <li class="lastWeek">
+                last week
+              </li>
+              <li class="thisWeek">
+                this week
+              </li>
+            </ul>
+          </aside>
+          <main id="main">
+            <ino-datepicker type="date"
+                            label="An"
+                            inline
+                            date-format="d.m.Y"
+                            placeholder="tt.mm.jjjj"
+                            append-to="main"
+                            data-ino-focus
+            >
+            </ino-datepicker>
+            <ino-radio-group value="at">
+              <ino-radio value="at">
+                At
+              </ino-radio>
+              <ino-radio value="after">
+                After
+              </ino-radio>
+              <ino-radio value="before">
+                Before
+              </ino-radio>
+              <ino-radio value="range">
+                Range
+              </ino-radio>
+            </ino-radio-group>
+          </main>
+        </div>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell SearchWithSelection smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell label="Column Selection Search"
+                             search-icon="filter"
+      >
+        <ino-list>
+          <ino-list-item text="Option 1">
+            <ino-checkbox slot="leading"
+                          selection
+            >
+            </ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset>
+          </ino-list-item-divider>
+          <ino-list-item text="Option 2">
+            <ino-checkbox slot="leading"
+                          selection
+            >
+            </ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset>
+          </ino-list-item-divider>
+          <ino-list-item text="Option 3">
+            <ino-checkbox slot="leading"
+                          selection
+            >
+            </ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset>
+          </ino-list-item-divider>
+          <ino-list-item text="Option 4">
+            <ino-checkbox slot="leading"
+                          selection
+            >
+            </ino-checkbox>
+          </ino-list-item>
+          <ino-list-item-divider inset>
+          </ino-list-item-divider>
+        </ino-list>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell Searched smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="false"
+                             sort-direction
+                             search-icon="search"
+                             searched="true"
+                             label="Label"
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table-header-cell SortDirection smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table-header-cell">
+    <ino-table>
+      <ino-table-header-cell autofocus="false"
+                             not-sortable="false"
+                             sort-direction="desc"
+                             search-icon="search"
+                             searched="false"
+                             label="Label"
+      >
+        <ino-input placeholder="Search for XY..."
+                   data-ino-focus
+        >
+          <ino-icon clickable
+                    slot="icon-trailing"
+                    icon="close"
+          >
+          </ino-icon>
+        </ino-input>
+      </ino-table-header-cell>
+    </ino-table>
+  </div>
+</div>
+`;

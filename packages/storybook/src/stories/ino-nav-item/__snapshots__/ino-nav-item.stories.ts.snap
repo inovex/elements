@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-nav-item Activated smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Nav item"
+                    sub-text
+                    activated="true"
+                    disabled="false"
+      >
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-item Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Nav item"
+                    sub-text
+                    activated="false"
+                    disabled="true"
+      >
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-item Graphic smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Nav item"
+                    sub-text
+                    activated="false"
+                    disabled="false"
+      >
+        <ino-icon icon="onboarding">
+        </ino-icon>
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-item Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Nav item"
+                    sub-text
+                    activated="false"
+                    disabled="false"
+      >
+        <ino-icon icon="onboarding">
+        </ino-icon>
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-item Text smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Some Text"
+                    sub-text
+                    activated="false"
+                    disabled="false"
+      >
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-item TwoLines smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-list">
+    <ino-list>
+      <ino-nav-item class="customizable-nav-item"
+                    text="Nav item"
+                    sub-text="Secondary Text 2"
+                    activated="false"
+                    disabled="false"
+      >
+      </ino-nav-item>
+    </ino-list>
+  </div>
+</div>
+`;

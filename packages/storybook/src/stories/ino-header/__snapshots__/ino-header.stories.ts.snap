@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-header Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-header class="hydrated">
+      Some Text
+    </ino-header>
+  </div>
+</div>
+`;

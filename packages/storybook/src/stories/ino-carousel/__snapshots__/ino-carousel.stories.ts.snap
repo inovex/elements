@@ -1,0 +1,515 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graphic/<ino-carousel> Animated smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="false"
+                    animated="true"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="5000"
+                    reverse="false"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> Autoplay smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="true"
+                    animated="true"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="2000"
+                    reverse="false"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> HideButtons smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="false"
+                    animated="false"
+                    hide-buttons="true"
+                    infinite="true"
+                    intermission="5000"
+                    reverse="false"
+      >
+        <div class="ino-carousel ino-carousel--no-buttons">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> Infinite smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="false"
+                    animated="false"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="5000"
+                    reverse="false"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> Intermission smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="true"
+                    animated="true"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="2000"
+                    reverse="false"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                      type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel"
+                    value="0"
+                    autoplay="false"
+                    animated="false"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="5000"
+                    reverse="false"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary">
+              <button class="mdc-icon-button"
+                      type="button"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon>
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary">
+              <button class="mdc-icon-button"
+                      type="button"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon>
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Graphic/<ino-carousel> Reverse smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-carousel">
+    <div class="ino-carousel-example">
+      <ino-carousel class="customizable-carousel hydrated"
+                    value="0"
+                    autoplay="true"
+                    animated="true"
+                    hide-buttons="false"
+                    infinite="true"
+                    intermission="2000"
+                    reverse="true"
+      >
+        <div class="ino-carousel">
+          <div class="ino-carousel__container">
+            <ino-carousel-slide value="0"
+                                src="static/media/src/assets/images/lightning.jpg"
+                                class="hydrated ino-carousel-slide--selected"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="1"
+                                src="static/media/src/assets/images/mountains.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+            <ino-carousel-slide value="2"
+                                src="static/media/src/assets/images/nidaros.jpg"
+                                class="hydrated"
+            >
+              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              </div>
+            </ino-carousel-slide>
+          </div>
+          <div class="ino-carousel__left-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                      type="button"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+          <div class="ino-carousel__right-arrow">
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+                      type="button"
+              >
+                <div class="mdc-icon-button__ripple">
+                </div>
+                <span class="mdc-icon-button__icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </span>
+              </button>
+            </ino-icon-button>
+          </div>
+        </div>
+      </ino-carousel>
+    </div>
+  </div>
+</div>
+`;

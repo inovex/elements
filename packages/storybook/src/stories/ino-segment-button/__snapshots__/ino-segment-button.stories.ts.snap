@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons/ino-segment-button Dense smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-segment-button">
+    <ino-segment-button value
+                        class="customizable-segment-btn"
+                        checked="false"
+                        dense="true"
+                        disabled="false"
+                        name
+    >
+      Segment Button Label
+    </ino-segment-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/ino-segment-button Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-segment-button">
+    <ino-segment-button value
+                        class="customizable-segment-btn"
+                        checked="false"
+                        dense="false"
+                        disabled="true"
+                        name
+    >
+      Segment Button Label
+    </ino-segment-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/ino-segment-button EnableChecked smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-segment-button">
+    <ino-segment-button value
+                        class="customizable-segment-btn"
+                        checked="true"
+                        dense="false"
+                        disabled="false"
+                        name
+    >
+      Segment Button Label
+    </ino-segment-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/ino-segment-button Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-segment-button">
+    <ino-segment-button value
+                        class="customizable-segment-btn"
+                        checked="false"
+                        dense="false"
+                        disabled="false"
+                        name
+    >
+      Segment Button Label
+    </ino-segment-button>
+  </div>
+</div>
+`;

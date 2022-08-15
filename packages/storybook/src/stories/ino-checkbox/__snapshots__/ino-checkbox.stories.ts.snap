@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-checkbox Checked smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-checkbox">
+    <ino-checkbox checked="true"
+                  disabled="false"
+                  indeterminate="false"
+                  name="my-name"
+                  selection="false"
+                  value="my-value"
+    >
+      Label
+    </ino-checkbox>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-checkbox Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-checkbox">
+    <ino-checkbox checked="true"
+                  disabled="true"
+                  indeterminate="false"
+                  name="my-name"
+                  selection="false"
+                  value="my-value"
+    >
+      Label
+    </ino-checkbox>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-checkbox Indeterminate smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-checkbox">
+    <ino-checkbox checked="true"
+                  disabled="false"
+                  indeterminate="true"
+                  name="my-name"
+                  selection="false"
+                  value="my-value"
+    >
+      Label
+    </ino-checkbox>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-checkbox Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-checkbox">
+    <ino-checkbox checked="true"
+                  disabled="false"
+                  indeterminate="false"
+                  name="my-name"
+                  selection="false"
+                  value="my-value"
+    >
+      Label
+    </ino-checkbox>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-checkbox Selection smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-checkbox">
+    <ino-checkbox checked="true"
+                  disabled="false"
+                  indeterminate="false"
+                  name="my-name"
+                  selection="true"
+                  value="my-value"
+    >
+      Label
+    </ino-checkbox>
+  </div>
+</div>
+`;

@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-list-item Activated smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="false">
+      <ino-list-item secondary-text
+                     selected="false"
+                     activated="true"
+                     disabled="false"
+                     text="List item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="false">
+      <ino-list-item secondary-text
+                     selected="false"
+                     activated="false"
+                     disabled="true"
+                     text="List item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item Graphics smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list>
+      <ino-list-item text="Lorem ipsum dolor sit">
+        <ino-img slot="leading"
+                 src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                 ratio-width="1"
+                 ratio-height="1"
+        >
+        </ino-img>
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item MetaData smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list>
+      <ino-list-item text="Lorem ipsum dolor sit">
+        <p slot="trailing">
+          $10.00
+        </p>
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="false">
+      <ino-list-item secondary-text
+                     selected="false"
+                     activated="false"
+                     disabled="false"
+                     text="List item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item SecondaryText smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="true">
+      <ino-list-item secondary-text="Second line text"
+                     selected="false"
+                     activated="false"
+                     disabled="false"
+                     text="List item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item Selected smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="false">
+      <ino-list-item secondary-text
+                     selected="true"
+                     activated="false"
+                     disabled="false"
+                     text="List item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item Text smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list two-lines="false">
+      <ino-list-item secondary-text
+                     selected="false"
+                     activated="false"
+                     disabled="false"
+                     text="simple-item"
+      >
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item WithCheckbox smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list>
+      <ino-list-item text="Lorem ipsum dolor sit">
+        <ino-checkbox slot="leading">
+        </ino-checkbox>
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-list-item WithRadio smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-list-item">
+    <ino-list>
+      <ino-list-item text="Lorem ipsum dolor sit">
+        <ino-radio slot="leading"
+                   selection
+        >
+        </ino-radio>
+      </ino-list-item>
+    </ino-list>
+  </div>
+</div>
+`;

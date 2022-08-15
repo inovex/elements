@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons/<ino-button> Dense smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="filled"
+                disabled="false"
+                dense="true"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled button--dense"
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="filled"
+                disabled="true"
+                dense="false"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              disabled
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Filled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="filled"
+                disabled="false"
+                dense="false"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> LeadingAndTrailingIcon smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <div class="container">
+      <ino-button class>
+        <button class="button button__variant--filled button__icon--leading"
+                type="button"
+        >
+          <span class="icon__wrapper">
+            <ino-icon icon="info"
+                      slot="icon-leading"
+            >
+            </ino-icon>
+          </span>
+          <span class="button__label">
+            Label
+          </span>
+        </button>
+      </ino-button>
+      <ino-button class>
+        <button class="button button__variant--filled button__icon--trailing"
+                type="button"
+        >
+          <span class="button__label">
+            Label
+          </span>
+          <span class="icon__wrapper">
+            <ino-icon icon="info"
+                      slot="icon-trailing"
+            >
+            </ino-icon>
+          </span>
+        </button>
+      </ino-button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Loading smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="filled"
+                disabled="false"
+                dense="false"
+                loading="true"
+    >
+      Label
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Outlined smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="outlined"
+                disabled="false"
+                dense="false"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--outlined"
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="filled"
+                disabled="false"
+                dense="false"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/<ino-button> Text smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-button">
+    <ino-button variant="text"
+                disabled="false"
+                dense="false"
+                loading="false"
+                class="hydrated"
+    >
+      <button class="button button__variant--text"
+              type="button"
+      >
+        <span class="button__label">
+          Label
+        </span>
+      </button>
+    </ino-button>
+  </div>
+</div>
+`;

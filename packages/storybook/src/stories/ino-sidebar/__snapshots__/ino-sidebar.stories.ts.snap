@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-sidebar Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-sidebar">
+    <div class="sidebar-demo">
+      <ino-button>
+        Toggle Sidebar
+      </ino-button>
+      <ino-sidebar id="customizable-sidebar"
+                   align-right="false"
+                   name
+                   open="false"
+      >
+        <div class="sidebar-header"
+             slot="header"
+        >
+          <ino-icon clickable
+                    icon="close"
+          >
+          </ino-icon>
+        </div>
+        <div class="sidebar-content"
+             slot="content"
+        >
+          <ino-list>
+            <ino-list-item text="List item">
+            </ino-list-item>
+            <ino-list-item text="List item">
+            </ino-list-item>
+            <ino-list-item text="List item">
+            </ino-list-item>
+            <ino-list-item text="List item">
+            </ino-list-item>
+            <ino-list-item text="List item">
+            </ino-list-item>
+            <ino-list-item text="List item">
+            </ino-list-item>
+          </ino-list>
+        </div>
+      </ino-sidebar>
+    </div>
+  </div>
+</div>
+`;

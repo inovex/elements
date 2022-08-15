@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons/<ino-fab-set> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <div style="position: absolute">
+      <ino-fab-set open-dial="false"
+                   top-bottom-location="bottom"
+                   left-right-location="left"
+                   dial-direction="top"
+      >
+        <ino-icon slot="icon-opened"
+                  icon="_fab_set_arrow_down"
+        >
+        </ino-icon>
+        <ino-icon slot="icon-closed"
+                  icon="_fab_set_arrow_up"
+        >
+        </ino-icon>
+        <ino-fab label="First FAB">
+          <ino-icon slot="icon-leading"
+                    icon="star"
+          >
+          </ino-icon>
+        </ino-fab>
+        <ino-fab label="Second FAB">
+          <ino-icon slot="icon-leading"
+                    icon="favorite"
+          >
+          </ino-icon>
+        </ino-fab>
+        <ino-fab label="Third FAB">
+          <ino-icon slot="icon-leading"
+                    icon="info"
+          >
+          </ino-icon>
+        </ino-fab>
+      </ino-fab-set>
+    </div>
+  </div>
+</div>
+`;

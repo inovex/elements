@@ -33,9 +33,14 @@
   "scripts": {
     "dev": "start-storybook -p 6006 -c config --quiet --no-version-updates",
     "build": "build-storybook -c config -o dist",
+    "test": "concurrently --names \"SB,TEST\" --success \"command-TEST\" --kill-others \"http-server ./dist --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook --config config\"",
+    "test:watch": "test-storybook --config config --watch",
+    "test:update": "test-storybook --config config --updateSnapshot",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "test-storybook": "test-storybook --config-dir config"
+    "test-storybook": "test-storybook --config-dir config",
+    "test:visual-update": "test-storybook --config-dir config -u",
+    "test:ci": "concurrently --names \"SB,TEST\" --success \"command-TEST\" --kill-others \"http-server ./dist --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\""
   },
   "files": [
     "dist/"

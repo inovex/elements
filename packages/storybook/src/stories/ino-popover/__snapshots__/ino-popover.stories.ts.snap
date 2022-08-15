@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification/ino-popover AttachToBody smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-3">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="10"
+                 for="popover-3"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="top"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover ColorScheme smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-5">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="secondary"
+                 controlled="false"
+                 distance="10"
+                 for="popover-5"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="top"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Distance smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-4">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="30"
+                 for="popover-4"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="top"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover FollowCursor smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-7">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="10"
+                 for="popover-7"
+                 interactive="false"
+                 followcursor="horizontal"
+                 placement="top"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Interactions smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-popover trigger="click"
+                 for="popover-interactive-target"
+                 color-scheme="transparent"
+                 interactive
+                 placement="left"
+    >
+      <div class="interactive-popover">
+        <p>
+          I'm interactive. You can click me without closing this popover!
+        </p>
+        <ino-button>
+          Button not closing the popover
+        </ino-button>
+      </div>
+    </ino-popover>
+    <ino-button class="placement-button"
+                id="popover-interactive-target"
+    >
+      Interactive Content
+    </ino-button>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Placement smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-2">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="10"
+                 for="popover-2"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="right"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-1">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="10"
+                 for="popover-1"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="top"
+                 trigger="mouseenter focus"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Trigger smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-button id="popover-6">
+      Popover
+    </ino-button>
+    <ino-popover color-scheme="transparent"
+                 controlled="false"
+                 distance="10"
+                 for="popover-6"
+                 interactive="false"
+                 followcursor="undefined"
+                 placement="top"
+                 trigger="click"
+                 visible="false"
+                 hide-on-blur="false"
+                 hide-on-esc="false"
+    >
+      <div class="styled-popover">
+        <ino-icon icon="user">
+        </ino-icon>
+        This is a styled popover.
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-popover Visible smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-popover">
+    <ino-popover id="controlled-popover"
+                 placement="left"
+                 controlled="true"
+                 trigger="click"
+                 visible="false"
+    >
+      <ino-checkbox id="controlled-checkbox"
+                    slot="popover-trigger"
+      >
+        Uncheck to hide / check to show
+      </ino-checkbox>
+      <div class="popover-content">
+        I'm a controlled popover
+      </div>
+    </ino-popover>
+  </div>
+</div>
+`;

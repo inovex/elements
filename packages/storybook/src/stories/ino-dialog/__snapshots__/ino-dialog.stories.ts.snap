@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/<ino-dialog> ClosingAction smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-dialog">
+    <ino-button class="open-dialog-btn"
+                data-dialog-id="demo-action-dialog"
+    >
+      Open Dialog
+    </ino-button>
+    <ino-dialog id="demo-action-dialog"
+                open="false"
+                fullwidth="false"
+                dismissible="true"
+                attach-to=".story-dialog"
+    >
+      <div class="ino-dialog-header">
+        <div class="ino-dialog-title">
+          <h3>
+            Select your favourite characters
+          </h3>
+        </div>
+        <ino-icon-button icon="close"
+                         data-ino-dialog-action="close"
+        >
+        </ino-icon-button>
+      </div>
+      <div class="ino-dialog-content">
+        <ino-segment-group value="2"
+                           id="dense-segment-grp"
+        >
+          <ino-segment-button dense
+                              value="1"
+          >
+            Morty
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="2"
+          >
+            Pickle Rick
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="3"
+          >
+            Squanchy
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="4"
+          >
+            Beth
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="5"
+          >
+            Jerry
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="6"
+          >
+            Summer
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+      <div class="ino-dialog-footer">
+        <ino-button icon="remove"
+                    data-ino-dialog-action="cancel"
+                    fill="outline"
+                    color-scheme="secondary"
+        >
+          Cancel
+        </ino-button>
+        <ino-button icon="mail"
+                    data-ino-dialog-action="submit"
+        >
+          Submit
+        </ino-button>
+      </div>
+    </ino-dialog>
+  </div>
+</div>
+`;
+
+exports[`Structure/<ino-dialog> Dismissible smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-dialog">
+    <ino-button class="open-dialog-btn"
+                data-dialog-id="undefined"
+    >
+      Open Dialog
+    </ino-button>
+    <ino-dialog id="undefined"
+                open="false"
+                fullwidth="false"
+                dismissible="true"
+                attach-to=".story-dialog"
+    >
+      <div class="ino-dialog-header">
+        <div class="ino-dialog-title">
+          <h3>
+            Select your favourite characters
+          </h3>
+        </div>
+        <ino-icon-button icon="close"
+                         data-ino-dialog-action="close"
+        >
+        </ino-icon-button>
+      </div>
+      <div class="ino-dialog-content">
+        <ino-segment-group value="2"
+                           id="dense-segment-grp"
+        >
+          <ino-segment-button dense
+                              value="1"
+          >
+            Morty
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="2"
+          >
+            Pickle Rick
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="3"
+          >
+            Squanchy
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="4"
+          >
+            Beth
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="5"
+          >
+            Jerry
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="6"
+          >
+            Summer
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+      <div class="ino-dialog-footer">
+        <ino-button icon="remove"
+                    data-ino-dialog-action="cancel"
+                    fill="outline"
+                    color-scheme="secondary"
+        >
+          Cancel
+        </ino-button>
+        <ino-button icon="mail"
+                    data-ino-dialog-action="submit"
+        >
+          Submit
+        </ino-button>
+      </div>
+    </ino-dialog>
+  </div>
+</div>
+`;
+
+exports[`Structure/<ino-dialog> FullWidth smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-dialog">
+    <ino-button class="open-dialog-btn"
+                data-dialog-id="undefined"
+    >
+      Open Dialog
+    </ino-button>
+    <ino-dialog id="undefined"
+                open="false"
+                fullwidth="true"
+                dismissible="false"
+                attach-to=".story-dialog"
+    >
+      <div class="ino-dialog-header">
+        <div class="ino-dialog-title">
+          <h3>
+            Select your favourite characters
+          </h3>
+        </div>
+        <ino-icon-button icon="close"
+                         data-ino-dialog-action="close"
+        >
+        </ino-icon-button>
+      </div>
+      <div class="ino-dialog-content">
+        <ino-segment-group value="2"
+                           id="dense-segment-grp"
+        >
+          <ino-segment-button dense
+                              value="1"
+          >
+            Morty
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="2"
+          >
+            Pickle Rick
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="3"
+          >
+            Squanchy
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="4"
+          >
+            Beth
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="5"
+          >
+            Jerry
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="6"
+          >
+            Summer
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+      <div class="ino-dialog-footer">
+        <ino-button icon="remove"
+                    data-ino-dialog-action="cancel"
+                    fill="outline"
+                    color-scheme="secondary"
+        >
+          Cancel
+        </ino-button>
+        <ino-button icon="mail"
+                    data-ino-dialog-action="submit"
+        >
+          Submit
+        </ino-button>
+      </div>
+    </ino-dialog>
+  </div>
+</div>
+`;
+
+exports[`Structure/<ino-dialog> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-dialog">
+    <ino-button class="open-dialog-btn"
+                data-dialog-id="undefined"
+    >
+      Open Dialog
+    </ino-button>
+    <ino-dialog id="undefined"
+                open="false"
+                fullwidth="false"
+                dismissible="false"
+                attach-to=".story-dialog"
+    >
+      <div class="ino-dialog-header">
+        <div class="ino-dialog-title">
+          <h3>
+            Select your favourite characters
+          </h3>
+        </div>
+        <ino-icon-button icon="close"
+                         data-ino-dialog-action="close"
+        >
+        </ino-icon-button>
+      </div>
+      <div class="ino-dialog-content">
+        <ino-segment-group value="2"
+                           id="dense-segment-grp"
+        >
+          <ino-segment-button dense
+                              value="1"
+          >
+            Morty
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="2"
+          >
+            Pickle Rick
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="3"
+          >
+            Squanchy
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="4"
+          >
+            Beth
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="5"
+          >
+            Jerry
+          </ino-segment-button>
+          <ino-segment-button dense
+                              value="6"
+          >
+            Summer
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+      <div class="ino-dialog-footer">
+        <ino-button icon="remove"
+                    data-ino-dialog-action="cancel"
+                    fill="outline"
+                    color-scheme="secondary"
+        >
+          Cancel
+        </ino-button>
+        <ino-button icon="mail"
+                    data-ino-dialog-action="submit"
+        >
+          Submit
+        </ino-button>
+      </div>
+    </ino-dialog>
+  </div>
+</div>
+`;

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/<ino-card> DisabledElevation smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-card">
+    <ino-card class="customizable-card"
+              disable-elevation="true"
+              selected="false"
+    >
+      <div slot="header"
+           class="card-header"
+      >
+        <ino-icon icon="info"
+                  clickable
+        >
+        </ino-icon>
+      </div>
+      <div slot="content"
+           class="card-content--vertical"
+      >
+        <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png">
+        </ino-img>
+      </div>
+      <div slot="footer"
+           class="sample-card-footer"
+      >
+        <ino-segment-group>
+          <ino-segment-button value="1">
+            Read
+          </ino-segment-button>
+          <ino-segment-button value="2">
+            Bookmark
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+    </ino-card>
+  </div>
+</div>
+`;
+
+exports[`Structure/<ino-card> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-card">
+    <ino-card class="customizable-card"
+              disable-elevation="false"
+              selected="false"
+    >
+      <div slot="header"
+           class="card-header"
+      >
+        <ino-icon icon="info"
+                  clickable
+        >
+        </ino-icon>
+      </div>
+      <div slot="content"
+           class="card-content--vertical"
+      >
+        <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png">
+        </ino-img>
+      </div>
+      <div slot="footer"
+           class="sample-card-footer"
+      >
+        <ino-segment-group>
+          <ino-segment-button value="1">
+            Read
+          </ino-segment-button>
+          <ino-segment-button value="2">
+            Bookmark
+          </ino-segment-button>
+        </ino-segment-group>
+      </div>
+    </ino-card>
+  </div>
+</div>
+`;

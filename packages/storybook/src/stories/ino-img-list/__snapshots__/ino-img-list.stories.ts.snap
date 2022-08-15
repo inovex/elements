@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
+<div id="root-inner">
+  <ino-img-list enclose-label="true"
+                masonry="false"
+  >
+    <ino-img alt="beach"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/beach.jpg"
+    >
+    </ino-img>
+    <ino-img alt="waterfall"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/fjord.jpg"
+    >
+    </ino-img>
+    <ino-img alt="trondheim"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/forrest.jpg"
+    >
+    </ino-img>
+    <ino-img alt="forrest"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/liberty.jpg"
+    >
+    </ino-img>
+    <ino-img alt="fjord"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/trondheim.jpg"
+    >
+    </ino-img>
+    <ino-img alt="liberty"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/waterfall.jpg"
+    >
+    </ino-img>
+  </ino-img-list>
+</div>
+`;
+
+exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
+<div id="root-inner">
+  <ino-img-list enclose-label="false"
+                masonry="true"
+  >
+    <ino-img alt="beach"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/beach.jpg"
+    >
+    </ino-img>
+    <ino-img alt="waterfall"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/fjord.jpg"
+    >
+    </ino-img>
+    <ino-img alt="trondheim"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/forrest.jpg"
+    >
+    </ino-img>
+    <ino-img alt="forrest"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/liberty.jpg"
+    >
+    </ino-img>
+    <ino-img alt="fjord"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/trondheim.jpg"
+    >
+    </ino-img>
+    <ino-img alt="liberty"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/waterfall.jpg"
+    >
+    </ino-img>
+  </ino-img-list>
+</div>
+`;
+
+exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
+<div id="root-inner">
+  <ino-img-list enclose-label="false"
+                masonry="false"
+  >
+    <ino-img alt="beach"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/beach.jpg"
+    >
+    </ino-img>
+    <ino-img alt="waterfall"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/fjord.jpg"
+    >
+    </ino-img>
+    <ino-img alt="trondheim"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/forrest.jpg"
+    >
+    </ino-img>
+    <ino-img alt="forrest"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/liberty.jpg"
+    >
+    </ino-img>
+    <ino-img alt="fjord"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/trondheim.jpg"
+    >
+    </ino-img>
+    <ino-img alt="liberty"
+             label="Label"
+             img-list-item
+             src="static/media/src/assets/images/waterfall.jpg"
+    >
+    </ino-img>
+  </ino-img-list>
+</div>
+`;

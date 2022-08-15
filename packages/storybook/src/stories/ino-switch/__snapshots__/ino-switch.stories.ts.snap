@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-switch Checked smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-switch">
+    <ino-switch checked="true"
+                color-scheme="primary"
+                disabled="false"
+                name
+    >
+      Switch Label
+    </ino-switch>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-switch Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-switch">
+    <ino-switch checked="false"
+                color-scheme="primary"
+                disabled="true"
+                name
+    >
+      Switch Label
+    </ino-switch>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-switch Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-switch">
+    <ino-switch checked="false"
+                color-scheme="primary"
+                disabled="false"
+                name
+    >
+      Switch Label
+    </ino-switch>
+  </div>
+</div>
+`;

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons/ino-segment-group Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-segment-group">
+    <ino-segment-group id="segment-grp"
+                       name
+                       value="opt-2"
+    >
+      <ino-segment-button value="opt-1">
+        Option 1
+      </ino-segment-button>
+      <ino-segment-button value="opt-2">
+        Option 2
+      </ino-segment-button>
+      <ino-segment-button value="opt-3">
+        Option 3
+      </ino-segment-button>
+      <ino-segment-button value="opt-4">
+        Option 4
+      </ino-segment-button>
+    </ino-segment-group>
+  </div>
+</div>
+`;

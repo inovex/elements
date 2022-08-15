@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification/ino-progress-bar Buffer smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-progress-bar">
+    <ino-progress-bar buffer="0.5"
+                      progress="undefined"
+                      indeterminate="false"
+    >
+    </ino-progress-bar>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-progress-bar Indeterminate smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-progress-bar">
+    <ino-progress-bar buffer="undefined"
+                      progress="undefined"
+                      indeterminate="true"
+    >
+    </ino-progress-bar>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-progress-bar Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-progress-bar">
+    <ino-progress-bar buffer="0.9"
+                      progress="0.4"
+                      indeterminate="false"
+    >
+    </ino-progress-bar>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-progress-bar Progress smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-progress-bar">
+    <ino-progress-bar buffer="undefined"
+                      progress="0.5"
+                      indeterminate="false"
+    >
+    </ino-progress-bar>
+  </div>
+</div>
+`;

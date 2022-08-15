@@ -1,0 +1,1641 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-datepicker DateFormats smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker type="datetime"
+                    date-format="H:i d.m.Y"
+                    label="Datetime"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Datetime
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker type="date"
+                    date-format="d.m.Y"
+                    label="Date"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Date
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker type="time"
+                    date-format="H:i"
+                    label="Time"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Time
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="hydrated ino-icon--color-scheme-primary"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker date-format="d.m.Y"
+                    range
+                    label="Range"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Range
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker date-format="m.Y"
+                    type="month"
+                    label="Month"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Month
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker Inline smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker style="width: 340px"
+                    label="Inline"
+                    inline="true"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Inline
+            </label>
+          </ino-label>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+      <div class="flatpickr-calendar animate inline"
+           tabindex="-1"
+      >
+        <div class="flatpickr-months">
+          <span class="flatpickr-prev-month">
+            <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
+                      icon="arrow_left"
+            >
+            </ino-icon>
+          </span>
+          <div class="flatpickr-month">
+            <div class="flatpickr-current-month">
+              <select class="flatpickr-monthDropdown-months"
+                      tabindex="-1"
+              >
+                <option class="flatpickr-monthDropdown-month"
+                        value="0"
+                        tabindex="-1"
+                >
+                  January
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="1"
+                        tabindex="-1"
+                >
+                  February
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="2"
+                        tabindex="-1"
+                >
+                  March
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="3"
+                        tabindex="-1"
+                >
+                  April
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="4"
+                        tabindex="-1"
+                >
+                  May
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="5"
+                        tabindex="-1"
+                >
+                  June
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="6"
+                        tabindex="-1"
+                >
+                  July
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="7"
+                        tabindex="-1"
+                >
+                  August
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="8"
+                        tabindex="-1"
+                >
+                  September
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="9"
+                        tabindex="-1"
+                >
+                  October
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="10"
+                        tabindex="-1"
+                >
+                  November
+                </option>
+                <option class="flatpickr-monthDropdown-month"
+                        value="11"
+                        tabindex="-1"
+                >
+                  December
+                </option>
+              </select>
+              <div class="numInputWrapper">
+                <input class="numInput cur-year"
+                       type="number"
+                       tabindex="-1"
+                       aria-label="Year"
+                >
+                <span class="arrowUp">
+                </span>
+                <span class="arrowDown">
+                </span>
+              </div>
+            </div>
+          </div>
+          <span class="flatpickr-next-month">
+            <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
+                      icon="arrow_right"
+            >
+            </ino-icon>
+          </span>
+        </div>
+        <div class="flatpickr-innerContainer">
+          <div class="flatpickr-rContainer">
+            <div class="flatpickr-weekdays">
+              <div class="flatpickr-weekdaycontainer">
+                <span class="flatpickr-weekday">
+                  Sun
+                </span>
+                <span class="flatpickr-weekday">
+                  Mon
+                </span>
+                <span class="flatpickr-weekday">
+                  Tue
+                </span>
+                <span class="flatpickr-weekday">
+                  Wed
+                </span>
+                <span class="flatpickr-weekday">
+                  Thu
+                </span>
+                <span class="flatpickr-weekday">
+                  Fri
+                </span>
+                <span class="flatpickr-weekday">
+                  Sat
+                </span>
+              </div>
+            </div>
+            <div class="flatpickr-days"
+                 tabindex="-1"
+            >
+              <div class="dayContainer">
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="July 31, 2022"
+                      tabindex="-1"
+                >
+                  31
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 1, 2022"
+                      tabindex="-1"
+                >
+                  1
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 2, 2022"
+                      tabindex="-1"
+                >
+                  2
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 3, 2022"
+                      tabindex="-1"
+                >
+                  3
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 4, 2022"
+                      tabindex="-1"
+                >
+                  4
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 5, 2022"
+                      tabindex="-1"
+                >
+                  5
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 6, 2022"
+                      tabindex="-1"
+                >
+                  6
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 7, 2022"
+                      tabindex="-1"
+                >
+                  7
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 8, 2022"
+                      tabindex="-1"
+                >
+                  8
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 9, 2022"
+                      tabindex="-1"
+                >
+                  9
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 10, 2022"
+                      tabindex="-1"
+                >
+                  10
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 11, 2022"
+                      tabindex="-1"
+                >
+                  11
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 12, 2022"
+                      tabindex="-1"
+                >
+                  12
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 13, 2022"
+                      tabindex="-1"
+                >
+                  13
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 14, 2022"
+                      tabindex="-1"
+                >
+                  14
+                </span>
+                <span class="flatpickr-day today"
+                      aria-label="August 15, 2022"
+                      aria-current="date"
+                      tabindex="-1"
+                >
+                  15
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 16, 2022"
+                      tabindex="-1"
+                >
+                  16
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 17, 2022"
+                      tabindex="-1"
+                >
+                  17
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 18, 2022"
+                      tabindex="-1"
+                >
+                  18
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 19, 2022"
+                      tabindex="-1"
+                >
+                  19
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 20, 2022"
+                      tabindex="-1"
+                >
+                  20
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 21, 2022"
+                      tabindex="-1"
+                >
+                  21
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 22, 2022"
+                      tabindex="-1"
+                >
+                  22
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 23, 2022"
+                      tabindex="-1"
+                >
+                  23
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 24, 2022"
+                      tabindex="-1"
+                >
+                  24
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 25, 2022"
+                      tabindex="-1"
+                >
+                  25
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 26, 2022"
+                      tabindex="-1"
+                >
+                  26
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 27, 2022"
+                      tabindex="-1"
+                >
+                  27
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 28, 2022"
+                      tabindex="-1"
+                >
+                  28
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 29, 2022"
+                      tabindex="-1"
+                >
+                  29
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 30, 2022"
+                      tabindex="-1"
+                >
+                  30
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="August 31, 2022"
+                      tabindex="-1"
+                >
+                  31
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 1, 2022"
+                      tabindex="-1"
+                >
+                  1
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 2, 2022"
+                      tabindex="-1"
+                >
+                  2
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 3, 2022"
+                      tabindex="-1"
+                >
+                  3
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 4, 2022"
+                      tabindex="-1"
+                >
+                  4
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 5, 2022"
+                      tabindex="-1"
+                >
+                  5
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 6, 2022"
+                      tabindex="-1"
+                >
+                  6
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 7, 2022"
+                      tabindex="-1"
+                >
+                  7
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 8, 2022"
+                      tabindex="-1"
+                >
+                  8
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 9, 2022"
+                      tabindex="-1"
+                >
+                  9
+                </span>
+                <span class="flatpickr-day nextMonthDay"
+                      aria-label="September 10, 2022"
+                      tabindex="-1"
+                >
+                  10
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker Locale smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker lang="en"
+                    label="English"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              English
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker lang="de"
+                    date-format="d.m.Y"
+                    label="German"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              German
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker lang="de"
+                    date-format="d.m.Y"
+                    range
+                    label="German range"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              German range
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <div lang="de"
+         class="datepicker-group"
+    >
+      <aside>
+        <ul>
+          <li class="today">
+            Heute
+          </li>
+          <li class="lastWeek">
+            Letzte Woche
+          </li>
+          <li class="thisWeek">
+            Diese Woche
+          </li>
+        </ul>
+      </aside>
+      <main id="main">
+        <ino-datepicker type="date"
+                        label="An"
+                        inline
+                        date-format="d.m.Y"
+                        placeholder="tt.mm.jjjj"
+                        append-to="main"
+                        class="hydrated"
+        >
+          <ino-input icon-leading
+                     class="hydrated flatpickr-input"
+                     tabindex="-1"
+          >
+            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+              <ino-label class="hydrated">
+                <div class="mdc-line-ripple">
+                </div>
+                <label class="mdc-floating-label">
+                  An
+                </label>
+              </ino-label>
+              <input class="mdc-text-field__input"
+                     autocomplete="off"
+                     step="1"
+                     placeholder="tt.mm.jjjj"
+                     type="text"
+              >
+            </label>
+            <div class="mdc-text-field-helper-line">
+            </div>
+          </ino-input>
+        </ino-datepicker>
+        <ino-radio-group value="at">
+          <ino-radio value="at">
+            Am
+          </ino-radio>
+          <ino-radio value="after">
+            Ab
+          </ino-radio>
+          <ino-radio value="before">
+            Bis
+          </ino-radio>
+          <ino-radio value="range">
+            Zeitraum
+          </ino-radio>
+        </ino-radio-group>
+        <div class="flatpickr-calendar animate inline"
+             tabindex="-1"
+        >
+          <div class="flatpickr-months">
+            <span class="flatpickr-prev-month">
+              <ino-icon class="ino-datepicker__icon"
+                        icon="arrow_left"
+              >
+              </ino-icon>
+            </span>
+            <div class="flatpickr-month">
+              <div class="flatpickr-current-month">
+                <select class="flatpickr-monthDropdown-months"
+                        tabindex="-1"
+                >
+                  <option class="flatpickr-monthDropdown-month"
+                          value="0"
+                          tabindex="-1"
+                  >
+                    Januar
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="1"
+                          tabindex="-1"
+                  >
+                    Februar
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="2"
+                          tabindex="-1"
+                  >
+                    März
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="3"
+                          tabindex="-1"
+                  >
+                    April
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="4"
+                          tabindex="-1"
+                  >
+                    Mai
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="5"
+                          tabindex="-1"
+                  >
+                    Juni
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="6"
+                          tabindex="-1"
+                  >
+                    Juli
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="7"
+                          tabindex="-1"
+                  >
+                    August
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="8"
+                          tabindex="-1"
+                  >
+                    September
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="9"
+                          tabindex="-1"
+                  >
+                    Oktober
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="10"
+                          tabindex="-1"
+                  >
+                    November
+                  </option>
+                  <option class="flatpickr-monthDropdown-month"
+                          value="11"
+                          tabindex="-1"
+                  >
+                    Dezember
+                  </option>
+                </select>
+                <div class="numInputWrapper">
+                  <input class="numInput cur-year"
+                         type="number"
+                         tabindex="-1"
+                         aria-label="Year"
+                  >
+                  <span class="arrowUp">
+                  </span>
+                  <span class="arrowDown">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <span class="flatpickr-next-month">
+              <ino-icon class="ino-datepicker__icon"
+                        icon="arrow_right"
+              >
+              </ino-icon>
+            </span>
+          </div>
+          <div class="flatpickr-innerContainer">
+            <div class="flatpickr-rContainer">
+              <div class="flatpickr-weekdays">
+                <div class="flatpickr-weekdaycontainer">
+                  <span class="flatpickr-weekday">
+                    Mo
+                  </span>
+                  <span class="flatpickr-weekday">
+                    Di
+                  </span>
+                  <span class="flatpickr-weekday">
+                    Mi
+                  </span>
+                  <span class="flatpickr-weekday">
+                    Do
+                  </span>
+                  <span class="flatpickr-weekday">
+                    Fr
+                  </span>
+                  <span class="flatpickr-weekday">
+                    Sa
+                  </span>
+                  <span class="flatpickr-weekday">
+                    So
+                  </span>
+                </div>
+              </div>
+              <div class="flatpickr-days"
+                   tabindex="-1"
+              >
+                <div class="dayContainer">
+                  <span class="flatpickr-day "
+                        aria-label="August 1, 2022"
+                        tabindex="-1"
+                  >
+                    1
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 2, 2022"
+                        tabindex="-1"
+                  >
+                    2
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 3, 2022"
+                        tabindex="-1"
+                  >
+                    3
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 4, 2022"
+                        tabindex="-1"
+                  >
+                    4
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 5, 2022"
+                        tabindex="-1"
+                  >
+                    5
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 6, 2022"
+                        tabindex="-1"
+                  >
+                    6
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 7, 2022"
+                        tabindex="-1"
+                  >
+                    7
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 8, 2022"
+                        tabindex="-1"
+                  >
+                    8
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 9, 2022"
+                        tabindex="-1"
+                  >
+                    9
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 10, 2022"
+                        tabindex="-1"
+                  >
+                    10
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 11, 2022"
+                        tabindex="-1"
+                  >
+                    11
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 12, 2022"
+                        tabindex="-1"
+                  >
+                    12
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 13, 2022"
+                        tabindex="-1"
+                  >
+                    13
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 14, 2022"
+                        tabindex="-1"
+                  >
+                    14
+                  </span>
+                  <span class="flatpickr-day today"
+                        aria-label="August 15, 2022"
+                        aria-current="date"
+                        tabindex="-1"
+                  >
+                    15
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 16, 2022"
+                        tabindex="-1"
+                  >
+                    16
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 17, 2022"
+                        tabindex="-1"
+                  >
+                    17
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 18, 2022"
+                        tabindex="-1"
+                  >
+                    18
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 19, 2022"
+                        tabindex="-1"
+                  >
+                    19
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 20, 2022"
+                        tabindex="-1"
+                  >
+                    20
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 21, 2022"
+                        tabindex="-1"
+                  >
+                    21
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 22, 2022"
+                        tabindex="-1"
+                  >
+                    22
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 23, 2022"
+                        tabindex="-1"
+                  >
+                    23
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 24, 2022"
+                        tabindex="-1"
+                  >
+                    24
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 25, 2022"
+                        tabindex="-1"
+                  >
+                    25
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 26, 2022"
+                        tabindex="-1"
+                  >
+                    26
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 27, 2022"
+                        tabindex="-1"
+                  >
+                    27
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 28, 2022"
+                        tabindex="-1"
+                  >
+                    28
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 29, 2022"
+                        tabindex="-1"
+                  >
+                    29
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 30, 2022"
+                        tabindex="-1"
+                  >
+                    30
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="August 31, 2022"
+                        tabindex="-1"
+                  >
+                    31
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 1, 2022"
+                        tabindex="-1"
+                  >
+                    1
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 2, 2022"
+                        tabindex="-1"
+                  >
+                    2
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 3, 2022"
+                        tabindex="-1"
+                  >
+                    3
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 4, 2022"
+                        tabindex="-1"
+                  >
+                    4
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 5, 2022"
+                        tabindex="-1"
+                  >
+                    5
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 6, 2022"
+                        tabindex="-1"
+                  >
+                    6
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 7, 2022"
+                        tabindex="-1"
+                  >
+                    7
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 8, 2022"
+                        tabindex="-1"
+                  >
+                    8
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 9, 2022"
+                        tabindex="-1"
+                  >
+                    9
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 10, 2022"
+                        tabindex="-1"
+                  >
+                    10
+                  </span>
+                  <span class="flatpickr-day nextMonthDay"
+                        aria-label="September 11, 2022"
+                        tabindex="-1"
+                  >
+                    11
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker class="customizable-picker"
+                    attach-to-body="true"
+                    disabled="false"
+                    date-format="Y-m-d"
+                    helper="Helper text to describe the input"
+                    inline="false"
+                    helper-persistent="false"
+                    helper-validation="false"
+                    label="Label"
+                    min="2022-08-10"
+                    max="2022-08-20"
+                    outline="false"
+                    range="false"
+                    required="false"
+                    error="false"
+                    show-label-hint="false"
+                    twelve-hour-time="false"
+                    type="date"
+                    value="2022-08-15"
+    >
+      <ino-input icon-leading>
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon">
+          <ino-label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="hydrated ino-icon--color-scheme-primary"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+                 aria-controls="input-helper-text__0"
+                 aria-describedby="input-helper-text__0"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+          <div class="mdc-text-field-helper-text"
+               id="input-helper-text__0"
+               aria-hidden="true"
+          >
+            Helper text to describe the input
+          </div>
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker RequiredForm smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <form>
+      <ino-datepicker class="required-datepicker hydrated"
+                      label="Required"
+                      required
+      >
+        <ino-input icon-leading
+                   class="hydrated flatpickr-input"
+                   tabindex="-1"
+        >
+          <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon">
+            <ino-label class="ino-label--required hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+              <label class="mdc-floating-label mdc-floating-label--required">
+                Required
+              </label>
+            </ino-label>
+            <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+              <ino-icon slot="icon-leading"
+                        class="ino-icon--color-scheme-primary hydrated"
+              >
+              </ino-icon>
+            </span>
+            <input class="mdc-text-field__input"
+                   autocomplete="off"
+                   step="1"
+                   required
+                   type="text"
+            >
+          </label>
+          <div class="mdc-text-field-helper-line">
+          </div>
+        </ino-input>
+      </ino-datepicker>
+      <ino-button type="submit">
+        Submit
+      </ino-button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker label="Predefined value"
+                    date-format="Y-m-d"
+                    value="2022-08-15"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--label-floating mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label mdc-floating-label--float-above">
+              Predefined value
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker label="Min date"
+                    date-format="Y-m-d"
+                    min="2022-08-10"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Min date
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker label="Max date"
+                    date-format="Y-m-d"
+                    max="2022-08-20"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Max date
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker label="Min and Max date"
+                    date-format="Y-m-d"
+                    min="2022-08-10"
+                    max="2022-08-20"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Min and Max date
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker type="time"
+                    label="hour step and minute step"
+                    hour-step="2"
+                    minute-step="5"
+                    date-format="H:i"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              hour step and minute step
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker type="time"
+                    label="Default hour and minute"
+                    date-format="H:i"
+                    default-hour="14"
+                    default-minute="49"
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Default hour and minute
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker States smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker label="Disabled"
+                    disabled
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--disabled mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="ino-label--disabled hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Disabled
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 disabled
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker label="Required"
+                    required
+                    show-label-hint
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 show-label-hint
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label show-hint
+                     class="ino-label--show-hint ino-label--required hydrated"
+          >
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label mdc-floating-label--required">
+              Required
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 required
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+    <ino-datepicker label="Optional"
+                    show-label-hint
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 show-label-hint
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label show-hint
+                     class="ino-label--show-hint hydrated"
+          >
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Optional
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-datepicker TwelveHourTime smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-datepicker">
+    <ino-datepicker type="time"
+                    date-format="h:i K"
+                    label="Twelve hour time"
+                    twelve-hour-time
+                    class="hydrated"
+    >
+      <ino-input icon-leading
+                 class="hydrated flatpickr-input"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label">
+              Twelve hour time
+            </label>
+          </ino-label>
+          <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <input class="mdc-text-field__input"
+                 autocomplete="off"
+                 step="1"
+                 type="text"
+          >
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-datepicker>
+  </div>
+</div>
+`;

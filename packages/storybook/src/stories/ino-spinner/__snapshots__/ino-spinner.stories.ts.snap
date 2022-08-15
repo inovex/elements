@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification/ino-spinner ColorScheme smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-spinner">
+    <ino-spinner color-scheme="secondary"
+                 height="40"
+                 modal="false"
+                 type="circle"
+                 width="40"
+    >
+    </ino-spinner>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-spinner Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-spinner">
+    <ino-spinner color-scheme="primary"
+                 height="40"
+                 modal="false"
+                 type="tile"
+                 width="40"
+    >
+    </ino-spinner>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-spinner Type smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-spinner">
+    <ino-spinner color-scheme="primary"
+                 height="40"
+                 modal="false"
+                 type="bounce"
+                 width="40"
+    >
+    </ino-spinner>
+  </div>
+</div>
+`;

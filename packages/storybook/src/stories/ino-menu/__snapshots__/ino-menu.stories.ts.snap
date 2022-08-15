@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-menu Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-menu">
+    <ino-card disable-elevation>
+      <div class="row"
+           slot="header"
+      >
+        <p>
+          Open Menu
+        </p>
+        <ino-icon-button icon="menu">
+          <ino-menu placement="auto">
+            <ino-list-item tabindex="0"
+                           text="Item 1"
+            >
+            </ino-list-item>
+            <ino-list-item tabindex="0"
+                           text="Item 2"
+            >
+            </ino-list-item>
+          </ino-menu>
+        </ino-icon-button>
+      </div>
+    </ino-card>
+  </div>
+</div>
+`;

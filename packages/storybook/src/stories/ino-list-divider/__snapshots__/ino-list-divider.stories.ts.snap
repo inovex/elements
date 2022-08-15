@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-list-divider BetweenLists smoke-test 1`] = `
+<div id="root-inner">
+  <ino-list>
+    <ino-list-item text="List 1 - item 1">
+    </ino-list-item>
+    <ino-list-item text="List 1 - item 2">
+    </ino-list-item>
+    <ino-list-item text="List 1 - item 3">
+    </ino-list-item>
+  </ino-list>
+  <ino-list-divider between-lists="true">
+  </ino-list-divider>
+  <ino-list>
+    <ino-list-item text="List 2 - item 1">
+    </ino-list-item>
+    <ino-list-item text="List 2 - item 2">
+    </ino-list-item>
+    <ino-list-item text="List 2 - item 3">
+    </ino-list-item>
+  </ino-list>
+</div>
+`;
+
+exports[`Structure/ino-list-divider Insert smoke-test 1`] = `
+<div id="root-inner">
+  <ino-list>
+    <ino-list-item text="Add to favorites">
+      <ino-icon slot="leading"
+                icon="favorite"
+      >
+      </ino-icon>
+    </ino-list-item>
+    <ino-list-divider inset="true"
+                      between-lists="false"
+    >
+    </ino-list-divider>
+    <ino-list-item text="Star it!">
+      <ino-icon slot="leading"
+                icon="star"
+      >
+      </ino-icon>
+    </ino-list-item>
+  </ino-list>
+</div>
+`;
+
+exports[`Structure/ino-list-divider Padded smoke-test 1`] = `
+<div id="root-inner">
+  <ino-list>
+    <ino-list-item text="Item 2">
+    </ino-list-item>
+    <ino-list-divider inset="false"
+                      between-lists="false"
+                      padded="true"
+    >
+    </ino-list-divider>
+    <ino-list-item text="Item 3">
+    </ino-list-item>
+  </ino-list>
+</div>
+`;
+
+exports[`Structure/ino-list-divider Playground smoke-test 1`] = `
+<div id="root-inner">
+  <ino-list>
+    <ino-list-item text="Item 2">
+    </ino-list-item>
+    <ino-list-divider inset="false"
+                      between-lists="false"
+                      padded="false"
+    >
+    </ino-list-divider>
+    <ino-list-item text="Item 3">
+    </ino-list-item>
+  </ino-list>
+</div>
+`;

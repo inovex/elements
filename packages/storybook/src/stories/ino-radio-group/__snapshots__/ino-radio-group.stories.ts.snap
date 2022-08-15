@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-radio-group Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-radio-group id="radio-grp"
+                     value="opt-2"
+                     alignment="undefined"
+    >
+      <ino-radio value="opt-1">
+        Opt 1
+      </ino-radio>
+      <ino-radio value="opt-2">
+        Opt 2
+      </ino-radio>
+      <ino-radio value="opt-3">
+        Opt 3
+      </ino-radio>
+    </ino-radio-group>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-radio-group VerticalAlignment smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-radio-group id="radio-grp"
+                     value="opt-2"
+                     alignment="vertical"
+    >
+      <ino-radio value="opt-1">
+        Opt 1
+      </ino-radio>
+      <ino-radio value="opt-2">
+        Opt 2
+      </ino-radio>
+      <ino-radio value="opt-3">
+        Opt 3
+      </ino-radio>
+    </ino-radio-group>
+  </div>
+</div>
+`;

@@ -1,0 +1,1268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-table Loading smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table loading="true"
+               sort-column-id="id"
+               sort-direction="asc"
+               no-hover="false"
+               sticky-header="false"
+    >
+      <ino-progress-bar slot="loading-indicator"
+                        indeterminate
+                        debounce="200"
+                        active
+      >
+      </ino-progress-bar>
+      <tr slot="header-row">
+      </tr>
+      <ino-table-header-cell column-id="id"
+                             sort-start="asc"
+                             label="ID"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="name"
+                             sort-start="asc"
+                             label="Name"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="release"
+                             label="Release Date"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office"
+                             label="Box Office"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="rating"
+                             label="Rating"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another1"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another2"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          The Bourne Identity
+        </td>
+        <td>
+          14.06.2002
+        </td>
+        <td>
+          $214 million
+        </td>
+        <td>
+          93%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sully
+        </td>
+        <td>
+          09.09.2016
+        </td>
+        <td>
+          $240.8 million
+        </td>
+        <td>
+          84%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          The Martian
+        </td>
+        <td>
+          02.10.2015
+        </td>
+        <td>
+          $630.2 million
+        </td>
+        <td>
+          94%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4
+        </td>
+        <td>
+          John Wick: Chapter 3
+        </td>
+        <td>
+          17.05.2019
+        </td>
+        <td>
+          $326.7 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5
+        </td>
+        <td>
+          10 Cloverfield Lane
+        </td>
+        <td>
+          11.03.2016
+        </td>
+        <td>
+          $110.2 million
+        </td>
+        <td>
+          87%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          6
+        </td>
+        <td>
+          Thor: Ragnarok
+        </td>
+        <td>
+          10.10.2017
+        </td>
+        <td>
+          $854 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          7
+        </td>
+        <td>
+          The latest movie
+        </td>
+        <td>
+          01.01.2021
+        </td>
+        <td>
+          $900 million
+        </td>
+        <td>
+          95%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table NoHover smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table loading="false"
+               sort-column-id="id"
+               sort-direction="asc"
+               no-hover="true"
+               sticky-header="false"
+    >
+      <tr slot="header-row">
+      </tr>
+      <ino-table-header-cell column-id="id"
+                             sort-start="asc"
+                             label="ID"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="name"
+                             sort-start="asc"
+                             label="Name"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="release"
+                             label="Release Date"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office"
+                             label="Box Office"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="rating"
+                             label="Rating"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another1"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another2"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          The Bourne Identity
+        </td>
+        <td>
+          14.06.2002
+        </td>
+        <td>
+          $214 million
+        </td>
+        <td>
+          93%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sully
+        </td>
+        <td>
+          09.09.2016
+        </td>
+        <td>
+          $240.8 million
+        </td>
+        <td>
+          84%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          The Martian
+        </td>
+        <td>
+          02.10.2015
+        </td>
+        <td>
+          $630.2 million
+        </td>
+        <td>
+          94%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4
+        </td>
+        <td>
+          John Wick: Chapter 3
+        </td>
+        <td>
+          17.05.2019
+        </td>
+        <td>
+          $326.7 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5
+        </td>
+        <td>
+          10 Cloverfield Lane
+        </td>
+        <td>
+          11.03.2016
+        </td>
+        <td>
+          $110.2 million
+        </td>
+        <td>
+          87%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          6
+        </td>
+        <td>
+          Thor: Ragnarok
+        </td>
+        <td>
+          10.10.2017
+        </td>
+        <td>
+          $854 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          7
+        </td>
+        <td>
+          The latest movie
+        </td>
+        <td>
+          01.01.2021
+        </td>
+        <td>
+          $900 million
+        </td>
+        <td>
+          95%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table loading="false"
+               sort-column-id="id"
+               sort-direction="asc"
+               no-hover="false"
+               sticky-header="false"
+    >
+      <tr slot="header-row">
+      </tr>
+      <ino-table-header-cell column-id="id"
+                             sort-start="asc"
+                             label="ID"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="name"
+                             sort-start="asc"
+                             label="Name"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="release"
+                             label="Release Date"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office"
+                             label="Box Office"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="rating"
+                             label="Rating"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another1"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another2"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          The Bourne Identity
+        </td>
+        <td>
+          14.06.2002
+        </td>
+        <td>
+          $214 million
+        </td>
+        <td>
+          93%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sully
+        </td>
+        <td>
+          09.09.2016
+        </td>
+        <td>
+          $240.8 million
+        </td>
+        <td>
+          84%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          The Martian
+        </td>
+        <td>
+          02.10.2015
+        </td>
+        <td>
+          $630.2 million
+        </td>
+        <td>
+          94%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4
+        </td>
+        <td>
+          John Wick: Chapter 3
+        </td>
+        <td>
+          17.05.2019
+        </td>
+        <td>
+          $326.7 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5
+        </td>
+        <td>
+          10 Cloverfield Lane
+        </td>
+        <td>
+          11.03.2016
+        </td>
+        <td>
+          $110.2 million
+        </td>
+        <td>
+          87%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          6
+        </td>
+        <td>
+          Thor: Ragnarok
+        </td>
+        <td>
+          10.10.2017
+        </td>
+        <td>
+          $854 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          7
+        </td>
+        <td>
+          The latest movie
+        </td>
+        <td>
+          01.01.2021
+        </td>
+        <td>
+          $900 million
+        </td>
+        <td>
+          95%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table SelectionWithCheckboxes smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table class="selectable-table">
+      <tr slot="header-row">
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox id="headerBox"
+                        selection
+          >
+          </ino-checkbox>
+        </td>
+        <td>
+          Header A
+        </td>
+        <td>
+          Header B
+        </td>
+        <td>
+          Header C
+        </td>
+        <td>
+          Header D
+        </td>
+        <td>
+          Header E
+        </td>
+        <td>
+          Header F
+        </td>
+        <td>
+          Header G
+        </td>
+        <td>
+          Header H
+        </td>
+        <td>
+          Header I
+        </td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox selection>
+          </ino-checkbox>
+        </td>
+        <td class="ino-table__cell--numeric">
+          1
+        </td>
+        <td>
+          Cell B1
+        </td>
+        <td>
+          Cell C1
+        </td>
+        <td>
+          Cell D1
+        </td>
+        <td>
+          Cell E1
+        </td>
+        <td>
+          Cell F1
+        </td>
+        <td>
+          Cell G1
+        </td>
+        <td>
+          Cell H1
+        </td>
+        <td>
+          Cell I1
+        </td>
+      </tr>
+      <tr class="ino-table__row--selected">
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox selection
+                        checked
+          >
+          </ino-checkbox>
+        </td>
+        <td class="ino-table__cell--numeric">
+          2
+        </td>
+        <td>
+          Cell B2
+        </td>
+        <td>
+          Cell C2
+        </td>
+        <td>
+          Cell D2
+        </td>
+        <td>
+          Cell E2
+        </td>
+        <td>
+          Cell F2
+        </td>
+        <td>
+          Cell G2
+        </td>
+        <td>
+          Cell H2
+        </td>
+        <td>
+          Cell I2
+        </td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox selection>
+          </ino-checkbox>
+        </td>
+        <td class="ino-table__cell--numeric">
+          3
+        </td>
+        <td>
+          Cell B3
+        </td>
+        <td>
+          Cell C3
+        </td>
+        <td>
+          Cell D3
+        </td>
+        <td>
+          Cell E3
+        </td>
+        <td>
+          Cell F3
+        </td>
+        <td>
+          Cell G3
+        </td>
+        <td>
+          Cell H3
+        </td>
+        <td>
+          Cell I3
+        </td>
+      </tr>
+      <tr class="ino-table__row--active">
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox selection>
+          </ino-checkbox>
+        </td>
+        <td class="ino-table__cell--numeric">
+          4
+        </td>
+        <td>
+          Cell B4
+        </td>
+        <td>
+          Cell C4
+        </td>
+        <td>
+          Cell D4
+        </td>
+        <td>
+          Cell E4
+        </td>
+        <td>
+          Cell F4
+        </td>
+        <td>
+          Cell G4
+        </td>
+        <td>
+          Cell H4
+        </td>
+        <td>
+          Cell I4
+        </td>
+      </tr>
+      <tr>
+        <td class="ino-table__cell--checkbox">
+          <ino-checkbox selection>
+          </ino-checkbox>
+        </td>
+        <td class="ino-table__cell--numeric">
+          5
+        </td>
+        <td>
+          Cell B5
+        </td>
+        <td>
+          Cell C5
+        </td>
+        <td>
+          Cell D5
+        </td>
+        <td>
+          Cell E5
+        </td>
+        <td>
+          Cell F5
+        </td>
+        <td>
+          Cell G5
+        </td>
+        <td>
+          Cell H5
+        </td>
+        <td>
+          Cell I5
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table loading="false"
+               sort-column-id="id"
+               sort-direction="asc"
+               no-hover="false"
+               sticky-header="false"
+    >
+      <tr slot="header-row">
+      </tr>
+      <ino-table-header-cell column-id="id"
+                             sort-start="asc"
+                             label="ID"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="name"
+                             sort-start="asc"
+                             label="Name"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="release"
+                             label="Release Date"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office"
+                             label="Box Office"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="rating"
+                             label="Rating"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another1"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another2"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          The Bourne Identity
+        </td>
+        <td>
+          14.06.2002
+        </td>
+        <td>
+          $214 million
+        </td>
+        <td>
+          93%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sully
+        </td>
+        <td>
+          09.09.2016
+        </td>
+        <td>
+          $240.8 million
+        </td>
+        <td>
+          84%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          The Martian
+        </td>
+        <td>
+          02.10.2015
+        </td>
+        <td>
+          $630.2 million
+        </td>
+        <td>
+          94%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4
+        </td>
+        <td>
+          John Wick: Chapter 3
+        </td>
+        <td>
+          17.05.2019
+        </td>
+        <td>
+          $326.7 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5
+        </td>
+        <td>
+          10 Cloverfield Lane
+        </td>
+        <td>
+          11.03.2016
+        </td>
+        <td>
+          $110.2 million
+        </td>
+        <td>
+          87%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          6
+        </td>
+        <td>
+          Thor: Ragnarok
+        </td>
+        <td>
+          10.10.2017
+        </td>
+        <td>
+          $854 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          7
+        </td>
+        <td>
+          The latest movie
+        </td>
+        <td>
+          01.01.2021
+        </td>
+        <td>
+          $900 million
+        </td>
+        <td>
+          95%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-table">
+    <ino-table loading="false"
+               sort-column-id="id"
+               sort-direction="asc"
+               no-hover="false"
+               sticky-header="true"
+    >
+      <tr slot="header-row">
+      </tr>
+      <ino-table-header-cell column-id="id"
+                             sort-start="asc"
+                             label="ID"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="name"
+                             sort-start="asc"
+                             label="Name"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="release"
+                             label="Release Date"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="box-office"
+                             label="Box Office"
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="rating"
+                             label="Rating"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another1"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <ino-table-header-cell column-id="another2"
+                             label="Another Column"
+                             not-sortable
+      >
+      </ino-table-header-cell>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          The Bourne Identity
+        </td>
+        <td>
+          14.06.2002
+        </td>
+        <td>
+          $214 million
+        </td>
+        <td>
+          93%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sully
+        </td>
+        <td>
+          09.09.2016
+        </td>
+        <td>
+          $240.8 million
+        </td>
+        <td>
+          84%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          The Martian
+        </td>
+        <td>
+          02.10.2015
+        </td>
+        <td>
+          $630.2 million
+        </td>
+        <td>
+          94%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          4
+        </td>
+        <td>
+          John Wick: Chapter 3
+        </td>
+        <td>
+          17.05.2019
+        </td>
+        <td>
+          $326.7 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          5
+        </td>
+        <td>
+          10 Cloverfield Lane
+        </td>
+        <td>
+          11.03.2016
+        </td>
+        <td>
+          $110.2 million
+        </td>
+        <td>
+          87%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          6
+        </td>
+        <td>
+          Thor: Ragnarok
+        </td>
+        <td>
+          10.10.2017
+        </td>
+        <td>
+          $854 million
+        </td>
+        <td>
+          92%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+      <tr>
+        <td>
+          7
+        </td>
+        <td>
+          The latest movie
+        </td>
+        <td>
+          01.01.2021
+        </td>
+        <td>
+          $900 million
+        </td>
+        <td>
+          95%
+        </td>
+        <td>
+          Some information
+        </td>
+        <td>
+          Some information
+        </td>
+      </tr>
+    </ino-table>
+  </div>
+</div>
+`;

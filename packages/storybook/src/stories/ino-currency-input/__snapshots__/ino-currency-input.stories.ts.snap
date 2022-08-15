@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-currency-input Locales smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-currency-input">
+    <ino-currency-input value="15.00"
+                        currency-locale="en-EN"
+                        class="hydrated"
+    >
+      <input type="hidden"
+             value="15.00"
+             name="undefined"
+             min="undefined"
+             max="undefined"
+      >
+      <ino-input class="customizable-input hydrated"
+                 id="customizable-input"
+                 label="Default Input"
+                 outline="true"
+                 unit="€"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon mdc-text-field--label-floating">
+          <ino-label class="ino-label--outlined hydrated">
+            <div class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+              <div class="mdc-notched-outline__leading">
+              </div>
+              <div class="mdc-notched-outline__notch"
+                   style="width: 79.25px;"
+              >
+                <label class="mdc-floating-label mdc-floating-label--float-above"
+                       style="transition-duration: 0s;"
+                >
+                  Default Input
+                </label>
+              </div>
+              <div class="mdc-notched-outline__trailing">
+              </div>
+            </div>
+          </ino-label>
+          <input class="mdc-text-field__input"
+                 step="1"
+                 type="text"
+          >
+          <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
+            €
+          </span>
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-currency-input>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-currency-input Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-currency-input">
+    <ino-currency-input value="15.00"
+                        currency-locale="de-DE"
+                        class="hydrated"
+    >
+      <input type="hidden"
+             value="15.00"
+             name="undefined"
+             min="undefined"
+             max="undefined"
+      >
+      <ino-input class="customizable-input hydrated"
+                 id="customizable-input"
+                 label="Default Input"
+                 outline="true"
+                 unit="€"
+                 tabindex="-1"
+      >
+        <label class="ino-input__composer mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon mdc-text-field--label-floating">
+          <ino-label class="ino-label--outlined hydrated">
+            <div class="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
+              <div class="mdc-notched-outline__leading">
+              </div>
+              <div class="mdc-notched-outline__notch"
+                   style="width: 79.25px;"
+              >
+                <label class="mdc-floating-label mdc-floating-label--float-above"
+                       style
+                >
+                  Default Input
+                </label>
+              </div>
+              <div class="mdc-notched-outline__trailing">
+              </div>
+            </div>
+          </ino-label>
+          <input class="mdc-text-field__input"
+                 step="1"
+                 type="text"
+          >
+          <span class="mdc-text-field__affix mdc-text-field__affix--suffix">
+            €
+          </span>
+        </label>
+        <div class="mdc-text-field-helper-line">
+        </div>
+      </ino-input>
+    </ino-currency-input>
+  </div>
+</div>
+`;

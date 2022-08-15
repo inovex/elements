@@ -1,0 +1,444 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-nav-drawer AnchorRight smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-nav-drawer__default">
+    <ino-nav-drawer class="customizable-drawer hydrated"
+                    open="true"
+                    anchor="right"
+                    variant="docked"
+    >
+      <div slot="header">
+        <ino-img slot="logo"
+                 width="50"
+                 src="static/media/src/assets/images/james-logo.png"
+                 class="hydrated"
+                 style="width: 50px;"
+        >
+          <div class="ino-img__composer"
+               style="padding-top: 100%;"
+          >
+            <img class="ino-img__image"
+                 src="static/media/src/assets/images/james-logo.png"
+                 width="50"
+            >
+            <div class="ino-img__fallback-icon">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </div>
+          </div>
+        </ino-img>
+        <p>
+          inovex
+        </p>
+      </div>
+      <ino-list slot="content"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="Some Link"
+                        activated
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="onboarding"
+                              class="hydrated ino-icon--color-scheme-primary"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  Some Link
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <ino-list slot="footer"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="My Profile"
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="employee"
+                              class="hydrated ino-icon--color-scheme-primary"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  My Profile
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <main slot="app"
+            class="main-content"
+      >
+        <ino-button fill="outline"
+                    dense
+                    class="toggle-nav hydrated"
+        >
+          <button class="button button__variant--filled button--dense"
+                  type="button"
+          >
+            <span class="button__label">
+              Toggle Navigation
+            </span>
+          </button>
+        </ino-button>
+        <br>
+        <br>
+        Your App goes here 🤘
+        <br>
+        <br>
+      </main>
+    </ino-nav-drawer>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-drawer Dismissible smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-nav-drawer__default">
+    <ino-nav-drawer class="customizable-drawer hydrated"
+                    open="true"
+                    anchor="left"
+                    variant="dismissible"
+    >
+      <div slot="header">
+        <ino-img slot="logo"
+                 width="50"
+                 src="static/media/src/assets/images/james-logo.png"
+                 class="hydrated"
+                 style="width: 50px;"
+        >
+          <div class="ino-img__composer"
+               style="padding-top: 100%;"
+          >
+            <img class="ino-img__image"
+                 src="static/media/src/assets/images/james-logo.png"
+                 width="50"
+            >
+            <div class="ino-img__fallback-icon">
+              <ino-icon class="ino-icon--color-scheme-primary hydrated">
+              </ino-icon>
+            </div>
+          </div>
+        </ino-img>
+        <p>
+          inovex
+        </p>
+      </div>
+      <ino-list slot="content"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="Some Link"
+                        activated
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="onboarding"
+                              class="ino-icon--color-scheme-primary hydrated"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  Some Link
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <ino-list slot="footer"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="My Profile"
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="employee"
+                              class="ino-icon--color-scheme-primary hydrated"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  My Profile
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <main slot="app"
+            class="main-content"
+      >
+        <ino-button fill="outline"
+                    dense
+                    class="toggle-nav hydrated"
+        >
+          <button class="button button__variant--filled button--dense"
+                  type="button"
+          >
+            <span class="button__label">
+              Toggle Navigation
+            </span>
+          </button>
+        </ino-button>
+        <br>
+        <br>
+        Your App goes here 🤘
+        <br>
+        <br>
+      </main>
+    </ino-nav-drawer>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-drawer Modal smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-nav-drawer__default">
+    <ino-nav-drawer class="customizable-drawer hydrated"
+                    open="false"
+                    anchor="left"
+                    variant="modal"
+    >
+      <div slot="header">
+        <ino-img slot="logo"
+                 width="50"
+                 src="static/media/src/assets/images/james-logo.png"
+                 class="hydrated"
+                 style="width: 50px;"
+        >
+          <div class="ino-img__composer"
+               style="padding-top: 100%;"
+          >
+            <img class="ino-img__image"
+                 src="static/media/src/assets/images/james-logo.png"
+                 width="50"
+            >
+            <div class="ino-img__fallback-icon">
+              <ino-icon class="ino-icon--color-scheme-primary hydrated">
+              </ino-icon>
+            </div>
+          </div>
+        </ino-img>
+        <p>
+          inovex
+        </p>
+      </div>
+      <ino-list slot="content"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="Some Link"
+                        activated
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="onboarding"
+                              class="ino-icon--color-scheme-primary hydrated"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  Some Link
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <ino-list slot="footer"
+                class="hydrated"
+      >
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="My Profile"
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
+                >
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="employee"
+                              class="ino-icon--color-scheme-primary hydrated"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  My Profile
+                </span>
+              </li>
+            </ino-list-item>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <main slot="app"
+            class="main-content"
+      >
+        <ino-button fill="outline"
+                    dense
+                    class="toggle-nav hydrated"
+        >
+          <button class="button button__variant--filled button--dense"
+                  type="button"
+          >
+            <span class="button__label">
+              Toggle Navigation
+            </span>
+          </button>
+        </ino-button>
+        <br>
+        <br>
+        Your App goes here 🤘
+        <br>
+        <br>
+      </main>
+    </ino-nav-drawer>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-nav-drawer Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-nav-drawer__default">
+    <ino-nav-drawer class="customizable-drawer"
+                    open="true"
+                    anchor="left"
+                    variant="docked"
+    >
+      <div slot="header">
+        <ino-img slot="logo"
+                 width="50"
+                 src="static/media/src/assets/images/james-logo.png"
+                 class
+                 style="width: 50px;"
+        >
+          <div class="ino-img__composer">
+            <img class="ino-img__image"
+                 src="static/media/src/assets/images/james-logo.png"
+                 width="50"
+            >
+            <div class="ino-img__fallback-icon">
+              <ino-icon>
+              </ino-icon>
+            </div>
+          </div>
+        </ino-img>
+        <p>
+          inovex
+        </p>
+      </div>
+      <ino-list slot="content">
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="Some Link"
+                        activated
+          >
+            <ino-icon icon="onboarding">
+            </ino-icon>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <ino-list slot="footer">
+        <ul class="mdc-deprecated-list">
+          <ino-nav-item text="My Profile">
+            <ino-icon icon="employee">
+            </ino-icon>
+          </ino-nav-item>
+        </ul>
+      </ino-list>
+      <main slot="app"
+            class="main-content"
+      >
+        <ino-button fill="outline"
+                    dense
+                    class="toggle-nav"
+        >
+          Toggle Navigation
+        </ino-button>
+        <br>
+        <br>
+        Your App goes here 🤘
+        <br>
+        <br>
+      </main>
+    </ino-nav-drawer>
+  </div>
+</div>
+`;

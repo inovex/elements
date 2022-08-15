@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-markdown-editor Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-markdown-editor">
+    <ino-markdown-editor id="editor-playground"
+                         initial-value
+                         view-mode="preview"
+    >
+      <div class="markdown-editor">
+        <div class="markdown-editor__toolbar">
+          <div>
+            <button class="toolbar__action-button toolbar__view-mode toolbar__action-button--active">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button toolbar__view-mode">
+              <ino-icon>
+              </ino-icon>
+            </button>
+          </div>
+          <div class="toolbar__text-format toolbar__text-format--show">
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon>
+              </ino-icon>
+            </button>
+          </div>
+          <ino-popover color-scheme="transparent">
+            <span class="markdown-editor__error-text">
+            </span>
+          </ino-popover>
+        </div>
+        <div class="markdown-editor__content">
+          <div class="markdown-editor__content__container show-editor">
+          </div>
+          <ino-textarea class="hide-editor">
+          </ino-textarea>
+        </div>
+      </div>
+    </ino-markdown-editor>
+  </div>
+</div>
+`;

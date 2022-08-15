@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-radio Checked smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-radio">
+    <ino-radio checked="true"
+               disabled="false"
+               name="radio-custom"
+               value="radio-1"
+    >
+      Radio Button Label
+    </ino-radio>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-radio Disabled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-radio">
+    <ino-radio checked="false"
+               disabled="true"
+               name="radio-custom"
+               value="radio-1"
+    >
+      Radio Button Label
+    </ino-radio>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-radio Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-radio">
+    <ino-radio checked="false"
+               disabled="false"
+               name="radio-custom"
+               value="radio-1"
+    >
+      Radio Button Label
+    </ino-radio>
+  </div>
+</div>
+`;
+
+exports[`Input/ino-radio Unchecked smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-radio">
+    <ino-radio checked="false"
+               disabled="false"
+               name="radio-custom"
+               value="radio-1"
+    >
+      Radio Button Label
+    </ino-radio>
+  </div>
+</div>
+`;

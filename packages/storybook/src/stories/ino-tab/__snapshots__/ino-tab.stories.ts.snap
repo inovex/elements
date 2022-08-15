@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Structure/ino-tab IndicatorContentWidth smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-tab icon="info"
+             indicator-content-width="true"
+             stacked="false"
+    >
+      <button class="mdc-tab"
+              role="tab"
+              aria-selected="false"
+      >
+        <span class="mdc-tab__content">
+          <ino-icon class="mdc-tab__icon">
+          </ino-icon>
+          <span class="mdc-tab__text-label">
+            Label
+          </span>
+          <span class="mdc-tab-indicator">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+            </span>
+          </span>
+        </span>
+        <span class="mdc-tab__ripple">
+        </span>
+      </button>
+    </ino-tab>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-tab Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-tab icon="info"
+             indicator-content-width="false"
+             stacked="false"
+    >
+      <button class="mdc-tab"
+              role="tab"
+              aria-selected="false"
+      >
+        <span class="mdc-tab__content">
+          <ino-icon class="mdc-tab__icon">
+          </ino-icon>
+          <span class="mdc-tab__text-label">
+            Label
+          </span>
+        </span>
+        <span class="mdc-tab-indicator">
+          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+          </span>
+        </span>
+        <span class="mdc-tab__ripple">
+        </span>
+      </button>
+    </ino-tab>
+  </div>
+</div>
+`;
+
+exports[`Structure/ino-tab Stacked smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-tab icon="info"
+             indicator-content-width="false"
+             stacked="true"
+    >
+      <button class="mdc-tab mdc-tab--stacked"
+              role="tab"
+              aria-selected="false"
+      >
+        <span class="mdc-tab__content">
+          <ino-icon class="mdc-tab__icon">
+          </ino-icon>
+          <span class="mdc-tab__text-label">
+            Label
+          </span>
+        </span>
+        <span class="mdc-tab-indicator">
+          <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+          </span>
+        </span>
+        <span class="mdc-tab__ripple">
+        </span>
+      </button>
+    </ino-tab>
+  </div>
+</div>
+`;

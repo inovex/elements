@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification/ino-snackbar ActionText smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-snackbar">
+    <ino-button class="snackbar-trigger"
+                data-template-id="snackbar-actionText"
+    >
+      Show Snackbar
+    </ino-button>
+    <template id="snackbar-actionText">
+      <ino-snackbar id="snackbar-actionText"
+                    action-text="Show"
+                    timeout="-1"
+                    type="info"
+                    stay-visible-on-hover="false"
+      >
+        You received a new message.
+      </ino-snackbar>
+    </template>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-snackbar Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-snackbar">
+    <ino-button class="snackbar-trigger"
+                data-template-id="snackbar-default"
+    >
+      Show Snackbar
+    </ino-button>
+    <template id="snackbar-default">
+      <ino-snackbar id="snackbar-default"
+                    action-text="Some Action"
+                    timeout="-1"
+                    type="info"
+                    stay-visible-on-hover="false"
+      >
+        This is a message
+      </ino-snackbar>
+    </template>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-snackbar StayVisibleOnHover smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-snackbar">
+    <ino-button class="snackbar-trigger"
+                data-template-id="snackbar-stayVisibleOnHover"
+    >
+      Show Snackbar
+    </ino-button>
+    <template id="snackbar-stayVisibleOnHover">
+      <ino-snackbar id="snackbar-stayVisibleOnHover"
+                    action-text="Some Action"
+                    timeout="5000"
+                    type="info"
+                    stay-visible-on-hover="true"
+      >
+        This snackbar stays visible on hover otherwise it will disappear in 5s
+      </ino-snackbar>
+    </template>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-snackbar Timeout smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-snackbar">
+    <ino-button class="snackbar-trigger"
+                data-template-id="snackbar-timeout"
+    >
+      Show Snackbar
+    </ino-button>
+    <template id="snackbar-timeout">
+      <ino-snackbar id="snackbar-timeout"
+                    action-text="Some Action"
+                    timeout="5000"
+                    type="info"
+                    stay-visible-on-hover="false"
+      >
+        This snackbar will disappear in 5s
+      </ino-snackbar>
+    </template>
+  </div>
+</div>
+`;
+
+exports[`Notification/ino-snackbar Types smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-ino-snackbar">
+    <ino-button class="snackbar-trigger"
+                data-template-id="snackbar-type"
+    >
+      Show Snackbar
+    </ino-button>
+    <template id="snackbar-type">
+      <ino-snackbar id="snackbar-type"
+                    action-text="Undo"
+                    timeout="-1"
+                    type="success"
+                    stay-visible-on-hover="false"
+      >
+        User successfully updated!
+      </ino-snackbar>
+    </template>
+  </div>
+</div>
+`;

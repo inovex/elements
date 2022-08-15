@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graphic/<ino-img> Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class>
+    <ino-img class="customizable-img"
+             alt="Alternative Text"
+             decoding="async"
+             height="100"
+             sizes="undefined"
+             src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+             srcset
+             width="100"
+             usemap
+             ratio-width="1"
+             ratio-height="1"
+             rounded="false"
+             fallback-icon="image_not_available"
+    >
+    </ino-img>
+  </div>
+</div>
+`;

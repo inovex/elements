@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input/ino-input-file DragAndDrop smoke-test 1`] = `
+<div id="root-inner">
+  <ino-input-file class="customizable-input"
+                  accept
+                  autofocus="false"
+                  disabled="false"
+                  multiple="false"
+                  required="false"
+                  label="Select a file to upload"
+                  drag-and-drop="true"
+                  drag-and-drop-text="Drag your files here"
+                  drag-and-drop-secondary-text="or"
+  >
+  </ino-input-file>
+</div>
+`;
+
+exports[`Input/ino-input-file Playground smoke-test 1`] = `
+<div id="root-inner">
+  <ino-input-file class="customizable-input"
+                  accept
+                  autofocus="false"
+                  disabled="false"
+                  multiple="false"
+                  required="false"
+                  label="Select a file to upload"
+                  drag-and-drop="false"
+                  drag-and-drop-text="Drag your files here"
+                  drag-and-drop-secondary-text="or"
+  >
+  </ino-input-file>
+</div>
+`;

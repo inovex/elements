@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons/ino-icon-button Activated smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-icon-button">
+    <ino-icon-button activated="true"
+                     disabled="false"
+                     filled="false"
+                     type="undefined"
+                     color-scheme="primary"
+                     class="ino-icon-button--color-scheme-primary hydrated"
+    >
+      <button class="mdc-icon-button mdc-ripple-upgraded--background-focused"
+              type="undefined"
+      >
+        <div class="mdc-icon-button__ripple">
+        </div>
+        <span class="mdc-icon-button__icon">
+          <ino-icon icon="add"
+                    class="ino-icon--color-scheme-primary hydrated"
+          >
+          </ino-icon>
+        </span>
+      </button>
+    </ino-icon-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/ino-icon-button Filled smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-icon-button">
+    <ino-icon-button activated="false"
+                     disabled="false"
+                     filled="true"
+                     type="undefined"
+                     color-scheme="primary"
+                     class="ino-icon-button--color-scheme-primary ino-icon-button--filled hydrated"
+    >
+      <button class="mdc-icon-button ino-icon-button-filled mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+              type="undefined"
+              style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+      >
+        <div class="mdc-icon-button__ripple">
+        </div>
+        <span class="mdc-icon-button__icon">
+          <ino-icon icon="add"
+                    class="ino-icon--color-scheme-primary hydrated"
+          >
+          </ino-icon>
+        </span>
+      </button>
+    </ino-icon-button>
+  </div>
+</div>
+`;
+
+exports[`Buttons/ino-icon-button Playground smoke-test 1`] = `
+<div id="root-inner">
+  <div class="story-icon-button">
+    <ino-icon-button activated="false"
+                     disabled="false"
+                     filled="false"
+                     type="undefined"
+                     color-scheme="primary"
+                     class="ino-icon-button--color-scheme-primary hydrated"
+    >
+      <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+              type="undefined"
+              style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
+      >
+        <div class="mdc-icon-button__ripple">
+        </div>
+        <span class="mdc-icon-button__icon">
+          <ino-icon icon="add"
+                    class="hydrated ino-icon--color-scheme-primary"
+          >
+          </ino-icon>
+        </span>
+      </button>
+    </ino-icon-button>
+  </div>
+</div>
+`;
