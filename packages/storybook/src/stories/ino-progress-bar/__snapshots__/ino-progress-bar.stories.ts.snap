@@ -32,6 +32,7 @@ exports[`Notification/ino-progress-bar Playground smoke-test 1`] = `
     <ino-progress-bar buffer="0.9"
                       progress="0.4"
                       indeterminate="false"
+                      class="hydrated"
     >
     </ino-progress-bar>
   </div>

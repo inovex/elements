@@ -31,8 +31,15 @@ exports[`Input/ino-checkbox Disabled smoke-test 1`] = `
                   name="my-name"
                   selection="false"
                   value="my-value"
+                  class="hydrated"
     >
       Label
+      <input type="hidden"
+             class="aux-input"
+             disabled
+             name="my-name"
+             value="my-value"
+      >
     </ino-checkbox>
   </div>
 </div>

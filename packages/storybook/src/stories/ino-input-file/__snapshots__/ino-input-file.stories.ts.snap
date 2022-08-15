@@ -13,6 +13,28 @@ exports[`Input/ino-input-file DragAndDrop smoke-test 1`] = `
                   drag-and-drop-text="Drag your files here"
                   drag-and-drop-secondary-text="or"
   >
+    <div class="ino-input-file__dnd">
+      <div class="ino-input-file__dnd-text">
+        <label>
+          Drag your files here
+        </label>
+        <label>
+          or
+        </label>
+      </div>
+      <ino-button class="ino-input-file__button"
+                  icon-leading
+      >
+        <ino-icon slot="icon-leading">
+        </ino-icon>
+        Select a file to upload
+      </ino-button>
+      <input class="ino-input-file__native-element"
+             accept
+             type="file"
+             aria-hidden="true"
+      >
+    </div>
   </ino-input-file>
 </div>
 `;
@@ -30,6 +52,20 @@ exports[`Input/ino-input-file Playground smoke-test 1`] = `
                   drag-and-drop-text="Drag your files here"
                   drag-and-drop-secondary-text="or"
   >
+    <div class="ino-input-file__composer">
+      <ino-button class="ino-input-file__button"
+                  icon-leading
+      >
+        <ino-icon slot="icon-leading">
+        </ino-icon>
+        Select a file to upload
+      </ino-button>
+      <input class="ino-input-file__native-element"
+             accept
+             type="file"
+             aria-hidden="true"
+      >
+    </div>
   </ino-input-file>
 </div>
 `;

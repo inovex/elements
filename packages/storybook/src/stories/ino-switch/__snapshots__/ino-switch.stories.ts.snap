@@ -9,7 +9,7 @@ exports[`Input/ino-switch Checked smoke-test 1`] = `
                 name
                 class="ino-switch ino-switch--color-scheme-primary hydrated"
     >
-      <button id="ino-switch-id__sty7nwtbz"
+      <button id="ino-switch-id__0ls3ehbbo"
               class="mdc-switch mdc-switch--selected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
               type="button"
               role="switch"
@@ -25,7 +25,7 @@ exports[`Input/ino-switch Checked smoke-test 1`] = `
           </div>
         </div>
       </button>
-      <label for="ino-switch-id__sty7nwtbz">
+      <label for="ino-switch-id__0ls3ehbbo">
         Switch Label
         <input type="hidden"
                class="aux-input"
@@ -47,7 +47,7 @@ exports[`Input/ino-switch Disabled smoke-test 1`] = `
                 name
                 class="ino-switch ino-switch--color-scheme-primary ino-switch-disabled hydrated"
     >
-      <button id="ino-switch-id__je4aet5e5"
+      <button id="ino-switch-id__qdxxniiki"
               class="mdc-switch mdc-switch--unselected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
               disabled
               type="button"
@@ -64,7 +64,7 @@ exports[`Input/ino-switch Disabled smoke-test 1`] = `
           </div>
         </div>
       </button>
-      <label for="ino-switch-id__je4aet5e5">
+      <label for="ino-switch-id__qdxxniiki">
         Switch Label
         <input type="hidden"
                class="aux-input"
@@ -87,7 +87,7 @@ exports[`Input/ino-switch Playground smoke-test 1`] = `
                 name
                 class="ino-switch ino-switch--color-scheme-primary hydrated"
     >
-      <button id="ino-switch-id__itvvikj0i"
+      <button id="ino-switch-id__rvp3zwseq"
               class="mdc-switch mdc-switch--unselected mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
               type="button"
               role="switch"
@@ -103,7 +103,7 @@ exports[`Input/ino-switch Playground smoke-test 1`] = `
           </div>
         </div>
       </button>
-      <label for="ino-switch-id__itvvikj0i">
+      <label for="ino-switch-id__rvp3zwseq">
         Switch Label
         <input type="hidden"
                class="aux-input"

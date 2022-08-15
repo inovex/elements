@@ -14,7 +14,7 @@ exports[`Structure/ino-list-item Activated smoke-test 1`] = `
                        text="List item"
                        class="hydrated"
         >
-          <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated"
+          <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
               tabindex="-1"
           >
             <span class="mdc-deprecated-list-item__ripple">
@@ -133,7 +133,7 @@ exports[`Structure/ino-list-item Playground smoke-test 1`] = `
                        text="List item"
                        class="hydrated"
         >
-          <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+          <li class="mdc-deprecated-list-item"
               tabindex="-1"
           >
             <span class="mdc-deprecated-list-item__ripple">
@@ -163,7 +163,7 @@ exports[`Structure/ino-list-item SecondaryText smoke-test 1`] = `
                        text="List item"
                        class="hydrated"
         >
-          <li class="mdc-deprecated-list-item"
+          <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
               tabindex="-1"
           >
             <span class="mdc-deprecated-list-item__ripple">
@@ -274,12 +274,25 @@ exports[`Structure/ino-list-item WithRadio smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-list-item">
     <ino-list>
-      <ino-list-item text="Lorem ipsum dolor sit">
-        <ino-radio slot="leading"
-                   selection
-        >
-        </ino-radio>
-      </ino-list-item>
+      <ul class="mdc-deprecated-list">
+        <ino-list-item text="Lorem ipsum dolor sit">
+          <li class="mdc-deprecated-list-item">
+            <span class="mdc-deprecated-list-item__ripple">
+            </span>
+            <span class="mdc-deprecated-list-item__graphic"
+                  role="presentation"
+            >
+              <ino-radio slot="leading"
+                         selection
+              >
+              </ino-radio>
+            </span>
+            <span class="mdc-deprecated-list-item__text">
+              Lorem ipsum dolor sit
+            </span>
+          </li>
+        </ino-list-item>
+      </ul>
     </ino-list>
   </div>
 </div>

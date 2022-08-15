@@ -31,11 +31,15 @@ exports[`Input/<ino-range> Discrete smoke-test 1`] = `
           <div class="mdc-slider__track--inactive">
           </div>
           <div class="mdc-slider__track--active">
-            <div class="mdc-slider__track--active_fill">
+            <div class="mdc-slider__track--active_fill"
+                 style="transform: scaleX(0.7); transition: all 0s ease 0s;"
+            >
             </div>
           </div>
         </div>
-        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded">
+        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px); transition: all 0s ease 0s;"
+        >
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
           >
@@ -85,7 +89,9 @@ exports[`Input/<ino-range> Markers smoke-test 1`] = `
           <div class="mdc-slider__track--inactive">
           </div>
           <div class="mdc-slider__track--active">
-            <div class="mdc-slider__track--active_fill">
+            <div class="mdc-slider__track--active_fill"
+                 style="transform: scaleX(0.7);"
+            >
             </div>
           </div>
           <div class="mdc-slider__tick-marks">
@@ -293,7 +299,9 @@ exports[`Input/<ino-range> Markers smoke-test 1`] = `
             </div>
           </div>
         </div>
-        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded">
+        <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px);"
+        >
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
           >

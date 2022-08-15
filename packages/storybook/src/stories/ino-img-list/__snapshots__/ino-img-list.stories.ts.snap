@@ -4,43 +4,142 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
 <div id="root-inner">
   <ino-img-list enclose-label="true"
                 masonry="false"
+                class="hydrated"
   >
-    <ino-img alt="beach"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/beach.jpg"
-    >
-    </ino-img>
-    <ino-img alt="waterfall"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/fjord.jpg"
-    >
-    </ino-img>
-    <ino-img alt="trondheim"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/forrest.jpg"
-    >
-    </ino-img>
-    <ino-img alt="forrest"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/liberty.jpg"
-    >
-    </ino-img>
-    <ino-img alt="fjord"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/trondheim.jpg"
-    >
-    </ino-img>
-    <ino-img alt="liberty"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/waterfall.jpg"
-    >
-    </ino-img>
+    <ul class="mdc-image-list mdc-image-list--with-text-protection">
+      <ino-img alt="beach"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/beach.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="beach"
+               src="static/media/src/assets/images/beach.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="waterfall"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/fjord.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="waterfall"
+               src="static/media/src/assets/images/fjord.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="trondheim"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/forrest.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="trondheim"
+               src="static/media/src/assets/images/forrest.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="forrest"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/liberty.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="forrest"
+               src="static/media/src/assets/images/liberty.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="fjord"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/trondheim.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="fjord"
+               src="static/media/src/assets/images/trondheim.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="liberty"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/waterfall.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="liberty"
+               src="static/media/src/assets/images/waterfall.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+    </ul>
   </ino-img-list>
 </div>
 `;
@@ -49,43 +148,142 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
 <div id="root-inner">
   <ino-img-list enclose-label="false"
                 masonry="true"
+                class="hydrated"
   >
-    <ino-img alt="beach"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/beach.jpg"
-    >
-    </ino-img>
-    <ino-img alt="waterfall"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/fjord.jpg"
-    >
-    </ino-img>
-    <ino-img alt="trondheim"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/forrest.jpg"
-    >
-    </ino-img>
-    <ino-img alt="forrest"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/liberty.jpg"
-    >
-    </ino-img>
-    <ino-img alt="fjord"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/trondheim.jpg"
-    >
-    </ino-img>
-    <ino-img alt="liberty"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/waterfall.jpg"
-    >
-    </ino-img>
+    <ul class="mdc-image-list mdc-image-list--masonry">
+      <ino-img alt="beach"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/beach.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="beach"
+               src="static/media/src/assets/images/beach.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="waterfall"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/fjord.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="waterfall"
+               src="static/media/src/assets/images/fjord.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="trondheim"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/forrest.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="trondheim"
+               src="static/media/src/assets/images/forrest.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="forrest"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/liberty.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="forrest"
+               src="static/media/src/assets/images/liberty.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="fjord"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/trondheim.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="fjord"
+               src="static/media/src/assets/images/trondheim.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="liberty"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/waterfall.jpg"
+               class="mdc-image-list__item hydrated"
+      >
+        <div class>
+          <img class="mdc-image-list__image"
+               alt="liberty"
+               src="static/media/src/assets/images/waterfall.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+    </ul>
   </ino-img-list>
 </div>
 `;
@@ -95,42 +293,140 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
   <ino-img-list enclose-label="false"
                 masonry="false"
   >
-    <ino-img alt="beach"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/beach.jpg"
-    >
-    </ino-img>
-    <ino-img alt="waterfall"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/fjord.jpg"
-    >
-    </ino-img>
-    <ino-img alt="trondheim"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/forrest.jpg"
-    >
-    </ino-img>
-    <ino-img alt="forrest"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/liberty.jpg"
-    >
-    </ino-img>
-    <ino-img alt="fjord"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/trondheim.jpg"
-    >
-    </ino-img>
-    <ino-img alt="liberty"
-             label="Label"
-             img-list-item
-             src="static/media/src/assets/images/waterfall.jpg"
-    >
-    </ino-img>
+    <ul class="mdc-image-list">
+      <ino-img alt="beach"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/beach.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="beach"
+               src="static/media/src/assets/images/beach.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="waterfall"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/fjord.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="waterfall"
+               src="static/media/src/assets/images/fjord.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="trondheim"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/forrest.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="trondheim"
+               src="static/media/src/assets/images/forrest.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="forrest"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/liberty.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="forrest"
+               src="static/media/src/assets/images/liberty.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="fjord"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/trondheim.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="fjord"
+               src="static/media/src/assets/images/trondheim.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+      <ino-img alt="liberty"
+               label="Label"
+               img-list-item
+               src="static/media/src/assets/images/waterfall.jpg"
+               class="mdc-image-list__item"
+      >
+        <div class="mdc-image-list__image-aspect-container">
+          <img class="mdc-image-list__image"
+               alt="liberty"
+               src="static/media/src/assets/images/waterfall.jpg"
+          >
+          <div class="ino-img__fallback-icon">
+            <ino-icon>
+            </ino-icon>
+          </div>
+        </div>
+        <div class="mdc-image-list__supporting">
+          <span class="mdc-image-list__label">
+            Label
+          </span>
+        </div>
+      </ino-img>
+    </ul>
   </ino-img-list>
 </div>
 `;

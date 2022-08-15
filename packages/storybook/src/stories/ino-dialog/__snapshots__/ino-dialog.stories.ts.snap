@@ -3,16 +3,23 @@
 exports[`Structure/<ino-dialog> ClosingAction smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-dialog">
-    <ino-button class="open-dialog-btn"
+    <ino-button class="open-dialog-btn hydrated"
                 data-dialog-id="demo-action-dialog"
     >
-      Open Dialog
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Open Dialog
+        </span>
+      </button>
     </ino-button>
     <ino-dialog id="demo-action-dialog"
                 open="false"
                 fullwidth="false"
                 dismissible="true"
                 attach-to=".story-dialog"
+                class="hydrated"
     >
       <div class="ino-dialog-header">
         <div class="ino-dialog-title">
@@ -22,40 +29,60 @@ exports[`Structure/<ino-dialog> ClosingAction smoke-test 1`] = `
         </div>
         <ino-icon-button icon="close"
                          data-ino-dialog-action="close"
+                         class="ino-icon-button--color-scheme-primary hydrated"
         >
+          <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                  type="button"
+                  style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
+          >
+            <div class="mdc-icon-button__ripple">
+            </div>
+            <span class="mdc-icon-button__icon">
+              <ino-icon class="ino-icon--color-scheme-primary hydrated">
+              </ino-icon>
+            </span>
+          </button>
         </ino-icon-button>
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="dense-segment-grp"
+                           id="ino-segment-group-id__kyyfmd0hi"
+                           class="hydrated"
         >
           <ino-segment-button dense
                               value="1"
+                              class="hydrated"
           >
             Morty
           </ino-segment-button>
           <ino-segment-button dense
                               value="2"
+                              class="hydrated ino-segment-button--checked"
+                              checked
           >
             Pickle Rick
           </ino-segment-button>
           <ino-segment-button dense
                               value="3"
+                              class="hydrated"
           >
             Squanchy
           </ino-segment-button>
           <ino-segment-button dense
                               value="4"
+                              class="hydrated"
           >
             Beth
           </ino-segment-button>
           <ino-segment-button dense
                               value="5"
+                              class="hydrated"
           >
             Jerry
           </ino-segment-button>
           <ino-segment-button dense
                               value="6"
+                              class="hydrated"
           >
             Summer
           </ino-segment-button>
@@ -66,13 +93,27 @@ exports[`Structure/<ino-dialog> ClosingAction smoke-test 1`] = `
                     data-ino-dialog-action="cancel"
                     fill="outline"
                     color-scheme="secondary"
+                    class="hydrated"
         >
-          Cancel
+          <button class="button button__variant--filled"
+                  type="button"
+          >
+            <span class="button__label">
+              Cancel
+            </span>
+          </button>
         </ino-button>
         <ino-button icon="mail"
                     data-ino-dialog-action="submit"
+                    class="hydrated"
         >
-          Submit
+          <button class="button button__variant--filled"
+                  type="button"
+          >
+            <span class="button__label">
+              Submit
+            </span>
+          </button>
         </ino-button>
       </div>
     </ino-dialog>
@@ -111,8 +152,9 @@ exports[`Structure/<ino-dialog> Dismissible smoke-test 1`] = `
                          data-ino-dialog-action="close"
                          class="ino-icon-button--color-scheme-primary hydrated"
         >
-          <button class="mdc-icon-button mdc-ripple-upgraded--unbounded"
+          <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
                   type="button"
+                  style="--mdc-ripple-fg-size:0px; --mdc-ripple-fg-scale:NaN; --mdc-ripple-left:0px; --mdc-ripple-top:0px;"
           >
             <div class="mdc-icon-button__ripple">
             </div>
@@ -125,7 +167,7 @@ exports[`Structure/<ino-dialog> Dismissible smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__h8wb1c27j"
+                           id="ino-segment-group-id__4avr616ok"
                            class="hydrated"
         >
           <ino-segment-button dense
@@ -136,7 +178,8 @@ exports[`Structure/<ino-dialog> Dismissible smoke-test 1`] = `
           </ino-segment-button>
           <ino-segment-button dense
                               value="2"
-                              class="hydrated"
+                              class="hydrated ino-segment-button--checked"
+                              checked
           >
             Pickle Rick
           </ino-segment-button>
@@ -245,7 +288,7 @@ exports[`Structure/<ino-dialog> FullWidth smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__los3gxm1s"
+                           id="ino-segment-group-id__i8a1j2mpx"
                            class="hydrated"
         >
           <ino-segment-button dense
@@ -366,7 +409,7 @@ exports[`Structure/<ino-dialog> Playground smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__6td542ksm"
+                           id="ino-segment-group-id__ds06pakmn"
                            class="hydrated"
         >
           <ino-segment-button dense

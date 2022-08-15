@@ -24,6 +24,16 @@ export default {
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-select'),
     (story) => {
+
+      window.addEventListener('load', () => console.log('load'))
+      window.addEventListener('appload', () => console.log('appload'))
+      window.addEventListener('DOMContentLoaded', () => console.log('DOMcontent'))
+
+
+      customElements.whenDefined('ino-select').then(() => console.log('select'))
+      customElements.whenDefined('ino-option').then(() => console.log('option'))
+
+
       useEffect(() => {
         const formElement = document.querySelector('form');
         formElement?.addEventListener('submit', handleFormSubmission);
@@ -37,6 +47,7 @@ export default {
           formElement?.removeEventListener('submit', handleFormSubmission);
         };
       }, []);
+
       return story();
     },
   ],
@@ -82,7 +93,10 @@ const template = new TemplateGenerator<Components.InoSelect>(
     <ino-option value="Option 3">Option 3</ino-option>
   </ino-select>
 `);
+
+
 export const Playground = template.generatePlaygroundStory();
+/*
 export const Outlined = template.generateStoryForProp('outline', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
 export const Error = template.generateStoryForProp('error', true);
@@ -145,3 +159,6 @@ const templateForm = new TemplateGenerator<Components.InoSelect>(
 `);
 export const Form = templateForm.generatePlaygroundStory();
 
+
+
+ */

@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "start-storybook -p 6006 -c config --quiet --no-version-updates",
     "build": "build-storybook -c config -o dist",
-    "test": "concurrently --names \"SB,TEST\" --success \"command-TEST\" --kill-others \"http-server ./dist --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook --config-dir config\"",
+    "test": "concurrently --names \"SB,TEST\" -c \"magenta,blue\" --success \"command-TEST\" --kill-others \"http-server ./dist --port 8008 --silent\" \"wait-on tcp:8008 && yarn test-storybook --config-dir config --url http://localhost:8008 \"",
     "test:watch": "test-storybook --watch --config-dir config",
     "test:update": "test-storybook --config-dir config --updateSnapshot",
     "lint": "eslint src",

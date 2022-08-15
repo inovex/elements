@@ -3,8 +3,16 @@
 exports[`Notification/ino-popover AttachToBody smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-3">
-      Popover
+    <ino-button id="popover-3"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -17,11 +25,9 @@ exports[`Notification/ino-popover AttachToBody smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -31,8 +37,16 @@ exports[`Notification/ino-popover AttachToBody smoke-test 1`] = `
 exports[`Notification/ino-popover ColorScheme smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-5">
-      Popover
+    <ino-button id="popover-5"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="secondary"
                  controlled="false"
@@ -45,11 +59,9 @@ exports[`Notification/ino-popover ColorScheme smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -59,8 +71,16 @@ exports[`Notification/ino-popover ColorScheme smoke-test 1`] = `
 exports[`Notification/ino-popover Distance smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-4">
-      Popover
+    <ino-button id="popover-4"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -73,11 +93,9 @@ exports[`Notification/ino-popover Distance smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -87,8 +105,16 @@ exports[`Notification/ino-popover Distance smoke-test 1`] = `
 exports[`Notification/ino-popover FollowCursor smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-7">
-      Popover
+    <ino-button id="popover-7"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -101,11 +127,9 @@ exports[`Notification/ino-popover FollowCursor smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -120,20 +144,22 @@ exports[`Notification/ino-popover Interactions smoke-test 1`] = `
                  color-scheme="transparent"
                  interactive
                  placement="left"
+                 class="hydrated"
     >
-      <div class="interactive-popover">
-        <p>
-          I'm interactive. You can click me without closing this popover!
-        </p>
-        <ino-button>
-          Button not closing the popover
-        </ino-button>
+      <div>
       </div>
     </ino-popover>
-    <ino-button class="placement-button"
+    <ino-button class="placement-button hydrated"
                 id="popover-interactive-target"
+                aria-expanded="false"
     >
-      Interactive Content
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Interactive Content
+        </span>
+      </button>
     </ino-button>
   </div>
 </div>
@@ -142,8 +168,16 @@ exports[`Notification/ino-popover Interactions smoke-test 1`] = `
 exports[`Notification/ino-popover Placement smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-2">
-      Popover
+    <ino-button id="popover-2"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -156,11 +190,9 @@ exports[`Notification/ino-popover Placement smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -170,8 +202,16 @@ exports[`Notification/ino-popover Placement smoke-test 1`] = `
 exports[`Notification/ino-popover Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-1">
-      Popover
+    <ino-button id="popover-1"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -184,11 +224,9 @@ exports[`Notification/ino-popover Playground smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -198,8 +236,16 @@ exports[`Notification/ino-popover Playground smoke-test 1`] = `
 exports[`Notification/ino-popover Trigger smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-popover">
-    <ino-button id="popover-6">
-      Popover
+    <ino-button id="popover-6"
+                class="hydrated"
+    >
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Popover
+        </span>
+      </button>
     </ino-button>
     <ino-popover color-scheme="transparent"
                  controlled="false"
@@ -212,11 +258,9 @@ exports[`Notification/ino-popover Trigger smoke-test 1`] = `
                  visible="false"
                  hide-on-blur="false"
                  hide-on-esc="false"
+                 class="hydrated"
     >
-      <div class="styled-popover">
-        <ino-icon icon="user">
-        </ino-icon>
-        This is a styled popover.
+      <div>
       </div>
     </ino-popover>
   </div>
@@ -237,8 +281,14 @@ exports[`Notification/ino-popover Visible smoke-test 1`] = `
       >
         Uncheck to hide / check to show
       </ino-checkbox>
-      <div class="popover-content">
-        I'm a controlled popover
+      <div>
+        <div class="ino-popover ino-popover--color-scheme-primary ino-popover__content"
+             role="tooltip"
+        >
+          <div class="popover-content">
+            I'm a controlled popover
+          </div>
+        </div>
       </div>
     </ino-popover>
   </div>

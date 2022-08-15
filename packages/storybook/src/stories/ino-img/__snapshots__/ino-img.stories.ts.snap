@@ -3,7 +3,7 @@
 exports[`Graphic/<ino-img> Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class>
-    <ino-img class="customizable-img"
+    <ino-img class="customizable-img hydrated"
              alt="Alternative Text"
              decoding="async"
              height="100"
@@ -18,7 +18,9 @@ exports[`Graphic/<ino-img> Playground smoke-test 1`] = `
              fallback-icon="image_not_available"
              style="height: 100px; width: 100px;"
     >
-      <div class="ino-img__composer">
+      <div class="ino-img__composer"
+           style="padding-top: 100%;"
+      >
         <img class="ino-img__image"
              alt="Alternative Text"
              decoding="async"
@@ -30,7 +32,7 @@ exports[`Graphic/<ino-img> Playground smoke-test 1`] = `
              width="100"
         >
         <div class="ino-img__fallback-icon">
-          <ino-icon>
+          <ino-icon class="hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </div>

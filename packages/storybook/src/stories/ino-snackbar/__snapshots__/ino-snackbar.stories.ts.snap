@@ -59,10 +59,16 @@ exports[`Notification/ino-snackbar Playground smoke-test 1`] = `
 exports[`Notification/ino-snackbar StayVisibleOnHover smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-snackbar">
-    <ino-button class="snackbar-trigger"
+    <ino-button class="snackbar-trigger hydrated"
                 data-template-id="snackbar-stayVisibleOnHover"
     >
-      Show Snackbar
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Show Snackbar
+        </span>
+      </button>
     </ino-button>
     <template id="snackbar-stayVisibleOnHover">
       <ino-snackbar id="snackbar-stayVisibleOnHover"
@@ -81,10 +87,16 @@ exports[`Notification/ino-snackbar StayVisibleOnHover smoke-test 1`] = `
 exports[`Notification/ino-snackbar Timeout smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-snackbar">
-    <ino-button class="snackbar-trigger"
+    <ino-button class="snackbar-trigger hydrated"
                 data-template-id="snackbar-timeout"
     >
-      Show Snackbar
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Show Snackbar
+        </span>
+      </button>
     </ino-button>
     <template id="snackbar-timeout">
       <ino-snackbar id="snackbar-timeout"

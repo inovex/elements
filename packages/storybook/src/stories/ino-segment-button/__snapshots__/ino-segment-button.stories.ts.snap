@@ -4,7 +4,7 @@ exports[`Buttons/ino-segment-button Dense smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn"
+                        class="customizable-segment-btn hydrated"
                         checked="false"
                         dense="true"
                         disabled="false"
@@ -20,7 +20,7 @@ exports[`Buttons/ino-segment-button Disabled smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn"
+                        class="customizable-segment-btn ino-segment-button--disabled hydrated"
                         checked="false"
                         dense="false"
                         disabled="true"
@@ -36,8 +36,8 @@ exports[`Buttons/ino-segment-button EnableChecked smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn"
-                        checked="true"
+                        class="customizable-segment-btn ino-segment-button--checked hydrated"
+                        checked
                         dense="false"
                         disabled="false"
                         name
@@ -52,7 +52,7 @@ exports[`Buttons/ino-segment-button Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn"
+                        class="customizable-segment-btn hydrated"
                         checked="false"
                         dense="false"
                         disabled="false"

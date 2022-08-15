@@ -6,8 +6,26 @@ exports[`Structure/ino-tab IndicatorContentWidth smoke-test 1`] = `
     <ino-tab icon="info"
              indicator-content-width="true"
              stacked="false"
+             class="hydrated"
     >
-      Label
+      <button class="mdc-tab"
+              role="tab"
+              aria-selected="false"
+      >
+        <span class="mdc-tab__content">
+          <ino-icon class="mdc-tab__icon ino-icon--color-scheme-primary hydrated">
+          </ino-icon>
+          <span class="mdc-tab__text-label">
+            Label
+          </span>
+          <span class="mdc-tab-indicator">
+            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline">
+            </span>
+          </span>
+        </span>
+        <span class="mdc-tab__ripple">
+        </span>
+      </button>
     </ino-tab>
   </div>
 </div>
@@ -26,7 +44,7 @@ exports[`Structure/ino-tab Playground smoke-test 1`] = `
               aria-selected="false"
       >
         <span class="mdc-tab__content">
-          <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
+          <ino-icon class="mdc-tab__icon hydrated">
           </ino-icon>
           <span class="mdc-tab__text-label">
             Label

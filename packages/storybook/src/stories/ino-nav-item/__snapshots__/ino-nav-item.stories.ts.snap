@@ -3,14 +3,31 @@
 exports[`Structure/ino-nav-item Activated smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Nav item"
-                    sub-text
-                    activated="true"
-                    disabled="false"
-      >
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Nav item"
+                      sub-text
+                      activated="true"
+                      disabled="false"
+        >
+          <ino-list-item class="hydrated">
+            <span class
+                  slot
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Nav item
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -19,14 +36,31 @@ exports[`Structure/ino-nav-item Activated smoke-test 1`] = `
 exports[`Structure/ino-nav-item Disabled smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Nav item"
-                    sub-text
-                    activated="false"
-                    disabled="true"
-      >
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Nav item"
+                      sub-text
+                      activated="false"
+                      disabled="true"
+        >
+          <ino-list-item class="hydrated">
+            <span class
+                  slot
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Nav item
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -35,16 +69,39 @@ exports[`Structure/ino-nav-item Disabled smoke-test 1`] = `
 exports[`Structure/ino-nav-item Graphic smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Nav item"
-                    sub-text
-                    activated="false"
-                    disabled="false"
-      >
-        <ino-icon icon="onboarding">
-        </ino-icon>
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Nav item"
+                      sub-text
+                      activated="false"
+                      disabled="false"
+        >
+          <ino-list-item class="hydrated">
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__graphic"
+                    role="presentation"
+              >
+                <span class="ino-nav-item--leading-slot"
+                      slot="leading"
+                >
+                  <ino-icon icon="onboarding"
+                            class="ino-icon--color-scheme-primary hydrated"
+                  >
+                  </ino-icon>
+                </span>
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Nav item
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -53,16 +110,39 @@ exports[`Structure/ino-nav-item Graphic smoke-test 1`] = `
 exports[`Structure/ino-nav-item Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Nav item"
-                    sub-text
-                    activated="false"
-                    disabled="false"
-      >
-        <ino-icon icon="onboarding">
-        </ino-icon>
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Nav item"
+                      sub-text
+                      activated="false"
+                      disabled="false"
+        >
+          <ino-list-item class="hydrated">
+            <li class="mdc-deprecated-list-item"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__graphic"
+                    role="presentation"
+              >
+                <span class="ino-nav-item--leading-slot"
+                      slot="leading"
+                >
+                  <ino-icon icon="onboarding"
+                            class="hydrated"
+                  >
+                  </ino-icon>
+                </span>
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Nav item
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -71,14 +151,31 @@ exports[`Structure/ino-nav-item Playground smoke-test 1`] = `
 exports[`Structure/ino-nav-item Text smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Some Text"
-                    sub-text
-                    activated="false"
-                    disabled="false"
-      >
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Some Text"
+                      sub-text
+                      activated="false"
+                      disabled="false"
+        >
+          <ino-list-item class="hydrated">
+            <span class
+                  slot
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Some Text
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -87,14 +184,36 @@ exports[`Structure/ino-nav-item Text smoke-test 1`] = `
 exports[`Structure/ino-nav-item TwoLines smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-list">
-    <ino-list>
-      <ino-nav-item class="customizable-nav-item"
-                    text="Nav item"
-                    sub-text="Secondary Text 2"
-                    activated="false"
-                    disabled="false"
-      >
-      </ino-nav-item>
+    <ino-list class="hydrated">
+      <ul class="mdc-deprecated-list">
+        <ino-nav-item class="customizable-nav-item hydrated"
+                      text="Nav item"
+                      sub-text="Secondary Text 2"
+                      activated="false"
+                      disabled="false"
+        >
+          <ino-list-item class="hydrated">
+            <span class
+                  slot
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                <span class="mdc-deprecated-list-item__primary-text">
+                  Nav item
+                </span>
+                <span class="mdc-deprecated-list-item__secondary-text">
+                  Secondary Text 2
+                </span>
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-nav-item>
+      </ul>
     </ino-list>
   </div>
 </div>

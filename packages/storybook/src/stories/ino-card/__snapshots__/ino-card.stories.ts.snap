@@ -3,35 +3,65 @@
 exports[`Structure/<ino-card> DisabledElevation smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-card">
-    <ino-card class="customizable-card"
+    <ino-card class="customizable-card hydrated"
               disable-elevation="true"
               selected="false"
     >
-      <div slot="header"
-           class="card-header"
-      >
-        <ino-icon icon="info"
-                  clickable
-        >
-        </ino-icon>
-      </div>
-      <div slot="content"
-           class="card-content--vertical"
-      >
-        <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png">
-        </ino-img>
-      </div>
-      <div slot="footer"
-           class="sample-card-footer"
-      >
-        <ino-segment-group>
-          <ino-segment-button value="1">
-            Read
-          </ino-segment-button>
-          <ino-segment-button value="2">
-            Bookmark
-          </ino-segment-button>
-        </ino-segment-group>
+      <div class="mdc-card mdc-card--outlined">
+        <div class="ino-card__checkmark-container">
+        </div>
+        <div class="ino-card__header">
+          <div slot="header"
+               class="card-header"
+          >
+            <ino-icon icon="info"
+                      clickable
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </div>
+        </div>
+        <div class="ino-card__content">
+          <div slot="content"
+               class="card-content--vertical"
+          >
+            <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                     class="hydrated"
+            >
+              <div class="ino-img__composer"
+                   style="padding-top: 100%;"
+              >
+                <img class="ino-img__image"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                >
+                <div class="ino-img__fallback-icon">
+                  <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                  </ino-icon>
+                </div>
+              </div>
+            </ino-img>
+          </div>
+        </div>
+        <div class="ino-card__footer">
+          <div slot="footer"
+               class="sample-card-footer"
+          >
+            <ino-segment-group id="ino-segment-group-id__hnapek9fk"
+                               class="hydrated"
+            >
+              <ino-segment-button value="1"
+                                  class="hydrated"
+              >
+                Read
+              </ino-segment-button>
+              <ino-segment-button value="2"
+                                  class="hydrated"
+              >
+                Bookmark
+              </ino-segment-button>
+            </ino-segment-group>
+          </div>
+        </div>
       </div>
     </ino-card>
   </div>
@@ -41,35 +71,65 @@ exports[`Structure/<ino-card> DisabledElevation smoke-test 1`] = `
 exports[`Structure/<ino-card> Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-card">
-    <ino-card class="customizable-card"
+    <ino-card class="customizable-card ino-elevate hydrated"
               disable-elevation="false"
               selected="false"
     >
-      <div slot="header"
-           class="card-header"
-      >
-        <ino-icon icon="info"
-                  clickable
-        >
-        </ino-icon>
-      </div>
-      <div slot="content"
-           class="card-content--vertical"
-      >
-        <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png">
-        </ino-img>
-      </div>
-      <div slot="footer"
-           class="sample-card-footer"
-      >
-        <ino-segment-group>
-          <ino-segment-button value="1">
-            Read
-          </ino-segment-button>
-          <ino-segment-button value="2">
-            Bookmark
-          </ino-segment-button>
-        </ino-segment-group>
+      <div class="mdc-card mdc-card--outlined">
+        <div class="ino-card__checkmark-container">
+        </div>
+        <div class="ino-card__header">
+          <div slot="header"
+               class="card-header"
+          >
+            <ino-icon icon="info"
+                      clickable
+                      class="hydrated ino-icon--color-scheme-primary"
+            >
+            </ino-icon>
+          </div>
+        </div>
+        <div class="ino-card__content">
+          <div slot="content"
+               class="card-content--vertical"
+          >
+            <ino-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                     class="hydrated"
+            >
+              <div class="ino-img__composer"
+                   style="padding-top: 100%;"
+              >
+                <img class="ino-img__image"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                >
+                <div class="ino-img__fallback-icon">
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                  </ino-icon>
+                </div>
+              </div>
+            </ino-img>
+          </div>
+        </div>
+        <div class="ino-card__footer">
+          <div slot="footer"
+               class="sample-card-footer"
+          >
+            <ino-segment-group id="ino-segment-group-id__3y46xs2l0"
+                               class="hydrated"
+            >
+              <ino-segment-button value="1"
+                                  class="hydrated"
+              >
+                Read
+              </ino-segment-button>
+              <ino-segment-button value="2"
+                                  class="hydrated"
+              >
+                Bookmark
+              </ino-segment-button>
+            </ino-segment-group>
+          </div>
+        </div>
       </div>
     </ino-card>
   </div>
