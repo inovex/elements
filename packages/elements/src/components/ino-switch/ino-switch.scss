@@ -9,28 +9,38 @@
   }
 }
 
+@mixin set-track-border-color($color) {
+  .mdc-switch__track{
+    border: 2px solid white;
+    margin: -2px;
+    box-shadow: 0 0 0 3px $color;
+  }
+}
+
 @each $color in theme.$color-schemes {
   ino-switch.ino-switch--color-scheme-#{$color} {
     @include switch.theme(
       (
-        selected-handle-color: theme.color($color, base),
-        selected-hover-handle-color: theme.color($color, base),
-        selected-focus-handle-color: theme.color($color, base),
-        selected-pressed-handle-color: theme.color($color, base),
+        selected-handle-color: #ffffff,
+        selected-hover-handle-color: #ffffff,
+        selected-focus-handle-color: #ffffff,
+        selected-pressed-handle-color: #ffffff,
         disabled-selected-handle-color: theme.color($color, light),
         selected-track-color: theme.color($color, light),
         selected-hover-track-color: theme.color($color, light),
         selected-focus-track-color: theme.color($color, light),
         selected-pressed-track-color: theme.color($color, light),
-        unselected-focus-track-color: theme.color($color, base),
-        unselected-hover-track-color: theme.color($color, base),
+        unselected-focus-track-color: #abb1cc,
+        unselected-hover-track-color: #abb1cc,
         disabled-selected-track-color: theme.color($color, light),
       )
     );
 
     &:not(.ino-switch-disabled) {
-      .mdc-switch--selected,
-      .mdc-switch--unselected:focus,
+      .mdc-switch--selected:focus,
+      .mdc-switch--unselected:focus {
+        @include set-track-border-color(theme.color($color, light))
+      }
       .mdc-switch--unselected:hover {
         @include set-handle-border-color(theme.color($color, base));
       }
@@ -51,17 +61,6 @@ ino-switch {
   &.ino-switch-disabled {
     cursor: default;
     pointer-events: none;
-  }
-  .mdc-switch--unselected {
-    .mdc-switch__handle {
-      margin-left: 2px;
-    }
-  }
-
-  .mdc-switch--selected {
-    .mdc-switch__handle {
-      margin-right: 2px;
-    }
   }
 
 
