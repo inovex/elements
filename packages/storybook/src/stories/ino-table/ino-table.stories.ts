@@ -7,7 +7,7 @@ import { TemplateGenerator } from '../template-generator';
 import './ino-table.scss';
 
 export default {
-  title: `Structure/ino-table`,
+  title: 'Structure/ino-table',
   component: 'ino-table',
   inline: true,
   decorators: [
@@ -42,7 +42,7 @@ export default {
   },
 };
 
-const tableContent = 
+const tableContent =
     html`<tr slot="header-row"></tr>
       <ino-table-header-cell column-id="id" sort-start="asc"  label="ID"></ino-table-header-cell>
       <ino-table-header-cell column-id="name" sort-start="asc" label="Name"></ino-table-header-cell>
@@ -135,14 +135,14 @@ export const Loading = template.generateStoryForProp('loading', true);
 export const NoHover = template.generateStoryForProp('noHover', true);
 
 /**
- * For table sorting there are two needed props: 
- * 
+ * For table sorting there are two needed props:
+ *
  * `sortColumnId` identifies the column currently sorted by.
  * Needs to match the column ids provided on `ino-table-header-cell` elements.
- * 
+ *
  * `sortDirection` shows direction of the column currently sorted by.
  * @See Set `sort-start` attribute on the respective column to change the sort order.
- * 
+ *
  * Sorting-logic needs to be implemented by user.
  */
 export const SortColumnIdAndSortDirection = template.generatePlaygroundStory();

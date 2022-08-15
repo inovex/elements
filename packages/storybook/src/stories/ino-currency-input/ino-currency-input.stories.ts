@@ -6,7 +6,7 @@ import { decorateStoryWithClass } from '../utils';
 import './ino-currency-input.scss';
 
 export default {
-  title: `Input/ino-currency-input`,
+  title: 'Input/ino-currency-input',
   component: 'ino-currency-input',
   decorators: [
     story => decorateStoryWithClass(story, 'story-ino-currency-input'),

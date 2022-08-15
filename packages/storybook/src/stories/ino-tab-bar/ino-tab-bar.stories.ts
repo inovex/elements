@@ -9,7 +9,7 @@ import './ino-tab-bar.scss';
 const eventHandler = (e) => e.target.setAttribute('active-tab', e.detail);
 
 export default {
-  title: `Structure/ino-tab-bar`,
+  title: 'Structure/ino-tab-bar',
   component: 'ino-tab-bar',
   decorators: [
     (story) => decorateStoryWithClass(story, 'story-tab-bar'),

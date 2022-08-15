@@ -7,7 +7,7 @@ import { TemplateGenerator } from '../template-generator';
 import { Components } from '@inovex.de/elements';
 
 export default {
-  title: `Notification/ino-popover`,
+  title: 'Notification/ino-popover',
   component: 'ino-popover',
   parameters: {
     actions: {

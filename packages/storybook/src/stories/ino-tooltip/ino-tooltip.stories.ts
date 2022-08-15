@@ -6,7 +6,7 @@ import { TemplateGenerator } from '../template-generator';
 import './ino-tooltip.scss';
 
 export default {
-  title: `Notification/ino-tooltip`,
+  title: 'Notification/ino-tooltip',
   component: 'ino-tooltip',
   decorators: [(story) => decorateStoryWithClass(story, 'story-tooltip')],
   args: {

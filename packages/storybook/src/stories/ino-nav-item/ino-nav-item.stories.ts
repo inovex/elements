@@ -4,7 +4,7 @@ import { Components } from '@inovex.de/elements';
 import { TemplateGenerator } from '../template-generator'
 
 export default {
-  title: `Structure/ino-nav-item`,
+  title: 'Structure/ino-nav-item',
   component: 'ino-nav-item',
   args:{
     text: 'Nav item',
