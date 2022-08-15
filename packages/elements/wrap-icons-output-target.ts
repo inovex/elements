@@ -1,24 +1,26 @@
-import { JsonDocs, OutputTargetDocsCustom } from '@stencil/core/internal';
+import { OutputTargetCustom } from '@stencil/core/internal';
+import fs from 'fs-extra';
+import * as path from 'path';
 
-export const wrapIconsOutputTarget: OutputTargetDocsCustom = {
-  type: 'docs-custom',
-  generator: async (docs: JsonDocs) => {
-    // delete timestamp to prevent merge conflicts & unused properties
-    delete docs.timestamp;
+const ROOT_DIR = path.join(__dirname, './');
+const DST_DIR = path.join(ROOT_DIR, 'dist');
+const ICONS_DST_DIR = path.join(ROOT_DIR, 'dist', 'inovex-elements', 'ino-icon');
+const DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
+const DST_ESM_D_TS = path.join(
+  DST_DIR,
+  'inovex-elements/ino-icon/index.esm.d.ts'
+);
+const DST_JS = path.join(DST_DIR, 'inovex-elements/ino-icon/index.js');
+const SRC_DIR = path.join(ROOT_DIR, 'src');
+const SRC_SVG_DIR = path.join(SRC_DIR, 'assets/ino-icon');
 
-    const fs = require('fs-extra');
-    const path = require('path');
+export const wrapIconsOutputTarget: OutputTargetCustom = {
+  type: 'custom',
+  name: 'wrap-icons',
+  generator: async () => {
 
-    const ROOT_DIR = path.join(__dirname, './');
-    const DST_DIR = path.join(ROOT_DIR, 'dist');
-    const DST_ESM = path.join(DST_DIR, 'inovex-elements/ino-icon/index.esm.js');
-    const DST_ESM_D_TS = path.join(
-      DST_DIR,
-      'inovex-elements/ino-icon/index.esm.d.ts'
-    );
-    const DST_JS = path.join(DST_DIR, 'inovex-elements/ino-icon/index.js');
-    const SRC_DIR = path.join(ROOT_DIR, 'src');
-    const SRC_SVG_DIR = path.join(SRC_DIR, 'assets/ino-icon');
+    copyIconAssets();
+
     let svgFiles = fs.readdirSync(SRC_SVG_DIR);
 
     svgFiles = svgFiles.filter((f: string) => f.indexOf('.svg') > -1);
@@ -109,3 +111,11 @@ export const wrapIconsOutputTarget: OutputTargetDocsCustom = {
     // },200);
   },
 };
+
+function copyIconAssets() {
+  fs.copySync(SRC_SVG_DIR, ICONS_DST_DIR);
+}
+
+function makeIndexEsm() {
+
+}
