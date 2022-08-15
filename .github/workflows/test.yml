@@ -25,7 +25,8 @@ jobs:
     - run: yarn build
 
     # Build caches for release-canary workflow
-      name: Upload all build artifacts
+    #- if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/elements-691_refactor_ci_workflows'
+    - name: Upload all build artifacts
       uses: ./.github/workflows/artifacts-upload
       with:
         upload-core-artifacts: true
