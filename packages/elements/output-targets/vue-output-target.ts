@@ -30,7 +30,7 @@ export const vueOutputTarget = (
 };
 
 async function runFix(proxyPath: string) {
-  const fullProxyPath = path.resolve(__dirname, proxyPath);
+  const fullProxyPath = path.resolve(__dirname, '..', proxyPath);
 
   const elementsVueUtilsPath = path.resolve(
     path.dirname(fullProxyPath),

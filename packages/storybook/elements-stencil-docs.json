@@ -2874,7 +2874,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-icon-color-primary",
+          "annotation": "prop",
+          "docs": "Primary (default) color of the icon"
+        },
+        {
+          "name": "--ino-icon-color-secondary",
+          "annotation": "prop",
+          "docs": "Secondary color of the icon"
+        },
+        {
+          "name": "--ino-icon-height",
+          "annotation": "prop",
+          "docs": "Height of the icon"
+        },
+        {
+          "name": "--ino-icon-width",
+          "annotation": "prop",
+          "docs": "Width of the icon"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []

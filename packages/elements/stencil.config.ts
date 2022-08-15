@@ -1,10 +1,10 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
-import { vueOutputTarget } from './vue-output-target';
-import { JsonDocsOutputTarget } from './json-docs-output-target';
+import { vueOutputTarget } from './output-targets/vue-output-target';
+import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import { wrapIconsOutputTarget } from './wrap-icons-output-target';
+import {wrapIconsOutputTarget} from "./output-targets/wrap-icons";
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
 const reactProxyPath = '../elements-react/src/components';
@@ -27,17 +27,18 @@ export const config: Config = {
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   outputTargets: [
+    {
+      type: 'dist',
+      copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
+    },
+    wrapIconsOutputTarget,
+    { type: 'docs-readme' },
+    JsonDocsOutputTarget,
     react({
       componentCorePackage: '@inovex.de/elements',
       proxiesFile: `${reactProxyPath}/index.ts`,
       includeDefineCustomElements: true,
     }),
-    {
-      type: 'dist',
-    },
-    wrapIconsOutputTarget,
-    { type: 'docs-readme' },
-    JsonDocsOutputTarget,
     angularOutputTarget({
       componentCorePackage: '@inovex.de/elements',
       directivesProxyFile: `${angularDirectivesPath}/proxies.ts`,
