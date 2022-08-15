@@ -23,8 +23,7 @@ jobs:
     - run: yarn build
     - uses: ./.github/workflows/artifacts-upload
       with:
-        upload-core-artifacts: false
-        upload-example-artifacts: false
+        upload-storybook-artifact: true
 
   deploy-unicorn:
     runs-on: ubuntu-latest

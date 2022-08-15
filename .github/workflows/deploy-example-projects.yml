@@ -4,8 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   deploy:
