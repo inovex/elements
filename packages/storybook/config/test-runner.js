@@ -1,7 +1,7 @@
 module.exports = {
   async postRender(page, context) {
 
-    /*
+    /* see: https://github.com/storybookjs/test-runner/issues/68#issuecomment-1214989696
     await page.waitForFunction(
       () => {
         const inoElements = Array.from(
@@ -14,7 +14,6 @@ module.exports = {
     );
 
      */
-    await page.waitForTimeout(1);
 
     await page.$('#root');
 
