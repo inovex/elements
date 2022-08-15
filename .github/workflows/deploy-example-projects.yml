@@ -6,7 +6,6 @@ on:
     types: [completed]
     branches:
       - master
-      - elements-691_refactor_ci_workflows
 
 jobs:
   deploy:
@@ -21,9 +20,6 @@ jobs:
           workflow-id: ${{ github.event.workflow_run.workflow_id }}
           download-example-artifacts: true
 
-      - name: Exit here for testing
-        run: exit 1
-        shell: bash
       - name: Deploy Example Projects to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
