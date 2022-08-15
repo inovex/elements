@@ -52,13 +52,28 @@ ino-switch {
     cursor: default;
     pointer-events: none;
   }
+  .mdc-switch--unselected {
+    .mdc-switch__handle {
+      margin-left: 2px;
+    }
+  }
+
+  .mdc-switch--selected {
+    .mdc-switch__handle {
+      margin-right: 2px;
+    }
+  }
+
 
   // set basic styles, DOES NOT SUPPORT CSS-VARS
   @include switch.theme(
     (
-      track-height: 2px,
+      track-height: 20px,
+      track-width: 36px,
+      track-shape: 18px,
       handle-height: 16px,
       handle-width: 16px,
+      handle-shape: 14px,
       selected-icon-size: 10px,
       unselected-icon-size: 10px,
       handle-surface-color: white,
