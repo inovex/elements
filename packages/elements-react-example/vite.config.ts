@@ -6,5 +6,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     open: '/'
-  }
+  },
+  base: '/example-projects/react/',
+  optimizeDeps: {
+    include: ['@inovex.de/elements-react']
+  },
+  build: {
+    commonjsOptions: {
+      include: [/@inovex.de\/elements-react\//, /node_modules\//]
+    },
+  },
 })

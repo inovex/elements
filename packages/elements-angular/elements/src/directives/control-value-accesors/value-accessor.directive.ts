@@ -29,6 +29,10 @@ export class ValueAccessorDirective implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
+  setDisabledState(isDisabled: boolean): void {
+    this.el.nativeElement.disabled = isDisabled;
+  }
+
   private onChange: (value: any) => void = () => {
     /**/
   };
