@@ -10,13 +10,12 @@
   }
 }
 
-$radio-unchecked-color: theme.color(light);
-$radio-checked-color: theme.color(primary, dark);
-$radio-hover-color: theme.color(primary);
-$radio-active-color: theme.color(primary, dark);
-$radio-disabled-color: theme.color(light, light);
-$radio-focus-color: theme.color(primary, light);
-
+$radio-unchecked-color: #ABB1CC;
+$radio-checked-color: #2C02FF;
+$radio-hover-color: #4B4EFF;
+$radio-active-color: #2C02FF;
+$radio-disabled-color: #CBD0E0;
+$radio-focus-color: #2D5DFF4D;
 
 :host {
   .mdc-radio {
