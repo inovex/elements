@@ -47,6 +47,7 @@ export default {
     markers: false,
     step: 1,
     ranged: false,
+    colorScheme: 'primary',
   },
 } as Meta<Components.InoRange>;
 
