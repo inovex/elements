@@ -4,12 +4,12 @@
 @use '@material/checkbox';
 @use 'base/theme';
 
-$primary-dark: theme.color(primary, dark);
-$primary-base: theme.color(primary);
-$primary-light: theme.color(primary, light);
-$grey: theme.color(light);
-$grey-light: theme.color(light, light);
-$white: theme.color(primary, contrast);
+$primary-dark: #2C02FF;
+$primary-base: #4B4EFF;
+$primary-light: #2D5DFF4D;
+$grey: #ABB1CC;
+$grey-light: #CBD0E0;
+$white: #fff;
 
 $unchecked-color: $grey;
 $checked-color: $primary-dark;
