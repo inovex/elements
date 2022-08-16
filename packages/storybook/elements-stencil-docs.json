@@ -6080,38 +6080,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-radio-active-color",
-          "annotation": "prop",
-          "docs": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "annotation": "prop",
-          "docs": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "annotation": "prop",
-          "docs": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "annotation": "prop",
-          "docs": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if unchecked"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
