@@ -39,7 +39,7 @@ export const Filled = template.generateStoryForProp('variant', 'filled');
 export const Outlined = template.generateStoryForProp('variant', 'outlined');
 export const Text = template.generateStoryForProp('variant', 'text');
 export const Disabled = template.generateStoryForProp('disabled', true);
-export const Dense = template.generateStoryForProp('dense', false);
+export const Dense = template.generateStoryForProp('dense', true);
 export const Loading = template.generateStoryForProp('loading', true);
 
 /*

@@ -8,22 +8,32 @@ module.exports = {
   },
   async postRender(page, context) {
 
-    await page.waitForFunction(
-      () => {
-        const inoElements = Array.from(
-          document.getElementsByTagName('*')
-        ).filter((el) => el.tagName.startsWith('INO'));
+    await Promise.all(
+      [
+        await page.waitForLoadState('load'),
+        await page.waitForLoadState('domcontentloaded'),
+        await page.waitForFunction(
+          () => {
+            const inoElements = Array.from(
+              document.getElementsByTagName('*')
+            ).filter((el) => el.tagName.startsWith('INO'));
 
-        return inoElements.every((el) => el.classList.contains('hydrated'));
-      },
-      { polling: 50 }
-    );
+            return inoElements.every((el) => el.classList.contains('hydrated'));
+          },
+          { polling: 50 }
+        )
+      ]
+    )
 
-    const image = await page.screenshot();
+    const image = await page.screenshot({
+      omitBackground: true,
+      animations: 'disabled',
+    });
     expect(image).toMatchImageSnapshot({
+      comparisonMethod: 'ssim',
       customSnapshotsDir,
       customSnapshotIdentifier: context.id,
-      failureThreshold: 0.3,
+      failureThreshold: 0.01,
       failureThresholdType: 'percent',
     });
   },
