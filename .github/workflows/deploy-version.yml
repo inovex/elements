@@ -24,6 +24,8 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # prevent precedence over the credentials we are setting manually
       - uses: ./.github/workflows/dependencies-install
       - uses: ./.github/workflows/artifacts-download
         with:
