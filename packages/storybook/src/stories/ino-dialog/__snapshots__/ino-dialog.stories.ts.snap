@@ -46,7 +46,7 @@ exports[`Structure/<ino-dialog> ClosingAction smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__0nwa273so"
+                           id="ino-segment-group-id__zx17mkqhh"
                            class="hydrated"
         >
           <ino-segment-button dense
@@ -167,7 +167,7 @@ exports[`Structure/<ino-dialog> Dismissible smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__u06p39bdh"
+                           id="ino-segment-group-id__5rilgf6qq"
                            class="hydrated"
         >
           <ino-segment-button dense
@@ -288,7 +288,7 @@ exports[`Structure/<ino-dialog> FullWidth smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__wjct1ttog"
+                           id="ino-segment-group-id__andzoe05m"
                            class="hydrated"
         >
           <ino-segment-button dense
@@ -409,7 +409,7 @@ exports[`Structure/<ino-dialog> Playground smoke-test 1`] = `
       </div>
       <div class="ino-dialog-content">
         <ino-segment-group value="2"
-                           id="ino-segment-group-id__fjn79z8qx"
+                           id="ino-segment-group-id__nka4kq0sx"
                            class="hydrated"
         >
           <ino-segment-button dense

@@ -1,8 +1,6 @@
 import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop,} from '@stencil/core';
 import classNames from 'classnames';
 
-import {generateUniqueId} from '../../util/component-utils';
-
 /**
  * @slot default - Label of the button
  */
@@ -12,7 +10,6 @@ import {generateUniqueId} from '../../util/component-utils';
   shadow: false,
 })
 export class InoSegmentButton implements ComponentInterface {
-  private buttonId = `ino-segment-button-id_${generateUniqueId()}`;
 
   @Element() el!: HTMLInoSegmentButtonElement;
 
@@ -75,7 +72,6 @@ export class InoSegmentButton implements ComponentInterface {
         <button
           class={buttonClasses}
           disabled={this.disabled}
-          id={this.buttonId}
           name={this.name}
         >
           <slot></slot>

@@ -11,8 +11,6 @@ import {
   Watch,
 } from '@stencil/core';
 
-import { generateUniqueId } from '../../util/component-utils';
-
 /**
  * @slot default - One or more `ino-segment-button`
  */
@@ -22,7 +20,6 @@ import { generateUniqueId } from '../../util/component-utils';
   shadow: false,
 })
 export class InoSegmentGroup implements ComponentInterface {
-  private groupId = `ino-segment-group-id_${generateUniqueId()}`;
 
   @Element() el: HTMLInoSegmentGroupElement;
 
@@ -74,7 +71,6 @@ export class InoSegmentGroup implements ComponentInterface {
     return (
       <Host
         class="ino-segment-group"
-        id={this.groupId}
         name={this.name}
         value={this.value}
       >

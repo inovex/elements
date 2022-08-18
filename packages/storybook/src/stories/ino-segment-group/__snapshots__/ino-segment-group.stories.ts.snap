@@ -3,7 +3,7 @@
 exports[`Buttons/ino-segment-group Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-group">
-    <ino-segment-group id="ino-segment-group-id__qz6l81dsn"
+    <ino-segment-group id="ino-segment-group-id__2s0h4k9dy"
                        name
                        value="opt-2"
                        class="hydrated"

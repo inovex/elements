@@ -46,7 +46,7 @@ exports[`Structure/<ino-card> DisabledElevation smoke-test 1`] = `
           <div slot="footer"
                class="sample-card-footer"
           >
-            <ino-segment-group id="ino-segment-group-id__1jmgs2d08"
+            <ino-segment-group id="ino-segment-group-id__cg0cfpq5y"
                                class="hydrated"
             >
               <ino-segment-button value="1"
@@ -114,7 +114,7 @@ exports[`Structure/<ino-card> Playground smoke-test 1`] = `
           <div slot="footer"
                class="sample-card-footer"
           >
-            <ino-segment-group id="ino-segment-group-id__18tz4tu3q"
+            <ino-segment-group id="ino-segment-group-id__za0fcf6ur"
                                class="hydrated"
             >
               <ino-segment-button value="1"
