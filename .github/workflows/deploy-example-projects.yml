@@ -18,11 +18,12 @@ jobs:
         with:
           workflow-id: ${{ github.event.workflow_run.workflow_id }}
           download-example-artifacts: true
+          example-artifacts-base-path: example-artifacts
 
       - name: Deploy Example Projects to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
           commit-message: Deploying example projects
-          folder: '.'
+          folder: example-artifacts
           target-folder: example-projects
