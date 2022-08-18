@@ -23,7 +23,7 @@ exports[`Structure/ino-control-item Activated smoke-test 1`] = `
                   hidden
             >
             </span>
-            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated"
+            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
                 tabindex="-1"
             >
               <span class="mdc-deprecated-list-item__ripple">
@@ -129,7 +129,7 @@ exports[`Structure/ino-control-item Disabled smoke-test 1`] = `
                   hidden
             >
             </span>
-            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled"
+            <li class="mdc-deprecated-list-item mdc-deprecated-list-item--disabled mdc-ripple-upgraded"
                 tabindex="-1"
             >
               <span class="mdc-deprecated-list-item__ripple">
@@ -216,18 +216,51 @@ exports[`Structure/ino-control-item Indeterminate smoke-test 1`] = `
 exports[`Structure/ino-control-item Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class>
-    <ino-list two-lines="false">
-      <ino-control-item activated="false"
-                        checked="false"
-                        disabled="false"
-                        indeterminate="false"
-                        role="checkbox"
-                        secondary-text
-                        selected="false"
-                        text="Text"
-                        trailing="false"
-      >
-      </ino-control-item>
+    <ino-list two-lines="false"
+              class="hydrated"
+    >
+      <ul class="mdc-deprecated-list">
+        <ino-control-item activated="false"
+                          checked="false"
+                          disabled="false"
+                          indeterminate="false"
+                          role="checkbox"
+                          secondary-text
+                          selected="false"
+                          text="Text"
+                          trailing="false"
+                          class="hydrated"
+        >
+          <ino-list-item class="hydrated">
+            <span slot
+                  hidden
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__graphic"
+                    role="presentation"
+              >
+                <ino-checkbox slot="leading"
+                              class="hydrated"
+                >
+                  <input type="hidden"
+                         class="aux-input"
+                         name="undefined"
+                         value
+                  >
+                </ino-checkbox>
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Text
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-control-item>
+      </ul>
     </ino-list>
   </div>
 </div>
@@ -236,18 +269,51 @@ exports[`Structure/ino-control-item Playground smoke-test 1`] = `
 exports[`Structure/ino-control-item Roles smoke-test 1`] = `
 <div id="root-inner">
   <div class>
-    <ino-list two-lines="false">
-      <ino-control-item activated="false"
-                        checked="false"
-                        disabled="false"
-                        indeterminate="false"
-                        role="radio"
-                        secondary-text
-                        selected="false"
-                        text="Text"
-                        trailing="false"
-      >
-      </ino-control-item>
+    <ino-list two-lines="false"
+              class="hydrated"
+    >
+      <ul class="mdc-deprecated-list">
+        <ino-control-item activated="false"
+                          checked="false"
+                          disabled="false"
+                          indeterminate="false"
+                          role="radio"
+                          secondary-text
+                          selected="false"
+                          text="Text"
+                          trailing="false"
+                          class="hydrated"
+        >
+          <ino-list-item class="hydrated">
+            <span slot
+                  hidden
+            >
+            </span>
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+            >
+              <span class="mdc-deprecated-list-item__ripple">
+              </span>
+              <span class="mdc-deprecated-list-item__graphic"
+                    role="presentation"
+              >
+                <ino-radio slot="leading"
+                           class="hydrated"
+                >
+                  <input type="hidden"
+                         class="aux-input"
+                         name="undefined"
+                         value
+                  >
+                </ino-radio>
+              </span>
+              <span class="mdc-deprecated-list-item__text">
+                Text
+              </span>
+            </li>
+          </ino-list-item>
+        </ino-control-item>
+      </ul>
     </ino-list>
   </div>
 </div>

@@ -68,13 +68,14 @@ exports[`Buttons/<ino-button> LeadingAndTrailingIcon smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-button">
     <div class="container">
-      <ino-button class>
+      <ino-button class="hydrated">
         <button class="button button__variant--filled button__icon--leading"
                 type="button"
         >
           <span class="icon__wrapper">
             <ino-icon icon="info"
                       slot="icon-leading"
+                      class="hydrated ino-icon--color-scheme-primary"
             >
             </ino-icon>
           </span>
@@ -83,7 +84,7 @@ exports[`Buttons/<ino-button> LeadingAndTrailingIcon smoke-test 1`] = `
           </span>
         </button>
       </ino-button>
-      <ino-button class>
+      <ino-button class="hydrated">
         <button class="button button__variant--filled button__icon--trailing"
                 type="button"
         >
@@ -93,6 +94,7 @@ exports[`Buttons/<ino-button> LeadingAndTrailingIcon smoke-test 1`] = `
           <span class="icon__wrapper">
             <ino-icon icon="info"
                       slot="icon-trailing"
+                      class="hydrated ino-icon--color-scheme-primary"
             >
             </ino-icon>
           </span>
@@ -110,7 +112,7 @@ exports[`Buttons/<ino-button> Loading smoke-test 1`] = `
                 disabled="false"
                 dense="false"
                 loading
-                class="ino-button--loading"
+                class="ino-button--loading hydrated"
     >
       <button class="button button__variant--filled"
               type="button"
@@ -118,7 +120,35 @@ exports[`Buttons/<ino-button> Loading smoke-test 1`] = `
         <span class="button__label button__label--hide">
           Label
         </span>
-        <ino-spinner>
+        <ino-spinner class="ino-spinner--type-circle ino-spinner--color-scheme-primary hydrated">
+          <div class="ino-spinner__composer"
+               style="width: 20px; height: 20px;"
+          >
+            <div class="ino-spinner__circle-1">
+            </div>
+            <div class="ino-spinner__circle-2">
+            </div>
+            <div class="ino-spinner__circle-3">
+            </div>
+            <div class="ino-spinner__circle-4">
+            </div>
+            <div class="ino-spinner__circle-5">
+            </div>
+            <div class="ino-spinner__circle-6">
+            </div>
+            <div class="ino-spinner__circle-7">
+            </div>
+            <div class="ino-spinner__circle-8">
+            </div>
+            <div class="ino-spinner__circle-9">
+            </div>
+            <div class="ino-spinner__circle-10">
+            </div>
+            <div class="ino-spinner__circle-11">
+            </div>
+            <div class="ino-spinner__circle-12">
+            </div>
+          </div>
         </ino-spinner>
       </button>
     </ino-button>

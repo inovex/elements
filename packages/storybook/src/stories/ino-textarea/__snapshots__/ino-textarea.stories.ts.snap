@@ -28,7 +28,7 @@ exports[`Input/ino-textarea Autogrow smoke-test 1`] = `
             </div>
             <div class="mdc-notched-outline__notch">
               <label class="mdc-floating-label"
-                     style="transition-duration: 0s;"
+                     style
               >
                 Label
               </label>
@@ -76,7 +76,7 @@ exports[`Input/ino-textarea CharacterCount smoke-test 1`] = `
             </div>
             <div class="mdc-notched-outline__notch">
               <label class="mdc-floating-label"
-                     style="transition-duration: 0s;"
+                     style
               >
                 Label
               </label>
@@ -154,7 +154,7 @@ exports[`Input/ino-textarea Labels smoke-test 1`] = `
             </div>
             <div class="mdc-notched-outline__notch">
               <label class="mdc-floating-label"
-                     style="transition-duration: 0s;"
+                     style
               >
                 Floating label
               </label>
@@ -182,10 +182,10 @@ exports[`Input/ino-textarea Labels smoke-test 1`] = `
             <div class="mdc-notched-outline__leading">
             </div>
             <div class="mdc-notched-outline__notch"
-                 style="width: 89.75px;"
+                 style="width: 80px;"
             >
               <label class="mdc-floating-label mdc-floating-label--float-above"
-                     style="transition-duration: 0s;"
+                     style
               >
                 Floating label
               </label>
@@ -275,7 +275,7 @@ exports[`Input/ino-textarea Playground smoke-test 1`] = `
             </div>
             <div class="mdc-notched-outline__notch">
               <label class="mdc-floating-label"
-                     style="transition-duration: 0s;"
+                     style
               >
                 Label
               </label>

@@ -14,16 +14,85 @@ exports[`Input/ino-select Playground smoke-test 1`] = `
                 helper
                 helper-persistent="false"
                 helper-validation="false"
+                class="hydrated"
     >
-      <ino-option value="Option 1">
-        Option 1
-      </ino-option>
-      <ino-option value="Option 2">
-        Option 2
-      </ino-option>
-      <ino-option value="Option 3">
-        Option 3
-      </ino-option>
+      <div class="mdc-select mdc-select--filled">
+        <div class="mdc-select__anchor mdc-ripple-upgraded"
+             tabindex="0"
+             aria-disabled="false"
+             aria-invalid="false"
+        >
+          <div class="mdc-select__selected-text">
+            Option 1
+          </div>
+          <span class="mdc-select__dropdown-icon">
+            <svg class="mdc-select__dropdown-icon-graphic"
+                 viewbox="7 10 10 5"
+            >
+              <polygon class="mdc-select__dropdown-icon-inactive"
+                       stroke="none"
+                       fill-rule="evenodd"
+                       points="7 10 12 15 17 10"
+              >
+              </polygon>
+              <polygon class="mdc-select__dropdown-icon-active"
+                       stroke="none"
+                       fill-rule="evenodd"
+                       points="7 15 12 10 17 15"
+              >
+              </polygon>
+            </svg>
+          </span>
+          <ino-label class="hydrated">
+            <div class="mdc-line-ripple">
+            </div>
+            <label class="mdc-floating-label mdc-floating-label--float-above">
+              Select label
+            </label>
+          </ino-label>
+        </div>
+        <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">
+          <ul class="mdc-deprecated-list">
+            <ino-option value="Option 1"
+                        class="hydrated"
+            >
+              <li class="mdc-deprecated-list-item mdc-deprecated-list-item--selected"
+                  data-value="Option 1"
+                  tabindex="0"
+                  aria-selected="true"
+              >
+                <span class="mdc-deprecated-list-item__text">
+                  Option 1
+                </span>
+              </li>
+            </ino-option>
+            <ino-option value="Option 2"
+                        class="hydrated"
+            >
+              <li class="mdc-deprecated-list-item"
+                  data-value="Option 2"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__text">
+                  Option 2
+                </span>
+              </li>
+            </ino-option>
+            <ino-option value="Option 3"
+                        class="hydrated"
+            >
+              <li class="mdc-deprecated-list-item"
+                  data-value="Option 3"
+                  tabindex="-1"
+              >
+                <span class="mdc-deprecated-list-item__text">
+                  Option 3
+                </span>
+              </li>
+            </ino-option>
+          </ul>
+        </div>
+      </div>
     </ino-select>
   </div>
 </div>

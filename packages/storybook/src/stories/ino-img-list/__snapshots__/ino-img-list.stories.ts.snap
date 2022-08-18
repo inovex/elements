@@ -10,13 +10,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="beach"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/beach.jpg"
+               src="static/media/beach.1432d4b3.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="beach"
-               src="static/media/src/assets/images/beach.jpg"
+               src="static/media/beach.1432d4b3.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -32,13 +32,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="waterfall"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/fjord.jpg"
+               src="static/media/fjord.a789a6be.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="waterfall"
-               src="static/media/src/assets/images/fjord.jpg"
+               src="static/media/fjord.a789a6be.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -54,13 +54,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="trondheim"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/forrest.jpg"
+               src="static/media/forrest.0452b993.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="trondheim"
-               src="static/media/src/assets/images/forrest.jpg"
+               src="static/media/forrest.0452b993.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -76,13 +76,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="forrest"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/liberty.jpg"
+               src="static/media/liberty.ab8cbdf5.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="forrest"
-               src="static/media/src/assets/images/liberty.jpg"
+               src="static/media/liberty.ab8cbdf5.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -98,13 +98,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="fjord"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/trondheim.jpg"
+               src="static/media/trondheim.7a9953d8.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="fjord"
-               src="static/media/src/assets/images/trondheim.jpg"
+               src="static/media/trondheim.7a9953d8.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -120,13 +120,13 @@ exports[`Graphic/ino-img-list EncloseLabel smoke-test 1`] = `
       <ino-img alt="liberty"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/waterfall.jpg"
+               src="static/media/waterfall.a7a46e49.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="liberty"
-               src="static/media/src/assets/images/waterfall.jpg"
+               src="static/media/waterfall.a7a46e49.jpg"
           >
           <div class="ino-img__fallback-icon">
             <ino-icon class="ino-icon--color-scheme-primary hydrated">
@@ -154,16 +154,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="beach"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/beach.jpg"
+               src="static/media/beach.1432d4b3.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="beach"
-               src="static/media/src/assets/images/beach.jpg"
+               src="static/media/beach.1432d4b3.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -176,16 +176,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="waterfall"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/fjord.jpg"
+               src="static/media/fjord.a789a6be.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="waterfall"
-               src="static/media/src/assets/images/fjord.jpg"
+               src="static/media/fjord.a789a6be.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -198,16 +198,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="trondheim"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/forrest.jpg"
+               src="static/media/forrest.0452b993.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="trondheim"
-               src="static/media/src/assets/images/forrest.jpg"
+               src="static/media/forrest.0452b993.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -220,16 +220,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="forrest"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/liberty.jpg"
+               src="static/media/liberty.ab8cbdf5.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="forrest"
-               src="static/media/src/assets/images/liberty.jpg"
+               src="static/media/liberty.ab8cbdf5.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -242,16 +242,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="fjord"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/trondheim.jpg"
+               src="static/media/trondheim.7a9953d8.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="fjord"
-               src="static/media/src/assets/images/trondheim.jpg"
+               src="static/media/trondheim.7a9953d8.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -264,16 +264,16 @@ exports[`Graphic/ino-img-list Masonry smoke-test 1`] = `
       <ino-img alt="liberty"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/waterfall.jpg"
+               src="static/media/waterfall.a7a46e49.jpg"
                class="mdc-image-list__item hydrated"
       >
         <div class>
           <img class="mdc-image-list__image"
                alt="liberty"
-               src="static/media/src/assets/images/waterfall.jpg"
+               src="static/media/waterfall.a7a46e49.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon class="hydrated ino-icon--color-scheme-primary">
+            <ino-icon class="ino-icon--color-scheme-primary hydrated">
             </ino-icon>
           </div>
         </div>
@@ -292,21 +292,22 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
 <div id="root-inner">
   <ino-img-list enclose-label="false"
                 masonry="false"
+                class="hydrated"
   >
     <ul class="mdc-image-list">
       <ino-img alt="beach"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/beach.jpg"
-               class="mdc-image-list__item"
+               src="static/media/beach.1432d4b3.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="beach"
-               src="static/media/src/assets/images/beach.jpg"
+               src="static/media/beach.1432d4b3.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>
@@ -319,16 +320,16 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
       <ino-img alt="waterfall"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/fjord.jpg"
-               class="mdc-image-list__item"
+               src="static/media/fjord.a789a6be.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="waterfall"
-               src="static/media/src/assets/images/fjord.jpg"
+               src="static/media/fjord.a789a6be.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>
@@ -341,16 +342,16 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
       <ino-img alt="trondheim"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/forrest.jpg"
-               class="mdc-image-list__item"
+               src="static/media/forrest.0452b993.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="trondheim"
-               src="static/media/src/assets/images/forrest.jpg"
+               src="static/media/forrest.0452b993.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>
@@ -363,16 +364,16 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
       <ino-img alt="forrest"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/liberty.jpg"
-               class="mdc-image-list__item"
+               src="static/media/liberty.ab8cbdf5.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="forrest"
-               src="static/media/src/assets/images/liberty.jpg"
+               src="static/media/liberty.ab8cbdf5.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>
@@ -385,16 +386,16 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
       <ino-img alt="fjord"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/trondheim.jpg"
-               class="mdc-image-list__item"
+               src="static/media/trondheim.7a9953d8.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="fjord"
-               src="static/media/src/assets/images/trondheim.jpg"
+               src="static/media/trondheim.7a9953d8.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>
@@ -407,16 +408,16 @@ exports[`Graphic/ino-img-list Playground smoke-test 1`] = `
       <ino-img alt="liberty"
                label="Label"
                img-list-item
-               src="static/media/src/assets/images/waterfall.jpg"
-               class="mdc-image-list__item"
+               src="static/media/waterfall.a7a46e49.jpg"
+               class="mdc-image-list__item hydrated"
       >
         <div class="mdc-image-list__image-aspect-container">
           <img class="mdc-image-list__image"
                alt="liberty"
-               src="static/media/src/assets/images/waterfall.jpg"
+               src="static/media/waterfall.a7a46e49.jpg"
           >
           <div class="ino-img__fallback-icon">
-            <ino-icon>
+            <ino-icon class="hydrated ino-icon--color-scheme-primary">
             </ino-icon>
           </div>
         </div>

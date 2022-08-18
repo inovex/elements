@@ -119,7 +119,7 @@ exports[`Structure/ino-nav-item Playground smoke-test 1`] = `
                       disabled="false"
         >
           <ino-list-item class="hydrated">
-            <li class="mdc-deprecated-list-item"
+            <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
                 tabindex="-1"
             >
               <span class="mdc-deprecated-list-item__ripple">
@@ -131,7 +131,7 @@ exports[`Structure/ino-nav-item Playground smoke-test 1`] = `
                       slot="leading"
                 >
                   <ino-icon icon="onboarding"
-                            class="hydrated"
+                            class="hydrated ino-icon--color-scheme-primary"
                   >
                   </ino-icon>
                 </span>

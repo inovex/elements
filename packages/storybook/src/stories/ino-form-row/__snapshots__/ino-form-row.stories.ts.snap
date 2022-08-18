@@ -3,7 +3,7 @@
 exports[`Input/ino-form-row Mandatory smoke-test 1`] = `
 <div id="root-inner">
   <div class>
-    <ino-form-row class="customizable-form-row"
+    <ino-form-row class="customizable-form-row hydrated"
                   label="Label"
                   mandatory="true"
     >
@@ -15,9 +15,13 @@ exports[`Input/ino-form-row Mandatory smoke-test 1`] = `
           </span>
         </div>
         <div class="ino-form-row__element">
-          <ino-input>
-            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-              <ino-label>
+          <ino-input class="hydrated"
+                     tabindex="-1"
+          >
+            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+              <ino-label class="hydrated">
+                <div class="mdc-line-ripple">
+                </div>
               </ino-label>
               <input class="mdc-text-field__input"
                      step="1"
@@ -37,7 +41,7 @@ exports[`Input/ino-form-row Mandatory smoke-test 1`] = `
 exports[`Input/ino-form-row Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class>
-    <ino-form-row class="customizable-form-row"
+    <ino-form-row class="customizable-form-row hydrated"
                   label="Label"
                   mandatory="false"
     >
@@ -46,9 +50,13 @@ exports[`Input/ino-form-row Playground smoke-test 1`] = `
           Label
         </div>
         <div class="ino-form-row__element">
-          <ino-input>
-            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
-              <ino-label>
+          <ino-input class="hydrated"
+                     tabindex="-1"
+          >
+            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
+              <ino-label class="hydrated">
+                <div class="mdc-line-ripple">
+                </div>
               </ino-label>
               <input class="mdc-text-field__input"
                      step="1"

@@ -25,7 +25,7 @@ exports[`Input/ino-input DataList smoke-test 1`] = `
           Ruby on Rails
         </option>
       </datalist>
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -165,8 +165,10 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
   <div class="story-ino-input">
     <ino-input icon-leading
                label="Leading icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -177,6 +179,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--leading">
           <ino-icon slot="icon-leading"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -190,8 +193,10 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     </ino-input>
     <ino-input icon-trailing
                label="Trailing icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -206,6 +211,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
           <ino-icon slot="icon-trailing"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -216,8 +222,10 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     <ino-input icon-leading
                icon-trailing
                label="Leading and Trailing icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -228,6 +236,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--leading">
           <ino-icon slot="icon-leading"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -238,6 +247,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
         <span class="mdc-text-field__icon mdc-text-field__icon--trailing">
           <ino-icon slot="icon-trailing"
                     icon="add"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -247,8 +257,10 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
     </ino-input>
     <ino-input icon-trailing
                label="Clickable Icon"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -264,6 +276,7 @@ exports[`Input/ino-input Icons smoke-test 1`] = `
           <ino-icon clickable
                     slot="icon-trailing"
                     icon="search"
+                    class="hydrated ino-icon--color-scheme-primary"
           >
           </ino-icon>
         </span>
@@ -391,12 +404,14 @@ exports[`Input/ino-input Metadata smoke-test 1`] = `
                type="number"
                unit="h"
                label="Hours input"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-trailing-icon mdc-text-field--label-floating mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
-          <label class="mdc-floating-label">
+          <label class="mdc-floating-label mdc-floating-label--float-above">
             Hours input
           </label>
         </ino-label>
@@ -408,9 +423,9 @@ exports[`Input/ino-input Metadata smoke-test 1`] = `
           h
         </span>
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -427,8 +442,10 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
     <ino-input type="number"
                decimal-places="2"
                placeholder="With 2 decimal places"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -439,9 +456,9 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -452,8 +469,10 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                step="1"
                thousands-separator
                placeholder="With thousands separator"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -464,9 +483,9 @@ exports[`Input/ino-input NumberFormats smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up ino-icon--color-scheme-primary hydrated">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down ino-icon--color-scheme-primary hydrated">
           </ino-icon>
         </div>
       </label>
@@ -754,8 +773,10 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     </ino-input>
     <ino-input type="number"
                placeholder="type = number"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -766,9 +787,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>
@@ -778,8 +799,10 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     <ino-input type="number"
                placeholder="type = number with steps=5"
                step="5"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -790,9 +813,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>
@@ -802,8 +825,10 @@ exports[`Input/ino-input Types smoke-test 1`] = `
     <ino-input type="number"
                placeholder="type = number with step='any' (decimal numbers)"
                step="any"
+               class="hydrated"
+               tabindex="-1"
     >
-      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label">
+      <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--no-label mdc-ripple-upgraded">
         <ino-label class="hydrated">
           <div class="mdc-line-ripple">
           </div>
@@ -814,9 +839,9 @@ exports[`Input/ino-input Types smoke-test 1`] = `
                type="number"
         >
         <div class="arrow-container">
-          <ino-icon class="ino-num-arrows up">
+          <ino-icon class="ino-num-arrows up hydrated ino-icon--color-scheme-primary">
           </ino-icon>
-          <ino-icon class="ino-num-arrows down">
+          <ino-icon class="ino-num-arrows down hydrated ino-icon--color-scheme-primary">
           </ino-icon>
         </div>
       </label>

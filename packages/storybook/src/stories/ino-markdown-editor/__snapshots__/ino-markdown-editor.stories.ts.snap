@@ -6,7 +6,106 @@ exports[`Input/ino-markdown-editor Playground smoke-test 1`] = `
     <ino-markdown-editor id="editor-playground"
                          initial-value
                          view-mode="preview"
+                         class="hydrated"
     >
+      <div class="markdown-editor">
+        <div class="markdown-editor__toolbar">
+          <div>
+            <button class="toolbar__action-button toolbar__view-mode toolbar__action-button--active">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button toolbar__view-mode">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+          </div>
+          <div class="toolbar__text-format toolbar__text-format--show">
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+            <button class="toolbar__action-button">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
+              </ino-icon>
+            </button>
+          </div>
+          <ino-popover color-scheme="transparent"
+                       class="hydrated"
+          >
+            <div>
+            </div>
+          </ino-popover>
+        </div>
+        <div class="markdown-editor__content">
+          <div class="markdown-editor__content__container show-editor">
+            <div contenteditable="true"
+                 translate="no"
+                 tabindex="0"
+                 class="ProseMirror"
+            >
+              <p>
+                <br class="ProseMirror-trailingBreak">
+              </p>
+            </div>
+          </div>
+          <ino-textarea class="hide-editor ino-textarea--outline hydrated">
+            <div class="mdc-text-field mdc-text-field--textarea mdc-text-field--outlined mdc-text-field--no-label">
+              <textarea class="mdc-text-field__input"
+                        cols="100"
+                        style="overflow: hidden; overflow-wrap: break-word;"
+              >
+              </textarea>
+              <ino-label class="ino-label--outlined hydrated">
+                <div class="mdc-notched-outline mdc-notched-outline--no-label">
+                  <div class="mdc-notched-outline__leading">
+                  </div>
+                  <div class="mdc-notched-outline__notch">
+                  </div>
+                  <div class="mdc-notched-outline__trailing">
+                  </div>
+                </div>
+              </ino-label>
+            </div>
+          </ino-textarea>
+        </div>
+      </div>
     </ino-markdown-editor>
   </div>
 </div>

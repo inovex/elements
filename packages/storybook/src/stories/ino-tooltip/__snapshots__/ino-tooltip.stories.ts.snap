@@ -39,16 +39,17 @@ exports[`Notification/ino-tooltip Placement smoke-test 1`] = `
 exports[`Notification/ino-tooltip Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-tooltip">
-    <ino-button id="tooltip-target">
-      Trigger Element
-    </ino-button>
-    <ino-tooltip for="tooltip-target"
-                 placement="auto"
-                 trigger="mouseenter focus"
-                 color-scheme="primary"
+    <ino-button id="tooltip-target"
+                class="hydrated"
     >
-      This is a tooltip
-    </ino-tooltip>
+      <button class="button button__variant--filled"
+              type="button"
+      >
+        <span class="button__label">
+          Trigger Element
+        </span>
+      </button>
+    </ino-button>
   </div>
 </div>
 `;

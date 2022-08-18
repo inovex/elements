@@ -3,24 +3,63 @@
 exports[`Structure/ino-table-header-cell Label smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="false"
-                             sort-direction
-                             search-icon="search"
-                             searched="false"
-                             label="Search for XY..."
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="false"
+                                     sort-direction
+                                     search-icon="search"
+                                     searched="false"
+                                     label="Search for XY..."
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     data-column-id="_ut04tz6xh"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__rb3v5mwh3"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Search for XY...
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -29,24 +68,50 @@ exports[`Structure/ino-table-header-cell Label smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell NotSortable smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="true"
-                             sort-direction
-                             search-icon="search"
-                             searched="false"
-                             label="Label"
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="true"
+                                     sort-direction
+                                     search-icon="search"
+                                     searched="false"
+                                     label="Label"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable hydrated"
+                                     data-column-id="_2ss8tt5u9"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__j3bzbvybm"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Label
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -55,24 +120,63 @@ exports[`Structure/ino-table-header-cell NotSortable smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="false"
-                             sort-direction
-                             search-icon="search"
-                             searched="false"
-                             label="Label"
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="false"
+                                     sort-direction
+                                     search-icon="search"
+                                     searched="false"
+                                     label="Label"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     data-column-id="_rfg69s4l9"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__lumbdrmr7"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Label
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -81,24 +185,63 @@ exports[`Structure/ino-table-header-cell Playground smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell SearchIcon smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="false"
-                             sort-direction
-                             search-icon="search"
-                             searched="false"
-                             label="Label"
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="false"
+                                     sort-direction
+                                     search-icon="search"
+                                     searched="false"
+                                     label="Label"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     data-column-id="_b2whze15c"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__5jm24b2z6"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Label
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -107,54 +250,59 @@ exports[`Structure/ino-table-header-cell SearchIcon smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell SearchWithDatepicker smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell label="Column Selection Search"
-                             search-icon="calendar"
-                             class="datepicker-cell"
-      >
-        <div lang="de"
-             class="datepicker-group"
-        >
-          <aside>
-            <ul>
-              <li class="today">
-                Today
-              </li>
-              <li class="lastWeek">
-                last week
-              </li>
-              <li class="thisWeek">
-                this week
-              </li>
-            </ul>
-          </aside>
-          <main id="main">
-            <ino-datepicker type="date"
-                            label="An"
-                            inline
-                            date-format="d.m.Y"
-                            placeholder="tt.mm.jjjj"
-                            append-to="main"
-                            data-ino-focus
-            >
-            </ino-datepicker>
-            <ino-radio-group value="at">
-              <ino-radio value="at">
-                At
-              </ino-radio>
-              <ino-radio value="after">
-                After
-              </ino-radio>
-              <ino-radio value="before">
-                Before
-              </ino-radio>
-              <ino-radio value="range">
-                Range
-              </ino-radio>
-            </ino-radio-group>
-          </main>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell label="Column Selection Search"
+                                     search-icon="calendar"
+                                     class="datepicker-cell mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     role="columnheader"
+                                     data-column-id="_4e417qp6i"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__imi9r6404"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Column Selection Search
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
         </div>
-      </ino-table-header-cell>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -163,45 +311,59 @@ exports[`Structure/ino-table-header-cell SearchWithDatepicker smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell SearchWithSelection smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell label="Column Selection Search"
-                             search-icon="filter"
-      >
-        <ino-list>
-          <ino-list-item text="Option 1">
-            <ino-checkbox slot="leading"
-                          selection
-            >
-            </ino-checkbox>
-          </ino-list-item>
-          <ino-list-item-divider inset>
-          </ino-list-item-divider>
-          <ino-list-item text="Option 2">
-            <ino-checkbox slot="leading"
-                          selection
-            >
-            </ino-checkbox>
-          </ino-list-item>
-          <ino-list-item-divider inset>
-          </ino-list-item-divider>
-          <ino-list-item text="Option 3">
-            <ino-checkbox slot="leading"
-                          selection
-            >
-            </ino-checkbox>
-          </ino-list-item>
-          <ino-list-item-divider inset>
-          </ino-list-item-divider>
-          <ino-list-item text="Option 4">
-            <ino-checkbox slot="leading"
-                          selection
-            >
-            </ino-checkbox>
-          </ino-list-item>
-          <ino-list-item-divider inset>
-          </ino-list-item-divider>
-        </ino-list>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell label="Column Selection Search"
+                                     search-icon="filter"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     data-column-id="_o2fkls9en"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__4eqklchw8"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon hydrated ino-icon--color-scheme-primary">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Column Selection Search
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -210,24 +372,63 @@ exports[`Structure/ino-table-header-cell SearchWithSelection smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell Searched smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="false"
-                             sort-direction
-                             search-icon="search"
-                             searched="true"
-                             label="Label"
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="false"
+                                     sort-direction
+                                     search-icon="search"
+                                     searched="true"
+                                     label="Label"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable ino-table-header-cell--searched hydrated"
+                                     data-column-id="_wgte02g8e"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__5609jw0sq"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Label
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-none ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="ino-icon--color-scheme-primary hydrated">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>
@@ -236,24 +437,63 @@ exports[`Structure/ino-table-header-cell Searched smoke-test 1`] = `
 exports[`Structure/ino-table-header-cell SortDirection smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-ino-table-header-cell">
-    <ino-table>
-      <ino-table-header-cell autofocus="false"
-                             not-sortable="false"
-                             sort-direction="desc"
-                             search-icon="search"
-                             searched="false"
-                             label="Label"
-      >
-        <ino-input placeholder="Search for XY..."
-                   data-ino-focus
-        >
-          <ino-icon clickable
-                    slot="icon-trailing"
-                    icon="close"
-          >
-          </ino-icon>
-        </ino-input>
-      </ino-table-header-cell>
+    <ino-table class="hydrated">
+      <div class="mdc-data-table ino-table--no-header">
+        <div class="mdc-data-table__table-container">
+          <table class="ino-table__table mdc-data-table__table">
+            <tbody class="mdc-data-table__content">
+              <ino-table-header-cell autofocus="false"
+                                     not-sortable="false"
+                                     sort-direction="desc"
+                                     search-icon="search"
+                                     searched="false"
+                                     label="Label"
+                                     role="columnheader"
+                                     class="mdc-data-table__header-cell ino-table-header-cell--searchable ino-table-header-cell--sortable hydrated"
+                                     data-column-id="_4b10wdac1"
+                                     tabindex="-1"
+                                     id="ino-table-header-cell-id__pr83abnp5"
+                                     style="max-width: 230px;"
+              >
+                <ino-popover color-scheme="transparent"
+                             class="hydrated"
+                >
+                  <div class="mdc-data-table__header-cell-wrapper"
+                       slot="popover-trigger"
+                       tabindex="0"
+                       aria-expanded="false"
+                  >
+                    <ino-icon class="ino-table-header-cell__search-icon ino-icon--color-scheme-primary hydrated">
+                    </ino-icon>
+                    <div class="mdc-data-table__header-cell-label">
+                      Label
+                    </div>
+                  </div>
+                  <div>
+                  </div>
+                </ino-popover>
+                <ino-icon-button class="sort-desc ino-icon-button--color-scheme-dark hydrated">
+                  <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
+                          type="button"
+                          style="--mdc-ripple-fg-size:14px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:5px; --mdc-ripple-top:5px;"
+                  >
+                    <div class="mdc-icon-button__ripple">
+                    </div>
+                    <span class="mdc-icon-button__icon">
+                      <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                      </ino-icon>
+                    </span>
+                  </button>
+                </ino-icon-button>
+              </ino-table-header-cell>
+            </tbody>
+          </table>
+        </div>
+        <div class="mdc-data-table__progress-indicator">
+          <div class="mdc-data-table__scrim">
+          </div>
+        </div>
+      </div>
     </ino-table>
   </div>
 </div>

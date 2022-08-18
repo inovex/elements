@@ -5,13 +5,30 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
   <div class="story-icon">
     <div class="story-icon">
       <div class="flex-parent-center">
-        <ino-input class="icon-search-input"
+        <ino-input class="icon-search-input hydrated"
                    placeholder="Find icon"
+                   tabindex="-1"
         >
-          <ino-icon slot="icon-leading"
-                    icon="search"
-          >
-          </ino-icon>
+          <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--no-label mdc-ripple-upgraded">
+            <ino-label class="hydrated">
+              <div class="mdc-line-ripple">
+              </div>
+            </ino-label>
+            <span class="mdc-text-field__icon mdc-text-field__icon--leading">
+              <ino-icon slot="icon-leading"
+                        icon="search"
+                        class="hydrated ino-icon--color-scheme-primary"
+              >
+              </ino-icon>
+            </span>
+            <input class="mdc-text-field__input"
+                   step="1"
+                   placeholder="Find icon"
+                   type="text"
+            >
+          </label>
+          <div class="mdc-text-field-helper-line">
+          </div>
         </ino-input>
         <h6>
           Click on the icon to copy the id to your clipboard.
@@ -21,1057 +38,3081 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-add"
                     value="add"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="add"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            add
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="add"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="add"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    add
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-arrow_down"
                     value="arrow_down"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="arrow_down"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            arrow_down
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="arrow_down"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="arrow_down"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    arrow_down
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-arrow_left"
                     value="arrow_left"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="arrow_left"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            arrow_left
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="arrow_left"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="arrow_left"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    arrow_left
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-arrow_right"
                     value="arrow_right"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="arrow_right"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            arrow_right
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="arrow_right"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="arrow_right"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    arrow_right
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-arrow_up"
                     value="arrow_up"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="arrow_up"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            arrow_up
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="arrow_up"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="arrow_up"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    arrow_up
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-back_arrow"
                     value="back_arrow"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="back_arrow"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            back_arrow
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="back_arrow"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="back_arrow"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    back_arrow
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-birthday"
                     value="birthday"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="birthday"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            birthday
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="birthday"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="birthday"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    birthday
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-bold"
                     value="bold"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="bold"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            bold
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="bold"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="bold"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    bold
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-bullet_list"
                     value="bullet_list"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="bullet_list"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            bullet_list
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="bullet_list"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="bullet_list"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    bullet_list
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-calendar"
                     value="calendar"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="calendar"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            calendar
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="calendar"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="calendar"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    calendar
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-call"
                     value="call"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="call"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            call
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="call"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="call"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    call
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-camera"
                     value="camera"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="camera"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            camera
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="camera"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="camera"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    camera
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-cart"
                     value="cart"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="cart"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            cart
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="cart"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="cart"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    cart
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-chat"
                     value="chat"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="chat"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            chat
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="chat"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="chat"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    chat
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-checkmark"
                     value="checkmark"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="checkmark"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            checkmark
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="checkmark"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="checkmark"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    checkmark
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-close"
                     value="close"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="close"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            close
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="close"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="close"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    close
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-cloud"
                     value="cloud"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="cloud"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            cloud
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="cloud"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="cloud"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    cloud
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-code"
                     value="code"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="code"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            code
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="code"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="code"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    code
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-code_block"
                     value="code_block"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="code_block"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            code_block
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="code_block"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="code_block"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    code_block
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-company"
                     value="company"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="company"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            company
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="company"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="company"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    company
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-copy"
                     value="copy"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="copy"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            copy
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="copy"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="copy"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    copy
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-developer"
                     value="developer"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="developer"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            developer
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="developer"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="developer"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    developer
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-display"
                     value="display"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="display"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            display
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="display"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="display"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    display
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-download"
                     value="download"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="download"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            download
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="download"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="download"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    download
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-edit"
                     value="edit"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="edit"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            edit
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="edit"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="edit"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    edit
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-edit_text"
                     value="edit_text"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="edit_text"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            edit_text
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="edit_text"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="edit_text"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    edit_text
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-employee"
                     value="employee"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="employee"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            employee
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="employee"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="employee"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    employee
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-favorite"
                     value="favorite"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="favorite"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            favorite
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="favorite"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="favorite"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    favorite
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-filter"
                     value="filter"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="filter"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            filter
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="filter"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="filter"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    filter
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-folder"
                     value="folder"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="folder"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            folder
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="folder"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="folder"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    folder
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-headline_one"
                     value="headline_one"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="headline_one"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            headline_one
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="headline_one"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="headline_one"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    headline_one
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-headline_two"
                     value="headline_two"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="headline_two"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            headline_two
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="headline_two"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="headline_two"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    headline_two
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-help"
                     value="help"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="help"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            help
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="help"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="help"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    help
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-image_not_available"
                     value="image_not_available"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="image_not_available"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            image_not_available
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="image_not_available"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="image_not_available"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    image_not_available
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-info"
                     value="info"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="info"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            info
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="info"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon ino-icon--color-scheme-primary hydrated"
+                                slot="icon-leading"
+                                icon="info"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    info
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-italic"
                     value="italic"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="italic"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            italic
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="italic"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="italic"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    italic
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-link"
                     value="link"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="link"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            link
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="link"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="link"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    link
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-location"
                     value="location"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="location"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            location
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="location"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="location"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    location
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-logout"
                     value="logout"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="logout"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            logout
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="logout"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="logout"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    logout
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-mail"
                     value="mail"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="mail"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            mail
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="mail"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="mail"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    mail
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-menu"
                     value="menu"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="menu"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            menu
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="menu"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="menu"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    menu
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-message"
                     value="message"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="message"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            message
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="message"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="message"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    message
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-number"
                     value="number"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="number"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            number
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="number"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="number"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    number
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-numeric_list"
                     value="numeric_list"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="numeric_list"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            numeric_list
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="numeric_list"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="numeric_list"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    numeric_list
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-offboarding"
                     value="offboarding"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="offboarding"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            offboarding
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="offboarding"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="offboarding"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    offboarding
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-offboarding_running"
                     value="offboarding_running"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="offboarding_running"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            offboarding_running
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="offboarding_running"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="offboarding_running"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    offboarding_running
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-onboarding"
                     value="onboarding"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="onboarding"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            onboarding
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="onboarding"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="onboarding"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    onboarding
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-onboarding_running"
                     value="onboarding_running"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="onboarding_running"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            onboarding_running
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="onboarding_running"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="onboarding_running"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    onboarding_running
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-opportunity"
                     value="opportunity"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="opportunity"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            opportunity
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="opportunity"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="opportunity"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    opportunity
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-options"
                     value="options"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="options"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            options
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="options"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="options"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    options
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-options_dotted"
                     value="options_dotted"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="options_dotted"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            options_dotted
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="options_dotted"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="options_dotted"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    options_dotted
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-partner"
                     value="partner"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="partner"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            partner
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="partner"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="partner"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    partner
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-password"
                     value="password"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="password"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            password
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="password"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="password"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    password
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-phone"
                     value="phone"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="phone"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            phone
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="phone"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="phone"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    phone
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-pin"
                     value="pin"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="pin"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            pin
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="pin"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="pin"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    pin
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-print"
                     value="print"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="print"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            print
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="print"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="print"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    print
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-question"
                     value="question"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="question"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            question
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="question"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="question"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    question
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-quote"
                     value="quote"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="quote"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            quote
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="quote"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="quote"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    quote
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-refresh"
                     value="refresh"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="refresh"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            refresh
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="refresh"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="refresh"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    refresh
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-remove"
                     value="remove"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="remove"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            remove
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="remove"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="remove"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    remove
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-report"
                     value="report"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="report"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            report
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="report"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="report"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    report
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-save"
                     value="save"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="save"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            save
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="save"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="save"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    save
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-search"
                     value="search"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="search"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            search
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="search"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="search"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    search
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-settings"
                     value="settings"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="settings"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            settings
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="settings"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="settings"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    settings
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-share"
                     value="share"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="share"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            share
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="share"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="share"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    share
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-snackbar-checkmark"
                     value="snackbar-checkmark"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="snackbar-checkmark"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            snackbar-checkmark
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="snackbar-checkmark"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="snackbar-checkmark"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    snackbar-checkmark
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-snackbar-error"
                     value="snackbar-error"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="snackbar-error"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            snackbar-error
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="snackbar-error"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="snackbar-error"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    snackbar-error
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-snackbar-information"
                     value="snackbar-information"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="snackbar-information"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            snackbar-information
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="snackbar-information"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="snackbar-information"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    snackbar-information
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-sort"
                     value="sort"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="sort"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            sort
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="sort"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="sort"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    sort
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-sort_az"
                     value="sort_az"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="sort_az"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            sort_az
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="sort_az"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="sort_az"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    sort_az
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-sort_down"
                     value="sort_down"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="sort_down"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            sort_down
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="sort_down"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="sort_down"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    sort_down
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-sort_up"
                     value="sort_up"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="sort_up"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            sort_up
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="sort_up"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="sort_up"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    sort_up
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-sort_za"
                     value="sort_za"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="sort_za"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            sort_za
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="sort_za"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="sort_za"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    sort_za
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-star"
                     value="star"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="star"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            star
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="star"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="star"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    star
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_abwesend"
                     value="status_abwesend"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_abwesend"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_abwesend
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_abwesend"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_abwesend"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_abwesend
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_away"
                     value="status_away"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_away"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_away
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_away"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_away"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_away
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_current"
                     value="status_current"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_current"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_current
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_current"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_current"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_current
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_future"
                     value="status_future"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_future"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_future
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_future"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_future"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_future
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_offboarding_laufend"
                     value="status_offboarding_laufend"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_offboarding_laufend"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_offboarding_laufend
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_offboarding_laufend"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_offboarding_laufend"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_offboarding_laufend
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_past"
                     value="status_past"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_past"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_past
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_past"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_past"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_past
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-status_zukuenftige"
                     value="status_zukuenftige"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="status_zukuenftige"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            status_zukuenftige
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="status_zukuenftige"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="status_zukuenftige"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    status_zukuenftige
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-strikethrough"
                     value="strikethrough"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="strikethrough"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            strikethrough
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="strikethrough"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="strikethrough"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    strikethrough
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-time"
                     value="time"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="time"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            time
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="time"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="time"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    time
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-underline"
                     value="underline"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="underline"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            underline
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="underline"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="underline"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    underline
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-upload"
                     value="upload"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="upload"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            upload
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="upload"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="upload"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    upload
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-user"
                     value="user"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="user"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            user
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="user"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="user"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    user
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-warning"
                     value="warning"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="warning"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            warning
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="warning"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="warning"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    warning
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
           <ino-chip fill="outline"
                     color-scheme="default"
                     id="icon-web"
                     value="web"
+                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
           >
-            <ino-icon class="chip-icon"
-                      slot="icon-leading"
-                      icon="web"
+            <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
+                  role="row"
             >
-            </ino-icon>
-            web
+              <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+                    role="gridcell"
+              >
+                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
+                        tabindex="0"
+                        data-value="web"
+                        type="button"
+                >
+                  <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary">
+                  </span>
+                  <span class="mdc-evolution-chip__graphic">
+                    <span class="mdc-evolution-chip__icon mdc-evolution-chip__icon--primary ino-chip-leading-icon">
+                      <ino-icon class="chip-icon hydrated ino-icon--color-scheme-primary"
+                                slot="icon-leading"
+                                icon="web"
+                      >
+                      </ino-icon>
+                    </span>
+                  </span>
+                  <span class="mdc-evolution-chip__text-label ino-chip-label">
+                    web
+                  </span>
+                </button>
+              </span>
+            </span>
           </ino-chip>
         </div>
       </div>
@@ -1083,7 +3124,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
 exports[`Graphic/ino-icon Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-icon">
-    <ino-icon class="customizable-icon"
+    <ino-icon class="customizable-icon hydrated ino-icon--color-scheme-primary"
               style="--icon-width: 30px; --icon-height: 30px;"
               clickable="true"
               color-secondary="false"

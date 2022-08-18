@@ -32,13 +32,13 @@ exports[`Input/<ino-range> Discrete smoke-test 1`] = `
           </div>
           <div class="mdc-slider__track--active">
             <div class="mdc-slider__track--active_fill"
-                 style="transform: scaleX(0.7); transition: all 0s ease 0s;"
+                 style="transform: scaleX(0.7);"
             >
             </div>
           </div>
         </div>
         <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px); transition: all 0s ease 0s;"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px);"
         >
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
@@ -407,13 +407,13 @@ exports[`Input/<ino-range> Ranged smoke-test 1`] = `
           </div>
           <div class="mdc-slider__track--active">
             <div class="mdc-slider__track--active_fill"
-                 style="transform-origin: left center; right: unset; left: 360px; transform: scaleX(0.4); transition: all 0s ease 0s;"
+                 style="transform-origin: left center; right: unset; left: 360px; transform: scaleX(0.4);"
             >
             </div>
           </div>
         </div>
         <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(360px); transition: all 0s ease 0s;"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(360px);"
         >
           <div class="mdc-slider__value-indicator-container"
                aria-hidden
@@ -428,7 +428,7 @@ exports[`Input/<ino-range> Ranged smoke-test 1`] = `
           </div>
         </div>
         <div class="mdc-slider__thumb mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px); transition: all 0s ease 0s;"
+             style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px; transform: translateX(840px);"
         >
           <div class="mdc-slider__value-indicator-container"
                aria-hidden

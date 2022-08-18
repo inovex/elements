@@ -26,7 +26,7 @@ exports[`Input/ino-currency-input Locales smoke-test 1`] = `
               <div class="mdc-notched-outline__leading">
               </div>
               <div class="mdc-notched-outline__notch"
-                   style="width: 89.75px;"
+                   style="width: 79.25px;"
               >
                 <label class="mdc-floating-label mdc-floating-label--float-above"
                        style
@@ -83,7 +83,7 @@ exports[`Input/ino-currency-input Playground smoke-test 1`] = `
                    style="width: 89.75px;"
               >
                 <label class="mdc-floating-label mdc-floating-label--float-above"
-                       style="transition-duration: 0s;"
+                       style
                 >
                   Default Input
                 </label>

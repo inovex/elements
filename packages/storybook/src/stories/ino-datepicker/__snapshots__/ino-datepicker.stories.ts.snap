@@ -184,7 +184,7 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
                  class="hydrated flatpickr-input"
                  tabindex="-1"
       >
-        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
           <ino-label class="hydrated">
             <div class="mdc-line-ripple">
             </div>
@@ -206,7 +206,7 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
       >
         <div class="flatpickr-months">
           <span class="flatpickr-prev-month">
-            <ino-icon class="ino-datepicker__icon"
+            <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
                       icon="arrow_left"
             >
             </ino-icon>
@@ -303,7 +303,7 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
             </div>
           </div>
           <span class="flatpickr-next-month">
-            <ino-icon class="ino-datepicker__icon"
+            <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
                       icon="arrow_right"
             >
             </ino-icon>
@@ -430,9 +430,8 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
                 >
                   14
                 </span>
-                <span class="flatpickr-day today"
+                <span class="flatpickr-day "
                       aria-label="August 15, 2022"
-                      aria-current="date"
                       tabindex="-1"
                 >
                   15
@@ -449,8 +448,9 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
                 >
                   17
                 </span>
-                <span class="flatpickr-day "
+                <span class="flatpickr-day today"
                       aria-label="August 18, 2022"
+                      aria-current="date"
                       tabindex="-1"
                 >
                   18
@@ -741,7 +741,7 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
                      class="hydrated flatpickr-input"
                      tabindex="-1"
           >
-            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box">
+            <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-ripple-upgraded">
               <ino-label class="hydrated">
                 <div class="mdc-line-ripple">
                 </div>
@@ -760,26 +760,60 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
             </div>
           </ino-input>
         </ino-datepicker>
-        <ino-radio-group value="at">
-          <ino-radio value="at">
-            Am
-          </ino-radio>
-          <ino-radio value="after">
-            Ab
-          </ino-radio>
-          <ino-radio value="before">
-            Bis
-          </ino-radio>
-          <ino-radio value="range">
-            Zeitraum
-          </ino-radio>
+        <ino-radio-group value="at"
+                         class="hydrated"
+        >
+          <div class="ino-radio-group-wrapper ino-radio-group-wrapper--horizontal"
+               tabindex="0"
+          >
+            <ino-radio value="at"
+                       class="hydrated ino-radio--checked"
+            >
+              Am
+              <input type="hidden"
+                     class="aux-input"
+                     name="undefined"
+                     value="at"
+              >
+            </ino-radio>
+            <ino-radio value="after"
+                       class="hydrated"
+            >
+              Ab
+              <input type="hidden"
+                     class="aux-input"
+                     name="undefined"
+                     value
+              >
+            </ino-radio>
+            <ino-radio value="before"
+                       class="hydrated"
+            >
+              Bis
+              <input type="hidden"
+                     class="aux-input"
+                     name="undefined"
+                     value
+              >
+            </ino-radio>
+            <ino-radio value="range"
+                       class="hydrated"
+            >
+              Zeitraum
+              <input type="hidden"
+                     class="aux-input"
+                     name="undefined"
+                     value
+              >
+            </ino-radio>
+          </div>
         </ino-radio-group>
         <div class="flatpickr-calendar animate inline"
              tabindex="-1"
         >
           <div class="flatpickr-months">
             <span class="flatpickr-prev-month">
-              <ino-icon class="ino-datepicker__icon"
+              <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
                         icon="arrow_left"
               >
               </ino-icon>
@@ -876,7 +910,7 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
               </div>
             </div>
             <span class="flatpickr-next-month">
-              <ino-icon class="ino-datepicker__icon"
+              <ino-icon class="ino-datepicker__icon ino-icon--color-scheme-primary hydrated"
                         icon="arrow_right"
               >
               </ino-icon>
@@ -997,9 +1031,8 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
                   >
                     14
                   </span>
-                  <span class="flatpickr-day today"
+                  <span class="flatpickr-day "
                         aria-label="August 15, 2022"
-                        aria-current="date"
                         tabindex="-1"
                   >
                     15
@@ -1016,8 +1049,9 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
                   >
                     17
                   </span>
-                  <span class="flatpickr-day "
+                  <span class="flatpickr-day today"
                         aria-label="August 18, 2022"
+                        aria-current="date"
                         tabindex="-1"
                   >
                     18
@@ -1189,8 +1223,8 @@ exports[`Input/ino-datepicker Playground smoke-test 1`] = `
                     helper-persistent="false"
                     helper-validation="false"
                     label="Label"
-                    min="2022-08-10"
-                    max="2022-08-20"
+                    min="2022-08-13"
+                    max="2022-08-23"
                     outline="false"
                     range="false"
                     required="false"
@@ -1198,13 +1232,13 @@ exports[`Input/ino-datepicker Playground smoke-test 1`] = `
                     show-label-hint="false"
                     twelve-hour-time="false"
                     type="date"
-                    value="2022-08-15"
+                    value="2022-08-18"
     >
       <ino-input icon-leading
                  class="hydrated flatpickr-input"
                  tabindex="-1"
       >
-        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--label-floating">
+        <label class="ino-input__composer mdc-text-field mdc-text-field--filled mdc-text-field--box mdc-text-field--with-leading-icon mdc-text-field--label-floating mdc-ripple-upgraded">
           <ino-label class="hydrated">
             <div class="mdc-line-ripple">
             </div>
@@ -1277,8 +1311,16 @@ exports[`Input/ino-datepicker RequiredForm smoke-test 1`] = `
           </div>
         </ino-input>
       </ino-datepicker>
-      <ino-button type="submit">
-        Submit
+      <ino-button type="submit"
+                  class="hydrated"
+      >
+        <button class="button button__variant--filled"
+                type="submit"
+        >
+          <span class="button__label">
+            Submit
+          </span>
+        </button>
       </ino-button>
     </form>
   </div>
@@ -1290,7 +1332,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
   <div class="story-datepicker">
     <ino-datepicker label="Predefined value"
                     date-format="Y-m-d"
-                    value="2022-08-15"
+                    value="2022-08-18"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1323,7 +1365,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Min date"
                     date-format="Y-m-d"
-                    min="2022-08-10"
+                    min="2022-08-13"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1356,7 +1398,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Max date"
                     date-format="Y-m-d"
-                    max="2022-08-20"
+                    max="2022-08-23"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1389,8 +1431,8 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Min and Max date"
                     date-format="Y-m-d"
-                    min="2022-08-10"
-                    max="2022-08-20"
+                    min="2022-08-13"
+                    max="2022-08-23"
                     class="hydrated"
     >
       <ino-input icon-leading

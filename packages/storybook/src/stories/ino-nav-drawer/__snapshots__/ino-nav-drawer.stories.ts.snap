@@ -11,7 +11,7 @@ exports[`Structure/ino-nav-drawer AnchorRight smoke-test 1`] = `
       <div slot="header">
         <ino-img slot="logo"
                  width="50"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  class="hydrated"
                  style="width: 50px;"
         >
@@ -19,7 +19,7 @@ exports[`Structure/ino-nav-drawer AnchorRight smoke-test 1`] = `
                style="padding-top: 100%;"
           >
             <img class="ino-img__image"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  width="50"
             >
             <div class="ino-img__fallback-icon">
@@ -136,7 +136,7 @@ exports[`Structure/ino-nav-drawer Dismissible smoke-test 1`] = `
       <div slot="header">
         <ino-img slot="logo"
                  width="50"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  class="hydrated"
                  style="width: 50px;"
         >
@@ -144,7 +144,7 @@ exports[`Structure/ino-nav-drawer Dismissible smoke-test 1`] = `
                style="padding-top: 100%;"
           >
             <img class="ino-img__image"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  width="50"
             >
             <div class="ino-img__fallback-icon">
@@ -261,7 +261,7 @@ exports[`Structure/ino-nav-drawer Modal smoke-test 1`] = `
       <div slot="header">
         <ino-img slot="logo"
                  width="50"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  class="hydrated"
                  style="width: 50px;"
         >
@@ -269,7 +269,7 @@ exports[`Structure/ino-nav-drawer Modal smoke-test 1`] = `
                style="padding-top: 100%;"
           >
             <img class="ino-img__image"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  width="50"
             >
             <div class="ino-img__fallback-icon">
@@ -378,7 +378,7 @@ exports[`Structure/ino-nav-drawer Modal smoke-test 1`] = `
 exports[`Structure/ino-nav-drawer Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-nav-drawer__default">
-    <ino-nav-drawer class="customizable-drawer"
+    <ino-nav-drawer class="customizable-drawer hydrated"
                     open="true"
                     anchor="left"
                     variant="docked"
@@ -386,7 +386,7 @@ exports[`Structure/ino-nav-drawer Playground smoke-test 1`] = `
       <div slot="header">
         <ino-img slot="logo"
                  width="50"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  class="hydrated"
                  style="width: 50px;"
         >
@@ -394,11 +394,11 @@ exports[`Structure/ino-nav-drawer Playground smoke-test 1`] = `
                style="padding-top: 100%;"
           >
             <img class="ino-img__image"
-                 src="static/media/src/assets/images/james-logo.png"
+                 src="static/media/james-logo.5bdce121.png"
                  width="50"
             >
             <div class="ino-img__fallback-icon">
-              <ino-icon class="hydrated">
+              <ino-icon class="hydrated ino-icon--color-scheme-primary">
               </ino-icon>
             </div>
           </div>
@@ -407,36 +407,69 @@ exports[`Structure/ino-nav-drawer Playground smoke-test 1`] = `
           inovex
         </p>
       </div>
-      <ino-list slot="content">
+      <ino-list slot="content"
+                class="hydrated"
+      >
         <ul class="mdc-deprecated-list">
           <ino-nav-item text="Some Link"
                         activated
+                        class="hydrated"
           >
-            <ino-list-item>
-              <span class="ino-nav-item--leading-slot"
-                    slot="leading"
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-deprecated-list-item--activated mdc-ripple-upgraded"
+                  tabindex="-1"
               >
-                <ino-icon icon="onboarding"
-                          class="hydrated"
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
                 >
-                </ino-icon>
-              </span>
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="onboarding"
+                              class="hydrated ino-icon--color-scheme-primary"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  Some Link
+                </span>
+              </li>
             </ino-list-item>
           </ino-nav-item>
         </ul>
       </ino-list>
-      <ino-list slot="footer">
+      <ino-list slot="footer"
+                class="hydrated"
+      >
         <ul class="mdc-deprecated-list">
-          <ino-nav-item text="My Profile">
-            <ino-list-item>
-              <span class="ino-nav-item--leading-slot"
-                    slot="leading"
+          <ino-nav-item text="My Profile"
+                        class="hydrated"
+          >
+            <ino-list-item class="hydrated">
+              <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
               >
-                <ino-icon icon="employee"
-                          class="hydrated"
+                <span class="mdc-deprecated-list-item__ripple">
+                </span>
+                <span class="mdc-deprecated-list-item__graphic"
+                      role="presentation"
                 >
-                </ino-icon>
-              </span>
+                  <span class="ino-nav-item--leading-slot"
+                        slot="leading"
+                  >
+                    <ino-icon icon="employee"
+                              class="hydrated ino-icon--color-scheme-primary"
+                    >
+                    </ino-icon>
+                  </span>
+                </span>
+                <span class="mdc-deprecated-list-item__text">
+                  My Profile
+                </span>
+              </li>
             </ino-list-item>
           </ino-nav-item>
         </ul>

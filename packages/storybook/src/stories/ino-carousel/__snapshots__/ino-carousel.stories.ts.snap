@@ -16,24 +16,24 @@ exports[`Graphic/<ino-carousel> Animated smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
@@ -90,24 +90,24 @@ exports[`Graphic/<ino-carousel> Autoplay smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
@@ -164,24 +164,24 @@ exports[`Graphic/<ino-carousel> HideButtons smoke-test 1`] = `
         <div class="ino-carousel ino-carousel--no-buttons">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
@@ -238,24 +238,24 @@ exports[`Graphic/<ino-carousel> Infinite smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
@@ -312,24 +312,24 @@ exports[`Graphic/<ino-carousel> Intermission smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
@@ -374,7 +374,7 @@ exports[`Graphic/<ino-carousel> Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-carousel">
     <div class="ino-carousel-example">
-      <ino-carousel class="customizable-carousel"
+      <ino-carousel class="customizable-carousel hydrated"
                     value="0"
                     autoplay="false"
                     animated="false"
@@ -386,50 +386,52 @@ exports[`Graphic/<ino-carousel> Playground smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
-                                class="hydrated"
+                                src="static/media/lightning.77c39bba.jpg"
+                                class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>
           <div class="ino-carousel__left-arrow">
-            <ino-icon-button class="ino-icon-button--color-scheme-primary">
-              <button class="mdc-icon-button"
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
                       type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
               >
                 <div class="mdc-icon-button__ripple">
                 </div>
                 <span class="mdc-icon-button__icon">
-                  <ino-icon>
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
                   </ino-icon>
                 </span>
               </button>
             </ino-icon-button>
           </div>
           <div class="ino-carousel__right-arrow">
-            <ino-icon-button class="ino-icon-button--color-scheme-primary">
-              <button class="mdc-icon-button"
+            <ino-icon-button class="ino-icon-button--color-scheme-primary hydrated">
+              <button class="mdc-icon-button mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
                       type="button"
+                      style="--mdc-ripple-fg-size:28px; --mdc-ripple-fg-scale:1.71429; --mdc-ripple-left:10px; --mdc-ripple-top:10px;"
               >
                 <div class="mdc-icon-button__ripple">
                 </div>
                 <span class="mdc-icon-button__icon">
-                  <ino-icon>
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
                   </ino-icon>
                 </span>
               </button>
@@ -458,24 +460,24 @@ exports[`Graphic/<ino-carousel> Reverse smoke-test 1`] = `
         <div class="ino-carousel">
           <div class="ino-carousel__container">
             <ino-carousel-slide value="0"
-                                src="static/media/src/assets/images/lightning.jpg"
+                                src="static/media/lightning.77c39bba.jpg"
                                 class="hydrated ino-carousel-slide--selected"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/lightning.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/lightning.77c39bba.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="1"
-                                src="static/media/src/assets/images/mountains.jpg"
+                                src="static/media/mountains.1558ed75.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/mountains.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/mountains.1558ed75.jpg&quot;);">
               </div>
             </ino-carousel-slide>
             <ino-carousel-slide value="2"
-                                src="static/media/src/assets/images/nidaros.jpg"
+                                src="static/media/nidaros.d948f31d.jpg"
                                 class="hydrated"
             >
-              <div style="background-image: url(&quot;static/media/src/assets/images/nidaros.jpg&quot;);">
+              <div style="background-image: url(&quot;static/media/nidaros.d948f31d.jpg&quot;);">
               </div>
             </ino-carousel-slide>
           </div>

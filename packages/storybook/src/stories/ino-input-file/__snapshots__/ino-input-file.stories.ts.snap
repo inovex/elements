@@ -2,7 +2,7 @@
 
 exports[`Input/ino-input-file DragAndDrop smoke-test 1`] = `
 <div id="root-inner">
-  <ino-input-file class="customizable-input"
+  <ino-input-file class="customizable-input hydrated"
                   accept
                   autofocus="false"
                   disabled="false"
@@ -22,12 +22,23 @@ exports[`Input/ino-input-file DragAndDrop smoke-test 1`] = `
           or
         </label>
       </div>
-      <ino-button class="ino-input-file__button"
+      <ino-button class="ino-input-file__button hydrated"
                   icon-leading
       >
-        <ino-icon slot="icon-leading">
-        </ino-icon>
-        Select a file to upload
+        <button class="button button__variant--filled button__icon--leading"
+                name="file-paths"
+                type="button"
+        >
+          <span class="icon__wrapper">
+            <ino-icon slot="icon-leading"
+                      class="ino-icon--color-scheme-primary hydrated"
+            >
+            </ino-icon>
+          </span>
+          <span class="button__label">
+            Select a file to upload
+          </span>
+        </button>
       </ino-button>
       <input class="ino-input-file__native-element"
              accept
@@ -41,7 +52,7 @@ exports[`Input/ino-input-file DragAndDrop smoke-test 1`] = `
 
 exports[`Input/ino-input-file Playground smoke-test 1`] = `
 <div id="root-inner">
-  <ino-input-file class="customizable-input"
+  <ino-input-file class="customizable-input hydrated"
                   accept
                   autofocus="false"
                   disabled="false"
@@ -53,12 +64,23 @@ exports[`Input/ino-input-file Playground smoke-test 1`] = `
                   drag-and-drop-secondary-text="or"
   >
     <div class="ino-input-file__composer">
-      <ino-button class="ino-input-file__button"
+      <ino-button class="ino-input-file__button hydrated"
                   icon-leading
       >
-        <ino-icon slot="icon-leading">
-        </ino-icon>
-        Select a file to upload
+        <button class="button button__variant--filled button__icon--leading"
+                name="file-paths"
+                type="button"
+        >
+          <span class="icon__wrapper">
+            <ino-icon slot="icon-leading"
+                      class="hydrated ino-icon--color-scheme-primary"
+            >
+            </ino-icon>
+          </span>
+          <span class="button__label">
+            Select a file to upload
+          </span>
+        </button>
       </ino-button>
       <input class="ino-input-file__native-element"
              accept

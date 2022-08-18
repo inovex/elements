@@ -17,7 +17,7 @@ exports[`Structure/ino-menu Playground smoke-test 1`] = `
               Open Menu
             </p>
             <ino-icon-button icon="menu"
-                             id="elements-menu_0zg0upxk1"
+                             id="elements-menu_8jczioa9z"
                              class="ino-icon-button--color-scheme-primary hydrated"
                              aria-expanded="false"
             >

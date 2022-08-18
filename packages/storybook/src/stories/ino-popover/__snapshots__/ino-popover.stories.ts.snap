@@ -275,20 +275,20 @@ exports[`Notification/ino-popover Visible smoke-test 1`] = `
                  controlled="true"
                  trigger="click"
                  visible="false"
+                 class="hydrated"
     >
       <ino-checkbox id="controlled-checkbox"
                     slot="popover-trigger"
+                    class="hydrated"
       >
         Uncheck to hide / check to show
+        <input type="hidden"
+               class="aux-input"
+               name="undefined"
+               value
+        >
       </ino-checkbox>
       <div>
-        <div class="ino-popover ino-popover--color-scheme-primary ino-popover__content"
-             role="tooltip"
-        >
-          <div class="popover-content">
-            I'm a controlled popover
-          </div>
-        </div>
       </div>
     </ino-popover>
   </div>

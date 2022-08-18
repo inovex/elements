@@ -6,41 +6,56 @@ exports[`Buttons/<ino-fab> EdgePositions smoke-test 1`] = `
     <div class="ino-fab-variants">
       <ino-fab label="top-left"
                edge-position="top-left"
+               class="ino-fab--edge-position-top-left hydrated"
+               id="fab-helper-text__5"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab label="top-right"
                edge-position="top-right"
+               class="ino-fab--edge-position-top-right hydrated"
+               id="fab-helper-text__6"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab label="bottom-right"
                edge-position="bottom-right"
+               class="ino-fab--edge-position-bottom-right hydrated"
+               id="fab-helper-text__7"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab label="bottom-left"
                edge-position="bottom-left"
+               class="ino-fab--edge-position-bottom-left hydrated"
+               id="fab-helper-text__8"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab label="none"
                edge-position="none"
+               class="ino-fab--edge-position-none hydrated"
+               id="fab-helper-text__9"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
@@ -52,16 +67,18 @@ exports[`Buttons/<ino-fab> EdgePositions smoke-test 1`] = `
 exports[`Buttons/<ino-fab> Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-fab">
-    <ino-fab class="customizable-fab"
+    <ino-fab class="customizable-fab ino-fab--edge-position-top-left hydrated"
              disabled="false"
              edge-position="top-left"
              extended="false"
              label="Label"
              mini="false"
              tooltip-placement="right"
+             id="fab-helper-text__0"
     >
       <ino-icon slot="icon-leading"
                 icon="add"
+                class="hydrated ino-icon--color-scheme-primary"
       >
       </ino-icon>
     </ino-fab>
@@ -75,33 +92,45 @@ exports[`Buttons/<ino-fab> Variants smoke-test 1`] = `
     <div class="ino-fab-variants">
       <ino-fab tooltip-placement="none"
                label="Default Fab"
+               class="ino-fab--edge-position-top-left hydrated"
+               id="fab-helper-text__1"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab mini
                label="Mini Fab"
+               class="ino-fab--edge-position-top-left hydrated"
+               id="fab-helper-text__2"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab extended
                label="Extended Button"
+               class="ino-fab--edge-position-top-left hydrated"
+               id="fab-helper-text__3"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>
       <ino-fab disabled
                label="Disabled Button"
+               class="ino-fab--edge-position-top-left hydrated"
+               id="fab-helper-text__4"
       >
         <ino-icon slot="icon-leading"
                   icon="add"
+                  class="ino-icon--color-scheme-primary hydrated"
         >
         </ino-icon>
       </ino-fab>

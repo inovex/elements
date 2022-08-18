@@ -5,12 +5,16 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
   <ino-list dense="false"
             two-lines="false"
             avatar="true"
+            class="hydrated"
   >
     <ul class="mdc-deprecated-list mdc-deprecated-list--avatar-list">
       <ino-list-item text="First text item"
                      secondary-text
+                     class="hydrated"
       >
-        <li class="mdc-deprecated-list-item">
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
           <span class="mdc-deprecated-list-item__ripple">
           </span>
           <span class="mdc-deprecated-list-item__graphic"
@@ -20,7 +24,19 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
                      src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
                      ratio-width="1"
                      ratio-height="1"
+                     class="hydrated"
             >
+              <div class="ino-img__composer"
+                   style="padding-top: 100%;"
+              >
+                <img class="ino-img__image"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                >
+                <div class="ino-img__fallback-icon">
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                  </ino-icon>
+                </div>
+              </div>
             </ino-img>
           </span>
           <span class="mdc-deprecated-list-item__text">
@@ -30,8 +46,11 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
       </ino-list-item>
       <ino-list-item text="Second text item"
                      secondary-text
+                     class="hydrated"
       >
-        <li class="mdc-deprecated-list-item">
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
           <span class="mdc-deprecated-list-item__ripple">
           </span>
           <span class="mdc-deprecated-list-item__graphic"
@@ -41,7 +60,19 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
                      src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
                      ratio-width="1"
                      ratio-height="1"
+                     class="hydrated"
             >
+              <div class="ino-img__composer"
+                   style="padding-top: 100%;"
+              >
+                <img class="ino-img__image"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                >
+                <div class="ino-img__fallback-icon">
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                  </ino-icon>
+                </div>
+              </div>
             </ino-img>
           </span>
           <span class="mdc-deprecated-list-item__text">
@@ -51,8 +82,11 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
       </ino-list-item>
       <ino-list-item text="Third text item"
                      secondary-text
+                     class="hydrated"
       >
-        <li class="mdc-deprecated-list-item">
+        <li class="mdc-deprecated-list-item mdc-ripple-upgraded"
+            tabindex="-1"
+        >
           <span class="mdc-deprecated-list-item__ripple">
           </span>
           <span class="mdc-deprecated-list-item__graphic"
@@ -62,7 +96,19 @@ exports[`Structure/ino-list  Avatar smoke-test 1`] = `
                      src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
                      ratio-width="1"
                      ratio-height="1"
+                     class="hydrated"
             >
+              <div class="ino-img__composer"
+                   style="padding-top: 100%;"
+              >
+                <img class="ino-img__image"
+                     src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
+                >
+                <div class="ino-img__fallback-icon">
+                  <ino-icon class="hydrated ino-icon--color-scheme-primary">
+                  </ino-icon>
+                </div>
+              </div>
             </ino-img>
           </span>
           <span class="mdc-deprecated-list-item__text">

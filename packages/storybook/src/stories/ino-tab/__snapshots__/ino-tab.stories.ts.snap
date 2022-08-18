@@ -44,7 +44,7 @@ exports[`Structure/ino-tab Playground smoke-test 1`] = `
               aria-selected="false"
       >
         <span class="mdc-tab__content">
-          <ino-icon class="mdc-tab__icon hydrated">
+          <ino-icon class="mdc-tab__icon hydrated ino-icon--color-scheme-primary">
           </ino-icon>
           <span class="mdc-tab__text-label">
             Label
