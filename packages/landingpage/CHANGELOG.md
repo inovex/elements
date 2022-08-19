@@ -12,6 +12,38 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 # Changelog
+### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
+
+
+### Features
+
+* **elements-angular:** support disable state handling in ControlValueAccessors ([#664](https://github.com/inovex/elements/issues/664)) ([18a02b3](https://github.com/inovex/elements/commit/18a02b3d40c4a9654e911745ec89f738e7297a37))
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** run initial validation before load ([#700](https://github.com/inovex/elements/issues/700)) ([38d91ae](https://github.com/inovex/elements/commit/38d91aee9deaa6006fcbef27dd82e710377893d9))
+
+
+### Miscellaneous
+
+* **deps:** bump terser from 4.7.0 to 4.8.1 ([#666](https://github.com/inovex/elements/issues/666)) ([7aabfd3](https://github.com/inovex/elements/commit/7aabfd329ffcfa4bc463fe906186ae0e7876f898))
+* add release pipeline ([#561](https://github.com/inovex/elements/issues/561)) ([f3386dd](https://github.com/inovex/elements/commit/f3386dd8ac309862da522bce5e5ca762103f38a5))
+
+
+### Documentation
+
+* **storybook:** add react starter guide ([#663](https://github.com/inovex/elements/issues/663)) ([a1883ce](https://github.com/inovex/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+
+## 7.1.1 (2022-08-19)
+
+**Note:** Version bump only for package @inovex.de/elements-landingpage
+
+
+
+
+
+# Changelog
 ## [7.1.0](https://github.com/inovex/elements/compare/v7.0.0...v7.1.0) (2022-07-18)
 
 
