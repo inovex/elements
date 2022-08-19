@@ -119,7 +119,7 @@ export class InoSegmentButton implements ComponentInterface {
 
     const buttonClasses = classNames({
       'mdc-button': true,
-      'mdc-button--outlined': true,
+      'mdc-button--unelevated': true,
       'ino-segment-button--dense': this.dense,
       'ino-segment-button--active': this.checked,
       'belongs-to-group': this.belongsToGroup,

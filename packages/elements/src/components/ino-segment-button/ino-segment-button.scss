@@ -5,10 +5,18 @@
 @use 'base/typography';
 
 // Borders
-$edged-border: 0;
+$rounded-border: 22px;
+$edged-border: 24px 0 24px 24px;
 $left-segment-border: 0 0 0 24px;
 $right-segment-border: 0 24px 24px 0;
 $left-right-segment-border: 0 24px 24px 24px;
+
+/* Button Colorset */
+$button_filled_hover-control_hover: #4b4eff;
+$button_outlined_text_pressed: #d7e0ff;
+$button_outlined_text_hover: #e8edff;
+$button_filled_pressed: #3d40f5;
+$focus_border: #2d5dff4d;
 
 /**
  * @prop --ino-segment-button-color: Color of the segment button if inactive
@@ -54,6 +62,7 @@ $left-right-segment-border: 0 24px 24px 24px;
     @include typography.font($size: s, $weight: none);
     letter-spacing: 1.5px;
     text-align: center;
+    
 
     @include button.shape-radius($edged-border);
     @include button.container-fill-color(#fff);
@@ -64,10 +73,9 @@ $left-right-segment-border: 0 24px 24px 24px;
       background-color: #fff;
     }
   }
-
-  .mdc-button--outlined {
-    @include button.outline-width(1px);
-    @include button.outline-color(var(--segment-button-color));
+  .mdc-button--unelevated {
+    // @include button.outline-width(1px);
+    // @include button.outline-color(var(--segment-button-color));
     @include button.ink-color(var(--segment-button-color));
 
     &:disabled {
@@ -76,18 +84,35 @@ $left-right-segment-border: 0 24px 24px 24px;
     }
 
     &:hover {
-      @include button.outline-color(var(--segment-button-hover-color));
-      @include button.ink-color(var(--segment-button-hover-color));
-      box-shadow: var(--segment-button-hover-shadow);
+      @include button.container-fill-color($button_outlined_text_hover);
+      @include button.shape-radius($rounded-border);
+    }
+    &:focus {
+      @include button.container-fill-color($button_outlined_text_pressed);
+      @include button.shape-radius($rounded-border);
+      box-shadow: 0 0 0 4px $focus_border;
+    }
+  }
+  .ino-segment-button {
+    &--active {
+      @include button.ink-color(var(--segment-button-checked-color));
+      @include button.container-fill-color($button_outlined_text_pressed);
+      @include button.shape-radius($rounded-border);
+    }
+    &--active:hover {
+      @include button.ink-color(var(--segment-button-checked-color));
+      @include button.shape-radius($rounded-border);
+      @include button.container-fill-color($button_outlined_text_pressed);
     }
   }
 
-  .ino-segment-button--active,
-  .ino-segment-button--active:hover {
-    @include button.outline-color(var(--segment-button-checked-color));
-    @include button.ink-color(var(--segment-button-checked-color));
-    box-shadow: var(--segment-button-checked-shadow);
-  }
+  // .ino-segment-button--active,
+  // .ino-segment-button--active:hover {
+  //   @include button.container-fill-color($button_outlined_text_pressed);
+  //   // @include button.outline-color(var(--segment-button-checked-color));
+  //   // @include button.ink-color(var(--segment-button-checked-color));
+  //   // box-shadow: var(--segment-button-checked-shadow);
+  // }
 
   .ino-segment-button--dense {
     @include button.density(-1);
