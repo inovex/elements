@@ -20,5 +20,5 @@ jobs:
           delete-branch: true
           labels: release
           base: master
-          title: "chore: publish v"${{ env.$ELEMENTS_VERSION }}
+          title: "chore: publish v${{ env.$ELEMENTS_VERSION }}"
           body: ""
