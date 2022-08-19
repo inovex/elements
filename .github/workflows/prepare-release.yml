@@ -1,0 +1,24 @@
+name: 'Prepare Release'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/dependencies-install
+        with:
+          fetch-depth: 0
+      - name: Bump version and create changelog
+        run: lerna version
+      - run: jq -r .version package.json >> $ELEMENTS_VERSION
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: elements-release-${{ env.$ELEMENTS_VERSION }}
+          delete-branch: true
+          labels: release
+          base: master
+          title: "chore: publish v"${{ env.$ELEMENTS_VERSION }}
+          body: ""
