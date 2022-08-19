@@ -11,7 +11,7 @@
       "yes": true,
       "push": false,
       "message": "chore: publish %s",
-      "allowBranch": "master"
+      "allowBranch": "*"
     }
   }
 }
