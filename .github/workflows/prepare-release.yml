@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
         with:
           fetch-depth: 0
+      - uses: ./.github/workflows/dependencies-install
       - name: Prepare git config
         run: |
           git config --global user.name "${{ github.actor }}"
