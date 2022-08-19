@@ -12,13 +12,13 @@ jobs:
           fetch-depth: 0
       - name: Bump version and create changelog
         run: lerna version
-      - run: jq -r .version package.json >> $ELEMENTS_VERSION
+      - run: echo "elements_version=${jq -r .version package.json}" >> $GITHUB_ENV
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: elements-release-${{ env.$ELEMENTS_VERSION }}
+          branch: elements-release-${{ env.elements_version }}
           delete-branch: true
           labels: release
           base: master
-          title: "chore: publish v${{ env.$ELEMENTS_VERSION }}"
+          title: chore%3A publish v${{ env.$ELEMENTS_VERSION }}
           body: ""
