@@ -11,9 +11,14 @@ jobs:
       - uses: ./.github/workflows/dependencies-install
         with:
           fetch-depth: 0
+      - name: Prepare git config
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor}}@users.noreply.github.com"
       - name: Bump version and create changelog
         run: lerna version --conventional-commits
-      - run: echo "elements_version=${jq -r .version package.json}" >> $GITHUB_ENV
+      - name: Set new version as env
+        run: echo "elements_version=${jq -r .version package.json}" >> $GITHUB_ENV
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
