@@ -36,7 +36,7 @@ jobs:
           git config user.email "${{ github.actor}}@users.noreply.github.com"
       - run: yarn run publish:ci
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.RELEASE_PAT }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy:
