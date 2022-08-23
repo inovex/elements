@@ -2,51 +2,79 @@
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
 @use 'base/theme';
+@use "@material/ripple";
 
 @include slider.core-styles;
 
-ino-range {
-  display: block;
-  min-width: 100px;
+$primary: #2C02FF;
+$primary-focus:#2D5DFF4D;
+$button_filled_hover-control_hover: #4B4EFF;
+$white: #fff;
+$n-8: #F8F9FB;
+$n-7: #EDEFF5;
+$n-6: #CBD0E0;
+$n-5: #ABB1CC;
+$n-4: #8D92B7;
+$n-3: #7275A1;
+$n-2: #565785;
+$n-1: #3A3B64;
 
-   .mdc-slider .mdc-slider__track--active,
-   .mdc-slider .mdc-slider__track--inactive {
-     height: 2px;
-     border-radius: 10px;
-     top: 1px;
-   }
+.mdc-slider {
+  @include slider-mixins.track-active-color($primary);
+  @include slider-mixins.track-inactive-color($n-6);
+  @include slider-mixins.thumb-color($primary);
+  @include slider-mixins.thumb-ripple-color(rgba(255, 255, 255, 0));
+  @include slider-mixins.tick-mark-inactive-color(#000);
+  @include slider-mixins.value-indicator-text-color(#fff);
 
-   .mdc-slider .mdc-slider__thumb-knob {
-     height: 16px;
-     width: 16px;
-     border: 0px;
-   }
-
-  @each $color-name in theme.$color-schemes {
-    &.ino-range--color-scheme-#{$color-name} .mdc-slider {
-      @include slider-mixins.track-active-color(theme.color($color-name, base));
-      @include slider-mixins.track-inactive-color(
-        theme.color($color-name, light)
-      );
-      @include slider-mixins.thumb-color(theme.color($color-name, base));
-      //@include slider-mixins.thumb-ripple-color(rgba(255, 255, 255, 0));
-      @include slider-mixins.tick-mark-inactive-color(#000);
-      @include slider-mixins.value-indicator-text-color(#fff);
-
-      &:hover{  
-        @include slider-mixins.thumb-color(theme.color($color-name, light));
-      }
-
-      &:hover:not(:focus), &:hover:not(:active){
-        @include slider-mixins.thumb-ripple-color(rgba(255, 255, 255, 0));
-      }
-      // &:hover(:focus){
-      //   @include slider-mixins.thumb-ripple-color(theme.color($color-name, base));
-      // }
-
-      &:focus, &:active {
-        @include slider-mixins.thumb-ripple-color(theme.color($color-name, base));
-      }
+  & .mdc-slider__track {
+    .mdc-slider__track--active, .mdc-slider__track--inactive {
+      height: 2px;
+      border-radius: 10px;
+      top: 1px;
     }
   }
+
+  & .mdc-slider__thumb-knob {
+    height: 16px;
+    width: 16px;
+    border: 0px;
+    @include ripple.surface;
+    @include ripple.radius-bounded;
+    @include ripple.states;
+    @include ripple.states-base-color($primary-focus);
+    @include ripple.states-opacities((hover: .0, focus: .0, press: .4));
+  }
+
+  &:hover {
+    @include slider-mixins.thumb-color($button_filled_hover-control_hover);
+  }
+  
+
+  &__thumb--focused {
+    .mdc-slider__thumb-knob{
+      box-shadow: 0px 0px 0px 4px $primary-focus;
+    }
+  }
+
+
+  &.mdc-slider--disabled {
+    opacity: 1;
+    .mdc-slider__track--active_fill {
+      border-color: $n-6;
+    }
+
+    .mdc-slider__track--inactive {
+      background-color: $n-7;
+      opacity: 1;
+    }
+
+    .mdc-slider__thumb-knob {
+      border: 1.5px solid $n-6;
+      background-color: $white;
+      box-shadow: none;
+    }
+  }
+  
 }
+
