@@ -6586,11 +6586,6 @@
           "docs": "Color of the segment button if checked"
         },
         {
-          "name": "--ino-segment-button-checked-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow if checked"
-        },
-        {
           "name": "--ino-segment-button-color",
           "annotation": "prop",
           "docs": "Color of the segment button if inactive"
@@ -6601,14 +6596,19 @@
           "docs": "Color of the segment button if disabled"
         },
         {
+          "name": "--ino-segment-button-focus-border",
+          "annotation": "prop",
+          "docs": "Color of the segment button border on focus"
+        },
+        {
           "name": "--ino-segment-button-hover-color",
           "annotation": "prop",
           "docs": "Color of the segment button on hover"
         },
         {
-          "name": "--ino-segment-button-hover-shadow",
+          "name": "--ino-segment-button-pressed-color",
           "annotation": "prop",
-          "docs": "Color and shape of the shadow on hover"
+          "docs": "Color of the segment button border if pressed"
         }
       ],
       "slots": [
