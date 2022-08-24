@@ -6633,7 +6633,7 @@
           "text": "default - One or more `ino-segment-button`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},

@@ -16,7 +16,7 @@ import { generateUniqueId } from '../../util/component-utils';
 @Component({
   tag: 'ino-segment-group',
   styleUrl: 'ino-segment-group.scss',
-  shadow: true,
+  shadow: false,
 })
 export class InoSegmentGroup implements ComponentInterface {
   private groupId = `ino-segment-group-id_${generateUniqueId()}`;
@@ -64,7 +64,11 @@ export class InoSegmentGroup implements ComponentInterface {
   render() {
     return (
       <Host id={this.groupId} name={this.name} value={this.value}>
-        <slot></slot>
+        <div class="wrapper">
+          <div class="content-border">
+            <slot></slot>
+          </div>
+        </div>
       </Host>
     );
   }

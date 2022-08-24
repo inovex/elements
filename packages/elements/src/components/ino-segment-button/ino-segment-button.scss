@@ -8,9 +8,6 @@
 /* borders */
 $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
-$left-segment-border: 0 0 0 24px;
-$right-segment-border: 0 24px 24px 0;
-$left-right-segment-border: 0 24px 24px 24px;
 
 /* button colorset */
 $button_filled_hover-control_hover: #4b4eff;
@@ -123,18 +120,3 @@ $focus_border: #2d5dff4d;
 button.belongs-to-group {
   border: none !important;
 }
-
-:host button.belongs-to-group {
-  margin: 0 2px 0 2px;
-}
-
-// :host(:first-child) button.belongs-to-group {
-// }
-
-// :host(:last-child) button.belongs-to-group {
-
-// }
-
-// :host(:only-of-type) button.belongs-to-group {
-
-// }
