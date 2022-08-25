@@ -824,48 +824,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--checkbox-container-color-unchecked",
-          "annotation": "prop",
-          "docs": "color of the checkbox container if unchecked"
-        },
-        {
-          "name": "--ino-checkbox-background-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox background if disabled"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color",
-          "annotation": "prop",
-          "docs": "primary color of the check mark"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the check mark if disabled"
-        },
-        {
-          "name": "--ino-checkbox-color",
-          "annotation": "prop",
-          "docs": "primary color of the checkbox"
-        },
-        {
-          "name": "--ino-checkbox-color-active",
-          "annotation": "prop",
-          "docs": "color of the checkbox if active"
-        },
-        {
-          "name": "--ino-checkbox-color-hover",
-          "annotation": "prop",
-          "docs": "color of the checkbox on hover"
-        },
-        {
-          "name": "--ino-checkbox-text-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox text if disabled"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6121,38 +6080,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-radio-active-color",
-          "annotation": "prop",
-          "docs": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "annotation": "prop",
-          "docs": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "annotation": "prop",
-          "docs": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "annotation": "prop",
-          "docs": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if unchecked"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

@@ -24,14 +24,27 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
+        with:
+          token: ${{ secrets.RELEASE_PAT }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+          always-auth: true
+      - name: restore lerna cache
+        uses: actions/cache@v3
+        id: lerna-cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
       - uses: ./.github/workflows/artifacts-download
         with:
           download-core-artifacts: true
       - name: Prepare git config
         run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor}}@users.noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor}}@users.noreply.github.com"
       - run: yarn run publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
