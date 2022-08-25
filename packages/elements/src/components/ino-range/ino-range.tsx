@@ -200,6 +200,8 @@ export class Range implements ComponentInterface {
       'mdc-slider--tick-marks': this.markers,
       'mdc-slider--disabled': this.disabled,
       'mdc-slider--range': this.ranged,
+      'inital-position' : (this.value === 0) || (this.valueStart === 0  && this.valueEnd === this.valueStart + this.step),
+        
     });
 
     return (
