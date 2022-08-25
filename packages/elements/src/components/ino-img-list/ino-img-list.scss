@@ -20,7 +20,7 @@
   .mdc-image-list__item {
     @include feature-targeting-mixins.targets($feat-structure) {
       width: calc(100% / #{$cols} - (#{$gutter-size} + 1px / #{$cols}));
-      margin: $gutter-size / 2;
+      margin: calc($gutter-size / 2);
     }
   }
 }

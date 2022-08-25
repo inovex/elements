@@ -1,83 +1,69 @@
 @use 'base/mdc-customize';
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
-@use 'base/theme';
+@use 'base/new-theme' as *;
 @use "@material/ripple";
 
 @include slider.core-styles;
 
-$primary: #2C02FF;
-$primary-focus:#2D5DFF4D;
-$button_filled_hover-control_hover: #4B4EFF;
-$white: #fff;
-$black: #000;
-$transparent: rgba(255, 255, 255, 0);
-$n-8: #F8F9FB;
-$n-7: #EDEFF5;
-$n-6: #CBD0E0;
-$n-5: #ABB1CC;
-$n-4: #8D92B7;
-$n-3: #7275A1;
-$n-2: #565785;
-$n-1: #3A3B64;
-
-.mdc-slider {
-  @include slider-mixins.track-active-color($primary);
-  @include slider-mixins.track-inactive-color($n-6);
-  @include slider-mixins.thumb-color($primary);
-  @include slider-mixins.thumb-ripple-color($transparent);
-  @include slider-mixins.tick-mark-inactive-color($black);
-  @include slider-mixins.value-indicator-text-color($white);
-
-  &.inital-position {
+ino-range {
+  .mdc-slider {
+    @include slider-mixins.track-active-color($primary);
+    @include slider-mixins.track-inactive-color($n-6);
+    @include slider-mixins.thumb-color($primary);
+    @include slider-mixins.thumb-ripple-color($transparent);
+    @include slider-mixins.tick-mark-inactive-color($black);
+    @include slider-mixins.value-indicator-text-color($white);
+  
+    &.inital-position {
+      & .mdc-slider__thumb-knob {
+        background-color: $n-6;
+      }
+    }
+  
+    & .mdc-slider__track {
+      .mdc-slider__track--active, .mdc-slider__track--inactive {
+        height: 2px;
+        border-radius: 10px;
+        top: 1px;
+      }
+    }
+  
     & .mdc-slider__thumb-knob {
-      background-color: $n-6;
+      height: 16px;
+      width: 16px;
+      border: 0px;
+      box-shadow: 0px 0px 0px 0px $primary-focus;
+      transition: ease-in 0.1s;
+  
+      &:hover {
+        background-color: $range_hover-control_hover;
+      }
     }
-  }
-
-  & .mdc-slider__track {
-    .mdc-slider__track--active, .mdc-slider__track--inactive {
-      height: 2px;
-      border-radius: 10px;
-      top: 1px;
+  
+    &__thumb--focused {
+      .mdc-slider__thumb-knob {
+        box-shadow: 0px 0px 0px 4px $primary-focus;
+      }
     }
-  }
-
-  & .mdc-slider__thumb-knob {
-    height: 16px;
-    width: 16px;
-    border: 0px;
-    box-shadow: 0px 0px 0px 0px $primary-focus;
-    transition: ease-in 0.1s;
-
-    &:hover {
-      background-color: $button_filled_hover-control_hover;
-    }
-  }
-
-  &__thumb--focused {
-    .mdc-slider__thumb-knob {
-      box-shadow: 0px 0px 0px 4px $primary-focus;
-    }
-  }
-
-  &.mdc-slider--disabled {
-    opacity: 1;
-
-    .mdc-slider__track--active_fill {
-      border-color: $n-6;
-    }
-
-    .mdc-slider__track--inactive {
-      background-color: $n-7;
+  
+    &.mdc-slider--disabled {
       opacity: 1;
+  
+      .mdc-slider__track--active_fill {
+        border-color: $n-6;
+      }
+  
+      .mdc-slider__track--inactive {
+        background-color: $n-7;
+        opacity: 1;
+      }
+  
+      .mdc-slider__thumb-knob {
+        border: 1.5px solid $n-6;
+        background-color: $white;
+        box-shadow: none;
+      }
     }
-
-    .mdc-slider__thumb-knob {
-      border: 1.5px solid $n-6;
-      background-color: $white;
-      box-shadow: none;
-    }
-  }
+  }  
 }
-

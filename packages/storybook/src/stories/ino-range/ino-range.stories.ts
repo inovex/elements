@@ -47,7 +47,6 @@ export default {
     markers: false,
     step: 1,
     ranged: false,
-    colorScheme: 'primary',
   },
 } as Meta<Components.InoRange>;
 
@@ -68,7 +67,6 @@ const template = new TemplateGenerator<Components.InoRange>(
       ranged="${args.ranged}"
       value-start="${args.valueStart}"
       value-end="${args.valueEnd}"
-      color-scheme="${args.colorScheme}"
     >
     </ino-range>
   `
