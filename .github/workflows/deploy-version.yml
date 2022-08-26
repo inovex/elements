@@ -19,15 +19,12 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          dry_run: true
-      - name: Echo outputs
-        run: echo ${{ steps.tag_version.outputs.new_tag }} && echo ${{ steps.tag_version.outputs.changelog }}
-#      - name: Create a GitHub release
-#        uses: ncipollo/release-action@v1
-#        with:
-#          tag: ${{ steps.tag_version.outputs.new_tag }}
-#          name: Release ${{ steps.tag_version.outputs.new_tag }}
-#          body: ${{ steps.tag_version.outputs.changelog }}
+      - name: Create a GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
 
   publish:
     needs:
