@@ -1,15 +1,10 @@
 name: Deploy Example Projects
 
 on:
-  workflow_dispatch:
-    inputs:
-      workflow_id:
-        required: true
-        description: Workflow ID of completed Test & Build run
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches: [master, elements-701_example_projects_no_nesting]
+    branches: [master]
 
 jobs:
   deploy:
