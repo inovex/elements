@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [ "Test & Build" ]
     types: [completed]
-    branches: [elements-701_example_projects_no_nesting]
+    branches: [master, elements-701_example_projects_no_nesting]
 
 jobs:
   deploy:
