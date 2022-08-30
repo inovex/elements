@@ -13,7 +13,6 @@ export default {
   component: 'ino-switch',
   decorators: [(story) => decorateStoryWithClass(story, 'story-switch')],
   args: {
-    colorScheme: 'primary',
     checked: false,
     disabled: false,
     name: '',
@@ -25,7 +24,6 @@ const template = new TemplateGenerator<Components.InoSwitch>(
   (args) => html`
     <ino-switch
       checked="${args.checked}"
-      color-scheme="${args.colorScheme}"
       disabled="${args.disabled}"
       name="${args.name}"
       @checkedChange="${eventHandler}"
