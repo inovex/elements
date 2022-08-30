@@ -216,16 +216,6 @@ export const components = () => /*html*/ `
             <h3>ino-datepicker</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='./?path=/story/input-ino-form-row--default-usage'">
-          <div class="card-content--vertical" slot="content">
-            <ino-form-row ino-label="First Name">
-              <ino-input></ino-input>
-            </ino-form-row>
-          </div>
-          <div class="card-footer" slot="footer">
-            <h3>ino-form-row</h3>
-          </div>
-        </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/input-ino-input--default-usage'">
           <div class="card-content--vertical" slot="content">
             <ino-input placeholder="Email"></ino-input>

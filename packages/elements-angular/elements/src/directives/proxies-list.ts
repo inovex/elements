@@ -15,7 +15,6 @@ export const DIRECTIVES = [
   d.InoDialog,
   d.InoFab,
   d.InoFabSet,
-  d.InoFormRow,
   d.InoHeader,
   d.InoIcon,
   d.InoIconButton,

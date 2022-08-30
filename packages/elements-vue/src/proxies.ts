@@ -165,12 +165,6 @@ export const InoFabSet = /*@__PURE__*/ defineContainer<JSX.InoFabSet>('ino-fab-s
 ]);
 
 
-export const InoFormRow = /*@__PURE__*/ defineContainer<JSX.InoFormRow>('ino-form-row', undefined, [
-  'label',
-  'mandatory'
-]);
-
-
 export const InoHeader = /*@__PURE__*/ defineContainer<JSX.InoHeader>('ino-header', undefined, [
   'text'
 ]);
