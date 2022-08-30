@@ -1131,13 +1131,13 @@ export declare interface InoSwitch extends Components.InoSwitch {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'colorScheme', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name']
 })
 @Component({
   selector: 'ino-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'colorScheme', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name']
 })
 export class InoSwitch {
   protected el: HTMLElement;
