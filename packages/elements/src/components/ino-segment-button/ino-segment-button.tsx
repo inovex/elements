@@ -19,7 +19,7 @@ import { generateUniqueId } from '../../util/component-utils';
 @Component({
   tag: 'ino-segment-button',
   styleUrl: 'ino-segment-button.scss',
-  shadow: true,
+  shadow: false,
 })
 export class InoSegmentButton implements ComponentInterface {
   private buttonId = `ino-segment-button-id_${generateUniqueId()}`;
@@ -112,16 +112,13 @@ export class InoSegmentButton implements ComponentInterface {
   };
 
   render() {
-    const hostClasses = classNames({
-      'ino-segment-button--checked': this.checked,
+    const hostClasses = classNames('ino-segment-button', {
       'ino-segment-button--disabled': this.disabled,
     });
 
-    const buttonClasses = classNames({
-      'mdc-button': true,
-      'mdc-button--unelevated': true,
-      'ino-segment-button--dense': this.dense,
-      'ino-segment-button--active': this.checked,
+    const buttonClasses = classNames('button', {
+      'button--dense': this.dense,
+      'button--active': this.checked,
       'belongs-to-group': this.belongsToGroup,
     });
 

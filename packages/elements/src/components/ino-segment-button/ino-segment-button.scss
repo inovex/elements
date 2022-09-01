@@ -4,110 +4,86 @@
 @use 'base/theme';
 @use 'base/animation';
 @use 'base/typography';
+@use 'base/common';
 
 /* borders */
 $round-border: 24px 24px 24px 24px;
 $edged-border: 24px 0 24px 24px;
 
-/* button colorset */
-$button_filled_hover-control_hover: #4b4eff;
+/* Colors: */
 $button_outlined_text_pressed: #d7e0ff;
 $button_outlined_text_hover: #e8edff;
-$button_filled_pressed: #3d40f5;
 $focus_border: #2d5dff4d;
+$disabled: #edeff5;
+$text-disabled: #7275a1;
+$text-active: #3b14f9;
 
-/**
- * @prop --ino-segment-button-color: Color of the segment button if inactive
- * @prop --ino-segment-button-checked-color: Color of the segment button if checked
- * @prop --ino-segment-button-hover-color: Color of the segment button on hover
- * @prop --ino-segment-button-disabled-color: Color of the segment button if disabled
- * @prop --ino-segment-button-focus-border: Color of the segment button border on focus
- * @prop --ino-segment-button-pressed-color: Color of the segment button border if pressed
- */
-:host {
-  --segment-button-color: var(
-    --ino-segment-button-color,
-    #{theme.color(light, base)}
-  );
-  --segment-button-checked-color: var(
-    --ino-segment-button-checked-color,
-    #{theme.color(primary, dark)}
-  );
-  --segment-button-hover-color: var(
-    --ino-segment-button-hover-color,
-    #{$button_outlined_text_hover}
-  );
-  --segment-button-disabled-color: var(
-    --ino-segment-button-disabled-color,
-    #{theme.color(dark, base)}
-  );
-  --segment-button-focus-border: var(
-    --ino-segment-button-focus-border,
-    #{$focus_border}
-  );
-  --segment-button-pressed-color: var(
-    --ino-segment-button-pressed-color,
-    #{$button_outlined_text_pressed}
-  );
+@mixin disabled {
+  pointer-events: none;
+  color: $text-disabled;
 }
 
-:host {
+ino-segment-button {
   float: left;
 
-  .mdc-button {
-    @include typography.font($size: s, $weight: none);
-    letter-spacing: 1.5px;
-    text-align: center;
-    border-radius: $edged-border;
+  .button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border: none;
+    background-color: transparent;
+    color: #7275a1;
 
-    @include animation.border-radius(
-      ino-button-round-to-edge,
+    @include common.border-rounding-animation(
       $round-border,
       $edged-border,
-      0.15s
+      0.15s,
+      $round-to-edged: true
     );
+
+    min-height: 36px;
+    line-break: auto;
+    line-height: 100%;
+
+    cursor: pointer;
+    @include typography.font($size: s, $weight: none);
+    text-align: center;
+    letter-spacing: 0.27px;
+
     &:hover {
-      border-radius: $round-border;
-      @include animation.border-radius(
-        ino-segment-button-edged-to-round,
-        $edged-border,
+      color: $text-active;
+      background-color: $button_outlined_text_hover;
+      @include common.border-rounding-animation(
         $round-border,
-        0.15s
+        $edged-border,
+        0.15s,
+        $round-to-edged: false
       );
     }
-
-    @include button.container-fill-color(#fff);
-    margin: 0;
-
-    &:after,
-    &:before {
-      background-color: #fff;
+    &:focus {
+      color: $text-active;
+      box-shadow: inset 0 0 0 3px $focus_border;
+      background-color: $button_outlined_text_hover;
     }
-  }
-  .mdc-button--unelevated {
-    @include button.ink-color(var(--segment-button-color));
+    &:active {
+      color: $text-active;
+      background-color: $button_outlined_text_pressed;
+    }
 
     &:disabled {
-      @include button.outline-color(var(--segment-button-disabled-color));
-      @include button.ink-color(var(--segment-button-disabled-color));
+      @include disabled();
+      background-color: $disabled;
+    }
+    &.button--active {
+      color: $text-active;
+      background-color: $button_outlined_text_hover;
     }
 
-    &:hover {
-      @include button.container-fill-color(var(--segment-button-hover-color));
-      @include button.ink-color(var(--segment-button-checked-color));
-    }
-    &:focus {
-      @include button.container-fill-color(var(--segment-button-pressed-color));
-      box-shadow: inset 0 0 0 4px var(--segment-button-focus-border);
-    }
-  }
-  .ino-segment-button {
-    &--active {
-      @include button.ink-color(var(--segment-button-checked-color));
-      @include button.container-fill-color(var(--segment-button-pressed-color));
-    }
-    &--dense {
-      @include button.density(-1);
+    &.button--dense {
+      padding: 6px 16px;
+      min-height: 32px;
     }
   }
 }
