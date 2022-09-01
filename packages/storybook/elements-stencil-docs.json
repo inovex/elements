@@ -6478,7 +6478,7 @@
           "text": "default - Label of the button"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6579,38 +6579,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-focus-border",
-          "annotation": "prop",
-          "docs": "Color of the segment button border on focus"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-pressed-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button border if pressed"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",

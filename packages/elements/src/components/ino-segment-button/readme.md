@@ -65,18 +65,6 @@ class MyComponent extends Component {
 | `"default"` | Label of the button |
 
 
-## CSS Custom Properties
-
-| Name                                  | Description                                   |
-| ------------------------------------- | --------------------------------------------- |
-| `--ino-segment-button-checked-color`  | Color of the segment button if checked        |
-| `--ino-segment-button-color`          | Color of the segment button if inactive       |
-| `--ino-segment-button-disabled-color` | Color of the segment button if disabled       |
-| `--ino-segment-button-focus-border`   | Color of the segment button border on focus   |
-| `--ino-segment-button-hover-color`    | Color of the segment button on hover          |
-| `--ino-segment-button-pressed-color`  | Color of the segment button border if pressed |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
