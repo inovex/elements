@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import IvxCard from './IvxCard'
+import IvxCard from './IvxCard.vue'
 
 export default {
   name: 'IvxFactsSection',

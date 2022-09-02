@@ -122,17 +122,17 @@
 
 <script>
 import IvxHeader from '@/components/IvxHeader.vue'
-import IvxHeroBanner from '@/components//IvxHeroBanner.vue'
+import IvxHeroBanner from '@/components/IvxHeroBanner.vue'
 import IvxFooter from '@/components/IvxFooter.vue'
 import IvxContentBlock from '@/components/IvxContentBlock.vue'
-import IvxUiComponentsSection from '@/components/IvxUiComponentsSection'
-import IvxFrameworkLogos from '@/components/IvxFrameworkLogos'
-import IvxFactsSection from '@/components/IvxFactsSection'
-import IvxInstallSection from '@/components/IvxInstallSection'
-import IvxExampleProjectsSection from '@/components/IvxExampleProjectsSection'
-import IvxToolsSection from '@/components/IvxToolsSection'
-import IvxEventsSection from '@/components/IvxEventsSection'
-import IvxSpiritSection from '@/components/IvxSpiritSection'
+import IvxUiComponentsSection from '@/components/IvxUiComponentsSection.vue'
+import IvxFrameworkLogos from '@/components/IvxFrameworkLogos.vue'
+import IvxFactsSection from '@/components/IvxFactsSection.vue'
+import IvxInstallSection from '@/components/IvxInstallSection.vue'
+import IvxExampleProjectsSection from '@/components/IvxExampleProjectsSection.vue'
+import IvxToolsSection from '@/components/IvxToolsSection.vue'
+import IvxEventsSection from '@/components/IvxEventsSection.vue'
+import IvxSpiritSection from '@/components/IvxSpiritSection.vue'
 
 export default {
   name: 'WelcomeIndex',
