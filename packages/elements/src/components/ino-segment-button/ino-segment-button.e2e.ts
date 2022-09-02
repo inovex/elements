@@ -6,30 +6,30 @@ const INO_SEGMENT_BUTTON_CHECKED =
   '<ino-segment-button checked></ino-segment-button>';
 const INO_SEGMENT_BUTTON_DISABLED =
   '<ino-segment-button disabled></ino-segment-button>';
-const BUTTON_SELECTOR = 'ino-segment-button >>> button';
+// const BUTTON_SELECTOR = 'ino-segment-button >>> button';
 
 describe('ino-segment-button', () => {
   describe('Properties', () => {
     it('should render as a dense button if inoDense is true', async () => {
       const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
       const segmentBtn = await page.find('ino-segment-button');
-      const btn = await page.find(BUTTON_SELECTOR);
+      const btn = await page.find('button');
 
       await segmentBtn.setAttribute('dense', true);
       await page.waitForChanges();
 
-      expect(btn).toHaveClass('ino-segment-button--dense');
+      expect(btn).toHaveClass('button--dense');
     });
 
     it('should render as checked button if checked is true', async () => {
       const page = await setupPageWithContent(INO_SEGMENT_BUTTON);
       const segmentBtn = await page.find('ino-segment-button');
-      const btn = await page.find(BUTTON_SELECTOR);
+      const btn = await page.find('button');
 
       await segmentBtn.setAttribute('checked', true);
       await page.waitForChanges();
 
-      expect(btn).toHaveClass('ino-segment-button--active');
+      expect(btn).toHaveClass('button--active');
     });
   });
 
