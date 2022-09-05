@@ -26,5 +26,5 @@ jobs:
           delete-branch: true
           labels: release
           base: master
-          title: ${{ format('chore{0} v{1} publish', ':', env.elements_version) }}
+          title: ${{ format('chore{0} publish v{1}', ':', env.elements_version) }}
           body: ""
