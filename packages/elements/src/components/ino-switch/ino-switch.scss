@@ -2,20 +2,15 @@
 @use '@material/switch';
 @use '@material/switch/styles';
 @use 'base/theme';
+@use 'base/new-theme' as colors;
 
-/* greyscale */
-$n-5: #abb1cc;
-$n-6: #cbd0e0;
 
-/* colors */
-$primary: #2c02ff;
-$focus: #2d5dff4d;
 
 @mixin set-track-border-color {
   .mdc-switch__track {
     border: 1.5px solid white;
     margin: -1.5px;
-    box-shadow: 0 0 0 5px $focus;
+    box-shadow: 0 0 0 5px colors.$primary-focus;
   }
 }
 
@@ -26,13 +21,13 @@ ino-switch {
       selected-hover-handle-color: white,
       selected-focus-handle-color: white,
       selected-pressed-handle-color: white,
-      disabled-selected-handle-color: $n-6,
-      selected-track-color: $primary,
-      selected-hover-track-color: $primary,
-      selected-focus-track-color: $primary,
-      selected-pressed-track-color: $primary,
-      unselected-focus-track-color: $n-5,
-      unselected-hover-track-color: $n-5,
+      disabled-selected-handle-color: colors.$n-6,
+      selected-track-color: colors.$primary,
+      selected-hover-track-color: colors.$primary,
+      selected-focus-track-color: colors.$primary,
+      selected-pressed-track-color: colors.$primary,
+      unselected-focus-track-color: colors.$n-5,
+      unselected-hover-track-color: colors.$n-5,
       disabled-selected-track-color: transparent,
     )
   );
@@ -58,7 +53,7 @@ ino-switch {
   .mdc-switch:disabled {
     .mdc-switch__track {
       opacity: 1;
-      border: 2px solid $n-6;
+      border: 2px solid colors.$n-6;
       margin: -1.5px;
     }
     .mdc-switch__handle::after {
@@ -71,6 +66,7 @@ ino-switch {
   display: flex;
   gap: 10px;
   align-items: center;
+  height: 30px;
   cursor: pointer;
 
   &.ino-switch-disabled {
@@ -91,8 +87,8 @@ ino-switch {
       unselected-icon-size: 10px,
       handle-surface-color: white,
       unselected-handle-color: white,
-      unselected-track-color: $n-6,
-      disabled-unselected-handle-color: $n-6,
+      unselected-track-color: colors.$n-6,
+      disabled-unselected-handle-color: colors.$n-6,
       disabled-unselected-track-color: transparent,
       unselected-hover-handle-color: white,
       unselected-focus-handle-color: white,
