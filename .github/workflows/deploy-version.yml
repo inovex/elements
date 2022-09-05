@@ -62,6 +62,9 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: storybook
           path: version/${{ env.GITHUB_REF_NAME_SLUG }} # Push to the proper directory on gh pages branch.
+      - name: Provide latest symlink
+        run: cd version && rm -f latest && ln -s ${{ env.GITHUB_REF_NAME_SLUG }} latest
+        shell: bash
 
       # Crawls the version dir on current gh-pages branch HEAD.
       # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
