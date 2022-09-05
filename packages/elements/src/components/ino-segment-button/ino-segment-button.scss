@@ -1,10 +1,10 @@
 @use 'base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use 'base/theme';
 @use 'base/animation';
 @use 'base/typography';
 @use 'base/common';
+@use 'base/new-theme' as theme;
 
 /* borders */
 $round-border: 24px 24px 24px 24px;
@@ -13,14 +13,11 @@ $edged-border: 24px 0 24px 24px;
 /* Colors: */
 $button_outlined_text_pressed: #d7e0ff;
 $button_outlined_text_hover: #e8edff;
-$focus_border: #2d5dff4d;
-$disabled: #edeff5;
-$text-disabled: #7275a1;
 $text-active: #3b14f9;
 
 @mixin disabled {
   pointer-events: none;
-  color: $text-disabled;
+  color: theme.$n-3;
 }
 
 ino-segment-button {
@@ -34,7 +31,7 @@ ino-segment-button {
     padding: 8px 16px;
     border: none;
     background-color: transparent;
-    color: #7275a1;
+    color: theme.$n-3;
 
     @include common.border-rounding-animation(
       $round-border,
@@ -43,7 +40,7 @@ ino-segment-button {
       $round-to-edged: true
     );
 
-    min-height: 36px;
+    min-height: 44px;
     line-break: auto;
     line-height: 100%;
 
@@ -64,7 +61,7 @@ ino-segment-button {
     }
     &:focus {
       color: $text-active;
-      box-shadow: inset 0 0 0 3px $focus_border;
+      box-shadow: inset 0 0 0 3px theme.$primary-focus;
       background-color: $button_outlined_text_hover;
     }
     &:active {
@@ -74,7 +71,7 @@ ino-segment-button {
 
     &:disabled {
       @include disabled();
-      background-color: $disabled;
+      background-color: theme.$n-7;
     }
     &.button--active {
       color: $text-active;
