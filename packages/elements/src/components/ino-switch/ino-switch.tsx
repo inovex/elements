@@ -1,9 +1,19 @@
-import {MDCSwitch} from '@material/switch';
-import {Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Prop, Watch,} from '@stencil/core';
+import { MDCSwitch } from '@material/switch';
+import {
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Prop,
+  Watch,
+} from '@stencil/core';
 import classNames from 'classnames';
 
-import {generateUniqueId} from '../../util/component-utils';
-import {renderHiddenInput} from '../../util/helpers';
+import { generateUniqueId } from '../../util/component-utils';
+import { renderHiddenInput } from '../../util/helpers';
 
 /**
  * @slot default - Label of the switch
@@ -45,6 +55,10 @@ export class Switch implements ComponentInterface {
    */
   @Prop() name?: string;
 
+  /**
+   * Indicates two icon in the switch, based on the checked state.
+   */
+  @Prop() icon?: string;
 
   componentDidLoad() {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
@@ -62,50 +76,55 @@ export class Switch implements ComponentInterface {
   private handleChange = (e: MouseEvent) => {
     e.stopPropagation();
 
-    if(this.disabled) return;
+    if (this.disabled) return;
 
     this.checkedChange.emit(!this.checked);
   };
 
   render() {
-    const {el, name, disabled} = this;
+    const { el, name, disabled } = this;
 
     const hiddenInput = renderHiddenInput(el, name, '', disabled);
     hiddenInput.checked = this.checked;
 
-    const hostClasses = classNames(
-      'ino-switch',
-      {
-        'ino-switch-disabled': this.disabled
-      }
-    );
+    const hostClasses = classNames('ino-switch', {
+      'ino-switch-disabled': this.disabled,
+      'ino-switch-icon-disabled': this.disabled,
+    });
 
     const switchClasses = classNames(
       'mdc-switch',
-      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected',
+      { 'ino-switch-icon': this.icon },
+      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected'
     );
 
     return (
-      <Host class={hostClasses} checked={this.checked} disabled={this.disabled} onClick={this.handleChange}>
+      <Host
+        class={hostClasses}
+        checked={this.checked}
+        disabled={this.disabled}
+        onClick={this.handleChange}
+      >
         <button
           id={this.switchId}
-          ref={el => this.mdcSwitchEl = el}
+          ref={(el) => (this.mdcSwitchEl = el)}
           class={switchClasses}
           disabled={this.disabled}
           type="button"
           role="switch"
           aria-checked={this.checked}
-
         >
-          <div class="mdc-switch__track"/>
+          {this.icon && <ino-icon class="mdc-switch__icons" icon={this.icon} />}
+          <div class="mdc-switch__track" />
           <div class="mdc-switch__handle-track">
             <div class="mdc-switch__handle">
-              <div class="mdc-switch__ripple"/>
+              <div class="mdc-switch__ripple" />
             </div>
           </div>
+          {this.icon && <ino-icon class="mdc-switch__icons" icon={this.icon} />}
         </button>
         <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>
-          <slot/>
+          <slot />
         </label>
       </Host>
     );

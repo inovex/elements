@@ -2,7 +2,7 @@ import { Components } from '@inovex.de/elements';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
-import { decorateStoryWithClass } from '../utils';
+import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-switch.scss';
 
 const eventHandler = (e: CustomEvent<boolean>) =>
@@ -34,5 +34,21 @@ const template = new TemplateGenerator<Components.InoSwitch>(
 );
 
 export const Playground = template.generatePlaygroundStory();
+// withIconControl(Playground, 'icon', 'info')
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
+
+const templateIcons = new TemplateGenerator<Components.InoSwitch>(
+  'ino-switch',
+  (args) => html`
+    <ino-switch
+      checked="${args.checked}"
+      disabled="${args.disabled}"
+      name="${args.name}"
+      icon="password"
+      @checkedChange="${eventHandler}"
+    >
+      Switch Label
+    </ino-switch>
+  `);
+export const SwitchIcons = templateIcons.generatePlaygroundStory();
