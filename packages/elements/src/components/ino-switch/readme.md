@@ -101,11 +101,12 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 
 ## Properties
 
-| Property   | Attribute  | Description                                    | Type      | Default     |
-| ---------- | ---------- | ---------------------------------------------- | --------- | ----------- |
-| `checked`  | `checked`  | Marks this element as checked. (**unmanaged**) | `boolean` | `false`     |
-| `disabled` | `disabled` | Disables this element.                         | `boolean` | `undefined` |
-| `name`     | `name`     | The name of this element.                      | `string`  | `undefined` |
+| Property   | Attribute  | Description                                                   | Type      | Default     |
+| ---------- | ---------- | ------------------------------------------------------------- | --------- | ----------- |
+| `checked`  | `checked`  | Marks this element as checked. (**unmanaged**)                | `boolean` | `false`     |
+| `disabled` | `disabled` | Disables this element.                                        | `boolean` | `undefined` |
+| `icon`     | `icon`     | Indicates two icon in the switch, based on the checked state. | `string`  | `undefined` |
+| `name`     | `name`     | The name of this element.                                     | `string`  | `undefined` |
 
 
 ## Events
@@ -123,6 +124,19 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 | `"icon-off"` | Icon used for the unchecked state. The colors of the `color-scheme` will be used. |
 | `"icon-on"`  | Icon used for the checked state. The colors of the `color-scheme` will be used.   |
 
+
+## Dependencies
+
+### Depends on
+
+- [ino-icon](../ino-icon)
+
+### Graph
+```mermaid
+graph TD;
+  ino-switch --> ino-icon
+  style ino-switch fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

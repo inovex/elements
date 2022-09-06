@@ -2694,6 +2694,7 @@
         "ino-input-file",
         "ino-markdown-editor",
         "ino-snackbar",
+        "ino-switch",
         "ino-tab",
         "ino-table-header-cell"
       ],
@@ -2730,6 +2731,9 @@
           "ino-icon"
         ],
         "ino-snackbar": [
+          "ino-icon"
+        ],
+        "ino-switch": [
           "ino-icon"
         ],
         "ino-tab": [
@@ -7375,8 +7379,14 @@
       ],
       "encapsulation": "none",
       "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-switch": [
+          "ino-icon"
+        ]
+      },
       "props": [
         {
           "name": "checked",
@@ -7406,6 +7416,22 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon",
+          "reflectToAttr": false,
+          "docs": "Indicates two icon in the switch, based on the checked state.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": true,
