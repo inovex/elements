@@ -83,7 +83,7 @@ ino-button .button__variant--filled {
   );
 
   &:hover {
-    background-color: $primary-hover;
+    background-color: $button_filled_hover-control_hover;
     box-shadow: 0 2px 2px $border-focused;
     @include common.border-rounding-animation(
       $round-border,
