@@ -1154,6 +1154,10 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * Indicates two icon in the switch, based on the checked state.
+         */
+        "icon"?: string;
+        /**
           * The name of this element.
          */
         "name"?: string;
@@ -3059,6 +3063,10 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
+        /**
+          * Indicates two icon in the switch, based on the checked state.
+         */
+        "icon"?: string;
         /**
           * The name of this element.
          */
