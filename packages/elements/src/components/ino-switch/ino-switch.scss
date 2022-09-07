@@ -11,6 +11,12 @@
     box-shadow: 0 0 0 5px theme.$primary-focus;
   }
 }
+@mixin set-second-handle {
+  background: theme.$n-7;
+  border-radius: 14px;
+  width: 48px;
+  height: 28px;
+}
 
 ino-switch {
   @include switch.theme(
@@ -106,6 +112,19 @@ ino-switch .ino-switch-icon {
   align-items: center;
   height: 30px;
   cursor: pointer;
+
+  &.ino-switch-icon__toRight {
+    .mdc-switch__handle-2 {
+      margin-left: 52px;
+      @include set-second-handle;
+    }
+  }
+
+  &.ino-switch-icon__toLeft {
+    .mdc-switch__handle-2 {
+      @include set-second-handle;
+    }
+  }
   ino-icon {
     position: absolute;
     --icon-width: 20px;

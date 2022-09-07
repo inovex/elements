@@ -8,6 +8,7 @@ import {
   h,
   Host,
   Prop,
+  State,
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -59,6 +60,7 @@ export class Switch implements ComponentInterface {
    * Indicates two icon in the switch, based on the checked state.
    */
   @Prop() icon?: string;
+  @State() isShown: boolean = false;
 
   componentDidLoad() {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
@@ -81,6 +83,18 @@ export class Switch implements ComponentInterface {
     this.checkedChange.emit(!this.checked);
   };
 
+  private handleHover = (e: MouseEvent) => {
+    e.stopPropagation();
+
+    if (this.disabled) return;
+
+    if (e.type === 'mouseenter') {
+      this.isShown = true;
+    } else {
+      this.isShown = false;
+    }
+  };
+
   render() {
     const { el, name, disabled } = this;
 
@@ -94,7 +108,11 @@ export class Switch implements ComponentInterface {
 
     const switchClasses = classNames(
       'mdc-switch',
-      { 'ino-switch-icon': this.icon },
+      {
+        'ino-switch-icon': this.icon,
+        'ino-switch-icon__toRight': this.isShown && !this.checked,
+        'ino-switch-icon__toLeft': this.isShown && this.checked,
+      },
       this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected'
     );
 
@@ -113,11 +131,16 @@ export class Switch implements ComponentInterface {
           type="button"
           role="switch"
           aria-checked={this.checked}
+          onMouseEnter={this.handleHover}
+          onMouseLeave={this.handleHover}
         >
           {this.icon && <ino-icon class="mdc-switch__icons" icon={this.icon} />}
           <div class="mdc-switch__track" />
           <div class="mdc-switch__handle-track">
             <div class="mdc-switch__handle">
+              <div class="mdc-switch__ripple" />
+            </div>
+            <div class="mdc-switch__handle-2">
               <div class="mdc-switch__ripple" />
             </div>
           </div>
