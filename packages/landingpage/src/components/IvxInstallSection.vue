@@ -106,7 +106,7 @@
 
 <script>
 import { InoButton } from "@inovex.de/elements-vue";
-import IvxCard from './IvxCard'
+import IvxCard from './IvxCard.vue'
 
 export default {
   name: 'IvxInstallSection',
@@ -244,7 +244,7 @@ ino-button {
 }
 
 .stackblitz-image {
-  background: url(/public/assets/stackblitz.png);
+  background: url(/assets/stackblitz.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
