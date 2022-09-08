@@ -11,21 +11,25 @@ const eventHandler = (e: CustomEvent<boolean>) =>
 export default {
   title: 'Input/ino-switch',
   component: 'ino-switch',
-  decorators: [(story) => decorateStoryWithClass(story, 'story-switch')],
+  decorators: [story => decorateStoryWithClass(story, 'story-switch')],
   args: {
     checked: false,
     disabled: false,
     name: '',
+    iconTrailing: '',
+    iconLeading: ''
   },
 } as Meta<Components.InoSwitch>;
 
-const template = new TemplateGenerator<Components.InoSwitch>(
+const template = new TemplateGenerator<Components.InoSwitch & { iconTrailing: string; iconLeading: string }>(
   'ino-switch',
-  (args) => html`
+  args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
       name="${args.name}"
+      icon-trailing="${args.iconTrailing}"
+      icon-leading="${args.iconLeading}"
       @checkedChange="${eventHandler}"
     >
       Switch Label
@@ -34,21 +38,24 @@ const template = new TemplateGenerator<Components.InoSwitch>(
 );
 
 export const Playground = template.generatePlaygroundStory();
-// withIconControl(Playground, 'icon', 'info')
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
 
-const templateIcons = new TemplateGenerator<Components.InoSwitch>(
+const templateIcons = new TemplateGenerator<Components.InoSwitch & { iconTrailing: string; iconLeading: string }>(
   'ino-switch',
-  (args) => html`
+  args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
       name="${args.name}"
-      icon="password"
+      icon-trailing="code"
+      icon-leading="code_block"
       @checkedChange="${eventHandler}"
     >
       Switch Label
     </ino-switch>
-  `);
+  `
+);
 export const SwitchIcons = templateIcons.generatePlaygroundStory();
+withIconControl(Playground, 'iconTrailing', '');
+withIconControl(Playground, 'iconLeading', '');

@@ -57,9 +57,15 @@ export class Switch implements ComponentInterface {
   @Prop() name?: string;
 
   /**
-   * Indicates two icon in the switch, based on the checked state.
+   * Sets the prepended icon
    */
-  @Prop() icon?: string;
+  @Prop() iconLeading?: string;
+
+  /**
+   * Sets the appended icon
+   */
+  @Prop() iconTrailing?: string;
+
   @State() isShown: boolean = false;
 
   componentDidLoad() {
@@ -109,7 +115,7 @@ export class Switch implements ComponentInterface {
     const switchClasses = classNames(
       'mdc-switch',
       {
-        'ino-switch-icon': this.icon,
+        'ino-switch-icon': this.iconTrailing && this.iconLeading,
         'ino-switch-icon__toRight': this.isShown && !this.checked,
         'ino-switch-icon__toLeft': this.isShown && this.checked,
       },
@@ -134,7 +140,7 @@ export class Switch implements ComponentInterface {
           onMouseEnter={this.handleHover}
           onMouseLeave={this.handleHover}
         >
-          {this.icon && <ino-icon class="mdc-switch__icons" icon={this.icon} />}
+          {this.iconTrailing && <ino-icon class="mdc-switch__icons" icon={this.iconTrailing} />}
           <div class="mdc-switch__track" />
           <div class="mdc-switch__handle-track">
             <div class="mdc-switch__handle">
@@ -144,7 +150,7 @@ export class Switch implements ComponentInterface {
               <div class="mdc-switch__ripple" />
             </div>
           </div>
-          {this.icon && <ino-icon class="mdc-switch__icons" icon={this.icon} />}
+          {this.iconLeading && <ino-icon class="mdc-switch__icons" icon={this.iconLeading} />}
         </button>
         <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>
           <slot />
