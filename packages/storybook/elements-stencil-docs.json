@@ -7422,12 +7422,28 @@
           "required": false
         },
         {
-          "name": "icon",
+          "name": "iconLeading",
           "type": "string",
           "mutable": false,
-          "attr": "icon",
+          "attr": "icon-leading",
           "reflectToAttr": false,
-          "docs": "Indicates two icon in the switch, based on the checked state.",
+          "docs": "Sets the prepended icon",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "iconTrailing",
+          "type": "string",
+          "mutable": false,
+          "attr": "icon-trailing",
+          "reflectToAttr": false,
+          "docs": "Sets the appended icon",
           "docsTags": [],
           "values": [
             {

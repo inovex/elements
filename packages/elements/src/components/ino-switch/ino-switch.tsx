@@ -66,7 +66,7 @@ export class Switch implements ComponentInterface {
    */
   @Prop() iconTrailing?: string;
 
-  @State() isShown: boolean = false;
+  @State() isShown = false;
 
   componentDidLoad() {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);

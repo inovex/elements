@@ -1154,9 +1154,13 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Indicates two icon in the switch, based on the checked state.
+          * Sets the prepended icon
          */
-        "icon"?: string;
+        "iconLeading"?: string;
+        /**
+          * Sets the appended icon
+         */
+        "iconTrailing"?: string;
         /**
           * The name of this element.
          */
@@ -3064,9 +3068,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Indicates two icon in the switch, based on the checked state.
+          * Sets the prepended icon
          */
-        "icon"?: string;
+        "iconLeading"?: string;
+        /**
+          * Sets the appended icon
+         */
+        "iconTrailing"?: string;
         /**
           * The name of this element.
          */

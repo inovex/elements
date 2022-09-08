@@ -101,12 +101,13 @@ The input has a controlled (unmanaged) attribute `checked`. For this reason list
 
 ## Properties
 
-| Property   | Attribute  | Description                                                   | Type      | Default     |
-| ---------- | ---------- | ------------------------------------------------------------- | --------- | ----------- |
-| `checked`  | `checked`  | Marks this element as checked. (**unmanaged**)                | `boolean` | `false`     |
-| `disabled` | `disabled` | Disables this element.                                        | `boolean` | `undefined` |
-| `icon`     | `icon`     | Indicates two icon in the switch, based on the checked state. | `string`  | `undefined` |
-| `name`     | `name`     | The name of this element.                                     | `string`  | `undefined` |
+| Property       | Attribute       | Description                                    | Type      | Default     |
+| -------------- | --------------- | ---------------------------------------------- | --------- | ----------- |
+| `checked`      | `checked`       | Marks this element as checked. (**unmanaged**) | `boolean` | `false`     |
+| `disabled`     | `disabled`      | Disables this element.                         | `boolean` | `undefined` |
+| `iconLeading`  | `icon-leading`  | Sets the prepended icon                        | `string`  | `undefined` |
+| `iconTrailing` | `icon-trailing` | Sets the appended icon                         | `string`  | `undefined` |
+| `name`         | `name`          | The name of this element.                      | `string`  | `undefined` |
 
 
 ## Events
