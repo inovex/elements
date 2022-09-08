@@ -45,7 +45,7 @@ ino-segment-button {
     line-height: 100%;
 
     cursor: pointer;
-    @include typography.font($size: s, $weight: none);
+    @include typography.font($size: s, $weight: medium);
     text-align: center;
     letter-spacing: 0.27px;
 
