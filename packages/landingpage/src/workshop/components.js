@@ -1,6 +1,8 @@
 import MyTest from "@/workshop/MyComponent.vue";
 import NavBar from "@/workshop/NavBar.vue";
-import NavBarIcons from "@/workshop/NavBarIcons.vue" // <-- the .vue is important!
+import NavBarIcons from "@/workshop/NavBarIcons.vue"
+import NavbarAction from "@/workshop/NavbarAction.vue";
+import NavBarRight from "@/workshop/NavBarRight.vue"; // <-- the .vue is important!
 
 /**
  *  add your components/ui-pattern below, give it a label and some unique id
@@ -21,5 +23,15 @@ export const components = [
     label: 'NavBar with Icons',
     id: 'my-nav-bar-with-icons',
     component: NavBarIcons
+  },
+  {
+    label: 'NavBar with Action',
+    id: 'my-nav-bar-with-action',
+    component: NavbarAction
+  },
+  {
+    label: 'NavBar Right',
+    id: 'my-nav-bar-right',
+    component: NavBarRight
   }
 ]

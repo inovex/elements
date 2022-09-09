@@ -7,7 +7,7 @@
       <div class="tab-bar">
         <ino-tab-bar>
           <ino-popover placement="bottom" distance="0" interactive attach-to-body color-scheme="transparent">
-            <ino-tab slot="popover-trigger" icon="edit">
+            <ino-tab slot="popover-trigger">
               Design
             </ino-tab>
             <ino-list>
@@ -17,7 +17,7 @@
             </ino-list>
           </ino-popover>
           <ino-popover placement="bottom" distance="0" interactive attach-to-body color-scheme="transparent">
-            <ino-tab slot="popover-trigger" icon="web">
+            <ino-tab slot="popover-trigger">
               Components
             </ino-tab>
             <ino-list>
@@ -25,7 +25,7 @@
               <ino-list-item text="Docs"></ino-list-item>
             </ino-list>
           </ino-popover>
-          <ino-tab icon="code_block">Develop</ino-tab>
+          <ino-tab>Develop</ino-tab>
         </ino-tab-bar>
       </div>
     </header>
@@ -37,7 +37,7 @@
 import {InoList, InoListItem, InoPopover, InoTab, InoTabBar} from "@inovex.de/elements-vue";
 
 export default {
-  name: "NavBarIcons",
+  name: "NavBar",
   components: {
     InoList, InoListItem, InoPopover, InoTabBar, InoTab
   }
@@ -59,6 +59,7 @@ export default {
 
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 48px;
   border-bottom: 1px solid lightgrey;
