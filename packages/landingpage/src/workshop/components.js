@@ -1,4 +1,5 @@
-import MyTest from "@/workshop/MyComponent.vue"; // <-- the .vue is important!
+import MyTest from "@/workshop/MyComponent.vue";
+import NavBar from "@/workshop/NavBar.vue"; // <-- the .vue is important!
 
 /**
  *  add your components/ui-pattern below, give it a label and some unique id
@@ -9,5 +10,10 @@ export const components = [
     label: 'Meine Komponente',
     id: 'my-component',
     component: MyTest
+  },
+  {
+    label: 'NavBar',
+    id: 'my-nav-bar',
+    component: NavBar
   }
 ]
