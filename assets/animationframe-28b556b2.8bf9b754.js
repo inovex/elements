@@ -1,8 +1,16 @@
 /*!
+    Copyright (c) 2017 Jed Watson.
+    Licensed under the MIT License (MIT), see
+    http://jedwatson.github.io/classnames
+  */
+
+/*!
  * Crafted with ❤ by inovex GmbH
- *//**
+ */
+
+/**
  * @license
- * Copyright 2020 Google Inc.
+ * Copyright 2021 Google Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,4 +29,4 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */var o=function(){function a(){this.rafIDs=new Map}return a.prototype.request=function(t,n){var e=this;this.cancel(t);var r=requestAnimationFrame(function(i){e.rafIDs.delete(t),n(i)});this.rafIDs.set(t,r)},a.prototype.cancel=function(t){var n=this.rafIDs.get(t);n&&(cancelAnimationFrame(n),this.rafIDs.delete(t))},a.prototype.cancelAll=function(){var t=this;this.rafIDs.forEach(function(n,e){t.cancel(e)})},a.prototype.getQueue=function(){var t=[];return this.rafIDs.forEach(function(n,e){t.push(e)}),t},a}();export{o as A};
+ */
