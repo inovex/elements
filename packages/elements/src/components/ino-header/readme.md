@@ -46,14 +46,6 @@ class MyComponent extends Component {
 | `"default"` | The text to display |
 
 
-## CSS Custom Properties
-
-| Name                     | Description              |
-| ------------------------ | ------------------------ |
-| `--ino-header-box-color` | Color of the header box  |
-| `--ino-header-color`     | Text color of the header |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

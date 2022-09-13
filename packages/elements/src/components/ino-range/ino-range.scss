@@ -1,25 +1,21 @@
 @use 'base/mdc-customize';
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
-@use 'base/new-theme' as *;
+@use 'base/new-theme' as theme;
 @use "@material/ripple";
 
 @include slider.core-styles;
 
+$range_hover-control_hover: #4B4EFF;
+
 ino-range {
   .mdc-slider {
-    @include slider-mixins.track-active-color($primary);
-    @include slider-mixins.track-inactive-color($n-6);
-    @include slider-mixins.thumb-color($primary);
-    @include slider-mixins.thumb-ripple-color($transparent);
-    @include slider-mixins.tick-mark-inactive-color($black);
-    @include slider-mixins.value-indicator-text-color($white);
-  
-    &.inital-position {
-      & .mdc-slider__thumb-knob {
-        background-color: $n-6;
-      }
-    }
+    @include slider-mixins.track-active-color(theme.$primary);
+    @include slider-mixins.track-inactive-color(theme.$n-6);
+    @include slider-mixins.thumb-color(theme.$primary);
+    @include slider-mixins.thumb-ripple-color(theme.$transparent);
+    @include slider-mixins.tick-mark-inactive-color(theme.$black);
+    @include slider-mixins.value-indicator-text-color(theme.$white);
   
     & .mdc-slider__track {
       .mdc-slider__track--active, .mdc-slider__track--inactive {
@@ -33,7 +29,7 @@ ino-range {
       height: 16px;
       width: 16px;
       border: 0px;
-      box-shadow: 0px 0px 0px 0px $primary-focus;
+      box-shadow: 0px 0px 0px 0px theme.$primary-focus;
       transition: ease-in 0.1s;
   
       &:hover {
@@ -43,7 +39,7 @@ ino-range {
   
     &__thumb--focused {
       .mdc-slider__thumb-knob {
-        box-shadow: 0px 0px 0px 4px $primary-focus;
+        box-shadow: 0px 0px 0px 4px theme.$primary-focus;
       }
     }
   
@@ -51,17 +47,17 @@ ino-range {
       opacity: 1;
   
       .mdc-slider__track--active_fill {
-        border-color: $n-6;
+        border-color: theme.$n-6;
       }
   
       .mdc-slider__track--inactive {
-        background-color: $n-7;
+        background-color: theme.$n-7;
         opacity: 1;
       }
   
       .mdc-slider__thumb-knob {
-        border: 1.5px solid $n-6;
-        background-color: $white;
+        border: 1.5px solid theme.$n-6;
+        background-color: theme.$white;
         box-shadow: none;
       }
     }

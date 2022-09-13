@@ -80,13 +80,6 @@ class MyComponent extends Component {
 | `"input"`   | An `<ino-input>` element that will be controlled by this component |
 
 
-## CSS Custom Properties
-
-| Name                                 | Description               |
-| ------------------------------------ | ------------------------- |
-| `--ino-autocomplete-list-max-height` | max height of option list |
-
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

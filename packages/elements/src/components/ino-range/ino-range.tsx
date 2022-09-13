@@ -12,8 +12,6 @@ import {
   Method,
 } from '@stencil/core';
 import classNames from 'classnames';
-
-import { ColorScheme } from '../types';
 import { preventEvent } from '../../util/component-utils';
 
 @Component({
@@ -33,13 +31,6 @@ export class Range implements ComponentInterface {
    * Disables this element.
    */
   @Prop() disabled?: boolean;
-
-  /**
-   * The name of the color scheme of this component.
-   * Possible values: `primary` (default), `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() colorScheme?: ColorScheme = 'primary';
 
   /**
    * Restricts the slider to only allow discrete values.
@@ -190,22 +181,17 @@ export class Range implements ComponentInterface {
   }
 
   render() {
-    const hostClasses = classNames(
-      `ino-range--color-scheme-${this.colorScheme}`
-    );
 
     const sliderClasses = classNames({
       'mdc-slider': true,
       'mdc-slider--discrete': this.discrete,
       'mdc-slider--tick-marks': this.markers,
       'mdc-slider--disabled': this.disabled,
-      'mdc-slider--range': this.ranged,
-      'inital-position' : (this.value === 0) || (this.valueStart === 0  && this.valueEnd === this.valueStart + this.step),
-        
+      'mdc-slider--range': this.ranged,      
     });
 
     return (
-      <Host class={hostClasses}>
+      <Host>
         <div ref={(el) => (this.sliderEl = el)} class={sliderClasses}>
           {this.ranged && (
             <input

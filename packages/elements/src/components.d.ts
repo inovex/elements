@@ -954,10 +954,6 @@ export namespace Components {
     }
     interface InoRange {
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2836,10 +2832,6 @@ declare namespace LocalJSX {
         "value"?: string | number | null;
     }
     interface InoRange {
-        /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
