@@ -4,9 +4,9 @@ import {
   Element,
   Event,
   EventEmitter,
+  h,
   Host,
   Prop,
-  h,
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
@@ -32,6 +32,7 @@ export class InoSegmentButton implements ComponentInterface {
    * Activates the button
    */
   @Prop() checked = false;
+
   @Watch('checked')
   checkedChanged(newVal: boolean) {
     if (this.belongsToGroup && this.successor && !newVal) {
@@ -134,9 +135,7 @@ export class InoSegmentButton implements ComponentInterface {
           id={this.buttonId}
           name={this.name}
         >
-          <div class="mdc-button__label">
-            <slot></slot>
-          </div>
+          <slot></slot>
         </button>
       </Host>
     );
