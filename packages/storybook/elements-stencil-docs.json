@@ -6641,7 +6641,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6650,7 +6660,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-select/ino-select.tsx",

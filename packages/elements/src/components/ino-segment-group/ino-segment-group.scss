@@ -4,13 +4,10 @@
 @use 'base/theme';
 @use 'base/typography';
 
-ino-segment-group {
-  .wrapper {
-    display: flex;
-    .content-border {
-      border: none;
-      border-radius: 24px 0 24px 24px;
-      box-shadow: 0 0 0 1pt #e8edff;
-    }
-  }
+ino-segment-group.ino-segment-group {
+  width: fit-content;
+  display: flex;
+  border: none;
+  border-radius: 24px 0 24px 24px;
+  box-shadow: 0 0 0 1pt #e8edff;
 }

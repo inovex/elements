@@ -83,12 +83,3 @@ ino-segment-button {
     }
   }
 }
-
-/*
-  Regarding belongs-to-group class:
-  Prevents styles from being applied to segment-buttons that do not belong to a group.
-  The host-context selector cannot be used as it is not compatible with firefox and safari.
-*/
-button.belongs-to-group {
-  border: none !important;
-}

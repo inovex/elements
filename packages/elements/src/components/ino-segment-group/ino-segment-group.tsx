@@ -2,10 +2,13 @@ import {
   Component,
   ComponentInterface,
   Element,
+  Event,
+  EventEmitter,
+  h,
   Host,
+  Listen,
   Prop,
   Watch,
-  h,
 } from '@stencil/core';
 
 import { generateUniqueId } from '../../util/component-utils';
@@ -39,6 +42,18 @@ export class InoSegmentGroup implements ComponentInterface {
   }
 
   /**
+   * Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.
+   */
+  @Event() valueChange!: EventEmitter<any>;
+
+  @Listen('checkedChange')
+  handleCheckedChange(ev: CustomEvent) {
+    if((ev.target as HTMLElement).tagName === 'INO-SEGMENT-BUTTON') {
+      this.valueChange.emit((ev.target as HTMLInoSegmentButtonElement).value);
+    }
+  }
+
+  /**
    * Initially updates the checked property of all segment-buttons
    * in the group according to the initial value of the group.
    */
@@ -46,29 +61,24 @@ export class InoSegmentGroup implements ComponentInterface {
     this.updateButtons();
   }
 
-  private async getButtons() {
-    return Array.from(this.el.querySelectorAll('ino-segment-button'));
-  }
-
   /**
    * Updates the checked property of the segment-buttons in the group
    */
   private async updateButtons() {
-    const buttons = await this.getButtons();
-
-    for (const btn of buttons) {
-      btn.checked = this.value === btn.value;
-    }
+    Array.from(this.el.querySelectorAll('ino-segment-button')).forEach(
+      (button) => (button.checked = this.value === button.value)
+    );
   }
 
   render() {
     return (
-      <Host id={this.groupId} name={this.name} value={this.value}>
-        <div class="wrapper">
-          <div class="content-border">
-            <slot></slot>
-          </div>
-        </div>
+      <Host
+        class="ino-segment-group"
+        id={this.groupId}
+        name={this.name}
+        value={this.value}
+      >
+        <slot></slot>
       </Host>
     );
   }
