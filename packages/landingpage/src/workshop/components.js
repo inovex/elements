@@ -1,4 +1,8 @@
-import MyTest from "@/workshop/MyComponent.vue"; // <-- the .vue is important!
+import MyTest from "@/workshop/MyComponent.vue";
+import NavBar from "@/workshop/NavBar.vue";
+import NavBarIcons from "@/workshop/NavBarIcons.vue"
+import NavbarAction from "@/workshop/NavbarAction.vue";
+import NavBarRight from "@/workshop/NavBarRight.vue"; // <-- the .vue is important!
 import FilterButton from "@/workshop/FilterButton.vue"; // <-- the .vue is important!
 
 /**
@@ -10,6 +14,26 @@ export const components = [
     label: 'Meine Komponente',
     id: 'my-component',
     component: MyTest
+  },
+  {
+    label: 'NavBar',
+    id: 'my-nav-bar',
+    component: NavBar
+  },
+  {
+    label: 'NavBar with Icons',
+    id: 'my-nav-bar-with-icons',
+    component: NavBarIcons
+  },
+  {
+    label: 'NavBar with Action',
+    id: 'my-nav-bar-with-action',
+    component: NavbarAction
+  },
+  {
+    label: 'NavBar Right',
+    id: 'my-nav-bar-right',
+    component: NavBarRight
   },
   {
     label: 'FilterButton',
