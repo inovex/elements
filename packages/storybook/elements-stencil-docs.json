@@ -6478,7 +6478,7 @@
           "text": "default - Label of the button"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6579,38 +6579,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-checked-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-hover-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6633,7 +6602,7 @@
           "text": "default - One or more `ino-segment-button`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6672,7 +6641,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6681,7 +6660,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-select/ino-select.tsx",

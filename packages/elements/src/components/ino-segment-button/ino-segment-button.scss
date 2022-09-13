@@ -1,124 +1,85 @@
 @use 'base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use 'base/theme';
+@use 'base/animation';
 @use 'base/typography';
+@use 'base/common';
+@use 'base/new-theme' as theme;
 
-// Borders
-$edged-border: 0;
-$left-segment-border: 0 0 0 24px;
-$right-segment-border: 0 24px 24px 0;
-$left-right-segment-border: 0 24px 24px 24px;
+/* borders */
+$round-border: 24px 24px 24px 24px;
+$edged-border: 24px 0 24px 24px;
 
-/**
- * @prop --ino-segment-button-color: Color of the segment button if inactive
- * @prop --ino-segment-button-checked-color: Color of the segment button if checked
- * @prop --ino-segment-button-hover-color: Color of the segment button on hover
- * @prop --ino-segment-button-disabled-color: Color of the segment button if disabled
- * @prop --ino-segment-button-hover-shadow: Color and shape of the shadow on hover
- * @prop --ino-segment-button-checked-shadow: Color and shape of the shadow if checked
- */
-:host {
-  --segment-button-color: var(
-    --ino-segment-button-color,
-    #{theme.color(light, base)}
-  );
-  --segment-button-checked-color: var(
-    --ino-segment-button-checked-color,
-    #{theme.color(primary, dark)}
-  );
-  --segment-button-hover-color: var(
-    --ino-segment-button-hover-color,
-    #{theme.color(primary, light)}
-  );
-  --segment-button-disabled-color: var(
-    --ino-segment-button-disabled-color,
-    #{theme.color(dark, base)}
-  );
-  --segment-button-hover-shadow: var(
-    --ino-segment-button-hover-shadow,
-    #{0 4px 8px 0 rgba(61, 64, 245, 0.3),
-    0 12px 28px 0 rgba(61, 214, 245, 0.14)}
-  );
-  --segment-button-checked-shadow: var(
-    --ino-segment-button-checked-shadow,
-    #{0 8px 16px 0 rgba(61, 64, 245, 0.3),
-    0 16px 32px 0 rgba(61, 214, 245, 0.14)}
-  );
-}
+/* Colors: */
+$button_outlined_text_pressed: #d7e0ff;
+$button_outlined_text_hover: #e8edff;
+$text-active: #3b14f9;
 
-:host {
-  float: left;
+ino-segment-button {
+  .button {
+    @include typography.font($size: m, $weight: medium);
+    @include common.border-rounding-animation(
+        $round-border,
+        $edged-border,
+        0.15s,
+      $round-to-edged: true
+    );
 
-  .mdc-button {
-    @include typography.font($size: s, $weight: none);
-    letter-spacing: 1.5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 13px 23px 12px 23px;
+    border: none;
+    background-color: transparent;
+    color: theme.$n-3;
+
+    cursor: pointer;
+    min-height: 44px;
     text-align: center;
-
-    @include button.shape-radius($edged-border);
-    @include button.container-fill-color(#fff);
-    margin: 0;
-
-    &:after,
-    &:before {
-      background-color: #fff;
-    }
-  }
-
-  .mdc-button--outlined {
-    @include button.outline-width(1px);
-    @include button.outline-color(var(--segment-button-color));
-    @include button.ink-color(var(--segment-button-color));
-
-    &:disabled {
-      @include button.outline-color(var(--segment-button-disabled-color));
-      @include button.ink-color(var(--segment-button-disabled-color));
-    }
+    letter-spacing: 0.27px;
 
     &:hover {
-      @include button.outline-color(var(--segment-button-hover-color));
-      @include button.ink-color(var(--segment-button-hover-color));
-      box-shadow: var(--segment-button-hover-shadow);
+      color: $text-active;
+      background-color: $button_outlined_text_hover;
+      @include common.border-rounding-animation(
+        $round-border,
+        $edged-border,
+        0.15s,
+        $round-to-edged: false
+      );
     }
-  }
 
-  .ino-segment-button--active,
-  .ino-segment-button--active:hover {
-    @include button.outline-color(var(--segment-button-checked-color));
-    @include button.ink-color(var(--segment-button-checked-color));
-    box-shadow: var(--segment-button-checked-shadow);
-  }
+    &:focus {
+      color: $text-active;
+      box-shadow: inset 0 0 0 3px theme.$primary-focus;
+      background-color: $button_outlined_text_hover;
+      outline: none; // remove native focus style
+    }
 
-  .ino-segment-button--dense {
-    @include button.density(-1);
-  }
-}
+    &:active {
+      box-shadow: none;
+      color: $text-active;
+      background-color: $button_outlined_text_pressed;
+    }
 
-/*
-  Regarding belongs-to-group class:
-  Prevents styles from being applied to segment-buttons that do not belong to a group.
-  The host-context selector cannot be used as it is not compatible with firefox and safari.
-*/
-:host(:not(:last-child)) button.belongs-to-group {
-  border-right: none;
-}
+    &--active {
+      color: $text-active;
+      background-color: $button_outlined_text_hover;
+    }
 
-:host(:first-child) button.belongs-to-group {
-  @include button.shape-radius($left-segment-border);
-}
+    &:disabled {
+      pointer-events: none;
+      background-color: theme.$n-7;
+      color: theme.$n-3;
+    }
 
-:host(:last-child) button.belongs-to-group {
-  @include button.shape-radius($right-segment-border);
-}
-
-:host(:only-of-type) button.belongs-to-group {
-  @include button.shape-radius($left-right-segment-border);
-}
-
-:host(:hover:not(.ino-segment-button--disabled)),
-:host(:active):not(.ino-segment-button--disabled),
-:host(.ino-segment-button--checked:not(.ino-segment-button--disabled)) {
-  button.belongs-to-group {
-    border-right: 1px solid;
+    &--dense {
+      @include typography.font($size: s, $weight: medium);
+      padding: 8px 14px 7px 14px;
+      min-height: 32px;
+      letter-spacing: 0.23px;
+    }
   }
 }
