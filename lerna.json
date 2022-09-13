@@ -9,9 +9,9 @@
   "command": {
     "version": {
       "yes": true,
-      "push": true,
+      "push": false,
       "message": "chore: publish %s",
-      "allowBranch": "master"
+      "allowBranch": ["master", "elements-release-*"]
     }
   }
 }

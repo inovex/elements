@@ -24,10 +24,11 @@ jobs:
     - run: npm config set scripts-prepend-node-path true
     - run: yarn build
 
-    # Build caches for release-canary workflow
+    # Build caches for (canary) release workflow
     - if: github.ref == 'refs/heads/master'
       name: Upload all build artifacts
       uses: ./.github/workflows/artifacts-upload
       with:
         upload-core-artifacts: true
         upload-example-artifacts: true
+        upload-storybook-artifact: true
