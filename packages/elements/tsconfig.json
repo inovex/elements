@@ -17,6 +17,6 @@
     "types": ["jest"],
     "skipLibCheck": true
   },
-  "include": ["src", "types/jsx.d.ts"],
+  "include": ["src", "types/jsx.d.ts", "output-targets"],
   "exclude": ["node_modules"]
 }

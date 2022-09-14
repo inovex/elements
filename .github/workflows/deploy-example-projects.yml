@@ -13,29 +13,19 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: gh-pages
-
-      - uses: dawidd6/action-download-artifact@v2
+      - uses: actions/checkout@v3
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-angular-example
-          path: example-projects/angular
-
-      - uses: dawidd6/action-download-artifact@v2
+          path: master-branch
+      - uses: ./master-branch/.github/workflows/artifacts-download
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-react-example
-          path: example-projects/react
-
-      - uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          name: elements-vue-example
-          path: example-projects/vue
+          workflow-id: ${{ github.event.workflow_run.workflow_id }}
+          download-example-artifacts: true
+          example-artifacts-base-path: example-artifacts
 
       - name: Deploy Example Projects to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages # The branch the action should deploy to.
           commit-message: Deploying example projects
-          folder: '.'
+          folder: example-artifacts
           target-folder: example-projects

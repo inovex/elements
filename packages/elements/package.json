@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -41,7 +41,7 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
+    "build": "stencil build --docs --legacy",
     "clean": "shx rm -rf dist",
     "dev": "cross-env NODE_ENV=development stencil build --docs --watch --legacy",
     "lint": "eslint src",

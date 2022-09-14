@@ -420,8 +420,10 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
 
 export const InoSegmentGroup = /*@__PURE__*/ defineContainer<JSX.InoSegmentGroup>('ino-segment-group', undefined, [
   'name',
-  'value'
-]);
+  'value',
+  'valueChange'
+],
+'value', 'v-value-change', 'valueChange');
 
 
 export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-select', undefined, [

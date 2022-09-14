@@ -990,7 +990,13 @@ export class InoSegmentButton {
 }
 
 
-export declare interface InoSegmentGroup extends Components.InoSegmentGroup {}
+export declare interface InoSegmentGroup extends Components.InoSegmentGroup {
+  /**
+   * Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail. 
+   */
+  valueChange: EventEmitter<CustomEvent<any>>;
+
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -1007,6 +1013,7 @@ export class InoSegmentGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
   }
 }
 

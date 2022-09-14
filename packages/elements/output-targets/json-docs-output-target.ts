@@ -5,6 +5,7 @@ import { writeFileSync } from 'fs';
 const storybookElementsJsonPath = resolve(
   __dirname,
   '..',
+  '..',
   'storybook',
   'elements-stencil-docs.json'
 );

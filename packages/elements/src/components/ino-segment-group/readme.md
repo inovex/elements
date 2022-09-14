@@ -85,6 +85,13 @@ to the value of the button that emitted the event.
 | `value`  | `value`   | Value of the segment group | `any`    | `undefined` |
 
 
+## Events
+
+| Event         | Description                                                                                      | Type               |
+| ------------- | ------------------------------------------------------------------------------------------------ | ------------------ |
+| `valueChange` | Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail. | `CustomEvent<any>` |
+
+
 ## Slots
 
 | Slot        | Description                      |

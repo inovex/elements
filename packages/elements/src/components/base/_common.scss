@@ -1,0 +1,26 @@
+@use 'base/animation';
+/*sets the border-radius and animation*/
+@mixin border-rounding-animation(
+  $round-border,
+  $edged-border,
+  $duration,
+  $round-to-edged: false
+) {
+  @if $round-to-edged {
+    border-radius: $edged-border;
+    @include animation.border-radius(
+      border-round-to-edged,
+      $round-border,
+      $edged-border,
+      $duration
+    );
+  } @else {
+    border-radius: $round-border;
+    @include animation.border-radius(
+      border-edged-to-round,
+      $edged-border,
+      $round-border,
+      $duration
+    );
+  }
+}

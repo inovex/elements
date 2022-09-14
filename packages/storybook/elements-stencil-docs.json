@@ -824,48 +824,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--checkbox-container-color-unchecked",
-          "annotation": "prop",
-          "docs": "color of the checkbox container if unchecked"
-        },
-        {
-          "name": "--ino-checkbox-background-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox background if disabled"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color",
-          "annotation": "prop",
-          "docs": "primary color of the check mark"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the check mark if disabled"
-        },
-        {
-          "name": "--ino-checkbox-color",
-          "annotation": "prop",
-          "docs": "primary color of the checkbox"
-        },
-        {
-          "name": "--ino-checkbox-color-active",
-          "annotation": "prop",
-          "docs": "color of the checkbox if active"
-        },
-        {
-          "name": "--ino-checkbox-color-hover",
-          "annotation": "prop",
-          "docs": "color of the checkbox on hover"
-        },
-        {
-          "name": "--ino-checkbox-text-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox text if disabled"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6121,38 +6080,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-radio-active-color",
-          "annotation": "prop",
-          "docs": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "annotation": "prop",
-          "docs": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "annotation": "prop",
-          "docs": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "annotation": "prop",
-          "docs": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if unchecked"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6508,7 +6436,7 @@
           "text": "default - Label of the button"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6609,38 +6537,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-checked-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-hover-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6663,7 +6560,7 @@
           "text": "default - One or more `ino-segment-button`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6702,7 +6599,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6711,7 +6618,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-select/ino-select.tsx",

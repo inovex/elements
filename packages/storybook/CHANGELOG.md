@@ -1,6 +1,27 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 7.1.1 (2022-08-19)
+
+**Note:** Version bump only for package @inovex.de/elements-storybook
+
+
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
+
+
+### Documentation
+
+* **storybook:** add react starter guide ([#663](https://github.com/inovex/elements/issues/663)) ([a1883ce](https://github.com/inovex/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+
 
 ## [7.1.0](https://github.com/inovex/elements/compare/v7.0.0...v7.1.0) (2022-07-18)
 

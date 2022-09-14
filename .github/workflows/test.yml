@@ -8,33 +8,27 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
-
   test:
     runs-on: ubuntu-latest
-    needs:
-      - install
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/workflows/install
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
       - run: yarn lint
       - run: yarn test
 
   build:
     runs-on: ubuntu-latest
-    needs:
-      - install
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./.github/workflows/install
+    - uses: actions/checkout@v3
+    - uses: ./.github/workflows/dependencies-install
+    - run: npm config set scripts-prepend-node-path true
     - run: yarn build
 
-    # Build caches for release-canary workflow
-
+    # Build caches for (canary) release workflow
     - if: github.ref == 'refs/heads/master'
       name: Upload all build artifacts
       uses: ./.github/workflows/artifacts-upload
+      with:
+        upload-core-artifacts: true
+        upload-example-artifacts: true
+        upload-storybook-artifact: true

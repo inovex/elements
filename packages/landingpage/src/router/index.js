@@ -1,4 +1,4 @@
-import WelcomeIndex from '@/views/WelcomeIndex'
+import WelcomeIndex from '@/views/WelcomeIndex.vue'
 import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
