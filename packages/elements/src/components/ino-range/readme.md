@@ -2,8 +2,6 @@
 
 A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
 
-> Note: Range sliders with multiple thumbs are not yet implemented.
-
 ### Usage
 
 The component can be used as follows:
