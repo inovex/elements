@@ -58,6 +58,13 @@ class MyComponent extends Component {
 | `"default"` | One or more `ino-img` with `imgListItem="true"` |
 
 
+## CSS Custom Properties
+
+| Name                  | Description                |
+| --------------------- | -------------------------- |
+| `--ino-img-list-cols` | sets the number of columns |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

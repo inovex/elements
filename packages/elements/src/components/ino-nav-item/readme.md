@@ -49,6 +49,16 @@ document
 | `"default"` | Any element |
 
 
+## CSS Custom Properties
+
+| Name                                     | Description                                   |
+| ---------------------------------------- | --------------------------------------------- |
+| `--ino-nav-item-background-color`        | Inactive color of the background of one item. |
+| `--ino-nav-item-background-color-active` | Active color of the background of one item.   |
+| `--ino-nav-item-color`                   | Inactive color of icon.                       |
+| `--ino-nav-item-color-active`            | Active color of icon.                         |
+
+
 ## Dependencies
 
 ### Depends on
