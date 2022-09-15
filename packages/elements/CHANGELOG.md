@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/inovex/elements/compare/v7.1.0...v7.2.0) (2022-09-15)
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** run initial validation before load ([#700](https://github.com/inovex/elements/issues/700)) ([38d91ae](https://github.com/inovex/elements/commit/38d91aee9deaa6006fcbef27dd82e710377893d9))
+
+
+
+
+
 ### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
 
 ### Bug Fixes
