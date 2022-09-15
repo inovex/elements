@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/inovex/elements/compare/v7.1.0...v7.2.0) (2022-09-15)
+
+
+### Features
+
+* **elements-angular:** support disable state handling in ControlValueAccessors ([#664](https://github.com/inovex/elements/issues/664)) ([18a02b3](https://github.com/inovex/elements/commit/18a02b3d40c4a9654e911745ec89f738e7297a37))
+
+
+
+
+
 ## 7.1.1 (2022-08-19)
 
 **Note:** Version bump only for package @inovex.de/elements-angular
