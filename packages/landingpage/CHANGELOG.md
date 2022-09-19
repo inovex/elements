@@ -1,7 +1,20 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [7.2.0](https://github.com/inovex/elements/compare/v7.1.0...v7.2.0) (2022-09-19)
+
+
+### Bug Fixes
+
+* changelog entries for new projects ([7a682d6](https://github.com/inovex/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+* **landingpage:** fix meta title typo ([#739](https://github.com/inovex/elements/issues/739)) ([8aa32fd](https://github.com/inovex/elements/commit/8aa32fdf2a77dc066c09faead6f66462de21a225))
+* **landingpage:** use correct base url ([15bbe62](https://github.com/inovex/elements/commit/15bbe62f0e9f006027a9b4bf67a8768c3c51afe6))
+
+
+### Miscellaneous
+
+* publish v7.1.1 ([b309a37](https://github.com/inovex/elements/commit/b309a3790ccff946726ea36471697a0dc537836f))
 
 ## 7.1.1 (2022-08-19)
 

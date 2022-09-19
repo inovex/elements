@@ -1,7 +1,23 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [7.2.0](https://github.com/inovex/elements/compare/v7.1.0...v7.2.0) (2022-09-19)
+
+
+### Bug Fixes
+
+* changelog entries for new projects ([7a682d6](https://github.com/inovex/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+
+
+### Documentation
+
+* **storybook:** add react starter guide ([#663](https://github.com/inovex/elements/issues/663)) ([a1883ce](https://github.com/inovex/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+
+
+### Miscellaneous
+
+* publish v7.1.1 ([b309a37](https://github.com/inovex/elements/commit/b309a3790ccff946726ea36471697a0dc537836f))
 
 ## 7.1.1 (2022-08-19)
 

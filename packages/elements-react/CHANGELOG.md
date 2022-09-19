@@ -1,7 +1,13 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [7.2.0](https://github.com/inovex/elements/compare/v7.1.0...v7.2.0) (2022-09-19)
+
+
+### Miscellaneous
+
+* publish v7.1.1 ([b309a37](https://github.com/inovex/elements/commit/b309a3790ccff946726ea36471697a0dc537836f))
 
 ## 7.1.1 (2022-08-19)
 
