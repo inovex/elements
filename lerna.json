@@ -3,7 +3,7 @@
     "packages/*",
     "packages/elements-angular/elements"
   ],
-  "version": "7.1.1",
+  "version": "7.2.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
@@ -11,7 +11,10 @@
       "yes": true,
       "push": false,
       "message": "chore: publish %s",
-      "allowBranch": ["master", "elements-release-*"]
+      "allowBranch": [
+        "master",
+        "elements-release-*"
+      ]
     }
   }
 }
