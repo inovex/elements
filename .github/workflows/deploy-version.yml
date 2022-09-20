@@ -8,10 +8,16 @@ on:
     workflows: [ "Test & Build" ]
     types: [completed]
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      commitSha:
+        description: 'Commit SHA of release commit'
+        required: true
+        type: string
 
 jobs:
   tag_and_release:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && startsWith(github.event.head_commit.message, format('chore{0} publish v', ':')) }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_commit.message, format('chore{0} publish v', ':')) }}
     runs-on: ubuntu-latest
     steps:
       - name: Create version tag
@@ -19,6 +25,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_sha: ${{ inputs.commitSha }}
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -33,6 +40,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
+      - if: ${{ inputs.commitSha != '' }}
+        run: npm config set scripts-prepend-node-path true && yarn build
       - uses: ./.github/workflows/artifacts-download
         with:
           workflow-id: ${{ github.event.workflow_run.workflow_id }}
