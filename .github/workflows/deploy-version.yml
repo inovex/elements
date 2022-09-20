@@ -4,20 +4,29 @@ name: 'Publish Release & Deploy'
 ## The version is available at elements.inovex.de/version/<TAG-NAME>
 
 on:
-  workflow_run:
-    workflows: [ "Test & Build" ]
-    types: [completed]
-    branches: [master]
-  workflow_dispatch:
-    inputs:
-      commitSha:
-        description: 'Commit SHA of release commit'
-        required: true
-        type: string
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
 
 jobs:
+  build:
+    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: npm config set scripts-prepend-node-path true
+      - run: yarn build
+      - name: Upload all build artifacts
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-core-artifacts: true
+          upload-storybook-artifact: true
+
   tag_and_release:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_commit.message, format('chore{0} publish v', ':')) }}
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Create version tag
@@ -25,7 +34,6 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_sha: ${{ inputs.commitSha }}
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -34,30 +42,25 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
 
   publish:
-    needs:
-      - tag_and_release
+    needs: tag_and_release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
-      - if: ${{ inputs.commitSha != '' }}
-        run: npm config set scripts-prepend-node-path true && yarn build
       - uses: ./.github/workflows/artifacts-download
         with:
-          workflow-id: ${{ github.event.workflow_run.workflow_id }}
           download-core-artifacts: true
       - name: Prepare git config
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
-      - run: yarn run publish:ci
+      - run: yarn publish:ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   deploy:
-    needs:
-      - publish
+    needs: publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -68,7 +71,6 @@ jobs:
       - name: Download Storybook artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
           name: storybook
           path: version/${{ env.GITHUB_REF_NAME_SLUG }} # Push to the proper directory on gh pages branch.
       - name: Provide latest symlink
