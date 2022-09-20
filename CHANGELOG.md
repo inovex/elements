@@ -1,23 +1,8 @@
-# Changelog
-### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-19)
+# Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-### Bug Fixes
-
-* changelog entries for new projects ([7a682d6](https://github.com/inovex/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
-* **landingpage:** fix meta title typo ([#739](https://github.com/inovex/elements/issues/739)) ([8aa32fd](https://github.com/inovex/elements/commit/8aa32fdf2a77dc066c09faead6f66462de21a225))
-* **landingpage:** use correct base url ([15bbe62](https://github.com/inovex/elements/commit/15bbe62f0e9f006027a9b4bf67a8768c3c51afe6))
-
-
-### Miscellaneous
-
-* **deps:** bump jszip from 3.4.0 to 3.10.1 ([#726](https://github.com/inovex/elements/issues/726)) ([8f8e276](https://github.com/inovex/elements/commit/8f8e27675e8b0d9e94a64c7ea86c3d51b94c0f24))
-
-
-### Documentation
-
-* **storybook:** add dev documentation about custom properties ([#730](https://github.com/inovex/elements/issues/730)) ([7b976bf](https://github.com/inovex/elements/commit/7b976bfbb850170c9918ed2ec36c0e81a3144cb7))
-* **storybook:** collapse component roots by default ([#734](https://github.com/inovex/elements/issues/734)) ([90b4283](https://github.com/inovex/elements/commit/90b4283aeba7c6ac26f870d19653b78ec27943cb))
 
 ### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
 
