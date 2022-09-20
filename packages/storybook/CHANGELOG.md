@@ -1,7 +1,19 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
+
+
+### Documentation
+
+* **storybook:** add dev documentation about custom properties ([#730](https://github.com/inovex/elements/issues/730)) ([7b976bf](https://github.com/inovex/elements/commit/7b976bfbb850170c9918ed2ec36c0e81a3144cb7))
+* **storybook:** collapse component roots by default ([#734](https://github.com/inovex/elements/issues/734)) ([90b4283](https://github.com/inovex/elements/commit/90b4283aeba7c6ac26f870d19653b78ec27943cb))
+
+
+### Miscellaneous
+
+* publish v7.1.2 ([#742](https://github.com/inovex/elements/issues/742)) ([db3e817](https://github.com/inovex/elements/commit/db3e8174a3e42651268ce3ae931f3f7d1b2f2a11))
 
 ## 7.1.1 (2022-08-19)
 
