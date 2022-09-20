@@ -11,7 +11,9 @@
       "yes": true,
       "push": false,
       "message": "chore: publish %s",
-      "allowBranch": ["master", "elements-release-*"]
+      "allowBranch": [
+        "master"
+      ]
     }
   }
 }
