@@ -20,11 +20,12 @@
     },
     {
       "type": "style",
-      "hidden": "Styling"
+      "section": "Styles"
     },
     {
       "type": "chore",
-      "section": "Miscellaneous"
+      "section": "Miscellaneous",
+      "hidden": true
     },
     {
       "type": "refactor",
