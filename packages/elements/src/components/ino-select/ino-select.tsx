@@ -175,7 +175,7 @@ export class Select implements ComponentInterface {
   @Listen('MDCSelect:change')
   handleInput(e) {
     e.preventDefault();
-    if (this.mdcSelectInstance && this.mdcSelectInstance.value !== undefined) {
+    if ((this.mdcSelectInstance && this.mdcSelectInstance.value !== undefined) && !(this.mdcSelectInstance.value === this.value)) {
       const value = this.mdcSelectInstance.value;
       this.valueChange.emit(value);
     }
