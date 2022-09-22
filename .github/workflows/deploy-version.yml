@@ -28,13 +28,15 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      newTag: ${{ steps.tag_version.outputs.new_tag }}
     steps:
+      - uses: actions/checkout@v3
       - name: Create version tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v3
       - uses: ./.github/workflows/artifacts-download
         with:
           download-core-artifacts: true
@@ -81,25 +83,24 @@ jobs:
         name: Checkout to gh-pages branch
         with:
           ref: gh-pages
-      - uses: rlespinasse/github-slug-action@v3.x
       - name: Download Storybook artifact
         uses: dawidd6/action-download-artifact@v2
         with:
           name: storybook
-          path: version/${{ env.GITHUB_REF_NAME_SLUG }} # Push to the proper directory on gh pages branch.
+          path: version/${{ needs.publish.outputs.newTag }} # Push to the proper directory on gh pages branch.
       - name: Provide latest symlink
-        run: cd version && rm -f latest && ln -s ${{ env.GITHUB_REF_NAME_SLUG }} latest
+        run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
         shell: bash
 
       # Crawls the version dir on current gh-pages branch HEAD.
       # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
-      - run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
-        name: Update Hosted Versions
+      - name: Update Hosted Versions
+        run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages
-          commit-message: Deploying version ${{ env.GITHUB_REF_NAME_SLUG }} 🚀
+          commit-message: Deploying version ${{ needs.publish.outputs.newTag }} 🚀
           folder: '.'
           clean: false # Important to keep other versions.
