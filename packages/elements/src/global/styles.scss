@@ -1,72 +1,31 @@
+@use './../components/base/typography';
+@use './../components/base/theme';
+
 :root {
-    /* theme colors */
-    $white: #fff;
-    $black: #000;
-    $transparent: rgba(255, 255, 255, 0);
-    $n-8: #F8F9FB;
-    $n-7: #EDEFF5;
-    $n-6: #CBD0E0;
-    $n-5: #ABB1CC;
-    $n-4: #8D92B7;
-    $n-3: #7275A1;
-    $n-2: #565785;
-    $n-1: #3A3B64;
 
-    $warning: #FFA42E;
-    $error: #FF2E54;
-    $success: #7DF481;
-    $informational: #2D5DFF;
-    $primary: #2C02FF;
-    $primary-hover: #4B4EFF;
-    $primary-focus:#2D5DFF4D;
-    $dark-blue: #003c7e;
+  /* font-styles */
+  :root, html {
+    font-family: typography.font-family();
+  }
 
-    /* component specific colors */
-    $range_hover: #4B4EFF;
-    $button_outlined_text_pressed: #D7E0FF;
-    $button_outlined_text_hover: #E8EDFF;
-    $button_filled_pressed: #3D40F5;
-    $toggle_primary_hover: #0D10F3;
+  p {
+    font-size: typography.font-size(s);
+  }
 
-    /* font sizes */
-    $headings-font-weight:            500 !default;
-    $headings-line-height:            36px !default;
-    $h1-font-size:                    32px !default;
-    $h2-font-size:                    24px !default;
-    $h3-font-size:                    20px !default;
-    $p-font-size:                     14px !default;
-    $code-font-size:                  13px !default;
+  a {
+    background-color: transparent;
+    color: theme.$brand;
+  }
 
-    /* font-styles */
-    :root, html {
-        font-family: 'Lato', 'Verdana', 'sans-serif';
-    }
+  h1 {
+    @include typography.font($size: l, $weight: bold)
+  }
 
-    p {
-        font-size: $p-font-size;
-    }
+  h2 {
+    @include typography.font($size: m, $weight: semibold)
+  }
 
-    a {
-        background-color: transparent;
-        color: $dark-blue;
-    }
-
-    h1,
-    h2,
-    h3 {
-        font-weight: $headings-font-weight;
-        line-height: $headings-line-height;
-    }
-
-    h1 {
-        font-size: $h1-font-size;
-    }
-
-    h2 {
-        font-size: $h2-font-size;
-    }
-
-    h3 {
-        font-size: $h3-font-size;
-    }    
+  h3 {
+    @include typography.font($size: m, $weight: medium)
+  }
 }
