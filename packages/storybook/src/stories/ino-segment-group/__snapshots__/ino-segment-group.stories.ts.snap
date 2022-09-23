@@ -3,31 +3,39 @@
 exports[`Buttons/ino-segment-group Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-group">
-    <ino-segment-group id="ino-segment-group-id__2s0h4k9dy"
+    <ino-segment-group id="segment-grp"
                        name
                        value="opt-2"
-                       class="hydrated"
+                       class="ino-segment-group hydrated"
     >
       <ino-segment-button value="opt-1"
-                          class="hydrated"
+                          class="ino-segment-button hydrated"
       >
-        Option 1
+        <button class="button">
+          Option 1
+        </button>
       </ino-segment-button>
       <ino-segment-button value="opt-2"
-                          class="hydrated ino-segment-button--checked"
+                          class="ino-segment-button hydrated"
                           checked
       >
-        Option 2
+        <button class="button button--active">
+          Option 2
+        </button>
       </ino-segment-button>
       <ino-segment-button value="opt-3"
-                          class="hydrated"
+                          class="ino-segment-button hydrated"
       >
-        Option 3
+        <button class="button">
+          Option 3
+        </button>
       </ino-segment-button>
       <ino-segment-button value="opt-4"
-                          class="hydrated"
+                          class="ino-segment-button hydrated"
       >
-        Option 4
+        <button class="button">
+          Option 4
+        </button>
       </ino-segment-button>
     </ino-segment-group>
   </div>

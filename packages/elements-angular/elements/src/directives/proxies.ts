@@ -142,13 +142,13 @@ export declare interface InoCheckbox extends Components.InoCheckbox {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
+  inputs: ['checkboxId', 'checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
 })
 @Component({
   selector: 'ino-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
+  inputs: ['checkboxId', 'checked', 'disabled', 'indeterminate', 'name', 'selection', 'value']
 })
 export class InoCheckbox {
   protected el: HTMLElement;
@@ -855,13 +855,13 @@ This event will only be emitted if the current state of the radio button is fals
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'disabled', 'name', 'value']
+  inputs: ['checked', 'disabled', 'name', 'radioId', 'value']
 })
 @Component({
   selector: 'ino-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'name', 'value']
+  inputs: ['checked', 'disabled', 'name', 'radioId', 'value']
 })
 export class InoRadio {
   protected el: HTMLElement;
@@ -950,13 +950,13 @@ If the button is disabled or checked, the event will not be emitted.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'segmentButtonId', 'value']
 })
 @Component({
   selector: 'ino-segment-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'dense', 'disabled', 'name', 'value']
+  inputs: ['checked', 'dense', 'disabled', 'name', 'segmentButtonId', 'value']
 })
 export class InoSegmentButton {
   protected el: HTMLElement;
@@ -1088,13 +1088,13 @@ export declare interface InoSwitch extends Components.InoSwitch {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name', 'switchId']
 })
 @Component({
   selector: 'ino-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name', 'switchId']
 })
 export class InoSwitch {
   protected el: HTMLElement;
@@ -1206,14 +1206,14 @@ export declare interface InoTableHeaderCell extends Components.InoTableHeaderCel
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['autofocus', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart'],
+  inputs: ['autofocus', 'cellId', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart'],
   methods: ['setSearchable', 'setFocus', 'setBlur']
 })
 @Component({
   selector: 'ino-table-header-cell',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autofocus', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart']
+  inputs: ['autofocus', 'cellId', 'columnId', 'label', 'notSortable', 'searchIcon', 'searched', 'sortDirection', 'sortStart']
 })
 export class InoTableHeaderCell {
   protected el: HTMLElement;

@@ -30,6 +30,7 @@ export class Menu implements ComponentInterface {
   @Prop() placement: Placement = 'auto';
 
   connectedCallback() {
+
     if (this.el.parentElement.id) {
       return;
     }

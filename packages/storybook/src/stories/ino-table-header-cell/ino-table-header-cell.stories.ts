@@ -42,12 +42,13 @@ export default {
     autofocus: false,
     notSortable: false,
     label: 'Label',
-    columnId: '',
+    cellId: 'some-cell-id',
+    columnId: 'some-random-id',
     sortDirection: '',
     searched: false,
     searchIcon: 'search',
   },
-} as Meta;
+};
 
 const template = new TemplateGenerator<Components.InoTableHeaderCell>(
   'ino-table-header-cell',
@@ -58,6 +59,8 @@ const template = new TemplateGenerator<Components.InoTableHeaderCell>(
         not-sortable="${args.notSortable}"
         sort-direction="${args.sortDirection}"
         search-icon="${args.searchIcon}"
+        cell-id="${args.cellId}"
+        column-id="${args.columnId}"
         searched="${args.searched}"
         label="${args.label}"
       >
@@ -95,6 +98,8 @@ const templateSearchWithDatepicker = new TemplateGenerator<
           label="Column Selection Search"
           search-icon="calendar"
           class="datepicker-cell"
+          cell-id="datepicker-cell"
+          column-id="datepicker-cell-col-id"
         >
           <div lang="de" class="datepicker-group">
             <aside>
@@ -155,6 +160,8 @@ const templateSearchWithSelection = new TemplateGenerator<
         <ino-table-header-cell
           label="Column Selection Search"
           search-icon="filter"
+          cell-id="cell-id"
+          column-id="cell-col-id"
         >
           <ino-list>
             <ino-list-item text="Option 1">

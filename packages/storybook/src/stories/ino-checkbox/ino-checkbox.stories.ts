@@ -50,6 +50,7 @@ const template = new TemplateGenerator<Components.InoCheckbox>(
   'ino-checkbox',
   (args) => html`
     <ino-checkbox
+      checkbox-id="some-test-id"
       checked="${args.checked}"
       disabled="${args.disabled}"
       indeterminate="${args.indeterminate}"

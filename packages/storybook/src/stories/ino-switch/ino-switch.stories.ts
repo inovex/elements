@@ -26,6 +26,7 @@ const template = new TemplateGenerator<Components.InoSwitch>(
       checked="${args.checked}"
       disabled="${args.disabled}"
       name="${args.name}"
+      switch-id="some-switch-id"
       @checkedChange="${eventHandler}"
     >
       Switch Label

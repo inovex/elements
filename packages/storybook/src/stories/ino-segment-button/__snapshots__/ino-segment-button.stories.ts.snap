@@ -4,13 +4,17 @@ exports[`Buttons/ino-segment-button Dense smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn hydrated"
+                        class="customizable-segment-btn ino-segment-button hydrated"
                         checked="false"
                         dense="true"
                         disabled="false"
                         name
     >
-      Segment Button Label
+      <button class="button button--dense"
+              name
+      >
+        Segment Button Label
+      </button>
     </ino-segment-button>
   </div>
 </div>
@@ -20,13 +24,18 @@ exports[`Buttons/ino-segment-button Disabled smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn ino-segment-button--disabled hydrated"
+                        class="customizable-segment-btn ino-segment-button ino-segment-button--disabled hydrated"
                         checked="false"
                         dense="false"
                         disabled="true"
                         name
     >
-      Segment Button Label
+      <button class="button"
+              disabled
+              name
+      >
+        Segment Button Label
+      </button>
     </ino-segment-button>
   </div>
 </div>
@@ -36,13 +45,17 @@ exports[`Buttons/ino-segment-button EnableChecked smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn ino-segment-button--checked hydrated"
+                        class="customizable-segment-btn ino-segment-button hydrated"
                         checked
                         dense="false"
                         disabled="false"
                         name
     >
-      Segment Button Label
+      <button class="button button--active"
+              name
+      >
+        Segment Button Label
+      </button>
     </ino-segment-button>
   </div>
 </div>
@@ -52,13 +65,17 @@ exports[`Buttons/ino-segment-button Playground smoke-test 1`] = `
 <div id="root-inner">
   <div class="story-segment-button">
     <ino-segment-button value
-                        class="customizable-segment-btn hydrated"
+                        class="customizable-segment-btn ino-segment-button hydrated"
                         checked="false"
                         dense="false"
                         disabled="false"
                         name
     >
-      Segment Button Label
+      <button class="button"
+              name
+      >
+        Segment Button Label
+      </button>
     </ino-segment-button>
   </div>
 </div>

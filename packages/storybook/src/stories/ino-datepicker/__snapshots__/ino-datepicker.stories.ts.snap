@@ -341,257 +341,257 @@ exports[`Input/ino-datepicker Inline smoke-test 1`] = `
             >
               <div class="dayContainer">
                 <span class="flatpickr-day prevMonthDay"
-                      aria-label="July 31, 2022"
-                      tabindex="-1"
-                >
-                  31
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 1, 2022"
-                      tabindex="-1"
-                >
-                  1
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 2, 2022"
-                      tabindex="-1"
-                >
-                  2
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 3, 2022"
-                      tabindex="-1"
-                >
-                  3
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 4, 2022"
-                      tabindex="-1"
-                >
-                  4
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 5, 2022"
-                      tabindex="-1"
-                >
-                  5
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 6, 2022"
-                      tabindex="-1"
-                >
-                  6
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 7, 2022"
-                      tabindex="-1"
-                >
-                  7
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 8, 2022"
-                      tabindex="-1"
-                >
-                  8
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 9, 2022"
-                      tabindex="-1"
-                >
-                  9
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 10, 2022"
-                      tabindex="-1"
-                >
-                  10
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 11, 2022"
-                      tabindex="-1"
-                >
-                  11
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 12, 2022"
-                      tabindex="-1"
-                >
-                  12
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 13, 2022"
-                      tabindex="-1"
-                >
-                  13
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 14, 2022"
-                      tabindex="-1"
-                >
-                  14
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 15, 2022"
-                      tabindex="-1"
-                >
-                  15
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 16, 2022"
-                      tabindex="-1"
-                >
-                  16
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 17, 2022"
-                      tabindex="-1"
-                >
-                  17
-                </span>
-                <span class="flatpickr-day today"
-                      aria-label="August 18, 2022"
-                      aria-current="date"
-                      tabindex="-1"
-                >
-                  18
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 19, 2022"
-                      tabindex="-1"
-                >
-                  19
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 20, 2022"
-                      tabindex="-1"
-                >
-                  20
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 21, 2022"
-                      tabindex="-1"
-                >
-                  21
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 22, 2022"
-                      tabindex="-1"
-                >
-                  22
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 23, 2022"
-                      tabindex="-1"
-                >
-                  23
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 24, 2022"
-                      tabindex="-1"
-                >
-                  24
-                </span>
-                <span class="flatpickr-day "
-                      aria-label="August 25, 2022"
+                      aria-label="September 25, 2022"
                       tabindex="-1"
                 >
                   25
                 </span>
-                <span class="flatpickr-day "
-                      aria-label="August 26, 2022"
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="September 26, 2022"
                       tabindex="-1"
                 >
                   26
                 </span>
-                <span class="flatpickr-day "
-                      aria-label="August 27, 2022"
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="September 27, 2022"
                       tabindex="-1"
                 >
                   27
                 </span>
-                <span class="flatpickr-day "
-                      aria-label="August 28, 2022"
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="September 28, 2022"
                       tabindex="-1"
                 >
                   28
                 </span>
-                <span class="flatpickr-day "
-                      aria-label="August 29, 2022"
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="September 29, 2022"
                       tabindex="-1"
                 >
                   29
                 </span>
-                <span class="flatpickr-day "
-                      aria-label="August 30, 2022"
+                <span class="flatpickr-day prevMonthDay"
+                      aria-label="September 30, 2022"
                       tabindex="-1"
                 >
                   30
                 </span>
                 <span class="flatpickr-day "
-                      aria-label="August 31, 2022"
+                      aria-label="October 1, 2022"
+                      tabindex="-1"
+                >
+                  1
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 2, 2022"
+                      tabindex="-1"
+                >
+                  2
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 3, 2022"
+                      tabindex="-1"
+                >
+                  3
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 4, 2022"
+                      tabindex="-1"
+                >
+                  4
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 5, 2022"
+                      tabindex="-1"
+                >
+                  5
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 6, 2022"
+                      tabindex="-1"
+                >
+                  6
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 7, 2022"
+                      tabindex="-1"
+                >
+                  7
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 8, 2022"
+                      tabindex="-1"
+                >
+                  8
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 9, 2022"
+                      tabindex="-1"
+                >
+                  9
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 10, 2022"
+                      tabindex="-1"
+                >
+                  10
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 11, 2022"
+                      tabindex="-1"
+                >
+                  11
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 12, 2022"
+                      tabindex="-1"
+                >
+                  12
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 13, 2022"
+                      tabindex="-1"
+                >
+                  13
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 14, 2022"
+                      tabindex="-1"
+                >
+                  14
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 15, 2022"
+                      tabindex="-1"
+                >
+                  15
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 16, 2022"
+                      tabindex="-1"
+                >
+                  16
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 17, 2022"
+                      tabindex="-1"
+                >
+                  17
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 18, 2022"
+                      tabindex="-1"
+                >
+                  18
+                </span>
+                <span class="flatpickr-day today"
+                      aria-label="October 19, 2022"
+                      aria-current="date"
+                      tabindex="-1"
+                >
+                  19
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 20, 2022"
+                      tabindex="-1"
+                >
+                  20
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 21, 2022"
+                      tabindex="-1"
+                >
+                  21
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 22, 2022"
+                      tabindex="-1"
+                >
+                  22
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 23, 2022"
+                      tabindex="-1"
+                >
+                  23
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 24, 2022"
+                      tabindex="-1"
+                >
+                  24
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 25, 2022"
+                      tabindex="-1"
+                >
+                  25
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 26, 2022"
+                      tabindex="-1"
+                >
+                  26
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 27, 2022"
+                      tabindex="-1"
+                >
+                  27
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 28, 2022"
+                      tabindex="-1"
+                >
+                  28
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 29, 2022"
+                      tabindex="-1"
+                >
+                  29
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 30, 2022"
+                      tabindex="-1"
+                >
+                  30
+                </span>
+                <span class="flatpickr-day "
+                      aria-label="October 31, 2022"
                       tabindex="-1"
                 >
                   31
                 </span>
                 <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 1, 2022"
+                      aria-label="November 1, 2022"
                       tabindex="-1"
                 >
                   1
                 </span>
                 <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 2, 2022"
+                      aria-label="November 2, 2022"
                       tabindex="-1"
                 >
                   2
                 </span>
                 <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 3, 2022"
+                      aria-label="November 3, 2022"
                       tabindex="-1"
                 >
                   3
                 </span>
                 <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 4, 2022"
+                      aria-label="November 4, 2022"
                       tabindex="-1"
                 >
                   4
                 </span>
                 <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 5, 2022"
+                      aria-label="November 5, 2022"
                       tabindex="-1"
                 >
                   5
-                </span>
-                <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 6, 2022"
-                      tabindex="-1"
-                >
-                  6
-                </span>
-                <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 7, 2022"
-                      tabindex="-1"
-                >
-                  7
-                </span>
-                <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 8, 2022"
-                      tabindex="-1"
-                >
-                  8
-                </span>
-                <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 9, 2022"
-                      tabindex="-1"
-                >
-                  9
-                </span>
-                <span class="flatpickr-day nextMonthDay"
-                      aria-label="September 10, 2022"
-                      tabindex="-1"
-                >
-                  10
                 </span>
               </div>
             </div>
@@ -947,258 +947,258 @@ exports[`Input/ino-datepicker MultipleTypes smoke-test 1`] = `
                    tabindex="-1"
               >
                 <div class="dayContainer">
-                  <span class="flatpickr-day "
-                        aria-label="August 1, 2022"
-                        tabindex="-1"
-                  >
-                    1
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 2, 2022"
-                        tabindex="-1"
-                  >
-                    2
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 3, 2022"
-                        tabindex="-1"
-                  >
-                    3
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 4, 2022"
-                        tabindex="-1"
-                  >
-                    4
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 5, 2022"
-                        tabindex="-1"
-                  >
-                    5
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 6, 2022"
-                        tabindex="-1"
-                  >
-                    6
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 7, 2022"
-                        tabindex="-1"
-                  >
-                    7
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 8, 2022"
-                        tabindex="-1"
-                  >
-                    8
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 9, 2022"
-                        tabindex="-1"
-                  >
-                    9
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 10, 2022"
-                        tabindex="-1"
-                  >
-                    10
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 11, 2022"
-                        tabindex="-1"
-                  >
-                    11
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 12, 2022"
-                        tabindex="-1"
-                  >
-                    12
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 13, 2022"
-                        tabindex="-1"
-                  >
-                    13
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 14, 2022"
-                        tabindex="-1"
-                  >
-                    14
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 15, 2022"
-                        tabindex="-1"
-                  >
-                    15
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 16, 2022"
-                        tabindex="-1"
-                  >
-                    16
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 17, 2022"
-                        tabindex="-1"
-                  >
-                    17
-                  </span>
-                  <span class="flatpickr-day today"
-                        aria-label="August 18, 2022"
-                        aria-current="date"
-                        tabindex="-1"
-                  >
-                    18
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 19, 2022"
-                        tabindex="-1"
-                  >
-                    19
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 20, 2022"
-                        tabindex="-1"
-                  >
-                    20
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 21, 2022"
-                        tabindex="-1"
-                  >
-                    21
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 22, 2022"
-                        tabindex="-1"
-                  >
-                    22
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 23, 2022"
-                        tabindex="-1"
-                  >
-                    23
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 24, 2022"
-                        tabindex="-1"
-                  >
-                    24
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 25, 2022"
-                        tabindex="-1"
-                  >
-                    25
-                  </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 26, 2022"
+                  <span class="flatpickr-day prevMonthDay"
+                        aria-label="September 26, 2022"
                         tabindex="-1"
                   >
                     26
                   </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 27, 2022"
+                  <span class="flatpickr-day prevMonthDay"
+                        aria-label="September 27, 2022"
                         tabindex="-1"
                   >
                     27
                   </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 28, 2022"
+                  <span class="flatpickr-day prevMonthDay"
+                        aria-label="September 28, 2022"
                         tabindex="-1"
                   >
                     28
                   </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 29, 2022"
+                  <span class="flatpickr-day prevMonthDay"
+                        aria-label="September 29, 2022"
                         tabindex="-1"
                   >
                     29
                   </span>
-                  <span class="flatpickr-day "
-                        aria-label="August 30, 2022"
+                  <span class="flatpickr-day prevMonthDay"
+                        aria-label="September 30, 2022"
                         tabindex="-1"
                   >
                     30
                   </span>
                   <span class="flatpickr-day "
-                        aria-label="August 31, 2022"
+                        aria-label="Oktober 1, 2022"
+                        tabindex="-1"
+                  >
+                    1
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 2, 2022"
+                        tabindex="-1"
+                  >
+                    2
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 3, 2022"
+                        tabindex="-1"
+                  >
+                    3
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 4, 2022"
+                        tabindex="-1"
+                  >
+                    4
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 5, 2022"
+                        tabindex="-1"
+                  >
+                    5
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 6, 2022"
+                        tabindex="-1"
+                  >
+                    6
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 7, 2022"
+                        tabindex="-1"
+                  >
+                    7
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 8, 2022"
+                        tabindex="-1"
+                  >
+                    8
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 9, 2022"
+                        tabindex="-1"
+                  >
+                    9
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 10, 2022"
+                        tabindex="-1"
+                  >
+                    10
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 11, 2022"
+                        tabindex="-1"
+                  >
+                    11
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 12, 2022"
+                        tabindex="-1"
+                  >
+                    12
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 13, 2022"
+                        tabindex="-1"
+                  >
+                    13
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 14, 2022"
+                        tabindex="-1"
+                  >
+                    14
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 15, 2022"
+                        tabindex="-1"
+                  >
+                    15
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 16, 2022"
+                        tabindex="-1"
+                  >
+                    16
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 17, 2022"
+                        tabindex="-1"
+                  >
+                    17
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 18, 2022"
+                        tabindex="-1"
+                  >
+                    18
+                  </span>
+                  <span class="flatpickr-day today"
+                        aria-label="Oktober 19, 2022"
+                        aria-current="date"
+                        tabindex="-1"
+                  >
+                    19
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 20, 2022"
+                        tabindex="-1"
+                  >
+                    20
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 21, 2022"
+                        tabindex="-1"
+                  >
+                    21
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 22, 2022"
+                        tabindex="-1"
+                  >
+                    22
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 23, 2022"
+                        tabindex="-1"
+                  >
+                    23
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 24, 2022"
+                        tabindex="-1"
+                  >
+                    24
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 25, 2022"
+                        tabindex="-1"
+                  >
+                    25
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 26, 2022"
+                        tabindex="-1"
+                  >
+                    26
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 27, 2022"
+                        tabindex="-1"
+                  >
+                    27
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 28, 2022"
+                        tabindex="-1"
+                  >
+                    28
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 29, 2022"
+                        tabindex="-1"
+                  >
+                    29
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 30, 2022"
+                        tabindex="-1"
+                  >
+                    30
+                  </span>
+                  <span class="flatpickr-day "
+                        aria-label="Oktober 31, 2022"
                         tabindex="-1"
                   >
                     31
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 1, 2022"
+                        aria-label="November 1, 2022"
                         tabindex="-1"
                   >
                     1
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 2, 2022"
+                        aria-label="November 2, 2022"
                         tabindex="-1"
                   >
                     2
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 3, 2022"
+                        aria-label="November 3, 2022"
                         tabindex="-1"
                   >
                     3
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 4, 2022"
+                        aria-label="November 4, 2022"
                         tabindex="-1"
                   >
                     4
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 5, 2022"
+                        aria-label="November 5, 2022"
                         tabindex="-1"
                   >
                     5
                   </span>
                   <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 6, 2022"
+                        aria-label="November 6, 2022"
                         tabindex="-1"
                   >
                     6
-                  </span>
-                  <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 7, 2022"
-                        tabindex="-1"
-                  >
-                    7
-                  </span>
-                  <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 8, 2022"
-                        tabindex="-1"
-                  >
-                    8
-                  </span>
-                  <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 9, 2022"
-                        tabindex="-1"
-                  >
-                    9
-                  </span>
-                  <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 10, 2022"
-                        tabindex="-1"
-                  >
-                    10
-                  </span>
-                  <span class="flatpickr-day nextMonthDay"
-                        aria-label="September 11, 2022"
-                        tabindex="-1"
-                  >
-                    11
                   </span>
                 </div>
               </div>
@@ -1223,8 +1223,8 @@ exports[`Input/ino-datepicker Playground smoke-test 1`] = `
                     helper-persistent="false"
                     helper-validation="false"
                     label="Label"
-                    min="2022-08-13"
-                    max="2022-08-23"
+                    min="2022-10-14"
+                    max="2022-10-24"
                     outline="false"
                     range="false"
                     required="false"
@@ -1232,7 +1232,7 @@ exports[`Input/ino-datepicker Playground smoke-test 1`] = `
                     show-label-hint="false"
                     twelve-hour-time="false"
                     type="date"
-                    value="2022-08-18"
+                    value="2022-10-19"
     >
       <ino-input icon-leading
                  class="hydrated flatpickr-input"
@@ -1332,7 +1332,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
   <div class="story-datepicker">
     <ino-datepicker label="Predefined value"
                     date-format="Y-m-d"
-                    value="2022-08-18"
+                    value="2022-10-19"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1365,7 +1365,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Min date"
                     date-format="Y-m-d"
-                    min="2022-08-13"
+                    min="2022-10-14"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1398,7 +1398,7 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Max date"
                     date-format="Y-m-d"
-                    max="2022-08-23"
+                    max="2022-10-24"
                     class="hydrated"
     >
       <ino-input icon-leading
@@ -1431,8 +1431,8 @@ exports[`Input/ino-datepicker Restrictions smoke-test 1`] = `
     </ino-datepicker>
     <ino-datepicker label="Min and Max date"
                     date-format="Y-m-d"
-                    min="2022-08-13"
-                    max="2022-08-23"
+                    min="2022-10-14"
+                    max="2022-10-24"
                     class="hydrated"
     >
       <ino-input icon-leading

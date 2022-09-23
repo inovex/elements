@@ -20,7 +20,7 @@ const template = new TemplateGenerator<Components.InoMenu>(
   <ino-card disable-elevation>
     <div class="row" slot="header">
       <p>Open Menu</p>
-      <ino-icon-button icon="menu">
+      <ino-icon-button icon="menu" id="my-anchor">
         <ino-menu placement="${args.placement}">
           <ino-list-item tabindex="0" text="Item 1"></ino-list-item>
           <ino-list-item tabindex="0" text="Item 2"></ino-list-item>

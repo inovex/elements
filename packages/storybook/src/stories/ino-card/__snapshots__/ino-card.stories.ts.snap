@@ -46,18 +46,20 @@ exports[`Structure/<ino-card> DisabledElevation smoke-test 1`] = `
           <div slot="footer"
                class="sample-card-footer"
           >
-            <ino-segment-group id="ino-segment-group-id__cg0cfpq5y"
-                               class="hydrated"
-            >
+            <ino-segment-group class="ino-segment-group hydrated">
               <ino-segment-button value="1"
-                                  class="hydrated"
+                                  class="ino-segment-button hydrated"
               >
-                Read
+                <button class="button">
+                  Read
+                </button>
               </ino-segment-button>
               <ino-segment-button value="2"
-                                  class="hydrated"
+                                  class="ino-segment-button hydrated"
               >
-                Bookmark
+                <button class="button">
+                  Bookmark
+                </button>
               </ino-segment-button>
             </ino-segment-group>
           </div>
@@ -114,18 +116,20 @@ exports[`Structure/<ino-card> Playground smoke-test 1`] = `
           <div slot="footer"
                class="sample-card-footer"
           >
-            <ino-segment-group id="ino-segment-group-id__za0fcf6ur"
-                               class="hydrated"
-            >
+            <ino-segment-group class="ino-segment-group hydrated">
               <ino-segment-button value="1"
-                                  class="hydrated"
+                                  class="ino-segment-button hydrated"
               >
-                Read
+                <button class="button">
+                  Read
+                </button>
               </ino-segment-button>
               <ino-segment-button value="2"
-                                  class="hydrated"
+                                  class="ino-segment-button hydrated"
               >
-                Bookmark
+                <button class="button">
+                  Bookmark
+                </button>
               </ino-segment-button>
             </ino-segment-group>
           </div>

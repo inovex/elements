@@ -62,6 +62,7 @@ export const InoCheckbox = /*@__PURE__*/ defineContainer<JSX.InoCheckbox>('ino-c
   'value',
   'selection',
   'indeterminate',
+  'checkboxId',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -369,6 +370,7 @@ export const InoRadio = /*@__PURE__*/ defineContainer<JSX.InoRadio>('ino-radio',
   'disabled',
   'name',
   'value',
+  'radioId',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -407,6 +409,7 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
   'dense',
   'name',
   'value',
+  'segmentButtonId',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');
@@ -458,6 +461,7 @@ export const InoSpinner = /*@__PURE__*/ defineContainer<JSX.InoSpinner>('ino-spi
 
 
 export const InoSwitch = /*@__PURE__*/ defineContainer<JSX.InoSwitch>('ino-switch', undefined, [
+  'switchId',
   'checked',
   'disabled',
   'name',
@@ -495,6 +499,7 @@ export const InoTable = /*@__PURE__*/ defineContainer<JSX.InoTable>('ino-table',
 export const InoTableHeaderCell = /*@__PURE__*/ defineContainer<JSX.InoTableHeaderCell>('ino-table-header-cell', undefined, [
   'autofocus',
   'searchIcon',
+  'cellId',
   'columnId',
   'label',
   'searched',

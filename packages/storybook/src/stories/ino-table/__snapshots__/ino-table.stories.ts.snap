@@ -18,14 +18,15 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <ino-table-header-cell column-id="id"
+              <ino-table-header-cell cell-id="id"
+                                     column-id="id"
                                      sort-start="asc"
                                      label="ID"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="id"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__lg8bxyyhf"
+                                     id="id"
                                      sort-direction="asc"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
@@ -49,14 +50,15 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="name"
+              <ino-table-header-cell cell-id="name"
+                                     column-id="name"
                                      sort-start="asc"
                                      label="Name"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="name"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__vhx7tx5k5"
+                                     id="name"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -79,13 +81,14 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="release"
+              <ino-table-header-cell cell-id="release"
+                                     column-id="release"
                                      label="Release Date"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="release"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__2fukh8nh2"
+                                     id="release"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -108,13 +111,14 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="box-office"
+              <ino-table-header-cell cell-id="box-office"
+                                     column-id="box-office"
                                      label="Box Office"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="box-office"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__1uindtqvr"
+                                     id="box-office"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -137,14 +141,15 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="rating"
+              <ino-table-header-cell cell-id="rating"
+                                     column-id="rating"
                                      label="Rating"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="rating"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__qodkc41hx"
+                                     id="rating"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -154,14 +159,15 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another1"
+              <ino-table-header-cell cell-id="another1"
+                                     column-id="another1"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another1"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__lpdfdzj1q"
+                                     id="another1"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -171,14 +177,15 @@ exports[`Structure/ino-table Loading smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another2"
+              <ino-table-header-cell cell-id="another2"
+                                     column-id="another2"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another2"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__iwedhgs4q"
+                                     id="another2"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -387,14 +394,15 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <ino-table-header-cell column-id="id"
+              <ino-table-header-cell cell-id="id"
+                                     column-id="id"
                                      sort-start="asc"
                                      label="ID"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="id"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__w8ez7h4kq"
+                                     id="id"
                                      sort-direction="asc"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
@@ -418,14 +426,15 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="name"
+              <ino-table-header-cell cell-id="name"
+                                     column-id="name"
                                      sort-start="asc"
                                      label="Name"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="name"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__kclx2d5jy"
+                                     id="name"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -448,13 +457,14 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="release"
+              <ino-table-header-cell cell-id="release"
+                                     column-id="release"
                                      label="Release Date"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="release"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__zcdpdx0e8"
+                                     id="release"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -477,13 +487,14 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="box-office"
+              <ino-table-header-cell cell-id="box-office"
+                                     column-id="box-office"
                                      label="Box Office"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="box-office"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__8rpmcnuh2"
+                                     id="box-office"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -506,14 +517,15 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="rating"
+              <ino-table-header-cell cell-id="rating"
+                                     column-id="rating"
                                      label="Rating"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="rating"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__tiza7d3lk"
+                                     id="rating"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -523,14 +535,15 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another1"
+              <ino-table-header-cell cell-id="another1"
+                                     column-id="another1"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another1"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__9s7brbhdd"
+                                     id="another1"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -540,14 +553,15 @@ exports[`Structure/ino-table NoHover smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another2"
+              <ino-table-header-cell cell-id="another2"
+                                     column-id="another2"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another2"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__k7m5liue0"
+                                     id="another2"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -749,14 +763,15 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <ino-table-header-cell column-id="id"
+              <ino-table-header-cell cell-id="id"
+                                     column-id="id"
                                      sort-start="asc"
                                      label="ID"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="id"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__mi712iqc7"
+                                     id="id"
                                      sort-direction="asc"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
@@ -780,14 +795,15 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="name"
+              <ino-table-header-cell cell-id="name"
+                                     column-id="name"
                                      sort-start="asc"
                                      label="Name"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="name"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__5rjcugyrb"
+                                     id="name"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -810,13 +826,14 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="release"
+              <ino-table-header-cell cell-id="release"
+                                     column-id="release"
                                      label="Release Date"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="release"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__zzhixy0t8"
+                                     id="release"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -839,13 +856,14 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="box-office"
+              <ino-table-header-cell cell-id="box-office"
+                                     column-id="box-office"
                                      label="Box Office"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="box-office"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__ix6jyt4e4"
+                                     id="box-office"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -868,14 +886,15 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="rating"
+              <ino-table-header-cell cell-id="rating"
+                                     column-id="rating"
                                      label="Rating"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="rating"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__agy68jmoq"
+                                     id="rating"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -885,14 +904,15 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another1"
+              <ino-table-header-cell cell-id="another1"
+                                     column-id="another1"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another1"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__ngae04ntp"
+                                     id="another1"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -902,14 +922,15 @@ exports[`Structure/ino-table Playground smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another2"
+              <ino-table-header-cell cell-id="another2"
+                                     column-id="another2"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another2"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__zuz3gx6w7"
+                                     id="another2"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1376,14 +1397,15 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <ino-table-header-cell column-id="id"
+              <ino-table-header-cell cell-id="id"
+                                     column-id="id"
                                      sort-start="asc"
                                      label="ID"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="id"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__75wcklgbp"
+                                     id="id"
                                      sort-direction="asc"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
@@ -1407,14 +1429,15 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="name"
+              <ino-table-header-cell cell-id="name"
+                                     column-id="name"
                                      sort-start="asc"
                                      label="Name"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="name"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__jdzs49spg"
+                                     id="name"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1437,13 +1460,14 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="release"
+              <ino-table-header-cell cell-id="release"
+                                     column-id="release"
                                      label="Release Date"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="release"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__tvbwxfu8k"
+                                     id="release"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1466,13 +1490,14 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="box-office"
+              <ino-table-header-cell cell-id="box-office"
+                                     column-id="box-office"
                                      label="Box Office"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="box-office"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__vq0a931ys"
+                                     id="box-office"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1495,14 +1520,15 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="rating"
+              <ino-table-header-cell cell-id="rating"
+                                     column-id="rating"
                                      label="Rating"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="rating"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__gas2d7udu"
+                                     id="rating"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1512,14 +1538,15 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another1"
+              <ino-table-header-cell cell-id="another1"
+                                     column-id="another1"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another1"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__6e62zrxy5"
+                                     id="another1"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1529,14 +1556,15 @@ exports[`Structure/ino-table SortColumnIdAndSortDirection smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another2"
+              <ino-table-header-cell cell-id="another2"
+                                     column-id="another2"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another2"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__fnfat9zno"
+                                     id="another2"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1738,14 +1766,15 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
               </tr>
             </thead>
             <tbody class="mdc-data-table__content">
-              <ino-table-header-cell column-id="id"
+              <ino-table-header-cell cell-id="id"
+                                     column-id="id"
                                      sort-start="asc"
                                      label="ID"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="id"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__gxx7dwqeb"
+                                     id="id"
                                      sort-direction="asc"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
@@ -1769,14 +1798,15 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="name"
+              <ino-table-header-cell cell-id="name"
+                                     column-id="name"
                                      sort-start="asc"
                                      label="Name"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="name"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__cdcr1cl4g"
+                                     id="name"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1799,13 +1829,14 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="release"
+              <ino-table-header-cell cell-id="release"
+                                     column-id="release"
                                      label="Release Date"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="release"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__83opdsu2s"
+                                     id="release"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1828,13 +1859,14 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="box-office"
+              <ino-table-header-cell cell-id="box-office"
+                                     column-id="box-office"
                                      label="Box Office"
                                      role="columnheader"
                                      class="mdc-data-table__header-cell ino-table-header-cell--sortable hydrated"
                                      data-column-id="box-office"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__w9x5q05an"
+                                     id="box-office"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1857,14 +1889,15 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </button>
                 </ino-icon-button>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="rating"
+              <ino-table-header-cell cell-id="rating"
+                                     column-id="rating"
                                      label="Rating"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="rating"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__qcbzvwoz1"
+                                     id="rating"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1874,14 +1907,15 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another1"
+              <ino-table-header-cell cell-id="another1"
+                                     column-id="another1"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another1"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__r2mbr4s1c"
+                                     id="another1"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"
@@ -1891,14 +1925,15 @@ exports[`Structure/ino-table StickyHeader smoke-test 1`] = `
                   </div>
                 </div>
               </ino-table-header-cell>
-              <ino-table-header-cell column-id="another2"
+              <ino-table-header-cell cell-id="another2"
+                                     column-id="another2"
                                      label="Another Column"
                                      not-sortable
                                      role="columnheader"
                                      class="mdc-data-table__header-cell hydrated"
                                      data-column-id="another2"
                                      tabindex="-1"
-                                     id="ino-table-header-cell-id__lis8i1y19"
+                                     id="another2"
               >
                 <div class="mdc-data-table__header-cell-wrapper"
                      tabindex="-1"

@@ -38,7 +38,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-add"
                     value="add"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -73,7 +73,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-arrow_down"
                     value="arrow_down"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -108,7 +108,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-arrow_left"
                     value="arrow_left"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -143,7 +143,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-arrow_right"
                     value="arrow_right"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -178,7 +178,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-arrow_up"
                     value="arrow_up"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -213,7 +213,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-back_arrow"
                     value="back_arrow"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -248,7 +248,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-birthday"
                     value="birthday"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -283,7 +283,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-bold"
                     value="bold"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -318,7 +318,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-bullet_list"
                     value="bullet_list"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -353,7 +353,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-calendar"
                     value="calendar"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -388,7 +388,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-call"
                     value="call"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -423,7 +423,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-camera"
                     value="camera"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -458,7 +458,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-cart"
                     value="cart"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -493,7 +493,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-chat"
                     value="chat"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -528,7 +528,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-checkmark"
                     value="checkmark"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -563,7 +563,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-close"
                     value="close"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -598,7 +598,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-cloud"
                     value="cloud"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -633,7 +633,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-code"
                     value="code"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -668,7 +668,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-code_block"
                     value="code_block"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -703,7 +703,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-company"
                     value="company"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -738,7 +738,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-copy"
                     value="copy"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -773,7 +773,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-developer"
                     value="developer"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -808,7 +808,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-display"
                     value="display"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -843,7 +843,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-download"
                     value="download"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -878,7 +878,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-edit"
                     value="edit"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -913,7 +913,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-edit_text"
                     value="edit_text"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -948,7 +948,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-employee"
                     value="employee"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -983,7 +983,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-favorite"
                     value="favorite"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1018,7 +1018,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-filter"
                     value="filter"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1053,7 +1053,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-folder"
                     value="folder"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1088,7 +1088,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-headline_one"
                     value="headline_one"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1123,7 +1123,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-headline_two"
                     value="headline_two"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1158,7 +1158,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-help"
                     value="help"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1193,7 +1193,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-image_not_available"
                     value="image_not_available"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1228,7 +1228,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-info"
                     value="info"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1263,7 +1263,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-italic"
                     value="italic"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1298,7 +1298,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-link"
                     value="link"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1333,7 +1333,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-location"
                     value="location"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1368,7 +1368,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-logout"
                     value="logout"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1403,7 +1403,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-mail"
                     value="mail"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1438,7 +1438,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-menu"
                     value="menu"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1473,7 +1473,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-message"
                     value="message"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1508,7 +1508,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-number"
                     value="number"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1543,7 +1543,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-numeric_list"
                     value="numeric_list"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1578,7 +1578,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-offboarding"
                     value="offboarding"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1613,7 +1613,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-offboarding_running"
                     value="offboarding_running"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1648,7 +1648,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-onboarding"
                     value="onboarding"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1683,7 +1683,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-onboarding_running"
                     value="onboarding_running"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1718,7 +1718,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-opportunity"
                     value="opportunity"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1753,7 +1753,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-options"
                     value="options"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1788,7 +1788,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-options_dotted"
                     value="options_dotted"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1823,7 +1823,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-partner"
                     value="partner"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1858,7 +1858,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-password"
                     value="password"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1893,7 +1893,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-phone"
                     value="phone"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1928,7 +1928,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-pin"
                     value="pin"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1963,7 +1963,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-print"
                     value="print"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -1998,7 +1998,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-question"
                     value="question"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2033,7 +2033,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-quote"
                     value="quote"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2068,7 +2068,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-refresh"
                     value="refresh"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2103,7 +2103,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-remove"
                     value="remove"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2138,7 +2138,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-report"
                     value="report"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2173,7 +2173,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-save"
                     value="save"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2208,7 +2208,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-search"
                     value="search"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2243,7 +2243,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-settings"
                     value="settings"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2278,7 +2278,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-share"
                     value="share"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2313,7 +2313,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-snackbar-checkmark"
                     value="snackbar-checkmark"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2348,7 +2348,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-snackbar-error"
                     value="snackbar-error"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2383,7 +2383,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-snackbar-information"
                     value="snackbar-information"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2418,7 +2418,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-sort"
                     value="sort"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2453,7 +2453,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-sort_az"
                     value="sort_az"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2488,7 +2488,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-sort_down"
                     value="sort_down"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2523,7 +2523,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-sort_up"
                     value="sort_up"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2558,7 +2558,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-sort_za"
                     value="sort_za"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2593,7 +2593,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-star"
                     value="star"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2628,7 +2628,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_abwesend"
                     value="status_abwesend"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2663,7 +2663,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_away"
                     value="status_away"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2698,7 +2698,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_current"
                     value="status_current"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2733,7 +2733,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_future"
                     value="status_future"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2768,7 +2768,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_offboarding_laufend"
                     value="status_offboarding_laufend"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2803,7 +2803,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_past"
                     value="status_past"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2838,7 +2838,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-status_zukuenftige"
                     value="status_zukuenftige"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2873,7 +2873,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-strikethrough"
                     value="strikethrough"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2908,7 +2908,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-time"
                     value="time"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2943,7 +2943,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-underline"
                     value="underline"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -2978,7 +2978,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-upload"
                     value="upload"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -3013,7 +3013,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-user"
                     value="user"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -3048,7 +3048,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-warning"
                     value="warning"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"
@@ -3083,7 +3083,7 @@ exports[`Graphic/ino-icon AllIcons smoke-test 1`] = `
                     color-scheme="default"
                     id="icon-web"
                     value="web"
-                    class="ino-chip--color-scheme-default ino-chip--outline hydrated"
+                    class="ino-chip--outline hydrated"
           >
             <span class="mdc-evolution-chip ino-chip-container mdc-evolution-chip--with-primary-graphic mdc-evolution-chip--with-primary-icon"
                   role="row"

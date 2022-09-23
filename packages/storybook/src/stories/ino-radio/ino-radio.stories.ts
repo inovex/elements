@@ -44,6 +44,7 @@ const template = new TemplateGenerator<Components.InoRadio>(
     checked="${args.checked}"
     disabled="${args.disabled}"
     name="${args.name}"
+    radio-id="some-radio-id"
     value="${args.value}"
   >
     Radio Button Label
