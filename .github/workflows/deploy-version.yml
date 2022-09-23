@@ -48,25 +48,21 @@ jobs:
         run: npm publish
         working-directory: packages/elements
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @inovex.de/elements-angular to NPM
         run: npm publish
         working-directory: packages/elements-angular
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @inovex.de/elements-react to NPM
         run: npm publish
         working-directory: packages/elements-react
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish @inovex.de/elements-vue to NPM
         run: npm publish
         working-directory: packages/elements-vue
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
