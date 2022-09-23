@@ -19,6 +19,7 @@
     "@angular/core": "^12.0.1"
   },
   "scripts": {
+    "dev": "cd .. && yarn dev",
     "build": "cd .. && ng build && tsc -p elements/tsconfig.schematics.json",
     "clean": "shx rm -rf dist && shx rm -rf ../dist"
   },

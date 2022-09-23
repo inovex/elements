@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build --base-href /example-projects/angular/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test -- --no-watch --no-progress --browsers=ChromeHeadlessCI"

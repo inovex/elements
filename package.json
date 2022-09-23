@@ -7,6 +7,7 @@
   "scripts": {
     "build": "lerna run build --stream",
     "start": "(shx test -d ./packages/elements/dist || lerna run build --scope=@inovex.de/elements) && lerna run dev --parallel",
+    "start:angular":"lerna run dev --scope elements-angular-example --include-dependencies --parallel",
     "changelog": "yarn changelog:root && yarn changelog:pkgs",
     "changelog:root": "standard-version",
     "changelog:pkgs": "lerna exec --concurrency 1 --stream 'standard-version'",

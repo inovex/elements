@@ -14,6 +14,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng build --watch",
     "clean": "shx rm -rf dist && shx rm -rf elements/dist",
     "lint": "eslint elements/src",
     "lint:fix": "eslint elements/src --fix",
