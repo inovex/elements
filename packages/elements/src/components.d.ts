@@ -1443,6 +1443,10 @@ export interface InoSegmentButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSegmentButtonElement;
 }
+export interface InoSegmentGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSegmentGroupElement;
+}
 export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSelectElement;
@@ -2928,6 +2932,10 @@ declare namespace LocalJSX {
           * Name of the segment group
          */
         "name"?: string;
+        /**
+          * Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.
+         */
+        "onValueChange"?: (event: InoSegmentGroupCustomEvent<any>) => void;
         /**
           * Value of the segment group
          */

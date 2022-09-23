@@ -73,6 +73,7 @@ export const config: Config = {
             'ino-input',
             'ino-radio-group',
             'ino-range',
+            'ino-segment-group',
             'ino-select',
             'ino-textarea',
           ],

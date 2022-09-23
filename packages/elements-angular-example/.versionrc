@@ -1,0 +1,35 @@
+{
+  "path": ".",
+  "skip": {
+    "bump": true,
+    "commit": true,
+    "tag": true
+  },
+  "types": [
+    {
+      "type": "feat",
+      "section": "Features"
+    },
+    {
+      "type": "fix",
+      "section": "Bug Fixes"
+    },
+    {
+      "type": "docs",
+      "section": "Documentation"
+    },
+    {
+      "type": "style",
+      "hidden": "Styling"
+    },
+    {
+      "type": "chore",
+      "section": "Miscellaneous"
+    },
+    {
+      "type": "refactor",
+      "section": "Refactoring",
+      "hidden": true
+    }
+  ]
+}
