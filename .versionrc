@@ -20,7 +20,8 @@
     },
     {
       "type": "style",
-      "section": "Styles"
+      "section": "Styling",
+      "hidden": false
     },
     {
       "type": "chore",
