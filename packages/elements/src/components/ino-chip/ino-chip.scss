@@ -2,52 +2,52 @@
 @use '@material/chips';
 @use "@material/chips/styles";
 @use 'base/theme';
+//@use 'base/new-theme' as theme;
 
-$default-chip-color: lighten(theme.color(primary), 36.5%);
-$default-chip-contrast-color: rgba(0, 0, 0, 0.87);
-$default-chip-dark-color: rgba(0, 0, 0, 0.87);
+$n-3: #7275A1;
+$n-7: #EDEFF5;
+$primary: #2C02FF;
+$border-focused: #2d5dff4d;
 
-@mixin colorChip($base-color, $contrast-color, $dark-color) {
-  &.ino-chip--solid .ino-chip-container {
-    @include chips.container-color($base-color);
-    @include chips.text-label-color($contrast-color);
-    @include chips.checkmark-color($contrast-color);
+$chip-outlined-color-enabled: rgba(255, 255, 255, 0);
+$chip-outlined-color-hover: #E8EDFF;
 
-    ino-icon {
-      --icon-color: #{$contrast-color};
-    }
-  }
+$chip-solid-color-enabled: #E8EDFF;
+$chip-solid-color-hover: #D7E0FE;
 
-  // Set outline color
-  &.ino-chip--outline .ino-chip-container {
-    @include chips.outline-color($base-color);
-    @include chips.text-label-color($dark-color);
-    @include chips.checkmark-color($dark-color);
-
-    ino-icon {
-      --icon-color: #{$dark-color};
-    }
-  }
-
-  &.ino-chip-disabled .ino-chip-container {
-    @include chips.container-color(theme.color(light));
-    @include chips.outline-color(theme.color(light, light));
-    @include chips.text-label-color(white);
-    @include chips.outline-width(0);
-
-    ino-icon {
-      --icon-color: white;
-    }
-  }
-}
+$chip-color-focus: #2D5DFF4D;
+$chip-color-font: $primary;
 
 $icon-size: 16px;
 
-ino-chip {
+ino-chip { 
+
+  // base styling
   .ino-chip-container {
+    @include chips.ripple-color(transparent);
+    @include chips.trailing-action-color($primary);
+    @include chips.trailing-action-ripple-size(0px);
+    @include chips.text-label-color($primary);
+    @include chips.icon-color($primary);
+    @include chips.checkmark-color($primary);
+    @include chips.height(24px);
+    transition: ease-in-out 0.15s;
+
     .ino-chip-leading-icon {
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
+    }
+
+    .mdc-evolution-chip__action {
+      padding: 0 10px;
+    }
+
+    .mdc-evolution-chip__text-label {
+      font-size: 13px;
+    }
+
+    &.mdc-evolution-chip.mdc-evolution-chip--with-trailing-action .mdc-evolution-chip__action--trailing {
+      padding-right: 5px;
     }
 
     .ino-chip-trailing-icon {
@@ -55,10 +55,10 @@ ino-chip {
       justify-content: center;
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
-
+     
       .ino-chip-close-icon {
-        --ino-icon-width: 15px;
-        --ino-icon-height: 15px;
+        --ino-icon-width: 9px;
+        --ino-icon-height: 9px;
       }
     }
 
@@ -67,30 +67,51 @@ ino-chip {
     }
   }
 
-  // base outline styles
+  // outline styling
   &.ino-chip--outline .ino-chip-container {
-    @include chips.container-color(transparent);
     @include chips.outline-style(solid);
     @include chips.outline-width(1px);
+    @include chips.container-color($chip-outlined-color-enabled);
+    @include chips.outline-color($primary);
+
+    ino-icon {
+      --icon-color: #{$primary};
+    }
+
+    &:hover, &:focus {
+      @include chips.container-color($chip-outlined-color-hover);
+    }
   }
 
-  // default styles
-  &.ino-chip--color-scheme-default {
-    @include colorChip(
-      $default-chip-color,
-      $default-chip-contrast-color,
-      $default-chip-dark-color
-    );
+  // solid styling
+  &.ino-chip--solid .ino-chip-container {
+    @include chips.container-color($chip-solid-color-enabled);
+
+    ino-icon {
+      --icon-color: $primary;
+    }
+
+    &:hover, &:focus {
+      @include chips.container-color($chip-solid-color-hover);
+    }
   }
 
-  // Generate ino-color-scheme classes
-  @each $color-name in theme.$color-schemes {
-    &.ino-chip--color-scheme-#{$color-name} {
-      @include colorChip(
-        theme.color($color-name),
-        theme.color($color-name, contrast),
-        theme.color($color-name, dark)
-      );
+  // disabled styling
+  &.ino-chip-disabled .ino-chip-container {
+    @include chips.container-color($n-7);
+    @include chips.text-label-color($n-3);
+    @include chips.outline-width(0);
+    pointer-events: none;
+
+    ino-icon {
+      --icon-color: $n-3;
+    }
+  }
+
+  // focus styling
+  &:focus-within {
+    &.ino-chip--solid .mdc-evolution-chip, &.ino-chip--outline .mdc-evolution-chip {
+      box-shadow: 0 0 0 3px $border-focused;
     }
   }
 }
