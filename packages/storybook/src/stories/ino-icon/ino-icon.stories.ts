@@ -42,7 +42,6 @@ const iconChips = ICON_IDS.map(
     <ino-chip
       id="icon-${name}"
       fill="outline"
-      color-scheme="default"
       value="${name}"
       @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
     >
@@ -79,18 +78,14 @@ export default {
             document.getElementsByTagName('ino-chip')
           );
 
-          if (!value) {
-            chips.forEach((chip) => (chip.colorScheme = 'default'));
-          } else {
+          if (value) {
             // Hide not matching icons
             chips
-              .filter((chip) => !chip.value.includes(value.toLowerCase()))
-              .forEach((chip) => (chip.colorScheme = 'default'));
+              .filter((chip) => !chip.value.includes(value.toLowerCase()));
 
             // Show matching icons
             chips
-              .filter((chip) => chip.value.includes(value.toLowerCase()))
-              .forEach((chip) => (chip.colorScheme = 'primary'));
+              .filter((chip) => chip.value.includes(value.toLowerCase()));
           }
 
           input.value = value;

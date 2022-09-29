@@ -153,13 +153,6 @@
           "required": false
         },
         {
-          "name": "colorScheme",
-          "type": "\"grey\" | \"primary\" | \"secondary\" | \"white\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`, `grey`, `white`.\n`white` and `grey` can only be used in combination with the `outline` fill-option!",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
           "name": "dense",
           "type": "boolean",
           "description": "Makes the button text and container slightly smaller.",
@@ -725,13 +718,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.",
-          "defaultValue": "'default'",
-          "required": false
-        },
         {
           "name": "fill",
           "type": "\"outline\" | \"solid\"",
@@ -1858,13 +1844,6 @@
           "name": "autoFocus",
           "type": "boolean",
           "description": "Sets the autofocus for this element.",
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
           "required": false
         },
         {
@@ -3478,13 +3457,6 @@
       ],
       "properties": [
         {
-          "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
-          "description": "Sets the color scheme of the popup\nValid options include: 'primary', 'secondary', 'light', 'transparent'",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
           "name": "controlled",
           "type": "boolean",
           "description": "Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)",
@@ -3854,13 +3826,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -4426,13 +4391,6 @@
       ],
       "properties": [
         {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
-          "required": false
-        },
-        {
           "name": "height",
           "type": "number",
           "description": "The height of this spinner (default = 40)",
@@ -4505,13 +4463,6 @@
           "type": "boolean",
           "description": "Marks this element as checked. (**unmanaged**)",
           "defaultValue": "false",
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "description": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "defaultValue": "'primary'",
           "required": false
         },
         {
@@ -5247,13 +5198,6 @@
         }
       ],
       "properties": [
-        {
-          "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
-          "description": "Sets the color scheme of the tooltip\nValid options include: 'primary', 'secondary' 'light', 'transparent'",
-          "defaultValue": "'primary'",
-          "required": false
-        },
         {
           "name": "for",
           "type": "string",

@@ -1,14 +1,9 @@
 export type ButtonType = 'button' | 'submit' | 'reset';
-export type ButtonColorScheme = 'primary' | 'secondary' | 'grey' | 'white';
 export type ChipSurface = 'solid' | 'outline';
 export type ColorScheme =
   | 'primary'
-  | 'secondary'
-  | 'success'
   | 'warning'
-  | 'error'
-  | 'light'
-  | 'dark';
+  | 'error';
 export type DatepickerType = 'date' | 'datetime' | 'range' | 'time';
 export type HorizontalLocation = 'left' | 'right';
 export type ImageDecodingTypes = 'async' | 'auto' | 'sync';

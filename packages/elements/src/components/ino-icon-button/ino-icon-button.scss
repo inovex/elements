@@ -57,22 +57,21 @@ ino-icon-button {
     }
   }
 
-  // Generate the different ino-color-schemes buttons
-  @each $color-name in theme.$color-schemes {
-    &.ino-icon-button--color-scheme-#{$color-name} {
-      --ino-icon-button-icon-color: #{theme.color($color-name)};
-      --ino-icon-button-icon-active-color: #{theme.color($color-name)};
-      --ino-icon-button-background-active-color: #{theme.color($color-name)};
+  
+    &.ino-icon-button--color-scheme-primary {
+      --ino-icon-button-icon-color: #{theme.color(primary)};
+      --ino-icon-button-icon-active-color: #{theme.color(primary)};
+      --ino-icon-button-background-active-color: #{theme.color(primary)};
 
       &.ino-icon-button--filled {
-        --ino-icon-button-icon-color: #{theme.color($color-name, contrast)};
+        --ino-icon-button-icon-color: #{theme.color(primary, contrast)};
         --ino-icon-button-icon-active-color: #{theme.color(
-            $color-name,
+            primary,
             contrast
           )};
-        --ino-icon-button-background-color: #{theme.color($color-name)};
+        --ino-icon-button-background-color: #{theme.color(primary)};
         --ino-icon-button-background-active-color: #{theme.color(
-            $color-name,
+            primary,
             contrast
           )};
       }
@@ -100,4 +99,4 @@ ino-icon-button {
       );
     }
   }
-}
+

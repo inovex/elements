@@ -179,7 +179,6 @@ export class Snackbar implements ComponentInterface {
             onClick={this.handleSnackbarHide}
             icon="close"
             class="ino-snackbar-close-btn"
-            color-scheme="dark"
           />
         </div>
       </Host>

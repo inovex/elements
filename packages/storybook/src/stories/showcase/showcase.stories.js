@@ -57,7 +57,7 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/buttons-ino-icon-button--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-icon-button ino-icon="star" ino-color-scheme="primary"></ino-icon-button>
+            <ino-icon-button ino-icon="star"></ino-icon-button>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-icon-button</h3>
@@ -379,7 +379,7 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/notification-ino-tooltip--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-button id="primary-tooltip" ino-color-scheme="primary">Display Tooltip</ino-button>
+            <ino-button id="primary-tooltip">Display Tooltip</ino-button>
             <ino-tooltip ino-for="primary-tooltip" ino-label="This is a tooltip!" ino-color-scheme="primary" ino-placement="top"></ino-tooltip>
           </div>
           <div class="card-footer" slot="footer">

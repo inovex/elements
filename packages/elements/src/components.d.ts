@@ -137,10 +137,6 @@ export namespace Components {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component.
-         */
-        "colorScheme": ColorScheme | 'default';
-        /**
           * Disables all interactions.
          */
         "disabled": boolean;
@@ -467,10 +463,6 @@ export namespace Components {
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -858,9 +850,9 @@ export namespace Components {
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme": 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -954,7 +946,7 @@ export namespace Components {
     }
     interface InoRange {
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme of this component. Possible values: `primary` (default), `warning`, `error`.
          */
         "colorScheme"?: ColorScheme;
         /**
@@ -1124,10 +1116,6 @@ export namespace Components {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme": ColorScheme;
-        /**
           * The height of this spinner (default = 40)
          */
         "height": number;
@@ -1150,7 +1138,7 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `warning`, `error`.
          */
         "colorScheme": ColorScheme;
         /**
@@ -1333,9 +1321,9 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
-        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme": 'primary' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -1969,10 +1957,6 @@ declare namespace LocalJSX {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component.
-         */
-        "colorScheme"?: ColorScheme | 'default';
-        /**
           * Disables all interactions.
          */
         "disabled"?: boolean;
@@ -2315,10 +2299,6 @@ declare namespace LocalJSX {
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -2737,9 +2717,9 @@ declare namespace LocalJSX {
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -2841,7 +2821,7 @@ declare namespace LocalJSX {
     }
     interface InoRange {
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme of this component. Possible values: `primary` (default), `warning`, `error`.
          */
         "colorScheme"?: ColorScheme;
         /**
@@ -3042,10 +3022,6 @@ declare namespace LocalJSX {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * The height of this spinner (default = 40)
          */
         "height"?: number;
@@ -3068,7 +3044,7 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `warning`, `error`.
          */
         "colorScheme"?: ColorScheme;
         /**
@@ -3262,9 +3238,9 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
-        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

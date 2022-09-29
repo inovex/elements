@@ -13,7 +13,7 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ColorScheme, ButtonType } from '../types';
+import { ButtonType } from '../types';
 
 /**
  * @slot default - `<ino-icon>`
@@ -51,14 +51,6 @@ export class IconButton implements ComponentInterface {
   activatedChanged(activated: boolean) {
     activated ? this.maybeCreateRipple() : this.maybeDestroyRipple();
   }
-
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() colorScheme?: ColorScheme = 'primary';
 
   /**
    * Styles this element as filled icon button
@@ -117,7 +109,6 @@ export class IconButton implements ComponentInterface {
 
   render() {
     const hostClasses = classNames(
-      `ino-icon-button--color-scheme-${this.colorScheme}`,
       {
         'ino-icon-button--filled': this.filled,
       }

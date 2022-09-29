@@ -21,13 +21,6 @@
   );
 }
 
-:host(.ino-icon--color-scheme-secondary) {
-  --icon-color: var(
-    --ino-icon-color-secondary,
-    var(--ino-global-secondary-color, #{theme.color(secondary, base)})
-  );
-}
-
 :host {
   display: inline-flex;
   flex-direction: column;

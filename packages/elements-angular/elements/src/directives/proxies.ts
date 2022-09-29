@@ -177,13 +177,13 @@ Listen to this event to hide or destroy this chip.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 @Component({
   selector: 'ino-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 export class InoChip {
   protected el: HTMLElement;
@@ -434,13 +434,13 @@ The event only emits if the property `clickable` is true.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['activated', 'autoFocus', 'colorScheme', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 @Component({
   selector: 'ino-icon-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activated', 'autoFocus', 'colorScheme', 'disabled', 'filled', 'icon', 'type']
+  inputs: ['activated', 'autoFocus', 'disabled', 'filled', 'icon', 'type']
 })
 export class InoIconButton {
   protected el: HTMLElement;
@@ -1111,13 +1111,13 @@ export declare interface InoSpinner extends Components.InoSpinner {}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'height', 'modal', 'type', 'width']
+  inputs: ['height', 'modal', 'type', 'width']
 })
 @Component({
   selector: 'ino-spinner',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'height', 'modal', 'type', 'width']
+  inputs: ['height', 'modal', 'type', 'width']
 })
 export class InoSpinner {
   protected el: HTMLElement;

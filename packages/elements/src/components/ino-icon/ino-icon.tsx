@@ -111,7 +111,6 @@ export class Icon implements ComponentInterface {
 
     const hostClasses = classNames({
       'ino-icon--color-scheme-primary': !this.colorSecondary,
-      'ino-icon--color-scheme-secondary': this.colorSecondary,
     });
 
     let iconProps = {};

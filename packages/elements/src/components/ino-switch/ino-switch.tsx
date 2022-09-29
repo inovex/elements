@@ -49,8 +49,7 @@ export class Switch implements ComponentInterface {
   /**
    * The name of the color scheme which is used
    * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
+   * Possible values: `primary` (default), `warning`, `error`.
    */
   @Prop() colorScheme: ColorScheme = 'primary';
 

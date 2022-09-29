@@ -102,7 +102,6 @@ const template = new TemplateGenerator<InoDialogExtended>(
       icon="remove"
       data-ino-dialog-action="cancel"
       fill="outline"
-      color-scheme="secondary"
       >Cancel
     </ino-button>
     <ino-button icon="mail" data-ino-dialog-action="submit">Submit</ino-button>

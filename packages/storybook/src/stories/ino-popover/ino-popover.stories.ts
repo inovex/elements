@@ -1,4 +1,3 @@
-import { useEffect } from '@storybook/client-api';
 import { Meta } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { decorateStoryWithClass } from '../utils';
@@ -96,7 +95,7 @@ export const Distance = template.generateStoryForProp('distance', 30);
 
 export const ColorScheme = template.generateStoryForProp(
   'colorScheme',
-  'secondary'
+  'transparent'
 );
 
 export const Trigger = template.generateStoryForProp('trigger', 'click');
@@ -112,7 +111,6 @@ const templateInteractive = new TemplateGenerator<Components.InoPopover>(
     <ino-popover
       trigger="click"
       for="popover-interactive-target"
-      color-scheme="transparent"
       interactive
       placement="left"
     >

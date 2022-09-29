@@ -106,71 +106,17 @@ export const DefaultUsage = () => /*html*/ `
         <ino-icon-button
           class="custom"
           ino-icon="${select('ino-icon', ICONS, 'star')}"
-          ino-color-scheme="${select(
-            'ino-color-scheme',
-            [
-              '',
-              'primary',
-              'secondary',
-              'success',
-              'warning',
-              'error',
-              'light',
-              'dark',
-            ],
-            ''
-          )}"
           ino-activated="${boolean('ino-activated', false)}"
           ino-filled="${boolean('ino-filled', false)}"
           disabled="${boolean('disabled', false)}">
         </ino-icon-button>
       </div>
 
-      <h4>Colors</h4>
-      <div class="flex-parent-center">
-        <div class="flex-child">
-          <h5>Primary</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="primary"></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Secondary</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="secondary"></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Success</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="success"></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Warning</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="warning"></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Error</h5>
-          <ino-icon-button ino-icon="star" ino-color-scheme="error"></ino-icon-button>
-        </div>
-      </div>
-
       <h4>Filled</h4>
       <div class="flex-parent-center">
         <div class="flex-child">
           <h5>Primary</h5>
-          <ino-icon-button ino-icon="time" ino-color-scheme="primary" ino-filled></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Secondary</h5>
-          <ino-icon-button ino-icon="time" ino-color-scheme="secondary" ino-filled></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Success</h5>
-          <ino-icon-button ino-icon="time" ino-color-scheme="success" ino-filled></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Warning</h5>
-          <ino-icon-button ino-icon="time" ino-color-scheme="warning" ino-filled></ino-icon-button>
-        </div>
-        <div class="flex-child">
-          <h5>Error</h5>
-          <ino-icon-button ino-icon="time" ino-color-scheme="error" ino-filled></ino-icon-button>
+          <ino-icon-button ino-icon="time" ino-filled></ino-icon-button>
         </div>
       </div>
 
