@@ -31,6 +31,13 @@ function buildIconMetadata() {
   return iconData;
 }
 
+const ICONS_JS_PATH = path.join(SRC_DIR, 'components', 'ino-icon', 'icons.js');
+
+function makeIconsJs(svgMetadata: SvgMetadata[]) {
+  const finalFile = `export default [\n${svgMetadata.map(({ name }) => ` '${name}',`).join('\n')}\n];`;
+  fs.writeFileSync(ICONS_JS_PATH, finalFile);
+}
+
 const DST_ESM = path.join(SRC_SVG_DIR, 'index.esm.js');
 
 function makeIndexEsm(svgMetadata: SvgMetadata[]) {
@@ -79,6 +86,7 @@ function makeIndexJs() {
 }
 
 const iconData = buildIconMetadata();
+makeIconsJs(iconData);
 makeIndexEsm(iconData);
 makeIndexEsmD(iconData);
 makeIndexJs();
