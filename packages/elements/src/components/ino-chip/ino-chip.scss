@@ -2,14 +2,13 @@
 @use '@material/chips';
 @use "@material/chips/styles";
 @use 'base/theme';
-//@use 'base/new-theme' as theme;
 
 $n-3: #7275A1;
 $n-7: #EDEFF5;
 $primary: #2C02FF;
-$border-focused: #2d5dff4d;
+$border-focused: rgba(45, 93, 255, 0.3);
 
-$chip-outlined-color-enabled: rgba(255, 255, 255, 0);
+$chip-outlined-color-enabled: transparent;
 $chip-outlined-color-hover: #E8EDFF;
 
 $chip-solid-color-enabled: #E8EDFF;

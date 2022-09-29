@@ -39,7 +39,7 @@ describe('ino-carousel', () => {
 describe('InoCarousel', () => {
   let page: E2EPage;
   let inoCarousel: E2EElement;
-  //let inoCarouselWrapper: E2EElement;
+  let inoCarouselWrapper: E2EElement;
   let iconArrowRight: E2EElement;
   let iconArrowLeft: E2EElement;
 
@@ -53,7 +53,7 @@ describe('InoCarousel', () => {
     </ino-carousel>
     `);
     inoCarousel = await page.find('ino-carousel');
-    //inoCarouselWrapper = await page.find('ino-carousel > div');
+    inoCarouselWrapper = await page.find('ino-carousel > div');
     iconArrowLeft = await page.find('.ino-carousel__left-arrow > ino-icon-button')
     iconArrowRight = await page.find('.ino-carousel__right-arrow > ino-icon-button')
   });
