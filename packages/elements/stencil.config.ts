@@ -31,7 +31,6 @@ export const config: Config = {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
-    // wrapIconsOutputTarget,
     { type: 'docs-readme' },
     JsonDocsOutputTarget,
     react({
