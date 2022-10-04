@@ -352,27 +352,6 @@ export class InoFabSet {
 }
 
 
-export declare interface InoFormRow extends Components.InoFormRow {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['label', 'mandatory']
-})
-@Component({
-  selector: 'ino-form-row',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['label', 'mandatory']
-})
-export class InoFormRow {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
 export declare interface InoHeader extends Components.InoHeader {}
 
 @ProxyCmp({

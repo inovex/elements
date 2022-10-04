@@ -419,16 +419,6 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
-    }
     interface InoHeader {
         /**
           * [DEPRECATED] Please use the default slot instead of this prop.
@@ -1540,12 +1530,6 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
-    interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {
-    }
-    var HTMLInoFormRowElement: {
-        prototype: HTMLInoFormRowElement;
-        new (): HTMLInoFormRowElement;
-    };
     interface HTMLInoHeaderElement extends Components.InoHeader, HTMLStencilElement {
     }
     var HTMLInoHeaderElement: {
@@ -1764,7 +1748,6 @@ declare global {
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
         "ino-fab-set": HTMLInoFabSetElement;
-        "ino-form-row": HTMLInoFormRowElement;
         "ino-header": HTMLInoHeaderElement;
         "ino-icon": HTMLInoIconElement;
         "ino-icon-button": HTMLInoIconButtonElement;
@@ -2233,16 +2216,6 @@ declare namespace LocalJSX {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation"?: VerticalLocation;
-    }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
     }
     interface InoHeader {
         /**
@@ -3246,7 +3219,6 @@ declare namespace LocalJSX {
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
         "ino-fab-set": InoFabSet;
-        "ino-form-row": InoFormRow;
         "ino-header": InoHeader;
         "ino-icon": InoIcon;
         "ino-icon-button": InoIconButton;
@@ -3300,7 +3272,6 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
-            "ino-form-row": LocalJSX.InoFormRow & JSXBase.HTMLAttributes<HTMLInoFormRowElement>;
             "ino-header": LocalJSX.InoHeader & JSXBase.HTMLAttributes<HTMLInoHeaderElement>;
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;

@@ -27,7 +27,6 @@ scopes:
   - elements|ino-dialog
   - elements|ino-fab
   - elements|ino-fab-set
-  - elements|ino-form-row
   - elements|ino-header
   - elements|ino-icon
   - elements|ino-icon-button
@@ -77,7 +76,6 @@ scopes:
   - elements-angular|ino-dialog
   - elements-angular|ino-fab
   - elements-angular|ino-fab-set
-  - elements-angular|ino-form-row
   - elements-angular|ino-header
   - elements-angular|ino-icon
   - elements-angular|ino-icon-button
@@ -127,7 +125,6 @@ scopes:
   - elements-react|ino-dialog
   - elements-react|ino-fab
   - elements-react|ino-fab-set
-  - elements-react|ino-form-row
   - elements-react|ino-header
   - elements-react|ino-icon
   - elements-react|ino-icon-button
@@ -177,7 +174,6 @@ scopes:
   - elements-vue|ino-dialog
   - elements-vue|ino-fab
   - elements-vue|ino-fab-set
-  - elements-vue|ino-form-row
   - elements-vue|ino-header
   - elements-vue|ino-icon
   - elements-vue|ino-icon-button
@@ -227,7 +223,6 @@ scopes:
   - storybook|ino-dialog
   - storybook|ino-fab
   - storybook|ino-fab-set
-  - storybook|ino-form-row
   - storybook|ino-header
   - storybook|ino-icon
   - storybook|ino-icon-button
