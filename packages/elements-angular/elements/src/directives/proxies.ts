@@ -1046,34 +1046,6 @@ export class InoSelect {
 }
 
 
-export declare interface InoSidebar extends Components.InoSidebar {
-  /**
-   * Emits an event if the user expands or collapses the sidebar 
-   */
-  openChange: EventEmitter<CustomEvent<any>>;
-
-}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['alignRight', 'name', 'open']
-})
-@Component({
-  selector: 'ino-sidebar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['alignRight', 'name', 'open']
-})
-export class InoSidebar {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['openChange']);
-  }
-}
-
-
 export declare interface InoSnackbar extends Components.InoSnackbar {
   /**
    * Event that emits as soon as the action button is clicked. 

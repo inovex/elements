@@ -47,7 +47,6 @@ export const InoRange = /*@__PURE__*/createReactComponent<JSX.InoRange, HTMLInoR
 export const InoSegmentButton = /*@__PURE__*/createReactComponent<JSX.InoSegmentButton, HTMLInoSegmentButtonElement>('ino-segment-button');
 export const InoSegmentGroup = /*@__PURE__*/createReactComponent<JSX.InoSegmentGroup, HTMLInoSegmentGroupElement>('ino-segment-group');
 export const InoSelect = /*@__PURE__*/createReactComponent<JSX.InoSelect, HTMLInoSelectElement>('ino-select');
-export const InoSidebar = /*@__PURE__*/createReactComponent<JSX.InoSidebar, HTMLInoSidebarElement>('ino-sidebar');
 export const InoSnackbar = /*@__PURE__*/createReactComponent<JSX.InoSnackbar, HTMLInoSnackbarElement>('ino-snackbar');
 export const InoSpinner = /*@__PURE__*/createReactComponent<JSX.InoSpinner, HTMLInoSpinnerElement>('ino-spinner');
 export const InoSwitch = /*@__PURE__*/createReactComponent<JSX.InoSwitch, HTMLInoSwitchElement>('ino-switch');

@@ -41,7 +41,6 @@ export const DIRECTIVES = [
   d.InoSegmentButton,
   d.InoSegmentGroup,
   d.InoSelect,
-  d.InoSidebar,
   d.InoSnackbar,
   d.InoSpinner,
   d.InoSwitch,
