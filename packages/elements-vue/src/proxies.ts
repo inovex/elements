@@ -390,7 +390,6 @@ export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup>('i
 
 export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange>('ino-range', undefined, [
   'disabled',
-  'colorScheme',
   'discrete',
   'markers',
   'name',

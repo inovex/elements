@@ -6182,57 +6182,15 @@
       "filePath": "./src/components/ino-range/ino-range.tsx",
       "fileName": "ino-range.tsx",
       "tag": "ino-range",
-      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
-      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
+      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
