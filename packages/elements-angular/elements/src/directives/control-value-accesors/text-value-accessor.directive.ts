@@ -5,7 +5,7 @@ import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
   selector:
-    'ino-autocomplete,ino-currency-input,ino-input,ino-textarea,ino-range,ino-select,ino-datepicker',
+    'ino-autocomplete,ino-currency-input,ino-input,ino-textarea,ino-range,ino-select,ino-datepicker,ino-segment-group',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -18,6 +18,7 @@ export class TextValueAccessorDirective extends ValueAccessorDirective {
   constructor(el: ElementRef) {
     super(el);
   }
+
   @HostListener('valueChange', ['$event.detail'])
   _handleInputEvent(value: string): void {
     this.handleChangeEvent(value);

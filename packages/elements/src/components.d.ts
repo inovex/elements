@@ -419,16 +419,6 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
-    }
     interface InoHeader {
         /**
           * [DEPRECATED] Please use the default slot instead of this prop.
@@ -954,10 +944,6 @@ export namespace Components {
     }
     interface InoRange {
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -1084,20 +1070,6 @@ export namespace Components {
           * The value of this element. (**unmanaged**)
          */
         "value"?: string;
-    }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight": boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Expands the sidebar
-         */
-        "open": boolean;
     }
     interface InoSnackbar {
         /**
@@ -1439,13 +1411,13 @@ export interface InoSegmentButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSegmentButtonElement;
 }
+export interface InoSegmentGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLInoSegmentGroupElement;
+}
 export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSelectElement;
-}
-export interface InoSidebarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoSidebarElement;
 }
 export interface InoSnackbarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1553,12 +1525,6 @@ declare global {
     var HTMLInoFabSetElement: {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
-    };
-    interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {
-    }
-    var HTMLInoFormRowElement: {
-        prototype: HTMLInoFormRowElement;
-        new (): HTMLInoFormRowElement;
     };
     interface HTMLInoHeaderElement extends Components.InoHeader, HTMLStencilElement {
     }
@@ -1710,12 +1676,6 @@ declare global {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
-    interface HTMLInoSidebarElement extends Components.InoSidebar, HTMLStencilElement {
-    }
-    var HTMLInoSidebarElement: {
-        prototype: HTMLInoSidebarElement;
-        new (): HTMLInoSidebarElement;
-    };
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
@@ -1784,7 +1744,6 @@ declare global {
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
         "ino-fab-set": HTMLInoFabSetElement;
-        "ino-form-row": HTMLInoFormRowElement;
         "ino-header": HTMLInoHeaderElement;
         "ino-icon": HTMLInoIconElement;
         "ino-icon-button": HTMLInoIconButtonElement;
@@ -1810,7 +1769,6 @@ declare global {
         "ino-segment-button": HTMLInoSegmentButtonElement;
         "ino-segment-group": HTMLInoSegmentGroupElement;
         "ino-select": HTMLInoSelectElement;
-        "ino-sidebar": HTMLInoSidebarElement;
         "ino-snackbar": HTMLInoSnackbarElement;
         "ino-spinner": HTMLInoSpinnerElement;
         "ino-switch": HTMLInoSwitchElement;
@@ -2254,16 +2212,6 @@ declare namespace LocalJSX {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation"?: VerticalLocation;
-    }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
     }
     interface InoHeader {
         /**
@@ -2833,10 +2781,6 @@ declare namespace LocalJSX {
     }
     interface InoRange {
         /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2925,6 +2869,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.
+         */
+        "onValueChange"?: (event: InoSegmentGroupCustomEvent<any>) => void;
+        /**
           * Value of the segment group
          */
         "value"?: any;
@@ -2978,24 +2926,6 @@ declare namespace LocalJSX {
           * The value of this element. (**unmanaged**)
          */
         "value"?: string;
-    }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight"?: boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Emits an event if the user expands or collapses the sidebar
-         */
-        "onOpenChange"?: (event: InoSidebarCustomEvent<any>) => void;
-        /**
-          * Expands the sidebar
-         */
-        "open"?: boolean;
     }
     interface InoSnackbar {
         /**
@@ -3281,7 +3211,6 @@ declare namespace LocalJSX {
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
         "ino-fab-set": InoFabSet;
-        "ino-form-row": InoFormRow;
         "ino-header": InoHeader;
         "ino-icon": InoIcon;
         "ino-icon-button": InoIconButton;
@@ -3307,7 +3236,6 @@ declare namespace LocalJSX {
         "ino-segment-button": InoSegmentButton;
         "ino-segment-group": InoSegmentGroup;
         "ino-select": InoSelect;
-        "ino-sidebar": InoSidebar;
         "ino-snackbar": InoSnackbar;
         "ino-spinner": InoSpinner;
         "ino-switch": InoSwitch;
@@ -3336,7 +3264,6 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
-            "ino-form-row": LocalJSX.InoFormRow & JSXBase.HTMLAttributes<HTMLInoFormRowElement>;
             "ino-header": LocalJSX.InoHeader & JSXBase.HTMLAttributes<HTMLInoHeaderElement>;
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
@@ -3362,7 +3289,6 @@ declare module "@stencil/core" {
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
-            "ino-sidebar": LocalJSX.InoSidebar & JSXBase.HTMLAttributes<HTMLInoSidebarElement>;
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;

@@ -3,7 +3,9 @@ import { setupPageWithContent } from '../../util/e2etests-setup';
 
 const INO_SELECT = `
   <ino-select>
-    <ino-option value="1" id="opt1">1</ino-option>
+    <ino-option value="HH">Hamburg</ino-option>
+    <ino-option value="M">Munich</ino-option>
+    <ino-option value="B">Berlin</ino-option>
   </ino-select>
 `;
 const INO_SELECT_SELECTOR = 'ino-select';
@@ -46,13 +48,27 @@ describe('InoSelect', () => {
   });
 
   describe('Events', () => {
-    it('should emit a valueChange event upon receiving a MDCSelect:change event', async () => {
+    it('should emit a valueChange event with correct details', async () => {
       const valueChangeEvent = await page.spyOnEvent('valueChange');
 
-      await inoSelectEl.triggerEvent('MDCSelect:change');
+      const inoOptionEl = await page.waitForSelector('ino-option > li'); // select the element
+      await inoOptionEl.evaluate((b: HTMLInoOptionElement) => b.click());
+
       await page.waitForChanges();
 
-      expect(valueChangeEvent).toHaveReceivedEvent();
+      expect(valueChangeEvent).toHaveReceivedEventDetail('HH');
+
+    });
+
+    it('should emit a valueChange event only one time', async () => {
+      const valueChangeEvent = await page.spyOnEvent('valueChange');
+
+      const inoOptionEl = await page.waitForSelector('ino-option > li'); // select the element
+      await inoOptionEl.evaluate((b: HTMLInoOptionElement) => b.click());
+
+      await page.waitForChanges();
+
+      expect(valueChangeEvent).toHaveReceivedEventTimes(1);
     });
 
     it('should receive submit event if select is required and value is set', async () => {

@@ -1,0 +1,31 @@
+@use './../components/base/typography';
+@use './../components/base/theme';
+
+:root {
+
+  /* font-styles */
+  :root, html {
+    font-family: typography.font-family();
+  }
+
+  p {
+    font-size: typography.font-size(s);
+  }
+
+  a {
+    background-color: transparent;
+    color: theme.$brand;
+  }
+
+  h1 {
+    @include typography.font($size: l, $weight: bold)
+  }
+
+  h2 {
+    @include typography.font($size: m, $weight: semibold)
+  }
+
+  h3 {
+    @include typography.font($size: m, $weight: medium)
+  }
+}

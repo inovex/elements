@@ -56,6 +56,10 @@ export class InoOption {
     }
   }
 
+  componentDidLoad() {
+    if (this.value === undefined) console.error('[ino-option]: A value is required.');
+  }
+
   render() {
     const classSelect = classNames({
       'mdc-deprecated-list-item': true,

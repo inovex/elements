@@ -1,4 +1,4 @@
-import { MDCSelect } from '@material/select';
+import {MDCSelect, MDCSelectEventDetail} from '@material/select';
 import {
   Component,
   ComponentInterface,
@@ -173,11 +173,12 @@ export class Select implements ComponentInterface {
   }
 
   @Listen('MDCSelect:change')
-  handleInput(e) {
+  handleInput(e: CustomEvent<MDCSelectEventDetail>) {
     e.preventDefault();
-    if (this.mdcSelectInstance && this.mdcSelectInstance.value !== undefined) {
-      const value = this.mdcSelectInstance.value;
-      this.valueChange.emit(value);
+    const detailValue = e.detail?.value;
+
+    if (detailValue !== this.value) {
+      this.valueChange.emit(detailValue);
     }
   }
 
