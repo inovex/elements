@@ -1122,10 +1122,6 @@ export namespace Components {
          */
         "checked"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme": ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2989,10 +2985,6 @@ declare namespace LocalJSX {
           * Marks this element as checked. (**unmanaged**)
          */
         "checked"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */

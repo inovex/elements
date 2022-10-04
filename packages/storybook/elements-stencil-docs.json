@@ -7171,48 +7171,6 @@
           "required": false
         },
         {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "mutable": false,
