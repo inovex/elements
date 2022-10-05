@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/BenPag/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-form-row:** Since our input component provides a label on its own, this component is obsolete. That's why we've decided to remove it.
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Refactoring
+
+* **elements|ino-form-row:** remove component ([#718](https://github.com/BenPag/elements/issues/718)) ([e609947](https://github.com/BenPag/elements/commit/e609947e67e6c2dd634c618f7afae0e0cfcc4355))
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/BenPag/elements/issues/669)) ([349b84d](https://github.com/BenPag/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 ## 7.1.1 (2022-08-19)

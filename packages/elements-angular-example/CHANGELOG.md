@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/BenPag/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### Features
+
+* **elements-angular:** support disable state handling in ControlValueAccessors ([#664](https://github.com/BenPag/elements/issues/664)) ([18a02b3](https://github.com/BenPag/elements/commit/18a02b3d40c4a9654e911745ec89f738e7297a37))
+
+
+### Bug Fixes
+
+* changelog entries for new projects ([7a682d6](https://github.com/BenPag/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 

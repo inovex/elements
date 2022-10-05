@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/BenPag/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Bug Fixes
+
+* changelog entries for new projects ([7a682d6](https://github.com/BenPag/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+
+
+### Documentation
+
+* **storybook:** add react starter guide ([#663](https://github.com/BenPag/elements/issues/663)) ([a1883ce](https://github.com/BenPag/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+
+
+### Refactoring
+
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/BenPag/elements/issues/669)) ([349b84d](https://github.com/BenPag/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 

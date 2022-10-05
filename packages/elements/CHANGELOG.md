@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/inovex/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-switch:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-form-row:** Since our input component provides a label on its own, this component is obsolete. That's why we've decided to remove it.
+* **elements|ino-range:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Features
+
+* **elements:** provide global stylesheet ([#733](https://github.com/inovex/elements/issues/733)) ([73dfc9a](https://github.com/inovex/elements/commit/73dfc9a442d779fa1b5303a147ae6c70d0e5ed27))
+
+
+### Bug Fixes
+
+* **elements|ino-datepicker:** run initial validation before load ([#700](https://github.com/inovex/elements/issues/700)) ([38d91ae](https://github.com/inovex/elements/commit/38d91aee9deaa6006fcbef27dd82e710377893d9))
+* **elements|ino-select:** prevent the `valueChange` event from triggering initially and triggering twice ([#749](https://github.com/inovex/elements/issues/749)) ([0495d50](https://github.com/inovex/elements/commit/0495d50a59d9e99775baa5e73679240e25e6a7fc))
+
+
+### Styling
+
+* **elements|ino-button:** make outlined background transparent ([#714](https://github.com/inovex/elements/issues/714)) ([fc99a8b](https://github.com/inovex/elements/commit/fc99a8bb094bb5e3464dc882d3fd98c53c901245))
+* **elements|ino-checkbox:** update design ([#695](https://github.com/inovex/elements/issues/695)) ([217d248](https://github.com/inovex/elements/commit/217d248a32818e7667addd86c1e925785c3d32c1))
+* **elements|ino-radio:** update design ([#699](https://github.com/inovex/elements/issues/699)) ([3375065](https://github.com/inovex/elements/commit/3375065de9c98acc63e61df4df726913cd2fba3d))
+* **elements|ino-range:** apply new design ([#712](https://github.com/inovex/elements/issues/712)) ([11ea415](https://github.com/inovex/elements/commit/11ea4155f33fa895222afab3dd1275ff434f4ab9))
+* **elements|ino-segment-button:** update design ([#705](https://github.com/inovex/elements/issues/705)) ([f1c03bb](https://github.com/inovex/elements/commit/f1c03bb051a8250fff25ec5d87c09125e47cd0cb))
+* **elements|ino-switch:** update design ([#697](https://github.com/inovex/elements/issues/697)) ([be20f31](https://github.com/inovex/elements/commit/be20f316493ad913892ce06ad1f05fb4f038c316))
+
+
+### Refactoring
+
+* **elements|ino-form-row:** remove component ([#718](https://github.com/inovex/elements/issues/718)) ([e609947](https://github.com/inovex/elements/commit/e609947e67e6c2dd634c618f7afae0e0cfcc4355))
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/inovex/elements/issues/669)) ([349b84d](https://github.com/inovex/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+* **elements|ino-switch:** remove color-scheme prop ([#717](https://github.com/inovex/elements/issues/717)) ([f051ef6](https://github.com/inovex/elements/commit/f051ef6f88b19578f3fa7eadcea2e8e04e9aca4a))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 ### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)

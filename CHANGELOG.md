@@ -1,4 +1,52 @@
 # Changelog
+## [8.0.0](https://github.com/BenPag/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-switch:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-form-row:** Since our input component provides a label on its own, this component is obsolete. That's why we've decided to remove it.
+* **elements|ino-range:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Features
+
+* **elements:** provide global stylesheet ([#733](https://github.com/BenPag/elements/issues/733)) ([73dfc9a](https://github.com/BenPag/elements/commit/73dfc9a442d779fa1b5303a147ae6c70d0e5ed27))
+* **elements-angular:** support disable state handling in ControlValueAccessors ([#664](https://github.com/BenPag/elements/issues/664)) ([18a02b3](https://github.com/BenPag/elements/commit/18a02b3d40c4a9654e911745ec89f738e7297a37))
+
+
+### Bug Fixes
+
+* **elements|ino-select:** prevent the `valueChange` event from triggering initially and triggering twice ([#749](https://github.com/BenPag/elements/issues/749)) ([0495d50](https://github.com/BenPag/elements/commit/0495d50a59d9e99775baa5e73679240e25e6a7fc))
+* changelog entries for new projects ([7a682d6](https://github.com/BenPag/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+* **elements|ino-datepicker:** run initial validation before load ([#700](https://github.com/BenPag/elements/issues/700)) ([38d91ae](https://github.com/BenPag/elements/commit/38d91aee9deaa6006fcbef27dd82e710377893d9))
+* **landingpage:** fix meta title typo ([#739](https://github.com/BenPag/elements/issues/739)) ([8aa32fd](https://github.com/BenPag/elements/commit/8aa32fdf2a77dc066c09faead6f66462de21a225))
+* **landingpage:** use correct base url ([15bbe62](https://github.com/BenPag/elements/commit/15bbe62f0e9f006027a9b4bf67a8768c3c51afe6))
+
+
+### Documentation
+
+* **storybook:** add dev documentation about custom properties ([#730](https://github.com/BenPag/elements/issues/730)) ([7b976bf](https://github.com/BenPag/elements/commit/7b976bfbb850170c9918ed2ec36c0e81a3144cb7))
+* **storybook:** add react starter guide ([#663](https://github.com/BenPag/elements/issues/663)) ([a1883ce](https://github.com/BenPag/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+* **storybook:** collapse component roots by default ([#734](https://github.com/BenPag/elements/issues/734)) ([90b4283](https://github.com/BenPag/elements/commit/90b4283aeba7c6ac26f870d19653b78ec27943cb))
+
+
+### Styling
+
+* **elements|ino-button:** make outlined background transparent ([#714](https://github.com/BenPag/elements/issues/714)) ([fc99a8b](https://github.com/BenPag/elements/commit/fc99a8bb094bb5e3464dc882d3fd98c53c901245))
+* **elements|ino-checkbox:** update design ([#695](https://github.com/BenPag/elements/issues/695)) ([217d248](https://github.com/BenPag/elements/commit/217d248a32818e7667addd86c1e925785c3d32c1))
+* **elements|ino-radio:** update design ([#699](https://github.com/BenPag/elements/issues/699)) ([3375065](https://github.com/BenPag/elements/commit/3375065de9c98acc63e61df4df726913cd2fba3d))
+* **elements|ino-range:** apply new design ([#712](https://github.com/BenPag/elements/issues/712)) ([11ea415](https://github.com/BenPag/elements/commit/11ea4155f33fa895222afab3dd1275ff434f4ab9))
+* **elements|ino-segment-button:** update design ([#705](https://github.com/BenPag/elements/issues/705)) ([f1c03bb](https://github.com/BenPag/elements/commit/f1c03bb051a8250fff25ec5d87c09125e47cd0cb))
+* **elements|ino-switch:** update design ([#697](https://github.com/BenPag/elements/issues/697)) ([be20f31](https://github.com/BenPag/elements/commit/be20f316493ad913892ce06ad1f05fb4f038c316))
+
+
+### Refactoring
+
+* **elements|ino-form-row:** remove component ([#718](https://github.com/BenPag/elements/issues/718)) ([e609947](https://github.com/BenPag/elements/commit/e609947e67e6c2dd634c618f7afae0e0cfcc4355))
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/BenPag/elements/issues/669)) ([349b84d](https://github.com/BenPag/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+* **elements|ino-switch:** remove color-scheme prop ([#717](https://github.com/BenPag/elements/issues/717)) ([f051ef6](https://github.com/BenPag/elements/commit/f051ef6f88b19578f3fa7eadcea2e8e04e9aca4a))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 

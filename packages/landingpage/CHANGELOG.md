@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/BenPag/elements/compare/v7.1.0...v8.0.0) (2022-10-05)
+
+
+### Bug Fixes
+
+* changelog entries for new projects ([7a682d6](https://github.com/BenPag/elements/commit/7a682d68d8170d11a733bda6283d68c1f0b3a1bf))
+* **landingpage:** fix meta title typo ([#739](https://github.com/BenPag/elements/issues/739)) ([8aa32fd](https://github.com/BenPag/elements/commit/8aa32fdf2a77dc066c09faead6f66462de21a225))
+* **landingpage:** use correct base url ([15bbe62](https://github.com/BenPag/elements/commit/15bbe62f0e9f006027a9b4bf67a8768c3c51afe6))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 
