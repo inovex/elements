@@ -24,7 +24,6 @@
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "publish:ci": "yarn lerna publish --amend --conventional-commits --no-changelog --no-git-tag-version --no-verify-access --yes",
     "version": "node scripts/bumprootversion.js && yarn changelog",
     "postversion": "git add -A"
   },
