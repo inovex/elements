@@ -4,15 +4,10 @@ name: 'Publish Release & Deploy'
 ## The version is available at elements.inovex.de/version/<TAG-NAME>
 
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - master
+  workflow_dispatch:
 
 jobs:
   build:
-    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'release')) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
