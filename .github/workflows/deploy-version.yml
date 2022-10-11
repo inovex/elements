@@ -25,37 +25,7 @@ jobs:
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "packages/**/dist/*"
+          artifacts: "packages/elements/dist/**/*.*"
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-
-  deploy:
-    needs: publish
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Checkout to gh-pages branch
-        with:
-          ref: gh-pages
-      - name: Download Storybook artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          name: storybook
-          path: version/${{ needs.publish.outputs.newTag }} # Push to the proper directory on gh pages branch.
-      - name: Provide latest symlink
-        run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
-        shell: bash
-
-      # Crawls the version dir on current gh-pages branch HEAD.
-      # Jq extracts the directory name of the versions and transfers it to an array of the form ["0.1.1", "0.2.1"].
-      - name: Update Hosted Versions
-        run: find ./version/* -type d -maxdepth 0 | cut -c 11- | jq -R -s -c 'split("\n")[:-1]' > ./hosted-versions.json
-
-      - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          branch: gh-pages
-          commit-message: Deploying version ${{ needs.publish.outputs.newTag }} 🚀
-          folder: '.'
-          clean: false # Important to keep other versions.
