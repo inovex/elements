@@ -16,6 +16,7 @@ const SRC_SVG_DIR = path.join(SRC_DIR, 'assets/ino-icon');
 function buildIconMetadata() {
   const svgFiles = fs
     .readdirSync(SRC_SVG_DIR)
+    .sort()
     .filter((f: string) => f.indexOf('.svg') > -1);
 
   const iconData: SvgMetadata[] = svgFiles.map((filename: string) => {
