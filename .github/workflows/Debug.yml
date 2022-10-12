@@ -1,0 +1,22 @@
+name: Debug
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-changes:
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@v3
+    with:
+      fetch-depth: 2
+  - name: Get changed files
+    id: changed-dirs
+    uses: tj-actions/changed-files@v32
+    with:
+      dir_names: true
+  - name: Check if storybook or elements was changed   
+    run: |
+      for file in ${{ steps.changed-dirs.outputs.all_changed_and_modified_files }}; do
+        echo "$file"
+      done
