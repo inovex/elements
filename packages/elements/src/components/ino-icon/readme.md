@@ -78,7 +78,7 @@ The component inherits styles, such as the text size, from the parent element. F
 
 ### Add icons
 
-If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `integrate:icons` script which takes care of the rest.
+If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
