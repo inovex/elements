@@ -16,26 +16,22 @@
         {
           "name": "slot",
           "text": "input - An `<ino-input>` element that will be controlled by this component"
-        },
-        {
-          "name": "slot",
-          "text": "default - A list of `<ino-option>` elements as options"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
         {
-          "name": "debounceTimeout",
+          "name": "debounce",
           "type": "number",
           "mutable": false,
-          "attr": "debounce-timeout",
+          "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Timeout of the debouncing mechanism used when filtering the options.",
+          "docs": "Number of ms the search function should be delayed after the user typed something.",
           "docsTags": [],
-          "default": "300",
+          "default": "100",
           "values": [
             {
               "type": "number"
@@ -50,9 +46,9 @@
           "mutable": false,
           "attr": "no-options-text",
           "reflectToAttr": false,
-          "docs": "Text to display when there are no options found.",
+          "docs": "Text to display when there are no options found, where `$` is the placeholder for the input of the user.",
           "docsTags": [],
-          "default": "'No Option'",
+          "default": "'Found No Results for \"$\"'",
           "values": [
             {
               "type": "string"
@@ -62,16 +58,37 @@
           "required": false
         },
         {
-          "name": "value",
-          "type": "any",
+          "name": "options",
+          "type": "KeyValue[] | string[]",
           "mutable": false,
-          "attr": "value",
           "reflectToAttr": false,
-          "docs": "Value of the autocomplete",
+          "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "KeyValue[]"
+            },
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string | { key: string; value: string; }",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The selected value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "{ key: string; value: string; }"
             }
           ],
           "optional": false,
@@ -82,26 +99,16 @@
       "events": [
         {
           "event": "valueChange",
-          "detail": "string",
+          "detail": "string | { key: string; value: string; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits in three ways:\n\n1. Clicking on an option\n2. Pressing `Enter` while an option is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the `<ino-options>`s.",
+          "docs": "Emits the list item the user clicked on either as a string or\na `{key: string; value: string}` object depending on the provided options.\n\nTrigger on two occasions:\n1. The user clicked on a list-item.\n2. The user types in a string that matches an option and blurs the input",
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-autocomplete-list-max-height",
-          "annotation": "prop",
-          "docs": "max height of option list"
-        }
-      ],
+      "styles": [],
       "slots": [
-        {
-          "name": "default",
-          "docs": "A list of `<ino-option>` elements as options"
-        },
         {
           "name": "input",
           "docs": "An `<ino-input>` element that will be controlled by this component"
@@ -110,12 +117,12 @@
       "parts": [],
       "listeners": [
         {
-          "event": "valueChange",
+          "event": "selection",
           "capture": false,
           "passive": false
         },
         {
-          "event": "keydown",
+          "event": "close",
           "capture": false,
           "passive": false
         }

@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -13,17 +13,21 @@ import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
         /**
-          * Timeout of the debouncing mechanism used when filtering the options.
+          * Number of ms the search function should be delayed after the user typed something.
          */
-        "debounceTimeout": number;
+        "debounce": number;
         /**
-          * Text to display when there are no options found.
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText": string;
         /**
-          * Value of the autocomplete
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "value": any;
+        "options": string[] | KeyValue[];
+        /**
+          * The selected value.
+         */
+        "value": string | KeyValue | null;
     }
     interface InoButton {
         /**
@@ -1783,21 +1787,25 @@ declare global {
 declare namespace LocalJSX {
     interface InoAutocomplete {
         /**
-          * Timeout of the debouncing mechanism used when filtering the options.
+          * Number of ms the search function should be delayed after the user typed something.
          */
-        "debounceTimeout"?: number;
+        "debounce"?: number;
         /**
-          * Text to display when there are no options found.
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText"?: string;
         /**
-          * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
+          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
          */
-        "onValueChange"?: (event: InoAutocompleteCustomEvent<string | null>) => void;
+        "onValueChange"?: (event: InoAutocompleteCustomEvent<string | { key: string; value: string }>) => void;
         /**
-          * Value of the autocomplete
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "value"?: any;
+        "options": string[] | KeyValue[];
+        /**
+          * The selected value.
+         */
+        "value"?: string | KeyValue | null;
     }
     interface InoButton {
         /**
