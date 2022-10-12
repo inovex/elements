@@ -34,6 +34,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: ./.github/workflows/artifacts-download
         with:
+          workflow-id: ${{ github.run_id }}
           download-core-artifacts: true
       - name: Prepare git config
         run: |
@@ -41,6 +42,7 @@ jobs:
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
       - uses: ./.github/workflows/artifacts-download
         with:
+          workflow-id: ${{ github.run_id }}
           download-core-artifacts: true
           skip-unpack: true
       - name: Create a GitHub release
