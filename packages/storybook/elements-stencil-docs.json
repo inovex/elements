@@ -1,7 +1,7 @@
 {
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.14.0",
+    "version": "2.17.1",
     "typescriptVersion": "4.5.4"
   },
   "components": [
@@ -831,48 +831,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--checkbox-container-color-unchecked",
-          "annotation": "prop",
-          "docs": "color of the checkbox container if unchecked"
-        },
-        {
-          "name": "--ino-checkbox-background-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox background if disabled"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color",
-          "annotation": "prop",
-          "docs": "primary color of the check mark"
-        },
-        {
-          "name": "--ino-checkbox-checkmark-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the check mark if disabled"
-        },
-        {
-          "name": "--ino-checkbox-color",
-          "annotation": "prop",
-          "docs": "primary color of the checkbox"
-        },
-        {
-          "name": "--ino-checkbox-color-active",
-          "annotation": "prop",
-          "docs": "color of the checkbox if active"
-        },
-        {
-          "name": "--ino-checkbox-color-hover",
-          "annotation": "prop",
-          "docs": "color of the checkbox on hover"
-        },
-        {
-          "name": "--ino-checkbox-text-color-disabled",
-          "annotation": "prop",
-          "docs": "color of the checkbox text if disabled"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -2590,69 +2549,6 @@
         {
           "name": "icon-opened",
           "docs": "The icon of the FAB button while being open"
-        }
-      ],
-      "parts": [],
-      "listeners": []
-    },
-    {
-      "filePath": "./src/components/ino-form-row/ino-form-row.tsx",
-      "fileName": "ino-form-row.tsx",
-      "tag": "ino-form-row",
-      "readme": "# ino-form-row\n\nA component that styles a form element as a row with a leading label.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-form-row label=\"<string>\" mandatory>\n  Any desired form element\n</ino-form-row>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <InoFormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </InoFormRow>\n      </>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FormRow: React.FunctionComponent<Components.InoFormRowAttributes> = props => {\n  const { label, mandatory } = props;\n\n  return <InoFormRow label={label} mandatory={mandatory}>{props.children}</InoFormRow>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <FormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </FormRow>\n      </>\n    )\n  }\n}\n```\n",
-      "usage": {},
-      "docs": "A component that styles a form element as a row with a leading label.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - Any element"
-        }
-      ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
-      "props": [
-        {
-          "name": "label",
-          "type": "string",
-          "mutable": false,
-          "attr": "label",
-          "reflectToAttr": false,
-          "docs": "The label for this form row which describes the form element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "mandatory",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "mandatory",
-          "reflectToAttr": false,
-          "docs": "An indicator which marks the contents of the form row as mandatory.\nIf you use this make sure you also check for the values in your application logic.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "Any element"
         }
       ],
       "parts": [],
@@ -4776,7 +4672,7 @@
       "tag": "ino-markdown-editor",
       "readme": "# ino-markdown-editor\n\n\n",
       "usage": {},
-      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * No support of image syntax. __Images are not allowed!__",
+      "docs": "The **Preview Mode** supports following actions:\n\n| Actions ||||\n|---|\n| Link | Blockquotes | Unordered list / Bullet list | Headline 1 |\n| Italic | Strikethrough | Ordered list / Numbered  list | Headline 2 |\n| Bold | Inline code | Task list |\n\nAdditionally, there are a lot of predefined\n[keyboard shortcuts](https://tiptap.dev/api/keyboard-shortcuts#predefined-keyboard-shortcuts)\nprovided by the underlying [tiptap](https://tiptap.dev/) editor.\n\nThe **Markdown Mode** supports all syntax of [CommonMark](https://commonmark.org/help/) with two exceptions:\n\n * Support of strikethrough syntax (`~~TextToStrike~~`)\n * Support of task list syntax (`- [x] MyToDoTask`)\n * No support of image syntax. __Images are not allowed!__",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
@@ -4818,7 +4714,7 @@
           "mutable": false,
           "attr": "view-mode",
           "reflectToAttr": false,
-          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default), `markdown` and `readonly`.\nThe `markdown` mode is made for advanced users that know the markdown syntax.",
+          "docs": "Sets the view mode of the editor.\nCan be changed between `preview` (default), `markdown` and `readonly`.\nThe `markdown` mode is made for advanced users that know the Markdown syntax.",
           "docsTags": [],
           "default": "'preview'",
           "values": [
@@ -6128,38 +6024,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-radio-active-color",
-          "annotation": "prop",
-          "docs": "color of the radio if active"
-        },
-        {
-          "name": "--ino-radio-checked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if checked"
-        },
-        {
-          "name": "--ino-radio-disabled-inner-circle-color",
-          "annotation": "prop",
-          "docs": "color of the inner circle if disabled"
-        },
-        {
-          "name": "--ino-radio-disabled-outer-circle-color",
-          "annotation": "prop",
-          "docs": "color of the outer circle if disabled"
-        },
-        {
-          "name": "--ino-radio-hover-color",
-          "annotation": "prop",
-          "docs": "color of the radio on hover"
-        },
-        {
-          "name": "--ino-radio-unchecked-color",
-          "annotation": "prop",
-          "docs": "color of the radio if unchecked"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6261,57 +6126,15 @@
       "filePath": "./src/components/ino-range/ino-range.tsx",
       "fileName": "ino-range.tsx",
       "tag": "ino-range",
-      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
-      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
+      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -6557,7 +6380,7 @@
           "text": "default - Label of the button"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6658,38 +6481,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-segment-button-checked-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if checked"
-        },
-        {
-          "name": "--ino-segment-button-checked-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow if checked"
-        },
-        {
-          "name": "--ino-segment-button-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if inactive"
-        },
-        {
-          "name": "--ino-segment-button-disabled-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button if disabled"
-        },
-        {
-          "name": "--ino-segment-button-hover-color",
-          "annotation": "prop",
-          "docs": "Color of the segment button on hover"
-        },
-        {
-          "name": "--ino-segment-button-hover-shadow",
-          "annotation": "prop",
-          "docs": "Color and shape of the shadow on hover"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
@@ -6712,7 +6504,7 @@
           "text": "default - One or more `ino-segment-button`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6751,7 +6543,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6760,7 +6562,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-select/ino-select.tsx",
@@ -7010,111 +6818,6 @@
           "passive": false
         }
       ]
-    },
-    {
-      "filePath": "./src/components/ino-sidebar/ino-sidebar.tsx",
-      "fileName": "ino-sidebar.tsx",
-      "tag": "ino-sidebar",
-      "readme": "# ino-sidebar\n\nThe ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n    .querySelector('ino-sidebar')\n    .addEventListener('openChange', (e) => console.log(`state of sidebar changed to ${e.detail}`);\n```\n\n```html\n<ino-sidebar>\n  <div class=\"sidebar-header\" slot=\"header\">\n    <ino-icon clickable icon=\"close-s\"></ino-icon>\n  </div>\n  <div class=\"sidebar-content\" slot=\"content\">\n    <ino-list>\n      <ino-list-item text=\"List item\"></ino-list-item>\n      <ino-list-item text=\"List item\"></ino-list-item>\n    </ino-list>\n  </div>\n</ino-sidebar>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    expanded: false\n  };\n\n  handleClick = () => {\n    this.setState((state) => ({\n      expanded: !state.expanded\n    }));\n  };\n\n  render() {\n    return (\n      <InoButton onClick={() => this.handleClick()}>Sidebar</InoButton>\n      <InoSidebar inoOpen={this.state.expanded}></InoSidebar>\n    )\n  }\n\n}\n```\n\n## Sidenotes\n\nThe empty `div` tag with the `tabindex=\"0\"` attribute as well as the `<div class=\"mdc-drawer-scrim\"/>` tag\nare indispensable for the sidebar to work properly. For further information,\nrefer to https://github.com/material-components/material-components-web/issues/5615 and\nhttps://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer.\n",
-      "usage": {},
-      "docs": "The ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "header - For the header element"
-        },
-        {
-          "name": "slot",
-          "text": "content - For the content"
-        }
-      ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
-      "props": [
-        {
-          "name": "alignRight",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "align-right",
-          "reflectToAttr": false,
-          "docs": "Aligns the sidebar to the right (true) or left (false) side",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "Name of the component",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "open",
-          "reflectToAttr": false,
-          "docs": "Expands the sidebar",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "openChange",
-          "detail": "any",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emits an event if the user expands or collapses the sidebar",
-          "docsTags": []
-        }
-      ],
-      "styles": [
-        {
-          "name": "--sidebar-width",
-          "annotation": "prop",
-          "docs": "The width of the open sidebar."
-        }
-      ],
-      "slots": [
-        {
-          "name": "content",
-          "docs": "For the content"
-        },
-        {
-          "name": "header",
-          "docs": "For the header element"
-        }
-      ],
-      "parts": [],
-      "listeners": []
     },
     {
       "filePath": "./src/components/ino-snackbar/ino-snackbar.tsx",
@@ -7472,48 +7175,6 @@
             }
           ],
           "optional": true,
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
           "required": false
         },
         {
