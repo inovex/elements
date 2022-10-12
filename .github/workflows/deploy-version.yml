@@ -14,24 +14,39 @@ jobs:
       - uses: ./.github/workflows/dependencies-install
       - run: npm config set scripts-prepend-node-path true
       - run: yarn build
+      - name: Upload all build artifacts
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-core-artifacts: true
+          upload-storybook-artifact: true
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      newTag: ${{ steps.tag_version.outputs.new_tag }}
+    steps:
+      - uses: actions/checkout@v3
       - name: Create version tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ./.github/workflows/artifacts-download
+        with:
+          download-core-artifacts: true
       - name: Prepare git config
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor}}@users.noreply.github.com"
-      - name: Create release artifacts
-        run: npm pack @inovex.de/elements
-             && npm pack @inovex.de/elements-angular
-             && npm pack @inovex.de/elements-react
-             && npm pack @inovex.de/elements-vue
+      - uses: ./.github/workflows/artifacts-download
+        with:
+          download-core-artifacts: true
+          skip-unpack: true
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ./*.tgz
+          artifacts: "packages/**/dist/*.zip,packages/elements-angular/elements/dist/*.zip"
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
