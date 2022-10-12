@@ -34,47 +34,57 @@ function buildIconMetadata() {
 const ICONS_JS_PATH = path.join(SRC_DIR, 'components', 'ino-icon', 'icons.js');
 
 function makeIconsJs(svgMetadata: SvgMetadata[]) {
-  const finalFile = `export default [\n${svgMetadata.map(({ name }) => ` '${name}',`).join('\n')}\n];`;
+  const finalFile = `export default [\n${svgMetadata
+    .map(({ name }) => ` '${name}',`)
+    .join('\n')}\n];`;
   fs.writeFileSync(ICONS_JS_PATH, finalFile);
 }
 
 const DST_ESM = path.join(SRC_SVG_DIR, 'index.esm.js');
 
 function makeIndexEsm(svgMetadata: SvgMetadata[]) {
-  const finalFile = `
-        ${svgMetadata
-          .map(
-            ({ filename, importName }) =>
-              `import ${importName} from '${BASE_PATH}/${filename}';`
-          )
-          .join('\n')}
-        export var ICON_PATHS = {
-        ${svgMetadata
-          .map(({ name, importName }) => `  '${name}': ${importName}`)
-          .join(',\n')}
-        };
-        export { ${svgMetadata
-          .map(({ importName }) => importName)
-          .join(', ')} };
-        `;
+  const imports = svgMetadata.map(
+    ({ filename, importName }) =>
+      `import ${importName} from '${BASE_PATH}/${filename}';`
+  );
+
+  const iconPathsProps = svgMetadata.map(
+    ({ name, importName }) => `\t'${name}': ${importName},`
+  );
+  const exports = svgMetadata.map(({ importName }) => `\t${importName},`);
+
+  const finalFile =
+    [
+      ...imports,
+      'export var ICON_PATHS = {',
+      ...iconPathsProps,
+      '}',
+      'export {',
+      ...exports,
+      '}',
+    ].join('\n') + '\n';
+
   fs.writeFileSync(DST_ESM, finalFile);
 }
 
 const DST_ESM_D_TS = path.join(SRC_SVG_DIR, 'index.esm.d.ts');
 
 function makeIndexEsmD(iconData: SvgMetadata[]) {
-  const finalDts = `
-        export type IconMap = {
-        ${iconData.map(({ name }) => `  '${name}': string;`).join('\n')}
-        };
-        export type IconNames = keyof IconMap;
-        export declare const ICON_PATHS: IconMap;
-        ${iconData
-          .map(
-            ({ importName }) => `export declare const ${importName}: string;`
-          )
-          .join('\n')}
-        `;
+  const iconTypes = iconData.map(({ name }) => `\t'${name}': string;`);
+  const declarations = iconData.map(
+    ({ importName }) => `export declare const ${importName}: string;`
+  );
+
+  const finalDts =
+    [
+      'export type IconMap = {',
+      ...iconTypes,
+      '};',
+      'export type IconNames = keyof IconMap;',
+      'export declare const ICON_PATHS: IconMap;',
+      ...declarations,
+    ].join('\n') + '\n';
+
   fs.writeFileSync(DST_ESM_D_TS, finalDts);
 }
 
