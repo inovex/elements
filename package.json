@@ -41,6 +41,7 @@
     "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "svgo": "^2.8.0",
+    "ts-node": "^10.9.1",
     "tslint-config-prettier": "^1.18.0",
     "yalc": "^1.0.0-pre.32"
   },
