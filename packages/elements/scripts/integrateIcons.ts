@@ -51,7 +51,7 @@ function makeIndexEsm(svgMetadata: SvgMetadata[]) {
   const iconPathsProps = svgMetadata.map(
     ({ name, importName }) => `\t'${name}': ${importName},`
   );
-  const exports = svgMetadata.map(({ importName }) => `\t${importName},`);
+  const exports = svgMetadata.map(({ importName }) => `  ${importName},`);
 
   const finalFile =
     [
@@ -70,7 +70,7 @@ function makeIndexEsm(svgMetadata: SvgMetadata[]) {
 const DST_ESM_D_TS = path.join(SRC_SVG_DIR, 'index.esm.d.ts');
 
 function makeIndexEsmD(iconData: SvgMetadata[]) {
-  const iconTypes = iconData.map(({ name }) => `\t'${name}': string;`);
+  const iconTypes = iconData.map(({ name }) => `  '${name}': string;`);
   const declarations = iconData.map(
     ({ importName }) => `export declare const ${importName}: string;`
   );
