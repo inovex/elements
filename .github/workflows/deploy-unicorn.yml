@@ -25,10 +25,13 @@ jobs:
         uses: tj-actions/changed-files@v32
         with:
           dir_names: true
+      - name: Join dir names to string
+        id: dir-join
+        run: echo "::set-output name=dirStr::${{ join(steps.changed-dirs.outputs.all_changed_and_modified_files) }}"
       - name: Check if storybook or elements was changed
         id: dir-check
-        if: contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'elements') &&
-          contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'storybook')
+        if: contains(steps.dir-join.outputs.dirStr, 'packages/elements') &&
+          contains(steps.dir-join.outputs.dirStr, 'packages/storybook')
         run: echo "::set-output name=hasChanges::true"
 
   deploy-unicorn:
