@@ -30,7 +30,7 @@ jobs:
         run: echo "::set-output name=dirStr::${{ join(steps.changed-dirs.outputs.all_changed_and_modified_files) }}"
       - name: Check if storybook or elements was changed
         id: dir-check
-        if: contains(steps.dir-join.outputs.dirStr, 'packages/elements') &&
+        if: contains(steps.dir-join.outputs.dirStr, 'packages/elements') ||
           contains(steps.dir-join.outputs.dirStr, 'packages/storybook')
         run: echo "::set-output name=hasChanges::true"
 
@@ -42,21 +42,21 @@ jobs:
       name: github-pages
       url: ${{ steps.set_env_id.outputs.url }}
     steps:
-    - name: Download Storybook artifact
-      uses: dawidd6/action-download-artifact@v2
-      with:
-        workflow: ${{ github.event.workflow_run.workflow_id }}
-        name: storybook
-        path: storybook-dist
+      - name: Download Storybook artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: storybook
+          path: storybook-dist
 
-    - name: Set environment url
-      id: set_env_id
-      run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch  }}"
+      - name: Set environment url
+        id: set_env_id
+        run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch  }}"
 
-    - name: Deploy to Github Pages 🚀
-      uses: JamesIves/github-pages-deploy-action@4
-      with:
-        folder: ./storybook-dist
-        target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
-        commit-message: Deploying unicorn ${{ github.event.workflow_run.head_branch  }} 🦄
-        force: true
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4
+        with:
+          folder: ./storybook-dist
+          target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
+          commit-message: Deploying unicorn ${{ github.event.workflow_run.head_branch  }} 🦄
+          force: true
