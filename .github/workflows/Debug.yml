@@ -15,8 +15,15 @@ jobs:
       uses: tj-actions/changed-files@v32
       with:
         dir_names: true
-    - name: Check if storybook or elements was changed
+    - name: List affected dirs
       run: |
         for file in ${{ steps.changed-dirs.outputs.all_changed_and_modified_files }}; do
           echo "$file"
         done
+    - name: echo dir join
+      run: echo ${{ join(steps.changed-dirs.outputs.all_changed_and_modified_files) }}
+    - name: Check if storybook or elements was changed
+      id: dir-check
+      if: contains(join(steps.changed-dirs.outputs.all_changed_and_modified_files), 'packages/elements') &&
+        contains(join(steps.changed-dirs.outputs.all_changed_and_modified_files), 'packages/storybook')
+      run: echo "hasChanges
