@@ -50,7 +50,7 @@ const templateFill = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
   () => html`
     <div class="ino-chip-story">
-      <ino-chip fill="solid">Chip Solid</ino-chip>
+      <ino-chip fill="solid">Chip Solid Me</ino-chip>
       <ino-chip fill="outline">Chip Outline</ino-chip>
     </div>
   `
