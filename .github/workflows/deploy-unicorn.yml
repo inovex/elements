@@ -27,8 +27,8 @@ jobs:
           dir_names: true
       - name: Check if storybook or elements was changed
         id: dir-check
-        if: contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'elements') &&
-          contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'storybook')
+        if: contains(join(steps.changed-dirs.outputs.all_changed_and_modified_files), 'packages/elements') ||
+          contains(join(steps.changed-dirs.outputs.all_changed_and_modified_files), 'packages/storybook')
         run: echo "::set-output name=hasChanges::true"
 
   deploy-unicorn:
