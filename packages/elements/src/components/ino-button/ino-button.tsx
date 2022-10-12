@@ -61,7 +61,7 @@ export class Button implements ComponentInterface {
    * * **outlined**: Buttons with medium highlighting. They contain actions that are important but are not the main action in an app.
    * * **text**: Typically used for less prominent actions, including those in dialogs and cards.
    */
-  @Prop() variant: Variants = 'filled';
+  @Prop() variant: Variants = 'text';
 
   /**
    * Makes the button text and container slightly smaller.
