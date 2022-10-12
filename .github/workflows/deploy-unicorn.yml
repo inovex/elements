@@ -1,61 +1,59 @@
 name: Deploy Unicorn
 
-## Manual workflow to build & deploy the storybook in a branch to github pages.
 ## The unicorn is public available at elements.inovex.de/unicorn/<BRANCH-NAME>.
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Test & Build"]
+    types: [completed]
+    branches-ignore: [master]
 
 jobs:
-  test:
+  check-changes:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      hasChanges: ${{ steps.dir-check.outputs.hasChanges }}
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn lint
-      - run: yarn test
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./.github/workflows/dependencies-install
-    - run: yarn build
-    - uses: ./.github/workflows/artifacts-upload
-      with:
-        upload-storybook-artifact: true
+        with:
+          fetch-depth: 2
+      - name: Set default output
+        run: echo "::set-output name=hasChanges::false"
+      - name: Get changed files
+        id: changed-dirs
+        uses: tj-actions/changed-files@v32
+        with:
+          dir_names: true
+      - name: Check if storybook or elements was changed
+        id: dir-check
+        if: contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'elements') &&
+          contains(steps.changed-dirs.outputs.all_changed_and_modified_files, 'storybook')
+        run: echo "::set-output name=hasChanges::true"
 
   deploy-unicorn:
     runs-on: ubuntu-latest
+    if: ${{ needs.check-changes.outputs.hasChanges == 'true' }}
+    needs: check-changes
     environment:
       name: github-pages
       url: ${{ steps.set_env_id.outputs.url }}
-
-    needs:
-      - test
-      - build
     steps:
-      - uses: actions/checkout@v3
-        name: Checkout to gh-pages branch
-        with:
-          ref: gh-pages
-      - uses: rlespinasse/github-slug-action@v3.x
+    - name: Download Storybook artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        workflow: ${{ github.event.workflow_run.workflow_id }}
+        name: storybook
+        path: storybook-dist
 
-      - uses: actions/download-artifact@v2
-        name: Download Storybook Artifact
-        with:
-          name: storybook
-          path: artifact
+    - name: Set environment url
+      id: set_env_id
+      run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch  }}"
 
-      - run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
-        name: Set environment url
-        id: set_env_id
-
-      - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          branch: gh-pages
-          folder: ./artifact
-          target-folder: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
-          commit-message: Deploying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
-
+    - name: Deploy to Github Pages 🚀
+      uses: JamesIves/github-pages-deploy-action@4
+      with:
+        folder: ./storybook-dist
+        target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
+        commit-message: Deploying unicorn ${{ github.event.workflow_run.head_branch  }} 🦄
+        force: true
