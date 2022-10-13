@@ -9,6 +9,16 @@ on:
     branches-ignore: [master]
 
 jobs:
+  printJob:
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
   check-changes:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
@@ -55,7 +65,7 @@ jobs:
         run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch  }}"
 
       - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-dist
           target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
