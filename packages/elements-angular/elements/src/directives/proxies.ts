@@ -10,27 +10,26 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoAutocomplete extends Components.InoAutocomplete {
   /**
-   * Emits in three ways:
+   * Emits the list item the user clicked on either as a string or
+a `{key: string; value: string}` object depending on the provided options.
 
-1. Clicking on an option
-2. Pressing `Enter` while an option is selected
-3. Entering a valid value and blurring the input element
-
-Contains one of the texts provided by the `<ino-options>`s. 
+Trigger on two occasions:
+1. The user clicked on a list-item.
+2. The user types in a string that matches an option and blurs the input 
    */
-  valueChange: EventEmitter<CustomEvent<string | null>>;
+  valueChange: EventEmitter<CustomEvent<string | { key: string; value: string }>>;
 
 }
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['debounceTimeout', 'noOptionsText', 'value']
+  inputs: ['debounce', 'noOptionsText', 'options', 'value']
 })
 @Component({
   selector: 'ino-autocomplete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['debounceTimeout', 'noOptionsText', 'value']
+  inputs: ['debounce', 'noOptionsText', 'options', 'value']
 })
 export class InoAutocomplete {
   protected el: HTMLElement;
@@ -344,27 +343,6 @@ export declare interface InoFabSet extends Components.InoFabSet {}
   inputs: ['dialDirection', 'leftRightLocation', 'openDial', 'topBottomLocation']
 })
 export class InoFabSet {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
-export declare interface InoFormRow extends Components.InoFormRow {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['label', 'mandatory']
-})
-@Component({
-  selector: 'ino-form-row',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['label', 'mandatory']
-})
-export class InoFormRow {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -942,14 +920,14 @@ export declare interface InoRange extends Components.InoRange {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
+  inputs: ['disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart'],
   methods: ['setValueToAriaTextMapperFn']
 })
 @Component({
   selector: 'ino-range',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart']
+  inputs: ['disabled', 'discrete', 'markers', 'max', 'min', 'name', 'ranged', 'step', 'value', 'valueEnd', 'valueStart']
 })
 export class InoRange {
   protected el: HTMLElement;
@@ -990,7 +968,13 @@ export class InoSegmentButton {
 }
 
 
-export declare interface InoSegmentGroup extends Components.InoSegmentGroup {}
+export declare interface InoSegmentGroup extends Components.InoSegmentGroup {
+  /**
+   * Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail. 
+   */
+  valueChange: EventEmitter<CustomEvent<any>>;
+
+}
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
@@ -1007,6 +991,7 @@ export class InoSegmentGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChange']);
   }
 }
 
@@ -1035,34 +1020,6 @@ export class InoSelect {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['valueChange']);
-  }
-}
-
-
-export declare interface InoSidebar extends Components.InoSidebar {
-  /**
-   * Emits an event if the user expands or collapses the sidebar 
-   */
-  openChange: EventEmitter<CustomEvent<any>>;
-
-}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['alignRight', 'name', 'open']
-})
-@Component({
-  selector: 'ino-sidebar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['alignRight', 'name', 'open']
-})
-export class InoSidebar {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['openChange']);
   }
 }
 
@@ -1131,13 +1088,13 @@ export declare interface InoSwitch extends Components.InoSwitch {
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['checked', 'colorScheme', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name']
 })
 @Component({
   selector: 'ino-switch',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'colorScheme', 'disabled', 'name']
+  inputs: ['checked', 'disabled', 'name']
 })
 export class InoSwitch {
   protected el: HTMLElement;

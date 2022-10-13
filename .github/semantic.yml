@@ -27,7 +27,6 @@ scopes:
   - elements|ino-dialog
   - elements|ino-fab
   - elements|ino-fab-set
-  - elements|ino-form-row
   - elements|ino-header
   - elements|ino-icon
   - elements|ino-icon-button
@@ -53,7 +52,6 @@ scopes:
   - elements|ino-segment-button
   - elements|ino-segment-group
   - elements|ino-select
-  - elements|ino-sidebar
   - elements|ino-snackbar
   - elements|ino-spinner
   - elements|ino-switch
@@ -78,7 +76,6 @@ scopes:
   - elements-angular|ino-dialog
   - elements-angular|ino-fab
   - elements-angular|ino-fab-set
-  - elements-angular|ino-form-row
   - elements-angular|ino-header
   - elements-angular|ino-icon
   - elements-angular|ino-icon-button
@@ -104,7 +101,6 @@ scopes:
   - elements-angular|ino-segment-button
   - elements-angular|ino-segment-group
   - elements-angular|ino-select
-  - elements-angular|ino-sidebar
   - elements-angular|ino-snackbar
   - elements-angular|ino-spinner
   - elements-angular|ino-switch
@@ -129,7 +125,6 @@ scopes:
   - elements-react|ino-dialog
   - elements-react|ino-fab
   - elements-react|ino-fab-set
-  - elements-react|ino-form-row
   - elements-react|ino-header
   - elements-react|ino-icon
   - elements-react|ino-icon-button
@@ -155,7 +150,6 @@ scopes:
   - elements-react|ino-segment-button
   - elements-react|ino-segment-group
   - elements-react|ino-select
-  - elements-react|ino-sidebar
   - elements-react|ino-snackbar
   - elements-react|ino-spinner
   - elements-react|ino-switch
@@ -180,7 +174,6 @@ scopes:
   - elements-vue|ino-dialog
   - elements-vue|ino-fab
   - elements-vue|ino-fab-set
-  - elements-vue|ino-form-row
   - elements-vue|ino-header
   - elements-vue|ino-icon
   - elements-vue|ino-icon-button
@@ -206,7 +199,6 @@ scopes:
   - elements-vue|ino-segment-button
   - elements-vue|ino-segment-group
   - elements-vue|ino-select
-  - elements-vue|ino-sidebar
   - elements-vue|ino-snackbar
   - elements-vue|ino-spinner
   - elements-vue|ino-switch
@@ -231,7 +223,6 @@ scopes:
   - storybook|ino-dialog
   - storybook|ino-fab
   - storybook|ino-fab-set
-  - storybook|ino-form-row
   - storybook|ino-header
   - storybook|ino-icon
   - storybook|ino-icon-button
@@ -257,7 +248,6 @@ scopes:
   - storybook|ino-segment-button
   - storybook|ino-segment-group
   - storybook|ino-select
-  - storybook|ino-sidebar
   - storybook|ino-snackbar
   - storybook|ino-spinner
   - storybook|ino-switch

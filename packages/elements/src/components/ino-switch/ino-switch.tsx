@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import {generateUniqueId} from '../../util/component-utils';
 import {renderHiddenInput} from '../../util/helpers';
-import {ColorScheme} from '../types';
 
 /**
  * @slot default - Label of the switch
@@ -46,13 +45,6 @@ export class Switch implements ComponentInterface {
    */
   @Prop() name?: string;
 
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() colorScheme: ColorScheme = 'primary';
 
   componentDidLoad() {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
@@ -83,7 +75,6 @@ export class Switch implements ComponentInterface {
 
     const hostClasses = classNames(
       'ino-switch',
-      `ino-switch--color-scheme-${this.colorScheme}`,
       {
         'ino-switch-disabled': this.disabled
       }

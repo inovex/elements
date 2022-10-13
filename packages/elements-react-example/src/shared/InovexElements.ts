@@ -30,7 +30,6 @@ export {
   InoTooltip,
   InoOption,
   InoDialog,
-  InoSidebar,
   InoNavItem,
   InoNavDrawer,
   InoHeader

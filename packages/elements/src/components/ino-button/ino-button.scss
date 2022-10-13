@@ -2,6 +2,7 @@
 @use 'base/animation';
 @use 'ino-spinner/ino-spinner' as spinner;
 @use 'base/theme';
+@use 'base/common';
 
 /* Colors: */
 $white: #ffffff;
@@ -71,26 +72,24 @@ ino-button {
 ino-button .button__variant--filled {
   background-color: $primary;
   border-color: transparent;
-  border-radius: $edged-border;
   color: white;
   text-align: center;
 
-  @include animation.border-radius(
-    ino-button-round-to-edge,
+  @include common.border-rounding-animation(
     $round-border,
     $edged-border,
-    0.15s
+    0.15s,
+    $round-to-edged: true
   );
 
   &:hover {
     background-color: $button_filled_hover-control_hover;
-    border-radius: $round-border;
     box-shadow: 0 2px 2px $border-focused;
-    @include animation.border-radius(
-      ino-button-edged-to-round,
-      $edged-border,
+    @include common.border-rounding-animation(
       $round-border,
-      0.15s
+      $edged-border,
+      0.15s,
+      $round-to-edged: false
     );
   }
   

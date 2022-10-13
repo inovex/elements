@@ -20,11 +20,12 @@
     "lint:fix": "lerna run lint:fix",
     "format": "yarn prettier --write '**/*.{js,jsx,ts,tsx,md,html,css,scss}'",
     "new:component": "node scripts/newComponent.js",
+    "prepare:release": "lerna version --conventional-commits --no-changelog --yes --no-git-tag-version",
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "publish:ci": "yarn lerna publish --conventional-commits --no-verify-access --create-release github --yes",
-    "version": "node scripts/bumprootversion.js",
+    "publish:ci": "yarn lerna publish --amend --conventional-commits --no-changelog --no-git-tag-version --no-verify-access --yes",
+    "version": "node scripts/bumprootversion.js && yarn changelog",
     "postversion": "git add -A"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "svgo": "^2.8.0",
+    "ts-node": "^10.9.1",
     "tslint-config-prettier": "^1.18.0",
     "yalc": "^1.0.0-pre.32"
   },
@@ -61,5 +63,5 @@
     ]
   },
   "name": "core",
-  "version": "7.1.0"
+  "version": "7.1.2"
 }
