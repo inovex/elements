@@ -20,6 +20,7 @@ jobs:
           fetch-depth: 2
       - name: Set default output
         run: echo "::set-output name=hasChanges::false"
+      - run: echo ":${{ github.ref }}"
       - name: Get changed files
         id: changed-dirs
         uses: tj-actions/changed-files@v32

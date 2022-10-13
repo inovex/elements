@@ -24,8 +24,6 @@ export default {
 
         document.addEventListener('valueChange', eventHandler);
         console.log('Test!');
-        console.log('Test!');
-        console.log('Test!');
 
         return () => {
           document.removeEventListener('valueChange', eventHandler);
