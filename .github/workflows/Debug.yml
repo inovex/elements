@@ -20,7 +20,7 @@ jobs:
         for file in ${{ steps.changed-dirs.outputs.all_changed_and_modified_files }}; do
           echo "$file"
         done
-    - name: echo dir join
+    - name: echo dir join test
       id: dir-join
       run: echo "::set-output name=dirStr::${{ join(steps.changed-dirs.outputs.all_changed_and_modified_files) }}"
     - name: Check if storybook or elements was changed
