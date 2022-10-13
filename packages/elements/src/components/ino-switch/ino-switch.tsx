@@ -140,17 +140,19 @@ export class Switch implements ComponentInterface {
           onMouseEnter={this.handleHover}
           onMouseLeave={this.handleHover}
         >
-          {this.iconTrailing && <ino-icon class="mdc-switch__icons" icon={this.iconTrailing} />}
+          {this.iconTrailing && (
+            <ino-icon class="mdc-switch__icons" icon={this.iconTrailing} />
+          )}
           <div class="mdc-switch__track" />
           <div class="mdc-switch__handle-track">
             <div class="mdc-switch__handle">
               <div class="mdc-switch__ripple" />
             </div>
-            <div class="mdc-switch__handle-2">
-              <div class="mdc-switch__ripple" />
-            </div>
           </div>
-          {this.iconLeading && <ino-icon class="mdc-switch__icons" icon={this.iconLeading} />}
+          
+          {this.iconLeading && (
+            <ino-icon class="mdc-switch__icons" icon={this.iconLeading} />
+          )}
         </button>
         <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>
           <slot />

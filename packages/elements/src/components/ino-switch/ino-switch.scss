@@ -11,12 +11,6 @@
     box-shadow: 0 0 0 5px theme.$primary-focus;
   }
 }
-@mixin set-second-handle {
-  background: theme.$n-7;
-  border-radius: 14px;
-  width: 48px;
-  height: 28px;
-}
 
 ino-switch {
   @include switch.theme(
@@ -54,14 +48,36 @@ ino-switch {
   }
 
   // custom disabled state styling
-  .mdc-switch:disabled {
+  .mdc-switch:disabled:not(.ino-switch-icon) {
+    opacity: 1;
     .mdc-switch__track {
       opacity: 1;
       border: 2px solid theme.$n-6;
       margin: -1.5px;
+      background: transparent;
+    }
+    .mdc-switch__handle::after {
+      background: theme.$n-6 !important;
+      opacity: 1;
+    }
+  }
+
+  .mdc-switch:disabled {
+    opacity: 1;
+    ino-icon {
+      &:first-child {
+        --icon-color: #{theme.$n-6} !important;
+      }
+      --icon-color: #{theme.$n-5};
+    }
+    .mdc-switch__track {
+      opacity: 1;
+      background: #f3f3f5;
     }
     .mdc-switch__handle::after {
       opacity: 1;
+      background: white !important;
+      box-shadow: 0px 1px 2px #0000000f;
     }
   }
 }
@@ -112,17 +128,16 @@ ino-switch .ino-switch-icon {
   align-items: center;
   height: 30px;
   cursor: pointer;
-
+  //TODO HOVER 
   &.ino-switch-icon__toRight {
-    .mdc-switch__handle-2 {
-      margin-left: 52px;
-      @include set-second-handle;
+    .handle-hover {
+      background: hotpink;
     }
   }
 
   &.ino-switch-icon__toLeft {
-    .mdc-switch__handle-2 {
-      @include set-second-handle;
+    .handle-hover {
+      background: hotpink;
     }
   }
   ino-icon {

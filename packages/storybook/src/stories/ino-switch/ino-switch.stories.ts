@@ -49,7 +49,7 @@ const templateIcons = new TemplateGenerator<Components.InoSwitch & { iconTrailin
       disabled="${args.disabled}"
       name="${args.name}"
       icon-trailing="code"
-      icon-leading="code_block"
+      icon-leading="web"
       @checkedChange="${eventHandler}"
     >
       Switch Label
