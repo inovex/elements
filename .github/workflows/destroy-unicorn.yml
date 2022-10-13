@@ -10,12 +10,12 @@ jobs:
     if: github.ref != 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: gh-pages
       - uses: rlespinasse/github-slug-action@v3.x
       - name: Delete Unicorn from github
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9
         with:
           branch: gh-pages
           message: Destroying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
