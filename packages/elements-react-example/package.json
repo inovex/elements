@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "vite",
-    "build": "vite build",
+    "build2": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
