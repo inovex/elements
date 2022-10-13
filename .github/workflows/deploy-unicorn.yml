@@ -32,8 +32,11 @@ jobs:
           path: last_commit_sha.txt
           key: last-commit-${{ github.event.workflow_run.head_branch }}-${{ github.run_id }}
           restore-keys: last-commit-${{ github.event.workflow_run.head_branch }}
+      - name: Provide fallback SHA
+        run: echo "sha=${{ github.sha }}" >> $GITHUB_OUTPUT
       - name: Read commit sha from file
         id: last-commit
+        if: steps.cache.outputs.cache-hit == 'true'
         run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
       - name: Save commit SHA to cache
         if: steps.cache.outputs.cache-hit != 'true' || steps.last-commit.outputs.sha != github.event.workflow_run.head_sha
@@ -44,9 +47,15 @@ jobs:
         uses: tj-actions/changed-files@v32
         with:
           base_sha: ${{ steps.last-commit.outputs.sha }}
+          sha: ${{ github.event.workflow_run.head_sha }}
           files: |
             packages/elements
             packages/storybook
+      - name: Print all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
+            echo "$file"
+          done
       - name: Check if storybook or elements was changed
         id: evaluation
         if: steps.changed-files.outputs.all_changed_and_modified_files != ''
