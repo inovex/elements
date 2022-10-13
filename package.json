@@ -59,7 +59,8 @@
       "**/@types/eslint",
       "**/@types/estree",
       "**/@types/eslint-scope",
-      "**/flatpickr"
+      "**/flatpickr",
+      "**/@mdx-js/*"
     ]
   },
   "name": "core",
