@@ -9,46 +9,55 @@ on:
     branches-ignore: [master]
 
 jobs:
-  printJob:
-    name: Print event
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-
-  check-changes:
+  changeDetection:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
-      hasChanges: ${{ steps.dir-check.outputs.hasChanges }}
+      hasChanges: ${{ steps.evaluation.outputs.hasChanges }}
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 2
-      - name: Set default output
-        run: echo "::set-output name=hasChanges::false"
-      - run: echo ":${{ github.ref }}"
+          ref: ${{ github.event.workflow_run.head_branch }}
+          fetch-depth: 0
+
+      # Cache handling to determine the last commit id of unicorn deployment
+      # 1. Load cache file
+      # 2. Read SHA from file
+      # 3. Check if commit SHA has changed
+      # 4. Update cache if necessary
+      - name: Get last commit info file from cache
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: last_commit_sha.txt
+          key: last-commit-${{ github.event.workflow_run.head_branch }}-${{ github.run_id }}
+          restore-keys: last-commit-${{ github.event.workflow_run.head_branch }}
+      - name: Read commit sha from file
+        id: last-commit
+        run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+      - name: Save commit SHA to cache
+        if: steps.cache.outputs.cache-hit != 'true' || steps.last-commit.outputs.sha != github.event.workflow_run.head_sha
+        run: echo "${{ github.event.workflow_run.head_sha }}" > last_commit_sha.txt
+
       - name: Get changed files
-        id: changed-dirs
+        id: changed-files
         uses: tj-actions/changed-files@v32
         with:
           dir_names: true
-      - name: Join dir names to string
-        id: dir-join
-        run: echo "::set-output name=dirStr::${{ join(steps.changed-dirs.outputs.all_changed_and_modified_files) }}"
+          base_sha: ${{ steps.last-commit.outputs.sha }}
+          with:
+            files: |
+              packages/elements
+              packages/storybook
       - name: Check if storybook or elements was changed
-        id: dir-check
-        if: contains(steps.dir-join.outputs.dirStr, 'packages/elements') ||
-          contains(steps.dir-join.outputs.dirStr, 'packages/storybook')
-        run: echo "::set-output name=hasChanges::true"
+        id: evaluation
+        if: steps.changed-files.outputs.all_changed_and_modified_files != ''
+        run: echo "hasChanges=true" >> $GITHUB_OUTPUT
 
   deploy-unicorn:
     runs-on: ubuntu-latest
-    if: ${{ needs.check-changes.outputs.hasChanges == 'true' }}
-    needs: check-changes
+    if: ${{ needs.changeDetection.outputs.hasChanges == 'true' }}
+    needs: changeDetection
     environment:
       name: github-pages
       url: ${{ steps.set_env_id.outputs.url }}
@@ -62,7 +71,7 @@ jobs:
 
       - name: Set environment url
         id: set_env_id
-        run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch  }}"
+        run: echo "url=https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch }}" >> $GITHUB_OUTPUT
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
