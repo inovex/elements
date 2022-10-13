@@ -43,12 +43,10 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v32
         with:
-          dir_names: true
           base_sha: ${{ steps.last-commit.outputs.sha }}
-          with:
-            files: |
-              packages/elements
-              packages/storybook
+          files: |
+            packages/elements
+            packages/storybook
       - name: Check if storybook or elements was changed
         id: evaluation
         if: steps.changed-files.outputs.all_changed_and_modified_files != ''
