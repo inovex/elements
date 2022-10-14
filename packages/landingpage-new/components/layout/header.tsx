@@ -11,6 +11,7 @@ export default function Header() {
           alt="inovex-elements Logo"
           width={48}
           height={55}
+          priority
         />
         <p className={styles.name}>elements</p>
       </div>
@@ -28,6 +29,7 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
+          priority
         />
       </a>
       <a
@@ -41,6 +43,7 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
+          priority
         />
       </a>
     </header>
