@@ -2,14 +2,14 @@ import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { InoTab, InoTabBar } from '@elements';
 import Image from 'next/image';
-import styles from './layout.module.css';
+import styles from './layout.module.scss';
 
 export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   return (
     <div className={styles.appContainer}>
-      <header className={styles.container}>
+      <header className={styles.header}>
         <div className={styles.logoContainer}>
           <Image
             src="/elements.svg"

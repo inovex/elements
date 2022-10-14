@@ -2,8 +2,10 @@
   margin: 32px 45px;
 }
 
-.container {
+.header {
+  height: 120px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
