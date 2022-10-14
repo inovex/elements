@@ -1,0 +1,14 @@
+.appContainer {
+  margin: 32px 45px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
