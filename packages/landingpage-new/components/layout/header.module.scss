@@ -1,0 +1,38 @@
+.header {
+  top: 0;
+  position: sticky;
+  background-color: white;
+  height: 120px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-rows: 1fr;
+  column-gap: 30px;
+  grid-template-areas:
+    "logo navbar github inovex";
+  align-items: center;
+}
+
+.logo {
+  grid-area: logo;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  p {
+    color: #003c7e;
+  }
+}
+
+
+.navbar {
+  grid-area: navbar;
+  justify-self: flex-end;
+}
+
+.github {
+  grid-area: github;
+}
+
+.inovex {
+  grid-area: inovex;
+}
