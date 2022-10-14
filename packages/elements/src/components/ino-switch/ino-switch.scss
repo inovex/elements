@@ -12,6 +12,17 @@
   }
 }
 
+@mixin set-hover-handle($margin-left: 0) {
+  .handle-hover {
+    height: 28px;
+    width: 48px;
+    border-radius: 14px;
+    position: absolute;
+    background: theme.$n-7;
+    margin-left: $margin-left;
+  }
+}
+
 ino-switch {
   @include switch.theme(
     (
@@ -128,17 +139,12 @@ ino-switch .ino-switch-icon {
   align-items: center;
   height: 30px;
   cursor: pointer;
-  //TODO HOVER 
   &.ino-switch-icon__toRight {
-    .handle-hover {
-      background: hotpink;
-    }
+    @include set-hover-handle($margin-left: 52px);
   }
 
   &.ino-switch-icon__toLeft {
-    .handle-hover {
-      background: hotpink;
-    }
+    @include set-hover-handle($margin-left: 4px);
   }
   ino-icon {
     position: absolute;
@@ -152,6 +158,9 @@ ino-switch .ino-switch-icon {
     }
   }
   &.mdc-switch {
+    .mdc-switch__track {
+      position: absolute;
+    }
     &--selected {
       ino-icon {
         &:first-child {

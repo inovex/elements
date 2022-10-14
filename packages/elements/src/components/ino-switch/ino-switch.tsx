@@ -149,7 +149,7 @@ export class Switch implements ComponentInterface {
               <div class="mdc-switch__ripple" />
             </div>
           </div>
-          
+          <div class="handle-hover" />
           {this.iconLeading && (
             <ino-icon class="mdc-switch__icons" icon={this.iconLeading} />
           )}
