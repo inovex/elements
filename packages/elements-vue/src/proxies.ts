@@ -9,8 +9,9 @@ import type { JSX } from '@inovex.de/elements';
 
 
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
-  'debounceTimeout',
+  'debounce',
   'noOptionsText',
+  'options',
   'value',
   'valueChange'
 ],
@@ -162,12 +163,6 @@ export const InoFabSet = /*@__PURE__*/ defineContainer<JSX.InoFabSet>('ino-fab-s
   'topBottomLocation',
   'leftRightLocation',
   'openDial'
-]);
-
-
-export const InoFormRow = /*@__PURE__*/ defineContainer<JSX.InoFormRow>('ino-form-row', undefined, [
-  'label',
-  'mandatory'
 ]);
 
 
@@ -390,7 +385,6 @@ export const InoRadioGroup = /*@__PURE__*/ defineContainer<JSX.InoRadioGroup>('i
 
 export const InoRange = /*@__PURE__*/ defineContainer<JSX.InoRange>('ino-range', undefined, [
   'disabled',
-  'colorScheme',
   'discrete',
   'markers',
   'name',
@@ -421,8 +415,10 @@ export const InoSegmentButton = /*@__PURE__*/ defineContainer<JSX.InoSegmentButt
 
 export const InoSegmentGroup = /*@__PURE__*/ defineContainer<JSX.InoSegmentGroup>('ino-segment-group', undefined, [
   'name',
-  'value'
-]);
+  'value',
+  'valueChange'
+],
+'value', 'v-value-change', 'valueChange');
 
 
 export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-select', undefined, [
@@ -440,14 +436,6 @@ export const InoSelect = /*@__PURE__*/ defineContainer<JSX.InoSelect>('ino-selec
   'valueChange'
 ],
 'value', 'v-value-change', 'valueChange');
-
-
-export const InoSidebar = /*@__PURE__*/ defineContainer<JSX.InoSidebar>('ino-sidebar', undefined, [
-  'alignRight',
-  'open',
-  'name',
-  'openChange'
-]);
 
 
 export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-snackbar', undefined, [

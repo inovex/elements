@@ -13,8 +13,8 @@ import {
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import { generateUniqueId } from '../../util/component-utils';
-import { renderHiddenInput } from '../../util/helpers';
+import {generateUniqueId} from '../../util/component-utils';
+import {renderHiddenInput} from '../../util/helpers';
 
 /**
  * @slot default - Label of the switch

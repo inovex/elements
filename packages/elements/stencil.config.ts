@@ -4,7 +4,6 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { vueOutputTarget } from './output-targets/vue-output-target';
 import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
-import {wrapIconsOutputTarget} from "./output-targets/wrap-icons";
 
 const angularDirectivesPath = '../elements-angular/elements/src/directives';
 const reactProxyPath = '../elements-react/src/components';
@@ -23,6 +22,7 @@ export const config: Config = {
     experimentalImportInjection: true,
   },
   globalScript: './src/util/import-fonts.ts',
+  globalStyle: './src/global/styles.scss',
   enableCache: true,
   sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
@@ -31,7 +31,6 @@ export const config: Config = {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
     },
-    wrapIconsOutputTarget,
     { type: 'docs-readme' },
     JsonDocsOutputTarget,
     react({
@@ -72,6 +71,7 @@ export const config: Config = {
             'ino-input',
             'ino-radio-group',
             'ino-range',
+            'ino-segment-group',
             'ino-select',
             'ino-textarea',
           ],

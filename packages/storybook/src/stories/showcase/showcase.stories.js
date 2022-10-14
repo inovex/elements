@@ -5,7 +5,6 @@ import libertyImg from '_local-assets/images/liberty.jpg';
 import snackbarDemoImg from '_local-assets/images/InoSnackbar_Demo_Image.png';
 import dialogDemoImg from '_local-assets/images/InoDialog_Demo_Image.jpeg';
 import navDrawerDemoImg from '_local-assets/images/InoNavDrawer_Demo_Image.jpeg';
-import sidebarDemoImg from '_local-assets/images/InoSidebar_Demo_Image.png';
 
 export default {
   title: 'Docs/Showcase',
@@ -142,14 +141,6 @@ export const components = () => /*html*/ `
             <h3>ino-nav-drawer</h3>
           </div>
         </ino-card>
-        <ino-card onClick="parent.location.href='./?path=/story/structure-ino-sidebar--default-usage'">
-          <div class="card-content--vertical" slot="content" style="padding-left: 20px; padding-right: 20px">
-            <ino-img src=${sidebarDemoImg} ino-ratio-width="1.783" style="box-shadow: 0 0 15px -5px rgba(0,0,0,0.7);" />
-          </div>
-          <div class="card-footer" slot="footer">
-            <h3>ino-sidebar</h3>
-          </div>
-        </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/structure-ino-tab-bar--default-usage'">
           <div class="card-content--vertical" slot="content">
             <ino-tab-bar>
@@ -214,16 +205,6 @@ export const components = () => /*html*/ `
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-datepicker</h3>
-          </div>
-        </ino-card>
-        <ino-card onClick="parent.location.href='./?path=/story/input-ino-form-row--default-usage'">
-          <div class="card-content--vertical" slot="content">
-            <ino-form-row ino-label="First Name">
-              <ino-input></ino-input>
-            </ino-form-row>
-          </div>
-          <div class="card-footer" slot="footer">
-            <h3>ino-form-row</h3>
           </div>
         </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/input-ino-input--default-usage'">
