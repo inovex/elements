@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  gap: 46px;
+}
+
+p.link {
+  letter-spacing: 0.21px;
+  color: #7275A1;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+p.linkActive {
+  color: #2C0CF9;
+}

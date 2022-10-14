@@ -1,11 +1,8 @@
-import {useRouter} from 'next/router';
-import {InoTab, InoTabBar} from '@elements';
 import Image from 'next/image';
 import styles from './header.module.scss';
+import Navbar from './navbar';
 
 export default function Header() {
-  const router = useRouter();
-
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -17,22 +14,9 @@ export default function Header() {
         />
         <p className={styles.name}>elements</p>
       </div>
-      <InoTabBar
-        className={styles.navbar}
-        activeTab={
-          router.pathname === '/' ? 0 : router.pathname === '/explore' ? 1 : 2
-        }
-      >
-        <InoTab label={'Home'} onInteracted={() => router.push('/')}></InoTab>
-        <InoTab
-          label={'Explore'}
-          onInteracted={() => router.push('explore')}
-        ></InoTab>
-        <InoTab
-          label={'Storybook'}
-          onInteracted={() => router.push('storybook')}
-        ></InoTab>
-      </InoTabBar>
+      <div className={styles.navbar}>
+        <Navbar />
+      </div>
       <a
         className={styles.github}
         target="_blank"
