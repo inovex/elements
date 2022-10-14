@@ -1,16 +1,6 @@
-import {ReactNode} from 'react';
-
-import dynamic from 'next/dynamic'
-import {InoButton, InoTab, InoTabBar} from "@inovex.de/elements-react";
-import {useRouter} from "next/router";
-
-const ImportedTabBar = dynamic(import("@inovex.de/elements-react").then(m => m.InoTabBar), {
-    ssr: false,
-}) as typeof InoTabBar;
-
-const ImportedInoTab = dynamic(() => import("@inovex.de/elements-react").then(m => m.InoTab), {
-    ssr: false,
-}) as typeof InoTab;
+import { ReactNode } from 'react';
+import { useRouter } from 'next/router';
+import { InoTab, InoTabBar } from '@elements';
 
 export default function Layout({children}: { children: ReactNode }) {
 
@@ -19,11 +9,11 @@ export default function Layout({children}: { children: ReactNode }) {
     return (
         <div>
             <header>
-                <ImportedTabBar activeTab={router.pathname === '/' ? 0 : router.pathname === '/explore' ? 1 : 2}>
-                    <ImportedInoTab label={"Home"} onInteracted={() => router.push('/')}></ImportedInoTab>
-                    <ImportedInoTab label={"Explore"} onInteracted={() => router.push('explore')}></ImportedInoTab>
-                    <ImportedInoTab label={"Storybook"} onInteracted={() => router.push('storybook')}></ImportedInoTab>
-                </ImportedTabBar>
+                <InoTabBar activeTab={router.pathname === '/' ? 0 : router.pathname === '/explore' ? 1 : 2}>
+                    <InoTab label={"Home"} onInteracted={() => router.push('/')}></InoTab>
+                    <InoTab label={"Explore"} onInteracted={() => router.push('explore')}></InoTab>
+                    <InoTab label={"Storybook"} onInteracted={() => router.push('storybook')}></InoTab>
+                </InoTabBar>
             </header>
             <main>{children}</main>
         </div>
