@@ -4,9 +4,9 @@ import Header from './layout/header';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className={styles.appContainer}>
+    <div>
       <Header></Header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </div>
   );
 }
