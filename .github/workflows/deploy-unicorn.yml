@@ -1,61 +1,93 @@
 name: Deploy Unicorn
 
-## Manual workflow to build & deploy the storybook in a branch to github pages.
 ## The unicorn is public available at elements.inovex.de/unicorn/<BRANCH-NAME>.
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Test & Build"]
+    types: [completed]
 
 jobs:
-  test:
+  changeDetection:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      hasChanges: ${{ steps.evaluation.outputs.hasChanges }}
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn lint
-      - run: yarn test
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+          fetch-depth: 0
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./.github/workflows/dependencies-install
-    - run: yarn build
-    - uses: ./.github/workflows/artifacts-upload
-      with:
-        upload-storybook-artifact: true
+      # Cache handling to determine the last commit id of unicorn deployment
+      # 1. Load cache file
+      # 2. Read SHA from file
+      # 3. Check if commit SHA has changed
+      # 4. Update cache if necessary
+      - name: Get last commit info file from cache
+        id: sha-cache
+        uses: actions/cache@v3
+        with:
+          path: last_commit_sha.txt
+          key: last-commit-${{ github.event.workflow_run.head_branch }}-${{ github.run_id }}
+          restore-keys: last-commit-${{ github.event.workflow_run.head_branch }}
+      - uses: andstor/file-existence-action@v1
+        id: check-commit-file
+        with:
+          files: "last_commit_sha.txt"
+      - name: Read commit sha from file
+        id: last-commit
+        if: steps.check-commit-file.outputs.files_exists
+        run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+      - name: Save commit SHA to cache
+        if: steps.last-commit.outputs.sha != github.event.workflow_run.head_sha
+        run: echo "${{ github.event.workflow_run.head_sha }}" > last_commit_sha.txt
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v32
+        with:
+          base_sha: ${{ steps.last-commit.outputs.sha || github.sha }}
+          sha: ${{ github.event.workflow_run.head_sha }}
+          files: |
+            packages/elements
+            packages/storybook
+      - name: Print all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
+            echo "$file"
+          done
+      - name: Check if storybook or elements was changed
+        id: evaluation
+        if: steps.changed-files.outputs.all_changed_and_modified_files != ''
+        run: echo "hasChanges=true" >> $GITHUB_OUTPUT
 
   deploy-unicorn:
     runs-on: ubuntu-latest
+    if: ${{ needs.changeDetection.outputs.hasChanges == 'true' }}
+    needs: changeDetection
     environment:
       name: github-pages
       url: ${{ steps.set_env_id.outputs.url }}
-
-    needs:
-      - test
-      - build
     steps:
       - uses: actions/checkout@v3
-        name: Checkout to gh-pages branch
         with:
           ref: gh-pages
-      - uses: rlespinasse/github-slug-action@v3.x
-
-      - uses: actions/download-artifact@v2
-        name: Download Storybook Artifact
+      - name: Download Storybook artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
           name: storybook
-          path: artifact
+          path: storybook-dist
 
-      - run: echo "::set-output name=url::https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG }}"
-        name: Set environment url
+      - name: Set environment url
         id: set_env_id
+        run: echo "url=https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch }}" >> $GITHUB_OUTPUT
 
       - name: Deploy to Github Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.7
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: ./artifact
-          target-folder: unicorn/${{ env.GITHUB_REF_NAME_SLUG }}
-          commit-message: Deploying unicorn ${{ env.GITHUB_REF_NAME_SLUG }} 🦄
-
+          folder: ./storybook-dist
+          target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
+          commit-message: Deploying unicorn ${{ github.event.workflow_run.head_branch  }} 🦄
+          force: true
