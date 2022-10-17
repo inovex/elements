@@ -22,7 +22,6 @@ const template = new TemplateGenerator<Components.InoChip>(
   (args) => html`
     <ino-chip
       class="customizable-chip"
-      color-scheme="${args.colorScheme}"
       disabled="${args.disabled}"
       fill="${args.fill}"
       removable="${args.removable}"
@@ -37,7 +36,6 @@ const template = new TemplateGenerator<Components.InoChip>(
 export const Playground = template.generatePlaygroundStory();
 
 Playground.args = {
-  colorScheme: 'default',
   disabled: false,
   fill: 'solid',
   removable: false,
@@ -58,35 +56,6 @@ const templateFill = new TemplateGenerator<Components.InoChip>(
 
 export const Fill = templateFill.generatePlaygroundStory();
 
-const templateColors = new TemplateGenerator<Components.InoChip>(
-  'ino-chip',
-  () => html`
-    <div class="ino-chip-story">
-      <ino-chip>Default</ino-chip>
-      <ino-chip color-scheme="primary">Primary</ino-chip>
-      <ino-chip color-scheme="secondary">Secondary</ino-chip>
-      <ino-chip color-scheme="success">Success</ino-chip>
-      <ino-chip color-scheme="warning">Warning</ino-chip>
-      <ino-chip color-scheme="error">Error</ino-chip>
-      <ino-chip color-scheme="light">Light</ino-chip>
-      <ino-chip color-scheme="dark">Dark</ino-chip>
-    </div>
-    <div class="ino-chip-story">
-      <ino-chip fill="outline">Outline</ino-chip>
-      <ino-chip fill="outline" color-scheme="primary">Primary</ino-chip>
-      <ino-chip fill="outline" color-scheme="secondary">Secondary</ino-chip>
-      <ino-chip fill="outline" color-scheme="success">Success</ino-chip>
-      <ino-chip fill="outline" color-scheme="warning">Warning</ino-chip>
-      <ino-chip fill="outline" color-scheme="error">Error</ino-chip>
-      <ino-chip fill="outline" color-scheme="light">Light</ino-chip>
-      <ino-chip fill="outline" color-scheme="dark">Dark</ino-chip>
-    </div>
-  `
-);
-export const Colors = templateColors.generateStoryForProp(
-  'colorScheme',
-  'primary'
-);
 
 const templateIcons = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
@@ -112,39 +81,6 @@ const templateIcons = new TemplateGenerator<Components.InoChip>(
  In order to include icons, use the `icon-leading` or `icon-trailing` slot
  */
 export const Icons = templateIcons.generatePlaygroundStory();
-
-const templateSelection = new TemplateGenerator<Components.InoChip>(
-  'ino-chip',
-  () => {
-    const chips = ['Chip 1', 'Chip 2', 'Chip 3'];
-
-    const handleClick = (chip: HTMLInoChipElement) => {
-      const allChips = document
-        .querySelector('#chip-selection')
-        .getElementsByTagName('ino-chip');
-      Array.from(allChips).forEach((chip) => (chip.colorScheme = 'default'));
-      chip.colorScheme = 'primary';
-    };
-
-    return html`
-      <div id="chip-selection" class="ino-chip-story">
-        ${chips.map(
-          (value, index) => html` <ino-chip
-            color-scheme="${index === 0 ? 'primary' : 'default'}"
-            value="${value}"
-            @chipClicked="${(ev) => handleClick(ev.target)}"
-          >
-            ${value}
-          </ino-chip>`
-        )}
-      </div>
-    `;
-  }
-);
-/**
- * In order to make a ino-chip selection, use the `chipClicked` event on click.
- */
-export const Selection = templateSelection.generatePlaygroundStory();
 
 const templateFilter = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
