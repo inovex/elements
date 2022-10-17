@@ -15,8 +15,16 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+        with:
+          prefix: CI_
+
       - name: Dump GitHub context
         run: echo '${{ toJSON(github) }}'
+
+      - name: Dump ENV context
+        run: echo '${{ toJSON(env) }}'
 
       # Cache handling to determine the last commit id of unicorn deployment
       # 1. Load cache file
@@ -28,8 +36,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_commit_sha.txt
-          key: last-commit-${{ github.ref_name }}-${{ github.run_id }}
-          restore-keys: last-commit-${{ github.ref_name }}
+          key: last-commit-${{ env.CI_GITHUB_REF_NAME }}-${{ github.run_id }}
+          restore-keys: last-commit-${{ env.CI_GITHUB_REF_NAME }}
 
       - name: Dump cache
         run: echo '${{ toJSON(steps.check-commit-file.outputs) }}'
@@ -84,7 +92,7 @@ jobs:
         with:
           pattern: '[!*();:@&=+$,\/?%#[]]*'
           flags: 'g'
-          string: ${{ github.ref_name }}
+          string: ${{ env.CI_GITHUB_REF_NAME }}
           replace-with: ''
 
       - name: Deploy to Github Pages 🚀
