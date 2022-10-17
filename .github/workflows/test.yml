@@ -40,3 +40,6 @@ jobs:
         upload-core-artifacts: true
         upload-example-artifacts: true
         upload-storybook-artifact: true
+
+  deploy-unicorn:
+    uses: ./.github/workflows/deploy-unicorn.yml

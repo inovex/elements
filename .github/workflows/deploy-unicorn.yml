@@ -3,21 +3,16 @@ name: Deploy Unicorn
 ## The unicorn is public available at elements.inovex.de/unicorn/<BRANCH-NAME>.
 
 on:
-  workflow_run:
-    workflows: ["Test & Build"]
-    types: [completed]
-    branches-ignore: [master]
+  workflow_call:
 
 jobs:
   changeDetection:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     outputs:
       hasChanges: ${{ steps.evaluation.outputs.hasChanges }}
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.workflow_run.head_branch }}
           fetch-depth: 0
 
       - name: Dump GitHub context
@@ -34,34 +29,35 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_commit_sha.txt
-          key: last-commit-${{ github.event.workflow_run.head_branch }}-${{ github.run_id }}
-          restore-keys: last-commit-${{ github.event.workflow_run.head_branch }}
-      - uses: andstor/file-existence-action@v1
-        id: check-commit-file
-        with:
-          files: "last_commit_sha.txt"
+          key: last-commit-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: last-commit-${{ github.ref_name }}
+
+      - name: Dump cache
+        id: github_context_step
+        run: echo '${{ toJSON(steps.check-commit-file.outputs) }}'
+
       - name: Read commit sha from file
         id: last-commit
-        if: steps.check-commit-file.outputs.files_exists
         run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
       - name: Save commit SHA to cache
-        if: steps.last-commit.outputs.sha != github.event.workflow_run.head_sha
-        run: echo "${{ github.event.workflow_run.head_sha }}" > last_commit_sha.txt
+        if: steps.last-commit.outputs.sha != github.sha
+        run: echo "${{ github.sha }}" > last_commit_sha.txt
 
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v32
         with:
-          base_sha: ${{ steps.last-commit.outputs.sha || github.sha }}
-          sha: ${{ github.event.workflow_run.head_sha }}
+          base_sha: ${{ steps.last-commit.outputs.sha }}
           files: |
             packages/elements
             packages/storybook
+
       - name: Print all changed files
         run: |
           for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
             echo "$file"
           done
+
       - name: Check if storybook or elements was changed
         id: evaluation
         if: steps.changed-files.outputs.all_changed_and_modified_files != ''
@@ -79,9 +75,8 @@ jobs:
         with:
           ref: gh-pages
       - name: Download Storybook artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
           name: storybook
           path: storybook-dist
 
@@ -91,7 +86,7 @@ jobs:
         with:
           pattern: '[!*();:@&=+$,\/?%#[]]*'
           flags: 'g'
-          string: ${{ github.event.workflow_run.head_branch }}
+          string: ${{ github.ref_name }}
           replace-with: ''
 
       - name: Deploy to Github Pages 🚀
