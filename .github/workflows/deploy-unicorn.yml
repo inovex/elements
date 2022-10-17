@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_commit_sha.txt
-          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ hashFiles(last_commit_sha.txt) }}
+          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ hashFiles('last_commit_sha.txt') }}
           restore-keys: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}
 
       - name: Dump cache
