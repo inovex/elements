@@ -41,7 +41,7 @@ jobs:
         run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
       - name: Save commit SHA to cache
         if: steps.last-commit.outputs.sha != github.sha
-        run: echo "${{ github.event.workflow_run.head_sha }}" > last_commit_sha.txt
+        run: echo "${{ github.sha }}" > last_commit_sha.txt
 
       - name: Get changed files
         id: changed-files
