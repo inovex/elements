@@ -9,8 +9,9 @@ import type { JSX } from '@inovex.de/elements';
 
 
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
-  'debounceTimeout',
+  'debounce',
   'noOptionsText',
+  'options',
   'value',
   'valueChange'
 ],
