@@ -14,17 +14,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
-        with:
-          prefix: CI_
-
-      - name: Dump GitHub context
-        run: echo '${{ toJSON(github) }}'
-
-      - name: Dump ENV context
-        run: echo '${{ toJSON(env) }}'
 
       # Cache handling to determine the last commit id of unicorn deployment
       # 1. Load cache file
@@ -36,11 +27,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_commit_sha.txt
-          key: last-commit-${{ env.CI_GITHUB_REF_NAME }}-${{ github.run_id }}
-          restore-keys: last-commit-${{ env.CI_GITHUB_REF_NAME }}
+          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ github.run_id }}
+          restore-keys: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}
 
       - name: Dump cache
-        run: echo '${{ toJSON(steps.check-commit-file.outputs) }}'
+        run: echo '${{ toJSON(steps.sha-cache.outputs) }}'
 
       - name: Read commit sha from file
         id: last-commit
@@ -59,10 +50,7 @@ jobs:
             packages/storybook
 
       - name: Print all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_and_modified_files }}; do
-            echo "$file"
-          done
+        run: echo '${{ toJSON(steps.changed-files.outputs.all_changed_and_modified_files) }}'
 
       - name: Check if storybook or elements was changed
         id: evaluation
@@ -80,25 +68,19 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: gh-pages
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+
       - name: Download Storybook artifact
         uses: actions/download-artifact@v3
         with:
           name: storybook
           path: storybook-dist
 
-      - name: Create valid dir name
-        id: dir-regex
-        uses: frabert/replace-string-action@v2.0
-        with:
-          pattern: '[!*();:@&=+$,\/?%#[]]*'
-          flags: 'g'
-          string: ${{ env.CI_GITHUB_REF_NAME }}
-          replace-with: ''
-
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-dist
-          target-folder: unicorn/${{ steps.dir-regex.outputs.replaced  }}
-          commit-message: Deploying unicorn ${{ steps.dir-regex.outputs.replaced  }} 🦄
+          target-folder: unicorn/${{ env.GITHUB_REF_NAME_SLUG_URL  }}
+          commit-message: Deploying unicorn ${{ env.GITHUB_REF_NAME_SLUG_URL  }} 🦄
           force: true
