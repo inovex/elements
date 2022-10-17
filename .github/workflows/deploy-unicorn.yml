@@ -85,7 +85,7 @@ jobs:
         id: dir-regex
         uses: frabert/replace-string-action@v2.0
         with:
-          pattern: "[!*'();:@&=+$,\/?%#[]]*"
+          pattern: '[!*();:@&=+$,\/?%#[]]*'
           flags: 'g'
           string: ${{ github.event.workflow_run.head_branch }}
           replace-with: ''
