@@ -6,10 +6,6 @@ inputs:
   workflow-id:
     description: 'ID of workflow to download artifacts from'
     required: false
-  skip-unpack:
-    description: 'Choose to skip unpacking the downloaded artifact(s)'
-    required: false
-    default: 'false'
   download-core-artifacts:
     description: 'Download core artifacts?'
     required: false
@@ -35,7 +31,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements
         path: ${{ inputs.core-artifacts-base-path }}/elements/dist/
 
@@ -44,7 +39,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-react
         path: ${{ inputs.core-artifacts-base-path }}/elements-react/dist/
 
@@ -53,7 +47,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-angular
         path: ${{ inputs.core-artifacts-base-path }}/elements-angular/elements/dist/
 
@@ -62,7 +55,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-vue
         path: ${{ inputs.core-artifacts-base-path }}/elements-vue/dist/
 
@@ -71,7 +63,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-angular-example
         path: ${{ inputs.example-artifacts-base-path }}/angular
 
@@ -80,7 +71,6 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-react-example
         path: ${{ inputs.example-artifacts-base-path }}/react
 
@@ -89,6 +79,5 @@ runs:
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ inputs.workflow-id }}
-        skip_unpack: ${{ inputs.skip-unpack }}
         name: elements-vue-example
         path: ${{ inputs.example-artifacts-base-path }}/vue
