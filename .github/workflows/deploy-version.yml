@@ -64,15 +64,9 @@ jobs:
         working-directory: packages/elements-vue
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Create release artifacts
-        run: npm pack @inovex.de/elements
-             && npm pack @inovex.de/elements-angular
-             && npm pack @inovex.de/elements-react
-             && npm pack @inovex.de/elements-vue
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ./*.tgz
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
