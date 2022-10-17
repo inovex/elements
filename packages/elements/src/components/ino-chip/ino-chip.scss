@@ -1,11 +1,8 @@
 @use 'base/mdc-customize';
 @use '@material/chips';
 @use "@material/chips/styles";
-@use 'base/theme';
+@use '../base/new-theme' as theme;
 
-$n-3: #7275A1;
-$n-7: #EDEFF5;
-$primary: #2C02FF;
 $border-focused: rgba(45, 93, 255, 0.3);
 
 $chip-outlined-color-enabled: transparent;
@@ -15,20 +12,20 @@ $chip-solid-color-enabled: #E8EDFF;
 $chip-solid-color-hover: #D7E0FE;
 
 $chip-color-focus: #2D5DFF4D;
-$chip-color-font: $primary;
+$chip-color-font: theme.$primary;
 
 $icon-size: 16px;
 
-ino-chip { 
+ino-chip {
 
   // base styling
   .ino-chip-container {
     @include chips.ripple-color(transparent);
-    @include chips.trailing-action-color($primary);
+    @include chips.trailing-action-color(theme.$primary);
     @include chips.trailing-action-ripple-size(0px);
-    @include chips.text-label-color($primary);
-    @include chips.icon-color($primary);
-    @include chips.checkmark-color($primary);
+    @include chips.text-label-color(theme.$primary);
+    @include chips.icon-color(theme.$primary);
+    @include chips.checkmark-color(theme.$primary);
     @include chips.height(24px);
     transition: ease-in-out 0.15s;
 
@@ -54,7 +51,7 @@ ino-chip {
       justify-content: center;
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
-     
+
       .ino-chip-close-icon {
         --ino-icon-width: 9px;
         --ino-icon-height: 9px;
@@ -71,10 +68,10 @@ ino-chip {
     @include chips.outline-style(solid);
     @include chips.outline-width(1px);
     @include chips.container-color($chip-outlined-color-enabled);
-    @include chips.outline-color($primary);
+    @include chips.outline-color(theme.$primary);
 
     ino-icon {
-      --icon-color: #{$primary};
+      --icon-color: #{theme.$primary};
     }
 
     &:hover, &:focus {
@@ -87,7 +84,7 @@ ino-chip {
     @include chips.container-color($chip-solid-color-enabled);
 
     ino-icon {
-      --icon-color: $primary;
+      --icon-color: theme.$primary;
     }
 
     &:hover, &:focus {
@@ -97,13 +94,13 @@ ino-chip {
 
   // disabled styling
   &.ino-chip-disabled .ino-chip-container {
-    @include chips.container-color($n-7);
-    @include chips.text-label-color($n-3);
+    @include chips.container-color(theme.$n-7);
+    @include chips.text-label-color(theme.$n-3);
     @include chips.outline-width(0);
     pointer-events: none;
 
     ino-icon {
-      --icon-color: $n-3;
+      --icon-color: theme.$n-3;
     }
   }
 

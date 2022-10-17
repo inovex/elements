@@ -177,13 +177,13 @@ Listen to this event to hide or destroy this chip.
 
 @ProxyCmp({
   defineCustomElementFn: undefined,
-  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 @Component({
   selector: 'ino-chip',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['colorScheme', 'disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
+  inputs: ['disabled', 'fill', 'label', 'removable', 'selectable', 'selected', 'value']
 })
 export class InoChip {
   protected el: HTMLElement;

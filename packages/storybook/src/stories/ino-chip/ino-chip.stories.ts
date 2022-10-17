@@ -82,36 +82,6 @@ const templateIcons = new TemplateGenerator<Components.InoChip>(
  */
 export const Icons = templateIcons.generatePlaygroundStory();
 
-const templateSelection = new TemplateGenerator<Components.InoChip>(
-  'ino-chip',
-  () => {
-    const chips = ['Chip 1', 'Chip 2', 'Chip 3'];
-
-    const handleClick = (chip: HTMLInoChipElement) => {
-      const allChips = document
-        .querySelector('#chip-selection')
-        .getElementsByTagName('ino-chip');
-    };
-
-    return html`
-      <div id="chip-selection" class="ino-chip-story">
-        ${chips.map(
-          (value, index) => html` <ino-chip
-            value="${value}"
-            @chipClicked="${(ev) => handleClick(ev.target)}"
-          >
-            ${value}
-          </ino-chip>`
-        )}
-      </div>
-    `;
-  }
-);
-/**
- * In order to make a ino-chip selection, use the `chipClicked` event on click.
- */
-export const Selection = templateSelection.generatePlaygroundStory();
-
 const templateFilter = new TemplateGenerator<Components.InoChip>(
   'ino-chip',
   () => {
