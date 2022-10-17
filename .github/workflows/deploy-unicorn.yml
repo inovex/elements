@@ -1,5 +1,4 @@
 name: Deploy Unicorn
-
 ## The unicorn is public available at elements.inovex.de/unicorn/<BRANCH-NAME>.
 
 on:
@@ -27,7 +26,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: last_commit_sha.txt
-          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ github.run_id }}
+          key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ hashFiles(last_commit_sha.txt) }}
           restore-keys: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}
 
       - name: Dump cache
@@ -35,16 +34,23 @@ jobs:
 
       - name: Read commit sha from file
         id: last-commit
+        if: steps.sha-cache.outputs.cache-hit == 'true'
         run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+
       - name: Save commit SHA to cache
         if: steps.last-commit.outputs.sha != github.sha
         run: echo "${{ github.sha }}" > last_commit_sha.txt
+
+      - name : Get last master commit
+        id: prev-commit
+        if: env.GITHUB_REF_NAME_SLUG_URL == 'master'
+        run: echo "sha=$(git rev-parse master~1)" >> $GITHUB_OUTPUT
 
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v32
         with:
-          base_sha: ${{ steps.last-commit.outputs.sha }}
+          base_sha: ${{ steps.last-commit.outputs.sha || github.event.pull_request.base.sha || steps.prev-commit.outputs.sha }}
           files: |
             packages/elements
             packages/storybook
