@@ -69,7 +69,7 @@ jobs:
     needs: changeDetection
     environment:
       name: github-pages
-      url: ${{ steps.set_env_id.outputs.url }}
+      url: https://elements.inovex.de/unicorn/${{ steps.dir-regex.outputs.replaced }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -81,14 +81,19 @@ jobs:
           name: storybook
           path: storybook-dist
 
-      - name: Set environment url
-        id: set_env_id
-        run: echo "url=https://elements.inovex.de/unicorn/${{ github.event.workflow_run.head_branch }}" >> $GITHUB_OUTPUT
+      - name: Create valid dir name
+        id: dir-regex
+        uses: frabert/replace-string-action@v2.0
+        with:
+          pattern: "[!*'();:@&=+$,\/?%#[]]*"
+          flags: 'g'
+          string: ${{ github.event.workflow_run.head_branch }}
+          replace-with: ''
 
       - name: Deploy to Github Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./storybook-dist
-          target-folder: unicorn/${{ github.event.workflow_run.head_branch  }}
-          commit-message: Deploying unicorn ${{ github.event.workflow_run.head_branch  }} 🦄
+          target-folder: unicorn/${{ steps.dir-regex.outputs.replaced  }}
+          commit-message: Deploying unicorn ${{ steps.dir-regex.outputs.replaced  }} 🦄
           force: true
