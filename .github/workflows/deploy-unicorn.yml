@@ -69,7 +69,7 @@ jobs:
     needs: changeDetection
     environment:
       name: github-pages
-      url: https://elements.inovex.de/unicorn/${{ steps.dir-regex.outputs.replaced }}
+      url: https://elements.inovex.de/unicorn/${{ env.GITHUB_REF_NAME_SLUG_URL }}
     steps:
       - uses: actions/checkout@v3
         with:
