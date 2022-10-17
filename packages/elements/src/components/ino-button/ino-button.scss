@@ -5,7 +5,7 @@
 @use 'base/common';
 
 /* Colors: */
-$white: #ffffff;
+$white: #000;
 $n-7: #edeff5;
 $n-3: #7275a1;
 
@@ -92,7 +92,7 @@ ino-button .button__variant--filled {
       $round-to-edged: false
     );
   }
-  
+
 
   &:focus {
     background-color: $button_filled_pressed;
