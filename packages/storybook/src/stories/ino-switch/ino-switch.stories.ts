@@ -16,20 +16,16 @@ export default {
     checked: false,
     disabled: false,
     name: '',
-    iconTrailing: '',
-    iconLeading: ''
   },
 } as Meta<Components.InoSwitch>;
 
-const template = new TemplateGenerator<Components.InoSwitch & { iconTrailing: string; iconLeading: string }>(
+const template = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
   args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
       name="${args.name}"
-      icon-trailing="${args.iconTrailing}"
-      icon-leading="${args.iconLeading}"
       @checkedChange="${eventHandler}"
     >
       Switch Label
@@ -41,21 +37,25 @@ export const Playground = template.generatePlaygroundStory();
 export const Checked = template.generateStoryForProp('checked', true);
 export const Disabled = template.generateStoryForProp('disabled', true);
 
-const templateIcons = new TemplateGenerator<Components.InoSwitch & { iconTrailing: string; iconLeading: string }>(
+const templateIconsSlots = new TemplateGenerator<Components.InoSwitch>(
   'ino-switch',
   args => html`
     <ino-switch
       checked="${args.checked}"
       disabled="${args.disabled}"
       name="${args.name}"
-      icon-trailing="code"
-      icon-leading="web"
       @checkedChange="${eventHandler}"
     >
+      <ino-icon slot="leading" icon="offboarding"></ino-icon>
       Switch Label
+      <ino-icon slot="trailing" icon="onboarding"></ino-icon>
     </ino-switch>
   `
 );
-export const SwitchIcons = templateIcons.generatePlaygroundStory();
-withIconControl(Playground, 'iconTrailing', '');
-withIconControl(Playground, 'iconLeading', '');
+
+/**
+ * Can be used to toggle between to state disabled by two icons.
+ * Use the `leading` and `trailing` slots.
+ * Works best with `<ino-icon>`.
+ */
+export const ToggleIcon = templateIconsSlots.generatePlaygroundStory();

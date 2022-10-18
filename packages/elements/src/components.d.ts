@@ -1130,14 +1130,6 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Sets the prepended icon
-         */
-        "iconLeading"?: string;
-        /**
-          * Sets the appended icon
-         */
-        "iconTrailing"?: string;
-        /**
           * The name of this element.
          */
         "name"?: string;
@@ -3005,14 +2997,6 @@ declare namespace LocalJSX {
           * Disables this element.
          */
         "disabled"?: boolean;
-        /**
-          * Sets the prepended icon
-         */
-        "iconLeading"?: string;
-        /**
-          * Sets the appended icon
-         */
-        "iconTrailing"?: string;
         /**
           * The name of this element.
          */

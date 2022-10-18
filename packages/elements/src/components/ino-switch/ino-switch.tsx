@@ -8,13 +8,12 @@ import {
   h,
   Host,
   Prop,
-  State,
   Watch,
 } from '@stencil/core';
 import classNames from 'classnames';
 
-import {generateUniqueId} from '../../util/component-utils';
-import {renderHiddenInput} from '../../util/helpers';
+import { generateUniqueId, hasSlotContent } from '../../util/component-utils';
+import { renderHiddenInput } from '../../util/helpers';
 
 /**
  * @slot default - Label of the switch
@@ -56,20 +55,17 @@ export class Switch implements ComponentInterface {
    */
   @Prop() name?: string;
 
-  /**
-   * Sets the prepended icon
-   */
-  @Prop() iconLeading?: string;
-
-  /**
-   * Sets the appended icon
-   */
-  @Prop() iconTrailing?: string;
-
-  @State() isShown = false;
-
   componentDidLoad() {
     this.mdcSwitch = new MDCSwitch(this.mdcSwitchEl);
+
+    const hasLeadingSlot = hasSlotContent(this.el, 'leading');
+    const hasTrailingSlot = hasSlotContent(this.el, 'trailing');
+
+    if (hasLeadingSlot != hasTrailingSlot) {
+      console.error(
+        '[ino-switch] Two icons (leading & trailing) are required in order to use the icon switch.'
+      );
+    }
   }
 
   disconnectedCallback() {
@@ -89,37 +85,47 @@ export class Switch implements ComponentInterface {
     this.checkedChange.emit(!this.checked);
   };
 
-  private handleHover = (e: MouseEvent) => {
-    e.stopPropagation();
-
-    if (this.disabled) return;
-
-    if (e.type === 'mouseenter') {
-      this.isShown = true;
-    } else {
-      this.isShown = false;
-    }
-  };
-
   render() {
     const { el, name, disabled } = this;
 
     const hiddenInput = renderHiddenInput(el, name, '', disabled);
     hiddenInput.checked = this.checked;
 
-    const hostClasses = classNames('ino-switch', {
-      'ino-switch-disabled': this.disabled,
-      'ino-switch-icon-disabled': this.disabled,
-    });
+    const hasLeadingSlot = hasSlotContent(this.el, 'leading');
+    const hasTrailingSlot = hasSlotContent(this.el, 'trailing');
+
+    const hostClasses = classNames(
+      'ino-switch',
+      hasLeadingSlot || hasTrailingSlot
+        ? 'ino-switch__icon-toggle'
+        : 'ino-switch__default',
+      {
+        'ino-switch-disabled': this.disabled,
+        'ino-switch-icon-disabled': this.disabled,
+      }
+    );
 
     const switchClasses = classNames(
       'mdc-switch',
+      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected',
       {
-        'ino-switch-icon': this.iconTrailing && this.iconLeading,
-        'ino-switch-icon__toRight': this.isShown && !this.checked,
-        'ino-switch-icon__toLeft': this.isShown && this.checked,
-      },
-      this.checked ? 'mdc-switch--selected' : 'mdc-switch--unselected'
+        'mdc-switch': true,
+        'ino-switch__icon-toggle': hasLeadingSlot && hasTrailingSlot,
+      }
+    );
+
+    const iconClasses = classNames('mdc-switch__icons', 'switch-icon');
+
+    const leadingIconClasses = classNames(
+      iconClasses,
+      'switch-icon__leading',
+      !this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
+    );
+
+    const trailingIconClasses = classNames(
+      iconClasses,
+      'switch-icon__trailing',
+      this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
     );
 
     return (
@@ -137,11 +143,11 @@ export class Switch implements ComponentInterface {
           type="button"
           role="switch"
           aria-checked={this.checked}
-          onMouseEnter={this.handleHover}
-          onMouseLeave={this.handleHover}
         >
-          {this.iconTrailing && (
-            <ino-icon class="mdc-switch__icons" icon={this.iconTrailing} />
+          {hasLeadingSlot && (
+            <span class={leadingIconClasses}>
+              <slot name={'leading'} />
+            </span>
           )}
           <div class="mdc-switch__track" />
           <div class="mdc-switch__handle-track">
@@ -149,9 +155,10 @@ export class Switch implements ComponentInterface {
               <div class="mdc-switch__ripple" />
             </div>
           </div>
-          <div class="handle-hover" />
-          {this.iconLeading && (
-            <ino-icon class="mdc-switch__icons" icon={this.iconLeading} />
+          {hasTrailingSlot && (
+            <span class={trailingIconClasses}>
+              <slot name={'trailing'} />
+            </span>
           )}
         </button>
         <label htmlFor={this.switchId} onClick={(e) => e.stopPropagation()}>

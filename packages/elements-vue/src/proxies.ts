@@ -462,8 +462,6 @@ export const InoSwitch = /*@__PURE__*/ defineContainer<JSX.InoSwitch>('ino-switc
   'checked',
   'disabled',
   'name',
-  'iconLeading',
-  'iconTrailing',
   'checkedChange'
 ],
 'checked', 'v-checked-change', 'checkedChange');

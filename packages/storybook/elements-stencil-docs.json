@@ -2638,7 +2638,6 @@
         "ino-input-file",
         "ino-markdown-editor",
         "ino-snackbar",
-        "ino-switch",
         "ino-tab",
         "ino-table-header-cell"
       ],
@@ -2675,9 +2674,6 @@
           "ino-icon"
         ],
         "ino-snackbar": [
-          "ino-icon"
-        ],
-        "ino-switch": [
           "ino-icon"
         ],
         "ino-tab": [
@@ -7161,14 +7157,8 @@
       ],
       "encapsulation": "none",
       "dependents": [],
-      "dependencies": [
-        "ino-icon"
-      ],
-      "dependencyGraph": {
-        "ino-switch": [
-          "ino-icon"
-        ]
-      },
+      "dependencies": [],
+      "dependencyGraph": {},
       "props": [
         {
           "name": "checked",
@@ -7198,38 +7188,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "iconLeading",
-          "type": "string",
-          "mutable": false,
-          "attr": "icon-leading",
-          "reflectToAttr": false,
-          "docs": "Sets the prepended icon",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "iconTrailing",
-          "type": "string",
-          "mutable": false,
-          "attr": "icon-trailing",
-          "reflectToAttr": false,
-          "docs": "Sets the appended icon",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
             }
           ],
           "optional": true,
