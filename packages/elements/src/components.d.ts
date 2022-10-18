@@ -141,10 +141,6 @@ export namespace Components {
     }
     interface InoChip {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component.
-         */
-        "colorScheme": ColorScheme | 'default';
-        /**
           * Disables all interactions.
          */
         "disabled": boolean;
@@ -1926,10 +1922,6 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface InoChip {
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component.
-         */
-        "colorScheme"?: ColorScheme | 'default';
         /**
           * Disables all interactions.
          */

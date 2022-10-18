@@ -12,7 +12,7 @@ import {
 import classNames from 'classnames';
 import { hasSlotContent } from '../../util/component-utils';
 
-import { ChipSurface, ColorScheme } from '../types';
+import { ChipSurface } from '../types';
 
 /**
  * @slot default - The label text of the chip
@@ -26,12 +26,6 @@ import { ChipSurface, ColorScheme } from '../types';
 })
 export class Chip implements ComponentInterface {
   @Element() el!: HTMLInoChipElement;
-
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   */
-  @Prop() colorScheme: ColorScheme | 'default' = 'default';
 
   /**
    * Disables all interactions.
@@ -137,8 +131,6 @@ export class Chip implements ComponentInterface {
   }
 
   render() {
-    const colorSchemeClass = `ino-chip--color-scheme-${this.colorScheme}`;
-
     const leadingSlotHasContent = hasSlotContent(this.el, 'icon-leading');
     const trailingSlotHasContent = hasSlotContent(this.el, 'icon-trailing');
 
@@ -146,7 +138,6 @@ export class Chip implements ComponentInterface {
     const hasTrailingGraphic = trailingSlotHasContent || this.removable;
 
     const hostClasses = classNames({
-      [colorSchemeClass]: true,
       'ino-chip--solid': this.fill === 'solid',
       'ino-chip--outline': this.fill === 'outline',
       'ino-chip-disabled': this.disabled,

@@ -845,7 +845,7 @@
       "filePath": "./src/components/ino-chip/ino-chip.tsx",
       "fileName": "ino-chip.tsx",
       "tag": "ino-chip",
-      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\nconst chip = document.querySelector('ino-chip');\nchip.addEventListener('chipClicked', (e) =>\n  console.log('This chip was clicked:', e.detail),\n)\nchip.addEventListener('chipRemoved', (e) =>\n  console.log('This chip was removed:', e.detail),\n);\n```\n\n```html\n\n<ino-chip\n  color-scheme=\"<string>\"\n  disabled\n  fill=\"<string>\"\n  label=\"<string>\"\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot=icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1\n\n```tsx\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  fruits = [\"apple\", \"banana\", \"cherry\"];\n\n  handleChipClicked(e: CustomEvent<string>) {\n    console.log(\"User clicked the fruit: \", e.detail);\n  }\n\n  render() {\n    return (\n      <div>\n        {fruits.map(fruit => (\n            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>\n          )\n        )}\n      </div>\n    );\n  }\n}\n```\n\n#### Example #2\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet = () => {\n\n  const fruits = [\"apple\", \"banana\", \"cherry\"];\n  const [selectedFruit, setSelectedFruit] = useState < string > (\"apple\");\n\n  return (\n    <div>\n      {fruits.map(fruit => (\n        <InoChip\n          value={fruit}\n          label={fruit}\n          selectable\n          selected={fruit === selectedFruit}\n          onChipClicked={(e) => setSelectedFruit(fruit)}\n        />\n      ))}\n    </div>\n  );\n};\n```\n\n## Additional Hints\n\n**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n### Selection\nA set of chips can be used to implement a single or multi selection from a handful of options.\nHave a look at the **Selection** and **Filter** stories.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. \nThe component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
+      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\nconst chip = document.querySelector('ino-chip');\nchip.addEventListener('chipClicked', (e) =>\n  console.log('This chip was clicked:', e.detail),\n)\nchip.addEventListener('chipRemoved', (e) =>\n  console.log('This chip was removed:', e.detail),\n);\n```\n\n```html\n\n<ino-chip\n  disabled\n  fill=\"<string>\"\n  label=\"<string>\"\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot=icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1\n\n```tsx\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  fruits = [\"apple\", \"banana\", \"cherry\"];\n\n  handleChipClicked(e: CustomEvent<string>) {\n    console.log(\"User clicked the fruit: \", e.detail);\n  }\n\n  render() {\n    return (\n      <div>\n        {fruits.map(fruit => (\n            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>\n          )\n        )}\n      </div>\n    );\n  }\n}\n```\n\n#### Example #2\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet = () => {\n\n  const fruits = [\"apple\", \"banana\", \"cherry\"];\n  const [selectedFruit, setSelectedFruit] = useState < string > (\"apple\");\n\n  return (\n    <div>\n      {fruits.map(fruit => (\n        <InoChip\n          value={fruit}\n          label={fruit}\n          selectable\n          selected={fruit === selectedFruit}\n          onChipClicked={(e) => setSelectedFruit(fruit)}\n        />\n      ))}\n    </div>\n  );\n};\n```\n\n## Additional Hints\n\n**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n### Selection\nA set of chips can be used to implement a single or multi selection from a handful of options.\nHave a look at the **Selection** and **Filter** stories.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. \nThe component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
       "usage": {},
       "docs": "The ino-chip component displays the provided content and icon as a chip.",
       "docsTags": [
@@ -873,52 +873,6 @@
         ]
       },
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",

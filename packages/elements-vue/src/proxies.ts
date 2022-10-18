@@ -68,7 +68,6 @@ export const InoCheckbox = /*@__PURE__*/ defineContainer<JSX.InoCheckbox>('ino-c
 
 
 export const InoChip = /*@__PURE__*/ defineContainer<JSX.InoChip>('ino-chip', undefined, [
-  'colorScheme',
   'disabled',
   'fill',
   'label',
