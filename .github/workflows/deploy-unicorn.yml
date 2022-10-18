@@ -33,10 +33,9 @@ jobs:
 
       - name: Read commit sha from file
         id: last-commit
-        run: |
-          test -f last_commit_sha.txt
-            && echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
-            || echo "sha=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_OUTPUT
+        run: test -f last_commit_sha.txt
+          && echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+          || echo "sha=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_OUTPUT
 
       - name: Save commit SHA to cache
         run: echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
