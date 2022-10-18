@@ -41,6 +41,6 @@ jobs:
         upload-example-artifacts: true
         upload-storybook-artifact: true
 
-  deploy-unicorn:
+  unicorn:
     needs: [build]
     uses: ./.github/workflows/deploy-unicorn.yml

@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.head_ref || github.ref }}
           fetch-depth: 0
+
       - name: Inject slug/short variables
         uses: rlespinasse/github-slug-action@v4
 
@@ -29,28 +31,21 @@ jobs:
           key: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}-${{ hashFiles('last_commit_sha.txt') }}
           restore-keys: last-commit-${{ env.GITHUB_REF_NAME_SLUG_URL }}
 
-      - name: Dump cache
-        run: echo '${{ toJSON(steps.sha-cache.outputs) }}'
-
       - name: Read commit sha from file
         id: last-commit
-        if: steps.sha-cache.outputs.cache-hit == 'true'
-        run: echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+        run: |
+          test -f last_commit_sha.txt
+            && echo "sha=$(cat last_commit_sha.txt)" >> $GITHUB_OUTPUT
+            || echo "sha=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_OUTPUT
 
       - name: Save commit SHA to cache
-        if: steps.last-commit.outputs.sha != github.sha
-        run: echo "${{ github.sha }}" > last_commit_sha.txt
-
-      - name : Get last master commit
-        id: prev-commit
-        if: env.GITHUB_REF_NAME_SLUG_URL == 'master'
-        run: echo "sha=$(git rev-parse master~1)" >> $GITHUB_OUTPUT
+        run: echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
 
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v32
         with:
-          base_sha: ${{ steps.last-commit.outputs.sha || github.event.pull_request.base.sha || steps.prev-commit.outputs.sha }}
+          base_sha: ${{ steps.last-commit.outputs.sha }}
           files: |
             packages/elements
             packages/storybook
@@ -63,7 +58,7 @@ jobs:
         if: steps.changed-files.outputs.all_changed_and_modified_files != ''
         run: echo "hasChanges=true" >> $GITHUB_OUTPUT
 
-  deploy-unicorn:
+  deploy:
     runs-on: ubuntu-latest
     if: ${{ needs.changeDetection.outputs.hasChanges == 'true' }}
     needs: changeDetection
