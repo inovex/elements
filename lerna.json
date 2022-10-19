@@ -5,6 +5,7 @@
   ],
   "version": "7.1.2",
   "npmClient": "yarn",
+  "useNx": true,
   "useWorkspaces": true,
   "command": {
     "version": {
