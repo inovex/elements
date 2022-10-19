@@ -1,18 +1,7 @@
-import {
-  Component,
-  ComponentInterface,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Prop,
-  State,
-  Watch,
-} from '@stencil/core';
-import classNames from 'classnames';
-import { SvgParser } from '../../util/svg-parser';
-import { getSvgContent, inoiconContent } from './request';
-import { getUrl } from './utils';
+import {Component, ComponentInterface, Event, EventEmitter, h, Host, Prop, State, Watch,} from '@stencil/core';
+import {SvgParser} from '../../util/svg-parser';
+import {getSvgContent, inoiconContent} from './request';
+import {getUrl} from './utils';
 
 /**
  * This component is based on the ionicons (https://github.com/ionic-team/ionicons)
@@ -109,10 +98,6 @@ export class Icon implements ComponentInterface {
       return;
     }
 
-    const hostClasses = classNames({
-      'ino-icon--color-scheme-primary': !this.colorSecondary,
-    });
-
     let iconProps = {};
     if (this.clickable) {
       iconProps = {
@@ -124,7 +109,7 @@ export class Icon implements ComponentInterface {
     }
 
     return (
-      <Host class={hostClasses}>
+      <Host class={'ino-icon--color-scheme-primary'}>
         <i innerHTML={this.svgContent} {...iconProps} />
       </Host>
     );

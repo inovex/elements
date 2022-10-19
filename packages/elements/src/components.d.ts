@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -458,10 +458,6 @@ export namespace Components {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -848,9 +844,9 @@ export namespace Components {
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme": 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -1096,10 +1092,6 @@ export namespace Components {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme": ColorScheme;
-        /**
           * The height of this spinner (default = 40)
          */
         "height": number;
@@ -1301,9 +1293,9 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
-        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme": 'primary' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -2256,10 +2248,6 @@ declare namespace LocalJSX {
          */
         "autoFocus"?: boolean;
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * Disables this element.
          */
         "disabled"?: boolean;
@@ -2677,9 +2665,9 @@ declare namespace LocalJSX {
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
          */
-        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -2960,10 +2948,6 @@ declare namespace LocalJSX {
     }
     interface InoSpinner {
         /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
-         */
-        "colorScheme"?: ColorScheme;
-        /**
           * The height of this spinner (default = 40)
          */
         "height"?: number;
@@ -3176,9 +3160,9 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
          */
-        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
+        "colorScheme"?: 'primary' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */

@@ -6,18 +6,17 @@
   /**
     * @prop --ino-icon-width: Width of the icon
     * @prop --ino-icon-height: Height of the icon
-    * @prop --ino-icon-color-primary: Primary (default) color of the icon
-    * @prop --ino-icon-color-secondary: Secondary color of the icon
+    * @prop --ino-icon-color: Color of the icon
    */
 
   --icon-width: var(--ino-icon-width, 1em);
   --icon-height: var(--ino-icon-height, 1em);
-}
-
-:host(.ino-icon--color-scheme-primary) {
   --icon-color: var(
-    --ino-icon-color-primary,
-    var(--ino-global-primary-color, #{theme.color(primary, base)})
+      --ino-icon-color,
+      var(
+          --ino-icon-color-primary,
+          #{theme.color(primary, base)}
+      )
   );
 }
 
