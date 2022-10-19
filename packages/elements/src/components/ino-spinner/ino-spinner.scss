@@ -30,10 +30,7 @@ ino-spinner {
     position: relative;
   }
 
-  &.ino-spinner--color-scheme-primary {
-    @include set-spinner-color(theme.color(primary));
-  }
-
+  @include set-spinner-color(theme.color(primary));
 
   // Modal
   &.ino-spinner--modal {
