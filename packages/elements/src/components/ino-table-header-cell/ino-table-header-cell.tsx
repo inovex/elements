@@ -217,6 +217,7 @@ export class InoTableHeaderCell implements ComponentInterface {
             trigger="focus click"
             placement="bottom-start"
             controlled
+            color-scheme="transparent"
             visible={this.searchActivated}
             onVisibleChanged={e => (this.searchActivated = e.detail)}
             ref={popover =>
