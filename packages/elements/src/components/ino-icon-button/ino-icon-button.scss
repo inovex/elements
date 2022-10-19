@@ -21,12 +21,12 @@ ino-icon-button {
   $icon-color: var(--ino-icon-button-icon-color, theme.color(dark));
   $background-color: var(--ino-icon-button-background-color, transparent);
   $icon-active-color: var(
-    --ino-icon-button-icon-active-color,
-    theme.color(dark)
+      --ino-icon-button-icon-active-color,
+      theme.color(dark)
   );
   $background-active-color: var(
-    --ino-icon-button-background-active-color,
-    theme.color(dark)
+      --ino-icon-button-background-active-color,
+      theme.color(dark)
   );
 
   ino-icon {
@@ -57,46 +57,44 @@ ino-icon-button {
     }
   }
 
-  
-    &.ino-icon-button--color-scheme-primary {
-      --ino-icon-button-icon-color: #{theme.color(primary)};
-      --ino-icon-button-icon-active-color: #{theme.color(primary)};
-      --ino-icon-button-background-active-color: #{theme.color(primary)};
 
-      &.ino-icon-button--filled {
-        --ino-icon-button-icon-color: #{theme.color(primary, contrast)};
-        --ino-icon-button-icon-active-color: #{theme.color(
+  --ino-icon-button-icon-color: #{theme.color(primary)};
+  --ino-icon-button-icon-active-color: #{theme.color(primary)};
+  --ino-icon-button-background-active-color: #{theme.color(primary)};
+
+  &.ino-icon-button--filled {
+    --ino-icon-button-icon-color: #{theme.color(primary, contrast)};
+    --ino-icon-button-icon-active-color: #{theme.color(
             primary,
             contrast
           )};
-        --ino-icon-button-background-color: #{theme.color(primary)};
-        --ino-icon-button-background-active-color: #{theme.color(
+    --ino-icon-button-background-color: #{theme.color(primary)};
+    --ino-icon-button-background-active-color: #{theme.color(
             primary,
             contrast
           )};
-      }
-    }
   }
+}
 
-  // Disabled
+// Disabled
 
-  .ino-icon-button--disabled.ino-icon-button-filled {
-    --ino-icon-button-background-color: var(
+.ino-icon-button--disabled.ino-icon-button-filled {
+  --ino-icon-button-background-color: var(
       --ino-icon-button-background-disabled-color,
       #{theme.color(dark, light)}
-    );
+  );
 
-    ino-icon {
-      --ino-icon-button-icon-color: #fff;
-    }
+  ino-icon {
+    --ino-icon-button-icon-color: #fff;
   }
+}
 
-  .ino-icon-button--disabled:not(.ino-icon-button-filled) {
-    ino-icon {
-      --ino-icon-button-icon-color: var(
+.ino-icon-button--disabled:not(.ino-icon-button-filled) {
+  ino-icon {
+    --ino-icon-button-icon-color: var(
         --ino-icon-button-icon-disabled-color,
         #{theme.color(dark, light)}
-      );
-    }
+    );
   }
+}
 
