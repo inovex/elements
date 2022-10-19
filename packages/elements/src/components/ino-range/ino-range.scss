@@ -1,23 +1,65 @@
 @use 'base/mdc-customize';
 @use '@material/slider/slider';
 @use '@material/slider' as slider-mixins;
-@use 'base/theme';
+@use 'base/new-theme' as theme;
+@use "@material/ripple";
 
 @include slider.core-styles;
 
-ino-range {
-  display: block;
-  min-width: 100px;
+$range_hover-control_hover: #4B4EFF;
 
-  &.ino-range--color-scheme-primary .mdc-slider {
-    @include slider-mixins.track-active-color(theme.color(primary, base));
-    @include slider-mixins.track-inactive-color(
-      theme.color(primary, light)
-    );
-    @include slider-mixins.thumb-color(theme.color(primary, base));
-    @include slider-mixins.thumb-ripple-color(theme.color(primary, base));
-    @include slider-mixins.tick-mark-inactive-color(#000);
-    @include slider-mixins.value-indicator-text-color(#fff);
+ino-range {
+  .mdc-slider {
+    @include slider-mixins.track-active-color(theme.$primary);
+    @include slider-mixins.track-inactive-color(theme.$n-6);
+    @include slider-mixins.thumb-color(theme.$primary);
+    @include slider-mixins.thumb-ripple-color(theme.$transparent);
+    @include slider-mixins.tick-mark-inactive-color(theme.$black);
+    @include slider-mixins.value-indicator-text-color(theme.$white);
+
+    & .mdc-slider__track {
+      .mdc-slider__track--active, .mdc-slider__track--inactive {
+        height: 2px;
+        border-radius: 10px;
+        top: 1px;
+      }
+    }
+
+    & .mdc-slider__thumb-knob {
+      height: 16px;
+      width: 16px;
+      border: 0px;
+      box-shadow: 0px 0px 0px 0px theme.$primary-focus;
+      transition: ease-in 0.1s;
+
+      &:hover {
+        background-color: $range_hover-control_hover;
+      }
+    }
+
+    &__thumb--focused {
+      .mdc-slider__thumb-knob {
+        box-shadow: 0px 0px 0px 4px theme.$primary-focus;
+      }
+    }
+
+    &.mdc-slider--disabled {
+      opacity: 1;
+
+      .mdc-slider__track--active_fill {
+        border-color: theme.$n-6;
+      }
+
+      .mdc-slider__track--inactive {
+        background-color: theme.$n-7;
+        opacity: 1;
+      }
+
+      .mdc-slider__thumb-knob {
+        border: 1.5px solid theme.$n-6;
+        background-color: theme.$white;
+        box-shadow: none;
+      }
+    }
   }
 }
-

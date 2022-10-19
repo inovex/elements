@@ -21,7 +21,6 @@ chip.addEventListener('chipRemoved', (e) =>
 ```html
 
 <ino-chip
-  color-scheme="<string>"
   disabled
   fill="<string>"
   label="<string>"

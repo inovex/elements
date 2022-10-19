@@ -24,9 +24,16 @@ jobs:
     - run: npm config set scripts-prepend-node-path true
     - run: yarn build
 
+    # Build caches for unicorn deployment
+    - if: github.ref != 'refs/heads/master'
+      name: Upload build artifacts for unicorn deployment
+      uses: ./.github/workflows/artifacts-upload
+      with:
+        upload-storybook-artifact: true
+
     # Build caches for (canary) release workflow
     - if: github.ref == 'refs/heads/master'
-      name: Upload all build artifacts
+      name: Upload build artifacts for canary release
       uses: ./.github/workflows/artifacts-upload
       with:
         upload-core-artifacts: true

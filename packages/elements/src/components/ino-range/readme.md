@@ -2,8 +2,6 @@
 
 A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.
 
-> Note: Range sliders with multiple thumbs are not yet implemented.
-
 ### Usage
 
 The component can be used as follows:
@@ -74,20 +72,19 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                           | Type                                | Default     |
-| ------------- | -------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
-| `colorScheme` | `color-scheme` | The name of the color scheme of this component. Possible values: `primary` (default), `warning`, `error`.             | `"error" \| "primary" \| "warning"` | `'primary'` |
-| `disabled`    | `disabled`     | Disables this element.                                                                                                | `boolean`                           | `undefined` |
-| `discrete`    | `discrete`     | Restricts the slider to only allow discrete values.                                                                   | `boolean`                           | `undefined` |
-| `markers`     | `markers`      | Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.                            | `boolean`                           | `undefined` |
-| `max`         | `max`          | The max value of this element (**required**).                                                                         | `number`                            | `undefined` |
-| `min`         | `min`          | The min value of this element.                                                                                        | `number`                            | `0`         |
-| `name`        | `name`         | The name of this element.                                                                                             | `string`                            | `undefined` |
-| `ranged`      | `ranged`       | Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.                                       | `boolean`                           | `false`     |
-| `step`        | `step`         | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers. | `number`                            | `1`         |
-| `value`       | `value`        | The value of this element. Only applicable if not in ranged mode.                                                     | `number`                            | `undefined` |
-| `valueEnd`    | `value-end`    | The value of the right thumb. Only applicable in ranged mode.                                                         | `number`                            | `undefined` |
-| `valueStart`  | `value-start`  | The value of the left thumb. Only applicable in ranged mode.                                                          | `number`                            | `undefined` |
+| Property     | Attribute     | Description                                                                                                           | Type      | Default     |
+| ------------ | ------------- | --------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
+| `disabled`   | `disabled`    | Disables this element.                                                                                                | `boolean` | `undefined` |
+| `discrete`   | `discrete`    | Restricts the slider to only allow discrete values.                                                                   | `boolean` | `undefined` |
+| `markers`    | `markers`     | Mark this slider to show the steps of the range. Only applicable if `discrete` is enabled.                            | `boolean` | `undefined` |
+| `max`        | `max`         | The max value of this element (**required**).                                                                         | `number`  | `undefined` |
+| `min`        | `min`         | The min value of this element.                                                                                        | `number`  | `0`         |
+| `name`       | `name`        | The name of this element.                                                                                             | `string`  | `undefined` |
+| `ranged`     | `ranged`      | Allows to input an interval. Use `valueStart` and `valueEnd` to provide values.                                       | `boolean` | `false`     |
+| `step`       | `step`        | The step size for this element. Only applicable if `discrete` is enabled. Is used to calculate the number of markers. | `number`  | `1`         |
+| `value`      | `value`       | The value of this element. Only applicable if not in ranged mode.                                                     | `number`  | `undefined` |
+| `valueEnd`   | `value-end`   | The value of the right thumb. Only applicable in ranged mode.                                                         | `number`  | `undefined` |
+| `valueStart` | `value-start` | The value of the left thumb. Only applicable in ranged mode.                                                          | `number`  | `undefined` |
 
 
 ## Events

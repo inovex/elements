@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
+import { Alignment, ButtonType, ChipSurface, ColorScheme, DialogCloseAction, HorizontalLocation, ImageDecodingTypes, InputType, KeyValue, Locations, NavDrawerAnchor, NavDrawerVariant, SnackbarType, SpinnerType, TooltipTrigger, UserInputInterceptor, VerticalLocation, ViewModeUnion } from "./components/types";
 import { Variants } from "./components/ino-button/ino-button";
 import { PickerTypeKeys } from "./components/ino-datepicker/picker-factory";
 import { Placement, Props } from "tippy.js";
@@ -13,17 +13,21 @@ import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAutocomplete {
         /**
-          * Timeout of the debouncing mechanism used when filtering the options.
+          * Number of ms the search function should be delayed after the user typed something.
          */
-        "debounceTimeout": number;
+        "debounce": number;
         /**
-          * Text to display when there are no options found.
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText": string;
         /**
-          * Value of the autocomplete
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "value": any;
+        "options": string[] | KeyValue[];
+        /**
+          * The selected value.
+         */
+        "value": string | KeyValue | null;
     }
     interface InoButton {
         /**
@@ -415,16 +419,6 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
-    }
     interface InoHeader {
         /**
           * [DEPRECATED] Please use the default slot instead of this prop.
@@ -463,6 +457,10 @@ export namespace Components {
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
+        /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -850,9 +848,9 @@ export namespace Components {
          */
         "attachToBody": boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "colorScheme": 'primary' | 'transparent';
+        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -945,10 +943,6 @@ export namespace Components {
         "value"?: string | number | null;
     }
     interface InoRange {
-        /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `warning`, `error`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -1077,20 +1071,6 @@ export namespace Components {
          */
         "value"?: string;
     }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight": boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Expands the sidebar
-         */
-        "open": boolean;
-    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -1116,6 +1096,10 @@ export namespace Components {
     }
     interface InoSpinner {
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme": ColorScheme;
+        /**
           * The height of this spinner (default = 40)
          */
         "height": number;
@@ -1137,10 +1121,6 @@ export namespace Components {
           * Marks this element as checked. (**unmanaged**)
          */
         "checked"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `warning`, `error`.
-         */
-        "colorScheme": ColorScheme;
         /**
           * Disables this element.
          */
@@ -1321,9 +1301,9 @@ export namespace Components {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
-        "colorScheme": 'primary' | 'transparent';
+        "colorScheme": 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -1439,10 +1419,6 @@ export interface InoSelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSelectElement;
 }
-export interface InoSidebarCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLInoSidebarElement;
-}
 export interface InoSnackbarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLInoSnackbarElement;
@@ -1549,12 +1525,6 @@ declare global {
     var HTMLInoFabSetElement: {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
-    };
-    interface HTMLInoFormRowElement extends Components.InoFormRow, HTMLStencilElement {
-    }
-    var HTMLInoFormRowElement: {
-        prototype: HTMLInoFormRowElement;
-        new (): HTMLInoFormRowElement;
     };
     interface HTMLInoHeaderElement extends Components.InoHeader, HTMLStencilElement {
     }
@@ -1706,12 +1676,6 @@ declare global {
         prototype: HTMLInoSelectElement;
         new (): HTMLInoSelectElement;
     };
-    interface HTMLInoSidebarElement extends Components.InoSidebar, HTMLStencilElement {
-    }
-    var HTMLInoSidebarElement: {
-        prototype: HTMLInoSidebarElement;
-        new (): HTMLInoSidebarElement;
-    };
     interface HTMLInoSnackbarElement extends Components.InoSnackbar, HTMLStencilElement {
     }
     var HTMLInoSnackbarElement: {
@@ -1780,7 +1744,6 @@ declare global {
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
         "ino-fab-set": HTMLInoFabSetElement;
-        "ino-form-row": HTMLInoFormRowElement;
         "ino-header": HTMLInoHeaderElement;
         "ino-icon": HTMLInoIconElement;
         "ino-icon-button": HTMLInoIconButtonElement;
@@ -1806,7 +1769,6 @@ declare global {
         "ino-segment-button": HTMLInoSegmentButtonElement;
         "ino-segment-group": HTMLInoSegmentGroupElement;
         "ino-select": HTMLInoSelectElement;
-        "ino-sidebar": HTMLInoSidebarElement;
         "ino-snackbar": HTMLInoSnackbarElement;
         "ino-spinner": HTMLInoSpinnerElement;
         "ino-switch": HTMLInoSwitchElement;
@@ -1821,21 +1783,25 @@ declare global {
 declare namespace LocalJSX {
     interface InoAutocomplete {
         /**
-          * Timeout of the debouncing mechanism used when filtering the options.
+          * Number of ms the search function should be delayed after the user typed something.
          */
-        "debounceTimeout"?: number;
+        "debounce"?: number;
         /**
-          * Text to display when there are no options found.
+          * Text to display when there are no options found, where `$` is the placeholder for the input of the user.
          */
         "noOptionsText"?: string;
         /**
-          * Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s.
+          * Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input
          */
-        "onValueChange"?: (event: InoAutocompleteCustomEvent<string | null>) => void;
+        "onValueChange"?: (event: InoAutocompleteCustomEvent<string | { key: string; value: string }>) => void;
         /**
-          * Value of the autocomplete
+          * All options either as a string array or as an array of `{key: string; value: string}` objects.
          */
-        "value"?: any;
+        "options": string[] | KeyValue[];
+        /**
+          * The selected value.
+         */
+        "value"?: string | KeyValue | null;
     }
     interface InoButton {
         /**
@@ -2247,16 +2213,6 @@ declare namespace LocalJSX {
          */
         "topBottomLocation"?: VerticalLocation;
     }
-    interface InoFormRow {
-        /**
-          * The label for this form row which describes the form element.
-         */
-        "label"?: string;
-        /**
-          * An indicator which marks the contents of the form row as mandatory. If you use this make sure you also check for the values in your application logic.
-         */
-        "mandatory"?: boolean;
-    }
     interface InoHeader {
         /**
           * [DEPRECATED] Please use the default slot instead of this prop.
@@ -2299,6 +2255,10 @@ declare namespace LocalJSX {
           * Sets the autofocus for this element.
          */
         "autoFocus"?: boolean;
+        /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -2717,9 +2677,9 @@ declare namespace LocalJSX {
          */
         "attachToBody"?: boolean;
         /**
-          * Sets the color scheme of the popup Valid options include: 'primary', 'transparent'
+          * Sets the color scheme of the popup Valid options include: 'primary', 'secondary', 'light', 'transparent'
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * Used to indicate if the popover should be controlled by itself (`false`) or manually by the `visible` property (`true`)
          */
@@ -2820,10 +2780,6 @@ declare namespace LocalJSX {
         "value"?: string | number | null;
     }
     interface InoRange {
-        /**
-          * The name of the color scheme of this component. Possible values: `primary` (default), `warning`, `error`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -2971,24 +2927,6 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface InoSidebar {
-        /**
-          * Aligns the sidebar to the right (true) or left (false) side
-         */
-        "alignRight"?: boolean;
-        /**
-          * Name of the component
-         */
-        "name"?: string;
-        /**
-          * Emits an event if the user expands or collapses the sidebar
-         */
-        "onOpenChange"?: (event: InoSidebarCustomEvent<any>) => void;
-        /**
-          * Expands the sidebar
-         */
-        "open"?: boolean;
-    }
     interface InoSnackbar {
         /**
           * The text to display for the action button. If no text is defined, the snack bar is displayed in an alternative feedback style.
@@ -3022,6 +2960,10 @@ declare namespace LocalJSX {
     }
     interface InoSpinner {
         /**
+          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`.
+         */
+        "colorScheme"?: ColorScheme;
+        /**
           * The height of this spinner (default = 40)
          */
         "height"?: number;
@@ -3043,10 +2985,6 @@ declare namespace LocalJSX {
           * Marks this element as checked. (**unmanaged**)
          */
         "checked"?: boolean;
-        /**
-          * The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default), `warning`, `error`.
-         */
-        "colorScheme"?: ColorScheme;
         /**
           * Disables this element.
          */
@@ -3238,9 +3176,9 @@ declare namespace LocalJSX {
     }
     interface InoTooltip {
         /**
-          * Sets the color scheme of the tooltip Valid options include: `primary`, `transparent`
+          * Sets the color scheme of the tooltip Valid options include: `primary`, `secondary` `light`, `transparent`
          */
-        "colorScheme"?: 'primary' | 'transparent';
+        "colorScheme"?: 'primary' | 'secondary' | 'light' | 'transparent';
         /**
           * The target id the tooltip belongs to. If not given, the tooltip is attached to the parent component.
          */
@@ -3273,7 +3211,6 @@ declare namespace LocalJSX {
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
         "ino-fab-set": InoFabSet;
-        "ino-form-row": InoFormRow;
         "ino-header": InoHeader;
         "ino-icon": InoIcon;
         "ino-icon-button": InoIconButton;
@@ -3299,7 +3236,6 @@ declare namespace LocalJSX {
         "ino-segment-button": InoSegmentButton;
         "ino-segment-group": InoSegmentGroup;
         "ino-select": InoSelect;
-        "ino-sidebar": InoSidebar;
         "ino-snackbar": InoSnackbar;
         "ino-spinner": InoSpinner;
         "ino-switch": InoSwitch;
@@ -3328,7 +3264,6 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
-            "ino-form-row": LocalJSX.InoFormRow & JSXBase.HTMLAttributes<HTMLInoFormRowElement>;
             "ino-header": LocalJSX.InoHeader & JSXBase.HTMLAttributes<HTMLInoHeaderElement>;
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
@@ -3354,7 +3289,6 @@ declare module "@stencil/core" {
             "ino-segment-button": LocalJSX.InoSegmentButton & JSXBase.HTMLAttributes<HTMLInoSegmentButtonElement>;
             "ino-segment-group": LocalJSX.InoSegmentGroup & JSXBase.HTMLAttributes<HTMLInoSegmentGroupElement>;
             "ino-select": LocalJSX.InoSelect & JSXBase.HTMLAttributes<HTMLInoSelectElement>;
-            "ino-sidebar": LocalJSX.InoSidebar & JSXBase.HTMLAttributes<HTMLInoSidebarElement>;
             "ino-snackbar": LocalJSX.InoSnackbar & JSXBase.HTMLAttributes<HTMLInoSnackbarElement>;
             "ino-spinner": LocalJSX.InoSpinner & JSXBase.HTMLAttributes<HTMLInoSpinnerElement>;
             "ino-switch": LocalJSX.InoSwitch & JSXBase.HTMLAttributes<HTMLInoSwitchElement>;

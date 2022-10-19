@@ -24,7 +24,6 @@
     "publish:yalc": "node ./scripts/publishYalc.js",
     "publish:canary": "yarn lerna publish --no-verify-access --canary --exact --preid next.$(git rev-parse --short HEAD) --force-publish",
     "publish:npm": "yarn lerna publish --conventional-commits --preid test.$(git rev-parse --short HEAD)",
-    "publish:ci": "yarn lerna publish --amend --conventional-commits --no-changelog --no-git-tag-version --no-verify-access --yes",
     "version": "node scripts/bumprootversion.js && yarn changelog",
     "postversion": "git add -A"
   },
@@ -41,11 +40,13 @@
     "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "svgo": "^2.8.0",
+    "ts-node": "^10.9.1",
     "tslint-config-prettier": "^1.18.0",
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^5.5.2",
+    "nx": "^14.7.13"
   },
   "workspaces": {
     "packages": [

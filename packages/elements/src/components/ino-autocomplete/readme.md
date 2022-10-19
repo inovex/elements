@@ -58,33 +58,26 @@ class MyComponent extends Component {
 
 ## Properties
 
-| Property          | Attribute          | Description                                                          | Type     | Default       |
-| ----------------- | ------------------ | -------------------------------------------------------------------- | -------- | ------------- |
-| `debounceTimeout` | `debounce-timeout` | Timeout of the debouncing mechanism used when filtering the options. | `number` | `300`         |
-| `noOptionsText`   | `no-options-text`  | Text to display when there are no options found.                     | `string` | `'No Option'` |
-| `value`           | `value`            | Value of the autocomplete                                            | `any`    | `undefined`   |
+| Property               | Attribute         | Description                                                                                              | Type                                        | Default                      |
+| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------- |
+| `debounce`             | `debounce`        | Number of ms the search function should be delayed after the user typed something.                       | `number`                                    | `100`                        |
+| `noOptionsText`        | `no-options-text` | Text to display when there are no options found, where `$` is the placeholder for the input of the user. | `string`                                    | `'Found No Results for "$"'` |
+| `options` _(required)_ | --                | All options either as a string array or as an array of `{key: string; value: string}` objects.           | `KeyValue[] \| string[]`                    | `undefined`                  |
+| `value`                | `value`           | The selected value.                                                                                      | `string \| { key: string; value: string; }` | `undefined`                  |
 
 
 ## Events
 
-| Event         | Description                                                                                                                                                                                                          | Type                  |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `valueChange` | Emits in three ways:  1. Clicking on an option 2. Pressing `Enter` while an option is selected 3. Entering a valid value and blurring the input element  Contains one of the texts provided by the `<ino-options>`s. | `CustomEvent<string>` |
+| Event         | Description                                                                                                                                                                                                                                                                      | Type                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| `valueChange` | Emits the list item the user clicked on either as a string or a `{key: string; value: string}` object depending on the provided options.  Trigger on two occasions: 1. The user clicked on a list-item. 2. The user types in a string that matches an option and blurs the input | `CustomEvent<string \| { key: string; value: string; }>` |
 
 
 ## Slots
 
-| Slot        | Description                                                        |
-| ----------- | ------------------------------------------------------------------ |
-| `"default"` | A list of `<ino-option>` elements as options                       |
-| `"input"`   | An `<ino-input>` element that will be controlled by this component |
-
-
-## CSS Custom Properties
-
-| Name                                 | Description               |
-| ------------------------------------ | ------------------------- |
-| `--ino-autocomplete-list-max-height` | max height of option list |
+| Slot      | Description                                                        |
+| --------- | ------------------------------------------------------------------ |
+| `"input"` | An `<ino-input>` element that will be controlled by this component |
 
 
 ----------------------------------------------
