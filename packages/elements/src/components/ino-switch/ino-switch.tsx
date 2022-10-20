@@ -118,13 +118,11 @@ export class Switch implements ComponentInterface {
 
     const leadingIconClasses = classNames(
       iconClasses,
-      'switch-icon__leading',
       !this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
     );
 
     const trailingIconClasses = classNames(
       iconClasses,
-      'switch-icon__trailing',
       this.checked ? 'switch-icon--selected' : 'switch-icon--unselected'
     );
 
