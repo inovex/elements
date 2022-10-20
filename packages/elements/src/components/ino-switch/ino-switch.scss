@@ -2,8 +2,7 @@
 @use '@material/switch';
 @use '@material/switch/styles';
 @use 'base/new-theme' as theme;
-
-
+@use 'base/theme' as old-theme;
 
 @mixin set-track-border-color {
   .mdc-switch__track {
@@ -13,90 +12,189 @@
   }
 }
 
+
+// general styles
 ino-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:not(.ino-switch-disabled) .mdc-switch {
+    cursor: pointer;
+  }
+
+  &.ino-switch-disabled .mdc-switch {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .mdc-switch__ripple {
+    display: none;
+  }
+}
+
+
+// default switch styles
+ino-switch.ino-switch__default {
+
+  height: 22px;
+
   @include switch.theme(
-    (
-      selected-handle-color: white,
-      selected-hover-handle-color: white,
-      selected-focus-handle-color: white,
-      selected-pressed-handle-color: white,
-      disabled-selected-handle-color: theme.$n-6,
-      selected-track-color: theme.$primary,
-      selected-hover-track-color: theme.$primary,
-      selected-focus-track-color: theme.$primary,
-      selected-pressed-track-color: theme.$primary,
-      unselected-focus-track-color: theme.$n-5,
-      unselected-hover-track-color: theme.$n-5,
-      disabled-selected-track-color: transparent,
-    )
+      (
+        selected-handle-color: white,
+        selected-hover-handle-color: white,
+        selected-focus-handle-color: white,
+        selected-pressed-handle-color: white,
+        selected-track-color: theme.$primary,
+        selected-hover-track-color: theme.$primary,
+        selected-focus-track-color: theme.$primary,
+        selected-pressed-track-color: theme.$primary,
+        unselected-focus-track-color: theme.$n-5,
+        unselected-hover-track-color: theme.$n-5,
+        track-height: 20px,
+        track-width: 36px,
+        track-shape: 18px,
+        handle-height: 16px,
+        handle-width: 16px,
+        handle-shape: 14px,
+        selected-icon-size: 10px,
+        unselected-icon-size: 10px,
+        handle-surface-color: white,
+        unselected-handle-color: white,
+        unselected-track-color: theme.$n-6,
+        unselected-hover-handle-color: white,
+        unselected-focus-handle-color: white,
+        unselected-pressed-handle-color: white,
+        disabled-selected-handle-color: theme.$n-6,
+        disabled-selected-track-color: transparent,
+        disabled-unselected-track-color: transparent,
+        disabled-unselected-handle-color: theme.$n-6,
+        disabled-track-opacity: 1,
+        disabled-handle-opacity: 1,
+      )
   );
+
   .mdc-switch--selected:focus,
   .mdc-switch--unselected:focus {
     @include set-track-border-color;
   }
 
   .mdc-switch {
-    &--selected {
-      .mdc-switch__handle {
-        margin-left: -2px;
-      }
+    &--selected .mdc-switch__handle {
+      margin-left: -2px;
     }
-    &--unselected {
-      .mdc-switch__handle {
-        margin-left: 2px;
-      }
-    }
-  }
 
-  // custom disabled state styling
-  .mdc-switch:disabled {
-    .mdc-switch__track {
-      opacity: 1;
+    &--unselected .mdc-switch__handle {
+      margin-left: 2px;
+    }
+
+    &:disabled .mdc-switch__track {
       border: 2px solid theme.$n-6;
       margin: -1.5px;
-    }
-    .mdc-switch__handle::after {
-      opacity: 1;
     }
   }
 }
 
-ino-switch {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  height: 30px;
-  cursor: pointer;
+$disabled-color: #F3F3F5;
 
-  &.ino-switch-disabled {
-    cursor: default;
-    pointer-events: none;
+// icon toggle switch styles
+ino-switch.ino-switch__icon-toggle .mdc-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 104px;
+
+  .switch-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 28px;
+    width: 48px;
+    color: theme.$n-3;
+    fill: theme.$n-3;
+
+    ino-icon {
+      --icon-width: 20px;
+      --icon-height: 20px;
+      --icon-color: #{theme.$n-3};
+    }
+
+    &--selected ino-icon {
+      --icon-color: #{old-theme.color(primary, dark)};
+      color: old-theme.color(primary, dark);
+      fill: old-theme.color(primary, dark);
+    }
+
+    &--unselected::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      transition: background-color 300ms linear;
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      z-index: -1;
+    }
   }
 
-  // set basic styles, DOES NOT SUPPORT CSS-VARS
+  &:hover .switch-icon--unselected::after {
+    background-color: theme.$n-7;
+  }
+
   @include switch.theme(
-    (
-      track-height: 20px,
-      track-width: 36px,
-      track-shape: 18px,
-      handle-height: 16px,
-      handle-width: 16px,
-      handle-shape: 14px,
-      selected-icon-size: 10px,
-      unselected-icon-size: 10px,
-      handle-surface-color: white,
-      unselected-handle-color: white,
-      unselected-track-color: theme.$n-6,
-      disabled-unselected-handle-color: theme.$n-6,
-      disabled-unselected-track-color: transparent,
-      unselected-hover-handle-color: white,
-      unselected-focus-handle-color: white,
-      unselected-pressed-handle-color: white,
-    )
+      (
+        selected-handle-color: white,
+        selected-hover-handle-color: white,
+        selected-focus-handle-color: white,
+        selected-pressed-handle-color: white,
+        selected-track-color: theme.$n-7,
+        selected-hover-track-color: theme.$n-6,
+        selected-focus-track-color: theme.$n-6,
+        selected-pressed-track-color: theme.$n-6,
+        track-height: 36px,
+        track-width: 104px,
+        track-shape: 18px,
+        handle-height: 28px,
+        handle-width: 48px,
+        handle-shape: 14px,
+        selected-icon-size: 20px,
+        unselected-icon-size: 20px,
+        handle-surface-color: white,
+        unselected-handle-color: white,
+        unselected-track-color: theme.$n-7,
+        unselected-focus-track-color: theme.$n-6,
+        unselected-hover-track-color: theme.$n-6,
+        disabled-selected-track-color: transparent,
+        disabled-selected-handle-color: white,
+        disabled-unselected-handle-color: white,
+        disabled-unselected-track-color: $disabled-color,
+        disabled-track-opacity: 1,
+        unselected-hover-handle-color: white,
+        unselected-focus-handle-color: white,
+        unselected-pressed-handle-color: white,
+      )
   );
 
-  // hide ripple effect
-  .mdc-switch__ripple {
-    display: none;
+  &.mdc-switch {
+    .mdc-switch__track {
+      position: absolute;
+    }
+
+    &--selected .mdc-switch__handle {
+      margin-left: -4px;
+    }
+
+    &--unselected .mdc-switch__handle {
+      margin-left: 4px;
+    }
   }
+}
+
+ino-switch.ino-switch-disabled.ino-switch__icon-toggle .switch-icon--selected ino-icon {
+  --icon-color: #{theme.$n-4};
+  color: theme.$n-4;
+  fill: theme.$n-4;
 }
