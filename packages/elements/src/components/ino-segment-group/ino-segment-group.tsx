@@ -79,6 +79,7 @@ export class InoSegmentGroup implements ComponentInterface {
         value={this.value}
       >
         <slot></slot>
+        <span class="glider"></span>
       </Host>
     );
   }
