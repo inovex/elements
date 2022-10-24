@@ -1,6 +1,6 @@
 import {NextPage} from 'next';
 
-export const RandomTextBlock: NextPage = () => (
+const RandomTextBlock: NextPage = () => (
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan
     eros ipsum, eget rhoncus nisi sodales eget. Sed a volutpat massa. Nam
@@ -43,3 +43,5 @@ export const RandomTextBlock: NextPage = () => (
     magna malesuada convallis.
   </p>
 )
+
+export default RandomTextBlock;

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { RandomTextBlock } from './randomTextBlock';
+import RandomTextBlock from './randomTextBlock';
 
 const Home: NextPage = () => {
   return (
