@@ -6,14 +6,21 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Image
-          src="/elements.svg"
-          alt="inovex-elements Logo"
-          width={48}
-          height={55}
-          priority
-        />
-        <p className={styles.name}>elements</p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://elements.inovex.de"
+        >
+          <Image
+            src="/elements.svg"
+            alt="inovex-elements Logo"
+            width={48}
+            height={55}
+            priority
+          />
+
+          <p className={styles.name}>elements</p>
+        </a>
       </div>
       <div className={styles.navbar}>
         <Navbar />

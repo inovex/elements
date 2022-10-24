@@ -15,9 +15,12 @@
 
 .logo {
   grid-area: logo;
-  display: flex;
-  gap: 8px;
-  align-items: center;
+  
+  a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
 
   p {
     font-size: 1.3rem;
