@@ -111,9 +111,9 @@ export class Popover implements ComponentInterface {
 
   /**
    * Sets the color scheme of the popup
-   * Valid options include: 'primary', 'secondary', 'light', 'transparent'
+   * Valid options include: 'primary', 'transparent'
    */
-  @Prop() colorScheme: 'primary' | 'secondary' | 'light' | 'transparent' =
+  @Prop() colorScheme: 'primary' | 'transparent' =
     'primary';
 
   /**

@@ -133,7 +133,6 @@ export const LoginFormApp: React.FC = () => {
         <InoPopover
           for="sign-up"
           placement="bottom"
-          colorScheme="light"
           interactive
         >
           <div className="styled-popover">

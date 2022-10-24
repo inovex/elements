@@ -1,8 +1,6 @@
 @use './mixins' as tooltip-mixins;
 @use 'base/theme';
 
-$color-schemes: 'primary', 'secondary', 'light';
-
 ino-tooltip .ino-tooltip__composer {
   font-size: 0.8rem;
   text-align: center;
@@ -11,14 +9,13 @@ ino-tooltip .ino-tooltip__composer {
   border-radius: 6px;
 }
 
-@each $color in $color-schemes {
-  ino-tooltip.ino-tooltip--color-scheme-#{$color} {
-    .ino-tooltip__composer {
-      @include tooltip-mixins.tooltip(
-        theme.color($color, light),
-        theme.color($color, contrast)
-      );
-    }
+
+ino-tooltip.ino-tooltip--color-scheme-primary {
+  .ino-tooltip__composer {
+    @include tooltip-mixins.tooltip(
+        theme.color(primary, light),
+        theme.color(primary, contrast)
+    );
   }
 }
 

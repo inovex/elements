@@ -184,7 +184,6 @@ export const InoIconButton = /*@__PURE__*/ defineContainer<JSX.InoIconButton>('i
   'autoFocus',
   'disabled',
   'activated',
-  'colorScheme',
   'filled',
   'icon',
   'type',
@@ -450,7 +449,6 @@ export const InoSnackbar = /*@__PURE__*/ defineContainer<JSX.InoSnackbar>('ino-s
 
 export const InoSpinner = /*@__PURE__*/ defineContainer<JSX.InoSpinner>('ino-spinner', undefined, [
   'type',
-  'colorScheme',
   'modal',
   'height',
   'width'

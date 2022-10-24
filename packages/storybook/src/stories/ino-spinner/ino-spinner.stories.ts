@@ -10,7 +10,6 @@ export default {
   component: 'ino-spinner',
   decorators: [(story) => decorateStoryWithClass(story, 'story-spinner')],
   args: {
-    colorScheme: 'primary',
     modal: false,
     type: 'tile',
     height: 40,
@@ -22,7 +21,6 @@ const template = new TemplateGenerator<Components.InoSpinner>(
   'ino-spinner',
   args => html`
   <ino-spinner
-    color-scheme="${args.colorScheme}"
     height="${args.height}"
     modal="${args.modal}"
     type="${args.type}"
@@ -33,6 +31,3 @@ const template = new TemplateGenerator<Components.InoSpinner>(
 
 export const Playground = template.generatePlaygroundStory();
 export const Type = template.generateStoryForProp('type', 'bounce');
-export const ColorScheme = template.generateStoryForProp('colorScheme', 'secondary', {
-  type: 'circle',
-});
