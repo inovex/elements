@@ -1,9 +1,13 @@
+$header-height: 120px;
+
 .header {
   margin: 0 45px;
   top: 0;
   position: sticky;
   background-color: white;
-  height: 120px;
+  min-height: 70px;
+  height: calc($header-height - var(--factor) * 1px);
+  max-height: $header-height;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   grid-template-rows: 1fr;
@@ -11,11 +15,13 @@
   grid-template-areas:
     "logo navbar github inovex";
   align-items: center;
+  transition: height 50ms linear;
+
 }
 
 .logo {
   grid-area: logo;
-  
+
   a {
     display: flex;
     gap: 8px;
