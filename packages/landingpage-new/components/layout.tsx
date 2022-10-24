@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import styles from './layout.module.scss';
 import Header from './layout/header';
-import Footer from "./layout/footer";
+import Footer from './layout/footer';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

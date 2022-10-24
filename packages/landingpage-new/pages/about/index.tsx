@@ -1,4 +1,4 @@
-import {InoButton} from "@elements";
+import {InoButton} from '@elements';
 
 function About() {
   return <InoButton>About</InoButton>
