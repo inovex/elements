@@ -1,0 +1,49 @@
+$header-height: 120px;
+
+.header {
+  margin: 0 45px;
+  top: 0;
+  position: sticky;
+  background-color: white;
+  min-height: 70px;
+  height: calc($header-height - var(--factor) * 1px);
+  max-height: $header-height;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  grid-template-rows: 1fr;
+  column-gap: 30px;
+  grid-template-areas:
+    "logo navbar github inovex";
+  align-items: center;
+  transition: height 50ms linear;
+
+}
+
+.logo {
+  grid-area: logo;
+
+  a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  p {
+    font-size: 1.3rem;
+    color: #003c7e;
+  }
+}
+
+
+.navbar {
+  grid-area: navbar;
+  justify-self: flex-end;
+}
+
+.github {
+  grid-area: github;
+}
+
+.inovex {
+  grid-area: inovex;
+}

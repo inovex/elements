@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  column-gap: 8%;
+  row-gap: 5px;
+  margin-bottom: 120px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+
+  :first-child {
+    margin-bottom: 30px;
+  }
+}
