@@ -4,7 +4,6 @@ import { html } from 'lit-html';
 import { TemplateGenerator } from '../template-generator';
 import {
   decorateStoryWithClass,
-  withColorScheme,
   withIconControl,
 } from '../utils';
 import './ino-icon-button.scss';
@@ -20,7 +19,6 @@ export default {
   },
   args: {
     activated: false,
-    colorScheme: 'primary',
     disabled: false,
     filled: false,
     icon: 'add',
@@ -35,7 +33,6 @@ const template = new TemplateGenerator<Components.InoIconButton>(
       disabled="${args.disabled}"
       filled="${args.filled}"
       type="${args.type}"
-      color-scheme="${args.colorScheme}"
     >
       <ino-icon icon="${args.icon}"></ino-icon>
     </ino-icon-button>
@@ -44,7 +41,6 @@ const template = new TemplateGenerator<Components.InoIconButton>(
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'add');
-withColorScheme(Playground, 'colorScheme', 'primary');
 
 export const Filled = template.generateStoryForProp('filled', true);
 

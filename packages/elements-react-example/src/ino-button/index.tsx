@@ -4,7 +4,6 @@ import { InoButton, InoIcon } from '../shared/InovexElements';
 export const Button = () => (
   <div className="App">
     <InoButton
-      colorScheme="primary"
       dense={false}
       fill="solid"
       loading={false}

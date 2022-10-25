@@ -199,7 +199,7 @@ The `<InoPopover>` component is perfect for additional information or hints.
 ```jsx
 <InoButton id="sign-up">Sign Up</InoButton>
 
-<InoPopover for="sign-up" placement="bottom" colorScheme="light" interactive>
+<InoPopover for="sign-up" placement="bottom" interactive>
     <div className="styled-popover">
         <InoIcon icon="user"></InoIcon>
       Already have an account? Sign in.
@@ -208,7 +208,7 @@ The `<InoPopover>` component is perfect for additional information or hints.
 ```
 
 Make sure the `id` of the hosting element and the `for` property of the attached `<InoPopover>` is the same.
-Given the intention or background of your page, it is helpful to change the `placement`(`top`, `right`, `bottom`, `left`) and the`colorScheme` property(`primary`, `secondary`, `light`, `transparent`).
+Given the intention or background of your page, it is helpful to change the `placement`(`top`, `right`, `bottom`, `left`).
 Use the `interactive` property if you want to interact with the popover content (e.g. button clicks).
 
 ### Toggle Password Visibility

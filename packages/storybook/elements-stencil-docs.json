@@ -132,7 +132,7 @@
       "filePath": "./src/components/ino-button/ino-button.tsx",
       "fileName": "ino-button.tsx",
       "tag": "ino-button",
-      "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
+      "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { onClick } = props;\n\n  return (\n    <InoButton inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
       "usage": {},
       "docs": "A button component with different styles and icon capability.",
       "docsTags": [
@@ -2575,7 +2575,7 @@
       "filePath": "./src/components/ino-icon/ino-icon.tsx",
       "fileName": "ino-icon.tsx",
       "tag": "ino-icon",
-      "readme": "# ino-icon\n\nA light icon component for texts and other components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument.querySelector('ino-icon').addEventListener('clickEl', (e) => {\n  // ...\n});\n```\n\n```js\ndocument\n  .querySelector('ino-icon')\n  .addEventListener('clickEl', (_) => alert('The icon was clicked'));\n```\n\n```html\n<ino-icon icon=\"<string>\" clickable onclickel=\"handleClickEl()\">\n</ino-icon>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  render() {\n    return <InoIcon icon=\"search\" clickable onClickEl={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {\n  const { icon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  return (\n    <InoIcon icon={icon} onClickEl={handleClick}>\n      {props.children}\n    </InoIcon>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Icon icon=\"search\" />;\n  }\n}\n```\n\n## Additional Hints\n\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n### Add icons\n\nIf you would like to add custom icons, you have to add them to the `src/assets/ino-icon` folder and execute the `yarn icon:integrate-icons`\ncommand to include the newly added icons in the `icons.js` file.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.\n",
+      "readme": "# ino-icon\n\nA light icon component for texts and other components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument.querySelector('ino-icon').addEventListener('clickEl', (e) => {\n  // ...\n});\n```\n\n```js\ndocument\n  .querySelector('ino-icon')\n  .addEventListener('clickEl', (_) => alert('The icon was clicked'));\n```\n\n```html\n<ino-icon icon=\"<string>\" clickable onclickel=\"handleClickEl()\">\n</ino-icon>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  render() {\n    return <InoIcon icon=\"search\" clickable onClickEl={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {\n  const { icon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  return (\n    <InoIcon icon={icon} onClickEl={handleClick}>\n      {props.children}\n    </InoIcon>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Icon icon=\"search\" />;\n  }\n}\n```\n\n## Additional Hints\n\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n### Add icons\n\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.\n",
       "usage": {},
       "docs": "This component is based on the ionicons (https://github.com/ionic-team/ionicons)",
       "docsTags": [],
@@ -2733,14 +2733,9 @@
       ],
       "styles": [
         {
-          "name": "--ino-icon-color-primary",
+          "name": "--ino-icon-color",
           "annotation": "prop",
-          "docs": "Primary (default) color of the icon"
-        },
-        {
-          "name": "--ino-icon-color-secondary",
-          "annotation": "prop",
-          "docs": "Secondary color of the icon"
+          "docs": "Color of the icon"
         },
         {
           "name": "--ino-icon-height",
@@ -2825,48 +2820,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -5420,24 +5373,16 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
+          "type": "\"primary\" | \"transparent\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'secondary', 'light', 'transparent'",
+          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "light",
-              "type": "string"
-            },
-            {
               "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
               "type": "string"
             },
             {
@@ -6080,7 +6025,7 @@
       "filePath": "./src/components/ino-range/ino-range.tsx",
       "fileName": "ino-range.tsx",
       "tag": "ino-range",
-      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n\n  return <InoRange>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range />;\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
       "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.",
       "docsTags": [],
@@ -6946,7 +6891,7 @@
       "filePath": "./src/components/ino-spinner/ino-spinner.tsx",
       "fileName": "ino-spinner.tsx",
       "tag": "ino-spinner",
-      "readme": "# ino-spinner\n\nA component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-spinner\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  height=\"<number>\"\n  modal\n  width=\"<number>\"\n>\n</ino-spinner>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoSpinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return (\n    <InoSpinner inoColorScheme={inoColorScheme}>{props.children}</InoSpinner>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Spinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n## Additional Hints\n\nUse one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).\n\n**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.\n",
+      "readme": "# ino-spinner\n\nA component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-spinner\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  height=\"<number>\"\n  modal\n  width=\"<number>\"\n>\n</ino-spinner>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoSpinner />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (\n  props,\n) => {\n\n  return (\n    <InoSpinner>{props.children}</InoSpinner>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Spinner />;\n  }\n}\n```\n\n## Additional Hints\n\nUse one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).\n\n**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.\n",
       "usage": {},
       "docs": "A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.",
       "docsTags": [],
@@ -6961,48 +6906,6 @@
         ]
       },
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "height",
           "type": "number",
@@ -8163,24 +8066,16 @@
       "props": [
         {
           "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
+          "type": "\"primary\" | \"transparent\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `secondary` `light`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "light",
-              "type": "string"
-            },
-            {
               "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
               "type": "string"
             },
             {

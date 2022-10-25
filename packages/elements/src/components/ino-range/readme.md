@@ -39,7 +39,7 @@ import { InoRange } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
-    return <InoRange inoColorScheme="primary" />;
+    return <InoRange />;
   }
 }
 ```
@@ -54,14 +54,13 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const Range: React.FunctionComponent<Components.InoRangeAttributes> = (
   props,
 ) => {
-  const { inoColorScheme } = props;
 
-  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;
+  return <InoRange>{props.children}</InoRange>;
 };
 
 class MyComponent extends Component {
   render() {
-    return <Range inoColorScheme="primary" />;
+    return <Range />;
   }
 }
 ```

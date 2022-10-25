@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, Host, Prop, h } from '@stencil/core';
 import classNames from 'classnames';
 
-import { ColorScheme, SpinnerType } from '../types';
+import { SpinnerType } from '../types';
 
 @Component({
   tag: 'ino-spinner',
@@ -14,14 +14,6 @@ export class Spinner implements ComponentInterface {
    * Possible values: `tile` (default), `bounce` or `circle`
    */
   @Prop() type: SpinnerType = 'tile';
-
-  /**
-   * The name of the color scheme which is used
-   * to style the background and outline of this component.
-   * Possible values: `primary` (default),  `secondary`,
-   * `success`, `warning`, `error`, `light`, `dark`.
-   */
-  @Prop() colorScheme: ColorScheme = 'primary';
 
   /**
    * If true, the spinner is shown as modal over the current app page.
@@ -75,7 +67,6 @@ export class Spinner implements ComponentInterface {
   render() {
     const hostClasses = classNames(
       `ino-spinner--type-${this.type}`,
-      `ino-spinner--color-scheme-${this.colorScheme}`,
       {
         'ino-spinner--modal': this.modal,
       }

@@ -110,12 +110,11 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 
 ## CSS Custom Properties
 
-| Name                         | Description                         |
-| ---------------------------- | ----------------------------------- |
-| `--ino-icon-color-primary`   | Primary (default) color of the icon |
-| `--ino-icon-color-secondary` | Secondary color of the icon         |
-| `--ino-icon-height`          | Height of the icon                  |
-| `--ino-icon-width`           | Width of the icon                   |
+| Name                | Description        |
+| ------------------- | ------------------ |
+| `--ino-icon-color`  | Color of the icon  |
+| `--ino-icon-height` | Height of the icon |
+| `--ino-icon-width`  | Width of the icon  |
 
 
 ## Dependencies

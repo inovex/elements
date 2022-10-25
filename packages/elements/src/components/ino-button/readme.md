@@ -43,7 +43,6 @@ class MyComponent extends Component {
   render() {
     return (
       <InoButton
-        inoColorScheme="dark"
         inoIconLeading
         onClick={(_) => alert('Yeah, you clicked the button!')}
       >
@@ -65,10 +64,10 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const Button: React.FunctionComponent<Components.InoButtonAttributes> = (
   props,
 ) => {
-  const { inoColorScheme, onClick } = props;
+  const { onClick } = props;
 
   return (
-    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>
+    <InoButton inoIconLeading onClick={onClick}>
       <InoIcon inoIcon={'add'} />
       You can click me!
     </InoButton>
@@ -79,7 +78,6 @@ class MyComponent extends Component {
   render() {
     return (
       <Button
-        inoColorScheme="dark"
         onClick={(_) => alert('Yeah, you clicked the button!')}
       />
     );

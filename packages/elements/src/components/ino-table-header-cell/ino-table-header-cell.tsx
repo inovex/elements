@@ -216,8 +216,8 @@ export class InoTableHeaderCell implements ComponentInterface {
           <ino-popover
             trigger="focus click"
             placement="bottom-start"
-            color-scheme="transparent"
             controlled
+            color-scheme="transparent"
             visible={this.searchActivated}
             onVisibleChanged={e => (this.searchActivated = e.detail)}
             ref={popover =>
@@ -251,7 +251,6 @@ export class InoTableHeaderCell implements ComponentInterface {
 
         {!this.notSortable && (
           <ino-icon-button
-            colorScheme="dark"
             class={`sort-${this.sortDirection || 'none'}`}
             icon={this.sortIcon}
             onFocus={e => e.stopPropagation()}

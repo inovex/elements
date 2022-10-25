@@ -29,7 +29,7 @@ import { InoSpinner } from '@inovex.de/elements/dist/react';
 
 class MyComponent extends Component {
   render() {
-    return <InoSpinner inoColorScheme="warning" />;
+    return <InoSpinner />;
   }
 }
 ```
@@ -44,16 +44,15 @@ import { Components } from '@inovex.de/elements/dist/types/components';
 const Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (
   props,
 ) => {
-  const { inoColorScheme } = props;
 
   return (
-    <InoSpinner inoColorScheme={inoColorScheme}>{props.children}</InoSpinner>
+    <InoSpinner>{props.children}</InoSpinner>
   );
 };
 
 class MyComponent extends Component {
   render() {
-    return <Spinner inoColorScheme="warning" />;
+    return <Spinner />;
   }
 }
 ```
@@ -69,13 +68,12 @@ Use one of the provided types in `type` to give the spinner the shape. Adjust th
 
 ## Properties
 
-| Property      | Attribute      | Description                                                                                                                                                                                           | Type                                                                                 | Default     |
-| ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `colorScheme` | `color-scheme` | The name of the color scheme which is used to style the background and outline of this component. Possible values: `primary` (default),  `secondary`, `success`, `warning`, `error`, `light`, `dark`. | `"dark" \| "error" \| "light" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
-| `height`      | `height`       | The height of this spinner (default = 40)                                                                                                                                                             | `number`                                                                             | `40`        |
-| `modal`       | `modal`        | If true, the spinner is shown as modal over the current app page.                                                                                                                                     | `boolean`                                                                            | `false`     |
-| `type`        | `type`         | The type of this spinner. Possible values: `tile` (default), `bounce` or `circle`                                                                                                                     | `"bounce" \| "circle" \| "tile"`                                                     | `'tile'`    |
-| `width`       | `width`        | The width of this spinner (defaul = 40)                                                                                                                                                               | `number`                                                                             | `40`        |
+| Property | Attribute | Description                                                                       | Type                             | Default  |
+| -------- | --------- | --------------------------------------------------------------------------------- | -------------------------------- | -------- |
+| `height` | `height`  | The height of this spinner (default = 40)                                         | `number`                         | `40`     |
+| `modal`  | `modal`   | If true, the spinner is shown as modal over the current app page.                 | `boolean`                        | `false`  |
+| `type`   | `type`    | The type of this spinner. Possible values: `tile` (default), `bounce` or `circle` | `"bounce" \| "circle" \| "tile"` | `'tile'` |
+| `width`  | `width`   | The width of this spinner (defaul = 40)                                           | `number`                         | `40`     |
 
 
 ## Dependencies

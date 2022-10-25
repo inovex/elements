@@ -9,7 +9,9 @@ import ICONS from '../../../../elements/src/components/ino-icon/icons';
 import { decorateStoryWithClass, withIconControl } from '../utils';
 import './ino-icon.scss';
 
-const ICONS_WITHOUT_INTERNALS = ICONS.filter((icon) => !icon.startsWith('_')).concat([
+const ICONS_WITHOUT_INTERNALS = ICONS.filter(
+  (icon) => !icon.startsWith('_')
+).concat([
   'status_zukuenftige',
   'status_abwesend',
   'status_offboarding_laufend',
@@ -41,8 +43,6 @@ const iconChips = ICON_IDS.map(
   (name) => html`
     <ino-chip
       id="icon-${name}"
-      fill="outline"
-      color-scheme="default"
       value="${name}"
       @chipClicked="${(ev) => copyToClipboard(ev.detail)}"
     >
@@ -79,19 +79,15 @@ export default {
             document.getElementsByTagName('ino-chip')
           );
 
-          if (!value) {
-            chips.forEach((chip) => (chip.colorScheme = 'default'));
-          } else {
-            // Hide not matching icons
-            chips
-              .filter((chip) => !chip.value.includes(value.toLowerCase()))
-              .forEach((chip) => (chip.colorScheme = 'default'));
+          // Hide not matching icons
+          chips
+            .filter((chip) => !chip.value.includes(value.toLowerCase()))
+            .map((chip) => (chip.style.visibility = 'hidden'));
 
-            // Show matching icons
-            chips
-              .filter((chip) => chip.value.includes(value.toLowerCase()))
-              .forEach((chip) => (chip.colorScheme = 'primary'));
-          }
+          // Show matching icons
+          chips
+            .filter((chip) => chip.value.includes(value.toLowerCase()))
+            .map((chip) => (chip.style.visibility = 'visible'));
 
           input.value = value;
         };
@@ -117,18 +113,19 @@ export default {
 
 const template = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
-  args => html`
-  <ino-icon
-    class="customizable-icon"
-    clickable="${args.clickable}"
-    color-secondary="${args.colorSecondary}"
-    icon="${args.icon}"
-    svg-title="${args.svgTitle}"
-    src="${args.src}"
-    style="--icon-width: 30px; --icon-height: 30px;"
-  >
-  </ino-icon>
-`);
+  (args) => html`
+    <ino-icon
+      class="customizable-icon"
+      clickable="${args.clickable}"
+      color-secondary="${args.colorSecondary}"
+      icon="${args.icon}"
+      svg-title="${args.svgTitle}"
+      src="${args.src}"
+      style="--icon-width: 30px; --icon-height: 30px;"
+    >
+    </ino-icon>
+  `
+);
 
 export const Playground = template.generatePlaygroundStory();
 withIconControl(Playground, 'icon', 'info');
@@ -136,15 +133,16 @@ withIconControl(Playground, 'icon', 'info');
 const templateAllIcons = new TemplateGenerator<Components.InoIcon>(
   'ino-icon',
   () => html`
-  <div class="story-icon">
-    <div class="flex-parent-center">
-      <ino-input class="icon-search-input" placeholder="Find icon">
-        <ino-icon slot="icon-leading" icon="search"></ino-icon>
-      </ino-input>
-      <h6>Click on the icon to copy the id to your clipboard.</h6>
-      <div class="icon-collection">${iconChips}</div>
+    <div class="story-icon">
+      <div class="flex-parent-center">
+        <ino-input class="icon-search-input" placeholder="Find icon">
+          <ino-icon slot="icon-leading" icon="search"></ino-icon>
+        </ino-input>
+        <h6>Click on the icon to copy the id to your clipboard.</h6>
+        <div class="icon-collection">${iconChips}</div>
+      </div>
     </div>
-  </div>
-`);
+  `
+);
 export const AllIcons = templateAllIcons.generatePlaygroundStory();
 

@@ -33,6 +33,7 @@ ino-segment-button {
     padding: 13px 23px 12px 23px;
     border: none;
     background-color: transparent;
+    transition: background-color 200ms ease-in-out;
     color: theme.$n-3;
 
     cursor: pointer;
@@ -42,7 +43,6 @@ ino-segment-button {
 
     &:hover {
       color: $text-active;
-      background-color: $button_outlined_text_hover;
       @include common.border-rounding-animation(
         $round-border,
         $edged-border,
@@ -54,7 +54,6 @@ ino-segment-button {
     &:focus {
       color: $text-active;
       box-shadow: inset 0 0 0 3px theme.$primary-focus;
-      background-color: $button_outlined_text_hover;
       outline: none; // remove native focus style
     }
 
