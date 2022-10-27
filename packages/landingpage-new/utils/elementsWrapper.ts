@@ -12,3 +12,4 @@ export const InoButton = importElement('InoButton');
 export const InoChip = importElement('InoChip');
 export const InoTab = importElement('InoTab');
 export const InoTabBar = importElement('InoTabBar');
+export const InoIcon = importElement('InoIcon');

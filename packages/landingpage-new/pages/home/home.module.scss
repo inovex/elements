@@ -1,0 +1,31 @@
+@use '../../../elements/src/components/base/typography';
+
+.main {
+  p:not(.heading) {
+    @include typography.font($size: m, $weight: regular);
+    color: #3a3b64;
+  }
+  .firstContainer {
+    margin-top: 238px;
+    .sub {
+      width: 627px;
+    }
+    .heading {
+      font-size: 3.1em;
+      letter-spacing: 0.53px;
+      font-weight: lighter;
+
+      mark {
+        background-color: aliceblue;
+      }
+    }
+    .docs {
+      display: flex;
+      flex-direction: column;
+
+      .animation {
+        display: flex;
+      }
+    }
+  }
+}
