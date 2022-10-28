@@ -24,6 +24,20 @@ const Home: NextPage = () => {
     return () => clearInterval(intervalID);
   });
 
+  function toggleCommands() {
+    if (commandIndex == commands.length) {
+      setCommandIndex(0);
+    } /* fade in animation über scss mit <span> in innerhtml vom inobutton?
+    die framework logos können hier mit auch rein und iteriert werden
+    */
+    return (
+      <InoButton>
+        {commands[commandIndex]}{' '}
+        <InoIcon clickable={true} icon="copy"></InoIcon>
+      </InoButton>
+    );
+  }
+
   return (
     <div>
       <Head>
@@ -46,18 +60,19 @@ const Home: NextPage = () => {
               <br />
               Use our open source UI component library{' '}
               <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
-                inovex elements
+                inovex elements.
               </span>
             </p>
             <div className={styles.docs}>
               <InoButton>Show documentation</InoButton>
               <div className={styles.animation}>
-                <InoButton variant="outlined">
-                  {commandIndex == commands.length
+                {/* <InoButton variant="outlined"> */}
+                {/* {commandIndex == commands.length
                     ? commands[0]
-                    : commands[commandIndex]}
-                  <InoIcon clickable={true} icon="copy"></InoIcon>
-                </InoButton>
+                    : commands[commandIndex]} */}
+                {toggleCommands()}
+                {/* <InoIcon clickable={true} icon="copy"></InoIcon>
+                </InoButton> */}
                 {/* Mocked divs to be replaced by framework logos */}
                 <div>1</div>
                 <div>2</div>
@@ -65,6 +80,64 @@ const Home: NextPage = () => {
                 <div>4</div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className={styles.secondContainer}>
+          <div>
+            <InoIcon icon="code" clickable={false} />
+            <p className={styles.title}>Kernaspekt 1</p>
+            <p className={styles.text}>
+              Runs on every major framework: Angular, React, Vue or just plain
+              JavaScript.
+            </p>
+          </div>
+          <div>
+            <InoIcon icon="time" clickable={false} />
+            <p className={styles.title}>Kernaspekt 2</p>
+            <p className={styles.text}>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+            </p>
+          </div>
+          <div>
+            <InoIcon icon="partner" clickable={false} />
+            <p className={styles.title}>Kernaspekt 3</p>
+            <p className={styles.text}>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr
+            </p>
+          </div>
+        </div>
+        <div>
+          <div className={styles.firstAbstract}>
+            <p className={styles.heading}>
+              <b>why</b> use the elements?
+            </p>
+            <p style={{ fontSize: '20px' }}>
+              {' '}
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+              invidunt ut labore et dolore magna aliquyam erat, sed diam
+              voluptua.
+            </p>
+          </div>
+          <div className={styles.secondAbstract}>
+            <p className={styles.heading}>
+              <b>when</b> use the elements?
+            </p>
+            <p style={{ fontSize: '20px' }}>
+              {' '}
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+              invidunt ut labore et dolore magna aliquyam erat, sed diam
+              voluptua.
+            </p>
           </div>
         </div>
       </main>

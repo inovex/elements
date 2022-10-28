@@ -1,6 +1,8 @@
 @use '../../../elements/src/components/base/typography';
 
 .main {
+  display: flex;
+  flex-direction: column;
   p:not(.heading) {
     @include typography.font($size: m, $weight: regular);
     color: #3a3b64;
@@ -16,7 +18,7 @@
       font-weight: lighter;
 
       mark {
-        background-color: aliceblue;
+        background-color: #e9e5fe;
       }
     }
     .docs {
@@ -27,5 +29,47 @@
         display: flex;
       }
     }
+  }
+
+  .secondContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 348px;
+    height: 448px;
+    width: 1369px;
+    background-color: #e9e5fe;
+    border-radius: 267px 0px;
+
+    div {
+      padding-top: 122px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 300px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: 300;
+    }
+  }
+
+  .firstAbstract {
+    width: 800px;
+
+    .heading {
+      font-size: 3.1em;
+    }
+  }
+  .secondAbstract {
+    float: right;
+    text-align: right;
+    width: 800px;
   }
 }
