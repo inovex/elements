@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from './home.module.scss';
 import { InoButton, InoIcon } from '@elements';
-import Head from 'next/head';
 
 const Home: NextPage = () => {
   const commands = [
@@ -32,7 +33,7 @@ const Home: NextPage = () => {
     */
     return (
       <InoButton>
-        {commands[commandIndex]}{' '}
+        <span className={styles.animateCommand}>{commands[commandIndex]} </span>
         <InoIcon clickable={true} icon="copy"></InoIcon>
       </InoButton>
     );
@@ -66,18 +67,45 @@ const Home: NextPage = () => {
             <div className={styles.docs}>
               <InoButton>Show documentation</InoButton>
               <div className={styles.animation}>
-                {/* <InoButton variant="outlined"> */}
-                {/* {commandIndex == commands.length
-                    ? commands[0]
-                    : commands[commandIndex]} */}
-                {toggleCommands()}
-                {/* <InoIcon clickable={true} icon="copy"></InoIcon>
-                </InoButton> */}
-                {/* Mocked divs to be replaced by framework logos */}
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
+                <div className={styles.commands}>{toggleCommands()}</div>
+                <div className={styles.animateLogo}>
+                  <div>
+                    <Image
+                      src="/javascript.svg"
+                      alt="inovex-elements Logo"
+                      width={25}
+                      height={25}
+                      priority
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/vue.svg"
+                      alt="inovex-elements Logo"
+                      width={29}
+                      height={25}
+                      priority
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/angular.svg"
+                      alt="inovex-elements Logo"
+                      width={25}
+                      height={25}
+                      priority
+                    />
+                  </div>
+                  <div>
+                    <Image
+                      src="/react-icon.svg"
+                      alt="inovex-elements Logo"
+                      width={29}
+                      height={25}
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
