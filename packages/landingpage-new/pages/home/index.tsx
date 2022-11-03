@@ -47,67 +47,72 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <div className={styles.firstContainer}>
-          <p className={styles.heading}>
-            <b>the interoperable UI library</b>
-            <br />
-            for any <mark>framework</mark>
-          </p>
-          <div className={styles.sub}>
-            <p>
-              It’s hard to build and maintain UI components. Don’t start from
-              scratch every time you create a new project. Build them once, run
-              them everywhere!
+          <div>
+            <p className={styles.heading}>
+              <b>the interoperable UI library</b>
               <br />
-              <br />
-              Use our open source UI component library{' '}
-              <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
-                inovex elements.
-              </span>
+              for any <mark>framework</mark>
             </p>
-            <div className={styles.docs}>
-              <InoButton>Show documentation</InoButton>
-              <div className={styles.animation}>
-                <div className={styles.commands}>{toggleCommands()}</div>
-                <div className={styles.animateLogo}>
-                  <div>
-                    <Image
-                      src="/javascript.svg"
-                      alt="inovex-elements Logo"
-                      width={25}
-                      height={25}
-                      priority
-                    />
-                  </div>
-                  <div>
-                    <Image
-                      src="/vue.svg"
-                      alt="inovex-elements Logo"
-                      width={29}
-                      height={25}
-                      priority
-                    />
-                  </div>
-                  <div>
-                    <Image
-                      src="/angular.svg"
-                      alt="inovex-elements Logo"
-                      width={25}
-                      height={25}
-                      priority
-                    />
-                  </div>
-                  <div>
-                    <Image
-                      src="/react-icon.svg"
-                      alt="inovex-elements Logo"
-                      width={29}
-                      height={25}
-                      priority
-                    />
+            <div className={styles.sub}>
+              <p>
+                It’s hard to build and maintain UI components. Don’t start from
+                scratch every time you create a new project. Build them once,
+                run them everywhere!
+                <br />
+                <br />
+                Use our open source UI component library{' '}
+                <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
+                  inovex elements.
+                </span>
+              </p>
+              <div className={styles.docs}>
+                <InoButton>Show documentation</InoButton>
+                <div className={styles.animation}>
+                  <div className={styles.commands}>{toggleCommands()}</div>
+                  <div className={styles.animateLogo}>
+                    <div>
+                      <Image
+                        src="/javascript.svg"
+                        alt="Javascript Logo"
+                        width={25}
+                        height={25}
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/vue.svg"
+                        alt="Vue Logo"
+                        width={29}
+                        height={25}
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/angular.svg"
+                        alt="Angular Logo"
+                        width={25}
+                        height={25}
+                        priority
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/react-icon.svg"
+                        alt="React Logo"
+                        width={29}
+                        height={25}
+                        priority
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div className={styles.imageContainer}>
+            <img src="/elements-collage.png" alt="Elements Collage"></img>
           </div>
         </div>
         <div className={styles.secondContainer}>

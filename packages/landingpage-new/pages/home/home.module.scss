@@ -8,7 +8,9 @@
     color: #3a3b64;
   }
   .firstContainer {
+    overflow: visible;
     margin-top: 238px;
+    display: flex;
     .sub {
       width: 627px;
     }
@@ -24,9 +26,11 @@
     .docs {
       display: flex;
       flex-direction: column;
+      padding-top: 50px;
 
       .animation {
         display: flex;
+        padding-top: 15px;
         .commands {
           width: 45%;
         }
@@ -101,14 +105,24 @@
     }
   }
 
+  .imageContainer {
+    height: 686px;
+    margin-top: -100px; //Proportional? Asset isnt cropped as in adobexd.
+
+    img {
+      height: 100%;
+    }
+  }
+
   .secondContainer {
     display: flex;
     justify-content: center;
     margin-top: 348px;
     height: 448px;
-    width: 1369px;
+    width: 100%;
     background-color: #e9e5fe;
     border-radius: 267px 0px;
+    margin-top: 85px;
 
     div {
       padding-top: 122px;
