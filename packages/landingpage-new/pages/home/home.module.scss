@@ -31,88 +31,10 @@
       .animation {
         display: flex;
         padding-top: 15px;
-        .commands {
-          width: 45%;
-        }
-
-        .animateCommand {
-          opacity: 0;
-          animation-name: commands;
-          animation-iteration-count: infinite;
-          animation-timing-function: ease-in-out;
-          animation-duration: 3s;
-        }
-
-        @keyframes commands {
-          0% {
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0;
-          }
-        }
-
-        .animateLogo {
-          display: flex;
-          div {
-            opacity: 0.4;
-            animation-name: logos;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
-            animation-duration: 12s;
-
-            @keyframes logos {
-              0% {
-                opacity: 0.4;
-              }
-              5% {
-                opacity: 1;
-              }
-
-              20% {
-                opacity: 1;
-              }
-
-              25% {
-                opacity: 0.4;
-              }
-            }
-
-            &:nth-child(2) {
-              animation-delay: 3s;
-            }
-            &:nth-child(3) {
-              animation-delay: 6s;
-            }
-            &:nth-child(4) {
-              animation-delay: 9s;
-            }
-
-            @for $i from 1 through 4 {
-              &:nth-child(#{$i}) {
-                padding-left: 20px;
-              }
-            }
-          }
-        }
       }
     }
   }
 
-  .imageContainer {
-    height: 686px;
-    margin-top: -100px; //Proportional? Asset isnt cropped as in adobexd.
-
-    img {
-      height: 100%;
-    }
-  }
 
   .secondContainer {
     display: flex;

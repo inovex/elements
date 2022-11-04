@@ -4,41 +4,11 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import styles from './home.module.scss';
 import { InoButton, InoIcon } from '@elements';
+import InstallChips from './install-chips';
+
+/*TODO responsive, fix ino icon, copy command on icon click*/
 
 const Home: NextPage = () => {
-  const commands = [
-    '$ npm install @inovex.de',
-    '$ npm install @inovex.de/elements-vue',
-    '$ ng add @inovex.de/elements-angular',
-    '$ npm install @inovex.de/elements-react',
-  ];
-  const [commandIndex, setCommandIndex] = useState(0);
-
-  useEffect(() => {
-    if (commandIndex == commands.length) {
-      setCommandIndex(0);
-    }
-    const intervalID = setTimeout(() => {
-      setCommandIndex(commandIndex + 1);
-    }, 3000);
-
-    return () => clearInterval(intervalID);
-  });
-
-  function toggleCommands() {
-    if (commandIndex == commands.length) {
-      setCommandIndex(0);
-    } /* fade in animation über scss mit <span> in innerhtml vom inobutton?
-    die framework logos können hier mit auch rein und iteriert werden
-    */
-    return (
-      <InoButton>
-        <span className={styles.animateCommand}>{commands[commandIndex]} </span>
-        <InoIcon clickable={true} icon="copy"></InoIcon>
-      </InoButton>
-    );
-  }
-
   return (
     <div>
       <Head>
@@ -68,52 +38,17 @@ const Home: NextPage = () => {
               <div className={styles.docs}>
                 <InoButton>Show documentation</InoButton>
                 <div className={styles.animation}>
-                  <div className={styles.commands}>{toggleCommands()}</div>
-                  <div className={styles.animateLogo}>
-                    <div>
-                      <Image
-                        src="/javascript.svg"
-                        alt="Javascript Logo"
-                        width={25}
-                        height={25}
-                        priority
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/vue.svg"
-                        alt="Vue Logo"
-                        width={29}
-                        height={25}
-                        priority
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/angular.svg"
-                        alt="Angular Logo"
-                        width={25}
-                        height={25}
-                        priority
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/react-icon.svg"
-                        alt="React Logo"
-                        width={29}
-                        height={25}
-                        priority
-                      />
-                    </div>
-                  </div>
+                  <InstallChips></InstallChips>
                 </div>
               </div>
             </div>
           </div>
-          <div className={styles.imageContainer}>
-            <img src="/elements-collage.png" alt="Elements Collage"></img>
-          </div>
+          <Image
+            width={686}
+            height={787}
+            src="/elements-collage.png"
+            alt="Elements Collage"
+          />
         </div>
         <div className={styles.secondContainer}>
           <div>
