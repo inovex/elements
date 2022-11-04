@@ -10,7 +10,7 @@ export default function Footer() {
           <LinkItem url={url} name={name} />
           {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => (
             <LinkItem
-              key={url}
+              key={subRouteName + subRouteUrl}
               url={subRouteUrl}
               name={subRouteName}
               isDense={true}
