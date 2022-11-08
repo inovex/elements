@@ -4220,12 +4220,12 @@
       },
       "props": [
         {
-          "name": "avatar",
+          "name": "multiselect",
           "type": "boolean",
           "mutable": false,
-          "attr": "avatar",
+          "attr": "multiselect",
           "reflectToAttr": false,
-          "docs": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
+          "docs": "For a11y: Set to true if list allows multi-selection",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4237,32 +4237,26 @@
           "required": false
         },
         {
-          "name": "dense",
-          "type": "boolean",
+          "name": "role",
+          "type": "\"list\" | \"listbox\" | \"menu\"",
           "mutable": false,
-          "attr": "dense",
+          "attr": "role",
           "reflectToAttr": false,
-          "docs": "Styles the list more dense, making it appear more compact.",
+          "docs": "For a11y: If list is interactive then set role type",
           "docsTags": [],
+          "default": "'list'",
           "values": [
             {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "twoLines",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "two-lines",
-          "reflectToAttr": false,
-          "docs": "Marks this element as list with items having two lines.",
-          "docsTags": [],
-          "values": [
+              "value": "list",
+              "type": "string"
+            },
             {
-              "type": "boolean"
+              "value": "listbox",
+              "type": "string"
+            },
+            {
+              "value": "menu",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -4402,7 +4396,40 @@
           "mutable": false,
           "attr": "activated",
           "reflectToAttr": false,
-          "docs": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permantently activated.",
+          "docs": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permanently activated.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "avatar",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "avatar",
+          "reflectToAttr": false,
+          "docs": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "dense",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "dense",
+          "reflectToAttr": false,
+          "docs": "Styles the list more dense, making it appear more compact.",
           "docsTags": [],
           "values": [
             {
@@ -4423,6 +4450,32 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "role",
+          "type": "\"listitem\" | \"menuitem\" | \"option\"",
+          "mutable": false,
+          "attr": "role",
+          "reflectToAttr": false,
+          "docs": "For a11y: If list item is interactive then set role type",
+          "docsTags": [],
+          "default": "'listitem'",
+          "values": [
+            {
+              "value": "listitem",
+              "type": "string"
+            },
+            {
+              "value": "menuitem",
+              "type": "string"
+            },
+            {
+              "value": "option",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -4471,6 +4524,22 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "twoLines",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "two-lines",
+          "reflectToAttr": false,
+          "docs": "Marks this element as list with items having two lines.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": true,

@@ -57,6 +57,13 @@ class MyComponent extends Component {
 | `progress`      | `progress`      | Sets the progress of the progress bar. Should always be between 0 and 1 | `number`  | `0`         |
 
 
+## CSS Custom Properties
+
+| Name                        | Description               |
+| --------------------------- | ------------------------- |
+| `--progress-bar--bar-color` | Color of the progress bar |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
