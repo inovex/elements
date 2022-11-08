@@ -70,7 +70,7 @@ export default function InstallChips() {
         }}
       ></InoChip>
       </div>
-      {/* <InoPopover attachToBody for={COMMAND_CHIP_ID} colorScheme="primary" placement="bottom" controlled visible={showTooltip} style={{backgroundColor: 'hotpink'}}>
+      {/* TODO ADD COPIED TO CLIPPBOARD NOTIFICATION <InoPopover attachToBody for={COMMAND_CHIP_ID} colorScheme="primary" placement="bottom" controlled visible={showTooltip} style={{backgroundColor: 'hotpink'}}>
           Copied to clipboard!
         </InoPopover> */}
       {FrameworksArr.map((framework) => (

@@ -1,0 +1,56 @@
+@use '../../../../elements/src/components/base/typography';
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.3fr 0.3fr 0.5fr 0.6fr 1.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    '. .'
+    '. image'
+    'header image'
+    'info image'
+    'installation image';
+}
+
+p:not(.heading) {
+  @include typography.font($size: m, $weight: regular);
+  color: #3a3b64;
+}
+
+.image {
+  grid-area: image;
+}
+
+.header {
+  grid-area: header;
+
+  .heading {
+    font-size: 3.1em;
+    letter-spacing: 0.53px;
+    font-weight: lighter;
+
+    mark {
+      padding: 0 5px 0 3px;
+      z-index: 1;
+      background: linear-gradient(
+        0,
+        rgba(212, 204, 255, 0.5) 40%,
+        transparent 40%
+      );
+      width: fit-content;
+    }
+  }
+}
+
+.installation {
+  grid-area: installation;
+
+  .animation {
+    padding-top: 15px;
+  }
+}
+
+.info {
+  grid-area: info;
+}
