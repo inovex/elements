@@ -30,8 +30,7 @@ export {
   InoTooltip,
   InoOption,
   InoDialog,
-  InoSidebar,
   InoNavItem,
   InoNavDrawer,
   InoHeader
-} from '@inovex.de/elements-react/';
+} from '@inovex.de/elements-react';

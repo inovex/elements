@@ -2,22 +2,23 @@
 @use 'base/animation';
 @use 'ino-spinner/ino-spinner' as spinner;
 @use 'base/theme';
+@use 'base/common';
 
 /* Colors: */
 $white: #ffffff;
-$grey-light: #edeff5;
-$grey-dark: #7275a1;
-$brand-inovex-blue: #051c59;
+$n-7: #edeff5;
+$n-3: #7275a1;
+
 $primary: #2c02ff;
-$primary-light: #2d5dff;
-$primary-hover: #4b4eff;
-$primary-active: #3d40f5;
-$primary-light-hover: rgba($primary-light, 0.08);
-$primary-light-active: rgba($primary-light, 0.12);
-$border: #3d40f5;
+$button_filled_hover-control_hover: #4B4EFF;
+$button_filled_pressed: #3D40F5;
+$button_outlined_text_pressed: #D7E0FF;
+$button_outlined_text_hover: #E8EDFF;
+
 $border-focused: #2d5dff4d;
-$text-disabled: $grey-dark;
-$disabled: $grey-light;
+$text-disabled: $n-3;
+$disabled: $n-7;
+$transparent: rgba(255, 255, 255, 0);
 
 /* borders */
 $round-border: 24px 24px 24px 24px;
@@ -71,36 +72,35 @@ ino-button {
 ino-button .button__variant--filled {
   background-color: $primary;
   border-color: transparent;
-  border-radius: $edged-border;
   color: white;
   text-align: center;
 
-  @include animation.border-radius(
-    ino-button-round-to-edge,
+  @include common.border-rounding-animation(
     $round-border,
     $edged-border,
-    0.15s
+    0.15s,
+    $round-to-edged: true
   );
 
   &:hover {
-    background-color: $primary-hover;
-    border-radius: $round-border;
+    background-color: $button_filled_hover-control_hover;
     box-shadow: 0 2px 2px $border-focused;
-    @include animation.border-radius(
-      ino-button-edged-to-round,
-      $edged-border,
+    @include common.border-rounding-animation(
       $round-border,
-      0.15s
+      $edged-border,
+      0.15s,
+      $round-to-edged: false
     );
   }
 
+
   &:focus {
-    background-color: $primary-active;
+    background-color: $button_filled_pressed;
     box-shadow: 0 0 0 3px $border-focused;
   }
 
   &:active {
-    background-color: $primary-active;
+    background-color: $button_filled_pressed;
     box-shadow: none;
   }
 
@@ -120,14 +120,14 @@ ino-button .button__variant--filled {
 
 // outlined variant
 ino-button .button__variant--outlined {
-  background-color: white;
-  border: solid 1.5px $border;
+  background-color: $transparent;
+  border: solid 1.5px $button_filled_pressed;
   border-radius: 19px;
   color: $primary;
   letter-spacing: 0.27px;
 
   &:hover {
-    background-color: $primary-light-hover;
+    background-color: $button_outlined_text_hover;
   }
 
   &:focus {
@@ -135,15 +135,15 @@ ino-button .button__variant--outlined {
   }
 
   &:active {
-    background-color: $primary-light-active;
-    border-color: $border;
+    background-color: $button_outlined_text_pressed;
+    border-color: $button_filled_pressed;
     box-shadow: none;
   }
 
   &:disabled {
     @include disabled();
     background-color: $white;
-    border-color: $grey-dark;
+    border-color: $n-3;
   }
 
   ino-spinner {
@@ -159,7 +159,7 @@ ino-button .button__variant--text {
   border-radius: 19px;
 
   &:hover {
-    background-color: $primary-light-hover;
+    background-color: $button_outlined_text_hover;
     border-color: transparent;
   }
 
@@ -169,7 +169,7 @@ ino-button .button__variant--text {
   }
 
   &:active {
-    background-color: $primary-light-active;
+    background-color: $button_outlined_text_pressed;
     box-shadow: none;
   }
 

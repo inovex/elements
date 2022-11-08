@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-storybook",
-  "version": "7.1.0",
+  "version": "7.1.2",
   "description": "This is the storybook package containing all the documentation for @inovex.de/elements, @inovex.de/elements-angular, @inovex.de/elements-react.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -40,13 +40,14 @@
     "dist/"
   ],
   "dependencies": {
-    "@inovex.de/elements": "^7.1.0",
+    "@inovex.de/elements": "^7.1.2",
     "moment": "^2.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.12",
     "@babel/plugin-proposal-optional-chaining": "^7.17.12",
     "@babel/plugin-transform-typescript": "^7.17.12",
+    "@mdx-js/react": "^1.6.22",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.0",
     "@storybook/addon-actions": "^6.5.8",
     "@storybook/addon-essentials": "^6.5.8",
@@ -61,6 +62,7 @@
     "chalk": "^2.4.2",
     "core-js": "^3.2.1",
     "css-loader": "^0.28.0",
+    "eslint": "7.32.0",
     "jest": "24.8.0",
     "jest-cli": "24.8.0",
     "jest-environment-node": "23.4.0",

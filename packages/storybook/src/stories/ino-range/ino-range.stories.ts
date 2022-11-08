@@ -67,7 +67,6 @@ const template = new TemplateGenerator<Components.InoRange>(
       ranged="${args.ranged}"
       value-start="${args.valueStart}"
       value-end="${args.valueEnd}"
-      color-scheme="${args.colorScheme}"
     >
     </ino-range>
   `

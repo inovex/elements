@@ -27,29 +27,6 @@ export const withIconControl = <T>(
   };
 };
 
-export const withColorScheme = <T>(
-  story: Story<T>,
-  propertyName: string,
-  defaultValue?: string
-) => {
-  maybeCreateStoryArgs(story);
-  story.args[propertyName] = defaultValue || '';
-  story.argTypes[propertyName] = {
-    control: {
-      type: 'select',
-    },
-    options: [
-      'primary',
-      'secondary',
-      'success',
-      'warning',
-      'error',
-      'light',
-      'dark',
-    ],
-  };
-};
-
 export const withSortDirection = <T>(
   story: Story<T>,
   propertyName: string,

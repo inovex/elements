@@ -182,7 +182,6 @@ export class Datepicker implements ComponentInterface {
     this.flatpickr?.set('static', !attachToBody);
   }
 
-
   /**
    * A string to change the date format.
    * Possible values are listed [here](https://flatpickr.js.org/formatting/).
@@ -310,7 +309,7 @@ export class Datepicker implements ComponentInterface {
 
   @Watch('error')
   errorHandler(value?: boolean) {
-    if (this.disabled || !this.flatpickr) {
+    if (this.disabled) {
       return;
     }
 
@@ -329,7 +328,6 @@ export class Datepicker implements ComponentInterface {
    * The value can be found in `event.detail`
    */
   @Event() valueChange!: EventEmitter<string>;
-
 
   /**
    * Redraws the datepicker.
@@ -369,6 +367,10 @@ export class Datepicker implements ComponentInterface {
     this.maybeCreate();
   }
 
+  componentWillLoad() {
+    this.value && this.errorHandler(this.error);
+  }
+
   componentDidLoad() {
     this.maybeCreate();
   }
@@ -400,8 +402,10 @@ export class Datepicker implements ComponentInterface {
     const sharedOptions: Partial<BaseOptions> = {
       allowInput: true,
       clickOpens: false,
-      prevArrow: '<ino-icon class="ino-datepicker__icon" icon="arrow_left"></ino-icon>',
-      nextArrow: '<ino-icon class="ino-datepicker__icon" icon="arrow_right"></ino-icon>',
+      prevArrow:
+        '<ino-icon class="ino-datepicker__icon" icon="arrow_left"></ino-icon>',
+      nextArrow:
+        '<ino-icon class="ino-datepicker__icon" icon="arrow_right"></ino-icon>',
       ignoredFocusElements: [],
       wrap: false,
       locale: getDatepickerLocale(this.el),
@@ -409,13 +413,12 @@ export class Datepicker implements ComponentInterface {
     };
 
     if (this.appendTo) {
-      sharedOptions.appendTo = document.getElementById(this.appendTo)
+      sharedOptions.appendTo = document.getElementById(this.appendTo);
     }
     if (this.inline) {
       sharedOptions.appendTo = sharedOptions.appendTo ?? this.el;
       sharedOptions.inline = true;
     }
-
 
     const typeSpecificOptions: PickerOption = createPicker(this.type, {
       defaultHour: !this.value && this.defaultHour,
@@ -439,7 +442,6 @@ export class Datepicker implements ComponentInterface {
     if (this.value) {
       this.flatpickr?.setDate(this.value);
     }
-    this.value && this.errorHandler(this.error);
   }
 
   private maybeDispose() {
@@ -480,12 +482,8 @@ export class Datepicker implements ComponentInterface {
               slot={'icon-leading'}
             ></ino-icon>
           )}
-          {this.inline && hasLeadingIcon && (
-            <slot name="icon-leading"></slot>
-          )}
-          {this.inline && hasTrailingIcon && (
-            <slot name="icon-trailing"></slot>
-          )}
+          {this.inline && hasLeadingIcon && <slot name="icon-leading"></slot>}
+          {this.inline && hasTrailingIcon && <slot name="icon-trailing"></slot>}
         </ino-input>
       </Host>
     );

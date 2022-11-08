@@ -37,6 +37,3 @@ export const Placement = template.generateStoryForProp('placement', 'right', {
 export const Trigger = template.generateStoryForProp('trigger', 'click', {
   for: 'tooltip-target-trigger',
 });
-export const ColorScheme = template.generateStoryForProp('colorScheme', 'secondary', {
-  for: 'tooltip-target-color-scheme',
-});

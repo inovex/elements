@@ -78,8 +78,7 @@ The component inherits styles, such as the text size, from the parent element. F
 
 ### Add icons
 
-If you would like to add custom icons, you have to add them to the `src/assets/ino-icon` folder and execute the `yarn icon:integrate-icons`
-command to include the newly added icons in the `icons.js` file.
+If you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.
 
 > **Note:** To use the provided icons in your consumer project, you need to copy all contents of
 > `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected
@@ -107,6 +106,15 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 | Event     | Description                                                                                                           | Type               |
 | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | `clickEl` | Event that emits as soon as the user clicks on the icon. The event only emits if the property `inoClickable` is true. | `CustomEvent<any>` |
+
+
+## CSS Custom Properties
+
+| Name                | Description        |
+| ------------------- | ------------------ |
+| `--ino-icon-color`  | Color of the icon  |
+| `--ino-icon-height` | Height of the icon |
+| `--ino-icon-width`  | Width of the icon  |
 
 
 ## Dependencies

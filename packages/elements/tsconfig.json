@@ -17,6 +17,11 @@
     "types": ["jest"],
     "skipLibCheck": true
   },
-  "include": ["src", "types/jsx.d.ts"],
+  "ts-node": { // to make our scripts work
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["src", "types/jsx.d.ts", "output-targets", "scripts"],
   "exclude": ["node_modules"]
 }

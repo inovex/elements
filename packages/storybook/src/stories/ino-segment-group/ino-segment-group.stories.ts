@@ -28,11 +28,8 @@ export default {
   },
 } as Meta<Components.InoSegmentGroup>;
 
-const checkedChangeHandler = (e: CustomEvent<boolean>) => {
-  const pressedButton = e.target as HTMLInoSegmentButtonElement;
-  const segmentGroup = pressedButton.closest('ino-segment-group');
-  segmentGroup.value = pressedButton.value;
-};
+const checkedChangeHandler = ({ detail, target }: CustomEvent<string>) =>
+  ((target as HTMLInoSegmentGroupElement).value = detail);
 
 const template = new TemplateGenerator<Components.InoSegmentGroup>(
   'ino-segment-group',
@@ -41,11 +38,12 @@ const template = new TemplateGenerator<Components.InoSegmentGroup>(
       id="segment-grp"
       name="${args.name}"
       value="${args.value}"
+      @valueChange="${checkedChangeHandler}"
     >
-      <ino-segment-button value="opt-1" @checkedChange="${checkedChangeHandler}">Option 1</ino-segment-button>
-      <ino-segment-button value="opt-2" @checkedChange="${checkedChangeHandler}">Option 2</ino-segment-button>
-      <ino-segment-button value="opt-3" @checkedChange="${checkedChangeHandler}">Option 3</ino-segment-button>
-      <ino-segment-button value="opt-4" @checkedChange="${checkedChangeHandler}">Option 4</ino-segment-button>
+      <ino-segment-button value="opt-1">Option 1</ino-segment-button>
+      <ino-segment-button value="opt-2">Option 2</ino-segment-button>
+      <ino-segment-button value="opt-3">Option 3</ino-segment-button>
+      <ino-segment-button value="opt-4">Option 4</ino-segment-button>
     </ino-segment-group>
   `
 );

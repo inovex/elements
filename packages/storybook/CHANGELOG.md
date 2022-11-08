@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
+
+
+### Documentation
+
+* **storybook:** add dev documentation about custom properties ([#730](https://github.com/inovex/elements/issues/730)) ([7b976bf](https://github.com/inovex/elements/commit/7b976bfbb850170c9918ed2ec36c0e81a3144cb7))
+* **storybook:** collapse component roots by default ([#734](https://github.com/inovex/elements/issues/734)) ([90b4283](https://github.com/inovex/elements/commit/90b4283aeba7c6ac26f870d19653b78ec27943cb))
+
+## 7.1.1 (2022-08-19)
+
+**Note:** Version bump only for package @inovex.de/elements-storybook
+
+
+
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
+
+
+### Documentation
+
+* **storybook:** add react starter guide ([#663](https://github.com/inovex/elements/issues/663)) ([a1883ce](https://github.com/inovex/elements/commit/a1883ce87f7ce681a75e75e4bf24e2ceb10e5bf5))
+
+
 ## [7.1.0](https://github.com/inovex/elements/compare/v7.0.0...v7.1.0) (2022-07-18)
 
 

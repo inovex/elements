@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements",
-  "version": "7.1.0",
+  "version": "7.1.2",
   "description": "This is the home of a web component library based on Stencil.",
   "repository": "https://github.com/inovex/elements.git",
   "author": "Patrick Hillert <phillert@inovex.de>",
@@ -41,7 +41,7 @@
     "webpack-plugin.js"
   ],
   "scripts": {
-    "build": "stencil build --docs --legacy && node scripts/generateWrappedIcons.js",
+    "build": "stencil build --docs --legacy",
     "clean": "shx rm -rf dist",
     "dev": "cross-env NODE_ENV=development stencil build --docs --watch --legacy",
     "lint": "eslint src",
@@ -52,7 +52,7 @@
     "test:e2e-watch": "stencil test --e2e --watch",
     "test:spec": "stencil test --spec",
     "test:spec-watch": "stencil test --spec --watch",
-    "icon:integrate-icons": "node scripts/integrateIcons.js",
+    "icon:integrate-icons": "ts-node scripts/integrateIcons.ts",
     "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
   },
   "dependencies": {
@@ -84,6 +84,7 @@
     "@material/textfield": "^13.0.0",
     "@material/typography": "^13.0.0",
     "@stencil/core": "2.17.1",
+    "@tarekraafat/autocomplete.js": "^10.2.7",
     "@tiptap/core": "^2.0.0-beta.159",
     "@tiptap/extension-link": "^2.0.0-beta.33",
     "@tiptap/extension-task-item": "^2.0.0-beta.36",

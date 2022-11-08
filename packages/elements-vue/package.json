@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-vue",
-  "version": "7.1.0",
+  "version": "7.1.2",
   "description": "This is the Vue.js package of the integration layer for @inovex/elements.",
   "keywords": [
     "vue3",
@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "files": [
     "dist/"
@@ -26,7 +26,7 @@
     "tsc": "tsc -p ."
   },
   "dependencies": {
-    "@inovex.de/elements": "^7.1.0"
+    "@inovex.de/elements": "^7.1.2"
   },
   "devDependencies": {
     "shx": "^0.3.2",

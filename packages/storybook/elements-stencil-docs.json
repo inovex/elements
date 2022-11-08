@@ -16,26 +16,22 @@
         {
           "name": "slot",
           "text": "input - An `<ino-input>` element that will be controlled by this component"
-        },
-        {
-          "name": "slot",
-          "text": "default - A list of `<ino-option>` elements as options"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
         {
-          "name": "debounceTimeout",
+          "name": "debounce",
           "type": "number",
           "mutable": false,
-          "attr": "debounce-timeout",
+          "attr": "debounce",
           "reflectToAttr": false,
-          "docs": "Timeout of the debouncing mechanism used when filtering the options.",
+          "docs": "Number of ms the search function should be delayed after the user typed something.",
           "docsTags": [],
-          "default": "300",
+          "default": "100",
           "values": [
             {
               "type": "number"
@@ -50,9 +46,9 @@
           "mutable": false,
           "attr": "no-options-text",
           "reflectToAttr": false,
-          "docs": "Text to display when there are no options found.",
+          "docs": "Text to display when there are no options found, where `$` is the placeholder for the input of the user.",
           "docsTags": [],
-          "default": "'No Option'",
+          "default": "'Found No Results for \"$\"'",
           "values": [
             {
               "type": "string"
@@ -62,16 +58,37 @@
           "required": false
         },
         {
-          "name": "value",
-          "type": "any",
+          "name": "options",
+          "type": "KeyValue[] | string[]",
           "mutable": false,
-          "attr": "value",
           "reflectToAttr": false,
-          "docs": "Value of the autocomplete",
+          "docs": "All options either as a string array or as an array of `{key: string; value: string}` objects.",
           "docsTags": [],
           "values": [
             {
-              "type": "any"
+              "type": "KeyValue[]"
+            },
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string | { key: string; value: string; }",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "The selected value.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "{ key: string; value: string; }"
             }
           ],
           "optional": false,
@@ -82,20 +99,16 @@
       "events": [
         {
           "event": "valueChange",
-          "detail": "string",
+          "detail": "string | { key: string; value: string; }",
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "Emits in three ways:\n\n1. Clicking on an option\n2. Pressing `Enter` while an option is selected\n3. Entering a valid value and blurring the input element\n\nContains one of the texts provided by the `<ino-options>`s.",
+          "docs": "Emits the list item the user clicked on either as a string or\na `{key: string; value: string}` object depending on the provided options.\n\nTrigger on two occasions:\n1. The user clicked on a list-item.\n2. The user types in a string that matches an option and blurs the input",
           "docsTags": []
         }
       ],
       "styles": [],
       "slots": [
-        {
-          "name": "default",
-          "docs": "A list of `<ino-option>` elements as options"
-        },
         {
           "name": "input",
           "docs": "An `<ino-input>` element that will be controlled by this component"
@@ -104,12 +117,12 @@
       "parts": [],
       "listeners": [
         {
-          "event": "valueChange",
+          "event": "selection",
           "capture": false,
           "passive": false
         },
         {
-          "event": "keydown",
+          "event": "close",
           "capture": false,
           "passive": false
         }
@@ -119,7 +132,7 @@
       "filePath": "./src/components/ino-button/ino-button.tsx",
       "fileName": "ino-button.tsx",
       "tag": "ino-button",
-      "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoColorScheme=\"dark\"\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { inoColorScheme, onClick } = props;\n\n  return (\n    <InoButton inoColorScheme={inoColorScheme} inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        inoColorScheme=\"dark\"\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
+      "readme": "# ino-button\n\nA button component with different styles and icon capability.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n  .querySelector('ino-button')\n  .addEventListener('click', (_) => alert('Button was clicked!'));\n```\n\n```html\n<ino-button\n  autofocus\n  disabled\n  name=\"<string>\"\n  form=\"<string>\"\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  fill=\"<string>\"\n  dense\n  onClick=\"handleClick()\"\n>\n  <ino-icon icon=\"add\"></ino-icon>\n  Button Content\n</ino-button>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoButton, InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <InoButton\n        inoIconLeading\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      >\n        <InoIcon inoIcon=\"add\" />\n        You can click me!\n      </InoButton>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoButton } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Button: React.FunctionComponent<Components.InoButtonAttributes> = (\n  props,\n) => {\n  const { onClick } = props;\n\n  return (\n    <InoButton inoIconLeading onClick={onClick}>\n      <InoIcon inoIcon={'add'} />\n      You can click me!\n    </InoButton>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <Button\n        onClick={(_) => alert('Yeah, you clicked the button!')}\n      />\n    );\n  }\n}\n```\n\n## Demo\n",
       "usage": {},
       "docs": "A button component with different styles and icon capability.",
       "docsTags": [
@@ -383,7 +396,48 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-card-background-color",
+          "annotation": "prop",
+          "docs": "background color of the card"
+        },
+        {
+          "name": "--ino-card-background-color--active",
+          "annotation": "prop",
+          "docs": "background color of the card if active"
+        },
+        {
+          "name": "--ino-card-background-color--focus",
+          "annotation": "prop",
+          "docs": "background color of the card on focus"
+        },
+        {
+          "name": "--ino-card-background-color--hover",
+          "annotation": "prop",
+          "docs": "background color of the card on hover"
+        },
+        {
+          "name": "--ino-card-border-color",
+          "annotation": "prop",
+          "docs": "border color of the card"
+        },
+        {
+          "name": "--ino-card-border-thickness",
+          "annotation": "prop",
+          "docs": "thickness of the border"
+        },
+        {
+          "name": "--ino-card-checkmark-background-color",
+          "annotation": "prop",
+          "docs": "background color of the check mark"
+        },
+        {
+          "name": "--ino-card-checkmark-color",
+          "annotation": "prop",
+          "docs": "check mark color"
+        }
+      ],
       "slots": [
         {
           "name": "content",
@@ -559,7 +613,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-carousel-animation-duration",
+          "annotation": "prop",
+          "docs": "sets the duration of the slide animation"
+        },
+        {
+          "name": "--ino-carousel-height",
+          "annotation": "prop",
+          "docs": "sets the height of the carousel component"
+        },
+        {
+          "name": "--ino-carousel-icon-color",
+          "annotation": "prop",
+          "docs": "sets the color of the navigation buttons"
+        },
+        {
+          "name": "--ino-carousel-width",
+          "annotation": "prop",
+          "docs": "sets the width of the carousel component"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -770,7 +845,7 @@
       "filePath": "./src/components/ino-chip/ino-chip.tsx",
       "fileName": "ino-chip.tsx",
       "tag": "ino-chip",
-      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\nconst chip = document.querySelector('ino-chip');\nchip.addEventListener('chipClicked', (e) =>\n  console.log('This chip was clicked:', e.detail),\n)\nchip.addEventListener('chipRemoved', (e) =>\n  console.log('This chip was removed:', e.detail),\n);\n```\n\n```html\n\n<ino-chip\n  color-scheme=\"<string>\"\n  disabled\n  fill=\"<string>\"\n  label=\"<string>\"\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot=icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1\n\n```tsx\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  fruits = [\"apple\", \"banana\", \"cherry\"];\n\n  handleChipClicked(e: CustomEvent<string>) {\n    console.log(\"User clicked the fruit: \", e.detail);\n  }\n\n  render() {\n    return (\n      <div>\n        {fruits.map(fruit => (\n            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>\n          )\n        )}\n      </div>\n    );\n  }\n}\n```\n\n#### Example #2\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet = () => {\n\n  const fruits = [\"apple\", \"banana\", \"cherry\"];\n  const [selectedFruit, setSelectedFruit] = useState < string > (\"apple\");\n\n  return (\n    <div>\n      {fruits.map(fruit => (\n        <InoChip\n          value={fruit}\n          label={fruit}\n          selectable\n          selected={fruit === selectedFruit}\n          onChipClicked={(e) => setSelectedFruit(fruit)}\n        />\n      ))}\n    </div>\n  );\n};\n```\n\n## Additional Hints\n\n**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n### Selection\nA set of chips can be used to implement a single or multi selection from a handful of options.\nHave a look at the **Selection** and **Filter** stories.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. \nThe component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
+      "readme": "# ino-chip\n\nThe ino-chip component displays the provided content and icon as a chip.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\nconst chip = document.querySelector('ino-chip');\nchip.addEventListener('chipClicked', (e) =>\n  console.log('This chip was clicked:', e.detail),\n)\nchip.addEventListener('chipRemoved', (e) =>\n  console.log('This chip was removed:', e.detail),\n);\n```\n\n```html\n\n<ino-chip\n  disabled\n  fill=\"<string>\"\n  label=\"<string>\"\n  removable\n  selectable\n  selected\n  value=\"<string>\"\n>\n  <ino-icon slot=icon-leading\" icon=\"<string>\"></ino-icon>\n</ino-chip>\n```\n\n### React\n\n#### Example #1\n\n```tsx\nimport { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  fruits = [\"apple\", \"banana\", \"cherry\"];\n\n  handleChipClicked(e: CustomEvent<string>) {\n    console.log(\"User clicked the fruit: \", e.detail);\n  }\n\n  render() {\n    return (\n      <div>\n        {fruits.map(fruit => (\n            <InoChip value={fruit} label={fruit} onChipClicked={this.handleChipClicked}/>\n          )\n        )}\n      </div>\n    );\n  }\n}\n```\n\n#### Example #2\n\n```tsx\nimport React, { Component } from 'react';\nimport { InoChipSet, InoChip } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst ChipSet = () => {\n\n  const fruits = [\"apple\", \"banana\", \"cherry\"];\n  const [selectedFruit, setSelectedFruit] = useState < string > (\"apple\");\n\n  return (\n    <div>\n      {fruits.map(fruit => (\n        <InoChip\n          value={fruit}\n          label={fruit}\n          selectable\n          selected={fruit === selectedFruit}\n          onChipClicked={(e) => setSelectedFruit(fruit)}\n        />\n      ))}\n    </div>\n  );\n};\n```\n\n## Additional Hints\n\n**Content**: Use the `label` attribute to set the label of the chip. To add an icon to the left side of the chip, use the  icon` attribute.\n\n### Selection\nA set of chips can be used to implement a single or multi selection from a handful of options.\nHave a look at the **Selection** and **Filter** stories.\n\n### Removable chips\n\nIf `removable` is set to `true`, the chip can be removed by the user. \nThe component then displays a small `close` icon on the right side of the chip next to the label.\n\nHowever, the component will not be hidden or destroyed but instead emits a `removeChip`-Event. Thus, the component can be removed by subscribing to the corresponding event.\n\n## Demo\n",
       "usage": {},
       "docs": "The ino-chip component displays the provided content and icon as a chip.",
       "docsTags": [
@@ -798,52 +873,6 @@
         ]
       },
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"default\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.",
-          "docsTags": [],
-          "default": "'default'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "default",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -1984,7 +2013,43 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-dialog-background-color",
+          "annotation": "prop",
+          "docs": "background color of the dialog"
+        },
+        {
+          "name": "--ino-dialog-border",
+          "annotation": "prop",
+          "docs": "border shorthand of the dialog"
+        },
+        {
+          "name": "--ino-dialog-border-radius",
+          "annotation": "prop",
+          "docs": "border-radius of the dialog"
+        },
+        {
+          "name": "--ino-dialog-box-shadow",
+          "annotation": "prop",
+          "docs": "box-shadow of the dialog"
+        },
+        {
+          "name": "--ino-dialog-height",
+          "annotation": "prop",
+          "docs": "height of the dialog"
+        },
+        {
+          "name": "--ino-dialog-overlay-background-color",
+          "annotation": "prop",
+          "docs": "background color of the overlay"
+        },
+        {
+          "name": "--ino-dialog-width",
+          "annotation": "prop",
+          "docs": "width of the dialog"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -2236,7 +2301,48 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--fab-background-color",
+          "annotation": "prop",
+          "docs": "Background color"
+        },
+        {
+          "name": "--fab-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active"
+        },
+        {
+          "name": "--fab-background-color-disabled",
+          "annotation": "prop",
+          "docs": "Background color if disabled"
+        },
+        {
+          "name": "--fab-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover"
+        },
+        {
+          "name": "--fab-color-disabled",
+          "annotation": "prop",
+          "docs": "Text color if disabled"
+        },
+        {
+          "name": "--fab-icon-color",
+          "annotation": "prop",
+          "docs": "Color of the slotted icon"
+        },
+        {
+          "name": "--fab-icon-color-disabled",
+          "annotation": "prop",
+          "docs": "Color of the slotted icon if disabled"
+        },
+        {
+          "name": "--ino-fab-color",
+          "annotation": "prop",
+          "docs": "Text color"
+        }
+      ],
       "slots": [
         {
           "name": "icon-leading",
@@ -2403,69 +2509,6 @@
       "listeners": []
     },
     {
-      "filePath": "./src/components/ino-form-row/ino-form-row.tsx",
-      "fileName": "ino-form-row.tsx",
-      "tag": "ino-form-row",
-      "readme": "# ino-form-row\n\nA component that styles a form element as a row with a leading label.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n\n<ino-form-row label=\"<string>\" mandatory>\n  Any desired form element\n</ino-form-row>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <InoFormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </InoFormRow>\n        <InoFormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </InoFormRow>\n      </>\n    );\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoFormRow, InoInput } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst FormRow: React.FunctionComponent<Components.InoFormRowAttributes> = props => {\n  const { label, mandatory } = props;\n\n  return <InoFormRow label={label} mandatory={mandatory}>{props.children}</InoFormRow>\n};\n\nclass MyComponent extends Component {\n  render() {\n    return (\n      <>\n        <FormRow label=\"This is a form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is another form row\" mandatory>\n          <InoInput></InoInput>\n        </FormRow>\n        <FormRow label=\"This is one more form row without mandatory field\">\n          <InoInput></InoInput>\n        </FormRow>\n      </>\n    )\n  }\n}\n```\n",
-      "usage": {},
-      "docs": "A component that styles a form element as a row with a leading label.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - Any element"
-        }
-      ],
-      "encapsulation": "none",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
-      "props": [
-        {
-          "name": "label",
-          "type": "string",
-          "mutable": false,
-          "attr": "label",
-          "reflectToAttr": false,
-          "docs": "The label for this form row which describes the form element.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "mandatory",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "mandatory",
-          "reflectToAttr": false,
-          "docs": "An indicator which marks the contents of the form row as mandatory.\nIf you use this make sure you also check for the values in your application logic.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "styles": [],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "Any element"
-        }
-      ],
-      "parts": [],
-      "listeners": []
-    },
-    {
       "filePath": "./src/components/ino-header/ino-header.tsx",
       "fileName": "ino-header.tsx",
       "tag": "ino-header",
@@ -2507,7 +2550,18 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-header-box-color",
+          "annotation": "prop",
+          "docs": "Color of the header box"
+        },
+        {
+          "name": "--ino-header-color",
+          "annotation": "prop",
+          "docs": "Text color of the header"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -2521,7 +2575,7 @@
       "filePath": "./src/components/ino-icon/ino-icon.tsx",
       "fileName": "ino-icon.tsx",
       "tag": "ino-icon",
-      "readme": "# ino-icon\n\nA light icon component for texts and other components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument.querySelector('ino-icon').addEventListener('clickEl', (e) => {\n  // ...\n});\n```\n\n```js\ndocument\n  .querySelector('ino-icon')\n  .addEventListener('clickEl', (_) => alert('The icon was clicked'));\n```\n\n```html\n<ino-icon icon=\"<string>\" clickable onclickel=\"handleClickEl()\">\n</ino-icon>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  render() {\n    return <InoIcon icon=\"search\" clickable onClickEl={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {\n  const { icon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  return (\n    <InoIcon icon={icon} onClickEl={handleClick}>\n      {props.children}\n    </InoIcon>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Icon icon=\"search\" />;\n  }\n}\n```\n\n## Additional Hints\n\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n### Add icons\n\nIf you would like to add custom icons, you have to add them to the `src/assets/ino-icon` folder and execute the `yarn icon:integrate-icons`\ncommand to include the newly added icons in the `icons.js` file.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.\n",
+      "readme": "# ino-icon\n\nA light icon component for texts and other components.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument.querySelector('ino-icon').addEventListener('clickEl', (e) => {\n  // ...\n});\n```\n\n```js\ndocument\n  .querySelector('ino-icon')\n  .addEventListener('clickEl', (_) => alert('The icon was clicked'));\n```\n\n```html\n<ino-icon icon=\"<string>\" clickable onclickel=\"handleClickEl()\">\n</ino-icon>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```jsx\nimport { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  render() {\n    return <InoIcon icon=\"search\" clickable onClickEl={handleClick} />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```jsx\nimport React, { Component } from 'react';\nimport { InoIcon } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Icon: React.FunctionComponent<Components.InoIconAttributes> = (props) => {\n  const { icon } = props;\n\n  const handleClick = (e: any) => {\n    alert(`Icon was clicked`);\n  };\n\n  return (\n    <InoIcon icon={icon} onClickEl={handleClick}>\n      {props.children}\n    </InoIcon>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Icon icon=\"search\" />;\n  }\n}\n```\n\n## Additional Hints\n\nThe component inherits styles, such as the text size, from the parent element. For custom styles, use the css properties of the component.\n\n**Clickable icon:** Make an icon interactive with the optional attribute `clickable`. Clickable icons emit a `clickEl` event.\n\n### Add icons\n\nIf you would like to add custom icons, you have to add the `.svg` file to the `src/assets/ino-icon` folder and run the `yarn integrate:icons` script which takes care of the rest.\n\n> **Note:** To use the provided icons in your consumer project, you need to copy all contents of\n> `node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon` into your `dist/ino-icon` folder. All icons are expected\n> to be located in `ino-icon/` at runtime. Please refer to the Storybook documentation to get detailed instructions\n> on how to integrate the icons with Angular, React or plain JavaScript.\n\nAlternatively, you can also just provide the URL to your preferred icon by setting the `src` property accordingly.\n",
       "usage": {},
       "docs": "This component is based on the ionicons (https://github.com/ionic-team/ionicons)",
       "docsTags": [],
@@ -2677,7 +2731,23 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-icon-color",
+          "annotation": "prop",
+          "docs": "Color of the icon"
+        },
+        {
+          "name": "--ino-icon-height",
+          "annotation": "prop",
+          "docs": "Height of the icon"
+        },
+        {
+          "name": "--ino-icon-width",
+          "annotation": "prop",
+          "docs": "Width of the icon"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -2750,48 +2820,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -2884,7 +2912,48 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-icon-button-background-active-color",
+          "annotation": "prop",
+          "docs": "base color of the active background"
+        },
+        {
+          "name": "--ino-icon-button-background-color",
+          "annotation": "prop",
+          "docs": "default color of the background"
+        },
+        {
+          "name": "--ino-icon-button-background-disabled-color",
+          "annotation": "prop",
+          "docs": "base color of the background in disabled state"
+        },
+        {
+          "name": "--ino-icon-button-icon-active-color",
+          "annotation": "prop",
+          "docs": "color of the active icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-color",
+          "annotation": "prop",
+          "docs": "default color of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-icon-disabled-color",
+          "annotation": "prop",
+          "docs": "color of the icon itself in disabled state"
+        },
+        {
+          "name": "--ino-icon-button-icon-size",
+          "annotation": "prop",
+          "docs": "size of the icon itself"
+        },
+        {
+          "name": "--ino-icon-button-size",
+          "annotation": "prop",
+          "docs": "size of the entire button"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -3219,7 +3288,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-img-list-cols",
+          "annotation": "prop",
+          "docs": "sets the number of columns"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -3737,7 +3812,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-input-caret-color",
+          "annotation": "prop",
+          "docs": "color of the caret"
+        },
+        {
+          "name": "--ino-input-icon-color",
+          "annotation": "prop",
+          "docs": "icon color"
+        },
+        {
+          "name": "--ino-input-label-color",
+          "annotation": "prop",
+          "docs": "color of the label"
+        },
+        {
+          "name": "--ino-input-line-color",
+          "annotation": "prop",
+          "docs": "line color"
+        }
+      ],
       "slots": [
         {
           "name": "icon-leading",
@@ -3968,7 +4064,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-input-file-box-height",
+          "annotation": "prop",
+          "docs": "Height of the drag and drop window"
+        },
+        {
+          "name": "--ino-input-file-box-width",
+          "annotation": "prop",
+          "docs": "Width of the drag and drop window"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -4113,12 +4220,12 @@
       },
       "props": [
         {
-          "name": "multiselect",
+          "name": "avatar",
           "type": "boolean",
           "mutable": false,
-          "attr": "multiselect",
+          "attr": "avatar",
           "reflectToAttr": false,
-          "docs": "For a11y: Set to true if list allows multi-selection",
+          "docs": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4130,26 +4237,32 @@
           "required": false
         },
         {
-          "name": "role",
-          "type": "\"list\" | \"listbox\" | \"menu\"",
+          "name": "dense",
+          "type": "boolean",
           "mutable": false,
-          "attr": "role",
+          "attr": "dense",
           "reflectToAttr": false,
-          "docs": "For a11y: If list is interactive then set role type",
+          "docs": "Styles the list more dense, making it appear more compact.",
           "docsTags": [],
-          "default": "'list'",
           "values": [
             {
-              "value": "list",
-              "type": "string"
-            },
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "twoLines",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "two-lines",
+          "reflectToAttr": false,
+          "docs": "Marks this element as list with items having two lines.",
+          "docsTags": [],
+          "values": [
             {
-              "value": "listbox",
-              "type": "string"
-            },
-            {
-              "value": "menu",
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": true,
@@ -4158,7 +4271,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-list-item-border-radius",
+          "annotation": "prop",
+          "docs": "Border radius of the list container, also effects the first and last list item"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -4283,40 +4402,7 @@
           "mutable": false,
           "attr": "activated",
           "reflectToAttr": false,
-          "docs": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permanently activated.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "avatar",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "avatar",
-          "reflectToAttr": false,
-          "docs": "Configures the leading tiles of each row to display images instead of icons.\nThis will make the graphics of the list items larger.",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "dense",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "dense",
-          "reflectToAttr": false,
-          "docs": "Styles the list more dense, making it appear more compact.",
+          "docs": "Styles the row in an activated style.\n\nIn contrast to `selected`, use this for only one item\nand to mark it as permantently activated.",
           "docsTags": [],
           "values": [
             {
@@ -4337,32 +4423,6 @@
           "values": [
             {
               "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "role",
-          "type": "\"listitem\" | \"menuitem\" | \"option\"",
-          "mutable": false,
-          "attr": "role",
-          "reflectToAttr": false,
-          "docs": "For a11y: If list item is interactive then set role type",
-          "docsTags": [],
-          "default": "'listitem'",
-          "values": [
-            {
-              "value": "listitem",
-              "type": "string"
-            },
-            {
-              "value": "menuitem",
-              "type": "string"
-            },
-            {
-              "value": "option",
-              "type": "string"
             }
           ],
           "optional": true,
@@ -4415,22 +4475,6 @@
           ],
           "optional": true,
           "required": false
-        },
-        {
-          "name": "twoLines",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "two-lines",
-          "reflectToAttr": false,
-          "docs": "Marks this element as list with items having two lines.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
         }
       ],
       "methods": [],
@@ -4445,7 +4489,58 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-list-item-deselected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if active"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-deselected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a deselected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-deselected-color",
+          "annotation": "prop",
+          "docs": "Text color of a deselected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if active"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item if focused"
+        },
+        {
+          "name": "--ino-list-item-selected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color of a selected list item on hover"
+        },
+        {
+          "name": "--ino-list-item-selected-color",
+          "annotation": "prop",
+          "docs": "Text color of a selected list item"
+        }
+      ],
       "slots": [
         {
           "name": "leading",
@@ -4577,7 +4672,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-markdown-editor-max-height",
+          "annotation": "prop",
+          "docs": "max-height of text editor Default value is `none`."
+        },
+        {
+          "name": "--ino-markdown-editor-min-height",
+          "annotation": "prop",
+          "docs": "min-height of text editor. Default value is `100px`."
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -4820,7 +4926,43 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-drawer-background",
+          "annotation": "prop",
+          "docs": "Background of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-height",
+          "annotation": "prop",
+          "docs": "Height of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-text-color",
+          "annotation": "prop",
+          "docs": "Color of text inside the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-timing-function",
+          "annotation": "prop",
+          "docs": "Timing function of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-transition-duration",
+          "annotation": "prop",
+          "docs": "Duration of the slide animation of the drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-closed",
+          "annotation": "prop",
+          "docs": "Docked variant only! The width of the collapsed drawer."
+        },
+        {
+          "name": "--ino-nav-drawer-width-open",
+          "annotation": "prop",
+          "docs": "The width of the open drawer."
+        }
+      ],
       "slots": [
         {
           "name": "app",
@@ -4943,7 +5085,28 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-nav-item-background-color",
+          "annotation": "prop",
+          "docs": "Inactive color of the background of one item."
+        },
+        {
+          "name": "--ino-nav-item-background-color-active",
+          "annotation": "prop",
+          "docs": "Active color of the background of one item."
+        },
+        {
+          "name": "--ino-nav-item-color",
+          "annotation": "prop",
+          "docs": "Inactive color of icon."
+        },
+        {
+          "name": "--ino-nav-item-color-active",
+          "annotation": "prop",
+          "docs": "Active color of icon."
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -5040,7 +5203,48 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-option-deselected-background-color",
+          "annotation": "prop",
+          "docs": "Background color if deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active and deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color on focus if deselected"
+        },
+        {
+          "name": "--ino-option-deselected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover if deselected"
+        },
+        {
+          "name": "--ino-option-selected-background-color",
+          "annotation": "prop",
+          "docs": "Background color if selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-active",
+          "annotation": "prop",
+          "docs": "Background color if active and selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-focus",
+          "annotation": "prop",
+          "docs": "Background color on focus if selected"
+        },
+        {
+          "name": "--ino-option-selected-background-color-hover",
+          "annotation": "prop",
+          "docs": "Background color on hover if selected"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -5169,24 +5373,16 @@
         },
         {
           "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
+          "type": "\"primary\" | \"transparent\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'secondary', 'light', 'transparent'",
+          "docs": "Sets the color scheme of the popup\nValid options include: 'primary', 'transparent'",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "light",
-              "type": "string"
-            },
-            {
               "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
               "type": "string"
             },
             {
@@ -5614,7 +5810,13 @@
       ],
       "methods": [],
       "events": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--progress-bar--bar-color",
+          "annotation": "prop",
+          "docs": "Color of the progress bar"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -5823,57 +6025,15 @@
       "filePath": "./src/components/ino-range/ino-range.tsx",
       "fileName": "ino-range.tsx",
       "tag": "ino-range",
-      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return <InoRange inoColorScheme={inoColorScheme}>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range inoColorScheme=\"primary\" />;\n  }\n}\n```\n\n## Additional Hints\n",
+      "readme": "# ino-range\n\nA range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n### Usage\n\nThe component can be used as follows:\n\n```js\ndocument\n  .querySelector('ino-datepicker')\n  .addEventListener('valueChange', (e) =>\n    alert(`The new range value is: ${e.detail}`),\n  );\n```\n\n```html\n<ino-range\n  min=\"<number>\"\n  max=\"<number>\"\n  value=\"<number>\"\n  name=\"<string>\"\n  step=\"<number>\"\n  disabled\n  color-scheme=\"<string>\"\n  discrete\n  markers\n>\n</ino-range>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoRange />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoRange } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Range: React.FunctionComponent<Components.InoRangeAttributes> = (\n  props,\n) => {\n\n  return <InoRange>{props.children}</InoRange>;\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Range />;\n  }\n}\n```\n\n## Additional Hints\n",
       "usage": {},
-      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.\n\n> Note: Range sliders with multiple thumbs are not yet implemented.",
+      "docs": "A range component that allows the user select a number using a slider. It functions as a wrapper around the material [Slider](https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider) component.",
       "docsTags": [],
       "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme of this component.\nPossible values: `primary` (default), `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -6119,7 +6279,7 @@
           "text": "default - Label of the button"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6243,7 +6403,7 @@
           "text": "default - One or more `ino-segment-button`"
         }
       ],
-      "encapsulation": "shadow",
+      "encapsulation": "none",
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {},
@@ -6282,7 +6442,17 @@
         }
       ],
       "methods": [],
-      "events": [],
+      "events": [
+        {
+          "event": "valueChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Forwards the `checkedChange` events of the `<ino-segment-buttons>` with its value as the detail.",
+          "docsTags": []
+        }
+      ],
       "styles": [],
       "slots": [
         {
@@ -6291,7 +6461,13 @@
         }
       ],
       "parts": [],
-      "listeners": []
+      "listeners": [
+        {
+          "event": "checkedChange",
+          "capture": false,
+          "passive": false
+        }
+      ]
     },
     {
       "filePath": "./src/components/ino-select/ino-select.tsx",
@@ -6511,7 +6687,18 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-select-height",
+          "annotation": "prop",
+          "docs": "Height of the open select menu"
+        },
+        {
+          "name": "--ino-select-icon-color",
+          "annotation": "prop",
+          "docs": "Icon color"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -6530,105 +6717,6 @@
           "passive": false
         }
       ]
-    },
-    {
-      "filePath": "./src/components/ino-sidebar/ino-sidebar.tsx",
-      "fileName": "ino-sidebar.tsx",
-      "tag": "ino-sidebar",
-      "readme": "# ino-sidebar\n\nThe ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```js\ndocument\n    .querySelector('ino-sidebar')\n    .addEventListener('openChange', (e) => console.log(`state of sidebar changed to ${e.detail}`);\n```\n\n```html\n<ino-sidebar>\n  <div class=\"sidebar-header\" slot=\"header\">\n    <ino-icon clickable icon=\"close-s\"></ino-icon>\n  </div>\n  <div class=\"sidebar-content\" slot=\"content\">\n    <ino-list>\n      <ino-list-item text=\"List item\"></ino-list-item>\n      <ino-list-item text=\"List item\"></ino-list-item>\n    </ino-list>\n  </div>\n</ino-sidebar>\n```\n\n### React\n\n```jsx\nimport React from 'react';\nimport { Component } from 'react';\nimport { InoSidebar, InoButton } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n\n  state = {\n    expanded: false\n  };\n\n  handleClick = () => {\n    this.setState((state) => ({\n      expanded: !state.expanded\n    }));\n  };\n\n  render() {\n    return (\n      <InoButton onClick={() => this.handleClick()}>Sidebar</InoButton>\n      <InoSidebar inoOpen={this.state.expanded}></InoSidebar>\n    )\n  }\n\n}\n```\n\n## Sidenotes\n\nThe empty `div` tag with the `tabindex=\"0\"` attribute as well as the `<div class=\"mdc-drawer-scrim\"/>` tag\nare indispensable for the sidebar to work properly. For further information,\nrefer to https://github.com/material-components/material-components-web/issues/5615 and\nhttps://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer.\n",
-      "usage": {},
-      "docs": "The ino-sidebar is a modal sidebar that can be used to display additional information.\nIt functions as a wrapper around the material [drawer](https://github.com/material-components/material-components-web/blob/master/packages/mdc-drawer/) component.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "header - For the header element"
-        },
-        {
-          "name": "slot",
-          "text": "content - For the content"
-        }
-      ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
-      "props": [
-        {
-          "name": "alignRight",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "align-right",
-          "reflectToAttr": false,
-          "docs": "Aligns the sidebar to the right (true) or left (false) side",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "Name of the component",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "open",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "open",
-          "reflectToAttr": false,
-          "docs": "Expands the sidebar",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "openChange",
-          "detail": "any",
-          "bubbles": true,
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emits an event if the user expands or collapses the sidebar",
-          "docsTags": []
-        }
-      ],
-      "styles": [],
-      "slots": [
-        {
-          "name": "content",
-          "docs": "For the content"
-        },
-        {
-          "name": "header",
-          "docs": "For the header element"
-        }
-      ],
-      "parts": [],
-      "listeners": []
     },
     {
       "filePath": "./src/components/ino-snackbar/ino-snackbar.tsx",
@@ -6773,7 +6861,28 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-snackbar-bottom",
+          "annotation": "prop",
+          "docs": "Distance to the bottom edge"
+        },
+        {
+          "name": "--ino-snackbar-left",
+          "annotation": "prop",
+          "docs": "Distance to the left edge"
+        },
+        {
+          "name": "--ino-snackbar-right",
+          "annotation": "prop",
+          "docs": "Distance to the right edge"
+        },
+        {
+          "name": "--ino-snackbar-top",
+          "annotation": "prop",
+          "docs": "Distance to the top edge"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": []
@@ -6782,7 +6891,7 @@
       "filePath": "./src/components/ino-spinner/ino-spinner.tsx",
       "fileName": "ino-spinner.tsx",
       "tag": "ino-spinner",
-      "readme": "# ino-spinner\n\nA component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-spinner\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  height=\"<number>\"\n  modal\n  width=\"<number>\"\n>\n</ino-spinner>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoSpinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (\n  props,\n) => {\n  const { inoColorScheme } = props;\n\n  return (\n    <InoSpinner inoColorScheme={inoColorScheme}>{props.children}</InoSpinner>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Spinner inoColorScheme=\"warning\" />;\n  }\n}\n```\n\n## Additional Hints\n\nUse one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).\n\n**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.\n",
+      "readme": "# ino-spinner\n\nA component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.\n\n### Usage\n\nThe component can be used as follows:\n\n```html\n<ino-spinner\n  type=\"<string>\"\n  color-scheme=\"<string>\"\n  height=\"<number>\"\n  modal\n  width=\"<number>\"\n>\n</ino-spinner>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoSpinner />;\n  }\n}\n```\n\n#### Example #2 - With Types\n\n```js\nimport React, { Component } from 'react';\nimport { InoSpinner } from '@inovex.de/elements/dist/react';\nimport { Components } from '@inovex.de/elements/dist/types/components';\n\nconst Spinner: React.FunctionComponent<Components.InoSpinnerAttributes> = (\n  props,\n) => {\n\n  return (\n    <InoSpinner>{props.children}</InoSpinner>\n  );\n};\n\nclass MyComponent extends Component {\n  render() {\n    return <Spinner />;\n  }\n}\n```\n\n## Additional Hints\n\nUse one of the provided types in `type` to give the spinner the shape. Adjust the size of the spinner by changing the `height` and `width` attributes. Finally, colorize the spinner using `color-scheme` (see the attribute docs below).\n\n**Modal:** If operations have to block the entire page, the spinner can be marked with `modal` to spread over the entire screen and overlay the current page.\n",
       "usage": {},
       "docs": "A component which displays a variety of spinners. Use spinners to show that the app is loading content or performing another process for which the user has to wait.\n\nThis component contains three different types of spinners animated with pure CSS. It mainly relies on [Spinkit](http://tobiasahlin.com/spinkit/) and may be extended in future with more types.",
       "docsTags": [],
@@ -6797,48 +6906,6 @@
         ]
       },
       "props": [
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "height",
           "type": "number",
@@ -6965,48 +7032,6 @@
             }
           ],
           "optional": true,
-          "required": false
-        },
-        {
-          "name": "colorScheme",
-          "type": "\"dark\" | \"error\" | \"light\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "color-scheme",
-          "reflectToAttr": false,
-          "docs": "The name of the color scheme which is used\nto style the background and outline of this component.\nPossible values: `primary` (default),  `secondary`,\n`success`, `warning`, `error`, `light`, `dark`.",
-          "docsTags": [],
-          "default": "'primary'",
-          "values": [
-            {
-              "value": "dark",
-              "type": "string"
-            },
-            {
-              "value": "error",
-              "type": "string"
-            },
-            {
-              "value": "light",
-              "type": "string"
-            },
-            {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
           "required": false
         },
         {
@@ -7397,7 +7422,13 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-table-row-height",
+          "annotation": "prop",
+          "docs": "height of a table row"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -7977,7 +8008,23 @@
           "docsTags": []
         }
       ],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--ino-textarea-caret-color",
+          "annotation": "prop",
+          "docs": "color of the caret"
+        },
+        {
+          "name": "--ino-textarea-label-color",
+          "annotation": "prop",
+          "docs": "color of the label"
+        },
+        {
+          "name": "--ino-textarea-outline-color",
+          "annotation": "prop",
+          "docs": "outline color of the textarea"
+        }
+      ],
       "slots": [],
       "parts": [],
       "listeners": [
@@ -8019,24 +8066,16 @@
       "props": [
         {
           "name": "colorScheme",
-          "type": "\"light\" | \"primary\" | \"secondary\" | \"transparent\"",
+          "type": "\"primary\" | \"transparent\"",
           "mutable": false,
           "attr": "color-scheme",
           "reflectToAttr": false,
-          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `secondary` `light`, `transparent`",
+          "docs": "Sets the color scheme of the tooltip\nValid options include: `primary`, `transparent`",
           "docsTags": [],
           "default": "'primary'",
           "values": [
             {
-              "value": "light",
-              "type": "string"
-            },
-            {
               "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
               "type": "string"
             },
             {
