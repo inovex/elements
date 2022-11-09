@@ -728,7 +728,7 @@ export namespace Components {
         /**
           * For a11y: If list is interactive then set role type
          */
-        "role"?: 'list' | 'menu' | 'listbox';
+        "role": 'list' | 'menu' | 'listbox';
     }
     interface InoListDivider {
         /**
@@ -764,7 +764,7 @@ export namespace Components {
         /**
           * For a11y: If list item is interactive then set role type
          */
-        "role"?: 'listitem' | 'menuitem' | 'option';
+        "role": 'listitem' | 'menuitem' | 'option';
         /**
           * Sets the secondary text of this list item.  Requires `two-lines` on the parent `ino-list` element.
          */

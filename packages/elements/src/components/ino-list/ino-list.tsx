@@ -23,7 +23,7 @@ export class List implements ComponentInterface {
   /**
    * For a11y: If list is interactive then set role type
    */
-  @Prop() role?: 'list' | 'menu' | 'listbox' = 'list';
+  @Prop() role: 'list' | 'menu' | 'listbox' = 'list';
 
   /**
    * For a11y: Set to true if list allows multi-selection
@@ -44,6 +44,7 @@ export class List implements ComponentInterface {
         class="mdc-list"
         aria-multiselectable={this.multiselect}
         role={this.role}
+        data-evolution="true"
       >
       </Host>
     );

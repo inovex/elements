@@ -80,7 +80,7 @@ export class ListItem implements ComponentInterface {
   /**
    * For a11y: If list item is interactive then set role type
    */
-  @Prop() role?: 'listitem' | 'menuitem' | 'option' = 'listitem';
+  @Prop() role: 'listitem' | 'menuitem' | 'option' = 'listitem';
 
   /**
    * Emits when the list item is clicked or
@@ -145,7 +145,7 @@ export class ListItem implements ComponentInterface {
               <slot name="leading" />
             </span>
           )}
-          <span class="mdc-list-item__content ">
+          <span class="mdc-list-item__content">
             <span class="mdc-list-item__primary-text">{
               primaryContent
             }</span>
@@ -156,7 +156,7 @@ export class ListItem implements ComponentInterface {
             )}
           </span>
           {trailingSlotHasContent && (
-            <span class="mdc-list-item__end ">
+            <span class="mdc-list-item__end">
               <slot name="trailing" />
             </span>
           )}
