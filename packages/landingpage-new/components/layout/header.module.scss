@@ -5,6 +5,7 @@ $header-height: 120px;
   top: 0;
   position: sticky;
   background-color: white;
+  z-index: 999;
   min-height: 70px;
   height: calc($header-height - var(--factor) * 1px);
   max-height: $header-height;
@@ -16,7 +17,6 @@ $header-height: 120px;
     "logo navbar github inovex";
   align-items: center;
   transition: height 50ms linear;
-
 }
 
 .logo {

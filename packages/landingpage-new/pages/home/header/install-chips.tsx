@@ -62,13 +62,14 @@ export default function InstallChips() {
         id={COMMAND_CHIP_ID}
         className={styles.chip}
         fill="outline"
-        label={`$ ${currentCommand}`}
         onClick={() => {
           copyToClipboard(currentCommand);
           setShowTooltip(true);
           reset();
         }}
-      ></InoChip>
+      >
+        <code>$ {currentCommand}</code>
+      </InoChip>
       </div>
       {/* TODO ADD COPIED TO CLIPPBOARD NOTIFICATION <InoPopover attachToBody for={COMMAND_CHIP_ID} colorScheme="primary" placement="bottom" controlled visible={showTooltip} style={{backgroundColor: 'hotpink'}}>
           Copied to clipboard!
@@ -85,10 +86,10 @@ export default function InstallChips() {
             src={`/${IconByCommand[framework as Frameworks]}`}
             alt="Javascript Logo"
             layout='fill'
-            width="100%" 
+            width="100%"
             height="100%"
           />
-          
+
         </div>
       ))}
     </div>

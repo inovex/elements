@@ -6,7 +6,11 @@ import InstallChips from './install-chips';
 
 export default function Header() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Home</title>
+        <meta name="Landingpage" content="the interoperable UI library" />
+      </Head>
       <div className={styles.container}>
         <div className={styles.image}>
           <Image
@@ -15,27 +19,19 @@ export default function Header() {
             src="/elements-collage.png"
             alt="Elements Collage"
             objectFit="contain"
-            
           />
         </div>
-        <div className={styles.header}>
-          <Head>
-            <title>Home</title>
-            <meta name="Landingpage" content="the interoperable UI library" />
-          </Head>
-          <p className={styles.heading}>
-            <b>the interoperable UI library</b>
-            <br />
-            for any <mark>framework</mark>
-          </p>
+        <div className={styles.headerContainer}>
+          <h1 className={styles.header}>the interoperable UI library</h1>
+          <h2 className={styles.subHeader}>for any <mark>framework</mark></h2>
         </div>
         <div className={styles.info}>
           <p>
             It’s hard to build and maintain UI components. Don’t start from
             scratch every time you create a new project. Build them once, run
             them everywhere!
-            <br />
-            <br />
+          </p>
+          <p>
             Use our open source UI component library{' '}
             <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
               inovex elements.
@@ -49,6 +45,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

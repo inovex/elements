@@ -1,56 +1,61 @@
 @use '../../../../elements/src/components/base/typography';
+
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.3fr 0.3fr 0.5fr 0.6fr 1.4fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
+  grid-template-columns: minmax(622px, 1fr) 1fr;
+  grid-template-rows: 1fr 76px 1fr;
   grid-template-areas:
-    '. .'
-    '. image'
     'header image'
     'info image'
     'installation image';
-}
-
-p:not(.heading) {
-  @include typography.font($size: m, $weight: regular);
-  color: #3a3b64;
+  grid-row-gap: 40px;
 }
 
 .image {
   grid-area: image;
 }
 
-.header {
+.headerContainer {
   grid-area: header;
+  align-self: end;
 
-  .heading {
+  %heading {
+    color: #232527;
     font-size: 3.1em;
     letter-spacing: 0.53px;
-    font-weight: lighter;
+    margin: 0;
+  }
 
-    mark {
-      padding: 0 5px 0 3px;
-      z-index: 1;
-      background: linear-gradient(
+  .header {
+    @extend %heading;
+  }
+
+  .subHeader {
+    @extend %heading;
+    font-weight: lighter;
+  }
+
+  mark {
+    padding: 0 5px 0 3px;
+    background: linear-gradient(
         0,
         rgba(212, 204, 255, 0.5) 40%,
         transparent 40%
-      );
-      width: fit-content;
-    }
-  }
-}
-
-.installation {
-  grid-area: installation;
-
-  .animation {
-    padding-top: 15px;
+    );
+    width: fit-content;
   }
 }
 
 .info {
   grid-area: info;
+  max-width: 500px;
+}
+
+.installation {
+  grid-area: installation;
+  align-self: start;
+
+  .animation {
+    padding-top: 15px;
+  }
 }
