@@ -20,6 +20,7 @@ ino-chip {
 
   // base styling
   .ino-chip-container {
+    width: inherit;
     @include chips.ripple-color(transparent);
     @include chips.trailing-action-color(theme.$primary);
     @include chips.trailing-action-ripple-size(0px);
@@ -32,6 +33,10 @@ ino-chip {
     .ino-chip-leading-icon {
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
+    }
+
+    .ino-chip_cell {
+      width: inherit;
     }
 
     .mdc-evolution-chip__action {

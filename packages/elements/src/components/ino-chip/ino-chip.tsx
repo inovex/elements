@@ -170,7 +170,7 @@ export class Chip implements ComponentInterface {
           role={this.selectable ? 'presentation' : 'row'}
         >
           <span
-            class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
+            class="ino-chip_cell mdc-evolution-chip__cell mdc-evolution-chip__cell--primary"
             role="gridcell"
           >
             {this.renderPrimaryAction([
