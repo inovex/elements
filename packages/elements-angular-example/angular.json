@@ -28,7 +28,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "../../node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+                "output": "ino-icon"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -97,7 +102,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "../../node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+                "output": "ino-icon"
+              }
             ],
             "styles": [
               "src/styles.scss"
