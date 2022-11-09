@@ -5,7 +5,7 @@ import { ValueAccessorDirective } from './value-accessor.directive';
 
 @Directive({
   selector:
-    'ino-autocomplete,ino-currency-input,ino-input,ino-textarea,ino-range,ino-select,ino-datepicker,ino-segment-group',
+    'ino-autocomplete,ino-currency-input,ino-input,ino-markdown-editor,ino-textarea,ino-range,ino-select,ino-datepicker,ino-segment-group',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

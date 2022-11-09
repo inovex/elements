@@ -29,6 +29,13 @@
       >
     </ino-list-item>
   </ino-list>
+
+  <ino-markdown-editor
+    formControlName="todoText"
+    (viewModeChange)="onViewModeChange($event)"
+    [viewMode]="mode"
+    [initialValue]="myText"
+  ></ino-markdown-editor>
 </div>
 
 <div class="btn-box">
