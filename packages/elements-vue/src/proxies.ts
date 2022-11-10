@@ -165,11 +165,6 @@ export const InoFabSet = /*@__PURE__*/ defineContainer<JSX.InoFabSet>('ino-fab-s
 ]);
 
 
-export const InoHeader = /*@__PURE__*/ defineContainer<JSX.InoHeader>('ino-header', undefined, [
-  'text'
-]);
-
-
 export const InoIcon = /*@__PURE__*/ defineContainer<JSX.InoIcon>('ino-icon', undefined, [
   'icon',
   'colorSecondary',

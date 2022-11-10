@@ -1,7 +1,24 @@
 @use './../components/base/typography';
 @use './../components/base/theme';
+@use './../components/base/new-theme' as new-theme;
 
 :root {
+  $header-separator-height: 10px;
+
+  @mixin header-decoration {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      margin-left: 0.7rem;
+      background-color: new-theme.$n-6;
+      height: $header-separator-height;
+      width: 100%;
+      margin-top: 2px;
+    }
+  }
 
   /* font-styles */
   :root, html {
@@ -18,14 +35,47 @@
   }
 
   h1 {
-    @include typography.font($size: l, $weight: bold)
+    @include typography.font($size: l, $weight: bold);
   }
 
   h2 {
-    @include typography.font($size: m, $weight: semibold)
+    @include typography.font($size: m, $weight: semibold);
   }
 
   h3 {
-    @include typography.font($size: m, $weight: medium)
+    @include typography.font($size: m, $weight: medium);
   }
-}
+
+  // Header Styles 
+  .header-h1 {
+    @include typography.font($size: h1, $weight: bold);
+    @include header-decoration();
+  }
+
+  .header-h2 {
+    @include typography.font($size: h2, $weight: bold);
+    @include header-decoration();
+  }
+
+  .header-h3 {
+    @include typography.font($size: h3, $weight: bold);
+    @include header-decoration();
+  }
+
+  .header-h4 {
+    @include typography.font($size: h4, $weight: medium);
+    @include header-decoration();
+  }
+
+  .header-h5 {
+    @include typography.font($size: h5, $weight: medium);
+    @include header-decoration();
+  }
+
+  .header-h6 {
+    @include typography.font($size: h6, $weight: medium);
+    @include header-decoration();
+  }
+} 
+
+

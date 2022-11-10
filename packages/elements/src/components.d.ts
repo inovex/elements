@@ -419,13 +419,6 @@ export namespace Components {
          */
         "topBottomLocation": VerticalLocation;
     }
-    interface InoHeader {
-        /**
-          * [DEPRECATED] Please use the default slot instead of this prop.
-          * @deprecated
-         */
-        "text"?: string;
-    }
     interface InoIcon {
         /**
           * Makes the icon clickable and allows to listen to the `clickEl` event.
@@ -1518,12 +1511,6 @@ declare global {
         prototype: HTMLInoFabSetElement;
         new (): HTMLInoFabSetElement;
     };
-    interface HTMLInoHeaderElement extends Components.InoHeader, HTMLStencilElement {
-    }
-    var HTMLInoHeaderElement: {
-        prototype: HTMLInoHeaderElement;
-        new (): HTMLInoHeaderElement;
-    };
     interface HTMLInoIconElement extends Components.InoIcon, HTMLStencilElement {
     }
     var HTMLInoIconElement: {
@@ -1736,7 +1723,6 @@ declare global {
         "ino-dialog": HTMLInoDialogElement;
         "ino-fab": HTMLInoFabElement;
         "ino-fab-set": HTMLInoFabSetElement;
-        "ino-header": HTMLInoHeaderElement;
         "ino-icon": HTMLInoIconElement;
         "ino-icon-button": HTMLInoIconButtonElement;
         "ino-img": HTMLInoImgElement;
@@ -2204,13 +2190,6 @@ declare namespace LocalJSX {
           * The side where the Fab is displayed. Possible values: `top`, `bottom` (default).
          */
         "topBottomLocation"?: VerticalLocation;
-    }
-    interface InoHeader {
-        /**
-          * [DEPRECATED] Please use the default slot instead of this prop.
-          * @deprecated
-         */
-        "text"?: string;
     }
     interface InoIcon {
         /**
@@ -3195,7 +3174,6 @@ declare namespace LocalJSX {
         "ino-dialog": InoDialog;
         "ino-fab": InoFab;
         "ino-fab-set": InoFabSet;
-        "ino-header": InoHeader;
         "ino-icon": InoIcon;
         "ino-icon-button": InoIconButton;
         "ino-img": InoImg;
@@ -3248,7 +3226,6 @@ declare module "@stencil/core" {
             "ino-dialog": LocalJSX.InoDialog & JSXBase.HTMLAttributes<HTMLInoDialogElement>;
             "ino-fab": LocalJSX.InoFab & JSXBase.HTMLAttributes<HTMLInoFabElement>;
             "ino-fab-set": LocalJSX.InoFabSet & JSXBase.HTMLAttributes<HTMLInoFabSetElement>;
-            "ino-header": LocalJSX.InoHeader & JSXBase.HTMLAttributes<HTMLInoHeaderElement>;
             "ino-icon": LocalJSX.InoIcon & JSXBase.HTMLAttributes<HTMLInoIconElement>;
             "ino-icon-button": LocalJSX.InoIconButton & JSXBase.HTMLAttributes<HTMLInoIconButtonElement>;
             "ino-img": LocalJSX.InoImg & JSXBase.HTMLAttributes<HTMLInoImgElement>;
