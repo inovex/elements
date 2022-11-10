@@ -18,25 +18,25 @@ $icon-size: 16px;
 
 ino-chip {
 
+  height: 24px; // default height
+
   // base styling
   .ino-chip-container {
     width: inherit;
+    height: inherit;
     @include chips.ripple-color(transparent);
     @include chips.trailing-action-color(theme.$primary);
     @include chips.trailing-action-ripple-size(0px);
     @include chips.text-label-color(theme.$primary);
     @include chips.icon-color(theme.$primary);
     @include chips.checkmark-color(theme.$primary);
-    @include chips.height(24px);
+    @include chips.height(inherit);
+    @include chips.shape-radius(100%);
     transition: ease-in-out 0.15s;
 
     .ino-chip-leading-icon {
       --ino-icon-width: #{$icon-size};
       --ino-icon-height: #{$icon-size};
-    }
-
-    .ino-chip_cell {
-      width: inherit;
     }
 
     .mdc-evolution-chip__action {
