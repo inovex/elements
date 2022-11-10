@@ -5,27 +5,27 @@ import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
 
-enum Frameworks {
+enum Framework {
   VUE = 'VUE',
   ANGULAR = 'ANGULAR',
   REACT = 'REACT',
   NATIVE = 'NATIVE',
 }
 
-const FrameworksArr = Object.values(Frameworks);
+const FrameworksArr = Object.values(Framework);
 
-const CommandByFrameworks: Record<Frameworks, string> = {
-  [Frameworks.VUE]: 'npm install @inovex.de/elements-vue',
-  [Frameworks.ANGULAR]: 'ng add @inovex.de/elements-angular',
-  [Frameworks.REACT]: 'npm install @inovex.de/elements-react',
-  [Frameworks.NATIVE]: 'npm install @inovex.de',
+const CommandByFrameworks: Record<Framework, string> = {
+  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
+  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
+  [Framework.REACT]: 'npm install @inovex.de/elements-react',
+  [Framework.NATIVE]: 'npm install @inovex.de',
 };
 
-const IconByCommand: Record<Frameworks, string> = {
-  [Frameworks.VUE]: 'vue.svg',
-  [Frameworks.ANGULAR]: 'angular.svg',
-  [Frameworks.REACT]: 'react-icon.svg',
-  [Frameworks.NATIVE]: 'javascript.svg',
+const IconByFramework: Record<Framework, string> = {
+  [Framework.VUE]: 'vue.svg',
+  [Framework.ANGULAR]: 'angular.svg',
+  [Framework.REACT]: 'react-icon.svg',
+  [Framework.NATIVE]: 'javascript.svg',
 };
 
 const COMMAND_CHIP_ID = 'command-chip';
@@ -34,11 +34,11 @@ export default function InstallChips() {
   const [
     manuallySelectedFramework,
     setManuallySelectedFramework,
-  ] = useState<Frameworks | null>(null);
-  const [carouselFramework, setCarouselFramework] = useState<Frameworks>(
-    Frameworks.VUE
+  ] = useState<Framework | null>(null);
+  const [carouselFramework, setCarouselFramework] = useState<Framework>(
+    Framework.VUE
   );
-  const [currentFramework, setCurrentFramework] = useState<Frameworks>(
+  const [currentFramework, setCurrentFramework] = useState<Framework>(
     carouselFramework
   );
 
@@ -56,9 +56,9 @@ export default function InstallChips() {
         const nextIndex = currentIndex + 1;
 
         if (FrameworksArr.length <= nextIndex)
-          return FrameworksArr[0] as Frameworks;
+          return FrameworksArr[0] as Framework;
 
-        return FrameworksArr[nextIndex] as Frameworks;
+        return FrameworksArr[nextIndex] as Framework;
       });
     },
     manuallySelectedFramework ? null : 3000
@@ -86,7 +86,7 @@ export default function InstallChips() {
           <code className={styles.installCommand}>$ {currentCommand}</code>
         </InoChip>
       </div>
-      {FrameworksArr.map((framework: Frameworks) => (
+      {FrameworksArr.map((framework: Framework) => (
         <div
           key={framework}
           className={classNames(
@@ -101,7 +101,7 @@ export default function InstallChips() {
               );
               setCarouselFramework(framework);
             }}
-            src={`/${IconByCommand[framework]}`}
+            src={`/${IconByFramework[framework]}`}
             alt="Javascript Logo"
             layout="fill"
           />
