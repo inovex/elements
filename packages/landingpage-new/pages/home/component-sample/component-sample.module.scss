@@ -1,0 +1,84 @@
+@use '../../../../elements/src/components/base/typography';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    'chip slider snackbar input'
+    'toggle control-item segment-group segment-group';
+  column-gap: 35px;
+  row-gap: 35px;
+  padding-top: 60px;
+
+  ino-card {
+    position: relative;
+    --ino-card-border-thickness: 0;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 17px;
+    border: transparent;
+    &:not(.segmentgroup ino-card) {
+      width: 316px;
+      height: 258px;
+    }
+  }
+}
+
+.header {
+  p {
+    @include typography.font($size: l, $weight: light);
+    font-size: 50px;
+    color: #232527;
+    letter-spacing: 0.53px;
+    
+  }
+}
+.subheader {
+  max-width: 644px;
+  p {
+    @include typography.font($size: m, $weight: regular);
+    color: #3a3b64;
+    line-height: 19px;
+  }
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+}
+.footer {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+
+  .component {
+    @include typography.font($size: s, $weight: bold);
+  }
+  .label {
+    @include typography.font($size: s, $weight: light);
+  }
+}
+
+.slider {
+  grid-area: slider;
+  .range {
+    width: 153px;
+  }
+}
+
+.segmentgroup {
+  grid-area: segment-group;
+  ino-card {
+    width: 667px;
+    height: 258px;
+  }
+}
