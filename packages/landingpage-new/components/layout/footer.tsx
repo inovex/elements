@@ -1,5 +1,5 @@
 import styles from './footer.module.scss';
-import { Routes } from './routes';
+import { Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
 
 export default function Footer() {

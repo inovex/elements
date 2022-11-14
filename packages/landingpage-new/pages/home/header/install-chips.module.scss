@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  column-gap: 20px;
+  position: relative;
+}
+
+.chipContainer {
+  width: 410px;
+
+  // hide success message
+  background-color: white;
+  z-index: 1;
+}
+
+.chip {
+  height: 36px;
+}
+
+.installCommand {
+  font-size: 16px;
+}
+
+.successMessage {
+  position: absolute;
+  color: #68ce6a;
+  font-weight: bolder;
+  margin: 0;
+  bottom: 0;
+  left: 30px;
+  transition: bottom 1s;
+
+  &Show {
+    bottom: -20px;
+  }
+}
+
+.icon {
+  height: 25px;
+  width: 25px;
+  opacity: 0.3;
+  transition: opacity 1s;
+  position: relative;
+  cursor: pointer;
+
+  &:hover, &Active {
+    opacity: 1;
+  }
+}

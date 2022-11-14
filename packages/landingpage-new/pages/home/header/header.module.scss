@@ -1,0 +1,65 @@
+@use '../../../../elements/src/components/base/typography';
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(622px, 1fr) 1fr;
+  grid-template-rows: 1fr min-content 1fr;
+  grid-template-areas:
+    'header image'
+    'info image'
+    'installation image';
+  grid-row-gap: 40px;
+}
+
+.image {
+  grid-area: image;
+}
+
+.headerContainer {
+  grid-area: header;
+  align-self: end;
+
+  %heading {
+    color: #232527;
+    font-size: 3.1em;
+    letter-spacing: 0.53px;
+    margin: 0;
+  }
+
+  .header {
+    @extend %heading;
+  }
+
+  .subHeader {
+    @extend %heading;
+    font-weight: lighter;
+  }
+
+  mark {
+    padding: 0 5px 0 3px;
+    background: linear-gradient(
+        0,
+        rgba(212, 204, 255, 0.5) 40%,
+        transparent 40%
+    );
+    width: fit-content;
+  }
+}
+
+.info {
+  grid-area: info;
+  max-width: 500px;
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.installation {
+  grid-area: installation;
+  align-self: start;
+
+  .animation {
+    padding-top: 15px;
+  }
+}
