@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { Routes } from './routes';
+import { Routes } from '../../utils/routes';
 import LinkItem from './linkItem';
 
 export default function Navbar() {

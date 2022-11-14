@@ -9,11 +9,19 @@ type MainRoute = Route & {
   subRoutes: Route[];
 };
 
+export enum MainRoutes {
+  HOME = '/',
+  DOCS = '/docs',
+  EXPLORE = '/explore',
+  CONTACT = '/contact',
+  ABOUT = '/about'
+}
+
 // TODO: create meaningful routes
 export const Routes: RouteTree = [
   {
     name: 'home',
-    url: '/',
+    url: MainRoutes.HOME,
     subRoutes: [
       {
         name: 'under home',
@@ -27,7 +35,7 @@ export const Routes: RouteTree = [
   },
   {
     name: 'explore',
-    url: '/explore',
+    url: MainRoutes.EXPLORE,
     subRoutes: [
       {
         name: 'under explore',
@@ -37,7 +45,7 @@ export const Routes: RouteTree = [
   },
   {
     name: 'docs',
-    url: '/docs',
+    url: MainRoutes.DOCS,
     subRoutes: [
       {
         name: 'under docs',
@@ -47,7 +55,7 @@ export const Routes: RouteTree = [
   },
   {
     name: 'about',
-    url: '/about',
+    url: MainRoutes.ABOUT,
     subRoutes: [
       {
         name: 'under about',
@@ -57,7 +65,7 @@ export const Routes: RouteTree = [
   },
   {
     name: 'contact',
-    url: '/contact',
+    url: MainRoutes.CONTACT,
     subRoutes: [
       {
         name: 'under contact',

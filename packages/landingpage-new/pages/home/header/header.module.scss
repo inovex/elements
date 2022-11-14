@@ -3,7 +3,7 @@
 .container {
   display: grid;
   grid-template-columns: minmax(622px, 1fr) 1fr;
-  grid-template-rows: 1fr 76px 1fr;
+  grid-template-rows: 1fr min-content 1fr;
   grid-template-areas:
     'header image'
     'info image'
@@ -49,6 +49,10 @@
 .info {
   grid-area: info;
   max-width: 500px;
+
+  p {
+    font-size: 1rem;
+  }
 }
 
 .installation {

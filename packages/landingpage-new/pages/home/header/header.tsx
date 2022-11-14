@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { InoButton } from '@elements';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
+import Link from 'next/link';
+import { MainRoutes } from '../../../utils/routes';
 
 export default function Header() {
   return (
@@ -23,7 +25,9 @@ export default function Header() {
         </div>
         <div className={styles.headerContainer}>
           <h1 className={styles.header}>the interoperable UI library</h1>
-          <h2 className={styles.subHeader}>for any <mark>framework</mark></h2>
+          <h2 className={styles.subHeader}>
+            for any <mark>framework</mark>
+          </h2>
         </div>
         <div className={styles.info}>
           <p>
@@ -39,7 +43,9 @@ export default function Header() {
           </p>
         </div>
         <div className={styles.installation}>
-          <InoButton>Show documentation</InoButton>
+          <Link href={MainRoutes.DOCS}>
+            <InoButton>Show documentation</InoButton>
+          </Link>
           <div className={styles.animation}>
             <InstallChips></InstallChips>
           </div>
