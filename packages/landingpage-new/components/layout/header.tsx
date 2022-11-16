@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import styles from './header.module.scss';
 import Navbar from './navbar';
 import { useEffect, useState } from 'react';
@@ -35,7 +35,10 @@ export default function Header() {
             alt="inovex-elements Logo"
             width={48}
             height={55}
-          />
+            style={{
+              maxWidth: '100%',
+              height: 'auto'
+            }} />
 
           <p className={styles.name}>elements</p>
         </a>
@@ -54,7 +57,10 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
-        />
+          style={{
+            maxWidth: '100%',
+            height: 'auto'
+          }} />
       </a>
       <a
         className={styles.inovex}
@@ -67,7 +73,10 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
-        />
+          style={{
+            maxWidth: '100%',
+            height: 'auto'
+          }} />
       </a>
     </header>
   );
