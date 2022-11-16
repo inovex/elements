@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styles from './header.module.scss';
 import Navbar from './navbar';
 import { useEffect, useState } from 'react';

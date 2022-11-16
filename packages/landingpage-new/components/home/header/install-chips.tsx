@@ -1,7 +1,7 @@
 import { InoChip } from '@elements';
 import { useEffect, useState } from 'react';
 import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
 
