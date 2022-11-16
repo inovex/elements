@@ -3,7 +3,6 @@ import styles from './home.module.scss';
 
 import Header from './header/header';
 import CoreAspects from './core-aspects/core-aspects';
-import GithubCrawl from 'pages/team/github-crawl';
 
 const Home: NextPage = () => {
   return (
@@ -13,9 +12,6 @@ const Home: NextPage = () => {
       </div>
       <div>
         <CoreAspects></CoreAspects>
-      </div>
-      <div>
-        <GithubCrawl users={[]}></GithubCrawl>
       </div>
     </div>
   );
