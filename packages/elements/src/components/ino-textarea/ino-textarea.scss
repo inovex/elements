@@ -27,6 +27,11 @@ ino-textarea {
 ino-textarea {
   display: block;
 
+  .mdc-text-field {
+    width: inherit;
+    height: inherit;
+  } 
+
   .mdc-text-field.mdc-text-field--focused:not(.mdc-text-field--invalid) {
     @include textfield.focused-outline-color(var(--textarea-outline-color));
     @include textfield.caret-color(var(--textarea-caret-color));
