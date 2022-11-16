@@ -1,28 +1,36 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { GithubContributor } from '../../types/githubContributor';
+import { UserTypes } from '../../types/githubUserTypes';
 
 const GITHUB_CONTRIBUTORS_URL =
   'https://api.github.com/repos/inovex/elements/contributors';
 
-enum UserTypes {
-  USER = 'User',
-  BOT = 'Bot',
+enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
+  janivo = 22963121,
+  silentHoo = 1610894,
+  pfecht = 26819398,
+  BenPag = 23154336,
+  JCofman = 2118956,
+  Sl1nd = 12165722,
+  MariaLStefan = 103122411,
+  AlessaRad = 76041234,
+  TobiasHeimGalindo = 81302108,
 }
 
-type User = {
-  id: number;
-  login: string;
-  html_url: string;
-  avatar_url: string;
-  type: UserTypes;
-};
-export const getStaticProps: GetStaticProps<{ users: User[] }> = async () => {
+export const getStaticProps: GetStaticProps<{
+  users: GithubContributor[];
+}> = async () => {
   const res = await fetch(GITHUB_CONTRIBUTORS_URL);
-  const users: User[] = await res.json();
+  const users: GithubContributor[] = await res.json();
+  const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
+  const filteredUser = users.filter(
+    (user) => user.type === UserTypes.USER && whitelistedIds.includes(user.id)
+  );
 
   return {
-    props: { users },
+    props: { users: filteredUser },
   };
 };
 
