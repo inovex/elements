@@ -104,7 +104,7 @@ export default function InstallChips() {
             src={`/${IconByFramework[framework]}`}
             alt="Javascript Logo"
             fill
-            sizes="100vw" />
+            sizes="25px" />
         </div>
       ))}
       <p
