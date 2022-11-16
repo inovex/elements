@@ -1,7 +1,7 @@
 import { InoChip } from '@elements';
 import { useEffect, useState } from 'react';
 import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
 
@@ -104,7 +104,7 @@ export default function InstallChips() {
             src={`/${IconByFramework[framework]}`}
             alt="Javascript Logo"
             fill
-            sizes="25px" />
+            sizes="100vw" />
         </div>
       ))}
       <p

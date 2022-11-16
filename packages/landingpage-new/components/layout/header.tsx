@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import styles from './header.module.scss';
 import Navbar from './navbar';
 import { useEffect, useState } from 'react';
@@ -8,6 +8,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
+
       const offset = window.pageYOffset;
 
       if (offset !== 0 && Math.abs(yOffset - offset) < 5) return; // prevent jumping
@@ -34,7 +35,11 @@ export default function Header() {
             alt="inovex-elements Logo"
             width={48}
             height={55}
-          />
+            style={{
+              maxWidth: '100%',
+              height: 'auto'
+            }} />
+
           <p className={styles.name}>elements</p>
         </a>
       </div>
@@ -54,9 +59,8 @@ export default function Header() {
           height={30}
           style={{
             maxWidth: '100%',
-            height: 'auto',
-          }}
-        />
+            height: 'auto'
+          }} />
       </a>
       <a
         className={styles.inovex}
@@ -71,9 +75,8 @@ export default function Header() {
           height={30}
           style={{
             maxWidth: '100%',
-            height: 'auto',
-          }}
-        />
+            height: 'auto'
+          }} />
       </a>
     </header>
   );

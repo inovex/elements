@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { InoButton } from '@elements';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
