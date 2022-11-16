@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "clean": "shx rm -rf dist && shx rm -rf .next"
+    "clean": "shx rm -rf out && shx rm -rf .next"
   },
   "dependencies": {
     "@inovex.de/elements-react": "^7.1.2",
