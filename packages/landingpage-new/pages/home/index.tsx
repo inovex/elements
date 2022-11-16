@@ -1,18 +1,19 @@
 import type { NextPage } from 'next';
 import styles from './home.module.scss';
 
-import Header from './header/header';
-import CoreAspects from './core-aspects/core-aspects';
+import Header from '../../components/home/header/header';
+import CoreAspects from '../../components/home/core-aspects/core-aspects';
+import { SubRoutes } from '../../utils/routes';
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <div>
+      <section id={SubRoutes.HOME_INFO}>
         <Header></Header>
-      </div>
-      <div>
+      </section>
+      <section id={SubRoutes.HOME_CORE_ASPECTS}>
         <CoreAspects></CoreAspects>
-      </div>
+      </section>
     </div>
   );
 };
