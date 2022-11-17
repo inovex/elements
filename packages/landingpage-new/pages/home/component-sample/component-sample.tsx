@@ -10,8 +10,6 @@ import {
   InoIcon,
   InoList,
   InoSegmentButton,
-  InoRadioGroup,
-  InoRadio,
 } from '@elements';
 import { useState, useCallback, useEffect } from 'react';
 import CardComponent from './card-component';
@@ -219,22 +217,25 @@ export default function ComponentSample() {
                 content={
                   <>
                     <div className={styles.content} slot="content">
-                      <InoRadioGroup
-                        id="radio-grp"
-                        value={radioGroupValue}
+                      <InoSegmentGroup
+                        id="segment-grp"
+                        name=""
+                        value={segmentButtonValue}
                         onValueChange={(value) =>
-                          setRadioGroupValue(value.detail)
+                          setSegmentButtonValue(value.detail)
                         }
-                        alignment="vertical"
                       >
-                        <InoRadio value="opt-1">Opt 1</InoRadio>
-                        <InoRadio value="opt-2">Opt 2</InoRadio>
-                        <InoRadio value="opt-3">Opt 3</InoRadio>
-                      </InoRadioGroup>
+                        <InoSegmentButton value="opt-1">
+                          Option 1
+                        </InoSegmentButton>
+                        <InoSegmentButton value="opt-2">
+                          Option 2
+                        </InoSegmentButton>
+                      </InoSegmentGroup>
                     </div>
                     <div slot="footer" className={styles.footer}>
-                      <div className={styles.component}>Radio Group</div>
-                      <div className={styles.label}>Structure</div>
+                      <div className={styles.component}>Segment Group</div>
+                      <div className={styles.label}>Button</div>
                     </div>
                   </>
                 }
