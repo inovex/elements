@@ -1,0 +1,26 @@
+@use '../../../styles/typography';
+
+.content {
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+}
+
+.footer {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+
+  .component {
+    @include typography.font($size: 14px, $weight: bold);
+  }
+
+  .label {
+    @include typography.font($size: 14px, $weight: lighter);
+  }
+}
