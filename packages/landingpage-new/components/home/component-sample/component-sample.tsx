@@ -30,7 +30,7 @@ export default function ComponentSample() {
   const [segmentButtonValue, setSegmentButtonValue] = useState('opt-2');
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
-  const isSmallScreen = useMedia('(max-width: 660px)');
+  const isSmallScreen = useMedia('(max-width: 660px)', false);
 
   return (
     <div>

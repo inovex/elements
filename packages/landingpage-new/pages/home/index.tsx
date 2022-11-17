@@ -3,7 +3,7 @@ import styles from './home.module.scss';
 
 import Header from '../../components/home/header/header';
 import CoreAspects from '../../components/home/core-aspects/core-aspects';
-import ComponentSample from './component-sample/component-sample';
+import ComponentSample from '../../components/home/component-sample/component-sample';
 import { SubRoutes } from '../../utils/routes';
 
 const Home: NextPage = () => {
