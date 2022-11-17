@@ -13,7 +13,7 @@ const Card: FunctionComponent<Props> = ({
   componentName,
   componentCategory,
 }) => (
-  <InoCard disableElevation={true}>
+  <InoCard className={styles.card} disableElevation={true}>
     <div className={styles.content} slot="content">
       {children}
     </div>
