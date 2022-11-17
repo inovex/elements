@@ -8,8 +8,9 @@ body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
+:root a {
+  color: #2C02FF;
+  font-weight: bold;
   text-decoration: none;
 }
 

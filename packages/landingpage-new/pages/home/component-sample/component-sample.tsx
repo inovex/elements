@@ -14,6 +14,7 @@ import {
 import { useState } from 'react';
 import Card from './card';
 import { useMedia, useSet } from 'react-use';
+import Link from 'next/link';
 
 enum ChipValues {
   REACT = 'React',
@@ -33,18 +34,16 @@ export default function ComponentSample() {
 
   return (
     <div>
-      <div className={styles.header}>
-        <p>
-          the <b>components</b>
-        </p>
+      <h1 className={styles.header}>
+        the <b>components</b>
+      </h1>
+      <div className={styles.subHeaderContainer}>
+        <p className={styles.subheader}>Check out some of our components</p>
+        <span className={styles.link}>
+          <Link href="/docs">Check out all components</Link>
+        </span>
       </div>
-      <div className={styles.subheader}>
-        <p className={styles.subheader}>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr Lorem ipsum
-          dolor sit amet, consetetur sadipscing elitr
-        </p>
-      </div>
-      <div className={styles.grid}>
+      <div className={styles.componentGrid}>
         <div className={styles.chip}>
           <Card componentName="Chip" componentCategory="Button">
             <div className={styles.chips}>

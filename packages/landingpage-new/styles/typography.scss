@@ -1,4 +1,4 @@
-@mixin font($family: Lato, $size: 16px, $weight: medium) {
+@mixin font($family: Lato, $size: 16px, $weight: normal) {
   font-family: $family;
   font-size: $size;
   font-weight: $weight;
