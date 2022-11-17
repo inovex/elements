@@ -1,6 +1,6 @@
 @use '../../../styles/typography';
 
-$minmax: minmax(250px, 316px);
+$minmax: minmax(210px, 316px);
 
 .grid {
   display: grid;
@@ -9,7 +9,8 @@ $minmax: minmax(250px, 316px);
   grid-template-areas:
     'chip slider snackbar input'
     'toggle control-item segment-group segment-group';
-  grid-gap: 35px;
+  justify-content: space-evenly;
+  gap: 35px;
   padding-top: 60px;
 
   @media only screen and (max-width: 1360px) {
@@ -43,6 +44,10 @@ $minmax: minmax(250px, 316px);
   width: 100%;
 }
 
+.input ino-input {
+  width: 80%;
+}
+
 .header {
   p {
     @include typography.font($size: 50px, $weight: lighter);
@@ -66,7 +71,7 @@ $minmax: minmax(250px, 316px);
   grid-area: slider;
 
   .range {
-    width: 50%;
+    width: 87%;
   }
 }
 
