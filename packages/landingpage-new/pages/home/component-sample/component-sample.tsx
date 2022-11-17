@@ -13,7 +13,12 @@ import {
 } from '@elements';
 import { useState } from 'react';
 import Card from './card';
-import { useMedia } from 'react-use';
+import { useMedia, useSet } from 'react-use';
+
+enum ChipValues {
+  REACT = 'React',
+  VUE = 'Vue',
+}
 
 export default function ComponentSample() {
   const [inputValue, setInputValue] = useState('');
@@ -22,10 +27,9 @@ export default function ComponentSample() {
   const [radioboxValue, setRadioboxValue] = useState(false);
   const [switchValue, setSwitchValue] = useState(false);
   const [segmentButtonValue, setSegmentButtonValue] = useState('opt-2');
-  const [reactChip, setReactChip] = useState(false);
-  const [vueChip, setVueChip] = useState(false);
+  const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
-  const isBreakpoint = useMedia('(max-width: 660px)');
+  const isSmallScreen = useMedia('(max-width: 660px)');
 
   return (
     <div>
@@ -45,20 +49,17 @@ export default function ComponentSample() {
           <div className={styles.chip}>
             <Card componentName="Chip" componentCategory="Button">
               <div className={styles.chips}>
-                <InoChip
-                  selectable={true}
-                  selected={reactChip}
-                  onClick={() => setReactChip(!reactChip)}
-                >
-                  React
-                </InoChip>
-                <InoChip
-                  selectable={true}
-                  selected={vueChip}
-                  onClick={() => setVueChip(!vueChip)}
-                >
-                  Vue
-                </InoChip>
+                {Object.values(ChipValues).map((value) => (
+                  <InoChip
+                    key={value}
+                    selectable={true}
+                    selected={has(value)}
+                    value={value}
+                    onClick={() => toggle(value)}
+                  >
+                    {value}
+                  </InoChip>
+                ))}
               </div>
             </Card>
           </div>
@@ -122,29 +123,20 @@ export default function ComponentSample() {
           </div>
           <div className={styles.segmentgroup}>
             <Card componentName={'Segment-Group'} componentCategory={'Button'}>
-              {isBreakpoint ? (
-                <InoSegmentGroup
-                  id="segment-grp"
-                  name=""
-                  value={segmentButtonValue}
-                  onValueChange={(value) => setSegmentButtonValue(value.detail)}
-                >
-                  <InoSegmentButton value="opt-1">Option 1</InoSegmentButton>
-                  <InoSegmentButton value="opt-2">Option 2</InoSegmentButton>
-                </InoSegmentGroup>
-              ) : (
-                <InoSegmentGroup
-                  id="segment-grp"
-                  name=""
-                  value={segmentButtonValue}
-                  onValueChange={(value) => setSegmentButtonValue(value.detail)}
-                >
-                  <InoSegmentButton value="opt-1">Option 1</InoSegmentButton>
-                  <InoSegmentButton value="opt-2">Option 2</InoSegmentButton>
-                  <InoSegmentButton value="opt-3">Option 3</InoSegmentButton>
-                  <InoSegmentButton value="opt-4">Option 4</InoSegmentButton>
-                </InoSegmentGroup>
-              )}
+              <InoSegmentGroup
+                id="segment-grp"
+                value={segmentButtonValue}
+                onValueChange={(value) => setSegmentButtonValue(value.detail)}
+              >
+                <InoSegmentButton value="opt-1">Option 1</InoSegmentButton>
+                <InoSegmentButton value="opt-2">Option 2</InoSegmentButton>
+                {!isSmallScreen && (
+                  <>
+                    <InoSegmentButton value="opt-3">Option 3</InoSegmentButton>
+                    <InoSegmentButton value="opt-4">Option 4</InoSegmentButton>
+                  </>
+                )}
+              </InoSegmentGroup>
             </Card>
           </div>
         </div>
