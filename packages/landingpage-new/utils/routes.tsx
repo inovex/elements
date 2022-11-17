@@ -11,10 +11,32 @@ type MainRoute = Route & {
 
 export enum MainRoutes {
   HOME = '/',
+  LEARN = '/learn',
   DOCS = '/docs',
   EXPLORE = '/explore',
   CONTACT = '/contact',
-  ABOUT = '/about'
+  ABOUT = '/about',
+}
+
+export enum SubRoutes {
+  HOME_INFO = 'info',
+  HOME_CORE_ASPECTS = 'core-aspects',
+  HOME_COMPONENTS = 'components',
+  EXPLORE_EXAMPLES = 'examples',
+  EXPLORE_ARTICLES = 'articles',
+  EXPLORE_DEMOS = 'demos',
+  LEARN_TUTORIALS = 'tutorials',
+  LEARN_TRAININGS = 'trainings',
+  LEARN_MEETUP = 'meetups',
+  LEARN_FAQ = 'faq',
+  DOCS_INTRO = 'intro',
+  DOCS_FRAMEWORK_INTEGRATION = 'framework-integration',
+  DOCS_COMPONENTS = 'components',
+  DOCS_PATTERNS = 'patterns',
+  DOCS_CHANGELOGS = 'changelogs',
+  ABOUT_TEAM = 'team',
+  ABOUT_HISTORY = 'history',
+  ABOUT_ACTIVITY = 'activity',
 }
 
 // TODO: create meaningful routes
@@ -24,12 +46,16 @@ export const Routes: RouteTree = [
     url: MainRoutes.HOME,
     subRoutes: [
       {
-        name: 'under home',
-        url: '#subroute',
+        name: 'info',
+        url: SubRoutes.HOME_INFO,
       },
       {
-        name: 'some other',
-        url: '#subroute',
+        name: 'core aspects',
+        url: SubRoutes.HOME_CORE_ASPECTS,
+      },
+      {
+        name: 'components',
+        url: SubRoutes.HOME_COMPONENTS,
       },
     ],
   },
@@ -38,8 +64,38 @@ export const Routes: RouteTree = [
     url: MainRoutes.EXPLORE,
     subRoutes: [
       {
-        name: 'under explore',
-        url: '#subroute',
+        name: 'examples',
+        url: SubRoutes.EXPLORE_EXAMPLES,
+      },
+      {
+        name: 'articles',
+        url: SubRoutes.EXPLORE_ARTICLES,
+      },
+      {
+        name: 'demos',
+        url: SubRoutes.EXPLORE_DEMOS,
+      },
+    ],
+  },
+  {
+    name: 'learn',
+    url: MainRoutes.LEARN,
+    subRoutes: [
+      {
+        name: 'tutorials',
+        url: SubRoutes.LEARN_TUTORIALS,
+      },
+      {
+        name: 'trainings',
+        url: SubRoutes.LEARN_TRAININGS,
+      },
+      {
+        name: 'meetup',
+        url: SubRoutes.LEARN_MEETUP,
+      },
+      {
+        name: 'faq',
+        url: SubRoutes.LEARN_FAQ,
       },
     ],
   },
@@ -48,8 +104,24 @@ export const Routes: RouteTree = [
     url: MainRoutes.DOCS,
     subRoutes: [
       {
-        name: 'under docs',
-        url: '#subroute',
+        name: 'introduction',
+        url: SubRoutes.DOCS_INTRO,
+      },
+      {
+        name: 'framework integration',
+        url: SubRoutes.DOCS_FRAMEWORK_INTEGRATION,
+      },
+      {
+        name: 'components',
+        url: SubRoutes.DOCS_COMPONENTS,
+      },
+      {
+        name: 'patterns',
+        url: SubRoutes.DOCS_PATTERNS,
+      },
+      {
+        name: 'changelogs',
+        url: SubRoutes.DOCS_CHANGELOGS,
       },
     ],
   },
@@ -58,19 +130,22 @@ export const Routes: RouteTree = [
     url: MainRoutes.ABOUT,
     subRoutes: [
       {
-        name: 'under about',
-        url: '#subroute',
+        name: 'team',
+        url: SubRoutes.ABOUT_TEAM,
+      },
+      {
+        name: 'history',
+        url: SubRoutes.ABOUT_HISTORY,
+      },
+      {
+        name: 'activity',
+        url: SubRoutes.ABOUT_ACTIVITY,
       },
     ],
   },
   {
     name: 'contact',
     url: MainRoutes.CONTACT,
-    subRoutes: [
-      {
-        name: 'under contact',
-        url: '#subcontact',
-      },
-    ],
+    subRoutes: [],
   },
 ];
