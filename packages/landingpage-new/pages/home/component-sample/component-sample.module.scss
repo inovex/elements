@@ -1,4 +1,8 @@
-@use '../../../../elements/src/components/base/typography';
+@use '../../../styles/typography';
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
 
 .container {
   display: grid;
@@ -10,8 +14,7 @@
   grid-template-areas:
     'chip slider snackbar input'
     'toggle control-item segment-group segment-group';
-  column-gap: 35px;
-  row-gap: 35px;
+  grid-gap: 35px;
   padding-top: 60px;
 
   ino-card {
@@ -27,19 +30,65 @@
   }
 }
 
+@media only screen and (max-width: 1360px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'chip slider'
+      'snackbar input'
+      'toggle control-item'
+      'segment-group segment-group';
+    grid-gap: 35px;
+  }
+  .segmentgroup {
+    grid-area: segment-group;
+    width: 100%;
+    display: flex;
+    align-self: center;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'chip'
+      'slider'
+      'snackbar'
+      'input'
+      'toggle'
+      'control-item'
+      'segment-group';
+    grid-gap: 35px;
+  }
+  .segmentgroup {
+    grid-area: segment-group;
+    ino-card {
+      width: 316px;
+      height: 258px;
+    }
+  }
+}
+.chips {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
 .header {
   p {
-    @include typography.font($size: l, $weight: light);
-    font-size: 50px;
+    @include typography.font($size: 50px, $weight: lighter);
+
     color: #232527;
     letter-spacing: 0.53px;
-    
   }
 }
 .subheader {
   max-width: 644px;
   p {
-    @include typography.font($size: m, $weight: regular);
+    @include typography.font($weight: medium);
     color: #3a3b64;
     line-height: 19px;
   }
@@ -61,10 +110,10 @@
   bottom: 22px;
 
   .component {
-    @include typography.font($size: s, $weight: bold);
+    @include typography.font($size: 14px, $weight: bold);
   }
   .label {
-    @include typography.font($size: s, $weight: light);
+    @include typography.font($size: 14px, $weight: lighter);
   }
 }
 
@@ -77,8 +126,10 @@
 
 .segmentgroup {
   grid-area: segment-group;
-  ino-card {
-    width: 667px;
-    height: 258px;
+  @media only screen and (min-width: 661px) {
+    ino-card {
+      width: 667px;
+      height: 258px;
+    }
   }
 }
