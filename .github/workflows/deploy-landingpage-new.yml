@@ -16,7 +16,7 @@ jobs:
         run: yarn build
         working-directory: packages/elements-react
       - name: Build landingpage-new
-        run: yarn build && yarn export
+        run: yarn build
         working-directory: packages/landingpage-new
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
