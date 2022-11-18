@@ -3,6 +3,7 @@ import styles from './home.module.scss';
 
 import Header from '../../components/home/header/header';
 import CoreAspects from '../../components/home/core-aspects/core-aspects';
+import ComponentSample from '../../components/home/component-sample/component-sample';
 import { SubRoutes } from '../../utils/routes';
 
 const Home: NextPage = () => {
@@ -13,6 +14,9 @@ const Home: NextPage = () => {
       </section>
       <section id={SubRoutes.HOME_CORE_ASPECTS}>
         <CoreAspects></CoreAspects>
+      </section>
+      <section id={SubRoutes.HOME_COMPONENTS}>
+        <ComponentSample></ComponentSample>
       </section>
     </div>
   );

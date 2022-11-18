@@ -8,11 +8,17 @@ body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
+:root a {
+  color: #2C02FF;
+  font-weight: bold;
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
+}
+
+ino-chip * {
+  /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
+  box-sizing: initial;
 }
