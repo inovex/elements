@@ -8,7 +8,6 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-
       const offset = window.pageYOffset;
 
       if (offset !== 0 && Math.abs(yOffset - offset) < 5) return; // prevent jumping
@@ -36,7 +35,6 @@ export default function Header() {
             width={48}
             height={55}
           />
-
           <p className={styles.name}>elements</p>
         </a>
       </div>
@@ -54,6 +52,10 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </a>
       <a
@@ -67,6 +69,10 @@ export default function Header() {
           alt="Github Logo"
           width={30}
           height={30}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
       </a>
     </header>

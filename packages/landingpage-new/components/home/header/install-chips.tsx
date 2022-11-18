@@ -103,8 +103,8 @@ export default function InstallChips() {
             }}
             src={`/${IconByFramework[framework]}`}
             alt="Javascript Logo"
-            layout="fill"
-          />
+            fill
+            sizes="25px" />
         </div>
       ))}
       <p

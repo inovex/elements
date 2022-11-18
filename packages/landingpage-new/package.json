@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "clean": "shx rm -rf dist && shx rm -rf .next"
+    "clean": "shx rm -rf out && shx rm -rf .next"
   },
   "dependencies": {
     "@inovex.de/elements-react": "^7.1.2",
@@ -16,7 +16,7 @@
     "@mdx-js/react": "^2.1.4",
     "@next/mdx": "^12.3.1",
     "classnames": "^2.3.2",
-    "next": "12.3.1",
+    "next": "13.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-use": "^17.4.0",
