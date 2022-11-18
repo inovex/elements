@@ -17,3 +17,8 @@ body {
 * {
   box-sizing: border-box;
 }
+
+ino-chip * {
+  /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
+  box-sizing: initial;
+}
