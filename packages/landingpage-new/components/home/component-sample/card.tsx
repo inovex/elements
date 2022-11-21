@@ -5,7 +5,7 @@ import styles from './card.module.scss';
 interface Props {
   children: JSX.Element;
   componentName: string;
-  componentCategory: string;
+  componentCategory: string|JSX.Element;
 }
 
 const Card: FunctionComponent<Props> = ({
