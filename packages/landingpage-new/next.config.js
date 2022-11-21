@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
+const nextConfiguration = {
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  images: {
+    unoptimized: true
+  },
+  basePath: '/landingpage-new', // TODO remove when old landingpage is replaced
+};
+
+const withImages = require('next-images');
 
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,

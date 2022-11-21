@@ -9,8 +9,9 @@
 .col {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 
   :first-child {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }

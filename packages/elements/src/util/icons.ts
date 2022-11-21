@@ -10,6 +10,10 @@ export function getIconMap(): Map<string, string> {
 }
 
 export function addIcons(icons: { [name: string]: string }) {
+
+  // necessary for ssr
+  if(typeof window === "undefined") return;
+
   const map = getIconMap();
   Object.keys(icons).forEach((name) => map.set(name, icons[name]));
 }

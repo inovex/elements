@@ -1,0 +1,47 @@
+name: Deploy Landingpage New
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/workflows/dependencies-install
+      - name: Build elements
+        run: yarn build
+        working-directory: packages/elements
+      - name: Build elements-react
+        run: yarn build
+        working-directory: packages/elements-react
+      - name: Build landingpage-new
+        run: yarn build
+        working-directory: packages/landingpage-new
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: landingpage-new
+          path:
+            packages/landingpage-new/out/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: landingpage-new
+          path: ./artifact
+
+      - name: Deploy to Github Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: ./artifact # The folder the action should deploy.
+          commit-message: Deploying landingpage-new
+          target-folder: landingpage-new
