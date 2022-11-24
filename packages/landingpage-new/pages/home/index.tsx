@@ -1,3 +1,4 @@
+import Contact from 'components/contact/contact';
 import type { NextPage } from 'next';
 import styles from './home.module.scss';
 
@@ -17,6 +18,9 @@ const Home: NextPage = () => {
       </section>
       <section id={SubRoutes.HOME_COMPONENTS}>
         <ComponentSample></ComponentSample>
+      </section>
+      <section>
+        <Contact />
       </section>
     </div>
   );

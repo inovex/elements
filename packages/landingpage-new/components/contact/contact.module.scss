@@ -1,0 +1,91 @@
+.contact_section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .image1 {
+        display: none;
+        @media (min-width: 900px) {
+            display: block;
+            position: absolute;
+            top: -0.625rem;
+            left: 4rem;
+            z-index: -1;
+        }
+   }
+
+   .image2 {
+        display: none;
+        @media (min-width: 900px) {
+            display: block;
+            position: absolute;
+            top: 22rem ;
+            right: 4rem;
+            z-index: -1;
+        }
+   }
+
+    .wrapper {
+        max-width: 36.25rem;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 3.125rem;
+        font-weight: 300;
+        margin-bottom: 1.25rem;
+
+        .bold {
+            font-weight: bold;
+        }
+    }
+
+    .first_name {
+        grid-area: firstname;
+    }
+
+    .last_name {
+        grid-area: lastname;
+    }
+    
+    .email {
+        grid-area: email;
+    }
+
+    .message {
+        grid-area: message;
+        height: 12.25rem;
+    }
+
+    .submit_button {
+        grid-area: submit;
+        align-self: end;
+
+        @media (min-width: 765px) {
+            grid-area: submit;
+            justify-self: end;
+            align-self: start;
+        }
+    }
+
+    .form_container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2.5rem;
+        gap: 1.25rem;
+
+        @media (min-width: 765px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 3.5 3.5 12.25rem 2.25rem;
+            grid-template-areas: 
+            "firstname lastname"
+            "email email"
+            "message message"
+            ". submit";
+            gap: 1.875rem 1.25rem;
+            margin-top: 3.75rem;
+        }
+    }  
+}
