@@ -74,15 +74,22 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
 
 function About({ users = [] }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className={styles.container}>
-      {users.map((contributor: GithubContributor) => (
-        <ContributorCard
-          key={contributor.id}
-          avatarUrl={contributor.avatar_url}
-          username={contributor.login}
-          profileLink={contributor.html_url}
-        />
-      ))}
+    <div>
+      <section>
+        <h1 className={styles.header}>
+          the <b>contributors</b>
+        </h1>
+      </section>
+      <div className={styles.container}>
+        {users.map((contributor: GithubContributor) => (
+          <ContributorCard
+            key={contributor.id}
+            avatarUrl={contributor.avatar_url}
+            username={contributor.login}
+            profileLink={contributor.html_url}
+          />
+        ))}
+      </div>
     </div>
   );
 }
