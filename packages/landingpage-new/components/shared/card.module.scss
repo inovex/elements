@@ -1,4 +1,4 @@
-@use '../../../styles/typography';
+@use '../../styles/typography';
 
 .card {
   position: relative;
@@ -6,8 +6,8 @@
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 17px;
   border: transparent;
-  height: 100%;
-  width: 100%;
+  min-width: fit-content;
+  min-height: fit-content;
 }
 
 .content {
@@ -21,16 +21,10 @@
   top: 0;
 }
 
-.footer {
-  position: absolute;
-  left: 24px;
-  bottom: 22px;
+.component {
+  @include typography.font($size: 14px, $weight: bold);
+}
 
-  .component {
-    @include typography.font($size: 14px, $weight: bold);
-  }
-
-  .label {
-    @include typography.font($size: 14px, $weight: lighter);
-  }
+.label {
+  @include typography.font($size: 14px, $weight: lighter);
 }
