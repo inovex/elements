@@ -1,10 +1,7 @@
-import Card from 'components/home/component-sample/card';
+import ContributorCard from 'components/about/contributor-card';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import {
   GithubContributor,
-  RecentContributor,
   GithubCommitAuthor,
 } from '../../types/githubContributor';
 import { UserTypes } from '../../types/githubUserTypes';
@@ -23,126 +20,69 @@ enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   AlessaRad = 76041234,
   TobiasHeimGalindo = 81302108,
 }
+const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
 interface Params {
   users: GithubContributor[];
-  recentContributions: GithubCommitAuthor[];
 }
 
 export const getStaticProps: GetStaticProps<Params> = async () => {
-  const contributors = await fetch(GITHUB_REPO_URL + '/contributors');
-  const commits = await fetch(GITHUB_REPO_URL + '/commits');
-  const users: GithubContributor[] = await contributors.json();
-  const recentContributions: GithubCommitAuthor[] = await commits.json();
-  const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
+  const contributors: GithubContributor[] = await fetch(
+    GITHUB_REPO_URL + '/contributors'
+  ).then((resp) => resp.json());
+  const recentContributions: GithubCommitAuthor[] = await fetch(
+    GITHUB_REPO_URL + '/commits'
+  ).then((resp) => resp.json());
 
-  if (!users)
+  if (!contributors)
     return {
-      props: { users: [], recentContributions: [] },
+      props: { users: [] },
     };
 
-  const filteredContributions = recentContributions
-    .filter(
-      (commit) =>
-        commit.author.type === UserTypes.USER &&
-        whitelistedIds.includes(commit.author.id)
-    )
-    .slice(0, 20);
-  const filteredUser = users.filter(
-    (user) => user.type === UserTypes.USER && whitelistedIds.includes(user.id)
+  const filteredUser = contributors.filter(
+    (contributor) =>
+      contributor.type === UserTypes.USER &&
+      whitelistedIds.includes(contributor.id)
   );
 
+  if (!recentContributions) return { props: { users: filteredUser } };
+
+  const recentUserIds = Array.from(
+    new Set(
+      recentContributions
+        .filter(
+          (commit) =>
+            commit.author.type === UserTypes.USER &&
+            whitelistedIds.includes(commit.author.id)
+        )
+        .slice(0, 20)
+        .map((commit) => commit.author.id)
+    )
+  );
+
+  const userSortByContribution = [
+    ...recentUserIds
+      .map((userId) => filteredUser.find((user) => user.id === userId))
+      .filter((user) => user != null),
+    ...filteredUser.filter((user) => !recentUserIds.includes(user.id)),
+  ];
+
   return {
-    props: { users: filteredUser, recentContributions: filteredContributions },
+    props: { users: userSortByContribution as GithubContributor[] },
   };
 };
 
-function About({
-  users = [],
-  recentContributions = [],
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  //removes duplicate commit authors of the last 20 commits
-  const uniqueCommits = recentContributions.reduce(
-    (map, commit) => map.set(commit.author.login, commit),
-    new Map()
-  );
-
-  const recentContributorNames = Array.from(uniqueCommits.keys());
-
-  function recentContributors(): JSX.Element {
-    //compare the recent Contributors to the overall whitelisted users
-    const recentContributors: RecentContributor[] = [];
-    for (const recentContributor of recentContributorNames) {
-      for (const user of users) {
-        if (user.login === recentContributor) {
-          // create recentContributors Array with the user information (avatar_url etc.)
-          recentContributors.push({
-            id: user.id,
-            login: user.login,
-            avatar_url: user.avatar_url,
-            html_url: user.html_url,
-          });
-        }
-      }
-    }
-    //filter out the recentContributors from the users[] property => overallContributors
-    const usersID = new Set(recentContributors.map(({ id }) => id));
-    const overallContributors = [...users.filter(({ id }) => !usersID.has(id))];
-
-    return (
-      <div className={styles.container}>
-        {recentContributors.map((contributor) => (
-          <div key={contributor.id}>
-            <Card
-              componentName={contributor.login}
-              componentCategory={
-                <Link href={contributor.html_url}>{contributor.html_url}</Link>
-              }
-            >
-              <div>
-                <Image
-                  className={styles.Image}
-                  src={contributor.avatar_url}
-                  width={75}
-                  height={75}
-                  alt={`Avatar of ${contributor.login}`}
-                />
-              </div>
-            </Card>
-          </div>
-        ))}
-        {overallContributors.map((contributor) => (
-          <div key={contributor.id}>
-            <Card
-              componentName={contributor.login}
-              componentCategory={
-                <Link href={contributor.html_url}>{contributor.html_url}</Link>
-              }
-            >
-              <div>
-                <Image
-                  className={styles.Image}
-                  src={contributor.avatar_url}
-                  width={75}
-                  height={75}
-                  alt={`Avatar of ${contributor.login}`}
-                />
-              </div>
-            </Card>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
+function About({ users = [] }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
-      <section>
-        <h1 className={styles.header}>
-          the <b>contributors</b>
-        </h1>
-        {recentContributors()}
-      </section>
+    <div className={styles.container}>
+      {users.map((contributor: GithubContributor) => (
+        <ContributorCard
+          key={contributor.id}
+          avatarUrl={contributor.avatar_url}
+          username={contributor.login}
+          profileLink={contributor.html_url}
+        />
+      ))}
     </div>
   );
 }
