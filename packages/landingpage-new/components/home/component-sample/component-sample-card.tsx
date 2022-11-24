@@ -1,4 +1,3 @@
-import { InoCard } from '@elements';
 import { FunctionComponent } from 'react';
 import styles from './component-sample-card.module.scss';
 import Card from '../../shared/card';
