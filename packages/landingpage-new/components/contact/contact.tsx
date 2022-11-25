@@ -9,17 +9,16 @@ function Contact() {
     const [ email, setEmail ] = useState('');
     const [ message, setMessage ] = useState('');
 
-    const inovexMail = "elements@inovex.de";
-    const subject = "Contact"
-    const mailtoLink = '';
+    const inovexMail = 'elements@inovex.de';
+    const subject = 'Contact'
 
     const onSubmit: FormEventHandler<HTMLFormElement> = ( e ) => {
         e.preventDefault();
 
         message.replace(/ /g, '%20');
-        mailtoLink = 'mailto:' + inovexMail + '?subject=' + subject + '&body=' + message;
+        const mailtoLink = 'mailto:' + inovexMail + '?subject=' + subject + '&body=' + message;
 
-        console.log("mailtolink", mailtoLink);
+        console.log('mailtolink', mailtoLink);
         window.location.href = mailtoLink;
     }
     
