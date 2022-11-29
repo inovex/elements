@@ -2,7 +2,14 @@
 const nextConfiguration = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/u/**',
+      },
+    ],
   },
   basePath: '/landingpage-new', // TODO remove when old landingpage is replaced
 };
@@ -18,16 +25,7 @@ const withMDX = require('@next/mdx')({
     // providerImportSource: "@mdx-js/react",
   },
 });
-module.exports = withMDX({
-  // Append the default value with md extensions
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-        pathname: '/u/**',
-      },
-    ],
-  },
-});
+
+const plugins = [withImages, withMDX];
+
+module.exports = plugins.reduce((config, plugin) => plugin(config), nextConfiguration) // merge configs
