@@ -2,6 +2,10 @@
 @use '../../../elements/src/components/base/mdc-customize';
 @use '@inovex.de/elements/dist/inovex-elements/inovex-elements.css';
 
+html {
+  font-size: 14px;
+}
+
 body {
   &,
   .markdown-body {
