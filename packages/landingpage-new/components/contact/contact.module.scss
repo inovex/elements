@@ -1,0 +1,81 @@
+.contact_section {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  .image1, .image2 {
+    display: block;
+    position: relative;
+  }
+
+  .image1 {
+    height: 150px;
+    width: 150px;
+  }
+
+  .image2 {
+    margin-top: 400px;
+    height: 137px;
+    width: 188px;
+  }
+
+  .wrapper {
+    min-width: 400px;
+    max-width: 36.25rem;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 3.125rem;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+
+    .bold {
+      font-weight: bold;
+    }
+  }
+
+  .email {
+    grid-area: email;
+  }
+
+  .subject {
+    grid-area: subject;
+  }
+
+  .message {
+    grid-area: message;
+    height: 12.25rem;
+  }
+
+  .submit_button {
+    grid-area: submit;
+    align-self: end;
+
+    @media (min-width: 765px) {
+      grid-area: submit;
+      justify-self: end;
+      align-self: start;
+    }
+  }
+
+  .form_container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    gap: 1.25rem;
+
+    @media (min-width: 765px) {
+      display: grid;
+      grid-template-areas:
+            "subject subject"
+            "message message"
+            ". submit";
+      gap: 1.875rem 1.25rem;
+    }
+  }
+}
