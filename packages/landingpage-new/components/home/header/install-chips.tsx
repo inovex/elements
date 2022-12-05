@@ -4,6 +4,10 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
+import angularIcon from '@assets/angular.svg';
+import jsIcon from '@assets/javascript.svg';
+import reactIcon from '@assets/react-icon.svg';
+import vueIcon from '@assets/vue.svg';
 
 enum Framework {
   VUE = 'VUE',
@@ -22,10 +26,10 @@ const CommandByFrameworks: Record<Framework, string> = {
 };
 
 const IconByFramework: Record<Framework, string> = {
-  [Framework.VUE]: 'vue.svg',
-  [Framework.ANGULAR]: 'angular.svg',
-  [Framework.REACT]: 'react-icon.svg',
-  [Framework.NATIVE]: 'javascript.svg',
+  [Framework.VUE]: vueIcon,
+  [Framework.ANGULAR]: angularIcon,
+  [Framework.REACT]: reactIcon,
+  [Framework.NATIVE]: jsIcon,
 };
 
 const COMMAND_CHIP_ID = 'command-chip';
@@ -44,10 +48,7 @@ export default function InstallChips() {
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
-  const [,, reset] = useTimeoutFn(
-    () => setShowTooltip(false),
-    3000
-  );
+  const [, , reset] = useTimeoutFn(() => setShowTooltip(false), 3000);
 
   useInterval(
     () => {
@@ -101,10 +102,11 @@ export default function InstallChips() {
               );
               setCarouselFramework(framework);
             }}
-            src={`/${IconByFramework[framework]}`}
+            src={`${IconByFramework[framework]}`}
             alt="Javascript Logo"
             fill
-            sizes="25px" />
+            sizes="25px"
+          />
         </div>
       ))}
       <p

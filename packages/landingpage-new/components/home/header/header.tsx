@@ -5,8 +5,12 @@ import styles from './header.module.scss';
 import InstallChips from './install-chips';
 import Link from 'next/link';
 import { MainRoutes } from '../../../utils/routes';
+import useBasePath from '../../../utils/hooks/use-base-path';
 
 export default function Header() {
+
+  const basePath = useBasePath();
+
   return <>
     <Head>
       <title>Home</title>
@@ -17,7 +21,7 @@ export default function Header() {
         <Image
           width={686}
           height={787}
-          src="/elements-collage.png"
+          src={`${basePath}/elements-collage.png`}
           alt="Elements Collage"
           style={{
             maxWidth: '100%',
