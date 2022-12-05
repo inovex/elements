@@ -2,25 +2,6 @@
 @use './../components/base/theme';
 @use './../components/base/new-theme' as new-theme;
 
-
-$header-separator-height: 10px;
-
-// Decoration like on the previous ino-header
-@mixin header-decoration {
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-
-  &::after {
-    content: '';
-    margin-left: 0.7rem;
-    background-color: new-theme.$n-6;
-    height: $header-separator-height;
-    width: 100%;
-    margin-top: 2px;
-  }
-}
-
 /* font-styles */
 :root, html {
   font-family: typography.font-family();
@@ -100,35 +81,29 @@ h3 {
   @include typography.font($size: body-s, $weight: regular);
 }
 
-// Header Styles 
+// Header Styles
 .header-d1 {
   @include typography.font($size: d1, $weight: bold);
-  @include header-decoration();
 }
 
 .header-d2 {
   @include typography.font($size: d2, $weight: bold);
-  @include header-decoration();
 }
 
 .header-d3 {
   @include typography.font($size: d3, $weight: bold);
-  @include header-decoration();
 }
 
 .header-h1 {
   @include typography.font($size: h1, $weight: medium);
-  @include header-decoration();
 }
 
 .header-h2 {
   @include typography.font($size: h2, $weight: medium);
-  @include header-decoration();
 }
 
 .header-h3 {
   @include typography.font($size: h3, $weight: medium);
-  @include header-decoration();
 }
 
 
