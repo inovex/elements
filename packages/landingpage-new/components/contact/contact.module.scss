@@ -24,7 +24,7 @@
   }
 
   .wrapper {
-    min-width: 480px;
+    min-width: 400px;
     max-width: 36.25rem;
     padding: 0 1rem;
   }
@@ -39,16 +39,12 @@
     }
   }
 
-  .first_name {
-    grid-area: firstname;
-  }
-
-  .last_name {
-    grid-area: lastname;
-  }
-
   .email {
     grid-area: email;
+  }
+
+  .subject {
+    grid-area: subject;
   }
 
   .message {
@@ -70,18 +66,16 @@
   .form_container {
     display: flex;
     flex-direction: column;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     gap: 1.25rem;
 
     @media (min-width: 765px) {
       display: grid;
       grid-template-areas:
-            "firstname lastname"
-            "email email"
+            "subject subject"
             "message message"
             ". submit";
       gap: 1.875rem 1.25rem;
-      margin-top: 3.75rem;
     }
   }
 }

@@ -1,19 +1,16 @@
 import styles from './contact.module.scss';
 import Image from 'next/image';
-import { InoButton, InoInput, InoTextarea } from '@elements';
+import { InoButton, InoIcon, InoInput, InoTextarea } from '@elements';
 import { FormEventHandler, useState } from 'react';
 import useBasePath from '../../utils/hooks/use-base-path';
 
 function Contact() {
   const basePath = useBasePath();
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const inovexMail = 'elements@inovex.de';
-  const subject = 'Contact';
+  const inovexMail = 'jan-niklas.voss@inovex.de';
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -21,9 +18,7 @@ function Contact() {
     message.replace(/ /g, '%20');
     const mailtoLink =
       'mailto:' + inovexMail + '?subject=' + subject + '&body=' + message;
-
-    console.log('mailtolink', mailtoLink);
-    window.location.href = mailtoLink;
+    window.open(mailtoLink, '_blank');
   };
 
   return (
@@ -33,7 +28,7 @@ function Contact() {
           src={`${basePath}/contact-image1.png`}
           alt="contact image1"
           fill
-          style={{objectFit: 'contain'}}
+          style={{ objectFit: 'contain' }}
         />
       </div>
       <div className={styles.wrapper}>
@@ -46,7 +41,7 @@ function Contact() {
         </div>
 
         <form className={styles.form_container} onSubmit={onSubmit}>
-          <InoInput
+          {/*          <InoInput
             className={styles.first_name}
             value={firstName}
             onValueChange={(e) => setFirstName(e.detail)}
@@ -69,7 +64,17 @@ function Contact() {
             value={email}
             onValueChange={(e) => setEmail(e.detail)}
             type="email"
-            label="E-mail Address*"
+            label="E-mail Address"
+            outline
+            required
+          ></InoInput>
+          */}
+          <InoInput
+            className={styles.subject}
+            value={subject}
+            onValueChange={(e) => setSubject(e.detail)}
+            type="text"
+            label="Subject"
             outline
             required
           ></InoInput>
@@ -77,13 +82,13 @@ function Contact() {
             className={styles.message}
             value={message}
             onValueChange={(e) => setMessage(e.detail)}
-            label="Message*"
+            label="Message"
             outline
             required
           ></InoTextarea>
-
           <InoButton className={styles.submit_button} type="submit">
-            Send
+            Send Mail
+            <InoIcon slot="icon-trailing" icon="mail"></InoIcon>
           </InoButton>
         </form>
       </div>
@@ -92,7 +97,7 @@ function Contact() {
           src={`${basePath}/contact-image2.png`}
           alt="contact image2"
           fill
-          style={{objectFit: 'contain'}}
+          style={{ objectFit: 'contain' }}
         />
       </div>
     </div>
