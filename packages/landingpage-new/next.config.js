@@ -2,7 +2,14 @@
 const nextConfiguration = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
-    unoptimized: true
+    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        pathname: '/u/**',
+      },
+    ],
   },
   basePath: '/landingpage-new', // TODO remove when old landingpage is replaced
 };

@@ -12,7 +12,7 @@ import {
   InoSwitch,
 } from '@elements';
 import { useState } from 'react';
-import Card from './card';
+import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 
@@ -45,7 +45,7 @@ export default function ComponentSample() {
       </div>
       <div className={styles.componentGrid}>
         <div className={styles.chip}>
-          <Card componentName="Chip" componentCategory="Button">
+          <ComponentSampleCard componentName="Chip" componentCategory="Button">
             <div className={styles.chips}>
               {Object.values(ChipValues).map((value) => (
                 <InoChip
@@ -59,10 +59,10 @@ export default function ComponentSample() {
                 </InoChip>
               ))}
             </div>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.slider}>
-          <Card componentName="Slider" componentCategory="Input">
+          <ComponentSampleCard componentName="Slider" componentCategory="Input">
             <div className={styles.range}>
               <InoRange
                 min={0}
@@ -72,15 +72,18 @@ export default function ComponentSample() {
                 onValueChange={(value) => setRangeValue(value.detail)}
               ></InoRange>
             </div>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.snackbar}>
-          <Card componentName="Button" componentCategory="Button">
+          <ComponentSampleCard
+            componentName="Button"
+            componentCategory="Button"
+          >
             <InoButton>I&apos;m a Button</InoButton>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.input}>
-          <Card componentName="Input" componentCategory="Input">
+          <ComponentSampleCard componentName="Input" componentCategory="Input">
             <InoInput
               label="Label"
               value={inputValue}
@@ -88,10 +91,10 @@ export default function ComponentSample() {
             >
               <InoIcon slot="icon-leading" icon="calendar"></InoIcon>
             </InoInput>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.toggle}>
-          <Card componentName="Toggle" componentCategory="Input">
+          <ComponentSampleCard componentName="Toggle" componentCategory="Input">
             <InoSwitch
               checked={switchValue}
               onCheckedChange={(value) => setSwitchValue(value.detail)}
@@ -99,10 +102,13 @@ export default function ComponentSample() {
               <InoIcon slot="leading" icon="offboarding"></InoIcon>
               <InoIcon slot="trailing" icon="onboarding"></InoIcon>
             </InoSwitch>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.controlitem}>
-          <Card componentName="Control Item" componentCategory="Structure">
+          <ComponentSampleCard
+            componentName="Control Item"
+            componentCategory="Structure"
+          >
             <InoList two-lines="false">
               <InoControlItem
                 role="checkbox"
@@ -117,10 +123,13 @@ export default function ComponentSample() {
                 onCheckedChange={(value) => setRadioboxValue(value.detail)}
               ></InoControlItem>
             </InoList>
-          </Card>
+          </ComponentSampleCard>
         </div>
         <div className={styles.segmentgroup}>
-          <Card componentName={'Segment-Group'} componentCategory={'Button'}>
+          <ComponentSampleCard
+            componentName={'Segment-Group'}
+            componentCategory={'Button'}
+          >
             <InoSegmentGroup
               id="segment-grp"
               value={segmentButtonValue}
@@ -135,7 +144,7 @@ export default function ComponentSample() {
                 </>
               )}
             </InoSegmentGroup>
-          </Card>
+          </ComponentSampleCard>
         </div>
       </div>
     </div>
