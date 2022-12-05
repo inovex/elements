@@ -3,12 +3,13 @@ import Navbar from './navbar';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
-import GithubLogo from '@assets/github-logo.png';
 import inovexLogo from '@assets/inovex-logo.svg';
+import useBasePath from '../../utils/hooks/use-base-path';
 
 
 export default function Header() {
   const [yOffset, setYOffset] = useState(0);
+  const basePath = useBasePath();
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,7 +53,7 @@ export default function Header() {
         href="https://github.com/inovex/elements"
       >
         <Image
-          src={GithubLogo}
+          src={`${basePath}/github-logo.png`}
           alt="Github Logo"
           width={30}
           height={30}
