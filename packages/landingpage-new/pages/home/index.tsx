@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <section id={SubRoutes.HOME_COMPONENTS}>
         <ComponentSample></ComponentSample>
       </section>
-      <section>
+      <section id={SubRoutes.HOME_CONTACT} className={styles.contact}>
         <Contact />
       </section>
     </div>

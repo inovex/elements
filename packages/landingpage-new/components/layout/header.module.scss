@@ -1,8 +1,7 @@
 $header-height: 120px;
 
 .header {
-  padding: 0 45px;
-  width: 100%;
+  margin: 0 45px;
   top: 0;
   position: sticky;
   background-color: white;
@@ -22,7 +21,6 @@ $header-height: 120px;
 
 .logo {
   grid-area: logo;
-  min-width: 48px;
 
   a {
     display: flex;
@@ -44,10 +42,8 @@ $header-height: 120px;
 
 .github {
   grid-area: github;
-  width: 30px;
 }
 
 .inovex {
   grid-area: inovex;
-  width: 30px;
 }

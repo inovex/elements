@@ -22,6 +22,7 @@ export enum SubRoutes {
   HOME_INFO = 'info',
   HOME_CORE_ASPECTS = 'core-aspects',
   HOME_COMPONENTS = 'components',
+  HOME_CONTACT = 'contact',
   EXPLORE_EXAMPLES = 'examples',
   EXPLORE_ARTICLES = 'articles',
   EXPLORE_DEMOS = 'demos',
