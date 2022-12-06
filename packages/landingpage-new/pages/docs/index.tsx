@@ -1,12 +1,17 @@
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 
+interface Props {
+  mdxSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+}
+
 export const getStaticProps = async () => {
-  // if this is a dynamic route, you can get the post id from ctx.params
-  // and use that to load the expected Markdown file
   const fs = require('fs').promises;
   const post = await fs.readFile(
     path.join(process.cwd(), 'mdx', 'react-guide.mdx'),
@@ -26,7 +31,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const Page = (props: any) => {
+const Page = (props: Props) => {
   const { mdxSource } = props;
 
   return (
