@@ -14,6 +14,10 @@ body {
   text-decoration: none;
 }
 
+:root b { 
+  font-weight: bold; /* for firefox */
+}
+
 * {
   box-sizing: border-box;
 }
@@ -21,4 +25,11 @@ body {
 ino-chip * {
   /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
   box-sizing: initial;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+  row-gap: 80px;
 }

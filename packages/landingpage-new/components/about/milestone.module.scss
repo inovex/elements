@@ -1,0 +1,45 @@
+@use '../../styles/typography.scss';
+
+h2.smallheader {
+    @include typography.font($size: 30px, $weight: normal);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+  
+.circle {
+    border: 7px solid #e9e5fe;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 10px 0;
+    font-size: 30px;
+}
+
+div.textblock {
+    @include typography.font($size: 16px, $weight: normal);
+    padding: 15px 0;
+    line-height: 1.5;
+  }
+  
+.milestoneHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.milestone {
+    width: 400px;
+    padding: 10px;
+    display: block;
+    float: left;
+}
+
+@media only screen and (max-width: 1400px) {
+    .milestone {
+        width: 100%;
+    }
+}

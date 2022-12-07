@@ -9,7 +9,7 @@ import { SubRoutes } from '../../utils/routes';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className="section-container">
       <section id={SubRoutes.HOME_INFO}>
         <Header></Header>
       </section>

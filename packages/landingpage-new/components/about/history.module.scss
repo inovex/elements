@@ -8,8 +8,15 @@ h1.header {
   margin-bottom: 20px;
 }
 
-.container {
+.milestoneContainer {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 1400px) {
+  .milestoneContainer {
+    flex-direction: column;
+  }
 }
