@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import '../styles/a11y-dark.min.css';
+import '../styles/atom-one-dark.min.css';
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import {
