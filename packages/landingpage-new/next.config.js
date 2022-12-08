@@ -19,10 +19,13 @@ const nextConfiguration = {
 
 const withImages = require('next-images');
 
+const { remarkCodeHike } = require('@code-hike/mdx');
+const theme = require('shiki/themes/min-light.json');
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [[remarkCodeHike], { theme }, {showCopyButton: true}, {lineNumbers: true}],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
@@ -31,4 +34,7 @@ const withMDX = require('@next/mdx')({
 
 const plugins = [withImages, withMDX];
 
-module.exports = plugins.reduce((config, plugin) => plugin(config), nextConfiguration) // merge configs
+module.exports = plugins.reduce(
+  (config, plugin) => plugin(config),
+  nextConfiguration
+); // merge configs

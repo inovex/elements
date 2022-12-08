@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import '../styles/atom-one-dark.min.css';
+import "@code-hike/mdx/dist/index.css"
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import {
