@@ -1,9 +1,9 @@
 @use '../../styles/typography.scss';
 
 .milestoneRight {
-    width: -webkit-calc(50% + 10px);
-    width: -moz-calc(50% + 10px);
-    width: calc(50% + 10px);
+    width: -webkit-calc(50% + 8px);
+    width: -moz-calc(50% + 8px);
+    width: calc(50% + 8px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -17,9 +17,9 @@
   }
   
   .milestoneLeft {
-    width: -webkit-calc(50% + 10px);
-    width: -moz-calc(50% + 10px);
-    width: calc(50% + 10px);
+    width: -webkit-calc(50% + 8px);
+    width: -moz-calc(50% + 8px);
+    width: calc(50% + 8px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -34,11 +34,11 @@
   }
   
   .marker {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     border: 2px solid #CCD1D9;
-    background: #e9e5fe;
+    background: #CCD1D9;
     margin-top: 10px;
     z-index: 9999
   }
@@ -51,14 +51,13 @@
   
   .content h3 {
     @include typography.font($size: 30px, $weight: bold);
-    margin-top: 2px;
+    margin-top: 0;
     margin-bottom: 5px;
   }
   
   .content span {
     font-size: 16px;
     color: #232527;
-    font-style: italic;
   }
   
   .content p {
