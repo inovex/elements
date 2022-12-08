@@ -8,6 +8,13 @@ h1.header {
   margin-bottom: 20px;
 }
 
+.container mark {
+  padding: 0 5px 0 3px;
+    background: linear-gradient(0, rgba(212, 204, 255, 0.5) 40%, transparent 40%);
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
 .container {
   width: 80%;
   padding: 50px 0;
