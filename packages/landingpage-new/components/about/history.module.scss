@@ -8,15 +8,29 @@ h1.header {
   margin-bottom: 20px;
 }
 
-.milestoneContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.container {
+  width: 80%;
+  padding: 50px 0;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
 }
 
-@media only screen and (max-width: 1400px) {
-  .milestoneContainer {
-    flex-direction: column;
+.container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 100%;
+  background: #CCD1D9;
+  z-index: 1
+}
+
+@media screen and (max-width: 900px) {
+  .container:before {
+     left: 10px;
+     width: 2px;
   }
 }

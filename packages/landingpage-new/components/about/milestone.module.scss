@@ -1,45 +1,84 @@
 @use '../../styles/typography.scss';
 
-h2.smallheader {
-    @include typography.font($size: 30px, $weight: normal);
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-  
-.circle {
-    border: 7px solid #e9e5fe;
-    border-radius: 100%;
-    height: 100px;
-    width: 100px;
+.milestoneRight {
+    width: -webkit-calc(50% + 10px);
+    width: -moz-calc(50% + 10px);
+    width: calc(50% + 10px);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 10px 10px 0;
-    font-size: 30px;
-}
-
-div.textblock {
-    @include typography.font($size: 16px, $weight: normal);
-    padding: 15px 0;
-    line-height: 1.5;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    clear: both;
+    float: right;
   }
   
-.milestoneHeader {
+  .milestoneLeft {
+    width: -webkit-calc(50% + 10px);
+    width: -moz-calc(50% + 10px);
+    width: calc(50% + 10px);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: left;
-}
-
-.milestone {
-    width: 400px;
-    padding: 10px;
-    display: block;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    clear: both;
     float: left;
-}
+    direction: rtl
+  }
+  
+  .marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #CCD1D9;
+    background: #e9e5fe;
+    margin-top: 10px;
+    z-index: 9999
+  }
+  
+  .content {
+    width: 95%;
+    padding: 0 15px;
+    color: #232527;
+  }
+  
+  .content h3 {
+    @include typography.font($size: 30px, $weight: bold);
+    margin-top: 2px;
+    margin-bottom: 5px;
+  }
+  
+  .content span {
+    font-size: 16px;
+    color: #232527;
+    font-style: italic;
+  }
+  
+  .content p {
+    font-size: 14px;
+    line-height: 1.5em;
+    word-spacing: 1px;
+    color: #232527;
+  }
 
-@media only screen and (max-width: 1400px) {
-    .milestone {
+  @media screen and (max-width: 900px) {
+    .milestoneRight {
         width: 100%;
-    }
-}
+        margin-bottom: 30px;
+         float: none;
+      }
+    
+      .milestoneLeft {
+        width: 100%;
+         margin-bottom: 30px;
+         float: none;
+         direction: ltr;
+      }
+  }
