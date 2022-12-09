@@ -18,7 +18,7 @@ function History() {
                 title='Getting started 🛫'
                 subtitle='June 2018'
                 position='right'>
-                With the help of packages like <a href='https://m3.material.io/develop/web' target='_blank'>Google Material Web</a>, <a href='https://flatpickr.js.org/' target='_blank'>flatpickr</a>, some other 3rd party dependencies and the product design from our designers, we create the core components we need to build our applications. With Storybook we are able to create the documentation and the playground for our consumers with minimal effort
+                With the help of packages like <a href='https://m3.material.io/develop/web' target='_blank' rel='noreferrer'>Google Material Web</a>, <a href='https://flatpickr.js.org/' target='_blank' rel='noreferrer'>flatpickr</a>, some other 3rd party dependencies and the product design from our designers, we create the core components we need to build our applications. With Storybook we are able to create the documentation and the playground for our consumers with minimal effort
             </Milestone>
             <Milestone
                 title='First internal consumers 💙'
@@ -42,13 +42,13 @@ function History() {
                 title='Open Source 🌍'
                 subtitle='September 2020'
                 position='right'>
-                <mark>We’re public, we’re live!</mark> We are proud to announce our very first open source UI library for any framework, @inovex.de/elements, on <a href='https://www.npmjs.com/package/@inovex.de/elements' target='_blank'>npm</a> and <a href='https://github.com/inovex/elements' target='_blank'>GitHub</a> with a total of 46 core components
+                <mark>We’re public, we’re live!</mark> We are proud to announce our very first open source UI library for any framework, @inovex.de/elements, on <a href='https://www.npmjs.com/package/@inovex.de/elements' target='_blank' rel='noreferrer'>npm</a> and <a href='https://github.com/inovex/elements' target='_blank' rel='noreferrer'>GitHub</a> with a total of 46 core components
             </Milestone>
             <Milestone
                 title='Never stop optimizing 🚀'
                 subtitle='ongoing'
                 position='left'>
-                With an internal team, we are constantly developing and optimizing the elements. It is important to us to offer you a great experience. You can also support us in making it even better. Start <a href='https://github.com/inovex/elements#contributing' target='_blank'>contributing</a> now
+                With an internal team, we are constantly developing and optimizing the elements. It is important to us to offer you a great experience. You can also support us in making it even better. Start <a href='https://github.com/inovex/elements#contributing' target='_blank' rel='noreferrer'>contributing</a> now
             </Milestone>
         </div>
     </>);

@@ -1,6 +1,7 @@
 import { SubRoutes } from '../../utils/routes';
 import Contributors from '../../components/about/contributors'
 import History from '../../components/about/history'
+import Activity from '../../components/about/activity'
 
 function About() {
   return (
@@ -10,6 +11,9 @@ function About() {
       </section>
       <section id={SubRoutes.ABOUT_HISTORY}>
         <History />
+      </section>
+      <section id={SubRoutes.ABOUT_ACTIVITY}>
+        <Activity />
       </section>
     </div>
   );
