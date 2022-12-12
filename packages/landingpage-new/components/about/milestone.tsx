@@ -4,7 +4,7 @@ type Props = {
     title: string;
     subtitle: string;
     position: 'right' | 'left';
-    children: any;
+    children: JSX.Element;
 }
 
 function Milestone(props: Props) {
