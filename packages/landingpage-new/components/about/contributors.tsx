@@ -8,6 +8,7 @@ import {
 import { UserTypes } from '../../types/githubUserTypes';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
+const GITHUB_USERS_API = 'https://api.github.com/users/';
 
 enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   janivo = 22963121,
@@ -22,6 +23,8 @@ enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   ninaschlz = 93990641,
 }
 const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
+
+const allDesigners = ['MBuchberger'];
 
 const getGitHubContributers = async () => {
     const contributors: GithubContributor[] = await fetch(
@@ -55,15 +58,29 @@ const getGitHubContributers = async () => {
       )
     );
   
-    const userSortByContribution = [
+    let userSortByContribution = [
       ...recentUserIds
         .map((userId) => filteredUser.find((user) => user.id === userId))
         .filter((user) => user != null),
       ...filteredUser.filter((user) => !recentUserIds.includes(user.id)),
     ];
 
+    const designers: GithubContributor[] = await getDesigners();
+    
+    userSortByContribution = [...userSortByContribution, ...designers];
+
     return userSortByContribution as GithubContributor[]
   };
+
+  const getDesigners = async () => {
+    const designerGithubProfile: GithubContributor[] = [];
+    await Promise.all(
+      allDesigners.map(async (username) => {
+        designerGithubProfile.push(await fetch(GITHUB_USERS_API + username).then(res => res.json()))
+      })
+    )
+    return designerGithubProfile;
+  }
 
 function Contributors() {
     const [users, setUsers] = useState([] as GithubContributor[])
@@ -75,7 +92,7 @@ function Contributors() {
     return(
         <>
             <h1 className={styles.header}>
-                the <b>contributors</b>
+                <b>contributors</b> @ inovex elements
             </h1>
             <div className={styles.container}>
             {users.map((contributor: GithubContributor) => (
