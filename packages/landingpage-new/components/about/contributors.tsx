@@ -6,6 +6,7 @@ import {
   GithubCommitAuthor,
 } from '../../types/githubContributor';
 import { UserTypes } from '../../types/githubUserTypes';
+import { InoSpinner } from '@elements';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';
@@ -97,10 +98,15 @@ const getGitHubContributers = async () => {
   }
 
 function Contributors() {
-    const [users, setUsers] = useState([] as GithubContributor[])
+    const [users, setUsers] = useState([] as GithubContributor[]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getGitHubContributers().then(users => setUsers(users as GithubContributor[]))
+        getGitHubContributers().then(users => {
+          setUsers(users as GithubContributor[])
+          setLoading(false)
+        })
+        .catch(() => setLoading(false))
     }, [])
     
     return(
@@ -109,7 +115,11 @@ function Contributors() {
                 <b>contributors</b> @ inovex elements
             </h1>
             <div className={styles.container}>
-            {users.map((contributor: GithubContributor) => (
+            {loading 
+            ? <InoSpinner type="circle"/>
+            : users.length === 0 
+              ? <div>No recent contributors found.</div>
+              : users.map((contributor: GithubContributor) => (
                 <ContributorCard
                   role={roles.get(contributor.id) ?? ''}
                   key={contributor.id}
@@ -117,8 +127,7 @@ function Contributors() {
                   username={contributor.login}
                   profileLink={contributor.html_url}
                   />
-            ))}
-            {users.length === 0 && <div>No recent contributors</div>}
+              ))}
             </div>
         </>
     );
