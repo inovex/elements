@@ -1,18 +1,13 @@
 @use '../../styles/typography';
 
 .card {
+  position: relative;
   --ino-card-border-thickness: 0;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 17px;
   border: transparent;
   min-width: fit-content;
   min-height: fit-content;
-  text-align: center;
-  padding: 10px;
-}
-
-.footer {
-  max-width: 200px;
 }
 
 .component {

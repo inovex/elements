@@ -28,14 +28,17 @@ const ContributorsCard: FunctionComponent<Props> = ({
         alt={`Avatar of ${username}`}
       />
     }
+    headerClassName={styles.center}
     content={
       <Link href={profileLink} target="_blank">
         {username}
       </Link>
     }
+    contentClassName={styles.center}
     footer={
         <div className={styles.role}>{role}</div>
     }
+    footerClassName={styles.footer + ' ' + styles.center}
   />
 );
 

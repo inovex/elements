@@ -4,7 +4,7 @@ type Props = {
     title: string;
     subtitle: string;
     position: 'right' | 'left';
-    children: JSX.Element;
+    children: React.ReactNode;
 }
 
 function Milestone(props: Props) {
@@ -14,7 +14,7 @@ function Milestone(props: Props) {
         <div className={styles.content}>
             <h3>{props.title}</h3>
             <span>{props.subtitle}</span>
-            <p>{props.children}</p>
+            <div>{props.children}</div>
         </div>
     </div>
     );
