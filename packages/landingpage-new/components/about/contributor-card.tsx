@@ -5,19 +5,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface Props {
+  role: string;
   username: string;
   avatarUrl: string;
   profileLink: string;
 }
 
 const ContributorsCard: FunctionComponent<Props> = ({
+  role,
   username,
   avatarUrl,
   profileLink,
 }) => (
   <Card
     cardClassName={styles.contributorCard}
-    content={
+    header = {
       <Image
         className={styles.Image}
         src={avatarUrl}
@@ -26,11 +28,13 @@ const ContributorsCard: FunctionComponent<Props> = ({
         alt={`Avatar of ${username}`}
       />
     }
-    footerClassName={styles.footer}
-    footer={
+    content={
       <Link href={profileLink} target="_blank">
         {username}
       </Link>
+    }
+    footer={
+        <div className={styles.role}>{role}</div>
     }
   />
 );

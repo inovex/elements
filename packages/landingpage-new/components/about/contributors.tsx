@@ -10,6 +10,20 @@ import { UserTypes } from '../../types/githubUserTypes';
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';
 
+const roles: Map<number, string> = new Map([
+  [22963121, 'Project Manager & Developer'], // janivo
+  [1610894, 'Frontend Expert'], // silentHoo
+  [26819398, 'Product Owner'], // pfecht
+  [23154336, 'Fullstack Developer'], // BenPag
+  [2118956, 'Frontend Engineer'], // JCofman
+  [12165722, 'Frontend Expert'], // Sl1nd
+  [103122411, 'Frontend Developer'], // MariaLStefan
+  [76041234, 'Frontend Developer'], // AlessaRad
+  [81302108, 'Frontend Developer'], // TobiasHeimGalindo
+  [93990641, 'Frontend Developer'], // ninaschlz
+  [117914010, 'User Experience Designer'], // MBuchberger
+]);
+
 enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   janivo = 22963121,
   silentHoo = 1610894,
@@ -21,6 +35,7 @@ enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
   AlessaRad = 76041234,
   TobiasHeimGalindo = 81302108,
   ninaschlz = 93990641,
+  MBuchberger = 117914010
 }
 const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
@@ -66,7 +81,6 @@ const getGitHubContributers = async () => {
     ];
 
     const designers: GithubContributor[] = await getDesigners();
-    
     userSortByContribution = [...userSortByContribution, ...designers];
 
     return userSortByContribution as GithubContributor[]
@@ -97,11 +111,12 @@ function Contributors() {
             <div className={styles.container}>
             {users.map((contributor: GithubContributor) => (
                 <ContributorCard
-                key={contributor.id}
-                avatarUrl={contributor.avatar_url}
-                username={contributor.login}
-                profileLink={contributor.html_url}
-                />
+                  role={roles.get(contributor.id) ?? ''}
+                  key={contributor.id}
+                  avatarUrl={contributor.avatar_url}
+                  username={contributor.login}
+                  profileLink={contributor.html_url}
+                  />
             ))}
             {users.length === 0 && <div>No recent contributors</div>}
             </div>
