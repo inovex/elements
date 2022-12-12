@@ -91,8 +91,8 @@ function Activity() {
           fill: true,
           label: 'contributions',
           data: graphActivities.map(graphActivity => graphActivity.contributions),
-          borderColor: 'rgba(44, 2, 255, 1)',
-          backgroundColor: 'rgba(44, 2, 255, 0.5)',
+          borderColor: '#4F46FF',
+          backgroundColor: '#BECCFF50',
         },
       ],
     };
