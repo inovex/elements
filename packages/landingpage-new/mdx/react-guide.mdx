@@ -1,18 +1,4 @@
 # Create your first Project
-<CH.Section>
-
-## Code Links Example
-
-We are looking at the [console.log](focus://console.js#2) function today
-
-<CH.Code showCopyButton={true}>
-```js console.js
-console.table(["Hello", "World"])
-console.log("Hello World")
-```
-</CH.Code>
-
-</CH.Section>
 
 **Let's get you up to speed quickly with the usage of the Elements to create a simple login page.**
 
@@ -20,31 +6,47 @@ console.log("Hello World")
 
 First, create a new React app for our login page.
 
-```bash
+<CH.Code>
+```powershell terminal
 npx create-react-app <your app name>
 cd <your app name>
 npm start
 ```
+</CH.Code>
+Add the package `@inovex.de/elements-react` to your project using **npm** or **yarn**:
+<CH.Spotlight >
 
-Add the package `@inovex.de/elements-react` to your project using **npm**:
-
-```sh
+```powershell terminal
 $ npm install @inovex.de/elements-react --save
 ```
 
-or **yarn**:
+---
 
-```bash
+**npm**
+
+```powershell terminal focus=1
+
+```
+
+---
+
+**yarn**
+
+```powershell terminal focus=1
 $ yarn add @inovex.de/elements-react
 ```
 
-```jsx
+</CH.Spotlight>
+
+<CH.Code>
+```jsx App.js
 function App() {
   return <div></div>;
 }
 
 export default App;
 ```
+</CH.Code>
 
 Once our React app is ready, delete the boilerplate code and restructure the function until our App.js looks something like the code above.
 
@@ -52,14 +54,16 @@ Once our React app is ready, delete the boilerplate code and restructure the fun
 
 To demonstrate how fast you can create a stylish login form, let's start with our sign in, consisting of two input fields for the credentials and one button for the submit.
 
-```jsx
-<div className="body">
+<CH.Code>
+  ```jsx App.js
+  <div className="body">
     <h1>Login to your Account</h1>
     <InoInput label="email" outline></InoInput>
     <InoInput label="password" outline></InoInput>
     <InoButton type="submit">Sign In</InoButton>
-</div>
-```
+  </div>
+  ```
+</CH.Code>
 
 ## Properties
 
@@ -91,8 +95,8 @@ The Playground allows you to modify these properties and see the result in real 
 Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.
 
 ```jsx
-const [email, setEmail] = React.useState("");
-const [password, setPassword] = React.useState("");
+const [email, setEmail] = React.useState('');
+const [password, setPassword] = React.useState('');
 ```
 
 ```jsx
@@ -158,11 +162,11 @@ If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our inp
 
 ```jsx
 <InoInput
-    type="password"
-    label="password"
-    outline
-    value={password}
-    onValueChange={value => setPassword(value.detail)}
+  type="password"
+  label="password"
+  outline
+  value={password}
+  onValueChange={(value) => setPassword(value.detail)}
 >
   <InoIcon slot="icon-trailing" icon="password"></InoIcon>
 </InoInput>
@@ -174,6 +178,7 @@ Note that we indicated the position of the slot inside our `<InoIcon>` with `slo
 
 In order to provide a CSS way of styling the inovex-elements, we sometimes provide custom properties, a.k.a. CSS-Variables.
 In the case of the `<ino-input>`, there are two variables we can use to change the appearance of our component: `--ino-input-line-color` to change the color of the underline and the `--ino-input-label-color` which changes the color of the floating label. They can be used like this:
+
 ```scss
 InoInput {
   --ino-input-line-color: blue;
@@ -191,12 +196,12 @@ Let's apply what we learned by the example of the `<InoInput>` on other Elements
 
 ```jsx
 <InoImg
-    alt="Elements logo"
-    decoding="async"
-    src={logo}
-    height={75}
-    width={75}
-    fallbackIcon="cloud"
+  alt="Elements logo"
+  decoding="async"
+  src={logo}
+  height={75}
+  width={75}
+  fallbackIcon="cloud"
 ></InoImg>
 ```
 
@@ -226,7 +231,7 @@ Use the `interactive` property if you want to interact with the popover content 
 By clicking on the ino icon lock, we can toggle the visibility of our password by changing the InoInput `type` property.
 
 ```jsx
-const [hidePassword, setVisibility] = React.useState<InputType>('password');
+const [hidePassword, setVisibility] = React.useState < InputType > 'password';
 
 const togglePasswordVisibility = () => {
   if (hidePassword === 'password') {
@@ -239,17 +244,17 @@ const togglePasswordVisibility = () => {
 
 ```jsx
 <InoInput
-    type={hidePassword}
-    label="password"
-    outline
-    value={password}
-    onValueChange={value => setPassword(value.detail)}
+  type={hidePassword}
+  label="password"
+  outline
+  value={password}
+  onValueChange={(value) => setPassword(value.detail)}
 >
-    <InoIcon
-        slot="icon-trailing"
-        icon="password"
-        clickable
-        onClick={() => togglePasswordVisibility()}
+  <InoIcon
+    slot="icon-trailing"
+    icon="password"
+    clickable
+    onClick={() => togglePasswordVisibility()}
   ></InoIcon>
 </InoInput>
 ```
@@ -266,8 +271,8 @@ const [isValid, setValidity] = React.useState(false);
 const submit = () => {
   setSnackbar(true);
   setValidity(email.length > 0 && password.length >= 8);
-  setEmail("");
-  setPassword("");
+  setEmail('');
+  setPassword('');
 
   setTimeout(() => {
     setSnackbar(false);
@@ -278,23 +283,23 @@ const ValidateLogin = () => {
   if (isValid) {
     return (
       <InoSnackbar
-          action-text="Welcome back!"
-          timeout={5000}
-          type="success"
-          stay-visible-on-hover="false"
+        action-text="Welcome back!"
+        timeout={5000}
+        type="success"
+        stay-visible-on-hover="false"
       >
-          Sucessfully logged in
+        Sucessfully logged in
       </InoSnackbar>
     );
   } else {
     return (
       <InoSnackbar
-          action-text="email and/or password too short"
-          timeout={5000}
-          type="error"
-          stay-visible-on-hover="false"
+        action-text="email and/or password too short"
+        timeout={5000}
+        type="error"
+        stay-visible-on-hover="false"
       >
-          Login failed
+        Login failed
       </InoSnackbar>
     );
   }
@@ -303,15 +308,17 @@ const ValidateLogin = () => {
 
 ```jsx
 <InoButton
-    type="submit"
-    onClick={() => {
-      submit();
-    }}
+  type="submit"
+  onClick={() => {
+    submit();
+  }}
 >
-    Sign In
+  Sign In
 </InoButton>;
 
-{showSnackbar ? <ValidateLogin /> : null;}
+{
+  showSnackbar ? <ValidateLogin /> : null;
+}
 ```
 
 Change the types accordingly to your wishes. The timeout property is in _ms_ and indicates when the snackbar disappears. The timeout can be disabled by setting it to a negative value.
@@ -334,6 +341,7 @@ Alternatively, group `<InoTab>` into an [ino-tab-bar](https://elements.inovex.de
 ## Wrapping Up
 
 Congratulations! You have created a login-page with React and the main concepts of the **Inovex Elements** - _The last interoperable UI library for any framework_:
+
 - Properties
 - Events
 - Slots
