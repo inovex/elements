@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import styles from './contributor-card.module.scss';
-import Card from '../shared/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import Card from 'components/shared/card';
 
 interface Props {
   role: string;

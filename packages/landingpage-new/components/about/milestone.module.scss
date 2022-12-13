@@ -1,45 +1,38 @@
 @use '../../styles/typography.scss';
 
 .milestoneRight {
-    width: -webkit-calc(50% + 8px);
-    width: -moz-calc(50% + 8px);
     width: calc(50% + 8px);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
     display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
     justify-content: space-between;
     clear: both;
     float: right;
+
+    &::before {
+       @extend .marker;
+    }
   }
   
   .milestoneLeft {
-    width: -webkit-calc(50% + 8px);
-    width: -moz-calc(50% + 8px);
     width: calc(50% + 8px);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
     display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-box-pack: justify;
     justify-content: space-between;
     clear: both;
     float: left;
-    direction: rtl
+    text-align: right;
+    
+    &::after {
+      @extend .marker;
+   }
   }
   
   .marker {
+    content: '';
+    display: inline-block;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
-    border: 2px solid #CCD1D9;
-    background: #CCD1D9;
-    margin-top: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #CCD1D9;
     z-index: 2;
   }
   
@@ -55,12 +48,13 @@
     margin-bottom: 5px;
   }
   
-  .content span {
+  .content .subtitle {
     font-size: 16px;
     color: #232527;
+    margin-bottom: 10px;
   }
   
-  .content p {
+  .content .text {
     font-size: 14px;
     line-height: 1.5em;
     word-spacing: 1px;
@@ -68,16 +62,35 @@
   }
 
   @media screen and (max-width: 900px) {
+    .marker2 {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      margin-top: 15px;
+      margin-left: 2px;
+      background-color: #CCD1D9;
+      z-index: 2;
+    }
+
     .milestoneRight {
         width: 100%;
         margin-bottom: 30px;
-         float: none;
+        float: none;
+        &::before {
+          @extend .marker2;
+        }
+    }
+  
+    .milestoneLeft {
+      width: 100%;
+      margin-bottom: 30px;
+      float: none;
+      text-align: left;
+      &::before {
+        @extend .marker2;
       }
-    
-      .milestoneLeft {
-        width: 100%;
-         margin-bottom: 30px;
-         float: none;
-         direction: ltr;
-      }
+      &::after {display: none;}
+    }
   }

@@ -10,11 +10,10 @@ type Props = {
 function Milestone(props: Props) {
     return(
     <div className={props.position === 'right' ? styles.milestoneRight : styles.milestoneLeft}>
-        <div className={styles.marker}></div>
         <div className={styles.content}>
             <h3>{props.title}</h3>
-            <span>{props.subtitle}</span>
-            <div>{props.children}</div>
+            <div className={styles.subtitle}>{props.subtitle}</div>
+            <div className={styles.text}>{props.children}</div>
         </div>
     </div>
     );
