@@ -25,7 +25,7 @@ const theme = require('shiki/themes/min-light.json');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [[remarkCodeHike], { theme }, {showCopyButton: true}, {lineNumbers: true}],
+    remarkPlugins: [[remarkCodeHike], { theme }],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",

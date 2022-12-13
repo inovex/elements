@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
     mdxOptions: {
       useDynamicImport: true,
       remarkPlugins: [
-        [remarkCodeHike, { autoImport: false, theme }],
+        [remarkCodeHike, { autoImport: false, theme, showCopyButton: true }],
         remarkGfm,
       ],
     },
