@@ -25,13 +25,13 @@ export enum SubRoutes {
   HOME_FAQ = 'faq',
   EXPLORE_EXAMPLES = 'examples',
   EXPLORE_PATTERNS = 'patterns',
-  EXPLORE_ARTICLES = 'articles',
+  EXPLORE_RESSOURCES = 'ressources',
   EXPLORE_DEMOS = 'demos',
-  GETTING_STARTED_TUTORIALS = 'tutorials',
-  GETTING_STARTED_FRAMEWORK_INTEGRATION = 'framework-integration',
-  GETTING_STARTED_TRAININGS = 'trainings',
-  GETTING_STARTED_MEETUP = 'meetups',
-  LIBRARY_INTRO = 'intro',
+  GETTING_STARTED_JAVASCRIPT = 'javascript',
+  GETTING_STARTED_REACT = 'react',
+  GETTING_STARTED_ANGULAR = 'angular',
+  GETTING_STARTED_VUE = 'vue',
+  LIBRARY_STYLEGUIDE = 'styleguide',
   LIBRARY_COMPONENTS = 'components',
   LIBRARY_PATTERNS = 'patterns',
   LIBRARY_CHANGELOGS = 'changelogs',
@@ -77,8 +77,8 @@ export const Routes: RouteTree = [
         url: SubRoutes.EXPLORE_PATTERNS,
       },
       {
-        name: 'articles',
-        url: SubRoutes.EXPLORE_ARTICLES,
+        name: 'ressources',
+        url: SubRoutes.EXPLORE_RESSOURCES,
       },
       {
         name: 'demos',
@@ -91,20 +91,20 @@ export const Routes: RouteTree = [
     url: MainRoutes.GETTING_STARTED,
     subRoutes: [
       {
-        name: 'tutorials',
-        url: SubRoutes.GETTING_STARTED_TUTORIALS,
+        name: 'javascript',
+        url: SubRoutes.GETTING_STARTED_JAVASCRIPT,
       },
       {
-        name: 'framework integration',
-        url: SubRoutes.GETTING_STARTED_FRAMEWORK_INTEGRATION,
+        name: 'react',
+        url: SubRoutes.GETTING_STARTED_REACT,
       },
       {
-        name: 'trainings',
-        url: SubRoutes.GETTING_STARTED_TRAININGS,
+        name: 'angular',
+        url: SubRoutes.GETTING_STARTED_ANGULAR,
       },
       {
-        name: 'meetup',
-        url: SubRoutes.GETTING_STARTED_MEETUP,
+        name: 'vue',
+        url: SubRoutes.GETTING_STARTED_VUE,
       },
     ],
   },
@@ -113,8 +113,8 @@ export const Routes: RouteTree = [
     url: MainRoutes.LIBRARY,
     subRoutes: [
       {
-        name: 'introduction',
-        url: SubRoutes.LIBRARY_INTRO,
+        name: 'styleguide',
+        url: SubRoutes.LIBRARY_STYLEGUIDE,
       },
       {
         name: 'components',

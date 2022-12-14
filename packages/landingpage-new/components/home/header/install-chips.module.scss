@@ -6,7 +6,13 @@
 }
 
 .chipContainer {
-  width: 400px;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+  background-color: #fff;
+  z-index: 1;
 }
 
 .frameworks {
@@ -24,11 +30,8 @@
 }
 
 .successMessage {
-  position: absolute;
   color: #68ce6a;
   font-weight: bolder;
-  top: -5px;
-  left: 400px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s linear 1s, opacity 1s;

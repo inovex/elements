@@ -83,6 +83,14 @@ export default function InstallChips() {
         >
           <code className={styles.installCommand}>$ {currentCommand}</code>
         </InoChip>
+        <p
+          className={classNames(
+            styles.successMessage,
+            showTooltip && styles.successMessageShow
+          )}
+        >
+          Copied to your clipboard ✓
+        </p>
       </div>
       <div className={styles.frameworks}>
         {FrameworksArr.map((framework: Framework) => (
@@ -108,14 +116,6 @@ export default function InstallChips() {
           </div>
         ))}
       </div>
-      <p
-        className={classNames(
-          styles.successMessage,
-          showTooltip && styles.successMessageShow
-        )}
-      >
-        Copied to your clipboard ✓
-      </p>
     </div>
   );
 }
