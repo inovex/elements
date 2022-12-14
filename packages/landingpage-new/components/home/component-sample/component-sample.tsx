@@ -40,7 +40,7 @@ export default function ComponentSample() {
       <div className={styles.subHeaderContainer}>
         <p className={styles.subheader}>Check out some of our components</p>
         <span className={styles.link}>
-          <Link href="/docs">Check out all components</Link>
+          <Link href="/library">Check out all components</Link>
         </span>
       </div>
       <div className={styles.componentGrid}>
