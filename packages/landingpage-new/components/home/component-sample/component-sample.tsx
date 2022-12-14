@@ -15,6 +15,7 @@ import { useState } from 'react';
 import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
+import { MainRoutes } from 'utils/routes';
 
 enum ChipValues {
   REACT = 'React',
@@ -40,7 +41,7 @@ export default function ComponentSample() {
       <div className={styles.subHeaderContainer}>
         <p className={styles.subheader}>Check out some of our components</p>
         <span className={styles.link}>
-          <Link href="/docs">Check out all components</Link>
+          <Link href={MainRoutes.LIBRARY}>Check out all components</Link>
         </span>
       </div>
       <div className={styles.componentGrid}>

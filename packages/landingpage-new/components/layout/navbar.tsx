@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { Routes } from '../../utils/routes';
+import { MainRoutes, Routes, SubRoutes } from '../../utils/routes';
 import LinkItem from './linkItem';
+import { InoButton } from '@elements';
+import Link from 'next/link';
 
 export default function Navbar() {
   const router = useRouter();
@@ -16,6 +18,9 @@ export default function Navbar() {
           isActive={router.pathname === url}
         />
       ))}
+      <Link href={MainRoutes.HOME + '#' + SubRoutes.HOME_CONTACT}>
+        <InoButton>Contact us</InoButton>
+      </Link>
     </nav>
   );
 }

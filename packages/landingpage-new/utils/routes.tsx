@@ -11,10 +11,9 @@ type MainRoute = Route & {
 
 export enum MainRoutes {
   HOME = '/',
-  LEARN = '/learn',
-  DOCS = '/docs',
+  GETTING_STARTED = '/getting-started',
+  LIBRARY = '/library',
   EXPLORE = '/explore',
-  CONTACT = '/contact',
   ABOUT = '/about',
 }
 
@@ -23,18 +22,19 @@ export enum SubRoutes {
   HOME_CORE_ASPECTS = 'core-aspects',
   HOME_COMPONENTS = 'components',
   HOME_CONTACT = 'contact',
+  HOME_FAQ = 'faq',
   EXPLORE_EXAMPLES = 'examples',
-  EXPLORE_ARTICLES = 'articles',
+  EXPLORE_PATTERNS = 'patterns',
+  EXPLORE_RESSOURCES = 'ressources',
   EXPLORE_DEMOS = 'demos',
-  LEARN_TUTORIALS = 'tutorials',
-  LEARN_TRAININGS = 'trainings',
-  LEARN_MEETUP = 'meetups',
-  LEARN_FAQ = 'faq',
-  DOCS_INTRO = 'intro',
-  DOCS_FRAMEWORK_INTEGRATION = 'framework-integration',
-  DOCS_COMPONENTS = 'components',
-  DOCS_PATTERNS = 'patterns',
-  DOCS_CHANGELOGS = 'changelogs',
+  GETTING_STARTED_JAVASCRIPT = 'javascript',
+  GETTING_STARTED_REACT = 'react',
+  GETTING_STARTED_ANGULAR = 'angular',
+  GETTING_STARTED_VUE = 'vue',
+  LIBRARY_STYLEGUIDE = 'styleguide',
+  LIBRARY_COMPONENTS = 'components',
+  LIBRARY_PATTERNS = 'patterns',
+  LIBRARY_CHANGELOGS = 'changelogs',
   ABOUT_TEAM = 'team',
   ABOUT_HISTORY = 'history',
   ABOUT_ACTIVITY = 'activity',
@@ -58,6 +58,10 @@ export const Routes: RouteTree = [
         name: 'components',
         url: SubRoutes.HOME_COMPONENTS,
       },
+      {
+        name: 'faq',
+        url: SubRoutes.HOME_FAQ,
+      },
     ],
   },
   {
@@ -69,8 +73,12 @@ export const Routes: RouteTree = [
         url: SubRoutes.EXPLORE_EXAMPLES,
       },
       {
-        name: 'articles',
-        url: SubRoutes.EXPLORE_ARTICLES,
+        name: 'patterns',
+        url: SubRoutes.EXPLORE_PATTERNS,
+      },
+      {
+        name: 'ressources',
+        url: SubRoutes.EXPLORE_RESSOURCES,
       },
       {
         name: 'demos',
@@ -79,50 +87,46 @@ export const Routes: RouteTree = [
     ],
   },
   {
-    name: 'learn',
-    url: MainRoutes.LEARN,
+    name: 'getting started',
+    url: MainRoutes.GETTING_STARTED,
     subRoutes: [
       {
-        name: 'tutorials',
-        url: SubRoutes.LEARN_TUTORIALS,
+        name: 'javascript',
+        url: SubRoutes.GETTING_STARTED_JAVASCRIPT,
       },
       {
-        name: 'trainings',
-        url: SubRoutes.LEARN_TRAININGS,
+        name: 'react',
+        url: SubRoutes.GETTING_STARTED_REACT,
       },
       {
-        name: 'meetup',
-        url: SubRoutes.LEARN_MEETUP,
+        name: 'angular',
+        url: SubRoutes.GETTING_STARTED_ANGULAR,
       },
       {
-        name: 'faq',
-        url: SubRoutes.LEARN_FAQ,
+        name: 'vue',
+        url: SubRoutes.GETTING_STARTED_VUE,
       },
     ],
   },
   {
-    name: 'docs',
-    url: MainRoutes.DOCS,
+    name: 'library',
+    url: MainRoutes.LIBRARY,
     subRoutes: [
       {
-        name: 'introduction',
-        url: SubRoutes.DOCS_INTRO,
-      },
-      {
-        name: 'framework integration',
-        url: SubRoutes.DOCS_FRAMEWORK_INTEGRATION,
+        name: 'styleguide',
+        url: SubRoutes.LIBRARY_STYLEGUIDE,
       },
       {
         name: 'components',
-        url: SubRoutes.DOCS_COMPONENTS,
+        url: SubRoutes.LIBRARY_COMPONENTS,
       },
       {
         name: 'patterns',
-        url: SubRoutes.DOCS_PATTERNS,
+        url: SubRoutes.LIBRARY_PATTERNS,
       },
       {
         name: 'changelogs',
-        url: SubRoutes.DOCS_CHANGELOGS,
+        url: SubRoutes.LIBRARY_CHANGELOGS,
       },
     ],
   },
@@ -143,10 +147,5 @@ export const Routes: RouteTree = [
         url: SubRoutes.ABOUT_ACTIVITY,
       },
     ],
-  },
-  {
-    name: 'contact',
-    url: MainRoutes.CONTACT,
-    subRoutes: [],
   },
 ];
