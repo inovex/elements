@@ -25,11 +25,12 @@ export async function getGitHubContributers(): Promise<GithubContributor[]> {
   const contributors: GithubContributor[] = await fetch(
     GITHUB_REPO_URL + '/contributors'
   ).then((resp) => resp.json());
+
   const recentContributions: GithubCommitAuthor[] = await fetch(
     GITHUB_REPO_URL + '/commits'
   ).then((resp) => resp.json());
 
-  if (!contributors) return [];
+  if (!Array.isArray(contributors)) return [];
 
   const filteredUser = contributors.filter(
     (contributor) =>
@@ -37,7 +38,7 @@ export async function getGitHubContributers(): Promise<GithubContributor[]> {
       whitelistedIds.includes(contributor.id)
   );
 
-  if (!recentContributions) return filteredUser;
+  if (!Array.isArray(recentContributions)) return filteredUser;
 
   const recentUserIds = Array.from(
     new Set(

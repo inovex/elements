@@ -94,45 +94,45 @@ const graphOptions = {
 };
 
 function Activity() {
-  const [labels, setLabels] = useState([] as string[]);
-  const [contributions, setContributions] = useState([] as number[]);
   const [graphData, setGraphData] = useState({
     datasets: [],
     labels: [],
-  } as ChartData<'line', number[], unknown>);
+  } as ChartData<'line', number[], string>);
 
   useEffect(() => {
     getGithubActivities().then((githubActivities) => {
-      githubActivities = fillDate(githubActivities);
-      const [newLabels, newContributions] = generateGraphData(githubActivities);
-      setLabels(newLabels);
-      setContributions(newContributions);
+      if (Array.isArray(githubActivities)) {
+        githubActivities = fillDate(githubActivities);
+        const [newLabels, newContributions] =
+          generateGraphData(githubActivities);
+        setGraphData({
+          labels: newLabels,
+          datasets: [
+            {
+              fill: true,
+              label: 'contributions',
+              data: newContributions,
+              borderColor: '#4F46FF',
+              backgroundColor: '#BECCFF50',
+            },
+          ],
+        });
+      }
     });
   }, []);
-
-  useEffect(() => {
-    setGraphData({
-      labels,
-      datasets: [
-        {
-          fill: true,
-          label: 'contributions',
-          data: contributions,
-          borderColor: '#4F46FF',
-          backgroundColor: '#BECCFF50',
-        },
-      ],
-    });
-  }, [labels, contributions]);
 
   return (
     <>
       <h1 className={styles.header}>
         our <b>activity</b>
       </h1>
-      <div className={styles.graphContainer}>
-        <Line options={graphOptions} data={graphData} />
-      </div>
+      {graphData.datasets.length === 0 ? (
+        <div>No recent activity found.</div>
+      ) : (
+        <div className={styles.graphContainer}>
+          <Line options={graphOptions} data={graphData} />
+        </div>
+      )}
     </>
   );
 }
