@@ -35,16 +35,13 @@ const IconByFramework: Record<Framework, string> = {
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [
-    manuallySelectedFramework,
-    setManuallySelectedFramework,
-  ] = useState<Framework | null>(null);
+  const [manuallySelectedFramework, setManuallySelectedFramework] =
+    useState<Framework | null>(null);
   const [carouselFramework, setCarouselFramework] = useState<Framework>(
     Framework.VUE
   );
-  const [currentFramework, setCurrentFramework] = useState<Framework>(
-    carouselFramework
-  );
+  const [currentFramework, setCurrentFramework] =
+    useState<Framework>(carouselFramework);
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
@@ -87,28 +84,30 @@ export default function InstallChips() {
           <code className={styles.installCommand}>$ {currentCommand}</code>
         </InoChip>
       </div>
-      {FrameworksArr.map((framework: Framework) => (
-        <div
-          key={framework}
-          className={classNames(
-            styles.icon,
-            framework === currentFramework && styles.iconActive
-          )}
-        >
-          <Image
-            onClick={() => {
-              setManuallySelectedFramework(
-                currentFramework === framework ? null : framework
-              );
-              setCarouselFramework(framework);
-            }}
-            src={`${IconByFramework[framework]}`}
-            alt="Javascript Logo"
-            fill
-            sizes="25px"
-          />
-        </div>
-      ))}
+      <div className={styles.frameworks}>
+        {FrameworksArr.map((framework: Framework) => (
+          <div
+            key={framework}
+            className={classNames(
+              styles.icon,
+              framework === currentFramework && styles.iconActive
+            )}
+          >
+            <Image
+              onClick={() => {
+                setManuallySelectedFramework(
+                  currentFramework === framework ? null : framework
+                );
+                setCarouselFramework(framework);
+              }}
+              src={`${IconByFramework[framework]}`}
+              alt="Javascript Logo"
+              fill
+              sizes="25px"
+            />
+          </div>
+        ))}
+      </div>
       <p
         className={classNames(
           styles.successMessage,
