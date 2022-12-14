@@ -1,7 +1,9 @@
 @use 'sass:math';
 
+$default-text-size: 16px;
+
 @function pxToRem($px) {
-  @return math.div($px, 14px) * 1rem;
+  @return math.div($px, $default-text-size) * 1rem;
 }
 
 // ##################################
@@ -33,7 +35,7 @@ $_font-weights: (
 // => Font sizes
 
 // Private variables, use ino-font-size($type) mixin to access them.
-$size-m: 14px !default; // Browser default (normally 16px)
+$size-m: $default-text-size !default; // Browser default (normally 16px)
 $line-height-m: 1.5 !default;
 $size-l: ($size-m * 1.25);
 $line-height-l: 1.5 !default;

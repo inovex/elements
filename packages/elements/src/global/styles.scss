@@ -2,109 +2,123 @@
 @use './../components/base/theme';
 @use './../components/base/new-theme' as new-theme;
 
-/* font-styles */
-:root, html {
+.inovex-elements {
+
   font-family: typography.font-family();
-  font-size: 14px;
-}
+  font-size: 16px;
 
-a {
-  background-color: transparent;
-  color: theme.$brand;
-}
+  a {
+    background-color: transparent;
+    color: theme.$brand;
+    font-weight: bold;
+    text-decoration: none;
+  }
 
-// Headlines with Display sizes
+  // Headlines with Display sizes
 
-h1 {
-  @include typography.font($size: h1, $weight: regular);
+  h1 {
+    @include typography.font($size: h1, $weight: regular);
 
-  &.display {
+    &.display {
+      @include typography.font($size: d1, $weight: bold);
+    }
+  }
+
+  h2 {
+    @include typography.font($size: h2, $weight: regular);
+
+    &.display {
+      @include typography.font($size: d2, $weight: bold);
+    }
+  }
+
+  h3 {
+    @include typography.font($size: h3, $weight: regular);
+
+    &.display {
+      @include typography.font($size: d3, $weight: bold);
+    }
+  }
+
+  // Titles
+  h4 {
+    @include typography.font($size: title-l, $weight: semibold);
+  }
+
+  h5 {
+    @include typography.font($size: title-m, $weight: semibold);
+  }
+
+  h6 {
+    @include typography.font($size: title-s, $weight: semibold);
+  }
+
+  // Labels
+
+  .label-l {
+    @include typography.font($size: label-l, $weight: medium);
+  }
+
+  .label-m {
+    @include typography.font($size: label-m, $weight: medium);
+  }
+
+  .label-s {
+    @include typography.font($size: label-s, $weight: medium);
+  }
+
+  // Body
+
+  .body-l {
+    @include typography.font($size: body-l, $weight: regular);
+  }
+
+  .body-m {
+    @include typography.font($size: body-m, $weight: regular);
+  }
+
+  .body-s {
+    @include typography.font($size: body-s, $weight: regular);
+  }
+
+  // Header Styles
+  .header-d1 {
     @include typography.font($size: d1, $weight: bold);
   }
-}
 
-h2 {
-  @include typography.font($size: h2, $weight: regular);
-
-  &.display {
+  .header-d2 {
     @include typography.font($size: d2, $weight: bold);
   }
-}
 
-h3 {
-  @include typography.font($size: h3, $weight: regular);
-
-  &.display {
+  .header-d3 {
     @include typography.font($size: d3, $weight: bold);
+  }
+
+  .header-h1 {
+    @include typography.font($size: h1, $weight: medium);
+  }
+
+  .header-h2 {
+    @include typography.font($size: h2, $weight: medium);
+  }
+
+  .header-h3 {
+    @include typography.font($size: h3, $weight: medium);
+  }
+
+  .header-h4 {
+    @include typography.font($size: title-l, $weight: semibold);
+  }
+
+  .header-h5 {
+    @include typography.font($size: title-m, $weight: semibold);
+  }
+
+  .header-h6 {
+    @include typography.font($size: title-s, $weight: semibold);
   }
 }
 
-// Titles
-
-.title-l {
-  @include typography.font($size: title-l, $weight: semibold);
-}
-
-.title-m {
-  @include typography.font($size: title-m, $weight: semibold);
-}
-
-.title-s {
-  @include typography.font($size: title-s, $weight: semibold);
-}
-
-// Labels
-
-.label-l {
-  @include typography.font($size: label-l, $weight: medium);
-}
-
-.label-m {
-  @include typography.font($size: label-m, $weight: medium);
-}
-
-.label-s {
-  @include typography.font($size: label-s, $weight: medium);
-}
-
-// Body
-
-.body-l {
-  @include typography.font($size: body-l, $weight: regular);
-}
-
-.body-m {
-  @include typography.font($size: body-m, $weight: regular);
-}
-
-.body-s {
-  @include typography.font($size: body-s, $weight: regular);
-}
-
-// Header Styles
-.header-d1 {
-  @include typography.font($size: d1, $weight: bold);
-}
-
-.header-d2 {
-  @include typography.font($size: d2, $weight: bold);
-}
-
-.header-d3 {
-  @include typography.font($size: d3, $weight: bold);
-}
-
-.header-h1 {
-  @include typography.font($size: h1, $weight: medium);
-}
-
-.header-h2 {
-  @include typography.font($size: h2, $weight: medium);
-}
-
-.header-h3 {
-  @include typography.font($size: h3, $weight: medium);
-}
 
 
 
