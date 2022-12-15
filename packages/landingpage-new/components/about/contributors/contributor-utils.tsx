@@ -19,6 +19,34 @@ export enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
 }
 const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
+export const roles: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, string> = new Map([
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.janivo, 'Project Manager & Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.silentHoo, 'Frontend Expert'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.pfecht, 'Product Owner'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.BenPag, 'Fullstack Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.JCofman, 'Frontend Engineer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.Sl1nd, 'Frontend Expert'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MariaLStefan, 'Frontend Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.AlessaRad, 'Frontend Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.TobiasHeimGalindo, 'Frontend Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.ninaschlz, 'Frontend Developer'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger, 'User Experience Designer'],
+]);
+
+export const names: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, string> = new Map([
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.janivo, 'Jan-Niklas'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.silentHoo, 'Patrick'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.pfecht, 'Pascal'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.BenPag, 'Benjamin'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.JCofman, 'Jacob'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.Sl1nd, 'Sven'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MariaLStefan, 'Maria-Luisa'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.AlessaRad, 'Alessa'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.TobiasHeimGalindo, 'Tobias'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.ninaschlz, 'Nina'],
+  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger, 'Magdalena'],
+]);
+
 const allDesigners = ['MBuchberger'];
 
 export async function getGitHubContributers(): Promise<GithubContributor[]> {
