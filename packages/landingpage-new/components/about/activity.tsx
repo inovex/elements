@@ -26,6 +26,14 @@ ChartJS.register(
   Legend
 );
 
+function fillDate(activities: GithubActivity[]): GithubActivity[] {
+  activities.forEach((activity) => {
+    activity.date = new Date(activity.week * 1000);
+    return activity;
+  });
+  return activities;
+}
+
 interface GraphActivity {
   contributions: number;
   date: string;
@@ -69,17 +77,24 @@ const graphOptions = {
       position: 'top' as const,
     },
   },
+  scales: {
+    y: {
+      beginAtZero: true,
+    },
+  },
 };
 
 type Props = {
   githubActivities: GithubActivity[];
 };
 
-function Activity({ githubActivities }: Props) {
+function Activity({ githubActivities = [] }: Props) {
   const [graphData, setGraphData] = useState({
     datasets: [],
     labels: [],
   } as ChartData<'line', number[], string>);
+
+  githubActivities = fillDate(githubActivities);
 
   useEffect(() => {
     const [newLabels, newContributions] = generateGraphData(githubActivities);

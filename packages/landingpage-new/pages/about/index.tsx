@@ -5,11 +5,15 @@ import Activity from '../../components/about/activity';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { GithubContributor } from 'types/githubContributor';
 import Contributors from 'components/about/contributors/contributors';
-import {
-  fillDate,
-  getGithubActivities,
-} from 'components/about/activity/activity-utils';
 import { GithubActivity } from 'types/githubActivity';
+
+const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
+
+async function getGithubActivities(): Promise<GithubActivity[]> {
+  return await fetch(GITHUB_REPO_URL + '/stats/commit_activity').then((resp) =>
+    resp.json()
+  );
+}
 
 export const getStaticProps: GetStaticProps<Params> = async () => {
   const users = await getGitHubContributers().then(
@@ -18,7 +22,7 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
   const activities = await getGithubActivities().then(
     (activities: GithubActivity[]) => {
       if (Array.isArray(activities)) {
-        return fillDate(activities);
+        return activities;
       } else {
         return [];
       }
