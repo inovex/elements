@@ -13,6 +13,7 @@ import {
   ChartData,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { GithubActivity } from 'types/githubActivity';
 
 ChartJS.register(
   CategoryScale,
@@ -25,26 +26,9 @@ ChartJS.register(
   Legend
 );
 
-interface GithubActivity {
-  days: number[];
-  total: number;
-  week: number;
-  date?: Date;
-}
-
 interface GraphActivity {
   contributions: number;
   date: string;
-}
-
-const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
-
-function fillDate(activities: GithubActivity[]): GithubActivity[] {
-  activities.forEach((activity) => {
-    activity.date = new Date(activity.week * 1000);
-    return activity;
-  });
-  return activities;
 }
 
 function generateGraphData(
@@ -78,12 +62,6 @@ function generateGraphData(
   ];
 }
 
-async function getGithubActivities(): Promise<GithubActivity[]> {
-  return await fetch(GITHUB_REPO_URL + '/stats/commit_activity').then((resp) =>
-    resp.json()
-  );
-}
-
 const graphOptions = {
   responsive: true,
   plugins: {
@@ -93,33 +71,31 @@ const graphOptions = {
   },
 };
 
-function Activity() {
+type Props = {
+  githubActivities: GithubActivity[];
+};
+
+function Activity({ githubActivities }: Props) {
   const [graphData, setGraphData] = useState({
     datasets: [],
     labels: [],
   } as ChartData<'line', number[], string>);
 
   useEffect(() => {
-    getGithubActivities().then((githubActivities) => {
-      if (Array.isArray(githubActivities)) {
-        githubActivities = fillDate(githubActivities);
-        const [newLabels, newContributions] =
-          generateGraphData(githubActivities);
-        setGraphData({
-          labels: newLabels,
-          datasets: [
-            {
-              fill: true,
-              label: 'contributions',
-              data: newContributions,
-              borderColor: '#4F46FF',
-              backgroundColor: '#BECCFF50',
-            },
-          ],
-        });
-      }
+    const [newLabels, newContributions] = generateGraphData(githubActivities);
+    setGraphData({
+      labels: newLabels,
+      datasets: [
+        {
+          fill: true,
+          label: 'contributions',
+          data: newContributions,
+          borderColor: '#4F46FF',
+          backgroundColor: '#BECCFF50',
+        },
+      ],
     });
-  }, []);
+  }, [githubActivities]);
 
   return (
     <>
