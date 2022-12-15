@@ -1,7 +1,7 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
 import { GithubContributor } from '../../../types/githubContributor';
-import { roles, names } from './contributor-utils';
+import { userInfo } from './contributor-utils';
 
 interface Params {
   users: GithubContributor[];
@@ -19,10 +19,10 @@ function Contributors({ users }: Params) {
         ) : (
           users?.map((contributor: GithubContributor) => (
             <ContributorCard
-              role={roles.get(contributor.id) ?? ''}
+              role={userInfo.get(contributor.id)?.role ?? ''}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}
-              username={names.get(contributor.id) ?? contributor.login}
+              username={userInfo.get(contributor.id)?.name ?? contributor.login}
               profileLink={contributor.html_url}
             />
           ))

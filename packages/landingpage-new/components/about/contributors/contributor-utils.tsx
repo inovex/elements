@@ -19,33 +19,58 @@ export enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
 }
 const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
-export const roles: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, string> = new Map([
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.janivo, 'Project Manager & Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.silentHoo, 'Frontend Expert'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.pfecht, 'Product Owner'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.BenPag, 'Fullstack Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.JCofman, 'Frontend Engineer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.Sl1nd, 'Frontend Expert'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MariaLStefan, 'Frontend Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.AlessaRad, 'Frontend Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.TobiasHeimGalindo, 'Frontend Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.ninaschlz, 'Frontend Developer'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger, 'User Experience Designer'],
-]);
+type UserInformation = {
+  role: string;
+  name: string;
+};
 
-export const names: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, string> = new Map([
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.janivo, 'Jan-Niklas'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.silentHoo, 'Patrick'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.pfecht, 'Pascal'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.BenPag, 'Benjamin'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.JCofman, 'Jacob'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.Sl1nd, 'Sven'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MariaLStefan, 'Maria-Luisa'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.AlessaRad, 'Alessa'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.TobiasHeimGalindo, 'Tobias'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.ninaschlz, 'Nina'],
-  [GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger, 'Magdalena'],
-]);
+export const userInfo: Map<GITHUB_CONTRIBUTOR_ID_WHITELIST, UserInformation> =
+  new Map([
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.janivo,
+      { role: 'Project Manager & Developer', name: 'Jan-Niklas' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.silentHoo,
+      { role: 'Frontend Expert', name: 'Patrick' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.pfecht,
+      { role: 'Product Owner', name: 'Pascal' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.BenPag,
+      { role: 'Fullstack Developer', name: 'Benjamin' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.JCofman,
+      { role: 'Frontend Engineer', name: 'Jacob' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.Sl1nd,
+      { role: 'Frontend Expert', name: 'Sven' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.MariaLStefan,
+      { role: 'Frontend Developer', name: 'Maria-Luisa' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.AlessaRad,
+      { role: 'Frontend Developer', name: 'Alessa' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.TobiasHeimGalindo,
+      { role: 'Frontend Developer', name: 'Tobias' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.ninaschlz,
+      { role: 'Frontend Developer', name: 'Nina' },
+    ],
+    [
+      GITHUB_CONTRIBUTOR_ID_WHITELIST.MBuchberger,
+      { role: 'User Experience Designer', name: 'Magdalena' },
+    ],
+  ]);
 
 const allDesigners = ['MBuchberger'];
 
