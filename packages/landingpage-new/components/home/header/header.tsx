@@ -4,13 +4,13 @@ import { InoButton } from '@elements';
 import styles from './header.module.scss';
 import InstallChips from './install-chips';
 import Link from 'next/link';
-import { MainRoutes } from '../../../utils/routes';
-import useBasePath from '../../../utils/hooks/use-base-path';
-import useTranslation from 'hooks/useTranslation';
+import { MainRoutes } from 'utils/routes';
+import useBasePath from 'utils/hooks/use-base-path';
+import useTranslation from 'utils/hooks/useTranslation';
 
 export default function Header() {
   const basePath = useBasePath();
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ export default function Header() {
           <p>
             {t('header_subtitle2')}{' '}
             <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
-              {t('header_inoElements')}.
+              {t('common').elements}.
             </span>
           </p>
         </div>

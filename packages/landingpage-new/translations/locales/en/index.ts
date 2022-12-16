@@ -1,9 +1,15 @@
-import learn from './learn';
-import home from './home';
-import about from './about';
+import gettingStarted from './getting-started.json';
+import home from './home.json';
+import about from './about.json';
+import common from './common.json';
+import library from './library.json';
+import explore from './explore.json';
 
 export default {
-  learn,
+  gettingStarted,
   home,
   about,
+  common,
+  library,
+  explore,
 };

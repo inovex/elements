@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import ElementsLogo from '@assets/elements.svg';
 import inovexLogo from '@assets/inovex-logo.svg';
-import useBasePath from '../../utils/hooks/use-base-path';
-
+import useBasePath from 'utils/hooks/use-base-path';
+import LocaleSwitcher from './localeSwitcher';
 
 export default function Header() {
   const [yOffset, setYOffset] = useState(0);
@@ -42,6 +42,9 @@ export default function Header() {
           />
           <p className={styles.name}>elements</p>
         </a>
+      </div>
+      <div className={styles.language}>
+        <LocaleSwitcher />
       </div>
       <div className={styles.navbar}>
         <Navbar />

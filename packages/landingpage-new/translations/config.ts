@@ -4,5 +4,5 @@ export const locales = ['en', 'de'] as const;
 
 export const languageNames = {
   en: 'English',
-  fr: 'Deutsch',
+  de: 'Deutsch',
 };

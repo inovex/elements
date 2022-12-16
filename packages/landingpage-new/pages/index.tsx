@@ -1,9 +1,14 @@
 import React from 'react';
-import { getInitialLocale } from 'translations/getInitialeLocale';
 import Head from 'next/head';
-const Index = () => {
+import { getInitialLocale } from 'translations/getInitialeLocale';
+import UseBasePath from 'utils/hooks/use-base-path';
+
+const Index: React.FC = () => {
+  const basePath = UseBasePath();
   React.useEffect(() => {
-    window.location.replace(`/${getInitialLocale()}`);
+    window.location.replace(
+      window.location.origin + `/${basePath}/${getInitialLocale()}`
+    );
   });
 
   return (

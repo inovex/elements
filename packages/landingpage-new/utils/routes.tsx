@@ -14,7 +14,6 @@ export enum MainRoutes {
   LEARN = '/learn',
   DOCS = '/docs',
   EXPLORE = '/explore',
-  CONTACT = '/contact',
   ABOUT = '/about',
 }
 
@@ -143,10 +142,5 @@ export const Routes: RouteTree = [
         url: SubRoutes.ABOUT_ACTIVITY,
       },
     ],
-  },
-  {
-    name: 'contact',
-    url: MainRoutes.CONTACT,
-    subRoutes: [],
   },
 ];

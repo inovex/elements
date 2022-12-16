@@ -1,5 +1,4 @@
-import { getLocalizationProps } from 'context/LanguageContext';
-import { Localization } from 'translations/types';
+import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next/types';
 import { LangContext } from 'types/langContext';
@@ -10,9 +9,7 @@ import ComponentSample from 'components/home/component-sample/component-sample';
 import { SubRoutes } from 'utils/routes';
 import Header from 'components/home/header/header';
 
-const Home: NextPage<{
-  localization: Localization;
-}> = ({ localization }) => {
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <section id={SubRoutes.HOME_INFO}>

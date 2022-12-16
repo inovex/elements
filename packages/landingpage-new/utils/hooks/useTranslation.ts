@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
+import { LanguageContext } from 'utils/context/LanguageContext';
 
 export default function useTranslation() {
   const { localization } = useContext(LanguageContext);
@@ -9,6 +9,7 @@ export default function useTranslation() {
         `Translation '${key}' for locale '${localization.locale}' not found.`
       );
     }
+
     return localization.translations[key] || '';
   }
 

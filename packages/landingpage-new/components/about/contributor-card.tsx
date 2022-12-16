@@ -3,7 +3,6 @@ import styles from './contributor-card.module.scss';
 import Card from '../shared/card';
 import Image from 'next/image';
 import Link from 'next/link';
-import useTranslation from 'hooks/useTranslation';
 
 interface Props {
   username: string;
@@ -16,7 +15,6 @@ const ContributorsCard: FunctionComponent<Props> = ({
   avatarUrl,
   profileLink,
 }) => {
-  const { t, locale } = useTranslation();
   return (
     <Card
       cardClassName={styles.contributorCard}
@@ -32,7 +30,7 @@ const ContributorsCard: FunctionComponent<Props> = ({
       footerClassName={styles.footer}
       footer={
         <Link href={profileLink} target="_blank">
-          {username + t('title1')}
+          {username}
         </Link>
       }
     />

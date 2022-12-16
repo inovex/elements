@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { isLocale, Localization, Locale } from '../translations/types';
-import defaultStrings from '../translations/locales/en';
-import locales from '../translations/locales';
+import { isLocale, Localization, Locale } from '../../translations/types';
+import defaultStrings from '../../translations/locales/en';
+import locales from '../../translations/locales';
 import { ReactNode } from 'react';
 import { LangContext } from 'types/langContext';
 
@@ -76,7 +76,7 @@ export const getLocalizationProps = (ctx: LangContext, namespace: string) => {
   const locale: any = locales[lang];
   const strings: any = locale[namespace];
   const translations = {
-    common: locales[lang].home,
+    common: locales[lang].common,
     ...strings,
   };
   return {

@@ -6,7 +6,7 @@ import {
   defineCustomElements,
 } from '@inovex.de/elements/dist/loader';
 import { useEffect } from 'react';
-import { LanguageProvider } from 'context/LanguageContext';
+import { LanguageProvider } from 'utils/context/LanguageContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

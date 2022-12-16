@@ -11,10 +11,7 @@ import {
   GithubCommitAuthor,
 } from '../../../types/githubContributor';
 import styles from './about.module.scss';
-import {
-  getLocalizationProps,
-  LanguageProvider,
-} from 'context/LanguageContext';
+import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { Localization } from 'translations/types';
 import { LangContext } from 'types/langContext';
 
@@ -40,7 +37,6 @@ interface Params {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const localization = getLocalizationProps(ctx as LangContext, 'about');
-  console.log('in about', localization);
 
   const contributors: GithubContributor[] = await fetch(
     GITHUB_REPO_URL + '/contributors'
@@ -93,7 +89,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const About: NextPage<Params> = ({
   users = [],
-  localization,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
