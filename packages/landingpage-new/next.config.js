@@ -31,4 +31,7 @@ const withMDX = require('@next/mdx')({
 
 const plugins = [withImages, withMDX];
 
-module.exports = plugins.reduce((config, plugin) => plugin(config), nextConfiguration) // merge configs
+module.exports = plugins.reduce(
+  (config, plugin) => plugin(config),
+  nextConfiguration
+); // merge configs

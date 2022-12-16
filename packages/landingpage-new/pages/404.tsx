@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './404.module.scss';
-import {InoButton} from '@elements';
+import { InoButton } from '@elements';
+import React from 'react';
 
 export default function Custom404() {
   return (

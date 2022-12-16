@@ -1,11 +1,22 @@
 import ContributorCard from 'components/about/contributor-card';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import {
+  GetStaticProps,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+  NextPage,
+} from 'next';
+import { UserTypes } from 'types/githubUserTypes';
 import {
   GithubContributor,
   GithubCommitAuthor,
-} from '../../types/githubContributor';
-import { UserTypes } from '../../types/githubUserTypes';
+} from '../../../types/githubContributor';
 import styles from './about.module.scss';
+import {
+  getLocalizationProps,
+  LanguageProvider,
+} from 'context/LanguageContext';
+import { Localization } from 'translations/types';
+import { LangContext } from 'types/langContext';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 
@@ -24,9 +35,13 @@ const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
 interface Params {
   users: GithubContributor[];
+  localization: Localization;
 }
 
-export const getStaticProps: GetStaticProps<Params> = async () => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const localization = getLocalizationProps(ctx as LangContext, 'about');
+  console.log('in about', localization);
+
   const contributors: GithubContributor[] = await fetch(
     GITHUB_REPO_URL + '/contributors'
   ).then((resp) => resp.json());
@@ -36,7 +51,7 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
 
   if (!contributors)
     return {
-      props: { users: [] },
+      props: { users: [], localization },
     };
 
   const filteredUser = contributors.filter(
@@ -45,7 +60,8 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
       whitelistedIds.includes(contributor.id)
   );
 
-  if (!recentContributions) return { props: { users: filteredUser } };
+  if (!recentContributions)
+    return { props: { users: filteredUser, localization } };
 
   const recentUserIds = Array.from(
     new Set(
@@ -68,11 +84,17 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
   ];
 
   return {
-    props: { users: userSortByContribution as GithubContributor[] },
+    props: {
+      users: userSortByContribution as GithubContributor[],
+      localization,
+    },
   };
 };
 
-function About({ users = [] }: InferGetStaticPropsType<typeof getStaticProps>) {
+const About: NextPage<Params> = ({
+  users = [],
+  localization,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <section>
@@ -92,6 +114,11 @@ function About({ users = [] }: InferGetStaticPropsType<typeof getStaticProps>) {
       </div>
     </div>
   );
-}
+};
+
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: ['en', 'de'].map((lang) => ({ params: { lang } })),
+  fallback: false,
+});
 
 export default About;

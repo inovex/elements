@@ -1,4 +1,4 @@
-@use '../../styles/typography.scss';
+@use '../../../styles/typography.scss';
 
 h1.header {
   @include typography.font($size: 50px, $weight: lighter);
