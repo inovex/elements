@@ -2,45 +2,61 @@ import { SubRoutes } from '../../utils/routes';
 import { getGitHubContributers } from '../../components/about/contributors/contributor-utils';
 import History from '../../components/about/history';
 import Activity from '../../components/about/activity';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import { GithubContributor } from 'types/githubContributor';
 import Contributors from 'components/about/contributors/contributors';
-import { GithubActivity } from 'types/githubActivity';
+import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
+import { CommitsPerMonth } from '../../types/commitPerMonth';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 
-async function getGithubActivities(): Promise<GithubActivity[]> {
-  return await fetch(GITHUB_REPO_URL + '/stats/commit_activity').then((resp) =>
-    resp.json()
-  );
+type GithubParticipation = {
+  all: number[];
+  owner: number[];
+};
+
+const NUMBER_WEEKS_PER_YEAR = 52;
+
+async function getCommitPerMonth(): Promise<CommitsPerMonth> {
+  const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
+  const activities: GithubParticipation = await fetchResult.json();
+
+  const lastDayOfCurrentWeek = endOfWeek(new Date());
+  return activities.all
+    .map((commitsPerWeek, index) => {
+      const week = subWeeks(lastDayOfCurrentWeek, NUMBER_WEEKS_PER_YEAR - index);
+      const month = startOfMonth(week);
+      return {
+        month: format(month, 'MMM yy'),
+        commitsPerWeek,
+      };
+    })
+    .reduce((prev, current) => {
+      const prevMonth = prev[current.month];
+
+      if (prevMonth) prev[current.month] += current.commitsPerWeek;
+      else prev[current.month] = current.commitsPerWeek;
+
+      return prev;
+    }, {} as CommitsPerMonth);
 }
 
 export const getStaticProps: GetStaticProps<Params> = async () => {
-  const users = await getGitHubContributers().then(
-    (users: GithubContributor[]) => users
-  );
-  const activities = await getGithubActivities().then(
-    (activities: GithubActivity[]) => {
-      if (Array.isArray(activities)) {
-        return activities;
-      } else {
-        return [];
-      }
-    }
-  );
+  const users = await getGitHubContributers();
+  const commitsPerMonth = await getCommitPerMonth();
 
-  return { props: { users, activities } };
+  return { props: { users, commitsPerMonth } };
 };
 
 interface Params {
   users: GithubContributor[];
-  activities: GithubActivity[];
+  commitsPerMonth: CommitsPerMonth;
 }
 
 function About({
   users = [],
-  activities = [],
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+  commitsPerMonth = {},
+}: Params) {
   return (
     <div className="section-container">
       <section id={SubRoutes.ABOUT_TEAM}>
@@ -50,7 +66,7 @@ function About({
         <History />
       </section>
       <section id={SubRoutes.ABOUT_ACTIVITY}>
-        <Activity githubActivities={activities} />
+        <Activity commitsPerMonth={commitsPerMonth} />
       </section>
     </div>
   );
