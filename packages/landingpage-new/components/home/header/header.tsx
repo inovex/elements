@@ -10,7 +10,7 @@ import useTranslation from 'utils/hooks/useTranslation';
 
 export default function Header() {
   const basePath = useBasePath();
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   return (
     <>
       <Head>
@@ -41,13 +41,13 @@ export default function Header() {
           <p>{t('header_subtitle1')}</p>
           <p>
             {t('header_subtitle2')}{' '}
-            <span style={{ color: '#2C03FA', fontWeight: 'bold' }}>
+            <Link href={`${locale}${MainRoutes.LIBRARY}`}>
               {t('common').elements}.
-            </span>
+            </Link>
           </p>
         </div>
         <div className={styles.installation}>
-          <Link href={MainRoutes.DOCS}>
+          <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
             <InoButton>{t('header_button')}</InoButton>
           </Link>
           <div className={styles.animation}>

@@ -15,6 +15,8 @@ import { useState } from 'react';
 import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
+import { MainRoutes } from 'utils/routes';
+import useTranslation from 'utils/hooks/useTranslation';
 
 enum ChipValues {
   REACT = 'React',
@@ -31,6 +33,7 @@ export default function ComponentSample() {
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
   const isSmallScreen = useMedia('(max-width: 660px)', false);
+  const { locale } = useTranslation();
 
   return (
     <div>
@@ -40,7 +43,9 @@ export default function ComponentSample() {
       <div className={styles.subHeaderContainer}>
         <p className={styles.subheader}>Check out some of our components</p>
         <span className={styles.link}>
-          <Link href="/docs">Check out all components</Link>
+          <Link href={`${locale}${MainRoutes.LIBRARY}`}>
+            Check out all components
+          </Link>
         </span>
       </div>
       <div className={styles.componentGrid}>
