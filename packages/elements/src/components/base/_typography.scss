@@ -1,11 +1,5 @@
 @use 'sass:math';
 
-$default-text-size: 16px;
-
-@function pxToRem($px) {
-  @return math.div($px, $default-text-size) * 1rem;
-}
-
 // ##################################
 // Font and typography
 // ##################################
@@ -35,7 +29,7 @@ $_font-weights: (
 // => Font sizes
 
 // Private variables, use ino-font-size($type) mixin to access them.
-$size-m: $default-text-size !default; // Browser default (normally 16px)
+$size-m: 1rem !default; // Browser default (normally 16px)
 $line-height-m: 1.5 !default;
 $size-l: ($size-m * 1.25);
 $line-height-l: 1.5 !default;
@@ -43,61 +37,6 @@ $size-s: ($size-m * 0.875);
 $line-height-s: 1.5 !default;
 $size-xs: ($size-s * 0.875);
 $line-height-xs: 1.5 !default;
-
-// Display Header Sizes
-$size-d1: pxToRem(64px);
-$line-height-d1: pxToRem(76px) !default;
-$letter-spacing-d1: 0.05;
-$size-d2: pxToRem(51px);
-$line-height-d2: pxToRem(62px) !default;
-$letter-spacing-d2: 0.08;
-$size-d3: pxToRem(40px);
-$line-height-d3: pxToRem(49px) !default;
-$letter-spacing-d3: 0.1;
-
-// Headline Sizes
-$size-h1: pxToRem(32px);
-$line-height-h1: pxToRem(39px) !default;
-$letter-spacing-h1: 0.06;
-$size-h2: pxToRem(28px);
-$line-height-h2: pxToRem(33px) !default;
-$letter-spacing-h2: 0.05;
-$size-h3: pxToRem(25px);
-$line-height-h3: pxToRem(30px) !default;
-$letter-spacing-h3: 0.05;
-
-// Title Sizes
-$size-title-l: pxToRem(20px);
-$line-height-title-l: pxToRem(25px) !default;
-$letter-spacing-title-l: 0.09;
-$size-title-m: pxToRem(16px);
-$line-height-title-m: pxToRem(19px) !default;
-$letter-spacing-title-m: 0.04;
-$size-title-s: pxToRem(14px);
-$line-height-title-s: pxToRem(16px) !default;
-$letter-spacing-title-s: 0.02;
-
-// Label Sizes
-$size-label-l: pxToRem(14px);
-$line-height-label-l: pxToRem(21px) !default;
-$letter-spacing-label-l: 0.1;
-$size-label-m: pxToRem(12px);
-$line-height-label-m: pxToRem(19px) !default;
-$letter-spacing-label-m: 0.4;
-$size-label-s: pxToRem(10px);
-$line-height-label-s: pxToRem(16px) !default;
-$letter-spacing-label-s: 0.4;
-
-// Body Sizes
-$size-body-l: pxToRem(16px);
-$line-height-body-l: pxToRem(25px) !default;
-$letter-spacing-body-l: 0.1;
-$size-body-m: pxToRem(14px);
-$line-height-body-m: pxToRem(22px) !default;
-$letter-spacing-body-m: 0.4;
-$size-body-s: pxToRem(12px);
-$line-height-body-s: pxToRem(19px) !default;
-$letter-spacing-body-s: 0.4;
 
 $_font-sizes: (
   xs: (
@@ -112,84 +51,9 @@ $_font-sizes: (
     font-size: $size-m,
     line-height: $line-height-m,
   ),
-  d1: (
-    font-size: $size-d1,
-    line-height: $line-height-d1,
-    letter-spacing: $line-height-d1,
-  ),
-  d2: (
-    font-size: $size-d2,
-    line-height: $line-height-d2,
-    letter-spacing: $line-height-d2,
-  ),
-  d3: (
-    font-size: $size-d3,
-    line-height: $line-height-d3,
-    letter-spacing: $line-height-d3,
-  ),
   l: (
     font-size: $size-l,
     line-height: $line-height-l,
-  ),
-  h1: (
-    font-size: $size-h1,
-    line-height: $line-height-h1,
-    letter-spacing: $line-height-h1,
-  ),
-  h2: (
-    font-size: $size-h2,
-    line-height: $line-height-h2,
-    letter-spacing: $line-height-h2,
-  ),
-  h3: (
-    font-size: $size-h3,
-    line-height: $line-height-h3,
-    letter-spacing: $line-height-h3,
-  ),
-  title-l: (
-    font-size: $size-title-l,
-    line-height: $line-height-title-l,
-    letter-spacing: $letter-spacing-title-l,
-  ),
-  title-m: (
-    font-size: $size-title-m,
-    line-height: $line-height-title-m,
-    letter-spacing: $letter-spacing-title-m,
-  ),
-  title-s: (
-    font-size: $size-title-s,
-    line-height: $line-height-title-s,
-    letter-spacing: $letter-spacing-title-s,
-  ),
-  label-l: (
-    font-size: $size-label-l,
-    line-height: $line-height-label-l,
-    letter-spacing: $letter-spacing-label-l,
-  ),
-  label-m: (
-    font-size: $size-label-m,
-    line-height: $line-height-label-m,
-    letter-spacing: $letter-spacing-label-m,
-  ),
-  label-s: (
-    font-size: $size-label-s,
-    line-height: $line-height-label-s,
-    letter-spacing: $letter-spacing-label-s,
-  ),
-  body-l: (
-    font-size: $size-body-l,
-    line-height: $line-height-body-l,
-    letter-spacing: $letter-spacing-body-l,
-  ),
-  body-m: (
-    font-size: $size-body-m,
-    line-height: $line-height-body-m,
-    letter-spacing: $letter-spacing-body-m,
-  ),
-  body-s: (
-    font-size: $size-body-s,
-    line-height: $line-height-body-s,
-    letter-spacing: $letter-spacing-body-s,
   ),
 );
 
@@ -203,4 +67,8 @@ $_font-sizes: (
   font-family: font-family($family);
   font-size: font-size($size);
   font-weight: font-weight($weight);
+}
+
+@function pxToRem($px) {
+  @return math.div($px, 16px) * 1rem;
 }
