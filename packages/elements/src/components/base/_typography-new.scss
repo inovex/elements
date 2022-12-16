@@ -1,0 +1,118 @@
+@use 'sass:math';
+@use 'sass:list';
+
+$default-text-size: 16px;
+
+@function pxToRem($px) {
+  @return math.div($px, $default-text-size) * 1rem;
+}
+
+$typo-names: display-1, display-2, display-3, headline-1, headline-2, headline-3, title-l, title-m, title-s, label-l, label-m, label-s, body-l, body-m, body-s;
+
+$typographies: (
+  display-1: (
+    font-size: pxToRem(64px),
+    line-height: pxToRem(76px),
+    letter-spacing: 0.005em,
+    font-weight: 700,
+  ),
+  display-2: (
+    font-size: pxToRem(51px),
+    line-height: pxToRem(62px),
+    letter-spacing: 0.008em,
+    font-weight: 700,
+  ),
+  display-3: (
+    font-size: pxToRem(40px),
+    line-height: pxToRem(49px),
+    letter-spacing: 0.01em,
+    font-weight: 700,
+  ),
+  headline-1: (
+    font-size: pxToRem(32px),
+    line-height: pxToRem(39px),
+    letter-spacing: 0.006em,
+    font-weight: 400,
+  ),
+  headline-2: (
+    font-size: pxToRem(28px),
+    line-height: pxToRem(33px),
+    letter-spacing: 0.005em,
+    font-weight: 400,
+  ),
+  headline-3: (
+    font-size: pxToRem(25px),
+    line-height: pxToRem(30px),
+    letter-spacing: 0.005em,
+    font-weight: 400,
+  ),
+  title-l: (
+    font-size: pxToRem(20px),
+    line-height: pxToRem(25px),
+    letter-spacing: 0.009em,
+    font-weight: 600,
+  ),
+  title-m: (
+    font-size: pxToRem(16px),
+    line-height: pxToRem(19px),
+    letter-spacing: 0.004em,
+    font-weight: 600,
+  ),
+  title-s: (
+    font-size: pxToRem(14px),
+    line-height: pxToRem(16px),
+    letter-spacing: 0.002em,
+    font-weight: 600,
+  ),
+  label-l: (
+    font-size: pxToRem(14px),
+    line-height: pxToRem(21px),
+    letter-spacing: 0.01em,
+    font-weight: 500,
+  ),
+  label-m: (
+    font-size: pxToRem(12px),
+    line-height: pxToRem(19px),
+    letter-spacing: 0.04em,
+    font-weight: 500,
+  ),
+  label-s: (
+    font-size: pxToRem(10px),
+    line-height: pxToRem(16px),
+    letter-spacing: 0.04em,
+    font-weight: 500,
+  ),
+  body-l: (
+    font-size: pxToRem(16px),
+    line-height: pxToRem(25px),
+    letter-spacing: 0.009em,
+    font-weight: 400,
+  ),
+  body-m: (
+    font-size: pxToRem(14px),
+    line-height: pxToRem(22px),
+    letter-spacing: 0.001em,
+    font-weight: 400,
+  ),
+  body-s: (
+    font-size: pxToRem(12px),
+    line-height: pxToRem(19px),
+    letter-spacing: 0.0014em,
+    font-weight: 400,
+  ),
+);
+
+@mixin typo($typo-name) {
+
+  @if not list.index($typo-names, $typo-name) {
+    @error "#{$typo-name} is not a valid typo name. Expected one of #{$typo-names}.";
+  }
+
+  $typo: map-get($typographies, $typo-name);
+
+  font-family: Lato, Verdana, sans-serif;
+  font-size: map-get($typo, 'font-size');
+  line-height: map-get($typo, 'line-height');
+  letter-spacing: map-get($typo, 'letter-spacing');
+  font-weight: map-get($typo, 'font-weight');
+}

@@ -1,121 +1,86 @@
-@use './../components/base/typography';
+@use './../components/base/typography-new';
 @use './../components/base/theme';
 @use './../components/base/new-theme' as new-theme;
 
-.inovex-elements {
+.inovex-elements-typo {
 
-  font-family: typography.font-family();
-  font-size: 16px;
+  font-family: Lato, Verdana, sans-serif;
 
   a {
     background-color: transparent;
-    color: theme.$brand;
+    color: new-theme.$primary;
     font-weight: bold;
     text-decoration: none;
   }
 
-  // Headlines with Display sizes
+  /************ Displays ************/
 
-  h1 {
-    @include typography.font($size: h1, $weight: regular);
-
-    &.display {
-      @include typography.font($size: d1, $weight: bold);
-    }
+  h1.display, .header-d1 {
+    @include typography-new.typo(display-1);
   }
 
-  h2 {
-    @include typography.font($size: h2, $weight: regular);
-
-    &.display {
-      @include typography.font($size: d2, $weight: bold);
-    }
+  h2.display, .header-d2 {
+    @include typography-new.typo(display-2);
   }
 
-  h3 {
-    @include typography.font($size: h3, $weight: regular);
-
-    &.display {
-      @include typography.font($size: d3, $weight: bold);
-    }
+  h3.display, .header-d3 {
+    @include typography-new.typo(display-3);
   }
 
-  // Titles
-  h4 {
-    @include typography.font($size: title-l, $weight: semibold);
+  /************ Headers ************/
+
+  h1, .header-h1 {
+    @include typography-new.typo(headline-1);
   }
 
-  h5 {
-    @include typography.font($size: title-m, $weight: semibold);
+  h2, .header-h2 {
+    @include typography-new.typo(headline-2);
   }
 
-  h6 {
-    @include typography.font($size: title-s, $weight: semibold);
+  h3, .header-h3 {
+    @include typography-new.typo(headline-3);
   }
 
-  // Labels
+  /************ Titles ************/
+
+  h4, .title-l {
+    @include typography-new.typo(title-l);
+  }
+
+  h5, .title-m {
+    @include typography-new.typo(title-m);
+  }
+
+  h6, .title-s {
+    @include typography-new.typo(title-s);
+  }
+
+  /************ Labels ************/
 
   .label-l {
-    @include typography.font($size: label-l, $weight: medium);
+    @include typography-new.typo(label-l);
   }
 
   .label-m {
-    @include typography.font($size: label-m, $weight: medium);
+    @include typography-new.typo(label-m);
   }
 
   .label-s {
-    @include typography.font($size: label-s, $weight: medium);
+    @include typography-new.typo(label-s);
   }
 
-  // Body
+  /************ Body ************/
 
   .body-l {
-    @include typography.font($size: body-l, $weight: regular);
+    @include typography-new.typo(body-l);
   }
 
   .body-m {
-    @include typography.font($size: body-m, $weight: regular);
+    @include typography-new.typo(body-m);
   }
 
   .body-s {
-    @include typography.font($size: body-s, $weight: regular);
-  }
-
-  // Header Styles
-  .header-d1 {
-    @include typography.font($size: d1, $weight: bold);
-  }
-
-  .header-d2 {
-    @include typography.font($size: d2, $weight: bold);
-  }
-
-  .header-d3 {
-    @include typography.font($size: d3, $weight: bold);
-  }
-
-  .header-h1 {
-    @include typography.font($size: h1, $weight: medium);
-  }
-
-  .header-h2 {
-    @include typography.font($size: h2, $weight: medium);
-  }
-
-  .header-h3 {
-    @include typography.font($size: h3, $weight: medium);
-  }
-
-  .header-h4 {
-    @include typography.font($size: title-l, $weight: semibold);
-  }
-
-  .header-h5 {
-    @include typography.font($size: title-m, $weight: semibold);
-  }
-
-  .header-h6 {
-    @include typography.font($size: title-s, $weight: semibold);
+    @include typography-new.typo(body-s);
   }
 }
 

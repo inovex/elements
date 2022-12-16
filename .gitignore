@@ -30,3 +30,5 @@ storybook-static/
 yalc.lock
 
 .next
+/packages/landingpage-new/out/_next/
+/packages/landingpage-new/out/
