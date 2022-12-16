@@ -1,4 +1,4 @@
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { remarkCodeHike } from '@code-hike/mdx';
 import path from 'path';
@@ -8,8 +8,11 @@ import theme from 'shiki/themes/min-light.json';
 import { InoSegmentGroup, InoSegmentButton } from '@elements';
 import { useState } from 'react';
 
-interface Props {
-  mdxSources: Record<string, any>;
+interface MdxSources {
+  react: MDXRemoteProps;
+  angular: MDXRemoteProps;
+  vue: MDXRemoteProps;
+  javascript: MDXRemoteProps;
 }
 
 export async function getStaticProps() {
@@ -17,7 +20,7 @@ export async function getStaticProps() {
 
   const items = ['javascript', 'angular', 'react', 'vue'];
 
-  const mdxSources: Record<string, any> = {};
+  const mdxSources: Record<string, unknown> = {};
 
   for (const item of items) {
     const guide = await fs.readFile(
@@ -36,15 +39,12 @@ export async function getStaticProps() {
     mdxSources[item] = mdxSource;
   }
 
-
   return {
     props: { mdxSources },
   };
-
-  
 }
 
-const Learn = (props: Props) => {
+const Learn = (props: { mdxSources: MdxSources }) => {
   const [segmentButtonValue, setSegmentButtonValue] = useState('React');
   const { mdxSources } = props;
   const { react, angular, vue, javascript } = mdxSources;
