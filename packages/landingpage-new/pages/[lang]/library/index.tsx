@@ -1,7 +1,9 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { LangContext } from 'types/langContext';
-import { getLocalizationProps } from 'utils/context/LanguageContext';
-import { getStaticLanguagePaths } from 'utils/context/staticPaths';
+import {
+  getStaticLanguagePaths,
+  getStaticLanguageProps,
+} from 'utils/context/staticPaths';
 import useTranslation from 'utils/hooks/useTranslation';
 
 const Docs: NextPage = () => {
@@ -24,16 +26,7 @@ const Docs: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const localization = getLocalizationProps(ctx as LangContext, 'library');
-  return {
-    props: {
-      localization,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () =>
-  getStaticLanguagePaths();
+export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, 'library');
+export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Docs;

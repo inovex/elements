@@ -6,10 +6,6 @@ export interface Translations {
   [key: string]: any;
 }
 
-export type Strings = {
-  [key in Locale]: Translations;
-};
-
 export type Localization = {
   locale: Locale;
   translations: Translations;

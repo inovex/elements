@@ -1,8 +1,9 @@
-export const defaultLocale = 'de' as const;
+export enum Supported_Locales {
+  DE = 'de',
+  EN = 'en'
+}
 
-export const locales = ['de', 'en'] as const;
+export const defaultLocale = Supported_Locales.EN;
 
-export const languageNames = {
-  en: 'English',
-  de: 'Deutsch',
-};
+export const locales = [Supported_Locales.DE, Supported_Locales.EN];
+

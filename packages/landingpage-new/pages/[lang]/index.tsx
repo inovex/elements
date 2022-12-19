@@ -1,4 +1,3 @@
-import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next/types';
 import { LangContext } from 'types/langContext';
@@ -8,7 +7,10 @@ import CoreAspects from 'components/home/core-aspects/core-aspects';
 import ComponentSample from 'components/home/component-sample/component-sample';
 import { SubRoutes } from 'utils/routes';
 import Header from 'components/home/header/header';
-import { getStaticLanguagePaths } from 'utils/context/staticPaths';
+import {
+  getStaticLanguagePaths,
+  getStaticLanguageProps,
+} from 'utils/context/staticPaths';
 
 const Home: NextPage = () => {
   return (
@@ -29,17 +31,7 @@ const Home: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const localization = getLocalizationProps(ctx as LangContext, 'home');
-
-  return {
-    props: {
-      localization,
-    },
-  };
-};
-
-export const getStaticPaths: GetStaticPaths = async () =>
-  getStaticLanguagePaths();
+export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, 'home');
+export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Home;
