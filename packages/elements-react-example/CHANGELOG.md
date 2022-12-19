@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2022-12-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-header:** We've decided to remove the `ino-header` component as it did not really provide the flexibility we wanted. To still use the inovex-elements header styles, we recommend to integrate our new stylesheet which styles all headlines from `<h1>` to `<h6>` and more. Have a look at [our integration guide](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-stylesheet--page).
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Refactoring
+
+* **elements|ino-header:** remove component ([#793](https://github.com/inovex/elements/issues/793)) ([a83734d](https://github.com/inovex/elements/commit/a83734de27ee64f459b14d0a08b487aab07c38ae))
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/inovex/elements/issues/669)) ([349b84d](https://github.com/inovex/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 

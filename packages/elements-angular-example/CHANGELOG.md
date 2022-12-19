@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2022-12-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-header:** We've decided to remove the `ino-header` component as it did not really provide the flexibility we wanted. To still use the inovex-elements header styles, we recommend to integrate our new stylesheet which styles all headlines from `<h1>` to `<h6>` and more. Have a look at [our integration guide](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-stylesheet--page).
+
+### Bug Fixes
+
+* **elements-angular-example:** fix missing icons ([#783](https://github.com/inovex/elements/issues/783)) ([e8266b3](https://github.com/inovex/elements/commit/e8266b313b8acd3aa6582c616d2378b504852a4c))
+* **elements-angular|ino-markdown-editor:** prevent styles from being applied in wrong places ([#780](https://github.com/inovex/elements/issues/780)) ([7bdbfc6](https://github.com/inovex/elements/commit/7bdbfc6711b73b4dfc74cb0ba41c78f4e5d6df1b))
+
+
+### Refactoring
+
+* **elements|ino-header:** remove component ([#793](https://github.com/inovex/elements/issues/793)) ([a83734d](https://github.com/inovex/elements/commit/a83734de27ee64f459b14d0a08b487aab07c38ae))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 
