@@ -4,23 +4,32 @@ import { FunctionComponent } from 'react';
 import styles from './card.module.scss';
 
 interface Props {
+  header?: JSX.Element;
+  headerClassName?: string;
   content: JSX.Element;
+  contentClassName?: string;
   footer: JSX.Element;
-  cardClassName?: string;
   footerClassName?: string;
+  cardClassName?: string;
 }
 
 const Card: FunctionComponent<Props> = ({
+  header,
+  headerClassName,
   content,
+  contentClassName,
   footer,
-  cardClassName,
   footerClassName,
+  cardClassName,
 }) => (
   <InoCard
     className={classNames([styles.card, cardClassName])}
     disableElevation={true}
   >
-    <div className={styles.content} slot="content">
+    {header && <div slot="header" className={classNames(headerClassName)}>
+      {header}
+    </div>}
+    <div slot="content" className={classNames(contentClassName)}>
       {content}
     </div>
     <div slot="footer" className={classNames(footerClassName)}>

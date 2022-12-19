@@ -15,6 +15,7 @@ const ComponentSampleCard: FunctionComponent<Props> = ({
 }) => (
   <Card
     cardClassName={styles.card}
+    contentClassName={styles.content}
     content={children}
     footerClassName={styles.footer}
     footer={

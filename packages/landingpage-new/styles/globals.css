@@ -10,8 +10,12 @@ body {
 
 :root a {
   color: #2C02FF;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
+}
+
+:root b { 
+  font-weight: bold; /* for firefox */
 }
 
 * {
@@ -21,4 +25,11 @@ body {
 ino-chip * {
   /* mdc chip works with box-sizing: content-box which gets overwritten by global styles */
   box-sizing: initial;
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+  row-gap: 80px;
 }

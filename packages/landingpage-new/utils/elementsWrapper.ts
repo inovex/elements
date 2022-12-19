@@ -9,9 +9,7 @@ export const importElement = <Component extends keyof typeof Components>(
 ): typeof Components[Component] =>
   dynamic(
     import('@inovex.de/elements-react').then((m) => m[element]),
-    {
-      ssr: false,
-    }
+    { ssr: false }
   );
 
 export const InoButton = importElement('InoButton');
@@ -33,3 +31,4 @@ export const InoSegmentButton = importElement('InoSegmentButton');
 export const InoTextarea = importElement('InoTextarea');
 export const InoSelect = importElement('InoSelect');
 export const InoOption = importElement('InoOption');
+export const InoSpinner = importElement('InoSpinner');

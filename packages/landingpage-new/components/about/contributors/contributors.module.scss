@@ -1,4 +1,4 @@
-@use '../../../styles/typography.scss';
+@use 'styles/typography.scss';
 
 h1.header {
   @include typography.font($size: 50px, $weight: lighter);
@@ -6,4 +6,10 @@ h1.header {
   letter-spacing: 0.53px;
   margin-top: 0;
   margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
 }

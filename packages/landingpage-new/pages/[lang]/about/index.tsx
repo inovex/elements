@@ -1,114 +1,81 @@
-import ContributorCard from 'components/about/contributor-card';
-import {
-  GetStaticProps,
-  InferGetStaticPropsType,
-  GetStaticPaths,
-  NextPage,
-} from 'next';
-import { UserTypes } from 'types/githubUserTypes';
+import { SubRoutes } from 'utils/routes';
+import { getGitHubContributers } from 'components/about/contributors/contributor-utils';
+import History from 'components/about/history';
+import Activity from 'components/about/activity';
 import {
   GithubContributor,
-  GithubCommitAuthor,
-} from '../../../types/githubContributor';
-import styles from './about.module.scss';
-import { getLocalizationProps } from 'utils/context/LanguageContext';
+  GithubParticipation,
+  GithubCommitsPerMonth,
+} from 'types/github';
+import Contributors from 'components/about/contributors/contributors';
+import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { Localization } from 'translations/types';
+import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { LangContext } from 'types/langContext';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
+const NUMBER_WEEKS_PER_YEAR = 52;
 
-enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
-  janivo = 22963121,
-  silentHoo = 1610894,
-  pfecht = 26819398,
-  BenPag = 23154336,
-  JCofman = 2118956,
-  Sl1nd = 12165722,
-  MariaLStefan = 103122411,
-  AlessaRad = 76041234,
-  TobiasHeimGalindo = 81302108,
+async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
+  const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
+  const activities: GithubParticipation = await fetchResult.json();
+
+  const lastDayOfCurrentWeek = endOfWeek(new Date());
+  return activities.all
+    .map((commitsPerWeek, index) => {
+      const week = subWeeks(
+        lastDayOfCurrentWeek,
+        NUMBER_WEEKS_PER_YEAR - index
+      );
+      const month = startOfMonth(week);
+      return {
+        month: format(month, 'MMM yy'),
+        commitsPerWeek,
+      };
+    })
+    .reduce((prev, current) => {
+      const prevMonth = prev[current.month];
+
+      if (prevMonth) prev[current.month] += current.commitsPerWeek;
+      else prev[current.month] = current.commitsPerWeek;
+
+      return prev;
+    }, {} as GithubCommitsPerMonth);
 }
-const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
 
 interface Params {
   users: GithubContributor[];
+  commitsPerMonth: GithubCommitsPerMonth;
   localization: Localization;
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const localization = getLocalizationProps(ctx as LangContext, 'about');
-
-  const contributors: GithubContributor[] = await fetch(
-    GITHUB_REPO_URL + '/contributors'
-  ).then((resp) => resp.json());
-  const recentContributions: GithubCommitAuthor[] = await fetch(
-    GITHUB_REPO_URL + '/commits'
-  ).then((resp) => resp.json());
-
-  if (!contributors)
-    return {
-      props: { users: [], localization },
-    };
-
-  const filteredUser = contributors.filter(
-    (contributor) =>
-      contributor.type === UserTypes.USER &&
-      whitelistedIds.includes(contributor.id)
-  );
-
-  if (!recentContributions)
-    return { props: { users: filteredUser, localization } };
-
-  const recentUserIds = Array.from(
-    new Set(
-      recentContributions
-        .filter(
-          (commit) =>
-            commit.author.type === UserTypes.USER &&
-            whitelistedIds.includes(commit.author.id)
-        )
-        .slice(0, 20)
-        .map((commit) => commit.author.id)
-    )
-  );
-
-  const userSortByContribution = [
-    ...recentUserIds
-      .map((userId) => filteredUser.find((user) => user.id === userId))
-      .filter((user) => user != null),
-    ...filteredUser.filter((user) => !recentUserIds.includes(user.id)),
-  ];
-
-  return {
-    props: {
-      users: userSortByContribution as GithubContributor[],
-      localization,
-    },
-  };
-};
-
-const About: NextPage<Params> = ({
+export const About: NextPage<Params> = ({
   users = [],
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  commitsPerMonth = {},
+  localization,
+}) => {
   return (
-    <div>
-      <section>
-        <h1 className={styles.header}>
-          the <b>contributors</b>
-        </h1>
+    <div className="section-container">
+      <section id={SubRoutes.ABOUT_TEAM}>
+        <Contributors users={users} />
       </section>
-      <div className={styles.container}>
-        {users.map((contributor: GithubContributor) => (
-          <ContributorCard
-            key={contributor.id}
-            avatarUrl={contributor.avatar_url}
-            username={contributor.login}
-            profileLink={contributor.html_url}
-          />
-        ))}
-      </div>
+      <section id={SubRoutes.ABOUT_HISTORY}>
+        <History />
+      </section>
+      <section id={SubRoutes.ABOUT_ACTIVITY}>
+        <Activity commitsPerMonth={commitsPerMonth} />
+      </section>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const users = await getGitHubContributers();
+  const commitsPerMonth = await getCommitPerMonth();
+  const localization = getLocalizationProps(ctx as LangContext, 'about');
+
+  return { props: { users, commitsPerMonth, localization } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => ({

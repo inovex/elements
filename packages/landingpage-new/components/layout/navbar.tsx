@@ -20,7 +20,7 @@ export default function Navbar() {
           isActive={router.pathname === url}
         />
       ))}
-      <Link href={`${MainRoutes.HOME}/${locale}#${SubRoutes.HOME_CONTACT}`}>
+      <Link href={`${MainRoutes.HOME}${locale}#${SubRoutes.HOME_CONTACT}`}>
         <InoButton>Contact us</InoButton>
       </Link>
     </nav>
