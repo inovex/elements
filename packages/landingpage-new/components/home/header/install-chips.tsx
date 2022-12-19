@@ -8,6 +8,7 @@ import angularIcon from '@assets/angular.svg';
 import jsIcon from '@assets/javascript.svg';
 import reactIcon from '@assets/react-icon.svg';
 import vueIcon from '@assets/vue.svg';
+import useTranslation from 'utils/hooks/useTranslation';
 
 enum Framework {
   VUE = 'VUE',
@@ -46,6 +47,8 @@ export default function InstallChips() {
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
   const [, , reset] = useTimeoutFn(() => setShowTooltip(false), 3000);
+
+  const { t } = useTranslation();
 
   useInterval(
     () => {
@@ -89,7 +92,7 @@ export default function InstallChips() {
             showTooltip && styles.successMessageShow
           )}
         >
-          Copied to your clipboard ✓
+          {t('header.clipboard_success')}
         </p>
       </div>
       <div className={styles.frameworks}>

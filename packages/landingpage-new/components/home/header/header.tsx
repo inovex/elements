@@ -32,23 +32,23 @@ export default function Header() {
           />
         </div>
         <div className={styles.headerContainer}>
-          <h1 className={styles.header}>{t('header_title1')}</h1>
+          <h1 className={styles.header}>{t('header.title_1')}</h1>
           <h2 className={styles.subHeader}>
-            {t('header_title2')} <mark>{t('header_titleMark')}</mark>
+            {t('header.title_2')} <mark>{t('header.title_mark')}</mark>
           </h2>
         </div>
         <div className={styles.info}>
-          <p>{t('header_subtitle1')}</p>
+          <p>{t('header.subtitle_1')}</p>
           <p>
-            {t('header_subtitle2')}{' '}
+            {t('header.subtitle_2')}{' '}
             <Link href={`${locale}${MainRoutes.LIBRARY}`}>
-              {t('common').elements}.
+              {t('common.elements')}.
             </Link>
           </p>
         </div>
         <div className={styles.installation}>
           <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
-            <InoButton>{t('header_button')}</InoButton>
+            <InoButton>{t('header.getting_started')}</InoButton>
           </Link>
           <div className={styles.animation}>
             <InstallChips></InstallChips>

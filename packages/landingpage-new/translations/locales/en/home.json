@@ -1,10 +1,40 @@
 {
-  "header_title1": "the interoperable UI library",
-  "header_title2": "for any",
-  "header_titleMark": "framework",
-  "header_subtitle1":
-    "It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project. Build them once, run them everywhere!",
-  "header_subtitle2": "Use our open source UI component library",
-  "header_inoElements": "inovex elements",
-  "header_button": "Getting started"
+  "header": {
+    "title_1": "the interoperable UI library",
+    "title_2": "for any",
+    "title_mark": "framework",
+    "subtitle_1": "It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project. Build them once, run them everywhere!",
+    "subtitle_2": "Use our open source UI component library",
+    "getting_started": "Getting started",
+    "clipboard_success": "Copied to your clipboard ✓"
+  },
+  "core_aspects": {
+    "first": {
+      "title": "Core Aspect 1",
+      "text": "Runs on every major framework: Angular, React, Vue or just plain JavaScript."
+    },
+    "second": {
+      "title": "Core Aspect 2",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+    },
+    "third": {
+      "title": "Core Aspect 3",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+    }
+  },
+  "component_sample": {
+    "title_1": "the",
+    "title_2": "components",
+    "subheader": "Check out some of our components",
+    "link": "Check out all components",
+    "button": "I'm a Button"
+  },
+  "contact": {
+    "title_1": "contact",
+    "title_2": "us",
+    "description": "Do you have any questions, suggestions or want to work with us? Then we look forward to your message!",
+    "label_subject": "Subject",
+    "label_message": "Message",
+    "label_submit": "Send Mail"
+  }
 }

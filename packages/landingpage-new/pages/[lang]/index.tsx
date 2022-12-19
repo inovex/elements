@@ -8,6 +8,7 @@ import CoreAspects from 'components/home/core-aspects/core-aspects';
 import ComponentSample from 'components/home/component-sample/component-sample';
 import { SubRoutes } from 'utils/routes';
 import Header from 'components/home/header/header';
+import { getStaticLanguagePaths } from 'utils/context/staticPaths';
 
 const Home: NextPage = () => {
   return (
@@ -38,9 +39,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: ['en', 'de'].map((lang) => ({ params: { lang } })),
-  fallback: false,
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Home;

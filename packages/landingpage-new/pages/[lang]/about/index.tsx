@@ -13,35 +13,45 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { Localization } from 'translations/types';
 import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { LangContext } from 'types/langContext';
+import { getStaticLanguagePaths } from 'utils/context/staticPaths';
+import { de, enUS } from 'date-fns/locale';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
 
-async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
+async function getCommitPerMonth(
+  locale: string
+): Promise<GithubCommitsPerMonth> {
   const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
   const activities: GithubParticipation = await fetchResult.json();
 
   const lastDayOfCurrentWeek = endOfWeek(new Date());
-  return activities.all
-    .map((commitsPerWeek, index) => {
-      const week = subWeeks(
-        lastDayOfCurrentWeek,
-        NUMBER_WEEKS_PER_YEAR - index
-      );
-      const month = startOfMonth(week);
-      return {
-        month: format(month, 'MMM yy'),
-        commitsPerWeek,
-      };
-    })
-    .reduce((prev, current) => {
-      const prevMonth = prev[current.month];
+  if (Array.isArray(activities)) {
+    return activities.all
+      .map((commitsPerWeek, index) => {
+        const week = subWeeks(
+          lastDayOfCurrentWeek,
+          NUMBER_WEEKS_PER_YEAR - index
+        );
+        const month = startOfMonth(week);
+        return {
+          month: format(month, 'MMM yy', {
+            locale: locale === 'de' ? de : enUS,
+          }),
+          commitsPerWeek,
+        };
+      })
+      .reduce((prev, current) => {
+        const prevMonth = prev[current.month];
 
-      if (prevMonth) prev[current.month] += current.commitsPerWeek;
-      else prev[current.month] = current.commitsPerWeek;
+        if (prevMonth) prev[current.month] += current.commitsPerWeek;
+        else prev[current.month] = current.commitsPerWeek;
 
-      return prev;
-    }, {} as GithubCommitsPerMonth);
+        return prev;
+      }, {} as GithubCommitsPerMonth);
+  } else {
+    return {};
+  }
 }
 
 interface Params {
@@ -53,7 +63,6 @@ interface Params {
 export const About: NextPage<Params> = ({
   users = [],
   commitsPerMonth = {},
-  localization,
 }) => {
   return (
     <div className="section-container">
@@ -72,15 +81,13 @@ export const About: NextPage<Params> = ({
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await getGitHubContributers();
-  const commitsPerMonth = await getCommitPerMonth();
   const localization = getLocalizationProps(ctx as LangContext, 'about');
+  const commitsPerMonth = await getCommitPerMonth(localization.locale);
 
   return { props: { users, commitsPerMonth, localization } };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: ['en', 'de'].map((lang) => ({ params: { lang } })),
-  fallback: false,
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default About;

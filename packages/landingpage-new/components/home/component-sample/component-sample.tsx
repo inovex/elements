@@ -33,18 +33,18 @@ export default function ComponentSample() {
   const [, { has, toggle }] = useSet<ChipValues>(new Set([]));
 
   const isSmallScreen = useMedia('(max-width: 660px)', false);
-  const { locale } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <div>
       <h1 className={styles.header}>
-        the <b>components</b>
+        {t('component_sample.title_1')} <b>{t('component_sample.title_2')}</b>
       </h1>
       <div className={styles.subHeaderContainer}>
-        <p className={styles.subheader}>Check out some of our components</p>
+        <p className={styles.subheader}>{t('component_sample.subheader')}</p>
         <span className={styles.link}>
           <Link href={`${locale}${MainRoutes.LIBRARY}`}>
-            Check out all components
+            {t('component_sample.link')}
           </Link>
         </span>
       </div>
@@ -84,7 +84,7 @@ export default function ComponentSample() {
             componentName="Button"
             componentCategory="Button"
           >
-            <InoButton>I&apos;m a Button</InoButton>
+            <InoButton>{t('component_sample.button')}</InoButton>
           </ComponentSampleCard>
         </div>
         <div className={styles.input}>

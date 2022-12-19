@@ -1,6 +1,7 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { LangContext } from 'types/langContext';
 import { getLocalizationProps } from 'utils/context/LanguageContext';
+import { getStaticLanguagePaths } from 'utils/context/staticPaths';
 import useTranslation from 'utils/hooks/useTranslation';
 
 const Docs: NextPage = () => {
@@ -32,9 +33,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: ['en', 'de'].map((lang) => ({ params: { lang } })),
-  fallback: false,
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Docs;

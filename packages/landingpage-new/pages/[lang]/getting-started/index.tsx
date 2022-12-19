@@ -1,10 +1,12 @@
-import LearnComp from 'components/learn/learn';
 import { getLocalizationProps } from 'utils/context/LanguageContext';
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { LangContext } from 'types/langContext';
+import { getStaticLanguagePaths } from 'utils/context/staticPaths';
+import useTranslation from 'utils/hooks/useTranslation';
 
 const Learn: NextPage = () => {
-  return <LearnComp></LearnComp>;
+  const { t } = useTranslation();
+  return <h1>{t('title')}</h1>;
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
@@ -19,9 +21,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: ['en', 'de'].map((lang) => ({ params: { lang } })),
-  fallback: false,
-});
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Learn;

@@ -1,11 +1,42 @@
 {
-  "header_title1": "die interoperable UI-Bibliothek",
-  "header_title2": "für jedes",
-  "header_titleMark": "Framework",
-  "header_subtitle1":
-    "Es ist schwierig, UI-Komponenten zu erstellen und zu pflegen. Fangen Sie nicht jedes Mal von vorne an, wenn Sie ein neues Projekt erstellen. Erstellen Sie sie einmal und setzen Sie sie überall ein!",
-  "header_subtitle2":
-    "Verwenden Sie unsere Open-Source-Bibliothek für UI-Komponenten",
-  "header_inoElements": "inovex elements",
-  "header_button": "Jetzt loslegen"
+  "header": {
+    "title_1": "die interoperable UI-Bibliothek",
+    "title_2": "für jedes",
+    "title_mark": "Framework",
+    "subtitle_1":
+      "Es ist schwierig, UI-Komponenten zu erstellen und zu pflegen. Fangen Sie nicht jedes Mal von vorne an, wenn Sie ein neues Projekt erstellen. Erstellen Sie sie einmal und setzen Sie sie überall ein!",
+    "subtitle_2":
+      "Verwenden Sie unsere Open-Source-Bibliothek für UI-Komponenten",
+    "getting_started": "Jetzt loslegen",
+    "clipboard_success": "In die Zwischenablage kopiert ✓"
+  },
+  "core_aspects": {
+    "first": {
+      "title": "Kernaspekt 1",
+      "text": "Läuft mit jedem größeren Framework: Angular, React, Vue oder reines JavaScript."
+    },
+    "second": {
+      "title": "Kernaspekt 2",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+    },
+    "third": {
+      "title": "Kernaspekt 3",
+      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+    }
+  },
+  "component_sample": {
+    "title_1": "die",
+    "title_2": "Komponenten",
+    "subheader": "Hier einige Beispiele unserer Komponenten",
+    "link": "zu allen Komponenten",
+    "button": "Ich bin ein Button"
+  },
+  "contact": {
+    "title_1": "kontaktiere",
+    "title_2": "uns",
+    "description": "Haben Sie Fragen, Anregungen oder wollen Sie mit uns zusammenarbeiten? Dann freuen wir uns auf Ihre Nachricht!",
+    "label_subject": "Betreff",
+    "label_message": "Nachricht",
+    "label_submit": "Mail absenden"
+  }
 }

@@ -8,7 +8,7 @@ import useTranslation from 'utils/hooks/useTranslation';
 
 export default function Navbar() {
   const router = useRouter();
-  const { locale } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <nav className={styles.navbar}>
@@ -16,12 +16,12 @@ export default function Navbar() {
         <LinkItem
           key={url}
           url={url}
-          name={name}
+          name={t(`common.navigation.${name.replace(' ', '_')}.mainroute`)}
           isActive={router.pathname === url}
         />
       ))}
       <Link href={`${MainRoutes.HOME}${locale}#${SubRoutes.HOME_CONTACT}`}>
-        <InoButton>Contact us</InoButton>
+        <InoButton>{t('common.navigation.contact')}</InoButton>
       </Link>
     </nav>
   );
