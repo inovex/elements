@@ -13,8 +13,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { CommitsPerMonth } from '../../types/commitPerMonth';
-
+import { GithubCommitsPerMonth } from 'types/github';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -41,7 +40,7 @@ const graphOptions = {
 };
 
 type Props = {
-  commitsPerMonth: CommitsPerMonth;
+  commitsPerMonth: GithubCommitsPerMonth;
 };
 
 function Activity({ commitsPerMonth }: Props) {

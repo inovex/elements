@@ -1,5 +1,5 @@
-import { GithubCommitAuthor, GithubContributor } from 'types/githubContributor';
-import { UserTypes } from 'types/githubUserTypes';
+import { GithubCommitAuthor, GithubContributor } from 'types/github';
+import { GithubUserTypes } from 'types/github';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';
@@ -87,7 +87,7 @@ export async function getGitHubContributers(): Promise<GithubContributor[]> {
 
   const filteredUser = contributors.filter(
     (contributor) =>
-      contributor.type === UserTypes.USER &&
+      contributor.type === GithubUserTypes.USER &&
       whitelistedIds.includes(contributor.id)
   );
 
@@ -98,7 +98,7 @@ export async function getGitHubContributers(): Promise<GithubContributor[]> {
       recentContributions
         .filter(
           (commit) =>
-            commit.author.type === UserTypes.USER &&
+            commit.author.type === GithubUserTypes.USER &&
             whitelistedIds.includes(commit.author.id)
         )
         .slice(0, 20)

@@ -3,28 +3,28 @@ import { getGitHubContributers } from '../../components/about/contributors/contr
 import History from '../../components/about/history';
 import Activity from '../../components/about/activity';
 import { GetStaticProps } from 'next';
-import { GithubContributor } from 'types/githubContributor';
+import {
+  GithubContributor,
+  GithubParticipation,
+  GithubCommitsPerMonth,
+} from 'types/github';
 import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
-import { CommitsPerMonth } from '../../types/commitPerMonth';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
-
-type GithubParticipation = {
-  all: number[];
-  owner: number[];
-};
-
 const NUMBER_WEEKS_PER_YEAR = 52;
 
-async function getCommitPerMonth(): Promise<CommitsPerMonth> {
+async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
   const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
   const activities: GithubParticipation = await fetchResult.json();
 
   const lastDayOfCurrentWeek = endOfWeek(new Date());
   return activities.all
     .map((commitsPerWeek, index) => {
-      const week = subWeeks(lastDayOfCurrentWeek, NUMBER_WEEKS_PER_YEAR - index);
+      const week = subWeeks(
+        lastDayOfCurrentWeek,
+        NUMBER_WEEKS_PER_YEAR - index
+      );
       const month = startOfMonth(week);
       return {
         month: format(month, 'MMM yy'),
@@ -38,7 +38,7 @@ async function getCommitPerMonth(): Promise<CommitsPerMonth> {
       else prev[current.month] = current.commitsPerWeek;
 
       return prev;
-    }, {} as CommitsPerMonth);
+    }, {} as GithubCommitsPerMonth);
 }
 
 export const getStaticProps: GetStaticProps<Params> = async () => {
@@ -50,13 +50,10 @@ export const getStaticProps: GetStaticProps<Params> = async () => {
 
 interface Params {
   users: GithubContributor[];
-  commitsPerMonth: CommitsPerMonth;
+  commitsPerMonth: GithubCommitsPerMonth;
 }
 
-function About({
-  users = [],
-  commitsPerMonth = {},
-}: Params) {
+function About({ users = [], commitsPerMonth = {} }: Params) {
   return (
     <div className="section-container">
       <section id={SubRoutes.ABOUT_TEAM}>

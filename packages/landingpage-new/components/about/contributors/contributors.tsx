@@ -1,6 +1,6 @@
 import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
-import { GithubContributor } from '../../../types/githubContributor';
+import { GithubContributor } from 'types/github';
 import { userInfo } from './contributor-utils';
 
 interface Params {
