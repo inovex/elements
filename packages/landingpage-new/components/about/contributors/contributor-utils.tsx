@@ -1,5 +1,8 @@
-import { GithubCommitAuthor, GithubContributor } from 'types/github';
-import { GithubUserTypes } from 'types/github';
+import {
+  GithubCommitAuthor,
+  GithubContributor,
+  GithubUserTypes,
+} from 'types/github';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const GITHUB_USERS_API = 'https://api.github.com/users/';
