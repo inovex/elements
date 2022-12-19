@@ -18,7 +18,7 @@ interface ContextProps {
 
 export const LanguageContext = React.createContext<ContextProps>({
   localization: {
-    locale: 'de',
+    locale: 'de' as Locale,
     translations: defaultStrings.home,
     namespace: 'home',
   },

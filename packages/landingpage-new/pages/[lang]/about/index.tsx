@@ -26,32 +26,28 @@ async function getCommitPerMonth(
   const activities: GithubParticipation = await fetchResult.json();
 
   const lastDayOfCurrentWeek = endOfWeek(new Date());
-  if (Array.isArray(activities)) {
-    return activities.all
-      .map((commitsPerWeek, index) => {
-        const week = subWeeks(
-          lastDayOfCurrentWeek,
-          NUMBER_WEEKS_PER_YEAR - index
-        );
-        const month = startOfMonth(week);
-        return {
-          month: format(month, 'MMM yy', {
-            locale: locale === 'de' ? de : enUS,
-          }),
-          commitsPerWeek,
-        };
-      })
-      .reduce((prev, current) => {
-        const prevMonth = prev[current.month];
+  return activities.all
+    .map((commitsPerWeek, index) => {
+      const week = subWeeks(
+        lastDayOfCurrentWeek,
+        NUMBER_WEEKS_PER_YEAR - index
+      );
+      const month = startOfMonth(week);
+      return {
+        month: format(month, 'MMM yy', {
+          locale: locale === 'de' ? de : enUS,
+        }),
+        commitsPerWeek,
+      };
+    })
+    .reduce((prev, current) => {
+      const prevMonth = prev[current.month];
 
-        if (prevMonth) prev[current.month] += current.commitsPerWeek;
-        else prev[current.month] = current.commitsPerWeek;
+      if (prevMonth) prev[current.month] += current.commitsPerWeek;
+      else prev[current.month] = current.commitsPerWeek;
 
-        return prev;
-      }, {} as GithubCommitsPerMonth);
-  } else {
-    return {};
-  }
+      return prev;
+    }, {} as GithubCommitsPerMonth);
 }
 
 interface Params {

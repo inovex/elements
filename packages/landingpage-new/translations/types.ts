@@ -3,7 +3,7 @@ import { locales } from './config';
 export type Locale = typeof locales[number];
 
 export interface Translations {
-  [key: string]: string;
+  [key: string]: any;
 }
 
 export type Strings = {

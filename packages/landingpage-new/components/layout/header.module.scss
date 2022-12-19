@@ -37,8 +37,20 @@ $header-height: 120px;
 .language {
   grid-area: language;
   
-  .select {
-    width: 150px;
+  div b {
+    color: #003c7e;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 5px;
+
+    &:hover, &.selected {
+      text-decoration-line: underline;
+      text-underline-offset: 5px;
+    }
+
+    &.selected {
+      color: #2C02FF;
+    }
   }
 }
 
