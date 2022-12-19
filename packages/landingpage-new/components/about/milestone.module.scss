@@ -1,0 +1,96 @@
+@use '../../styles/typography.scss';
+
+.milestoneRight {
+    width: calc(50% + 8px);
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+    float: right;
+
+    &::before {
+       @extend .marker;
+    }
+  }
+  
+  .milestoneLeft {
+    width: calc(50% + 8px);
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+    float: left;
+    text-align: right;
+    
+    &::after {
+      @extend .marker;
+   }
+  }
+  
+  .marker {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin-top: 15px;
+    background-color: #CCD1D9;
+    z-index: 2;
+  }
+  
+  .content {
+    width: 95%;
+    padding: 0 15px;
+    color: #232527;
+  }
+  
+  .content h3 {
+    @include typography.font($size: 30px, $weight: bold);
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .content .subtitle {
+    font-size: 16px;
+    color: #232527;
+    margin-bottom: 10px;
+  }
+  
+  .content .text {
+    font-size: 14px;
+    line-height: 1.5em;
+    word-spacing: 1px;
+    color: #232527;
+  }
+
+  @media screen and (max-width: 900px) {
+    .marker2 {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      margin-top: 15px;
+      margin-left: 2px;
+      background-color: #CCD1D9;
+      z-index: 2;
+    }
+
+    .milestoneRight {
+        width: 100%;
+        margin-bottom: 30px;
+        float: none;
+        &::before {
+          @extend .marker2;
+        }
+    }
+  
+    .milestoneLeft {
+      width: 100%;
+      margin-bottom: 30px;
+      float: none;
+      text-align: left;
+      &::before {
+        @extend .marker2;
+      }
+      &::after {display: none;}
+    }
+  }

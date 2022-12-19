@@ -1,95 +1,70 @@
-import ContributorCard from 'components/about/contributor-card';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { SubRoutes } from '../../utils/routes';
+import { getGitHubContributers } from '../../components/about/contributors/contributor-utils';
+import History from '../../components/about/history';
+import Activity from '../../components/about/activity';
+import { GetStaticProps } from 'next';
 import {
   GithubContributor,
-  GithubCommitAuthor,
-} from '../../types/githubContributor';
-import { UserTypes } from '../../types/githubUserTypes';
-import styles from './about.module.scss';
+  GithubParticipation,
+  GithubCommitsPerMonth,
+} from 'types/github';
+import Contributors from 'components/about/contributors/contributors';
+import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
+const NUMBER_WEEKS_PER_YEAR = 52;
 
-enum GITHUB_CONTRIBUTOR_ID_WHITELIST {
-  janivo = 22963121,
-  silentHoo = 1610894,
-  pfecht = 26819398,
-  BenPag = 23154336,
-  JCofman = 2118956,
-  Sl1nd = 12165722,
-  MariaLStefan = 103122411,
-  AlessaRad = 76041234,
-  TobiasHeimGalindo = 81302108,
-}
-const whitelistedIds = Object.values(GITHUB_CONTRIBUTOR_ID_WHITELIST);
+async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
+  const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
+  const activities: GithubParticipation = await fetchResult.json();
 
-interface Params {
-  users: GithubContributor[];
+  const lastDayOfCurrentWeek = endOfWeek(new Date());
+  return activities.all
+    .map((commitsPerWeek, index) => {
+      const week = subWeeks(
+        lastDayOfCurrentWeek,
+        NUMBER_WEEKS_PER_YEAR - index
+      );
+      const month = startOfMonth(week);
+      return {
+        month: format(month, 'MMM yy'),
+        commitsPerWeek,
+      };
+    })
+    .reduce((prev, current) => {
+      const prevMonth = prev[current.month];
+
+      if (prevMonth) prev[current.month] += current.commitsPerWeek;
+      else prev[current.month] = current.commitsPerWeek;
+
+      return prev;
+    }, {} as GithubCommitsPerMonth);
 }
 
 export const getStaticProps: GetStaticProps<Params> = async () => {
-  const contributors: GithubContributor[] = await fetch(
-    GITHUB_REPO_URL + '/contributors'
-  ).then((resp) => resp.json());
-  const recentContributions: GithubCommitAuthor[] = await fetch(
-    GITHUB_REPO_URL + '/commits'
-  ).then((resp) => resp.json());
+  const users = await getGitHubContributers();
+  const commitsPerMonth = await getCommitPerMonth();
 
-  if (!contributors)
-    return {
-      props: { users: [] },
-    };
-
-  const filteredUser = contributors.filter(
-    (contributor) =>
-      contributor.type === UserTypes.USER &&
-      whitelistedIds.includes(contributor.id)
-  );
-
-  if (!recentContributions) return { props: { users: filteredUser } };
-
-  const recentUserIds = Array.from(
-    new Set(
-      recentContributions
-        .filter(
-          (commit) =>
-            commit.author.type === UserTypes.USER &&
-            whitelistedIds.includes(commit.author.id)
-        )
-        .slice(0, 20)
-        .map((commit) => commit.author.id)
-    )
-  );
-
-  const userSortByContribution = [
-    ...recentUserIds
-      .map((userId) => filteredUser.find((user) => user.id === userId))
-      .filter((user) => user != null),
-    ...filteredUser.filter((user) => !recentUserIds.includes(user.id)),
-  ];
-
-  return {
-    props: { users: userSortByContribution as GithubContributor[] },
-  };
+  return { props: { users, commitsPerMonth } };
 };
 
-function About({ users = [] }: InferGetStaticPropsType<typeof getStaticProps>) {
+interface Params {
+  users: GithubContributor[];
+  commitsPerMonth: GithubCommitsPerMonth;
+}
+
+function About({ users = [], commitsPerMonth = {} }: Params) {
   return (
-    <div>
-      <section>
-        <h1 className={styles.header}>
-          the <b>contributors</b>
-        </h1>
+    <div className="section-container">
+      <section id={SubRoutes.ABOUT_TEAM}>
+        <Contributors users={users} />
       </section>
-      <div className={styles.container}>
-        {users.map((contributor: GithubContributor) => (
-          <ContributorCard
-            key={contributor.id}
-            avatarUrl={contributor.avatar_url}
-            username={contributor.login}
-            profileLink={contributor.html_url}
-          />
-        ))}
-      </div>
+      <section id={SubRoutes.ABOUT_HISTORY}>
+        <History />
+      </section>
+      <section id={SubRoutes.ABOUT_ACTIVITY}>
+        <Activity commitsPerMonth={commitsPerMonth} />
+      </section>
     </div>
   );
 }
