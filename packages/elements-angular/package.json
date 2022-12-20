@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-angular-builder",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "description": "This is the angular package of the integration layer for  @inovex.de/elements.",
   "author": "Sven Lindauer <slindauer@inovex.de>",
   "contributors": [
@@ -34,7 +34,7 @@
     "@angular/platform-browser": "^12.0.1",
     "@angular/platform-browser-dynamic": "^12.0.1",
     "@angular/router": "^12.0.1",
-    "@inovex.de/elements": "^7.1.2",
+    "@inovex.de/elements": "^8.0.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
