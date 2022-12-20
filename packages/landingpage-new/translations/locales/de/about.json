@@ -1,8 +1,17 @@
 {
   "contributors": {
-    "title_1": "team",
+    "title_1": "Team",
     "title_2": "@ inovex elements",
-    "not_found": "Keine aktuellen Teammitglieder gefunden."
+    "not_found": "Keine aktuellen Teammitglieder gefunden.",
+    "roles": {
+      "frontend_developer": "Frontend Entwickler:in",
+      "frontend_engineer": "Frontend Engineer",
+      "frontend_expert": "Frontend Expert:in",
+      "fullstack_developer": "Fullstack Entwickler:in",
+      "product_owner": "Product Owner",
+      "design": "UI / UX Designer:in",
+      "project_manager": "Projektleitung & Entwickler:in"
+    }
   },
   "history": {
     "title_1": "die",

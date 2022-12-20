@@ -21,7 +21,7 @@ function Contributors({ users }: Params) {
         ) : (
           users?.map((contributor: GithubContributor) => (
             <ContributorCard
-              role={userInfo.get(contributor.id)?.role ?? ''}
+              role={userInfo.get(contributor.id)?.role ? t(`contributors.roles.${userInfo.get(contributor.id)?.role}`) : ''}
               key={contributor.id}
               avatarUrl={contributor.avatar_url}
               username={userInfo.get(contributor.id)?.name ?? contributor.login}

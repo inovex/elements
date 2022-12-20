@@ -2,7 +2,16 @@
   "contributors": {
     "title_1": "contributors",
     "title_2": "@ inovex elements",
-    "not_found": "No recent contributors found."
+    "not_found": "No recent contributors found.",
+    "roles": {
+      "frontend_developer": "Frontend Developer",
+      "frontend_engineer": "Frontend Engineer",
+      "frontend_expert": "Frontend Expert",
+      "fullstack_developer": "Fullstack Developer",
+      "product_owner": "Product Owner",
+      "design": "UI / UX Design",
+      "project_manager": "Projekt Manager & Developer"
+    }
   },
   "history": {
     "title_1": "the",
