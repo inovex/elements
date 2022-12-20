@@ -10,7 +10,7 @@ type MainRoute = Route & {
 };
 
 export enum MainRoutes {
-  HOME = '/',
+  HOME = '',
   GETTING_STARTED = '/getting-started',
   LIBRARY = '/library',
   EXPLORE = '/explore',

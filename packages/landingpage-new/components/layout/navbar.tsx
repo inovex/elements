@@ -17,7 +17,7 @@ export default function Navbar() {
           key={url}
           url={url}
           name={t(`common.navigation.${name.replace(' ', '_')}.mainroute`)}
-          isActive={router.pathname === url}
+          isActive={router.pathname.slice(7) === url } // remove /[lang] from pathname
         />
       ))}
       <Link href={`${MainRoutes.HOME}${locale}#${SubRoutes.HOME_CONTACT}`}>
