@@ -17,7 +17,7 @@ import {
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
 import { de, enUS } from 'date-fns/locale';
-import { Supported_Locales } from 'translations/config';
+import { Locale_File, Supported_Locales } from 'translations/config';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
@@ -80,7 +80,7 @@ export const About: NextPage<Params> = ({
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const users = await getGitHubContributers();
-  const {localization} = getStaticLanguageProps(ctx as LangContext, 'about').props;
+  const {localization} = getStaticLanguageProps(ctx as LangContext, Locale_File.ABOUT).props;
   const commitsPerMonth = await getCommitPerMonth(localization.locale);
 
   return { props: { users, commitsPerMonth, localization } };

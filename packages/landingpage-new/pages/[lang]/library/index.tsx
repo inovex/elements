@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import { Locale_File } from 'translations/config';
 import { LangContext } from 'types/langContext';
 import {
   getStaticLanguagePaths,
@@ -26,7 +27,7 @@ const Docs: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, 'library');
+export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, Locale_File.LIBRARY);
 export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Docs;

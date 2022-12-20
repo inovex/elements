@@ -1,4 +1,4 @@
-import { locales } from './config';
+import { locales, Locale_File } from './config';
 
 export type Locale = typeof locales[number];
 
@@ -9,7 +9,7 @@ export interface Translations {
 export type Localization = {
   locale: Locale;
   translations: Translations;
-  namespace: string;
+  namespace: Locale_File;
 };
 
 export function isLocale(tested: string): tested is Locale {

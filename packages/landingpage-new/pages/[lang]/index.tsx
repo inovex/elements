@@ -11,6 +11,7 @@ import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
+import { Locale_File } from 'translations/config';
 
 const Home: NextPage = () => {
   return (
@@ -31,7 +32,7 @@ const Home: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, 'home');
+export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, Locale_File.HOME);
 export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Home;

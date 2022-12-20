@@ -5,13 +5,14 @@ import {
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
 import { LangContext } from 'types/langContext';
+import { Locale_File } from 'translations/config';
 
 const Explore: NextPage = () => {
   const { t } = useTranslation();
   return <h1>{t('title')}</h1>;
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, 'explore');
+export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, Locale_File.EXPLORE);
 export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Explore;

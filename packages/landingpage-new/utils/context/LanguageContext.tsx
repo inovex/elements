@@ -6,7 +6,7 @@ import defaultStrings from '../../translations/locales/en';
 import locales from '../../translations/locales';
 import { ReactNode } from 'react';
 import { LangContext } from 'types/langContext';
-import { Supported_Locales } from 'translations/config';
+import { Locale_File, Supported_Locales } from 'translations/config';
 
 /**
  * Language Context
@@ -20,8 +20,8 @@ interface ContextProps {
 export const LanguageContext = React.createContext<ContextProps>({
   localization: {
     locale: Supported_Locales.DE,
-    translations: defaultStrings.home,
-    namespace: 'home',
+    translations: defaultStrings[Locale_File.HOME],
+    namespace: Locale_File.HOME,
   },
   setLocale: () => null,
 });
@@ -72,12 +72,12 @@ export const LanguageProvider = ({ localization, children }: Params) => {
   );
 };
 
-export const getLocalizationProps = (ctx: LangContext, namespace: string) => {
+export const getLocalizationProps = (ctx: LangContext, namespace: Locale_File) => {
   const lang: Locale = (ctx.params?.lang as Locale) || Supported_Locales.DE;
   const locale: any = locales[lang];
   const strings: any = locale[namespace];
   const translations = {
-    common: locales[lang].common,
+    common: locales[lang][Locale_File.COMMON],
     ...strings,
   };
   return {
