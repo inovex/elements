@@ -21,7 +21,7 @@ export default function Navbar() {
         />
       ))}
       <Link href={`${MainRoutes.HOME}${locale}#${SubRoutes.HOME_CONTACT}`}>
-        <InoButton>{t('common.navigation.contact')}</InoButton>
+        <InoButton><span>{t('common.navigation.contact')}</span></InoButton>
       </Link>
     </nav>
   );

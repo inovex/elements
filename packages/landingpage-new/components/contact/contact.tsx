@@ -88,7 +88,7 @@ function Contact() {
             required
           ></InoTextarea>
           <InoButton className={styles.submit_button} type="submit">
-            {t('contact.label_submit')}
+            <span>{t('contact.label_submit')}</span>
             <InoIcon slot="icon-trailing" icon="mail"></InoIcon>
           </InoButton>
         </form>

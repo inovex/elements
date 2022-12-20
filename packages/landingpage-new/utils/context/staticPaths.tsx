@@ -1,4 +1,5 @@
-import { locales, Locale_File } from 'translations/config';
+import { locales } from 'translations/config';
+import { Locale_File } from 'translations/types';
 import { LangContext } from 'types/langContext';
 import { getLocalizationProps } from './LanguageContext';
 

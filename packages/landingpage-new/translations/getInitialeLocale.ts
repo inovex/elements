@@ -1,8 +1,8 @@
-import { defaultLocale } from './config';
-import { Locale, isLocale } from './types';
+import { defaultLocale, Supported_Locales } from './config';
+import { isLocale } from './types';
 
-export function getInitialLocale(): Locale {
-  console.log('getinitial');
+export function getInitialLocale(): Supported_Locales {
+  console.log('getinitial', defaultLocale);
 
   const localSetting = localStorage.getItem('locale');
   if (localSetting && isLocale(localSetting)) {

@@ -48,7 +48,7 @@ export default function Header() {
         </div>
         <div className={styles.installation}>
           <Link href={`${locale}${MainRoutes.GETTING_STARTED}`}>
-            <InoButton>{t('header.getting_started')}</InoButton>
+            <InoButton><span>{t('header.getting_started')}</span></InoButton>
           </Link>
           <div className={styles.animation}>
             <InstallChips></InstallChips>

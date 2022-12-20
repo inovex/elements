@@ -11,7 +11,7 @@ import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
-import { Locale_File } from 'translations/config';
+import { Locale_File } from 'translations/types';
 
 const Home: NextPage = () => {
   return (

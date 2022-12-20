@@ -1,16 +1,12 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { isLocale, Localization, Locale } from '../../translations/types';
-import defaultStrings from '../../translations/locales/en';
-import locales from '../../translations/locales';
+import { isLocale, Localization, Locale_File } from 'translations/types';
+import defaultStrings from 'translations/locales/en';
+import locales from 'translations/locales';
 import { ReactNode } from 'react';
 import { LangContext } from 'types/langContext';
-import { Locale_File, Supported_Locales } from 'translations/config';
-
-/**
- * Language Context
- */
+import { Supported_Locales } from 'translations/config';
 
 interface ContextProps {
   readonly localization: Localization;
@@ -25,10 +21,6 @@ export const LanguageContext = React.createContext<ContextProps>({
   },
   setLocale: () => null,
 });
-
-/**
- * Language Context: Provider
- */
 
 type Params = {
   localization: Localization;
@@ -73,7 +65,7 @@ export const LanguageProvider = ({ localization, children }: Params) => {
 };
 
 export const getLocalizationProps = (ctx: LangContext, namespace: Locale_File) => {
-  const lang: Locale = (ctx.params?.lang as Locale) || Supported_Locales.DE;
+  const lang: Supported_Locales = (ctx.params?.lang as Supported_Locales) || Supported_Locales.DE;
   const locale: any = locales[lang];
   const strings: any = locale[namespace];
   const translations = {

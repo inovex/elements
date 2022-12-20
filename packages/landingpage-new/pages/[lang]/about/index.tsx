@@ -10,14 +10,14 @@ import {
 import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
-import { Localization } from 'translations/types';
+import { Localization, Locale_File } from 'translations/types';
 import { LangContext } from 'types/langContext';
 import {
   getStaticLanguagePaths,
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
 import { de, enUS } from 'date-fns/locale';
-import { Locale_File, Supported_Locales } from 'translations/config';
+import { Supported_Locales } from 'translations/config';
 
 const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
