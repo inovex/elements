@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/landingpage-new",
-  "version": "0.1.0",
+  "version": "8.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
     "clean": "shx rm -rf out && shx rm -rf .next"
   },
   "dependencies": {
-    "@inovex.de/elements-react": "^7.1.2",
+    "@inovex.de/elements-react": "^8.0.0",
     "@mdx-js/loader": "^2.1.4",
     "@mdx-js/react": "^2.1.4",
     "@next/mdx": "^12.3.1",
