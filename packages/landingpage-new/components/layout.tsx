@@ -5,7 +5,7 @@ import Footer from './layout/footer';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div>
+    <div className='inovex-elements-typo'>
       <Header></Header>
       <main className={styles.main}>{children}</main>
       <Footer></Footer>
