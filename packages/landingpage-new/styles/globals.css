@@ -14,7 +14,7 @@ body {
   text-decoration: none;
 }
 
-:root b { 
+:root b {
   font-weight: bold; /* for firefox */
 }
 

@@ -1,4 +1,4 @@
-@use '../../../styles/typography';
+@use './../../../../elements/src/components/base/typography-new';
 
 .card {
   height: 100%;
@@ -10,12 +10,15 @@
   left: 24px;
   bottom: 22px;
 }
+
 .component {
-  @include typography.font($size: 14px, $weight: bold);
+  @include typography-new.typo(body-m);
+  font-weight: bold;
 }
 
 .label {
-  @include typography.font($size: 14px, $weight: lighter);
+  @include typography-new.typo(body-m);
+  font-weight: lighter;
 }
 
 .content {

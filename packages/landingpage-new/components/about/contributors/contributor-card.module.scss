@@ -1,3 +1,5 @@
+@use './../../../../elements/src/components/base/typography-new';
+
 .contributorCard {
   width: 200px;
 }
@@ -7,7 +9,7 @@
 }
 
 .role {
-  font-size: 13px;
+  @include typography-new.typo(body-s);
   color: rgba(0, 0, 0, 0.6);
 }
 
@@ -17,4 +19,5 @@
 
 .center {
   text-align: center;
+  @include typography-new.typo(body-l);
 }

@@ -1,3 +1,5 @@
+@use './../../../../elements/src/components/base/typography-new';
+
 .secondContainer {
   display: flex;
   justify-content: center;
@@ -16,12 +18,10 @@
   }
 
   .title {
-    font-size: 22px;
-    font-weight: 900;
+    @include typography-new.typo(title-l);
   }
 
   .text {
-    font-size: 20px;
-    font-weight: 300;
+    @include typography-new.typo(body-l);
   }
 }

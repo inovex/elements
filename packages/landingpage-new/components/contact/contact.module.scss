@@ -1,3 +1,5 @@
+@use './../../../elements/src/components/base/typography-new';
+
 .contact_section {
   width: 100%;
   max-width: 1300px;
@@ -27,16 +29,16 @@
     min-width: 400px;
     max-width: 36.25rem;
     padding: 0 1rem;
+
+    p {
+      @include typography-new.typo(body-l);
+    }
   }
 
   h1 {
-    font-size: 3.125rem;
-    font-weight: 300;
+    @include typography-new.typo(display-3);
+    font-weight: lighter;
     margin-bottom: 1.25rem;
-
-    .bold {
-      font-weight: bold;
-    }
   }
 
   .email {

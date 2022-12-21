@@ -1,4 +1,4 @@
-@use '../../../../elements/src/components/base/typography';
+@use './../../../../elements/src/components/base/typography-new';
 
 .container {
   display: grid;
@@ -19,20 +19,15 @@
   grid-area: header;
   align-self: end;
 
-  %heading {
-    color: #232527;
-    font-size: 3.1em;
-    letter-spacing: 0.53px;
+  .header {
+    @include typography-new.typo(display-2);
     margin: 0;
   }
 
-  .header {
-    @extend %heading;
-  }
-
   .subHeader {
-    @extend %heading;
+    @include typography-new.typo(display-2);
     font-weight: lighter;
+    margin: 0;
   }
 
   mark {
@@ -49,10 +44,7 @@
 .info {
   grid-area: info;
   max-width: 500px;
-
-  p {
-    font-size: 1rem;
-  }
+  @include typography-new.typo(body-l);
 }
 
 .installation {

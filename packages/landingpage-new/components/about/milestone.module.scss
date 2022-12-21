@@ -1,4 +1,4 @@
-@use '../../styles/typography.scss';
+@use './../../../elements/src/components/base/typography-new';
 
 .milestoneRight {
     width: calc(50% + 8px);
@@ -43,21 +43,18 @@
   }
   
   .content h3 {
-    @include typography.font($size: 30px, $weight: bold);
-    margin-top: 0;
-    margin-bottom: 5px;
+    @include typography-new.typo(headline-3);
+    margin: 5px 0;
   }
   
   .content .subtitle {
-    font-size: 16px;
+    @include typography-new.typo(body-l);
     color: #232527;
     margin-bottom: 10px;
   }
   
   .content .text {
-    font-size: 14px;
-    line-height: 1.5em;
-    word-spacing: 1px;
+    @include typography-new.typo(body-m);
     color: #232527;
   }
 

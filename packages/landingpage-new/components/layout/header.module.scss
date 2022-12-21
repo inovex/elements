@@ -1,3 +1,5 @@
+@use './../../../elements/src/components/base/typography-new';
+
 $header-height: 120px;
 
 .header {
@@ -29,7 +31,7 @@ $header-height: 120px;
   }
 
   p {
-    font-size: 1.3rem;
+    @include typography-new.typo(title-l);
     color: #003c7e;
   }
 }

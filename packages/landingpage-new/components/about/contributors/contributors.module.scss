@@ -1,9 +1,9 @@
-@use 'styles/typography.scss';
+@use './../../../../elements/src/components/base/typography-new';
 
 h1.header {
-  @include typography.font($size: 50px, $weight: lighter);
+  @include typography-new.typo(display-3);
+  font-weight: lighter;
   color: #232527;
-  letter-spacing: 0.53px;
   margin-top: 0;
   margin-bottom: 20px;
 }

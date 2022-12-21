@@ -1,11 +1,11 @@
-@use '../../../styles/typography';
+@use './../../../../elements/src/components/base/typography-new';
 
 $minmax: minmax(210px, 316px);
 
 h1.header {
-  @include typography.font($size: 50px, $weight: lighter);
+  @include typography-new.typo(display-3);
+  font-weight: lighter;
   color: #232527;
-  letter-spacing: 0.53px;
   margin-top: 0;
   margin-bottom: 4px;
 }
@@ -15,12 +15,11 @@ h1.header {
   justify-content: space-between;
   align-items: flex-end;
   column-gap: 8px;
+  @include typography-new.typo(body-l);
 
   .subheader {
-    @include typography.font;
     max-width: 644px;
     color: #3a3b64;
-    line-height: 19px;
   }
 
   .link {

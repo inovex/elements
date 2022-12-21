@@ -1,3 +1,5 @@
+@use './../../../../elements/src/components/base/typography-new';
+
 .container {
   display: flex;
   row-gap: 20px;
@@ -31,7 +33,7 @@
 
 .successMessage {
   color: #68ce6a;
-  font-weight: bolder;
+  @include typography-new.typo(body-m);
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s linear 1s, opacity 1s;

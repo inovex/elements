@@ -31,7 +31,7 @@ export default function Header() {
           />
         </div>
         <div className={styles.headerContainer}>
-          <h1 className={styles.header}>the interoperable UI library</h1>
+          <h2 className={styles.header}>the interoperable UI library</h2>
           <h2 className={styles.subHeader}>
             for any <mark>framework</mark>
           </h2>

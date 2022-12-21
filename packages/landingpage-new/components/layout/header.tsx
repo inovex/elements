@@ -6,7 +6,6 @@ import ElementsLogo from '@assets/elements.svg';
 import inovexLogo from '@assets/inovex-logo.svg';
 import useBasePath from '../../utils/hooks/use-base-path';
 
-
 export default function Header() {
   const [yOffset, setYOffset] = useState(0);
   const basePath = useBasePath();

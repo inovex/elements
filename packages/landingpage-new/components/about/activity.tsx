@@ -34,7 +34,7 @@ const graphOptions = {
   },
   scales: {
     y: {
-      beginAtZero: true,
+      beginAtZero: true
     },
   },
 };
@@ -61,7 +61,7 @@ function Activity({ commitsPerMonth }: Props) {
           label: 'contributions',
           data,
           borderColor: '#4F46FF',
-          backgroundColor: '#BECCFF50',
+          backgroundColor: '#BECCFF50'
         },
       ],
     });
