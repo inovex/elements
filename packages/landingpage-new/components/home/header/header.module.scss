@@ -22,12 +22,14 @@
   .header {
     @include typography-new.typo(display-2);
     margin: 0;
+    color: #232527;
   }
 
   .subHeader {
     @include typography-new.typo(display-2);
     font-weight: lighter;
     margin: 0;
+    color: #232527;
   }
 
   mark {
