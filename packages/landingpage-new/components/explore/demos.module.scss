@@ -1,0 +1,16 @@
+@use '../../../elements/src/components/base/typography-new';
+
+h1.header {
+  @include typography-new.typo(display-3);
+  font-weight: lighter;
+}
+
+.tabBar {
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+
+  .tab {
+    float: left;
+  }
+}

@@ -25,7 +25,7 @@ export enum SubRoutes {
   HOME_FAQ = 'faq',
   EXPLORE_EXAMPLES = 'examples',
   EXPLORE_PATTERNS = 'patterns',
-  EXPLORE_RESSOURCES = 'ressources',
+  EXPLORE_RESOURCES = 'resources',
   EXPLORE_DEMOS = 'demos',
   GETTING_STARTED_JAVASCRIPT = 'javascript',
   GETTING_STARTED_REACT = 'react',
@@ -77,8 +77,8 @@ export const Routes: RouteTree = [
         url: SubRoutes.EXPLORE_PATTERNS,
       },
       {
-        name: 'ressources',
-        url: SubRoutes.EXPLORE_RESSOURCES,
+        name: 'resources',
+        url: SubRoutes.EXPLORE_RESOURCES,
       },
       {
         name: 'demos',
