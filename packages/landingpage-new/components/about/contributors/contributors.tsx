@@ -2,6 +2,7 @@ import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
 import { GithubContributor } from 'types/github';
 import { userInfo } from './contributor-utils';
+import classNames from 'classnames';
 
 interface Params {
   users: GithubContributor[];
@@ -10,7 +11,7 @@ interface Params {
 function Contributors({ users }: Params) {
   return (
     <>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         <b>contributors</b> @ inovex elements
       </h1>
       <div className={styles.container}>

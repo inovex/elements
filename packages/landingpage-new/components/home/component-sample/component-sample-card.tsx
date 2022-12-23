@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import styles from './component-sample-card.module.scss';
 import Card from '../../shared/card';
+import classNames from 'classnames';
 
 interface Props {
   children: JSX.Element;
@@ -20,8 +21,12 @@ const ComponentSampleCard: FunctionComponent<Props> = ({
     footerClassName={styles.footer}
     footer={
       <>
-        <div className={styles.component}>{componentName}</div>
-        <div className={styles.label}>{componentCategory}</div>
+        <div className={classNames(styles.component, 'body-m')}>
+          {componentName}
+        </div>
+        <div className={classNames(styles.label, 'body-m')}>
+          {componentCategory}
+        </div>
       </>
     }
   />

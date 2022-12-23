@@ -1,9 +1,6 @@
-@use './../../../elements/src/components/base/typography-new';
-
 p.link {
   cursor: pointer;
   color: #7275A1;
-  @include typography-new.typo(title-m);
 
   &:hover {
     color: #3A3B64;
@@ -15,6 +12,6 @@ p.linkActive {
 }
 
 p.linkDense {
-  font-weight: normal;
+  font-weight: lighter !important;
   margin: 0;
 }
