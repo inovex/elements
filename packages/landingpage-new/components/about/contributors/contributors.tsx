@@ -2,7 +2,6 @@ import styles from './contributors.module.scss';
 import ContributorCard from './contributor-card';
 import { GithubContributor } from 'types/github';
 import { userInfo } from './contributor-utils';
-import classNames from 'classnames';
 
 interface Params {
   users: GithubContributor[];

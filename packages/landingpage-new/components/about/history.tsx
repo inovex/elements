@@ -1,6 +1,5 @@
 import styles from './history.module.scss';
 import Milestone from './milestone';
-import classNames from 'classnames';
 
 function History() {
   return (

@@ -14,7 +14,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
-import classNames from 'classnames';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

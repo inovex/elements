@@ -1,6 +1,5 @@
 import Contact from 'components/contact/contact';
 import type { NextPage } from 'next';
-
 import Header from '../../components/home/header/header';
 import CoreAspects from '../../components/home/core-aspects/core-aspects';
 import ComponentSample from '../../components/home/component-sample/component-sample';
