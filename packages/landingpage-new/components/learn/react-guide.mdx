@@ -27,7 +27,7 @@ Once our React app is ready, delete the boilerplate code and restructure the fun
 
 > Hint: For the Styling and Structure of your App we recommend following along with the provided [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react).
 
-```jsx App.js
+```tsx App.js
 function App() {
   return <div></div>;
 }
@@ -36,7 +36,7 @@ export default App;
 ```
 
 To demonstrate how fast you can create a stylish login form, let's start with our sign in, consisting of two input fields for the credentials and one button to submit.
-```jsx App.js
+```tsx App.js
   // ...
   return (
     <div className="body">
@@ -55,7 +55,7 @@ To configure either the functionality or the appearance of the inovex-elements, 
 <CH.Section>
 In this case, we give our `<InoInput>` the [outline property](focus://1[25:32],2[28:35]) to change its appearance and use the [label property](focus://1[11:24],2[11:27]) to give it its corresponding label. More properties of the `<InoInput>` can be found in our **[docs](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--playground)**.
 
-```jsx
+```tsx
 <InoInput label="email" outline />
 <InoInput label="password" outline />
 ```
@@ -79,12 +79,12 @@ The Playground allows you to modify these properties and see the result in real 
 
 Following up on our login-form, we add a type and value property, setting it to a state object named _email_. Do the same for the password `<InoInput>`.
 
-```jsx
+```tsx
 const [email, setEmail] = React.useState('');
 const [password, setPassword] = React.useState('');
 ```
 
-```jsx
+```tsx
 <InoInput
     type="email"
     label="email"
@@ -113,7 +113,7 @@ Let's give our login form the `valueChange` event of the `<InoInput>` component,
 | `inoBlur`         | Emits when the input field is blurred and validates email input                | `CustomEvent<void>`   |
 | `inoFocus`        | Emits when the input field is focused                                          | `CustomEvent<void>`   |
 
-```jsx
+```tsx
 <InoInput
     type="email"
     label="email"
@@ -145,7 +145,7 @@ If we use the slots of the `<InoInput>` we can add an `<InoIcon>` inside our inp
 
 > Hint: We can choose the position of our slot, that will render the `<InoIcon>` component. Other components like the `<InoCard>` allow a `header`, `content`, `footer` approach of positioning its slots.
 
-```jsx
+```tsx
 <InoInput
   type="password"
   label="password"
@@ -179,7 +179,7 @@ Let's apply what we learned by the example of the `<InoInput>` on other Elements
 
 > Hint: automatically style your logo with rounded borders by using the `rounded` property of `<InoImg>`
 
-```jsx
+```tsx
 <InoImg
   alt="Elements logo"
   decoding="async"
@@ -196,7 +196,7 @@ If our image can't be loaded, it will render an `<InoIcon icon="cloud">` due to 
 
 The `<InoPopover>` component is perfect for additional information or hints.
 
-```jsx
+```tsx
 <InoButton id="sign-up">Sign Up</InoButton>
 
 <InoPopover for="sign-up" placement="bottom" interactive>
@@ -215,8 +215,8 @@ Use the `interactive` property if you want to interact with the popover content 
 
 By clicking on the ino icon lock, we can toggle the visibility of our password by changing the InoInput `type` property.
 
-```jsx
-const [hidePassword, setVisibility] = React.useState < InputType > 'password';
+```tsx
+const [hidePassword, setVisibility] = React.useState<InputType>('password');
 
 const togglePasswordVisibility = () => {
   if (hidePassword === 'password') {
@@ -227,7 +227,7 @@ const togglePasswordVisibility = () => {
 };
 ```
 
-```jsx
+```tsx
 <InoInput
   type={hidePassword}
   label="password"
@@ -249,7 +249,7 @@ const togglePasswordVisibility = () => {
 Most components have built in styles and themes you can choose from. Let's add a different Notification, every time our user signs in.
 If the credentials are too short, we use the property `type="error"` of the `<InoSnackbar>` to indicate a failed login attempt. In the case of a succesful login, we can use `type="success"`
 
-```jsx
+```tsx
 const [showSnackbar, setSnackbar] = React.useState(false);
 const [isValid, setValidity] = React.useState(false);
 
@@ -291,7 +291,7 @@ const ValidateLogin = () => {
 };
 ```
 
-```jsx
+```tsx
 <InoButton
   type="submit"
   onClick={() => {
@@ -311,7 +311,7 @@ More about the properties of the InoSnackbar is documented [here](https://elemen
 
 ### Display Login Alternatives
 
-```jsx
+```tsx
 <InoTab icon="mail" indicator-content-width="false" stacked>
     Gmail
 </InoTab>
@@ -333,5 +333,3 @@ Congratulations! You have created a login-page with React and the main concepts 
 - CSS-Variables
 
 With the same approach you can keep on coding, don’t start from scratch every time you create a new project.
-
-### Looking for more resources? Make sure to check out the example projects:
