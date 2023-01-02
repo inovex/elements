@@ -6,6 +6,7 @@ import InstallChips from './install-chips';
 import Link from 'next/link';
 import { MainRoutes } from '../../../utils/routes';
 import useBasePath from '../../../utils/hooks/use-base-path';
+import classNames from 'classnames';
 
 export default function Header() {
   const basePath = useBasePath();
@@ -31,12 +32,14 @@ export default function Header() {
           />
         </div>
         <div className={styles.headerContainer}>
-          <h1 className={styles.header}>the interoperable UI library</h1>
-          <h2 className={styles.subHeader}>
+          <h1 className={classNames(styles.header, 'header-d2')}>
+            <b>the interoperable UI library</b>
+          </h1>
+          <h1 className={classNames(styles.header, 'header-d2')}>
             for any <mark>framework</mark>
-          </h2>
+          </h1>
         </div>
-        <div className={styles.info}>
+        <div className={classNames(styles.info, 'body-l')}>
           <p>
             It’s hard to build and maintain UI components. Don’t start from
             scratch every time you create a new project. Build them once, run

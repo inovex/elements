@@ -1,7 +1,5 @@
 import Contact from 'components/contact/contact';
 import type { NextPage } from 'next';
-import styles from './home.module.scss';
-
 import Header from '../../components/home/header/header';
 import CoreAspects from '../../components/home/core-aspects/core-aspects';
 import ComponentSample from '../../components/home/component-sample/component-sample';
@@ -19,7 +17,7 @@ const Home: NextPage = () => {
       <section id={SubRoutes.HOME_COMPONENTS}>
         <ComponentSample></ComponentSample>
       </section>
-      <section id={SubRoutes.HOME_CONTACT} className={styles.contact}>
+      <section id={SubRoutes.HOME_CONTACT}>
         <Contact />
       </section>
     </div>

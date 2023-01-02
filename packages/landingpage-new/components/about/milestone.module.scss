@@ -1,5 +1,3 @@
-@use '../../styles/typography.scss';
-
 .milestoneRight {
     width: calc(50% + 8px);
     display: flex;
@@ -11,7 +9,7 @@
        @extend .marker;
     }
   }
-  
+
   .milestoneLeft {
     width: calc(50% + 8px);
     display: flex;
@@ -19,12 +17,12 @@
     clear: both;
     float: left;
     text-align: right;
-    
+
     &::after {
       @extend .marker;
    }
   }
-  
+
   .marker {
     content: '';
     display: inline-block;
@@ -35,29 +33,23 @@
     background-color: #CCD1D9;
     z-index: 2;
   }
-  
+
   .content {
     width: 95%;
     padding: 0 15px;
     color: #232527;
   }
-  
+
   .content h3 {
-    @include typography.font($size: 30px, $weight: bold);
-    margin-top: 0;
-    margin-bottom: 5px;
+    margin: 5px 0;
   }
-  
+
   .content .subtitle {
-    font-size: 16px;
     color: #232527;
     margin-bottom: 10px;
   }
-  
+
   .content .text {
-    font-size: 14px;
-    line-height: 1.5em;
-    word-spacing: 1px;
     color: #232527;
   }
 
@@ -82,7 +74,7 @@
           @extend .marker2;
         }
     }
-  
+
     .milestoneLeft {
       width: 100%;
       margin-bottom: 30px;

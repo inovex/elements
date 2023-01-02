@@ -6,7 +6,6 @@ import ElementsLogo from '@assets/elements.svg';
 import inovexLogo from '@assets/inovex-logo.svg';
 import useBasePath from '../../utils/hooks/use-base-path';
 
-
 export default function Header() {
   const [yOffset, setYOffset] = useState(0);
   const basePath = useBasePath();
@@ -40,7 +39,7 @@ export default function Header() {
             width={48}
             height={55}
           />
-          <p className={styles.name}>elements</p>
+          <p className="title-l">elements</p>
         </a>
       </div>
       <div className={styles.navbar}>

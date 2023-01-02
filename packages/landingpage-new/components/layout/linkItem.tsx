@@ -21,7 +21,8 @@ export default function LinkItem({
         className={classNames(
           styles.link,
           isActive && styles.linkActive,
-          isDense && styles.linkDense
+          isDense && styles.linkDense,
+          isDense ? 'title-m' : 'title-l',
         )}
       >
         {name.toLowerCase()}

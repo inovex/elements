@@ -10,7 +10,7 @@ interface Params {
 function Contributors({ users }: Params) {
   return (
     <>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         <b>contributors</b> @ inovex elements
       </h1>
       <div className={styles.container}>

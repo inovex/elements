@@ -32,13 +32,13 @@ function Contact() {
         />
       </div>
       <div className={styles.wrapper}>
-        <h1>
-          <span className={styles.bold}>contact</span> us
+        <h1 className="header-d3">
+          <b>contact</b> us
         </h1>
-        <div className="description">
+        <p className="body-l">
           Do you have any questions, suggestions or want to work with us? Then
           we look forward to your message!
-        </div>
+        </p>
 
         <form className={styles.form_container} onSubmit={onSubmit}>
           {/*          <InoInput

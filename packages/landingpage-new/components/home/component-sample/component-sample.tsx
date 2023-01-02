@@ -16,6 +16,7 @@ import ComponentSampleCard from './component-sample-card';
 import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
+import classNames from 'classnames';
 
 enum ChipValues {
   REACT = 'React',
@@ -35,10 +36,10 @@ export default function ComponentSample() {
 
   return (
     <div>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         the <b>components</b>
       </h1>
-      <div className={styles.subHeaderContainer}>
+      <div className={classNames(styles.subHeaderContainer, 'body-l')}>
         <p className={styles.subheader}>Check out some of our components</p>
         <span className={styles.link}>
           <Link href={MainRoutes.LIBRARY}>Check out all components</Link>

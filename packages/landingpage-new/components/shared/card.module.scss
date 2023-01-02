@@ -1,5 +1,3 @@
-@use '../../styles/typography';
-
 .card {
   position: relative;
   --ino-card-border-thickness: 0;
@@ -8,12 +6,4 @@
   border: transparent;
   min-width: fit-content;
   min-height: fit-content;
-}
-
-.component {
-  @include typography.font($size: 14px, $weight: bold);
-}
-
-.label {
-  @include typography.font($size: 14px, $weight: lighter);
 }
