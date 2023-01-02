@@ -1,7 +1,7 @@
 import React from 'react';
-import AngularGuide from 'components/learn/angular-guide.mdx';
-import Layout from '../../components/learn/layout';
-import {Frameworks} from '../../components/learn/frameworks';
+import AngularGuide from 'components/getting-started/angular-guide.mdx';
+import Layout from '../../components/getting-started/layout';
+import {Frameworks} from '../../components/getting-started/frameworks';
 
 const AngularGuidePage = () => (
   <Layout

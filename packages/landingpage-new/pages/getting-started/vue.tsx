@@ -1,7 +1,7 @@
 import React from 'react';
-import VueGuide from 'components/learn/vue-guide.mdx';
-import Layout from '../../components/learn/layout';
-import { Frameworks } from '../../components/learn/frameworks';
+import VueGuide from 'components/getting-started/vue-guide.mdx';
+import Layout from '../../components/getting-started/layout';
+import { Frameworks } from '../../components/getting-started/frameworks';
 
 const VueGuidePage = () => (
   <Layout

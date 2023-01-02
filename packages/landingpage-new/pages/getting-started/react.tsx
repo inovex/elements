@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactGuide from 'components/learn/react-guide.mdx';
-import Layout from '../../components/learn/layout';
-import { Frameworks } from '../../components/learn/frameworks';
+import ReactGuide from 'components/getting-started/react-guide.mdx';
+import Layout from '../../components/getting-started/layout';
+import { Frameworks } from '../../components/getting-started/frameworks';
 
 const ReactGuidePage = () => (
   <Layout

@@ -1,7 +1,7 @@
 import React from 'react';
-import JsGuide from 'components/learn/javascript-guide.mdx';
-import Layout from '../../components/learn/layout';
-import {Frameworks} from '../../components/learn/frameworks';
+import JsGuide from 'components/getting-started/javascript-guide.mdx';
+import Layout from '../../components/getting-started/layout';
+import {Frameworks} from '../../components/getting-started/frameworks';
 
 const JsGuidePage = () => (
   <Layout framework={Frameworks.JS} sandboxUrl={''}>
