@@ -1,4 +1,6 @@
 import '../styles/globals.css';
+import '@code-hike/mdx/dist/index.css';
+import '../styles/custom-ch.css'
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
 import {
