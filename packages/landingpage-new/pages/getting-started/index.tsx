@@ -24,12 +24,12 @@ const GuideByFramework: Record<Frameworks, FC> = {
 const SandboxUrlByFramework: Record<Frameworks, string> = {
   [Frameworks.ANGULAR]: 'https://codesandbox.io/s/github/inovex/elements-example-angular',
   [Frameworks.REACT]: 'https://codesandbox.io/embed/github/inovex/elements-example-react/tree/master/?fontsize=14&hidenavigation=1&theme=dark',
-  [Frameworks.VUE]: '',
+  [Frameworks.VUE]: 'https://codesandbox.io/s/github/inovex/elements-vue-example',
   [Frameworks.JS]: '',
 }
 
 const GettingStarted = () => {
-  const [framework, setFramework] = useState<Frameworks>(Frameworks.ANGULAR);
+  const [framework, setFramework] = useState<Frameworks>(Frameworks.VUE);
 
   const Guide = GuideByFramework[framework];
 
