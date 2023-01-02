@@ -1,0 +1,78 @@
+import {CH} from '@code-hike/mdx/components'
+
+# Integrate with Angular
+
+> We set up a demo project with Angular CLI to show you how to integrate the components into a newly generated Angular project.
+> Scroll down to see the CodeSandbox.These instructions are based on `angular@12.0.0` and [`angular-cli@12.0.0`](https://cli.angular.io/).
+
+## Install dependency `@inovex.de/elements-angular`
+
+We provide an integration layer package for Angular, so you can integrate the elements as an Angular library into your Angular project.
+To install it, you have the following options:
+<CH.Code>
+  ```bash angular-cli
+  ng add @inovex.de/elements-angular
+  ```
+  ```bash npm
+  npm install @inovex.de/elements-angular --save
+  ```
+  ```bash yarn
+  yarn add @inovex.de/elements-angular
+  ```
+</CH.Code>
+
+The `ino-icons` will be added to your project automatically if you've used the angular-cli.
+
+If you used npm or yarn to install the elements, you need to change `angular.json` manually.
+Add the following to your build assets (`projects.<your-project-name>.architect.build.options.assets`) and to your test assets (`projects.<your-project-name>.architect.test.options.assets`).
+
+```json angular.json
+// ...
+{
+  "glob": "**/*",
+  "input": "node_modules/@inovex.de/elements/dist/inovex-elements/ino-icon",
+  "output": "/ino-icon"
+}
+// ...
+```
+
+## Import the Module `InoElementsModule`
+
+The components we provide in the Angular project are wrapped in Angular directives within an Angular library.
+All the `@Input` properties and `@Output` events of our components are included.
+This allows your IDE and compiler to infer all the type information from the given interfaces which is compulsive for code completion to work properly.
+
+To use the inovex elements, you need to integrate the `InoElementsModule` into one of your App's modules. To do so, follow these steps:
+
+<CH.Section>
+1. [Import the elements module](focus://3)
+2. [Add our module to your imports (you can also provide an InoElementsConfig here)](focus://10)
+3. [Add the CUSTOM_ELEMENTS_SCHEMA](focus://14)
+
+```typescript app.module.ts
+import {BrowserModule} from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {InoElementsModule} from '@inovex.de/elements-angular';
+import {AppComponent} from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    InoElementsModule.forRoot({}),
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class AppModule {}
+```
+</CH.Section>
+
+If you have more than one module, you should integrate the `InoElementsModule` into each module that is supposed to use the inovex elements.
+Alternatively, you can also integrate the components into a shared module.
+This way, you only need to import the components once (recommended).
+
+## Use the Components
+
+That's it. You are now ready to use our components.
