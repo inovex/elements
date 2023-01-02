@@ -22,7 +22,7 @@ export default function LinkItem({
           styles.link,
           isActive && styles.linkActive,
           isDense && styles.linkDense,
-          'title-l'
+          isDense ? 'title-m' : 'title-l',
         )}
       >
         {name.toLowerCase()}
