@@ -39,6 +39,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: ./.github/workflows/artifacts-download
         with:
+          workflow-id: ${{ github.event.workflow_run.workflow_id }}
           download-core-artifacts: true
       - name: Prepare git config
         run: |
@@ -84,6 +85,7 @@ jobs:
         with:
           name: storybook
           path: version/${{ needs.publish.outputs.newTag }} # Push to the proper directory on gh pages branch.
+          workflow: ${{ github.event.workflow_run.workflow_id }}
       - name: Provide latest symlink
         run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
         shell: bash

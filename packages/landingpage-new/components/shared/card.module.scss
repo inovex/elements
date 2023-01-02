@@ -10,17 +10,6 @@
   min-height: fit-content;
 }
 
-.content {
-  position: absolute;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  left: 0;
-  top: 0;
-}
-
 .component {
   @include typography.font($size: 14px, $weight: bold);
 }

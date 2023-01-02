@@ -1,7 +1,7 @@
 <template>
 <ino-card>
   <div slot="header">
-    <ino-header ino-title="Header" />
+    <div class="header-h1">Header</div>
     <div class="flex-content">
       <ino-img
           class="my-avatar"
@@ -14,7 +14,7 @@
     </div>
   </div>
   <div slot="content">
-    <ino-header ino-title="Content" />
+    <div class="header-h1">Content</div>>
     <ino-table>
       <tr>
         <td>ID</td>
@@ -34,7 +34,7 @@
     </ino-table>
   </div>
   <div slot="footer">
-    <ino-header ino-title="Footer" />
+    <div class="header-h1">Footery</div>
     <ino-button>Click me!</ino-button>
   </div>
 </ino-card>
@@ -44,7 +44,6 @@
 import {
   InoButton,
   InoCard,
-  InoHeader,
   InoImg,
   InoTable,
 } from "@inovex.de/elements-vue";
@@ -53,7 +52,6 @@ export default {
   name: "VCard",
   components: {
     InoTable,
-    InoHeader,
     InoButton,
     InoCard,
     InoImg,
@@ -68,7 +66,7 @@ export default {
   align-items: center;
 }
 
-ino-header {
+.header-h1 {
   margin: .5rem 0;
   display: block;
 }

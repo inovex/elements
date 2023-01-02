@@ -101,7 +101,7 @@ export const components = () => /*html*/ `
         </ino-card>
         <ino-card onClick="parent.location.href='./?path=/story/structure-ino-header--default-usage'">
           <div class="card-content--vertical" slot="content">
-            <ino-header ino-title="Section"></ino-header>
+            <div class="header-h1>Section</div>
           </div>
           <div class="card-footer" slot="footer">
             <h3>ino-header</h3>

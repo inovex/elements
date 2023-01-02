@@ -2509,69 +2509,6 @@
       "listeners": []
     },
     {
-      "filePath": "./src/components/ino-header/ino-header.tsx",
-      "fileName": "ino-header.tsx",
-      "tag": "ino-header",
-      "readme": "# ino-header\n\nA header component with a separator.\n\n## Usage\n\nThe component can be used as follows:\n\n### Web Component\n\n```html\n<ino-header text=\"<string>\"></ino-header>\n```\n\n### React\n\n#### Example #1 - Basic\n\n```js\nimport { Component } from 'react';\nimport { InoHeader } from '@inovex.de/elements-react/';\n\nclass MyComponent extends Component {\n  render() {\n    return <InoHeader text=\"My awesome header!\"></InoHeader>;\n  }\n}\n```\n\n## Demo\n",
-      "usage": {},
-      "docs": "A header component with a separator.",
-      "docsTags": [
-        {
-          "name": "slot",
-          "text": "default - The text to display"
-        }
-      ],
-      "encapsulation": "shadow",
-      "dependents": [],
-      "dependencies": [],
-      "dependencyGraph": {},
-      "props": [
-        {
-          "name": "text",
-          "type": "string",
-          "mutable": false,
-          "attr": "text",
-          "reflectToAttr": false,
-          "docs": "[DEPRECATED] Please use the default slot instead of this prop.",
-          "docsTags": [
-            {
-              "name": "deprecated"
-            }
-          ],
-          "deprecation": "",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "styles": [
-        {
-          "name": "--ino-header-box-color",
-          "annotation": "prop",
-          "docs": "Color of the header box"
-        },
-        {
-          "name": "--ino-header-color",
-          "annotation": "prop",
-          "docs": "Text color of the header"
-        }
-      ],
-      "slots": [
-        {
-          "name": "default",
-          "docs": "The text to display"
-        }
-      ],
-      "parts": [],
-      "listeners": []
-    },
-    {
       "filePath": "./src/components/ino-icon/ino-icon.tsx",
       "fileName": "ino-icon.tsx",
       "tag": "ino-icon",

@@ -6,7 +6,6 @@ export {
   InoDatepicker,
   InoFab,
   InoFabSet,
-  InoFormRow,
   InoIcon,
   InoIconButton,
   InoImg,
@@ -32,5 +31,4 @@ export {
   InoDialog,
   InoNavItem,
   InoNavDrawer,
-  InoHeader
 } from '@inovex.de/elements-react';

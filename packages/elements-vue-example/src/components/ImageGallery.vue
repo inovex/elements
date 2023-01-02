@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ino-header title="My Pictures" />
+    <div class="header-h1">My Pictures</div>
     <ino-img-list enclose-label :key="Date.now()">
       <ino-img
           v-for="(img, i) in images" :key="i"
@@ -12,7 +12,7 @@
       >
       </ino-img>
     </ino-img-list>
-    <ino-header title="My Pictures in a carousel" />
+    <div class="header-h1">My Pictures in a carousel</div>
     <ino-carousel
         class="my-carousel"
         value="0"
@@ -34,7 +34,6 @@
 import {
   InoCarousel,
   InoCarouselSlide,
-  InoHeader,
   InoImg,
   InoImgList
 } from "@inovex.de/elements-vue";
@@ -42,7 +41,7 @@ import {
 export default {
   name: "ImageGallery",
   components: {
-    InoCarousel, InoCarouselSlide, InoHeader, InoImg, InoImgList
+    InoCarousel, InoCarouselSlide, InoImg, InoImgList
   },
   data: () => ({
     images: [
@@ -60,7 +59,7 @@ ino-img-list {
   --ino-img-list-cols: 4;
 }
 
-ino-header {
+.header-h1 {
   margin: 1.5rem 0 .5rem 0;
   display: block;
 }

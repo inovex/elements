@@ -351,27 +351,6 @@ export class InoFabSet {
 }
 
 
-export declare interface InoHeader extends Components.InoHeader {}
-
-@ProxyCmp({
-  defineCustomElementFn: undefined,
-  inputs: ['text']
-})
-@Component({
-  selector: 'ino-header',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['text']
-})
-export class InoHeader {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
 export declare interface InoIcon extends Components.InoIcon {
   /**
    * Event that emits as soon as the user clicks on the icon.
