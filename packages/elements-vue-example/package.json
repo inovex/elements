@@ -1,6 +1,6 @@
 {
   "name": "elements-vue-example",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@inovex.de/elements-vue": "^7.1.2",
+    "@inovex.de/elements-vue": "^8.0.0",
     "core-js": "^3.21.1",
     "vue": "^3.2.31"
   },

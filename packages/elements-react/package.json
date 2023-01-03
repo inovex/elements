@@ -1,6 +1,6 @@
 {
   "name": "@inovex.de/elements-react",
-  "version": "7.1.2",
+  "version": "8.0.0",
   "description": "This is the react package of the integration layer for  @inovex.de/elements.",
   "author": "Patrick Hillert <phillert@inovex.de>",
   "contributors": [
@@ -60,6 +60,6 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@inovex.de/elements": "^7.1.2"
+    "@inovex.de/elements": "^8.0.0"
   }
 }

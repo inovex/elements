@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/inovex/elements/compare/v7.1.2...v8.0.0) (2023-01-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **elements|ino-header:** We've decided to remove the `ino-header` component as it did not really provide the flexibility we wanted. To still use the inovex-elements header styles, we recommend to integrate our new stylesheet which styles all headlines from `<h1>` to `<h6>` and more. Have a look at [our integration guide](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-stylesheet--page).
+* **elements|ino-chip:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-switch:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-form-row:** Since our input component provides a label on its own, this component is obsolete. That's why we've decided to remove it.
+* **elements|ino-range:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
+* **elements|ino-sidebar:** Since the component is just a container with a simple slide animation and does not provide any other functionality or styling, we decided to remove it.
+
+### Features
+
+* **elements:** provide global stylesheet ([#733](https://github.com/inovex/elements/issues/733)) ([73dfc9a](https://github.com/inovex/elements/commit/73dfc9a442d779fa1b5303a147ae6c70d0e5ed27))
+* **elements|ino-switch:** support icons ([#724](https://github.com/inovex/elements/issues/724)) ([8027499](https://github.com/inovex/elements/commit/80274990c37fd2d99b51220cce23c583d18d1726))
+* **landingpage:** add getting started and textual sections ([#775](https://github.com/inovex/elements/issues/775)) ([4628b4f](https://github.com/inovex/elements/commit/4628b4fc7f30de0d2078483f536b3548fe8831fa))
+
+
+### Bug Fixes
+
+* **elements|ino-select:** prevent the `valueChange` event from triggering initially and triggering twice ([#749](https://github.com/inovex/elements/issues/749)) ([0495d50](https://github.com/inovex/elements/commit/0495d50a59d9e99775baa5e73679240e25e6a7fc))
+* **elements|ino-textarea:** unable to set dimensions ([#798](https://github.com/inovex/elements/issues/798)) ([d6c57bd](https://github.com/inovex/elements/commit/d6c57bdaace14f43404642c7f55e28fb4cad625e))
+
+
+### Styling
+
+* **elements|ino-chip:** inherit width ([#779](https://github.com/inovex/elements/issues/779)) ([a273530](https://github.com/inovex/elements/commit/a2735304b6e42f7e002eb37c105243bc915c215c))
+* **elements|ino-chip:** update design ([#752](https://github.com/inovex/elements/issues/752)) ([26dbacd](https://github.com/inovex/elements/commit/26dbacd7cfd7d829d7ef5087b919c00c1a003455))
+* **elements|ino-range:** apply new design ([#712](https://github.com/inovex/elements/issues/712)) ([11ea415](https://github.com/inovex/elements/commit/11ea4155f33fa895222afab3dd1275ff434f4ab9))
+* **elements|ino-segment-button:** animate checked change ([#770](https://github.com/inovex/elements/issues/770)) ([8e92af2](https://github.com/inovex/elements/commit/8e92af2f4598d9dade1a2d06a1ac1f03994ff108))
+
+
+### Refactoring
+
+* **elements|ino-form-row:** remove component ([#718](https://github.com/inovex/elements/issues/718)) ([e609947](https://github.com/inovex/elements/commit/e609947e67e6c2dd634c618f7afae0e0cfcc4355))
+* **elements|ino-header:** remove component ([#793](https://github.com/inovex/elements/issues/793)) ([a83734d](https://github.com/inovex/elements/commit/a83734de27ee64f459b14d0a08b487aab07c38ae))
+* **elements|ino-sidebar:** remove component ([#669](https://github.com/inovex/elements/issues/669)) ([349b84d](https://github.com/inovex/elements/commit/349b84d3ef329174f0bdcf4acbe357b63982eb22))
+* **elements|ino-switch:** remove color-scheme prop ([#717](https://github.com/inovex/elements/issues/717)) ([f051ef6](https://github.com/inovex/elements/commit/f051ef6f88b19578f3fa7eadcea2e8e04e9aca4a))
+
 ### [7.1.2](https://github.com/inovex/elements/compare/v7.1.1...v7.1.2) (2022-09-20)
 
 ### [7.1.1](https://github.com/inovex/elements/compare/v7.1.0...v7.1.1) (2022-08-19)
