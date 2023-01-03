@@ -6,6 +6,14 @@ inputs:
   workflow-id:
     description: 'ID of workflow to download artifacts from'
     required: false
+  workflow-conclusion:
+    description: 'The status or conclusion of a completed workflow to search for'
+    required: false
+    default: 'success'
+  check-artifacts:
+    description: 'Check the workflow run to whether it has an artifact'
+    required: false
+    default: 'false'
   download-core-artifacts:
     description: 'Download core artifacts?'
     required: false
@@ -33,6 +41,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements
         path: ${{ inputs.core-artifacts-base-path }}/elements/dist/
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-react artifact
@@ -41,6 +51,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react
         path: ${{ inputs.core-artifacts-base-path }}/elements-react/dist/
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-angular artifact
@@ -49,6 +61,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular
         path: ${{ inputs.core-artifacts-base-path }}/elements-angular/elements/dist/
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-core-artifacts != 'false'
       name: Download elements-vue artifact
@@ -57,6 +71,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue
         path: ${{ inputs.core-artifacts-base-path }}/elements-vue/dist/
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-angular-example artifact
@@ -65,6 +81,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-angular-example
         path: ${{ inputs.example-artifacts-base-path }}/angular
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-react-example artifact
@@ -73,6 +91,8 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-react-example
         path: ${{ inputs.example-artifacts-base-path }}/react
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
 
     - if: inputs.download-example-artifacts != 'false'
       name: Download elements-vue-example artifact
@@ -81,3 +101,5 @@ runs:
         workflow: ${{ inputs.workflow-id }}
         name: elements-vue-example
         path: ${{ inputs.example-artifacts-base-path }}/vue
+        check_artifacts: ${{ inputs.check-artifacts }}
+        workflow_conclusion: ${{ inputs.workflow-conclusion }}
