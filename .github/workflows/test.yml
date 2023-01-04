@@ -23,6 +23,8 @@ jobs:
     - uses: ./.github/workflows/dependencies-install
     - run: npm config set scripts-prepend-node-path true
     - run: yarn build
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Build caches for unicorn deployment
     - if: github.ref != 'refs/heads/master'
