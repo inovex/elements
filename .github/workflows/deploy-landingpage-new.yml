@@ -17,6 +17,8 @@ jobs:
         working-directory: packages/elements-react
       - name: Build landingpage-new
         run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         working-directory: packages/landingpage-new
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
