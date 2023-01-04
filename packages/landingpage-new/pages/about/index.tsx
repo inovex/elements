@@ -4,9 +4,9 @@ import History from '../../components/about/history';
 import Activity from '../../components/about/activity';
 import { GetStaticProps } from 'next';
 import {
+  GithubCommitsPerMonth,
   GithubContributor,
   GithubParticipation,
-  GithubCommitsPerMonth,
 } from 'types/github';
 import Contributors from 'components/about/contributors/contributors';
 import { endOfWeek, format, startOfMonth, subWeeks } from 'date-fns';
@@ -15,7 +15,26 @@ const GITHUB_REPO_URL = 'https://api.github.com/repos/inovex/elements';
 const NUMBER_WEEKS_PER_YEAR = 52;
 
 async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
-  const fetchResult = await fetch(GITHUB_REPO_URL + '/stats/participation');
+  const maybeGithubToken = process.env.GITHUB_TOKEN;
+  const requestInit: RequestInit = {};
+
+  if (maybeGithubToken) {
+    console.log(
+      'Found an Github Token in your environment. Using it to fetch commit info.'
+    );
+    requestInit.headers = new Headers({
+      authorization: `Bearer ${maybeGithubToken}`,
+    });
+  } else {
+    console.warn(
+      'An github token was not found in your environment. Trying to fetch commit info without a token. You might run into a rate limit.'
+    );
+  }
+
+  const fetchResult = await fetch(
+    GITHUB_REPO_URL + '/stats/participation',
+    requestInit
+  );
   const activities: GithubParticipation = await fetchResult.json();
 
   const lastDayOfCurrentWeek = endOfWeek(new Date());
