@@ -18,15 +18,15 @@ ino-icon-button {
 
   $button-size: var(--ino-icon-button-size, 48px);
   $icon-size: var(--ino-icon-button-icon-size, 24px);
-  $icon-color: var(--ino-icon-button-icon-color, theme.color(dark));
+  $icon-color: var(--ino-icon-button-icon-color, theme.color(primary));
   $background-color: var(--ino-icon-button-background-color, transparent);
   $icon-active-color: var(
       --ino-icon-button-icon-active-color,
-      theme.color(dark)
+      theme.color(primary)
   );
   $background-active-color: var(
       --ino-icon-button-background-active-color,
-      theme.color(dark)
+      theme.color(primary)
   );
 
   ino-icon {
@@ -56,11 +56,6 @@ ino-icon-button {
       }
     }
   }
-
-
-  --ino-icon-button-icon-color: #{theme.color(primary)};
-  --ino-icon-button-icon-active-color: #{theme.color(primary)};
-  --ino-icon-button-background-active-color: #{theme.color(primary)};
 
   &.ino-icon-button--filled {
     --ino-icon-button-icon-color: #{theme.color(primary, contrast)};
