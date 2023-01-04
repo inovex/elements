@@ -20,7 +20,7 @@ async function getCommitPerMonth(): Promise<GithubCommitsPerMonth> {
 
   if (maybeGithubToken) {
     console.log(
-      'Found an Github Token in your environment. Using it to fetch commit info.'
+      'Found a Github Token in your environment. Using it to fetch commit info.'
     );
     requestInit.headers = new Headers({
       authorization: `Bearer ${maybeGithubToken}`,
