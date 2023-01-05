@@ -34,6 +34,12 @@ jobs:
       newTag: ${{ steps.tag_version.outputs.new_tag }}
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+          always-auth: true
       - name: Create version tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
