@@ -38,24 +38,29 @@ jobs:
           || echo "sha=${{ github.event.pull_request.base.sha || github.event.before }}" >> $GITHUB_OUTPUT
 
       - name: Save commit SHA to cache
+        id: current-commit
         run: echo "${{ github.event.pull_request.head.sha || github.sha }}" > last_commit_sha.txt
+          && echo "sha=${{ github.event.pull_request.base.sha || github.sha }}" >> $GITHUB_OUTPUT
 
       - name: Get changed files
+        if: steps.current-commit.outputs.sha != steps.last-commit.outputs.sha
         id: changed-files
         uses: tj-actions/changed-files@v32
         with:
-          sha: ${{ github.event.pull_request.head.sha || github.sha }}
+          sha: ${{ steps.current-commit.outputs.sha }}
           base_sha: ${{ steps.last-commit.outputs.sha }}
           files: |
             packages/elements
             packages/storybook
 
       - name: Print all changed files
+        if: steps.current-commit.outputs.sha != steps.last-commit.outputs.sha
         run: echo '${{ toJSON(steps.changed-files.outputs.all_changed_and_modified_files) }}'
 
       - name: Check if storybook or elements was changed
-        id: evaluation
         if: steps.changed-files.outputs.all_changed_and_modified_files != ''
+          || steps.current-commit.outputs.sha == steps.last-commit.outputs.sha
+        id: evaluation
         run: echo "hasChanges=true" >> $GITHUB_OUTPUT
 
   deploy:
