@@ -4,6 +4,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **elements:** We have decided to remove the color scheme from most of our components. On the one hand it makes no sense for the input elements to be displayed in alert colors, for example, and on the other hand the styles no longer fit our new color concept, which we will introduce gradually.
 * **elements|ino-icon-button:** To avoid confusion, we have removed all css variables prefixed by `--ino-icon-button-`. Use the documented ones instead.
 * **elements|ino-header:** We've decided to remove the `ino-header` component as it did not really provide the flexibility we wanted. To still use the inovex-elements header styles, we recommend to integrate our new stylesheet which styles all headlines from `<h1>` to `<h6>` and more. Have a look at [our integration guide](https://elements.inovex.de/version/v8.0.0/?path=/docs/docs-stylesheet--page).
 * **elements|ino-chip:** As part of the design update, we've decided to remove the `color-scheme` property in all input elements. Read above for more information.
