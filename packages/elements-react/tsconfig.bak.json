@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": true,
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
@@ -20,14 +21,16 @@
     "inlineSources": true,
     "sourceMap": true,
     "jsx": "react",
+    "target": "es2017",
     "skipLibCheck": true
   },
-  "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "./tsconfig.lib.json"
-    }
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
-  "extends": "../../tsconfig.base.json"
+  "exclude": [
+    "**/__tests__/**"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

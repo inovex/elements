@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es2017"
+    "allowUnreachableCode": false,
+    "declaration": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "experimentalDecorators": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true
+  },
+  "files": [],
+  "include": []
+}
