@@ -28,13 +28,6 @@
     "url": "https://github.com/inovex/elements/issues"
   },
   "license": "MIT",
-  "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "shx rm -rf dist",
-    "compile": "npm run tsc",
-    "deploy": "np --any-branch",
-    "tsc": "tsc -p ."
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -49,7 +42,6 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-router": "^4.4.5",
-    "np": "^3.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "shx": "^0.3.2",

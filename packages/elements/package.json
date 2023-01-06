@@ -40,21 +40,6 @@
     "dist/",
     "webpack-plugin.js"
   ],
-  "scripts": {
-    "build": "stencil build --docs --legacy",
-    "clean": "shx rm -rf dist",
-    "dev": "cross-env NODE_ENV=development stencil build --docs --watch --legacy",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "test": "stencil test --e2e --ci",
-    "test:e2e": "stencil test --e2e",
-    "test:e2e-update": "stencil test --e2e -u ./",
-    "test:e2e-watch": "stencil test --e2e --watch",
-    "test:spec": "stencil test --spec",
-    "test:spec-watch": "stencil test --spec --watch",
-    "icon:integrate-icons": "ts-node scripts/integrateIcons.ts",
-    "icon:optimize-icons": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
-  },
   "dependencies": {
     "@hedgedoc/markdown-it-task-lists": "^1.0.3",
     "@material/button": "^13.0.0",

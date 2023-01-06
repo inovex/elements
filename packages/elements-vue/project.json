@@ -1,0 +1,40 @@
+{
+  "name": "elements-vue",
+  "sourceRoot": "packages/elements-vue/src",
+  "projectType": "library",
+  "tags": [],
+  "namedInputs": {
+    "default": ["{projectRoot}/src/**/*", "{projectRoot}/../elements/dist/**/*"]
+  },
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/elements-vue",
+        "command": "tsc -p .",
+        "color": true
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "cwd": "packages/elements-vue",
+        "command": "tsc -p ."
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    }
+  }
+}

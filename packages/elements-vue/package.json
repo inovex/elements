@@ -19,12 +19,6 @@
   "files": [
     "dist/"
   ],
-  "scripts": {
-    "build": "npm run clean && npm run compile",
-    "clean": "shx rm -rf dist",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p ."
-  },
   "dependencies": {
     "@inovex.de/elements": "^8.0.0"
   },

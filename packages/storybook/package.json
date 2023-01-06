@@ -30,12 +30,6 @@
     "url": "https://github.com/inovex/elements/issues"
   },
   "license": "MIT",
-  "scripts": {
-    "dev": "start-storybook -p 6006 -c config --quiet --no-version-updates",
-    "build": "build-storybook -c config -o dist",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
-  },
   "files": [
     "dist/"
   ],

@@ -9,6 +9,14 @@
       "sourceRoot": "elements/src",
       "prefix": "lib",
       "architect": {
+        "serve": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "elements/tsconfig.lib.json",
+            "project": "elements/ng-package.json",
+            "watch": true
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {

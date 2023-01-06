@@ -1,0 +1,60 @@
+{
+  "name": "storybook",
+  "sourceRoot": "packages/storybook/src",
+  "projectType": "application",
+  "tags": [],
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "{projectRoot}/../elements/dist/**/*"]
+  },
+  "targets": {
+    "build": {
+      "outputs": ["{projectRoot}/dist"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/storybook",
+        "command": "build-storybook -c config -o dist",
+        "color": true
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/storybook"
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+        },
+        "prod": {
+          "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
+        }
+      },
+      "dependsOn": ["^start"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/storybook",
+        "command": "eslint src"
+      },
+      "configurations": {
+        "fix": {
+          "command": "eslint src --fix"
+        }
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/storybook",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    }
+  }
+}

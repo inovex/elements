@@ -1,0 +1,56 @@
+{
+  "name": "landingpage",
+  "projectType": "application",
+  "sourceRoot": "packages/landingpage/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "outputs": ["{projectRoot}/dist"],
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/landingpage",
+        "command": "vite build"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/landingpage"
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "vite --port 4500"
+        },
+        "prod": {
+          "command": "vite preview --port 4500"
+        }
+      },
+      "dependsOn": ["^dev"]
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/landingpage",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/landingpage",
+        "command": "eslint --ext .js,.vue --ignore-path .gitignore src"
+      },
+      "configurations": {
+        "fix": {
+          "command": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+        }
+      }
+    }
+  }
+}

@@ -4,11 +4,6 @@
   "version": "8.0.0",
   "private": true,
   "license": "MIT",
-  "scripts": {
-    "serve": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "dependencies": {
     "@inovex.de/elements-react": "^8.0.0",
     "react": "^17.0.2",

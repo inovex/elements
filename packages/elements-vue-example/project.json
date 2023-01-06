@@ -1,0 +1,50 @@
+{
+  "name": "elements-vue-example",
+  "projectType": "application",
+  "sourceRoot": "packages/elements-vue-example/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue-example",
+        "command": "vue-cli-service build"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue-example"
+      },
+      "defaultConfiguration": "dev",
+      "configurations": {
+        "dev": {
+          "command": "vue-cli-service serve --open --port=4400 --host=127.0.0.1"
+        },
+        "prod": {
+          "command": "vue-cli-service serve --open --port=4400 --host=127.0.0.1 --mode=production"
+        }
+      },
+      "dependsOn": ["^dev"]
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue-example",
+        "command": "vue-cli-service lint"
+      }
+    },
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-vue-example",
+        "command": "shx rm -rf dist"
+      },
+      "configurations": {
+        "nodejs": {
+          "command": "shx rm -rf node_modules"
+        }
+      }
+    }
+  }
+}
