@@ -17,6 +17,12 @@ runs:
       with:
         path: '**/node_modules'
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+    - name: restore nx cache
+      uses: actions/cache@v3
+      id: nx-cache
+      with:
+        path: '**/.nx-cache'
+        key: ${{ runner.os }}-nx_ache-${{ hashFiles('CHANGELOG.md') }}
     - name: Install Dependencies
       if: steps.lerna-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
