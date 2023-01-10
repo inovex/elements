@@ -23,7 +23,5 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "removeComments": false
-  },
-  "files": [],
-  "include": []
+  }
 }
