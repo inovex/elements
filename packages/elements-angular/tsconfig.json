@@ -1,23 +1,13 @@
 {
-  "compileOnSave": false,
+  "extends": "../../tsconfig",
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
+    "types": [],
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "noUnusedLocals": false,
     "paths": {
       "@inovex.de/elements-angular": [
         "dist/inovex/elements-angular"

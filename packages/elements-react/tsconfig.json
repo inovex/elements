@@ -1,26 +1,8 @@
 {
   "compilerOptions": {
-    "allowUnreachableCode": false,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
     "lib": ["dom", "es2018"],
-    "importHelpers": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "dist",
     // "declarationDir": "dist/types", ionic team sepeartes between types and transpiled files.
-    "removeComments": false,
-    "inlineSources": true,
-    "sourceMap": true,
-    "jsx": "react",
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "files": [],
   "include": [],
@@ -29,5 +11,5 @@
       "path": "./tsconfig.lib.json"
     }
   ],
-  "extends": "../../tsconfig.base.json"
+  "extends": "../../tsconfig"
 }
