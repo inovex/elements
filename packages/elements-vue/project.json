@@ -12,7 +12,7 @@
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "packages/elements-vue",
-        "command": "tsc -p .",
+        "command": "tsc --project ./tsconfig.lib.json",
         "color": true
       }
     },
@@ -21,7 +21,7 @@
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "packages/elements-vue",
-        "command": "tsc -p ."
+        "command": "tsc --project ./tsconfig.lib.json"
       }
     },
     "clean": {

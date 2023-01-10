@@ -1,15 +1,16 @@
 {
+  "extends": "../../tsconfig",
   "compilerOptions": {
     "lib": ["dom", "es2018"],
     // "declarationDir": "dist/types", ionic team sepeartes between types and transpiled files.
     "skipLibCheck": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
-  "files": [],
-  "include": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"
     }
-  ],
-  "extends": "../../tsconfig"
+  ]
 }
