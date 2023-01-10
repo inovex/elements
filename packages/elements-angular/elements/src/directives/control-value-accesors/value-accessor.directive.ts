@@ -6,7 +6,6 @@ export class ValueAccessorDirective implements ControlValueAccessor {
   constructor(protected el: ElementRef) {}
 
   writeValue(value: any): void {
-    console.log(value)
     this.el.nativeElement.value = this.lastValue = value == null ? '' : value;
   }
 
