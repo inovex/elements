@@ -9,7 +9,6 @@
     "jsx": "react",
     "strict": true,
     "sourceMap": true,
-    "outDir": "dist",
     "allowUnreachableCode": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,

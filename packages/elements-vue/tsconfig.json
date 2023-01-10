@@ -2,6 +2,7 @@
   "extends": "../../tsconfig",
   "compilerOptions": {
     "lib": ["dom", "es2020"],
+    "outDir": "dist",
     "declarationDir": "dist/types",
     "strict": false,
     "typeRoots": [
