@@ -12,7 +12,7 @@ const CommandByFrameworks: Record<Framework, string> = {
   [Framework.VUE]: 'npm install @inovex.de/elements-vue',
   [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
   [Framework.REACT]: 'npm install @inovex.de/elements-react',
-  [Framework.NATIVE]: 'npm install @inovex.de',
+  [Framework.JS]: 'npm install @inovex.de',
 };
 
 const COMMAND_CHIP_ID = 'command-chip';

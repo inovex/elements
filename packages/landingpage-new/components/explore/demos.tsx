@@ -24,7 +24,7 @@ function Demos() {
         >
           <Image
             src={IconByFramework[key as Framework]}
-            alt={key + ' LOGO'}
+            alt={key + ' logo'}
             fill
           />
         </Link>

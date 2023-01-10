@@ -4,15 +4,22 @@ import reactIcon from '@assets/react-icon.svg';
 import jsIcon from '@assets/javascript.svg';
 
 export enum Framework {
-  VUE = 'VUE',
-  ANGULAR = 'ANGULAR',
-  REACT = 'REACT',
-  NATIVE = 'NATIVE',
+  VUE = 'vue',
+  ANGULAR = 'angular',
+  REACT = 'react',
+  JS = 'javascript',
 }
 
 export const IconByFramework: Record<Framework, string> = {
   [Framework.VUE]: vueIcon,
   [Framework.ANGULAR]: angularIcon,
   [Framework.REACT]: reactIcon,
-  [Framework.NATIVE]: jsIcon,
+  [Framework.JS]: jsIcon,
+};
+
+export const NameByFramework: Record<Framework, string> = {
+  [Framework.REACT]: 'React',
+  [Framework.ANGULAR]: 'Angular',
+  [Framework.VUE]: 'Vue',
+  [Framework.JS]: 'JavaScript',
 };
