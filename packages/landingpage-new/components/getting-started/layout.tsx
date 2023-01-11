@@ -2,20 +2,13 @@ import styles from './layout.module.scss';
 import Page from 'components/layout/page';
 import { InoSegmentButton, InoSegmentGroup } from '@elements';
 import { useRouter } from 'next/router';
-import { Frameworks } from './frameworks';
+import { NameByFramework, Framework } from '../../utils/frameworks';
 
 interface Props {
   children: React.ReactNode;
   sandboxUrl: string;
-  framework: Frameworks;
+  framework: Framework;
 }
-
-const NameByFramework: Record<Frameworks, string> = {
-  [Frameworks.REACT]: 'React',
-  [Frameworks.ANGULAR]: 'Angular',
-  [Frameworks.VUE]: 'Vue',
-  [Frameworks.JS]: 'JavaScript',
-};
 
 const GettingStarted = ({ children, framework, sandboxUrl }: Props) => {
   const { push } = useRouter();
@@ -29,7 +22,7 @@ const GettingStarted = ({ children, framework, sandboxUrl }: Props) => {
           value={framework}
           onValueChange={(value) => push(value.detail)}
         >
-          {Object.values(Frameworks).map((framework) => (
+          {Object.values(Framework).map((framework) => (
             <InoSegmentButton key={framework} value={framework}>
               {NameByFramework[framework]}
             </InoSegmentButton>
