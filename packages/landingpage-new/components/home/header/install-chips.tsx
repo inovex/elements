@@ -4,32 +4,15 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
-import angularIcon from '@assets/angular.svg';
-import jsIcon from '@assets/javascript.svg';
-import reactIcon from '@assets/react-icon.svg';
-import vueIcon from '@assets/vue.svg';
-
-enum Framework {
-  NATIVE = 'NATIVE',
-  REACT = 'REACT',
-  ANGULAR = 'ANGULAR',
-  VUE = 'VUE',
-}
+import { Framework, IconByFramework } from '../../../utils/frameworks';
 
 const FrameworksArr = Object.values(Framework);
 
 const CommandByFrameworks: Record<Framework, string> = {
-  [Framework.NATIVE]: 'npm install @inovex.de',
+  [Framework.JS]: 'npm install @inovex.de',
   [Framework.REACT]: 'npm install @inovex.de/elements-react',
   [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
   [Framework.VUE]: 'npm install @inovex.de/elements-vue',
-};
-
-const IconByFramework: Record<Framework, string> = {
-  [Framework.VUE]: vueIcon,
-  [Framework.ANGULAR]: angularIcon,
-  [Framework.REACT]: reactIcon,
-  [Framework.NATIVE]: jsIcon,
 };
 
 const COMMAND_CHIP_ID = 'command-chip';

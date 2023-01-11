@@ -11,7 +11,7 @@ import {
 } from '../shared/InovexElements';
 import { InputType } from '@inovex.de/elements';
 import './Guide.scss';
-import logo from '../../../landingpage/src/assets/logos/elements.svg';
+import logo from '../assets/elements.svg';
 
 export const LoginFormApp: React.FC = () => {
   const [email, setEmail] = React.useState('');
@@ -98,14 +98,14 @@ export const LoginFormApp: React.FC = () => {
               label="email"
               outline
               value={email}
-              onValueChange={value => setEmail(value.detail)}
+              onValueChange={(value) => setEmail(value.detail)}
             ></InoInput>
             <InoInput
               type={hidePassword}
               label="password"
               outline
               value={password}
-              onValueChange={value => setPassword(value.detail)}
+              onValueChange={(value) => setPassword(value.detail)}
             >
               <InoIcon
                 slot="icon-trailing"
@@ -130,11 +130,7 @@ export const LoginFormApp: React.FC = () => {
         <h1>New Here?</h1>
         <p>Sign up here and discover the power of the Elements</p>
         <InoButton id="sign-up">Sign Up</InoButton>
-        <InoPopover
-          for="sign-up"
-          placement="bottom"
-          interactive
-        >
+        <InoPopover for="sign-up" placement="bottom" interactive>
           <div className="styled-popover">
             <InoIcon icon="user"></InoIcon>
             Already have an account? Sign in.

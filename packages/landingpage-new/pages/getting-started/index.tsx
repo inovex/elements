@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
-import { Frameworks } from '../../components/getting-started/frameworks';
-import JsGuidePage from './js';
+import JsGuidePage from './javascript';
+import { Framework } from '../../utils/frameworks';
 
 /**
  * Forwards to javascript guide as default
@@ -10,7 +10,7 @@ const GettingStarted = () => {
   const { pathname, replace } = useRouter();
 
   useMount(() => {
-    replace(pathname + '/' + Frameworks.JS);
+    replace(pathname + '/' + Framework.JS);
   });
 
   return <JsGuidePage />;
