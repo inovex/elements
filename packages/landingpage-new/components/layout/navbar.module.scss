@@ -3,3 +3,12 @@
   gap: 46px;
   align-items: center;
 }
+
+.popover {
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  width: 180px;
+  text-align: center;
+}
