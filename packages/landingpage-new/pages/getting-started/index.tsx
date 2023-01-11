@@ -4,7 +4,7 @@ import { Frameworks } from '../../components/getting-started/frameworks';
 import JsGuidePage from './js';
 
 /**
- * Forwards to react guide as default
+ * Forwards to javascript guide as default
  */
 const GettingStarted = () => {
   const { pathname, replace } = useRouter();
