@@ -11,10 +11,10 @@ interface Props {
 }
 
 const NameByFramework: Record<Frameworks, string> = {
+  [Frameworks.JS]: 'JavaScript',
   [Frameworks.REACT]: 'React',
   [Frameworks.ANGULAR]: 'Angular',
   [Frameworks.VUE]: 'Vue',
-  [Frameworks.JS]: 'JavaScript',
 };
 
 const GettingStarted = ({ children, framework, sandboxUrl }: Props) => {

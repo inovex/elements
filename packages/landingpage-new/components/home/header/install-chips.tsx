@@ -10,19 +10,19 @@ import reactIcon from '@assets/react-icon.svg';
 import vueIcon from '@assets/vue.svg';
 
 enum Framework {
-  VUE = 'VUE',
-  ANGULAR = 'ANGULAR',
-  REACT = 'REACT',
   NATIVE = 'NATIVE',
+  REACT = 'REACT',
+  ANGULAR = 'ANGULAR',
+  VUE = 'VUE',
 }
 
 const FrameworksArr = Object.values(Framework);
 
 const CommandByFrameworks: Record<Framework, string> = {
-  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
-  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
-  [Framework.REACT]: 'npm install @inovex.de/elements-react',
   [Framework.NATIVE]: 'npm install @inovex.de',
+  [Framework.REACT]: 'npm install @inovex.de/elements-react',
+  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
+  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
 };
 
 const IconByFramework: Record<Framework, string> = {
