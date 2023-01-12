@@ -5,6 +5,8 @@ import LinkItem from './linkItem';
 import { InoButton, InoPopover } from '@elements';
 import Link from 'next/link';
 
+const POPOVER_OFFSET = -46;
+
 export default function Navbar() {
   const router = useRouter();
 
@@ -26,9 +28,16 @@ export default function Navbar() {
             trigger="mouseenter"
             controlled={false}
             visible={false}
+            distance={POPOVER_OFFSET}
             colorScheme="transparent"
           >
             <div className={styles.popover}>
+              <LinkItem
+                url={mainRouteUrl}
+                name={mainRouteName}
+                isActive={router.pathname === mainRouteUrl}
+                noMargin={true}
+              />
               {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
                 const subrouteDivider =
                   mainRouteName === 'getting started' ? '/' : '#';
