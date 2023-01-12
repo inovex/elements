@@ -1,0 +1,25 @@
+.slideshow {
+  --ino-carousel-width: 100%;
+  --ino-carousel-height: 100%;
+  width: 1050px;
+  height: 600px;
+  box-shadow: 5px 5px 15px lightgrey;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .slideshow {
+    width: 750px;
+    height: 430px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .slideshow {
+    width: 550px;
+    height: 300px;
+  }
+}
