@@ -5,13 +5,60 @@
   width: 100%;
   background-color: #e9e5fe;
   border-radius: 267px 0px;
+  column-gap: 40px;
 
   div {
-    padding-top: 122px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: start;
     width: 300px;
     text-align: center;
+    margin: auto 0;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .secondContainer {
+    div {
+      width: 250px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .secondContainer {
+    flex-direction: column;
+    row-gap: 30px;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    padding: 70px 0;
+
+    div {
+      margin: auto;
+      width: 75%;
+      height: 300px;
+
+      p {
+        margin: 0.5em 0;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .secondContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .secondContainer {
+    div {
+      height: 350px;
+    }
   }
 }
