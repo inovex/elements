@@ -1,35 +1,34 @@
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
-import { locales } from 'translations/config';
-import styles from './header.module.scss';
 import useTranslation from 'utils/hooks/useTranslation';
+import { InoSwitch } from '@elements';
+import { Supported_Locales } from '../../translations/config';
 
 const LocaleSwitcher = () => {
   const router = useRouter();
   const { locale } = useTranslation();
-  
-  const handleLocaleChange = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      const targetLang = e.currentTarget.innerHTML;
-      const regex = new RegExp(`^/(${locales.join('|')})`);
+
+  const handleLocaleChangeNew = useCallback(
+    (switchToEnglish: boolean) => {
       router.push(
         router.pathname,
-        router.asPath.replace(regex, `/${targetLang}`)
+        switchToEnglish
+          ? router.asPath.replace(Supported_Locales.DE, Supported_Locales.EN)
+          : router.asPath.replace(Supported_Locales.EN, Supported_Locales.DE)
       );
     },
     [router]
   );
+
   return (
     <div>
-      {locales.map((el) => (
-        <b
-          onClick={handleLocaleChange}
-          key={el}
-          className={el === locale ? styles.selected : ''}
-        >
-          {el}
-        </b>
-      ))}
+      <InoSwitch
+        checked={(locale as string) === Supported_Locales.EN}
+        onCheckedChange={(e) => handleLocaleChangeNew(e.detail)}
+      >
+        <p slot="leading">DE</p>
+        <p slot="trailing">EN</p>
+      </InoSwitch>
     </div>
   );
 };
