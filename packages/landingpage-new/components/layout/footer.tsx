@@ -1,5 +1,5 @@
 import styles from './footer.module.scss';
-import { Routes } from '../../utils/routes';
+import {getDividerByMainRoute, MainRoutes, Routes} from '../../utils/routes';
 import LinkItem from './linkItem';
 
 export default function Footer() {
@@ -9,8 +9,7 @@ export default function Footer() {
         <div key={mainRouteUrl} className={styles.col}>
           <LinkItem url={mainRouteUrl} name={mainRouteName} />
           {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
-            const subrouteDivider =
-              mainRouteName === 'getting started' ? '/' : '#';
+            const subrouteDivider = getDividerByMainRoute(mainRouteUrl as MainRoutes);
             return (
               <LinkItem
                 key={subRouteName + subRouteUrl}

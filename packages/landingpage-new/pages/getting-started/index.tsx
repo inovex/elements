@@ -1,19 +1,19 @@
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
-import JsGuidePage from './javascript';
 import { Framework } from '../../utils/frameworks';
+import ReactGuidePage from './react';
 
 /**
- * Forwards to javascript guide as default
+ * Forwards to react guide as default
  */
 const GettingStarted = () => {
   const { pathname, replace } = useRouter();
 
   useMount(() => {
-    replace(pathname + '/' + Framework.JS);
+    replace(pathname + '/' + Framework.REACT);
   });
 
-  return <JsGuidePage />;
+  return <ReactGuidePage />;
 };
 
 export default GettingStarted;
