@@ -6,7 +6,6 @@ import Link from 'next/link';
 
 function ResourceCard() {
   const [cards] = useState([
-    /*Example Card Content*/
     {
       id: 1,
       blog_url: 'https://www.inovex.de/de/blog/inovex-elements-open-source/',
@@ -19,21 +18,11 @@ function ResourceCard() {
     {
       id: 2,
       blog_url:
-        'https://www.inovex.de/de/blog/moderne-produktentwicklung-braucht-gemeinsames-design-und-entwicklung/',
-      blog_img_url: 'https://www.inovex.de/wp-content/uploads/2020/12/test.png',
+        'https://www.inovex.de/en/about-us/open-source/',
+      blog_img_url: 'https://www.inovex.de/wp-content/uploads/inovex-elements-logo-452x304.jpg',
       blog_name:
-        'Moderne Produktentwicklung braucht gemeinsames Design und Entwicklung',
+        'Open-Source Software from inovex',
       ressource_type: 'Article',
-    },
-
-    {
-      id: 3,
-      blog_url:
-        'https://www.inovex.de/de/blog/state-of-the-web-september-2019/',
-      blog_img_url:
-        'https://www.inovex.de/wp-content/uploads/2019/08/state-of-the-web-1-1500x880.png',
-      blog_name: 'State of the Web September 2019: Start here',
-      ressource_type: 'Case Study',
     },
   ]);
 
