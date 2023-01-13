@@ -1,9 +1,6 @@
 p.link {
   cursor: pointer;
-  letter-spacing: 0.21px;
   color: #7275A1;
-  font-size: 1.1rem;
-  font-weight: bold;
 
   &:hover {
     color: #3A3B64;
@@ -14,9 +11,11 @@ p.linkActive {
   color: #2C0CF9;
 }
 
+p.noMargin {
+  margin: 0;
+}
+
 p.linkDense {
-  font-size: 16px;
-  font-weight: normal;
-  letter-spacing: 0.17px;
+  font-weight: lighter !important;
   margin: 0;
 }

@@ -6,7 +6,7 @@ function History() {
   const { t } = useTranslation();
   return (
     <>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         {t('history.title_1')} <b>{t('history.title_2')}</b>
       </h1>
       <div className={styles.container}>

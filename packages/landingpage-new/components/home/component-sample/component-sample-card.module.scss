@@ -1,5 +1,3 @@
-@use '../../../styles/typography';
-
 .card {
   height: 100%;
   width: 100%;
@@ -10,12 +8,13 @@
   left: 24px;
   bottom: 22px;
 }
+
 .component {
-  @include typography.font($size: 14px, $weight: bold);
+  font-weight: bold !important;
 }
 
 .label {
-  @include typography.font($size: 14px, $weight: lighter);
+  font-weight: lighter !important;
 }
 
 .content {

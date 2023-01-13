@@ -10,16 +10,16 @@
   },
   "core_aspects": {
     "first": {
-      "title": "Core Aspect 1",
+      "title": "versatile",
       "text": "Runs on every major framework: Angular, React, Vue or just plain JavaScript."
     },
     "second": {
-      "title": "Core Aspect 2",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+      "title": "consistent",
+      "text": "Consistent UI across all framework technologies."
     },
     "third": {
-      "title": "Core Aspect 3",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+      "title": "futureproof",
+      "text": "Continuous development with the latest technology and creative minds."
     }
   },
   "component_sample": {

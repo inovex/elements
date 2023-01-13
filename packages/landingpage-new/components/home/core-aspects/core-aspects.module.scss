@@ -1,27 +1,64 @@
-.secondContainer {
+.coreAspectsContainer {
   display: flex;
   justify-content: center;
   height: 448px;
   width: 100%;
   background-color: #e9e5fe;
   border-radius: 267px 0px;
+  column-gap: 40px;
 
-  div {
-    padding-top: 122px;
+  .coreAspect {
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     width: 300px;
     text-align: center;
+    margin: auto 0;
   }
+}
 
-  .title {
-    font-size: 22px;
-    font-weight: 900;
+@media only screen and (max-width: 1600px) {
+  .coreAspectsContainer {
+    .coreAspect {
+      width: 250px;
+    }
   }
+}
 
-  .text {
-    font-size: 20px;
-    font-weight: 300;
+@media only screen and (max-width: 1350px) {
+  .coreAspectsContainer {
+    flex-direction: column;
+    row-gap: 30px;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    padding: 70px 0;
+
+    .coreAspect {
+      margin: auto;
+      width: 75%;
+      height: 300px;
+
+      p {
+        margin: 0.5em 0;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .coreAspectsContainer {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .coreAspectsContainer {
+    .coreAspect {
+      height: 350px;
+    }
   }
 }

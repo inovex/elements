@@ -1,14 +1,4 @@
-@use '../../../styles/typography';
-
 $minmax: minmax(210px, 316px);
-
-h1.header {
-  @include typography.font($size: 50px, $weight: lighter);
-  color: #232527;
-  letter-spacing: 0.53px;
-  margin-top: 0;
-  margin-bottom: 4px;
-}
 
 .subHeaderContainer {
   display: flex;
@@ -17,10 +7,8 @@ h1.header {
   column-gap: 8px;
 
   .subheader {
-    @include typography.font;
     max-width: 644px;
     color: #3a3b64;
-    line-height: 19px;
   }
 
   .link {

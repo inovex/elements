@@ -1,31 +1,89 @@
-@use './../components/base/typography';
+@use './../components/base/typography-new';
 @use './../components/base/theme';
+@use './../components/base/new-theme' as new-theme;
 
-:root {
+.inovex-elements-typo {
 
-  /* font-styles */
-  :root, html {
-    font-family: typography.font-family();
-  }
-
-  p {
-    font-size: typography.font-size(s);
-  }
+  font-family: Lato, Verdana, sans-serif;
 
   a {
     background-color: transparent;
-    color: theme.$brand;
+    color: new-theme.$primary;
+    font-weight: bold;
+    text-decoration: none;
   }
 
-  h1 {
-    @include typography.font($size: l, $weight: bold)
+  /************ Displays ************/
+
+  h1.display, .header-d1 {
+    @include typography-new.typo(display-1);
   }
 
-  h2 {
-    @include typography.font($size: m, $weight: semibold)
+  h2.display, .header-d2 {
+    @include typography-new.typo(display-2);
   }
 
-  h3 {
-    @include typography.font($size: m, $weight: medium)
+  h3.display, .header-d3 {
+    @include typography-new.typo(display-3);
+  }
+
+  /************ Headers ************/
+
+  h1, .header-h1 {
+    @include typography-new.typo(headline-1);
+  }
+
+  h2, .header-h2 {
+    @include typography-new.typo(headline-2);
+  }
+
+  h3, .header-h3 {
+    @include typography-new.typo(headline-3);
+  }
+
+  /************ Titles ************/
+
+  h4, .title-l {
+    @include typography-new.typo(title-l);
+  }
+
+  h5, .title-m {
+    @include typography-new.typo(title-m);
+  }
+
+  h6, .title-s {
+    @include typography-new.typo(title-s);
+  }
+
+  /************ Labels ************/
+
+  .label-l {
+    @include typography-new.typo(label-l);
+  }
+
+  .label-m {
+    @include typography-new.typo(label-m);
+  }
+
+  .label-s {
+    @include typography-new.typo(label-s);
+  }
+
+  /************ Body ************/
+
+  .body-l {
+    @include typography-new.typo(body-l);
+  }
+
+  .body-m {
+    @include typography-new.typo(body-m);
+  }
+
+  .body-s {
+    @include typography-new.typo(body-s);
   }
 }
+
+
+
+

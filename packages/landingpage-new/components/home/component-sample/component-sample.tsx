@@ -17,6 +17,7 @@ import { useMedia, useSet } from 'react-use';
 import Link from 'next/link';
 import { MainRoutes } from 'utils/routes';
 import useTranslation from 'utils/hooks/useTranslation';
+import classNames from 'classnames';
 
 enum ChipValues {
   REACT = 'React',
@@ -37,10 +38,10 @@ export default function ComponentSample() {
 
   return (
     <div>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         {t('component_sample.title_1')} <b>{t('component_sample.title_2')}</b>
       </h1>
-      <div className={styles.subHeaderContainer}>
+      <div className={classNames(styles.subHeaderContainer, 'body-l')}>
         <p className={styles.subheader}>{t('component_sample.subheader')}</p>
         <span className={styles.link}>
           <Link href={`${locale}${MainRoutes.LIBRARY}`}>

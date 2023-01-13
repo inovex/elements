@@ -40,7 +40,7 @@ export default function Header() {
             width={48}
             height={55}
           />
-          <p className={styles.name}>elements</p>
+          <p className="title-l">elements</p>
         </a>
       </div>
       <div className={styles.language}>

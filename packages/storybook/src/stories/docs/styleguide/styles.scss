@@ -22,3 +22,29 @@ html {
   flex-direction: column;
   margin-left: 10px;
 }
+
+.typo-box {
+  display: flex;
+  gap: 100px;
+
+  p {
+
+  }
+
+  h2 {
+    border-bottom: unset; // reset storybook styles
+  }
+
+  h6 {
+    color: unset; // reset storybook styles
+  }
+
+  .typo-description {
+    width: 200px;
+    text-align: right;
+  }
+
+  .no-top-margin {
+    margin-top: 0;
+  }
+}

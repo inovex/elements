@@ -1,3 +1,6 @@
 {
-  "title": "Jetzt loslegen"
+  "sandbox": {
+    "title": "Suchen Sie nach weiteren Ressourcen?",
+    "description": "Sehen Sie sich gerne auch unsere Beispielprojekte an"
+  }
 }

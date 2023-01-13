@@ -1,23 +1,12 @@
-@use '../../styles/typography.scss';
-
-h1.header {
-  @include typography.font($size: 50px, $weight: lighter);
-  color: #232527;
-  letter-spacing: 0.53px;
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-
 .container mark {
   padding: 0 5px 0 3px;
-    background: linear-gradient(0, rgba(212, 204, 255, 0.5) 40%, transparent 40%);
-    width: -moz-fit-content;
-    width: fit-content;
+  background: linear-gradient(0, rgba(212, 204, 255, 0.5) 40%, transparent 40%);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .container {
   width: 80%;
-  padding: 50px 0;
   margin: 50px auto;
   position: relative;
   overflow: hidden;
@@ -31,14 +20,14 @@ h1.header {
   margin-left: -1px;
   width: 2px;
   height: 100%;
-  background: #CCD1D9;
+  background: #ccd1d9;
   z-index: 1;
-  margin-top: 65px;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 900px) {
   .container:before {
-     left: 10px;
-     width: 2px;
+    left: 10px;
+    width: 2px;
   }
 }

@@ -6,11 +6,12 @@ import {
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
 import useTranslation from 'utils/hooks/useTranslation';
+import Page from 'components/layout/page';
 
 const Docs: NextPage = () => {
   const { t } = useTranslation();
   return (
-    <>
+    <Page title={[t('common.meta.library')]}>
       <h1>{t('title')}</h1>
       <iframe
         src="https://elements.inovex.de/version/v7.1.2/?path=/story/docs-welcome--page"
@@ -23,7 +24,7 @@ const Docs: NextPage = () => {
           border: 'none',
         }}
       ></iframe>
-    </>
+    </ Page>
   );
 };
 

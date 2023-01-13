@@ -1,3 +1,6 @@
 {
-  "title": "Getting started"
+  "sandbox": {
+    "title": "Looking for more resources?",
+    "description": "Make sure to check out the example projects"
+  }
 }

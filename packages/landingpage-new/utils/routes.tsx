@@ -149,3 +149,12 @@ export const Routes: RouteTree = [
     ],
   },
 ];
+
+export const getDividerByMainRoute = (mainRoute: MainRoutes): '/' | '#' => {
+  switch (mainRoute) {
+    case MainRoutes.GETTING_STARTED:
+      return '/';
+    default:
+      return '#';
+  }
+};

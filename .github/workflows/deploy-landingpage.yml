@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/workflows/dependencies-install
       - run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Storybook Artifact
         uses: actions/upload-artifact@v2

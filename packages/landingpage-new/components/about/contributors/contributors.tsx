@@ -12,7 +12,7 @@ function Contributors({ users }: Params) {
   const { t } = useTranslation();
   return (
     <>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         <b>{t('contributors.title_1')}</b> {t('contributors.title_2')}
       </h1>
       <div className={styles.container}>

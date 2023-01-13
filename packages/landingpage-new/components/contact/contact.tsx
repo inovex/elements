@@ -35,12 +35,11 @@ function Contact() {
         />
       </div>
       <div className={styles.wrapper}>
-        <h1>
-          <span className={styles.bold}>{t('contact.title_1')}</span>{' '}
+        <h1 className="header-d3">
+          <b>{t('contact.title_1')}</b>{' '}
           {t('contact.title_2')}
         </h1>
-        <div className="description">{t('contact.description')}</div>
-
+        <p className="body-l">{t('contact.description')}</p>
         <form className={styles.form_container} onSubmit={onSubmit}>
           {/*          <InoInput
             className={styles.first_name}

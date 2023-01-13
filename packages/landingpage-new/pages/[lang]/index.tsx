@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next/types';
 import { LangContext } from 'types/langContext';
 import Contact from 'components/contact/contact';
-import styles from './home.module.scss';
 import CoreAspects from 'components/home/core-aspects/core-aspects';
 import ComponentSample from 'components/home/component-sample/component-sample';
 import { SubRoutes } from 'utils/routes';
@@ -12,27 +11,35 @@ import {
   getStaticLanguageProps,
 } from 'utils/context/staticPaths';
 import { Locale_File } from 'translations/types';
+import Page from 'components/layout/page';
+import useTranslation from 'utils/hooks/useTranslation';
 
 const Home: NextPage = () => {
+  const { t } = useTranslation();
+
   return (
-    <div className="section-container">
-      <section id={SubRoutes.HOME_INFO}>
-        <Header></Header>
-      </section>
-      <section id={SubRoutes.HOME_CORE_ASPECTS}>
-        <CoreAspects></CoreAspects>
-      </section>
-      <section id={SubRoutes.HOME_COMPONENTS}>
-        <ComponentSample></ComponentSample>
-      </section>
-      <section id={SubRoutes.HOME_CONTACT} className={styles.contact}>
-        <Contact />
-      </section>
-    </div>
+    <Page title={[t('common.meta.home')]}>
+      <div className="section-container">
+        <section id={SubRoutes.HOME_INFO}>
+          <Header></Header>
+        </section>
+        <section id={SubRoutes.HOME_CORE_ASPECTS}>
+          <CoreAspects></CoreAspects>
+        </section>
+        <section id={SubRoutes.HOME_COMPONENTS}>
+          <ComponentSample></ComponentSample>
+        </section>
+        <section id={SubRoutes.HOME_CONTACT}>
+          <Contact />
+        </section>
+      </div>
+    </Page>
   );
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => getStaticLanguageProps(ctx as LangContext, Locale_File.HOME);
-export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
+export const getStaticProps: GetStaticProps = async (ctx) =>
+  getStaticLanguageProps(ctx as LangContext, Locale_File.HOME);
+export const getStaticPaths: GetStaticPaths = async () =>
+  getStaticLanguagePaths();
 
 export default Home;

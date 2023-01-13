@@ -11,7 +11,7 @@
   flex-direction: column;
   row-gap: 10px;
 
-  :first-child {
+  & > :first-child {
     margin-bottom: 20px;
   }
 }

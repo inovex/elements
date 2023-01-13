@@ -1,34 +1,32 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
-import {
-  getStaticLanguagePaths,
-  getStaticLanguageProps,
-} from 'utils/context/staticPaths';
-import { LangContext } from 'types/langContext';
-import { Locale_File } from 'translations/types';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import {InoChip} from '@elements';
-import { getMdxFileContent } from 'utils/mdxSerializer';
-import { Supported_Locales } from 'translations/config';
+import { SubRoutes } from 'utils/routes';
+import Demos from 'components/explore/demos';
+import {GetStaticPaths, GetStaticProps} from 'next';
+import {getStaticLanguagePaths, getStaticLanguageProps} from 'utils/context/staticPaths';
+import {LangContext} from 'types/langContext';
+import {Locale_File} from 'translations/types';
+import Page from 'components/layout/page';
+import useTranslation from 'utils/hooks/useTranslation';
 
-type Props = {
-  mdxSource: MDXRemoteSerializeResult;
-}
+const Explore = () => {
+  const {t} = useTranslation();
 
-const Explore: NextPage<Props> = ({mdxSource}: Props) => {
-  return <MDXRemote {...mdxSource} components={{InoChip}} />;
+  return (
+    <Page title={[t('common.meta.explore')]}>
+      <div className="section-container">
+        <section id={SubRoutes.EXPLORE_DEMOS}>
+          <Demos />
+        </section>
+      </div>
+    </Page>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const {localization} = getStaticLanguageProps(ctx as LangContext, Locale_File.EXPLORE).props;
-  return getMdxFileContent('explore', localization.locale as Supported_Locales).then((mdxSource) => {
-    return {
-      props: {
-        localization,
-        mdxSource
-      }
-    }
-  });
-}
+
+  return { props: { localization } };
+};
+
 export const getStaticPaths: GetStaticPaths = async () => getStaticLanguagePaths();
 
 export default Explore;

@@ -15,6 +15,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import { GithubCommitsPerMonth } from 'types/github';
 import useTranslation from 'utils/hooks/useTranslation';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -71,7 +72,7 @@ function Activity({ commitsPerMonth }: Props) {
 
   return (
     <>
-      <h1 className={styles.header}>
+      <h1 className="header-d3">
         {t('activity.title_1')} <b>{t('activity.title_2')}</b>
       </h1>
       {graphData.datasets[0]?.data.length === 0 ? (

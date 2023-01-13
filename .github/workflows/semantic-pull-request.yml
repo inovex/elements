@@ -46,7 +46,6 @@ jobs:
             elements|ino-dialog
             elements|ino-fab
             elements|ino-fab-set
-            elements|ino-header
             elements|ino-icon
             elements|ino-icon-button
             elements|ino-img
@@ -96,7 +95,6 @@ jobs:
             elements-angular|ino-dialog
             elements-angular|ino-fab
             elements-angular|ino-fab-set
-            elements-angular|ino-header
             elements-angular|ino-icon
             elements-angular|ino-icon-button
             elements-angular|ino-img
@@ -146,7 +144,6 @@ jobs:
             elements-react|ino-dialog
             elements-react|ino-fab
             elements-react|ino-fab-set
-            elements-react|ino-header
             elements-react|ino-icon
             elements-react|ino-icon-button
             elements-react|ino-img
@@ -196,7 +193,6 @@ jobs:
             elements-vue|ino-dialog
             elements-vue|ino-fab
             elements-vue|ino-fab-set
-            elements-vue|ino-header
             elements-vue|ino-icon
             elements-vue|ino-icon-button
             elements-vue|ino-img
@@ -246,7 +242,6 @@ jobs:
             storybook|ino-dialog
             storybook|ino-fab
             storybook|ino-fab-set
-            storybook|ino-header
             storybook|ino-icon
             storybook|ino-icon-button
             storybook|ino-img

@@ -1,10 +1,17 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { MainRoutes, Routes, SubRoutes } from '../../utils/routes';
+import {
+  getDividerByMainRoute,
+  MainRoutes,
+  Routes,
+  SubRoutes,
+} from '../../utils/routes';
 import LinkItem from './linkItem';
-import { InoButton } from '@elements';
+import { InoButton, InoPopover } from '@elements';
 import Link from 'next/link';
 import useTranslation from 'utils/hooks/useTranslation';
+
+const POPOVER_OFFSET = -46;
 
 export default function Navbar() {
   const router = useRouter();
@@ -12,16 +19,67 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {Routes.map(({ name, url }) => (
-        <LinkItem
-          key={url}
-          url={url}
-          name={t(`common.navigation.${name.replace(' ', '_')}.mainroute`)}
-          isActive={router.pathname.slice(7) === url } // remove /[lang] from pathname
-        />
+      {Routes.map(({ name: mainRouteName, url: mainRouteUrl, subRoutes }) => (
+        <div key={mainRouteUrl}>
+          <div id={mainRouteName}>
+            <LinkItem
+              url={mainRouteUrl}
+              name={t(
+                `common.navigation.${mainRouteName.replace(' ', '_')}.mainroute`
+              )}
+              isActive={router.pathname.split('/')[2] === mainRouteUrl.slice(1)} // check first path after [lang]
+            />
+          </div>
+          <InoPopover
+            for={mainRouteName}
+            interactive
+            placement="bottom"
+            trigger="mouseenter"
+            controlled={false}
+            visible={false}
+            distance={POPOVER_OFFSET}
+            colorScheme="transparent"
+          >
+            <div className={styles.popover}>
+              <LinkItem
+                url={mainRouteUrl}
+                name={t(
+                  `common.navigation.${mainRouteName.replace(
+                    ' ',
+                    '_'
+                  )}.mainroute`
+                )}
+                isActive={
+                  router.pathname.split('/')[2] === mainRouteUrl.slice(1)
+                }
+                noMargin={true}
+              />
+              {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
+                const subrouteDivider = getDividerByMainRoute(
+                  mainRouteUrl as MainRoutes
+                );
+                return (
+                  <LinkItem
+                    key={subRouteName + subRouteUrl}
+                    url={`${mainRouteUrl}${subrouteDivider}${subRouteUrl}`}
+                    name={t(
+                      `common.navigation.${mainRouteName.replace(
+                        ' ',
+                        '_'
+                      )}.subroutes.${subRouteName.replace(' ', '_')}`
+                    )}
+                    isDense={true}
+                  />
+                );
+              })}
+            </div>
+          </InoPopover>
+        </div>
       ))}
-      <Link href={`${MainRoutes.HOME}${locale}#${SubRoutes.HOME_CONTACT}`}>
-        <InoButton><span>{t('common.navigation.contact')}</span></InoButton>
+      <Link href={`/${locale}#${SubRoutes.HOME_CONTACT}`}>
+        <InoButton>
+          <span>{t('common.navigation.contact')}</span>
+        </InoButton>
       </Link>
     </nav>
   );

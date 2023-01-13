@@ -204,11 +204,19 @@ $hover-color: lighten(theme.color(primary), 36.5%);
     width: 30%;
     margin: 3px;
     border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
 
     &.selected {
       background-color: theme.color(primary);
+      border-color: theme.color(primary);
       font-weight: typography.font-weight(semibold);
       color: white;
+    }
+
+    &.today {
+      border-color: theme.color(primary);
+      color: theme.color(primary);
     }
 
     &:hover:not(.selected) {

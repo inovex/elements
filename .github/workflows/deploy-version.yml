@@ -19,6 +19,8 @@ jobs:
       - uses: ./.github/workflows/dependencies-install
       - run: npm config set scripts-prepend-node-path true
       - run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload all build artifacts
         uses: ./.github/workflows/artifacts-upload
         with:
@@ -32,6 +34,12 @@ jobs:
       newTag: ${{ steps.tag_version.outputs.new_tag }}
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: https://registry.npmjs.org
+          scope: '@inovex.de' # important for yarn
+          always-auth: true
       - name: Create version tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
@@ -40,6 +48,8 @@ jobs:
       - uses: ./.github/workflows/artifacts-download
         with:
           download-core-artifacts: true
+          check-artifacts: true # search in current workflow run
+          workflow-conclusion: "in_progress" # need to change to in_progress, cause current workflow run is always running
       - name: Prepare git config
         run: |
           git config --global user.name "${{ github.actor }}"
@@ -84,6 +94,8 @@ jobs:
         with:
           name: storybook
           path: version/${{ needs.publish.outputs.newTag }} # Push to the proper directory on gh pages branch.
+          check-artifacts: true # search in current workflow run
+          workflow-conclusion: "in_progress" # need to change to in_progress, cause current workflow run is always running
       - name: Provide latest symlink
         run: cd version && rm -f latest && ln -s ${{ needs.publish.outputs.newTag }} latest
         shell: bash

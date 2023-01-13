@@ -8,6 +8,7 @@ type Props = {
   name: string;
   isActive?: boolean;
   isDense?: boolean;
+  noMargin?: boolean;
 };
 
 export default function LinkItem({
@@ -15,6 +16,7 @@ export default function LinkItem({
   name,
   isActive = false,
   isDense = false,
+  noMargin = false,
 }: Props) {
   const { locale } = useTranslation();
 
@@ -24,7 +26,9 @@ export default function LinkItem({
         className={classNames(
           styles.link,
           isActive && styles.linkActive,
-          isDense && styles.linkDense
+          noMargin && styles.noMargin,
+          isDense && styles.linkDense,
+          isDense ? 'title-m' : 'title-l'
         )}
       >
         {name.toLowerCase()}

@@ -1,3 +1,6 @@
 {
-    "title": "Explore"
+  "demos": {
+    "title_1": "demo",
+    "title_2": "projects"
+  }
 }

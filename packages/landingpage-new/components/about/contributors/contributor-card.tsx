@@ -3,6 +3,7 @@ import styles from './contributor-card.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Card from 'components/shared/card';
+import classNames from 'classnames';
 
 interface Props {
   role: string;
@@ -28,14 +29,14 @@ const ContributorsCard: FunctionComponent<Props> = ({
         alt={`Avatar of ${username}`}
       />
     }
-    headerClassName={styles.center}
+    headerClassName={classNames(styles.center, 'body-l')}
     content={
       <Link href={profileLink} target="_blank">
         {username}
       </Link>
     }
     contentClassName={styles.center}
-    footer={<div className={styles.role}>{role}</div>}
+    footer={<div className={classNames(styles.role, 'body-s')}>{role}</div>}
     footerClassName={styles.footer + ' ' + styles.center}
   />
 );

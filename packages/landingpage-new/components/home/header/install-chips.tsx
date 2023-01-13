@@ -9,40 +9,30 @@ import jsIcon from '@assets/javascript.svg';
 import reactIcon from '@assets/react-icon.svg';
 import vueIcon from '@assets/vue.svg';
 import useTranslation from 'utils/hooks/useTranslation';
-
-enum Framework {
-  VUE = 'VUE',
-  ANGULAR = 'ANGULAR',
-  REACT = 'REACT',
-  NATIVE = 'NATIVE',
-}
+import { Framework, IconByFramework } from '../../../utils/frameworks';
 
 const FrameworksArr = Object.values(Framework);
 
 const CommandByFrameworks: Record<Framework, string> = {
-  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
-  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
+  [Framework.JS]: 'npm install @inovex.de',
   [Framework.REACT]: 'npm install @inovex.de/elements-react',
-  [Framework.NATIVE]: 'npm install @inovex.de',
-};
-
-const IconByFramework: Record<Framework, string> = {
-  [Framework.VUE]: vueIcon,
-  [Framework.ANGULAR]: angularIcon,
-  [Framework.REACT]: reactIcon,
-  [Framework.NATIVE]: jsIcon,
+  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
+  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
 };
 
 const COMMAND_CHIP_ID = 'command-chip';
 
 export default function InstallChips() {
-  const [manuallySelectedFramework, setManuallySelectedFramework] =
-    useState<Framework | null>(null);
+  const [
+    manuallySelectedFramework,
+    setManuallySelectedFramework,
+  ] = useState<Framework | null>(null);
   const [carouselFramework, setCarouselFramework] = useState<Framework>(
     Framework.VUE
   );
-  const [currentFramework, setCurrentFramework] =
-    useState<Framework>(carouselFramework);
+  const [currentFramework, setCurrentFramework] = useState<Framework>(
+    carouselFramework
+  );
 
   const [, copyToClipboard] = useCopyToClipboard();
   const [showTooltip, setShowTooltip] = useState(false);
@@ -89,7 +79,8 @@ export default function InstallChips() {
         <p
           className={classNames(
             styles.successMessage,
-            showTooltip && styles.successMessageShow
+            showTooltip && styles.successMessageShow,
+            'body-m'
           )}
         >
           {t('header.clipboard_success')}

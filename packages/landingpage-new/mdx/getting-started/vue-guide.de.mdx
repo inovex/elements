@@ -1,0 +1,108 @@
+import {CH} from '@code-hike/mdx/components';
+
+# Integration mit Vue.js
+
+## Vue.js 3
+
+Bitte folgen Sie diesen Schritten für die Integration in Vue.js(>= 3.0.0):
+
+### Installieren Sie das Paket `@inovex.de/elements-vue`
+
+Fügen Sie das Paket `@inovex.de/elements-vue` mit **npm** or **yarn** zu Ihrem Projekt hinzu:
+<CH.Code>
+  ```bash npm
+  npm install @inovex.de/elements-vue --save
+  ```
+  ```bash yarn
+  yarn add @inovex.de/elements-vue
+  ```
+</CH.Code>
+
+### Vorbereitung
+
+<CH.Section>
+
+[Importieren Sie das elements Modul](focus://2) und [verwenden Sie es in Ihrer App](focus://6).
+
+```javascript main.js
+import { createApp } from 'vue';
+import { InoElementsVue } from '@inovex.de/elements-vue';
+import App from './App.vue'
+
+const app = createApp(App);
+app.use(InoElementsVue);
+app.mount('#app');
+
+```
+</CH.Section>
+
+### Die Komponenten verwenden
+Da die Integration nun abgeschlossen ist, können Sie die Komponenten in Ihrem Projekt genauso verwenden wie jede andere Vue.js Komponente.
+Hier ist ein Beispiel:
+<CH.Code>
+```javascript app.vue
+import { InoButton } from "@inovex.de/elements-vue";
+
+export default {
+    name: 'ExampleApp',
+    components: {
+        InoButton,
+    },
+    data: () => ({
+        myData: [],
+    }),
+    methods: {
+        foo() {}
+    }
+}
+```
+
+</CH.Code>
+
+## Vue.js 2
+
+Bitte folgen Sie diesen Schritten für die Integration in Vue.js(2.x.x):
+
+### Installieren Sie das Paket `@inovex.de/elements`
+
+Fügen Sie das Paket `@inovex.de/elements` mit **npm** or **yarn** zu Ihrem Projekt hinzu:
+<CH.Code>
+  ```bash npm
+  npm install @inovex.de/elements --save
+  ```
+  ```bash yarn
+  yarn add @inovex.de/elements
+  ```
+</CH.Code>
+
+### Vorbereitung
+
+<CH.Section>
+Bevor Sie mit der Verwendung der Komponenten beginnen, müssen Sie das Projekt vorbereiten.
+
+Dazu öffnen Sie `src/main.js` und ...
+- ... [definieren Sie die benutzerdefinierten Elemente (dies sind die inovex Elemente Web Components)](focus://1:4,12:14)
+- ... [weisen Sie den Vue-Compiler an, benutzerdefinierte Elemente, die mit `ino-` beginnen, während der Kompilierung zu ignorieren](focus://10)
+- ... [importieren Sie die Icons](focus://5:8)
+
+```javascript main.js
+import {
+  applyPolyfills,
+  defineCustomElements,
+} from '@inovex.de/elements/dist/loader';
+import { addIcons } from '@inovex.de/elements/dist/collection/util/icons';
+import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm.js';
+
+addIcons(ICON_PATHS);
+
+Vue.config.ignoredElements = [ /^ino-/ ];
+
+applyPolyfills().then(() => {
+  defineCustomElements();
+});
+```
+</CH.Section>
+
+### 3) Die Komponenten verwenden
+
+Sie können nun die Komponenten in Ihrem Vue.js-Projekt auf die gleiche Weise verwenden, wie Sie jedes native HTML-Element verwenden würden.

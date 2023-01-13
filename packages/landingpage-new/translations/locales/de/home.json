@@ -4,24 +4,24 @@
     "title_2": "für jedes",
     "title_mark": "Framework",
     "subtitle_1":
-      "Es ist schwierig, UI-Komponenten zu erstellen und zu pflegen. Fangen Sie nicht jedes Mal von vorne an, wenn Sie ein neues Projekt erstellen. Erstellen Sie sie einmal und setzen Sie sie überall ein!",
+      "Es ist herausfordernd, UI-Komponenten zu erstellen und zu pflegen. Fange nicht jedes Mal von vorne an, wenn Du ein neues Projekt erstellst. Erstelle Komponenten einmal und setze sie überall ein!",
     "subtitle_2":
-      "Verwenden Sie unsere Open-Source-Bibliothek für UI-Komponenten",
+      "Verwende gerne unsere Open-Source-Bibliothek für UI-Komponenten",
     "getting_started": "Jetzt loslegen",
     "clipboard_success": "In die Zwischenablage kopiert ✓"
   },
   "core_aspects": {
     "first": {
-      "title": "Kernaspekt 1",
+      "title": "vielseitig",
       "text": "Läuft mit jedem größeren Framework: Angular, React, Vue oder reines JavaScript."
     },
     "second": {
-      "title": "Kernaspekt 2",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+      "title": "einheitlich",
+      "text": "Konsistente Benutzeroberfläche über alle Framework-Technologien hinweg."
     },
     "third": {
-      "title": "Kernaspekt 3",
-      "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+      "title": "zukunftssicher",
+      "text": "Kontinuierliche Entwicklung mit der neuesten Technologie und kreativen Köpfen."
     }
   },
   "component_sample": {
@@ -32,8 +32,8 @@
     "button": "Ich bin ein Button"
   },
   "contact": {
-    "title_1": "kontaktiere",
-    "title_2": "uns",
+    "title_1": "kontaktieren",
+    "title_2": "Sie uns",
     "description": "Haben Sie Fragen, Anregungen oder wollen Sie mit uns zusammenarbeiten? Dann freuen wir uns auf Ihre Nachricht!",
     "label_subject": "Betreff",
     "label_message": "Nachricht",
