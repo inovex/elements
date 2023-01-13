@@ -17,43 +17,47 @@ function ResourceCard() {
     },
     {
       id: 2,
-      blog_url:
-        'https://www.inovex.de/en/about-us/open-source/',
-      blog_img_url: 'https://www.inovex.de/wp-content/uploads/inovex-elements-logo-452x304.jpg',
-      blog_name:
-        'Open-Source Software from inovex',
+      blog_url: 'https://www.inovex.de/en/about-us/open-source/',
+      blog_img_url:
+        'https://www.inovex.de/wp-content/uploads/inovex-elements-logo-452x304.jpg',
+      blog_name: 'Open-Source Software from inovex',
       ressource_type: 'Article',
     },
   ]);
 
   return (
-    <div className={styles.row}>
-      {cards.map((card) => {
-        const props: Props = {
-          header: (
-            <Link href={card.blog_url}>
-              <Image
-                width={250}
-                height={100}
-                className={styles.Image}
-                src={card.blog_img_url}
-                alt={`blog image of ${card.blog_name}`}
-              />
-            </Link>
-          ),
-          content: (
-            <Link href={card.blog_url}>
-              <div className={styles.header}>{card.blog_name}</div>
-            </Link>
-          ),
-          contentClassName: styles.title,
-          footer: <>{card.ressource_type}</>,
-          footerClassName: styles.footer,
-        };
+    <>
+      <h1 className="header-d3">
+        the <b>Resources</b>
+      </h1>
+      <div className={styles.row}>
+        {cards.map((card) => {
+          const props: Props = {
+            header: (
+              <Link href={card.blog_url}>
+                <Image
+                  width={250}
+                  height={100}
+                  className={styles.Image}
+                  src={card.blog_img_url}
+                  alt={`blog image of ${card.blog_name}`}
+                />
+              </Link>
+            ),
+            content: (
+              <Link href={card.blog_url}>
+                <div className={styles.header}>{card.blog_name}</div>
+              </Link>
+            ),
+            contentClassName: styles.title,
+            footer: <>{card.ressource_type}</>,
+            footerClassName: styles.footer,
+          };
 
-        return <Card key={card.id} {...props} />;
-      })}
-    </div>
+          return <Card key={card.id} {...props} />;
+        })}
+      </div>
+    </>
   );
 }
 
