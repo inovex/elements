@@ -6,8 +6,8 @@ import Image from 'next/image';
 
 export default function CoreAspects() {
   return (
-    <div className={styles.secondContainer}>
-      <div>
+    <div className={styles.coreAspectsContainer}>
+      <div className={styles.coreAspect}>
         <Image
           src={versatile}
           alt="versatile image"
@@ -20,7 +20,7 @@ export default function CoreAspects() {
           JavaScript.
         </p>
       </div>
-      <div>
+      <div className={styles.coreAspect}>
         <Image
           src={consistent}
           alt="consistent image"
@@ -29,10 +29,10 @@ export default function CoreAspects() {
         />
         <p className="title-l">consistent</p>
         <p className="body-l">
-          Continuous development with the latest technology and creative minds.
+          Consistent UI across all framework technologies.
         </p>
       </div>
-      <div>
+      <div className={styles.coreAspect}>
         <Image
           src={futureproof}
           alt="futureproof image"
@@ -41,7 +41,7 @@ export default function CoreAspects() {
         />
         <p className="title-l">futureproof</p>
         <p className="body-l">
-          Consistent UI across all framework technologies.
+          Continuous development with the latest technology and creative minds.
         </p>
       </div>
     </div>

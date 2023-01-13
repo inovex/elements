@@ -1,4 +1,4 @@
-.secondContainer {
+.coreAspectsContainer {
   display: flex;
   justify-content: center;
   height: 448px;
@@ -7,12 +7,12 @@
   border-radius: 267px 0px;
   column-gap: 40px;
 
-  div {
+  .coreAspect {
     height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     width: 300px;
     text-align: center;
     margin: auto 0;
@@ -20,15 +20,15 @@
 }
 
 @media only screen and (max-width: 1600px) {
-  .secondContainer {
-    div {
+  .coreAspectsContainer {
+    .coreAspect {
       width: 250px;
     }
   }
 }
 
 @media only screen and (max-width: 1350px) {
-  .secondContainer {
+  .coreAspectsContainer {
     flex-direction: column;
     row-gap: 30px;
     height: 100%;
@@ -36,7 +36,7 @@
     margin: auto;
     padding: 70px 0;
 
-    div {
+    .coreAspect {
       margin: auto;
       width: 75%;
       height: 300px;
@@ -50,14 +50,14 @@
 
 
 @media only screen and (max-width: 800px) {
-  .secondContainer {
+  .coreAspectsContainer {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .secondContainer {
-    div {
+  .coreAspectsContainer {
+    .coreAspect {
       height: 350px;
     }
   }
