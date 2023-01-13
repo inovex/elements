@@ -19,7 +19,7 @@ export default function Navbar() {
 
   function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
     const pathSplit = router.pathname.split('/');
-    if (pathSplit.length === 2 && mainRouteName === 'home') return true;
+    if (pathSplit.length <= 2 && mainRouteName === 'home') return true;
     else return pathSplit[2] === mainRouteUrl.slice(1); // check first path after [lang]
   }
 
