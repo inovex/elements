@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from './navbar.module.scss';
-import { MainRoutes, Routes, SubRoutes } from '../../utils/routes';
+import {getDividerByMainRoute, MainRoutes, Routes, SubRoutes} from '../../utils/routes';
 import LinkItem from './linkItem';
 import { InoButton, InoPopover } from '@elements';
 import Link from 'next/link';
@@ -39,8 +39,7 @@ export default function Navbar() {
                 noMargin={true}
               />
               {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
-                const subrouteDivider =
-                  mainRouteName === 'getting started' ? '/' : '#';
+                const subrouteDivider = getDividerByMainRoute(mainRouteUrl as MainRoutes);
                 return (
                   <LinkItem
                     key={subRouteName + subRouteUrl}
