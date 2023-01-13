@@ -1,0 +1,33 @@
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 5px;
+  
+    ino-card {
+      margin-right: 50px;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+  
+  .title {
+    display: flex;
+    justify-content: center;
+    min-height: 80px;
+  }
+  
+  .header {
+    word-wrap: break-word;
+    max-width: 200px;
+  }
+  
+  .Image {
+    object-fit: contain;
+  }
+  
+  .footer {
+    font-weight: lighter;
+  }

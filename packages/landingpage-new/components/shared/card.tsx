@@ -39,3 +39,4 @@ const Card: FunctionComponent<Props> = ({
 );
 
 export default Card;
+export type { Props };
