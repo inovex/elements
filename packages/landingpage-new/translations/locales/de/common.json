@@ -54,5 +54,9 @@
     "getting_started": "Erste Schritte",
     "library": "Bibliothek",
     "about": "Über uns"
+  },
+  "404": {
+    "description": "Dies ist wahrscheinlich nicht die Seite, nach der Sie suchen.",
+    "button": "Zurück zur Startseite"
   }
 }

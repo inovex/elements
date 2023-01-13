@@ -54,5 +54,9 @@
     "getting_started": "Getting Started",
     "library": "Library",
     "about": "About"
+  },
+  "404": {
+    "description": "This is probably not the page you are looking for.",
+    "button": "Take me back"
   }
 }

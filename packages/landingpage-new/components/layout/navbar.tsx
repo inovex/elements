@@ -17,6 +17,12 @@ export default function Navbar() {
   const router = useRouter();
   const { t, locale } = useTranslation();
 
+  function isRouteActive(mainRouteUrl: string, mainRouteName: string) {
+    const pathSplit = router.pathname.split('/');
+    if (pathSplit.length === 2 && mainRouteName === 'home') return true;
+    else return pathSplit[2] === mainRouteUrl.slice(1); // check first path after [lang]
+  }
+
   return (
     <nav className={styles.navbar}>
       {Routes.map(({ name: mainRouteName, url: mainRouteUrl, subRoutes }) => (
@@ -27,7 +33,7 @@ export default function Navbar() {
               name={t(
                 `common.navigation.${mainRouteName.replace(' ', '_')}.mainroute`
               )}
-              isActive={router.pathname.split('/')[2] === mainRouteUrl.slice(1)} // check first path after [lang]
+              isActive={isRouteActive(mainRouteUrl, mainRouteName)}
             />
           </div>
           <InoPopover
@@ -49,9 +55,7 @@ export default function Navbar() {
                     '_'
                   )}.mainroute`
                 )}
-                isActive={
-                  router.pathname.split('/')[2] === mainRouteUrl.slice(1)
-                }
+                isActive={isRouteActive(mainRouteUrl, mainRouteName)}
                 noMargin={true}
               />
               {subRoutes.map(({ name: subRouteName, url: subRouteUrl }) => {
