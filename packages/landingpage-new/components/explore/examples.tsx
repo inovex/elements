@@ -13,8 +13,8 @@ function Examples() {
     <InoCarousel className={styles.slideshow} hideButtons autoplay animated infinite>
       <InoCarouselSlide value="0" src={`${basePath}/jarvis.png`}></InoCarouselSlide>
       <InoCarouselSlide value="1" src={`${basePath}/selfservice.png`}></InoCarouselSlide>
-      <InoCarouselSlide value="1" src={`${basePath}/selfonboarding.png`}></InoCarouselSlide>
-      <InoCarouselSlide value="1" src={`${basePath}/inca.png`}></InoCarouselSlide>
+      <InoCarouselSlide value="2" src={`${basePath}/selfonboarding.png`}></InoCarouselSlide>
+      <InoCarouselSlide value="3" src={`${basePath}/inca.png`}></InoCarouselSlide>
     </InoCarousel>
   </>;
 }
