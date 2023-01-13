@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useMount } from 'react-use';
-import ReactGuidePage from './react';
 import { Framework } from '../../utils/frameworks';
+import ReactGuidePage from './react';
 
 /**
  * Forwards to react guide as default

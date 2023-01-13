@@ -9,10 +9,10 @@ import { Framework, IconByFramework } from '../../../utils/frameworks';
 const FrameworksArr = Object.values(Framework);
 
 const CommandByFrameworks: Record<Framework, string> = {
-  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
-  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
-  [Framework.REACT]: 'npm install @inovex.de/elements-react',
   [Framework.JS]: 'npm install @inovex.de',
+  [Framework.REACT]: 'npm install @inovex.de/elements-react',
+  [Framework.ANGULAR]: 'ng add @inovex.de/elements-angular',
+  [Framework.VUE]: 'npm install @inovex.de/elements-vue',
 };
 
 const COMMAND_CHIP_ID = 'command-chip';
