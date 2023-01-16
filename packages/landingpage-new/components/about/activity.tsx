@@ -68,7 +68,7 @@ function Activity({ commitsPerMonth }: Props) {
         },
       ],
     });
-  }, [commitsPerMonth]);
+  }, [commitsPerMonth, t]);
 
   return (
     <>

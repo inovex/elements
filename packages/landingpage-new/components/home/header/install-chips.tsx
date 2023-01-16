@@ -4,10 +4,6 @@ import { useCopyToClipboard, useInterval, useTimeoutFn } from 'react-use';
 import Image from 'next/image';
 import styles from './install-chips.module.scss';
 import classNames from 'classnames';
-import angularIcon from '@assets/angular.svg';
-import jsIcon from '@assets/javascript.svg';
-import reactIcon from '@assets/react-icon.svg';
-import vueIcon from '@assets/vue.svg';
 import useTranslation from 'utils/hooks/useTranslation';
 import { Framework, IconByFramework } from '../../../utils/frameworks';
 
