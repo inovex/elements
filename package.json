@@ -127,10 +127,7 @@
   },
   "workspaces": {
     "packages": [
-      "dist/*",
-      "packages/elements-*/",
-      "packages/landingpage*/",
-      "packages/storybook",
+      "packages/*",
       "packages/elements-angular/elements"
     ],
     "nohoist": [

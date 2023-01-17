@@ -2,7 +2,7 @@ import { NgZone, InjectionToken } from '@angular/core';
 import {
   applyPolyfills,
   defineCustomElements,
-} from '@inovex.de/elements/loader';
+} from '@inovex.de/elements/dist/loader';
 import { raf } from './utils';
 import { InoElementsWindow, InoElementsConfig } from '@inovex.de/elements';
 

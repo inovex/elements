@@ -1,5 +1,5 @@
 import { App, Plugin } from 'vue';
-import { defineCustomElements } from '@inovex.de/elements/loader';
+import { defineCustomElements } from '@inovex.de/elements/dist/loader';
 // @ts-ignore
 import { addIcons } from '@inovex.de/elements/dist/collection/util/icons.js';
 import { ICON_PATHS } from '@inovex.de/elements/dist/inovex-elements/ino-icon/index.esm';

@@ -25,7 +25,6 @@ export const config: Config = {
     {
       type: 'dist',
       copy: [{ src: 'assets/ino-icon', dest: 'ino-icon' }],
-      esmLoaderPath: '../loader',
     },
     { type: 'docs-readme' },
     {

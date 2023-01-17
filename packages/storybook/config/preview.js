@@ -2,7 +2,7 @@
 import {
   applyPolyfills,
   defineCustomElements,
-} from '@inovex.de/elements/loader';
+} from '@inovex.de/elements/dist/loader';
 
 import './global.scss';
 import {

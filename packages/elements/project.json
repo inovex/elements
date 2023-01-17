@@ -9,6 +9,25 @@
   },
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements/dist"],
+      "options": {
+        "commands": [
+          "nx run elements:compile",
+          "shx cp -r dist/elements/dist packages/elements"
+        ],
+        "parallel": false
+      },
+      "configurations": {
+        "dev": {
+          "commands": [
+            "nx run elements:compile:dev",
+            "shx cp -r dist/elements/dist packages/elements"
+          ]
+        }
+      }
+    },
     "test": {
       "executor": "@nxext/stencil:test",
       "outputs": ["{options.outputPath}"],
@@ -16,17 +35,17 @@
         "projectType": "library",
         "tsConfig": "packages/elements/tsconfig.lib.json",
         "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "packages/elements"
+        "outputPath": "dist/elements"
       }
     },
-    "build": {
+    "compile": {
       "executor": "@nxext/stencil:build",
       "outputs": ["{options.outputPath}"],
       "options": {
         "projectType": "library",
         "tsConfig": "packages/elements/tsconfig.lib.json",
         "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "packages/elements/",
+        "outputPath": "dist/elements/",
         "ci": true,
         "dev": false,
         "prod": true,
