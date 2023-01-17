@@ -2,96 +2,44 @@
   "name": "elements",
   "sourceRoot": "packages/elements/src",
   "projectType": "library",
-  "generators": {
-    "@nxext/stencil:component": {
-      "style": "scss"
-    }
-  },
   "tags": [],
   "targets": {
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["packages/elements/dist"],
       "options": {
-        "commands": [
-          "nx run elements:compile",
-          "shx cp -r dist/elements/dist packages/elements"
-        ],
-        "parallel": false
-      },
-      "configurations": {
-        "dev": {
-          "commands": [
-            "nx run elements:compile:dev",
-            "shx cp -r dist/elements/dist packages/elements"
-          ]
-        }
-      }
-    },
-    "test": {
-      "executor": "@nxext/stencil:test",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "projectType": "library",
-        "tsConfig": "packages/elements/tsconfig.lib.json",
-        "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "dist/elements"
-      }
-    },
-    "compile": {
-      "executor": "@nxext/stencil:build",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "projectType": "library",
-        "tsConfig": "packages/elements/tsconfig.lib.json",
-        "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "dist/elements/",
-        "ci": true,
-        "dev": false,
-        "prod": true,
-        "verbose": true,
-        "watch": false
-      },
-      "configurations": {
-        "dev": {
-          "ci": true,
-          "dev": true,
-          "prod": false,
-          "watch": false,
-          "verbose": true
-        }
+        "cwd": "packages/elements",
+        "command": "stencil build --ci"
       }
     },
     "start": {
-      "executor": "@nxext/stencil:build",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-commands",
       "options": {
-        "projectType": "library",
-        "tsConfig": "packages/elements/tsconfig.lib.json",
-        "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "dist/elements",
-        "ci": false,
-        "dev": true,
-        "prod": false,
-        "watch": true,
-        "verbose": true
+        "cwd": "packages/elements",
+        "command": "stencil build --watch --ci"
       }
     },
-    "e2e": {
-      "executor": "@nxext/stencil:e2e",
-      "outputs": ["{options.outputPath}"],
+    "test": {
+      "executor": "nx:run-commands",
       "options": {
-        "projectType": "library",
-        "tsConfig": "packages/elements/tsconfig.lib.json",
-        "configPath": "packages/elements/stencil.config.ts",
-        "outputPath": "dist/elements"
+        "cwd": "packages/elements",
+        "command": "stencil test --e2e"
+      },
+      "configurations": {
+        "watch": {
+          "command": "stencil test --e2e --watch"
+        }
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": "packages/elements/**/*.{ts,tsx}"
+        "lintFilePatterns": [
+          "packages/elements/src/*.{ts,tsx}",
+          "packages/elements/scripts/*.{ts,tsx}",
+          "packages/elements/output-targets/*.{ts,tsx}"
+        ]
       }
     },
     "icons": {

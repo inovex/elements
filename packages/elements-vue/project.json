@@ -7,11 +7,16 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/elements-vue",
-        "command": "tsc --project ./tsconfig.lib.json"
+        "command": "nx run elements-vue:compile"
       }
     },
-    "dev": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "nx watch --projects=elements-vue -- nx run elements-vue:compile"
+      }
+    },
+    "compile": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/elements-vue",

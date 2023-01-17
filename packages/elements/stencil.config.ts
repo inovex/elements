@@ -17,8 +17,9 @@ export const config: Config = {
   },
   globalScript: path.join(__dirname, 'src/util/import-fonts.ts'),
   globalStyle: path.join(__dirname, 'src/global/styles.scss'),
+  tsconfig: path.join(__dirname, 'tsconfig.lib.json'),
   enableCache: true,
-  sourceMap: false, //process.env.NODE_ENV === 'development',
+  sourceMap: process.env.NODE_ENV === 'development',
   namespace: 'inovex-elements',
   taskQueue: 'async',
   outputTargets: [

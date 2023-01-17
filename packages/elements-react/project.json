@@ -7,21 +7,20 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/elements-react",
-        "command": "tsc --project ./tsconfig.lib.json"
-      }
-    },
-    "dev": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements-react",
-        "command": "tsc --project ./tsconfig.lib.json"
+        "command": "nx run elements-react:compile"
       }
     },
     "start": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "nx watch --projects=elements-react -- nx run elements-react:dev"
+        "command": "nx watch --projects=elements-react -- nx run elements-react:compile"
+      }
+    },
+    "compile": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "packages/elements-react",
+        "command": "tsc --project ./tsconfig.lib.json"
       }
     },
     "clean": {
