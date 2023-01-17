@@ -1,16 +1,15 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "lib": ["dom", "es2020"],
     "outDir": "dist",
+    "lib": ["dom", "es2020"],
     "declarationDir": "dist/types",
     "strict": false,
+    "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types"
     ]
   },
-  "files": [],
-  "include": [],
   "references": [
     {
       "path": "./tsconfig.lib.json"

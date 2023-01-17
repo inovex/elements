@@ -1,8 +1,8 @@
-@use 'base/mdc-customize';
+@use '../base/mdc-customize';
 @use '@material/button/mdc-button';
 @use '@material/button';
-@use 'base/theme';
-@use 'base/typography';
+@use '../base/theme';
+@use '../base/typography';
 
 ino-segment-group.ino-segment-group {
   width: fit-content;

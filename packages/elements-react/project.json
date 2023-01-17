@@ -3,13 +3,9 @@
   "sourceRoot": "packages/elements-react/src",
   "projectType": "library",
   "tags": [],
-  "namedInputs": {
-    "default": ["{projectRoot}/src/**/*", "{projectRoot}/../elements/dist/**/*"]
-  },
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "packages/elements-react",
         "command": "tsc --project ./tsconfig.lib.json"
@@ -17,7 +13,6 @@
     },
     "dev": {
       "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "packages/elements-react",
         "command": "tsc --project ./tsconfig.lib.json"
@@ -25,21 +20,18 @@
     },
     "start": {
       "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
       "options": {
-        "cwd": "packages/elements-react",
         "command": "nx watch --projects=elements-react -- nx run elements-react:dev"
       }
     },
     "clean": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/elements-react",
-        "command": "shx rm -rf dist"
+        "command": "shx rm -rf packages/elements-react/dist"
       },
       "configurations": {
         "nodejs": {
-          "command": "shx rm -rf node_modules"
+          "command": "shx rm -rf packages/elements-react/node_modules"
         }
       }
     }

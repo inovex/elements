@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "downlevelIteration": true,
     "noUnusedLocals": false,
+    "noImplicitAny": false,
     "paths": {
       "@inovex.de/elements-angular": [
         "dist/inovex/elements-angular"

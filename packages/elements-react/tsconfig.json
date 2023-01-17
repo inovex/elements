@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "lib": ["dom", "es2018"],
-    // "declarationDir": "dist/types", ionic team sepeartes between types and transpiled files.
+    //"declarationDir": "../../dist/elements-react/dist/types",
     "skipLibCheck": true,
     "typeRoots": [
       "node_modules/@types"

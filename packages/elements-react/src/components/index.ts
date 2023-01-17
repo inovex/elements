@@ -5,7 +5,7 @@ import { createReactComponent } from './react-component-lib';
 
 import type { JSX } from '@inovex.de/elements';
 
-import { defineCustomElements } from '@inovex.de/elements/dist/loader';
+import { defineCustomElements } from '@inovex.de/elements/loader';
 
 defineCustomElements();
 export const InoAutocomplete = /*@__PURE__*/createReactComponent<JSX.InoAutocomplete, HTMLInoAutocompleteElement>('ino-autocomplete');

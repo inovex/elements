@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import {
   applyPolyfills,
   defineCustomElements,
-} from '@inovex.de/elements/dist/loader';
+} from '@inovex.de/elements/loader';
 import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -2,89 +2,87 @@
   "name": "elements",
   "sourceRoot": "packages/elements/src",
   "projectType": "library",
-  "tags": [],
-  "namedInputs": {
-    "default": ["{projectRoot}/src/**/*", "{projectRoot}/stencil.config.ts"],
-    "production": [
-      "default",
-      "!{projectRoot}/src/**/*.e2e.ts",
-      "!{projectRoot}/src/**/*.e2e.ts"
-    ]
+  "generators": {
+    "@nxext/stencil:component": {
+      "style": "scss"
+    }
   },
+  "tags": [],
   "targets": {
-    "build": {
-      "executor": "nx:run-commands",
-      "inputs": ["production"],
-      "outputs": ["{projectRoot}/dist"],
+    "test": {
+      "executor": "@nxext/stencil:test",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "cwd": "packages/elements",
-        "command": "stencil build --docs",
-        "color": true
+        "projectType": "library",
+        "tsConfig": "packages/elements/tsconfig.lib.json",
+        "configPath": "packages/elements/stencil.config.ts",
+        "outputPath": "packages/elements"
+      }
+    },
+    "build": {
+      "executor": "@nxext/stencil:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/elements/tsconfig.lib.json",
+        "configPath": "packages/elements/stencil.config.ts",
+        "outputPath": "packages/elements/",
+        "ci": true,
+        "dev": false,
+        "prod": true,
+        "verbose": true,
+        "watch": false
       },
       "configurations": {
-        "ci": {
-          "command": "stencil build --ci --docs"
+        "dev": {
+          "ci": true,
+          "dev": true,
+          "prod": false,
+          "watch": false,
+          "verbose": true
         }
       }
     },
     "start": {
-      "executor": "nx:run-commands",
-      "outputs": ["{projectRoot}/dist"],
+      "executor": "@nxext/stencil:build",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "cwd": "packages/elements",
-        "commands": [
-          "cross-env NODE_ENV=development stencil build --docs --watch"
-        ]
+        "projectType": "library",
+        "tsConfig": "packages/elements/tsconfig.lib.json",
+        "configPath": "packages/elements/stencil.config.ts",
+        "outputPath": "dist/elements",
+        "ci": false,
+        "dev": true,
+        "prod": false,
+        "watch": true,
+        "verbose": true
+      }
+    },
+    "e2e": {
+      "executor": "@nxext/stencil:e2e",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "projectType": "library",
+        "tsConfig": "packages/elements/tsconfig.lib.json",
+        "configPath": "packages/elements/stencil.config.ts",
+        "outputPath": "dist/elements"
       }
     },
     "lint": {
-      "executor": "nx:run-commands",
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "cwd": "packages/elements",
-        "command": "eslint src"
-      },
-      "configurations": {
-        "fix": {
-          "command": "eslint src --fix"
-        }
-      }
-    },
-    "test": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements",
-        "command": "stencil test --e2e"
-      },
-      "configurations": {
-        "watch": {
-          "command": "stencil test --e2e --watch"
-        },
-        "update": {
-          "command": "stencil test --e2e -u ./"
-        }
-      }
-    },
-    "clean": {
-      "executor": "nx:run-commands",
-      "options": {
-        "cwd": "packages/elements",
-        "command": "shx rm -rf dist"
-      },
-      "configurations": {
-        "nodejs": {
-          "command": "shx rm -rf node_modules"
-        }
+        "lintFilePatterns": "packages/elements/**/*.{ts,tsx}"
       }
     },
     "icons": {
       "executor": "nx:run-commands",
       "options": {
-        "cwd": "packages/elements",
-        "command": "ts-node scripts/integrateIcons.ts"
+        "command": "ts-node --project packages/elements/tsconfig.json packages/elements/scripts/integrateIcons.ts"
       },
       "configurations": {
         "optimize": {
-          "command": "svgo -f ./src/assets/ino-icon --config ../../svgo.config.js"
+          "command": "svgo -f packages/elements/src/assets/ino-icon --config svgo.config.js"
         }
       }
     }

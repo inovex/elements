@@ -1,4 +1,4 @@
-@use 'base/theme';
+@use '../base/theme';
 
 $row-active-color: theme.color(secondary);
 $row-hover-border-color: #d4ddea; // TODO: Move color

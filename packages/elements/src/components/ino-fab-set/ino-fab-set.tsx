@@ -21,7 +21,7 @@ import { HorizontalLocation, Locations, VerticalLocation } from '../types';
   styleUrl: 'ino-fab-set.scss',
   shadow: true,
 })
-export class Fab implements ComponentInterface {
+export class FabSet implements ComponentInterface {
   @Element() el!: HTMLInoFabSetElement;
 
   /**

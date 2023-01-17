@@ -9,7 +9,6 @@ export interface InoElementsWindow extends Window {
   inoElements: any;
   __zone_symbol__requestAnimationFrame?: (ts: FrameRequestCallback) => number;
 }
-
 export class Config {
   get(key: keyof InoElementsConfig, fallback?: any): any {
     const value = this.storage && this.storage[key];
@@ -32,10 +31,10 @@ export class Config {
     return null;
   }
 }
-export const config = new Config();
+export const inoElementsConfig = new Config();
 
 /**
- * Setups the config. Function to be called during intialization to set config / user preferences.
+ * Setups the config. Function to be called during initialization to set config / user preferences.
  *
  * @param config A given config
  */
