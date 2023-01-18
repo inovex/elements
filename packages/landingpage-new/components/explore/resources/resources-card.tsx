@@ -4,8 +4,16 @@ import Card, { Props } from 'components/shared/card';
 import Image from 'next/image';
 import Link from 'next/link';
 
+type Resource = {
+  id: number;
+  blog_url: string;
+  blog_img_url: string;
+  blog_name: string;
+  ressource_type: string;
+}
+
 function ResourceCard() {
-  const [cards] = useState([
+  const cards: Resource[] = [
     {
       id: 1,
       blog_url: 'https://www.inovex.de/de/blog/inovex-elements-open-source/',
@@ -23,7 +31,7 @@ function ResourceCard() {
       blog_name: 'Open-Source Software from inovex',
       ressource_type: 'Article',
     },
-  ]);
+  ];
 
   return (
     <>

@@ -21,7 +21,8 @@
   
   .header {
     word-wrap: break-word;
-    max-width: 200px;
+    min-width: 200px;
+    max-width: 400px;
   }
   
   .Image {
