@@ -8,23 +8,16 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/dependencies-install
-      - run: yarn lint
-      - run: yarn test
-
-  build:
+  test+build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/workflows/dependencies-install
     - run: npm config set scripts-prepend-node-path true
+    - run: yarn lint
+    - run: yarn build:core
+    - run: yarn test
     - run: yarn build
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Build caches for unicorn deployment
     - if: github.ref != 'refs/heads/master'
@@ -44,6 +37,5 @@ jobs:
 
   unicorn:
     needs:
-      - test
-      - build
+      - test+build
     uses: ./.github/workflows/deploy-unicorn.yml
