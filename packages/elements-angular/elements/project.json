@@ -16,11 +16,20 @@
         "parallel": false
       }
     },
+    "compile": {
+      "executor": "nx:run-commands",
+      "outputs": ["packages/elements-angular/elements/dist"],
+      "options": {
+        "cwd": "packages/elements-angular",
+        "commands": ["ng build", "nx run elements-angular:schematics"],
+        "parallel": false
+      }
+    },
     "start": {
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/elements-angular",
-        "commands": ["ng serve", "nx watch --projects=elements-angular -- nx run elements-angular:schematics"]
+        "commands": ["nx watch --projects=elements-angular -- nx run elements-angular:compile"]
       }
     },
     "lint": {

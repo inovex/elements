@@ -29,8 +29,7 @@
         "prod": {
           "command": "start-storybook -p 6006 -c config --quiet --no-version-updates"
         }
-      },
-      "dependsOn": ["^start"]
+      }
     },
     "lint": {
       "executor": "nx:run-commands",

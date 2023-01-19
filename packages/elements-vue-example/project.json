@@ -24,8 +24,7 @@
         "prod": {
           "command": "vue-cli-service serve --open --port=4400 --host=127.0.0.1 --mode=production"
         }
-      },
-      "dependsOn": ["^dev"]
+      }
     },
     "lint": {
       "executor": "nx:run-commands",
