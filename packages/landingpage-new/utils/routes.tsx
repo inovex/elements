@@ -27,7 +27,7 @@ export enum SubRoutes {
   EXPLORE_PATTERNS = 'patterns',
   EXPLORE_RESSOURCES = 'ressources',
   EXPLORE_DEMOS = 'demos',
-  GETTING_STARTED_JAVASCRIPT = 'javascript',
+  GETTING_STARTED_JAVASCRIPT = 'js',
   GETTING_STARTED_REACT = 'react',
   GETTING_STARTED_ANGULAR = 'angular',
   GETTING_STARTED_VUE = 'vue',
@@ -149,3 +149,12 @@ export const Routes: RouteTree = [
     ],
   },
 ];
+
+export const getDividerByMainRoute = (mainRoute: MainRoutes): '/' | '#' => {
+  switch (mainRoute) {
+    case MainRoutes.GETTING_STARTED:
+      return '/';
+    default:
+      return '#';
+  }
+};
