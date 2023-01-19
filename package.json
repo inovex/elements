@@ -27,7 +27,7 @@
     "build:landingpage": "nx run landingpage:build",
     "build:landingpage-new": "nx run landingpage-new:build",
     "---test---": "",
-    "test": "nx run-many --target=test --output-style=stream",
+    "test": "nx run-many --target=test --output-style=stream --configuration=ci",
     "test:core": "nx run elements:test",
     "test:core:watch": "nx run elements:test:watch",
     "---lint---": "",

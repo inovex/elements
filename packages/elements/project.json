@@ -23,9 +23,12 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "packages/elements",
-        "command": "stencil test --e2e"
+        "command": "stencil test --e2e --no-build"
       },
       "configurations": {
+        "ci": {
+          "command": "stencil test --e2e --no-build"
+        },
         "watch": {
           "command": "stencil test --e2e --watch"
         }
