@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  test+build:
+  test_n_build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -37,5 +37,5 @@ jobs:
 
   unicorn:
     needs:
-      - test+build
+      - test_n_build
     uses: ./.github/workflows/deploy-unicorn.yml
