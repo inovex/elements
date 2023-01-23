@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { ValueAccessorDirective } from './value-accessor.directive';
@@ -14,7 +14,7 @@ import { ValueAccessorDirective } from './value-accessor.directive';
   ],
 })
 export class BooleanValueAccessorDirective extends ValueAccessorDirective {
-  constructor(el: ElementRef, private renderer: Renderer2) {
+  constructor(el: ElementRef) {
     super(el);
   }
 
@@ -23,7 +23,7 @@ export class BooleanValueAccessorDirective extends ValueAccessorDirective {
     this.handleChangeEvent(value);
   }
 
-  writeValue(value: any): void {
+  override writeValue(value: any): void {
     this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
   }
 }

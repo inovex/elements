@@ -23,7 +23,7 @@ export class InoRadioValueAccessorDirective extends ValueAccessorDirective {
     this.handleChangeEvent(event.target.value);
   }
 
-  writeValue(value: any): void {
+  override writeValue(value: any): void {
     this.el.nativeElement.checked = this.lastValue = value == null ? '' : value;
   }
 }

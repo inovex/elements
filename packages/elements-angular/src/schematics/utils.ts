@@ -37,7 +37,7 @@ export function getAngularAppConfig(
   config: any,
   projectName: string
 ): any | never {
-  if (!config.projects.hasOwnProperty(projectName)) {
+  if (!Object.prototype.hasOwnProperty.call(config.projects, projectName)) {
     throw new SchematicsException(`Could not find project: ${projectName}`);
   }
 
@@ -47,5 +47,5 @@ export function getAngularAppConfig(
 export async function getProjectName(tree: Tree) {
   const host = createHost(tree);
   const { workspace } = await workspaces.readWorkspace('/', host);
-  return workspace.extensions.defaultProject as string;
+  return workspace.extensions['defaultProject'] as string;
 }

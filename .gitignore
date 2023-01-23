@@ -33,5 +33,7 @@ yalc.lock
 .next
 /packages/landingpage-new/out/_next/
 /packages/landingpage-new/out/
-.nx-cache/
+.cache/
 tmp/
+
+.angular

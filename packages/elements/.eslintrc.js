@@ -1,5 +1,6 @@
 module.exports = {
-  extends: ['../../.eslintrc.js', 'plugin:@stencil/recommended'],
+  extends: ['../../.eslintrc.json', 'plugin:@stencil/recommended'],
+  ignorePatterns: ["!**/*", 'stencil.config.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: 'tsconfig.eslint.json',
@@ -21,6 +22,5 @@ module.exports = {
     '@stencil/strict-boolean-conditions': 'off',
     '@stencil/dependency-suggestions': 'off',
     '@stencil/prefer-vdom-listener': 'off'
-  },
-  ignorePatterns: ['stencil.config.ts'],
+  }
 };

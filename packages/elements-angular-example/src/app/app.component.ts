@@ -13,7 +13,7 @@ export class AppComponent {
   todos: Array<Todo>;
   form: FormGroup;
   mode: ViewModeUnion = 'preview'
-  myText: string = '# Hello World\nI go to home!\n## Foo Bar Text'
+  myText = '# Hello World\nI go to home!\n## Foo Bar Text'
 
   constructor(private todoService: TodoService, private fb: FormBuilder) {
     this.todos = this.todoService.getRandomTodos();
@@ -33,7 +33,7 @@ export class AppComponent {
     this.todos.push(new Todo(this.form.value.todoName));
   }
 
-  delete(index: number, todo: Todo) {
+  delete(todo: Todo) {
     this.todos = this.todos.filter((currentTodo) => currentTodo !== todo);
   }
 

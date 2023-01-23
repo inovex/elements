@@ -1,17 +1,8 @@
-import {
-  NgModule,
-  ModuleWithProviders,
-  APP_INITIALIZER,
-  NgZone,
-} from '@angular/core';
-import { DOCUMENT, CommonModule } from '@angular/common';
+import {APP_INITIALIZER, ModuleWithProviders, NgModule, NgZone} from '@angular/core';
+import {CommonModule, DOCUMENT} from '@angular/common';
 import { InoElementsConfig } from '@inovex.de/elements';
-
 import { DIRECTIVES } from './directives/proxies-list';
-import { BooleanValueAccessorDirective } from './directives/control-value-accesors/boolean-value-accessor.directive';
-import { FsValueAccessorDirective } from './directives/control-value-accesors/fs-value-accessor.directive';
-import { InoRadioValueAccessorDirective } from './directives/control-value-accesors/ino-radio-value-accessor.directive';
-import { TextValueAccessorDirective } from './directives/control-value-accesors/text-value-accessor.directive';
+import { BooleanValueAccessorDirective, FsValueAccessorDirective, InoRadioValueAccessorDirective, TextValueAccessorDirective } from "./control-value-accesors"
 import { appInitialize, ConfigToken } from './app-initialize';
 
 @NgModule({

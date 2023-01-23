@@ -38,7 +38,7 @@ runs:
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular
-      path: packages/elements-angular/elements/dist/
+      path: dist/packages/elements-angular/elements/
 
   - if: inputs.upload-core-artifacts != 'false'
     name: Upload elements-vue artifact
@@ -59,7 +59,7 @@ runs:
     uses: actions/upload-artifact@v3
     with:
       name: elements-angular-example
-      path: packages/elements-angular-example/dist/
+      path: dist/packages/elements-angular-example/
 
   - if: inputs.upload-example-artifacts != 'false'
     name: Upload elements-react-example artifact

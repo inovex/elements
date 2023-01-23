@@ -3,6 +3,6 @@ module.exports = {
     "es2021": true,
     "node": true
   },
-  extends: ['../../.eslintrc.js', 'plugin:vue/essential', "eslint:recommended"],
-  "root": true,
+  extends: ['../../.eslintrc.json', 'plugin:vue/essential', "eslint:recommended"],
+  ignorePatterns: ["!**/*"],
 };

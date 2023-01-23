@@ -27,7 +27,7 @@ export class FsValueAccessorDirective extends ValueAccessorDirective {
     }
   }
 
-  writeValue(value: any): void {
+  override writeValue(value: any): void {
     if (value instanceof FileList) {
       this.el.nativeElement.files = value;
     } else if (Array.isArray(value) && !value.length) {

@@ -2,7 +2,7 @@
   "private": true,
   "description": "This is a Monorepo root package which is used to execute build scripts.",
   "engines": {
-    "node": ">=14.17"
+    "node": ">=14.20"
   },
   "scripts": {
     "---start---": "",
@@ -60,6 +60,15 @@
     "postversion": "git add -A"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~15.1.0",
+    "@angular-eslint/eslint-plugin": "~15.0.0",
+    "@angular-eslint/eslint-plugin-template": "~15.0.0",
+    "@angular-eslint/template-parser": "~15.0.0",
+    "@angular/cli": "~15.1.0",
+    "@angular/compiler-cli": "~15.1.0",
+    "@angular/language-service": "~15.1.0",
+    "@nrwl/angular": "^15.5.2",
+    "@nrwl/eslint-plugin-nx": "^15.5.2",
     "@nrwl/storybook": "15.5.2",
     "@stencil/angular-output-target": "^0.4.0",
     "@stencil/eslint-plugin": "^0.4.0",
@@ -69,9 +78,12 @@
     "@types/css-font-loading-module": "^0.0.7",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "26.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "~8.32.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-react": "^7.32.1",
     "fs-extra": "^9.0.0",
@@ -80,20 +92,36 @@
     "js-yaml": "^3.14.0",
     "lerna": "^5.5.2",
     "lint-staged": "^10.5.3",
+    "ng-packagr": "~15.1.0",
     "nx": "15.5.2",
-    "puppeteer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "postcss-import": "~14.1.0",
+    "postcss-preset-env": "~7.5.0",
+    "postcss-url": "~10.1.3",
     "prettier": "^2.1.2",
     "prompts": "^2.4.0",
+    "puppeteer": "^10.4.0",
     "shelljs": "^0.8.4",
     "shx": "^0.3.2",
     "standard-version": "^8.0.0",
     "svgo": "^2.8.0",
     "ts-node": "^10.9.1",
     "tslint-config-prettier": "^1.18.0",
+    "typescript": "~4.9.4",
     "yalc": "^1.0.0-pre.32"
   },
   "dependencies": {
+    "@angular/animations": "~15.1.0",
+    "@angular/common": "~15.1.0",
+    "@angular/compiler": "~15.1.0",
+    "@angular/core": "~15.1.0",
+    "@angular/forms": "~15.1.0",
+    "@angular/platform-browser": "~15.1.0",
+    "@angular/platform-browser-dynamic": "~15.1.0",
+    "@angular/router": "~15.1.0",
     "@hedgedoc/markdown-it-task-lists": "^1.0.3",
+    "@inovex.de/elements": "^8.0.0",
+    "@inovex.de/elements-angular": "^8.0.0",
     "@material/button": "^13.0.0",
     "@material/card": "^13.0.0",
     "@material/checkbox": "^13.0.0",
@@ -131,12 +159,14 @@
     "date-fns": "^2.16.1",
     "flatpickr": "^4.6.13",
     "prosemirror-markdown": "^1.6.0",
-    "tippy.js": "^6.2.3"
+    "rxjs": "~7.5.0",
+    "tippy.js": "^6.2.3",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
   },
   "workspaces": {
     "packages": [
-      "packages/*",
-      "packages/elements-angular/elements"
+      "packages/*"
     ],
     "nohoist": [
       "**/@types/jasmine",
@@ -151,4 +181,3 @@
   "name": "core",
   "version": "8.0.0"
 }
-

@@ -16,6 +16,7 @@ jobs:
         with:
           workflow-id: ${{ github.event.workflow_run.workflow_id }}
           download-core-artifacts: true
+      - run: ln -s dist/packages/elements-angular packages/elements-angular/dist
       - run: yarn publish:canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

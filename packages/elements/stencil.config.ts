@@ -6,7 +6,7 @@ import { JsonDocsOutputTarget } from './output-targets/json-docs-output-target';
 import { reactOutputTarget as react } from '@stencil/react-output-target';
 import { path } from "@stencil/core/compiler";
 
-const angularDirectivesPath = path.join(__dirname, '../elements-angular/elements/src/directives');
+const angularDirectivesPath = path.join(__dirname, '../elements-angular/src/directives');
 const reactProxyPath =  path.join(__dirname,'../elements-react/src/components');
 
 export const config: Config = {
