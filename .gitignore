@@ -37,3 +37,4 @@ yalc.lock
 tmp/
 
 .angular
+.nx-cache

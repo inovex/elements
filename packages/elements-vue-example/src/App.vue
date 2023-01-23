@@ -4,20 +4,32 @@
     <ino-nav-drawer
       :open="isNavOpen"
       anchor="left"
-      @openChange="({detail}) => this.isNavOpen = detail"
+      @openChange="({detail}) => isNavOpen = detail"
     >
       <ino-list slot="content">
-        <ino-nav-item text="My Todo List" @click="changeTab(0)">
-          <ino-icon icon="menu"/>
+        <ino-nav-item
+          text="My Todo List"
+          @click="changeTab(0)"
+        >
+          <ino-icon icon="menu" />
         </ino-nav-item>
-        <ino-nav-item text="My V-Card" @click="changeTab(1)">
-          <ino-icon icon="user"/>
+        <ino-nav-item
+          text="My V-Card"
+          @click="changeTab(1)"
+        >
+          <ino-icon icon="user" />
         </ino-nav-item>
-        <ino-nav-item text="Contact me" @click="changeTab(2)">
-          <ino-icon icon="onboarding"/>
+        <ino-nav-item
+          text="Contact me"
+          @click="changeTab(2)"
+        >
+          <ino-icon icon="onboarding" />
         </ino-nav-item>
-        <ino-nav-item text="Gallery" @click="changeTab(3)">
-          <ino-icon icon="camera"/>
+        <ino-nav-item
+          text="Gallery"
+          @click="changeTab(3)"
+        >
+          <ino-icon icon="camera" />
         </ino-nav-item>
       </ino-list>
 
@@ -25,7 +37,7 @@
         <ino-tab-bar
           class="tab-bar"
           :active-tab="currentTab"
-          @activeTabChange="({detail}) => this.currentTab = detail"
+          @activeTabChange="({detail}) => currentTab = detail"
         >
           <ino-tab
             icon="menu"
@@ -45,13 +57,13 @@
           />
         </ino-tab-bar>
 
-        <ToDoList v-show="currentTab === 0"/>
-        <VCard v-show="currentTab === 1"/>
+        <ToDoList v-show="currentTab === 0" />
+        <VCard v-show="currentTab === 1" />
         <ContactForm
           v-show="currentTab === 2"
           @submit="onContactFormSubmit"
         />
-        <ImageGallery v-show="currentTab === 3"/>
+        <ImageGallery v-show="currentTab === 3" />
       </main>
     </ino-nav-drawer>
 
@@ -61,7 +73,7 @@
       :name="contractFormData.name"
       :birthday="contractFormData.birthday"
       :message="contractFormData.message"
-      @close="() => this.contractFormData = undefined"
+      @close="() => contractFormData = undefined"
     />
     <ino-snackbar
       v-if="showSnackbar"
@@ -69,9 +81,8 @@
         Welcome to the elements example project for Vue.js.
         Have fun by exploring the element components!"
       stay-visible-on-hover
-      @hideEl="() => this.showSnackbar = false"
-    >
-    </ino-snackbar>
+      @hideEl="() => showSnackbar = false"
+    />
   </div>
 </template>
 
