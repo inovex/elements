@@ -1,0 +1,335 @@
+import {CH} from '@code-hike/mdx/components';
+
+# Integration mit React
+
+Lassen Sie sich schnell mit der Verwendung der elements vertraut machen, um eine einfache Anmeldeseite zu erstellen.
+
+## Vorbereitung
+
+Erstellen Sie zunächst eine neue React-App für unsere Anmeldeseite.
+
+```bash
+npx create-react-app <your app name>
+cd <your app name>
+npm start
+```
+Fügen Sie das Paket `@inovex.de/elements-react` mit **npm** or **yarn** zu Ihrem Projekt hinzu:
+<CH.Code>
+  ```bash npm
+  npm install @inovex.de/elements-react --save
+  ```
+  ```bash yarn
+  yarn add @inovex.de/elements-react
+  ```
+</CH.Code>
+
+Sobald unsere React-App fertig ist, löschen wir den Boilerplate-Code und strukturieren die Funktion um, bis unsere App.js etwa so aussieht:
+
+> Tipp: Für das Styling und die Struktur Ihrer App empfehlen wir, sich an den mitgelieferten [codesandbox](https://codesandbox.io/s/github/inovex/elements-example-react) zu orientieren.
+
+```tsx App.js
+function App() {
+  return <div></div>;
+}
+
+export default App;
+```
+
+Um zu zeigen, wie schnell Sie ein schönes Anmeldeformular erstellen können, beginnen wir mit unserem Anmeldeformular, das aus zwei Eingabefeldern für die Anmeldedaten und einer Schaltfläche zum Absenden besteht.
+```tsx App.js
+  // ...
+  return (
+    <div className="body">
+      <h1>Login to your Account</h1>
+      <InoInput label="email" outline></InoInput>
+      <InoInput label="password" outline></InoInput>
+      <InoButton type="submit">Sign In</InoButton>
+    </div>
+  )
+```
+
+## Eigenschaften
+
+Um entweder die Funktionalität oder das Aussehen der inovex-elements zu konfigurieren, verwenden wir **properties**.
+
+<CH.Section>
+  In diesem Fall geben wir unserem `<InoInput>` die [outline property](focus://1[25:32],2[28:35]), um das Aussehen zu verändern und die [label property](focus://1[11:24],2[11:27]), um das entsprechende Label zu setzen. Weitere properties des `<InoInput>` können Sie in unseren **[Docs](https://elements.inovex.de/version/v7.1.0/?path=/docs/input-ino-input--playground)** nachlesen.
+
+```tsx
+<InoInput label="email" outline />
+<InoInput label="password" outline />
+```
+</CH.Section>
+
+Jede Komponente verfügt über eine Vielzahl von leistungsstarken und einzigartigen Eigenschaften. Sie sind bei jeder Komponente im entsprechenden **Playground** aufgeführt:
+
+| Eigenschaft     | Attribut          | Beschreibung                                                                                                                          | Datentyp                                                                                         | Default     |
+| --------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------- |
+| `type`          | `type`            | Der Typ des Elements (default = text).                                                                                                | `"color" \| "email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url" \| "week"` | `'text'`    |
+| `label`         | `label`           | Das optionale Label des Eingabefeldes.                                                                                                | `string`                                                                                         | `undefined` |
+| `outline`       | `outline`         | Styled das Eingabefeld als ein umrandetes Element.                                                                                    | `boolean`                                                                                        | `undefined` |
+| `pattern`       | `pattern`         | Das Validierungsmuster des Elements.                                                                                                  | `string`                                                                                         | `undefined` |
+| `placeholder`   | `placeholder`     | Der Platzhalter des Elements.                                                                                                         | `string`                                                                                         | `undefined` |
+| `required`      | `required`        | Markiert das Element als Pflichtfeld.                                                                                                 | `boolean`                                                                                        | `undefined` |
+| `showLabelHint` | `show-label-hint` | Wenn true, wird eine _optionale_ Nachricht angezeigt (wenn kein Pflichtfeld), ansonsten wird ein \* Marker gesetzt (wenn Pflichtfeld) | `boolean`                                                                                        | `undefined` |  | `string` | `''` |
+
+> Hinweis: Dies sind einige der Eigenschaften von der `<InoInput>` Komponente.
+
+Der Playground ermöglicht es Ihnen, diese Eigenschaften zu ändern und das Ergebnis in Echtzeit zu sehen. Zusätzlich bieten wir Beispiele für die Verwendung jeder Komponente mit ihren jeweiligen Eigenschaften.
+
+In Anlehnung an unser Login-Formular fügen wir eine type- und value-Eigenschaft hinzu und setzen sie auf ein Statusobjekt namens _email_. Dasselbe tun wir für das Passwort von `<InoInput>`.
+
+```tsx
+const [email, setEmail] = React.useState('');
+const [password, setPassword] = React.useState('');
+```
+
+```tsx
+<InoInput
+    type="email"
+    label="email"
+    outline
+    value={email}>
+</InoInput>
+
+<InoInput
+    type="password"
+    label="password"
+    outline
+    value={password}>
+</InoInput>
+```
+
+## Ereignisse
+
+Mit genau demselben Ansatz verwenden wir **Events**. Sie geben einen bestimmten Wert aus, wenn der Benutzer etwas tut, das unser Ereignis auslöst. Mit anderen Worten: Unser Event gibt uns eine **Reaktion** auf eine **Aktion** des Benutzers.
+Im Falle unseres `<InoInput>` ist die Aktion das Tippen des Benutzers und die Reaktion unseres Events enthält die getippte Eingabe.
+
+  Geben wir unserem Anmeldeformular das `valueChange`-Ereignis der `<InoInput>`-Komponente, so dass wir den vom Benutzer eingegebenen Wert in unseren E-Mail- oder Passwort-Status speichern können.
+
+| Event             | Beschreibung                                                                                   | Datentyp              |
+| ----------------- | ---------------------------------------------------------------------------------------------- | --------------------- |
+| **`valueChange`** | Wird ausgegeben, wenn der Benutzer etwas eintippt. Enthält getippte Eingaben in `event.detail` | `CustomEvent<string>` |
+| `inoBlur`         | Wird ausgegeben, wenn das Eingabefeld den Fokus verliert, und validiert die E-Mail-Eingabe     | `CustomEvent<void>`   |
+| `inoFocus`        | Wird ausgegeben, wenn das Einfabefeld fokussiert wird                                          | `CustomEvent<void>`   |
+
+```tsx
+<InoInput
+    type="email"
+    label="email"
+    outline
+    value={email}
+    onValueChange={value => setEmail(value.detail)}
+></InoInput>
+
+<InoInput
+    type="password"
+    label="password"
+    outline
+    value={password}
+    onValueChange={value => setPassword(value.detail)}
+></InoInput>
+```
+
+> Hinweis: während in unserem Playground das Event `valueChange` heißt, nennen wir es innerhalb unseres `<InoInput>` `onValueChange`. Der Grund dafür ist, dass wir unsere Benennung ähnlich der React-Benennung von Events (z.B. onClick) anpassen wollen
+
+## Slots
+
+  Viele Komponenten der Elements Library haben **Slots**, die durch andere Komponenten oder eigene Inhalte gefüllt werden können, um die Funktionalität oder das Aussehen weiter anzupassen.
+  Wenn wir die Slots von `<InoInput>` nutzen, können wir ein `<InoIcon>` in unser Eingabefeld einfügen, während wir die volle Nutzbarkeit des `<InoIcon>` beibehalten.
+
+| Slot                  | Beschreibung                 |
+| --------------------- | ---------------------------- |
+| `"icon-leading"`      | Das Icon wird vorangestellt  |
+| **`"icon-trailing"`** | Das Icon wird angehängt      |
+
+> Hinweis: Wir können die Position unseres Slots wählen, der die `<InoIcon>` Komponente darstellen wird. Andere Komponenten wie die `<InoCard>` erlauben eine `Kopfzeile`, `Inhalt`, `Fußzeile` Methode zur Positionierung ihrer Slots.
+
+```tsx
+<InoInput
+  type="password"
+  label="password"
+  outline
+  value={password}
+  onValueChange={(value) => setPassword(value.detail)}
+>
+  <InoIcon slot="icon-trailing" icon="password"></InoIcon>
+</InoInput>
+```
+
+Beachten Sie, dass wir die Position des Slots innerhalb unseres `<InoIcon>` mit `slot="icon-trailing"` angegeben haben.
+
+## CSS-Variablen
+
+Um die inovex-elements mit CSS zu gestalten, stellen wir manchmal benutzerdefinierte Eigenschaften zur Verfügung, auch bekannt als CSS-Variablen.
+Im Fall von `<ino-input>` gibt es zwei Variablen, die wir verwenden können, um das Aussehen unserer Komponente zu ändern: `--ino-input-line-color`, um die Farbe der Unterstreichung zu ändern und die `--ino-input-label-color`, die die Farbe des schwebenden Labels ändert. Sie können wie folgt verwendet werden:
+
+```scss
+InoInput {
+  --ino-input-line-color: blue;
+  --ino-input-label-color: blue;
+}
+```
+
+## Der letzte Schliff
+
+Wenden wir das, was wir am Beispiel des `<InoInput>` gelernt haben, auf andere Elements-Komponenten an, um unsere Login-Seite fertigzustellen.
+
+### Ein Logo hinzufügen
+
+> Tipp: Gestalten Sie Ihr Logo automatisch mit abgerundeten Rändern, indem Sie die Eigenschaft `rounded` von `<InoImg>` verwenden
+
+```tsx
+<InoImg
+  alt="Elements logo"
+  decoding="async"
+  src={logo}
+  height={75}
+  width={75}
+  fallbackIcon="cloud"
+></InoImg>
+```
+
+Wenn unser Bild nicht geladen werden kann, wird ein `<InoIcon icon="cloud">` aufgrund der Eigenschaft `fallbackIcon="cloud"` angezeigt.
+
+### Popovers auf Komponenten verwenden
+
+Die Komponente `<InoPopover>` ist ideal für zusätzliche Informationen oder Hinweise.
+
+```tsx
+<InoButton id="sign-up">Sign Up</InoButton>
+
+<InoPopover for="sign-up" placement="bottom" interactive>
+    <div className="styled-popover">
+        <InoIcon icon="user"></InoIcon>
+      Already have an account? Sign in.
+    </div>
+</InoPopover>
+```
+
+Vergewissern Sie sich, dass die `id` des Host-Elements und die `for`-Eigenschaft des angehängten `<InoPopover>` gleich sind.
+In Anbetracht des Anwendungskontextes ist es hilfreich, die "Platzierung" zu ändern (oben, rechts, unten, links).
+Verwenden Sie die Eigenschaft `interactive`, wenn Sie mit dem Popover-Inhalt interagieren wollen (z.B. durch Klicken auf eine Schaltfläche).
+
+### Passwort-Sichtbarkeit umschalten
+
+Durch Klicken auf das Ino-Symbol können wir die Sichtbarkeit unseres Passworts umschalten, indem wir die Eigenschaft `type` von InoInput ändern.
+
+```tsx
+const [hidePassword, setVisibility] = React.useState<InputType>('password');
+
+const togglePasswordVisibility = () => {
+  if (hidePassword === 'password') {
+    setVisibility('text');
+  } else {
+    setVisibility('password');
+  }
+};
+```
+
+```tsx
+<InoInput
+  type={hidePassword}
+  label="password"
+  outline
+  value={password}
+  onValueChange={(value) => setPassword(value.detail)}
+>
+  <InoIcon
+    slot="icon-trailing"
+    icon="password"
+    clickable
+    onClick={() => togglePasswordVisibility()}
+  ></InoIcon>
+</InoInput>
+```
+
+### Benachrichtigungen hinzufügen
+
+Die meisten Komponenten verfügen über eingebaute Stile und Themen, aus denen Sie wählen können. Fügen wir eine andere Benachrichtigung hinzu, jedes Mal wenn unser Benutzer sich anmeldet.
+Wenn die Anmeldedaten zu kurz sind, verwenden wir die Eigenschaft `type="error"` der `<InoSnackbar>`, um einen fehlgeschlagenen Anmeldeversuch anzuzeigen. Im Falle einer erfolgreichen Anmeldung können wir `type="success"` verwenden.
+
+```tsx
+const [showSnackbar, setSnackbar] = React.useState(false);
+const [isValid, setValidity] = React.useState(false);
+
+const submit = () => {
+  setSnackbar(true);
+  setValidity(email.length > 0 && password.length >= 8);
+  setEmail('');
+  setPassword('');
+
+  setTimeout(() => {
+    setSnackbar(false);
+  }, 5000);
+};
+
+const ValidateLogin = () => {
+  if (isValid) {
+    return (
+      <InoSnackbar
+        action-text="Welcome back!"
+        timeout={5000}
+        type="success"
+        stay-visible-on-hover="false"
+      >
+        Sucessfully logged in
+      </InoSnackbar>
+    );
+  } else {
+    return (
+      <InoSnackbar
+        action-text="email and/or password too short"
+        timeout={5000}
+        type="error"
+        stay-visible-on-hover="false"
+      >
+        Login failed
+      </InoSnackbar>
+    );
+  }
+};
+```
+
+```tsx
+<InoButton
+  type="submit"
+  onClick={() => {
+    submit();
+  }}
+>
+  Sign In
+</InoButton>;
+
+{
+  showSnackbar ? <ValidateLogin /> : null;
+}
+```
+
+Ändern Sie die Typen entsprechend Ihren Wünschen. Die Eigenschaft timeout ist in _ms_ angegeben und gibt an, wann die Snackbar verschwindet. Die Zeitüberschreitung kann deaktiviert werden, indem sie auf einen negativen Wert gesetzt wird.
+Mehr über die Eigenschaften der InoSnackbar ist [hier](https://elements.inovex.de/version/v7.1.0/?path=/docs/notification-ino-snackbar--playground) dokumentiert.
+
+### Login-Alternativen anzeigen
+
+```tsx
+<InoTab icon="mail" indicator-content-width="false" stacked>
+    Gmail
+</InoTab>
+<InoTab icon="mail" indicator-content-width="false" stacked>
+    Yahoo
+</InoTab>
+```
+
+Die Eigenschaft `stacked` zeigt an, dass das Tab-Symbol und die Beschriftung vertikal statt horizontal verlaufen sollen.
+Alternativ können Sie `<InoTab>` in eine [ino-tab-bar](https://elements.inovex.de/version/v7.1.0/?path=/docs/structure-ino-tab-bar--playground) gruppieren, wenn Sie vorhaben, viele Tabs zu verwenden.
+
+## Zusammenfassung
+
+Glückwunsch! Sie haben eine Login-Seite mit React und den Hauptkonzepten der **Inovex Elements** - _The last interoperable UI library for any framework_ - erstellt:
+
+- Eigenschaften
+- Ereignisse
+- Slots
+- CSS-Variablen
+
+Mit dem gleichen Ansatz können Sie weiter kodieren und müssen nicht jedes Mal, wenn Sie ein neues Projekt erstellen, von vorne anfangen.

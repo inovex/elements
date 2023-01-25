@@ -1,0 +1,69 @@
+{
+  "contributors": {
+    "title_1": "Team",
+    "title_2": "@ inovex elements",
+    "not_found": "Keine aktuellen Teammitglieder gefunden.",
+    "roles": {
+      "frontend_developer": "Frontend Entwickler:in",
+      "frontend_engineer": "Frontend Engineer",
+      "frontend_expert": "Frontend Expert:in",
+      "fullstack_developer": "Fullstack Entwickler:in",
+      "product_owner": "Product Owner",
+      "design": "UI / UX Designer:in",
+      "project_manager": "Projektleitung & Entwickler:in"
+    }
+  },
+  "history": {
+    "title_1": "die",
+    "title_2": "Geschichte",
+    "milestones": {
+      "proof_of_concept": {
+        "title": "Machbarkeitsstudie 🔎",
+        "date": "Februar 2018",
+        "description": "Im Jahr 2018 haben wir unsere Reise begonnen. Wir haben Wochen damit verbracht zu evaluieren, welches Framework zu unseren Bedürfnissen passt und welche Entscheidung für die nächsten Jahre Bestand haben könnte. In der Frontend-Welt ist es immer eine Wette auf Zeit und nie einfach, die richtige Wahl zu treffen. Wir begannen elements als Nebenprojekt und evaluierten, welche Bibliothek und welche Tools am besten geeignet sind, um uns beim Schreiben von standardbasierten Webkomponenten zu helfen. Wir haben viel ausprobiert und uns die verfügbaren Bibliotheken Polymer, SkateJS, SlimJS, Switzerland und Stencil angesehen. Wir wägten die Funktionen gegeneinander ab und entschieden uns für Stencil."
+      }, 
+      "getting_started": {
+        "title": "Es geht los 🛫",
+        "date": "Juni 2018",
+        "description_1": "Mit der Hilfe von Paketen wie",
+        "description_2": ", anderen Drittanbietern und der Produktgestaltung unserer Designer:innen bauten wir die Kernkomponenten auf, die wir für die Erstellung unserer Anwendungen benötigten. Mit Storybook sind wir in der Lage, die Dokumentation und Spielwiese für unsere Kunden mit minimalem Aufwand zu pflegen."
+      },
+      "first_internal": {
+        "title": "Erste interne Verwendungen 💙",
+        "date": "September 2018",
+        "description": "Unsere Motivation und unser Enthusiasmus brachten schnelle Erfolge. So war es möglich, dass bereits im September eines unserer internen Projekte die elements nutzen konnte und dadurch einen enormen Mehrwert erhielt."
+      },
+      "learning": {
+        "title": "Stetig weiter lernen 💪🏻",
+        "date": "in 2019",
+        "description": "Während der Reise haben wir viel darüber gelernt, wie wir mit Zuständen umgehen müssen, wie wir die Komponenten dokumentieren müssen und wie wir eine Spielwiese für die visuelle Darstellung der Komponenten bereitstellen. Wir haben verstanden, was es bedeutet, eine Bibliothek für viele Leute zu entwickeln und dafür verantwortlich zu sein, wie man Änderungen einführt oder Fehler behebt. Es ist nicht einfach, aber es ist großartig zu sehen, welchen Wert wir für die verschiedenen Projekte einbringen."
+      },
+      "first_external": {
+        "title": "Erste externe Verwendungen 🤝🏻",
+        "date": "in 2020",
+        "description": "Die elements werden bekannter. Auch unsere Kunden waren überzeugt. Das führte dazu, dass einige von ihnen die Komponentenbibliothek auch in ihren eigenen Projekten verwendeten."
+      },
+      "open_source": {
+        "title": "Open Source 🌍",
+        "date": "September 2020",
+        "mark": "Wir sind öffentlich, wir sind live!",
+        "description_1": "Voller Stolz präsentieren wir unsere erste UI-Bibliothek für ein beliebiges Framework, @inovex.de/elements, auf",
+        "description_2": "und",
+        "description_3": "mit einem Umfang von 46 Kernkomponenten."
+      },
+      "optimizing": {
+        "title": "Immer weiter optimieren 🚀",
+        "date": "laufend",
+        "description_1": "Mit einem internen Team entwickeln und optimieren wir ständig die elements weiter. Es ist uns wichtig, Ihnen ein tolles Erlebnis zu bieten. Auch Sie können uns dabei unterstützen, es noch besser zu machen. Jetzt",
+        "description_2": "mitgestalten",
+        "description_3": "und die elements voranbringen."
+      }
+    }
+  },
+  "activity": {
+    "title_1": "unsere",
+    "title_2": "Aktivität",
+    "not_found": "Keine aktuelle Aktivität gefunden.",
+    "contributions": "Beiträge"
+  }
+}

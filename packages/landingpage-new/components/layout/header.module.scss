@@ -14,7 +14,7 @@ $header-height: 120px;
   grid-template-rows: 1fr;
   column-gap: 30px;
   grid-template-areas:
-    "logo navbar github inovex";
+    "logo navbar github inovex language";
   align-items: center;
   transition: height 50ms linear;
 }
@@ -30,6 +30,26 @@ $header-height: 120px;
 
   p {
     color: #003c7e;
+  }
+}
+
+.language {
+  grid-area: language;
+
+  div b {
+    color: #003c7e;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 5px;
+
+    &:hover, &.selected {
+      text-decoration-line: underline;
+      text-underline-offset: 5px;
+    }
+
+    &.selected {
+      color: #2C02FF;
+    }
   }
 }
 

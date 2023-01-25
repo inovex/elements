@@ -15,6 +15,7 @@ const Page = ({ children, title = '' }: Props) => {
         <title>{`${
           Array.isArray(title) ? title.join(` ${SEPARATOR} `) : title
         } ${SEPARATOR} inovex-elements`}</title>
+        <meta name="Landingpage" content="the interoperable UI library" />
       </Head>
       {children}
     </>

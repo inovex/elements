@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { Framework, IconByFramework } from '../../utils/frameworks';
+import { Framework, IconByFramework } from 'utils/frameworks';
 import Link from 'next/link';
 import styles from './demos.module.scss';
+import useTranslation from 'utils/hooks/useTranslation';
 
 const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
   [Framework.REACT]: 'https://elements.inovex.de/example-projects/react/',
@@ -10,10 +11,12 @@ const DemoProjectByFrameworks: Partial<Record<Framework, string>> = {
 };
 
 function Demos() {
+  const {t} = useTranslation();
+
   return (
     <>
       <h1 className="header-d3">
-        <b>demo</b> projects
+        <b>{t('demos.title_1')}</b> {t('demos.title_2')}
       </h1>
       {Object.keys(DemoProjectByFrameworks).map((key) => (
         <Link

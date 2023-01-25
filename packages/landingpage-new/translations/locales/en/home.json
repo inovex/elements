@@ -1,0 +1,40 @@
+{
+  "header": {
+    "title_1": "the interoperable UI library",
+    "title_2": "for any",
+    "title_mark": "framework",
+    "subtitle_1": "It’s hard to build and maintain UI components. Don’t start from scratch every time you create a new project. Build them once, run them everywhere!",
+    "subtitle_2": "Use our open source UI component library",
+    "getting_started": "Getting started",
+    "clipboard_success": "Copied to your clipboard ✓"
+  },
+  "core_aspects": {
+    "first": {
+      "title": "versatile",
+      "text": "Runs on every major framework: Angular, React, Vue or just plain JavaScript."
+    },
+    "second": {
+      "title": "consistent",
+      "text": "Consistent UI across all framework technologies."
+    },
+    "third": {
+      "title": "futureproof",
+      "text": "Continuous development with the latest technology and creative minds."
+    }
+  },
+  "component_sample": {
+    "title_1": "the",
+    "title_2": "components",
+    "subheader": "Check out some of our components",
+    "link": "Check out all components",
+    "button": "I'm a Button"
+  },
+  "contact": {
+    "title_1": "contact",
+    "title_2": "us",
+    "description": "Do you have any questions, suggestions or want to work with us? Then we look forward to your message!",
+    "label_subject": "Subject",
+    "label_message": "Message",
+    "label_submit": "Send Mail"
+  }
+}

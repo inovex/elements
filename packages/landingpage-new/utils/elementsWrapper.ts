@@ -1,11 +1,11 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 // eslint-disable-next-line no-restricted-imports
-import Components from "@inovex.de/elements-react/dist";
+import Components from '@inovex.de/elements-react/dist';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-export const importElement = <Component extends keyof typeof Components>(element: Component): typeof Components[Component]  => dynamic(import("@inovex.de/elements-react").then(m => m[element]), {
-  ssr: false,
+export const importElement = <Component extends keyof typeof Components>(element: Component): typeof Components[Component] => dynamic(import('@inovex.de/elements-react').then((m) => m[element]),{ 
+  ssr: false 
 });
 
 export const InoButton = importElement('InoButton');
@@ -25,4 +25,6 @@ export const InoCard = importElement('InoCard');
 export const InoList = importElement('InoList');
 export const InoSegmentButton = importElement('InoSegmentButton');
 export const InoTextarea = importElement('InoTextarea');
+export const InoSelect = importElement('InoSelect');
+export const InoOption = importElement('InoOption');
 export const InoSpinner = importElement('InoSpinner');
