@@ -30,3 +30,4 @@ export const InoOption = importElement('InoOption');
 export const InoSpinner = importElement('InoSpinner');
 export const InoCarousel = importElement('InoCarousel');
 export const InoCarouselSlide = importElement('InoCarouselSlide');
+export const InoIconButton = importElement('InoIconButton');

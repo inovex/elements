@@ -1,12 +1,24 @@
+.subtitle {
+  color: #39383C;
+}
+
+.carouselContainer {
+  width: 1050px;
+  height: 600px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .slideshow {
   --ino-carousel-width: 100%;
   --ino-carousel-height: 100%;
-  width: 1050px;
-  height: 600px;
+  height: 100%;
+  width: 100%;
+  flex: 1;
   box-shadow: 5px 5px 15px lightgrey;
   text-align: center;
-  display: flex;
-  justify-content: center;
   margin-top: 30px;
 }
 
