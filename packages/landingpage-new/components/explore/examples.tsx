@@ -3,6 +3,7 @@ import useBasePath from '../../utils/hooks/use-base-path';
 import styles from './examples.module.scss';
 import { useInterval, useMethods } from 'react-use';
 import classNames from 'classnames';
+import useTranslation from '../../utils/hooks/useTranslation';
 
 enum Slides {
   Jarvis,
@@ -17,14 +18,18 @@ function createMethods(slide: Slides) {
       return slide === Slides.Inca ? Slides.Jarvis : slide + 1;
     },
     decrement() {
-      return slide === Slides.Jarvis ? Slides.Inca : slide -1;
+      return slide === Slides.Jarvis ? Slides.Inca : slide - 1;
     },
   };
 }
 
 function Examples() {
   const basePath = useBasePath();
-  const [slideIndex, { increment, decrement }] = useMethods(createMethods, Slides.Jarvis);
+  const { t } = useTranslation();
+  const [slideIndex, { increment, decrement }] = useMethods(
+    createMethods,
+    Slides.Jarvis
+  );
 
   // implements buggy autoplay functionality until https://github.com/inovex/elements/issues/874 is resolved
   useInterval(increment, 4000);
@@ -32,11 +37,10 @@ function Examples() {
   return (
     <>
       <h1 className="header-d3">
-        application <b>examples</b>
+        {t('examples.title_1')} <b>{t('examples.title_2')}</b>
       </h1>
       <p className={classNames('body-l', styles.subtitle)}>
-        We use the elements in many different of our products, creating a great
-        and consistent product experience. Here are some examples:
+        {t('examples.sub_title')}
       </p>
       <div className={styles.carouselContainer}>
         <InoIconButton
