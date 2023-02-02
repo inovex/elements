@@ -16,7 +16,7 @@ jobs:
     - run: npm config set scripts-prepend-node-path true
     - run: yarn lint
     - run: yarn build:core
-    - run: nx run-many --target=test,build --projects=elements-* --exclude=*-example
+    - run: yarn nx run-many --target=test,build --projects=elements-* --exclude=*-example
       # Build caches for (canary) release workflow
     - if: github.ref == 'refs/heads/master'
       name: Upload build artifacts for canary release
@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
       - run: npm config set scripts-prepend-node-path true
-      - run: nx run-many --target=build --projects=elements-*example
+      - run: yarn nx run-many --target=build --projects=elements-*example
         # Build caches for (canary) release workflow
       - if: github.ref == 'refs/heads/master'
         name: Upload build artifacts for canary release
@@ -48,7 +48,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
       - run: npm config set scripts-prepend-node-path true
-      - run: nx run storybook:build
+      - run: yarn nx run storybook:build
         # Build caches for unicorn deployment
       - if: github.ref != 'refs/heads/master'
         name: Upload build artifacts for unicorn deployment
@@ -65,7 +65,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/dependencies-install
       - run: npm config set scripts-prepend-node-path true
-      - run: nx run-many --target=build --projects=landingpage*
+      - run: yarn nx run-many --target=build --projects=landingpage*
 
   unicorn:
     needs:
