@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './resources-card.module.scss';
-import Card, { Props } from 'components/shared/card';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -8,9 +7,9 @@ type Resource = {
   id: number;
   blog_url: string;
   blog_img_url: string;
-  blog_name: string;
-  ressource_type: string;
-}
+  blog_title: string;
+  blog_author: string;
+};
 
 function ResourceCard() {
   const cards: Resource[] = [
@@ -19,17 +18,17 @@ function ResourceCard() {
       blog_url: 'https://www.inovex.de/de/blog/inovex-elements-open-source/',
       blog_img_url:
         'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
-      blog_name:
+      blog_title:
         'Announcing @inovex.de/elements 1.0: Our Open Source UI Library!',
-      ressource_type: 'Blog',
+      blog_author: 'Patrick Hillert / 30.09.2020',
     },
     {
       id: 2,
       blog_url: 'https://www.inovex.de/en/about-us/open-source/',
       blog_img_url:
-        'https://www.inovex.de/wp-content/uploads/inovex-elements-logo-452x304.jpg',
-      blog_name: 'Open-Source Software from inovex',
-      ressource_type: 'Article',
+        'https://www.inovex.de/wp-content/uploads/2020/09/inovex-elements-1500x880.png',
+      blog_title: 'One more Article or anything?',
+      blog_author: 'Content Creator / 30.09.2020',
     },
   ];
 
@@ -39,31 +38,39 @@ function ResourceCard() {
         the <b>Resources</b>
       </h1>
       <div className={styles.row}>
-        {cards.map((card) => {
-          const props: Props = {
-            header: (
+        {cards.map((card) => (
+          <div key={card.id} className={styles.card}>
+            <div className={styles.header}>
               <Link href={card.blog_url}>
                 <Image
-                  width={250}
-                  height={100}
+                  width={213}
+                  height={124}
                   className={styles.Image}
                   src={card.blog_img_url}
-                  alt={`blog image of ${card.blog_name}`}
+                  alt={`blog image of ${card.blog_title}`}
                 />
               </Link>
-            ),
-            content: (
+            </div>
+            <div className={styles.content}>
               <Link href={card.blog_url}>
-                <div className={styles.header}>{card.blog_name}</div>
+                <div>{card.blog_author}</div>
               </Link>
-            ),
-            contentClassName: styles.title,
-            footer: <>{card.ressource_type}</>,
-            footerClassName: styles.footer,
-          };
+            </div>
+            <Link href={card.blog_url}>
+              <div className={styles.footer}>{card.blog_title}</div>
+            </Link>
+          </div>
+        ))}
 
-          return <Card key={card.id} {...props} />;
-        })}
+        <div className={styles.card}>
+          <div className={styles.header}>
+            We are always
+            <br /> evolving!
+          </div>
+          <div className={styles.content}>
+            Stay tuned for more elements content!
+          </div>
+        </div>
       </div>
     </>
   );
