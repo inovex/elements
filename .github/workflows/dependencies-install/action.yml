@@ -5,6 +5,8 @@ author: 'Benjamin Pagelsdorf'
 runs:
   using: "composite"
   steps:
+    - shell: bash
+      run: echo ${{ github.workflow }}
     - uses: actions/setup-node@v3
       with:
         node-version-file: '.nvmrc'
@@ -19,13 +21,17 @@ runs:
         key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
     - name: restore nx cache
       uses: actions/cache@v3
-      id: nx-cache
       with:
         path: '**/.nx-cache'
-        key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}-${{ github.job }}
+        key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}-${{ github.run_id }}
         restore-keys: |
-          nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}
           nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}
+    - name: restore nx cache (build core)
+      if: ${{ github.workflow }} == "Test & Build"
+      uses: actions/cache@v3
+      with:
+        path: '**/.nx-cache'
+        key: nx_cache-${{ github.ref_name || github.ref }}-build_core-${{ github.run_id }}
     - name: Install Dependencies
       if: steps.lerna-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
