@@ -25,6 +25,7 @@ runs:
         key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}-${{ github.job }}
         restore-keys: |
           nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}
+          nx_cache-${{ github.ref_name || github.ref }}-${{ github.job }}
     - name: Install Dependencies
       if: steps.lerna-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
