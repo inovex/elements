@@ -12,8 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - shell: bash
-      run: echo ${{ github.workflow }}
     - uses: ./.github/workflows/dependencies-install
     - run: yarn nx run-many --target=build --projects=elements* --exclude=*-example
       # Build caches for (canary) release workflow

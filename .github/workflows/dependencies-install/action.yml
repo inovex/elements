@@ -6,7 +6,7 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: echo ${{ github.workflow }}
+      run: echo "${{ github.workflow }}"
     - uses: actions/setup-node@v3
       with:
         node-version-file: '.nvmrc'
