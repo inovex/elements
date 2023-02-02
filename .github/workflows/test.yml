@@ -8,7 +8,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  test_n_build:
+  build_core:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -16,26 +16,60 @@ jobs:
     - run: npm config set scripts-prepend-node-path true
     - run: yarn lint
     - run: yarn build:core
-    - run: yarn test
-    - run: yarn build
-
-    # Build caches for unicorn deployment
-    - if: github.ref != 'refs/heads/master'
-      name: Upload build artifacts for unicorn deployment
-      uses: ./.github/workflows/artifacts-upload
-      with:
-        upload-storybook-artifact: true
-
-    # Build caches for (canary) release workflow
+    - run: nx run-many --target=test,build --projects=elements-* --exclude=*-example
+      # Build caches for (canary) release workflow
     - if: github.ref == 'refs/heads/master'
       name: Upload build artifacts for canary release
       uses: ./.github/workflows/artifacts-upload
       with:
         upload-core-artifacts: true
-        upload-example-artifacts: true
-        upload-storybook-artifact: true
+
+  build_examples:
+    runs-on: ubuntu-latest
+    needs:
+      - build_core
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: npm config set scripts-prepend-node-path true
+      - run: nx run-many --target=build --projects=elements-*example
+        # Build caches for (canary) release workflow
+      - if: github.ref == 'refs/heads/master'
+        name: Upload build artifacts for canary release
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-example-artifacts: true
+
+  build_storybook:
+    runs-on: ubuntu-latest
+    needs:
+      - build_core
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: npm config set scripts-prepend-node-path true
+      - run: nx run storybook:build
+        # Build caches for unicorn deployment
+      - if: github.ref != 'refs/heads/master'
+        name: Upload build artifacts for unicorn deployment
+        uses: ./.github/workflows/artifacts-upload
+        with:
+          upload-storybook-artifact: true
+
+  build_landingpage:
+    if: github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs:
+      - build_core
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/dependencies-install
+      - run: npm config set scripts-prepend-node-path true
+      - run: nx run-many --target=build --projects=landingpage*
 
   unicorn:
     needs:
-      - test_n_build
+      - build_examples
+      - build_storybook
+      - build_landingpage
     uses: ./.github/workflows/deploy-unicorn.yml

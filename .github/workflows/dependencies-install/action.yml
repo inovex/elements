@@ -22,10 +22,9 @@ runs:
       id: nx-cache
       with:
         path: '**/.nx-cache'
-        key: nx_cache-${{ runner.os }}-${{ github.job }}-${{ github.ref_name || github.ref }}
+        key: nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}-${{ github.job }}
         restore-keys: |
-          nx_cache-${{ runner.os }}-${{ github.job }}-master
-          nx_cache-${{ runner.os }}-${{ github.job }}
+          nx_cache-${{ github.ref_name || github.ref }}-${{ github.run_id }}
     - name: Install Dependencies
       if: steps.lerna-cache.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile
