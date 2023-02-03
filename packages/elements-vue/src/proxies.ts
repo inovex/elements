@@ -8,6 +8,13 @@ import type { JSX } from '@inovex.de/elements';
 
 
 
+export const InoAccordion = /*@__PURE__*/ defineContainer<JSX.InoAccordion>('ino-accordion', undefined, [
+  'expanded',
+  'accordionTitle',
+  'expandedChange'
+]);
+
+
 export const InoAutocomplete = /*@__PURE__*/ defineContainer<JSX.InoAutocomplete>('ino-autocomplete', undefined, [
   'debounce',
   'noOptionsText',

@@ -1,0 +1,38 @@
+@use 'base/typography-new' as typography;
+@use 'base/new-theme' as theme;
+
+.ino-accordion {
+  &:hover {
+    background: #f6fafe;
+  }
+  border-radius: 24px;
+
+  &--header {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    min-height: 48px;
+  }
+
+  &--content {
+    padding: 0 52px 32px 52px;
+    @include typography.typo(body-m);
+
+    color: #4C4B52;
+  }
+
+  &--title {
+    padding-left: 20px;
+    @include typography.typo(title-m);
+
+    color: #4655ff;
+  }
+
+  &--expanded {
+    background: #f6fafe;
+
+    &:hover {
+      background: #f6fafe;
+    }
+  }
+}

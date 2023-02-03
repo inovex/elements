@@ -121,6 +121,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 
 ### Used by
 
+ - [ino-accordion](../ino-accordion)
  - [ino-card](../ino-card)
  - [ino-chip](../ino-chip)
  - [ino-datepicker](../ino-datepicker)
@@ -138,6 +139,7 @@ Alternatively, you can also just provide the URL to your preferred icon by setti
 ### Graph
 ```mermaid
 graph TD;
+  ino-accordion --> ino-icon
   ino-card --> ino-icon
   ino-chip --> ino-icon
   ino-datepicker --> ino-icon

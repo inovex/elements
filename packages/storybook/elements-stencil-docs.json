@@ -6,6 +6,77 @@
   },
   "components": [
     {
+      "filePath": "./src/components/ino-accordion/ino-accordion.tsx",
+      "fileName": "ino-accordion.tsx",
+      "tag": "ino-accordion",
+      "readme": "# ino-accordion\n\n\n",
+      "usage": {},
+      "docs": "",
+      "docsTags": [],
+      "encapsulation": "shadow",
+      "dependents": [],
+      "dependencies": [
+        "ino-icon"
+      ],
+      "dependencyGraph": {
+        "ino-accordion": [
+          "ino-icon"
+        ]
+      },
+      "props": [
+        {
+          "name": "accordionTitle",
+          "type": "string",
+          "mutable": false,
+          "attr": "accordion-title",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "expandedChange",
+          "detail": "any",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "listeners": []
+    },
+    {
       "filePath": "./src/components/ino-autocomplete/ino-autocomplete.tsx",
       "fileName": "ino-autocomplete.tsx",
       "tag": "ino-autocomplete",
@@ -2518,6 +2589,7 @@
       "docsTags": [],
       "encapsulation": "shadow",
       "dependents": [
+        "ino-accordion",
         "ino-card",
         "ino-chip",
         "ino-datepicker",
@@ -2534,6 +2606,9 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
+        "ino-accordion": [
+          "ino-icon"
+        ],
         "ino-card": [
           "ino-icon"
         ],
