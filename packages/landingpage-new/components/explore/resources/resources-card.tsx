@@ -67,7 +67,7 @@ function ResourceCard() {
             We are always
             <br /> evolving!
           </div>
-          <div className={styles.content} style={{color: "#000E88"}}>
+          <div className={styles.content} style={{ color: '#000E88' }}>
             Stay tuned for more elements content!
           </div>
         </div>
