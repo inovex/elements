@@ -7,17 +7,24 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type      | Default |
-| ---------------- | ----------------- | ----------- | --------- | ------- |
-| `accordionTitle` | `accordion-title` |             | `string`  | `null`  |
-| `expanded`       | `expanded`        |             | `boolean` | `false` |
+| Property         | Attribute         | Description                               | Type      | Default |
+| ---------------- | ----------------- | ----------------------------------------- | --------- | ------- |
+| `accordionTitle` | `accordion-title` | Sets the title for this element.          | `string`  | `null`  |
+| `expanded`       | `expanded`        | Sets the expanded state for this element. | `boolean` | `false` |
 
 
 ## Events
 
-| Event            | Description | Type               |
-| ---------------- | ----------- | ------------------ |
-| `expandedChange` |             | `CustomEvent<any>` |
+| Event            | Description                                 | Type               |
+| ---------------- | ------------------------------------------- | ------------------ |
+| `expandedChange` | Emits an Event upon expanding this element. | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot        | Description              |
+| ----------- | ------------------------ |
+| `"default"` | content of the Accordion |
 
 
 ## Dependencies

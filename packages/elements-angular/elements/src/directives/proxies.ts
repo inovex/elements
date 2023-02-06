@@ -10,7 +10,7 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoAccordion extends Components.InoAccordion {
   /**
-   *  
+   * Emits an Event upon expanding this element. 
    */
   expandedChange: EventEmitter<CustomEvent<any>>;
 

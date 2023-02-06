@@ -12,7 +12,12 @@
       "readme": "# ino-accordion\n\n\n",
       "usage": {},
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "default - content of the Accordion"
+        }
+      ],
       "encapsulation": "shadow",
       "dependents": [],
       "dependencies": [
@@ -30,7 +35,7 @@
           "mutable": false,
           "attr": "accordion-title",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sets the title for this element.",
           "docsTags": [],
           "default": "null",
           "values": [
@@ -47,7 +52,7 @@
           "mutable": false,
           "attr": "expanded",
           "reflectToAttr": false,
-          "docs": "",
+          "docs": "Sets the expanded state for this element.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -67,12 +72,17 @@
           "bubbles": true,
           "cancelable": true,
           "composed": true,
-          "docs": "",
+          "docs": "Emits an Event upon expanding this element.",
           "docsTags": []
         }
       ],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "default",
+          "docs": "content of the Accordion"
+        }
+      ],
       "parts": [],
       "listeners": []
     },

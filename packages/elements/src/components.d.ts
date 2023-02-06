@@ -12,7 +12,13 @@ import { Placement, Props } from "tippy.js";
 import { SortDirection, SortDirectionChangeDetails } from "./interface";
 export namespace Components {
     interface InoAccordion {
+        /**
+          * Sets the title for this element.
+         */
         "accordionTitle": string;
+        /**
+          * Sets the expanded state for this element.
+         */
         "expanded": boolean;
     }
     interface InoAutocomplete {
@@ -1775,8 +1781,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface InoAccordion {
+        /**
+          * Sets the title for this element.
+         */
         "accordionTitle"?: string;
+        /**
+          * Sets the expanded state for this element.
+         */
         "expanded"?: boolean;
+        /**
+          * Emits an Event upon expanding this element.
+         */
         "onExpandedChange"?: (event: InoAccordionCustomEvent<any>) => void;
     }
     interface InoAutocomplete {

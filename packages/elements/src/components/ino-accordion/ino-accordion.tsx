@@ -1,25 +1,46 @@
-import { Component, h, Event, EventEmitter, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  h,
+  Event,
+  EventEmitter,
+  Prop,
+  Element,
+} from '@stencil/core';
 import classNames from 'classnames';
 
+/**
+ * @slot default - content of the Accordion
+ */
 @Component({
   tag: 'ino-accordion',
   styleUrl: 'ino-accordion.scss',
   shadow: true,
 })
-export class MyAccordion {
-  @Prop() expanded: boolean = false;
+export class Accordion implements ComponentInterface {
+  @Element() el: HTMLInoAccordionElement;
+  /**
+   * Sets the expanded state for this element.
+   */
+  @Prop() expanded = false;
 
-  @Event() expandedChange: EventEmitter;
-
+  /**
+   * Sets the title for this element.
+   */
   @Prop() accordionTitle: string = null;
+
+  /**
+   * Emits an Event upon expanding this element.
+   */
+  @Event() expandedChange: EventEmitter;
 
   componentDidLoad() {
     if (!this.accordionTitle) {
-      console.warn('Accordion missing accordionTitle property.');
+      console.warn('Ino-Accordion: missing accordionTitle property.');
     }
   }
 
-  toggleExpand() {
+  private toggleExpand() {
     this.expanded = !this.expanded;
     this.expandedChange.emit(this.expanded);
   }
