@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event            | Description                                 | Type               |
-| ---------------- | ------------------------------------------- | ------------------ |
-| `expandedChange` | Emits an Event upon expanding this element. | `CustomEvent<any>` |
+| Event            | Description                                                                                                         | Type                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `expandedChange` | Emits when the user clicks on the icon toggle  to change the expanded state. Contains the status in `event.detail`. | `CustomEvent<boolean>` |
 
 
 ## Slots

@@ -30,9 +30,9 @@ export class Accordion implements ComponentInterface {
   @Prop() accordionTitle: string = null;
 
   /**
-   * Emits an Event upon expanding this element.
+   * Emits when the user clicks on the icon toggle  to change the expanded state. Contains the status in `event.detail`.
    */
-  @Event() expandedChange: EventEmitter;
+  @Event() expandedChange: EventEmitter<boolean>;
 
   componentDidLoad() {
     if (!this.accordionTitle) {

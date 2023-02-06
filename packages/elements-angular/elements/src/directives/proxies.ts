@@ -10,9 +10,9 @@ import { Components } from '@inovex.de/elements';
 
 export declare interface InoAccordion extends Components.InoAccordion {
   /**
-   * Emits an Event upon expanding this element. 
+   * Emits when the user clicks on the icon toggle  to change the expanded state. Contains the status in `event.detail`. 
    */
-  expandedChange: EventEmitter<CustomEvent<any>>;
+  expandedChange: EventEmitter<CustomEvent<boolean>>;
 
 }
 

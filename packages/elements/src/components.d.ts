@@ -1790,9 +1790,9 @@ declare namespace LocalJSX {
          */
         "expanded"?: boolean;
         /**
-          * Emits an Event upon expanding this element.
+          * Emits when the user clicks on the icon toggle  to change the expanded state. Contains the status in `event.detail`.
          */
-        "onExpandedChange"?: (event: InoAccordionCustomEvent<any>) => void;
+        "onExpandedChange"?: (event: InoAccordionCustomEvent<boolean>) => void;
     }
     interface InoAutocomplete {
         /**
