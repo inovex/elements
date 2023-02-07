@@ -84,4 +84,25 @@ ino-carousel {
       );
     }
   }
+  .ino-carousel__stepper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 5px
+  }
+
+  .ino-carousel__stepper-dot {
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #DFDEE6;
+    margin: 0 8px;
+    cursor: pointer;
+    &--selected {
+      background: #4655FF;
+    }
+  }
 }

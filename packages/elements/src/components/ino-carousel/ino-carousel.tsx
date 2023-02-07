@@ -203,6 +203,17 @@ export class InoCarousel implements ComponentInterface {
       'ino-carousel': true,
       'ino-carousel--no-buttons': this.hideButtons,
     });
+    const stepper = Array.from({ length: this.getSlides().length }, (_, index) => (
+      <div
+        class={classNames({
+          'ino-carousel__stepper-dot': true,
+          'ino-carousel__stepper-dot--selected': index === this.currentSlide,
+        })}
+        onClick={() => {
+          this.value = this.slides[index].value;
+        }}
+      />
+    ));
 
     return (
       <Host value={this.value}>
@@ -223,6 +234,7 @@ export class InoCarousel implements ComponentInterface {
             />
           </div>
         </div>
+        <div class="ino-carousel__stepper">{stepper}</div>
       </Host>
     );
   }
