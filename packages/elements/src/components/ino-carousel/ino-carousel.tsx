@@ -134,18 +134,16 @@ export class InoCarousel implements ComponentInterface {
    * Required for autoplay to work
    */
   private nextSlide = () => {
-    // Emit the current slide
-
+    this.valueChange.emit((this.currentSlide = this.getNextSlide())); // emit new slide
     this.slides[this.currentSlide].classList.remove(
       'ino-carousel-slide--selected'
     );
     this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to current slide
-
-    this.valueChange.emit((this.currentSlide = this.getNextSlide()));
-    this.addAnimationToSlide(this.slides[this.currentSlide]); // adds the slide animation to the new slide
+    this.addAnimationToSlide(this.slides[this.currentSlide]);
     this.slides[this.currentSlide].classList.add(
       'ino-carousel-slide--selected'
-    );
+    ); // adds the slide animation to the new slide
+
     // Update the stepper dot
     this.stepper.forEach((dot) => {
       dot.classList.remove('ino-carousel__stepper-dot--selected');
