@@ -89,7 +89,6 @@ ino-carousel {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     padding-top: 5px
   }
 
@@ -98,11 +97,12 @@ ino-carousel {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #DFDEE6;
+    background-color: #DFDEE6;
     margin: 0 8px;
     cursor: pointer;
+    transition: background-color 300ms ease-in-out;
     &--selected {
-      background: #4655FF;
+      background-color: #4655FF;
     }
   }
 }

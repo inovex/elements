@@ -33,8 +33,8 @@ export default {
 } as Meta;
 
 const onSlideChanged = (ev: CustomEvent<string>) => {
-  const carouselEl = ev.target  as HTMLInoCarouselElement;
-  carouselEl.value = ev.detail 
+  const carouselEl = ev.target as HTMLInoCarouselElement;
+  carouselEl.value = ev.detail;
 }
 
 const template = new TemplateGenerator<Components.InoCarousel>(
@@ -79,5 +79,3 @@ export const Reverse = template.generateStoryForProp('reverse', true, {
   animated: true,
   infinite: true,
 });
-
-

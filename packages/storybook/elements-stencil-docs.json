@@ -586,13 +586,16 @@
         },
         {
           "name": "value",
-          "type": "string",
+          "type": "number | string",
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "Optional group value to manually manage the displayed slide",
           "docsTags": [],
           "values": [
+            {
+              "type": "number"
+            },
             {
               "type": "string"
             }
@@ -613,28 +616,7 @@
           "docsTags": []
         }
       ],
-      "styles": [
-        {
-          "name": "--ino-carousel-animation-duration",
-          "annotation": "prop",
-          "docs": "sets the duration of the slide animation"
-        },
-        {
-          "name": "--ino-carousel-height",
-          "annotation": "prop",
-          "docs": "sets the height of the carousel component"
-        },
-        {
-          "name": "--ino-carousel-icon-color",
-          "annotation": "prop",
-          "docs": "sets the color of the navigation buttons"
-        },
-        {
-          "name": "--ino-carousel-width",
-          "annotation": "prop",
-          "docs": "sets the width of the carousel component"
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "default",
